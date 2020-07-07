@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.NeedDatabaseReloadPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prismnav="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    ControlTemplate="{StaticResource DetailPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Grid Style="{DynamicResource GVPageTitleStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource GVSymbolconPageHeaderType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        Glyph="{Binding BaseTitleIcon}"
+                        Size="44"
+                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                Light={StaticResource LightPrimaryColor}}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+                Text="{Binding BaseTitle, Mode=OneWay}" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ucon:InstructionCardLarge
+            x:Name="instructions"
+            BindingContext="{i18n:Translate NeedDatabaseReloadPage_Instructions}"
+            HorizontalOptions="Center" />
+
+        <Button
+            Grid.Row="1"
+            Command="{prismnav:NavigateTo 'FileInputHandlerPage',
+                                          Animated=True}"
+            HorizontalOptions="Center"
+            Style="{DynamicResource GVButtonStyle}"
+            Text="{i18n:Translate LoadDataBase_GotoLoadData}"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

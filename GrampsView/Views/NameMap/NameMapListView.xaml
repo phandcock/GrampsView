@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.NameMapListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    ControlTemplate="{StaticResource ListPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}">
+
+    <NavigationPage.TitleView>
+        <Grid Style="{DynamicResource GVPageTitleStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource GVSymbolconPageHeaderType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        Glyph="{Binding BaseTitleIcon}"
+                        Size="44"
+                        Color="{DynamicResource PrimaryColor}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+                Text="{Binding BaseTitle, Mode=OneWay}" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <!--  Content  -->
+    <ucon:CollectionSingleCard FsctSource="{Binding NameMapSource, Mode=OneWay}" FsctTemplate="{StaticResource NameMapCardSmallDT}" />
+
+    <!--<ScrollView>
+
+        <FlexLayout
+            BindableLayout.ItemTemplate="{StaticResource NameMapCardSmallDT}"
+            BindableLayout.ItemsSource="{Binding NameMapSource, Mode=OneWay}"
+            Style="{StaticResource FlexLayoutCards}" />
+
+    -->
+    <!--<ucon:FlexSingleGroupSingleCard
+            x:Name="flexLayout"
+            FsctSource="{Binding NameMapSource, Mode=OneWay}"
+            FsctTemplate="{StaticResource NameMapCardSmallDT}" />-->
+    <!--
+    </ScrollView>-->
+</ContentPage>

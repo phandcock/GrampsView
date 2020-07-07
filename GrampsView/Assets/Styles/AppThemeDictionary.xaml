@@ -1,0 +1,140 @@
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="DarkPrimaryColor">
+        #aeea00
+    </Color>
+
+    <Color x:Key="LightPrimaryColor">
+        #069bee
+    </Color>
+
+    <Color x:Key="LightPrimaryDarkColor">
+        #006fbb
+    </Color>
+
+    <Color x:Key="DarkPrimaryDarkColor">
+        #79b700
+    </Color>
+
+    <Color x:Key="DarkPrimaryLightColor">
+        #e4ff54
+    </Color>
+
+    <Color x:Key="LightPrimaryLightColor">
+        #66ceff
+    </Color>
+
+    <Color x:Key="DarkSecondaryColor">
+        #ffca28
+    </Color>
+
+    <Color x:Key="LightSecondaryColor">
+        #f77208
+    </Color>
+
+    <Color x:Key="DarkSecondaryDarkColor">
+        #c79a00
+    </Color>
+
+    <Color x:Key="LightSecondaryDarkColor">
+        #bd4500
+    </Color>
+
+    <Color x:Key="DarkSecondaryLightColor">
+        #fffd61
+    </Color>
+
+    <Color x:Key="LightSecondaryLightColor">
+        #fffd61
+    </Color>
+
+    <!--  - Card Backgrounds  -->
+
+    <Color x:Key="CardBackGroundAddress">
+        #A9A9A9
+    </Color>
+
+    <Color x:Key="CardBackGroundAttribute">
+        #A9A9A9
+    </Color>
+
+    <Color x:Key="CardBackGroundCitation">
+        #FFAA1D
+    </Color>
+
+    <Color x:Key="CardBackGroundEvent">
+        #b120a2
+    </Color>
+
+    <Color x:Key="CardBackGroundFamily">
+        #0000ff
+    </Color>
+
+    <Color x:Key="CardBackGroundMedia">
+        #ce3d64
+    </Color>
+
+    <Color x:Key="CardBackGroundNote">
+        #ff00bf
+    </Color>
+
+    <Color x:Key="CardBackGroundPlace">
+        #ffa500
+    </Color>
+
+    <Color x:Key="CardBackGroundPerson">
+        #0080ff
+    </Color>
+
+    <Color x:Key="CardBackGroundRepository">
+        #A9A9A9
+    </Color>
+
+    <Color x:Key="CardBackGroundSource">
+        #ff4000
+    </Color>
+
+    <Color x:Key="CardBackGroundTag">
+        #A9A9A9
+    </Color>
+
+    <Color x:Key="CardBackGroundUtility">
+        #A9A9A9
+    </Color>
+
+    <Color x:Key="DarkBackgroundColor">#000000</Color>
+    <Color x:Key="LightBackgroundColor">#000000</Color>
+
+    <Color x:Key="DarkOnBackgroundColor">#404040</Color>
+    <Color x:Key="LightOnBackgroundColor">#888888</Color>
+
+    <Color x:Key="DarkCardNotSelectable">#FFFFFF</Color>
+    <Color x:Key="LightCardNotSelectable">#FFFFFF</Color>
+
+    <Color x:Key="DarkCardSelectable">#ffa500</Color>
+    <Color x:Key="LightCardSelectable">#dd2c00</Color>
+
+    <Color x:Key="DarkErrorColor">#dd2c00</Color>
+    <Color x:Key="LightErrorColor">#dd2c00</Color>
+
+    <Color x:Key="DarkOnErrorColor">#888888</Color>
+    <Color x:Key="LightOnErrorColor">#000000</Color>
+
+    <Color x:Key="DarkOnPrimaryColor">#FFFFFF</Color>
+    <Color x:Key="LightOnPrimaryColor">#000000</Color>
+
+    <Color x:Key="DarkOnSecondaryColor">#000000</Color>
+    <Color x:Key="LightOnSecondaryColor">#000000</Color>
+
+    <Color x:Key="DarkOnSurfaceColor">#FFFFFF</Color>
+    <Color x:Key="LightOnSurfaceColor">#0094cc</Color>
+
+    <Color x:Key="DarkSurfaceColor">#909090</Color>
+    <Color x:Key="LightSurfaceColor">#d3d3d3</Color>
+
+    <Color x:Key="DarkSurfaceDark1Color">#484848</Color>
+    <Color x:Key="LightSurfaceDark1Color">#C8C8C8</Color>
+
+    <Color x:Key="DarkSurfaceDark2Color">#303030</Color>
+    <Color x:Key="LightSurfaceDark2Color">#A8A8A8</Color>
+</ResourceDictionary>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.MediaImageFullCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="MediaImageFullCardRoot"
+    x:DataType="models:HLinkMediaModel"
+    BindingContextChanged="MediaImageFullCardRoot_BindingContextChanged">
+
+    <Frame
+        BackgroundColor="{DynamicResource CardImageBackground}"
+        MinimumHeightRequest="100"
+        MinimumWidthRequest="100"
+        Style="{DynamicResource FrameLargeFixedCardStyle}">
+
+        <Grid x:Name="controlRoot">
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
+            </Grid.GestureRecognizers>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ucon:MediaImageSkia
+                x:Name="image"
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource MediaImageStyle}" />
+        </Grid>
+    </Frame>
+</Grid>

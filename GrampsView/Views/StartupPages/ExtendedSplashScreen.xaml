@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.ExtendedSplashScreen"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ExtendedSplashScreen"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Canvas Background="#464646">
+        <!--  The real position of these controls will change during runtime  -->
+        <Image
+            x:Name="splashImage"
+            Canvas.Left="350"
+            Canvas.Top="250"
+            MinWidth="50"
+            MinHeight="50"
+            Source="ms-appx:///Assets/SplashScreen.png"
+            Stretch="None" />
+        <ProgressRing
+            x:Name="progressRing"
+            Canvas.Left="650"
+            Canvas.Top="550"
+            Width="50"
+            Height="50"
+            Background="Azure"
+            IsActive="True" />
+        <TextBox
+            x:Name="progressStatus"
+            Canvas.Left="750"
+            Canvas.Top="550"
+            Height="50"
+            Text="test" />
+    </Canvas>
+</ContentPage>

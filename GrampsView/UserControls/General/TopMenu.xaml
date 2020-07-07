@@ -1,0 +1,41 @@
+﻿<Frame
+    x:Class="GrampsView.UserControls.TopMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="TopMenuRoot"
+    Margin="0"
+    Padding="0"
+    BorderColor="Transparent"
+    CornerRadius="1">
+
+    <Grid Style="{DynamicResource GVPageTitleStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVSymbolconPageHeaderType}">
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="{DynamicResource MaterialFontFamily}"
+                    Glyph="{Binding BaseTitleIcon}"
+                    Size="44"
+                    Color="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                            Light={StaticResource LightOnSecondaryColor}}" />
+            </Image.Source>
+        </Image>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+            Text="{Binding BaseTitle, Mode=OneWay}" />
+    </Grid>
+</Frame>

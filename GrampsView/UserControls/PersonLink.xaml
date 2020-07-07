@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame
+    x:Class="GrampsView.UserControls.PersonLink"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="models:HLinkPersonModel"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
+                                      Light={StaticResource LightSecondaryColor}}"
+    MinimumHeightRequest="100"
+    Style="{DynamicResource FrameCardStyle}">
+
+    <Frame.Content>
+
+        <Grid x:Name="controlRoot" IsEnabled="{Binding Valid, Mode=OneWay}">
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer prism:Navigation.CanNavigate="{Binding Valid, Mode=OneWay}" Command="{prism:NavigateTo 'PersonDetailPage'}">
+                    <TapGestureRecognizer.CommandParameter>
+                        <prism:NavigationParameter Key="hlink" Value="{Binding ., Mode=OneWay}" />
+                    </TapGestureRecognizer.CommandParameter>
+                </TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ucon:MediaImageSkia
+                x:Name="AnchorImage1"
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                IsEnabled="False"
+                Style="{DynamicResource MediaImageStyle}" />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                IsEnabled="false"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GetDefaultText}"
+                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                            Light={StaticResource LightOnSecondaryColor}}" />
+        </Grid>
+    </Frame.Content>
+</Frame>

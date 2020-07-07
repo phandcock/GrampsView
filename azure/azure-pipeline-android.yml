@@ -1,0 +1,106 @@
+name: GrampsView Android
+
+variables:
+  - name: BuildConfiguration
+    value: 'Release'
+  - name: solution
+    value: '**/*.sln'
+  - name: appFiles
+    value: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
+  - name: OutputDirectory
+    value: '$(build.binariesDirectory)/$(BuildConfiguration)'
+
+trigger: none
+pr: none
+
+pool:
+  name: Azure Pipelines
+  vmImage: 'windows-latest'
+  demands:
+  - MSBuild
+  - Xamarin.Android
+  - JDK
+
+schedules:
+  - cron: "0 0 * * MON,WED,FRI,SUN"
+    displayName: Four day a week build
+    branches:
+        include:
+        - master
+
+steps: 
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: '4.4.x'
+    checkLatest: true
+  enabled: false
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '$(solution)'
+    feedsToUse: config
+    nugetConfigPath: GrampsView/AnythingElse/DeploymentTools/NuGet.Config
+
+- task: DownloadSecureFile@1
+  displayName: 'Download secure file'
+  inputs:
+    secureFile: '5c8ddee8-5019-4979-be40-0661f0c58d05'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: GrampsView/Common/'
+  inputs:
+    SourceFolder: '$(Agent.TempDirectory)'
+    Contents: Secret.cs
+    TargetFolder: GrampsView/Common/
+
+- task: UseGitVersion@5
+  displayName: GitVersion
+  inputs:
+    versionSpec: 5.x
+
+- task: VersionAndroidManifest@2
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    VersionNumber: '$(GitVersion.SemVer)'
+    VersionNameFormat: '{1}.{2}.{3}'
+    VersionCodeFormat: '{1}{2}{3}'
+
+- task: XamarinAndroid@1
+  displayName: 'Build Xamarin.Android project **/*Droid*.csproj'
+  inputs:
+    projectFile: '**/*Droid*.csproj'
+    outputDirectory: '$(OutputDirectory)'
+    configuration: '$(BuildConfiguration)'
+    msbuildVersionOption: latest
+
+- task: AndroidSigning@3
+  displayName: 'Signing and aligning APK file(s) $(OutputDirectory)/*.apk'
+  inputs:
+    apkFiles: '$(OutputDirectory)/*.apk'
+    apksignerKeystoreFile: '993780e6-b531-4953-81a0-baf3e18a8d16'
+    apksignerKeystorePassword: android
+    apksignerKeystoreAlias: androiddebugkey
+    apksignerKeyPassword: android
+
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\'
+  inputs:
+    SourceFolder: '$(OutputDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\'
+
+- task: AppCenterDistribute@3
+  displayName: 'Deploy $(build.binariesdirectory)/$(BuildConfiguration)/*.apk to Visual Studio App Center'
+  inputs:
+    serverEndpoint: 'App Center'
+    appSlug: 'phandcock-ilr0/GrampsView.Android'
+    appFile: '$(appFiles)'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'file'
+    releaseNotesFile: 'CHANGELOG.md'
+    destinationType: 'groups'
+    distributionGroupId: '1c76bdbc-e963-415a-a17b-2db3756da75d'
+  condition: succeededOrFailed()

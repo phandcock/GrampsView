@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About_AttributionText.Text" xml:space="preserve">
+    <value>SharpZipLib attribution goes here.  Also  Martin Suchan - StackOverflow for tile image creation code. http://stackoverflow.com/users/534006/roberto for StorageFolder code - See http://blogs.msdn.com/b/hanxia/archive/2013/11/29/scroll-into-view-for-a-gridview-when-using-mvvm-in-windows-8-1-store-app.aspx for autoscroller behavious.  Also From http://stackoverflow.com/users/534006/roberto Style Replacer http://dotnetbyexample.blogspot.com.au/2016/01/using-style-replacing-behavior-for.html</value>
+  </data>
+  <data name="defaultImage" xml:space="preserve">
+    <value>ms-appx:///Assets/SmallLogo.scale-100.png</value>
+  </data>
+  <data name="Settings_IntroductionText.Text" xml:space="preserve">
+    <value>This program displays the information contained in a GRAMPS geneology program export data file (the type that includes media).</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>We are still working on a privacy policy.</value>
+  </data>
+  <data name="FileInputHandlerView_Instructions.Text" xml:space="preserve">
+    <value>There are two types of files that can be read by GrampsView.  Thia program loads Gramps Export files that have a GPKG or .GRAMPS extension. </value>
+  </data>
+  <data name="HubView_DataNotLoadedText.Text" xml:space="preserve">
+    <value>This program displays the information contained in a GRAMPS geneology program export data file (the type that includes media).  No data file has been loaded.  Choose option from the menu to load one.</value>
+  </data>
+  <data name="FileInputHandlerView_Button.Text" xml:space="preserve">
+    <value>Choose Gramps File</value>
+  </data>
+  <data name="SplitViewMenuDiagram.Content" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="SplitViewMenuEvents.Content" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="SplitViewMenuFamilies.Content" xml:space="preserve">
+    <value>Families</value>
+  </data>
+  <data name="SplitViewMenuHub.Content" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="SplitViewMenuMedia.Content" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="SplitViewMenuPeople.Content" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="SplitViewMenuAdd.Content" xml:space="preserve">
+    <value>Load a Gramps file</value>
+  </data>
+  <data name="SplitViewMenuSettings.Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SplitViewMenuNotes.Content" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="FirstRun_IntroductionText.Text" xml:space="preserve">
+    <value>This seems to be the first time this application has been run.  Congratulations!  You will need to load a Gramps (https://gramps-project.org/) data file.  These contain geneology information.  A sample data file can be loaded by pressing the sample data button below or choose the normal load button from the menu to the left.</value>
+  </data>
+  <data name="NeedDatabaseReloadView_IntroductionText.Text" xml:space="preserve">
+    <value>Database reload required as the GrampsView internal database version has changed.</value>
+  </data>
+  <data name="FirstRun_SampleButton.Text" xml:space="preserve">
+    <value>Load Sample Data</value>
+  </data>
+  <data name="FirstRun_LoadAFileButton.Text" xml:space="preserve">
+    <value>Load a file</value>
+  </data>
+  <data name="Settings_Button_MessageLog.Text" xml:space="preserve">
+    <value>Open the log</value>
+  </data>
+  <data name="SearchPage_Instructions.Text" xml:space="preserve">
+    <value>Enter some text to search all record types</value>
+  </data>
+  <data name="SplitViewMenuSearch.Content" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchPage_NoResults.Text" xml:space="preserve">
+    <value>No search results</value>
+  </data>
+  <data name="SplitViewMenuCitations.Content" xml:space="preserve">
+    <value>Citations</value>
+  </data>
+  <data name="FileInputHandlerView_LoadUnzippedButton.Text" xml:space="preserve">
+    <value>Choose Gramps Folder</value>
+  </data>
+  <data name="FileInputHandlerView_LocalStorage_Button_Text.Text" xml:space="preserve">
+    <value>Set Data Folder to Application Internal Storage</value>
+  </data>
+  <data name="FileInputHandlerView_Choose_Button_Text.Text" xml:space="preserve">
+    <value>Choose a Folder that contains a *.GPKG or data.gramps</value>
+  </data>
+  <data name="Settings_Button_About.Text" xml:space="preserve">
+    <value>About program</value>
+  </data>
+  <data name="Settings_Button_SetupStorage.Text" xml:space="preserve">
+    <value>Change Data Storage</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Gender_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Settings_Button_TestCache.Text" xml:space="preserve">
+    <value>Test Cache view</value>
+  </data>
+  <data name="General_Ok.Text" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+</root>

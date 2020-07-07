@@ -1,0 +1,45 @@
+﻿<ContentPage
+    x:Class="GrampsView.UserControls.SourceLink"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:interactivityCore="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tkConverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:userControls="using:GrampsView.UserControls"
+    d:DesignHeight="200"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
+
+    <!--<ContentPage.Resources>
+        <tkConverters:BoolToObjectConverter
+            x:Key="HLinkValidVisibilityConverter"
+            FalseValue="Collapsed"
+            TrueValue="Visible" />
+    </ContentPage.Resources>
+
+    <Viewbox
+        x:Name="sourceLinkpageRoot"
+        MinWidth="100"
+        MinHeight="100"
+        MaxWidth="200"
+        MaxHeight="200"
+        Visibility="{x:Bind Model.HLink.Valid, Converter={StaticResource HLinkValidVisibilityConverter}, Mode=OneWay}">
+
+        <interactivity:Interaction.Behaviors>
+            <interactivityCore:EventTriggerBehavior EventName="PointerPressed">
+                <interactivityCore:NavigateToPageAction Parameter="{x:Bind Model.HLinkKey}" TargetPage="GrampsView.Views.SourceDetailPage" />
+            </interactivityCore:EventTriggerBehavior>
+        </interactivity:Interaction.Behaviors>
+
+        <userControls:MediaImage
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Background="HotPink"
+            DataContext="{x:Bind Model.GetImageModel}"
+            IsHitTestVisible="False"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            RelativePanel.AlignVerticalCenterWithPanel="True" />
+    </Viewbox>-->
+</ContentPage>

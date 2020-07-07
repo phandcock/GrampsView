@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    ControlTemplate="{StaticResource DetailPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Grid Style="{DynamicResource GVPageTitleStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource GVSymbolconPageHeaderType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        Glyph="{Binding BaseTitleIcon}"
+                        Size="44"
+                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                Light={StaticResource LightPrimaryColor}}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+                Text="{Binding BaseTitle, Mode=OneWay}" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <!--  Content  -->
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout
+                Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceDark2Color},
+                                                  Light={StaticResource LightSurfaceDark2Color}}"
+                Orientation="Horizontal">
+
+                <Image
+                    HorizontalOptions="StartAndExpand"
+                    MinimumHeightRequest="64"
+                    Source="ic_launcher.png"
+                    VerticalOptions="FillAndExpand" />
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="{x:Static common:CommonFontSize.FontLarge}"
+                    Style="{DynamicResource GVLabelStyleLarge}"
+                    Text="{Binding AppName, Mode=OneTime}"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                Light={StaticResource LightOnSurfaceColor}}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+            <ucon:ListLineCardLarge Grid.Row="1" BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
+
+            <ucon:HeaderCardLarge Grid.Row="2" BindingContext="{Binding HeaderData, Mode=OneWay}" />
+
+            <ucon:InstructionCardLarge Grid.Row="3" BindingContext="{i18n:Translate AboutPage_PrivacyPolicy}" />
+
+            <ucon:InstructionCardLarge Grid.Row="4" BindingContext="{i18n:Translate AboutPage_AttributionText}" />
+
+            <ucon:ChangeLogCardLarge Grid.Row="5" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

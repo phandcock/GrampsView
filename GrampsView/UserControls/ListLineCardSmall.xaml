@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.ListLineCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    x:DataType="models:CardListLineCollection"
+    IsVisible="{Binding Visible, Mode=OneWay}"
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+    Style="{DynamicResource GridSmallVariableCardStyle}">
+
+    <Frame Style="{DynamicResource FrameSmallVariableCardStyleNS}">
+
+        <StackLayout BindableLayout.ItemsSource="{Binding .}">
+            <BindableLayout.ItemTemplate>
+
+                <DataTemplate x:DataType="models:CardListLine">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            HorizontalOptions="StartAndExpand"
+                            Text="{Binding Label}"
+                            TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                        Light={StaticResource LightOnSurfaceColor}}" />
+                        <Label
+                            Grid.Column="1"
+                            HorizontalOptions="EndAndExpand"
+                            HorizontalTextAlignment="End"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding Value}"
+                            TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                        Light={StaticResource LightOnSecondaryColor}}"
+                            VerticalTextAlignment="Start" />
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </Frame>
+</Grid>

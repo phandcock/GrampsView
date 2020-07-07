@@ -1,0 +1,383 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>1.15.229.206</AssemblyVersion>
+    <FileVersion>1.15.229.206</FileVersion>
+    <Copyright>2011 - 2020 YouMeAndI</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\ExtDLL\**" />
+    <Compile Remove="Data\External\StoreCache\**" />
+    <Compile Remove="UserControls\FormsRadioButton\**" />
+    <Compile Remove="UserControls\Handy Controls\**" />
+    <Compile Remove="ViewModels\NameMap\**" />
+    <Compile Remove="Views\NameMap\**" />
+    <EmbeddedResource Remove="Common\ExtDLL\**" />
+    <EmbeddedResource Remove="Data\External\StoreCache\**" />
+    <EmbeddedResource Remove="UserControls\FormsRadioButton\**" />
+    <EmbeddedResource Remove="UserControls\Handy Controls\**" />
+    <EmbeddedResource Remove="ViewModels\NameMap\**" />
+    <EmbeddedResource Remove="Views\NameMap\**" />
+    <None Remove="Common\ExtDLL\**" />
+    <None Remove="Data\External\StoreCache\**" />
+    <None Remove="UserControls\FormsRadioButton\**" />
+    <None Remove="UserControls\Handy Controls\**" />
+    <None Remove="ViewModels\NameMap\**" />
+    <None Remove="Views\NameMap\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets\Styles\DarkThemeDictionary.cs" />
+    <Compile Remove="Assets\Styles\LargeCardTemplatesDictionary.cs" />
+    <Compile Remove="Assets\Styles\LargeRefCardTemplatesDictionary.cs" />
+    <Compile Remove="Assets\Styles\LightThemeDictionary.cs" />
+    <Compile Remove="Assets\Styles\SystemThemeDictionary.cs" />
+    <Compile Remove="Behaviours\ListViewAutoSizeBehaviour.cs" />
+    <Compile Remove="Behaviours\RadioButtonBehaviour.cs" />
+    <Compile Remove="Common\AppExtension.cs" />
+    <Compile Remove="Common\Card Group\CardGroupHLink.cs" />
+    <Compile Remove="Common\Card Group\CardGroupModelBase.cs" />
+    <Compile Remove="Common\CardGroupCollection.cs" />
+    <Compile Remove="Common\CardGroupTemplateSelectorLarge.cs" />
+    <Compile Remove="Common\CardGroupTemplateSelectorRefLarge.cs" />
+    <Compile Remove="Common\CommonCropBitmap.cs" />
+    <Compile Remove="Common\CommonLogCircular.cs" />
+    <Compile Remove="Common\CommonPropertyDebug.xaml.cs" />
+    <Compile Remove="Common\CommonTheming.cs" />
+    <Compile Remove="Common\CustomClasses\BindableStackLayout.cs" />
+    <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
+    <Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
+    <Compile Remove="Common\CustomClasses\CustomCacheKeyFactory .cs" />
+    <Compile Remove="Common\CustomClasses\CustomImageStreamSource.cs" />
+    <Compile Remove="Common\CustomClasses\ExNavigatetoExtension.cs" />
+    <Compile Remove="Common\CustomClasses\FlexLayoutVirtual.cs" />
+    <Compile Remove="Common\CustomClasses\NavCommand.cs" />
+    <Compile Remove="Common\CustomClasses\ObservableCollectionEx.cs" />
+    <Compile Remove="Common\CustomClasses\PlatformSpecific.cs" />
+    <Compile Remove="Common\CustomClasses\ScollViewInfinite.cs" />
+    <Compile Remove="Common\External\BindableValidator.cs" />
+    <Compile Remove="Common\External\ContinuationManager.cs" />
+    <Compile Remove="Common\External\DebugListView.cs" />
+    <Compile Remove="Common\External\DependencyPropertyChangedHelper.cs" />
+    <Compile Remove="Common\External\HashedBindableCollection.cs" />
+    <Compile Remove="Common\External\IRange.cs" />
+    <Compile Remove="Common\External\IValidatableBindableBase.cs" />
+    <Compile Remove="Common\External\MimeType.cs" />
+    <Compile Remove="Common\External\ObservableCollectionVector.cs" />
+    <Compile Remove="Common\External\PluginStorage.cs" />
+    <Compile Remove="Common\External\PluginStorageFolder.cs" />
+    <Compile Remove="Common\External\ScrollViewerUtilities.cs" />
+    <Compile Remove="Common\External\SortedObservableCollection.cs" />
+    <Compile Remove="Common\External\SuspensionManager.cs" />
+    <Compile Remove="Common\External\ValidatableBindableBase.cs" />
+    <Compile Remove="Common\Interfaces\ICommonCircularLog.cs" />
+    <Compile Remove="Common\NavigationHelper.cs" />
+    <Compile Remove="Converters\GetGyyph.cs" />
+    <Compile Remove="Converters\IconPath.cs" />
+    <Compile Remove="Converters\NegateBooleanConverter.cs" />
+    <Compile Remove="Converters\NewtonSoftOSCOBJConverter.cs" />
+    <Compile Remove="Data\DataView\BookMarkDataView.cs" />
+    <Compile Remove="Data\DataView\Interfaces\IBookMarkDataView.cs" />
+    <Compile Remove="Data\External\StoreFile\IStoreFileDirectory.cs" />
+    <Compile Remove="Data\External\StorePostLoad\GrampsStorePostLoadClippedBM.cs" />
+    <Compile Remove="Data\External\StorePostLoad\StoreImagePostLoad.cs" />
+    <Compile Remove="Data\External\StorePostLoad\StorePostLoadHomeImage.cs" />
+    <Compile Remove="Data\External\StorePostLoad\StorePostLoadImageSource.cs" />
+    <Compile Remove="Data\External\StorePostLoad\StoreXMLPostLoadHLink.cs" />
+    <Compile Remove="Data\Models\Collections\HLinks\HLinkBLModelCollection.cs" />
+    <Compile Remove="Data\Models\Collections\HLinks\HLinkBookMarkModelCollection.cs" />
+    <Compile Remove="Data\Models\Collections\Models\ModelBaseCollection.cs" />
+    <Compile Remove="Data\Models\Collections\Models\OCAddressModelCollection.cs" />
+    <Compile Remove="Data\Models\DataModels\BookMarkModel.cs" />
+    <Compile Remove="Data\Models\DataModels\Interfaces\IBookMarkModel.cs" />
+    <Compile Remove="Data\Models\HLinks\HLinkBookMarkModel.cs" />
+    <Compile Remove="Data\Models\HLinks\HLinkInstructionCard.cs" />
+    <Compile Remove="Data\Models\HLinks\Interfaces\HLinkAddressModel.cs" />
+    <Compile Remove="Data\Models\Misc\MediaImageFullModel.cs" />
+    <Compile Remove="Data\PluginStorageFile.cs" />
+    <Compile Remove="Data\PluginStorageFileSystem.cs" />
+    <Compile Remove="Data\PluginStorageFolder.cs" />
+    <Compile Remove="Data\Repository\IDataStore.cs" />
+    <Compile Remove="Events\AppStartSaveSerial.cs" />
+    <Compile Remove="Events\DataLoadSerialEvent.cs" />
+    <Compile Remove="Events\DataLoadUnzipped.cs" />
+    <Compile Remove="Events\GVProgressMajorTextUpdate.cs" />
+    <Compile Remove="Events\GVProgressMinorTextUpdate.cs" />
+    <Compile Remove="Events\LoadImageBitMapEvent.cs" />
+    <Compile Remove="Events\LoadMediaBitmapEvent.cs" />
+    <Compile Remove="Events\PageMenuPanelOpenEvent.cs" />
+    <Compile Remove="Events\PageTitleChangedEvent.cs" />
+    <Compile Remove="Events\PageTitleChangedEventArgs.cs" />
+    <Compile Remove="Events\PersonCurrentChanged.cs" />
+    <Compile Remove="Events\ProgressRingUpdate.cs" />
+    <Compile Remove="Services\MockDataStore.cs" />
+    <Compile Remove="UserControls\AttributeCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\BookMarkCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\CitationRefCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\EventCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\FamilyCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\General\CardGridMultiType.xaml.cs" />
+    <Compile Remove="UserControls\General\CardGridSingleType.xaml.cs" />
+    <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
+    <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexMultiCardEnum.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexMultiGroupMultiCard - Copy.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexMultiGroupMultiCard.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexSingleCardGroup.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexSingleGroupMultiCard.xaml.cs" />
+    <Compile Remove="UserControls\General\FlexSingleGroupSingleCard.xaml.cs" />
+    <Compile Remove="UserControls\General\MediaImage.xaml.cs" />
+    <Compile Remove="UserControls\General\RadioButtonxExtended .cs" />
+    <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\MediaRefCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\NoteCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\PersonCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\RepositoryCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\RepositoryRefCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\SurnameNameCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\TagRefCardLarge.xaml.cs" />
+    <Compile Remove="UserControls\TagRefCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\TestControl.xaml.cs" />
+    <Compile Remove="ViewModels\AboutViewModel.cs" />
+    <Compile Remove="ViewModels\BaseViewModel.cs" />
+    <Compile Remove="ViewModels\BookMark\BookMarkDetailViewModel.cs" />
+    <Compile Remove="ViewModels\IBaseViewModel.cs" />
+    <Compile Remove="ViewModels\ItemDetailViewModel.cs" />
+    <Compile Remove="ViewModels\ItemsViewModel.cs" />
+    <Compile Remove="ViewModels\MinorPages\AppShellMessages.cs" />
+    <Compile Remove="ViewModels\MinorPages\AppShellNavigation.cs" />
+    <Compile Remove="ViewModels\MinorPages\AppShellViewModel.cs" />
+    <Compile Remove="ViewModels\MinorPages\NavigationPageViewModel.cs" />
+    <Compile Remove="ViewModels\MinorPages\SerialLoadViewModel.cs" />
+    <Compile Remove="ViewModels\Person\Interfaces\IPersonHourGlassPageViewModel.cs" />
+    <Compile Remove="ViewModels\Person\Interfaces\IPersonSummaryPageViewModel.cs" />
+    <Compile Remove="ViewModels\StartupPages\SetupStorageViewModel.cs" />
+    <Compile Remove="ViewModels\Test\TestCachePageViewModel.cs" />
+    <Compile Remove="Views\AboutPage.xaml.cs" />
+    <Compile Remove="Views\BaseViewList.xaml.cs" />
+    <Compile Remove="Views\BookMark\BookMarkDetailView.xaml.cs" />
+    <Compile Remove="Views\Citation\CitationRefDetailPage.xaml.cs" />
+    <Compile Remove="Views\ItemDetailPage.xaml.cs" />
+    <Compile Remove="Views\ItemsPage.xaml.cs" />
+    <Compile Remove="Views\Media\MediaDisplayPage.xaml.cs" />
+    <Compile Remove="Views\Media\MediaRefDetailPage.xaml.cs" />
+    <Compile Remove="Views\MinorPages\AppShellView.xaml.cs" />
+    <Compile Remove="Views\MinorPages\NavigationPage.xaml.cs" />
+    <Compile Remove="Views\MinorPages\SerialLoadPage.xaml.cs" />
+    <Compile Remove="Views\NewItemPage.xaml.cs" />
+    <Compile Remove="Views\Person\PersonListViewDesktop.xaml.cs" />
+    <Compile Remove="Views\Person\PersonListViewPhone.xaml.cs" />
+    <Compile Remove="Views\StartupPages\ExtendedSplashScreen.xaml.cs" />
+    <Compile Remove="Views\StartupPages\FirstRunDialog.xaml.cs" />
+    <Compile Remove="Views\StartupPages\SetupStorageView.xaml.cs" />
+    <Compile Remove="Views\Test\CropTransformationPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Assets\Styles\DarkThemeDictionary.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\LargeCardTemplatesDictionary.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\LargeRefCardTemplates.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\LightThemeDictionary.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\SystemThemeDictionary.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\_Colors.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\_FontSizes.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\_GenericOverride.xaml" />
+    <EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
+    <EmbeddedResource Remove="Common\CommonPropertyDebug.xaml" />
+    <EmbeddedResource Remove="UserControls\AttributeCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\BookMarkCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\CitationRefCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\EventCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\FamilyCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CardGridMultiType.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CardGridSingleType.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
+    <EmbeddedResource Remove="UserControls\General\FlexMultiCardEnum.xaml" />
+    <EmbeddedResource Remove="UserControls\General\FlexMultiGroupMultiCard.xaml" />
+    <EmbeddedResource Remove="UserControls\General\FlexSingleCardGroup.xaml" />
+    <EmbeddedResource Remove="UserControls\General\FlexSingleGroupMultiCard.xaml" />
+    <EmbeddedResource Remove="UserControls\General\FlexSingleGroupSingleCard.xaml" />
+    <EmbeddedResource Remove="UserControls\General\MediaImage.xaml" />
+    <EmbeddedResource Remove="UserControls\HLinkCitationCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\HLinkEventCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\MediaRefCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\NoteCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\PersonCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\RepositoryCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\RepositoryRefCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\SurnameNameCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\TagRefCardLarge.xaml" />
+    <EmbeddedResource Remove="UserControls\TagRefCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\TestControl.xaml" />
+    <EmbeddedResource Remove="Views\AboutPage.xaml" />
+    <EmbeddedResource Remove="Views\BaseViewList.xaml" />
+    <EmbeddedResource Remove="Views\BookMark\BookMarkDetailView.xaml" />
+    <EmbeddedResource Remove="Views\Citation\CitationRefDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\ItemDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\ItemsPage.xaml" />
+    <EmbeddedResource Remove="Views\Media\MediaDisplayPage.xaml" />
+    <EmbeddedResource Remove="Views\Media\MediaRefDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\MinorPages\AppShellView.xaml" />
+    <EmbeddedResource Remove="Views\MinorPages\NavigationPage.xaml" />
+    <EmbeddedResource Remove="Views\MinorPages\SerialLoadPage.xaml" />
+    <EmbeddedResource Remove="Views\NewItemPage.xaml" />
+    <EmbeddedResource Remove="Views\Person\PersonListViewDesktop.xaml" />
+    <EmbeddedResource Remove="Views\Person\PersonListViewPhone.xaml" />
+    <EmbeddedResource Remove="Views\StartupPages\ExtendedSplashScreen.xaml" />
+    <EmbeddedResource Remove="Views\StartupPages\FirstRunDialog.xaml" />
+    <EmbeddedResource Remove="Views\StartupPages\SetupStorageView.xaml" />
+    <EmbeddedResource Remove="Views\Test\CropTransformationPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Fonts\fa-solid-900.ttf" />
+    <None Remove="Assets\Fonts\materialdesignicons-webfont.ttf" />
+    <None Remove="UserControls\CardListLineCollectionLarge.xaml.cs.OLD" />
+    <None Remove="UserControls\CardListLineCollectionLarge.xaml.OLD" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="SharpZipLib" Version="1.2.0" />
+    <PackageReference Include="SkiaSharp" Version="1.68.3" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.3" />
+    <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1080" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="UserControls\General\CollectionCardList.xaml.cs">
+      <DependentUpon>CollectionCardList.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
+      <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\TopMenu.xaml.cs">
+      <DependentUpon>TopMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\FlexSingleCardTypeA.xaml.cs">
+      <DependentUpon>FlexSingleCardTypeA.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\BottomMenu.xaml.cs">
+      <DependentUpon>BottomMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\MediaImageSkia.xaml.cs">
+      <DependentUpon>MediaImageSkia.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\UWPButton.xaml.cs">
+      <DependentUpon>UWPButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\ChangeLogCardLarge.xaml.cs">
+      <DependentUpon>ChangeLogCardLarge.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\InstructionCardLarge.xaml.cs">
+      <DependentUpon>InstructionCardLarge.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\PersonNameCardSmall.xaml.cs">
+      <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\ListLineCardSmall.xaml.cs">
+      <DependentUpon>ListLineCardSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\ListLineCardLarge.xaml.cs">
+      <DependentUpon>ListLineCardLarge.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\MediaImageFullCard.xaml.cs">
+      <DependentUpon>MediaImageFullCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\HeaderCardLarge.xaml.cs">
+      <DependentUpon>HeaderCardLarge.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\NoteCardFull.xaml.cs">
+      <DependentUpon>NoteCardFull.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\PersonNameDetailPage.xaml.cs">
+      <DependentUpon>PersonNameDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\AddressDetailPage.xaml.cs">
+      <DependentUpon>AddressDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\ErrorDIalog.xaml.cs">
+      <DependentUpon>ErrorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\HubPage.xaml.cs">
+      <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\MessageLogPage.xaml.cs">
+      <DependentUpon>MessageLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Person\PersonListView.xaml.cs">
+      <DependentUpon>PersonListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartupPages\FileInputHandlerPage.xaml.cs">
+      <DependentUpon>FileInputHandlerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartupPages\FirstRunPage.xaml.cs">
+      <DependentUpon>FirstRunPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartupPages\WhatsNewPage.xaml.cs">
+      <DependentUpon>WhatsNewPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Assets\Strings\AppResources.resx">
+      <Generator>ResXFileCodeGenerator.</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserControls\ListLineCardLarge.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MinorPages\ErrorDialog.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\External\" />
+    <Folder Include="ViewModels\Test\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
+    <EmbeddedResource Include="Assets\Fonts\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+</Project>

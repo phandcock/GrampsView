@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="myAdditionalRules" ToolsVersion="12.0">
+  <Include Path="minimumrecommendedrules.ruleset" Action="Default" />
+  <Include Path="myadditionalrules.ruleset" Action="Default" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1707" Action="Warning" />
+    <Rule Id="CA1708" Action="Warning" />
+    <Rule Id="CA1801" Action="Warning" />
+    <Rule Id="CA1804" Action="Warning" />
+    <Rule Id="CA1811" Action="Warning" />
+    <Rule Id="CA1812" Action="Warning" />
+    <Rule Id="CA1823" Action="Warning" />
+  </Rules>
+</RuleSet>

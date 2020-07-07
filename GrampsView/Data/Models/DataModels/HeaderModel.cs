@@ -1,0 +1,396 @@
+﻿//-----------------------------------------------------------------------
+//
+// datamodel for the external storage metadata
+//
+// <copyright file="HeaderModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+////<code>
+////  <element name = "header" >
+////    < element name="created">
+////      <attribute name = "date" >
+////        < data type="date" />
+////      </attribute>
+////      <attribute name = "version" >
+////        < text />
+////      </ attribute >
+////    </ element >
+////    < element name="researcher">
+////      <optional>
+////        <ref name="researcher-content" />
+////      </optional>
+////    </element>
+////    <optional>
+////      <element name = "mediapath" >
+////        < text />
+////      </ element >
+////    </ optional >
+////  </ element >
+
+////      <define name = "researcher-content" >
+////  < element name="resname">
+////    <text />
+////  </element>
+////  <optional>
+////    <element name = "resaddr" >
+////      < text />
+////    </ element >
+////  </ optional >
+////  < optional >
+////    < element name="reslocality">
+////      <text />
+////    </element>
+////  </optional>
+////  <optional>
+////    <element name = "rescity" >
+////      < text />
+////    </ element >
+////  </ optional >
+////  < optional >
+////    < element name="resstate">
+////      <text />
+////    </element>
+////  </optional>
+////  <optional>
+////    <element name = "rescountry" >
+////      < text />
+////    </ element >
+////  </ optional >
+////  < optional >
+////    < element name="respostal">
+////      <text />
+////    </element>
+////  </optional>
+////  <optional>
+////    <element name = "resphone" >
+////      < text />
+////    </ element >
+////  </ optional >
+////  < optional >
+////    < element name="resemail">
+////      <text />
+////    </element>
+////  </optional>
+////</define>
+
+namespace GrampsView.Data.Model
+{
+    using System.Runtime.Serialization;
+
+    //// </code>
+    [DataContract]
+    public class HeaderModel : ModelBase, IHeaderModel
+    {
+        /// <summary>
+        /// The local database version.
+        /// </summary>
+        private int _DatabaseVersion = 0;
+
+        /// <summary>
+        /// created date.
+        /// </summary>
+        private string _GCreatedDate = string.Empty;
+
+        /// <summary>
+        /// crated version.
+        /// </summary>
+        private string _GCreatedVersion = string.Empty;
+
+        /// <summary>
+        /// Media Path.
+        /// </summary>
+        private string _GMediaPath = string.Empty;
+
+        /// <summary>
+        /// Researcher Address.
+        /// </summary>
+        private string _GResearcherAddress = string.Empty;
+
+        /// <summary>
+        /// Researcher City.
+        /// </summary>
+        private string _GResearcherCity = string.Empty;
+
+        /// <summary>
+        /// Researcher Country.
+        /// </summary>
+        private string _GResearcherCountry = string.Empty;
+
+        /// <summary>
+        /// Researcher Email.
+        /// </summary>
+        private string _GResearcherEmail = string.Empty;
+
+        /// <summary>
+        /// Researcher Locality.
+        /// </summary>
+        private string _GResearcherLocality = string.Empty;
+
+        /// <summary>
+        /// Researcher Name.
+        /// </summary>
+        private string _GResearcherName = string.Empty;
+
+        /// <summary>
+        /// Researcher Phone.
+        /// </summary>
+        private string _GResearcherPhone = string.Empty;
+
+        /// <summary>
+        /// Researcher Postal Address.
+        /// </summary>
+        private string _GResearcherPostal = string.Empty;
+
+        /// <summary>
+        /// Researcher State.
+        /// </summary>
+        private string _GResearcherState = string.Empty;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeaderModel"/> class.
+        /// </summary>
+        public HeaderModel()
+        {
+            HomeImageHLink.HomeSymbol = Common.CommonConstants.IconHeader;
+        }
+
+        /// <summary>
+        /// Gets or sets the database version.
+        /// </summary>
+        /// <value>
+        /// The database version.
+        /// </value>
+        [DataMember]
+        public int DatabaseVersion
+        {
+            get
+            {
+                return _DatabaseVersion;
+            }
+
+            set
+            {
+                SetProperty(ref _DatabaseVersion, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets date the metadata was created.
+        /// </summary>
+        [DataMember]
+        public string GCreatedDate
+        {
+            get
+            {
+                return _GCreatedDate;
+            }
+
+            set
+            {
+                SetProperty(ref _GCreatedDate, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data version.
+        /// </summary>
+        [DataMember]
+        public string GCreatedVersion
+        {
+            get
+            {
+                return _GCreatedVersion;
+            }
+
+            set
+            {
+                SetProperty(ref _GCreatedVersion, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the absolute path to the start of the media file file structure.
+        /// </summary>
+        [DataMember]
+        public string GMediaPath
+        {
+            get
+            {
+                return _GMediaPath;
+            }
+
+            set
+            {
+                SetProperty(ref _GMediaPath, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers address.
+        /// </summary>
+        [DataMember]
+        public string GResearcherAddress
+        {
+            get
+            {
+                return _GResearcherAddress;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherAddress, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers city.
+        /// </summary>
+        [DataMember]
+        public string GResearcherCity
+        {
+            get
+            {
+                return _GResearcherCity;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherCity, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers country.
+        /// </summary>
+        [DataMember]
+        public string GResearcherCountry
+        {
+            get
+            {
+                return _GResearcherCountry;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherCountry, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers email address.
+        /// </summary>
+        [DataMember]
+        public string GResearcherEmail
+        {
+            get
+            {
+                return _GResearcherEmail;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherEmail, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers locality.
+        /// </summary>
+        [DataMember]
+        public string GResearcherLocality
+        {
+            get
+            {
+                return _GResearcherLocality;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherLocality, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers name.
+        /// </summary>
+        [DataMember]
+        public string GResearcherName
+        {
+            get
+            {
+                return _GResearcherName;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherName, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers phone.
+        /// </summary>
+        [DataMember]
+        public string GResearcherPhone
+        {
+            get
+            {
+                return _GResearcherPhone;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherPhone, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers postal address.
+        /// </summary>
+        [DataMember]
+        public string GResearcherPostal
+        {
+            get
+            {
+                return _GResearcherPostal;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherPostal, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the researchers state.
+        /// </summary>
+        [DataMember]
+        public string GResearcherState
+        {
+            get
+            {
+                return _GResearcherState;
+            }
+
+            set
+            {
+                SetProperty(ref _GResearcherState, value);
+            }
+        }
+
+        public HLinkHeaderModel HLink
+        {
+            get
+            {
+                HLinkHeaderModel t = new HLinkHeaderModel
+                {
+                    HLinkKey = HLinkKey,
+                };
+
+                return t;
+            }
+        }
+    }
+}

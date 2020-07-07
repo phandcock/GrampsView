@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame
+    x:Class="GrampsView.UserControls.MediaImageSkia"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent"
+    BindingContextChanged="MediaImageSkia_BindingContextChanged"
+    BorderColor="Transparent">
+
+    <Frame.Content>
+
+        <Grid
+            x:Name="skiaHostControl"
+            Margin="0"
+            Padding="3">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                x:Name="daSymbol"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                IsVisible="True"
+                VerticalOptions="FillAndExpand">
+                <Image.Source>
+                    <FontImageSource FontFamily="{DynamicResource MaterialFontFamily}" />
+                </Image.Source>
+            </Image>
+
+            <ffimageloading:CachedImage
+                x:Name="daImage"
+                Grid.Row="0"
+                Grid.Column="0"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                CacheType="All"
+                DownsampleToViewSize="True"
+                Error="DaImage_Error"
+                Finish="DaImage_Finish"
+                IsVisible="True"
+                LoadingPlaceholder="ic_launcher.png"
+                MinimumHeightRequest="50"
+                MinimumWidthRequest="50"
+                RetryCount="3"
+                RetryDelay="1000">
+                <!--<ffimageloading:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{prism:NavigateTo 'MediaDetailPage'}">
+                        <TapGestureRecognizer.CommandParameter>
+                            <prism:NavigationParameter Key="hlink" Value="{Binding .DeRef.HLink}" />
+                        </TapGestureRecognizer.CommandParameter>
+                    </TapGestureRecognizer>
+                </ffimageloading:CachedImage.GestureRecognizers>-->
+            </ffimageloading:CachedImage>
+        </Grid>
+    </Frame.Content>
+</Frame>

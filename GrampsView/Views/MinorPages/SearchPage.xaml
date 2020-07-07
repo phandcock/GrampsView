@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.SearchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviour="clr-namespace:GrampsView.Behaviours"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    Appearing="ContentPage_Appearing"
+    ControlTemplate="{StaticResource DetailPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
+
+    <!--  Header  -->
+    <NavigationPage.TitleView>
+        <Grid Style="{DynamicResource GVPageTitleStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource GVSymbolconPageHeaderType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        Glyph="{Binding BaseTitleIcon}"
+                        Size="44"
+                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                Light={StaticResource LightPrimaryColor}}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+                Text="{Binding BaseTitle, Mode=OneWay}" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <!--  Content  -->
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto" />
+            <!--<RowDefinition Height="Auto" />-->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--<ucon:InstructionCardLarge
+            Grid.Row="0"
+            Grid.Column="0"
+            BindingContext="{i18n:Translate SearchPage_Instructions}" />-->
+
+        <SearchBar
+            x:Name="SearchBar"
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+                                              Light={StaticResource LightSurfaceColor}}"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Start"
+            IsTabStop="True"
+            SearchCommand="{Binding SearchCommand}"
+            SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+            TextColor="{DynamicResource OnSurfaceColor}">
+            <SearchBar.Behaviors>
+                <behaviour:EventToCommandBehavior
+                    Command="{Binding SearchButtonCommand}"
+                    CommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                    EventName="SearchButtonPressed" />
+            </SearchBar.Behaviors>
+        </SearchBar>
+
+        <!--  Search Results  -->
+        <!--<Frame
+            Grid.Row="2"
+            Grid.Column="0"
+            IsVisible="{Binding SearchNothingFound, Mode=OneWay}">
+            <ucon:InstructionCardLarge x:Name="SearchNothingFound" BindingContext="{i18n:Translate SearchPage_NothingFound}" />
+        </Frame>-->
+
+        <ucon:CollectionCardList
+            Grid.Row="1"
+            Grid.Column="0"
+            FsctSource="{Binding BaseDetail, Mode=OneWay}" />
+    </Grid>
+</ContentPage>

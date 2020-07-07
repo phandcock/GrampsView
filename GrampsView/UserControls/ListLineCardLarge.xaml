@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.ListLineCardLarge"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    Padding="0"
+    x:DataType="models:CardListLineCollection"
+    MinimumHeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+    Style="{DynamicResource GridLargeVariableCardStyle}">
+
+    <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                x:Name="LLCardLargeFrame"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0"
+                Padding="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                  Light={StaticResource LightPrimaryColor}}"
+                CornerRadius="0">
+                <Label
+                    x:Name="LLCardLargeTitle"
+                    Margin="3,0,3,0"
+                    Style="{DynamicResource GVHeaderStyleLarge}"
+                    Text="{Binding Title, Mode=OneWay}" />
+            </Frame>
+
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                BindableLayout.ItemsSource="{Binding .}">
+                <BindableLayout.ItemTemplate>
+
+                    <DataTemplate x:DataType="models:CardListLine">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.Column="0"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Label}"
+                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                            Light={StaticResource LightOnSurfaceColor}}" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding Value}"
+                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                            Light={StaticResource LightOnSecondaryColor}}"
+                                VerticalTextAlignment="Start" />
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </Grid>
+    </Frame>
+</Grid>

@@ -1,0 +1,61 @@
+﻿<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common">
+
+    <!--  DataLog data template Large  -->
+    <DataTemplate x:Key="DataLogEntryLarge" x:Name="DataLogEntryLarge">
+
+        <Grid
+            Margin="0"
+            Padding="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                                              Light={StaticResource LightSecondaryLightColor}}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                FontSize="{x:Static common:CommonFontSize.FontMedium}"
+                Text="{Binding Label}"
+                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                            Light={StaticResource LightOnSecondaryColor}}" />
+            <Label
+                Grid.Column="1"
+                FontSize="{x:Static common:CommonFontSize.FontMedium}"
+                Text="{Binding Text}"
+                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                            Light={StaticResource LightOnSecondaryColor}}" />
+        </Grid>
+    </DataTemplate>
+
+    <!--  Item Detail data template  large  -->
+    <DataTemplate x:Key="GVCardListLineLarge" x:Name="GVCardListLineLarge">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Column="0"
+                FontSize="{x:Static common:CommonFontSize.FontSmall}"
+                Text="{Binding Label}"
+                TextColor="{DynamicResource OnPrimaryColor}" />
+            <Label
+                Grid.Column="1"
+                FontSize="{x:Static common:CommonFontSize.FontSmall}"
+                HorizontalTextAlignment="End"
+                Text="{Binding Value}"
+                TextColor="{StaticResource OnPrimaryColor}" />
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

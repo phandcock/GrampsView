@@ -1,0 +1,31 @@
+﻿<Frame
+    x:Class="GrampsView.UserControls.BottomMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    x:Name="BottomMenueRoot"
+    Style="{StaticResource FrameBottomMenu}">
+
+    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+        <Button
+            Padding="0"
+            Command="{prism:GoBack GoBackType=ToRoot}"
+            Style="{StaticResource GVButtonFont}">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Glyph="&#xf2dc;" />
+            </Button.ImageSource>
+        </Button>
+
+        <Button
+            Padding="0"
+            Command="{prism:NavigateTo 'SearchPage'}"
+            FontFamily="{StaticResource MaterialFontFamily}"
+            Style="{StaticResource GVButtonFont}">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Glyph="&#xf21e;" />
+            </Button.ImageSource>
+        </Button>
+
+        <Label Text="{Binding StatusText, Source={x:Reference BottomMenueRoot}, Mode=OneWay}" TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource LightOnSecondaryColor}}" />
+    </StackLayout>
+</Frame>

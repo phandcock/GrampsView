@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.RepositoryListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    ControlTemplate="{StaticResource ListPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}">
+
+    <NavigationPage.TitleView>
+        <Grid Style="{DynamicResource GVPageTitleStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{DynamicResource GVSymbolconPageHeaderType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        Glyph="{Binding BaseTitleIcon}"
+                        Size="44"
+                          Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+                Text="{Binding BaseTitle, Mode=OneWay}" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <!--  Content  -->
+    <ucon:CollectionSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+
+    <!--<ScrollView>
+
+        <FlexLayout
+            BindableLayout.ItemTemplate="{StaticResource RepositoryCardSmallDT}"
+            BindableLayout.ItemsSource="{Binding RepositorySource, Mode=OneWay}"
+            Style="{StaticResource FlexLayoutCards}" />
+
+    -->
+    <!--<ucon:FlexSingleGroupSingleCard
+            x:Name="flexLayout"
+            FsctSource="{Binding RepositorySource, Mode=OneWay}"
+            FsctTemplate="{StaticResource RepositoryCardSmallDT}" />-->
+    <!--
+    </ScrollView>-->
+</ContentPage>

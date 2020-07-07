@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--  Content  -->
+
+<Grid
+    x:Class="GrampsView.Views.ErrorDialog"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:prism="http://prismlibrary.com"
+    prism:DialogLayout.RelativeWidthRequest="{OnIdiom Default=0.75,
+                                                      Desktop=0.5}"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+                                      Light={StaticResource LightSurfaceColor}}">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <BoxView />
+    <Label
+        Margin="20,5"
+        Style="{DynamicResource TitleStyle}"
+        Text="{Binding adaArgs.Name}"
+        TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                    Light={StaticResource LightOnSurfaceColor}}" />
+
+    <ScrollView Grid.Row="1">
+        <StackLayout>
+            <Label
+                Margin="20,0,20,10"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding adaArgs.Text}"
+                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                            Light={StaticResource LightOnSurfaceColor}}" />
+            <CollectionView
+                Margin="20,0,20,10"
+                ItemsSource="{Binding adaArgs.ItemDetails}"
+                Style="{DynamicResource CollectionViewBase}" />
+        </StackLayout>
+    </ScrollView>
+
+    <Button
+        Grid.Row="2"
+        Command="{Binding CloseCommand}"
+        Style="{DynamicResource GVButtonMenu}"
+        Text="{i18n:Translate ErrorDialog_Ok}" />
+</Grid>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.InstructionCardLarge"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    x:Name="InstructionCardLargeRoot"
+    Padding="0"
+    MinimumHeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+    Style="{DynamicResource GridLargeVariableCardStyle}">
+
+    <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!--  TODO Remove this bodgy fix  -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Style="{DynamicResource GVLabelStyleInstructions}"
+                Text="{Binding BindingContext, Source={x:Reference InstructionCardLargeRoot}, Mode=OneWay}" />
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Style="{DynamicResource GVLabelStyleInstructions}"
+                Text="{Binding BindingContext, Mode=OneWay}" />
+        </Grid>
+    </Frame>
+</Grid>

@@ -1,0 +1,142 @@
+﻿<ResourceDictionary
+    x:Class="GrampsView.Assets.Styles.CardTemplatesDictionary"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:usercontrols="clr-namespace:GrampsView.UserControls">
+
+    <DataTemplate x:Key="AddressCardSmallDT">
+        <usercontrols:AddressCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="AttributeCardSmallDT">
+        <usercontrols:AttributeCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CardGroupDT">
+        <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{StaticResource CardGroupStyle}">
+            <Grid x:Name="daGrid">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Margin="5,2,2,2"
+                    Text="{Binding Title}"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                Light={StaticResource LightOnSurfaceColor}}" />
+
+                <FlexLayout
+                    x:Name="CardGroupTemplateFlexer"
+                    Grid.Row="1"
+                    BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+                    BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
+                    Style="{StaticResource FlexLayoutCards}" />
+            </Grid>
+        </Frame>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CardListLineCardSmallDT">
+        <usercontrols:ListLineCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardSmallDT">
+        <usercontrols:CitationCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="EventCardSmallDT">
+        <usercontrols:EventCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardSmallDT">
+        <usercontrols:FamilyCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="HederCardLargeDT">
+        <usercontrols:HeaderCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="InstructionCardLargeDT">
+        <usercontrols:InstructionCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaCardSmallDT">
+        <usercontrols:MediaCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaCardLargeDT">
+        <usercontrols:MediaCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaImageFullDT">
+        <usercontrols:MediaImageFullCard />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoteCardFullDT">
+        <usercontrols:NoteCardFull />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoteCardSmallDT">
+        <usercontrols:NoteCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ParentLinkCardSmallDT">
+        <usercontrols:ParentLinkCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardSmallDT">
+        <usercontrols:PersonCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonNameCardSmallDT">
+        <usercontrols:PersonNameCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PlaceCardSmallDT">
+        <usercontrols:PlaceCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="RepositoryCardSmallDT">
+        <usercontrols:RepositoryCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TagCardSmallDT">
+        <usercontrols:TagCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceCardSmallDT">
+        <usercontrols:SourceCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="URLCardSmallDT">
+        <usercontrols:URLCardSmall />
+    </DataTemplate>
+
+    <common:CardTemplateSelector
+        x:Key="CardTemplateSelector"
+        AddressTemplate="{StaticResource AddressCardSmallDT}"
+        AttributeTemplate="{StaticResource AttributeCardSmallDT}"
+        CardGroupTemplate="{StaticResource CardGroupDT}"
+        CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
+        CitationTemplate="{StaticResource CitationCardSmallDT}"
+        EventTemplate="{StaticResource EventCardSmallDT}"
+        FamilyTemplate="{StaticResource FamilyCardSmallDT}"
+        HeaderTemplate="{StaticResource HederCardLargeDT}"
+        InstructionCardTemplate="{StaticResource InstructionCardLargeDT}"
+        MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"
+        MediaImageFullTemplate="{StaticResource MediaImageFullDT}"
+        MediaTemplate="{StaticResource MediaCardSmallDT}"
+        NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
+        NoteTemplate="{StaticResource NoteCardSmallDT}"
+        ParentLinkTemplate="{StaticResource ParentLinkCardSmallDT}"
+        PersonNameTemplate="{StaticResource PersonNameCardSmallDT}"
+        PersonTemplate="{StaticResource PersonCardSmallDT}"
+        PlaceTemplate="{StaticResource PlaceCardSmallDT}"
+        RepositoryTemplate="{StaticResource RepositoryCardSmallDT}"
+        SourceTemplate="{StaticResource SourceCardSmallDT}"
+        TagTemplate="{StaticResource TagCardSmallDT}"
+        URLTemplate="{StaticResource URLCardSmallDT}" />
+</ResourceDictionary>

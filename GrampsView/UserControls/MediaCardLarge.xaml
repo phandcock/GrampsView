@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.MediaCardLarge"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="MediaCardLargeRoot"
+    x:DataType="models:HLinkMediaModel"
+    BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
+    IsVisible="{Binding Valid}"
+    Style="{DynamicResource GridLargeFixedCardStyle}">
+
+    <Frame Style="{DynamicResource FrameLargeFixedCardStyle}">
+
+        <Frame.Content>
+
+            <Grid x:Name="controlRoot">
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{prism:NavigateTo 'MediaDetailPage'}">
+                        <TapGestureRecognizer.CommandParameter>
+                            <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
+                        </TapGestureRecognizer.CommandParameter>
+                    </TapGestureRecognizer>
+                </Grid.GestureRecognizers>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <ucon:MediaImageSkia
+                    x:Name="AnchorImage"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="WhiteSmoke"
+                    BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                    Style="{DynamicResource MediaImageStyle}" />
+
+                <Label
+                    x:Name="MediaObjectTitle"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource GVCardLabelStyleSmall}"
+                    Text="{Binding DeRef.GDescription, Mode=OneWay}" />
+
+                <Image
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{DynamicResource GVSymbolIconSmallCardType}">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="{DynamicResource MaterialFontFamily}"
+                            Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
+                            Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
+                    </Image.Source>
+                </Image>
+            </Grid>
+        </Frame.Content>
+    </Frame>
+</Grid>
