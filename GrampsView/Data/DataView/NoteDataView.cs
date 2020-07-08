@@ -107,11 +107,11 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public ObservableCollection<NoteModel> GetAllOfType(string argType)
+        public ObservableCollection<INoteModel> GetAllOfType(string argType)
         {
-            IEnumerable<NoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
+            IEnumerable<INoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
 
-            return new ObservableCollection<NoteModel>(q);
+            return new ObservableCollection<INoteModel>(q);
         }
 
         public override CardGroup GetLatestChanges()

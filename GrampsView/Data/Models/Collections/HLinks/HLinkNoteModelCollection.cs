@@ -56,7 +56,7 @@ namespace GrampsView.Data.Collections
         /// <value>
         /// The get summary.
         /// </value>
-        public NoteModel GetFirstModel
+        public INoteModel GetFirstModel
         {
             get
             {

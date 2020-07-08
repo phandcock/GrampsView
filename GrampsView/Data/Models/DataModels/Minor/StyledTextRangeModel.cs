@@ -10,35 +10,25 @@
 namespace GrampsView.Data.Model
 {
     using System;
-    using System.Collections.Generic;
+
     using System.Runtime.Serialization;
 
-    using static GrampsView.Common.CommonEnums;
-
-    //// gramps XML 1.71
-    ////
-    //// style
-    //// name
-    //// value
-    //// range
+    /// <summary>
+    /// XML 1.71 not part of
     /// </summary>
-    public class StyledTextModel : ModelBase, IStyledTextModel, IComparable<StyledTextModel>, IEquatable<StyledTextModel>
+    public class StyledTextRangeModel : ModelBase, IComparable<StyledTextRangeModel>, IEquatable<StyledTextRangeModel>
     {
-        [DataMember]
-        public IList<StyledTextRangeModel> GRange = new List<StyledTextRangeModel>();
-
-        public StyledTextModel()
+        public StyledTextRangeModel()
         {
         }
 
         [DataMember]
-        public TextStyle GStyle { get; set; }
-                                = TextStyle.unknown;
+        public int End { get; set; }
 
         [DataMember]
-        public string GValue { get; set; }
+        public int Start { get; set; }
 
-        public int CompareTo(StyledTextModel other)
+        public int CompareTo(StyledTextRangeModel other)
         {
             if (other is null)
             {
@@ -48,7 +38,7 @@ namespace GrampsView.Data.Model
             return GetDefaultText.CompareTo(other.GetDefaultText);
         }
 
-        public bool Equals(StyledTextModel other)
+        public bool Equals(StyledTextRangeModel other)
         {
             if (other is null)
             {

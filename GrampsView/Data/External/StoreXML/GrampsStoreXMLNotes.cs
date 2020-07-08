@@ -52,7 +52,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     // Loop through results to get the Notes Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pname in de)
                     {
-                        NoteModel loadNote = DV.NoteDV.NewModel();
+                        INoteModel loadNote = DV.NoteDV.NewModel();
 
                         // Note attributes
                         loadNote.Id = (string)pname.Attribute("id");
@@ -60,11 +60,9 @@ namespace GrampsView.Data.ExternalStorageNS
                         loadNote.Priv = SetPrivateObject((string)pname.Attribute("priv"));
                         loadNote.Handle = (string)pname.Attribute("handle");
 
-                        loadNote.HLinkKey = loadNote.Handle;
+                        //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");
                         loadNote.GType = (string)pname.Attribute("type");
-
-                        // Note fields
 
                         // Load Styled Text
                         if (loadNote.Id == "N0384")
@@ -73,14 +71,9 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         loadNote.GText = (string)pname.Element(ns + "text");
 
-                        //loadString.Spans.Add(new Span { Text = theText, FontSize = 12 });
-
-                        //// TODO Style
-
-                        // TagRef
                         loadNote.GTagRefCollection = GetTagCollection(pname);
 
-                        DV.NoteDV.NoteData.Add(loadNote);
+                        DV.NoteDV.NoteData.Add((NoteModel)loadNote);
                     }
                 }
                 catch (Exception ex)

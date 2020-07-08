@@ -11,6 +11,7 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
+
     using System;
 
     /// <summary>
@@ -32,7 +33,7 @@ namespace GrampsView.Data.Model
         /// </value>
         string GetDefaultText { get; }
 
-        string Handle { get; }
+        string Handle { set; }
 
         /// <summary>
         /// Gets or sets the h link key.

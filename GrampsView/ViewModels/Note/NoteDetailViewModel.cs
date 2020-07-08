@@ -23,7 +23,7 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class NoteDetailViewModel : ViewModelBase
     {
-        private NoteModel _NoteObject = new NoteModel();
+        private INoteModel _NoteObject = new NoteModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteDetailViewModel"/> class. Common logging.
@@ -48,7 +48,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The current event ViewModel.
         /// </value>
-        public NoteModel NoteObject
+        public INoteModel NoteObject
         {
             get
             {
@@ -81,10 +81,11 @@ namespace GrampsView.ViewModels
                 {
                     new CardListLine("Card Type:", "Note Detail"),
                     new CardListLine("Type:", NoteObject.GType),
+                    new CardListLine("Formatted:", NoteObject.GIsFormated),
                 });
 
                 // Add Model details
-                basicHeaderDetails.Add(DV.NoteDV.GetModelInfoFormatted(NoteObject));
+                basicHeaderDetails.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
 
                 BaseDetail.Add(basicHeaderDetails);
 

@@ -15,9 +15,9 @@
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -25,7 +25,7 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkNoteModel : HLinkBase, IHLinkNoteModel
     {
-        public NoteModel DeRef
+        public INoteModel DeRef
         {
             get
             {
@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
                 }
                 else
                 {
-                    return null;
+                    return new NoteModel();
                 }
             }
         }

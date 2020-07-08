@@ -14,7 +14,7 @@ fix(*): fix this thing
 Fixing the thing
 
 
-#Coding Rules#
+#Coding  Rules#
 - Taken from https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit
 
 To ensure consistency throughout the source code, keep these rules in mind as you are working:

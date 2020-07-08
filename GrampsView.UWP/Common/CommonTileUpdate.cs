@@ -88,7 +88,7 @@ namespace GrampsView.UWP.Common
                     },
                 },
 
-                ContentId = media.Handle,
+                ContentId = media.HLinkKey,
 
                 DisplayName = Package.Current.DisplayName,
             };
@@ -128,7 +128,7 @@ namespace GrampsView.UWP.Common
                     },
                 },
 
-                ContentId = media.Handle,
+                ContentId = media.HLinkKey,
 
                 DisplayName = Package.Current.DisplayName,
             };
@@ -148,7 +148,7 @@ namespace GrampsView.UWP.Common
             {
                 Branding = TileBranding.NameAndLogo,
 
-                ContentId = media.Handle,
+                ContentId = media.HLinkKey,
 
                 DisplayName = Package.Current.DisplayName,
 

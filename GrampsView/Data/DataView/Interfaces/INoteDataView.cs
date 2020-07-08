@@ -9,14 +9,13 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-
     using GrampsView.Common;
     using GrampsView.Data.Collections;
-
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
+
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Interface for the Note Repository.
@@ -49,7 +48,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        ObservableCollection<NoteModel> GetAllOfType(string argType);
+        ObservableCollection<INoteModel> GetAllOfType(string argType);
 
         List<SearchItem> SearchTag(string queryString);
     }

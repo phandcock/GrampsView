@@ -120,7 +120,7 @@ namespace GrampsView.ViewModels
             }
 
             // Setup ToDo list
-            ObservableCollection<NoteModel> t = DV.NoteDV.GetAllOfType(NoteModel.GTypeToDo);
+            ObservableCollection<INoteModel> t = DV.NoteDV.GetAllOfType(NoteModel.GTypeToDo);
 
             CardGroup toDoCardGroup = new CardGroup
             {

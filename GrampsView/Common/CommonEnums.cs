@@ -32,6 +32,20 @@
             Unknown,
         }
 
+        public enum TextStyle
+        {
+            bold,
+            fontcolor,
+            fontface,
+            fontsize,
+            highlight,
+            italic,
+            link,
+            superscript,
+            underline,
+            unknown,
+        }
+
         public enum URIType
         {
             Map,
