@@ -12,7 +12,6 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -23,13 +22,14 @@ namespace GrampsView.Data.ExternalStorageNS
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
-    using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
+
+    using static GrampsView.Common.CommonEnums;
 
     /// <summary>
     /// Various utility and loading routines for XML data.
@@ -312,6 +312,58 @@ namespace GrampsView.Data.ExternalStorageNS
             // TODO This is in UTC and needs to be converted to local time
 
             return t.DateTime;
+        }
+
+        private TextStyle GetTextStyle(XElement a)
+        {
+            XAttribute t = a.Attribute("name");
+
+            switch (t.Value)
+            {
+                case "bold":
+                    {
+                        return TextStyle.bold;
+                    }
+                case "italic":
+                    {
+                        return TextStyle.italic;
+                    }
+                case "underline":
+                    {
+                        return TextStyle.underline;
+                    }
+                case "fontface":
+                    {
+                        return TextStyle.fontface;
+                    }
+                case "fontsize":
+                    {
+                        return TextStyle.fontsize;
+                    }
+                case "fontcolor":
+                    {
+                        return TextStyle.fontcolor;
+                    }
+                case "highlight":
+                    {
+                        return TextStyle.highlight;
+                    }
+                case "superscript":
+                    {
+                        return TextStyle.superscript;
+                    }
+                case "link":
+                    {
+                        return TextStyle.link;
+                    }
+
+                default:
+                    {
+                        break;
+                    }
+            }
+
+            return TextStyle.unknown;
         }
 
         /// <summary>

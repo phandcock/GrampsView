@@ -71,6 +71,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         loadNote.GText = (string)pname.Element(ns + "text");
 
+                        loadNote.GStyledTextCollection = GetStyledTextCollection(pname);
+
                         loadNote.GTagRefCollection = GetTagCollection(pname);
 
                         DV.NoteDV.NoteData.Add((NoteModel)loadNote);

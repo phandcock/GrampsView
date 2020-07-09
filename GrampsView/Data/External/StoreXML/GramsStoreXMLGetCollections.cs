@@ -13,23 +13,14 @@ namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using SkiaSharp;
-
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Xml.Linq;
-
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     /// <summary>
     /// Various utility and loading routines for XML data.
@@ -547,6 +538,45 @@ namespace GrampsView.Data.ExternalStorageNS
 
             // Return sorted by the default text
             t.Sort(T => T.DeRef.GetDefaultText);
+
+            return t;
+        }
+
+        private StyledTextModelCollection GetStyledTextCollection(XElement xmlData)
+        {
+            StyledTextModelCollection t = new StyledTextModelCollection();
+
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "style")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    StyledTextModel newStyleModel = new StyledTextModel
+                    {
+                        Handle = "StyledTextCollection",
+
+                        GStyle = GetTextStyle(theLoadORElement),
+
+                        //GCitationReferenceCollection = GetCitationCollection(theLoadORElement),
+
+                        //GNoteModelReferenceCollection = GetNoteCollection(theLoadORElement),
+
+                        //Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+
+                        //GType = GetAttribute(theLoadORElement.Attribute("type")),
+
+                        //GValue = GetAttribute(theLoadORElement.Attribute("value")),
+                    };
+
+                    t.Add(newStyleModel);
+                }
+            }
 
             return t;
         }
