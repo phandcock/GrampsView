@@ -1,8 +1,9 @@
-# 1.7.0 (2020-07-09)
+# 1.8.0 (2020-07-09)
 
 
 ### Bug Fixes
 
+* tweak ([f7ae9b0](https://github.com/phandcock/GrampsView/commit/f7ae9b0904bca79fa7acfbd4a25ecb147c1745c4))
 * work on StyledText loader ([16872f2](https://github.com/phandcock/GrampsView/commit/16872f256c2257dd59d15718fcef779c16675f1d))
 
 
