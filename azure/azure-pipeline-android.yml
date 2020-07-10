@@ -96,11 +96,12 @@ steps:
   displayName: 'Deploy $(build.binariesdirectory)/$(BuildConfiguration)/*.apk to Visual Studio App Center'
   inputs:
     serverEndpoint: 'App Center'
-    appSlug: 'phandcock-ilr0/GrampsView.Android'
+    appSlug: 'phandcock-ilr0/GrampsViewXam'
     appFile: '$(appFiles)'
     symbolsOption: 'Android'
     releaseNotesOption: 'file'
     releaseNotesFile: 'CHANGELOG.md'
     destinationType: 'groups'
-    distributionGroupId: '1c76bdbc-e963-415a-a17b-2db3756da75d'
   condition: succeededOrFailed()
+
+
