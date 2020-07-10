@@ -122,4 +122,4 @@ steps:
     releaseNotesOption: 'file'
     releaseNotesFile: 'CHANGELOG.md'
     isSilent: false
-
+    destinationType: 'groups'
