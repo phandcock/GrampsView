@@ -121,5 +121,5 @@ steps:
     symbolsOption: 'UWP'
     releaseNotesOption: 'file'
     releaseNotesFile: 'CHANGELOG.md'
-    distributionGroupId: '$(distributionGroupId)'
     isSilent: false
+
