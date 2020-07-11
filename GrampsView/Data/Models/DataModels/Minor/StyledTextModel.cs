@@ -24,12 +24,13 @@ namespace GrampsView.Data.Model
     /// </summary>
     public class StyledTextModel : ModelBase, IStyledTextModel, IComparable<StyledTextModel>, IEquatable<StyledTextModel>
     {
-        [DataMember]
-        public IList<StyledTextRangeModel> GRange = new List<StyledTextRangeModel>();
-
         public StyledTextModel()
         {
         }
+
+        [DataMember]
+        public List<StyledTextRangeModel> GRange { get; set; }
+                                                = new List<StyledTextRangeModel>();
 
         [DataMember]
         public TextStyle GStyle { get; set; }
