@@ -40,7 +40,7 @@ steps:
 - task: DownloadSecureFile@1
   displayName: 'Download Secret.cs file'
   inputs:
-    secureFile: '5c8ddee8-5019-4979-be40-0661f0c58d05'
+    secureFile: 'Secret.cs'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: GrampsView/Common/'
