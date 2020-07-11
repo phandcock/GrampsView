@@ -17,7 +17,7 @@ namespace GrampsView.Data.Collections
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<StyledTextModel>))]
-    public class StyledTextModelCollection : ObservableCollection<IStyledTextModel>
+    public class StyledTextModelCollection : ObservableCollection<StyledTextModel>
     {
         public StyledTextModelCollection()
         {
