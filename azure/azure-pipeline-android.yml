@@ -30,13 +30,6 @@ schedules:
 
 steps: 
 
-#- task: NuGetToolInstaller@1
-#  displayName: 'Use NuGet 4.4.1'
-#  inputs:
-#    versionSpec: '4.4.x'
-#    checkLatest: true
-#  enabled: false
-
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
@@ -45,9 +38,9 @@ steps:
     nugetConfigPath: GrampsView/AnythingElse/DeploymentTools/NuGet.Config
 
 - task: DownloadSecureFile@1
-  displayName: 'Download secure file'
+  displayName: 'Download secure file: Secret.cs'
   inputs:
-    secureFile: '5c8ddee8-5019-4979-be40-0661f0c58d05'
+    secureFile: 'Secret.cs'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: GrampsView/Common/'
