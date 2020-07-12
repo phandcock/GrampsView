@@ -396,9 +396,9 @@ namespace GrampsView.Data.ExternalStorageNS
             return t;
         }
 
-        private PersonRefModelCollection GetPersonRefCollection(XElement xmlData)
+        private HLinkPersonRefModelCollection GetPersonRefCollection(XElement xmlData)
         {
-            PersonRefModelCollection t = new PersonRefModelCollection();
+            HLinkPersonRefModelCollection t = new HLinkPersonRefModelCollection();
 
             IEnumerable<XElement> theERElement =
                     from ORElementEl in xmlData.Elements(ns + "personref")
@@ -409,7 +409,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 // load person object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    PersonRefModel t2 = new PersonRefModel
+                    HLinkPersonRefModel t2 = new HLinkPersonRefModel
                     {
                         GCitationCollection = GetCitationCollection(theLoadORElement),
                         GNoteCollection = GetNoteCollection(theLoadORElement),
@@ -417,11 +417,6 @@ namespace GrampsView.Data.ExternalStorageNS
                     };
 
                     t2.HLinkKey = GetAttribute(theLoadORElement, "hlink");
-                    t2.HLinkKey = GetAttribute(theLoadORElement, "hlink");
-                    t2.Id = GetAttribute(theLoadORElement, "id");
-                    t2.Change = GetDateTime(theLoadORElement, "change");
-                    t2.Priv = SetPrivateObject(GetAttribute(theLoadORElement, "priv"));
-                    t2.Handle = GetAttribute(theLoadORElement, "handle");
 
                     t.Add(t2);
                 }

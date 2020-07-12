@@ -157,6 +157,17 @@ namespace GrampsView.ViewModels
                 bioCard.CardType = DisplayFormat.NoteCardFull;
                 BaseDetail.Add(bioCard);
 
+                // Add PersonRefDetails
+                if (BaseNavParamsHLink is HLinkPersonRefModel)
+                {
+                    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
+
+                    Contract.Assert(personRef != null);
+
+                    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
+                    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
+                }
+
                 // Add details
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetCardGroup());
                 BaseDetail.Add(PersonObject.GParentInRefCollection.GetCardGroup());
@@ -169,7 +180,7 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(PersonObject.GTagRefCollection.GetCardGroup());
                 BaseDetail.Add(PersonObject.GURLCollection);
                 BaseDetail.Add(PersonObject.GLDSCollection);
-                BaseDetail.Add(PersonObject.GPersonRefCollection);
+                BaseDetail.Add(PersonObject.GPersonRefCollection.GetCardGroup());
 
                 BaseDetail.Add(PersonObject.BackHLinkReferenceCollection.GetCardGroup());
 

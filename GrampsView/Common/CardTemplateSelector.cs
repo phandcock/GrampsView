@@ -354,11 +354,6 @@ namespace GrampsView.Common
                 return CardGroupTemplate;
             }
 
-            if (item is CardGroupBase<PersonRefModel>)
-            {
-                return CardGroupTemplate;
-            }
-
             if (item is SurnameModelCollection)
             {
                 return CardGroupTemplate;
@@ -452,6 +447,12 @@ namespace GrampsView.Common
                 }
             }
 
+            // Goes here as is child of HLinkPerson
+            if (item is HLinkPersonRefModel)
+            {
+                return PersonRefTemplate;
+            }
+
             if (item is HLinkPersonModel)
             {
                 return PersonTemplate;
@@ -460,6 +461,11 @@ namespace GrampsView.Common
             if (item is HLinkPersonNameModel)
             {
                 return PersonNameTemplate;
+            }
+
+            if (item is CardGroupBase<HLinkPersonRefModel>)
+            {
+                return CardGroupTemplate;
             }
 
             if (item is HLinkPlaceModel)
@@ -505,11 +511,6 @@ namespace GrampsView.Common
             if (item is PersonNameModel)
             {
                 return PersonNameTemplate;
-            }
-
-            if (item is PersonRefModel)
-            {
-                return PersonRefTemplate;
             }
 
             if (item is PlaceModel)

@@ -130,15 +130,15 @@ namespace GrampsView.Common
             }
         }
 
-        public void Add(CardGroupBase<PersonRefModel> argCardGroup)
-        {
-            Contract.Requires(argCardGroup != null);
+        //public void Add(CardGroupBase<PersonRefModel> argCardGroup)
+        //{
+        //    Contract.Requires(argCardGroup != null);
 
-            if (argCardGroup.Count > 0)
-            {
-                base.Add(argCardGroup);
-            }
-        }
+        //    if (argCardGroup.Count > 0)
+        //    {
+        //        base.Add(argCardGroup);
+        //    }
+        //}
 
         public void Add(CardGroupBase<SurnameModel> argCardGroup)
         {
