@@ -8,6 +8,7 @@
 //-----------------------------------------------------------------------
 
 using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
 
 namespace GrampsView.Data.Model
 {
@@ -16,9 +17,24 @@ namespace GrampsView.Data.Model
     /// </summary>
     public class PersonRefModel : ModelBase, IPersonRefModel
     {
+        public new PersonModel DeRef
+        {
+            get
+            {
+                if (Valid)
+                {
+                    return DV.PersonDV.GetModelFromHLinkString(HLinkKey);
+                }
+                else
+                {
+                    return new PersonModel();
+                }
+            }
+        }
+
         public HLinkCitationModelCollection GCitationCollection
         {
-            get;
+            get; set;
         }
 
             = new HLinkCitationModelCollection();
@@ -31,7 +47,7 @@ namespace GrampsView.Data.Model
         /// </value>
         public HLinkNoteModelCollection GNoteCollection
         {
-            get;
+            get; set;
         }
 
             = new HLinkNoteModelCollection();

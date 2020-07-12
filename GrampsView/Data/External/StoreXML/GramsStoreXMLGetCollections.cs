@@ -411,12 +411,17 @@ namespace GrampsView.Data.ExternalStorageNS
                 {
                     PersonRefModel t2 = new PersonRefModel
                     {
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
-                        Id = GetAttribute(theLoadORElement.Attribute("id")),
-                        Change = GetDateTime(theLoadORElement, "change"),
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
-                        Handle = GetAttribute(theLoadORElement, "handle"),
+                        GCitationCollection = GetCitationCollection(theLoadORElement),
+                        GNoteCollection = GetNoteCollection(theLoadORElement),
+                        GRelationship = GetAttribute(theLoadORElement, "rel"),
                     };
+
+                    t2.HLinkKey = GetAttribute(theLoadORElement, "hlink");
+                    t2.HLinkKey = GetAttribute(theLoadORElement, "hlink");
+                    t2.Id = GetAttribute(theLoadORElement, "id");
+                    t2.Change = GetDateTime(theLoadORElement, "change");
+                    t2.Priv = SetPrivateObject(GetAttribute(theLoadORElement, "priv"));
+                    t2.Handle = GetAttribute(theLoadORElement, "handle");
 
                     t.Add(t2);
                 }
