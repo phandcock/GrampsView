@@ -1,8 +1,9 @@
-# 1.14.0 (2020-07-11)
+# 1.15.0 (2020-07-11)
 
 
 ### Bug Fixes
 
+* fix StyledText serialisation bug ([bc1f4df](https://github.com/phandcock/GrampsView/commit/bc1f4df89e81d2e6041707d4b2be6a63394c36d6))
 * tweak ([f7ae9b0](https://github.com/phandcock/GrampsView/commit/f7ae9b0904bca79fa7acfbd4a25ecb147c1745c4))
 * update .gitIgnore ([65c1d92](https://github.com/phandcock/GrampsView/commit/65c1d927467a9a925dc4b9dc4a40f0a409aee9ab))
 * work on StyledText loader ([16872f2](https://github.com/phandcock/GrampsView/commit/16872f256c2257dd59d15718fcef779c16675f1d))
