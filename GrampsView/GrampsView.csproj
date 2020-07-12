@@ -23,18 +23,21 @@
 
   <ItemGroup>
     <Compile Remove="Common\ExtDLL\**" />
+    <Compile Remove="Common\External\**" />
     <Compile Remove="Data\External\StoreCache\**" />
     <Compile Remove="UserControls\FormsRadioButton\**" />
     <Compile Remove="UserControls\Handy Controls\**" />
     <Compile Remove="ViewModels\NameMap\**" />
     <Compile Remove="Views\NameMap\**" />
     <EmbeddedResource Remove="Common\ExtDLL\**" />
+    <EmbeddedResource Remove="Common\External\**" />
     <EmbeddedResource Remove="Data\External\StoreCache\**" />
     <EmbeddedResource Remove="UserControls\FormsRadioButton\**" />
     <EmbeddedResource Remove="UserControls\Handy Controls\**" />
     <EmbeddedResource Remove="ViewModels\NameMap\**" />
     <EmbeddedResource Remove="Views\NameMap\**" />
     <None Remove="Common\ExtDLL\**" />
+    <None Remove="Common\External\**" />
     <None Remove="Data\External\StoreCache\**" />
     <None Remove="UserControls\FormsRadioButton\**" />
     <None Remove="UserControls\Handy Controls\**" />
@@ -50,6 +53,7 @@
     <Compile Remove="Assets\Styles\SystemThemeDictionary.cs" />
     <Compile Remove="Behaviours\ListViewAutoSizeBehaviour.cs" />
     <Compile Remove="Behaviours\RadioButtonBehaviour.cs" />
+    <Compile Remove="Behaviours\TextChangedBehavior.cs" />
     <Compile Remove="Common\AppExtension.cs" />
     <Compile Remove="Common\Card Group\CardGroupHLink.cs" />
     <Compile Remove="Common\Card Group\CardGroupModelBase.cs" />
@@ -71,21 +75,6 @@
     <Compile Remove="Common\CustomClasses\ObservableCollectionEx.cs" />
     <Compile Remove="Common\CustomClasses\PlatformSpecific.cs" />
     <Compile Remove="Common\CustomClasses\ScollViewInfinite.cs" />
-    <Compile Remove="Common\External\BindableValidator.cs" />
-    <Compile Remove="Common\External\ContinuationManager.cs" />
-    <Compile Remove="Common\External\DebugListView.cs" />
-    <Compile Remove="Common\External\DependencyPropertyChangedHelper.cs" />
-    <Compile Remove="Common\External\HashedBindableCollection.cs" />
-    <Compile Remove="Common\External\IRange.cs" />
-    <Compile Remove="Common\External\IValidatableBindableBase.cs" />
-    <Compile Remove="Common\External\MimeType.cs" />
-    <Compile Remove="Common\External\ObservableCollectionVector.cs" />
-    <Compile Remove="Common\External\PluginStorage.cs" />
-    <Compile Remove="Common\External\PluginStorageFolder.cs" />
-    <Compile Remove="Common\External\ScrollViewerUtilities.cs" />
-    <Compile Remove="Common\External\SortedObservableCollection.cs" />
-    <Compile Remove="Common\External\SuspensionManager.cs" />
-    <Compile Remove="Common\External\ValidatableBindableBase.cs" />
     <Compile Remove="Common\Interfaces\ICommonCircularLog.cs" />
     <Compile Remove="Common\NavigationHelper.cs" />
     <Compile Remove="Converters\GetGyyph.cs" />
@@ -303,6 +292,9 @@
     <Compile Update="UserControls\InstructionCardLarge.xaml.cs">
       <DependentUpon>InstructionCardLarge.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\PersonRefCardSmall.xaml.cs">
+      <DependentUpon>PersonRefCardSmall.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
@@ -372,7 +364,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\External\" />
     <Folder Include="ViewModels\Test\" />
   </ItemGroup>
 

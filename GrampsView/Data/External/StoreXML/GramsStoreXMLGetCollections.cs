@@ -398,10 +398,6 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private PersonRefModelCollection GetPersonRefCollection(XElement xmlData)
         {
-            // TODO < define name = "personref-content" > < data type = "IDREF" /> < attribute name
-            // = "priv" > < attribute name = "rel" > < element name = "citationref" > < element name
-            // = "noteref" > < ref name = "noteref-content" />
-
             PersonRefModelCollection t = new PersonRefModelCollection();
 
             IEnumerable<XElement> theERElement =
@@ -421,6 +417,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
                         Handle = GetAttribute(theLoadORElement, "handle"),
                     };
+
                     t.Add(t2);
                 }
             }
