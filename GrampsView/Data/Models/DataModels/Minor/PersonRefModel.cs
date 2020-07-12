@@ -35,5 +35,7 @@ namespace GrampsView.Data.Model
         }
 
             = new HLinkNoteModelCollection();
+
+        public string GRelationship { get; set; }
     }
 }
