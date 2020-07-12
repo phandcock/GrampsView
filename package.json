@@ -1,4 +1,13 @@
 {
-  "name": "package.json",
-  "version": "01.20.0"
+  "name": "grampsview",
+  "version": "01.20.0",
+  "description": "Gramps XML geneology viewer",
+  "keywords": [
+    "gramps"
+  ],
+  "homepage": "https://github.com/phandcock/grampsview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phandcock/GrampsView.git"
+  }
 }
