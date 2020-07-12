@@ -26,10 +26,10 @@
 
 namespace GrampsView.Data.Model
 {
-    using System;
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
+    using System;
     using System.Collections;
     using System.Runtime.Serialization;
 
@@ -388,7 +388,7 @@ namespace GrampsView.Data.Model
         /// The g person reference collection.
         /// </value>
         [DataMember]
-        public PersonRefModelCollection GPersonRefCollection { get; set; } = new PersonRefModelCollection();
+        public HLinkPersonRefModelCollection GPersonRefCollection { get; set; } = new HLinkPersonRefModelCollection();
 
         /// <summary>
         /// Gets or sets the g tag reference collection.

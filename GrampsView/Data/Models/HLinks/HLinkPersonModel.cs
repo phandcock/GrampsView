@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 //
-// Various data modesl to small to be worth putting in their own file
+// Various data models too small to be worth putting in their own file
 // is first launched.
 //
 // <copyright file="HLinkPersonModel.cs" company="PlaceholderCompany">
@@ -8,45 +8,17 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-////<define name = "personref-content" >
-////  < attribute name="hlink">
-////    <data type = "IDREF" />
-////  </ attribute >
-////  < optional >
-////    < attribute name="priv">
-////      <ref name="priv-content" />
-////    </attribute>
-////  </optional>
-////  <attribute name = "rel" >
-////    < text />
-////  </ attribute >
-////  < optional >
-////    < zeroOrMore >
-////      < element name="citationref">
-////        <ref name="citationref-content" />
-////      </element>
-////    </zeroOrMore>
-////  </optional>
-////  <optional>
-////    <zeroOrMore>
-////      <element name = "noteref" >
-////        <ref name="noteref-content" />
-////      </element>
-////    </zeroOrMore>
-////  </optional>
-////</define>
-
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
     [DataContract]
-    public sealed class HLinkPersonModel : HLinkBase, IHLinkPersonModel
+    public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
     {
         /// <summary>
         /// Gets the de reference.
