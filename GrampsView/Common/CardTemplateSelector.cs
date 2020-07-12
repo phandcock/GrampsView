@@ -524,6 +524,11 @@ namespace GrampsView.Common
                 return PersonNameTemplate;
             }
 
+            if (item is PersonRefModel)
+            {
+                return PersonRefTemplate;
+            }
+
             if (item is PlaceModel)
             {
                 return PlaceTemplate;
