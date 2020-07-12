@@ -22,7 +22,7 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        release-count: '2'
+        release-count: '1'
         skip-on-empty: 'true'
         tag-prefix: ''
-
+        skip-commit: 'false'
