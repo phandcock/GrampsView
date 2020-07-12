@@ -1,4 +1,4 @@
-# 1.16.0 (2020-07-12)
+# 1.17.0 (2020-07-12)
 
 
 ### Bug Fixes
@@ -12,6 +12,7 @@
 
 ### Features
 
+* add PersonRefCard display ([e79741d](https://github.com/phandcock/GrampsView/commit/e79741d88e4517f02ef0d4bab5e79bcb25600524))
 * more work on styled text ([0bf65b8](https://github.com/phandcock/GrampsView/commit/0bf65b8d469b9d300d75e2ad786c6f967e6b598c))
 * Reload Source ([1154de4](https://github.com/phandcock/GrampsView/commit/1154de4603e0fff3d935d01d6b4aa3299c82a164))
 
