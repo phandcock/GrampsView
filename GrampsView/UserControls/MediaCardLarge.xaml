@@ -40,7 +40,6 @@
                     x:Name="AnchorImage"
                     Grid.Row="0"
                     Grid.Column="0"
-                    BackgroundColor="WhiteSmoke"
                     BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
 
