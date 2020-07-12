@@ -7,7 +7,7 @@ refactor
 test (when adding missing tests)
 chore (maintain)
 
-#Sample#
+#Sample# 
 
 fix(*): fix this thing
 
