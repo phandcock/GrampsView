@@ -6,8 +6,8 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="PersonCardSmallRoot"
-    x:DataType="models:HLinkPersonModel"
+    x:Name="PersonRefardSmallRoot"
+    x:DataType="models:PersonRefModel"
     Style="{DynamicResource GridSmallFixedCardStyle}">
 
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
@@ -44,6 +44,20 @@
                     BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
             </Grid>
+
+            <Label
+                x:Name="PersonRefNameTextBlock"
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
+
+            <Label
+                x:Name="PersonRefRelTextBlock"
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding GRelationship, Mode=OneWay}" />
 
             <Image
                 Grid.Row="1"

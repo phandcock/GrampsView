@@ -106,27 +106,34 @@ namespace GrampsView.ViewModels
         {
             BaseCL.LogProgress("Calling folder picker");
 
-            if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
+            try
             {
-                BaseCL.LogProgress("Tell someone to load the file");
+                if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
+                {
+                    BaseCL.LogProgress("Tell someone to load the file");
 
-                // Remove the old dateTime stamps so the files get reloaded even if they have been
-                // seen before
-                CommonLocalSettings.SetReloadDatabase();
+                    // Remove the old dateTime stamps so the files get reloaded even if they have
+                    // been seen before
+                    CommonLocalSettings.SetReloadDatabase();
 
-                BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
+                    BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-                BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+                    BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
 
-                await DataStore.CN.ChangeLoadingMessage("File picked").ConfigureAwait(false);
+                    await DataStore.CN.ChangeLoadingMessage("File picked").ConfigureAwait(false);
+                }
+                else
+                {
+                    BaseCL.LogProgress("File picker error");
+                    DataStore.CN.NotifyAlert("No input file was selected");
+
+                    // Allow another pick if required
+                    LocalCanHandleDataFolderChosen = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                BaseCL.LogProgress("File picker error");
-                DataStore.CN.NotifyAlert("No input file was selected");
-
-                // Allow another pick if required
-                LocalCanHandleDataFolderChosen = true;
+                DataStore.CN.NotifyException("Exception when using File Picker", ex);
             }
         }
 
