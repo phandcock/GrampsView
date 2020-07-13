@@ -1,11 +1,11 @@
 ﻿<Grid
-    x:Class="GrampsView.UserControls.PlaceCardSmall"
+    x:Class="GrampsView.UserControls.PlaceNameCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:HLinkPlaceModel"
+    x:DataType="models:PlaceNameModel"
     IsVisible="{Binding Valid, Mode=OneWay}"
     Style="{DynamicResource GridSmallFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
@@ -17,13 +17,13 @@
                                        Tablet='33%',
                                        Desktop='33%'}">
 
-            <Grid.GestureRecognizers>
+            <!--<Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{prism:NavigateTo 'PlaceDetailPage'}">
                     <TapGestureRecognizer.CommandParameter>
                         <prism:NavigationParameter Key="hlink" Value="{Binding}" />
                     </TapGestureRecognizer.CommandParameter>
                 </TapGestureRecognizer>
-            </Grid.GestureRecognizers>
+            </Grid.GestureRecognizers>-->
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -45,7 +45,7 @@
 
                 <ucon:MediaImageSkia
                     x:Name="AnchorImage"
-                    BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                    BindingContext="{Binding HomeImageHLink, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
             </Grid>
 
@@ -54,21 +54,21 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GPTitle, Mode=OneWay}" />
+                Text="{Binding GValue, Mode=OneWay}" />
 
             <Label
                 x:Name="NameTextBlock"
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GPlaceNames.GetDefaultText, Mode=OneWay}" />
+                Text="{Binding GLang, Mode=OneWay}" />
 
             <Label
                 x:Name="TypeTextBlock"
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GType, Mode=OneWay}" />
+                Text="{Binding GDate, Mode=OneWay}" />
 
             <Image
                 Grid.Row="2"
@@ -77,8 +77,8 @@
                 <Image.Source>
                     <FontImageSource
                         FontFamily="{DynamicResource MaterialFontFamily}"
-                        Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
-                        Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
+                        Glyph="{Binding HomeImageHLink.HomeSymbol}"
+                        Color="{Binding HomeImageHLink.HomeSymbolColour}" />
                 </Image.Source>
             </Image>
         </Grid>

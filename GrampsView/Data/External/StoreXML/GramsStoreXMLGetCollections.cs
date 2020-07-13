@@ -425,6 +425,42 @@ namespace GrampsView.Data.ExternalStorageNS
             return t;
         }
 
+        private PlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
+        {
+            PlaceNameModelCollection t = new PlaceNameModelCollection();
+
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "pname")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    PlaceNameModel newAttributeModel = new PlaceNameModel
+                    {
+                        Handle = "PlaceNameModel",
+
+                        GValue = (string)theLoadORElement.Attribute("value"),
+
+                        GLang = (string)theLoadORElement.Attribute("lang"),
+
+                        GDate = GetDate(theLoadORElement),
+                    };
+
+                    t.Add(newAttributeModel);
+                }
+            }
+
+            // Return sorted by the default text
+            t.Sort(T => T.DeRef.GetDefaultText);
+
+            return t;
+        }
+
         private HLinkPlaceModelCollection GetPlaceRefCollection(XElement xmlData)
         {
             HLinkPlaceModelCollection t = new HLinkPlaceModelCollection();

@@ -103,6 +103,10 @@
         <usercontrols:PlaceCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="PlaceNameCardSmallDT">
+        <usercontrols:PlaceNameCardSmall />
+    </DataTemplate>
+
     <DataTemplate x:Key="RepositoryCardSmallDT">
         <usercontrols:RepositoryCardSmall />
     </DataTemplate>
@@ -139,6 +143,7 @@
         PersonNameTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
         PersonTemplate="{StaticResource PersonCardSmallDT}"
+        PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"
         RepositoryTemplate="{StaticResource RepositoryCardSmallDT}"
         SourceTemplate="{StaticResource SourceCardSmallDT}"
