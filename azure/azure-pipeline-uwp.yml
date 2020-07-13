@@ -123,3 +123,4 @@ steps:
     releaseNotesFile: 'CHANGELOG.md'
     isSilent: false
     destinationType: 'groups'
+    distributionGroupId: 'f19421ab-bb76-49f6-b4fc-ed1031094c9e'

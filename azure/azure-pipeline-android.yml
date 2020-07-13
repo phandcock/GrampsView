@@ -95,6 +95,7 @@ steps:
     releaseNotesOption: 'file'
     releaseNotesFile: 'CHANGELOG.md'
     destinationType: 'groups'
+    distributionGroupId: 'e9e85188-6f54-4868-9759-992c446d5145'
   condition: succeededOrFailed()
 
 

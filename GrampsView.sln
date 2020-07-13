@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.iOS", "GrampsVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UWP", "GrampsView.UWP\GrampsView.UWP.csproj", "{C9E3D22C-DD30-4D5D-9CDE-99C1CC514105}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure", "azure", "{E2ADA75E-06A1-4BB2-B49A-7D770FFB75A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA75E-06A1-4BB2-B49A-7D770FFB75A6}"
 	ProjectSection(SolutionItems) = preProject
 		azure\azure-pipeline-android.yml = azure\azure-pipeline-android.yml
 		azure\azure-pipeline-ios.yml = azure\azure-pipeline-ios.yml
