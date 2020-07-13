@@ -1,8 +1,9 @@
-# 01.22.0 (2020-07-13)
+# 01.23.0 (2020-07-13)
 
 
 ### Bug Fixes
 
+* Fix display of Instruction Card Large text ([c9fdfaa](https://github.com/phandcock/GrampsView/commit/c9fdfaa5643a78dda44ef041cac1631c2d44453d))
 * fix PersonRefModel read from XML ([126313c](https://github.com/phandcock/GrampsView/commit/126313cfbe5f064da649160cd8c7ce61762f5239))
 * fix StyledText serialisation bug ([bc1f4df](https://github.com/phandcock/GrampsView/commit/bc1f4df89e81d2e6041707d4b2be6a63394c36d6))
 * remove wite background from Card Large Media ([0a8f3ec](https://github.com/phandcock/GrampsView/commit/0a8f3ecae5dbeac41d8c2e58a3091d9c785a6da3))
