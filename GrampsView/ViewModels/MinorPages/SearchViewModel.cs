@@ -27,8 +27,6 @@ namespace GrampsView.ViewModels
         /// </summary>
         private ICommand _searchCommand;
 
-        //private bool _SearchNothingFound = false;
-
         /// <summary>
         /// The local search text.
         /// </summary>
@@ -116,18 +114,6 @@ namespace GrampsView.ViewModels
             BaseDetail.Add(tt);
         }
 
-        //public bool SearchNothingFound
-        //{
-        //    get
-        //    {
-        //        return _SearchNothingFound;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref _SearchNothingFound, value);
-        //    }
-        //}
         /// <summary>
         /// Processes the query.
         /// </summary>

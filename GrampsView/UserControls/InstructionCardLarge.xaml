@@ -22,12 +22,13 @@
             </Grid.ColumnDefinitions>
 
             <!--  TODO Remove this bodgy fix  -->
+            <!--
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 HorizontalOptions="Center"
                 Style="{DynamicResource GVLabelStyleInstructions}"
-                Text="{Binding BindingContext, Source={x:Reference InstructionCardLargeRoot}, Mode=OneWay}" />
+                Text="{Binding BindingContext, Source={x:Reference InstructionCardLargeRoot}, Mode=OneWay}" />-->
 
             <Label
                 Grid.Row="0"

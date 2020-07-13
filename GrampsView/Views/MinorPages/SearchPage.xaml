@@ -51,18 +51,13 @@
         <Grid.RowDefinitions>
 
             <RowDefinition Height="Auto" />
-            <!--<RowDefinition Height="Auto" />-->
+
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
-        <!--<ucon:InstructionCardLarge
-            Grid.Row="0"
-            Grid.Column="0"
-            BindingContext="{i18n:Translate SearchPage_Instructions}" />-->
 
         <SearchBar
             x:Name="SearchBar"
@@ -83,14 +78,6 @@
                     EventName="SearchButtonPressed" />
             </SearchBar.Behaviors>
         </SearchBar>
-
-        <!--  Search Results  -->
-        <!--<Frame
-            Grid.Row="2"
-            Grid.Column="0"
-            IsVisible="{Binding SearchNothingFound, Mode=OneWay}">
-            <ucon:InstructionCardLarge x:Name="SearchNothingFound" BindingContext="{i18n:Translate SearchPage_NothingFound}" />
-        </Frame>-->
 
         <ucon:CollectionCardList
             Grid.Row="1"
