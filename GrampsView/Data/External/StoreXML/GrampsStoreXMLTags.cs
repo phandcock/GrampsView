@@ -4,15 +4,14 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// Load Tags from Gramps XML file.
@@ -40,21 +39,24 @@ namespace GrampsView.Data.ExternalStorageNS
                     // get Tag fields
 
                     // Loop through results
-                    foreach (XElement pcitation in de)
+                    foreach (XElement pTagElement in de)
                     {
                         TagModel loadTag = new TagModel
                         {
                             // Citation attributes
-                            Id = GetAttribute(pcitation, "id"),
-                            Change = GetDateTime(pcitation, "change"),
-                            Priv = SetPrivateObject(GetAttribute(pcitation, "priv")),
-                            Handle = GetAttribute(pcitation, "handle"),
+
+                            //Id = GetAttribute(pTagElement, "id"),
+                            //Change = GetDateTime(pTagElement, "change"),
+                            //Priv = SetPrivateObject(GetAttribute(pTagElement, "priv")),
+                            //Handle = GetAttribute(pTagElement, "handle"),
 
                             // Tag fields
-                            GColor = GetColour(pcitation, "color"),
-                            GName = GetAttribute(pcitation, "name"),
-                            GPriority = int.Parse(GetAttribute(pcitation, "priority"), System.Globalization.CultureInfo.CurrentCulture)
+                            GColor = GetColour(pTagElement, "color"),
+                            GName = GetAttribute(pTagElement, "name"),
+                            GPriority = int.Parse(GetAttribute(pTagElement, "priority"), System.Globalization.CultureInfo.CurrentCulture)
                         };
+
+                        loadTag.LoadBasics(GetBasics(pTagElement));
 
                         // Set tag colour
                         loadTag.HomeImageHLink.HomeSymbolColour = loadTag.GColor;

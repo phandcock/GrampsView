@@ -11,17 +11,15 @@
 /// </summary>
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Forms;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Private Storage Routines.
@@ -91,15 +89,16 @@ namespace GrampsView.Data.ExternalStorageNS
                         FamilyModel loadFamily = DV.FamilyDV.NewModel();
 
                         // Family attributes
-                        loadFamily.Id = (string)familyElement.Attribute("id");
+                        loadFamily.LoadBasics(GetBasics(familyElement));
+                        //loadFamily.Id = (string)familyElement.Attribute("id");
 
-                        //if (loadFamily.Id == "F0152")
-                        //{
-                        //}
+                        ////if (loadFamily.Id == "F0152")
+                        ////{
+                        ////}
 
-                        loadFamily.Handle = (string)familyElement.Attribute("handle");
-                        loadFamily.Change = GetDateTime((string)familyElement.Attribute("change"));
-                        loadFamily.Priv = SetPrivateObject((string)familyElement.Attribute("priv"));
+                        //loadFamily.Handle = (string)familyElement.Attribute("handle");
+                        //loadFamily.Change = GetDateTime((string)familyElement.Attribute("change"));
+                        //loadFamily.Priv = SetPrivateObject((string)familyElement.Attribute("priv"));
 
                         // Family fields
 

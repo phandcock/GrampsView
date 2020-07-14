@@ -8,17 +8,15 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Forms;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Load Citations from external storage routines.
@@ -88,10 +86,11 @@ namespace GrampsView.Data.ExternalStorageNS
                         CitationModel loadCitation = DV.CitationDV.NewModel();
 
                         // Citation attributes
-                        loadCitation.Id = GetAttribute(pcitation, "id");
-                        loadCitation.Change = GetDateTime(pcitation, "change");
-                        loadCitation.Priv = SetPrivateObject(GetAttribute(pcitation, "priv"));
-                        loadCitation.Handle = GetAttribute(pcitation, "handle");
+                        loadCitation.LoadBasics(GetBasics(pcitation));
+                        //loadCitation.Id = GetAttribute(pcitation, "id");
+                        //loadCitation.Change = GetDateTime(pcitation, "change");
+                        //loadCitation.Priv = SetPrivateObject(GetAttribute(pcitation, "priv"));
+                        //loadCitation.Handle = GetAttribute(pcitation, "handle");
 
                         if (loadCitation.Id == "C0656")
                         {

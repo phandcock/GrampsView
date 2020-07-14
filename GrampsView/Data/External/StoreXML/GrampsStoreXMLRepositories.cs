@@ -9,17 +9,14 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Forms;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
 
     /// <summary>
     /// </summary>
@@ -45,27 +42,28 @@ namespace GrampsView.Data.ExternalStorageNS
                     from el in localGrampsXMLdoc.Descendants(ns + "repository")
                     select el;
 
-                foreach (XElement prepository in de)
+                foreach (XElement pRepositoryElement in de)
                 {
                     RepositoryModel loadRepository = DV.RepositoryDV.NewModel();
 
                     // SecondaryColor attributes
-                    loadRepository.Id = (string)prepository.Attribute("id");
-                    loadRepository.Change = GetDateTime(prepository, "change");
-                    loadRepository.Priv = SetPrivateObject((string)prepository.Attribute("priv"));
-                    loadRepository.Handle = (string)prepository.Attribute("handle");
+                    loadRepository.LoadBasics(GetBasics(pRepositoryElement));
+                    //loadRepository.Id = (string)pRepositoryElement.Attribute("id");
+                    //loadRepository.Change = GetDateTime(pRepositoryElement, "change");
+                    //loadRepository.Priv = SetPrivateObject((string)pRepositoryElement.Attribute("priv"));
+                    //loadRepository.Handle = (string)pRepositoryElement.Attribute("handle");
 
                     if (loadRepository.Id == "R0000")
                     {
                     }
 
                     // Repository fields
-                    loadRepository.GRName = GetElement(prepository, "rname");
-                    loadRepository.GType = GetElement(prepository, "type");
-                    loadRepository.GAddress = GetAddressCollection(prepository);
-                    loadRepository.GURL = GetURLCollection(prepository);
-                    loadRepository.GNoteRefCollection = GetNoteCollection(prepository);
-                    loadRepository.GTagRefCollection = GetTagCollection(prepository);
+                    loadRepository.GRName = GetElement(pRepositoryElement, "rname");
+                    loadRepository.GType = GetElement(pRepositoryElement, "type");
+                    loadRepository.GAddress = GetAddressCollection(pRepositoryElement);
+                    loadRepository.GURL = GetURLCollection(pRepositoryElement);
+                    loadRepository.GNoteRefCollection = GetNoteCollection(pRepositoryElement);
+                    loadRepository.GTagRefCollection = GetTagCollection(pRepositoryElement);
 
                     // save the event
                     DV.RepositoryDV.RepositoryData.Add(loadRepository);

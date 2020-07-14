@@ -9,17 +9,14 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Forms;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Private Storage Routines.
@@ -53,16 +50,17 @@ namespace GrampsView.Data.ExternalStorageNS
                         // get Place fields
 
                         // Loop through results to get the Place data;
-                        foreach (XElement placeData in de)
+                        foreach (XElement pPlaceElement in de)
                         {
                             PlaceModel loadPlace = DV.PlaceDV.NewModel();
 
                             // Place attributes
-                            loadPlace.Id = (string)placeData.Attribute("id");
+                            loadPlace.LoadBasics(GetBasics(pPlaceElement));
+                            //loadPlace.Id = (string)pPlaceElement.Attribute("id");
 
-                            loadPlace.Change = GetDateTime(placeData, "change");
-                            loadPlace.Priv = SetPrivateObject((string)placeData.Attribute("priv"));
-                            loadPlace.Handle = (string)placeData.Attribute("handle");
+                            //loadPlace.Change = GetDateTime(pPlaceElement, "change");
+                            //loadPlace.Priv = SetPrivateObject((string)pPlaceElement.Attribute("priv"));
+                            //loadPlace.Handle = (string)pPlaceElement.Attribute("handle");
 
                             if (String.IsNullOrEmpty(loadPlace.Handle))
                             {
@@ -72,27 +70,27 @@ namespace GrampsView.Data.ExternalStorageNS
                             {
                             }
 
-                            loadPlace.GCode = GetElement(placeData, "code");
+                            loadPlace.GCode = GetElement(pPlaceElement, "code");
 
-                            loadPlace.GType = (string)placeData.Attribute("type");
+                            loadPlace.GType = (string)pPlaceElement.Attribute("type");
 
                             // Load other Place fields
-                            loadPlace.GPTitle = GetElement(placeData, "ptitle");
+                            loadPlace.GPTitle = GetElement(pPlaceElement, "ptitle");
 
-                            XElement pName = placeData.Element(ns + "pname");
+                            XElement pName = pPlaceElement.Element(ns + "pname");
                             loadPlace.GName = (string)pName.Attribute("value");
 
-                            loadPlace.GCitationRefCollection = GetCitationCollection(placeData);
+                            loadPlace.GCitationRefCollection = GetCitationCollection(pPlaceElement);
 
-                            loadPlace.GMediaRefCollection = await GetObjectCollection(placeData).ConfigureAwait(false);
+                            loadPlace.GMediaRefCollection = await GetObjectCollection(pPlaceElement).ConfigureAwait(false);
 
-                            loadPlace.GNoteRefCollection = GetNoteCollection(placeData);
+                            loadPlace.GNoteRefCollection = GetNoteCollection(pPlaceElement);
 
-                            loadPlace.GPlaceRefCollection = GetPlaceRefCollection(placeData);
+                            loadPlace.GPlaceRefCollection = GetPlaceRefCollection(pPlaceElement);
 
-                            loadPlace.GTagRefCollection = GetTagCollection(placeData);
+                            loadPlace.GTagRefCollection = GetTagCollection(pPlaceElement);
 
-                            loadPlace.GURLCollection = GetURLCollection(placeData);
+                            loadPlace.GURLCollection = GetURLCollection(pPlaceElement);
 
                             // save the event
                             DV.PlaceDV.PlaceData.Add(loadPlace);

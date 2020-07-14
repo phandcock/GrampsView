@@ -55,10 +55,11 @@ namespace GrampsView.Data.ExternalStorageNS
                         INoteModel loadNote = DV.NoteDV.NewModel();
 
                         // Note attributes
-                        loadNote.Id = (string)pname.Attribute("id");
-                        loadNote.Change = GetDateTime(pname, "change");
-                        loadNote.Priv = SetPrivateObject((string)pname.Attribute("priv"));
-                        loadNote.Handle = (string)pname.Attribute("handle");
+                        loadNote.LoadBasics(GetBasics(pname));
+                        //loadNote.Id = (string)pname.Attribute("id");
+                        //loadNote.Change = GetDateTime(pname, "change");
+                        //loadNote.Priv = SetPrivateObject((string)pname.Attribute("priv"));
+                        //loadNote.Handle = (string)pname.Attribute("handle");
 
                         //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");

@@ -100,6 +100,7 @@
     <Compile Remove="Data\Models\HLinks\HLinkBookMarkModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkInstructionCard.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\HLinkAddressModel.cs" />
+    <Compile Remove="Data\Models\Item.cs" />
     <Compile Remove="Data\Models\Misc\MediaImageFullModel.cs" />
     <Compile Remove="Data\PluginStorageFile.cs" />
     <Compile Remove="Data\PluginStorageFileSystem.cs" />
