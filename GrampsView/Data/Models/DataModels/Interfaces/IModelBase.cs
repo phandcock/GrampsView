@@ -47,7 +47,9 @@ namespace GrampsView.Data.Model
         }
 
         HLinkHomeImageModel HomeImageHLink { get; set; }
+
         string Id { get; set; }
+
         ICommonLogging ModelCommonLogging { get; set; }
 
         bool Priv { get; set; }
@@ -55,6 +57,8 @@ namespace GrampsView.Data.Model
         string PrivAsString { get; }
 
         bool Valid { get; }
+
+        void LoadBasics(ModelBase argBasics);
 
         ///// <summary>
         ///// Gets or sets the model user activity.

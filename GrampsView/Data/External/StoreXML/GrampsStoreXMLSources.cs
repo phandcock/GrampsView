@@ -9,17 +9,15 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Forms;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Private Storage Routines.
@@ -70,41 +68,42 @@ namespace GrampsView.Data.ExternalStorageNS
                     // get BookMark fields
 
                     // Loop through results to get the Citation Uri _baseUri = new Uri("ms-appx:///");
-                    foreach (XElement pSource in de)
+                    foreach (XElement pSourceElement in de)
                     {
                         SourceModel loadSource = DV.SourceDV.NewModel();
 
                         // Citation attributes
-                        loadSource.Id = (string)pSource.Attribute("id");
-                        loadSource.Change = GetDateTime(pSource, "change");
-                        loadSource.Priv = SetPrivateObject((string)pSource.Attribute("priv"));
-                        loadSource.Handle = (string)pSource.Attribute("handle");
+                        loadSource.LoadBasics(GetBasics(pSourceElement));
+                        //loadSource.Id = (string)pSourceElement.Attribute("id");
+                        //loadSource.Change = GetDateTime(pSourceElement, "change");
+                        //loadSource.Priv = SetPrivateObject((string)pSourceElement.Attribute("priv"));
+                        //loadSource.Handle = (string)pSourceElement.Attribute("handle");
 
                         if (loadSource.Id == "S0102")
                         {
                         }
 
-                        loadSource.GSourceAttributeCollection = GetAttributeCollection(pSource);
+                        loadSource.GSourceAttributeCollection = GetAttributeCollection(pSourceElement);
 
                         // Media refs
-                        loadSource.GMediaRefCollection = await GetObjectCollection(pSource).ConfigureAwait(false);
+                        loadSource.GMediaRefCollection = await GetObjectCollection(pSourceElement).ConfigureAwait(false);
 
                         // Note refs
-                        loadSource.GNoteRefCollection = GetNoteCollection(pSource);
+                        loadSource.GNoteRefCollection = GetNoteCollection(pSourceElement);
 
-                        loadSource.GSAbbrev = GetElement(pSource, "sabbrev");
+                        loadSource.GSAbbrev = GetElement(pSourceElement, "sabbrev");
 
-                        loadSource.GSAuthor = GetElement(pSource, "sauthor");
+                        loadSource.GSAuthor = GetElement(pSourceElement, "sauthor");
 
-                        loadSource.GSPubInfo = GetElement(pSource, "spubinfo");
+                        loadSource.GSPubInfo = GetElement(pSourceElement, "spubinfo");
 
-                        loadSource.GSTitle = GetElement(pSource, "stitle");
+                        loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
                         // Tag refs
-                        loadSource.GTagRefCollection = GetTagCollection(pSource);
+                        loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 
                         // Repository refs
-                        loadSource.GRepositoryRefCollection = GetRepositoryCollection(pSource);
+                        loadSource.GRepositoryRefCollection = GetRepositoryCollection(pSourceElement);
 
                         // set the Home image or symbol now that everything is laoded
                         loadSource = SetHomeImage(loadSource);

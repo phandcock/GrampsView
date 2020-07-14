@@ -18,8 +18,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    using Xamarin.Forms;
-
     /// <summary>
     /// People load Routines.
     /// </summary>
@@ -79,15 +77,16 @@ namespace GrampsView.Data.ExternalStorageNS
                         PersonModel loadPerson = DV.PersonDV.NewModel();
 
                         // Person attributes
-                        loadPerson.Id = GetAttribute(pname.Attribute("id"));
+                        loadPerson.LoadBasics(GetBasics(pname));
+                        //loadPerson.Id = GetAttribute(pname.Attribute("id"));
 
                         if (loadPerson.Id == "I0571")
                         {
                         }
 
-                        loadPerson.Change = GetDateTime(pname, "change");
-                        loadPerson.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
-                        loadPerson.Handle = GetAttribute(pname, "handle");
+                        //loadPerson.Change = GetDateTime(pname, "change");
+                        //loadPerson.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
+                        //loadPerson.Handle = GetAttribute(pname, "handle");
 
                         // if (loadPerson.Id == "I0922") { // Why parent hugh cameron display bad? } Address
                         loadPerson.GAddress = GetAddressCollection(pname);

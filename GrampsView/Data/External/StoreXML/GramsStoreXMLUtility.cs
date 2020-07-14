@@ -232,6 +232,19 @@ namespace GrampsView.Data.ExternalStorageNS
             }
         }
 
+        private ModelBase GetBasics(XElement argElement)
+        {
+            ModelBase returnVal = new ModelBase
+            {
+                Id = GetAttribute(argElement.Attribute("id")),
+                Change = GetDateTime(argElement, "change"),
+                Priv = SetPrivateObject(GetAttribute(argElement.Attribute("priv"))),
+                Handle = GetAttribute(argElement, "handle")
+            };
+
+            return returnVal;
+        }
+
         /// <summary>
         /// Gets the colour.
         /// </summary>

@@ -10,7 +10,6 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -182,14 +181,17 @@ namespace GrampsView.Data.ExternalStorageNS
                         // </ zeroOrMore >
 
                         // </ define >
-                        IMediaModel loadObject = new MediaModel
-                        {
-                            // object details
-                            Id = (string)pname.Attribute("id"),
-                            Handle = (string)pname.Attribute("handle"),
-                            Priv = SetPrivateObject((string)pname.Attribute("priv")),
-                            Change = GetDateTime(GetAttribute(pname, "change")),
-                        };
+                        IMediaModel loadObject = new MediaModel();
+                        loadObject.LoadBasics(GetBasics(pname));
+
+                        //IMediaModel loadObject = new MediaModel
+                        //{
+                        //    // object details
+                        //    Id = (string)pname.Attribute("id"),
+                        //    Handle = (string)pname.Attribute("handle"),
+                        //    Priv = SetPrivateObject((string)pname.Attribute("priv")),
+                        //    Change = GetDateTime(GetAttribute(pname, "change")),
+                        //};
 
                         if (loadObject.Id == "O0049")
                         {

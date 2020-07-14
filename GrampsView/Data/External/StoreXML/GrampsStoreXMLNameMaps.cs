@@ -9,15 +9,14 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// Private Storage Routines.
@@ -53,10 +52,11 @@ namespace GrampsView.Data.ExternalStorageNS
                         NameMapModel loadNameMap = DV.NameMapDV.NewModel();
 
                         // Citation attributes
-                        loadNameMap.Id = (string)pcitation.Attribute("id");
-                        loadNameMap.Change = GetDateTime(pcitation, "change");
-                        loadNameMap.Priv = SetPrivateObject((string)pcitation.Attribute("priv"));
-                        loadNameMap.Handle = (string)pcitation.Attribute("handle");
+                        loadNameMap.LoadBasics(GetBasics(pcitation));
+                        //loadNameMap.Id = (string)pcitation.Attribute("id");
+                        //loadNameMap.Change = GetDateTime(pcitation, "change");
+                        //loadNameMap.Priv = SetPrivateObject((string)pcitation.Attribute("priv"));
+                        //loadNameMap.Handle = (string)pcitation.Attribute("handle");
 
                         // Citation fields
 

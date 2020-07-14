@@ -438,5 +438,28 @@ namespace GrampsView.Data.Model
         {
             return HLinkKey.GetHashCode();
         }
+
+        public void LoadBasics(ModelBase argBasics)
+        {
+            if (!(String.IsNullOrEmpty(argBasics.Id)))
+            {
+                Id = argBasics.Id;
+            }
+
+            if (argBasics.Change != DateTime.MinValue)
+            {
+                Change = argBasics.Change;
+            }
+
+            if (argBasics.Priv)
+            {
+                Priv = argBasics.Priv;
+            }
+
+            if (!(String.IsNullOrEmpty(argBasics.Handle)))
+            {
+                Handle = argBasics.Handle;
+            }
+        }
     }
 }

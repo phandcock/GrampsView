@@ -19,8 +19,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    using Xamarin.Forms;
-
     /// <summary>
     /// Private Storage Routines.
     /// </summary>
@@ -90,10 +88,11 @@ namespace GrampsView.Data.ExternalStorageNS
                         EventModel loadEvent = DV.EventDV.NewModel();
 
                         // Event attributes
-                        loadEvent.Id = GetAttribute(pname.Attribute("id"));
-                        loadEvent.Change = GetDateTime(GetAttribute(pname, "change"));
-                        loadEvent.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
-                        loadEvent.Handle = GetAttribute(pname.Attribute("handle"));
+                        loadEvent.LoadBasics(GetBasics(pname));
+                        //loadEvent.Id = GetAttribute(pname.Attribute("id"));
+                        //loadEvent.Change = GetDateTime(GetAttribute(pname, "change"));
+                        //loadEvent.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
+                        //loadEvent.Handle = GetAttribute(pname.Attribute("handle"));
 
                         if (loadEvent.Id == "E0715")
                         {
