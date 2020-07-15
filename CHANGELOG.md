@@ -1,4 +1,4 @@
-# 01.24.0 (2020-07-14)
+# 2.0.0 (2020-07-15)
 
 
 ### Bug Fixes
@@ -15,10 +15,16 @@
 
 ### Features
 
+* Add all 1.71 Place model fields ([d86051b](https://github.com/phandcock/GrampsView/commit/d86051b8fcc003f2807a8e93a4858f084f515193))
 * Add personRef collection ([eb35a74](https://github.com/phandcock/GrampsView/commit/eb35a74e0785e595b8021cc7724b6ab0edcafbdc))
 * add PersonRefCard display ([e79741d](https://github.com/phandcock/GrampsView/commit/e79741d88e4517f02ef0d4bab5e79bcb25600524))
 * more work on styled text ([0bf65b8](https://github.com/phandcock/GrampsView/commit/0bf65b8d469b9d300d75e2ad786c6f967e6b598c))
 * Reload Source ([1154de4](https://github.com/phandcock/GrampsView/commit/1154de4603e0fff3d935d01d6b4aa3299c82a164))
+
+
+### BREAKING CHANGES
+
+* Changed the defintion of Place GName
 
 
 
