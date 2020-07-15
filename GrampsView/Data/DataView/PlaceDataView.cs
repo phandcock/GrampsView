@@ -10,18 +10,18 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repositories;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// View of Place data.
@@ -42,7 +42,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(PlaceModel => PlaceModel.GName).ToList();
+                return DataViewData.OrderBy(PlaceModel => PlaceModel.GetDefaultText).ToList();
             }
         }
 

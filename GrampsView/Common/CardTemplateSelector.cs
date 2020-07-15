@@ -238,6 +238,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate PlaceNameTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the place template.
         /// </summary>
@@ -350,6 +356,11 @@ namespace GrampsView.Common
             }
 
             if (item is CardGroupBase<PersonNameModel>)
+            {
+                return CardGroupTemplate;
+            }
+
+            if (item is CardGroupBase<PlaceLocation>)
             {
                 return CardGroupTemplate;
             }
@@ -516,6 +527,16 @@ namespace GrampsView.Common
             if (item is PlaceModel)
             {
                 return PlaceTemplate;
+            }
+
+            if (item is PlaceNameModel)
+            {
+                return PlaceNameTemplate;
+            }
+
+            if (item is PlaceNameModelCollection)
+            {
+                return CardGroupTemplate;
             }
 
             if (item is RepositoryModel)

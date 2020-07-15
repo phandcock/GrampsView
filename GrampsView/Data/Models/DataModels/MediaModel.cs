@@ -28,7 +28,7 @@ namespace GrampsView.Data.Model
     //// "noteref"
     //// "date-content"
     //// "citationref"
-    //// "tagref">
+    //// "tagref"
 
     /// <summary>
     /// Data model for a media object.

@@ -77,19 +77,51 @@ namespace GrampsView.ViewModels
                     {
                         new CardListLine("Card Type:", "Place Detail"),
                         new CardListLine("Title:", PlaceObject.GPTitle),
-                        new CardListLine("Name:", PlaceObject.GName),
+                        new CardListLine("Name:", PlaceObject.GPlaceNames.GetDefaultText),
                         new CardListLine("Type:", PlaceObject.GType),
-                    });
+                        new CardListLine("Code:", PlaceObject.GCode),
+                });
+
+                // Get Coordinates TODO Setup Map link card button thing
+                t = new CardGroup { Title = "Coordinates" };
+
+                t.Add(new CardListLineCollection
+                    {
+                        new CardListLine("Lat:", PlaceObject.GCoordLat),
+                        new CardListLine("Long:", PlaceObject.GCoordLong),
+                });
 
                 t.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
 
                 BaseDetail.Add(t);
 
+                // Get Place Name details
+                if (PlaceObject.GPlaceNames.Count > 1)
+                {
+                    //t = new CardGroup { Title = "Place Names" };
+
+                    //foreach (PlaceNameModel item in PlaceObject.GPlaceNames)
+                    //{
+                    //    t.Add(new CardListLineCollection
+                    //    {
+                    //        new CardListLine("Card Type:", "Place Name"),
+                    //        new CardListLine("Name:", item.GValue),
+                    //        new CardListLine("Language:", item.GLang),
+                    //        new CardListLine("Date:", item.GDate.GetShortDateAsString),
+                    //    });
+                    //}
+
+                    BaseDetail.Add(PlaceObject.GPlaceNames);
+                }
+
                 // Details
+                BaseDetail.Add(PlaceObject.GLocation);
                 BaseDetail.Add(PlaceObject.GPlaceRefCollection.GetCardGroup());
                 BaseDetail.Add(PlaceObject.PlaceChildCollection.GetCardGroup());
 
                 BaseDetail.Add(PlaceObject.GCitationRefCollection.GetCardGroup());
+                BaseDetail.Add(PlaceObject.GMediaRefCollection.GetCardGroup());
+                BaseDetail.Add(PlaceObject.GNoteRefCollection.GetCardGroup());
                 BaseDetail.Add(PlaceObject.GTagRefCollection.GetCardGroup());
                 BaseDetail.Add(PlaceObject.GURLCollection);
 

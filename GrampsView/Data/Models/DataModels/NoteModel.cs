@@ -10,7 +10,7 @@
 //// gramps XML 1.71
 ////
 ////    primary-object
-////    format">
+////    format
 ////    type
 ////    styledtext
 ///     tagref
