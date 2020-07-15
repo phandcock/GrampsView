@@ -7,101 +7,33 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-/// <summary>
-///
-/// </summary>
-///
-/// Done.
-///
-/// - SecondaryColor-object
-/// -- type
-/// -- ptitle
-/// -- placeref
-/// -- objref
-/// -- noteref
-/// -- pname
-///
-///
-////   < optional >
-////     < element name="coord">
-////       <attribute name = "long" >
-////         < text />
-////       </ attribute >
-////       < attribute name="lat">
-////         <text />
-////       </attribute>
-////     </element>
-////   </optional>
-
-////   <zeroOrMore>
-////     <element name = "location" >
-////       < optional >
-////         < attribute name="street">
-////           <text />
-////         </attribute>
-////       </optional>
-////       <optional>
-////         <attribute name = "locality" >
-////           < text />
-////         </ attribute >
-////       </ optional >
-////       < optional >
-////         < attribute name="city">
-////           <text />
-////         </attribute>
-////       </optional>
-////       <optional>
-////         <attribute name = "parish" >
-////           < text />
-////         </ attribute >
-////       </ optional >
-////       < optional >
-////         < attribute name="county">
-////           <text />
-////         </attribute>
-////       </optional>
-////       <optional>
-////         <attribute name = "state" >
-////           < text />
-////         </ attribute >
-////       </ optional >
-////       < optional >
-////         < attribute name="country">
-////           <text />
-////         </attribute>
-////       </optional>
-////       <optional>
-////         <attribute name = "postal" >
-////           < text />
-////         </ attribute >
-////       </ optional >
-////       < optional >
-////         < attribute name="phone">
-////           <text />
-////         </attribute>
-////       </optional>
-////     </element>
-////   </zeroOrMore>
-////
-////     <element name = "objref" > Done
-////       <ref name="objref-content" />
-////     </element>
-////
-////   <zeroOrMore>
-////     <element name = "url" >
-////       <ref name="url-content" />
-////     </element>
-////   </zeroOrMore>
+//// gramps XML 1.71
+////  primary-object
+////  type
+////  ptitle
+////  placename-content
+////  code
+////  coord
+////     long
+////     lat
+//// placeref
+//// location
+//// objref
+//// url
+//// noteref
+//// noteref-content
+//// citationref
+//// tagref
 ////
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// </summary>
@@ -120,7 +52,12 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _GCodeField;
 
-        private string _GNameField = string.Empty;
+        private PlaceNameModelCollection _GPlaceNames = new PlaceNameModelCollection();
+
+        /// <summary>
+        /// The local p title field.
+        /// </summary>
+        private string _GPTitle;
 
         private HLinkPlaceModelCollection _PlaceChildCollection = new HLinkPlaceModelCollection();
 
@@ -143,11 +80,6 @@ namespace GrampsView.Data.Model
         /// The local place type field.
         /// </summary>
         private string localPlaceTypeField;
-
-        /// <summary>
-        /// The local p title field.
-        /// </summary>
-        private string localPTitleField;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceModel"/> class.
@@ -187,6 +119,12 @@ namespace GrampsView.Data.Model
             }
         }
 
+        [DataMember]
+        public string GCoordLat { get; set; }
+
+        [DataMember]
+        public string GCoordLong { get; set; }
+
         /// <summary>
         /// Gets the get default text for this Model.
         /// </summary>
@@ -202,9 +140,12 @@ namespace GrampsView.Data.Model
                     return GPTitle;
                 }
 
-                return GName;
+                return GPlaceNames.GetDefaultText;
             }
         }
+
+        [DataMember]
+        public PlaceLocationCollection GLocation { get; set; } = new PlaceLocationCollection();
 
         /// <summary>
         /// Gets or sets the g media reference collection.
@@ -223,20 +164,6 @@ namespace GrampsView.Data.Model
             set
             {
                 SetProperty(ref localMediaCollection, value);
-            }
-        }
-
-        [DataMember]
-        public string GName
-        {
-            get
-            {
-                return _GNameField;
-            }
-
-            set
-            {
-                SetProperty(ref _GNameField, value);
             }
         }
 
@@ -260,6 +187,20 @@ namespace GrampsView.Data.Model
             }
         }
 
+        [DataMember]
+        public PlaceNameModelCollection GPlaceNames
+        {
+            get
+            {
+                return _GPlaceNames;
+            }
+
+            set
+            {
+                SetProperty(ref _GPlaceNames, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets the g place reference collection.
         /// </summary>
@@ -280,28 +221,28 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets or sets the place title.
-        /// </summary>
-        /// <value>
-        /// The gp title.
-        /// </value>
+        ///// <summary>
+        ///// Gets or sets the place title.
+        ///// </summary>
+        ///// <value>
+        ///// The gp title.
+        ///// </value>
         [DataMember]
         public string GPTitle
         {
             get
             {
-                return localPTitleField;
+                return _GPTitle;
             }
 
             set
             {
-                SetProperty(ref localPTitleField, value);
+                SetProperty(ref _GPTitle, value);
             }
         }
 
         /// <summary>
-        /// Gets or sets the g tag reference collection.
+        /// Gets or sets the tag reference collection.
         /// </summary>
         /// <value>
         /// The g tag reference collection.
@@ -316,7 +257,6 @@ namespace GrampsView.Data.Model
           ;
         }
 
-        // <attribute name = "type" > < text /> </ attribute >
         [DataMember]
         public string GType
         {

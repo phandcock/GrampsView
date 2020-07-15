@@ -32,6 +32,19 @@
             Unknown,
         }
 
+        public enum PlaceLocation
+        {
+            city,
+            country,
+            county,
+            locality,
+            parish,
+            phone,
+            postal,
+            state,
+            street,
+        }
+
         public enum TextStyle
         {
             bold,
