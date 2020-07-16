@@ -25,7 +25,7 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public DateObjectModel GDate { get; set; } = new DateObjectModel();
+        public IDateObjectModel GDate { get; set; } = new DateObjectModel();
 
         [DataMember]
         public string GLang { get; set; }

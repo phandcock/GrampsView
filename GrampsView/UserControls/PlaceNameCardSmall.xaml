@@ -17,14 +17,6 @@
                                        Tablet='33%',
                                        Desktop='33%'}">
 
-            <!--<Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{prism:NavigateTo 'PlaceDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
-            </Grid.GestureRecognizers>-->
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
@@ -68,7 +60,7 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding GDate, Mode=OneWay}" />
+                Text="{Binding GDate.ShortDateOrEmpty, Mode=OneWay}" />
 
             <Image
                 Grid.Row="2"

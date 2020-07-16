@@ -53,7 +53,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The date value.
         /// </value>
-        DateObjectModel GDateValue
+        IDateObjectModel GDateValue
         {
             get;
             set;
