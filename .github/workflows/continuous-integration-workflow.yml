@@ -22,7 +22,6 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        git-message: 'chore(release): {version}'
         release-count: '1'
         preset: 'angular'
         skip-on-empty: 'true'
