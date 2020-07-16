@@ -1,8 +1,9 @@
-# 2.0.0 (2020-07-15)
+# 3.0.0 (2020-07-16)
 
 
 ### Bug Fixes
 
+* Cleanup PlaceNameCollection display ([b2c61c9](https://github.com/phandcock/GrampsView/commit/b2c61c94d9796a70dcb014e910ea30195152938b))
 * Fix display of Instruction Card Large text ([c9fdfaa](https://github.com/phandcock/GrampsView/commit/c9fdfaa5643a78dda44ef041cac1631c2d44453d))
 * fix PersonRefModel read from XML ([126313c](https://github.com/phandcock/GrampsView/commit/126313cfbe5f064da649160cd8c7ce61762f5239))
 * fix StyledText serialisation bug ([bc1f4df](https://github.com/phandcock/GrampsView/commit/bc1f4df89e81d2e6041707d4b2be6a63394c36d6))
