@@ -26,3 +26,5 @@ jobs:
         preset: 'angular'
         skip-on-empty: 'true'
         tag-prefix: ''
+        skip-comit: 'true'
+      
