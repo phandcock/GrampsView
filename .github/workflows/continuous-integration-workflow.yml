@@ -26,4 +26,5 @@ jobs:
         preset: 'angular'
         skip-on-empty: 'true'
         tag-prefix: ''
+        skip-version-file: 'true'
 
