@@ -17,6 +17,9 @@ jobs:
       with:
         token: ${{ secrets.github_token }}
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
+
     - name: Bump version and push tag
       id: changelog
       uses: TriPSs/conventional-changelog-action@v3
