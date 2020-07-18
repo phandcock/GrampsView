@@ -78,7 +78,16 @@ steps:
     apksignerKeystoreAlias: androiddebugkey
     apksignerKeyPassword: android
 
-
+- task: XplatGenerateReleaseNotes@3
+  inputs:
+    outputfile: '$(Build.ArtifactStagingDirectory)\CHANGELOG.md'
+    templateLocation: 'File'
+    templatefile: 'ReleaseNotesTemplate.txt'
+    dumpPayloadToConsole: true
+    dumpPayloadToFile: false
+    replaceFile: True
+    getParentsAndChildren: False
+    
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\'
   inputs:
