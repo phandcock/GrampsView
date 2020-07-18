@@ -25,6 +25,6 @@ jobs:
         release-count: '1'
         preset: 'angular'
         skip-on-empty: 'true'
-        tag-prefix: ''
+        tag-prefix: 'v'
         skip-version-file: 'true'
 
