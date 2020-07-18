@@ -15,13 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+        token: ${{ secrets.github_token }}
 
     - name: Bump version and push tag
       id: changelog
       uses: TriPSs/conventional-changelog-action@v3
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+        github-token: ${{ secrets.github_token }}
         release-count: '1'
         preset: 'angular'
         skip-on-empty: 'true'
