@@ -10,22 +10,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
     steps:
-#    - name: Checkout
-#      uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN_ACTION }}
 
     - name: Bump version and push tag
       id: changelog
       uses: TriPSs/conventional-changelog-action@v3
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
         release-count: '1'
         preset: 'angular'
         skip-on-empty: 'true'
         tag-prefix: 'v'
-        skip-version-file: 'true'
-
+  
 
