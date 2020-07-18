@@ -17,18 +17,12 @@ jobs:
       with:
         token: ${{ secrets.github_token }}
 
-    - name: Bump version and push tag
-      id: changelog
-      uses: TriPSs/conventional-changelog-action@v3
-      with:
-        github-token: ${{ secrets.github_token }}
-        release-count: '1'
-        preset: 'angular'
+#    - name: Bump version and push tag
+#      id: changelog
+#      uses: TriPSs/conventional-changelog-action@v3
+#      with:
+#        github-token: ${{ secrets.github_token }}
+#        release-count: '1'
+##        preset: 'angular'
         skip-on-empty: 'true'
-
-    - name: Generate changelog
-      uses: heinrichreimer/action-github-changelog-generator@v2.1.1
-
-  
-
 
