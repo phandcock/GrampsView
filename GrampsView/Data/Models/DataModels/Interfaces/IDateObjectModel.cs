@@ -8,7 +8,7 @@
 
 namespace GrampsView.Data.Model
 {
-    // using static GrampsView.Data.Model.DateObjectModel;
+    using System;
 
     /// <summary>
     /// Public interfaces for the DateObject elements.
@@ -23,9 +23,20 @@ namespace GrampsView.Data.Model
 
         int GetDecade { get; }
 
-        string GetLongDateAsString { get; }
-        string GetShortDateAsString { get; }
-        string GetShortDateOrEmptyAsString { get; }
         string GetYear { get; }
+
+        string LongDate { get; }
+
+        string ShortDate { get; }
+
+        string ShortDateOrEmpty { get; }
+
+        DateTime SingleDate { get; }
+
+        DateTime SortDate { get; }
+
+        TimeSpan DateDifference(IDateObjectModel otherDate);
+
+        string DateDifferenceDecoded(IDateObjectModel otherDate);
     }
 }

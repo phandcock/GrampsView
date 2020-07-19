@@ -104,7 +104,7 @@ namespace GrampsView.ViewModels
                 t.Add(new CardListLineCollection
             {
                     new CardListLine("Card Type:", "Citation Detail"),
-                    new CardListLine("Date:", CitationObject.GDateContent.GetLongDateAsString),
+                    new CardListLine("Date:", CitationObject.GDateContent.LongDate),
                     new CardListLine("Page:", CitationObject.GPage),
                     new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture)),
             });

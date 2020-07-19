@@ -49,6 +49,16 @@ steps:
     Contents: Secret.cs
     TargetFolder: GrampsView/Common/
 
+- task: XplatGenerateReleaseNotes@3
+  inputs:
+    outputfile: '$(Build.ArtifactStagingDirectory)\CHANGELOG.md'
+    templateLocation: 'File'
+    templatefile: 'GrampsView/AnythingElse/DeploymentTools/ReleaseNotesTemplate.txt'
+    dumpPayloadToConsole: true
+    dumpPayloadToFile: false
+    replaceFile: True
+    getParentsAndChildren: False
+
 - task: UseGitVersion@5
   displayName: GitVersion
   inputs:
@@ -77,7 +87,6 @@ steps:
     apksignerKeystorePassword: android
     apksignerKeystoreAlias: androiddebugkey
     apksignerKeyPassword: android
-
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\'

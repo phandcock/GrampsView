@@ -41,7 +41,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Date object for the event.
         /// </summary>
-        private DateObjectModel _GDate = new DateObjectModel();
+        private IDateObjectModel _GDate = new DateObjectModel();
 
         /// <summary>
         /// Gets or sets the Event Description.
@@ -128,7 +128,7 @@ namespace GrampsView.Data.Model
         /// The event date.
         /// </value>
         [DataMember]
-        public DateObjectModel GDate
+        public IDateObjectModel GDate
         {
             get
             {

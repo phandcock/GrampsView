@@ -152,7 +152,7 @@ namespace GrampsView.Common
 
             await DataLoadLogAdd(argMessage);
 
-            _iocCommonLogging.LogProgress("MajorStatusAdd" + argMessage);
+            _iocCommonLogging.LogProgress("MajorStatusAdd: " + argMessage);
 
             MajorStatusMessage = argMessage;
 
