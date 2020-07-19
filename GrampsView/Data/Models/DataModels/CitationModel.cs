@@ -15,12 +15,12 @@
 /// </summary>
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// Data model for a Citation.
@@ -60,7 +60,7 @@ namespace GrampsView.Data.Model
         /// The content of the g date.
         /// </value>
         [DataMember]
-        public DateObjectModel GDateContent
+        public IDateObjectModel GDateContent
         {
             get;
             set;

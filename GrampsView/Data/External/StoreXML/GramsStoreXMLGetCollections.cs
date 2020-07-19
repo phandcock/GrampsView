@@ -451,6 +451,8 @@ namespace GrampsView.Data.ExternalStorageNS
                         GDate = GetDate(theLoadORElement),
                     };
 
+                    newAttributeModel.HomeImageHLink.HomeSymbol = CommonConstants.IconPlace;
+
                     t.Add(newAttributeModel);
                 }
             }

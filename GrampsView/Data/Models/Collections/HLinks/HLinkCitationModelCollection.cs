@@ -62,7 +62,7 @@ namespace GrampsView.Data.Collections
                 }
 
                 // Sort the collection
-                List<HLinkCitationModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent).ToList();
+                List<HLinkCitationModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent.SortDate).ToList();
 
                 Items.Clear();
 

@@ -107,7 +107,7 @@ namespace GrampsView.ViewModels
                     //        new CardListLine("Card Type:", "Place Name"),
                     //        new CardListLine("Name:", item.GValue),
                     //        new CardListLine("Language:", item.GLang),
-                    //        new CardListLine("Date:", item.GDate.GetShortDateAsString),
+                    //        new CardListLine("Date:", item.GDate.ShortDate),
                     //    });
                     //}
 

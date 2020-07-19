@@ -102,7 +102,7 @@ namespace GrampsView.ViewModels
                     new CardListLine("State:", AddressObject.GState),
                     new CardListLine("Country:", AddressObject.GCountry),
 
-                    new CardListLine("Date:", AddressObject.GDate.GetShortDateAsString),
+                    new CardListLine("Date:", AddressObject.GDate.ShortDate),
                     new CardListLine("Postal:", AddressObject.GPostal),
                     new CardListLine("Phone:", AddressObject.GPhone),
                 };

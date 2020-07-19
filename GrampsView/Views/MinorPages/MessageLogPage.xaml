@@ -44,7 +44,6 @@
         <StackLayout
             x:Name="MajorStatusList"
             BindableLayout.ItemTemplate="{StaticResource DataLogEntryLarge}"
-            BindableLayout.ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
-            Style="{StaticResource CollectionViewBase}" />
+            BindableLayout.ItemsSource="{Binding MajorStatusList, Mode=OneWay}" />
     </ScrollView>
 </ContentPage>

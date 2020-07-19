@@ -48,7 +48,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDate.GetShortDateAsString, Mode=OneWay}" />
+                Text="{Binding DeRef.GDate.ShortDate, Mode=OneWay}" />
 
             <Label
                 Grid.Row="1"

@@ -80,6 +80,7 @@
     </Style>
 
     <!--  Create a Card Style for a CollectionView Style  -->
+    <!--
     <Style
         x:Key="CSCLayoutCards"
         BasedOn="{StaticResource CollectionViewBase}"
@@ -87,7 +88,7 @@
         <Setter Property="ItemsLayout" Value="VerticalList" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************

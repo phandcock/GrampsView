@@ -193,7 +193,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         //    Change = GetDateTime(GetAttribute(pname, "change")),
                         //};
 
-                        if (loadObject.Id == "O0049")
+                        if (loadObject.Id == "O0168")
                         {
                         }
 

@@ -200,7 +200,7 @@ namespace GrampsView.ViewModels
 
             if (PersonObject.BirthDate != null)
             {
-                extraDetailsCard.Add(new CardListLine("Birth Date:", PersonObject.BirthDate.GetLongDateAsString));
+                extraDetailsCard.Add(new CardListLine("Birth Date:", PersonObject.BirthDate.LongDate));
 
                 if (PersonObject.IsLiving)
                 {
