@@ -133,7 +133,7 @@ namespace GrampsView.ViewModels
                 if (FamilyObject.GEventRefCollection.Count > 0)
                 {
                     // TODO Handle this
-                    outFamEvent = FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GType + ": " + FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GDate.GetShortDateAsString;
+                    outFamEvent = FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GType + ": " + FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GDate.ShortDate;
                 }
 
                 // TODO localActivitySession = await CommonTimeline.AddToTimeLine("Family",

@@ -249,7 +249,7 @@ namespace GrampsView.Data.DataView
         {
             List<SearchItem> itemsFound = new List<SearchItem>();
 
-            var temp = DataViewData.Where(x => x.GDateContent.GetShortDateAsString.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GDateContent.ShortDate.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
             foreach (ICitationModel tempMO in temp)
             {

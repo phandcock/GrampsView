@@ -116,7 +116,7 @@ namespace GrampsView.Data.Model
         /// The birth date.
         /// </value>
         [DataMember]
-        public DateObjectModel BirthDate
+        public IDateObjectModel BirthDate
         {
             get; set;
         }

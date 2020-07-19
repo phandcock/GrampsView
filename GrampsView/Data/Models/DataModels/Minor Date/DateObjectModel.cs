@@ -9,7 +9,6 @@
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System;
@@ -295,115 +294,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the get long date as string. Default so it can be overridden.
-        /// </summary>
-        /// <value>
-        /// The get long date as string.
-        /// </value>
-        public string GetLongDateAsString
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetLongDateAsString;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetLongDateAsString;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetLongDateAsString;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetLongDateAsString;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return "Unknown";
-                        }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the string version of the date field. Default so it can be overridden.
-        /// </summary>
-        /// <returns>
-        /// a string version of the date.
-        /// </returns>
-        public string GetShortDateAsString
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetShortDateAsString;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetShortDateAsString;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetShortDateAsString;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetShortDateAsString;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return "Unknown";
-                        }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets an empty string if a null date or the date string. Used for formatting. Default so
-        /// it can be overridden.
-        /// </summary>
-        public string GetShortDateOrEmptyAsString
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                return GetShortDateAsString;
-            }
-        }
-
-        /// <summary>
         /// Gets the year of the date.
         /// </summary>
         /// <value>
@@ -587,6 +477,52 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
+        /// Gets the get long date as string. Default so it can be overridden.
+        /// </summary>
+        /// <value>
+        /// The get long date as string.
+        /// </value>
+        public string LongDate
+        {
+            get
+            {
+                if (!Valid)
+                {
+                    return "Unknown";
+                }
+
+                switch (GType)
+                {
+                    case DateType.Range:
+                        {
+                            return RangeGetLongDateAsString;
+                        }
+
+                    case DateType.Span:
+                        {
+                            return SpanGetLongDateAsString;
+                        }
+
+                    case DateType.Str:
+                        {
+                            return StrGetLongDateAsString;
+                        }
+
+                    case DateType.Val:
+                        {
+                            return ValGetLongDateAsString;
+                        }
+
+                    default:
+                        {
+                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
+                            return "Unknown";
+                        }
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets the default Date field.
         /// </summary>
         [DataMember]
@@ -600,6 +536,82 @@ namespace GrampsView.Data.Model
             internal set
             {
                 SetProperty(ref _NotionalDate, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets the string version of the date field. Default so it can be overridden.
+        /// </summary>
+        /// <returns>
+        /// a string version of the date.
+        /// </returns>
+        public string ShortDate
+        {
+            get
+            {
+                if (!Valid)
+                {
+                    return "Unknown";
+                }
+
+                switch (GType)
+                {
+                    case DateType.Range:
+                        {
+                            return RangeGetShortDateAsString;
+                        }
+
+                    case DateType.Span:
+                        {
+                            return SpanGetShortDateAsString;
+                        }
+
+                    case DateType.Str:
+                        {
+                            return StrGetShortDateAsString;
+                        }
+
+                    case DateType.Val:
+                        {
+                            return ValGetShortDateAsString;
+                        }
+
+                    default:
+                        {
+                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
+                            return "Unknown";
+                        }
+                }
+            }
+        }
+
+        ///// <summary>
+        ///// Gets an empty string if a null date or the date string. Used for formatting. Default so
+        ///// it can be overridden.
+        ///// </summary>
+        //public string GetShortDateOrEmptyAsString
+        //{
+        //    get
+        //    {
+        //        if (!Valid)
+        //        {
+        //            return "Unknown";
+        //        }
+
+        //        return ShortDate;
+        //    }
+        //}
+
+        public string ShortDateOrEmpty
+        {
+            get
+            {
+                if (!Valid)
+                {
+                    return String.Empty;
+                }
+
+                return ShortDate;
             }
         }
 
@@ -850,7 +862,7 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public TimeSpan DateDifference(DateObjectModel otherDate)
+        public TimeSpan DateDifference(IDateObjectModel otherDate)
         {
             if (Valid)
             {
@@ -868,7 +880,7 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public string DateDifferenceDecoded(DateObjectModel otherDate)
+        public string DateDifferenceDecoded(IDateObjectModel otherDate)
         {
             if (Valid)
             {

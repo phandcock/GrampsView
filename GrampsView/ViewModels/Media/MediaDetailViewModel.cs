@@ -123,7 +123,7 @@ namespace GrampsView.ViewModels
                     t.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Media Detail"),
-                        new CardListLine("Date:", CurrentMediaObject.GDateValue.GetLongDateAsString),
+                        new CardListLine("Date:", CurrentMediaObject.GDateValue.LongDate),
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),
                         new CardListLine("File Content Type:", CurrentMediaObject.FileContentType),

@@ -86,7 +86,7 @@ namespace GrampsView.Data.Collections
                 }
 
                 // Sort the collection
-                List<HLinkEventModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate).ToList();
+                List<HLinkEventModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate.SortDate).ToList();
 
                 Items.Clear();
 

@@ -24,7 +24,7 @@
         {
             //// TODO localActivitySession = await CommonTimeline.AddToTimeLine("Person",
             //// PersonObject, PersonObject.HomeImageHLink.DeRef.MediaStorageFilePath, "Person: "
-            //// + PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.GetShortDateAsString).ConfigureAwait(false);
+            //// + PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.ShortDate).ConfigureAwait(false);
 
             //UserActivitySession returnedFromUIThread = await Device.BeginInvokeOnMainThread(async () =>
             //{

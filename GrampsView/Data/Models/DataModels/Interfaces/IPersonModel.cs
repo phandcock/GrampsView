@@ -21,7 +21,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The birth date.
         /// </value>
-        DateObjectModel BirthDate
+        IDateObjectModel BirthDate
         {
             get;
         }

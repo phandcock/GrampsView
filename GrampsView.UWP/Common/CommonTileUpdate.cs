@@ -74,7 +74,7 @@ namespace GrampsView.UWP.Common
 
                         new AdaptiveText()
                         {
-                            Text = media.GDateValue.GetShortDateOrEmptyAsString,
+                            Text = media.GDateValue.ShortDateOrEmpty,
                             HintStyle = AdaptiveTextStyle.CaptionSubtle,
                             HintWrap = true,
                             HintMaxLines = 1,
@@ -176,7 +176,7 @@ namespace GrampsView.UWP.Common
 
                                         new AdaptiveText()
                                         {
-                                            Text = media.GDateValue.GetShortDateOrEmptyAsString,
+                                            Text = media.GDateValue.ShortDateOrEmpty,
                                             HintStyle = AdaptiveTextStyle.CaptionSubtle,
                                             HintWrap = true,
                                             HintMaxLines = 1,

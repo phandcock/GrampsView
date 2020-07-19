@@ -39,7 +39,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local date value.
         /// </summary>
-        private DateObjectModel _DateValue = new DateObjectModel();
+        private IDateObjectModel _DateValue = new DateObjectModel();
 
         private string _FileContentType;
 
@@ -148,7 +148,7 @@ namespace GrampsView.Data.Model
         /// The date value.
         /// </value>
         [DataMember]
-        public DateObjectModel GDateValue
+        public IDateObjectModel GDateValue
         {
             get
             {
@@ -414,7 +414,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return GDateValue.GetShortDateAsString + " - " + GDescription;
+                return GDateValue.ShortDate + " - " + GDescription;
             }
         }
 
