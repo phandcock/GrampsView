@@ -91,7 +91,8 @@ steps:
 - task: gittools.usegitversion.gitversion-task.UseGitVersion@5
   displayName: GitVersion
   inputs:
-    versionSpec: 5.x.x
+    versionSpec: 5.x
+    updateAssemblyInfo: true
 
 - task: richardfennellBM.BM-VSTS-Versioning-Task.Version-APPX-Task.VersionAPPX@2
   displayName: 'Version APPX'
