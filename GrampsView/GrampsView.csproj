@@ -96,7 +96,6 @@
     <Compile Remove="Data\Models\Collections\Models\PersonRefModelCollection.cs" />
     <Compile Remove="Data\Models\DataModels\BookMarkModel.cs" />
     <Compile Remove="Data\Models\DataModels\Interfaces\IBookMarkModel.cs" />
-    <Compile Remove="Data\Models\DataModels\Minor\PersonRefModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkBookMarkModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkInstructionCard.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\HLinkAddressModel.cs" />
