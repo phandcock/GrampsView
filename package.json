@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "Gramps XML geneology viewer",
   "keywords": [
-    "gramps"
+    "gramps",
+    "geneology"
   ],
   "homepage": "https://github.com/phandcock/grampsview#readme",
   "repository": {
