@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
+    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using Xamarin.Forms;
@@ -9,8 +10,22 @@
         public BottomMenu()
         {
             InitializeComponent();
+        }
 
-            // BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CheckHeroImageLoad, ThreadOption.BackgroundThread);
+        public string HubButtonGlyph
+        {
+            get
+            {
+                return CommonConstants.IconHub;
+            }
+        }
+
+        public string SearchButtonGlyph
+        {
+            get
+            {
+                return CommonConstants.IconSearch;
+            }
         }
 
         public string StatusText
