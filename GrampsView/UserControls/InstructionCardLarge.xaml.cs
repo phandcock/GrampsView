@@ -21,5 +21,15 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
         }
+
+        private void InstructionCardLargeRoot_BindingContextChanged(object sender, System.EventArgs e)
+        {
+            InstructionCardLarge thisObject = sender as InstructionCardLarge;
+
+            if (thisObject != null)
+            {
+                thisObject.Instructions.Text = thisObject.BindingContext as string;
+            }
+        }
     }
 }

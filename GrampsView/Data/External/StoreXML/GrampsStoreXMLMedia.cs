@@ -95,7 +95,7 @@ namespace GrampsView.Data.ExternalStorageNS
             await DataStore.CN.MajorStatusAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 // start file load
-                await DataStore.CN.MajorStatusAdd("Loading Media").ConfigureAwait(false);
+                await DataStore.CN.MajorStatusAdd("Loading Media File").ConfigureAwait(false);
 
                 //// Get colour
                 //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
@@ -215,7 +215,7 @@ namespace GrampsView.Data.ExternalStorageNS
                                 try
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
-                                    await DataStore.CN.MajorStatusAdd("Loading media file: " + temp).ConfigureAwait(false);
+                                    await DataStore.CN.ChangeLoadingMessage("Loading media file: " + temp).ConfigureAwait(false);
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata
