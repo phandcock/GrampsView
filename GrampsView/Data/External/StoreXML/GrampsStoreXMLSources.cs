@@ -79,7 +79,9 @@ namespace GrampsView.Data.ExternalStorageNS
                         //loadSource.Priv = SetPrivateObject((string)pSourceElement.Attribute("priv"));
                         //loadSource.Handle = (string)pSourceElement.Attribute("handle");
 
-                        if (loadSource.Id == "S0102")
+                        //await DataStore.CN.MinorStatusAdd(loadSource.Id);
+
+                        if (loadSource.Id == "S0057")
                         {
                         }
 
