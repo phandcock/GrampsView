@@ -106,15 +106,3 @@ steps:
     destinationType: 'groups'
     distributionGroupId: 'e9e85188-6f54-4868-9759-992c446d5145'
   condition: succeededOrFailed()
-
-
-- task: InvokeRESTAPI@1
-  inputs:
-    connectionType: 'connectedServiceName'
-    method: 'POST'
-    body: |
-      {
-       “event_type”: “Prepare Release” 
-      }
-    urlSuffix: 'repos/phandcock/GrampsView/dispatches'
-    waitForCompletion: 'false'
