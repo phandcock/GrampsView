@@ -2,6 +2,7 @@ name: Prepare Release
 
 on:
   workflow_dispatch:
+  repository_dispatch:
     paths-ignore:
       - 'package.json'
       - 'CHANGELOG.md'
