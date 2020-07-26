@@ -10,15 +10,17 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Repository;
 
+    using Prism.Commands;
     using Prism.Events;
     using Prism.Navigation;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public class SettingsViewModel : ViewModelBase
     {
+        private bool _TestButton = true;
         private bool _ThemeButtonDarkChecked = false;
 
         private bool _ThemeButtonLightChecked = false;
@@ -51,7 +53,17 @@ namespace GrampsView.ViewModels
                         break;
                     }
             }
+
+            TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
         }
+
+        public bool CanHandleTestButton
+        {
+            get { return _TestButton; }
+            set { SetProperty(ref _TestButton, value); }
+        }
+
+        public DelegateCommand TestCommand { get; private set; }
 
         public bool ThemeButtonDarkChecked
         {
@@ -114,6 +126,19 @@ namespace GrampsView.ViewModels
                     Application.Current.UserAppTheme = OSAppTheme.Unspecified;
                 }
             }
+        }
+
+        public void TestButtonHandler()
+        {
+            DataStore.CN.NotifyAlert("Test Alert");
+
+            ActionDialogArgs t = new ActionDialogArgs();
+            t.Text = "Test Error with detail";
+
+            t.ItemDetails.Add("Test Line 1", "Test Value 1");
+            t.ItemDetails.Add("Test LIne 2", "Test Value 2");
+
+            DataStore.CN.NotifyDialogBox(t);
         }
     }
 }

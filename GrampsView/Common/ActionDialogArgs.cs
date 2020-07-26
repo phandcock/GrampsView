@@ -4,7 +4,8 @@ namespace GrampsView.Common
 {
     public class ActionDialogArgs
     {
-        public Dictionary<string, string> ItemDetails = new Dictionary<string, string>();
+        public Dictionary<string, string> ItemDetails { get; set; }
+            = new Dictionary<string, string>();
 
         public string Name { get; set; }
                             = string.Empty;

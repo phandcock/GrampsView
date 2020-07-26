@@ -336,6 +336,11 @@
                 Command="{Binding TestPageCommand}"
                 Style="{DynamicResource GVButtonStyle}"
                 Text="Test Page" />
+
+            <Button
+                Command="{Binding TestCommand}"
+                Style="{DynamicResource GVButtonStyle}"
+                Text="Alert" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
