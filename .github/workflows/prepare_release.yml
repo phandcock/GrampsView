@@ -30,7 +30,6 @@ jobs:
         preset: 'angular'
         skip-on-empty: 'true'
         tag-prefix: ''
-        skip-commit: 'true'
 
     - name: Create Release
       uses: actions/create-release@v1
