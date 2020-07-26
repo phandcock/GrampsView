@@ -28,7 +28,15 @@ namespace GrampsView.UserControls
 
             if (thisObject != null)
             {
-                thisObject.Instructions.Text = thisObject.BindingContext as string;
+                if (this.BindingContext is string)
+                {
+                    thisObject.Instructions.Text = thisObject.BindingContext as string;
+                }
+
+                if (this.BindingContext is InstructionCardLarge)
+                {
+                    thisObject.Instructions.Text = (thisObject.BindingContext as InstructionCardLarge).BindingContext as string;
+                }
             }
         }
     }

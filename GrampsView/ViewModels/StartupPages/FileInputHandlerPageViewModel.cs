@@ -188,9 +188,9 @@ namespace GrampsView.ViewModels
 
                 // Remove the old dateTime stamps so the files get reloaded even if they have been
                 // seen before
-                Preferences.Set(Common.CommonConstants.SettingsGPKGFileLastDateTimeModified, DateTime.MinValue);
-                Preferences.Set(Common.CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, DateTime.MinValue);
-                Preferences.Set(Common.CommonConstants.SettingsXMLFileLastDateTimeModified, DateTime.MinValue);
+                Preferences.Set(CommonConstants.SettingsGPKGFileLastDateTimeModified, DateTime.MinValue);
+                Preferences.Set(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, DateTime.MinValue);
+                Preferences.Set(CommonConstants.SettingsXMLFileLastDateTimeModified, DateTime.MinValue);
 
                 BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
