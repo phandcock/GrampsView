@@ -30,6 +30,13 @@ schedules:
 
 steps: 
 
+- task: jikuma.devops-github-extension.custom-build-release-task.azuredevopsgithub@0
+  displayName: 'Github POST'
+  inputs:
+    gitHubConnection: 'GitHub connection'
+    body: '{ “event_type”: “EVENT_NAME” }'
+    githubrestapiurl: ' https://api.github.com/repos/phandcock/GrampsView/Prepare Release'
+
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
