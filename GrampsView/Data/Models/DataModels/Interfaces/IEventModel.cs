@@ -7,17 +7,22 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
+using System.Collections;
+
 namespace GrampsView.Data.Model
 {
     /// <summary>
     /// Public interfaces for the Event elements.
     /// </summary>
-    public interface IEventModel : IModelBase
+    public interface IEventModel : IModelBase, IComparable, IComparer
     {
         /// <summary>
         /// Gets a get h link Event Model that points to the ViewModel.
         /// </summary>
-        /// <value> The get h link. </value>
+        /// <value>
+        /// The get h link.
+        /// </value>
         HLinkEventModel HLink { get; }
     }
 }

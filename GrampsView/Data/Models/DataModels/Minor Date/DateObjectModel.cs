@@ -12,7 +12,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Runtime.Serialization;
 
@@ -56,7 +55,7 @@ namespace GrampsView.Data.Model
     /// </code>
     /// </summary>
     [DataContract]
-    public partial class DateObjectModel : ModelBase, IDateObjectModel, IComparable<DateObjectModel>, IComparer<DateObjectModel>
+    public partial class DateObjectModel : ModelBase, IDateObjectModel
     {
         /// <summary>
         /// $$(cformat)$$ field.
@@ -850,6 +849,11 @@ namespace GrampsView.Data.Model
         /// <paramref name="other"/> in the sort order.
         /// </returns>
         public int CompareTo(DateObjectModel other)
+        {
+            return DateTime.Compare(SortDate, other.SortDate);
+        }
+
+        public int CompareTo(IDateObjectModel other)
         {
             return DateTime.Compare(SortDate, other.SortDate);
         }

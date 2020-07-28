@@ -83,7 +83,7 @@ namespace GrampsView.ViewModels
                 }
             }
 
-            t.Sort(x => x.DeRef.GDate);
+            t.Sort(x => x.DeRef.GDate.SortDate);
 
             return t.GetCardGroup();
         }

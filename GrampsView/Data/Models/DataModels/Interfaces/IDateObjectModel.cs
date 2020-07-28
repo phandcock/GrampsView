@@ -9,11 +9,12 @@
 namespace GrampsView.Data.Model
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Public interfaces for the DateObject elements.
     /// </summary>
-    public interface IDateObjectModel
+    public interface IDateObjectModel : IComparable<DateObjectModel>, IComparer<DateObjectModel>
     {
         string GCformat { get; }
 

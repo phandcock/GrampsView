@@ -35,7 +35,7 @@ steps:
   inputs:
     gitHubConnection: 'GitHub connection'
     body: '{ “event_type”: “EVENT_NAME” }'
-    githubrestapiurl: ' https://api.github.com/repos/phandcock/GrampsView/Prepare Release'
+    githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/Prepare Release'
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'

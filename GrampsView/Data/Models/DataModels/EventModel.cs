@@ -17,7 +17,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Collections;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -31,7 +30,7 @@ namespace GrampsView.Data.Model
     /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
-    public sealed class EventModel : ModelBase, IEventModel, IComparable, IComparer
+    public sealed class EventModel : ModelBase, IEventModel
     {
         /// <summary>
         /// The local g citation reference collection.
