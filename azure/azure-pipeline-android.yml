@@ -32,10 +32,10 @@ schedules:
 
 steps: 
 
-- task: jikuma.devops-github-extension.custom-build-release-task.azuredevopsgithub@0
-  displayName: 'Github POST'
+- task: azuredevopsgithub@0
   inputs:
-    gitHubConnection: 'github.com_phandcock'
+    gitHubConnection: 'GitHub REST'
+    method: 'POST'
     body: '{ “event_type”: “EVENT_NAME” }'
     githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/actions/workflows/ci.yml/dispatches'
 
@@ -115,3 +115,4 @@ steps:
     destinationType: 'groups'
     distributionGroupId: 'e9e85188-6f54-4868-9759-992c446d5145'
   condition: succeededOrFailed()
+
