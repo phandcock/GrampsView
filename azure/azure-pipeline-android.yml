@@ -1,5 +1,5 @@
 name: GrampsView Android
-
+ 
 variables:
   - name: BuildConfiguration
     value: 'Release'
