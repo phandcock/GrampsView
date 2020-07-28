@@ -9,7 +9,7 @@ variables:
     value: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
   - name: OutputDirectory
     value: '$(build.binariesDirectory)/$(BuildConfiguration)'
- 
+  
 trigger: none
 pr: none
  
