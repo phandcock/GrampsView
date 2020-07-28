@@ -33,12 +33,12 @@ schedules:
 steps: 
 
 - task: azuredevopsgithub@0
-
   inputs:
     gitHubConnection: 'github.com_phandcock'
     method: 'POST'
-    body: '{ “event_type”: “CI”, "ref": "ref" }'
+    body: '{ “event_type”: “CI” }'
     githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/dispatches'
+    ignoreFailure: true
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
