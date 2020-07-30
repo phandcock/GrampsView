@@ -40,7 +40,6 @@
                     x:Name="AnchorImage"
                     Grid.Row="0"
                     Grid.Column="0"
-                    BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
 
                 <Label
@@ -49,8 +48,7 @@
                     Grid.Column="0"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
-                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                    Text="{Binding DeRef.GDescription, Mode=OneWay}" />
+                    Style="{DynamicResource GVCardLabelStyleSmall}" />
 
                 <Image
                     Grid.Row="1"

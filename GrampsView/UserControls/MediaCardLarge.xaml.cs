@@ -3,6 +3,8 @@
 // </copyright>
 namespace GrampsView.UserControls
 {
+    using GrampsView.Data.Model;
+
     using Xamarin.Forms;
 
     /// <summary>
@@ -20,6 +22,14 @@ namespace GrampsView.UserControls
 
         private void MediaCardLargeRoot_BindingContextChanged(object sender, System.EventArgs e)
         {
+            MediaCardLarge thisObject = sender as MediaCardLarge;
+
+            HLinkMediaModel thisMedia = thisObject.BindingContext as HLinkMediaModel;
+
+            if ((thisObject != null) && (thisMedia != null))
+            {
+                thisObject.AnchorImage.BindingContext = thisMedia.DeRef.HomeImageHLink;
+            }
         }
     }
 }

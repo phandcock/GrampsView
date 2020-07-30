@@ -29,7 +29,7 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
+    <ScrollView Padding="10">
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
