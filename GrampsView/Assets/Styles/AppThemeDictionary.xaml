@@ -129,7 +129,7 @@
     <Color x:Key="DarkOnSurfaceColor">#FFFFFF</Color>
     <Color x:Key="LightOnSurfaceColor">#0094cc</Color>
 
-    <Color x:Key="DarkSurfaceColor">#909090</Color>
+    <Color x:Key="DarkSurfaceColor">#000000</Color>
     <Color x:Key="LightSurfaceColor">#d3d3d3</Color>
 
     <Color x:Key="DarkSurfaceDark1Color">#484848</Color>

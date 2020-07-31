@@ -89,7 +89,7 @@ namespace GrampsView.ViewModels
 
                 BaseDetail.Add(basicHeaderDetails);
 
-                // Get Bio
+                // Get Text
                 HLinkNoteModel noteCard = NoteObject.HLink;
                 noteCard.CardType = DisplayFormat.NoteCardFull;
                 BaseDetail.Add(noteCard);

@@ -8,7 +8,7 @@
     x:DataType="models:ParentLinkModel"
     Style="{DynamicResource GridMediumFixedCardStyle}">
 
-    <Frame Style="{DynamicResource FrameMediumFixedCardStyle}">
+    <Frame Style="{DynamicResource FrameMediumFixedCardStyleNS}">
 
         <Grid>
 

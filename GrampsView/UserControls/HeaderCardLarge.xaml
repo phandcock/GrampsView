@@ -10,5 +10,8 @@
     BindingContextChanged="HeaderCardLargeRoot_BindingContextChanged"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
-    <Frame x:Name="headerFrame" Style="{DynamicResource FrameLargeVariableCardStyleNS}" />
+    <Frame
+        x:Name="headerFrame"
+        BorderColor="Transparent"
+        Style="{DynamicResource FrameLargeVariableCardStyleNS}" />
 </Grid>
