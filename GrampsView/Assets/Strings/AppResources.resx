@@ -118,7 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AttributionText" xml:space="preserve">
-    <value>SharpZipLib attribution goes here.  Also  Martin Suchan - StackOverflow for tile image creation code. AppIcon copyright Goodgle Material Design.</value>
+    <value>SharpZipLib is great software under the MIT licence.  See https://github.com/icsharpcode/SharpZipLib
+The great icons are from Google Material Design under the Apache licence.
+Also
+Microsoft AppCenter
+NewtonSoft.json
+Microsoft.toolkit.uwp
+Xamaerin.Essentials
+Xamarin.Plugin.FilePicker</value>
   </data>
   <data name="defaultImage" xml:space="preserve">
     <value>ms-appx:///Assets/SmallLogo.scale-100.png</value>

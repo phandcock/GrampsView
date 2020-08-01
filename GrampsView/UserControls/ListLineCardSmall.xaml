@@ -12,7 +12,7 @@
 
     <Frame Style="{DynamicResource FrameSmallVariableCardStyleNS}">
 
-        <StackLayout BindableLayout.ItemsSource="{Binding .}">
+        <StackLayout Padding="3" BindableLayout.ItemsSource="{Binding .}">
             <BindableLayout.ItemTemplate>
 
                 <DataTemplate x:DataType="models:CardListLine">
@@ -34,8 +34,8 @@
                             HorizontalTextAlignment="End"
                             LineBreakMode="WordWrap"
                             Text="{Binding Value}"
-                            TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                                        Light={StaticResource LightOnSecondaryColor}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                        Light={StaticResource LightOnSurfaceColor}}"
                             VerticalTextAlignment="Start" />
                     </Grid>
                 </DataTemplate>

@@ -11,7 +11,7 @@
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
     <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
-        <Grid Padding="0">
+        <Grid Padding="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -29,7 +29,7 @@
                 Padding="0"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
                                                   Light={StaticResource LightPrimaryColor}}"
-                CornerRadius="0">
+                CornerRadius="2">
                 <Label
                     x:Name="LLCardLargeTitle"
                     Margin="3,0,3,0"
@@ -62,8 +62,8 @@
                                 HorizontalTextAlignment="End"
                                 LineBreakMode="WordWrap"
                                 Text="{Binding Value}"
-                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                                            Light={StaticResource LightOnSecondaryColor}}"
+                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                                            Light={StaticResource LightOnSurfaceColor}}"
                                 VerticalTextAlignment="Start" />
                         </Grid>
                     </DataTemplate>
