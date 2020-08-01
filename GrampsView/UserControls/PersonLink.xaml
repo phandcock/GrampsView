@@ -25,7 +25,7 @@
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 IsEnabled="false"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Style="{DynamicResource GVCardLabelStyleVerySmall}"
                 Text="{Binding DeRef.GetDefaultText}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
                                             Light={StaticResource LightOnSecondaryColor}}" />

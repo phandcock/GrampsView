@@ -90,5 +90,34 @@
                 }
             }
         }
+
+        public static double FontVerySmall
+        {
+            get
+            {
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.Android:
+                        {
+                            return 10.0;
+                        }
+
+                    case Device.iOS:
+                        {
+                            return 11;
+                        }
+
+                    case Device.UWP:
+                        {
+                            return 10;
+                        }
+
+                    default:
+                        {
+                            return 12.0;
+                        }
+                }
+            }
+        }
     }
 }

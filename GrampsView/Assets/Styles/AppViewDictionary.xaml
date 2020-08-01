@@ -233,9 +233,9 @@
         x:Key="FrameMediumFixedCardStyleNS"
         BasedOn="{StaticResource FrameMediumFixedCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceDark1Color}, Light={StaticResource LightSurfaceDark1Color}}"  />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceDark1Color}, Light={StaticResource LightSurfaceDark1Color}}" />
     </Style>
-    
+
     <!--
         Create Large Card Styles
     -->
@@ -457,6 +457,15 @@
         <Setter Property="LineBreakMode" Value="WordWrap" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor}, Light={StaticResource LightOnPrimaryColor}}" />
+    </Style>
+
+    <!--  Create a Small Style for a TextBlock  -->
+    <Style
+        x:Key="GVCardLabelStyleVerySmall"
+        BasedOn="{StaticResource GVCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,1,1" />
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontVerySmall}" />
     </Style>
 
     <!--  Create a Small Style for a TextBlock  -->
