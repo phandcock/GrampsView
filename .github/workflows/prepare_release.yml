@@ -1,8 +1,12 @@
 name: Prepare Release
 
 on:
-  workflow_dispatch:
-  repository_dispatch:
+schedules:
+  - cron: "0 0 * * MON,WED,FRI,SUN"
+    displayName: Four day a week build
+    branches:
+        include:
+        - master
     paths-ignore:
       - 'package.json'
       - 'CHANGELOG.md'

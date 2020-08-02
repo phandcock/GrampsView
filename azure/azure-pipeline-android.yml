@@ -24,7 +24,7 @@ pool:
   - JDK
 
 schedules:
-  - cron: "0 0 * * MON,WED,FRI,SUN"
+  - cron: "30 0 * * MON,WED,FRI,SUN"
     displayName: Four day a week build
     branches:
         include:
@@ -32,13 +32,13 @@ schedules:
 
 steps: 
 
-- task: azuredevopsgithub@0
-  inputs:
-    gitHubConnection: 'github.com_phandcock'
-    method: 'POST'
-    body: '{ "event_type": "Prepare Release" }'
-    githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/dispatches'
-    ignoreFailure: true
+#- task: azuredevopsgithub@0
+#  inputs:
+#    gitHubConnection: 'github.com_phandcock'
+#    method: 'POST'
+#    body: '{ "event_type": "Prepare Release" }'
+#    githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/dispatches'
+#    ignoreFailure: true
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'

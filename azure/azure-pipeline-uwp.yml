@@ -23,7 +23,7 @@ pool:
   - JDK
 
 schedules:
-  - cron: "0 0 * * MON,WED,FRI,SUN"
+  - cron: "30 0 * * MON,WED,FRI,SUN"
     displayName: Four day a week build
     branches:
         include:
