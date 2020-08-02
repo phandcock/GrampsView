@@ -1,15 +1,16 @@
 name: Prepare Release
 
 on:
-schedules:
+  schedule:
   - cron: "0 0 * * MON,WED,FRI,SUN"
-    displayName: Four day a week build
-    branches:
-        include:
-        - master
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
+ #   displayName: Four day a week build
+ #   branches:
+ #       include:
+ #       - master
+ #   paths-ignore:
+ #     - 'package.json'
+ #    - 'CHANGELOG.md'
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
