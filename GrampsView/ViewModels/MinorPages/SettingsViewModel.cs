@@ -33,27 +33,6 @@ namespace GrampsView.ViewModels
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            switch (CommonLocalSettings.ApplicationTheme)
-            {
-                case OSAppTheme.Light:
-                    {
-                        ThemeButtonLightChecked = true;
-                        break;
-                    }
-
-                case OSAppTheme.Dark:
-                    {
-                        ThemeButtonDarkChecked = true;
-                        break;
-                    }
-
-                default:
-                    {
-                        ThemeButtonSystemChecked = true;
-                        break;
-                    }
-            }
-
             TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
         }
 
@@ -125,6 +104,30 @@ namespace GrampsView.ViewModels
                     CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                     Application.Current.UserAppTheme = OSAppTheme.Unspecified;
                 }
+            }
+        }
+
+        public override void PopulateViewModel()
+        {
+            switch (CommonLocalSettings.ApplicationTheme)
+            {
+                case OSAppTheme.Light:
+                    {
+                        ThemeButtonLightChecked = true;
+                        break;
+                    }
+
+                case OSAppTheme.Dark:
+                    {
+                        ThemeButtonDarkChecked = true;
+                        break;
+                    }
+
+                default:
+                    {
+                        ThemeButtonSystemChecked = true;
+                        break;
+                    }
             }
         }
 
