@@ -16,8 +16,6 @@
 
     using Microsoft.AppCenter.Distribute;
 
-    using Plugin.CurrentActivity;
-
     using Prism;
     using Prism.Ioc;
 
@@ -101,7 +99,7 @@
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            //CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             // App Center Distribute
             Distribute.SetEnabledForDebuggableBuild(true);
