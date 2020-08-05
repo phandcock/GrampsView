@@ -6,30 +6,39 @@
     <!--  DataLog data template Large  -->
     <DataTemplate x:Key="DataLogEntryLarge" x:Name="DataLogEntryLarge">
 
-        <Grid
+        <Frame
             Margin="0"
-            Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                              Light={StaticResource LightSecondaryLightColor}}">
+            Padding="0" 
+            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+                                              Light={StaticResource LightSurfaceColor}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                                          Light={StaticResource LightSecondaryLightColor}}"
+            CornerRadius="{StaticResource GVCornerRadius}">
+            
+            <Grid
+                Margin="0"
+                Padding="0"
+                BackgroundColor="Transparent">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="5*" />
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
 
-            <Label
-                Grid.Column="0"
-                FontSize="{x:Static common:CommonFontSize.FontMedium}"
-                Text="{Binding Label}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
-            <Label
-                Grid.Column="1"
-                FontSize="{x:Static common:CommonFontSize.FontMedium}"
-                Text="{Binding Text}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
-        </Grid>
+                <Label
+                    Grid.Column="0"
+                    FontSize="{x:Static common:CommonFontSize.FontMedium}"
+                    Text="{Binding Label}"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Column="1"
+                    FontSize="{x:Static common:CommonFontSize.FontMedium}"
+                    Text="{Binding Text}"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
+                                                Light={StaticResource LightOnPrimaryColor}}" />
+            </Grid>
+        </Frame>
     </DataTemplate>
 
     <!--  Item Detail data template  large  -->

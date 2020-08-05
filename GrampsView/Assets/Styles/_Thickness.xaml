@@ -1,28 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!--  Custom size margins  -->
-    <!--<Thickness
-        x:Key="PageTitleMargin"
-        Bottom="12"
-        Left="0"
-        Right="0"
-        Top="7" />-->
-
-    <!--<Thickness
-        x:Key="SettingsSubheaderMargin"
-        Bottom="0"
-        Left="0"
-        Right="20"
-        Top="48" />-->
-
-    <!--  Medium size margins  -->
-    <!--<Thickness
-        x:Key="MediumLeftRightMargin"
-        Bottom="12"
-        Left="12"
-        Right="0"
-        Top="0" />-->
-
     <Thickness
         x:Key="MediumLeftTopRightBottomMargin"
         Bottom="12"

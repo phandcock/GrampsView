@@ -10,7 +10,6 @@ namespace GrampsView.ViewModels
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.UserControls;
 
     using Prism.Events;
     using Prism.Navigation;
@@ -87,27 +86,20 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconCitation;
 
                 // Get media image
-                HLinkHomeImageModel mediaImage = CitationObject.HomeImageHLink;
+                HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel();
                 mediaImage.CardType = DisplayFormat.MediaCardLarge;
                 BaseDetail.Add(mediaImage);
-
-                //// Get Note
-                //CardGroup noteCardGroup = new CardGroup();
-                //NoteCardFull noteCard = new NoteCardFull();
-                //noteCard.BindingContext = CitationObject.GetFirstModel;
-                //noteCardGroup.Add(noteCard);
-                //BaseDetail.Add(noteCardGroup);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
 
                 t.Add(new CardListLineCollection
-            {
-                    new CardListLine("Card Type:", "Citation Detail"),
-                    new CardListLine("Date:", CitationObject.GDateContent.LongDate),
-                    new CardListLine("Page:", CitationObject.GPage),
-                    new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture)),
-            });
+                    {
+                            new CardListLine("Card Type:", "Citation Detail"),
+                            new CardListLine("Date:", CitationObject.GDateContent.LongDate),
+                            new CardListLine("Page:", CitationObject.GPage),
+                            new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture)),
+                    });
 
                 t.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 

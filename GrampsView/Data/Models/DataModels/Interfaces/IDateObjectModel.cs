@@ -26,6 +26,8 @@ namespace GrampsView.Data.Model
 
         string GetYear { get; }
 
+        string GVal { get; }
+
         string LongDate { get; }
 
         string ShortDate { get; }

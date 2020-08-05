@@ -6,15 +6,13 @@
 
     <ResourceDictionary.MergedDictionaries>
 
-        <!--  Default dictionary  -->
+        <!--  Default dictionarys  -->
 
         <ResourceDictionary Source="AppThemeDictionary.xaml" />
 
         <ResourceDictionary Source="_Thickness.xaml" />
 
         <ResourceDictionary Source="_Sizes.xaml" />
-
-        <!--<ResourceDictionary Source="_FontSizes.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
     <!--
@@ -42,7 +40,7 @@
     <Style x:Key="GVButtonStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
-        <Setter Property="BorderRadius" Value="1" />
+        <Setter Property="BorderRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderWidth" Value="2" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor}, Light={StaticResource LightOnSurfaceColor}}" />
 
