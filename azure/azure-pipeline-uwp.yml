@@ -113,6 +113,16 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    
 - task: CopyFiles@2 
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
@@ -133,3 +143,4 @@ steps:
     isSilent: false
     destinationType: 'groups'
     distributionGroupId: 'f19421ab-bb76-49f6-b4fc-ed1031094c9e'
+
