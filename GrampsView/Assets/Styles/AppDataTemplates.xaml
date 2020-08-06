@@ -8,13 +8,13 @@
 
         <Frame
             Margin="0"
-            Padding="0" 
+            Padding="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
                                               Light={StaticResource LightSurfaceColor}}"
             BorderColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
                                           Light={StaticResource LightSecondaryLightColor}}"
             CornerRadius="{StaticResource GVCornerRadius}">
-            
+
             <Grid
                 Margin="0"
                 Padding="0"

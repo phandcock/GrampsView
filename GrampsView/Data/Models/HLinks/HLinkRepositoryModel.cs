@@ -31,7 +31,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local image h link.
         /// </summary>
-        private HLinkMediaModel localImageHLink = new HLinkMediaModel();
+        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
 
         /// <summary>
         /// The local medium.

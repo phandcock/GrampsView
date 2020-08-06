@@ -72,8 +72,9 @@ namespace GrampsView
             var assembly = typeof(App).GetTypeInfo().Assembly;
 
             foreach (var res in assembly.GetManifestResourceNames())
-
+            {
                 Debug.WriteLine("found resource: " + res);
+            }
 
             Debug.WriteLine("====================================");
 
@@ -194,16 +195,12 @@ namespace GrampsView
             container.RegisterForNavigation<TagDetailPage, TagDetailViewModel>();
             container.RegisterForNavigation<TagListPage, TagListViewModel>();
 
-            //container.RegisterForNavigation<NameMapDetailView, NameMapDetailViewModel>();
-            //container.RegisterForNavigation<NameMapListView, NameMapListViewModel>();
-
             container.RegisterForNavigation<NavigationPage>();
 
             container.RegisterForNavigation<MainPage, MainPageViewModel>();
 
             container.RegisterForNavigation<AShellPage>();
             container.RegisterForNavigation<TestPage>();
-            //container.RegisterForNavigation<CropTransformationPage, CropTransformationViewModel>();
 
             container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 

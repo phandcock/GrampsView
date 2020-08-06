@@ -25,7 +25,7 @@
             x:Name="daImage"
             Aspect="AspectFit"
             DownsampleToViewSize="true"
-            Error="daImage_Error"
+            Error="DaImage_Error"
             LoadingPlaceholder="ic_launcher.png"
             RetryCount="3"
             RetryDelay="1000" />

@@ -79,7 +79,7 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconSource;
 
                 // Get media image
-                HLinkHomeImageModel personImage = SourceObject.HomeImageHLink;
+                HLinkMediaModel personImage = SourceObject.HomeImageHLink.ConvertToHLinkMediaModel();
                 personImage.CardType = DisplayFormat.MediaCardLarge;
                 Contract.Assert(SourceObject.HomeImageHLink != null, SourceObject.Id);
                 BaseDetail.Add(personImage);

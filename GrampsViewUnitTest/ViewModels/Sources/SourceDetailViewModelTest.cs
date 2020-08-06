@@ -11,7 +11,7 @@
     using Prism.Navigation;
 
     [TestClass]
-    public class SettingsViewModelTest
+    public class SourceDetailViewModelTest
     {
         private Mock<ICommonLogging> MockIocCommonLogging;
 
@@ -19,7 +19,7 @@
 
         private Mock<INavigationService> MockIocNavigationService;
 
-        private SettingsViewModel MockSettingsViewModel;
+        private SourceDetailViewModel MockSourceDetailViewModel;
 
         [TestCleanup]
         public void Cleanup()
@@ -30,7 +30,7 @@
 
             MockIocNavigationService = null;
 
-            MockSettingsViewModel = null;
+            MockSourceDetailViewModel = null;
         }
 
         [TestInitialize]
@@ -42,21 +42,22 @@
 
             MockIocNavigationService = new Mock<INavigationService>();
 
-            MockSettingsViewModel = new SettingsViewModel(MockIocCommonLogging.Object, MockIocEventAggregator.Object, MockIocNavigationService.Object);
+            MockSourceDetailViewModel = new SourceDetailViewModel(MockIocCommonLogging.Object, MockIocEventAggregator.Object, MockIocNavigationService.Object);
         }
 
         [TestMethod]
-        public void SetThemeLight()
+        public void PopulateModelViewTest()
         {
             // arrrange
 
             // act
-            //MockSettingsViewModel.ThemeButtonLightChecked = true;
+            //MockSourceDetailViewModel.PopulateViewModel();
 
             // assert
-            //Assert.IsTrue(MockSettingsViewModel.ThemeButtonDarkChecked == false);
-            //Assert.IsTrue(MockSettingsViewModel.ThemeButtonLightChecked == true);
-            //Assert.IsTrue(MockSettingsViewModel.ThemeButtonSystemChecked == false);
+            //HLinkMediaModel SourceMediaModel = MockSourceDetailViewModel.BaseDetail[0] as HLinkMediaModel;
+            //Assert.IsFalse(SourceMediaModel == null);
+
+            //Assert.IsTrue(SourceMediaModel.CardType == DisplayFormat.MediaCardLarge);
         }
     }
 }

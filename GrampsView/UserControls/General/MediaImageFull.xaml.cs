@@ -27,8 +27,6 @@ namespace GrampsView.UserControls
         public MediaImageFull()
         {
             InitializeComponent();
-
-            //this.daImage.CacheKeyFactory = new CustomCacheKeyFactory();
         }
 
         public HLinkHomeImageModel UCHLinkMediaModel
@@ -90,7 +88,7 @@ namespace GrampsView.UserControls
             mifModel.IsVisible = false;
         }
 
-        private void daImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
+        private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
             DataStore.CN.NotifyError("Error in MediaImageFull.  Error is " + e.Exception.Message);
 

@@ -40,7 +40,7 @@
     <Style x:Key="GVButtonStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
-        <Setter Property="BorderRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderWidth" Value="2" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor}, Light={StaticResource LightOnSurfaceColor}}" />
 
@@ -54,7 +54,7 @@
         BasedOn="{StaticResource GVButtonStyle}"
         TargetType="Button">
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="BorderRadius" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="TextColor" Value="Black" />
     </Style>
