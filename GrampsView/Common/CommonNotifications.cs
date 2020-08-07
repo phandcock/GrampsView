@@ -328,12 +328,12 @@ namespace GrampsView.Common
 
               if (!string.IsNullOrEmpty(entry))
               {
-                  t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", System.DateTime.Now);
-                  t.Text = entry;
+                  t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
+                  t.Text = entry.Trim();
 
                   DataLoadLog.Insert(0, t);
               }
-          });
+          }).ConfigureAwait(false);
 
             return true;
         }
@@ -346,7 +346,7 @@ namespace GrampsView.Common
                 {
                     DataLoadLog.Remove(DataLoadLog.FirstOrDefault());
                 }
-            });
+            }).ConfigureAwait(false);
 
             return true;
         }

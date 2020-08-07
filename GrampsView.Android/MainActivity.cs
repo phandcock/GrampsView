@@ -57,7 +57,7 @@
         }
     }
 
-    [Activity(MainLauncher = false, Label = "GrampsView", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.User)]
+    [Activity(MainLauncher = false, Label = "GrampsView", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode | ConfigChanges.Orientation | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, ScreenOrientation = ScreenOrientation.User)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -100,6 +100,8 @@
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             //CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+            Xamarin.Forms.DualScreen.DualScreenService.Init(this);
 
             // App Center Distribute
             Distribute.SetEnabledForDebuggableBuild(true);

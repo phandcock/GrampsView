@@ -204,8 +204,6 @@
 
         private async void OnNavigateCommandExecuted(string page)
         {
-            // await CommonRoutines.NavigateMainPage(BaseNavigationService, path);
-
             try
             {
                 if (page != CurrentPage)
@@ -241,7 +239,7 @@
 
                 if (!result.Success)
                 {
-                    DataStore.CN.NotifyException("OnNavigateCommandExecuted", result.Exception);
+                    DataStore.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
                 }
             }
         }

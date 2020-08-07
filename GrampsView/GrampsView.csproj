@@ -246,9 +246,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.3.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.0" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.4.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -266,7 +266,8 @@
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1179" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Forms.DualScreen" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
   </ItemGroup>
 
@@ -327,6 +328,9 @@
     </Compile>
     <Compile Update="Views\MinorModels\AddressDetailPage.xaml.cs">
       <DependentUpon>AddressDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorPages\TwoPanePage.xaml.cs">
+      <DependentUpon>TwoPanePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorPages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>

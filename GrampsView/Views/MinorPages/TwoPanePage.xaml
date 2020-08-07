@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrampsView.Views.TwoPanePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dualScreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ControlTemplate="{StaticResource DetailPageTemplate}"
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
+
+    <dualScreen:TwoPaneView x:Name="twoPaneView">
+        <dualScreen:TwoPaneView.Pane1>
+            <ContentView x:Name="Panel1" />
+        </dualScreen:TwoPaneView.Pane1>
+        <dualScreen:TwoPaneView.Pane2>
+            <Label Text="Right screen" />
+        </dualScreen:TwoPaneView.Pane2>
+    </dualScreen:TwoPaneView>
+
+</ContentPage>

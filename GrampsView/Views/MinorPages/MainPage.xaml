@@ -58,4 +58,6 @@
             </CollectionView>
         </ContentPage>
     </MasterDetailPage.Master>
+
+
 </MasterDetailPage>
