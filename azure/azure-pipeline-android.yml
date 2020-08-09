@@ -105,6 +105,7 @@ steps:
       **\*test*.dll
       !**\*TestAdapter.dll
       !**\obj\**
+      !**\$(BuildConfiguration)\*\*test*.dll
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
     
