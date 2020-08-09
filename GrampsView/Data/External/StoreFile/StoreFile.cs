@@ -112,10 +112,10 @@ namespace GrampsView.Data
 
                     foreach (var item in t.GetDirectories())
                     {
-                        t.Delete(true);
+                        item.Delete(true);
                     }
 
-                    // Create stadnard directories
+                    // Create standard directories
                     t.CreateSubdirectory("Cropped");
                 }
                 catch (Exception ex)

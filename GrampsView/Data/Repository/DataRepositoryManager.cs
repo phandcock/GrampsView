@@ -211,15 +211,15 @@ namespace GrampsView.Data.Repository
 
             DataStore.AD.LoadDataStore();
 
-            // Clear the file system
-            await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
-
             if (DataStore.AD.CurrentDataFolderValid)
             {
                 // 1) UnTar *.GPKG
                 if (DataStore.AD.CurrentInputStreamValid)
                 {
                     await DataStore.CN.ChangeLoadingMessage("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
+
+                    // Clear the file system
+                    await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
 
                     await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
                 }

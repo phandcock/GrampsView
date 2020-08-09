@@ -39,7 +39,7 @@
     <!--  Create a Base Style for a Button Style  -->
     <Style x:Key="GVButtonStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkOnBackgroundColor}, Light={StaticResource LightOnBackgroundColor}}" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderWidth" Value="2" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor}, Light={StaticResource LightOnSurfaceColor}}" />
