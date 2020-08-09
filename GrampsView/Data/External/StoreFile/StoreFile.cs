@@ -9,16 +9,16 @@
 
 namespace GrampsView.Data
 {
-    using System;
-    using System.IO;
-    using System.Runtime.Serialization;
-    using System.Threading.Tasks;
-
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.GZip;
     using ICSharpCode.SharpZipLib.Tar;
+
+    using System;
+    using System.IO;
+    using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
     [DataContract]
     public partial class StoreFile : CommonBindableBase, IStoreFile
@@ -103,18 +103,20 @@ namespace GrampsView.Data
             {
                 try
                 {
-                    // TODO Fix - Clean DataFolder
-                    //if (FileInfoEx.Exists(StoreFileUtility.GetLocalFolderPath()))
-                    //{
-                    //    // delete folder and all subfolders
-                    //    File.Delete(StoreFileUtility.GetLocalFolderPath());
-                    //}
+                    DirectoryInfo t = DataStore.AD.CurrentDataFolder;
 
-                    // Create requested main folder
-                    // StoreFileUtility.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), CommonConstants.StorageInternalFolder);
+                    foreach (FileInfo item in t.GetFiles())
+                    {
+                        item.Delete();
+                    }
 
-                    //// Creeate bitmap cache folder
-                    //StoreFileUtility.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), CommonConstants.StorageThumbNailFolder);
+                    foreach (var item in t.GetDirectories())
+                    {
+                        t.Delete(true);
+                    }
+
+                    // Create stadnard directories
+                    t.CreateSubdirectory("Cropped");
                 }
                 catch (Exception ex)
                 {
@@ -178,13 +180,13 @@ namespace GrampsView.Data
             await DataStore.CN.MajorStatusAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
 
             // Check arguments
-            if (DataStore.AD.CurrentInputFile == null)
+            if (!DataStore.AD.CurrentInputStreamValid)
             {
                 DataStore.CN.NotifyError("The input file is invalid");
                 return false;
             }
 
-            Stream originalFileStream = DataStore.AD.CurrentInputFile.GetStream();
+            Stream originalFileStream = DataStore.AD.CurrentInputStream;
 
             // open the gzip and extract the tar file
             await DataStore.CN.MinorStatusAdd("Decompressing individual TAR files").ConfigureAwait(false);

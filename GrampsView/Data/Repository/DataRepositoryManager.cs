@@ -211,20 +211,17 @@ namespace GrampsView.Data.Repository
 
             DataStore.AD.LoadDataStore();
 
+            // Clear the file system
+            await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+
             if (DataStore.AD.CurrentDataFolderValid)
             {
-                // 1) UnTar *.GPKG file DataStore.AD.CurrentInputFile = await StoreFileNames.FileGetFirstGPKG().ConfigureAwait(false);
-
-                if (DataStore.AD.CurrentInputFile != null)
+                // 1) UnTar *.GPKG
+                if (DataStore.AD.CurrentInputStreamValid)
                 {
-                    //if (await StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.AD.CurrentInputFile.).ConfigureAwait(false))
-                    //{
                     await DataStore.CN.ChangeLoadingMessage("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
 
-                    await TriggerLoadGPKGFileAsync(false).ConfigureAwait(false);
-
-                    //await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
-                    //}
+                    await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
                 }
 
                 // 2) UnZip new data.GRAMPS file
@@ -294,47 +291,37 @@ namespace GrampsView.Data.Repository
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task<bool> TriggerLoadGPKGFileAsync(bool deleteOld)
+        public async Task<bool> TriggerLoadGPKGFileAsync()
         {
             Analytics.TrackEvent("TriggerLoadGPKGFileAsync",
                 new Dictionary<string, string> {
-                { "FileName", DataStore.AD.CurrentInputFile.FilePath },
+                { "FileName", DataStore.AD.CurrentInputStreamPath },
                 });
 
-            if (!DataStore.AD.CurrentInputFileValid)
+            if (!DataStore.AD.CurrentInputStreamValid)
             {
                 return false;
             }
 
-            // HockeyClient.Current.TrackEvent("TriggerLoadGPKGFileAsync");
             await DataStore.CN.ChangeLoadingMessage("Loading GPKG data").ConfigureAwait(false);
 
-            // await DataStore.CN.MajorStatusAdd("Loading GRAMPS XML data");
+            if (DataStore.AD.CurrentInputStreamValid)
             {
-                if (DataStore.AD.CurrentInputFileValid)
-                {
-                    // TODO create data folder await localStoreFile.SetDataFolderLocalStorage();
+                // TODO create data folder await localStoreFile.SetDataFolderLocalStorage();
 
-                    // Clear image cache
-                    await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
+                // Clear image cache
+                await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
 
-                    // 1) Initialise local data copies (if any exist)
-                    if (deleteOld)
-                    {
-                        await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
-                    }
+                // TODO work out how to delte excess files based on keepign the ones in the GPKG file
+                //// Delete directories of files. Assume files in root are ok
+                // IReadOnlyList<StorageFolder> t = await DataStore.AD.CurrentDataFolder.GetFoldersAsync();
 
-                    // TODO work out how to delte excess files based on keepign the ones in the GPKG file
-                    //// Delete directories of files. Assume files in root are ok
-                    // IReadOnlyList<StorageFolder> t = await DataStore.AD.CurrentDataFolder.GetFoldersAsync();
+                // foreach (StorageFolder item in t) { await item.DeleteAsync(); }
+                await localStoreFile.DecompressTAR().ConfigureAwait(false);
 
-                    // foreach (StorageFolder item in t) { await item.DeleteAsync(); }
-                    await localStoreFile.DecompressTAR().ConfigureAwait(false);
-
-                    // Save the current Index File modified date for later checking TODO How doe
-                    // sthis work if only loading picked file?
-                    // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.AD.CurrentInputFile);
-                }
+                // Save the current Index File modified date for later checking TODO How doe sthis
+                // work if only loading picked file?
+                // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.AD.CurrentInputFile);
             }
 
             await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);

@@ -49,6 +49,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ucon:InstructionCardLarge
@@ -66,5 +67,12 @@
             Command="{Binding PickFileCommand}"
             Style="{DynamicResource GVButtonStyle}"
             Text="{i18n:Translate FileInputHandlerPage_Choose_Button_Text}" />
+
+
+        <Button
+            Grid.Row="3"
+            Command="{Binding LoadSampleCommand}"
+            Style="{DynamicResource GVButtonStyle}"
+            Text="{i18n:Translate FileInputHandlerPage_Sample_Button_Text}" />
     </Grid>
 </ContentPage>

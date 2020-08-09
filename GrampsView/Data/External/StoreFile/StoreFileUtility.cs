@@ -16,6 +16,7 @@ namespace GrampsView.Data
 
     using GrampsView.Data.Repository;
     using Plugin.FilePicker;
+    using Plugin.FilePicker.Abstractions;
 
     /// <summary>
     /// Various common routines.
@@ -107,14 +108,19 @@ namespace GrampsView.Data
         {
             try
             {
-                DataStore.AD.CurrentInputFile = await CrossFilePicker.Current.PickFile().ConfigureAwait(false);
-                if (DataStore.AD.CurrentInputFile == null)
+                FileData t = await CrossFilePicker.Current.PickFile().ConfigureAwait(false);
+                if (t == null)
                 {
                     return false; // user canceled file picking
                 }
 
-                Debug.WriteLine("Picked file name is: " + DataStore.AD.CurrentInputFile.FileName);
-                // TODO Add platform specific fiel type checking
+                Debug.WriteLine("Picked file name is: " + t.FileName);
+
+                DataStore.AD.CurrentInputStream = t.GetStream();
+
+                DataStore.AD.CurrentInputStreamPath = t.FilePath;
+
+                // TODO Add platform specific file type checking
             }
 
             // TODO fix this. Fail and force reload next time.

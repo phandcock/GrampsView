@@ -1,21 +1,20 @@
 ﻿namespace GrampsView.Data.Repository
 {
     using GrampsView.Common;
-    using Plugin.FilePicker.Abstractions;
-    using System;
-    using System.Collections.Generic;
+
     using System.IO;
-    using System.Text;
+
     using Xamarin.Essentials;
 
     public class ApplicationWideData : CommonBindableBase
     {
         private DirectoryInfo _CurrentDataFolder;
 
-        private FileData _CurrentInputFile = null;
+        private Stream _CurrentInputStream = null;
 
-        private DirectoryInfo _CurrentInputFolder;
+        //private DirectoryInfo _CurrentInputFolder;
 
+        private string _CurrentInputStreamPath;
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
@@ -45,39 +44,40 @@
             }
         }
 
-        public FileData CurrentInputFile
+        public Stream CurrentInputStream
         {
             get
             {
-                return _CurrentInputFile;
+                return _CurrentInputStream;
             }
 
             set
             {
-                SetProperty(ref _CurrentInputFile, value);
+                SetProperty(ref _CurrentInputStream, value);
             }
         }
 
-        public bool CurrentInputFileValid
+        public string CurrentInputStreamPath
         {
             get
             {
-                return (!(CurrentInputFile == null));
-            }
-        }
-
-        public DirectoryInfo CurrentInputFolder
-        {
-            get
-            {
-                return _CurrentInputFolder;
+                return _CurrentInputStreamPath;
             }
 
             set
             {
-                SetProperty(ref _CurrentInputFolder, value);
+                SetProperty(ref _CurrentInputStreamPath, value);
             }
         }
+
+        public bool CurrentInputStreamValid
+        {
+            get
+            {
+                return !(CurrentInputStream == null);
+            }
+        }
+
 
         public DisplayOrientation CurrentOrientation
         {
@@ -93,13 +93,15 @@
         }
 
         /// <summary>
-        /// Loads the data store from existign known details
+        /// Loads the data store from existing known details
         /// </summary>
         public void LoadDataStore()
         {
-            CurrentDataFolder = new DirectoryInfo(Xamarin.Essentials.FileSystem.CacheDirectory);
+            CurrentDataFolder = new DirectoryInfo(FileSystem.CacheDirectory);
 
-            CurrentDataFolder.CreateSubdirectory("Cropped");
+           
         }
+
+
     }
 }

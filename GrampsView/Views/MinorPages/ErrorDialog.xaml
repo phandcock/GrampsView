@@ -1,31 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--  Content  -->
 <Grid
     x:Class="GrampsView.Views.ErrorDialog"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:i18n="clr-namespace:GrampsView.Common"
-    xmlns:prism="http://prismlibrary.com"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
-                                      Light={StaticResource LightSurfaceColor}}">
-    <!--
-        prism:ViewModelLocator.AutowireViewModel="True"
-        prism:DialogLayout.RelativeWidthRequest="{OnIdiom Default=0.75,
-        Desktop=0.5}"
-    -->
+    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                      Light={StaticResource LightPrimaryColor}}">
 
     <ScrollView>
-        <Grid>
 
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
 
             <Label
@@ -47,7 +40,8 @@
                 Text="{Binding AdaArgs.Text, Mode=OneWay}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
                                             Light={StaticResource LightOnSurfaceColor}}" />
-            <StackLayout
+
+            <FlexLayout
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="20,0,20,10"
@@ -57,27 +51,32 @@
                     <DataTemplate>
                         <Grid BackgroundColor="NavajoWhite">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
 
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+
                             <Label
+                                Grid.Row="0"
                                 Grid.Column="0"
-                                HorizontalOptions="StartAndExpand"
                                 Text="{Binding Key}"
                                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
                                                             Light={StaticResource LightOnSurfaceColor}}" />
 
                             <Label
+                                Grid.Row="0"
                                 Grid.Column="1"
-                                HorizontalOptions="StartAndExpand"
+                                LineBreakMode="WordWrap"
                                 Text="{Binding Value}"
                                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
                                                             Light={StaticResource LightOnSurfaceColor}}" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-            </StackLayout>
+            </FlexLayout>
 
             <Button
                 Grid.Row="3"

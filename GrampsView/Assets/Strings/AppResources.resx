@@ -193,4 +193,7 @@ Xamarin.Plugin.FilePicker</value>
   <data name="SearchPage_NothingFound" xml:space="preserve">
     <value>Nothing found that matches the search text.</value>
   </data>
+  <data name="FileInputHandlerPage_Sample_Button_Text" xml:space="preserve">
+    <value>Load the sample data</value>
+  </data>
 </root>
