@@ -16,18 +16,23 @@
             var tapGestureRecognizer = new TapGestureRecognizer();
 
             tapGestureRecognizer.Tapped += async (s, e) =>
-           {
-               LabelExtended thisControl = s as LabelExtended;
+               {
+                   LabelExtended thisControl = s as LabelExtended;
 
-               // handle the tap
-               string theText = thisControl.Text is null ? thisControl.FormattedText.ToString() : thisControl.Text;
+                   // handle the tap
+                   string theText = thisControl.Text is null ? thisControl.FormattedText.ToString() : thisControl.Text;
 
-               await Clipboard.SetTextAsync(theText).ConfigureAwait(false);
+                   await Clipboard.SetTextAsync(theText).ConfigureAwait(false);
 
-               await DataStore.CN.MajorStatusAdd("Text copied").ConfigureAwait(false);
-           };
+                   await DataStore.CN.MajorStatusAdd("Text copied").ConfigureAwait(false);
+               };
 
             this.GestureRecognizers.Add(tapGestureRecognizer);
         }
+
+
+
     }
+
+
 }

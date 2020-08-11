@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Frame
+<Grid
     x:Class="GrampsView.UserControls.NoteCardFull"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,30 +7,26 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="NoteCardFullRoot"
     x:DataType="models:HLinkNoteModel"
-    BindingContextChanged="PersonCardSmallRoot_BindingContextChanged"
-    Style="{DynamicResource NoteFullTextStyle}">
-    <Frame.Content>
+    BindingContextChanged="PersonCardSmallRoot_BindingContextChanged">
 
-        <Grid
-            x:Name="controlRoot"
-            FlexLayout.AlignSelf="Start"
-            FlexLayout.Basis="{OnIdiom Phone='50%',
-                                       Tablet='33%',
-                                       Desktop='33%'}">
+    <Frame Style="{DynamicResource NoteFullTextStyle}">
+        <Frame.Content>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+            <Grid x:Name="controlRoot">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <common:LabelExtended
-                Grid.Row="0"
-                FlexLayout.Basis="75"
-                FormattedText="{Binding DeRef.GFormattedTextSmall}"
-                Style="{DynamicResource GVLabelStyleNoteFull}" />
-        </Grid>
-    </Frame.Content>
-</Frame>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <common:LabelExtended
+                    Grid.Row="0"
+                    FormattedText="{Binding DeRef.GFormattedTextSmall}"
+                    Style="{DynamicResource GVLabelStyleNoteFull}" />
+            </Grid>
+        </Frame.Content>
+    </Frame>
+</Grid>

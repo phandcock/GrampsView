@@ -6,7 +6,6 @@ namespace GrampsView.UserControls
 {
     using GrampsView.Data.Repository;
 
-    using System;
     using System.IO;
     using System.Reflection;
 
@@ -15,7 +14,7 @@ namespace GrampsView.UserControls
     public partial class ChangeLogCardLarge : Grid
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HeaderCardLarge"/> class.
+        /// Initializes a new instance of the <see cref="ChangeLogCardLarge"/> class.
         /// </summary>
         public ChangeLogCardLarge()
         {

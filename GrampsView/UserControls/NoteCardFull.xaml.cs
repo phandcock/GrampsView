@@ -8,15 +8,13 @@ namespace GrampsView.UserControls
 
     using System.Diagnostics.Contracts;
 
-    using Xam.Forms.Markdown;
-
     using Xamarin.Forms;
 
     /// <summary>
     /// Code behind for Note Card Large.
     /// </summary>
     /// <seealso cref="Windows.UI.Xaml.Controls.UserControl"/>
-    public partial class NoteCardFull : Frame
+    public partial class NoteCardFull : Grid
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteCardFull"/> class.
