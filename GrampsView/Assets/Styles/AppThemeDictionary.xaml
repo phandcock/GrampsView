@@ -136,5 +136,5 @@
     <Color x:Key="LightSurfaceDark1Color">#C8C8C8</Color>
 
     <Color x:Key="DarkSurfaceDark2Color">#303030</Color>
-    <Color x:Key="LightSurfaceDark2Color">#A8A8A8</Color>
+    <Color x:Key="LightSurfaceDark2Color">#FFFFFF</Color>
 </ResourceDictionary>
