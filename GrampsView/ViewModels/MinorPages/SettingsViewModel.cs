@@ -56,7 +56,7 @@ namespace GrampsView.ViewModels
                 if (_ThemeButtonDarkChecked != value)
                 {
                     _ThemeButtonLightChecked = false;
-                    _ThemeButtonDarkChecked = true;
+                    SetProperty(ref _ThemeButtonDarkChecked, true);
                     _ThemeButtonSystemChecked = false;
 
                     CommonLocalSettings.ApplicationTheme = OSAppTheme.Dark;
@@ -76,7 +76,7 @@ namespace GrampsView.ViewModels
             {
                 if (_ThemeButtonLightChecked != value)
                 {
-                    _ThemeButtonLightChecked = true;
+                    SetProperty(ref _ThemeButtonLightChecked, true);
                     _ThemeButtonDarkChecked = false;
                     _ThemeButtonSystemChecked = false;
 
@@ -99,7 +99,7 @@ namespace GrampsView.ViewModels
                 {
                     _ThemeButtonLightChecked = false;
                     _ThemeButtonDarkChecked = false;
-                    _ThemeButtonSystemChecked = true;
+                    SetProperty(ref _ThemeButtonSystemChecked, true);
 
                     CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                     Application.Current.UserAppTheme = OSAppTheme.Unspecified;

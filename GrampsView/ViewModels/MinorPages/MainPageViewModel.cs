@@ -108,7 +108,18 @@
 
         public DelegateCommand<string> NavigateCommand { get; }
 
+        public void ErrorActionDialog(ActionDialogArgs argADA)
+        {
+            Contract.Assert(argADA != null);
 
+            DialogParameters t = new DialogParameters
+            {
+                { "adaArgs", argADA },
+            };
+
+            //Using the dialog service as-is
+            BaseDialogService.ShowDialog("ErrorDialog", t);
+        }
 
         public override void OnNavigatedFrom(INavigationParameters parameters)
         {

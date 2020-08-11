@@ -252,9 +252,17 @@ namespace GrampsView.ViewModels
         /// </value>
         private bool DetailDataLoadedFlag { get; set; } = false;
 
-        public void AlertActionDialog(ActionDialogArgs argADA)
+        public void BaseActionDialog(ActionDialogArgs argADA)
         {
-            BaseActionDialog("Alert", argADA);
+            Contract.Assert(argADA != null);
+
+            DialogParameters t = new DialogParameters
+            {
+                { "adaArgs", argADA },
+            };
+
+            //Using the dialog service as-is
+            BaseDialogService.ShowDialog("ErrorDialog", t);
         }
 
         public HLinkBase BaseNavParamsHLinkDefault(HLinkBase argDefault)
@@ -269,11 +277,6 @@ namespace GrampsView.ViewModels
 
         public virtual void Destroy()
         {
-        }
-
-        public void ErrorActionDialog(ActionDialogArgs argADA)
-        {
-            BaseActionDialog("Error", argADA);
         }
 
         /// <summary>
@@ -342,19 +345,6 @@ namespace GrampsView.ViewModels
         public virtual void PopulateViewModel()
         {
             return;
-        }
-
-        private void BaseActionDialog(string argTitle, ActionDialogArgs argADA)
-        {
-            Contract.Assert(argADA != null);
-
-            DialogParameters t = new DialogParameters
-            {
-                { "adaArgs", argADA },
-            };
-
-            //Using the dialog service as-is
-            BaseDialogService.ShowDialog(argTitle, t);
         }
     }
 }
