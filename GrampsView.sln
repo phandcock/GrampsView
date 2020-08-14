@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\contributing.md = .github\contributing.md
 		LICENSE = LICENSE
 		package.json = package.json
+		PrivacyPolicy.md = PrivacyPolicy.md
 		README.md = README.md
 		.github\SECURITY.md = .github\SECURITY.md
 	EndProjectSection
@@ -34,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA7
 		azure\azure-pipeline-uwp.yml = azure\azure-pipeline-uwp.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsViewUnitTest", "GrampsViewUnitTest\GrampsViewUnitTest.csproj", "{3363B03A-5F78-4EB1-9B2E-3B8C325AAA20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsViewUnitTest", "GrampsViewUnitTest\GrampsViewUnitTest.csproj", "{3363B03A-5F78-4EB1-9B2E-3B8C325AAA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
