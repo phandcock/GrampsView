@@ -8,12 +8,7 @@
     Style="{DynamicResource GridSmallFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid
-            x:Name="controlRoot"
-            FlexLayout.AlignSelf="Start"
-            FlexLayout.Basis="{OnIdiom Phone='50%',
-                                       Tablet='33%',
-                                       Desktop='33%'}">
+        <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding OpenURLCommand}" />
@@ -26,7 +21,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
@@ -46,17 +41,13 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DefaultText, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                Text="{Binding DefaultText, Mode=OneWay}" />
 
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding GHRef, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                Text="{Binding GDescription, Mode=OneWay}" />
 
             <Image
                 Grid.Row="1"
