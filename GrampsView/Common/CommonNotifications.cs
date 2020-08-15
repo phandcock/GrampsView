@@ -150,7 +150,7 @@ namespace GrampsView.Common
         {
             await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
-            await DataLoadLogAdd(argMessage);
+            await DataLoadLogAdd(argMessage).ConfigureAwait(false);
 
             _iocCommonLogging.LogProgress("MajorStatusAdd: " + argMessage);
 

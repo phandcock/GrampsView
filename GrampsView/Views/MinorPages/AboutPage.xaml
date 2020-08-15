@@ -83,11 +83,14 @@
 
             <ucon:HeaderCardLarge Grid.Row="2" BindingContext="{Binding HeaderData, Mode=OneWay}" />
 
-            <ucon:InstructionCardLarge Grid.Row="3" BindingContext="{i18n:Translate AboutPage_PrivacyPolicy}" />
 
-            <ucon:InstructionCardLarge Grid.Row="4" BindingContext="{i18n:Translate AboutPage_AttributionText}" />
+            <ucon:InstructionCardLarge Grid.Row="3" BindingContext="{i18n:Translate AboutPage_AttributionText}" />
 
-            <ucon:ChangeLogCardLarge Grid.Row="5" />
+            <ucon:FileViewCardLarge Grid.Row="4" BindingContext="GrampsView.CHANGELOG.md" />
+
+
+            <ucon:FileViewCardLarge Grid.Row="5" BindingContext="GrampsView.PrivacyPolicy.md" />
+
         </Grid>
     </ScrollView>
 </ContentPage>

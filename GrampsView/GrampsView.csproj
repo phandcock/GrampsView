@@ -5,6 +5,10 @@
     <AssemblyVersion>1.15.229.206</AssemblyVersion>
     <FileVersion>1.15.229.206</FileVersion>
     <Copyright>2011 - 2020 YouMeAndI</Copyright>
+    <PackageProjectUrl>https://github.com/phandcock/GrampsView</PackageProjectUrl>
+    <PackageLicenseExpression>https://github.com/phandcock/GrampsView/blob/master/LICENSE</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/phandcock/GrampsView</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -120,6 +124,7 @@
     <Compile Remove="Services\MockDataStore.cs" />
     <Compile Remove="UserControls\AttributeCardLarge.xaml.cs" />
     <Compile Remove="UserControls\BookMarkCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\ChangeLogCardLarge.xaml.cs" />
     <Compile Remove="UserControls\CitationRefCardSmall.xaml.cs" />
     <Compile Remove="UserControls\EventCardLarge.xaml.cs" />
     <Compile Remove="UserControls\FamilyCardLarge.xaml.cs" />
@@ -195,6 +200,7 @@
     <EmbeddedResource Remove="Common\CommonPropertyDebug.xaml" />
     <EmbeddedResource Remove="UserControls\AttributeCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\BookMarkCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\ChangeLogCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\CitationRefCardSmall.xaml" />
     <EmbeddedResource Remove="UserControls\EventCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\FamilyCardLarge.xaml" />
@@ -272,6 +278,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\CollectionCardList.xaml.cs">
       <DependentUpon>CollectionCardList.xaml</DependentUpon>
     </Compile>
@@ -292,9 +301,6 @@
     </Compile>
     <Compile Update="UserControls\General\UWPButton.xaml.cs">
       <DependentUpon>UWPButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\ChangeLogCardLarge.xaml.cs">
-      <DependentUpon>ChangeLogCardLarge.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\InstructionCardLarge.xaml.cs">
       <DependentUpon>InstructionCardLarge.xaml</DependentUpon>
@@ -384,5 +390,9 @@
     <EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
     <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
     <EmbeddedResource Include="Assets\Fonts\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
   </ItemGroup>
 </Project>

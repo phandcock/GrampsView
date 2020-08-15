@@ -27,7 +27,8 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                          Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" />
+                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                Light={StaticResource LightPrimaryColor}}" />
                 </Image.Source>
             </Image>
 
@@ -43,7 +44,12 @@
         <FlexLayout Direction="Column">
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
 
-                <ucon:ChangeLogCardLarge Grid.Row="0" FlexLayout.Basis="75" />
+                <ucon:FileViewCardLarge
+                    Grid.Row="0"
+                    BindingContext="GrampsView.CHANGELOG.md"
+                    FlexLayout.Basis="75" />
+
+                <!--<ucon:ChangeLogCardLarge Grid.Row="0" FlexLayout.Basis="75" />-->
             </Frame>
 
             <Button

@@ -130,9 +130,6 @@ Xamarin.Plugin.FilePicker</value>
   <data name="defaultImage" xml:space="preserve">
     <value>ms-appx:///Assets/SmallLogo.scale-100.png</value>
   </data>
-  <data name="AboutPage_PrivacyPolicy" xml:space="preserve">
-    <value>We load data from the GPKG file you opened.  This may involve downloading it from a cloud server.  We send data on exceptions and errors to MS App Centre to trace errors etc.  This may contain some user data but honestly not much.  No data is sent to any other servers or systems that I am aware of.</value>
-  </data>
   <data name="FileInputHandlerPage_Instructions" xml:space="preserve">
     <value>Load Gramps Export file that has a GPKG or .GRAMPS extension. </value>
   </data>

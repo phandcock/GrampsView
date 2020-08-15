@@ -285,7 +285,8 @@
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceDark2Color}, Light={StaticResource LightSurfaceDark2Color}}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceDark2Color}, Light={StaticResource LightSurfaceDark2Color}}" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
     </Style>
 
