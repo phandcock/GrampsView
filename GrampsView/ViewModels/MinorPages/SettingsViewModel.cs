@@ -135,8 +135,11 @@ namespace GrampsView.ViewModels
         {
             DataStore.CN.NotifyAlert("Test Alert");
 
-            ActionDialogArgs t = new ActionDialogArgs();
-            t.Text = "Test Error with detail";
+            ActionDialogArgs t = new ActionDialogArgs
+            {
+                Name = "Test Error",
+                Text = "Test Error with detail",
+            };
 
             t.ItemDetails.Add("Test Line 1", "Test Value 1");
             t.ItemDetails.Add("Test LIne 2", "Test Value 2");

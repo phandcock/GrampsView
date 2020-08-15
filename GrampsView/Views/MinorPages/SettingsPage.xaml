@@ -40,7 +40,7 @@
                     <Label
                         BackgroundColor="Transparent"
                         HorizontalOptions="StartAndExpand"
-                        Text="Application Color Theme"
+                        Text="Theme"
                         TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
                                                     Light={StaticResource LightOnPrimaryColor}}"
                         VerticalOptions="CenterAndExpand" />
