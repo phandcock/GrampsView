@@ -5,8 +5,9 @@
     using Android.Content.PM;
     using Android.OS;
     using Android.Runtime;
-    using Android.Support.V4.App;
-    using Android.Support.V4.Content;
+
+    using AndroidX.Core.App;
+    using AndroidX.Core.Content;
 
     using FFImageLoading.Forms.Platform;
 
