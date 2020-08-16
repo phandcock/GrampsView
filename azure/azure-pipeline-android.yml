@@ -32,14 +32,6 @@ schedules:
 
 steps: 
 
-#- task: azuredevopsgithub@0
-#  inputs:
-#    gitHubConnection: 'github.com_phandcock'
-#    method: 'POST'
-#    body: '{ "event_type": "Prepare Release" }'
-#    githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/dispatches'
-#    ignoreFailure: true
-
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:

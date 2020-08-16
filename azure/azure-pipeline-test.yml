@@ -18,8 +18,6 @@ pool:
   vmImage: 'windows-latest'
   demands:
   - MSBuild
-  - Xamarin.Android
-  - JDK
 
 schedules:
   - cron: "0 0 * * MON,WED,FRI,SUN"
@@ -49,15 +47,14 @@ steps:
     Contents: Secret.cs
     TargetFolder: GrampsView/Common/
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/GrampsViewUnitTest.csproj'
-
+#- task: DotNetCoreCLI@2
+#  inputs:
+#    command: 'build'
+#    projects: '**/GrampsViewUnitTest.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '$(OutputDirectory)'
+    projects: '**/GrampsViewUnitTest.csproj'
     testRunTitle: 'GrampsView'
 

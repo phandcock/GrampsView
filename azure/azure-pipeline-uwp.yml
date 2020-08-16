@@ -35,7 +35,6 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
 
-
 - task: DownloadSecureFile@1
   displayName: 'Download Secret.cs file'
   inputs:
@@ -53,8 +52,7 @@ steps:
   displayName: 'Download GrampsViewUWP.pfx file'
   inputs:
     secureFile: '$(signingCert.SecureFile)'
-    #'bf399fb7-13b6-4ca2-aefa-cca2764fbeb3'
-
+ 
 - task: CopyFiles@2
   displayName: 'Copy PFX File to: GrampsView'
   inputs:
