@@ -1,11 +1,20 @@
-## [16.3.2](https://github.com/phandcock/GrampsView/compare/16.3.1...16.3.2) (2020-08-12)
+# [16.4.0](https://github.com/phandcock/GrampsView/compare/16.3.2...16.4.0) (2020-08-16)
 
 
 ### Bug Fixes
 
-* fix wrap of notefullcard when shrunk ([164aeac](https://github.com/phandcock/GrampsView/commit/164aeac59b30b504ff6704c85e756de2da3a0930))
-* tweak errorDialog so it works ([fc56c2a](https://github.com/phandcock/GrampsView/commit/fc56c2a54d2d5aa085d34237e647e9daf9d24357))
-* tweak light colour background ([a04bd5b](https://github.com/phandcock/GrampsView/commit/a04bd5b8329157b61816c845f980e3545b73951e))
+* cleanup layout and colours of error dialog ([dda55cc](https://github.com/phandcock/GrampsView/commit/dda55ccd272caba42206bfb920292e443104ccb6))
+* fix display of URLCard text ([64da662](https://github.com/phandcock/GrampsView/commit/64da662d3b1f494f569078c547000ca5a51481e4))
+
+
+### Features
+
+* add FileViewCard instead of ChangeLogCard and use for privacy policy file ([245f037](https://github.com/phandcock/GrampsView/commit/245f0377173a7b469c4443749aecdd11b7b1370f))
+
+
+### Reverts
+
+* Revert "build: upgrade to AndroidX" ([cba445e](https://github.com/phandcock/GrampsView/commit/cba445ea797724f409cb842615578746c3bee746))
 
 
 
