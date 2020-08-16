@@ -14,6 +14,46 @@ namespace GrampsView.Common
     /// </summary>
     internal class CommonTimeline
     {
+        //public static async Task<UserActivitySession> AddToTimeLine(string area, ModelBase theModel, string backgroundImage, string headerText, string bodyText)
+        //{
+        //    // TODO finish this
+
+        //UserActivitySession returnedFromUIThread = await MainThread.BeginInvokeOnMainThread(async () =>
+        //{
+        //    // Record in the TimeLine
+        //    UserActivityChannel channel = UserActivityChannel.GetDefault();
+
+        // if (theModel.Valid && (theModel.ModelUserActivity is null)) { theModel.ModelUserActivity
+        // = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
+
+        // // Set deep-link and properties. theModel.ModelUserActivity.ActivationUri = new
+        // Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
+
+        // // TODO Add Adapative card visuals once the API has settled down StorageFile // cardFile
+        // = await StorageFile.GetFileFromApplicationUriAsync(new //
+        // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await //
+        // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
+        // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
+        // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
+
+        // theModel.ModelUserActivity.VisualElements.Description = bodyText;
+
+        // // Save to activity feed. await theModel.ModelUserActivity.SaveAsync(); }
+
+        // // Create a session, which indicates that the user is engaged in the activity.
+        // UserActivitySession activitySession = null;
+
+        // if (theModel.ModelUserActivity != null) { activitySession =
+        // theModel.ModelUserActivity.CreateSession(); }
+
+        // return activitySession;
+
+        //}).ConfigureAwait(false);
+
+        // return returnedFromUIThread;
+
+        //}
+
         /// <summary>
         /// Finishes the activity session asynchronous.
         /// </summary>

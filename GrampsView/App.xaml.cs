@@ -63,6 +63,11 @@ namespace GrampsView
         {
         }
 
+        protected override void OnAppLinkRequestReceived(System.Uri uri)
+        {
+            base.OnAppLinkRequestReceived(uri);
+        }
+
         protected override void OnInitialized()
         {
             InitializeComponent();

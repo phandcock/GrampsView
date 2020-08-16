@@ -1,20 +1,22 @@
 ﻿namespace GrampsView.UWP
 {
-    using System;
     using FFImageLoading.Forms;
 
+    using GrampsView.Data.Repository;
+
+    using Microsoft.AppCenter;
+
+    using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Navigation;
-    using Microsoft.AppCenter;
-    using System.Diagnostics;
-    using GrampsView.Data.Repository;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -35,6 +37,60 @@
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 
             Current.UnhandledException += new Windows.UI.Xaml.UnhandledExceptionEventHandler(UnhandledExceptionHandler);
+        }
+
+        protected override void OnActivated(IActivatedEventArgs e)
+        {
+            // Handle Protocol Activation
+            //
+            // Handles URIs of the format used by Gramps internally gramps://person/handle/12345
+            if (e.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs uriArgs = e as ProtocolActivatedEventArgs;
+
+                if (uriArgs != null)
+                {
+                    string[] uriSegments = uriArgs.Uri.Segments;
+
+                    if (uriSegments[1] != "handle/")
+                    {
+                        // TODO Handle error
+                    }
+
+                    switch (uriArgs.Uri.Host)
+                    {
+                        case "family":
+                            {
+                                // TODO finish this
+                                //LaunchParam.TargetObject = uriSegments[2];
+
+                                //commonLog.LogRoutineExit("Navigate to the FamilyDetail page");
+
+                                //LaunchParam.TargetView = nameof(FamilyDetailView);
+
+                                break;
+                            }
+
+                        case "person":
+                            {
+                                //LaunchParam.TargetObject = uriSegments[2];
+
+                                //commonLog.LogRoutineExit("Navigate to the PersonDetail page");
+
+                                //LaunchParam.TargetView = nameof(PersonDetailView);
+
+                                break;
+                            }
+
+                        default:
+
+                            // TODO Handle bad arg better
+                            break;
+                    }
+                }
+
+                //StartApp(args);
+            }
         }
 
         /// <summary>

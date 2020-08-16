@@ -20,18 +20,14 @@ namespace GrampsView.UWP.Common
     public static class CommonTileUpdate
     {
         /// <summary>
-        /// Updates the tile.
+        /// Updates the tiles.
         /// </summary>
-        /// <param name="media">
-        /// The media.
-        /// </param>
         public static void UpdateTile()
         {
             TileUpdater theTile = TileUpdateManager.CreateTileUpdaterForApplication();
 
             theTile.EnableNotificationQueue(true);
 
-            // Generate the tile notification content and update the tile
             TileContent content = GenerateTileContent(DV.MediaDV.GetRandomFromCollection(null).DeRef);
             theTile.Update(new TileNotification(content.GetXml()));
 
@@ -40,8 +36,6 @@ namespace GrampsView.UWP.Common
 
             content = GenerateTileContent(DV.MediaDV.GetRandomFromCollection(null).DeRef);
             theTile.Update(new TileNotification(content.GetXml()));
-
-            // TileUpdateManager.CreateTileUpdaterForSecondaryTile(tile.TileId).Update(new TileNotification(content.GetXml()));
         }
 
         /// <summary>
@@ -206,25 +200,22 @@ namespace GrampsView.UWP.Common
         /// <summary>
         /// Generates the content of the tile.
         /// </summary>
-        /// <param name="media">
+        /// <param name="argMedia">
         /// The media.
         /// </param>
         /// <returns>
         /// </returns>
-        private static TileContent GenerateTileContent(IMediaModel media)
+        private static TileContent GenerateTileContent(IMediaModel argMedia)
         {
-            if (media != null)
+            if (argMedia != null)
             {
-                // TODO until proper async image loading fixed
-                //media.LoadImage();
-
                 return new TileContent()
                 {
                     Visual = new TileVisual()
                     {
-                        TileMedium = GenerateTileBindingMedium(media),
-                        TileWide = GenerateTileBindingWide(media),
-                        TileLarge = GenerateTileBindingLarge(media),
+                        TileMedium = GenerateTileBindingMedium(argMedia),
+                        TileWide = GenerateTileBindingWide(argMedia),
+                        TileLarge = GenerateTileBindingLarge(argMedia),
                     },
                 };
             }

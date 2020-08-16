@@ -5,14 +5,19 @@
 
     using Prism.Events;
 
+    using System.Threading.Tasks;
+
     internal class PlatformSpecific : IPlatformSpecific
     {
         public PlatformSpecific(IEventAggregator iocEventAggregator)
         {
         }
 
-        public void ActivityTimeLineAdd(PersonModel argPersonModel)
+        public async Task ActivityTimeLineAdd(PersonModel argPersonModel)
         {
+            // No Timeline functionality so ignore this
+
+            return ;
         }
     }
 }
