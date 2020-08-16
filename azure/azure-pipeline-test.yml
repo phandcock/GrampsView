@@ -1,19 +1,18 @@
-name: GrampsView Test
-
+name: GrampsView Android
+  
 variables:
+  - name: BuildConfiguration
+    value: 'Release'
   - name: solution
     value: '**/*.sln'
-  - name: buildPlatform
-    value: 'x64'
-  - name: buildConfiguration
-    value: 'Release'
-  - name: appxPackageDir
-    value: '$(build.artifactStagingDirectory)\AppxPackages\\'
-  - group: uwp-pipeline
+  - name: appFiles
+    value: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
+  - name: OutputDirectory
+    value: '$(build.binariesDirectory)/$(BuildConfiguration)'
 
 trigger: none
 pr: none
-
+ 
 pool:
   name: Azure Pipelines
   vmImage: 'windows-latest'
@@ -23,21 +22,23 @@ pool:
   - JDK
 
 schedules:
-  - cron: "30 0 * * MON,WED,FRI,SUN"
+  - cron: "0 0 * * MON,WED,FRI,SUN"
     displayName: Four day a week build
     branches:
         include:
         - master
 
 steps: 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore solution'
-  inputs:
-    restoreSolution: '**/*.sln'
 
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '$(solution)'
+    feedsToUse: config
+    nugetConfigPath: GrampsView/AnythingElse/DeploymentTools/NuGet.Config
 
 - task: DownloadSecureFile@1
-  displayName: 'Download Secret.cs file'
+  displayName: 'Download secure file: Secret.cs'
   inputs:
     secureFile: 'Secret.cs'
 
@@ -48,48 +49,15 @@ steps:
     Contents: Secret.cs
     TargetFolder: GrampsView/Common/
 
-
-- task: VSBuild@1
-  displayName: 'Build Test project'
+- task: DotNetCoreCLI@2
   inputs:
-    solution: '**/GrampsViewUnitTest.csproj'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)"
-                  /p:AppxPackageDir="$(appxPackageDir)"
-                  /p:AppxBundle=Always
-                  /p:UapAppxPackageBuildMode=StoreUpload
+    command: 'build'
+    projects: '**/GrampsViewUnitTest.csproj'
 
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-      !**\$(BuildConfiguration)\*\*test*.dll
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-    
-- task: CopyFiles@2 
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\AppxPackages\**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-
-- task: AppCenterDistribute@3
-  displayName: 'Deploy $(build.artifactstagingdirectory)\AppxPackages\*.msixupload to Visual Studio App Center'
-  inputs:
-    serverEndpoint: 'App Center'
-    appSlug: '$(appSlug)'
-    appFile: '$(build.artifactstagingdirectory)\AppxPackages\*.msixupload'
-    symbolsIncludeParentDirectory: false
-    symbolsOption: 'UWP'
-    releaseNotesOption: 'file'
-    releaseNotesFile: 'CHANGELOG.md'
-    isSilent: false
-    destinationType: 'groups'
-    distributionGroupId: 'f19421ab-bb76-49f6-b4fc-ed1031094c9e'
+    command: 'test'
+    projects: '$(OutputDirectory)'
+    testRunTitle: 'GrampsView'
 
