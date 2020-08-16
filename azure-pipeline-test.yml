@@ -54,9 +54,10 @@ steps:
     command: 'build'
     projects: '**/GrampsViewUnitTest.csproj'
 
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: '$(OutputDirectory)'
-    testRunTitle: 'GrampsView''
-    TargetFolder: '$(Build.ArtifactStagingDirectory)\'
+    testRunTitle: 'GrampsView'
+
