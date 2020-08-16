@@ -215,7 +215,7 @@ namespace GrampsView.Data.ExternalStorageNS
                                 try
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
-                                    await DataStore.CN.ChangeLoadingMessage("Loading media file: " + temp).ConfigureAwait(false);
+                                    await DataStore.CN.LoadingMessageReplace("Loading media file: " + temp).ConfigureAwait(false);
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata

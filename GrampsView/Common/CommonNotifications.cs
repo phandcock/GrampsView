@@ -15,12 +15,8 @@ namespace GrampsView.Common
 
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
-
-    using Xamarin.Essentials;
 
     /// <summary>
     /// Common Progress routines.
@@ -38,6 +34,7 @@ namespace GrampsView.Common
         /// </summary>
         private readonly IEventAggregator _iocEventAggregator;
 
+        private IDataLog _DataLog;
         private string _MajorStatusMessage = string.Empty;
 
         private string _MinorStatusMessage = string.Empty;
@@ -52,7 +49,7 @@ namespace GrampsView.Common
         /// The event aggregator.
         /// </param>
         public CommonNotifications(ICommonLogging iocCommonLogging,
-                                   IEventAggregator iocEventAggregator)
+                                   IEventAggregator iocEventAggregator, IDataLog iocDataLog)
         {
             if (iocEventAggregator is null)
             {
@@ -63,16 +60,8 @@ namespace GrampsView.Common
 
             _iocCommonLogging = iocCommonLogging;
 
-            //_EventAggregator.GetEvent<GVNotificationLogAdd>().Subscribe(DataLoadLogAdd, ThreadOption.UIThread);
+            _DataLog = iocDataLog;
         }
-
-        /// <summary>
-        /// Gets the data load log.
-        /// </summary>
-        /// <value>
-        /// The data load log.
-        /// </value>
-        public ObservableCollection<DataLogEntry> DataLoadLog { get; } = new ObservableCollection<DataLogEntry>();
 
         public string MajorStatusMessage
         {
@@ -122,6 +111,20 @@ namespace GrampsView.Common
             return;
         }
 
+        public async Task LoadingMessageReplace(string argMessage)
+        {
+            _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
+
+            if (!string.IsNullOrEmpty(argMessage))
+            {
+                _iocCommonLogging.LogVariable("LoadingMessageReplace", argMessage);
+
+                await MajorStatusReplace(argMessage).ConfigureAwait(false);
+            }
+
+            return;
+        }
+
         /// <summary>
         /// Notifies the general status.
         /// </summary>
@@ -150,7 +153,7 @@ namespace GrampsView.Common
         {
             await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
-            await DataLoadLogAdd(argMessage).ConfigureAwait(false);
+            await _DataLog.Add(argMessage).ConfigureAwait(false);
 
             _iocCommonLogging.LogProgress("MajorStatusAdd: " + argMessage);
 
@@ -169,7 +172,7 @@ namespace GrampsView.Common
         {
             //MajorStatusMessage = string.Empty;
 
-            await DataLoadLogRemove();
+            await _DataLog.Remove().ConfigureAwait(false);
 
             //// Pop top item
             // if (majorStatusQueue.Count > 0) { QueueItem oldItem = majorStatusQueue.Dequeue();
@@ -185,11 +188,24 @@ namespace GrampsView.Common
             // localEventAggregator.GetEvent<GVProgressMajorTextUpdate>().Publish(null)).ConfigureAwait(false); }
         }
 
+        public async Task MajorStatusReplace(string argMessage)
+        {
+            await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
+
+            await _DataLog.Replace(argMessage).ConfigureAwait(false);
+
+            _iocCommonLogging.LogProgress("MajorStatusReplace: " + argMessage);
+
+            MajorStatusMessage = argMessage;
+
+            return;
+        }
+
         public async Task MinorStatusAdd(string argMessage)
         {
             await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
-            await DataLoadLogAdd(argMessage);
+            await _DataLog.Add(argMessage).ConfigureAwait(false);
 
             _iocCommonLogging.LogVariable("MinorStatusAdd", argMessage);
 
@@ -318,37 +334,6 @@ namespace GrampsView.Common
 
             // Remove serialised data in case it is the issue
             CommonLocalSettings.DataSerialised = false;
-        }
-
-        private async Task<bool> DataLoadLogAdd(string entry)
-        {
-            await MainThread.InvokeOnMainThreadAsync(() =>
-          {
-              DataLogEntry t = default(DataLogEntry);
-
-              if (!string.IsNullOrEmpty(entry))
-              {
-                  t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
-                  t.Text = entry.Trim();
-
-                  DataLoadLog.Insert(0, t);
-              }
-          }).ConfigureAwait(false);
-
-            return true;
-        }
-
-        private async Task<bool> DataLoadLogRemove()
-        {
-            await MainThread.InvokeOnMainThreadAsync(() =>
-            {
-                if (DataLoadLog.Count > 0)
-                {
-                    DataLoadLog.Remove(DataLoadLog.FirstOrDefault());
-                }
-            }).ConfigureAwait(false);
-
-            return true;
         }
     }
 }

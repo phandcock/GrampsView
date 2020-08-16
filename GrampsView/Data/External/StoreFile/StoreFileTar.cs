@@ -4,14 +4,14 @@
 
 namespace GrampsView.Data
 {
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.Tar;
+
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -221,7 +221,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        await DataStore.CN.ChangeLoadingMessage("Untaring  file " + tarEntry.Name).ConfigureAwait(false);
+                        await DataStore.CN.LoadingMessageReplace("Untaring  file " + tarEntry.Name).ConfigureAwait(false);
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 

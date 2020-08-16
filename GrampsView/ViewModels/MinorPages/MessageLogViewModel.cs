@@ -10,12 +10,9 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
-
-    using Prism.Events;
-    using Prism.Navigation;
 
     using System.Collections.ObjectModel;
+    using System.Diagnostics.Contracts;
 
     /// <summary>
     /// <c>Viewmodel</c> for the Message Log Page.
@@ -25,13 +22,18 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageLogViewModel"/> class.
         /// </summary>
-        public MessageLogViewModel()
+        public MessageLogViewModel(IDataLog iocDataLog)
 
         {
             BaseTitle = "Message Log";
 
             BaseTitleIcon = CommonConstants.IconLog;
+
+            Contract.Assert(iocDataLog != null);
+            _MajorStatusList = iocDataLog.DataLoadLog;
         }
+
+        private ObservableCollection<DataLogEntry> _MajorStatusList;
 
         /// <summary>
         /// Gets the data load log.
@@ -44,7 +46,7 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return DataStore.CN.DataLoadLog;
+                return _MajorStatusList;
             }
         }
     }

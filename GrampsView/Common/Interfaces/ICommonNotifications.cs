@@ -12,7 +12,6 @@ namespace GrampsView.Common
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -20,7 +19,7 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
-        ObservableCollection<DataLogEntry> DataLoadLog { get; }
+     
         string MajorStatusMessage { get; }
 
         string MinorStatusMessage { get; }
@@ -35,6 +34,8 @@ namespace GrampsView.Common
         /// </returns>
         Task ChangeLoadingMessage(string strMessage);
 
+        Task LoadingMessageReplace(string argMessage);
+
         /// <summary>
         /// Notifies the general status.
         /// </summary>
@@ -45,6 +46,8 @@ namespace GrampsView.Common
         /// if set to <c>true</c> [show progress ring].
         /// </param>
         Task MajorStatusAdd(string strMessage);
+
+        Task MajorStatusReplace(string argMessage);
 
         /// <summary>
         /// Majors the status add.

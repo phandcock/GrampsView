@@ -11,8 +11,8 @@
             Padding="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
                                               Light={StaticResource LightSurfaceColor}}"
-            BorderColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                          Light={StaticResource LightSecondaryLightColor}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                          Light={StaticResource LightOnSurfaceColor}}"
             CornerRadius="{StaticResource GVCornerRadius}">
 
             <Grid
