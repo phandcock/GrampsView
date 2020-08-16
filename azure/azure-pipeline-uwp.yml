@@ -112,18 +112,7 @@ steps:
                   /p:PackageCertificatePassword="$(signingCert.password)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-      !**\$(BuildConfiguration)\*\*test*.dll
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-    
+   
 - task: CopyFiles@2 
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:

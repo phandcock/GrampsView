@@ -97,18 +97,7 @@ steps:
     apksignerKeystorePassword: android
     apksignerKeystoreAlias: androiddebugkey
     apksignerKeyPassword: android
-
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-      !**\$(BuildConfiguration)\*\*test*.dll
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-    
+   
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\'
   inputs:
