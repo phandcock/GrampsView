@@ -30,13 +30,6 @@ schedules:
 
 steps: 
 
-- task: jikuma.devops-github-extension.custom-build-release-task.azuredevopsgithub@0
-  displayName: 'Github POST'
-  inputs:
-    gitHubConnection: 'GitHub connection'
-    body: '{ “event_type”: “EVENT_NAME” }'
-    githubrestapiurl: 'https://api.github.com/repos/phandcock/GrampsView/Prepare Release'
-
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
@@ -56,61 +49,14 @@ steps:
     Contents: Secret.cs
     TargetFolder: GrampsView/Common/
 
-- task: XplatGenerateReleaseNotes@3
+- task: DotNetCoreCLI@2
   inputs:
-    outputfile: '$(Build.ArtifactStagingDirectory)\CHANGELOG.md'
-    templateLocation: 'File'
-    templatefile: 'GrampsView/AnythingElse/DeploymentTools/ReleaseNotesTemplate.txt'
-    dumpPayloadToConsole: true
-    dumpPayloadToFile: false
-    replaceFile: True
-    getParentsAndChildren: False
+    command: 'build'
+    projects: '**/GrampsViewUnitTest.csproj'
 
-- task: UseGitVersion@5
-  displayName: GitVersion
+- task: DotNetCoreCLI@2
   inputs:
-    versionSpec: 5.x
-
-- task: VersionAndroidManifest@2
-  inputs:
-    Path: '$(Build.SourcesDirectory)'
-    VersionNumber: '$(GitVersion.SemVer)'
-    VersionNameFormat: '{1}.{2}.{3}'
-    VersionCodeFormat: '{1}{2}{3}'
-
-- task: XamarinAndroid@1
-  displayName: 'Build Xamarin.Android project **/*Droid*.csproj'
-  inputs:
-    projectFile: '**/*Droid*.csproj'
-    outputDirectory: '$(OutputDirectory)'
-    configuration: '$(BuildConfiguration)'
-    msbuildVersionOption: latest
-
-- task: AndroidSigning@3
-  displayName: 'Signing and aligning APK file(s) $(OutputDirectory)/*.apk'
-  inputs:
-    apkFiles: '$(OutputDirectory)/*.apk'
-    apksignerKeystoreFile: '993780e6-b531-4953-81a0-baf3e18a8d16'
-    apksignerKeystorePassword: android
-    apksignerKeystoreAlias: androiddebugkey
-    apksignerKeyPassword: android
-
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\'
-  inputs:
-    SourceFolder: '$(OutputDirectory)'
+    command: 'test'
+    projects: '$(OutputDirectory)'
+    testRunTitle: 'GrampsView''
     TargetFolder: '$(Build.ArtifactStagingDirectory)\'
-
-- task: AppCenterDistribute@3
-  displayName: 'Deploy $(build.binariesdirectory)/$(BuildConfiguration)/*.apk to Visual Studio App Center'
-  inputs:
-    serverEndpoint: 'App Center'
-    appSlug: 'phandcock-ilr0/GrampsViewXam'
-    appFile: '$(appFiles)'
-    symbolsOption: 'Android'
-    releaseNotesOption: 'file'
-    releaseNotesFile: 'CHANGELOG.md'
-    destinationType: 'groups'
-    distributionGroupId: 'e9e85188-6f54-4868-9759-992c446d5145'
-  condition: succeededOrFailed()
-
