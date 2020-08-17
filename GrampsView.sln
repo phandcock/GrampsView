@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA7
 		azure\azure-pipeline-ios.yml = azure\azure-pipeline-ios.yml
 		azure\azure-pipeline-test.yml = azure\azure-pipeline-test.yml
 		azure\azure-pipeline-uwp.yml = azure\azure-pipeline-uwp.yml
+		azure\azure-pipeline-vstest.yml = azure\azure-pipeline-vstest.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsViewUnitTest", "GrampsViewUnitTest\GrampsViewUnitTest.csproj", "{3363B03A-5F78-4EB1-9B2E-3B8C325AAA20}"
