@@ -3,10 +3,10 @@ name: GrampsView VSTest
 variables:
   - name: BuildConfiguration
     value: 'Release'
-  - name: solution
+  - name: Solution
     value: '**/*.sln'
-  - name: appFiles
-    value: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
+  - name: Projects
+    value: '$(Build.SourcesDirectory)/GrampsViewNUnitTest/*.csproj'
   - name: OutputDirectory
     value: '$(build.binariesDirectory)/$(BuildConfiguration)'
 
@@ -31,7 +31,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '$(solution)'
+    restoreSolution: '$(Solution)'
 
 - task: DownloadSecureFile@1
   displayName: 'Download secure file: Secret.cs'
@@ -45,14 +45,62 @@ steps:
     Contents: Secret.cs
     TargetFolder: GrampsView/Common/
 
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: build
+    projects: "$(Projects)"
+    arguments: "--configuration $(BuildConfiguration)"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: "$(Projects)"
+    arguments: "--configuration $(BuildConfiguration)"
 
 - task: VSTest@2
   inputs:
+    #  !**\*TestAdapter.dll
+    #  !**\obj\** 
+    #  **\*test*.dll
+    #batchingBasedOnAgentsOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customBatchSize
+    #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customTimeBatchSize
+    #codeCoverageEnabled: False # Optional
+    #collectDumpOn: 'onAbortOnly' # Optional. Options: onAbortOnly, always, never
+    configuration: '$(BuildConfiguration)'
+    #customBatchSizeValue: '10' # Required when distributionBatchType == BasedOnTestCases && BatchingBasedOnAgentsOption == CustomBatchSize
+    #customRunTimePerBatchValue: '60' # Required when distributionBatchType == BasedOnExecutionTime && BatchingBasedOnExecutionTimeOption == CustomTimeBatchSize
+    #diagnosticsEnabled: false # Optional
+    #distributionBatchType: 'basedOnTestCases' # Optional. Options: basedOnTestCases, basedOnExecutionTime, basedOnAssembly
+    #dontDistribute: False # Optional
+    #failOnMinTestsNotRun: false # Optional
+    #minimumExpectedTests: '1' # Optional
+    #otherConsoleOptions: # Optional
+    #overrideTestrunParameters: # Optional
+    #pathtoCustomTestAdapters: # Optional
     platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    #publishRunAttachments: true # Optional
+    #rerunFailedTestCasesMaxLimit: '5' # Optional
+    #rerunFailedTests: False # Optional
+    #rerunFailedThreshold: '30' # Optional
+    #rerunMaxAttempts: '3' # Optional
+    #rerunType: 'basedOnTestFailurePercentage' # Optional. Options: basedOnTestFailurePercentage, basedOnTestFailureCount
+    #runAllTestsAfterXBuilds: '50' # Optional
+    #runInParallel: False # Optional
+    #runOnlyImpactedTests: False # Optional
+    #runSettingsFile: # Optional
+    #runTestsInIsolation: False # Optional
+    #searchFolder: '$(System.DefaultWorkingDirectory)' 
+    #tcmTestRun: '$(test.RunId)' # Optional
+    #testAssemblyVer2: | # Required when testSelector == TestAssemblies
+    #testConfiguration: # Required when testSelector == TestPlan
+    #testFiltercriteria: # Optional
+    #testPlan: # Required when testSelector == TestPlan
+    #testRunTitle: # Optional
+    #testSelector: 'testAssemblies' # Options: testAssemblies, testPlan, testRun
+    #testSuite: # Required when testSelector == TestPlan
+    #uiTests: false # Optional
+    #vstestLocation: # Optional
+    #vstestLocationMethod: 'version' # Optional. Options: version, location
+    #vsTestVersion: 'latest' # Optional. Options: latest, 16.0, 15.0, 14.0, toolsInstaller
+    
