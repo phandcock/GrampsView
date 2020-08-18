@@ -247,7 +247,8 @@ namespace GrampsView.Data.ExternalStorageNS
                         loadObject.GNoteRefCollection = GetNoteCollection(pname);
 
                         // citationref details TODO Event References
-                        loadObject.GCitationRefCollection = GetCitationCollection(pname);
+                        loadObject.GCitationRefCollection.Clear();
+                        loadObject.GCitationRefCollection.AddRange(GetCitationCollection(pname));
 
                         loadObject.GTagRefCollection = GetTagCollection(pname);
 

@@ -64,22 +64,16 @@ namespace GrampsView.ViewModels
         }
 
         /// <summary>
-        /// Gets or sets the data detail list.
+        /// Gets the data detail list.
         /// </summary>
         /// <value>
         /// The data detail list.
         /// </value>
-        // [RestorableState]
         public CardListLineCollection DataDetailList
         {
             get
             {
                 return localDataDetailList;
-            }
-
-            set
-            {
-                SetProperty(ref localDataDetailList, value);
             }
         }
 
@@ -189,23 +183,23 @@ namespace GrampsView.ViewModels
 
             if (DataStore.AD.CurrentDataFolderValid)
             {
-                DataDetailList = new CardListLineCollection
-                {
+                DataDetailList.Clear();
+
+                DataDetailList.Add(
                     new CardListLine(
                         "Data Folder:",
-                        DataStore.AD.CurrentDataFolder.FullName),
-                };
+                        DataStore.AD.CurrentDataFolder.FullName));
 
                 LocalCanHandleUseExistingFolder = true;
             }
             else
             {
-                DataDetailList = new CardListLineCollection
-                {
+                DataDetailList.Clear();
+
+                DataDetailList.Add(
                     new CardListLine(
-                        "Data Folder:",
-                        "Not set"),
-                };
+                         "Data Folder:",
+                        "Not set"));
 
                 LocalCanHandleUseExistingFolder = false;
             }

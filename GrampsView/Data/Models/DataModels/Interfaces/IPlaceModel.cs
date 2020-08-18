@@ -16,7 +16,7 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IPlaceModel : IModelBase
     {
-        HLinkCitationModelCollection GCitationRefCollection { get; set; }
+        HLinkCitationModelCollection GCitationRefCollection { get; }
 
         string GCode { get; set; }
 

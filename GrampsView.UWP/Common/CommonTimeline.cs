@@ -4,55 +4,61 @@
 
 namespace GrampsView.Common
 {
+    using GrampsView.Data.Model;
+
     using System;
     using System.Threading.Tasks;
 
     using Windows.ApplicationModel.UserActivities;
+
+    using Xamarin.Essentials;
 
     /// <summary>
     /// Handles User Activity and Timeline related functions.
     /// </summary>
     internal class CommonTimeline
     {
-        //public static async Task<UserActivitySession> AddToTimeLine(string area, ModelBase theModel, string backgroundImage, string headerText, string bodyText)
-        //{
-        //    // TODO finish this
+        public static async Task<UserActivitySession> AddToTimeLine(string area, ModelBase theModel, string bodyText)
+        {
+            UserActivitySession returnedFromUIThread = await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                // Record in the TimeLine
+                UserActivityChannel channel = UserActivityChannel.GetDefault();
+                UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
+                Uri _Uri;
+                UserActivitySession activitySession = null;
 
-        //UserActivitySession returnedFromUIThread = await MainThread.BeginInvokeOnMainThread(async () =>
-        //{
-        //    // Record in the TimeLine
-        //    UserActivityChannel channel = UserActivityChannel.GetDefault();
+                if (theModel.Valid)
+                {
+                    // Set deep-link and properties.
+                    _Uri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
 
-        // if (theModel.Valid && (theModel.ModelUserActivity is null)) { theModel.ModelUserActivity
-        // = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
+                    //// TODO Add Adapative card visuals once the API has settled down StorageFile // cardFile
+                    // = await StorageFile.GetFileFromApplicationUriAsync(new //
+                    // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await
+                    // // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
 
-        // // Set deep-link and properties. theModel.ModelUserActivity.ActivationUri = new
-        // Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
+                    // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
+                    // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
 
-        // // TODO Add Adapative card visuals once the API has settled down StorageFile // cardFile
-        // = await StorageFile.GetFileFromApplicationUriAsync(new //
-        // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await //
-        // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
-        // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-        // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
+                    _ModelUserActivity.VisualElements.DisplayText = area;
+                    _ModelUserActivity.VisualElements.Description = bodyText;
+                    _ModelUserActivity.ActivationUri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
 
-        // theModel.ModelUserActivity.VisualElements.Description = bodyText;
+                    //Save
+                    await _ModelUserActivity.SaveAsync(); //save the new metadata
 
-        // // Save to activity feed. await theModel.ModelUserActivity.SaveAsync(); }
+                    if (_ModelUserActivity != null)
+                    {
+                        activitySession = _ModelUserActivity.CreateSession();
+                    }
+                }
 
-        // // Create a session, which indicates that the user is engaged in the activity.
-        // UserActivitySession activitySession = null;
+                return activitySession;
+            }).ConfigureAwait(false);
 
-        // if (theModel.ModelUserActivity != null) { activitySession =
-        // theModel.ModelUserActivity.CreateSession(); }
-
-        // return activitySession;
-
-        //}).ConfigureAwait(false);
-
-        // return returnedFromUIThread;
-
-        //}
+            return returnedFromUIThread;
+        }
 
         /// <summary>
         /// Finishes the activity session asynchronous.

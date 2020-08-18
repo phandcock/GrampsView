@@ -44,8 +44,8 @@ namespace GrampsView.Data.Model
         HLinkCitationModelCollection GCitationRefCollection
         {
             get;
-            set;
         }
+
 
         /// <summary>
         /// Gets or sets the date value.

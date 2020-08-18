@@ -42,7 +42,7 @@ namespace GrampsView.ViewModels
         /// </returns>
         public override void PopulateViewModel()
         {
-            var t = BaseNavParams;
+            //var t = BaseNavParams;
 
 
         }

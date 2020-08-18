@@ -423,7 +423,6 @@ namespace GrampsView.Data.Model
             IMediaModel t = new MediaModel
             {
                 FileMimeType = this.FileMimeType,
-                GCitationRefCollection = this.GCitationRefCollection,
                 GDateValue = this.GDateValue,
                 GDescription = this.GDescription,
                 GNoteRefCollection = this.GNoteRefCollection,
@@ -432,6 +431,9 @@ namespace GrampsView.Data.Model
                 MetaDataHeight = this.MetaDataHeight,
                 OriginalFilePath = this.OriginalFilePath
             };
+
+            t.GCitationRefCollection.Clear();
+            t.GCitationRefCollection.AddRange(this.GCitationRefCollection);
 
             return t;
         }

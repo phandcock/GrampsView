@@ -34,7 +34,7 @@ namespace GrampsView.Data.Model
 
         public HLinkCitationModelCollection GCitationCollection
         {
-            get; set;
+            get;
         }
 
             = new HLinkCitationModelCollection();

@@ -3,8 +3,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
-
     using System.Threading.Tasks;
 
     internal class PlatformSpecific : IPlatformSpecific
@@ -13,6 +11,12 @@
         {
             // No Timeline functionality so ignore this
         }
+
+        public async Task ActivityTimeLineAdd(FamilyModel argFamilyModel)
+        {
+            // No Timeline functionality so ignore this
+        }
+
 
         //public void Init(IEventAggregator iocEventAggregator)
         //{

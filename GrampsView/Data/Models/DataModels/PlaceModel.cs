@@ -52,34 +52,34 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _GCodeField;
 
-        private PlaceNameModelCollection _GPlaceNames = new PlaceNameModelCollection();
-
-        /// <summary>
-        /// The local p title field.
-        /// </summary>
-        private string _GPTitle;
-
-        private HLinkPlaceModelCollection _PlaceChildCollection = new HLinkPlaceModelCollection();
-
         /// <summary>
         /// The local media collection.
         /// </summary>
-        private HLinkMediaModelCollection localMediaCollection = new HLinkMediaModelCollection();
+        private HLinkMediaModelCollection _GMediaCollection = new HLinkMediaModelCollection();
 
         /// <summary>
         /// The local note reference.
         /// </summary>
-        private HLinkNoteModelCollection localNoteReference = new HLinkNoteModelCollection();
+        private HLinkNoteModelCollection _GNoteReference = new HLinkNoteModelCollection();
+
+        private PlaceNameModelCollection _GPlaceNames = new PlaceNameModelCollection();
 
         /// <summary>
         /// The local place reference.
         /// </summary>
-        private HLinkPlaceModelCollection localPlaceReference = new HLinkPlaceModelCollection();
+        private HLinkPlaceModelCollection _GPlaceReference = new HLinkPlaceModelCollection();
+
+        /// <summary>
+        /// The local ptitle field.
+        /// </summary>
+        private string _GPTitle;
 
         /// <summary>
         /// The local place type field.
         /// </summary>
-        private string localPlaceTypeField;
+        private string _GTypeField;
+
+        private HLinkPlaceModelCollection _PlaceChildCollection = new HLinkPlaceModelCollection();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceModel"/> class.
@@ -97,7 +97,7 @@ namespace GrampsView.Data.Model
         /// Gets or sets the g citation reference collection.
         /// </summary>
         [DataMember]
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; }
+        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
 
         /// <summary>
         /// Gets or sets the gp code.
@@ -126,7 +126,7 @@ namespace GrampsView.Data.Model
         public string GCoordLong { get; set; }
 
         /// <summary>
-        /// Gets the get default text for this Model.
+        /// Gets the default text for this Model.
         /// </summary>
         /// <value>
         /// The default text.
@@ -158,12 +158,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localMediaCollection;
+                return _GMediaCollection;
             }
 
             set
             {
-                SetProperty(ref localMediaCollection, value);
+                SetProperty(ref _GMediaCollection, value);
             }
         }
 
@@ -178,12 +178,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localNoteReference;
+                return _GNoteReference;
             }
 
             set
             {
-                SetProperty(ref localNoteReference, value);
+                SetProperty(ref _GNoteReference, value);
             }
         }
 
@@ -212,12 +212,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localPlaceReference;
+                return _GPlaceReference;
             }
 
             set
             {
-                SetProperty(ref localPlaceReference, value);
+                SetProperty(ref _GPlaceReference, value);
             }
         }
 
@@ -262,12 +262,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localPlaceTypeField;
+                return _GTypeField;
             }
 
             set
             {
-                SetProperty(ref localPlaceTypeField, value);
+                SetProperty(ref _GTypeField, value);
             }
         }
 
@@ -325,13 +325,12 @@ namespace GrampsView.Data.Model
         /// </returns>
         int IComparer.Compare(object a, object b)
         {
-            // TagModel firstEvent = (TagModel)a; TagModel secondEvent = (TagModel)b;
+            PlaceModel firstEvent = (PlaceModel)a;
+            PlaceModel secondEvent = (PlaceModel)b;
 
-            //// compare on Priority first
-            // int testFlag = string.Compare(firstEvent.Name, secondEvent.Name, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(firstEvent.GetDefaultText, secondEvent.GetDefaultText, StringComparison.CurrentCulture);
 
-            // return testFlag;
-            return 0;
+            return testFlag;
         }
 
         /// <summary>
@@ -345,13 +344,11 @@ namespace GrampsView.Data.Model
         /// </returns>
         int IComparable.CompareTo(object obj)
         {
-            // TagModel secondEvent = (TagModel)obj;
+            PlaceModel secondEvent = (PlaceModel)obj;
 
-            //// compare on Name first
-            // int testFlag = string.Compare(Name, secondEvent.Name, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(GetDefaultText, secondEvent.GetDefaultText, StringComparison.CurrentCulture);
 
-            // return testFlag;
-            return 0;
+            return testFlag;
         }
     }
 }

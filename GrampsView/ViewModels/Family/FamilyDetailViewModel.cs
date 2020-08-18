@@ -10,6 +10,7 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -32,6 +33,8 @@ namespace GrampsView.ViewModels
         //[NonSerializedAttribute]
         //private UserActivitySession localActivitySession;
 
+        private IPlatformSpecific _PlatformSpecific;
+
         /// <summary>
         /// Holds the family object.
         /// </summary>
@@ -48,9 +51,12 @@ namespace GrampsView.ViewModels
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
+        /// <param name="iocPlatformSpecific">
+        /// </param>
+        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
         {
+            _PlatformSpecific = iocPlatformSpecific;
         }
 
         /// <summary>
@@ -141,6 +147,8 @@ namespace GrampsView.ViewModels
                 // "Family: " + localFamilyModel.FamilyDisplayName, outFamEvent).ConfigureAwait(false);
 
                 // TODO //CommonTimeline.FinishActivitySessionAsync(localActivitySession); }
+
+                _PlatformSpecific.ActivityTimeLineAdd(FamilyObject);
             }
         }
     }

@@ -9,6 +9,7 @@
 
 namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -81,7 +82,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
 
-                            loadPlace.GCitationRefCollection = GetCitationCollection(pPlaceElement);
+                            loadPlace.GCitationRefCollection.Clear();
+                            loadPlace.GCitationRefCollection.AddRange(GetCitationCollection(pPlaceElement));
 
                             loadPlace.GMediaRefCollection = await GetObjectCollection(pPlaceElement).ConfigureAwait(false);
 
