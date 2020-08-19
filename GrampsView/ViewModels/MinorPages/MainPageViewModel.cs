@@ -227,21 +227,21 @@
 
         private async void OnNavigateParmsCommandExecuted(INavigationParameters obj)
         {
-            obj.TryGetValue("Target", out string target);
+            obj.TryGetValue(CommonConstants.NavigationParameterTargetView, out string target);
 
-            if (target != CurrentPage)
+            //if (target != CurrentPage)
+            //{
+            CurrentPage = target;
+
+            string t = nameof(NavigationPage) + "/" + target.Trim();
+
+            INavigationResult result = await BaseNavigationService.NavigateAsync(t, obj).ConfigureAwait(false);
+
+            if (!result.Success)
             {
-                CurrentPage = target;
-
-                string t = nameof(NavigationPage) + "/" + target.Trim();
-
-                INavigationResult result = await BaseNavigationService.NavigateAsync(t, obj).ConfigureAwait(false);
-
-                if (!result.Success)
-                {
-                    DataStore.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
-                }
+                DataStore.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
             }
+            //}
         }
     }
 }

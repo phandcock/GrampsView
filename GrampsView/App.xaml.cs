@@ -21,6 +21,7 @@ using Prism.Logging;
 using Prism.Modularity;
 
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 
 using Unity;
@@ -125,7 +126,7 @@ namespace GrampsView
 
         protected override void OnStart()
         {
-            string StartPage = string.Empty;
+          
 
             if (DataStore.DS.IsDataLoaded)
             {
@@ -148,10 +149,18 @@ namespace GrampsView
 
             IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
 
-            // Start at the MessageLog Page and work from there
-            StartPage = nameof(MessageLogPage);
+            // Start at the MessageLog Page if no other paramaters and work from there
+            if (!DataStore.NV.TargetNavParams.Any() )
+            {
+                DataStore.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
 
-            NavigationService.NavigateAsync("MainPage/NavigationPage/" + StartPage);
+           
+            }
+
+
+            DataStore.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
+
+            NavigationService.NavigateAsync("MainPage/NavigationPage/" + targetView);
         }
 
         protected override void RegisterTypes(IContainerRegistry container)

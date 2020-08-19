@@ -2,6 +2,7 @@
 
 using Prism.Events;
 using Prism.Navigation;
+
 using System;
 
 namespace GrampsView.Common
@@ -19,6 +20,8 @@ namespace GrampsView.Common
             localEventAggregator = iocEventAggregator;
         }
 
+        public NavigationParameters TargetNavParams { get; set; } = new NavigationParameters();
+
         public void Nav(string Target)
         {
             INavigationParameters t = new NavigationParameters();
@@ -33,7 +36,17 @@ namespace GrampsView.Common
                 throw new ArgumentNullException(nameof(parameters));
             }
 
-            parameters.Add("Target", Target);
+            parameters.Add(CommonConstants.NavigationParameterTargetView, Target);
+
+            Nav(parameters);
+        }
+
+        public void Nav(INavigationParameters parameters)
+        {
+            if (parameters is null)
+            {
+                throw new ArgumentNullException(nameof(parameters));
+            }
 
             localEventAggregator.GetEvent<PageNavigateParmsEvent>().Publish(parameters);
         }

@@ -2,7 +2,10 @@
 {
     using FFImageLoading.Forms;
 
+    using GrampsView.Common;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Views;
 
     using Microsoft.AppCenter;
 
@@ -61,35 +64,36 @@
                     {
                         case "family":
                             {
-                                // TODO finish this
-                                //LaunchParam.TargetObject = uriSegments[2];
-
-                                //commonLog.LogRoutineExit("Navigate to the FamilyDetail page");
-
-                                //LaunchParam.TargetView = nameof(FamilyDetailView);
+                                DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                {
+                                    { CommonConstants.NavigationParameterHLink, new HLinkFamilyModel { HLinkKey = uriSegments[2] } },
+                                    { CommonConstants.NavigationParameterTargetView, nameof(FamilyDetailPage) }
+                                };
 
                                 break;
                             }
 
                         case "person":
                             {
-                                //LaunchParam.TargetObject = uriSegments[2];
-
-                                //commonLog.LogRoutineExit("Navigate to the PersonDetail page");
-
-                                //LaunchParam.TargetView = nameof(PersonDetailView);
+                                DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                {
+                                    { CommonConstants.NavigationParameterHLink, new HLinkPersonModel { HLinkKey = uriSegments[2] } },
+                                    { CommonConstants.NavigationParameterTargetView, nameof(PersonDetailPage) }
+                                };
 
                                 break;
                             }
 
                         default:
+                            {
+                                // TODO Handle bad arg better
 
-                            // TODO Handle bad arg better
-                            break;
+                                break;
+                            }
                     }
                 }
 
-                //StartApp(args);
+                DataStore.NV.Nav(DataStore.NV.TargetNavParams);
             }
         }
 

@@ -255,5 +255,11 @@ namespace GrampsView.Common
         /// The gramps XML file name.
         /// </summary>
         public const string StorageXMLFileName = "data.xml";
+
+        public const string NavigationParameterHLink = "hlink";
+
+        public const string NavigationParameterModel = "model";
+
+        public const string NavigationParameterTargetView = "targetview";
     }
 }

@@ -293,8 +293,8 @@ namespace GrampsView.ViewModels
 
             BaseNavParams = parameters;
 
-            parameters.TryGetValue("hlink", out _BaseNavParamsHLink);
-            parameters.TryGetValue("model", out _BaseNavParamsModel);
+            parameters.TryGetValue(CommonConstants.NavigationParameterHLink, out _BaseNavParamsHLink);
+            parameters.TryGetValue(CommonConstants.NavigationParameterModel, out _BaseNavParamsModel);
         }
 
         /// <summary>
