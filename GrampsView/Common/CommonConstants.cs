@@ -24,6 +24,10 @@ namespace GrampsView.Common
         /// </summary>
         public const string EventTypeDeath = "Death";
 
+        public const string ModelNamePerson = "person";
+
+        public const string ModelNameFamily = "family";
+
         /// <summary>
         /// The event type marriage.
         /// </summary>
@@ -206,7 +210,7 @@ namespace GrampsView.Common
         /// </summary>
         public const string SearchNoResults = "No Results";
 
-        public const string SecretOneDriveId = "b1bb4fc5-9863-464f-83de-f98c477ff953";
+      
         public const string SettingsDataStorageFolder = "SettingsDataStorageFolder";
 
         /// <summary>
@@ -249,7 +253,7 @@ namespace GrampsView.Common
         ///// <summary>
         ///// The storage thumbnail folder.
         ///// </summary>
-        //public const string StorageThumbNailFolder = "GrampsViewThumbnails";
+        //public const string StorageThumbNailFolder = "Thumbnails";
 
         /// <summary>
         /// The gramps XML file name.

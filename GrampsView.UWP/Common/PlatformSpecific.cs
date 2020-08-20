@@ -12,89 +12,33 @@
     using System;
     using System.Threading.Tasks;
 
-    using Windows.ApplicationModel.UserActivities;
-
+    /// <summary>
+    /// UWP Platform specific code
+    /// </summary>
     internal class PlatformSpecific : IPlatformSpecific
     {
-        private UserActivitySession _currentActivity;
-
-        /////// <summary>
-        /////// The local model user activity.
-        /////// </summary>
-        //[NonSerialized]
-        //private UserActivity localModelUserActivity = null;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlatformSpecific"/> class.
+        /// </summary>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
         public PlatformSpecific(IEventAggregator iocEventAggregator)
         {
             iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateTile, ThreadOption.UIThread);
         }
 
+        /// <summary>
+        /// Add PersonModel to the activities time line.
+        /// </summary>
+        /// <param name="argPersonModel">
+        /// The person model.
+        /// </param>
         public async Task ActivityTimeLineAdd(PersonModel argPersonModel)
         {
             try
             {
-                // TODO Hack until we have time to fix
-
-                await CommonTimeline.AddToTimeLine("Person", argPersonModel, argPersonModel.GetDefaultText);
-
-                ////Get the default UserActivityChannel and query it for our UserActivity. If the activity doesn't exist, one is created.
-                //UserActivityChannel channel = UserActivityChannel.GetDefault();
-                //UserActivity userActivity = await channel.GetOrCreateUserActivityAsync(argPersonModel.GetDefaultText);
-
-                //////localModelUserActivity = await CommonTimeline.AddToTimeLine("Person",
-                //////PersonObject, PersonObject.HomeImageHLink.DeRef.MediaStorageFilePath, "Person: "
-                //////+ PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.ShortDate).ConfigureAwait(false);
-
-                ////Populate required properties
-                //userActivity.VisualElements.DisplayText = "Person";
-                //userActivity.VisualElements.Description = argPersonModel.GetDefaultText;
-                //userActivity.ActivationUri = new Uri("gramps://" + "Person" + @"/handle/" + argPersonModel.HLinkKey);
-
-                ////Save
-                //await userActivity.SaveAsync(); //save the new metadata
-
-                //////Dispose of any current UserActivitySession, and create a new one.
-                //_currentActivity?.Dispose();
-                //_currentActivity = userActivity.CreateSession();
-
-                // Finish Hack
-
-                //// TODO localActivitySession = await CommonTimeline.AddToTimeLine("Person",
-                //// PersonObject, PersonObject.HomeImageHLink.DeRef.MediaStorageFilePath, "Person: "
-                //// + PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.ShortDate).ConfigureAwait(false);
-
-                //UserActivitySession returnedFromUIThread = await Device.BeginInvokeOnMainThread(async () =>
-                //{
-                //    // Record in the TimeLine
-                //    UserActivityChannel channel = UserActivityChannel.GetDefault();
-
-                // if (theModel.Valid && (theModel.ModelUserActivity is null)) {
-                // theModel.ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
-
-                // // Set deep-link and properties. theModel.ModelUserActivity.ActivationUri = new
-                // Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
-
-                // // TODO Add Adapative card visuals once the API has settled down StorageFile //
-                // cardFile = await StorageFile.GetFileFromApplicationUriAsync(new //
-                // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await //
-                // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
-                // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-                // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
-
-                // theModel.ModelUserActivity.VisualElements.Description = bodyText;
-
-                // // Save to activity feed. await theModel.ModelUserActivity.SaveAsync(); }
-
-                // // Create a session, which indicates that the user is engaged in the activity.
-                // UserActivitySession activitySession = null;
-
-                // if (theModel.ModelUserActivity != null) { activitySession =
-                // theModel.ModelUserActivity.CreateSession(); }
-
-                //    return activitySession;
-                //}).ConfigureAwait(false);
-
-                //return returnedFromUIThread;
+                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNamePerson, argPersonModel, argPersonModel.GetDefaultText);
             }
             catch (Exception ex)
             {
@@ -102,79 +46,30 @@
             }
         }
 
+        /// <summary>
+        /// Add FamilyModel to the activities time line.
+        /// </summary>
+        /// <param name="argFamilyModel">
+        /// The argument family model.
+        /// </param>
         public async Task ActivityTimeLineAdd(FamilyModel argFamilyModel)
         {
             try
             {
-                // TODO Hack until we have time to fix
-
-                await CommonTimeline.AddToTimeLine("Family", argFamilyModel, argFamilyModel.FamilyDisplayName);
-
-                ////Get the default UserActivityChannel and query it for our UserActivity. If the activity doesn't exist, one is created.
-                //UserActivityChannel channel = UserActivityChannel.GetDefault();
-                //UserActivity userActivity = await channel.GetOrCreateUserActivityAsync(argFamilyModel.GetDefaultText);
-
-                //////localModelUserActivity = await CommonTimeline.AddToTimeLine("Person",
-                //////PersonObject, PersonObject.HomeImageHLink.DeRef.MediaStorageFilePath, "Person: "
-                //////+ PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.ShortDate).ConfigureAwait(false);
-
-                ////Populate required properties
-                //userActivity.VisualElements.DisplayText = "Family";
-                //userActivity.VisualElements.Description = argFamilyModel.FamilyDisplayName;
-                //userActivity.ActivationUri = new Uri("gramps://" + "Family" + @"/handle/" + argFamilyModel.HLinkKey);
-
-                ////Save
-                //await userActivity.SaveAsync(); //save the new metadata
-
-                ////Dispose of any current UserActivitySession, and create a new one.
-                //_currentActivity?.Dispose();
-                //_currentActivity = userActivity.CreateSession();
-
-                // Finish Hack
-
-                //// TODO localActivitySession = await CommonTimeline.AddToTimeLine("Person",
-                //// PersonObject, PersonObject.HomeImageHLink.DeRef.MediaStorageFilePath, "Person: "
-                //// + PersonObject.BirthName.FullName, "Born: " + PersonObject.BirthDate.ShortDate).ConfigureAwait(false);
-
-                //UserActivitySession returnedFromUIThread = await Device.BeginInvokeOnMainThread(async () =>
-                //{
-                //    // Record in the TimeLine
-                //    UserActivityChannel channel = UserActivityChannel.GetDefault();
-
-                // if (theModel.Valid && (theModel.ModelUserActivity is null)) {
-                // theModel.ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
-
-                // // Set deep-link and properties. theModel.ModelUserActivity.ActivationUri = new
-                // Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
-
-                // // TODO Add Adapative card visuals once the API has settled down StorageFile //
-                // cardFile = await StorageFile.GetFileFromApplicationUriAsync(new //
-                // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await //
-                // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
-                // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-                // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
-
-                // theModel.ModelUserActivity.VisualElements.Description = bodyText;
-
-                // // Save to activity feed. await theModel.ModelUserActivity.SaveAsync(); }
-
-                // // Create a session, which indicates that the user is engaged in the activity.
-                // UserActivitySession activitySession = null;
-
-                // if (theModel.ModelUserActivity != null) { activitySession =
-                // theModel.ModelUserActivity.CreateSession(); }
-
-                //    return activitySession;
-                //}).ConfigureAwait(false);
-
-                //return returnedFromUIThread;
+                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNameFamily, argFamilyModel, argFamilyModel.FamilyDisplayName);
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception when trying to add PersonDetailView to Windows Timneline", ex);
+                DataStore.CN.NotifyException("Exception when trying to add FamilyDetailView to Windows Timneline", ex);
             }
         }
 
+        /// <summary>
+        /// Updates the Windows Live Tile.
+        /// </summary>
+        /// <param name="obj">
+        /// The object.
+        /// </param>
         private void UpdateTile(object obj)
 
         {

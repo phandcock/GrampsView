@@ -62,7 +62,7 @@
 
                     switch (uriArgs.Uri.Host)
                     {
-                        case "family":
+                        case CommonConstants.ModelNameFamily:
                             {
                                 DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
                                 {
@@ -73,7 +73,7 @@
                                 break;
                             }
 
-                        case "person":
+                        case CommonConstants.ModelNamePerson:
                             {
                                 DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
                                 {
