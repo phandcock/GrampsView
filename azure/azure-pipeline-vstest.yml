@@ -52,17 +52,15 @@ steps:
     projects: "$(Projects)"
     arguments: "--configuration $(BuildConfiguration)"
 
-- task: DotNetCoreCLI@2
+- task: VSBuild@1
   inputs:
-    command: test
-    projects: "$(Projects)"
-    arguments: "--configuration $(BuildConfiguration)"
+    platform: 'x86'
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
 
 - task: VSTest@2
   inputs:
-    #  !**\*TestAdapter.dll
-    #  !**\obj\** 
-    #  **\*test*.dll
     #batchingBasedOnAgentsOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customBatchSize
     #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customTimeBatchSize
     #codeCoverageEnabled: False # Optional
@@ -90,14 +88,18 @@ steps:
     #runOnlyImpactedTests: False # Optional
     #runSettingsFile: # Optional
     #runTestsInIsolation: False # Optional
-    #searchFolder: '$(System.DefaultWorkingDirectory)' 
+    searchFolder: '$(System.DefaultWorkingDirectory)' 
     #tcmTestRun: '$(test.RunId)' # Optional
-    #testAssemblyVer2: | # Required when testSelector == TestAssemblies
+    testAssemblyVer2: |
+      **\Release\UnitTestProject1.build.appxrecipe
+      !**\*TestAdapter.dll
+      !**\obj\** 
+      **\*test*.dll
     #testConfiguration: # Required when testSelector == TestPlan
     #testFiltercriteria: # Optional
     #testPlan: # Required when testSelector == TestPlan
     #testRunTitle: # Optional
-    #testSelector: 'testAssemblies' # Options: testAssemblies, testPlan, testRun
+    testSelector: 'testAssemblies'
     #testSuite: # Required when testSelector == TestPlan
     #uiTests: false # Optional
     #vstestLocation: # Optional
