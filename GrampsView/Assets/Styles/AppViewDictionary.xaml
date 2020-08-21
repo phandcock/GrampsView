@@ -107,9 +107,7 @@
 
     <!--  Create a Card Style for a FlexLayout Style  -->
     <Style x:Key="FlexLayoutCards" TargetType="FlexLayout">
-        <!--<Setter Property="JustifyContent" Value="Start" />-->
         <Setter Property="Wrap" Value="Wrap" />
-
         <Setter Property="AlignItems" Value="Start" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="AlignContent" Value="Start" />
@@ -157,7 +155,7 @@
     -->
     <Style x:Key="FrameCardStyle" TargetType="Frame">
         <!--<Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />-->
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="10" />
@@ -172,7 +170,7 @@
         x:Key="FrameCardSmallStyle"
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />-->
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="2" />
@@ -505,7 +503,7 @@
         <Setter Property="LineBreakMode" Value="TailTruncation" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimaryDarkColor}, Light={StaticResource LightPrimaryDarkColor}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkSecondaryColor}, Light={StaticResource LightSecondaryColor}}" />
     </Style>
 
     <!--  Create a Large Style for a Text Block Header  -->

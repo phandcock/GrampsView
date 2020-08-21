@@ -9,10 +9,9 @@
         <Frame
             Margin="0"
             Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
-                                              Light={StaticResource LightSurfaceColor}}"
-            BorderColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
-                                          Light={StaticResource LightOnSurfaceColor}}"
+            BackgroundColor="Transparent"
+            BorderColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
+                                          Light={StaticResource LightSecondaryColor}}"
             CornerRadius="{StaticResource GVCornerRadius}">
 
             <Grid
