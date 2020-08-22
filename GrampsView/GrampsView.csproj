@@ -395,4 +395,8 @@
   <ItemGroup>
     <EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
+  </ItemGroup>
 </Project>
