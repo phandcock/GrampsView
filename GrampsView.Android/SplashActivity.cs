@@ -1,14 +1,14 @@
 ﻿namespace GrampsView.Droid
 {
-    using System.Threading.Tasks;
-
     using Android.App;
     using Android.Content;
     using Android.OS;
     using Android.Support.V7.App;
     using Android.Util;
 
-    [Activity(Theme = "@style/SplashTheme.Splash", MainLauncher = true, NoHistory = true)]
+    using System.Threading.Tasks;
+
+    [Activity(Theme = "@style/SplashTheme.Splash", MainLauncher = true, NoHistory = true, ResizeableActivity = true)]
     public class SplashActivity : AppCompatActivity
 
     {

@@ -37,13 +37,13 @@
 
                 <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" Orientation="Horizontal">
 
-                    <Label
+                    <!--<Label
                         BackgroundColor="Transparent"
                         HorizontalOptions="StartAndExpand"
                         Text="Theme"
                         TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
                                                     Light={StaticResource LightOnPrimaryColor}}"
-                        VerticalOptions="CenterAndExpand" />
+                        VerticalOptions="CenterAndExpand" />-->
 
                     <StackLayout>
                         <RadioButton

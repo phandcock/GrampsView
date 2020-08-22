@@ -27,7 +27,7 @@
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="White">
+            <Grid BackgroundColor="Orange">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.2*" />
                     <ColumnDefinition Width="0.8*" />
@@ -56,15 +56,15 @@
         <ShellContent ContentTemplate="{DataTemplate views:CitationListPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Test Page 2" Icon="icon.png">
+    <FlyoutItem Title="Test Page 2">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="{DynamicResource MaterialFontFamily}"
+                Glyph="&#xf21e;"
+                Size="40" />
+        </FlyoutItem.Icon>
         <ShellContent Title="Test Page 2" Icon="icon.png">
-            <views:PersonListPage />
-        </ShellContent>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Crop Test Page 3" Icon="icon.png">
-        <ShellContent Title="Crop Test Page 2" Icon="icon.png">
-            <!--<views:CropTransformationPage />-->
+            <views:PersonDetailPage />
         </ShellContent>
     </FlyoutItem>
 
@@ -75,10 +75,6 @@
 
         <Tab Title="Test Tab 2" Icon="icon.png">
             <ShellContent ContentTemplate="{DataTemplate views:PersonListPage}" />
-        </Tab>
-
-        <Tab Title="Crop Test Tab 3" Icon="icon.png">
-            <!--<ShellContent ContentTemplate="{DataTemplate views:CropTransformationPage}" />-->
         </Tab>
     </TabBar>
 </Shell>
