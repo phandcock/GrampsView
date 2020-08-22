@@ -75,27 +75,27 @@
 
     <!--  Light colour  -->
     <Color x:Key="LightPrimaryColor">
-        #6d4c41
+        #d4e157
     </Color>
 
     <Color x:Key="LightPrimaryDarkColor">
-        #40241a
+        #a0af22
     </Color>
 
     <Color x:Key="LightPrimaryLightColor">
-        #9c786c
+        #ffff89
     </Color>
 
     <Color x:Key="LightSecondaryColor">
-        #76ff03
+        #ffc400
     </Color>
 
     <Color x:Key="LightSecondaryDarkColor">
-        #32cb00
+        #c79400
     </Color>
 
     <Color x:Key="LightSecondaryLightColor">
-        #b0ff57
+        #fff64f
     </Color>
 
     <Color x:Key="LightBackgroundColor">
@@ -123,7 +123,7 @@
     </Color>
 
     <Color x:Key="LightOnPrimaryColor">
-        #ffffff
+        #000000
     </Color>
 
     <Color x:Key="LightOnSecondaryColor">

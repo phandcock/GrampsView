@@ -160,7 +160,7 @@
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor}, Light={StaticResource LightSecondaryLightColor}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimaryDarkColor}, Light={StaticResource LightPrimaryDarkColor}}" />
     </Style>
 
     <!--
@@ -344,7 +344,7 @@
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor}, Light={StaticResource LightSecondaryLightColor}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimaryDarkColor}, Light={StaticResource LightPrimaryDarkColor}}" />
     </Style>
 
     <Style
