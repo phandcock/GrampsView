@@ -59,8 +59,8 @@
 
             <StackLayout
                 Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceDark2Color},
-                                                  Light={StaticResource LightSurfaceDark2Color}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                                                  Light={StaticResource LightPrimaryColor}}"
                 Orientation="Horizontal">
 
                 <Image
@@ -74,8 +74,8 @@
                     FontSize="{x:Static common:CommonFontSize.FontLarge}"
                     Style="{DynamicResource GVLabelStyleLarge}"
                     Text="{Binding AppName, Mode=OneTime}"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
-                                                Light={StaticResource LightOnSurfaceColor}}"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
+                                                Light={StaticResource LightSecondaryColor}}"
                     VerticalOptions="Center" />
             </StackLayout>
 
@@ -83,14 +83,11 @@
 
             <ucon:HeaderCardLarge Grid.Row="2" BindingContext="{Binding HeaderData, Mode=OneWay}" />
 
-
             <ucon:InstructionCardLarge Grid.Row="3" BindingContext="{i18n:Translate AboutPage_AttributionText}" />
 
             <ucon:FileViewCardLarge Grid.Row="4" BindingContext="GrampsView.CHANGELOG.md" />
 
-
             <ucon:FileViewCardLarge Grid.Row="5" BindingContext="GrampsView.PrivacyPolicy.md" />
-
         </Grid>
     </ScrollView>
 </ContentPage>

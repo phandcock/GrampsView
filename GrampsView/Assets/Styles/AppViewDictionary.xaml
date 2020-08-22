@@ -96,7 +96,7 @@
 
     <!--  Create a ContentPage style  -->
     <Style x:Key="GVBaseContentPage" TargetType="ContentPage">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}" />
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}" />-->
     </Style>
 
     <!--
