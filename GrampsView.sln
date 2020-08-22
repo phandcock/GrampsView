@@ -32,9 +32,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA7
 	ProjectSection(SolutionItems) = preProject
 		azure\azure-pipeline-android.yml = azure\azure-pipeline-android.yml
 		azure\azure-pipeline-ios.yml = azure\azure-pipeline-ios.yml
-		azure\azure-pipeline-test.yml = azure\azure-pipeline-test.yml
 		azure\azure-pipeline-uwp.yml = azure\azure-pipeline-uwp.yml
 		azure\azure-pipeline-vstest.yml = azure\azure-pipeline-vstest.yml
+		azure\azure-pipelinetemplate-build-uwp.yml = azure\azure-pipelinetemplate-build-uwp.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UnitTest.UWP", "GrampsView.UnitTest.UWP\GrampsView.UnitTest.UWP.csproj", "{F31B6F1D-A604-4C7A-B8FD-3D15D566EF6B}"
