@@ -1,18 +1,9 @@
-name: GrampsView build UWP
+# GrampsView build UWP
 
 parameters:
-# - name: yesNo # name of the parameter; required
-#  type: boolean # data type of the parameter; required
-#  default: false
-
-variables:
-  - name: solution
-    value: '**/*.sln'
-  - name: appxPackageDir
-    value: '$(build.artifactStagingDirectory)\AppxPackages\\'
-  - group: uwp-pipeline
-
-
+  - name: yesNo # name of the parameter; required
+    type: boolean # data type of the parameter; required
+    default: false
 
 steps: 
 - task: NuGetCommand@2
