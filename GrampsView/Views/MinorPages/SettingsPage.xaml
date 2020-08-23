@@ -256,23 +256,6 @@
                     TextColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor},
                                                 Light={StaticResource LightBackgroundColor}}" />
 
-                <!--  Selectable Color  -->
-                <Label
-                    Grid.Row="22"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkCardNotSelectable},
-                                                      Light={StaticResource LightCardNotSelectable}}"
-                    Text="CardNotSelectable"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnBackgroundColor},
-                                                Light={StaticResource LightOnBackgroundColor}}" />
-
-                <Label
-                    Grid.Row="23"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkCardSelectable},
-                                                      Light={StaticResource LightCardSelectable}}"
-                    Text="CardSelectable"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor},
-                                                Light={StaticResource LightBackgroundColor}}" />
-
                 <!--  Error Color  -->
                 <Label
                     Grid.Row="24"

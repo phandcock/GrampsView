@@ -33,13 +33,13 @@
         #404040
     </Color>
 
-    <Color x:Key="DarkCardNotSelectable">
+    <!--<Color x:Key="DarkCardNotSelectable">
         #FFFFFF
-    </Color>
+    </Color>-->
 
-    <Color x:Key="DarkCardSelectable">
+    <!--<Color x:Key="DarkCardSelectable">
         #ffa500
-    </Color>
+    </Color>-->
 
     <Color x:Key="DarkErrorColor">
         #dd2c00
@@ -106,13 +106,13 @@
         #888888
     </Color>
 
-    <Color x:Key="LightCardNotSelectable">
+    <!--<Color x:Key="LightCardNotSelectable">
         #FFFFFF
-    </Color>
+    </Color>-->
 
-    <Color x:Key="LightCardSelectable">
+    <!--<Color x:Key="LightCardSelectable">
         #dd2c00
-    </Color>
+    </Color>-->
 
     <Color x:Key="LightErrorColor">
         #dd2c00

@@ -6,7 +6,7 @@ variables:
   - name: Solution
     value: '**/*.sln'
   - name: Projects
-    value: '$(Build.SourcesDirectory)/GrampsViewNUnitTest/*.csproj'
+    value: '$(Build.SourcesDirectory)/GrampsView.UnitTest.*/*.csproj'
   - name: OutputDirectory
     value: '$(build.binariesDirectory)/$(BuildConfiguration)'
 
