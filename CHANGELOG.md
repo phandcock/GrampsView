@@ -1,3 +1,20 @@
+# [16.5.0](https://github.com/phandcock/GrampsView/compare/16.4.3...16.5.0) (2020-08-23)
+
+
+### Bug Fixes
+
+* change colour scheme to brown primary ([1656901](https://github.com/phandcock/GrampsView/commit/1656901a468b7fab4ef312f8b6df1e4badaf0620))
+* tweak colours esp Light scheme ([aec9b98](https://github.com/phandcock/GrampsView/commit/aec9b98a8ca489a979f94bf3aabae24de9cd6da3))
+* tweak colours for About page view ([11dec19](https://github.com/phandcock/GrampsView/commit/11dec19729e3377be84de7cfee3de9bdbf3d4355))
+* tweak settings, shell test page and update nugets ([30d0ea3](https://github.com/phandcock/GrampsView/commit/30d0ea3c1753ba59c04d41ea26ef5f7a8cd5e29c))
+
+
+### Features
+
+* chnage Attribition text to be in a file and not in String list ([889a99f](https://github.com/phandcock/GrampsView/commit/889a99f0a2bf1ecfac0aadd9df2be78bf62a7111))
+
+
+
 ## [16.4.3](https://github.com/phandcock/GrampsView/compare/16.4.2...16.4.3) (2020-08-21)
 
 
@@ -43,17 +60,6 @@
 ### Reverts
 
 * Revert "build: upgrade to AndroidX" ([cba445e](https://github.com/phandcock/GrampsView/commit/cba445ea797724f409cb842615578746c3bee746))
-
-
-
-## [16.3.2](https://github.com/phandcock/GrampsView/compare/16.3.1...16.3.2) (2020-08-12)
-
-
-### Bug Fixes
-
-* fix wrap of notefullcard when shrunk ([164aeac](https://github.com/phandcock/GrampsView/commit/164aeac59b30b504ff6704c85e756de2da3a0930))
-* tweak errorDialog so it works ([fc56c2a](https://github.com/phandcock/GrampsView/commit/fc56c2a54d2d5aa085d34237e647e9daf9d24357))
-* tweak light colour background ([a04bd5b](https://github.com/phandcock/GrampsView/commit/a04bd5b8329157b61816c845f980e3545b73951e))
 
 
 
