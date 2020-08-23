@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="GrampsView.Views.PersonListPage"
+    x:Class="GrampsView.Views.PersonBirthdayPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}">
@@ -37,8 +38,26 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionSingleCard
-        Margin="0"
-        FsctSource="{Binding PersonSource, Mode=OneWay}"
-        FsctTemplate="{StaticResource PersonCardSmallDT}" />
+    <CollectionView
+        x:Name="theCollectionView"
+        Grid.Column="0"
+        IsGrouped="True"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemTemplate="{Binding PersonCardSmallDT}"
+        ItemsSource="{Binding PersonSource, Mode=OneWay}"
+        Style="{StaticResource CollectionViewBase}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout
+                HorizontalItemSpacing="2"
+                Orientation="Vertical"
+                Span="{Binding NumColumns, Mode=OneWay}"
+                VerticalItemSpacing="2" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label Text="Hello" />
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+    </CollectionView>
 </ContentPage>

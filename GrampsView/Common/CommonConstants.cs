@@ -133,6 +133,7 @@ namespace GrampsView.Common
         /// The icon people.
         /// </summary>
         public const string IconPeople = IconFont.Account;
+        public const string IconPeopleBirthday = IconFont.CakeLayered;
 
         /// <summary>
         /// The icon people graph.

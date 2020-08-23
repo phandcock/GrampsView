@@ -30,6 +30,8 @@ namespace GrampsView.Data.Model
 
         string LongDate { get; }
 
+        string GetMonthDay { get; }
+
         string ShortDate { get; }
 
         string ShortDateOrEmpty { get; }

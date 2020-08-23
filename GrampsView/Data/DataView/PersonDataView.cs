@@ -198,6 +198,26 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+        public CardGroup GetBirthdaysAsCardGroup()
+        {
+            // Get HLinks
+
+            CardGroup t = new CardGroup();
+
+            IEnumerable<PersonModel> theList = DataDefaultSort.Where(x => x.IsLiving == true);
+
+            theList = theList.OrderBy(x => x.BirthDate.GetMonthDay);
+
+            int tt = theList.Count();
+
+            foreach (PersonModel item in theList)
+            {
+                t.Add(item.HLink);
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// Gets the latest changes for the Person Data View.
         /// </summary>

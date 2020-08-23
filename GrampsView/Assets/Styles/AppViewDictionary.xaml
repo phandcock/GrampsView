@@ -43,7 +43,6 @@
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderWidth" Value="2" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor}, Light={StaticResource LightOnSurfaceColor}}" />
-
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="2" />
     </Style>
@@ -273,7 +272,7 @@
         x:Key="FrameLargeVariableCardStyleNS"
         BasedOn="{StaticResource FrameLargeVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceDark1Color}, Light={StaticResource LightSurfaceDark1Color}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimaryDarkColor}, Light={StaticResource LightPrimaryDarkColor}}" />
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -452,6 +451,7 @@
         <Setter Property="HorizontalOptions" Value="StartAndExpand" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
         <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor}, Light={StaticResource LightOnPrimaryColor}}" />
     </Style>
@@ -491,7 +491,7 @@
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor}, Light={StaticResource LightOnSurfaceColor}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSurfaceColor}, Light={StaticResource LightSurfaceColor}}" />-->
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 

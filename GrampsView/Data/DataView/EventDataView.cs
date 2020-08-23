@@ -9,6 +9,12 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repositories;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -16,12 +22,6 @@ namespace GrampsView.Data.DataView
     using System.Globalization;
     using System.Linq;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// Event data store handy routines.
@@ -79,11 +79,6 @@ namespace GrampsView.Data.DataView
             {
                 return DataStore.DS.EventData;
             }
-
-            //set
-            //{
-            //    SetProperty(ref DataStore.DS.EventData, value);
-            //}
         }
 
         /// <summary>
@@ -198,6 +193,8 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+
+
         /// <summary>
         /// Gets the first event type in the collection.
         /// </summary>
@@ -223,16 +220,6 @@ namespace GrampsView.Data.DataView
             {
                 return t.FirstOrDefault().DeRef;
             }
-
-            //foreach (var item in eventCollection)
-            //{
-            //    EventModel currentEvent = Get(item);
-
-            //    if (currentEvent.GType == eventType)
-            //    {
-            //        return currentEvent;
-            //    }
-            //}
 
             return new EventModel();
         }

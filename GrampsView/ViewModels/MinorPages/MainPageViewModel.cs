@@ -58,6 +58,8 @@
             {
                 new MainMenuItem() { Title = "Hub", Icon = CommonConstants.IconHub, TargetType = nameof(HubPage) },
 
+               new MainMenuItem() { Title = "Birthdays", Icon = CommonConstants.IconPeopleBirthday, TargetType = nameof(PersonBirthdayPage) },
+
                 new MainMenuItem() { Title = "Bookmarks", Icon = CommonConstants.IconBookMark, TargetType = nameof(BookMarkListPage) },
 
                 new MainMenuItem() { Title = "Citations", Icon = CommonConstants.IconCitation, TargetType = nameof(CitationListPage) },

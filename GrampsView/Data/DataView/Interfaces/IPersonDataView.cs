@@ -12,6 +12,7 @@ namespace GrampsView.Data.DataView
 {
     using System.Collections.ObjectModel;
 
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -31,6 +32,9 @@ namespace GrampsView.Data.DataView
         {
             get; set;
         }
+
+
+        CardGroup GetBirthdaysAsCardGroup();
 
         /// <summary>
         /// Gets or sets the person data.

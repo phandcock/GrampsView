@@ -329,6 +329,9 @@
     <Compile Update="UserControls\PlaceNameCardSmall.xaml.cs">
       <DependentUpon>PlaceNameCardSmall.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Person\PersonBirthdayView.xaml.cs">
+      <DependentUpon>PersonBirthdayView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MinorModels\PersonNameDetailPage.xaml.cs">
       <DependentUpon>PersonNameDetailPage.xaml</DependentUpon>
     </Compile>

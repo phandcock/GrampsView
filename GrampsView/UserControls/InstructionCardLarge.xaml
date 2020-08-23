@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="InstructionCardLargeRoot"
     Padding="0"
     BindingContextChanged="InstructionCardLargeRoot_BindingContextChanged"

@@ -9,14 +9,13 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repositories;
+
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
-
-    using GrampsView.Data.Collections;
-
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
 
     /// <summary>
     /// Interface for the Event Repository.

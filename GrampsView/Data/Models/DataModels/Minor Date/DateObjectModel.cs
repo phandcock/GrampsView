@@ -292,6 +292,19 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public string GetMonthDay
+        {
+            get
+            {
+                if (!Valid)
+                {
+                    return "Unknown";
+                }
+
+                return NotionalDate.ToString("mmdd");
+            }
+        }
+
         /// <summary>
         /// Gets the year of the date.
         /// </summary>

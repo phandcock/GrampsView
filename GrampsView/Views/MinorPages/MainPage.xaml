@@ -11,8 +11,8 @@
             <CollectionView
                 x:Name="List"
                 Margin="0,0,0,0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
-                                                  Light={StaticResource LightSurfaceColor}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
+                                                  Light={StaticResource DarkSecondaryColor}}"
                 HorizontalOptions="Start"
                 ItemsSource="{Binding MainMenuItems}">
 
@@ -26,7 +26,7 @@
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate>
-                        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor}, Light={StaticResource LightSecondaryLightColor}}" HorizontalOptions="FillAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand">
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -42,7 +42,8 @@
                                         FontFamily="{DynamicResource MaterialFontFamily}"
                                         Glyph="{Binding Icon}"
                                         Size="40"
-                                        Color="Black" />
+                                        Color="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                                Light={StaticResource LightOnSecondaryColor}}" />
                                 </Image.Source>
                             </Image>
 
@@ -50,14 +51,13 @@
                                 Grid.Column="1"
                                 Command="{Binding Path=BindingContext.NavigateCommand, Source={x:Reference Name=List}}"
                                 CommandParameter="{Binding TargetType}"
-                                Style="{StaticResource GVButtonMenu}"
-                                Text="{Binding Title}" />
+                                Text="{Binding Title}"
+                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                            Light={StaticResource LightOnSecondaryColor}}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ContentPage>
     </MasterDetailPage.Master>
-
-
 </MasterDetailPage>

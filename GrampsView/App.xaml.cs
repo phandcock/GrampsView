@@ -172,7 +172,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
             container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
-
+ 
             container.RegisterForNavigation<EventDetailPage, EventDetailViewModel>();
             container.RegisterForNavigation<EventListPage, EventListViewModel>();
 
@@ -192,6 +192,7 @@ namespace GrampsView
             container.RegisterForNavigation<NoteListPage, NoteListViewModel>();
 
             container.RegisterForNavigation<PeopleGraphPage, PeopleGraphViewModel>();
+            container.RegisterForNavigation<PersonBirthdayPage, PersonBirthdayViewModel>(); 
             container.RegisterForNavigation<PersonDetailPage, PersonDetailViewModel>();
             container.RegisterForNavigation<PersonListPage, PersonListViewModel>();
             container.RegisterForNavigation<PersonNameDetailPage, PersonNameDetailViewModel>();
@@ -264,7 +265,7 @@ namespace GrampsView
 
             Debug.WriteLine(initString, "AppCenterInit");
 
-            AppCenter.LogLevel = LogLevel.Verbose;
+            //AppCenter.LogLevel = LogLevel.Info;
 
             AppCenter.Start(initString,
                             typeof(Analytics), typeof(Crashes), typeof(Distribute));
