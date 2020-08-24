@@ -38,26 +38,8 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <CollectionView
-        x:Name="theCollectionView"
-        Grid.Column="0"
-        IsGrouped="True"
-        ItemSizingStrategy="MeasureAllItems"
-        ItemTemplate="{Binding PersonCardSmallDT}"
-        ItemsSource="{Binding PersonSource, Mode=OneWay}"
-        Style="{StaticResource CollectionViewBase}">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout
-                HorizontalItemSpacing="2"
-                Orientation="Vertical"
-                Span="{Binding NumColumns, Mode=OneWay}"
-                VerticalItemSpacing="2" />
-        </CollectionView.ItemsLayout>
-
-        <CollectionView.GroupHeaderTemplate>
-            <DataTemplate>
-                <Label Text="Hello" />
-            </DataTemplate>
-        </CollectionView.GroupHeaderTemplate>
-    </CollectionView>
+    <ucon:CollectionHeaderSingleCard
+        Margin="0"
+        FsctSource="{Binding PersonSource, Mode=OneWay}"
+        FsctTemplate="{StaticResource PersonCardSmallDT}" />
 </ContentPage>

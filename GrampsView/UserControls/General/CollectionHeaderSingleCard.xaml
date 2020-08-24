@@ -1,0 +1,30 @@
+﻿<Frame
+    x:Class="GrampsView.UserControls.CollectionHeaderSingleCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="CollectionHeaderSingleCardRoot"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent"
+    SizeChanged="CollectionHeaderSingleCardRoot_SizeChanged">
+
+    <CollectionView
+        x:Name="theCollectionView"
+        Grid.Column="0"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemsSource="{Binding FsctSource, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
+        Style="{StaticResource CollectionViewBase}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout
+                HorizontalItemSpacing="2"
+                Orientation="Vertical"
+                Span="{Binding NumColumns, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
+                VerticalItemSpacing="2" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label Text="Hello" />
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+    </CollectionView>
+</Frame>

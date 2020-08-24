@@ -18,6 +18,8 @@ pool:
   vmImage: 'windows-latest'
   demands:
   - MSBuild
+  - Xamarin.Android
+  - JDK
 
 schedules:
   - cron: "0 0 * * MON,WED,FRI,SUN"
