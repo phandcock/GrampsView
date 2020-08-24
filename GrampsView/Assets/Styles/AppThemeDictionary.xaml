@@ -33,16 +33,8 @@
         #404040
     </Color>
 
-    <!--<Color x:Key="DarkCardNotSelectable">
-        #FFFFFF
-    </Color>-->
-
-    <!--<Color x:Key="DarkCardSelectable">
-        #ffa500
-    </Color>-->
-
     <Color x:Key="DarkErrorColor">
-        #dd2c00
+        #B00020
     </Color>
 
     <Color x:Key="DarkOnErrorColor">
@@ -75,11 +67,11 @@
 
     <!--  Light colour  -->
     <Color x:Key="LightPrimaryColor">
-        #d4e157
+        #6200ee
     </Color>
 
     <Color x:Key="LightPrimaryDarkColor">
-        #a0af22
+        #3700b3
     </Color>
 
     <Color x:Key="LightPrimaryLightColor">
@@ -87,11 +79,11 @@
     </Color>
 
     <Color x:Key="LightSecondaryColor">
-        #ffc400
+        #03dac6
     </Color>
 
     <Color x:Key="LightSecondaryDarkColor">
-        #c79400
+        #018786
     </Color>
 
     <Color x:Key="LightSecondaryLightColor">
@@ -99,23 +91,15 @@
     </Color>
 
     <Color x:Key="LightBackgroundColor">
-        #000000
+        #FFFFFF
     </Color>
 
     <Color x:Key="LightOnBackgroundColor">
         #888888
     </Color>
 
-    <!--<Color x:Key="LightCardNotSelectable">
-        #FFFFFF
-    </Color>-->
-
-    <!--<Color x:Key="LightCardSelectable">
-        #dd2c00
-    </Color>-->
-
     <Color x:Key="LightErrorColor">
-        #dd2c00
+        #B00020
     </Color>
 
     <Color x:Key="LightOnErrorColor">
