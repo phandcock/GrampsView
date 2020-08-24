@@ -1,3 +1,17 @@
+# [16.6.0](https://github.com/phandcock/GrampsView/compare/16.5.0...16.6.0) (2020-08-24)
+
+
+### Bug Fixes
+
+* remove redundant selectable theme colours ([3586244](https://github.com/phandcock/GrampsView/commit/35862445c6e8f61e3a7531f8a3ae64fcc44ac262))
+
+
+### Features
+
+* start work on Birthday page ([e94e73c](https://github.com/phandcock/GrampsView/commit/e94e73cd0ed6a96f66b05e907ffba8d8854f8bfd))
+
+
+
 # [16.5.0](https://github.com/phandcock/GrampsView/compare/16.4.3...16.5.0) (2020-08-23)
 
 
@@ -40,26 +54,6 @@
 
 * start work on Windows Timeline code ([aa86189](https://github.com/phandcock/GrampsView/commit/aa86189796dc744f93f0009966543bc7993eedb6))
 * tweak button border colour ([39822d5](https://github.com/phandcock/GrampsView/commit/39822d58c68747477c2ad3551d9b4cea9e732a91))
-
-
-
-# [16.4.0](https://github.com/phandcock/GrampsView/compare/16.3.2...16.4.0) (2020-08-16)
-
-
-### Bug Fixes
-
-* cleanup layout and colours of error dialog ([dda55cc](https://github.com/phandcock/GrampsView/commit/dda55ccd272caba42206bfb920292e443104ccb6))
-* fix display of URLCard text ([64da662](https://github.com/phandcock/GrampsView/commit/64da662d3b1f494f569078c547000ca5a51481e4))
-
-
-### Features
-
-* add FileViewCard instead of ChangeLogCard and use for privacy policy file ([245f037](https://github.com/phandcock/GrampsView/commit/245f0377173a7b469c4443749aecdd11b7b1370f))
-
-
-### Reverts
-
-* Revert "build: upgrade to AndroidX" ([cba445e](https://github.com/phandcock/GrampsView/commit/cba445ea797724f409cb842615578746c3bee746))
 
 
 
