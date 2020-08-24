@@ -51,6 +51,7 @@ namespace GrampsView.UserControls
             else
             {
                 this.IsVisible = false;
+             
             }
         }
     }

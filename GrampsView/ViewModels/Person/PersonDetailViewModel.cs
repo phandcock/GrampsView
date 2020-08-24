@@ -154,8 +154,11 @@ namespace GrampsView.ViewModels
 
                 // Get Bio
                 HLinkNoteModel bioCard = PersonObject.GNoteRefCollection.GetBio;
-                bioCard.CardType = DisplayFormat.NoteCardFull;
-                BaseDetail.Add(bioCard);
+                if (bioCard.Valid)
+                {
+                    bioCard.CardType = DisplayFormat.NoteCardFull;
+                    BaseDetail.Add(bioCard);
+                }
 
                 // Add PersonRefDetails
                 if (BaseNavParamsHLink is HLinkPersonRefModel)
