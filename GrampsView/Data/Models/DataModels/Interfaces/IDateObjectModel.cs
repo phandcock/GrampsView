@@ -24,14 +24,13 @@ namespace GrampsView.Data.Model
 
         int GetDecade { get; }
 
+        DateTime GetMonthDay { get; }
+
         string GetYear { get; }
 
         string GVal { get; }
 
         string LongDate { get; }
-
-        int GetMonthDay { get; }
-
         string ShortDate { get; }
 
         string ShortDateOrEmpty { get; }
@@ -39,6 +38,8 @@ namespace GrampsView.Data.Model
         DateTime SingleDate { get; }
 
         DateTime SortDate { get; }
+
+        bool Valid { get; set; }
 
         TimeSpan DateDifference(IDateObjectModel otherDate);
 

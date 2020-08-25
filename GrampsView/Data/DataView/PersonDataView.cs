@@ -94,40 +94,33 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        /// <summary>
-        /// Gets the groups by letter.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override List<CommonGroupInfoCollection<PersonModel>> GetGroupsByLetter
-        {
-            get
-            {
-                List<CommonGroupInfoCollection<PersonModel>> groups = new List<CommonGroupInfoCollection<PersonModel>>();
+        ///// <summary>
+        ///// Gets the groups by letter.
+        ///// </summary>
+        ///// <returns>
+        ///// </returns>
+        //public override List<CommonGroupInfoCollection<PersonModel>> GetGroupsByLetter
+        //{
+        //    get
+        //    {
+        //        List<CommonGroupInfoCollection<PersonModel>> groups = new List<CommonGroupInfoCollection<PersonModel>>();
 
-                var query = from item in DataViewData
-                            orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
-                            group item by (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName + " ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g
-                            select new { GroupName = g.Key, Items = g };
+        // var query = from item in DataViewData orderby
+        // item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName group item by
+        // (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName + "
+        // ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g select new { GroupName =
+        // g.Key, Items = g };
 
-                foreach (var g in query)
-                {
-                    CommonGroupInfoCollection<PersonModel> info = new CommonGroupInfoCollection<PersonModel>
-                    {
-                        Key = g.GroupName,
-                    };
+        // foreach (var g in query) { CommonGroupInfoCollection<PersonModel> info = new
+        // CommonGroupInfoCollection<PersonModel> { Key = g.GroupName, };
 
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
+        // foreach (var item in g.Items) { info.Add(item); }
 
-                    groups.Add(info);
-                }
+        // groups.Add(info); }
 
-                return groups;
-            }
-        }
+        //        return groups;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the person data.
@@ -203,8 +196,8 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
-                        where (item.IsLiving == true)
+                        orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
+                        where ((item.IsLiving == true) && (item.BirthDate.Valid))
                         group item by (item.BirthDate.GetMonthDay) into g
                         select new { GroupName = g.Key, Items = g };
 
@@ -212,7 +205,7 @@ namespace GrampsView.Data.DataView
             {
                 CardGroup info = new CardGroup
                 {
-                    Title = (g.GroupName / 100).ToString("MMMM") + " " + (decimal.Remainder(g.GroupName, 100)).ToString("dd"),
+                    Title = g.GroupName.ToString("MMMM dd", CultureInfo.CurrentCulture.DateTimeFormat),
                 };
 
                 foreach (var item in g.Items)

@@ -292,16 +292,16 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public int GetMonthDay
+        public DateTime GetMonthDay
         {
             get
             {
                 if (!Valid)
                 {
-                    return 0;
+                    return DateTime.MinValue;
                 }
 
-                return (NotionalDate.Month)*100 + NotionalDate.Day;
+                return new DateTime(DateTime.MinValue.Year, NotionalDate.Month, NotionalDate.Day);
             }
         }
 

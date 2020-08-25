@@ -24,7 +24,18 @@
         </CollectionView.ItemsLayout>
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Label Text="{Binding Title}" />
+                <Frame
+                    x:Name="LLCardLargeFrame"
+                    Margin="0"
+                    Padding="3"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryDarkColor},
+                                                      Light={StaticResource LightSecondaryDarkColor}}">
+                    <Label
+                        x:Name="LLCardLargeTitle"
+                        Margin="3,0,3,0"
+                        Style="{DynamicResource GVHeaderStyleLarge}"
+                        Text="{Binding Title, Mode=OneWay}" />
+                </Frame>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
     </CollectionView>
