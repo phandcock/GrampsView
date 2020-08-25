@@ -11,6 +11,7 @@
     <CollectionView
         x:Name="theCollectionView"
         Grid.Column="0"
+        IsGrouped="True"
         ItemSizingStrategy="MeasureAllItems"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
@@ -23,7 +24,7 @@
         </CollectionView.ItemsLayout>
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Label Text="Hello" />
+                <Label Text="{Binding Title}" />
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
     </CollectionView>

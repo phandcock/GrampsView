@@ -200,19 +200,27 @@ namespace GrampsView.Data.DataView
 
         public CardGroup GetBirthdaysAsCardGroup()
         {
-            // Get HLinks
-
             CardGroup t = new CardGroup();
 
-            IEnumerable<PersonModel> theList = DataDefaultSort.Where(x => x.IsLiving == true);
+            var query = from item in DataViewData
+                        orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
+                        where (item.IsLiving == true)
+                        group item by (item.BirthDate.GetMonthDay) into g
+                        select new { GroupName = g.Key, Items = g };
 
-            theList = theList.OrderBy(x => x.BirthDate.GetMonthDay);
-
-            int tt = theList.Count();
-
-            foreach (PersonModel item in theList)
+            foreach (var g in query)
             {
-                t.Add(item.HLink);
+                CardGroup info = new CardGroup
+                {
+                    Title = (g.GroupName / 100).ToString("MMMM") + " " + (decimal.Remainder(g.GroupName, 100)).ToString("dd"),
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
             }
 
             return t;
@@ -372,19 +380,5 @@ namespace GrampsView.Data.DataView
 
             return itemsFound;
         }
-
-        //public override IReadOnlyList<PersonModel> VirtualReader(int startItem, int itemCount)
-        //{
-        //    return DataDefaultSort.Skip(startItem).Take(itemCount).ToList();
-        //}
-
-        ///// <summary>
-        ///// Gets the groups by category.
-        ///// </summary>
-        ///// <returns>
-        ///// </returns>
-        //public CommonGroupInfoCollection GetGroupsByCategory()
-        //{
-        //    CommonGroupInfoCollection groups = new CommonGroupInfoCollection();
     }
 }

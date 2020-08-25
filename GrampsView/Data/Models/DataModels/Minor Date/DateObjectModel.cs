@@ -292,16 +292,16 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string GetMonthDay
+        public int GetMonthDay
         {
             get
             {
                 if (!Valid)
                 {
-                    return "Unknown";
+                    return 0;
                 }
 
-                return NotionalDate.ToString("mmdd");
+                return (NotionalDate.Month)*100 + NotionalDate.Day;
             }
         }
 
