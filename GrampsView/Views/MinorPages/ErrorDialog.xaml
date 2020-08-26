@@ -19,19 +19,19 @@
         Grid.Row="0"
         Grid.Column="0"
         Padding="0"
-        BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+        BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                           Light={StaticResource LightSurfaceColor}}"
         CornerRadius="3">
 
         <Label
             Margin="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkErrorColor},
+            BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
                                               Light={StaticResource LightErrorColor}}"
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Center"
             Style="{DynamicResource GVHeaderStyleLarge}"
             Text="{Binding AdaArgs.Name, Mode=OneWay}"
-            TextColor="{AppThemeBinding Dark={StaticResource DarkOnErrorColor},
+            TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                         Light={StaticResource LightOnErrorColor}}" />
     </Frame>
 
@@ -39,7 +39,7 @@
 
         <Frame
             Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                               Light={StaticResource LightSurfaceColor}}"
             CornerRadius="3">
             <Grid Padding="0">
@@ -57,7 +57,7 @@
                     Margin="20,5"
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Text, Mode=OneWay}"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnErrorColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                 Light={StaticResource LightOnErrorColor}}" />
 
                 <FlexLayout
@@ -85,7 +85,7 @@
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     Text="{Binding Key}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnErrorColor},
+                                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                                 Light={StaticResource LightOnErrorColor}}" />
 
                                 <Label
@@ -93,7 +93,7 @@
                                     Grid.Column="1"
                                     LineBreakMode="WordWrap"
                                     Text="{Binding Value}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
                                                                 Light={StaticResource LightOnSurfaceColor}}" />
                             </Grid>
                         </DataTemplate>

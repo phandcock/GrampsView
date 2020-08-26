@@ -19,7 +19,7 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                 Light={StaticResource LightPrimaryColor}}" />
                 </Image.Source>
             </Image>
@@ -35,15 +35,7 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
 
-                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" Orientation="Horizontal">
-
-                    <!--<Label
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="StartAndExpand"
-                        Text="Theme"
-                        TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
-                                                    Light={StaticResource LightOnPrimaryColor}}"
-                        VerticalOptions="CenterAndExpand" />-->
+                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource LightPrimaryColor}}" Orientation="Horizontal">
 
                     <StackLayout>
                         <RadioButton
@@ -96,215 +88,234 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
+
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 
-                <!--  Primary  -->
+                <!--  Primary and Secondary  -->
                 <Label
                     Grid.Row="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
-                                                      Light={StaticResource LightPrimaryColor}}"
-                    Text="PrimaryColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
-                                                Light={StaticResource LightOnPrimaryColor}}" />
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                                                      Light={StaticResource LightBackgroundColor}}"
+                    Text="Primary and Secondary Colours" />
 
                 <Label
                     Grid.Row="1"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
-                                                      Light={StaticResource LightOnPrimaryColor}}"
-                    Text="OnPrimaryColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
-                                                Light={StaticResource LightPrimaryColor}}" />
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
+                                                      Light={StaticResource LightPrimaryColor}}"
+                    Text="PrimaryColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                                Light={StaticResource LightOnPrimaryColor}}" />
 
                 <Label
                     Grid.Row="2"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                                      Light={StaticResource LightOnSecondaryColor}}"
-                    Text="OnSecondaryColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
-                                                Light={StaticResource LightSecondaryColor}}" />
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark},
+                                                      Light={StaticResource LightPrimaryLightColor}}"
+                    Text="PrimaryLightColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                                Light={StaticResource LightOnPrimaryColor}}" />
 
                 <Label
                     Grid.Row="3"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryDarkColor},
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
+                                                      Light={StaticResource LightPrimaryDarkColor}}"
+                    Text="PrimaryDarkColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                                Light={StaticResource LightOnPrimaryColor}}" />
+
+                <Label
+                    Grid.Row="4"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                                      Light={StaticResource LightOnPrimaryColor}}"
+                    Text="OnPrimaryColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
+                                                Light={StaticResource LightPrimaryColor}}" />
+
+                <!--  Secondary  -->
+                <Label
+                    Grid.Row="5"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                      Light={StaticResource LightSecondaryColor}}"
+                    Text="SecondaryColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                Light={StaticResource LightOnSecondaryColor}}" />
+
+                <Label
+                    Grid.Row="6"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
                                                       Light={StaticResource LightSecondaryDarkColor}}"
                     Text="SecondaryDarkColor"
                     TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
                                                 Light={StaticResource LightOnSecondaryColor}}" />
 
                 <Label
-                    Grid.Row="4"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                    Grid.Row="7"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
                                                       Light={StaticResource LightSecondaryLightColor}}"
                     Text="SecondaryLightColor"
                     TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
                                                 Light={StaticResource LightOnSecondaryColor}}" />
 
                 <Label
-                    Grid.Row="5"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryDarkColor},
-                                                      Light={StaticResource LightPrimaryDarkColor}}"
-                    Text="PrimaryDarkColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
-                                                Light={StaticResource LightOnPrimaryColor}}" />
-
-                <Label
-                    Grid.Row="6"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryLightColor},
-                                                      Light={StaticResource LightPrimaryLightColor}}"
-                    Text="PrimaryLightColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnPrimaryColor},
-                                                Light={StaticResource LightOnPrimaryColor}}" />
+                    Grid.Row="8"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                                      Light={StaticResource LightOnSecondaryColor}}"
+                    Text="OnSecondaryColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                Light={StaticResource LightSecondaryColor}}" />
 
                 <!--  Card Backgrounds  -->
                 <Label
-                    Grid.Row="7"
+                    Grid.Row="18"
                     BackgroundColor="{StaticResource CardBackGroundAddress}"
                     Text="CardBackGroundAddress"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
                                                 Light={StaticResource LightSecondaryLightColor}}" />
 
-                <Label
-                    Grid.Row="7"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceDark2Color},
-                                                      Light={StaticResource LightSurfaceDark2Color}}"
-                    Text="SurfaceDark2Color"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
-                                                Light={StaticResource LightOnSurfaceColor}}" />
-
-                <Label
-                    Grid.Row="8"
-                    BackgroundColor="{StaticResource CardBackGroundAttribute}"
-                    Text="CardBackGroundAttribute"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="9"
-                    BackgroundColor="{StaticResource CardBackGroundCitation}"
-                    Text="CardBackGroundCitation"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="10"
-                    BackgroundColor="{StaticResource CardBackGroundEvent}"
-                    Text="CardBackGroundEvent"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-
-                <!--  Secondary  -->
-                <Label
-                    Grid.Row="11"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
-                                                      Light={StaticResource LightSecondaryColor}}"
-                    Text="SecondaryColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                                Light={StaticResource LightOnSecondaryColor}}" />
-                <Label
-                    Grid.Row="12"
-                    BackgroundColor="{StaticResource CardBackGroundFamily}"
-                    Text="CardBackGroundFamily"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="13"
-                    BackgroundColor="{StaticResource CardBackGroundMedia}"
-                    Text="CardBackGroundMedia"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="14"
-                    BackgroundColor="{StaticResource CardBackGroundNote}"
-                    Text="CardBackGroundNote"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="15"
-                    BackgroundColor="{StaticResource CardBackGroundPlace}"
-                    Text="CardBackGroundPlace"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="16"
-                    BackgroundColor="{StaticResource CardBackGroundPerson}"
-                    Text="CardBackGroundPerson"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="17"
-                    BackgroundColor="{StaticResource CardBackGroundRepository}"
-                    Text="CardBackGroundRepository"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
-                <Label
-                    Grid.Row="18"
-                    BackgroundColor="{StaticResource CardBackGroundTag}"
-                    Text="CardBackGroundTag"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
-                                                Light={StaticResource LightSecondaryLightColor}}" />
                 <Label
                     Grid.Row="19"
-                    BackgroundColor="{StaticResource CardBackGroundUtility}"
-                    Text="CardBackGroundUtility"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryLightColor},
+                    BackgroundColor="{StaticResource CardBackGroundAttribute}"
+                    Text="CardBackGroundAttribute"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
                                                 Light={StaticResource LightSecondaryLightColor}}" />
-
-                <!--  Background Color  -->
                 <Label
                     Grid.Row="20"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor},
-                                                      Light={StaticResource LightBackgroundColor}}"
-                    Text="BackgroundColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnBackgroundColor},
-                                                Light={StaticResource LightOnBackgroundColor}}" />
-
+                    BackgroundColor="{StaticResource CardBackGroundCitation}"
+                    Text="CardBackGroundCitation"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
                 <Label
                     Grid.Row="21"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnBackgroundColor},
-                                                      Light={StaticResource LightOnBackgroundColor}}"
-                    Text="OnBackgroundColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor},
-                                                Light={StaticResource LightBackgroundColor}}" />
+                    BackgroundColor="{StaticResource CardBackGroundEvent}"
+                    Text="CardBackGroundEvent"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+
+                <Label
+                    Grid.Row="22"
+                    BackgroundColor="{StaticResource CardBackGroundFamily}"
+                    Text="CardBackGroundFamily"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="23"
+                    BackgroundColor="{StaticResource CardBackGroundMedia}"
+                    Text="CardBackGroundMedia"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="24"
+                    BackgroundColor="{StaticResource CardBackGroundNote}"
+                    Text="CardBackGroundNote"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="25"
+                    BackgroundColor="{StaticResource CardBackGroundPlace}"
+                    Text="CardBackGroundPlace"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="26"
+                    BackgroundColor="{StaticResource CardBackGroundPerson}"
+                    Text="CardBackGroundPerson"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="27"
+                    BackgroundColor="{StaticResource CardBackGroundRepository}"
+                    Text="CardBackGroundRepository"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="28"
+                    BackgroundColor="{StaticResource CardBackGroundTag}"
+                    Text="CardBackGroundTag"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
+                <Label
+                    Grid.Row="29"
+                    BackgroundColor="{StaticResource CardBackGroundUtility}"
+                    Text="CardBackGroundUtility"
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                                Light={StaticResource LightSecondaryLightColor}}" />
 
                 <!--  Error Color  -->
                 <Label
-                    Grid.Row="22"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkErrorColor},
+                    Grid.Row="30"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
                                                       Light={StaticResource LightErrorColor}}"
                     Text="ErrorColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnErrorColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                 Light={StaticResource LightOnErrorColor}}" />
 
                 <Label
-                    Grid.Row="23"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnErrorColor},
+                    Grid.Row="31"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                       Light={StaticResource LightOnErrorColor}}"
                     Text="OnErrorColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkErrorColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
                                                 Light={StaticResource LightErrorColor}}" />
 
                 <!--  Surface Color  -->
+
                 <Label
-                    Grid.Row="24"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+                    Grid.Row="32"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                                       Light={StaticResource LightSurfaceColor}}"
                     Text="SurfaceColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
                                                 Light={StaticResource LightOnSurfaceColor}}" />
 
                 <Label
-                    Grid.Row="25"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                    Grid.Row="33"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
                                                       Light={StaticResource LightOnSurfaceColor}}"
                     Text="OnSurfaceColor"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                                 Light={StaticResource LightSurfaceColor}}" />
 
                 <Label
-                    Grid.Row="26"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceDark1Color},
+                    Grid.Row="34"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
                                                       Light={StaticResource LightSurfaceDark1Color}}"
                     Text="SurfaceDark1Color"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
                                                 Light={StaticResource LightOnSurfaceColor}}" />
+
+                <Label
+                    Grid.Row="35"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark2ColorDark},
+                                                      Light={StaticResource LightSurfaceDark2Color}}"
+                    Text="SurfaceDark2Color"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
+                                                Light={StaticResource LightOnSurfaceColor}}" />
+
+                <!--  Background Color  -->
+                <Label
+                    Grid.Row="36"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                                                      Light={StaticResource LightBackgroundColor}}"
+                    Text="BackgroundColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnBackgroundColorDark},
+                                                Light={StaticResource LightOnBackgroundColor}}" />
+
+                <Label
+                    Grid.Row="37"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource OnBackgroundColorDark},
+                                                      Light={StaticResource LightOnBackgroundColor}}"
+                    Text="OnBackgroundColor"
+                    TextColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                                                Light={StaticResource LightBackgroundColor}}" />
             </Grid>
 
             <BoxView />

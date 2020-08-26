@@ -27,7 +27,7 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                 Light={StaticResource LightPrimaryColor}}" />
                 </Image.Source>
             </Image>

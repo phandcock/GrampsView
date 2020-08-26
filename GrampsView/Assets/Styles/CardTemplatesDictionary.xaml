@@ -26,7 +26,7 @@
                     Grid.Row="0"
                     Margin="5,2,2,2"
                     Text="{Binding Title}"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkOnSurfaceColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
                                                 Light={StaticResource LightOnSurfaceColor}}" />
 
                 <FlexLayout

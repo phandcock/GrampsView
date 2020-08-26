@@ -30,7 +30,7 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                 Light={StaticResource LightPrimaryColor}}" />
                 </Image.Source>
             </Image>
@@ -61,7 +61,7 @@
             x:Name="SearchBar"
             Grid.Row="0"
             Grid.Column="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSurfaceColor},
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                               Light={StaticResource LightSurfaceColor}}"
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"

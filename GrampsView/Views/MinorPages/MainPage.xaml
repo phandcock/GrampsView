@@ -11,8 +11,8 @@
             <CollectionView
                 x:Name="List"
                 Margin="0,0,0,0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
-                                                  Light={StaticResource DarkSecondaryColor}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                  Light={StaticResource SecondaryColorDark}}"
                 HorizontalOptions="Start"
                 ItemsSource="{Binding MainMenuItems}">
 

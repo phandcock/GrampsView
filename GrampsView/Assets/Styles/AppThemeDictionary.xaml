@@ -1,47 +1,47 @@
 ﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!--  Dark colour  -->
-    <Color x:Key="DarkPrimaryColor">
+    <Color x:Key="PrimaryColorDark">
         #795548
     </Color>
 
-    <Color x:Key="DarkPrimaryDarkColor">
+    <Color x:Key="PrimaryDarkColorDark">
         #4b2c20
     </Color>
 
-    <Color x:Key="DarkPrimaryLightColor">
+    <Color x:Key="PrimaryLightColorDark">
         #a98274
     </Color>
 
-    <Color x:Key="DarkSecondaryColor">
+    <Color x:Key="SecondaryColorDark">
         #ffd600
     </Color>
 
-    <Color x:Key="DarkSecondaryDarkColor">
+    <Color x:Key="SecondaryDarkColorDark">
         #c7a500
     </Color>
 
-    <Color x:Key="DarkSecondaryLightColor">
+    <Color x:Key="SecondaryLightColorDark">
         #ffff52
     </Color>
 
-    <Color x:Key="DarkBackgroundColor">
+    <Color x:Key="BackgroundColorDark">
         #000000
     </Color>
 
-    <Color x:Key="DarkOnBackgroundColor">
+    <Color x:Key="OnBackgroundColorDark">
         #404040
     </Color>
 
-    <Color x:Key="DarkErrorColor">
+    <Color x:Key="ErrorColorDark">
         #B00020
     </Color>
 
-    <Color x:Key="DarkOnErrorColor">
+    <Color x:Key="OnErrorColorDark">
         #888888
     </Color>
 
-    <Color x:Key="DarkOnPrimaryColor">
+    <Color x:Key="OnPrimaryColorDark">
         #ffffff
     </Color>
 
@@ -49,19 +49,19 @@
         #000000
     </Color>
 
-    <Color x:Key="DarkOnSurfaceColor">
+    <Color x:Key="OnSurfaceColorDark">
         #FFFFFF
     </Color>
 
-    <Color x:Key="DarkSurfaceColor">
+    <Color x:Key="SurfaceColorDark">
         #000000
     </Color>
 
-    <Color x:Key="DarkSurfaceDark1Color">
+    <Color x:Key="SurfaceDark1ColorDark">
         #484848
     </Color>
 
-    <Color x:Key="DarkSurfaceDark2Color">
+    <Color x:Key="SurfaceDark2ColorDark">
         #303030
     </Color>
 

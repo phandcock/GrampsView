@@ -28,7 +28,7 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                 Light={StaticResource LightPrimaryColor}}" />
                 </Image.Source>
             </Image>
@@ -59,7 +59,7 @@
 
             <StackLayout
                 Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor},
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                   Light={StaticResource LightPrimaryColor}}"
                 Orientation="Horizontal">
 
@@ -74,7 +74,7 @@
                     FontSize="{x:Static common:CommonFontSize.FontLarge}"
                     Style="{DynamicResource GVLabelStyleLarge}"
                     Text="{Binding AppName, Mode=OneTime}"
-                    TextColor="{AppThemeBinding Dark={StaticResource DarkSecondaryColor},
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                                 Light={StaticResource LightSecondaryColor}}"
                     VerticalOptions="Center" />
             </StackLayout>

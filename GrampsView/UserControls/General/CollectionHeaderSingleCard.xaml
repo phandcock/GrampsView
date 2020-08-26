@@ -28,7 +28,7 @@
                     x:Name="LLCardLargeFrame"
                     Margin="0"
                     Padding="3"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkSecondaryDarkColor},
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
                                                       Light={StaticResource LightSecondaryDarkColor}}">
                     <Label
                         x:Name="LLCardLargeTitle"
