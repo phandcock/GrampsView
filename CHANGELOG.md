@@ -1,3 +1,16 @@
+## [16.6.1](https://github.com/phandcock/GrampsView/compare/16.6.0...16.6.1) (2020-08-26)
+
+
+### Bug Fixes
+
+* change light colour scheme to Google material design default ([5bd3f23](https://github.com/phandcock/GrampsView/commit/5bd3f23bc9284b7a54aa7d7b6bde6790d1458d0b)), closes [#337](https://github.com/phandcock/GrampsView/issues/337)
+* fix headings in Birthday view ([0441eeb](https://github.com/phandcock/GrampsView/commit/0441eebfae1de146769008aed9ddc0f82409c30e))
+* only display persondetailsview bio card if valid ([2e20ad9](https://github.com/phandcock/GrampsView/commit/2e20ad9c02617e324035f953d25be16235ce1ee4)), closes [#336](https://github.com/phandcock/GrampsView/issues/336)
+* tweak grouped header code and vstest code ([0fbecd9](https://github.com/phandcock/GrampsView/commit/0fbecd920e45d4719d7f3af018e1a6e1c56266e0))
+* work on Birthday page view ([babd526](https://github.com/phandcock/GrampsView/commit/babd5265f7e773a155ee0e822d7fbc042f74b306))
+
+
+
 # [16.6.0](https://github.com/phandcock/GrampsView/compare/16.5.0...16.6.0) (2020-08-24)
 
 
@@ -44,16 +57,6 @@
 ### Bug Fixes
 
 * tweaks ([b88f570](https://github.com/phandcock/GrampsView/commit/b88f570cfcac9fccd35d695ece7c7019cca91990))
-
-
-
-## [16.4.1](https://github.com/phandcock/GrampsView/compare/16.4.0...16.4.1) (2020-08-17)
-
-
-### Bug Fixes
-
-* start work on Windows Timeline code ([aa86189](https://github.com/phandcock/GrampsView/commit/aa86189796dc744f93f0009966543bc7993eedb6))
-* tweak button border colour ([39822d5](https://github.com/phandcock/GrampsView/commit/39822d58c68747477c2ad3551d9b4cea9e732a91))
 
 
 
