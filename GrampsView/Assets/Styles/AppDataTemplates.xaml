@@ -16,7 +16,7 @@
 
             <Grid
                 Margin="0"
-                Padding="0"
+                Padding="2"
                 BackgroundColor="Transparent">
 
                 <Grid.ColumnDefinitions>
