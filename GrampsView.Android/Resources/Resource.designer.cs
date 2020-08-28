@@ -14286,7 +14286,7 @@ namespace GrampsView.Droid
 			public const int highlighted_text_material_light = 2131034184;
 			
 			// aapt resource value: 0x7F050049
-			public const int launcher_background = 2131034185;
+			public const int ic_launcher_background = 2131034185;
 			
 			// aapt resource value: 0x7F05004A
 			public const int material_blue_grey_800 = 2131034186;
@@ -16467,14 +16467,14 @@ namespace GrampsView.Droid
 		public partial class Mipmap
 		{
 			
-			// aapt resource value: 0x7F0C0001
-			public const int icon = 2131492865;
-			
 			// aapt resource value: 0x7F0C0002
-			public const int icon_round = 2131492866;
+			public const int icon = 2131492866;
 			
 			// aapt resource value: 0x7F0C0000
 			public const int ic_launcher = 2131492864;
+			
+			// aapt resource value: 0x7F0C0001
+			public const int ic_launcher_round = 2131492865;
 			
 			static Mipmap()
 			{
