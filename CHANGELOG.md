@@ -1,3 +1,15 @@
+## [16.6.2](https://github.com/phandcock/GrampsView/compare/16.6.1...16.6.2) (2020-08-28)
+
+
+### Bug Fixes
+
+* rename Dark colours and refactor SettingsPage colours ([751f38d](https://github.com/phandcock/GrampsView/commit/751f38dbfa6502681216a8a7851cb8abf040181e)), closes [#343](https://github.com/phandcock/GrampsView/issues/343)
+* tweak Light colour theme ([5365903](https://github.com/phandcock/GrampsView/commit/5365903f0e8f12a279b4c9c2cad78ff59c706096))
+* update DataLog entry margin to avoid clashes ([c390312](https://github.com/phandcock/GrampsView/commit/c3903122d2da5182d557688c7759cd9433edf3d2)), closes [#339](https://github.com/phandcock/GrampsView/issues/339)
+* update launcher icons to be adaptive in Android ([8b33e71](https://github.com/phandcock/GrampsView/commit/8b33e71dabc66d511c3aeea3988c994cc5d3d8fe))
+
+
+
 ## [16.6.1](https://github.com/phandcock/GrampsView/compare/16.6.0...16.6.1) (2020-08-26)
 
 
@@ -48,15 +60,6 @@
 ### Bug Fixes
 
 * add WIndows 10 link from TimeLine ([487a2de](https://github.com/phandcock/GrampsView/commit/487a2de2733977c9a84d0ef1311acd843e163aec))
-
-
-
-## [16.4.2](https://github.com/phandcock/GrampsView/compare/16.4.1...16.4.2) (2020-08-19)
-
-
-### Bug Fixes
-
-* tweaks ([b88f570](https://github.com/phandcock/GrampsView/commit/b88f570cfcac9fccd35d695ece7c7019cca91990))
 
 
 
