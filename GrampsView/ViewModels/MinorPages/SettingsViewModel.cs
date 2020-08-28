@@ -35,19 +35,6 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSettings;
 
             TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
-            TestPageCommand = new DelegateCommand(TestPageButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
-        }
-
-        public async void TestPageButtonHandler()
-        {
-            string t = nameof(NavigationPage) + "/" + "AShellPage";
-
-            INavigationResult result = await BaseNavigationService.NavigateAsync(t).ConfigureAwait(false);
-
-            if (!result.Success)
-            {
-                DataStore.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
-            }
         }
 
         public bool CanHandleTestButton
@@ -57,8 +44,6 @@ namespace GrampsView.ViewModels
         }
 
         public DelegateCommand TestCommand { get; private set; }
-
-        public DelegateCommand TestPageCommand { get; private set; }
 
         public bool ThemeButtonDarkChecked
         {

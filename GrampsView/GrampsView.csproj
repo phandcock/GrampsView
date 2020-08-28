@@ -184,7 +184,6 @@
     <Compile Remove="Views\StartupPages\ExtendedSplashScreen.xaml.cs" />
     <Compile Remove="Views\StartupPages\FirstRunDialog.xaml.cs" />
     <Compile Remove="Views\StartupPages\SetupStorageView.xaml.cs" />
-    <Compile Remove="Views\Test\CropTransformationPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -241,7 +240,6 @@
     <EmbeddedResource Remove="Views\StartupPages\ExtendedSplashScreen.xaml" />
     <EmbeddedResource Remove="Views\StartupPages\FirstRunDialog.xaml" />
     <EmbeddedResource Remove="Views\StartupPages\SetupStorageView.xaml" />
-    <EmbeddedResource Remove="Views\Test\CropTransformationPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
