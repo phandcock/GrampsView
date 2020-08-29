@@ -15,7 +15,7 @@
     using GrampsView.Droid.Common;
 
     using Microsoft.AppCenter.Distribute;
-    using Microsoft.Device.Display;
+
 
     using Prism;
     using Prism.Ioc;
@@ -99,9 +99,7 @@
 
             //CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
-            Xamarin.Forms.DualScreen.DualScreenService.Init(this);
-            ScreenHelper screenHelper = new ScreenHelper();
-            // TODO Need this bool isDuo = screenHelper.Initialize(this);
+         
 
             // App Center Distribute
             Distribute.SetEnabledForDebuggableBuild(true);
