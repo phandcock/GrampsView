@@ -213,10 +213,7 @@ namespace GrampsView
             container.RegisterForNavigation<NavigationPage>();
 
             container.RegisterForNavigation<MainPage, MainPageViewModel>();
-            container.RegisterForNavigation<TwoPanePage, TwoPanePageViewModel>();
-
-            container.RegisterForNavigation<AShellPage>();
-            container.RegisterForNavigation<TestPage>();
+      
 
             container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 

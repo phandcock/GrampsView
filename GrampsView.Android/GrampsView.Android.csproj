@@ -72,13 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>3.4.0</Version>
+      <Version>3.4.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>3.4.0</Version>
+      <Version>3.4.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Distribute">
-      <Version>3.4.0</Version>
+      <Version>3.4.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging">
       <Version>3.1.7</Version>
@@ -114,9 +114,6 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
-    <PackageReference Include="Xamarin.Forms.DualScreen">
-      <Version>4.8.0.1269</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
     </PackageReference>
