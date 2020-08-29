@@ -33,6 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA7
 	ProjectSection(SolutionItems) = preProject
 		azure\azure-pipeline-android.yml = azure\azure-pipeline-android.yml
 		azure\azure-pipeline-ios.yml = azure\azure-pipeline-ios.yml
+		azure\azure-pipeline-uwp-store.yml = azure\azure-pipeline-uwp-store.yml
 		azure\azure-pipeline-uwp.yml = azure\azure-pipeline-uwp.yml
 		azure\azure-pipeline-vstest.yml = azure\azure-pipeline-vstest.yml
 		azure\azure-pipelinetemplate-build-uwp.yml = azure\azure-pipelinetemplate-build-uwp.yml
