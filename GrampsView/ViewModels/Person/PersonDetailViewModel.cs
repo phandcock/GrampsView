@@ -137,6 +137,10 @@ namespace GrampsView.ViewModels
                 // Get the Name Details
                 headerCardGroup.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 
+
+                // Get date card
+                headerCardGroup.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
+
                 // Get details on persons age etc
                 headerCardGroup.Add(GetExtraPersonDetails());
 
@@ -203,8 +207,6 @@ namespace GrampsView.ViewModels
 
             if (PersonObject.BirthDate != null)
             {
-                extraDetailsCard.Add(new CardListLine("Birth Date:", PersonObject.BirthDate.LongDate));
-
                 if (PersonObject.IsLiving)
                 {
                     extraDetailsCard.Add(new CardListLine("Age:", PersonObject.BirthDate.GetAge));

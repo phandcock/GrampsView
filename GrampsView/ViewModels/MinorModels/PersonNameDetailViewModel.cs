@@ -107,7 +107,6 @@ namespace GrampsView.ViewModels
 
                     new CardListLine("Alt:", PersonNameObject.GAlt.GetDefaultText),
                     new CardListLine("Call:", PersonNameObject.GCall),
-                    new CardListLine("Date:", PersonNameObject.GDate.ShortDate),
                     new CardListLine("Display:", PersonNameObject.GDisplay),
                     new CardListLine("Family Nick:", PersonNameObject.GFamilyNick),
 
@@ -117,7 +116,14 @@ namespace GrampsView.ViewModels
                     new CardListLine("Sort:", PersonNameObject.GSort)
                 };
 
+
+         
+
                 BaseDetail.Add(PersonNameCards);
+
+                // Get date card
+                BaseDetail.Add(PersonNameObject.GDate.AsCardListLine());
+
 
                 foreach (SurnameModel item in PersonNameObject.GSurName)
                 {

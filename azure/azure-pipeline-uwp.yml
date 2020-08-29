@@ -1,4 +1,4 @@
-name: GrampsView UWP
+name: GrampsView UWP build
 
 variables:
   - name: buildPlatform

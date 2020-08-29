@@ -166,7 +166,6 @@
     <Compile Remove="ViewModels\Person\Interfaces\IPersonHourGlassPageViewModel.cs" />
     <Compile Remove="ViewModels\Person\Interfaces\IPersonSummaryPageViewModel.cs" />
     <Compile Remove="ViewModels\StartupPages\SetupStorageViewModel.cs" />
-    <Compile Remove="ViewModels\Test\TestCachePageViewModel.cs" />
     <Compile Remove="Views\AboutPage.xaml.cs" />
     <Compile Remove="Views\BaseViewList.xaml.cs" />
     <Compile Remove="Views\BookMark\BookMarkDetailView.xaml.cs" />
@@ -382,10 +381,6 @@
     <EmbeddedResource Update="Views\MinorPages\ErrorDialog.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModels\Test\" />
   </ItemGroup>
 
   <ItemGroup>

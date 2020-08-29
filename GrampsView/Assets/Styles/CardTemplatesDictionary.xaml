@@ -47,6 +47,8 @@
         <usercontrols:CitationCardSmall />
     </DataTemplate>
 
+
+
     <DataTemplate x:Key="EventCardSmallDT">
         <usercontrols:EventCardSmall />
     </DataTemplate>
