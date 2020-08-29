@@ -35,9 +35,6 @@ namespace GrampsView
     {
         public App()
         {
-            InitializeComponent();
-
-            MainPage = new AppShell();
         }
 
         public App(IPlatformInitializer initializer)
@@ -129,6 +126,8 @@ namespace GrampsView
 
         protected override void OnStart()
         {
+          
+
             if (DataStore.DS.IsDataLoaded)
             {
                 NavigationService.NavigateAsync("MainPage/NavigationPage/" + nameof(HubPage));
@@ -151,10 +150,13 @@ namespace GrampsView
             IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
 
             // Start at the MessageLog Page if no other paramaters and work from there
-            if (!DataStore.NV.TargetNavParams.Any())
+            if (!DataStore.NV.TargetNavParams.Any() )
             {
                 DataStore.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
+
+           
             }
+
 
             DataStore.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
 
@@ -170,7 +172,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
             container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
-
+ 
             container.RegisterForNavigation<EventDetailPage, EventDetailViewModel>();
             container.RegisterForNavigation<EventListPage, EventListViewModel>();
 
@@ -190,7 +192,7 @@ namespace GrampsView
             container.RegisterForNavigation<NoteListPage, NoteListViewModel>();
 
             container.RegisterForNavigation<PeopleGraphPage, PeopleGraphViewModel>();
-            container.RegisterForNavigation<PersonBirthdayPage, PersonBirthdayViewModel>();
+            container.RegisterForNavigation<PersonBirthdayPage, PersonBirthdayViewModel>(); 
             container.RegisterForNavigation<PersonDetailPage, PersonDetailViewModel>();
             container.RegisterForNavigation<PersonListPage, PersonListViewModel>();
             container.RegisterForNavigation<PersonNameDetailPage, PersonNameDetailViewModel>();
@@ -211,7 +213,7 @@ namespace GrampsView
             container.RegisterForNavigation<NavigationPage>();
 
             container.RegisterForNavigation<MainPage, MainPageViewModel>();
-            container.RegisterForNavigation<TwoPanePage, TwoPanePageViewModel>();
+      
 
             container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 

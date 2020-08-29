@@ -326,7 +326,7 @@
                 Style="{DynamicResource GVButtonStyle}"
                 Text="Go To MessageLog" />
 
-         
+
 
             <Button
                 Command="{Binding TestCommand}"
