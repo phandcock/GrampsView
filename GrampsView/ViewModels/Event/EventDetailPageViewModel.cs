@@ -87,10 +87,11 @@ namespace GrampsView.ViewModels
                         new CardListLine("Card Type:", "Event Detail"),
                         new CardListLine("Type:", EventObject.GType),
                         new CardListLine("Role",HLinkObject.GRole),
-                         new CardListLine("Date value:", EventObject.GDate.GVal),
-                        new CardListLine("Date:", EventObject.GDate.LongDate),
                         new CardListLine("Event Age:", EventObject.GDate.GetAge),
                     });
+
+                    // Get date card
+                    t.Add(EventObject.GDate.AsCardListLine());
 
                     // Add Model details
                     t.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));

@@ -123,13 +123,16 @@ namespace GrampsView.ViewModels
                     t.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Media Detail"),
-                        new CardListLine("Date:", CurrentMediaObject.GDateValue.LongDate),
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),
                         new CardListLine("File Content Type:", CurrentMediaObject.FileContentType),
                         new CardListLine("File Mime SubType:", CurrentMediaObject.FileMimeSubType),
                         new CardListLine("OriginalFilePath:", CurrentMediaObject.OriginalFilePath),
                     });
+
+
+                    // Get date card
+                    t.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
                     // Set up note re opening in photo app
                     CardListLineCollection t1 = new CardListLineCollection

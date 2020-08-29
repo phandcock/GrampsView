@@ -107,6 +107,10 @@ namespace GrampsView.ViewModels
                     new CardListLine("Phone:", AddressObject.GPhone),
                 };
 
+
+                // Get date card
+                headerCardGroup.Add(AddressObject.GDate.AsCardListLine());
+
                 headerCardGroup.Add(nameDetails);
 
                 // Add Standard details

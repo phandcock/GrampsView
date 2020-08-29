@@ -106,28 +106,28 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets the type of the g value.
-        /// </summary>
-        /// <value>
-        /// The type of the g value.
-        /// </value>
-        [DataMember]
-        public string ValGValType
-        {
-            get
-            {
-                return _ValGValType;
-            }
+        ///// <summary>
+        ///// Gets the type of the g value.
+        ///// </summary>
+        ///// <value>
+        ///// The type of the g value.
+        ///// </value>
+        //[DataMember]
+        //public string ValGValType
+        //{
+        //    get
+        //    {
+        //        return _ValGValType;
+        //    }
 
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _ValGValType, value);
-                }
-            }
-        }
+        //    internal set
+        //    {
+        //        if (!string.IsNullOrWhiteSpace(value))
+        //        {
+        //            SetProperty(ref _ValGValType, value);
+        //        }
+        //    }
+        //}
 
         public void DateObjectModelVal(string aValType)
 

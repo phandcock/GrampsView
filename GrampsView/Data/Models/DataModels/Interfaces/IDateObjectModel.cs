@@ -11,6 +11,8 @@ namespace GrampsView.Data.Model
     using System;
     using System.Collections.Generic;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Public interfaces for the DateObject elements.
     /// </summary>
@@ -23,13 +25,18 @@ namespace GrampsView.Data.Model
         int GetAge { get; }
 
         int GetDecade { get; }
-
         DateTime GetMonthDay { get; }
-
         string GetYear { get; }
+        string GNewYear { get; }
+        string GQuality { get; }
+        string GStart { get; }
 
+        CardListLineCollection AsCardListLine(string argTitle = null);
+
+        string GStop { get; }
+        DateType GType { get; }
         string GVal { get; }
-
+        string GValType { get; }
         string LongDate { get; }
         string ShortDate { get; }
 

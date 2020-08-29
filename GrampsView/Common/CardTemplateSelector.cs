@@ -82,6 +82,8 @@ namespace GrampsView.Common
             set;
         }
 
+
+
         /// <summary>
         /// Gets or sets the event template.
         /// </summary>
@@ -394,6 +396,7 @@ namespace GrampsView.Common
                 return CitationTemplate;
             }
 
+       
             if (item is HLinkEventModel)
             {
                 return EventTemplate;
