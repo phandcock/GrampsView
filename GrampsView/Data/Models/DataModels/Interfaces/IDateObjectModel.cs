@@ -26,18 +26,25 @@ namespace GrampsView.Data.Model
 
         int GetDecade { get; }
         DateTime GetMonthDay { get; }
+
         string GetYear { get; }
+
         string GNewYear { get; }
+
         string GQuality { get; }
+
         string GStart { get; }
 
-        CardListLineCollection AsCardListLine(string argTitle = null);
-
         string GStop { get; }
+
         DateType GType { get; }
+
         string GVal { get; }
+
         string GValType { get; }
+
         string LongDate { get; }
+
         string ShortDate { get; }
 
         string ShortDateOrEmpty { get; }
@@ -47,6 +54,14 @@ namespace GrampsView.Data.Model
         DateTime SortDate { get; }
 
         bool Valid { get; set; }
+
+        bool ValidYear { get; set; }
+
+        bool ValidMonth { get; set; }
+
+        bool ValidDay { get; set; }
+
+        CardListLineCollection AsCardListLine(string argTitle = null);
 
         TimeSpan DateDifference(IDateObjectModel otherDate);
 

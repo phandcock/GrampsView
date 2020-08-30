@@ -24,10 +24,6 @@ namespace GrampsView.Common
         /// </summary>
         public const string EventTypeDeath = "Death";
 
-        public const string ModelNamePerson = "person";
-
-        public const string ModelNameFamily = "family";
-
         /// <summary>
         /// The event type marriage.
         /// </summary>
@@ -41,7 +37,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 43;
+        public const int GrampsViewDatabaseVersion = 44;
 
         /// <summary>
         /// The Gramps XML name space.
@@ -112,13 +108,14 @@ namespace GrampsView.Common
         /// </summary>
         public const string IconHub = IconFont.Home;
 
-        public const string IconLog = IconFont.MessageBulleted;    //  "\uf82f";
+        public const string IconLog = IconFont.MessageBulleted;
 
         /// <summary>
         /// The icon media.
         /// </summary>
         public const string IconMedia = IconFont.FileDocument;
 
+        // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
@@ -133,6 +130,7 @@ namespace GrampsView.Common
         /// The icon people.
         /// </summary>
         public const string IconPeople = IconFont.Account;
+
         public const string IconPeopleBirthday = IconFont.CakeLayered;
 
         /// <summary>
@@ -206,12 +204,19 @@ namespace GrampsView.Common
         /// </summary>
         public const string LogDefaultSessionName = "GrampsViewSessionDefault";
 
+        public const string ModelNameFamily = "family";
+        public const string ModelNamePerson = "person";
+        public const string NavigationParameterHLink = "hlink";
+
+        public const string NavigationParameterModel = "model";
+
+        public const string NavigationParameterTargetView = "targetview";
+
         /// <summary>
         /// The search no results.
         /// </summary>
         public const string SearchNoResults = "No Results";
 
-      
         public const string SettingsDataStorageFolder = "SettingsDataStorageFolder";
 
         /// <summary>
@@ -260,11 +265,5 @@ namespace GrampsView.Common
         /// The gramps XML file name.
         /// </summary>
         public const string StorageXMLFileName = "data.xml";
-
-        public const string NavigationParameterHLink = "hlink";
-
-        public const string NavigationParameterModel = "model";
-
-        public const string NavigationParameterTargetView = "targetview";
     }
 }

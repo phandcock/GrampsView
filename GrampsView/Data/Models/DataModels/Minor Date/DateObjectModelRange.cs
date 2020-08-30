@@ -101,10 +101,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                string dateString = string.Empty;
-
-                dateString = "Range " + GStart + "-" + GStop;
-
+                string dateString = "Range " + GStart + "-" + GStop;
                 return dateString.Trim();
             }
         }
@@ -125,7 +122,6 @@ namespace GrampsView.Data.Model
         }
 
         public void DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
-
         {
             GCformat = aCFormat;
 
