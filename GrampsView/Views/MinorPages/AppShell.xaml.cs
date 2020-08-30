@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace GrampsView.ViewModels.MinorPages
+namespace GrampsView.Views
 {
     public partial class AppShell : Shell
     {

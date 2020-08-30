@@ -338,9 +338,6 @@
     <Compile Update="Views\MinorModels\AddressDetailPage.xaml.cs">
       <DependentUpon>AddressDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\MinorPages\TwoPanePage.xaml.cs">
-      <DependentUpon>TwoPanePage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\MinorPages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -380,7 +377,7 @@
     <EmbeddedResource Update="UserControls\ListLineCardLarge.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewModels\MinorPages\AppShell.xaml">
+    <EmbeddedResource Update="Views\MinorPages\AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MinorPages\ErrorDialog.xaml">
