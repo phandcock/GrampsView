@@ -9,6 +9,8 @@
 
 namespace GrampsView.Common
 {
+    using System.Diagnostics;
+    using System.Reflection;
     using System.Text.RegularExpressions;
 
     using Xamarin.Essentials;
@@ -20,7 +22,20 @@ namespace GrampsView.Common
 
     public static class CommonRoutines
     {
-        public static Color GetResourceColour(string argColourResourceName)
+
+        [Conditional("DEBUG")]
+        [DebuggerStepThrough]
+        public static void ListEmbeddedResources()
+        {
+            // ... // NOTE: use for debugging, not in released app code!
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            foreach (var res in assembly.GetManifestResourceNames())
+            {
+                Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
+            }
+        }
+
+    public static Color GetResourceColour(string argColourResourceName)
         {
             // Get colour
             Application.Current.Resources.TryGetValue(argColourResourceName, out var varCardColour);
