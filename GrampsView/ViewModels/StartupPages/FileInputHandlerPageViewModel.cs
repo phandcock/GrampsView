@@ -40,14 +40,14 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
         /// </summary>
-        /// <param name="iocDataRepositoryManager">
-        /// The ioc data repository manager.
-        /// </param>
         /// <param name="iocCommonLogging">
         /// The common logging.
         /// </param>
         /// <param name="iocEventAggregator">
         /// The event aggregator.
+        /// </param>
+        /// <param name="iocNavigationService">
+        /// Prism Navigation Service
         /// </param>
         public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
@@ -100,16 +100,12 @@ namespace GrampsView.ViewModels
         public DelegateCommand PickFileCommand { get; private set; }
         public DelegateCommand UseExistingFolderCommand { get; private set; }
 
-        public async void LoadSample()
+        /// <summary>Loads the sample data.</summary>
+        public void LoadSample()
         {
             BaseCL.LogProgress("Load sample data");
 
-            // ... // NOTE: use for debugging, not in released app code!
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-            foreach (var res in assembly.GetManifestResourceNames())
-            {
-                Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
-            }
+            CommonRoutines.ListEmbeddedResources();
 
             // Load Resource
             var assemblyExec = Assembly.GetExecutingAssembly();
