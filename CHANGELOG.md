@@ -1,3 +1,19 @@
+# [16.7.0](https://github.com/phandcock/GrampsView/compare/16.6.2...16.7.0) (2020-08-30)
+
+
+### Bug Fixes
+
+* fix crash when adding rounded icons ([e26ebfe](https://github.com/phandcock/GrampsView/commit/e26ebfeec8d5336961ba7dccbcf7736f57a1445d))
+* remove surface duo code now we have a branch ([7cb4073](https://github.com/phandcock/GrampsView/commit/7cb407308a3809b872f58c4dda518a42bbf05681))
+* update test packages to get tests working ([58e822f](https://github.com/phandcock/GrampsView/commit/58e822f4127bcddaf02bc3f392d26eb77ac3c654))
+
+
+### Features
+
+* add date cards to views to show all date details ([9855a2c](https://github.com/phandcock/GrampsView/commit/9855a2c9803f7789cbfcba44dbdcc98199a4e9ae))
+
+
+
 ## [16.6.2](https://github.com/phandcock/GrampsView/compare/16.6.1...16.6.2) (2020-08-28)
 
 
@@ -51,15 +67,6 @@
 ### Features
 
 * chnage Attribition text to be in a file and not in String list ([889a99f](https://github.com/phandcock/GrampsView/commit/889a99f0a2bf1ecfac0aadd9df2be78bf62a7111))
-
-
-
-## [16.4.3](https://github.com/phandcock/GrampsView/compare/16.4.2...16.4.3) (2020-08-21)
-
-
-### Bug Fixes
-
-* add WIndows 10 link from TimeLine ([487a2de](https://github.com/phandcock/GrampsView/commit/487a2de2733977c9a84d0ef1311acd843e163aec))
 
 
 
