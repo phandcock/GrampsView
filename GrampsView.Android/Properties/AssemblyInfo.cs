@@ -1,10 +1,8 @@
+using Android.App;
+
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-
-using Android.App;
-
-using Xamarin.Forms;
 
 // General Information about an assembly is controlled through the following set of attributes.
 // Change these attribute values to modify the information associated with an assembly.
@@ -13,7 +11,7 @@ using Xamarin.Forms;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GrampsView.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2010 - 2019")]
+[assembly: AssemblyCopyright("Copyright ©  2010 - 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

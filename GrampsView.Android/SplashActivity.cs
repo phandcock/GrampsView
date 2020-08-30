@@ -1,14 +1,32 @@
 ﻿namespace GrampsView.Droid
 {
+    using Android;
     using Android.App;
     using Android.Content;
+    using Android.Content.PM;
     using Android.OS;
+    using Android.Support.V4.App;
+    using Android.Support.V4.Content;
     using Android.Support.V7.App;
     using Android.Util;
 
     using System.Threading.Tasks;
 
-    [Activity(Theme = "@style/SplashTheme.Splash", MainLauncher = true, NoHistory = true, ResizeableActivity = true)]
+    [Activity(
+                Theme = "@style/SplashTheme.Splash",
+                MainLauncher = true,
+                Label = "GrampsView",
+                Icon = "@mipmap/icon",
+                RoundIcon = "@mipmap/ic_launcher_round",
+                ConfigurationChanges = ConfigChanges.ScreenSize |
+                                        ConfigChanges.UiMode |
+                                        ConfigChanges.Orientation |
+                                        ConfigChanges.ScreenLayout |
+                                        ConfigChanges.SmallestScreenSize,
+                ScreenOrientation = ScreenOrientation.User,
+                NoHistory = true,
+                ResizeableActivity = true
+            )]
     public class SplashActivity : AppCompatActivity
 
     {
@@ -25,6 +43,17 @@
             base.OnCreate(savedInstanceState, persistentState);
 
             Log.Debug(TAG, "SplashActivity.OnCreate");
+
+            // Get read/write permisions
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int)Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.WriteExternalStorage }, 0);
+            }
+
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int)Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage }, 0);
+            }
         }
 
         // Launches the startup task
