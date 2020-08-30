@@ -8,7 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonModel"
     BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                      Light={StaticResource LightSecondaryColor}}"
+                                      Light={StaticResource SecondaryColorLight}}"
     MinimumHeightRequest="100"
     Style="{DynamicResource FrameCardStyle}">
 
@@ -49,7 +49,7 @@
                 Style="{DynamicResource GVCardLabelStyleVerySmall}"
                 Text="{Binding DeRef.GetDefaultText}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                                            Light={StaticResource OnSecondaryColorLight}}" />
         </Grid>
     </Frame.Content>
 </Frame>

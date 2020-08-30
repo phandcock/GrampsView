@@ -66,67 +66,67 @@
     </Color>
 
     <!--  Light colour  -->
-    <Color x:Key="LightPrimaryColor">
+    <Color x:Key="PrimaryColorLight">
         #616161
     </Color>
 
-    <Color x:Key="LightPrimaryDarkColor">
+    <Color x:Key="PrimaryDarkColorLight">
         #373737
     </Color>
 
-    <Color x:Key="LightPrimaryLightColor">
+    <Color x:Key="PrimaryLightColorLight">
         #8e8e8e
     </Color>
 
-    <Color x:Key="LightSecondaryColor">
+    <Color x:Key="SecondaryColorLight">
         #54f214
     </Color>
 
-    <Color x:Key="LightSecondaryDarkColor">
+    <Color x:Key="SecondaryDarkColorLight">
         #00be00
     </Color>
 
-    <Color x:Key="LightSecondaryLightColor">
+    <Color x:Key="SecondaryLightColorLight">
         #92ff59
     </Color>
 
-    <Color x:Key="LightBackgroundColor">
+    <Color x:Key="BackgroundColorLight">
         #bdbdbd
     </Color>
 
-    <Color x:Key="LightOnBackgroundColor">
+    <Color x:Key="OnBackgroundColorLight">
         #000000
     </Color>
 
-    <Color x:Key="LightErrorColor">
+    <Color x:Key="ErrorColorLight">
         #B00020
     </Color>
 
-    <Color x:Key="LightOnErrorColor">
+    <Color x:Key="OnErrorColorLight">
         #000000
     </Color>
 
-    <Color x:Key="LightOnPrimaryColor">
+    <Color x:Key="OnPrimaryColorLight">
         #ffffff
     </Color>
 
-    <Color x:Key="LightOnSecondaryColor">
+    <Color x:Key="OnSecondaryColorLight">
         #000000
     </Color>
 
-    <Color x:Key="LightOnSurfaceColor">
-        #0094cc
+    <Color x:Key="OnSurfaceColorLight">
+        #000000
     </Color>
 
-    <Color x:Key="LightSurfaceColor">
+    <Color x:Key="SurfaceColorLight">
         #d3d3d3
     </Color>
 
-    <Color x:Key="LightSurfaceDark1Color">
+    <Color x:Key="SurfaceDark1ColorLight">
         #C8C8C8
     </Color>
 
-    <Color x:Key="LightSurfaceDark2Color">
+    <Color x:Key="SurfaceDark2ColorLight">
         #FFFFFF
     </Color>
 

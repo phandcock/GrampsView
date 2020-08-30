@@ -20,19 +20,19 @@
         Grid.Column="0"
         Padding="0"
         BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                          Light={StaticResource LightSurfaceColor}}"
+                                          Light={StaticResource SurfaceColorLight}}"
         CornerRadius="3">
 
         <Label
             Margin="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
-                                              Light={StaticResource LightErrorColor}}"
+                                              Light={StaticResource ErrorColorLight}}"
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Center"
             Style="{DynamicResource GVHeaderStyleLarge}"
             Text="{Binding AdaArgs.Name, Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                        Light={StaticResource LightOnErrorColor}}" />
+                                        Light={StaticResource OnErrorColorLight}}" />
     </Frame>
 
     <ScrollView Grid.Row="1" Grid.Column="0">
@@ -40,7 +40,7 @@
         <Frame
             Padding="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                              Light={StaticResource LightSurfaceColor}}"
+                                              Light={StaticResource SurfaceColorLight}}"
             CornerRadius="3">
             <Grid Padding="0">
 
@@ -58,7 +58,7 @@
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Text, Mode=OneWay}"
                     TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                                Light={StaticResource LightOnErrorColor}}" />
+                                                Light={StaticResource OnErrorColorLight}}" />
 
                 <FlexLayout
                     Grid.Row="2"
@@ -86,7 +86,7 @@
                                     Grid.Column="0"
                                     Text="{Binding Key}"
                                     TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                                                Light={StaticResource LightOnErrorColor}}" />
+                                                                Light={StaticResource OnErrorColorLight}}" />
 
                                 <Label
                                     Grid.Row="0"
@@ -94,7 +94,7 @@
                                     LineBreakMode="WordWrap"
                                     Text="{Binding Value}"
                                     TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
-                                                                Light={StaticResource LightOnSurfaceColor}}" />
+                                                                Light={StaticResource OnSurfaceColorLight}}" />
                             </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

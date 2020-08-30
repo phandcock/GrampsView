@@ -29,7 +29,7 @@
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
                         Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource LightPrimaryColor}}" />
+                                                Light={StaticResource PrimaryColorLight}}" />
                 </Image.Source>
             </Image>
 
@@ -60,7 +60,7 @@
             <StackLayout
                 Grid.Row="0"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                  Light={StaticResource LightPrimaryColor}}"
+                                                  Light={StaticResource PrimaryColorLight}}"
                 Orientation="Horizontal">
 
                 <Image
@@ -75,7 +75,7 @@
                     Style="{DynamicResource GVLabelStyleLarge}"
                     Text="{Binding AppName, Mode=OneTime}"
                     TextColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                Light={StaticResource LightSecondaryColor}}"
+                                                Light={StaticResource SecondaryColorLight}}"
                     VerticalOptions="Center" />
             </StackLayout>
 

@@ -27,7 +27,7 @@
                         Glyph="{Binding BaseTitleIcon, Mode=OneWay}"
                         Size="44"
                         Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource LightPrimaryColor}}" />
+                                                Light={StaticResource PrimaryColorLight}}" />
                 </Image.Source>
             </Image>
 

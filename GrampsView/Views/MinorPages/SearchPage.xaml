@@ -31,7 +31,7 @@
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
                         Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource LightPrimaryColor}}" />
+                                                Light={StaticResource PrimaryColorLight}}" />
                 </Image.Source>
             </Image>
 
@@ -62,7 +62,7 @@
             Grid.Row="0"
             Grid.Column="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                              Light={StaticResource LightSurfaceColor}}"
+                                              Light={StaticResource SurfaceColorLight}}"
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
             IsTabStop="True"

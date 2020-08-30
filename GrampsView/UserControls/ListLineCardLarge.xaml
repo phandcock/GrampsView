@@ -28,7 +28,7 @@
                 Margin="0"
                 Padding="0"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                  Light={StaticResource LightPrimaryColor}}"
+                                                  Light={StaticResource PrimaryColorLight}}"
                 CornerRadius="2">
                 <Label
                     x:Name="LLCardLargeTitle"
