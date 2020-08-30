@@ -29,7 +29,7 @@
                     Margin="0"
                     Padding="3"
                     BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                                      Light={StaticResource LightSecondaryDarkColor}}">
+                                                      Light={StaticResource SecondaryDarkColorLight}}">
                     <Label
                         x:Name="LLCardLargeTitle"
                         Margin="3,0,3,0"

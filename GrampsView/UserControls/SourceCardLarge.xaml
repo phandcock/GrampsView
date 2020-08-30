@@ -53,7 +53,7 @@
                 Style="{DynamicResource GVLabelStyleSmall}"
                 Text="{Binding DeRef.GSTitle, Mode=OneWay}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                                            Light={StaticResource OnSecondaryColorLight}}" />
 
             <Label
                 Grid.Row="1"
@@ -61,14 +61,14 @@
                 Style="{DynamicResource GVLabelStyleSmall}"
                 Text="{Binding DeRef.GSAuthor, Mode=OneWay}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                                            Light={StaticResource OnSecondaryColorLight}}" />
             <Label
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
                 Text="{Binding DeRef.GSPubInfo, Mode=OneWay}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                                            Light={StaticResource OnSecondaryColorLight}}" />
 
             <Image
                 Grid.Row="2"

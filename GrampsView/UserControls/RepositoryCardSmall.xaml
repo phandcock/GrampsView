@@ -53,7 +53,7 @@
                 Style="{DynamicResource GVLabelStyleSmall}"
                 Text="{Binding DeRef.GRName, Mode=OneWay}"
                 TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
-                                            Light={StaticResource LightOnSecondaryColor}}" />
+                                            Light={StaticResource OnSecondaryColorLight}}" />
 
             <Image
                 Grid.Row="1"
