@@ -713,6 +713,16 @@ namespace GrampsView.Data.Model
         [DataMember]
         public new bool Valid { get; set; } = false;
 
+        [DataMember]
+        public  bool ValidYear { get; set; } = false;
+
+        [DataMember]
+        public  bool ValidMonth { get; set; } = false;
+
+        [DataMember]
+        public  bool ValidDay { get; set; } = false;
+
+
         /// <summary>
         /// Implements the operator !=.
         /// </summary>
@@ -963,6 +973,9 @@ namespace GrampsView.Data.Model
             if (DateTime.TryParse(inputArg, CultureInfo.InvariantCulture, DateTimeStyles.None, out outputDateTime) == true)
             {
                 Valid = true;
+                ValidYear = true;
+                ValidMonth = true;
+                ValidDay = true;
                 return outputDateTime;
             }
 
@@ -970,6 +983,8 @@ namespace GrampsView.Data.Model
             if (DateTime.TryParseExact(inputArg, "yyyy-MM", null, DateTimeStyles.None, out outputDateTime) == true)
             {
                 Valid = true;
+                ValidYear = true;
+                ValidMonth = true;
                 return outputDateTime;
             }
 
@@ -977,6 +992,7 @@ namespace GrampsView.Data.Model
             if (DateTime.TryParseExact(inputArg, "yyyy", null, DateTimeStyles.None, out outputDateTime) == true)
             {
                 Valid = true;
+                ValidYear = true;
                 return outputDateTime;
             }
 
