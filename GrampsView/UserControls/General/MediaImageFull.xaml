@@ -14,7 +14,7 @@
     <Frame.GestureRecognizers>
         <TapGestureRecognizer Command="{prism:NavigateTo 'MediaDetailPage'}">
             <TapGestureRecognizer.CommandParameter>
-                <prism:NavigationParameter Key="hlink" Value="{Binding}" />
+                <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
             </TapGestureRecognizer.CommandParameter>
         </TapGestureRecognizer>
     </Frame.GestureRecognizers>
