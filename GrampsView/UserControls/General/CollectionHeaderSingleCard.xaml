@@ -12,7 +12,6 @@
         x:Name="theCollectionView"
         Grid.Column="0"
         IsGrouped="True"
-        ItemSizingStrategy="MeasureAllItems"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
         <CollectionView.ItemsLayout>
