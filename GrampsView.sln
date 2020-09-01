@@ -6,6 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{290510A7-003E-4E74-A826-53809648E8D8}"
 	ProjectSection(SolutionItems) = preProject
 		Attribution.md = Attribution.md
+		.azure\azure-pipeline-android.yml = .azure\azure-pipeline-android.yml
+		.azure\azure-pipeline-ios.yml = .azure\azure-pipeline-ios.yml
+		.azure\azure-pipeline-test.yml = .azure\azure-pipeline-test.yml
+		.azure\azure-pipeline-uwp-store.yml = .azure\azure-pipeline-uwp-store.yml
+		.azure\azure-pipeline-uwp.yml = .azure\azure-pipeline-uwp.yml
+		.azure\azure-pipeline-vstest.yml = .azure\azure-pipeline-vstest.yml
+		.azure\azure-pipelinetemplate-build-uwp.yml = .azure\azure-pipelinetemplate-build-uwp.yml
 		.github\contributing.md = .github\contributing.md
 		LICENSE = LICENSE
 		package.json = package.json
@@ -29,17 +36,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.iOS", "GrampsVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UWP", "GrampsView.UWP\GrampsView.UWP.csproj", "{C9E3D22C-DD30-4D5D-9CDE-99C1CC514105}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{E2ADA75E-06A1-4BB2-B49A-7D770FFB75A6}"
-	ProjectSection(SolutionItems) = preProject
-		azure\azure-pipeline-android.yml = azure\azure-pipeline-android.yml
-		azure\azure-pipeline-ios.yml = azure\azure-pipeline-ios.yml
-		azure\azure-pipeline-uwp-store.yml = azure\azure-pipeline-uwp-store.yml
-		azure\azure-pipeline-uwp.yml = azure\azure-pipeline-uwp.yml
-		azure\azure-pipeline-vstest.yml = azure\azure-pipeline-vstest.yml
-		azure\azure-pipelinetemplate-build-uwp.yml = azure\azure-pipelinetemplate-build-uwp.yml
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UnitTest.UWP", "GrampsView.UnitTest.UWP\GrampsView.UnitTest.UWP.csproj", "{F31B6F1D-A604-4C7A-B8FD-3D15D566EF6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{DED7DEDD-08DC-4C3E-8916-2B8716D6225B}"
+	ProjectSection(SolutionItems) = preProject
+		.azure\azure-pipeline-android.yml = .azure\azure-pipeline-android.yml
+		.azure\azure-pipeline-ios.yml = .azure\azure-pipeline-ios.yml
+		.azure\azure-pipeline-test.yml = .azure\azure-pipeline-test.yml
+		.azure\azure-pipeline-uwp-store.yml = .azure\azure-pipeline-uwp-store.yml
+		.azure\azure-pipeline-uwp.yml = .azure\azure-pipeline-uwp.yml
+		.azure\azure-pipeline-vstest.yml = .azure\azure-pipeline-vstest.yml
+		.azure\azure-pipelinetemplate-build-uwp.yml = .azure\azure-pipelinetemplate-build-uwp.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -216,7 +224,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{85ABF586-53C4-4EE9-9856-CA68F06E7DB7} = {290510A7-003E-4E74-A826-53809648E8D8}
-		{E2ADA75E-06A1-4BB2-B49A-7D770FFB75A6} = {290510A7-003E-4E74-A826-53809648E8D8}
+		{DED7DEDD-08DC-4C3E-8916-2B8716D6225B} = {290510A7-003E-4E74-A826-53809648E8D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {502FD67F-00F9-4B7A-9533-2C93F4DB03E0}
