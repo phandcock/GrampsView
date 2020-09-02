@@ -33,8 +33,9 @@ namespace GrampsView.Data.DataView
             get; set;
         }
 
+        CardGroup GetAllAsGroupedSurnameCardGroup();
 
-        CardGroup GetBirthdaysAsCardGroup();
+        CardGroup GetAllAsGroupedBirthDayCardGroup();
 
         /// <summary>
         /// Gets or sets the person data.

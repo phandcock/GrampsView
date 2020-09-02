@@ -43,7 +43,7 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return DV.PersonDV.GetBirthdaysAsCardGroup();
+                return DV.PersonDV.GetAllAsGroupedBirthDayCardGroup();
             }
         }
     }
