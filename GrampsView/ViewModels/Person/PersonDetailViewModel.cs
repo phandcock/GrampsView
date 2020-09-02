@@ -20,12 +20,12 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class PersonDetailViewModel : ViewModelBase
     {
+        private readonly IPlatformSpecific _PlatformSpecific;
+
         /// <summary>
         /// The current person.
         /// </summary>
         private PersonModel _PersonObject = new PersonModel();
-
-        private IPlatformSpecific _PlatformSpecific;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
@@ -136,7 +136,6 @@ namespace GrampsView.ViewModels
 
                 // Get the Name Details
                 headerCardGroup.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
-
 
                 // Get date card
                 headerCardGroup.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));

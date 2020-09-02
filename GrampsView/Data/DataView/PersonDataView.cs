@@ -94,34 +94,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        ///// <summary>
-        ///// Gets the groups by letter.
-        ///// </summary>
-        ///// <returns>
-        ///// </returns>
-        //public override List<CommonGroupInfoCollection<PersonModel>> GetGroupsByLetter
-        //{
-        //    get
-        //    {
-        //        List<CommonGroupInfoCollection<PersonModel>> groups = new List<CommonGroupInfoCollection<PersonModel>>();
-
-        // var query = from item in DataViewData orderby
-        // item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName group item by
-        // (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName + "
-        // ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g select new { GroupName =
-        // g.Key, Items = g };
-
-        // foreach (var g in query) { CommonGroupInfoCollection<PersonModel> info = new
-        // CommonGroupInfoCollection<PersonModel> { Key = g.GroupName, };
-
-        // foreach (var item in g.Items) { info.Add(item); }
-
-        // groups.Add(info); }
-
-        //        return groups;
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the person data.
         /// </summary>
@@ -137,6 +109,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        //        return groups;
+        //    }
+        //}
         /// <summary>
         /// Collections the sort birth date asc.
         /// </summary>
@@ -158,6 +133,7 @@ namespace GrampsView.Data.DataView
             return new ObservableCollection<PersonModel>(sortedList);
         }
 
+        // groups.Add(info); }
         public override CardGroup GetAllAsCardGroup()
         {
             CardGroup t = new CardGroup();
@@ -172,26 +148,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        /// <summary>
-        /// Gets all as hlink.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public HLinkPersonModelCollection GetAllAsHLink()
-        {
-            HLinkPersonModelCollection t = new HLinkPersonModelCollection();
-
-            foreach (var item in DataDefaultSort)
-            {
-                t.Add(item.HLink);
-            }
-
-            t = HLinkCollectionSort(t);
-
-            return t;
-        }
-
-        public CardGroup GetBirthdaysAsCardGroup()
+        public CardGroup GetAllAsGroupedBirthDayCardGroup()
         {
             CardGroup t = new CardGroup();
 
@@ -215,6 +172,52 @@ namespace GrampsView.Data.DataView
 
                 t.Add(info);
             }
+
+            return t;
+        }
+
+        public CardGroup GetAllAsGroupedSurnameCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
+                        group item by (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname) into g
+                        select new { GroupName = g.Key, Items = g };
+
+            foreach (var g in query)
+            {
+                CardGroup info = new CardGroup
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
+
+        /// <summary>
+        /// Gets all as hlink.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public HLinkPersonModelCollection GetAllAsHLink()
+        {
+            HLinkPersonModelCollection t = new HLinkPersonModelCollection();
+
+            foreach (var item in DataDefaultSort)
+            {
+                t.Add(item.HLink);
+            }
+
+            t = HLinkCollectionSort(t);
 
             return t;
         }
