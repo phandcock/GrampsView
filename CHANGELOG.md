@@ -1,3 +1,16 @@
+## [16.7.1](https://github.com/phandcock/GrampsView/compare/16.7.0...16.7.1) (2020-09-02)
+
+
+### Bug Fixes
+
+* change light colour names to have light at the end and not the start ([b2c7c57](https://github.com/phandcock/GrampsView/commit/b2c7c57faa2cfb53263f79c7d584470e274236b8))
+* cleanup android spash screen launch optiosn and add round launch icon ([cddf791](https://github.com/phandcock/GrampsView/commit/cddf791531e8a6e9a0272ba2b5018778b66227af))
+* fix collectionView recycling bug by movign detail link argument to a field ([d2d2f76](https://github.com/phandcock/GrampsView/commit/d2d2f7696c17833016a639cc654010aaf2d2af12))
+* initial cut of date valid flags for year, month and day ([55bdfa0](https://github.com/phandcock/GrampsView/commit/55bdfa0f63beed44b9e719faf21c0bf15c4fc43f))
+* tweak debug to show all embedded files ([b2f5137](https://github.com/phandcock/GrampsView/commit/b2f5137162313a9d8858007f8f953c5c160bd32c))
+
+
+
 # [16.7.0](https://github.com/phandcock/GrampsView/compare/16.6.2...16.7.0) (2020-08-30)
 
 
@@ -50,23 +63,6 @@
 ### Features
 
 * start work on Birthday page ([e94e73c](https://github.com/phandcock/GrampsView/commit/e94e73cd0ed6a96f66b05e907ffba8d8854f8bfd))
-
-
-
-# [16.5.0](https://github.com/phandcock/GrampsView/compare/16.4.3...16.5.0) (2020-08-23)
-
-
-### Bug Fixes
-
-* change colour scheme to brown primary ([1656901](https://github.com/phandcock/GrampsView/commit/1656901a468b7fab4ef312f8b6df1e4badaf0620))
-* tweak colours esp Light scheme ([aec9b98](https://github.com/phandcock/GrampsView/commit/aec9b98a8ca489a979f94bf3aabae24de9cd6da3))
-* tweak colours for About page view ([11dec19](https://github.com/phandcock/GrampsView/commit/11dec19729e3377be84de7cfee3de9bdbf3d4355))
-* tweak settings, shell test page and update nugets ([30d0ea3](https://github.com/phandcock/GrampsView/commit/30d0ea3c1753ba59c04d41ea26ef5f7a8cd5e29c))
-
-
-### Features
-
-* chnage Attribition text to be in a file and not in String list ([889a99f](https://github.com/phandcock/GrampsView/commit/889a99f0a2bf1ecfac0aadd9df2be78bf62a7111))
 
 
 
