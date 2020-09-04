@@ -40,10 +40,16 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <StackLayout
+    <Grid>
+        <CollectionView
             x:Name="MajorStatusList"
-            BindableLayout.ItemTemplate="{StaticResource DataLogEntryLarge}"
-            BindableLayout.ItemsSource="{Binding MajorStatusList, Mode=OneWay}" />
-    </ScrollView>
+            ItemSizingStrategy="MeasureAllItems"
+            ItemTemplate="{StaticResource DataLogEntryLarge}"
+            ItemsSource="{Binding MajorStatusList, Mode=OneWay}">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="3" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+    </Grid>
 </ContentPage>
