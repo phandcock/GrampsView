@@ -31,12 +31,12 @@ namespace GrampsView.Data.Collections
             {
                 // TODO Handle multiple surnames
 
-                if (Items.Count > 0)
+                if ((Items.Count > 0) && (Items[0].Valid))
                 {
-                    return (Items[0] as SurnameModel).GText;
+                    return Items[0].GText;
                 }
 
-                return string.Empty;
+                return "Unknown";
             }
         }
     }

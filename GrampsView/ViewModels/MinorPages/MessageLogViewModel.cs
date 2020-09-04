@@ -20,6 +20,11 @@ namespace GrampsView.ViewModels
     public class MessageLogViewModel : ViewModelBase
     {
         /// <summary>
+        /// The injected data log
+        /// </summary>
+        private IDataLog _iocDataLog;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MessageLogViewModel"/> class.
         /// </summary>
         public MessageLogViewModel(IDataLog iocDataLog)
@@ -30,10 +35,8 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconLog;
 
             Contract.Assert(iocDataLog != null);
-            _MajorStatusList = iocDataLog.DataLoadLog;
+            _iocDataLog = iocDataLog;
         }
-
-        private ObservableCollection<DataLogEntry> _MajorStatusList;
 
         /// <summary>
         /// Gets the data load log.
@@ -41,12 +44,11 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The data load log.
         /// </value>
-
         public ObservableCollection<DataLogEntry> MajorStatusList
         {
             get
             {
-                return _MajorStatusList;
+                return _iocDataLog.DataLoadLog;
             }
         }
     }

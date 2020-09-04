@@ -205,7 +205,12 @@ namespace GrampsView.Common
         public const string LogDefaultSessionName = "GrampsViewSessionDefault";
 
         public const string ModelNameFamily = "family";
+
         public const string ModelNamePerson = "person";
+
+
+        public const string NameTypeMarried = "Married Name";
+
         public const string NavigationParameterHLink = "hlink";
 
         public const string NavigationParameterModel = "model";

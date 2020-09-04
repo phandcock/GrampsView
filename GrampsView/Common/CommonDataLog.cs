@@ -9,8 +9,6 @@
 
 namespace GrampsView.Common
 {
-    using Prism.Events;
-
     using System;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -26,20 +24,6 @@ namespace GrampsView.Common
     public class CommonDataLog : CommonBindableBase, IDataLog
     {
         /// <summary>
-        /// Common logging routines.
-        /// </summary>
-        private readonly ICommonLogging _iocCommonLogging;
-
-        /// <summary>
-        /// Injected Event Aggregator.
-        /// </summary>
-        private readonly IEventAggregator _iocEventAggregator;
-
-        private string _MajorStatusMessage = string.Empty;
-
-        private string _MinorStatusMessage = string.Empty;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="CommonNotifications"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -48,17 +32,8 @@ namespace GrampsView.Common
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public CommonDataLog(ICommonLogging iocCommonLogging,
-                                   IEventAggregator iocEventAggregator)
+        public CommonDataLog()
         {
-            if (iocEventAggregator is null)
-            {
-                throw new ArgumentNullException(nameof(iocEventAggregator));
-            }
-
-            _iocEventAggregator = iocEventAggregator;
-
-            _iocCommonLogging = iocCommonLogging;
         }
 
         /// <summary>
@@ -69,24 +44,30 @@ namespace GrampsView.Common
         /// </value>
         public ObservableCollection<DataLogEntry> DataLoadLog { get; } = new ObservableCollection<DataLogEntry>();
 
-        public async Task<bool> Add(string entry)
+        /// <summary>Adds the specified entry argument .</summary>
+        /// <param name="argEntry">The argument entry.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public async Task<bool> Add(string argEntry)
         {
             await MainThread.InvokeOnMainThreadAsync(() =>
           {
               DataLogEntry t = default(DataLogEntry);
 
-              if (!string.IsNullOrEmpty(entry))
+              if (!string.IsNullOrEmpty(argEntry))
               {
-                  t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
-                  t.Text = entry.Trim();
-
-                  DataLoadLog.Insert(0, t);
+                  DataLoadLog.Insert(0, BuildDataLogEntry(argEntry));
               }
           }).ConfigureAwait(false);
 
             return true;
         }
 
+        /// <summary>Removes the first DataLog entry.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public async Task<bool> Remove()
         {
             await MainThread.InvokeOnMainThreadAsync(() =>
@@ -100,23 +81,38 @@ namespace GrampsView.Common
             return true;
         }
 
-        public async Task<bool> Replace(string entry)
+        /// <summary>Replaces the first datalog entry.</summary>
+        /// <param name="argEntry">The argument entry.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public async Task<bool> Replace(string argEntry)
         {
             await MainThread.InvokeOnMainThreadAsync(() =>
             {
-                DataLogEntry t = default(DataLogEntry);
-
-                if (!string.IsNullOrEmpty(entry))
+                if (!string.IsNullOrEmpty(argEntry))
                 {
-                    t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
-                    t.Text = entry.Trim();
-
                     // TODO fix this so it replaces
-                    DataLoadLog.Insert(0, t);
+                    DataLoadLog.Insert(0, BuildDataLogEntry(argEntry));
                 }
             }).ConfigureAwait(false);
 
             return true;
+        }
+
+        /// <summary>Builds a data log entry.</summary>
+        /// <param name="argEntryText">The argument entry text.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        private DataLogEntry BuildDataLogEntry(string argEntryText)
+        {
+            DataLogEntry t = default(DataLogEntry);
+
+            t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
+            t.Text = argEntryText.Trim();
+
+            return t;
         }
     }
 }
