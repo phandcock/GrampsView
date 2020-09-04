@@ -1,3 +1,12 @@
+# [16.8.0](https://github.com/phandcock/GrampsView/compare/16.7.1...16.8.0) (2020-09-04)
+
+
+### Features
+
+* group people names by surname ([2b8119c](https://github.com/phandcock/GrampsView/commit/2b8119c15c675f96b0ef8e265ed2d150ec26d4cd)), closes [#349](https://github.com/phandcock/GrampsView/issues/349)
+
+
+
 ## [16.7.1](https://github.com/phandcock/GrampsView/compare/16.7.0...16.7.1) (2020-09-02)
 
 
@@ -49,20 +58,6 @@
 * only display persondetailsview bio card if valid ([2e20ad9](https://github.com/phandcock/GrampsView/commit/2e20ad9c02617e324035f953d25be16235ce1ee4)), closes [#336](https://github.com/phandcock/GrampsView/issues/336)
 * tweak grouped header code and vstest code ([0fbecd9](https://github.com/phandcock/GrampsView/commit/0fbecd920e45d4719d7f3af018e1a6e1c56266e0))
 * work on Birthday page view ([babd526](https://github.com/phandcock/GrampsView/commit/babd5265f7e773a155ee0e822d7fbc042f74b306))
-
-
-
-# [16.6.0](https://github.com/phandcock/GrampsView/compare/16.5.0...16.6.0) (2020-08-24)
-
-
-### Bug Fixes
-
-* remove redundant selectable theme colours ([3586244](https://github.com/phandcock/GrampsView/commit/35862445c6e8f61e3a7531f8a3ae64fcc44ac262))
-
-
-### Features
-
-* start work on Birthday page ([e94e73c](https://github.com/phandcock/GrampsView/commit/e94e73cd0ed6a96f66b05e907ffba8d8854f8bfd))
 
 
 
