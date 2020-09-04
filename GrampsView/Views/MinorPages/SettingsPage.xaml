@@ -35,22 +35,25 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
 
-                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="StartAndExpand">
 
-                    <StackLayout>
-                        <RadioButton
-                            GroupName="AppTheme"
-                            IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}"
-                            Text="Force Light Theme" />
-                        <RadioButton
-                            GroupName="AppTheme"
-                            IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}"
-                            Text="Force Dark Theme" />
-                        <RadioButton
-                            GroupName="AppTheme"
-                            IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}"
-                            Text="Use Operating System Theme" />
-                    </StackLayout>
+                    <Label Text="Choose Application Theme" />
+
+                    <RadioButton
+                        GroupName="AppTheme"
+                        IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}"
+                        Style="{DynamicResource GVButtonStyle}"
+                        Text="Light" />
+                    <RadioButton
+                        GroupName="AppTheme"
+                        IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}"
+                        Style="{DynamicResource GVButtonStyle}"
+                        Text="Force Dark Theme" />
+                    <RadioButton
+                        GroupName="AppTheme"
+                        IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}"
+                        Style="{DynamicResource GVButtonStyle}"
+                        Text="Use Operating System Theme" />
                 </StackLayout>
             </Frame>
 
@@ -325,8 +328,6 @@
                                               Animated=True}"
                 Style="{DynamicResource GVButtonStyle}"
                 Text="Go To MessageLog" />
-
-
 
             <Button
                 Command="{Binding TestCommand}"
