@@ -65,5 +65,13 @@ namespace GrampsView.Data.Model
             get;
             set;
         }
+
+        public override bool Valid
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(DefaultText);
+            }
+        }
     }
 }

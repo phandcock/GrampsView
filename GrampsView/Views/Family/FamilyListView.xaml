@@ -23,7 +23,8 @@
                         FontFamily="{DynamicResource MaterialFontFamily}"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
-                          Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
+                                                Light={StaticResource PrimaryColorLight}}" />
                 </Image.Source>
             </Image>
 
@@ -36,20 +37,8 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionSingleCard FsctSource="{Binding FamilySource, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-
-    <!--<ScrollView>
-
-        <FlexLayout
-            BindableLayout.ItemTemplate="{StaticResource FamilyCardSmallDT}"
-            BindableLayout.ItemsSource="{Binding FamilySource, Mode=OneWay}"
-            Style="{StaticResource FlexLayoutCards}" />
-
-    -->
-    <!--<ucon:FlexSingleGroupSingleCard
-            x:Name="flexLayout"
-            FsctSource="{Binding FamilySource, Mode=OneWay}"
-            FsctTemplate="{StaticResource FamilyCardSmallDT}" />-->
-    <!--
-    </ScrollView>-->
+    <ucon:CollectionHeaderSingleCard
+        Margin="0"
+        FsctSource="{Binding FamilySource, Mode=OneWay}"
+        FsctTemplate="{StaticResource FamilyCardSmallDT}" />
 </ContentPage>

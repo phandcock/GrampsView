@@ -9,11 +9,12 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System.Collections.Generic;
-
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
+
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interface for the Family Repository.
@@ -32,6 +33,8 @@ namespace GrampsView.Data.DataView
         {
             get;
         }
+
+        CardGroup GetAllAsGroupedFamilyNameCardGroup();
 
         /// <summary>
         /// Gets all as hlink.

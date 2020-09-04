@@ -68,13 +68,13 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
     using System.Text;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// Data model for a family.
@@ -154,33 +154,32 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                string familyName;
+                StringBuilder familyName = new StringBuilder();
+
+                string fatherName = GFather.DeRef.GPersonNamesCollection.GetMarriedName.DeRef.GSurName.GetPrimarySurname;
+                string motherName = GMother.DeRef.GPersonNamesCollection.GetMarriedName.DeRef.GSurName.GetPrimarySurname;
 
                 // set family display name
                 if (GFather.Valid)
                 {
-                    familyName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName;
+                    familyName.Append(fatherName);
                 }
                 else
                 {
-                    familyName = "Unknown";
+                    familyName.Append("Unknown");
                 }
-
-                familyName += " - ";
 
                 if (motherHLink.Valid)
                 {
-                    StringBuilder t = new StringBuilder();
-                    t.Append(familyName);
-                    t.Append(GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName);
-                    familyName = t.ToString();
+                    familyName.Append(" - ");
+                    familyName.Append(motherName);
                 }
                 else
                 {
-                    familyName += "Unknown";
+                    familyName.Append(" - Unknown");
                 }
 
-                return familyName;
+                return familyName.ToString();
             }
         }
 

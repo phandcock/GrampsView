@@ -48,7 +48,7 @@
             ItemsSource="{Binding MajorStatusList, Mode=OneWay}">
 
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="3" Orientation="Vertical" />
+                <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
             </CollectionView.ItemsLayout>
         </CollectionView>
     </Grid>

@@ -9,9 +9,9 @@
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

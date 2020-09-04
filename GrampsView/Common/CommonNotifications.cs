@@ -24,6 +24,8 @@ namespace GrampsView.Common
     [DataContract]
     public class CommonNotifications : CommonBindableBase, ICommonNotifications
     {
+        private readonly IDataLog _DataLog;
+
         /// <summary>
         /// Common logging routines.
         /// </summary>
@@ -34,7 +36,6 @@ namespace GrampsView.Common
         /// </summary>
         private readonly IEventAggregator _iocEventAggregator;
 
-        private IDataLog _DataLog;
         private string _MajorStatusMessage = string.Empty;
 
         private string _MinorStatusMessage = string.Empty;
