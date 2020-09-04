@@ -10,13 +10,13 @@
             Margin="0"
             Padding="0"
             BackgroundColor="Transparent"
-            BorderColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                          Light={StaticResource SecondaryColorLight}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                          Light={StaticResource SecondaryLightColorLight}}"
             CornerRadius="{StaticResource GVCornerRadius}">
 
             <Grid
                 Margin="0"
-                Padding="2"
+                Padding="2,3,2,3"
                 BackgroundColor="Transparent">
 
                 <Grid.ColumnDefinitions>
@@ -40,7 +40,7 @@
         </Frame>
     </DataTemplate>
 
-    <!--  Item Detail data template  large  -->
+    <!--  Item Detail data template Large  -->
     <DataTemplate x:Key="GVCardListLineLarge" x:Name="GVCardListLineLarge">
 
         <Grid>
