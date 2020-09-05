@@ -35,21 +35,24 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
 
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="Start">
 
                     <Label Text="Choose Application Theme" />
 
                     <RadioButton
+                        BackgroundColor="Transparent"
                         GroupName="AppTheme"
                         IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}"
                         Style="{DynamicResource GVButtonStyle}"
                         Text="Light" />
                     <RadioButton
+                        BackgroundColor="Transparent"
                         GroupName="AppTheme"
                         IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}"
                         Style="{DynamicResource GVButtonStyle}"
                         Text="Force Dark Theme" />
                     <RadioButton
+                        BackgroundColor="Transparent"
                         GroupName="AppTheme"
                         IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}"
                         Style="{DynamicResource GVButtonStyle}"
