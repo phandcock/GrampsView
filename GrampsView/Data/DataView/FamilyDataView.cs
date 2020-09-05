@@ -69,35 +69,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        //public override List<CommonGroupInfoCollection<FamilyModel>> GetGroupsByLetter
-        //{
-        //    get
-        //    {
-        //        List<CommonGroupInfoCollection<FamilyModel>> groups = new List<CommonGroupInfoCollection<FamilyModel>>();
-
-        //        var query = from item in DataViewData
-        //                    orderby item.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName
-        //                    group item by (item.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName + " ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g
-        //                    select new { GroupName = g.Key, Items = g };
-
-        //        foreach (var g in query)
-        //        {
-        //            CommonGroupInfoCollection<FamilyModel> info = new CommonGroupInfoCollection<FamilyModel>
-        //            {
-        //                Key = g.GroupName,
-        //            };
-
-        //            foreach (var item in g.Items)
-        //            {
-        //                info.Add(item);
-        //            }
-
-        //            groups.Add(info);
-        //        }
-
-        //        return groups;
-        //    }
-        //}
 
         public override CardGroup GetAllAsCardGroup()
         {
