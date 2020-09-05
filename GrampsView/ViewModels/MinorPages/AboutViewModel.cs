@@ -18,19 +18,13 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System.IO;
     using System.Reflection;
-    using System.Threading.Tasks;
-
-    using Xam.Forms.Markdown;
 
     using Xamarin.Essentials;
 
     public class AboutViewModel : ViewModelBase
     {
         private CardListLineCollection _ApplicationVersionList = new CardListLineCollection();
-
-        private CardGroup _HeaderDetailList = new CardGroup();
 
         private HLinkHeaderModel _HeaderModel = new HLinkHeaderModel();
 
@@ -89,41 +83,32 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Gets the header detail list.
-        /// </summary>
-        /// <value>
-        /// The header detail list.
-        /// </value>
-        // [RestorableState]
-        public CardGroup HeaderDetailList
-        {
-            get
-            {
-                return _HeaderDetailList;
-            }
+        ///// <summary>
+        ///// Gets the header detail list.
+        ///// </summary>
+        ///// <value>
+        ///// The header detail list.
+        ///// </value>
+        //// [RestorableState]
+        //public CardGroup HeaderDetailList
+        //{
+        //    get
+        //    {
+        //        return _HeaderDetailList;
+        //    }
 
-            set
-            {
-                SetProperty(ref _HeaderDetailList, value);
-            }
-        }
+        //    set
+        //    {
+        //        SetProperty(ref _HeaderDetailList, value);
+        //    }
+        //}
 
         /// <summary>
-        /// Raises the <see cref="NavigatedTo"/> event.
+        /// Populates the view ViewModel.
         /// </summary>
-        /// <param name="e">
-        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
-        /// </param>
-        /// <param name="viewModelState">
-        /// State of the view ViewModel.
-        /// </param>
-        /// <returns>
-        /// A <see cref="Task"/> representing the asynchronous operation.
-        /// </returns>
         public override void PopulateViewModel()
         {
-            // cache Header Data record
+            // Cache Header Data record
             HeaderData = DV.HeaderDV.HeaderDataModel.HLink;
 
             // Assembly level stuff
@@ -132,49 +117,44 @@ namespace GrampsView.ViewModels
 
             CardListLineCollection t = new CardListLineCollection
                 {
-            new CardListLine("Application Name", AppInfo.Name),
+                new CardListLine("Application Name", AppInfo.Name),
 
-            new CardListLine("Package Name", AppInfo.PackageName),
+                new CardListLine("Package Name", AppInfo.PackageName),
 
-            new CardListLine("First Launch Ever?", VersionTracking.IsFirstLaunchEver),
+                new CardListLine("First Launch Ever?", VersionTracking.IsFirstLaunchEver),
 
-            new CardListLine("First Launch Current Version?", VersionTracking.IsFirstLaunchForCurrentVersion),
+                new CardListLine("First Launch Current Version?", VersionTracking.IsFirstLaunchForCurrentVersion),
 
-            new CardListLine("First Launch Current Build?", VersionTracking.IsFirstLaunchForCurrentBuild),
+                new CardListLine("First Launch Current Build?", VersionTracking.IsFirstLaunchForCurrentBuild),
 
-            new CardListLine("Current Version", VersionTracking.CurrentVersion),
+                new CardListLine("Current Version", VersionTracking.CurrentVersion),
 
-            new CardListLine("Current Build", VersionTracking.CurrentBuild),
+                new CardListLine("Current Build", VersionTracking.CurrentBuild),
 
-            new CardListLine("Previous Version", VersionTracking.PreviousVersion),
+                new CardListLine("Previous Version", VersionTracking.PreviousVersion),
 
-            new CardListLine("Previous Build", VersionTracking.PreviousBuild),
+                new CardListLine("Previous Build", VersionTracking.PreviousBuild),
 
-            new CardListLine("First Version Installed", VersionTracking.FirstInstalledVersion),
+                new CardListLine("First Version Installed", VersionTracking.FirstInstalledVersion),
 
-            new CardListLine("First Build Installed", VersionTracking.FirstInstalledBuild),
+                new CardListLine("First Build Installed", VersionTracking.FirstInstalledBuild),
 
-            // // TODO new CardListLine("versionHistory", VersionTracking.VersionHistory),
+                new CardListLine("Major Version", assemblyName.Version.Major),
 
-            // // TODO new CardListLine("buildHistory", VersionTracking.BuildHistory),
+                new CardListLine("Minor Version", assemblyName.Version.Minor),
 
-            new CardListLine("Major Version", assemblyName.Version.Major),
+                new CardListLine("Major Revision", assemblyName.Version.MajorRevision),
 
-            new CardListLine("Minor Version", assemblyName.Version.Minor),
+                new CardListLine("Middle Revision", assemblyName.Version.Revision),
 
-            new CardListLine("Major Revision", assemblyName.Version.MajorRevision),
+                new CardListLine("Minor Revision", assemblyName.Version.MinorRevision),
 
-            new CardListLine("Middle Revision", assemblyName.Version.Revision),
-
-            new CardListLine("Minor Revision", assemblyName.Version.MinorRevision),
-
-            new CardListLine("App Center update track",  Distribute.UpdateTrack.ToString()),
+                new CardListLine("App Center Update Track",  Distribute.UpdateTrack.ToString()),
             };
 
             t.Title = "Application Versions";
 
             ApplicationVersionList = t;       // TODO Ugly -  Trigger SetProperty
-
 
             return;
         }

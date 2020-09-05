@@ -8,6 +8,7 @@ namespace GrampsView.UserControls
 
     using System.Diagnostics.Contracts;
 
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public partial class HeaderCardLarge : Grid
@@ -44,6 +45,7 @@ namespace GrampsView.UserControls
                         new CardListLine("Researcher Country:", HeaderData.DeRef.GResearcherCountry),
                         new CardListLine("Researcher Email:", HeaderData.DeRef.GResearcherEmail),
                         new CardListLine("MediaPath:", HeaderData.DeRef.GMediaPath),
+                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
                     };
             }
 
