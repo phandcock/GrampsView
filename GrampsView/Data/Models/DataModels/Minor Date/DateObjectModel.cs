@@ -12,6 +12,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
 
@@ -873,11 +874,15 @@ namespace GrampsView.Data.Model
         /// </returns>
         public int CompareTo(DateObjectModel other)
         {
+            Contract.Requires(other != null);
+
             return DateTime.Compare(SortDate, other.SortDate);
         }
 
         public int CompareTo(IDateObjectModel other)
         {
+            Contract.Requires(other != null);
+
             return DateTime.Compare(SortDate, other.SortDate);
         }
 
@@ -891,6 +896,8 @@ namespace GrampsView.Data.Model
         /// </returns>
         public TimeSpan DateDifference(IDateObjectModel otherDate)
         {
+            Contract.Requires(otherDate != null);
+
             if (Valid)
             {
                 return SingleDate.Subtract(otherDate.SingleDate);

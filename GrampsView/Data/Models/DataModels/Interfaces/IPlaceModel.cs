@@ -24,7 +24,7 @@ namespace GrampsView.Data.Model
 
         string GCoordLong { get; set; }
 
-        PlaceLocationCollection GLocation { get; set; }
+        PlaceLocationCollection GLocation { get;  }
 
         HLinkMediaModelCollection GMediaRefCollection { get; set; }
 

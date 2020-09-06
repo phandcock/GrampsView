@@ -4,6 +4,7 @@
 
 namespace GrampsView.UserControls
 {
+    using GrampsView.Common;
     using GrampsView.Data.Model;
 
     using System.Diagnostics.Contracts;
@@ -21,7 +22,7 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        public CardListLineCollection HeaderCard { get; set; } = new CardListLineCollection();
+        public CardListLineCollection HeaderCard { get; } = new CardListLineCollection();
 
         private void HeaderCardLargeRoot_BindingContextChanged(object sender, System.EventArgs e)
         {
@@ -36,7 +37,9 @@ namespace GrampsView.UserControls
 
             if (HeaderData.Valid)
             {
-                HeaderCard = new CardListLineCollection
+                HeaderCard.Clear();
+
+                HeaderCard.AddRange(new CardListLineCollection
                     {
                         new CardListLine("Created using version:", HeaderData.DeRef.GCreatedVersion),
                         new CardListLine("Created on:", HeaderData.DeRef.GCreatedDate),
@@ -46,7 +49,7 @@ namespace GrampsView.UserControls
                         new CardListLine("Researcher Email:", HeaderData.DeRef.GResearcherEmail),
                         new CardListLine("MediaPath:", HeaderData.DeRef.GMediaPath),
                         new CardListLine("Application Version:", VersionTracking.CurrentVersion),
-                    };
+                    });
             }
 
             HeaderCard.Title = "Header Details";

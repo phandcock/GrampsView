@@ -228,7 +228,7 @@ namespace GrampsView.Data.ExternalStorageNS
             {
                 DataStore.CN.NotifyException("Exception in GetUri", ex);
 
-                throw ex;
+                throw;
             }
         }
 

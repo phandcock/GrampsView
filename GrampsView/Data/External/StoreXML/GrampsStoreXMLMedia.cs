@@ -14,6 +14,7 @@ namespace GrampsView.Data.ExternalStorageNS
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Diagnostics.Contracts;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -27,6 +28,9 @@ namespace GrampsView.Data.ExternalStorageNS
     {
         public static IMediaModel SetHomeImage(IMediaModel argModel)
         {
+            Contract.Requires(argModel != null);
+
+
             // Setup HomeImage
             argModel.HomeImageHLink.HLinkKey = argModel.HLinkKey;
 

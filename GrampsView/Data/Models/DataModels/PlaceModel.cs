@@ -145,13 +145,13 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public PlaceLocationCollection GLocation { get; set; } = new PlaceLocationCollection();
+        public PlaceLocationCollection GLocation { get; } = new PlaceLocationCollection();
 
         /// <summary>
-        /// Gets or sets the g media reference collection.
+        /// Gets or sets the media reference collection.
         /// </summary>
         /// <value>
-        /// The g media reference collection.
+        /// The media reference collection.
         /// </value>
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection

@@ -100,7 +100,7 @@ namespace GrampsView.UserControls
             {
                 DataStore.CN.NotifyException("MediaImageSkia", ex);
 
-                throw ex;
+                throw;
             }
         }
 
@@ -153,7 +153,7 @@ namespace GrampsView.UserControls
             {
                 DataStore.CN.NotifyException("MediaImageSkia", ex);
 
-                throw ex;
+                throw;
             }
         }
 
