@@ -1,3 +1,19 @@
+# [16.9.0](https://github.com/phandcock/GrampsView/compare/16.8.0...16.9.0) (2020-09-06)
+
+
+### Bug Fixes
+
+* add app version to Header Card ([af6f915](https://github.com/phandcock/GrampsView/commit/af6f9155d0c4b0554370fa84e25d90d9faff91f4))
+* fix Family Card to use BirthNames ([f3fddb0](https://github.com/phandcock/GrampsView/commit/f3fddb031e0ac5b3d558717bcf462087ab9be7fc))
+* tweak layout of DataLogPage to reduce spacing ([37da1f8](https://github.com/phandcock/GrampsView/commit/37da1f870c246bf373a6bb68f4e4dc1559c009a9))
+
+
+### Features
+
+* group families by name ([bca3828](https://github.com/phandcock/GrampsView/commit/bca38287d97f8ce913ea499f098fdb7be6326378)), closes [#350](https://github.com/phandcock/GrampsView/issues/350)
+
+
+
 # [16.8.0](https://github.com/phandcock/GrampsView/compare/16.7.1...16.8.0) (2020-09-04)
 
 
@@ -45,19 +61,6 @@
 * tweak Light colour theme ([5365903](https://github.com/phandcock/GrampsView/commit/5365903f0e8f12a279b4c9c2cad78ff59c706096))
 * update DataLog entry margin to avoid clashes ([c390312](https://github.com/phandcock/GrampsView/commit/c3903122d2da5182d557688c7759cd9433edf3d2)), closes [#339](https://github.com/phandcock/GrampsView/issues/339)
 * update launcher icons to be adaptive in Android ([8b33e71](https://github.com/phandcock/GrampsView/commit/8b33e71dabc66d511c3aeea3988c994cc5d3d8fe))
-
-
-
-## [16.6.1](https://github.com/phandcock/GrampsView/compare/16.6.0...16.6.1) (2020-08-26)
-
-
-### Bug Fixes
-
-* change light colour scheme to Google material design default ([5bd3f23](https://github.com/phandcock/GrampsView/commit/5bd3f23bc9284b7a54aa7d7b6bde6790d1458d0b)), closes [#337](https://github.com/phandcock/GrampsView/issues/337)
-* fix headings in Birthday view ([0441eeb](https://github.com/phandcock/GrampsView/commit/0441eebfae1de146769008aed9ddc0f82409c30e))
-* only display persondetailsview bio card if valid ([2e20ad9](https://github.com/phandcock/GrampsView/commit/2e20ad9c02617e324035f953d25be16235ce1ee4)), closes [#336](https://github.com/phandcock/GrampsView/issues/336)
-* tweak grouped header code and vstest code ([0fbecd9](https://github.com/phandcock/GrampsView/commit/0fbecd920e45d4719d7f3af018e1a6e1c56266e0))
-* work on Birthday page view ([babd526](https://github.com/phandcock/GrampsView/commit/babd5265f7e773a155ee0e822d7fbc042f74b306))
 
 
 
