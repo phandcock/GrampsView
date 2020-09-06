@@ -220,6 +220,8 @@ namespace GrampsView.Data.Model
         /// </returns>
         protected int Compare(object x, object y)
         {
+            Contract.Requires(y != null);
+
             if (x is null)
             {
                 throw new ArgumentNullException(nameof(x));
@@ -230,7 +232,7 @@ namespace GrampsView.Data.Model
                 throw new ArgumentNullException(nameof(y));
             }
 
-            return (x as HLinkBase).HLinkKey.CompareTo((y as HLinkBase).HLinkKey);
+            return string.Compare( (x as HLinkBase).HLinkKey, (y as HLinkBase).HLinkKey, StringComparison.CurrentCulture);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace GrampsView.Common
         {
             await MainThread.InvokeOnMainThreadAsync(() =>
           {
-              DataLogEntry t = default(DataLogEntry);
+              //DataLogEntry t = default(DataLogEntry);
 
               if (!string.IsNullOrEmpty(argEntry))
               {

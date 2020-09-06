@@ -135,7 +135,7 @@ namespace GrampsView.Data.Model
                         {
                             DataStore.CN.NotifyException("No map application available to open", ex);
 
-                            throw ex;
+                            throw;
                         }
 
                         break;

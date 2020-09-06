@@ -41,17 +41,12 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The application version list.
         /// </value>
-        // [RestorableState]
+
         public CardListLineCollection ApplicationVersionList
         {
             get
             {
                 return _ApplicationVersionList;
-            }
-
-            set
-            {
-                SetProperty(ref _ApplicationVersionList, value);
             }
         }
 
@@ -69,7 +64,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The header data.
         /// </value>
-        // [RestorableState]
+     
         public HLinkHeaderModel HeaderData
         {
             get
@@ -83,26 +78,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        ///// <summary>
-        ///// Gets the header detail list.
-        ///// </summary>
-        ///// <value>
-        ///// The header detail list.
-        ///// </value>
-        //// [RestorableState]
-        //public CardGroup HeaderDetailList
-        //{
-        //    get
-        //    {
-        //        return _HeaderDetailList;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref _HeaderDetailList, value);
-        //    }
-        //}
-
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -115,7 +90,9 @@ namespace GrampsView.ViewModels
             var assembly = GetType().GetTypeInfo().Assembly;
             var assemblyName = new AssemblyName(assembly.FullName);
 
-            CardListLineCollection t = new CardListLineCollection
+            ApplicationVersionList.Clear();
+
+            ApplicationVersionList.AddRange(new CardListLineCollection
                 {
                 new CardListLine("Application Name", AppInfo.Name),
 
@@ -150,11 +127,9 @@ namespace GrampsView.ViewModels
                 new CardListLine("Minor Revision", assemblyName.Version.MinorRevision),
 
                 new CardListLine("App Center Update Track",  Distribute.UpdateTrack.ToString()),
-            };
+            });
 
-            t.Title = "Application Versions";
-
-            ApplicationVersionList = t;       // TODO Ugly -  Trigger SetProperty
+            ApplicationVersionList.Title = "Application Versions";
 
             return;
         }

@@ -33,7 +33,13 @@ namespace GrampsView.Data.Model
         /// </value>
         string GetDefaultText { get; }
 
-        string Handle { set; }
+        /// <summary>
+        /// Gets or sets the model handle.
+        /// </summary>
+        /// <value>
+        /// The handle.
+        /// </value>
+        string Handle { get; set; }
 
         /// <summary>
         /// Gets or sets the h link key.

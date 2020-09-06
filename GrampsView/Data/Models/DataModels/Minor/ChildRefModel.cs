@@ -16,10 +16,15 @@ namespace GrampsView.Data.Model
     /// </summary>
     public class ChildRefModel : ModelBase, IChildRefModel
     {
+        /// <summary>
+        /// Sets the child ref citation collection reference.
+        /// </summary>
+        /// <value>
+        /// The citation collection reference.
+        /// </value>
         public HLinkCitationModelCollection GCitationCollectionReference
         {
             get;
-            set;
         }
 
         = new HLinkCitationModelCollection();

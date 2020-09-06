@@ -104,6 +104,9 @@ namespace GrampsView.Data
                         StreamUtils.Copy(zipStream, streamWriter, buffer);
                     }
                 }
+
+                fs.Close();
+
             }
             finally
             {

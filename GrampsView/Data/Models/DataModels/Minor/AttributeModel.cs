@@ -35,6 +35,7 @@ namespace GrampsView.Data.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     using GrampsView.Common;
@@ -125,6 +126,8 @@ namespace GrampsView.Data.Model
         /// </returns>
         public int Compare(AttributeModel x, AttributeModel y)
         {
+            Contract.Requires(x != null);
+
             return Compare(x.GType, y.GType);
         }
 

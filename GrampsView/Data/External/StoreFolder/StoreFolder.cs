@@ -9,13 +9,14 @@
 
 namespace GrampsView.Data
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Repository;
+
     using System;
+    using System.Diagnostics.Contracts;
     using System.IO;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Repository;
 
     [DataContract]
     public partial class StoreFolder : CommonBindableBase
@@ -115,6 +116,8 @@ namespace GrampsView.Data
 
         public static FileInfoEx FolderGetFile(DirectoryInfo argBaseFolder, string argFileName)
         {
+            Contract.Requires(argBaseFolder != null);
+
             // TODO Handle relative paths
 
             // Check for relative path

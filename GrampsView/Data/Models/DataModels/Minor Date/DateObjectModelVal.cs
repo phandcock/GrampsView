@@ -16,10 +16,10 @@ namespace GrampsView.Data.Model
 
     public partial class DateObjectModel
     {
-        /// <summary>
-        /// The value g value type
-        /// </summary>
-        private string _ValGValType;
+        ///// <summary>
+        ///// The value g value type
+        ///// </summary>
+        //private string _ValGValType;
 
         public int ValGetAge
         {

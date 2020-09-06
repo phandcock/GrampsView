@@ -33,7 +33,7 @@
                 <Label
                     x:Name="LLCardLargeTitle"
                     Margin="3,0,3,0"
-                    Style="{DynamicResource GVHeaderStyleLarge}"
+                    Style="{DynamicResource GVHeaderStyleMedium}"
                     Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 
