@@ -35,21 +35,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{DED7DE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "android", "android", "{7C31E1EB-39E7-4ED7-A9D7-69FBC5B2B0C2}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\azure-pipeline-android.yml = .azure\azure-pipeline-android.yml
-		.azure\azure-pipeline-test.yml = .azure\azure-pipeline-test.yml
+		.azure\android\azure-pipeline-android-vstest.yml = .azure\android\azure-pipeline-android-vstest.yml
+		.azure\android\azure-pipeline-android.yml = .azure\android\azure-pipeline-android.yml
+		.azure\android\azure-pipeline-test.yml = .azure\android\azure-pipeline-test.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{900BFD12-F957-4C93-BB2F-97B73C59B04A}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\azure-pipeline-uwp-store.yml = .azure\azure-pipeline-uwp-store.yml
-		.azure\azure-pipeline-uwp.yml = .azure\azure-pipeline-uwp.yml
-		.azure\azure-pipeline-vstest.yml = .azure\azure-pipeline-vstest.yml
-		.azure\azure-pipelinetemplate-build-uwp.yml = .azure\azure-pipelinetemplate-build-uwp.yml
+		.azure\uwp\azure-pipeline-uwp-store.yml = .azure\uwp\azure-pipeline-uwp-store.yml
+		.azure\uwp\azure-pipeline-uwp.yml = .azure\uwp\azure-pipeline-uwp.yml
+		.azure\uwp\azure-pipeline-vstest.yml = .azure\uwp\azure-pipeline-vstest.yml
+		.azure\uwp\azure-pipelinetemplate-build-uwp.yml = .azure\uwp\azure-pipelinetemplate-build-uwp.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{83278400-2519-4D66-9E04-C120CF55C96B}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\azure-pipeline-ios.yml = .azure\azure-pipeline-ios.yml
+		.azure\ios\azure-pipeline-ios.yml = .azure\ios\azure-pipeline-ios.yml
 	EndProjectSection
 EndProject
 Global

@@ -24,28 +24,28 @@ namespace GrampsView.Data.Model
 
         string GCoordLong { get; set; }
 
-        PlaceLocationCollection GLocation { get;  }
+        PlaceLocationCollection GLocation { get; }
 
-        HLinkMediaModelCollection GMediaRefCollection { get; set; }
+        HLinkMediaModelCollection GMediaRefCollection { get; }
 
-        HLinkNoteModelCollection GNoteRefCollection { get; set; }
+        HLinkNoteModelCollection GNoteRefCollection { get; }
 
-        PlaceNameModelCollection GPlaceNames { get; set; }
+        PlaceNameModelCollection GPlaceNames { get; }
 
-        HLinkPlaceModelCollection GPlaceRefCollection { get; set; }
+        HLinkPlaceModelCollection GPlaceRefCollection { get; }
 
-        HLinkTagModelCollection GTagRefCollection { get; set; }
+        HLinkTagModelCollection GTagRefCollection { get; }
 
         //string GPTitle { get; set; }
-        string GType { get; set; }
+        string GType { get;  }
 
-        OCURLModelCollection GURLCollection { get; set; }
+        OCURLModelCollection GURLCollection { get; }
 
         HLinkPlaceModel HLink
         {
             get;
         }
 
-        HLinkPlaceModelCollection PlaceChildCollection { get; set; }
+        HLinkPlaceModelCollection PlaceChildCollection { get; }
     }
 }
