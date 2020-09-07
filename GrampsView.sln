@@ -32,14 +32,24 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UnitTest.UWP", "GrampsView.UnitTest.UWP\GrampsView.UnitTest.UWP.csproj", "{F31B6F1D-A604-4C7A-B8FD-3D15D566EF6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{DED7DEDD-08DC-4C3E-8916-2B8716D6225B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "android", "android", "{7C31E1EB-39E7-4ED7-A9D7-69FBC5B2B0C2}"
 	ProjectSection(SolutionItems) = preProject
 		.azure\azure-pipeline-android.yml = .azure\azure-pipeline-android.yml
-		.azure\azure-pipeline-ios.yml = .azure\azure-pipeline-ios.yml
 		.azure\azure-pipeline-test.yml = .azure\azure-pipeline-test.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{900BFD12-F957-4C93-BB2F-97B73C59B04A}"
+	ProjectSection(SolutionItems) = preProject
 		.azure\azure-pipeline-uwp-store.yml = .azure\azure-pipeline-uwp-store.yml
 		.azure\azure-pipeline-uwp.yml = .azure\azure-pipeline-uwp.yml
 		.azure\azure-pipeline-vstest.yml = .azure\azure-pipeline-vstest.yml
 		.azure\azure-pipelinetemplate-build-uwp.yml = .azure\azure-pipelinetemplate-build-uwp.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{83278400-2519-4D66-9E04-C120CF55C96B}"
+	ProjectSection(SolutionItems) = preProject
+		.azure\azure-pipeline-ios.yml = .azure\azure-pipeline-ios.yml
 	EndProjectSection
 EndProject
 Global
@@ -218,6 +228,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{85ABF586-53C4-4EE9-9856-CA68F06E7DB7} = {290510A7-003E-4E74-A826-53809648E8D8}
 		{DED7DEDD-08DC-4C3E-8916-2B8716D6225B} = {290510A7-003E-4E74-A826-53809648E8D8}
+		{7C31E1EB-39E7-4ED7-A9D7-69FBC5B2B0C2} = {DED7DEDD-08DC-4C3E-8916-2B8716D6225B}
+		{900BFD12-F957-4C93-BB2F-97B73C59B04A} = {DED7DEDD-08DC-4C3E-8916-2B8716D6225B}
+		{83278400-2519-4D66-9E04-C120CF55C96B} = {DED7DEDD-08DC-4C3E-8916-2B8716D6225B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {502FD67F-00F9-4B7A-9533-2C93F4DB03E0}
