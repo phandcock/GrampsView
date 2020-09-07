@@ -120,19 +120,19 @@ namespace GrampsView.Data.Repository
         public static void ClearRepositories()
         {
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
-            DV.BookMarkCollection.Clear(); ;
-            DV.CitationDV.CitationData.Clear();
-            DV.EventDV.EventData.Clear();
-            DV.FamilyDV.FamilyData.Clear();
+            DataStore.DS.BookMarkCollection.Clear(); ;
+            DataStore.DS.CitationData.Clear();
+            DataStore.DS.EventData.Clear();
+            DataStore.DS.FamilyData.Clear();
             DataStore.DS.HeaderData.Clear();
             DataStore.DS.MediaData.Clear();
-            DV.NameMapDV.NameMapData.Clear();
-            DV.NoteDV.NoteData.Clear();
-            DV.PersonDV.PersonData.Clear();
-            DV.PlaceDV.PlaceData.Clear();
-            DV.RepositoryDV.RepositoryData.Clear();
-            DV.SourceDV.SourceData.Clear();
-            DV.TagDV.TagData.Clear();
+            DataStore.DS.NameMapData.Clear();
+            DataStore.DS.NoteData.Clear();
+            DataStore.DS.PersonData.Clear();
+            DataStore.DS.PlaceData.Clear();
+            DataStore.DS.RepositoryData.Clear();
+            DataStore.DS.SourceData.Clear();
+            DataStore.DS.TagData.Clear();
         }
 
         /// <summary>

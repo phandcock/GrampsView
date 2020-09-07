@@ -6,11 +6,12 @@
 /// </summary>
 namespace GrampsViewXUnit.Data.Models.DataModels
 {
-    using System;
-
     using GrampsView.Data.Model;
 
- 
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using System;
+
     /// <summary>
     /// </summary>
     public class TestPersonModel
@@ -22,14 +23,14 @@ namespace GrampsViewXUnit.Data.Models.DataModels
         public void TestBasicPersonDetails()
         {
             // Setup BirthDate
-            string aCFormat = string.Empty;
+            string aCFormat = "a";
             bool aDualDated = false;
-            string aNewYear = string.Empty;
-            string aQuality = string.Empty;
-            string aStart = string.Empty;
-            string aStop = string.Empty;
+            string aNewYear = "a";
+            string aQuality = "a";
+            string aStart = "a";
+            string aStop = "a";
             string aVal = DateTime.Now.AddYears(-17).ToUniversalTime().ToString("r"); // To Universal time like Gramps uses.
-            string aValType = string.Empty;
+            string aValType = "a";
 
             //DateObjectModelVal birthdatemodel = new DateObjectModelVal(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, aValType)
             //{
@@ -41,7 +42,14 @@ namespace GrampsViewXUnit.Data.Models.DataModels
             };
 
             // Test assigned correctly
-            //Assert.True(testPerson.BirthDate == birthdatemodel);
+            Assert.AreNotEqual(testPerson.BirthDate, aCFormat);
+            Assert.AreNotEqual(testPerson.BirthDate, aDualDated);
+            Assert.AreNotEqual(testPerson.BirthDate, aNewYear);
+            Assert.AreNotEqual(testPerson.BirthDate, aQuality);
+            Assert.AreNotEqual(testPerson.BirthDate, aStart);
+            Assert.AreNotEqual(testPerson.BirthDate, aStop);
+            Assert.AreNotEqual(testPerson.BirthDate, aVal);
+            Assert.AreNotEqual(testPerson.BirthDate, aValType);
 
             // Test Age is correct
             //Assert.True(testPerson.BirthDate.GetAge == 17);
