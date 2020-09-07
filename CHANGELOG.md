@@ -1,3 +1,12 @@
+## [16.9.1](https://github.com/phandcock/GrampsView/compare/16.9.0...16.9.1) (2020-09-07)
+
+
+### Bug Fixes
+
+* code tweaks to remove warnings ([b66284a](https://github.com/phandcock/GrampsView/commit/b66284aa158371fba2e7cb0cfadc691ff91d39cc))
+
+
+
 # [16.9.0](https://github.com/phandcock/GrampsView/compare/16.8.0...16.9.0) (2020-09-06)
 
 
@@ -49,18 +58,6 @@
 ### Features
 
 * add date cards to views to show all date details ([9855a2c](https://github.com/phandcock/GrampsView/commit/9855a2c9803f7789cbfcba44dbdcc98199a4e9ae))
-
-
-
-## [16.6.2](https://github.com/phandcock/GrampsView/compare/16.6.1...16.6.2) (2020-08-28)
-
-
-### Bug Fixes
-
-* rename Dark colours and refactor SettingsPage colours ([751f38d](https://github.com/phandcock/GrampsView/commit/751f38dbfa6502681216a8a7851cb8abf040181e)), closes [#343](https://github.com/phandcock/GrampsView/issues/343)
-* tweak Light colour theme ([5365903](https://github.com/phandcock/GrampsView/commit/5365903f0e8f12a279b4c9c2cad78ff59c706096))
-* update DataLog entry margin to avoid clashes ([c390312](https://github.com/phandcock/GrampsView/commit/c3903122d2da5182d557688c7759cd9433edf3d2)), closes [#339](https://github.com/phandcock/GrampsView/issues/339)
-* update launcher icons to be adaptive in Android ([8b33e71](https://github.com/phandcock/GrampsView/commit/8b33e71dabc66d511c3aeea3988c994cc5d3d8fe))
 
 
 
