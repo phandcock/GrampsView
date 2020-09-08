@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "android", "android", "{7C31
 		.azure\android\azure-pipeline-android-vstest.yml = .azure\android\azure-pipeline-android-vstest.yml
 		.azure\android\azure-pipeline-android.yml = .azure\android\azure-pipeline-android.yml
 		.azure\android\azure-pipeline-test.yml = .azure\android\azure-pipeline-test.yml
+		.azure\android\azure-pipelinetemplate-build-android.yml = .azure\android\azure-pipelinetemplate-build-android.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{900BFD12-F957-4C93-BB2F-97B73C59B04A}"
