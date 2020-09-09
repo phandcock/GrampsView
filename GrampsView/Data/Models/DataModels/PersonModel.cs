@@ -474,10 +474,10 @@ namespace GrampsView.Data.Model
                 return _SiblingRefCollection;
             }
 
-            set
-            {
-                SetProperty(ref _SiblingRefCollection, value);
-            }
+            //set
+            //{
+            //    SetProperty(ref _SiblingRefCollection, value);
+            //}
         }
 
         /// <summary>

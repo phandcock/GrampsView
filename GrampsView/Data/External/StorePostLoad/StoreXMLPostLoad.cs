@@ -10,6 +10,7 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -54,7 +55,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseCitationRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Citation data");
+            await DataStore.CN.MajorStatusAdd("Organising Citation data").ConfigureAwait(false);
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -388,7 +389,12 @@ namespace GrampsView.Data.ExternalStorageNS
                 // set Sibling Collection
                 if (thePersonModel.GChildOf.Valid)
                 {
-                    thePersonModel.SiblingRefCollection = DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey].GChildRefCollection;
+                    thePersonModel.SiblingRefCollection.Clear();
+
+                    foreach (HLinkPersonModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey].GChildRefCollection)
+                    {
+                        thePersonModel.SiblingRefCollection.Add(item);
+                    }  
                 }
 
                 DataStore.DS.PersonData[thePersonModel.HLinkKey] = thePersonModel;

@@ -75,10 +75,10 @@ namespace GrampsView.Data.Model
         {
             get;
 
-            set;
+          
         }
 
-        HLinkTagModelCollection GTagRefCollection { get; set; }
+        HLinkTagModelCollection GTagRefCollection { get;  }
 
         /// <summary>
         /// Gets the get h link Media Model that points to this ViewModel.
