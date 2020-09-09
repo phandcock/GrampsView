@@ -248,13 +248,21 @@ namespace GrampsView.Data.ExternalStorageNS
                         }
 
                         // Load NoteRefs
-                        loadObject.GNoteRefCollection = GetNoteCollection(pname);
+                 
+
+
+                       
 
                         // citationref details TODO Event References
                         loadObject.GCitationRefCollection.Clear();
                         loadObject.GCitationRefCollection.AddRange(GetCitationCollection(pname));
 
-                        loadObject.GTagRefCollection = GetTagCollection(pname);
+                        foreach (HLinkTagModel item in GetTagCollection(pname))
+                        {
+                            loadObject.GTagRefCollection.Add(item);
+                        }
+
+                 
 
                         loadObject = SetHomeImage(loadObject);
 

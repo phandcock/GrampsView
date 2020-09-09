@@ -103,7 +103,7 @@ namespace GrampsView.Data.Model
         HLinkFamilyModelCollection GParentInRefCollection
         {
             get;
-            set;
+          
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace GrampsView.Data.Model
         HLinkPersonNameModelCollection GPersonNamesCollection
         {
             get;
-            set;
+            
         }
 
         /// <summary>

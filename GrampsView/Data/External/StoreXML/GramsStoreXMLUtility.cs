@@ -50,7 +50,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw new ArgumentException("CreateClippedMediaModel argument is invalid", nameof(argHLinkLoadImageModel));
             }
 
-            IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync<IMediaModel>(() =>
+            IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync(() =>
          {
              // TODO cleanup code. Multiple copies of things in use
 
@@ -124,7 +124,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
                  // get a stream over the encoded data
 
-                 using (Stream stream = File.Open(outFilePath, FileMode.OpenOrCreate, System.IO.FileAccess.Write, FileShare.ReadWrite))
+                 using (Stream stream = File.Open(outFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite))
                  {
                      encoded.SaveTo(stream);
                  }
@@ -150,7 +150,7 @@ namespace GrampsView.Data.ExternalStorageNS
              resourceBitmap.Dispose();
 
              return newMediaModel;
-         });
+         }).ConfigureAwait(false);
 
             return returnMediaModel.HLink;
         }

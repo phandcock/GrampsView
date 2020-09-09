@@ -62,7 +62,7 @@ namespace GrampsView.Data.Model
         public HLinkNoteModelCollection GNoteCollectionReference
         {
             get;
-            set;
+           
         }
 
         = new HLinkNoteModelCollection();
