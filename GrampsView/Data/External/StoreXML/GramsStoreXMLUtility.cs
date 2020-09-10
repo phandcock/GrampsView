@@ -70,7 +70,7 @@ namespace GrampsView.Data.ExternalStorageNS
              // Check if already exists
              IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newHLinkKey);
 
-             if (!fileExists.Valid)
+             if ((!fileExists.Valid) && (theMediaModel.IsMediaStorageFileValid))
              {
                  // Needs clipping
                  using (StreamReader stream = new StreamReader(theMediaModel.MediaStorageFilePath))
@@ -145,6 +145,15 @@ namespace GrampsView.Data.ExternalStorageNS
                  newMediaModel = SetHomeImage(newMediaModel);
 
                  DataStore.DS.MediaData.Add((MediaModel)newMediaModel);
+             }
+             else
+             {
+                 Dictionary<string, string> argErrorDetail = new Dictionary<string, string>();
+                 argErrorDetail.Add("Original ID", theMediaModel.Id);
+                 argErrorDetail.Add("Original File", theMediaModel.MediaStorageFilePath);
+                 argErrorDetail.Add("Clipped Id", argHLinkLoadImageModel.DeRef.Id);
+
+                 DataStore.CN.NotifyError("File not found when Region specified in ClipMedia", argErrorDetail);
              }
 
              resourceBitmap.Dispose();
