@@ -9,6 +9,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     using GrampsView.Data.DataView;
@@ -50,6 +51,8 @@ namespace GrampsView.Data.Model
         /// </returns>
         public new int CompareTo(object obj)
         {
+         
+
             // Null objects go first
             if (obj is null) { return 1; }
 

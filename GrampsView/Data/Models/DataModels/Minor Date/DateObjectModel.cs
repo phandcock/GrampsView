@@ -755,7 +755,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static bool operator <(DateObjectModel left, DateObjectModel right)
         {
-            return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
+            return left is null ? right is object : left.CompareTo(right) < 0;
         }
 
         /// <summary>
@@ -772,7 +772,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static bool operator <=(DateObjectModel left, DateObjectModel right)
         {
-            return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+            return left is null || left.CompareTo(right) <= 0;
         }
 
         /// <summary>
@@ -789,9 +789,9 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static bool operator ==(DateObjectModel left, DateObjectModel right)
         {
-            if (ReferenceEquals(left, null))
+            if (left is null)
             {
-                return ReferenceEquals(right, null);
+                return right is null;
             }
 
             return left.Equals(right);
@@ -811,7 +811,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static bool operator >(DateObjectModel left, DateObjectModel right)
         {
-            return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+            return left is object && left.CompareTo(right) > 0;
         }
 
         /// <summary>
@@ -828,7 +828,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static bool operator >=(DateObjectModel left, DateObjectModel right)
         {
-            return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+            return left is null ? right is null : left.CompareTo(right) >= 0;
         }
 
         /// <summary>
@@ -941,7 +941,7 @@ namespace GrampsView.Data.Model
                 return true;
             }
 
-            if (ReferenceEquals(obj, null))
+            if (obj is null)
             {
                 return false;
             }
@@ -971,13 +971,12 @@ namespace GrampsView.Data.Model
         /// </returns>
         internal DateTime ConvertRFC1123StringToDateTime(string inputArg)
         {
-            // Default to the Minimum DateTime
-            DateTime outputDateTime;
+           
 
-            // try progressivly looser conversions
+            // Try progressivly looser conversions
 
             // YYYY-MM-DD
-            if (DateTime.TryParse(inputArg, CultureInfo.InvariantCulture, DateTimeStyles.None, out outputDateTime) == true)
+            if (DateTime.TryParse(inputArg, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime outputDateTime) == true)
             {
                 Valid = true;
                 ValidYear = true;

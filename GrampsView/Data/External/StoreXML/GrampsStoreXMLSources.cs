@@ -47,9 +47,6 @@ namespace GrampsView.Data.ExternalStorageNS
         /// <summary>
         /// load events from external storage.
         /// </summary>
-        /// <param name="eventRepository">
-        /// The event repository.
-        /// </param>
         /// <returns>
         /// Flag of loaded successfully.
         /// </returns>
@@ -57,7 +54,6 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             await DataStore.CN.MajorStatusAdd(strMessage: "Loading Source data").ConfigureAwait(false);
             {
-                // XNamespace ns = grampsXMLNameSpace;
                 try
                 {
                     // Run query
@@ -65,21 +61,15 @@ namespace GrampsView.Data.ExternalStorageNS
                         from el in localGrampsXMLdoc.Descendants(ns + "source")
                         select el;
 
-                    // get BookMark fields
+                    // TODO get BookMark fields
 
-                    // Loop through results to get the Citation Uri _baseUri = new Uri("ms-appx:///");
+                    // Loop through results to get the Citation
                     foreach (XElement pSourceElement in de)
                     {
                         SourceModel loadSource = DV.SourceDV.NewModel();
 
                         // Citation attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
-                        //loadSource.Id = (string)pSourceElement.Attribute("id");
-                        //loadSource.Change = GetDateTime(pSourceElement, "change");
-                        //loadSource.Priv = SetPrivateObject((string)pSourceElement.Attribute("priv"));
-                        //loadSource.Handle = (string)pSourceElement.Attribute("handle");
-
-                        //await DataStore.CN.MinorStatusAdd(loadSource.Id);
 
                         if (loadSource.Id == "S0057")
                         {
@@ -113,10 +103,6 @@ namespace GrampsView.Data.ExternalStorageNS
                         // save the event
                         DV.SourceDV.SourceData.Add(loadSource);
                     }
-
-                    // sort the collection eventRepository.Items.Sort(EventModel => EventModel);
-
-                    // let everybody know
                 }
                 catch (Exception e)
                 {

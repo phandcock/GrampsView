@@ -12,9 +12,8 @@
 
         private Stream _CurrentInputStream = null;
 
-        //private DirectoryInfo _CurrentInputFolder;
-
         private string _CurrentInputStreamPath;
+
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
@@ -78,7 +77,6 @@
             }
         }
 
-
         public DisplayOrientation CurrentOrientation
         {
             get
@@ -98,10 +96,6 @@
         public void LoadDataStore()
         {
             CurrentDataFolder = new DirectoryInfo(FileSystem.CacheDirectory);
-
-           
         }
-
-
     }
 }

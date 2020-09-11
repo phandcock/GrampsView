@@ -14,6 +14,7 @@ namespace GrampsView.Data.ExternalStorageNS
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Xml.Linq;
 
@@ -233,6 +234,8 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public DateObjectModel SetDateVal(XElement currentElement)
         {
+            Contract.Requires(currentElement != null);
+
             string aCFormat = string.Empty;
             bool aDualDated = false;
             string aNewYear = string.Empty;
