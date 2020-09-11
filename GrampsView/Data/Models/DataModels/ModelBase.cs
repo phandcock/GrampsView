@@ -14,6 +14,7 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections.ObjectModel;
+    using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
 
@@ -441,6 +442,8 @@ namespace GrampsView.Data.Model
 
         public void LoadBasics(ModelBase argBasics)
         {
+            Contract.Requires(!(argBasics is null));
+
             if (!(String.IsNullOrEmpty(argBasics.Id)))
             {
                 Id = argBasics.Id;

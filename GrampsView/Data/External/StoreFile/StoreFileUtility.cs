@@ -11,6 +11,7 @@ namespace GrampsView.Data
 {
     using System;
     using System.Diagnostics;
+    using System.Diagnostics.Contracts;
     using System.IO;
     using System.Threading.Tasks;
 
@@ -80,6 +81,8 @@ namespace GrampsView.Data
         // TODO WHen NetStandard 2.3 out then Path.MakeRelative
         public static string MakeRelativePath(string argPath)
         {
+            Contract.Assert(argPath != null);
+
             if (DataStore.AD.CurrentDataFolder.FullName == argPath)
             {
                 return string.Empty;

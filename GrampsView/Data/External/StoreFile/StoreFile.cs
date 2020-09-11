@@ -130,16 +130,10 @@ namespace GrampsView.Data
             return true;
         }
 
-        /// <summary>
-        /// This routine is heavily customized to decompress GRAMPS whole of database export file
-        /// (i.e. .gramps) files.
-        /// </summary>
-        /// <param name="inputFile">
-        /// Input GRAMPS export file.
-        /// </param>
-        /// <returns>
-        /// Flag indicating success or not.
-        /// </returns>
+        /// <summary>This routine is heavily customized to decompress GRAMPS whole of database export file
+        /// (i.e. .gramps) files.</summary>
+        /// <param name="inputFile">Input GRAMPS export file.</param>
+        /// <returns>Flag indicating success or not.</returns>
         public async Task<bool> DecompressGZIP(FileInfoEx inputFile)
         {
             await DataStore.CN.MinorStatusAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
@@ -169,9 +163,6 @@ namespace GrampsView.Data
         /// This routine is heavily customized to decompress GRAMPS whole of database export file
         /// (i.e. .gramps) files.
         /// </summary>
-        /// <param name="inputFile">
-        /// Input GRAMPS export file.
-        /// </param>
         /// <returns>
         /// Flag indicating success or not.
         /// </returns>
@@ -182,7 +173,7 @@ namespace GrampsView.Data
             // Check arguments
             if (!DataStore.AD.CurrentInputStreamValid)
             {
-                DataStore.CN.NotifyError("The input file is invalid");
+                DataStore.CN.NotifyAlert("The input file is invalid");
                 return false;
             }
 

@@ -13,7 +13,6 @@ namespace GrampsView.Data.Repository
     using FFImageLoading.Cache;
 
     using GrampsView.Common;
-    using GrampsView.Data.DataView;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorageNS;
     using GrampsView.Events;
@@ -24,6 +23,7 @@ namespace GrampsView.Data.Repository
 
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -56,7 +56,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local store file.
         /// </summary>
-        private IStoreFile localStoreFile;
+        private readonly IStoreFile localStoreFile;
 
         /// <summary>
         /// The local gramps store serial.
@@ -94,7 +94,7 @@ namespace GrampsView.Data.Repository
             _EventAggregator = iocEventAggregator;
 
             // Event Handlers
-            //_EventAggregator.GetEvent<AppStartLoadDataEvent>().Subscribe(StartDataLoad, ThreadOption.BackgroundThread);
+            Contract.Assert(_EventAggregator != null);
             _EventAggregator.GetEvent<DataLoadStartEvent>().Subscribe(StartDataLoad, ThreadOption.BackgroundThread);
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Subscribe(SerializeRepositoriesAsync, ThreadOption.BackgroundThread);
             _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(DataLoadedSetTrue, ThreadOption.BackgroundThread);
@@ -265,17 +265,13 @@ namespace GrampsView.Data.Repository
             }
             else
             {
-                //if (!(DataStore.AD.CurrentDataFolder.Status.LatestException is null))
-                //{
-                //    DataStore.CN.NotifyException("StartDataLoadAsync", DataStore.AD.CurrentDataFolder.Status.LatestException);
-                //}
-
                 DataStore.CN.NotifyError("DataStorageFolder not valid.  It will need to be reloaded...");
 
                 CommonLocalSettings.SetReloadDatabase();
             }
 
             // TODO Handle special messages if there is a problem
+
             await DataStore.CN.ChangeLoadingMessage("Unable to load Datafolder").ConfigureAwait(false);
             return false;
         }
@@ -312,7 +308,7 @@ namespace GrampsView.Data.Repository
                 // Clear image cache
                 await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
 
-                // TODO work out how to delte excess files based on keepign the ones in the GPKG file
+                // TODO work out how to delete excess files based on keeping the ones in the GPKG file
                 //// Delete directories of files. Assume files in root are ok
                 // IReadOnlyList<StorageFolder> t = await DataStore.AD.CurrentDataFolder.GetFoldersAsync();
 
@@ -352,7 +348,6 @@ namespace GrampsView.Data.Repository
                 await localStoreFile.DecompressGZIP(fileGrampsDataInput).ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking
-                //StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, CommonConstants.StorageGRAMPSFileName);
                 StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, fileGrampsDataInput);
             }
 
@@ -371,7 +366,6 @@ namespace GrampsView.Data.Repository
         /// </returns>
         public async Task<bool> TriggerLoadGrampsUnZippedFolderAsync()
         {
-            // HockeyClient.Current.TrackEvent("TriggerLoadGrampsUnZippedFolderAsync");
             await DataStore.CN.ChangeLoadingMessage("Loading GRAMPS XML unzipped data").ConfigureAwait(false);
             {
                 ClearRepositories();
@@ -470,9 +464,6 @@ namespace GrampsView.Data.Repository
         {
             // save the database version
             CommonLocalSettings.DatabaseVersion = CommonConstants.GrampsViewDatabaseVersion;
-
-            //// set FirstRun to false as we have loaded something
-            //CommonLocalSettings.FirstRun = false;
         }
     }
 }

@@ -148,10 +148,12 @@ namespace GrampsView.Data.ExternalStorageNS
              }
              else
              {
-                 Dictionary<string, string> argErrorDetail = new Dictionary<string, string>();
-                 argErrorDetail.Add("Original ID", theMediaModel.Id);
-                 argErrorDetail.Add("Original File", theMediaModel.MediaStorageFilePath);
-                 argErrorDetail.Add("Clipped Id", argHLinkLoadImageModel.DeRef.Id);
+                 Dictionary<string, string> argErrorDetail = new Dictionary<string, string>
+                 {
+                     { "Original ID", theMediaModel.Id },
+                     { "Original File", theMediaModel.MediaStorageFilePath },
+                     { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
+                 };
 
                  DataStore.CN.NotifyError("File not found when Region specified in ClipMedia", argErrorDetail);
              }
