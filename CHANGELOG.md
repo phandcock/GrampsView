@@ -1,3 +1,12 @@
+## [16.9.2](https://github.com/phandcock/GrampsView/compare/16.9.1...16.9.2) (2020-09-11)
+
+
+### Bug Fixes
+
+* make clipMedia function more robust and clip files as required. ([087b604](https://github.com/phandcock/GrampsView/commit/087b604eec07999a2504c9c590d0a227ba9d4ec8))
+
+
+
 ## [16.9.1](https://github.com/phandcock/GrampsView/compare/16.9.0...16.9.1) (2020-09-07)
 
 
@@ -42,22 +51,6 @@
 * fix collectionView recycling bug by movign detail link argument to a field ([d2d2f76](https://github.com/phandcock/GrampsView/commit/d2d2f7696c17833016a639cc654010aaf2d2af12))
 * initial cut of date valid flags for year, month and day ([55bdfa0](https://github.com/phandcock/GrampsView/commit/55bdfa0f63beed44b9e719faf21c0bf15c4fc43f))
 * tweak debug to show all embedded files ([b2f5137](https://github.com/phandcock/GrampsView/commit/b2f5137162313a9d8858007f8f953c5c160bd32c))
-
-
-
-# [16.7.0](https://github.com/phandcock/GrampsView/compare/16.6.2...16.7.0) (2020-08-30)
-
-
-### Bug Fixes
-
-* fix crash when adding rounded icons ([e26ebfe](https://github.com/phandcock/GrampsView/commit/e26ebfeec8d5336961ba7dccbcf7736f57a1445d))
-* remove surface duo code now we have a branch ([7cb4073](https://github.com/phandcock/GrampsView/commit/7cb407308a3809b872f58c4dda518a42bbf05681))
-* update test packages to get tests working ([58e822f](https://github.com/phandcock/GrampsView/commit/58e822f4127bcddaf02bc3f392d26eb77ac3c654))
-
-
-### Features
-
-* add date cards to views to show all date details ([9855a2c](https://github.com/phandcock/GrampsView/commit/9855a2c9803f7789cbfcba44dbdcc98199a4e9ae))
 
 
 
