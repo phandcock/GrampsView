@@ -66,7 +66,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-            = new DateObjectModel();
+            = new DateObjectModelVal();
 
         /// <summary>
         /// Gets the get default text for this ViewModel.

@@ -55,8 +55,8 @@ namespace GrampsView.Data.Model
     ///!ATTLIST datestr val CDATA #REQUIRED&gt;
     /// </code>
     /// </summary>
-    [DataContract]
-    public partial class DateObjectModel : ModelBase, IDateObjectModel
+ 
+    public abstract class DateObjectModel : ModelBase, IDateObjectModel
     {
         /// <summary>
         /// $$(cformat)$$ field.
@@ -91,14 +91,14 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Type field.
         /// </summary>
-        private DateType _GType = DateType.Unknown;
+        private string _GType;
 
         /// <summary>
         /// $$(val)$$ field.
         /// </summary>
         private string _GVal = string.Empty;
 
-        private string _GValType;
+   
 
         /// <summary>
         /// Notional Date field - The date used for sorting etc.
@@ -112,83 +112,7 @@ namespace GrampsView.Data.Model
         {
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DateObjectModel"/> class.
-        /// </summary>
-        /// <param name="aDateType">
-        /// Type of Date
-        /// </param>
-        /// <param name="aCFormat">
-        /// a c format.
-        /// </param>
-        /// <param name="aDualDated">
-        /// if set to <c>true</c> [a dual dated].
-        /// </param>
-        /// <param name="aNewYear">
-        /// a new year.
-        /// </param>
-        /// <param name="aQuality">
-        /// a quality.
-        /// </param>
-        /// <param name="aStart">
-        /// a start.
-        /// </param>
-        /// <param name="aStop">
-        /// a stop.
-        /// </param>
-        /// <param name="aVal">
-        /// a value.
-        /// </param>
-        /// <param name="aValType">
-        /// Type of Val date.
-        /// </param>
-        public DateObjectModel(DateType aDateType, string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal, string aValType)
-        {
-            // Setup defaults
-            GCformat = aCFormat;
-            GDualdated = aDualDated;
-            GNewYear = aNewYear;
-            GQuality = aQuality;
-            GStart = aStart;
-            GStop = aStop;
-            GVal = aVal;
-            GType = aDateType;
-            GValType = aValType;
-
-            // Setup specifics
-            switch (aDateType)
-            {
-                case DateType.Range:
-                    {
-                        DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
-                        break;
-                    }
-
-                case DateType.Span:
-                    {
-                        DateObjectModelSpan(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
-                        break;
-                    }
-
-                case DateType.Str:
-                    {
-                        DateObjectModelStr(aVal);
-                        break;
-                    }
-
-                case DateType.Val:
-                    {
-                        DateObjectModelVal(aValType);
-                        break;
-                    }
-
-                default:
-                    {
-                        DataStore.CN.NotifyError("Bad DateEnum: " + aDateType.ToString());
-                        break;
-                    }
-            }
-        }
+    
 
         /// <summary>
         /// Gets the $$(cformat)$$ field.
@@ -234,44 +158,11 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// age.
         /// </returns>
-        public int GetAge
+        public abstract int GetAge
         {
-            get
-            {
-                if (!Valid)
-                {
-                    return 0;
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetAge;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetAge;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetAge;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetAge;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return 0;
-                        }
-                }
-            }
+            get;
+           
+                      
         }
 
         /// <summary>
@@ -312,44 +203,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The date year.
         /// </value>
-        public string GetYear
+        public abstract string GetYear
         {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetYear;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetYear;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetYear;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetYear;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return "Unknonw";
-                        }
-                }
-            }
+            get;
+         
         }
 
         /// <summary>
@@ -436,7 +293,7 @@ namespace GrampsView.Data.Model
         /// Gets the Date Type field.
         /// </summary>
         [DataMember]
-        public DateType GType
+        public string GType
         {
             get
             {
@@ -469,25 +326,7 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets the type of the Val Type, e.g. Before
-        /// </summary>
-        /// <value>
-        /// The type of the g value.
-        /// </value>
-        [DataMember]
-        public string GValType
-        {
-            get
-            {
-                return _GValType;
-            }
-
-            internal set
-            {
-                SetProperty(ref _GValType, value);
-            }
-        }
+  
 
         /// <summary>
         /// Gets the get long date as string. Default so it can be overridden.
@@ -495,45 +334,16 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get long date as string.
         /// </value>
-        public string LongDate
+        public abstract string LongDate
         {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetLongDateAsString;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetLongDateAsString;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetLongDateAsString;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetLongDateAsString;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return "Unknown";
-                        }
-                }
-            }
+            get;
+          
+          
         }
+
+  
+
+   
 
         /// <summary>
         /// Gets the default Date field.
@@ -558,45 +368,15 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// a string version of the date.
         /// </returns>
-        public string ShortDate
+        public abstract string ShortDate
         {
-            get
-            {
-                if (!Valid)
-                {
-                    return "Unknown";
-                }
-
-                switch (GType)
-                {
-                    case DateType.Range:
-                        {
-                            return RangeGetShortDateAsString;
-                        }
-
-                    case DateType.Span:
-                        {
-                            return SpanGetShortDateAsString;
-                        }
-
-                    case DateType.Str:
-                        {
-                            return StrGetShortDateAsString;
-                        }
-
-                    case DateType.Val:
-                        {
-                            return ValGetShortDateAsString;
-                        }
-
-                    default:
-                        {
-                            DataStore.CN.NotifyError("Bad DateEnum: " + GType.ToString());
-                            return "Unknown";
-                        }
-                }
-            }
+            get;
+           
+         
         }
+
+        public abstract CardListLineCollection AsCardListLine(string argTitle = null);
+     
 
         ///// <summary>
         ///// Gets an empty string if a null date or the date string. Used for formatting. Default so

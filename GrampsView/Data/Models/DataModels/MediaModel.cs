@@ -39,7 +39,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local date value.
         /// </summary>
-        private IDateObjectModel _DateValue = new DateObjectModel();
+        private IDateObjectModel _DateValue = new DateObjectModelVal();
 
         private string _FileContentType;
 
