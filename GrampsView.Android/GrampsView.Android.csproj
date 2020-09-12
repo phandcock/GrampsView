@@ -86,13 +86,13 @@
       <Version>3.4.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>3.1.7</Version>
+      <Version>3.1.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Console">
-      <Version>3.1.7</Version>
+      <Version>3.1.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
-      <Version>3.1.7</Version>
+      <Version>3.1.8</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
@@ -101,10 +101,10 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
-      <Version>2.80.1</Version>
+      <Version>2.80.2</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>2.80.1</Version>
+      <Version>2.80.2</Version>
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
@@ -118,7 +118,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
     </PackageReference>
