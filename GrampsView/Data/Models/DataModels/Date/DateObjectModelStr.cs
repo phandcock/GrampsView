@@ -12,12 +12,12 @@ namespace GrampsView.Data.Model
     /// Create Str version of DateObjectModel.
     /// </summary>
 
-    public partial class DateObjectModel
+    public  class DateObjectModelStr : DateObjectModel, IDateObjectModel
     {
         /// <summary>
         /// Not a properly formatted date so return 0;
         /// </summary>
-        public static int StrGetAge
+        public override int GetAge
         {
             get
             {
@@ -31,7 +31,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get long date as string.
         /// </value>
-        public string StrGetLongDateAsString
+        public override string LongDate
         {
             get
             {
@@ -39,13 +39,44 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        {
+
+            CardListLineCollection DateModelCard = new CardListLineCollection();
+
+            if (this.Valid)
+            {
+              
+                
+                            DateModelCard = new CardListLineCollection
+                            {
+                                new CardListLine("Date Type:", "String"),
+                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Val:", this.GVal),
+                            };
+
+                   
+
+                
+                }
+           
+
+            if (!(string.IsNullOrEmpty(argTitle)))
+            {
+                DateModelCard.Title = argTitle;
+            }
+
+            return DateModelCard;
+
+
+        }
         /// <summary>
         /// Gets the string version of the date field.
         /// </summary>
         /// <returns>
         /// a string version of the date.
         /// </returns>
-        public string StrGetShortDateAsString
+        public override  string ShortDate
         {
             get
             {
@@ -53,7 +84,7 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string StrGetYear
+        public override  string GetYear
         {
             get
             {
@@ -93,7 +124,7 @@ namespace GrampsView.Data.Model
         /// <param name="aVal">
         /// a value.
         /// </param>
-        public void DateObjectModelStr(string aVal)
+        public  DateObjectModelStr(string aVal)
         {
             try
             {

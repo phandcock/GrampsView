@@ -1,21 +1,19 @@
-﻿// <copyright file="DateObjectModelSpan.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="DateObjectModelRange.cs" company="PlaceholderCompany">
+//     Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Repository;
-
     using System;
 
     /// <summary>
     /// Create Val version of DateObjectModel.
     /// </summary>
 
-    public partial class DateObjectModel
+    public partial class DateObjectModelRange : DateObjectModel, IDateObjectModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateObjectModelSpan" /> class.
+        /// Initializes a new instance of the <see cref="DateObjectModelRange" /> class.
         /// </summary>
         /// <param name="aType">
         /// a type.
@@ -45,7 +43,9 @@ namespace GrampsView.Data.Model
         /// Type of a value.
         /// </param>
 
-        public int SpanGetAge
+        //private string localGValType;
+
+        public override int GetAge
         {
             get
             {
@@ -59,11 +59,11 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string SpanGetLongDateAsString
+        public override string LongDate
         {
             get
             {
-                string dateString = "Between " + GStart + "-" + GStop;
+                string dateString = "Range from " + GStart + " to " + GStop;
 
                 if (!string.IsNullOrEmpty(GQuality))
                 {
@@ -89,22 +89,54 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        {
+
+            CardListLineCollection DateModelCard = new CardListLineCollection();
+
+            if (this.Valid)
+            {
+            
+                            DateModelCard = new CardListLineCollection
+                            {
+                                new CardListLine("Date Type:", "Range"),
+                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Start:", this.GStart),
+                                new CardListLine("Stop:", this.GStop),
+                                new CardListLine("Quality:", this.GQuality),
+                                new CardListLine("C Format:", this.GCformat),
+                                new CardListLine("Dual Dated:", this.GDualdated),
+                                new CardListLine("New Year:", this.GNewYear),
+                            };
+
+                }
+          
+
+            if (!(string.IsNullOrEmpty(argTitle)))
+            {
+                DateModelCard.Title = argTitle;
+            }
+
+            return DateModelCard;
+
+        }
+
         /// <summary>
         /// Gets the string version of the date field.
         /// </summary>
         /// <returns>
         /// a string version of the date.
         /// </returns>
-        public string SpanGetShortDateAsString
+        public override string ShortDate
         {
             get
             {
-                string dateString = "Between " + GStart + "-" + GStop;
+                string dateString = "Range " + GStart + "-" + GStop;
                 return dateString.Trim();
             }
         }
 
-        public string SpanGetYear
+        public override string GetYear
         {
             get
             {
@@ -119,37 +151,27 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public void DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
+        public  DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
         {
-            // check for date range
-            try
-            {
-                GCformat = aCFormat;
+            GCformat = aCFormat;
 
-                // dualdated value #REQUIRED
-                GDualdated = aDualDated;
+            // dualdated value #REQUIRED
+            GDualdated = aDualDated;
 
-                // newyear CDATA #IMPLIED
-                GNewYear = aNewYear;
+            // newyear CDATA #IMPLIED
+            GNewYear = aNewYear;
 
-                // type CDATA #REQUIRED
-                GQuality = aQuality;
+            // type CDATA #REQUIRED
+            GQuality = aQuality;
 
-                // start CDATA #REQUIRED
-                GStart = aStart;
+            // start CDATA #REQUIRED
+            GStart = aStart;
 
-                // stop CDATA #REQUIRED
-                GStop = aStop;
+            // stop CDATA #REQUIRED
+            GStop = aStop;
 
-                // Set NotionalDate
-                NotionalDate = ConvertRFC1123StringToDateTime(GStart);
-            }
-            catch (Exception e)
-            {
-                // TODO
-                DataStore.CN.NotifyException("Error in SetDate", e);
-                throw;
-            }
+            // Set NotionalDate
+            NotionalDate = ConvertRFC1123StringToDateTime(GStart);
         }
     }
 }

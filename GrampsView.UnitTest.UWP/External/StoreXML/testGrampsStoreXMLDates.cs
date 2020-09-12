@@ -133,7 +133,7 @@ namespace GramsViewXUnit.Data.Models.DataModels
         public void TestDateNullAge()
         {
             // Setup BirthDate
-            DateObjectModel birthdatemodel = new DateObjectModel
+            DateObjectModel birthdatemodel = new DateObjectModelVal
             {
                 // NotionalDateType = DateObjectModel.DateType.NullDate, NotionalDate = DateTime.Now.AddYears(-17),
             };
@@ -167,7 +167,7 @@ namespace GramsViewXUnit.Data.Models.DataModels
         public void TestDateRangeAge()
         {
             // Setup BirthDate
-            DateObjectModel birthdatemodel = new DateObjectModel
+            DateObjectModel birthdatemodel = new DateObjectModelVal
             {
                 // NotionalDateType = DateObjectModel.DateType.Daterange, NotionalDate = DateTime.Now.AddYears(-17),
             };
@@ -183,7 +183,7 @@ namespace GramsViewXUnit.Data.Models.DataModels
         public void TestDateSpanAge()
         {
             // Setup BirthDate
-            DateObjectModel birthdatemodel = new DateObjectModel
+            DateObjectModel birthdatemodel = new DateObjectModelVal
             {
                 // NotionalDateType = DateObjectModel.DateType.Datespan, NotionalDate = DateTime.Now.AddYears(-17),
             };

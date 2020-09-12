@@ -18,8 +18,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using System.Globalization;
     using System.Xml.Linq;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary> Private Storage Routines. </summary> <code> <define name="date-content">
     // <choice> <element name = "daterange" > < attribute name="start"><text/></attribute>
     // <attribute name = "stop" >< text /></ attribute > < optional >< attribute
@@ -54,7 +52,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </param>
         /// <returns>
         /// </returns>
-        public static DateObjectModel SetDateStr(XElement currentElement)
+        public static DateObjectModelStr SetDateStr(XElement currentElement)
         {
             string aCFormat = string.Empty;
             bool aDualDated = false;
@@ -82,7 +80,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModel(DateType.Str, aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, aValType);
+            return new DateObjectModelStr(aVal);
         }
 
         /// <summary>
@@ -125,7 +123,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 tempElement = currentElement.Element(ns + "datestr");
                 if (tempElement != null)
                 {
-                    DateObjectModel t = SetDateStr(tempElement);
+                    DateObjectModelStr t = SetDateStr(tempElement);
 
                     return t;
                 }
@@ -140,7 +138,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
             // TODO fix this if (tempDate is typeof( DateObjectModel) ) { // no date found tempDate
             // = null; }
-            return new DateObjectModel();
+            return new DateObjectModelVal();
         }
 
         /// <summary>
@@ -221,7 +219,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModel(DateType.Span, aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, aValType);
+            return new DateObjectModelSpan(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
         }
 
         /// <summary>
@@ -299,7 +297,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModel(DateType.Val, aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, aValType);
+            return new DateObjectModelVal(aVal);
         }
 
         /// <summary>
@@ -377,7 +375,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModel(DateType.Range, aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, aValType);
+            return new DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
         }
     }
 }

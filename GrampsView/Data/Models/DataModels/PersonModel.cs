@@ -121,7 +121,7 @@ namespace GrampsView.Data.Model
             get; set;
         }
 
-            = new DateObjectModel();
+            = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets address collection.

@@ -37,7 +37,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 44;
+        public const int GrampsViewDatabaseVersion = 45;
 
         /// <summary>
         /// The Gramps XML name space.
@@ -207,7 +207,6 @@ namespace GrampsView.Common
         public const string ModelNameFamily = "family";
 
         public const string ModelNamePerson = "person";
-
 
         public const string NameTypeMarried = "Married Name";
 

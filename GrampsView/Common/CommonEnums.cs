@@ -2,16 +2,12 @@
 {
     public static class CommonEnums
     {
-        /// <summary>
-        /// Enum for the types of dates.
-        /// </summary>
-        public enum DateType
+        public enum DateValType
         {
-            Range,
-            Span,
-            Str,
-            Unknown,
-            Val,
+            about,
+            after,
+            before,
+            unknown
         }
 
         public enum DisplayFormat

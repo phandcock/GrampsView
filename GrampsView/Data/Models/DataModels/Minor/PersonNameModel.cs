@@ -103,7 +103,7 @@ namespace GrampsView.Data.Model
         /// The date.
         /// </value>
         [DataMember]
-        public DateObjectModel GDate { get; set; } = new DateObjectModel();
+        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the display name.

@@ -37,11 +37,11 @@ namespace GrampsView.Data.Model
 
         string GStop { get; }
 
-        DateType GType { get; }
+        string GType { get; }
 
         string GVal { get; }
 
-        string GValType { get; }
+     
 
         string LongDate { get; }
 
