@@ -218,19 +218,10 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        protected int Compare(object x, object y)
+        protected static int Compare(object x, object y)
         {
-            Contract.Requires(y != null);
-
-            if (x is null)
-            {
-                throw new ArgumentNullException(nameof(x));
-            }
-
-            if (y is null)
-            {
-                throw new ArgumentNullException(nameof(y));
-            }
+            Contract.Assert(!(x is null));
+            Contract.Assert(!(y is null));
 
             return string.Compare((x as HLinkBase).HLinkKey, (y as HLinkBase).HLinkKey, StringComparison.CurrentCulture);
         }

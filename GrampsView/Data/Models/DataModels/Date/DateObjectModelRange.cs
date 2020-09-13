@@ -151,7 +151,7 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public  DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
+        public  DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop)
         {
             GCformat = aCFormat;
 

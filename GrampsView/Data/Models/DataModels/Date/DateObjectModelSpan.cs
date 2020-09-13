@@ -153,7 +153,7 @@ namespace GrampsView.Data.Model
             return DateModelCard;
         }
 
-        public  DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
+        public  DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop)
         {
             // check for date range
             try

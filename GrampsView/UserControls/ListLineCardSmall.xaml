@@ -14,6 +14,7 @@
     <Grid.Resources>
         <ResourceDictionary>
             <converters:StringToVisibleConverter x:Key="stringToBool" />
+            <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
         </ResourceDictionary>
     </Grid.Resources>
 
@@ -58,6 +59,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <Label
@@ -73,6 +75,11 @@
                                 Style="{DynamicResource GVCardLabelStyle}"
                                 Text="{Binding Value}"
                                 VerticalTextAlignment="Start" />
+                            <Button
+                                Grid.Column="2"
+                                FontSize="{x:Static common:CommonFontSize.FontSmall}"
+                                IsVisible="{Binding HLink.Valid}"
+                                Text="+" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
