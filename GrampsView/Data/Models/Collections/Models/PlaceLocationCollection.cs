@@ -1,8 +1,4 @@
-﻿// <copyright file="OCAttributeModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -14,7 +10,7 @@ namespace GrampsView.Data.Collections
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
-    /// Attribute model collection.
+    /// Place location model collection.
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]

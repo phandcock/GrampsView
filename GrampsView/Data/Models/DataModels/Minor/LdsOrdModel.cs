@@ -1,17 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="LdsOrdModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// GRAMPS Alt element class.
     /// </summary>
+    /// TODO Update fields as per Schema
     public class LdsOrdModel : ModelBase, ILdsOrdModel
     {
         /// <summary>

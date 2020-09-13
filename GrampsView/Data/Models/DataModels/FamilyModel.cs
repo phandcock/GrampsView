@@ -25,7 +25,7 @@
 ///
 /// </summary>
 ///
-/// // TODO Finish adding these
+/// TODO Finish adding these
 ///// <code>
 ////
 ////    <zeroOrMore>
@@ -65,7 +65,7 @@
 ////      <ref name="date-content" />
 ////    </optional>
 ///// </code>
-
+/// TODO Update fields as per Schema
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;

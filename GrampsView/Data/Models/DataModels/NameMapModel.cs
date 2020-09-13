@@ -9,13 +9,19 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
 
-    using GrampsView.Common;
-
-    /// <summary> data model for an event. <code> <
+    /// TODO Update fields as per Schema
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="GrampsView.Data.Model.ModelBase"/>
+    /// <seealso cref="GrampsView.Data.Model.INameMapModel"/>
+    /// <seealso cref="System.IComparable"/>
+    /// <seealso cref="System.Collections.IComparer"/>
     // </code> </summary>
     [DataContract]
     public sealed class NameMapModel : ModelBase, INameMapModel, IComparable, IComparer

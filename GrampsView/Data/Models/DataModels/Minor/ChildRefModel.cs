@@ -1,19 +1,11 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="ChildRefModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
 
     /// <summary>
     /// GRAMPS Alt element class.
     /// </summary>
+    /// TODO Update fields as per Schema
     public class ChildRefModel : ModelBase, IChildRefModel
     {
         /// <summary>
@@ -62,7 +54,6 @@ namespace GrampsView.Data.Model
         public HLinkNoteModelCollection GNoteCollectionReference
         {
             get;
-           
         }
 
         = new HLinkNoteModelCollection();

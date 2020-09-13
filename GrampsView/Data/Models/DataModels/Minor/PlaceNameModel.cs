@@ -1,23 +1,12 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Address fields
-//
-// <copyright file="AddressModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Runtime.Serialization;
 
-    //// gramps XML 1.71
-    ////
-    /// value
-    /// lang
-    /// date-content
+    /// <summary>
+    /// Gramps XML 1.71 value lang date-content
     /// </summary>
+    /// TODO Update fields as per Schema
     public class PlaceNameModel : ModelBase, IPlaceNameModel, IComparable<PlaceNameModel>, IEquatable<PlaceNameModel>
     {
         public PlaceNameModel()

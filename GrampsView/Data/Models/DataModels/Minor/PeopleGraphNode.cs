@@ -1,25 +1,22 @@
-﻿// <copyright file="PeopleGraphNode.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// TODO Update fields as per Schema
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase" />
+    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
     /// ///
-    /// <seealso cref="System.IComparable" />
+    /// <seealso cref="System.IComparable"/>
     /// ///
-    /// <seealso cref="System.Collections.IComparer" />
+    /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
     public sealed class PeopleGraphNode : ModelBase, IComparable, IComparer
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleGraphNode" /> class.
+        /// Initializes a new instance of the <see cref="PeopleGraphNode"/> class.
         /// </summary>
         public PeopleGraphNode()
         {

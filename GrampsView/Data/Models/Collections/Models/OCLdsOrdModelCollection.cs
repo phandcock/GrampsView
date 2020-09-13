@@ -1,18 +1,15 @@
-﻿// <copyright file="OCLdsOrdModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
+    using System.Collections.ObjectModel;
+    using System.Runtime.Serialization;
+
     /// <summary>
+    /// LDS Ordination model collection
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<LdsOrdModel>))]

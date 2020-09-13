@@ -1,17 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="AltModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// GRAMPS Alt element class.
     /// </summary>
+    /// TODO Update fields as per Schema
     public class AltModel : ModelBase, IAltModel
     {
         /// <summary>
@@ -38,7 +30,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// turn the string 0 or 1 into true or false.
         /// </summary>
-        /// <param name="altString">returns the string version of the Alt value.</param>
+        /// <param name="altString">
+        /// returns the string version of the Alt value.
+        /// </param>
         public void SetAlt(string altString)
         {
             switch (altString)

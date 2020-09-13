@@ -1,8 +1,4 @@
-﻿// <copyright file="SurnameModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -13,9 +9,11 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Attribute model collection.
+    /// Surname model collection.
     /// </summary>
-    /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
+    /// <seealso cref="Collections.ObjectViewModel.ObservableCollection%7BData.ViewModel.AttributeModel%7D">
+    /// Collections.ObjectViewModel.ObservableCollection{Data.ViewModel.AttributeModel}
+    /// </seealso>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<SurnameModel>))]
     public class SurnameModelCollection : CardGroupBase<SurnameModel>

@@ -1,26 +1,14 @@
-﻿//-----------------------------------------------------------------------
-//
-// The data model defined by this file serves to hold Event data from the GRAMPS data file
-//
-// <copyright file="DateObjectModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Repository;
-
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// data model for an Date object ************************************************************.
     /// <code>
+    /// TODO Update fields as per Schema
     ///!ELEMENT daterange EMPTY&gt;
     ///!ATTLIST daterange
     ///start     CDATA                  #REQUIRED
@@ -55,7 +43,7 @@ namespace GrampsView.Data.Model
     ///!ATTLIST datestr val CDATA #REQUIRED&gt;
     /// </code>
     /// </summary>
- 
+
     public abstract class DateObjectModel : ModelBase, IDateObjectModel
     {
         /// <summary>
@@ -98,8 +86,6 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _GVal = string.Empty;
 
-   
-
         /// <summary>
         /// Notional Date field - The date used for sorting etc.
         /// </summary>
@@ -111,8 +97,6 @@ namespace GrampsView.Data.Model
         public DateObjectModel()
         {
         }
-
-    
 
         /// <summary>
         /// Gets the $$(cformat)$$ field.
@@ -161,8 +145,6 @@ namespace GrampsView.Data.Model
         public abstract int GetAge
         {
             get;
-           
-                      
         }
 
         /// <summary>
@@ -206,7 +188,6 @@ namespace GrampsView.Data.Model
         public abstract string GetYear
         {
             get;
-         
         }
 
         /// <summary>
@@ -326,8 +307,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-  
-
         /// <summary>
         /// Gets the get long date as string. Default so it can be overridden.
         /// </summary>
@@ -337,13 +316,7 @@ namespace GrampsView.Data.Model
         public abstract string LongDate
         {
             get;
-          
-          
         }
-
-  
-
-   
 
         /// <summary>
         /// Gets the default Date field.
@@ -371,29 +344,7 @@ namespace GrampsView.Data.Model
         public abstract string ShortDate
         {
             get;
-           
-         
         }
-
-        public abstract CardListLineCollection AsCardListLine(string argTitle = null);
-     
-
-        ///// <summary>
-        ///// Gets an empty string if a null date or the date string. Used for formatting. Default so
-        ///// it can be overridden.
-        ///// </summary>
-        //public string GetShortDateOrEmptyAsString
-        //{
-        //    get
-        //    {
-        //        if (!Valid)
-        //        {
-        //            return "Unknown";
-        //        }
-
-        //        return ShortDate;
-        //    }
-        //}
 
         public string ShortDateOrEmpty
         {
@@ -408,6 +359,9 @@ namespace GrampsView.Data.Model
             }
         }
 
+        //        return ShortDate;
+        //    }
+        //}
         /// <summary>
         /// Gets returns a single dateversion of the date field Because the field can have one or
         /// two dates etc this is trickier than it sounds. Overridden by more specific date types.
@@ -442,6 +396,18 @@ namespace GrampsView.Data.Model
             }
         }
 
+        ///// <summary>
+        ///// Gets an empty string if a null date or the date string. Used for formatting. Default so
+        ///// it can be overridden.
+        ///// </summary>
+        //public string GetShortDateOrEmptyAsString
+        //{
+        //    get
+        //    {
+        //        if (!Valid)
+        //        {
+        //            return "Unknown";
+        //        }
         //public DateTimeFormatter ShortDate
         //{
         //    get
@@ -495,14 +461,13 @@ namespace GrampsView.Data.Model
         public new bool Valid { get; set; } = false;
 
         [DataMember]
-        public  bool ValidYear { get; set; } = false;
+        public bool ValidDay { get; set; } = false;
 
         [DataMember]
-        public  bool ValidMonth { get; set; } = false;
+        public bool ValidMonth { get; set; } = false;
 
         [DataMember]
-        public  bool ValidDay { get; set; } = false;
-
+        public bool ValidYear { get; set; } = false;
 
         /// <summary>
         /// Implements the operator !=.
@@ -610,6 +575,8 @@ namespace GrampsView.Data.Model
         {
             return left is null ? right is null : left.CompareTo(right) >= 0;
         }
+
+        public abstract CardListLineCollection AsCardListLine(string argTitle = null);
 
         /// <summary>
         /// Compares two objects and returns a value indicating whether one is less than, equal to,
@@ -751,8 +718,6 @@ namespace GrampsView.Data.Model
         /// </returns>
         internal DateTime ConvertRFC1123StringToDateTime(string inputArg)
         {
-           
-
             // Try progressivly looser conversions
 
             // YYYY-MM-DD

@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS URL fields
-//
-// <copyright file="URLModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;
 

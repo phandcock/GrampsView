@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// The data model defined by this file serves to hold Event data from the GRAMPS data file
-//
-// <copyright file="SourceModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-/// - Completed
+﻿/// - Completed
 /// -- SecondaryColor-object
 /// -- stitle
 /// -- sauthor
@@ -21,12 +12,12 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// Source ViewModel.

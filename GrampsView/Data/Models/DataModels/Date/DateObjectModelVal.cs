@@ -1,8 +1,4 @@
-﻿// <copyright file="DateObjectModelVal.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
@@ -15,6 +11,7 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Create Val version of DateObjectModel.
     /// </summary>
+    /// TODO Update fields as per Schema
     [DataContract]
     public class DateObjectModelVal : DateObjectModel, IDateObjectModel
     {

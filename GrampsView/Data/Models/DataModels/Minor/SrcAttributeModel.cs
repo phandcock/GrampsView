@@ -1,17 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="SrcAttributeModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
-    /// GRAMPS Alt element class.
+    /// GRAMPS Alt element class. TODO Update fields as per Schema
     /// </summary>
+    /// TODO Update fields as per Schema
     public class SrcAttributeModel : ModelBase, ISourceAttributeModel
     {
         public SrcAttributeModel()
