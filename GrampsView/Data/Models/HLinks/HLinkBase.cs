@@ -166,7 +166,7 @@ namespace GrampsView.Data.Model
                 return 1;
             }
 
-            return HLinkKey.CompareTo((obj as HLinkBase).HLinkKey);
+            return string.Compare(HLinkKey, (obj as HLinkBase).HLinkKey, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public override bool Equals(object obj)
@@ -232,7 +232,7 @@ namespace GrampsView.Data.Model
                 throw new ArgumentNullException(nameof(y));
             }
 
-            return string.Compare( (x as HLinkBase).HLinkKey, (y as HLinkBase).HLinkKey, StringComparison.CurrentCulture);
+            return string.Compare((x as HLinkBase).HLinkKey, (y as HLinkBase).HLinkKey, StringComparison.CurrentCulture);
         }
     }
 }

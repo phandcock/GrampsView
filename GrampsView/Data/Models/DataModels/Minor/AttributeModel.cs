@@ -149,9 +149,9 @@ namespace GrampsView.Data.Model
             AttributeModel secondSource = (AttributeModel)obj;
 
             // compare on Page first TODO compare on Page?
-            int testFlag = GType.CompareTo(secondSource.GType);
+            return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);   
 
-            return testFlag;
+          
         }
     }
 }

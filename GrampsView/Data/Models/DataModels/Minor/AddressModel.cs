@@ -151,7 +151,7 @@ namespace GrampsView.Data.Model
                 throw new ArgumentNullException(nameof(other));
             }
 
-            return GetDefaultText.CompareTo(other.GetDefaultText);
+            return string.Compare( GetDefaultText, other.GetDefaultText,true,System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(AddressModel other)
