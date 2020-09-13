@@ -40,11 +40,12 @@
         </Frame>
     </DataTemplate>
 
-    <!--  Item Detail data template Large  -->
+    <!--  Item Detail data template Large  --><!--
     <DataTemplate x:Key="GVCardListLineLarge" x:Name="GVCardListLineLarge">
 
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
@@ -64,6 +65,12 @@
                 HorizontalTextAlignment="End"
                 Text="{Binding Value}"
                 TextColor="{StaticResource OnPrimaryColor}" />
+
+            <Button
+                Grid.Column="2"
+                FontSize="{x:Static common:CommonFontSize.FontSmall}"
+                Text="+"
+                TextColor="{StaticResource OnPrimaryColor}" />
         </Grid>
-    </DataTemplate>
+    </DataTemplate>-->
 </ResourceDictionary>

@@ -130,7 +130,8 @@ namespace GrampsView.ViewModels
                 CardListLineCollection nameDetails = new CardListLineCollection
                 {
                     new CardListLine("Card Type:", "Person Detail"),
-                };
+                    //new CardListLine(PersonObject.BirthDate.ShortDate, "Birth Date",PersonObject.BirthDate),
+            };
 
                 headerCardGroup.Add(nameDetails);
 

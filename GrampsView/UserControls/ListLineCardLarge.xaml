@@ -4,11 +4,19 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     Padding="0"
     x:DataType="models:CardListLineCollection"
     MinimumHeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <converters:StringToVisibleConverter x:Key="stringToBool" />
+            <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
+        </ResourceDictionary>
+    </Grid.Resources>
 
     <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
         <Grid Padding="5">
@@ -29,7 +37,8 @@
                 Padding="0"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
                                                   Light={StaticResource PrimaryColorLight}}"
-                CornerRadius="2">
+                CornerRadius="2"
+                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
                 <Label
                     x:Name="LLCardLargeTitle"
                     Margin="3,0,3,0"
@@ -48,6 +57,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <Label
@@ -63,6 +73,11 @@
                                 Style="{DynamicResource GVCardLabelStyle}"
                                 Text="{Binding Value}"
                                 VerticalTextAlignment="Start" />
+                            <Button
+                                Grid.Column="2"
+                                FontSize="{x:Static common:CommonFontSize.FontSmall}"
+                                IsVisible="{Binding HLink.Valid}"
+                                Text="+" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

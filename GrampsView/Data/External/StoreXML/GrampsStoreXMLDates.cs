@@ -162,8 +162,6 @@ namespace GrampsView.Data.ExternalStorageNS
             string aQuality = string.Empty;
             string aStart = string.Empty;
             string aStop = string.Empty;
-            string aVal = string.Empty;
-            string aValType = string.Empty;
 
             // check for date range
             try
@@ -219,7 +217,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModelSpan(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
+            return new DateObjectModelSpan(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop);
         }
 
         /// <summary>
@@ -318,8 +316,6 @@ namespace GrampsView.Data.ExternalStorageNS
             string aQuality = string.Empty;
             string aStart = string.Empty;
             string aStop = string.Empty;
-            string aVal = string.Empty;
-            string aValType = string.Empty;
 
             // check for date range
             try
@@ -375,7 +371,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 throw;
             }
 
-            return new DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal);
+            return new DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop);
         }
     }
 }
