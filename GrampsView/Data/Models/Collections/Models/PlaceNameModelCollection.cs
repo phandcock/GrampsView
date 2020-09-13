@@ -1,8 +1,4 @@
-﻿// <copyright file="OCAttributeModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -29,6 +25,8 @@ namespace GrampsView.Data.Collections
         {
             get
             {
+                // TODO Why first?
+
                 if (this.Count > 0)
                 {
                     return this[0].GValue;

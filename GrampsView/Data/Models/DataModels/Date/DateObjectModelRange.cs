@@ -1,13 +1,10 @@
-﻿// <copyright file="DateObjectModelRange.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
 
     /// <summary>
     /// Create Val version of DateObjectModel.
+    /// TODO Update fields as per Schema
     /// </summary>
 
     public partial class DateObjectModelRange : DateObjectModel, IDateObjectModel

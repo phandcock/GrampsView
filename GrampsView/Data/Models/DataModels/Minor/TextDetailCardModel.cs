@@ -1,8 +1,4 @@
-﻿// <copyright file="InstructCardModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;
 
@@ -10,8 +6,9 @@ namespace GrampsView.Data.Model
     public class InstructCardModel : ModelBase, IInstructCardModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstructCardModel" /> class.
+        /// Initializes a new instance of the <see cref="InstructCardModel"/> class.
         /// </summary>
+        /// TODO Update fields as per Schema
         public InstructCardModel()
         {
         }

@@ -14,7 +14,7 @@
 ////    type
 ////    styledtext
 ///     tagref
-///
+///TODO Update fields as per Schema
 
 namespace GrampsView.Data.Model
 {

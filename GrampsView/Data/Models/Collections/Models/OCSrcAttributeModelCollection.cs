@@ -1,8 +1,4 @@
-﻿// <copyright file="OCSrcAttributeModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -13,6 +9,7 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// Source Attribute model collection
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.SrcAttributeModel}"/>
     [CollectionDataContract]
@@ -21,7 +18,7 @@ namespace GrampsView.Data.Collections
     {
         public OCSrcAttributeModelCollection()
         {
-            Title = "Attribute Collection";
+            Title = "Source Attribute Collection";
         }
     }
 }

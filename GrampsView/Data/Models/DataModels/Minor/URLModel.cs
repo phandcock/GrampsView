@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS URL fields
-//
-// <copyright file="URLModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
@@ -23,7 +14,7 @@ namespace GrampsView.Data.Model
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
-    /// GRAMPS URL element class.
+    /// GRAMPS URL element class. TODO Update fields as per Schema
     /// </summary>
     public class URLModel : ModelBase, IURLModel
     {

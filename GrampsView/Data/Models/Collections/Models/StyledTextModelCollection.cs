@@ -1,8 +1,4 @@
-﻿// <copyright file="StyledTextModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -12,7 +8,7 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Attribute model collection.
+    /// Styled Text model collection.
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]

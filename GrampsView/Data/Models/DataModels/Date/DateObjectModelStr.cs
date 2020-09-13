@@ -1,8 +1,4 @@
-﻿// <copyright file="DateObjectModelStr.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Repository;
 
@@ -11,94 +7,9 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Create Str version of DateObjectModel.
     /// </summary>
-
-    public  class DateObjectModelStr : DateObjectModel, IDateObjectModel
+    /// TODO Update fields as per Schema
+    public class DateObjectModelStr : DateObjectModel, IDateObjectModel
     {
-        /// <summary>
-        /// Not a properly formatted date so return 0;
-        /// </summary>
-        public override int GetAge
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// Not a DateTime so return the String GVal.
-        /// </summary>
-        /// <value>
-        /// The get long date as string.
-        /// </value>
-        public override string LongDate
-        {
-            get
-            {
-                return GVal;
-            }
-        }
-
-        public override CardListLineCollection AsCardListLine(string argTitle = null)
-        {
-
-            CardListLineCollection DateModelCard = new CardListLineCollection();
-
-            if (this.Valid)
-            {
-              
-                
-                            DateModelCard = new CardListLineCollection
-                            {
-                                new CardListLine("Date Type:", "String"),
-                                new CardListLine("Notional Date:", this.LongDate),
-                                new CardListLine("Val:", this.GVal),
-                            };
-
-                   
-
-                
-                }
-           
-
-            if (!(string.IsNullOrEmpty(argTitle)))
-            {
-                DateModelCard.Title = argTitle;
-            }
-
-            return DateModelCard;
-
-
-        }
-        /// <summary>
-        /// Gets the string version of the date field.
-        /// </summary>
-        /// <returns>
-        /// a string version of the date.
-        /// </returns>
-        public override  string ShortDate
-        {
-            get
-            {
-                return GVal;
-            }
-        }
-
-        public override  string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return GVal;
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but
         /// stored as a string so can not be converted to a DateTime.
@@ -124,7 +35,7 @@ namespace GrampsView.Data.Model
         /// <param name="aVal">
         /// a value.
         /// </param>
-        public  DateObjectModelStr(string aVal)
+        public DateObjectModelStr(string aVal)
         {
             try
             {
@@ -141,6 +52,82 @@ namespace GrampsView.Data.Model
                 DataStore.CN.NotifyException("Error in SetDate", e);
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Not a properly formatted date so return 0;
+        /// </summary>
+        public override int GetAge
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public override string GetYear
+        {
+            get
+            {
+                if (Valid)
+                {
+                    return GVal;
+                }
+                else
+                {
+                    return "Unknown";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Not a DateTime so return the String GVal.
+        /// </summary>
+        /// <value>
+        /// The get long date as string.
+        /// </value>
+        public override string LongDate
+        {
+            get
+            {
+                return GVal;
+            }
+        }
+
+        /// <summary>
+        /// Gets the string version of the date field.
+        /// </summary>
+        /// <returns>
+        /// a string version of the date.
+        /// </returns>
+        public override string ShortDate
+        {
+            get
+            {
+                return GVal;
+            }
+        }
+
+        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        {
+            CardListLineCollection DateModelCard = new CardListLineCollection();
+
+            if (this.Valid)
+            {
+                DateModelCard = new CardListLineCollection
+                            {
+                                new CardListLine("Date Type:", "String"),
+                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Val:", this.GVal),
+                            };
+            }
+
+            if (!(string.IsNullOrEmpty(argTitle)))
+            {
+                DateModelCard.Title = argTitle;
+            }
+
+            return DateModelCard;
         }
     }
 }

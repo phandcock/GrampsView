@@ -1,24 +1,14 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="PersonNameModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
 
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
     /// <summary>
-    /// Class for holding a person's name.
+    /// TODO Update fields as per Schema Class for holding a person's name.
     /// <list type="table">
     /// <item>
     /// <description>Attribute</description>

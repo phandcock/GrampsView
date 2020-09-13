@@ -1,8 +1,4 @@
-﻿// <copyright file="DateObjectModelSpan.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Repository;
 
@@ -11,11 +7,11 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Create Val version of DateObjectModel.
     /// </summary>
-
+    /// TODO Update fields as per Schema
     public partial class DateObjectModelSpan : DateObjectModel, IDateObjectModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateObjectModelSpan" /> class.
+        /// Initializes a new instance of the <see cref="DateObjectModelSpan"/> class.
         /// </summary>
         /// <param name="aType">
         /// a type.
@@ -24,7 +20,7 @@ namespace GrampsView.Data.Model
         /// a c format.
         /// </param>
         /// <param name="aDualDated">
-        /// if set to <c> true </c> [a dual dated].
+        /// if set to <c>true</c> [a dual dated].
         /// </param>
         /// <param name="aNewYear">
         /// a new year.
@@ -45,7 +41,40 @@ namespace GrampsView.Data.Model
         /// Type of a value.
         /// </param>
 
-        public override  int GetAge
+        public DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop)
+        {
+            // check for date range
+            try
+            {
+                GCformat = aCFormat;
+
+                // dualdated value #REQUIRED
+                GDualdated = aDualDated;
+
+                // newyear CDATA #IMPLIED
+                GNewYear = aNewYear;
+
+                // type CDATA #REQUIRED
+                GQuality = aQuality;
+
+                // start CDATA #REQUIRED
+                GStart = aStart;
+
+                // stop CDATA #REQUIRED
+                GStop = aStop;
+
+                // Set NotionalDate
+                NotionalDate = ConvertRFC1123StringToDateTime(GStart);
+            }
+            catch (Exception e)
+            {
+                // TODO
+                DataStore.CN.NotifyException("Error in SetDate", e);
+                throw;
+            }
+        }
+
+        public override int GetAge
         {
             get
             {
@@ -56,6 +85,21 @@ namespace GrampsView.Data.Model
                 outputAge = today.Year - NotionalDate.Year;
 
                 return outputAge;
+            }
+        }
+
+        public override string GetYear
+        {
+            get
+            {
+                if (Valid)
+                {
+                    return GStart + " to " + GStop;
+                }
+                else
+                {
+                    return "Unknown";
+                }
             }
         }
 
@@ -104,29 +148,12 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public override string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return GStart + " to " + GStop;
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
-
         public override CardListLineCollection AsCardListLine(string argTitle = null)
         {
-
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
             if (this.Valid)
             {
-
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date Type:", "Span"),
@@ -139,51 +166,13 @@ namespace GrampsView.Data.Model
                                 new CardListLine("New Year:", this.GNewYear),
                             };
 
-
-
                 if (!(string.IsNullOrEmpty(argTitle)))
                 {
                     DateModelCard.Title = argTitle;
                 }
-
-             
-
             }
 
             return DateModelCard;
-        }
-
-        public  DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop)
-        {
-            // check for date range
-            try
-            {
-                GCformat = aCFormat;
-
-                // dualdated value #REQUIRED
-                GDualdated = aDualDated;
-
-                // newyear CDATA #IMPLIED
-                GNewYear = aNewYear;
-
-                // type CDATA #REQUIRED
-                GQuality = aQuality;
-
-                // start CDATA #REQUIRED
-                GStart = aStart;
-
-                // stop CDATA #REQUIRED
-                GStop = aStop;
-
-                // Set NotionalDate
-                NotionalDate = ConvertRFC1123StringToDateTime(GStart);
-            }
-            catch (Exception e)
-            {
-                // TODO
-                DataStore.CN.NotifyException("Error in SetDate", e);
-                throw;
-            }
         }
     }
 }

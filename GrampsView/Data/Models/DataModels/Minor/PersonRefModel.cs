@@ -1,20 +1,12 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="SrcAttributeModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-using GrampsView.Data.Collections;
-using GrampsView.Data.DataView;
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.DataView;
+
     /// <summary>
-    /// GRAMPS Alt element class.
+    /// GRAMPS Alt element class. TODO Update fields as per Schema
     /// </summary>
+    /// TODO Update fields as per Schema
     public class PersonRefModel : ModelBase, IPersonRefModel
     {
         public new PersonModel DeRef
@@ -47,7 +39,7 @@ namespace GrampsView.Data.Model
         /// </value>
         public HLinkNoteModelCollection GNoteCollection
         {
-            get; 
+            get;
         }
 
             = new HLinkNoteModelCollection();

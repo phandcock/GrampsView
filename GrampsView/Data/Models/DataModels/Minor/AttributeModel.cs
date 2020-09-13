@@ -6,7 +6,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-
+/// TODO Update fields as per Schema
 ////<define name = "attribute-content" >
 ////  < optional >
 ////    < attribute name="priv">
@@ -30,16 +30,17 @@
 ////    </element>
 ////  </zeroOrMore>
 ////</define>
+///TODO Update fields as per Schema
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// GRAMPS Alt element class.
@@ -149,9 +150,7 @@ namespace GrampsView.Data.Model
             AttributeModel secondSource = (AttributeModel)obj;
 
             // compare on Page first TODO compare on Page?
-            return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);   
-
-          
+            return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);
         }
     }
 }

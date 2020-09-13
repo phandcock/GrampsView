@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Address fields
-//
-// <copyright file="AddressModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Collections.Generic;
@@ -16,7 +7,7 @@ namespace GrampsView.Data.Model
     using static GrampsView.Common.CommonEnums;
 
     //// gramps XML 1.71
-    ////
+    //// TODO Update fields as per Schema
     //// style
     //// name
     //// value
@@ -46,7 +37,7 @@ namespace GrampsView.Data.Model
                 throw new ArgumentNullException(nameof(other));
             }
 
-            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);  
+            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(StyledTextModel other)
