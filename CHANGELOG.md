@@ -1,3 +1,13 @@
+## [16.9.4](https://github.com/phandcock/GrampsView/compare/16.9.3...16.9.4) (2020-09-14)
+
+
+### Bug Fixes
+
+* tweaks.  Start work on CardListLine linking ([3d644ed](https://github.com/phandcock/GrampsView/commit/3d644edde6afcb032cc0559783d7807022a21dfb))
+* tweal string comapre to use current culture info ([87dde5b](https://github.com/phandcock/GrampsView/commit/87dde5ba53c29f8da81a48ec4db45fa9ee18faee))
+
+
+
 ## [16.9.3](https://github.com/phandcock/GrampsView/compare/16.9.2...16.9.3) (2020-09-13)
 
 
@@ -38,15 +48,6 @@
 ### Features
 
 * group families by name ([bca3828](https://github.com/phandcock/GrampsView/commit/bca38287d97f8ce913ea499f098fdb7be6326378)), closes [#350](https://github.com/phandcock/GrampsView/issues/350)
-
-
-
-# [16.8.0](https://github.com/phandcock/GrampsView/compare/16.7.1...16.8.0) (2020-09-04)
-
-
-### Features
-
-* group people names by surname ([2b8119c](https://github.com/phandcock/GrampsView/commit/2b8119c15c675f96b0ef8e265ed2d150ec26d4cd)), closes [#349](https://github.com/phandcock/GrampsView/issues/349)
 
 
 
