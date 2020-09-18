@@ -73,11 +73,7 @@
                                 Style="{DynamicResource GVCardLabelStyle}"
                                 Text="{Binding Value}"
                                 VerticalTextAlignment="Start" />
-                            <Button
-                                Grid.Column="2"
-                                FontSize="{x:Static common:CommonFontSize.FontSmall}"
-                                IsVisible="{Binding HLink.Valid}"
-                                Text="+" />
+                          
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

@@ -307,6 +307,9 @@
     <Compile Update="UserControls\InstructionCardLarge.xaml.cs">
       <DependentUpon>InstructionCardLarge.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\PersonNameCardSingle.xaml.cs">
+      <DependentUpon>PersonNameCardSingle.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\PersonRefCardSmall.xaml.cs">
       <DependentUpon>PersonRefCardSmall.xaml</DependentUpon>
     </Compile>

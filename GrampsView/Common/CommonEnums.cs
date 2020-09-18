@@ -18,6 +18,8 @@
             MediaCardLarge,
             MediaImageFullCard,
             NoteCardFull,
+            PersonNameCardSingle,
+            PersonNameCardSmall,
             SourceCardSmall,
         }
 

@@ -11,6 +11,8 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// HLink to the Header model.
     /// </summary>
+
+    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {

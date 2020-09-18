@@ -130,15 +130,15 @@ namespace GrampsView.ViewModels
                 CardListLineCollection nameDetails = new CardListLineCollection
                 {
                     new CardListLine("Card Type:", "Person Detail"),
-                    //new CardListLine(PersonObject.BirthDate.ShortDate, "Birth Date",PersonObject.BirthDate),
             };
 
                 headerCardGroup.Add(nameDetails);
 
                 // Get the Name Details
-                headerCardGroup.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
+                headerCardGroup.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
 
                 // Get date card
+
                 headerCardGroup.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
 
                 // Get details on persons age etc

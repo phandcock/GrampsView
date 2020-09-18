@@ -16,14 +16,17 @@
         private const double CardLargeWidthDefault = 420;
         private const double CardMediumHeightDefault = 300;
         private const double CardMediumWidthDefault = 300;
+        private const double CardSingleHeightDefault = 180;
+        private const double CardSingleWidthDefault = 270;
         private const double CardSmallHeightDefault = 270;
         private const double CardSmallWidthDefault = 270;
-
         private static double _CardLargeDoubleWidth = CardLargeWidthDefault;
         private static double _CardLargeHeight = CardLargeHeightDefault;
         private static double _CardLargeWidth = CardLargeWidthDefault;
         private static double _CardMediumHeight = CardMediumHeightDefault;
         private static double _CardMediumWidth = CardMediumWidthDefault;
+        private static double _CardSingleHeight = CardSingleHeightDefault;
+        private static double _CardSingleWidth = CardSingleWidthDefault;
         private static double _CardSmallHeight = CardSmallHeightDefault;
         private static double _CardSmallWidth = CardSmallWidthDefault;
 
@@ -74,6 +77,22 @@
             }
         }
 
+        public double CardSingleHeight
+        {
+            get
+            {
+                return _CardSingleHeight;
+            }
+        }
+
+        public double CardSingleWidth
+        {
+            get
+            {
+                return _CardSingleWidth;
+            }
+        }
+
         public double CardSmallHeight
         {
             get
@@ -92,11 +111,13 @@
 
         public void ReCalculateCardWidths()
         {
+            SetCardSingleWidth();
             SetCardSmallWidth();
             SetCardMediumWidth();
             SetCardLargeWidth();
             SetCardLargeDoubleWidth();
 
+            SetCardSingleHeight();
             SetCardSmallHeight();
             SetCardMediumHeight();
             SetCardLargeHeight();
@@ -105,7 +126,9 @@
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged == null)
+            {
                 return;
+            }
 
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -294,6 +317,87 @@
             _CardMediumWidth = outVal;
 
             OnPropertyChanged(nameof(CardMediumWidth));
+        }
+
+        private void SetCardSingleHeight()
+        {
+            double outVal;
+
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Unsupported:
+
+                case TargetIdiom.Desktop:
+                    outVal = CardSingleWidth / 6;
+                    break;
+
+                case TargetIdiom.Tablet:
+                    outVal = CardSingleWidth / 6;
+                    break;
+
+                case TargetIdiom.Phone:
+                    outVal = CardSingleWidth / (6 * DeviceDisplay.MainDisplayInfo.Density);
+                    break;
+
+                default:
+                    outVal = CardSingleWidth / 6;
+                    break;
+            };
+
+            _CardSingleHeight = outVal;
+
+            OnPropertyChanged(nameof(CardSingleHeight));
+        }
+
+        private void SetCardSingleWidth()
+        {
+            double outVal;
+
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Unsupported:
+
+                case TargetIdiom.Desktop:
+                case TargetIdiom.Tablet:
+                    outVal = CardSingleWidthDefault;
+                    break;
+
+                case TargetIdiom.Phone:
+                    switch (DataStore.AD.CurrentOrientation)
+                    {
+                        case DisplayOrientation.Portrait:
+                            {
+                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                break;
+                            }
+                        case DisplayOrientation.Landscape:
+                            {
+                                outVal = CardSingleWidthDefault;
+                                break;
+                            }
+                        default:
+                            {
+                                outVal = CardSingleWidthDefault;
+                                break;
+                            }
+                    }
+                    break;
+
+                default:
+                    outVal = CardSingleWidthDefault;
+                    break;
+            };
+
+            // Check size
+            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            {
+                outVal = DeviceDisplay.MainDisplayInfo.Width;
+            }
+
+            Debug.WriteLine("Card Single Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            _CardSingleWidth = outVal;
+
+            OnPropertyChanged(nameof(CardSingleWidth));
         }
 
         private void SetCardSmallHeight()
