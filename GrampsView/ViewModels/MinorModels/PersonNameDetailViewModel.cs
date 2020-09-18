@@ -9,9 +9,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Navigation;
 
-    using System.Diagnostics.Contracts;
-    using System.Threading.Tasks;
-
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>

@@ -17,6 +17,8 @@
 //// citationref
 //// noteref
 
+/// TODO Update fields as per Schema
+
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;

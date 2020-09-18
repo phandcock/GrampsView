@@ -47,8 +47,6 @@
         <usercontrols:CitationCardSmall />
     </DataTemplate>
 
-
-
     <DataTemplate x:Key="EventCardSmallDT">
         <usercontrols:EventCardSmall />
     </DataTemplate>
@@ -91,6 +89,10 @@
 
     <DataTemplate x:Key="PersonCardSmallDT">
         <usercontrols:PersonCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonNameCardSingleDT">
+        <usercontrols:PersonNameCardSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonNameCardSmallDT">
@@ -142,7 +144,8 @@
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
         ParentLinkTemplate="{StaticResource ParentLinkCardSmallDT}"
-        PersonNameTemplate="{StaticResource PersonNameCardSmallDT}"
+        PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT }"
+        PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
         PersonTemplate="{StaticResource PersonCardSmallDT}"
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"

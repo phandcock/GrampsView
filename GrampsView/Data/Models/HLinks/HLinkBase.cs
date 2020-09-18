@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="HLinkBase.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
@@ -19,6 +13,8 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// GRAMPS $$(Hlink)$$ element class.
     /// </summary>
+
+    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkBase : CommonBindableBase, IHLinkBase
     {

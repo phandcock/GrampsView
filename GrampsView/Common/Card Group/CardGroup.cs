@@ -16,6 +16,8 @@ namespace GrampsView.Common
     using System;
     using System.Diagnostics.Contracts;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// </summary>
     public class CardGroup : CardGroupBase<object>
@@ -39,6 +41,15 @@ namespace GrampsView.Common
             };
 
             base.Add(t);
+        }
+
+        public void Add(HLinkBase argCard, DisplayFormat argDisplayFormat = DisplayFormat.Default)
+        {
+            Contract.Assert(argCard != null);
+
+            argCard.CardType = argDisplayFormat;
+
+            base.Add(argCard);
         }
 
         public void Add(CardGroup argCardGroup)
@@ -129,16 +140,6 @@ namespace GrampsView.Common
                 base.Add(argCardGroup);
             }
         }
-
-        //public void Add(CardGroupBase<PersonRefModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-        //        base.Add(argCardGroup);
-        //    }
-        //}
 
         public void Add(CardGroupBase<SurnameModel> argCardGroup)
         {

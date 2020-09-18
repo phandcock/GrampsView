@@ -9,13 +9,15 @@
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// HLink to an Address model.
     /// </summary>
+
+    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {

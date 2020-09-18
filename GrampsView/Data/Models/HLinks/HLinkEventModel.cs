@@ -9,6 +9,8 @@
 //
 // HLink
 
+/// TODO Update fields as per Schema
+
 namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;

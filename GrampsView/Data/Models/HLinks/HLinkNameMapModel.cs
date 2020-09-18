@@ -11,6 +11,8 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
+
+    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkNameMapModel : HLinkBase, IHLinkNameMapModel
     {

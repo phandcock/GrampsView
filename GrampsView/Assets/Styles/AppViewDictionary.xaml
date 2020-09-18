@@ -152,6 +152,26 @@
     </Style>
 
     <!--
+        Create Single Line Card Styles
+    -->
+    <Style
+        x:Key="FrameCardSingleStyle"
+        BasedOn="{StaticResource FrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+    </Style>
+
+    <Style
+        x:Key="FrameSingleFixedCardStyle"
+        BasedOn="{StaticResource FrameCardSingleStyle}"
+        TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <!--
         Create Small Card Styles
     -->
     <Style
@@ -336,6 +356,14 @@
     </Style>
 
     <Style
+        x:Key="GridSingleFixedCardStyle"
+        BasedOn="{StaticResource GridBaseStyle}"
+        TargetType="Grid">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+    </Style>
+    
+    <Style
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
@@ -481,7 +509,6 @@
         <Setter Property="MaxLines" Value="4" />
     </Style>
 
-
     <!--  Create a Large Style for a Text Block Header  -->
     <Style
         x:Key="GVHeaderStyleLarge"
@@ -498,7 +525,6 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
     </Style>
-
 
     <!--  Create a Instructions Style for a Label  -->
     <Style

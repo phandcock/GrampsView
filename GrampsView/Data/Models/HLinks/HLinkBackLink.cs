@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various note models
-//
-// <copyright file="HLinkBackLink.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-// XML 171 - Not in definition so created this for use with BackLink functionality
+﻿// XML 171 - Not in definition so created this for use with BackLink functionality
 //
 // HLink
 
@@ -18,6 +9,8 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
+
+    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkBackLink : HLinkBase
     {

@@ -11,6 +11,8 @@
 //// gramps XML 1.71 - Done
 ////
 
+/// TODO Update fields as per Schema
+
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
