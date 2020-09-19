@@ -10,7 +10,7 @@
 
     <Frame Style="{DynamicResource FrameMediumFixedCardStyleNS}">
 
-        <Grid>
+        <Grid Margin="0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -29,12 +29,12 @@
                 Grid.ColumnSpan="2"
                 Margin="0"
                 Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
+                                                  Light={StaticResource SurfaceDark1ColorLight}}"
                 CornerRadius="2">
 
                 <Label
-                    Margin="5,2,2,2"
+                    Margin="0"
                     Style="{StaticResource GVHeaderStyleMedium}"
                     Text="Parents" />
             </Frame>
