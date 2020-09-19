@@ -16,7 +16,9 @@ namespace GrampsView.ViewModels
         private bool _BaseIsLoading;
 
         private HLinkBase _BaseNavParamsHLink = null;
+
         private object _BaseNavParamsModel = null;
+
         private string _BaseTitle = string.Empty;
 
         private string _BaseTitleIcon = string.Empty;

@@ -18,12 +18,30 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <Frame
+                x:Name="LLCardLargeFrame"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0"
+                Padding="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                  Light={StaticResource SecondaryColorLight}}"
+                CornerRadius="2">
+
+                <Label
+                    Margin="5,2,2,2"
+                    Style="{StaticResource GVHeaderStyleMedium}"
+                    Text="Parents" />
+            </Frame>
+
             <ucon:PersonLink
                 x:Name="AnchorImage1"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="0"
                 BindingContext="{Binding Parents.GFather, Mode=OneWay}"
                 HorizontalOptions="Center"
@@ -32,7 +50,7 @@
 
             <ucon:PersonLink
                 x:Name="AnchorImage2"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="1"
                 BindingContext="{Binding Parents.GMother, Mode=OneWay}"
                 HorizontalOptions="Center"

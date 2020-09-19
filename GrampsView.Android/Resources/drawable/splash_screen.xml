@@ -8,6 +8,8 @@
     <bitmap
       android:src="@mipmap/ic_launcher"
       android:tileMode="disabled"
-      android:gravity="center" />
+      android:gravity="center"
+      android:scaleHeight="200"
+      android:scaleWidth="200" />
   </item>
 </layer-list>

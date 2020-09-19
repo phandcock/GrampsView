@@ -345,13 +345,13 @@
     <!--  Create a Base Style for a Grid Style  -->
     <Style x:Key="GridBaseStyle" TargetType="Grid">
         <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style
         x:Key="CardImageBackground"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark}, Light={StaticResource PrimaryLightColorLight}}" />
     </Style>
 
@@ -359,15 +359,13 @@
         x:Key="GridSingleFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
-    
+
     <Style
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -375,7 +373,6 @@
         x:Key="GridMediumFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -383,23 +380,18 @@
         x:Key="GridLargeFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
         x:Key="GridLargeVariableCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
-    </Style>
+        TargetType="Grid" />
 
     <Style
         x:Key="GridSmallVariableCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <Setter Property="Padding" Value="0" />
-    </Style>
+        TargetType="Grid" />
 
     <!--
         ******************************************************
@@ -484,6 +476,14 @@
 
     <!--  Create a Small Style for a TextBlock  -->
     <Style
+        x:Key="GVHeaderStyleSmall"
+        BasedOn="{StaticResource GVCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource OnSecondaryColorLight}}" />
+    </Style> 
+
+    <Style
         x:Key="GVCardLabelStyleSmall"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
@@ -514,6 +514,7 @@
         x:Key="GVHeaderStyleLarge"
         BasedOn="{StaticResource GVLabelStyleLarge}"
         TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
@@ -548,6 +549,7 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
+
     <!--
         ******************************************************
         Listview Item Styles
