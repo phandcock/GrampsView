@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:usercontrols="clr-namespace:GrampsView.UserControls">
 
     <DataTemplate x:Key="AddressCardSmallDT">
@@ -14,28 +15,42 @@
     </DataTemplate>
 
     <DataTemplate x:Key="CardGroupDT">
+
         <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{StaticResource CardGroupStyle}">
-            <Grid x:Name="daGrid">
+            <Frame.Resources>
+                <ResourceDictionary>
+                    <converters:StringToVisibleConverter x:Key="stringToBool" />
+                    <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
+                </ResourceDictionary>
+            </Frame.Resources>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            <StackLayout
+                Grid.Row="1"
+                Padding="10"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start">
 
-                <Label
-                    Grid.Row="0"
-                    Margin="5,2,2,2"
-                    Text="{Binding Title}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
-                                                Light={StaticResource OnSurfaceColorLight}}" />
+                <Frame
+                    x:Name="LLCardLargeFrame"
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                      Light={StaticResource SecondaryColorLight}}"
+                    CornerRadius="2"
+                    IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
+
+                    <Label
+                        Margin="5,2,2,2"
+                        Style="{StaticResource GVHeaderStyleMedium}"
+                        Text="{Binding Title}" />
+                </Frame>
 
                 <FlexLayout
                     x:Name="CardGroupTemplateFlexer"
-                    Grid.Row="1"
                     BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
                     BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
                     Style="{StaticResource FlexLayoutCards}" />
-            </Grid>
+            </StackLayout>
         </Frame>
     </DataTemplate>
 
@@ -144,7 +159,7 @@
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
         ParentLinkTemplate="{StaticResource ParentLinkCardSmallDT}"
-        PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT }"
+        PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
         PersonTemplate="{StaticResource PersonCardSmallDT}"
