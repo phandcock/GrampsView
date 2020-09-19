@@ -60,9 +60,6 @@
             layout.theCollectionView.ItemsSource = newVal;
         }
 
-        //protected void MyOnPropertyChanged(string propertyName)
-        //{
-        //    MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
+      
     }
 }

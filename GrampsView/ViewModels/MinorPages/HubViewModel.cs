@@ -1,20 +1,10 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="HubViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Assets.Strings;
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.Events;
     using GrampsView.UserControls;
 
     using Prism.Events;
@@ -51,44 +41,44 @@ namespace GrampsView.ViewModels
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
 
-            BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CheckHeroImageLoad, ThreadOption.BackgroundThread);
+            //BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CheckHeroImageLoad, ThreadOption.BackgroundThread);
         }
 
-        /// <summary>
-        /// Gets or sets the hero image.
-        /// </summary>
-        /// <value>
-        /// The hero image.
-        /// </value>
-        public HLinkMediaModel HeroImage
-        {
-            get
-            {
-                return _HeroImage;
-            }
+        ///// <summary>
+        ///// Gets or sets the hero image.
+        ///// </summary>
+        ///// <value>
+        ///// The hero image.
+        ///// </value>
+        //public HLinkMediaModel HeroImage
+        //{
+        //    get
+        //    {
+        //        return _HeroImage;
+        //    }
 
-            set
-            {
-                SetProperty(ref _HeroImage, value);
-            }
-        }
+        //    set
+        //    {
+        //        SetProperty(ref _HeroImage, value);
+        //    }
+        //}
 
-        public static void CheckHeroImageLoad(object value)
-        {
-            // TODO What is this for?
-        }
+        //public static void CheckHeroImageLoad(object value)
+        //{
+        //    // TODO What is this for?
+        //}
 
-        /// <summary>
-        /// Called when [navigating from].
-        /// </summary>
-        public void OnNavigatingFrom()
-        {
-            // Clear large Bitmap Image
-            if (HeroImage != null)
-            {
-                HeroImage.DeRef.FullImageClean();
-            }
-        }
+        ///// <summary>
+        ///// Called when [navigating from].
+        ///// </summary>
+        //public void OnNavigatingFrom()
+        //{
+        //    // Clear large Bitmap Image
+        //    if (HeroImage != null)
+        //    {
+        //        HeroImage.DeRef.FullImageClean();
+        //    }
+        //}
 
         /// <summary>
         /// Populate the Hub View.
@@ -103,16 +93,19 @@ namespace GrampsView.ViewModels
             };
 
             tt.Add(instructionCard);
-            BaseDetail.Add(tt);
+            BaseDetailList.Add(tt);
 
             // Get Header CardLarge
+            CardGroup hc = new CardGroup();
             HLinkHeaderModel HeaderCard = DV.HeaderDV.HeaderDataModel.HLink;
             HeaderCard.CardType = DisplayFormat.HeaderCardLarge;
-            BaseDetail.Add(HeaderCard);
+            hc.Add(HeaderCard);
 
             IHLinkMediaModel HeroImage = DV.MediaDV.GetRandomFromCollection(null);
             HeroImage.CardType = DisplayFormat.MediaCardLarge;
-            BaseDetail.Add(HeroImage);
+            hc.Add(HeroImage);
+
+            BaseDetailList.Add(hc);
 
             if (HeroImage == null)
             {
@@ -132,29 +125,29 @@ namespace GrampsView.ViewModels
                 toDoCardGroup.Add(item.HLink);
             }
 
-            BaseDetail.Add(toDoCardGroup);
+            BaseDetailList.Add(toDoCardGroup);
 
             // Setup Latest Changes list
 
             // TODO fix this LatestChanges.Add(DV.BookMarkDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.CitationDV.GetLatestChanges());
+            BaseDetailList.Add(DV.CitationDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.EventDV.GetLatestChanges());
+            BaseDetailList.Add(DV.EventDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.FamilyDV.GetLatestChanges());
+            BaseDetailList.Add(DV.FamilyDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.MediaDV.GetLatestChanges());
+            BaseDetailList.Add(DV.MediaDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.NoteDV.GetLatestChanges());
+            BaseDetailList.Add(DV.NoteDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.PersonDV.GetLatestChanges());
+            BaseDetailList.Add(DV.PersonDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.PlaceDV.GetLatestChanges());
+            BaseDetailList.Add(DV.PlaceDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.SourceDV.GetLatestChanges());
+            BaseDetailList.Add(DV.SourceDV.GetLatestChanges());
 
-            BaseDetail.Add(DV.TagDV.GetLatestChanges());
+            BaseDetailList.Add(DV.TagDV.GetLatestChanges());
 
             return;
         }

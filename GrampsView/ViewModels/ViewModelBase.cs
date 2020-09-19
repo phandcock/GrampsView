@@ -6,6 +6,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services.Dialogs;
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
@@ -104,6 +105,13 @@ namespace GrampsView.ViewModels
         }
 
         = new CardGroup();
+
+        public List<CardGroup> BaseDetailList
+        {
+            get;
+        }
+
+        = new List<CardGroup>();
 
         public IDialogService BaseDialogService
         {
