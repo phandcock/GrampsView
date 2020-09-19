@@ -36,8 +36,8 @@
                 Grid.Column="0"
                 Margin="0"
                 Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
+                                                  Light={StaticResource SurfaceDark1ColorLight}}"
                 CornerRadius="2"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
                 <Label

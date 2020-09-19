@@ -24,23 +24,19 @@
                 </ResourceDictionary>
             </Frame.Resources>
 
-            <StackLayout
-                Grid.Row="1"
-                Padding="10"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Start">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
 
                 <Frame
                     x:Name="LLCardLargeFrame"
                     Margin="0"
                     Padding="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                      Light={StaticResource SecondaryColorLight}}"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
+                                                      Light={StaticResource SurfaceDark1ColorLight}}"
                     CornerRadius="2"
                     IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
 
                     <Label
-                        Margin="5,2,2,2"
+                        Margin="5,0,0,0"
                         Style="{StaticResource GVHeaderStyleMedium}"
                         Text="{Binding Title}" />
                 </Frame>

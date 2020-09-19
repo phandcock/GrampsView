@@ -292,7 +292,7 @@
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark2ColorDark}, Light={StaticResource SurfaceDark2ColorLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark}, Light={StaticResource SurfaceDark1ColorLight}}" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
     </Style>
 
@@ -480,8 +480,8 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource OnSecondaryColorLight}}" />
-    </Style> 
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+    </Style>
 
     <Style
         x:Key="GVCardLabelStyleSmall"
@@ -497,7 +497,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource OnSecondaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
 
     <!--  Create a Large Style for a TextBlock  -->
@@ -515,7 +515,7 @@
         BasedOn="{StaticResource GVLabelStyleLarge}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor}, Light={StaticResource OnSecondaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
 
     <!--  Create a Large Style for a Full Text Note  -->
