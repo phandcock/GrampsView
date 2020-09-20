@@ -1,3 +1,15 @@
+## [16.9.5](https://github.com/phandcock/GrampsView/compare/16.9.4...16.9.5) (2020-09-20)
+
+
+### Bug Fixes
+
+* cleanup cardGroup title code ([f5771f4](https://github.com/phandcock/GrampsView/commit/f5771f41437ff4094f8000d888b79b39a9874d5d))
+* trial new detailPage layout ([5643cba](https://github.com/phandcock/GrampsView/commit/5643cbad18f461c0f33d9472c84a50ff7b7b5c5a))
+* tweak card header colours ([781de9c](https://github.com/phandcock/GrampsView/commit/781de9cc3be5b1539f3f999d773d4278fc69f050))
+* tweak display of person name to fit single card ([712ad33](https://github.com/phandcock/GrampsView/commit/712ad33d25a100882ff338a237e5ba6aed2d49a6))
+
+
+
 ## [16.9.4](https://github.com/phandcock/GrampsView/compare/16.9.3...16.9.4) (2020-09-14)
 
 
@@ -32,22 +44,6 @@
 ### Bug Fixes
 
 * code tweaks to remove warnings ([b66284a](https://github.com/phandcock/GrampsView/commit/b66284aa158371fba2e7cb0cfadc691ff91d39cc))
-
-
-
-# [16.9.0](https://github.com/phandcock/GrampsView/compare/16.8.0...16.9.0) (2020-09-06)
-
-
-### Bug Fixes
-
-* add app version to Header Card ([af6f915](https://github.com/phandcock/GrampsView/commit/af6f9155d0c4b0554370fa84e25d90d9faff91f4))
-* fix Family Card to use BirthNames ([f3fddb0](https://github.com/phandcock/GrampsView/commit/f3fddb031e0ac5b3d558717bcf462087ab9be7fc))
-* tweak layout of DataLogPage to reduce spacing ([37da1f8](https://github.com/phandcock/GrampsView/commit/37da1f870c246bf373a6bb68f4e4dc1559c009a9))
-
-
-### Features
-
-* group families by name ([bca3828](https://github.com/phandcock/GrampsView/commit/bca38287d97f8ce913ea499f098fdb7be6326378)), closes [#350](https://github.com/phandcock/GrampsView/issues/350)
 
 
 
