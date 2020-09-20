@@ -111,11 +111,13 @@ namespace GrampsView.ViewModels
                     //    });
                     //}
 
+                    // TODO ? above
+
                     BaseDetail.Add(PlaceObject.GPlaceNames);
                 }
 
                 // Details
-                BaseDetail.Add(PlaceObject.GLocation);
+                BaseDetail.Add(PlaceObject.GLocation); // TODO Why displayed if empty
                 BaseDetail.Add(PlaceObject.GPlaceRefCollection.GetCardGroup());
                 BaseDetail.Add(PlaceObject.PlaceChildCollection.GetCardGroup());
 

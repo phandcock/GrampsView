@@ -8,49 +8,11 @@
     Style="{DynamicResource GVBaseContentPage}">
 
     <NavigationPage.TitleView>
-        <Grid Style="{DynamicResource GVPageTitleStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{DynamicResource MaterialFontFamily}"
-                        Glyph="{Binding BaseTitleIcon}"
-                        Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource PrimaryColorLight}}" />
-                </Image.Source>
-            </Image>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
-                Text="{Binding BaseTitle, Mode=OneWay}" />
-        </Grid>
+        <ucon:TopMenu />
     </NavigationPage.TitleView>
 
     <!--  Content  -->
     <ucon:CollectionSingleCard FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
 
-    <!--<ScrollView>
 
-        <FlexLayout
-            BindableLayout.ItemTemplate="{StaticResource EventCardSmallDT}"
-            BindableLayout.ItemsSource="{Binding EventSource, Mode=OneWay}"
-            Style="{StaticResource FlexLayoutCards}" />
-
-    -->
-    <!--<userControls:FlexSingleGroupSingleCard
-            x:Name="flexLayout"
-            FsctSource="{Binding EventSource, Mode=OneWay}"
-            FsctTemplate="{StaticResource EventCardSmallDT}" />-->
-    <!--
-    </ScrollView>-->
 </ContentPage>
