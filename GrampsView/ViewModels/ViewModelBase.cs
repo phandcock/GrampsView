@@ -233,11 +233,12 @@ namespace GrampsView.ViewModels
             }
             set
             {
-                value = CommonRoutines.ReplaceLineSeperators(value);
+                if (!(value == null))
+                {
+                    value = CommonRoutines.ReplaceLineSeperators(value);
 
-                SetProperty(ref _BaseTitle, value);
-
-                //var t = this;
+                    SetProperty(ref _BaseTitle, value.Substring(0, value.Length > 50 ? 50 : value.Length));
+                }
             }
         }
 

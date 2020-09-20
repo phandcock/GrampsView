@@ -11,31 +11,7 @@
     mc:Ignorable="d">
 
     <NavigationPage.TitleView>
-        <Grid Style="{DynamicResource GVPageTitleStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{DynamicResource MaterialFontFamily}"
-                        Glyph="{Binding BaseTitleIcon}"
-                        Size="44"
-                          Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
-                </Image.Source>
-            </Image>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
-                Text="{Binding BaseTitle, Mode=OneWay}" />
-        </Grid>
+        <ucon:TopMenu />
     </NavigationPage.TitleView>
 
     <!--<Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
