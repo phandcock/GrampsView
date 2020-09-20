@@ -14,5 +14,5 @@
     <!--  Content  -->
     <ucon:CollectionSingleCard FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
 
-
+   
 </ContentPage>

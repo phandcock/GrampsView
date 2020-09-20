@@ -145,9 +145,9 @@ namespace GrampsView.Data.DataView
         /// <remarks>
         /// Only returns the original mediaitems and not the clipped ones added to speed things up.
         /// </remarks>
-        public override CardGroup GetAllAsCardGroup()
+        public override CardGroupBase<HLinkMediaModel> GetAllAsCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
 
             foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsClippedFile == false))
             {

@@ -1,4 +1,6 @@
-﻿<Frame
+﻿<!-- This exists as CollectionView i faster than FLexLayout for lists -->
+    
+    <Frame
     x:Class="GrampsView.UserControls.CollectionSingleCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"

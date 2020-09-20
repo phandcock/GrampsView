@@ -92,11 +92,11 @@ namespace GrampsView.Data.DataView
         /// <remarks>
         /// Assume sonly one header as per the spec.
         /// </remarks>
-        public override CardGroup GetAllAsCardGroup()
+        public override CardGroupBase<HLinkHeaderModel> GetAllAsCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupBase<HLinkHeaderModel> t = new CardGroupBase<HLinkHeaderModel>();
 
-            t.Add(HeaderDataModel);
+            t.Add(HeaderDataModel.HLink);
 
             // Sort TODO Sort t = HLinkCollectionSort(t);
 

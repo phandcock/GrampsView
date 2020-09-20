@@ -74,9 +74,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroup GetAllAsCardGroup()
+        public override CardGroupBase<HLinkNameMapModel> GetAllAsCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupBase<HLinkNameMapModel> t = new CardGroupBase<HLinkNameMapModel>();
 
             foreach (var item in DataDefaultSort)
             {

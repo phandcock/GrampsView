@@ -296,9 +296,6 @@
     <Compile Update="UserControls\General\CollectionHeaderSingleCard.xaml.cs">
       <DependentUpon>CollectionHeaderSingleCard.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
-      <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
-    </Compile>
     <Compile Update="UserControls\General\TopMenu.xaml.cs">
       <DependentUpon>TopMenu.xaml</DependentUpon>
     </Compile>

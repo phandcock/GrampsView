@@ -133,10 +133,10 @@ namespace GrampsView.Data.DataView
             return new ObservableCollection<PersonModel>(sortedList);
         }
 
-        // groups.Add(info); }
-        public override CardGroup GetAllAsCardGroup()
+        
+        public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupBase<HLinkPersonModel> t = new CardGroupBase<HLinkPersonModel>();
 
             foreach (var item in DataDefaultSort)
             {

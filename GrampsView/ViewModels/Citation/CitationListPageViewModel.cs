@@ -8,6 +8,7 @@ namespace GrampsView.ViewModels
 
     using GrampsView.Common;
     using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
 
     using Prism.Events;
     using Prism.Navigation;
@@ -30,7 +31,7 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconCitation;
         }
 
-        public CardGroup CitationSource
+        public CardGroupBase<HLinkCitationModel> CitationSource
         {
             get
             {
