@@ -194,7 +194,7 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public override CardGroup GetLatestChanges()
+        public override CardGroupBase<HLinkAdressModel> GetLatestChanges()
         {
             throw new NotImplementedException();
         }

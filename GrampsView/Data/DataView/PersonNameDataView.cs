@@ -191,7 +191,7 @@ namespace GrampsView.Data.DataView
             return returnMediaModel;
         }
 
-        public override CardGroup GetLatestChanges()
+        public override CardGroupBase<HLinkPersonNameModel> GetLatestChanges()
         {
             throw new NotImplementedException();
         }

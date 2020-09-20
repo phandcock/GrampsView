@@ -251,13 +251,13 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroup GetLatestChanges()
+        public override CardGroupBase<HLinkEventModel> GetLatestChanges()
         {
             DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
             IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-            CardGroup returnCardGroup = new CardGroup();
+            CardGroupBase<HLinkEventModel> returnCardGroup = new CardGroupBase<HLinkEventModel>();
 
             foreach (EventModel item in tt)
             {

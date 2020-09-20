@@ -50,6 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Assets\Styles\CardGroupBaseTemplatesDictionary.cs" />
     <Compile Remove="Assets\Styles\DarkThemeDictionary.cs" />
     <Compile Remove="Assets\Styles\LargeCardTemplatesDictionary.cs" />
     <Compile Remove="Assets\Styles\LargeRefCardTemplatesDictionary.cs" />
@@ -131,6 +132,7 @@
     <Compile Remove="UserControls\FamilyCardLarge.xaml.cs" />
     <Compile Remove="UserControls\General\CardGridMultiType.xaml.cs" />
     <Compile Remove="UserControls\General\CardGridSingleType.xaml.cs" />
+    <Compile Remove="UserControls\General\CardGroupBaseList.xaml.cs" />
     <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
@@ -187,6 +189,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Assets\Styles\CardGroupBaseTemplatesDictionary.xaml" />
     <EmbeddedResource Remove="Assets\Styles\DarkThemeDictionary.xaml" />
     <EmbeddedResource Remove="Assets\Styles\LargeCardTemplatesDictionary.xaml" />
     <EmbeddedResource Remove="Assets\Styles\LargeRefCardTemplates.xaml" />
@@ -205,6 +208,7 @@
     <EmbeddedResource Remove="UserControls\FamilyCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGridMultiType.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGridSingleType.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CardGroupBaseList.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCardEnum.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiGroupMultiCard.xaml" />
@@ -278,8 +282,14 @@
     <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\General\CardGroupHeader.xaml.cs">
+      <DependentUpon>CardGroupHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\CollectionCardList.xaml.cs">
       <DependentUpon>CollectionCardList.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\CardGroupBaseHeader.xaml.cs">
+      <DependentUpon>CardGroupBaseHeader.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\CollectionHeaderSingleCard.xaml.cs">
       <DependentUpon>CollectionHeaderSingleCard.xaml</DependentUpon>

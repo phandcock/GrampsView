@@ -48,7 +48,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        ObservableCollection<INoteModel> GetAllOfType(string argType);
+        CardGroupBase<INoteModel> GetAllOfType(string argType);
 
         List<SearchItem> SearchTag(string queryString);
     }

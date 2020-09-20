@@ -1,17 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="CardGroupCollection.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Common
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Collections.Specialized;
     using System.ComponentModel;
@@ -24,6 +16,16 @@ namespace GrampsView.Common
         public CardGroupBase()
         {
             this.CollectionChanged += Cards_CollectionChanged;
+        }
+
+        public CardGroupBase(IEnumerable<T> argList)
+        {
+            Contract.Assert(argList != null);
+
+            foreach (T item in argList)
+            {
+                base.Add(item);
+            }
         }
 
         /// <summary>
@@ -42,18 +44,8 @@ namespace GrampsView.Common
         /// </value>
         public bool Visible
         {
-            get
-            {
-                if (!(Items is null) && (Items.Count > 0))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+            get; set;
+        } = true;
 
         private void Cards_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -75,11 +67,21 @@ namespace GrampsView.Common
                         item.PropertyChanged += Cards_PropertyChanged;
                     }
                 }
+
+                if (!(Items is null) && (Items.Count > 0))
+                {
+                    Visible = true;
+                }
+                else
+                {
+                    Visible = false;
+                }
             }
         }
 
         private void Cards_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            // TODO What?
             throw new NotImplementedException();
         }
     }

@@ -41,11 +41,13 @@
                         Text="{Binding Title}" />
                 </Frame>
 
-                <FlexLayout
-                    x:Name="CardGroupTemplateFlexer"
-                    BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-                    BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
-                    Style="{StaticResource FlexLayoutCards}" />
+              
+                    <FlexLayout
+                        x:Name="CardGroupTemplateFlexer"
+                        BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+                        BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
+                        Style="{StaticResource FlexLayoutCards}" />
+             
             </StackLayout>
         </Frame>
     </DataTemplate>

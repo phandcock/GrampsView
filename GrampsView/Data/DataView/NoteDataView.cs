@@ -18,7 +18,6 @@ namespace GrampsView.Data.DataView
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Linq;
 
@@ -107,20 +106,20 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public ObservableCollection<INoteModel> GetAllOfType(string argType)
+        public CardGroupBase<INoteModel> GetAllOfType(string argType)
         {
             IEnumerable<INoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
 
-            return new ObservableCollection<INoteModel>(q);
+            return new CardGroupBase<INoteModel>(q);
         }
 
-        public override CardGroup GetLatestChanges()
+        public override CardGroupBase<HLinkNoteModel> GetLatestChanges()
         {
             DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
             IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-            CardGroup returnCardGroup = new CardGroup();
+            CardGroupBase<HLinkNoteModel> returnCardGroup = new CardGroupBase<HLinkNoteModel>();
 
             foreach (NoteModel item in tt)
             {

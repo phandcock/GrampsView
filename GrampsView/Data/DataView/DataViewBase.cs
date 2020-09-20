@@ -4,18 +4,13 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Linq;
-
     using GrampsView.Common;
-
     using GrampsView.Data.Model;
 
-    using GrampsView.Data.Repositories;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
 
     /// <summary>
     /// Partially based on http://stackoverflow.com/questions/8157140/net-4-0-indexer-with-observablecollection.
@@ -122,9 +117,7 @@ namespace GrampsView.Data.DataView
             throw new NotImplementedException();
         }
 
-        public abstract CardGroup GetLatestChanges();
-
-        //CardGroup IDataViewBase<TB, TU, TH>.GetLatestChanges() => throw new NotImplementedException();
+        public abstract CardGroupBase<TU> GetLatestChanges();
 
         /// <summary>
         /// Gets the model.
