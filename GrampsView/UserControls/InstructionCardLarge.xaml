@@ -6,7 +6,7 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     x:Name="InstructionCardLargeRoot"
     Padding="0"
-    BindingContextChanged="InstructionCardLargeRoot_BindingContextChanged"
+  
     MinimumHeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
@@ -25,7 +25,7 @@
                 x:Name="Instructions"
                 Grid.Row="0"
                 Grid.Column="0"
-                HorizontalOptions="Center"
+                HorizontalOptions="Center" Text="{Binding Text}"
                 Style="{DynamicResource GVLabelStyleInstructions}" />
         </Grid>
     </Frame>

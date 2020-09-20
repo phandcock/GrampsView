@@ -1,0 +1,13 @@
+﻿<CollectionView
+    x:Class="GrampsView.UserControls.CardGroupBaseList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="CollectionCardListRoot"
+    Margin="0"
+    BackgroundColor="Transparent"
+    ItemSizingStrategy="MeasureAllItems"
+    Style="{StaticResource CollectionViewBase}">
+    <CollectionView.ItemsLayout>
+        <LinearItemsLayout ItemSpacing="{StaticResource CollectionCardListItemMargin}" Orientation="Vertical" />
+    </CollectionView.ItemsLayout>
+</CollectionView>

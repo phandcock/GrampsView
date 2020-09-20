@@ -9,18 +9,18 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repositories;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
-    using GrampsView.Data.Repository;
 
     // The Family Repository </summary>
     public class FamilyDataView : DataViewBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>, IFamilyDataView
@@ -69,7 +69,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-
         public override CardGroup GetAllAsCardGroup()
         {
             CardGroup t = new CardGroup();
@@ -88,21 +87,40 @@ namespace GrampsView.Data.DataView
         {
             CardGroup t = new CardGroup();
 
-            var query = from item in DataViewData
-                        orderby item.FamilyDisplayName
-                        group item by (item.FamilyDisplayName) into g
-                        select new { GroupName = g.Key, Items = g };
+            // Union on the Father and Mother Surnames first
+            var queryBase = (
+                        from item in DataViewData
+                        select new
+                        {
+                            key = item.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname,
+                            item
+                        }
+                        )
+                        .Union(
+                                from item in DataViewData
+                                select new
+                                {
+                                    key = item.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname,
+                                    item
+                                }
+                                );
+
+            var query =
+                    from x in queryBase
+                    orderby x.key
+                    group x by (x.key) into g
+                    select new { GroupName = g.Key, Items = g };
 
             foreach (var g in query)
             {
-                CardGroup info = new CardGroup
+                CardGroupBase<HLinkFamilyModel> info = new CardGroupBase<HLinkFamilyModel>
                 {
                     Title = g.GroupName,
                 };
 
                 foreach (var item in g.Items)
                 {
-                    info.Add(item.HLink);
+                    info.Add(item.item.HLink);
                 }
 
                 t.Add(info);
@@ -110,7 +128,6 @@ namespace GrampsView.Data.DataView
 
             return t;
         }
-
 
         /// <summary>
         /// Gets all as hlink.
@@ -155,7 +172,7 @@ namespace GrampsView.Data.DataView
             // TODO fix this
             if (FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection.Count > 0)
             {
-                t.Add((HLinkPersonModel)FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0]);
+                t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0]);
                 return t;
             }
             else
@@ -177,7 +194,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            return (HLinkPersonModel)FamilyData.GetModelFromHLink(hlinkFamily).GMother;
+            return FamilyData.GetModelFromHLink(hlinkFamily).GMother;
         }
 
         /// <summary>
@@ -198,7 +215,7 @@ namespace GrampsView.Data.DataView
                 return t;
             }
 
-            t.Add((HLinkPersonModel)FamilyData.GetModelFromHLink(hlinkFamily).GMother);
+            t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GMother);
             return t;
         }
 
@@ -221,13 +238,13 @@ namespace GrampsView.Data.DataView
             return GetModelFromHLinkString(arg).GFather.DeRef;
         }
 
-        public override CardGroup GetLatestChanges()
+        public override CardGroupBase<HLinkFamilyModel> GetLatestChanges()
         {
             DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
             IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-            CardGroup returnCardGroup = new CardGroup();
+            CardGroupBase<HLinkFamilyModel> returnCardGroup = new CardGroupBase<HLinkFamilyModel>();
 
             foreach (FamilyModel item in tt)
             {

@@ -70,7 +70,7 @@ namespace GrampsView.Data.DataView
         /// </returns>
         HLinkHomeImageModel GetFirstImageFromCollection(TH theCollection);
 
-        CardGroup GetLatestChanges();
+        CardGroupBase<TU> GetLatestChanges();
 
         /// <summary>
         /// Gets the model from the hlink. Helper method.

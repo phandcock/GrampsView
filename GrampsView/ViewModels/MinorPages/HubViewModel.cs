@@ -5,12 +5,9 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.UserControls;
 
     using Prism.Events;
     using Prism.Navigation;
-
-    using System.Collections.ObjectModel;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -19,11 +16,6 @@
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Media object for the Hub 'Hero' image.
-        /// </summary>
-        private HLinkMediaModel _HeroImage = new HLinkMediaModel();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HubViewModel"/> class.
         /// </summary>
@@ -40,60 +32,69 @@
         {
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
-
-            //BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CheckHeroImageLoad, ThreadOption.BackgroundThread);
         }
 
-        ///// <summary>
-        ///// Gets or sets the hero image.
-        ///// </summary>
-        ///// <value>
-        ///// The hero image.
-        ///// </value>
-        //public HLinkMediaModel HeroImage
-        //{
-        //    get
-        //    {
-        //        return _HeroImage;
-        //    }
+        public CardGroupBase<InstructCardModel> Instructions
+        {
+            get
+            {
+                CardGroupBase<InstructCardModel> tt = new CardGroupBase<InstructCardModel>();
+                InstructCardModel instructionCard = new InstructCardModel
+                {
+                    TextDetails = AppResources.HubPage_IntroductionText,
+                };
 
-        //    set
-        //    {
-        //        SetProperty(ref _HeroImage, value);
-        //    }
-        //}
+                tt.Add(instructionCard);
 
-        //public static void CheckHeroImageLoad(object value)
-        //{
-        //    // TODO What is this for?
-        //}
+                return tt;
+            }
+        }
 
-        ///// <summary>
-        ///// Called when [navigating from].
-        ///// </summary>
-        //public void OnNavigatingFrom()
-        //{
-        //    // Clear large Bitmap Image
-        //    if (HeroImage != null)
-        //    {
-        //        HeroImage.DeRef.FullImageClean();
-        //    }
-        //}
+        public CardGroupBase<HLinkCitationModel> LatestCitationChanges { get { return DV.CitationDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkEventModel> LatestEventChanges { get { return DV.EventDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges { get { return DV.FamilyDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkMediaModel> LatestMediaChanges { get { return DV.MediaDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkNoteModel> LatestNoteChanges { get { return DV.NoteDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkPersonModel> LatestPersonChanges { get { return DV.PersonDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkPlaceModel> LatestPlaceChanges { get { return DV.PlaceDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkSourceModel> LatestSourceChanges { get { return DV.SourceDV.GetLatestChanges(); } }
+        public CardGroupBase<HLinkTagModel> LatestTagChanges { get { return DV.TagDV.GetLatestChanges(); } }
+
+        public CardGroupBase<HLinkNoteModel> ToDoList
+        {
+            get
+            {
+                // Setup ToDo list
+                CardGroupBase<INoteModel> t = DV.NoteDV.GetAllOfType(NoteModel.GTypeToDo);
+
+                CardGroupBase<HLinkNoteModel> toDoCardGroup = new CardGroupBase<HLinkNoteModel>()
+                {
+                    Title = "ToDo list",
+                };
+
+                foreach (NoteModel item in t)
+                {
+                    toDoCardGroup.Add(item.HLink);
+                }
+
+                return toDoCardGroup;
+            }
+        }
 
         /// <summary>
         /// Populate the Hub View.
         /// </summary>
         public override void PopulateViewModel()
         {
-            CardGroup tt = new CardGroup();
+            //CardGroup tt = new CardGroup();
 
-            InstructionCardLarge instructionCard = new InstructionCardLarge
-            {
-                BindingContext = AppResources.HubPage_IntroductionText,
-            };
+            //InstructionCardLarge instructionCard = new InstructionCardLarge
+            //{
+            //    BindingContext = AppResources.HubPage_IntroductionText,
+            //};
 
-            tt.Add(instructionCard);
-            BaseDetailList.Add(tt);
+            //tt.Add(instructionCard);
+            //BaseDetailList.Add(tt);
 
             // Get Header CardLarge
             CardGroup hc = new CardGroup();
@@ -105,49 +106,16 @@
             HeroImage.CardType = DisplayFormat.MediaCardLarge;
             hc.Add(HeroImage);
 
-            BaseDetailList.Add(hc);
+            BaseDetail.Add(hc);
 
-            if (HeroImage == null)
-            {
-                DataStore.CN.NotifyAlert("No images found in this data.  Consider adding some.");
-            }
-
-            // Setup ToDo list
-            ObservableCollection<INoteModel> t = DV.NoteDV.GetAllOfType(NoteModel.GTypeToDo);
-
-            CardGroup toDoCardGroup = new CardGroup
-            {
-                Title = "ToDo list"
-            };
-
-            foreach (NoteModel item in t)
-            {
-                toDoCardGroup.Add(item.HLink);
-            }
-
-            BaseDetailList.Add(toDoCardGroup);
+            //if (!HeroImage.Valid)
+            //{
+            //    DataStore.CN.NotifyAlert("No images found in this data.  Consider adding some.");
+            //}
 
             // Setup Latest Changes list
 
             // TODO fix this LatestChanges.Add(DV.BookMarkDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.CitationDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.EventDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.FamilyDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.MediaDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.NoteDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.PersonDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.PlaceDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.SourceDV.GetLatestChanges());
-
-            BaseDetailList.Add(DV.TagDV.GetLatestChanges());
 
             return;
         }

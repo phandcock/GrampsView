@@ -23,8 +23,6 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
-        //private HLinkSourceModel _SourceObject = new HLinkSourceModel();
-
         /// <summary>
         /// Holds the Note ViewModel.
         /// </summary>
@@ -86,9 +84,11 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconCitation;
 
                 // Get media image
+                CardGroup hc = new CardGroup();
                 HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel();
                 mediaImage.CardType = DisplayFormat.MediaCardLarge;
-                BaseDetail.Add(mediaImage);
+                hc.Add(mediaImage);
+                BaseDetailList.Add(hc);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -100,18 +100,19 @@ namespace GrampsView.ViewModels
                             new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture)),
                     });
 
-
                 // Get date card
                 t.Add(CitationObject.GDateContent.AsCardListLine());
 
                 t.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                BaseDetail.Add(t);
+                BaseDetailList.Add(t);
 
                 // Add Source details
+                CardGroup hs = new CardGroup();
                 HLinkSourceModel sourceCard = CitationObject.GSourceRef;
                 sourceCard.CardType = DisplayFormat.SourceCardSmall;
-                BaseDetail.Add(sourceCard);
+                hs.Add(sourceCard);
+                BaseDetailList.Add(hs);
 
                 // If only one note (the most common case) just display it in a large format,
                 // otherwise setup a list of them.
@@ -121,12 +122,12 @@ namespace GrampsView.ViewModels
                 }
 
                 // Add remaining details
-                BaseDetail.Add(CitationObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(CitationObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(CitationObject.GTagRef.GetCardGroup());
-                BaseDetail.Add(CitationObject.GSourceAttributeCollection);
+                BaseDetailList.Add(CitationObject.GMediaRefCollection.GetCardGroup());
+                BaseDetailList.Add(CitationObject.GNoteRefCollection.GetCardGroup());
+                BaseDetailList.Add(CitationObject.GTagRef.GetCardGroup());
+                // TODO BaseDetailList.Add(CitationObject.GSourceAttributeCollection);
 
-                BaseDetail.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
+                BaseDetailList.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
     }

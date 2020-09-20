@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="HubPageRoot"
@@ -42,14 +41,23 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
+    <ScrollView>
+        <StackLayout>
 
-    <CollectionView
-        ItemSizingStrategy="MeasureAllItems"
-        ItemTemplate="{StaticResource CardTemplateSelector}"
-        ItemsSource="{Binding BaseDetailList, Mode=OneWay}"
-        Style="{StaticResource CollectionViewBase}">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="{StaticResource CollectionCardListItemMargin}" Orientation="Vertical" />
-        </CollectionView.ItemsLayout>
-    </CollectionView>
+            <ucon:CardGroupBaseHeader BindingContext="{Binding Instructions, Mode=OneWay}" FsctTemplate="{StaticResource InstructionCardLargeDT}" />
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestMediaChanges, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestNoteChanges, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
