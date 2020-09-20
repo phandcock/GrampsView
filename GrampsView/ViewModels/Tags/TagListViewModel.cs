@@ -13,6 +13,7 @@ namespace GrampsView.ViewModels
 
     using GrampsView.Common;
     using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
 
     using Prism.Events;
     using Prism.Navigation;
@@ -47,7 +48,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The tag source.
         /// </value>
-        public CardGroup TagSource
+        public CardGroupBase<HLinkTagModel> TagSource
         {
             get
             {

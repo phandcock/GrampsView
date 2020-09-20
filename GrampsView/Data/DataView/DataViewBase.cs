@@ -90,7 +90,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public abstract CardGroup GetAllAsCardGroup();
+        public abstract CardGroupBase<TU> GetAllAsCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.

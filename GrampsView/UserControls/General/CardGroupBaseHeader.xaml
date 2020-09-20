@@ -29,6 +29,8 @@
                     Style="{StaticResource GVHeaderStyleMedium}"
                     Text="{Binding Title}" />
             </Frame>
+
+            
             <FlexLayout
                 x:Name="CardGroupTemplateFlexer"
                 BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CardGroupBaseHeaderRoot}, Mode=OneWay}"

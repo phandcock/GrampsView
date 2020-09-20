@@ -10,8 +10,6 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
 
-    using Markdig.Extensions.Yaml;
-
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -80,9 +78,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroup GetAllAsCardGroup()
+        public override CardGroupBase<HLinkTagModel> GetAllAsCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupBase<HLinkTagModel> t = new CardGroupBase<HLinkTagModel>();
 
             foreach (var item in DataDefaultSort)
             {
