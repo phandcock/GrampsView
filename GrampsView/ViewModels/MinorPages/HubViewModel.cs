@@ -4,7 +4,6 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using Prism.Events;
     using Prism.Navigation;
@@ -34,21 +33,16 @@
             BaseTitleIcon = CommonConstants.IconHub;
         }
 
-        public CardGroupBase<InstructCardModel> Instructions
-        {
-            get
-            {
-                CardGroupBase<InstructCardModel> tt = new CardGroupBase<InstructCardModel>();
-                InstructCardModel instructionCard = new InstructCardModel
-                {
-                    TextDetails = AppResources.HubPage_IntroductionText,
-                };
-
-                tt.Add(instructionCard);
-
-                return tt;
-            }
-        }
+        //public InstructCardModel Instructions
+        //{
+        //    get
+        //    {
+        //        return new InstructCardModel
+        //        {
+        //            TextDetails = AppResources.HubPage_IntroductionText,
+        //        };
+        //    }
+        //}
 
         public CardGroupBase<HLinkCitationModel> LatestCitationChanges { get { return DV.CitationDV.GetLatestChanges(); } }
         public CardGroupBase<HLinkEventModel> LatestEventChanges { get { return DV.EventDV.GetLatestChanges(); } }

@@ -102,6 +102,8 @@
     <Compile Remove="Data\Models\DataModels\BookMarkModel.cs" />
     <Compile Remove="Data\Models\DataModels\Date\DateObjectModelOutput.cs" />
     <Compile Remove="Data\Models\DataModels\Interfaces\IBookMarkModel.cs" />
+    <Compile Remove="Data\Models\DataModels\Interfaces\IInstructCardModel.cs" />
+    <Compile Remove="Data\Models\DataModels\Minor\InstructCardModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkBookMarkModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkInstructionCard.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\HLinkAddressModel.cs" />

@@ -19,7 +19,7 @@
     <ScrollView>
         <StackLayout>
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding Instructions, Mode=OneWay}" FsctTemplate="{StaticResource InstructionCardLargeDT}" />
+            <ucon:InstructionCardLarge BindingContext="{Binding AppResources.HubPage_IntroductionText, Mode=OneWay}" />
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />

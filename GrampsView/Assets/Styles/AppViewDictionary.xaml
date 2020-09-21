@@ -143,7 +143,7 @@
     -->
     <Style x:Key="FrameCardStyle" TargetType="Frame">
         <!--<Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />-->
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="10" />
@@ -466,7 +466,7 @@
         <Setter Property="LineBreakMode" Value="WordWrap" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
     <!--  Create a Very Small Style for a TextBlock  -->
@@ -484,7 +484,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
     <Style
