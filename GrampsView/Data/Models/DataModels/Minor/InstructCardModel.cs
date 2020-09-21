@@ -2,7 +2,7 @@
 {
     using System.Runtime.Serialization;
 
-    [DataContract]
+   
     public class InstructCardModel : ModelBase, IInstructCardModel
     {
         /// <summary>

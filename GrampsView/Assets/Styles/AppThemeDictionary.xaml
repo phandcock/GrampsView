@@ -75,7 +75,7 @@
     </Color>
 
     <Color x:Key="BackgroundColorLight">
-        #FFFFFF
+        #f8f8ff
     </Color>
 
     <Color x:Key="OnBackgroundColorLight">
