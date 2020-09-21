@@ -28,6 +28,8 @@ namespace GrampsView.Common
             }
         }
 
+ 
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>

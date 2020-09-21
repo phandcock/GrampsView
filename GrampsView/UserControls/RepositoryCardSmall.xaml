@@ -52,7 +52,7 @@
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
                 Text="{Binding DeRef.GRName, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                             Light={StaticResource OnSecondaryColorLight}}" />
 
             <Image

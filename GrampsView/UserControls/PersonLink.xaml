@@ -48,7 +48,7 @@
                 IsEnabled="false"
                 Style="{DynamicResource GVCardLabelStyleVerySmall}"
                 Text="{Binding DeRef.GetDefaultText}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                             Light={StaticResource OnSecondaryColorLight}}" />
         </Grid>
     </Frame.Content>

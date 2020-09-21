@@ -15,5 +15,5 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CardGroupBaseHeader BindingContext="{Binding CitationSource, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+    <ucon:CollectionSingleCard FsctSource="{Binding CitationSource, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
 </ContentPage>

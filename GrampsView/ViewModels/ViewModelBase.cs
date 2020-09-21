@@ -106,12 +106,7 @@ namespace GrampsView.ViewModels
 
         = new CardGroup();
 
-        public List<CardGroupBase<object>> BaseDetailList
-        {
-            get;
-        }
-
-        = new List<CardGroupBase<object>>();
+   
 
         public IDialogService BaseDialogService
         {

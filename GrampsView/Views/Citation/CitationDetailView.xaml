@@ -14,13 +14,5 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
-    <CollectionView
-        ItemSizingStrategy="MeasureAllItems"
-        ItemTemplate="{StaticResource CardTemplateSelector}"
-        ItemsSource="{Binding BaseDetailList, Mode=OneWay}"
-        Style="{StaticResource CollectionViewBase}">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="{StaticResource CollectionCardListItemMargin}" Orientation="Vertical" />
-        </CollectionView.ItemsLayout>
-    </CollectionView>
+    <ucon:CollectionCardList FsctSource="{Binding BaseDetail, Mode=OneWay}" />
 </ContentPage>

@@ -12,7 +12,7 @@
                 x:Name="List"
                 Margin="0,0,0,0"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorDark}}"
+                                                  Light={StaticResource SecondaryColorLight}}"
                 HorizontalOptions="Start"
                 ItemsSource="{Binding MainMenuItems}">
 
@@ -42,7 +42,7 @@
                                         FontFamily="{DynamicResource MaterialFontFamily}"
                                         Glyph="{Binding Icon}"
                                         Size="40"
-                                        Color="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                        Color="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                                                 Light={StaticResource OnSecondaryColorLight}}" />
                                 </Image.Source>
                             </Image>
@@ -52,7 +52,7 @@
                                 Command="{Binding Path=BindingContext.NavigateCommand, Source={x:Reference Name=List}}"
                                 CommandParameter="{Binding TargetType}"
                                 Text="{Binding Title}"
-                                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                                             Light={StaticResource OnSecondaryColorLight}}" />
                         </Grid>
                     </DataTemplate>

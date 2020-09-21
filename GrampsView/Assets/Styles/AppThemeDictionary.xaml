@@ -5,24 +5,23 @@
         #795548
     </Color>
 
-    <Color x:Key="PrimaryDarkColorDark">
-        #4b2c20
+    <Color x:Key="OnPrimaryColorDark">
+        #ffffff
     </Color>
 
-    <Color x:Key="PrimaryLightColorDark">
-        #a98274
+    <Color x:Key="PrimaryDarkColorDark">
+        #4b2c20
     </Color>
 
     <Color x:Key="SecondaryColorDark">
         #ffd600
     </Color>
 
+    <Color x:Key="OnSecondaryColorDark">
+        #000000
+    </Color>
     <Color x:Key="SecondaryDarkColorDark">
         #c7a500
-    </Color>
-
-    <Color x:Key="SecondaryLightColorDark">
-        #ffff52
     </Color>
 
     <Color x:Key="BackgroundColorDark">
@@ -41,11 +40,7 @@
         #888888
     </Color>
 
-    <Color x:Key="OnPrimaryColorDark">
-        #ffffff
-    </Color>
-
-    <Color x:Key="DarkOnSecondaryColor">
+    <Color x:Key="SurfaceColorDark">
         #000000
     </Color>
 
@@ -53,45 +48,34 @@
         #FFFFFF
     </Color>
 
-    <Color x:Key="SurfaceColorDark">
-        #000000
-    </Color>
-
-    <Color x:Key="SurfaceDark1ColorDark">
-        #484848
-    </Color>
-
-    <Color x:Key="SurfaceDark2ColorDark">
-        #303030
-    </Color>
-
     <!--  Light colour  -->
+
     <Color x:Key="PrimaryColorLight">
-        #616161
+        #6200EE
     </Color>
 
     <Color x:Key="PrimaryDarkColorLight">
-        #373737
+        #3700b3
     </Color>
 
-    <Color x:Key="PrimaryLightColorLight">
-        #8e8e8e
+    <Color x:Key="OnPrimaryColorLight">
+        #FFFFFF
     </Color>
 
     <Color x:Key="SecondaryColorLight">
-        #54f214
+        #03DAC6
+    </Color>
+
+    <Color x:Key="OnSecondaryColorLight">
+        #000000
     </Color>
 
     <Color x:Key="SecondaryDarkColorLight">
-        #00be00
-    </Color>
-
-    <Color x:Key="SecondaryLightColorLight">
-        #92ff59
+        #018786
     </Color>
 
     <Color x:Key="BackgroundColorLight">
-        #bdbdbd
+        #FFFFFF
     </Color>
 
     <Color x:Key="OnBackgroundColorLight">
@@ -103,31 +87,15 @@
     </Color>
 
     <Color x:Key="OnErrorColorLight">
-        #000000
+        #FFFFFF
     </Color>
 
-    <Color x:Key="OnPrimaryColorLight">
-        #ffffff
-    </Color>
-
-    <Color x:Key="OnSecondaryColorLight">
-        #000000
+    <Color x:Key="SurfaceColorLight">
+        #FFFFFF
     </Color>
 
     <Color x:Key="OnSurfaceColorLight">
         #000000
-    </Color>
-
-    <Color x:Key="SurfaceColorLight">
-        #d3d3d3
-    </Color>
-
-    <Color x:Key="SurfaceDark1ColorLight">
-        #C8C8C8
-    </Color>
-
-    <Color x:Key="SurfaceDark2ColorLight">
-        #FFFFFF
     </Color>
 
     <!--  - Card Backgrounds  -->

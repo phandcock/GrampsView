@@ -39,7 +39,7 @@
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleLarge}"
                 Text="{Binding HLinkKey, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource DarkOnSecondaryColor},
+                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                             Light={StaticResource OnSecondaryColorLight}}" />
 
             <Grid
