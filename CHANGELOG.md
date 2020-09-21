@@ -1,3 +1,14 @@
+## [16.9.6](https://github.com/phandcock/GrampsView/compare/16.9.5...16.9.6) (2020-09-21)
+
+
+### Bug Fixes
+
+* change top menu to use TopMenu usercontrol ([fbb1aec](https://github.com/phandcock/GrampsView/commit/fbb1aece439049d6f389b3b2ef22e5061e5eda31))
+* tweak listPage collections ([c52991c](https://github.com/phandcock/GrampsView/commit/c52991cde43a2112b529ffe904854cab392b1439))
+* work on cardbaseheader plus add mother and father family name sort ([aa171fa](https://github.com/phandcock/GrampsView/commit/aa171fa0c6bfd228998c985d2882ca601f359401))
+
+
+
 ## [16.9.5](https://github.com/phandcock/GrampsView/compare/16.9.4...16.9.5) (2020-09-20)
 
 
@@ -35,15 +46,6 @@
 ### Bug Fixes
 
 * make clipMedia function more robust and clip files as required. ([087b604](https://github.com/phandcock/GrampsView/commit/087b604eec07999a2504c9c590d0a227ba9d4ec8))
-
-
-
-## [16.9.1](https://github.com/phandcock/GrampsView/compare/16.9.0...16.9.1) (2020-09-07)
-
-
-### Bug Fixes
-
-* code tweaks to remove warnings ([b66284a](https://github.com/phandcock/GrampsView/commit/b66284aa158371fba2e7cb0cfadc691ff91d39cc))
 
 
 
