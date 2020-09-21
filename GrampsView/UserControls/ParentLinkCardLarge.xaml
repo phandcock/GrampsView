@@ -29,8 +29,8 @@
                 Grid.ColumnSpan="2"
                 Margin="0"
                 Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
-                                                  Light={StaticResource SurfaceDark1ColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                                  Light={StaticResource SurfaceColorLight}}"
                 CornerRadius="2">
 
                 <Label

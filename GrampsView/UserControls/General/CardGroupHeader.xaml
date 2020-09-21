@@ -20,12 +20,12 @@
                 x:Name="LLCardLargeFrame"
                 Margin="0"
                 Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark1ColorDark},
-                                                  Light={StaticResource SurfaceDark1ColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                                  Light={StaticResource SurfaceColorLight}}"
                 CornerRadius="2"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
                 <Label
-                    Margin="5,0,0,0"
+                    Margin="0"
                     Style="{StaticResource GVHeaderStyleMedium}"
                     Text="{Binding Title}" />
             </Frame>

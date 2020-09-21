@@ -31,7 +31,7 @@
                                                       Light={StaticResource SecondaryDarkColorLight}}">
                     <Label
                         x:Name="LLCardLargeTitle"
-                        Margin="3,0,3,0"
+                        Margin="0"
                         Style="{DynamicResource GVHeaderStyleLarge}"
                         Text="{Binding Title, Mode=OneWay}" />
                 </Frame>

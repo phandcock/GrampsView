@@ -10,8 +10,8 @@
             Margin="0"
             Padding="0"
             BackgroundColor="Transparent"
-            BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
-                                          Light={StaticResource SecondaryLightColorLight}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                          Light={StaticResource SecondaryDarkColorLight}}"
             CornerRadius="{StaticResource GVCornerRadius}">
 
             <Grid
@@ -28,14 +28,14 @@
                     Grid.Column="0"
                     FontSize="{x:Static common:CommonFontSize.FontMedium}"
                     Text="{Binding Label}"
-                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
-                                                Light={StaticResource SecondaryLightColorLight}}" />
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                                Light={StaticResource SecondaryDarkColorLight}}" />
                 <Label
                     Grid.Column="1"
                     FontSize="{x:Static common:CommonFontSize.FontMedium}"
                     Text="{Binding Text}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                                Light={StaticResource OnPrimaryColorLight}}" />
+                    TextColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                                Light={StaticResource SecondaryDarkColorLight}}" />
             </Grid>
         </Frame>
     </DataTemplate>

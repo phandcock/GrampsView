@@ -64,6 +64,7 @@ namespace GrampsView.ViewModels
             }
         }
 
+        
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
         /// </summary>
@@ -88,7 +89,7 @@ namespace GrampsView.ViewModels
                 HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel();
                 mediaImage.CardType = DisplayFormat.MediaCardLarge;
                 hc.Add(mediaImage);
-                BaseDetailList.Add(hc);
+                BaseDetail.Add(hc);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -105,14 +106,14 @@ namespace GrampsView.ViewModels
 
                 t.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                BaseDetailList.Add(t);
+                BaseDetail.Add(t);
 
                 // Add Source details
                 CardGroup hs = new CardGroup();
                 HLinkSourceModel sourceCard = CitationObject.GSourceRef;
                 sourceCard.CardType = DisplayFormat.SourceCardSmall;
                 hs.Add(sourceCard);
-                BaseDetailList.Add(hs);
+                BaseDetail.Add(hs);
 
                 // If only one note (the most common case) just display it in a large format,
                 // otherwise setup a list of them.
@@ -122,12 +123,12 @@ namespace GrampsView.ViewModels
                 }
 
                 // Add remaining details
-                BaseDetailList.Add(CitationObject.GMediaRefCollection.GetCardGroup());
-                BaseDetailList.Add(CitationObject.GNoteRefCollection.GetCardGroup());
-                BaseDetailList.Add(CitationObject.GTagRef.GetCardGroup());
-                // TODO BaseDetailList.Add(CitationObject.GSourceAttributeCollection);
+                BaseDetail.Add(CitationObject.GMediaRefCollection.GetCardGroup());
+                BaseDetail.Add(CitationObject.GNoteRefCollection.GetCardGroup());
+                BaseDetail.Add(CitationObject.GTagRef.GetCardGroup());
+                // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
 
-                BaseDetailList.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
+                BaseDetail.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
     }
