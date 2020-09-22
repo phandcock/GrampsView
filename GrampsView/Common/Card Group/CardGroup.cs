@@ -24,6 +24,7 @@ namespace GrampsView.Common
     {
         public CardGroup()
         {
+            Visible = true;
         }
 
         /// <summary>
