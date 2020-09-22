@@ -28,8 +28,6 @@ namespace GrampsView.Common
             }
         }
 
- 
-
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -47,7 +45,7 @@ namespace GrampsView.Common
         public bool Visible
         {
             get; set;
-        } = true;
+        }
 
         private void Cards_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -59,25 +57,25 @@ namespace GrampsView.Common
 
                     item.PropertyChanged -= Cards_PropertyChanged;
                 }
+            }
 
-                if (e.NewItems != null)
+            if (e.NewItems != null)
+            {
+                foreach (INotifyPropertyChanged item in e.NewItems)
                 {
-                    foreach (INotifyPropertyChanged item in e.NewItems)
-                    {
-                        Contract.Assert(item != null);
+                    Contract.Assert(item != null);
 
-                        item.PropertyChanged += Cards_PropertyChanged;
-                    }
+                    item.PropertyChanged += Cards_PropertyChanged;
                 }
+            }
 
-                if (!(Items is null) && (Items.Count > 0))
-                {
-                    Visible = true;
-                }
-                else
-                {
-                    Visible = false;
-                }
+            if (!(Items is null) && (Items.Count > 0))
+            {
+                Visible = true;
+            }
+            else
+            {
+                Visible = false;
             }
         }
 
