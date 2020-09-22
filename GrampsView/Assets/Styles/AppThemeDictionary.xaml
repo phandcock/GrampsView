@@ -25,7 +25,7 @@
     </Color>
 
     <Color x:Key="BackgroundColorDark">
-        #000000
+        #1a1a1a
     </Color>
 
     <Color x:Key="OnBackgroundColorDark">
