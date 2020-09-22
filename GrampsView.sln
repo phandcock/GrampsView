@@ -53,7 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{83278400-251
 		.azure\ios\azure-pipeline-ios.yml = .azure\ios\azure-pipeline-ios.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.NUnit.Test", "GrampsView.NUnit.Test\GrampsView.NUnit.Test.csproj", "{F4906B34-4C3E-4457-A0D7-05A0E0B2C713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.NUnit.Test", "GrampsView.NUnit.Test\GrampsView.NUnit.Test.csproj", "{F4906B34-4C3E-4457-A0D7-05A0E0B2C713}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{E252B578-523F-484F-AA26-310B70F983A1}"
 	ProjectSection(SolutionItems) = preProject
