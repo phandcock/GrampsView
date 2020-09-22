@@ -57,7 +57,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.NUnit.Test", "Gr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{E252B578-523F-484F-AA26-310B70F983A1}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\uwp\azure-pipeline-xam-nunit.yml = .azure\uwp\azure-pipeline-xam-nunit.yml
+		.azure\xamarin\azure-pipeline-xam-nunit.yml = .azure\xamarin\azure-pipeline-xam-nunit.yml
+		.azure\xamarin\azure-pipelinetemplate-build-nunit.yml = .azure\xamarin\azure-pipelinetemplate-build-nunit.yml
 	EndProjectSection
 EndProject
 Global
