@@ -19,8 +19,8 @@
                 FontFamily="{DynamicResource MaterialFontFamily}"
                 Glyph="{Binding BaseTitleIcon}"
                 Size="44"
-                Color="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                        Light={StaticResource SurfaceColorLight}}" />
+                Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                        Light={StaticResource OnPrimaryColorDark}}" />
         </Image.Source>
     </Image>
     <Label
