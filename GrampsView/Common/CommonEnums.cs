@@ -14,7 +14,7 @@
         {
             Default,
             HeaderCardLarge,
-            InstructionCardLarge,
+         
             MediaCardLarge,
             MediaImageFullCard,
             NoteCardFull,

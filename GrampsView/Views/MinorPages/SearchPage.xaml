@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
+     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Appearing="ContentPage_Appearing"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -22,9 +23,8 @@
     <Grid>
 
         <Grid.RowDefinitions>
-
             <RowDefinition Height="Auto" />
-
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -52,8 +52,13 @@
             </SearchBar.Behaviors>
         </SearchBar>
 
-        <ucon:CollectionCardList
+        <ucon:InstructionCardLarge
             Grid.Row="1"
+            Grid.Column="0"
+            BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
+
+        <ucon:CollectionCardList
+            Grid.Row="2"
             Grid.Column="0"
             FsctSource="{Binding BaseDetail, Mode=OneWay}" />
     </Grid>

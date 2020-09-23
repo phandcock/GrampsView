@@ -103,15 +103,7 @@ namespace GrampsView.ViewModels
 
         public override void PopulateViewModel()
         {
-            CardGroup tt = new CardGroup();
-
-            InstructionCardLarge instructionCard = new InstructionCardLarge
-            {
-                BindingContext = AppResources.SearchPage_Instructions,
-            };
-
-            tt.Add(instructionCard);
-            BaseDetail.Add(tt);
+            // TODO Do we need this?
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Common"
+      xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prismnav="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -53,7 +53,7 @@
 
         <ucon:InstructionCardLarge
             x:Name="instructions"
-            BindingContext="{i18n:Translate NeedDatabaseReloadPage_Instructions}"
+            BindingContext="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}"
             HorizontalOptions="Center" />
 
         <Button
@@ -62,7 +62,7 @@
                                           Animated=True}"
             HorizontalOptions="Center"
             Style="{DynamicResource GVButtonStyle}"
-            Text="{i18n:Translate LoadDataBase_GotoLoadData}"
+            Text="{x:Static i18n:AppResources.LoadDataBase_GotoLoadData}"
             VerticalOptions="Center" />
     </Grid>
 </ContentPage>

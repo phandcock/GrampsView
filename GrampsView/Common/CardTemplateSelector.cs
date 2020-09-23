@@ -120,11 +120,7 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate InstructionCardTemplate
-        {
-            get;
-            set;
-        }
+   
 
         /// <summary>
         /// Gets or sets the media card large template.
@@ -528,10 +524,7 @@ namespace GrampsView.Common
                 return PersonNameSmallTemplate;
             }
 
-            if (item is InstructionCardLarge)
-            {
-                return InstructionCardTemplate;
-            }
+       
 
             if (item is NoteModel)
             {

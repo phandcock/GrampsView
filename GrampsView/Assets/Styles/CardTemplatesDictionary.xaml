@@ -70,9 +70,6 @@
         <usercontrols:HeaderCardLarge />
     </DataTemplate>
 
-    <DataTemplate x:Key="InstructionCardLargeDT">
-        <usercontrols:InstructionCardLarge />
-    </DataTemplate>
 
     <DataTemplate x:Key="MediaCardSmallDT">
         <usercontrols:MediaCardSmall />
@@ -148,7 +145,6 @@
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
         HeaderTemplate="{StaticResource HederCardLargeDT}"
-        InstructionCardTemplate="{StaticResource InstructionCardLargeDT}"
         MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"
         MediaImageFullTemplate="{StaticResource MediaImageFullDT}"
         MediaTemplate="{StaticResource MediaCardSmallDT}"
