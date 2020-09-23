@@ -25,7 +25,7 @@
     </Color>
 
     <Color x:Key="BackgroundColorDark">
-        #1a1a1a
+        #262626
     </Color>
 
     <Color x:Key="OnBackgroundColorDark">
@@ -75,7 +75,7 @@
     </Color>
 
     <Color x:Key="BackgroundColorLight">
-        #f8f8ff
+        #f7f7f7
     </Color>
 
     <Color x:Key="OnBackgroundColorLight">

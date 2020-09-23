@@ -26,7 +26,7 @@
                 Grid.Column="0"
                 HorizontalOptions="Center"
                 Style="{DynamicResource GVLabelStyleInstructions}"
-                Text="{Binding TextDetails}" />
+                Text="{Binding ., Mode=OneWay}" />
         </Grid>
     </Frame>
 </Grid>

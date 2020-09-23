@@ -80,15 +80,7 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            //CardGroup tt = new CardGroup();
-
-            //InstructionCardLarge instructionCard = new InstructionCardLarge
-            //{
-            //    BindingContext = AppResources.HubPage_IntroductionText,
-            //};
-
-            //tt.Add(instructionCard);
-            //BaseDetailList.Add(tt);
+        
 
             // Get Header CardLarge
             CardGroup hc = new CardGroup();
