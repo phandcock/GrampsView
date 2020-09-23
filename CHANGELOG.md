@@ -1,3 +1,15 @@
+## [16.9.7](https://github.com/phandcock/GrampsView/compare/16.9.6...16.9.7) (2020-09-23)
+
+
+### Bug Fixes
+
+* hide cardgroupbase if no data ([857a0a1](https://github.com/phandcock/GrampsView/commit/857a0a17b337031299740118ab139d2df8c79ee4))
+* more tweaks to the colour schemes ([b1de020](https://github.com/phandcock/GrampsView/commit/b1de020d663344134016aad37117eb9449de7e6e))
+* rejig color themes to reduce number of different colours ([dce910c](https://github.com/phandcock/GrampsView/commit/dce910cee592d78d348f2ad6cdfde150f1517dac))
+* tweak colours ([fa19816](https://github.com/phandcock/GrampsView/commit/fa1981600edb18dce813d607bace23fc89d73397))
+
+
+
 ## [16.9.6](https://github.com/phandcock/GrampsView/compare/16.9.5...16.9.6) (2020-09-21)
 
 
@@ -37,15 +49,6 @@
 ### Bug Fixes
 
 * tweak date models to use inheritance ([3f5f0f1](https://github.com/phandcock/GrampsView/commit/3f5f0f1cfa487e78da2bd3e1e542fde9f3aab98d))
-
-
-
-## [16.9.2](https://github.com/phandcock/GrampsView/compare/16.9.1...16.9.2) (2020-09-11)
-
-
-### Bug Fixes
-
-* make clipMedia function more robust and clip files as required. ([087b604](https://github.com/phandcock/GrampsView/commit/087b604eec07999a2504c9c590d0a227ba9d4ec8))
 
 
 
