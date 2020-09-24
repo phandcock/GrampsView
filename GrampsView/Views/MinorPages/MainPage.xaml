@@ -51,9 +51,8 @@
                                 Grid.Column="1"
                                 Command="{Binding Path=BindingContext.NavigateCommand, Source={x:Reference Name=List}}"
                                 CommandParameter="{Binding TargetType}"
-                                Text="{Binding Title}"
-                                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                                            Light={StaticResource OnSecondaryColorLight}}" />
+                                Style="{DynamicResource GVButtonMenu}"
+                                Text="{Binding Title}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
