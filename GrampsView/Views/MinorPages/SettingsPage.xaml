@@ -22,28 +22,25 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
 
-                <StackLayout HorizontalOptions="Start">
+                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" HorizontalOptions="Start">
 
-                    <Label Text="Choose Application Theme" />
+                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Choose Application Theme" />
 
-                    <RadioButton
-                        BackgroundColor="Transparent"
-                        GroupName="AppTheme"
-                        IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}"
-                        Style="{DynamicResource GVButtonStyle}"
-                        Text="Light" />
-                    <RadioButton
-                        BackgroundColor="Transparent"
-                        GroupName="AppTheme"
-                        IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}"
-                        Style="{DynamicResource GVButtonStyle}"
-                        Text="Force Dark Theme" />
-                    <RadioButton
-                        BackgroundColor="Transparent"
-                        GroupName="AppTheme"
-                        IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}"
-                        Style="{DynamicResource GVButtonStyle}"
-                        Text="Use Operating System Theme" />
+                    <!--  Do this until radiobutton text display in Android works.  See https://github.com/xamarin/Xamarin.Forms/issues/11467  -->
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}" />
+                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Force Light Theme" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}" />
+                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Force Dark Theme" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}" />
+                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Use Operating System Theme" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
@@ -109,7 +106,6 @@
                     TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
                                                 Light={StaticResource OnPrimaryColorLight}}" />
 
-
                 <Label
                     Grid.Row="3"
                     BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
@@ -142,8 +138,6 @@
                     Text="SecondaryDarkColor"
                     TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                                 Light={StaticResource OnSecondaryColorLight}}" />
-
-
 
                 <Label
                     Grid.Row="8"
@@ -263,8 +257,6 @@
                     Text="OnSurfaceColor"
                     TextColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                                 Light={StaticResource SurfaceColorLight}}" />
-
-
 
                 <Label
                     Grid.Row="35"
