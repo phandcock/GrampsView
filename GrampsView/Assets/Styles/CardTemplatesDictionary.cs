@@ -1,8 +1,4 @@
-﻿// <copyright file="SmallCardTemplates.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Assets.Styles
+﻿namespace GrampsView.Assets.Styles
 {
     public partial class CardTemplatesDictionary
     {
