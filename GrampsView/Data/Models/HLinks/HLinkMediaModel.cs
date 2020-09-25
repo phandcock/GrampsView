@@ -21,6 +21,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
@@ -87,6 +88,8 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
+
+     
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note

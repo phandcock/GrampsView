@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
 
         private string _IDefaultSymbol = CommonConstants.IconDDefault;
 
-        //private bool _ShowSymbolImages = true;
+    
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkHomeImageModel"/> class.
@@ -181,6 +181,14 @@ namespace GrampsView.Data.Model
                             return false;
                         }
                 }
+            }
+        }
+
+        public bool IsImageType
+        {
+            get
+            {
+                return (Valid) && (_HomeImageType == CommonEnums.HomeImageType.ThumbNail);
             }
         }
 

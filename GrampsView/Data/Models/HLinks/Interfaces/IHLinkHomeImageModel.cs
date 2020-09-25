@@ -14,5 +14,6 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IHLinkHomeImageModel : IHLinkBase
     {
+        bool IsImageType { get; }
     }
 }
