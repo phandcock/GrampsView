@@ -9,8 +9,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Navigation;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
@@ -20,6 +18,8 @@ namespace GrampsView.ViewModels
         /// The current address.
         /// </summary>
         private PersonNameModel _AddressObject = new PersonNameModel();
+
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
@@ -32,6 +32,19 @@ namespace GrampsView.ViewModels
         {
             BaseTitle = "Name Detail";
             BaseTitleIcon = CommonConstants.IconPersonName;
+        }
+
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
         }
 
         /// <summary>
@@ -84,9 +97,7 @@ namespace GrampsView.ViewModels
                 BaseTitle = PersonNameObject.GetDefaultText;
 
                 // Get media image
-                HLinkHomeImageModel AddressImage = PersonNameObject.HomeImageHLink;
-                AddressImage.CardType = DisplayFormat.MediaCardLarge;
-                BaseDetail.Add(AddressImage);
+                MediaCard = PersonNameObject.HomeImageHLink.ConvertToHLinkMediaModel();
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Person Name Details" };
@@ -113,14 +124,10 @@ namespace GrampsView.ViewModels
                     new CardListLine("Sort:", PersonNameObject.GSort)
                 };
 
-
-         
-
                 BaseDetail.Add(PersonNameCards);
 
                 // Get date card
                 BaseDetail.Add(PersonNameObject.GDate.AsCardListLine());
-
 
                 foreach (SurnameModel item in PersonNameObject.GSurName)
                 {

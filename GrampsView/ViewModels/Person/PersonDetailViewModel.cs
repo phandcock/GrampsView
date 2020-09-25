@@ -22,6 +22,8 @@ namespace GrampsView.ViewModels
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
         /// <summary>
         /// The current person.
         /// </summary>
@@ -40,6 +42,18 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconPeople;
 
             _PlatformSpecific = iocPlatformSpecific;
+        }
+
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
         }
 
         /// <summary>
@@ -117,11 +131,7 @@ namespace GrampsView.ViewModels
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
 
                 // Get media image
-                HLinkMediaModel personImage = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel();
-                Contract.Assert(PersonObject.HomeImageHLink != null, PersonObject.Id);
-                personImage.CardType = DisplayFormat.MediaCardLarge;
-
-                BaseDetail.Add(personImage);
+                MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel();
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Header Details" };
