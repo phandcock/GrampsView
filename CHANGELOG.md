@@ -1,3 +1,15 @@
+## [16.9.8](https://github.com/phandcock/GrampsView/compare/16.9.7...16.9.8) (2020-09-25)
+
+
+### Bug Fixes
+
+* cleanup instructiontext and botomMenu button colours ([e401bcf](https://github.com/phandcock/GrampsView/commit/e401bcf6f74e10098a2a763058da4864f20c235c))
+* fix button colour for main menu ([c807fc5](https://github.com/phandcock/GrampsView/commit/c807fc5015c14926b453d1c9dfd8f96e224d3017))
+* fix display of Theme Settings buttons ([c1ecc64](https://github.com/phandcock/GrampsView/commit/c1ecc64a7793ba4d02c94b3844881e3f460e63ee))
+* tweak YAML and fix InstructionCard references ([39339a0](https://github.com/phandcock/GrampsView/commit/39339a08eaec4a76f4d5fcc48d8e58cb566ab9da))
+
+
+
 ## [16.9.7](https://github.com/phandcock/GrampsView/compare/16.9.6...16.9.7) (2020-09-23)
 
 
@@ -40,15 +52,6 @@
 
 * tweaks.  Start work on CardListLine linking ([3d644ed](https://github.com/phandcock/GrampsView/commit/3d644edde6afcb032cc0559783d7807022a21dfb))
 * tweal string comapre to use current culture info ([87dde5b](https://github.com/phandcock/GrampsView/commit/87dde5ba53c29f8da81a48ec4db45fa9ee18faee))
-
-
-
-## [16.9.3](https://github.com/phandcock/GrampsView/compare/16.9.2...16.9.3) (2020-09-13)
-
-
-### Bug Fixes
-
-* tweak date models to use inheritance ([3f5f0f1](https://github.com/phandcock/GrampsView/commit/3f5f0f1cfa487e78da2bd3e1e542fde9f3aab98d))
 
 
 
