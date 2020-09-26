@@ -67,6 +67,20 @@ namespace GrampsView.ViewModels
             OnNavigatedFrom(parameters);
         }
 
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
+        }
+
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -83,9 +97,8 @@ namespace GrampsView.ViewModels
                 BaseTitle = AddressObject.GetDefaultText;
 
                 // Get media image
-                HLinkHomeImageModel AddressImage = AddressObject.HomeImageHLink;
-                AddressImage.CardType = DisplayFormat.MediaCardLarge;
-                BaseDetail.Add(AddressImage);
+                MediaCard = AddressObject.HomeImageHLink.ConvertToHLinkMediaModel;
+            
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Address Details" };

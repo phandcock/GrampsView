@@ -75,6 +75,21 @@
             }
         }
 
+
+        private IHLinkMediaModel _MediaCard = new HLinkMediaModel();
+
+        public IHLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
+        }
+
         /// <summary>
         /// Populate the Hub View.
         /// </summary>
@@ -88,9 +103,8 @@
             HeaderCard.CardType = DisplayFormat.HeaderCardLarge;
             hc.Add(HeaderCard);
 
-            IHLinkMediaModel HeroImage = DV.MediaDV.GetRandomFromCollection(null);
-            HeroImage.CardType = DisplayFormat.MediaCardLarge;
-            hc.Add(HeroImage);
+            MediaCard = DV.MediaDV.GetRandomFromCollection(null);
+   
 
             BaseDetail.Add(hc);
 

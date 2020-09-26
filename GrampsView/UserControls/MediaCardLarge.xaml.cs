@@ -24,11 +24,20 @@ namespace GrampsView.UserControls
         {
             MediaCardLarge thisObject = sender as MediaCardLarge;
 
-            HLinkMediaModel thisMedia = thisObject.BindingContext as HLinkMediaModel;
+            HLinkMediaModel thisMedia;
 
-            if ((thisObject != null) && (thisMedia != null))
+            if (thisObject.BindingContext is null)
             {
-                thisObject.AnchorImage.BindingContext = thisMedia.DeRef.HomeImageHLink;
+                (sender as MediaCardLarge).BindingContext = new HLinkMediaModel();
+            }
+            else
+            {
+                thisMedia = thisObject.BindingContext as HLinkMediaModel;
+
+                if ((thisObject != null) && (thisMedia != null))
+                {
+                    thisObject.AnchorImage.BindingContext = thisMedia.DeRef.HomeImageHLink;
+                }
             }
         }
     }
