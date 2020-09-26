@@ -89,6 +89,9 @@ namespace GrampsView.ViewModels
 
             AddressObject = DV.AddressDV.GetModelFromHLink(BaseNavParamsHLink);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (AddressObject.Valid)
             {
                 BaseTitle = AddressObject.GetDefaultText;

@@ -22,14 +22,14 @@
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
@@ -38,37 +38,41 @@
                 Grid.RowSpan="3"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
-
                 <ucon:MediaImageSkia
                     x:Name="AnchorImage"
                     BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
-                    HorizontalOptions="FillAndExpand"
-                    Style="{DynamicResource MediaImageStyle}"
-                    VerticalOptions="CenterAndExpand" />
+                    Style="{DynamicResource MediaImageStyle}" />
             </Grid>
 
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DeRef.GSTitle, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                            Light={StaticResource OnSecondaryColorLight}}" />
+                Text="{Binding DeRef.GSTitle, Mode=OneWay}">
+                <Label.GestureRecognizers>
+                    <DragGestureRecognizer CanDrag="True" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DeRef.GSAuthor, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                            Light={StaticResource OnSecondaryColorLight}}" />
+                Text="{Binding DeRef.GSAuthor, Mode=OneWay}" >
+                <Label.GestureRecognizers>
+                <DragGestureRecognizer CanDrag="True" />
+                </Label.GestureRecognizers>
+            </Label>
+
             <Label
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DeRef.GSPubInfo, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                            Light={StaticResource OnSecondaryColorLight}}" />
+                Text="{Binding DeRef.GSPubInfo, Mode=OneWay}"  >
+                <Label.GestureRecognizers>
+                <DragGestureRecognizer CanDrag="True" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Image
                 Grid.Row="2"

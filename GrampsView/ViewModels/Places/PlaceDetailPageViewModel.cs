@@ -65,6 +65,9 @@ namespace GrampsView.ViewModels
         {
             PlaceObject = DV.PlaceDV.GetModelFromHLink(BaseNavParamsHLink);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (PlaceObject != null)
             {
                 BaseTitle = PlaceObject.GetDefaultText;

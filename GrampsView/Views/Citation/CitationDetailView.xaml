@@ -16,9 +16,19 @@
 
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
+            <ucon:MediaCardLarge BindingContext="{Binding CitationObject.HomeImageHLink.ConvertToHLinkMediaModel, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:SourceCardLarge BindingContext="{Binding CitationObject.GSourceRef, Mode=OneWay}" />
+            <ucon:NoteCardFull BindingContext="{Binding CitationObject.GNoteRefCollection[0], Mode=OneWay}" />
+            
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            
+            <ucon:CardGroupHeader BindingContext="{Binding BackLinks, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

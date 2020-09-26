@@ -74,6 +74,9 @@ namespace GrampsView.ViewModels
             {
                 EventObject = HLinkObject.DeRef;
 
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
+
                 if (!(EventObject is null) && (EventObject.Valid))
                 {
                     BaseTitle = EventObject.GDescription;

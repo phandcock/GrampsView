@@ -16,5 +16,5 @@
 
     <!--  Content  -->
     <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
-   
+
 </ContentPage>

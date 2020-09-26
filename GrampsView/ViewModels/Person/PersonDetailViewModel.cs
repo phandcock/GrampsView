@@ -126,6 +126,9 @@ namespace GrampsView.ViewModels
 
             PersonObject = DV.PersonDV.GetModelFromHLink(BaseNavParamsHLink);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (!(PersonObject is null))
             {
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;

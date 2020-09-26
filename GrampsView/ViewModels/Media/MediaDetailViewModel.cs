@@ -112,6 +112,9 @@ namespace GrampsView.ViewModels
             {
                 CurrentMediaObject = DV.MediaDV.GetModelFromHLink(CurrentHLinkMedia);
 
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
+
                 if (!(CurrentMediaObject is null))
                 {
                     BaseTitle = CurrentMediaObject.GetDefaultText;
@@ -130,7 +133,6 @@ namespace GrampsView.ViewModels
                         new CardListLine("OriginalFilePath:", CurrentMediaObject.OriginalFilePath),
                     });
 
-
                     // Get date card
                     t.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
@@ -143,7 +145,7 @@ namespace GrampsView.ViewModels
                     t.Add(t1);
 
                     // Add standard details
-                    t.Add(DV.MediaDV.GetModelInfoFormatted((MediaModel)CurrentMediaObject));
+                    t.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
 
                     BaseDetail.Add(t);
 

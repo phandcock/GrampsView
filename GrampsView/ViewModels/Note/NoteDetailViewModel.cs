@@ -72,6 +72,9 @@ namespace GrampsView.ViewModels
             {
                 NoteObject = HLinkObject.DeRef;
 
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
+
                 BaseTitle = NoteObject.GetDefaultText;
 
                 // Get basic details

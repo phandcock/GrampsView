@@ -17,10 +17,7 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System.Diagnostics.Contracts;
     using System.Linq;
-
-    using static GrampsView.Common.CommonEnums;
 
     /// <summary>
     /// Family detail page view ViewModel.
@@ -101,6 +98,9 @@ namespace GrampsView.ViewModels
         public override void PopulateViewModel()
         {
             FamilyObject = DV.FamilyDV.GetModelFromHLink(BaseNavParamsHLink);
+
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
 
             if (!(FamilyObject is null))
             {

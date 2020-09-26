@@ -241,7 +241,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The model common logging.
         /// </value>
-        public ICommonLogging ModelCommonLogging { get; set; } = null;
+        public ICommonLogging ModelCommonLogging { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether [h link key valid].

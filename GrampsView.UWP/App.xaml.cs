@@ -146,10 +146,11 @@
                 // Forms Init
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 Xamarin.Forms.Forms.SetFlags(new string[] {
-                "AppTheme_Experimental",
-                "MediaElement_Experimental",
-                "RadioButton_Experimental",
-                "Shell_UWP_Experimental"
+                    "AppTheme_Experimental",
+                    "DragAndDrop_Experimental",
+                    "MediaElement_Experimental",
+                    "RadioButton_Experimental",
+                    "Shell_UWP_Experimental"
                 });
 
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);

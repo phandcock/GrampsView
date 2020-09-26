@@ -13,11 +13,12 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     using System;
+    using System.ComponentModel;
 
     /// <summary>
     /// Public interfaces for the Event elements.
     /// </summary>
-    public interface IModelBase : IComparable<ModelBase>
+    public interface IModelBase : IComparable<ModelBase>, INotifyPropertyChanged
     {
         HLinkBackLinkModelCollection BackHLinkReferenceCollection { get; }
 
