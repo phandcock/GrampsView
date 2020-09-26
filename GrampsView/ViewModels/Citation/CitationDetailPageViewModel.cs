@@ -23,10 +23,12 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
         /// <summary>
         /// Holds the Note ViewModel.
         /// </summary>
-        private CitationModel localCitationObject;
+        private CitationModel localCitationObject = new CitationModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
@@ -50,7 +52,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The citation object.
         /// </value>
-        // [RestorableState]
+
         public CitationModel CitationObject
         {
             get
@@ -64,7 +66,19 @@ namespace GrampsView.ViewModels
             }
         }
 
-        
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
+        }
+
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
         /// </summary>
@@ -84,12 +98,14 @@ namespace GrampsView.ViewModels
                 BaseTitle = CitationObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconCitation;
 
-                // Get media image
-                CardGroup hc = new CardGroup();
-                HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel();
-                mediaImage.CardType = DisplayFormat.MediaCardLarge;
-                hc.Add(mediaImage);
-                BaseDetail.Add(hc);
+                //// Get media image
+                MediaCard = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel;
+
+                //CardGroup hc = new CardGroup();
+                //HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel;
+                //mediaImage.CardType = DisplayFormat.MediaCardLarge;
+                //hc.Add(mediaImage);
+                //BaseDetail.Add(hc);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };

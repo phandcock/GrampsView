@@ -62,6 +62,20 @@ namespace GrampsView.ViewModels
             }
         }
 
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
+
+        }
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -79,10 +93,8 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconSource;
 
                 // Get media image
-                HLinkMediaModel personImage = SourceObject.HomeImageHLink.ConvertToHLinkMediaModel();
-                personImage.CardType = DisplayFormat.MediaCardLarge;
-                Contract.Assert(SourceObject.HomeImageHLink != null, SourceObject.Id);
-                BaseDetail.Add(personImage);
+                MediaCard = SourceObject.HomeImageHLink.ConvertToHLinkMediaModel;
+
 
                 // Header Card
                 CardGroup t = new CardGroup { Title = "Header Details" };

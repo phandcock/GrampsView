@@ -131,7 +131,7 @@ namespace GrampsView.ViewModels
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
 
                 // Get media image
-                MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel();
+                MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Header Details" };

@@ -35,13 +35,25 @@ namespace GrampsView.Data.Model
 
         private string _IDefaultSymbol = CommonConstants.IconDDefault;
 
-    
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkHomeImageModel"/> class.
         /// </summary>
         public HLinkHomeImageModel()
         {
+        }
+
+        public HLinkMediaModel ConvertToHLinkMediaModel
+        {
+            get
+            {
+                HLinkMediaModel HLMediaModel = new HLinkMediaModel()
+                {
+                    // Copy fields
+                    HLinkKey = HLinkKey,
+                };
+
+                return HLMediaModel;
+            }
         }
 
         /// <summary>
@@ -129,6 +141,14 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public bool IsImageType
+        {
+            get
+            {
+                return (Valid) && (_HomeImageType == CommonEnums.HomeImageType.ThumbNail);
+            }
+        }
+
         /// <summary>
         /// Gets a value indicating whether this is for an image or a symbol.
         /// </summary>
@@ -184,14 +204,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public bool IsImageType
-        {
-            get
-            {
-                return (Valid) && (_HomeImageType == CommonEnums.HomeImageType.ThumbNail);
-            }
-        }
-
         /// <summary>
         /// Converts from media model.
         /// </summary>
@@ -212,17 +224,6 @@ namespace GrampsView.Data.Model
             GPriv = argMediaModel.Priv;
             HLinkKey = argMediaModel.HLinkKey;
             HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-        }
-
-        public HLinkMediaModel ConvertToHLinkMediaModel()
-        {
-            HLinkMediaModel HLMediaModel = new HLinkMediaModel()
-            {
-                // Copy fields
-                HLinkKey = HLinkKey,
-            };
-
-            return HLMediaModel;
         }
     }
 }

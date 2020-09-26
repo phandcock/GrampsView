@@ -423,8 +423,7 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkHomeImageModel).CardType)
                 {
-                    case DisplayFormat.MediaCardLarge:
-                        return MediaCardLargeTemplate;
+                    
 
                     case DisplayFormat.MediaImageFullCard:
                         return MediaImageFullTemplate;
@@ -437,8 +436,7 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkMediaModel).CardType)
                 {
-                    case DisplayFormat.MediaCardLarge:
-                        return MediaCardLargeTemplate;
+                   
 
                     case DisplayFormat.MediaImageFullCard:
                         return MediaImageFullTemplate;

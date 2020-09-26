@@ -76,7 +76,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local priv.
         /// </summary>
-        private bool _Priv = default(bool);
+        private bool _Priv;
 
         public ModelBase()
         {
