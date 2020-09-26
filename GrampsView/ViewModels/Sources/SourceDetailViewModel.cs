@@ -18,8 +18,6 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
-
         /// <summary>
         /// The local Source object.
         /// </summary>
@@ -39,18 +37,6 @@ namespace GrampsView.ViewModels
         {
             BaseTitle = "Source Detail";
             BaseTitleIcon = CommonConstants.IconSource;
-        }
-
-        public HLinkMediaModel MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
         }
 
         /// <summary>
@@ -91,9 +77,6 @@ namespace GrampsView.ViewModels
                 BaseTitle = SourceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconSource;
 
-                // Get media image
-                MediaCard = SourceObject.HomeImageHLink.ConvertToHLinkMediaModel;
-
                 // Header Card
                 CardGroup t = new CardGroup { Title = "Header Details" };
 
@@ -117,8 +100,6 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(SourceObject.GTagRefCollection.GetCardGroup());
                 BaseDetail.Add(SourceObject.GRepositoryRefCollection.GetCardGroup());
                 BaseDetail.Add(SourceObject.GSourceAttributeCollection);
-
-                BaseDetail.Add(SourceObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
     }

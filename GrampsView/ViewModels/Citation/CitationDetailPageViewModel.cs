@@ -21,8 +21,7 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
-        private CardGroup _BackLinks = new CardGroup();
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+     
 
         /// <summary>
         /// Holds the Note ViewModel.
@@ -52,18 +51,7 @@ namespace GrampsView.ViewModels
         /// The citation object.
         /// </value>
 
-        public CardGroup BackLinks
-        {
-            get
-            {
-                return _BackLinks;
-            }
-
-            set
-            {
-                SetProperty(ref _BackLinks, value);
-            }
-        }
+    
 
         public CitationModel CitationObject
         {
@@ -78,18 +66,7 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public HLinkMediaModel MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
-        }
+       
 
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
@@ -139,7 +116,6 @@ namespace GrampsView.ViewModels
 
                 // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
 
-                BackLinks = CitationObject.BackHLinkReferenceCollection.GetCardGroup();
             }
         }
     }

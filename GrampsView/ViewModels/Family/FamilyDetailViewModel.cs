@@ -75,20 +75,7 @@ namespace GrampsView.ViewModels
                 SetProperty(ref localFamilyModel, value);
             }
         }
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
 
-        public HLinkMediaModel MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
-
-        }
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -99,17 +86,13 @@ namespace GrampsView.ViewModels
         {
             FamilyObject = DV.FamilyDV.GetModelFromHLink(BaseNavParamsHLink);
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (!(FamilyObject is null))
             {
                 BaseTitle = FamilyObject.FamilyDisplayName;
                 BaseTitleIcon = CommonConstants.IconFamilies;
 
-                // Get media image
-                MediaCard = FamilyObject.HomeImageHLink.ConvertToHLinkMediaModel;
-
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -143,8 +126,6 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(FamilyObject.GNoteRefCollection.GetCardGroup());
                 BaseDetail.Add(FamilyObject.GAttributeCollection);
                 BaseDetail.Add(FamilyObject.GTagRefCollection.GetCardGroup());
-
-                BaseDetail.Add(FamilyObject.BackHLinkReferenceCollection.GetCardGroup());
 
                 string outFamEvent;
                 if (FamilyObject.GEventRefCollection.Count > 0)

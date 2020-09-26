@@ -164,8 +164,6 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(CurrentMediaObject.GCitationRefCollection.GetCardGroup());
                     BaseDetail.Add(CurrentMediaObject.GNoteRefCollection.GetCardGroup());
                     BaseDetail.Add(CurrentMediaObject.GTagRefCollection.GetCardGroup());
-
-                    BaseDetail.Add(CurrentMediaObject.BackHLinkReferenceCollection.GetCardGroup());
                 }
 
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");

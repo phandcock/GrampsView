@@ -202,8 +202,6 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(PersonObject.GLDSCollection);
                 BaseDetail.Add(PersonObject.GPersonRefCollection.GetCardGroup());
 
-                BaseDetail.Add(PersonObject.BackHLinkReferenceCollection.GetCardGroup());
-
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }
 

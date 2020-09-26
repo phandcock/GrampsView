@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -19,6 +18,8 @@
     <ScrollView>
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 

@@ -4,10 +4,6 @@
 
 namespace GrampsView.UserControls
 {
-    using GrampsView.Data.Model;
-
-    using System.Diagnostics.Contracts;
-
     using Xamarin.Forms;
 
     /// <summary>
@@ -24,7 +20,7 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        private void PersonCardSmallRoot_BindingContextChanged(object sender, System.EventArgs e)
+        private void NoteCardFullRoot_BindingContextChanged(object sender, System.EventArgs e)
         {
             NoteCardFull card = (sender as NoteCardFull);
 
@@ -32,26 +28,6 @@ namespace GrampsView.UserControls
             {
                 this.IsVisible = false;
                 return;
-            }
-
-            Contract.Requires(BindingContext is HLinkNoteModel);
-
-            HLinkNoteModel t = this.BindingContext as HLinkNoteModel;
-
-            if (t is null)
-            {
-                this.IsVisible = false;
-                return;
-            }
-
-            if (t.Valid)
-            {
-                this.IsVisible = true;
-            }
-            else
-            {
-                this.IsVisible = false;
-             
             }
         }
     }

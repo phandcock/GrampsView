@@ -118,8 +118,6 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(EventObject.GMediaRefCollection.GetCardGroup());
                     BaseDetail.Add(EventObject.GNoteRefCollection.GetCardGroup());
                     BaseDetail.Add(EventObject.GTagRefCollection.GetCardGroup());
-
-                    BaseDetail.Add(EventObject.BackHLinkReferenceCollection.GetCardGroup());
                 }
             }
         }

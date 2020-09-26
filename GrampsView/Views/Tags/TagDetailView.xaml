@@ -19,7 +19,7 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BackLinks, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding TagObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
