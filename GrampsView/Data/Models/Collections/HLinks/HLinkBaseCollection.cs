@@ -24,6 +24,14 @@ namespace GrampsView.Data.Model
     {
         // TODO Handle HLink collections properly by handling all their data
 
+        public virtual CardGroup CardGroupAsProperty
+        {
+            get
+            {
+                return GetCardGroup();
+            }
+        }
+
         /// <summary>
         /// Gets or sets the first image hlink.
         /// </summary>

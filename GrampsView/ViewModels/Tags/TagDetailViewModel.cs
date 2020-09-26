@@ -21,8 +21,6 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class TagDetailViewModel : ViewModelBase
     {
-        private CardGroup _BackLinks = new CardGroup();
-
         /// <summary>
         /// The local book mark object.
         /// </summary>
@@ -45,26 +43,13 @@ namespace GrampsView.ViewModels
         {
         }
 
-        public CardGroup BackLinks
-        {
-            get
-            {
-                return _BackLinks;
-            }
-
-            set
-            {
-                SetProperty(ref _BackLinks, value);
-            }
-        }
-
         /// <summary>
         /// Gets or sets the tag object.
         /// </summary>
         /// <value>
         /// The tag object.
         /// </value>
-        // [RestorableState]
+
         public TagModel TagObject
         {
             get
@@ -113,9 +98,6 @@ namespace GrampsView.ViewModels
                 t.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
 
                 BaseDetail.Add(t);
-
-                // Add Details
-                BackLinks = TagObject.BackHLinkReferenceCollection.GetCardGroup("BackLinks");
             }
 
             return;

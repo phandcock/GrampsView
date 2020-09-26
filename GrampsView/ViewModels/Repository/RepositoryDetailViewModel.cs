@@ -68,13 +68,13 @@ namespace GrampsView.ViewModels
         {
             RepositoryObject = DV.RepositoryDV.GetModelFromHLink(BaseNavParamsHLink);
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (!(RepositoryObject == null))
             {
                 BaseTitle = RepositoryObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
+
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -95,7 +95,6 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(RepositoryObject.GTagRefCollection.GetCardGroup());
                 BaseDetail.Add(RepositoryObject.GAddress.GetCardGroup());
                 BaseDetail.Add(RepositoryObject.GURL);
-                BaseDetail.Add(RepositoryObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
     }

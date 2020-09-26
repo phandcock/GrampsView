@@ -89,11 +89,11 @@ namespace GrampsView.ViewModels
 
             AddressObject = DV.AddressDV.GetModelFromHLink(BaseNavParamsHLink);
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (AddressObject.Valid)
             {
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
+
                 BaseTitle = AddressObject.GetDefaultText;
 
                 // Get media image
@@ -135,8 +135,6 @@ namespace GrampsView.ViewModels
 
                 BaseDetail.Add(AddressObject.GCitationRefCollection.GetCardGroup());
                 BaseDetail.Add(AddressObject.GNoteRefCollection.GetCardGroup());
-
-                BaseDetail.Add(AddressObject.BackHLinkReferenceCollection.GetCardGroup());
             }
 
             return;

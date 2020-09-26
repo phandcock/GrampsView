@@ -6,11 +6,11 @@
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-
     using GrampsView.Common;
     using GrampsView.Data.Model;
+
+    using System.Collections.ObjectModel;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// </summary>
@@ -18,15 +18,18 @@ namespace GrampsView.Data.Collections
     [KnownType(typeof(ObservableCollection<HLinkBackLink>))]
     public class HLinkBackLinkModelCollection : HLinkBaseCollection<HLinkBackLink>
     {
-        public override CardGroup GetCardGroup()
+        public override CardGroup CardGroupAsProperty
         {
-            CardGroup t = new CardGroup();
+            get
+            {
+                CardGroup t = new CardGroup();
 
-            foreach (HLinkBackLink item in Items) { t.Add(item.HLink()); }
+                foreach (HLinkBackLink item in Items) { t.Add(item.HLink()); }
 
-            t.Title = "Backlink Collection";
+                t.Title = "Backlink Collection";
 
-            return t;
+                return t;
+            }
         }
     }
 }

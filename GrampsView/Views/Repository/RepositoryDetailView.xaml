@@ -18,6 +18,8 @@
     <ScrollView>
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupHeader BindingContext="{Binding RepositoryObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

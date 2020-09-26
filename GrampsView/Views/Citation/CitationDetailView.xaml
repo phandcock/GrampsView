@@ -28,7 +28,7 @@
             <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BackLinks, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

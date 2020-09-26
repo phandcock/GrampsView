@@ -17,9 +17,11 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
+            <ucon:MediaCardLarge BindingContext="{Binding FamilyObject.HomeImageHLink.ConvertToHLinkMediaModel, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

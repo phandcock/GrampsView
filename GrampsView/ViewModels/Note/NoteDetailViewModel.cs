@@ -92,14 +92,6 @@ namespace GrampsView.ViewModels
 
                 BaseDetail.Add(basicHeaderDetails);
 
-                // Get Text
-                HLinkNoteModel noteCard = NoteObject.HLink;
-                noteCard.CardType = DisplayFormat.NoteCardFull;
-                BaseDetail.Add(noteCard);
-
-                BaseDetail.Add(NoteObject.GTagRefCollection.GetCardGroup());
-
-                BaseDetail.Add(NoteObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
     }

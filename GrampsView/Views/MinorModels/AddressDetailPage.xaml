@@ -20,6 +20,8 @@
             <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupHeader BindingContext="{Binding AddressObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

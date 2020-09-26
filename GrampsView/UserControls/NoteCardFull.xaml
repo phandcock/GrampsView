@@ -6,7 +6,8 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="NoteCardFullRoot"
     x:DataType="models:HLinkNoteModel"
-    BindingContextChanged="PersonCardSmallRoot_BindingContextChanged">
+    BindingContextChanged="NoteCardFullRoot_BindingContextChanged"
+    IsVisible="{Binding Valid}">
 
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
