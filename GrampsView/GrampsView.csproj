@@ -76,6 +76,7 @@
     <Compile Remove="Common\CustomClasses\CustomImageStreamSource.cs" />
     <Compile Remove="Common\CustomClasses\ExNavigatetoExtension.cs" />
     <Compile Remove="Common\CustomClasses\FlexLayoutVirtual.cs" />
+    <Compile Remove="Common\CustomClasses\LabelExtended.cs" />
     <Compile Remove="Common\CustomClasses\NavCommand.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionEx.cs" />
     <Compile Remove="Common\CustomClasses\PlatformSpecific.cs" />

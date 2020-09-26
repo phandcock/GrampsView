@@ -3,7 +3,6 @@
     x:Class="GrampsView.UserControls.NoteCardFull"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="NoteCardFullRoot"
     x:DataType="models:HLinkNoteModel"
@@ -22,10 +21,14 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <common:LabelExtended
+                <Label
                     Grid.Row="0"
                     FormattedText="{Binding DeRef.GFormattedTextSmall}"
-                    Style="{DynamicResource GVLabelStyleNoteFull}" />
+                    Style="{DynamicResource GVLabelStyleNoteFull}">
+                    <Label.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True" />
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
         </Frame.Content>
     </Frame>
