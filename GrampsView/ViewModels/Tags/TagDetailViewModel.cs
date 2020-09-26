@@ -16,13 +16,13 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
     /// </summary>
     public class TagDetailViewModel : ViewModelBase
     {
+        private CardGroup _BackLinks = new CardGroup();
+
         /// <summary>
         /// The local book mark object.
         /// </summary>
@@ -45,6 +45,19 @@ namespace GrampsView.ViewModels
         {
         }
 
+        public CardGroup BackLinks
+        {
+            get
+            {
+                return _BackLinks;
+            }
+
+            set
+            {
+                SetProperty(ref _BackLinks, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets the tag object.
         /// </summary>
@@ -64,6 +77,8 @@ namespace GrampsView.ViewModels
                 SetProperty(ref localTagObject, value);
             }
         }
+
+    
 
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
@@ -99,7 +114,7 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(t);
 
                 // Add Details
-                BaseDetail.Add(TagObject.BackHLinkReferenceCollection.GetCardGroup()); // TODO , "BackLinks");
+                BackLinks = TagObject.BackHLinkReferenceCollection.GetCardGroup("BackLinks");
             }
 
             return;

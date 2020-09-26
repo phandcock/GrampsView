@@ -9,9 +9,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Navigation;
 
-    using System.Diagnostics.Contracts;
-    using System.Threading.Tasks;
-
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
@@ -23,6 +20,8 @@ namespace GrampsView.ViewModels
         /// The current address.
         /// </summary>
         private AddressModel _AddressObject = new AddressModel();
+
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
@@ -56,19 +55,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Called when [navigating from].
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public void OnNavigatingFrom(INavigationParameters parameters)
-        {
-            OnNavigatedFrom(parameters);
-        }
-
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
-
         public HLinkMediaModel MediaCard
         {
             get
@@ -79,6 +65,17 @@ namespace GrampsView.ViewModels
             {
                 SetProperty(ref _MediaCard, value);
             }
+        }
+
+        /// <summary>
+        /// Called when [navigating from].
+        /// </summary>
+        /// <param name="parameters">
+        /// The parameters.
+        /// </param>
+        public void OnNavigatingFrom(INavigationParameters parameters)
+        {
+            OnNavigatedFrom(parameters);
         }
 
         /// <summary>
@@ -98,10 +95,9 @@ namespace GrampsView.ViewModels
 
                 // Get media image
                 MediaCard = AddressObject.HomeImageHLink.ConvertToHLinkMediaModel;
-            
 
                 // Get Header Details
-                CardGroup headerCardGroup = new CardGroup { Title = "Address Details" };
+                CardGroup headerCardGroup = new CardGroup { };
 
                 // Get the Name Details
                 CardListLineCollection nameDetails = new CardListLineCollection
@@ -119,7 +115,6 @@ namespace GrampsView.ViewModels
                     new CardListLine("Postal:", AddressObject.GPostal),
                     new CardListLine("Phone:", AddressObject.GPhone),
                 };
-
 
                 // Get date card
                 headerCardGroup.Add(AddressObject.GDate.AsCardListLine());

@@ -18,7 +18,7 @@
         <StackLayout>
             <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
-            <ucon:CollectionCardList FsctSource="{Binding BaseDetail, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

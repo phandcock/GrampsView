@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="BookMarkListPageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -43,8 +34,13 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                CardGroup t = new CardGroup();
-                t.Add(DV.BookMarkCollection.GetCardGroup());
+                CardGroup t = new CardGroup
+                {
+                    DV.BookMarkCollection.GetCardGroup(string.Empty)
+                };
+
+                t.Title = string.Empty;
+
                 return t;
             }
         }
