@@ -57,9 +57,9 @@
             Grid.Column="0"
             BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-        <ucon:CollectionCardList
+        <ucon:CardGroupHeader
             Grid.Row="2"
             Grid.Column="0"
-            FsctSource="{Binding BaseDetail, Mode=OneWay}" />
+            BindingContext="{Binding BaseDetail, Mode=OneWay}" />
     </Grid>
 </ContentPage>

@@ -101,11 +101,7 @@ namespace GrampsView.ViewModels
                 //// Get media image
                 MediaCard = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
-                //CardGroup hc = new CardGroup();
-                //HLinkMediaModel mediaImage = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel;
-                //mediaImage.CardType = DisplayFormat.MediaCardLarge;
-                //hc.Add(mediaImage);
-                //BaseDetail.Add(hc);
+ 
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -147,5 +143,7 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
             }
         }
+
+       
     }
 }

@@ -137,6 +137,7 @@
     <Compile Remove="UserControls\General\CardGroupBaseList.xaml.cs" />
     <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
+    <Compile Remove="UserControls\General\CollectionCardList.xaml.cs" />
     <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiCardEnum.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiGroupMultiCard - Copy.xaml.cs" />
@@ -212,6 +213,7 @@
     <EmbeddedResource Remove="UserControls\General\CardGridSingleType.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGroupBaseList.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CollectionCardList.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCardEnum.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiGroupMultiCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexSingleCardGroup.xaml" />
@@ -286,9 +288,6 @@
     </Compile>
     <Compile Update="UserControls\General\CardGroupHeader.xaml.cs">
       <DependentUpon>CardGroupHeader.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\CollectionCardList.xaml.cs">
-      <DependentUpon>CollectionCardList.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\CardGroupBaseHeader.xaml.cs">
       <DependentUpon>CardGroupBaseHeader.xaml</DependentUpon>

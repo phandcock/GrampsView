@@ -15,5 +15,11 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionCardList FsctSource="{Binding BaseDetail, Mode=OneWay}" />
+    <ScrollView>
+        <StackLayout>
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <ucon:CardGroupHeader BindingContext="{Binding BackLinks, Mode=OneWay}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

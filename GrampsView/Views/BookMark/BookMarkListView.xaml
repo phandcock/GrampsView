@@ -15,8 +15,6 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-
-    <ucon:CollectionCardList FsctSource="{Binding BookMarkSource, Mode=OneWay}" />
-
-
+    <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
+   
 </ContentPage>
