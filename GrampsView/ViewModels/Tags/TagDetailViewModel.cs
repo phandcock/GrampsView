@@ -78,8 +78,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-    
-
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
         /// </summary>
@@ -92,6 +90,9 @@ namespace GrampsView.ViewModels
         public override void PopulateViewModel()
         {
             TagObject = DV.TagDV.GetModelFromHLinkString(BaseNavParamsHLink.HLinkKey);
+
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
 
             if (!(TagObject is null))
             {

@@ -12,7 +12,6 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
-    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
 
@@ -52,6 +51,30 @@ namespace GrampsView.Data.Model
             CardGroup t = new CardGroup();
 
             foreach (T item in Items) { t.Add(item); }
+
+            return t;
+        }
+
+        public virtual CardGroupBase<T> GetCardGroupBase(string argTitle = "")
+        {
+            CardGroupBase<T> t = GetCardGroupBase();
+
+            if (!string.IsNullOrEmpty(argTitle))
+            {
+                t.Title = argTitle;
+            };
+
+            return t;
+        }
+
+        public virtual CardGroupBase<T> GetCardGroupBase()
+        {
+            CardGroupBase<T> t = new CardGroupBase<T>();
+
+            foreach (T item in Items)
+            {
+                t.Add(item);
+            }
 
             return t;
         }

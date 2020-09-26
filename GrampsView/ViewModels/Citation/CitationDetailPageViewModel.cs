@@ -16,13 +16,12 @@ namespace GrampsView.ViewModels
 
     using System.Globalization;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
+        private CardGroup _BackLinks = new CardGroup();
         private HLinkMediaModel _MediaCard = new HLinkMediaModel();
 
         /// <summary>
@@ -52,6 +51,19 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The citation object.
         /// </value>
+
+        public CardGroup BackLinks
+        {
+            get
+            {
+                return _BackLinks;
+            }
+
+            set
+            {
+                SetProperty(ref _BackLinks, value);
+            }
+        }
 
         public CitationModel CitationObject
         {
@@ -93,15 +105,13 @@ namespace GrampsView.ViewModels
             // Handle HLinkKeys
             CitationObject = DV.CitationDV.GetModelFromHLinkString(BaseNavParamsHLink.HLinkKey);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (CitationObject != null)
             {
                 BaseTitle = CitationObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconCitation;
-
-                //// Get media image
-                MediaCard = CitationObject.HomeImageHLink.ConvertToHLinkMediaModel;
-
- 
 
                 // Get basic details
                 CardGroup t = new CardGroup { Title = "Header Details" };
@@ -120,13 +130,6 @@ namespace GrampsView.ViewModels
 
                 BaseDetail.Add(t);
 
-                // Add Source details
-                CardGroup hs = new CardGroup();
-                HLinkSourceModel sourceCard = CitationObject.GSourceRef;
-                sourceCard.CardType = DisplayFormat.SourceCardSmall;
-                hs.Add(sourceCard);
-                BaseDetail.Add(hs);
-
                 // If only one note (the most common case) just display it in a large format,
                 // otherwise setup a list of them.
                 if (CitationObject.GNoteRefCollection.Count > 0)
@@ -134,16 +137,10 @@ namespace GrampsView.ViewModels
                     // TODO Fix this NoteObject = CitationObject.GNoteRefCollection[0].DeRef;
                 }
 
-                // Add remaining details
-                BaseDetail.Add(CitationObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(CitationObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(CitationObject.GTagRef.GetCardGroup());
                 // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
 
-                BaseDetail.Add(CitationObject.BackHLinkReferenceCollection.GetCardGroup());
+                BackLinks = CitationObject.BackHLinkReferenceCollection.GetCardGroup();
             }
         }
-
-       
     }
 }

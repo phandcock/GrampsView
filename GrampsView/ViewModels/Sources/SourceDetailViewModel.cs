@@ -13,15 +13,13 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System.Diagnostics.Contracts;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
         /// <summary>
         /// The local Source object.
         /// </summary>
@@ -43,6 +41,18 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets the public Source ViewModel.
         /// </summary>
@@ -62,20 +72,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
-
-        public HLinkMediaModel MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
-
-        }
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -86,6 +82,9 @@ namespace GrampsView.ViewModels
             // Cache the Source model
             SourceObject = DV.SourceDV.GetModelFromHLink(BaseNavParamsHLink);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (!(SourceObject is null))
             {
                 // Get basic details
@@ -94,7 +93,6 @@ namespace GrampsView.ViewModels
 
                 // Get media image
                 MediaCard = SourceObject.HomeImageHLink.ConvertToHLinkMediaModel;
-
 
                 // Header Card
                 CardGroup t = new CardGroup { Title = "Header Details" };

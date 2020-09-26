@@ -68,6 +68,9 @@ namespace GrampsView.ViewModels
         {
             RepositoryObject = DV.RepositoryDV.GetModelFromHLink(BaseNavParamsHLink);
 
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
             if (!(RepositoryObject == null))
             {
                 BaseTitle = RepositoryObject.GetDefaultText;
