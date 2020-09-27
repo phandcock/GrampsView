@@ -21,6 +21,18 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonNamesCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>

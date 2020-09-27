@@ -189,18 +189,18 @@ namespace GrampsView.ViewModels
                 }
 
                 // Add details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetCardGroup());
-                BaseDetail.Add(PersonObject.GParentInRefCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GPersonNamesCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GParentInRefCollection.GetCardGroup());
                 BaseDetail.Add(EventsIncFamily());
-                BaseDetail.Add(PersonObject.GCitationRefCollection.GetCardGroup());
-                BaseDetail.Add(PersonObject.GNoteRefCollection.GetCardGroupWithoutBio());
-                BaseDetail.Add(PersonObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(PersonObject.GAttributeCollection);
-                BaseDetail.Add(PersonObject.GAddress.GetCardGroup());
-                BaseDetail.Add(PersonObject.GTagRefCollection.GetCardGroup());
-                BaseDetail.Add(PersonObject.GURLCollection);
-                BaseDetail.Add(PersonObject.GLDSCollection);
-                BaseDetail.Add(PersonObject.GPersonRefCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GCitationRefCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GNoteRefCollection.GetCardGroupWithoutBio());
+                //BaseDetail.Add(PersonObject.GMediaRefCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GAttributeCollection);
+                //BaseDetail.Add(PersonObject.GAddress.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GTagRefCollection.GetCardGroup());
+                //BaseDetail.Add(PersonObject.GURLCollection);
+                //BaseDetail.Add(PersonObject.GLDSCollection);
+                //BaseDetail.Add(PersonObject.GPersonRefCollection.GetCardGroup());
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }

@@ -9,6 +9,10 @@
     BindingContextChanged="NoteCardFullRoot_BindingContextChanged"
     IsVisible="{Binding Valid}">
 
+    <Grid.GestureRecognizers>
+        <DragGestureRecognizer CanDrag="True" DragStarting="OnDragStarting" />
+    </Grid.GestureRecognizers>
+
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
 
@@ -25,11 +29,8 @@
                 <Label
                     Grid.Row="0"
                     FormattedText="{Binding DeRef.GFormattedTextSmall}"
-                    Style="{DynamicResource GVLabelStyleNoteFull}">
-                    <Label.GestureRecognizers>
-                        <DragGestureRecognizer CanDrag="True" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    Style="{DynamicResource GVLabelStyleNoteFull}"
+                    Text="{Binding DeRef.}" />
             </Grid>
         </Frame.Content>
     </Frame>
