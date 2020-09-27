@@ -5,11 +5,18 @@
     x:Name="TopMenuRoot"
     Margin="0"
     Padding="0"
-    Style="{DynamicResource GVPageTitleStyle}">
+    Style="{DynamicResource GVPageTitleStyle}"
+    VerticalOptions="CenterAndExpand">
+
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
     <Image
         Grid.Row="0"
         Grid.Column="0"

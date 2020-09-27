@@ -22,11 +22,7 @@
 
                 <!--  Navigation items  -->
 
-                <BoxView FlexLayout.Basis="{StaticResource GVPageMargin}" FlexLayout.Order="-1" />
-
                 <!--  Aside items  -->
-
-                <BoxView FlexLayout.Basis="{StaticResource GVPageMargin}" />
 
                 <!--  Body End  -->
             </FlexLayout>
@@ -50,10 +46,8 @@
                 <!--  Content End  -->
 
                 <!--  Navigation items  -->
-                <BoxView FlexLayout.Basis="{StaticResource GVPageMargin}" FlexLayout.Order="-1" />
 
                 <!--  Aside items  -->
-                <BoxView FlexLayout.Basis="{StaticResource GVPageMargin}" />
             </FlexLayout>
 
             <!--  Footer  -->
