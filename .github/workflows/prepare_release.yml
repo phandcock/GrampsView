@@ -62,6 +62,6 @@ jobs:
         # Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)
         azure-devops-project-url: 'https://handteam.visualstudio.com/GrampsViewXam'
         # Name of the Azure Pipline to be triggered
-        azure-pipeline-name: 'azure-pipeline-uwp'
+        azure-pipeline-name: 'azure-pipeline-android'
         # Paste personal access token of the user as value of secret variable:AZURE_DEVOPS_TOKEN
         azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}' 
