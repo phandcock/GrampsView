@@ -48,12 +48,12 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _FileDescription = string.Empty;
 
-        private bool _IsClippedFile = false;
+        private bool _IsClippedFile;
 
         /// <summary>
         /// Local Storage File for media object.
         /// </summary>
-        private FileInfoEx _MediaStorageFile = null;
+        private FileInfoEx _MediaStorageFile;
 
         private HLinkNoteModelCollection _NoteReferenceCollection = new HLinkNoteModelCollection();
 

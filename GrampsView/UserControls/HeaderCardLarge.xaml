@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="HeaderCardLargeRoot"
     Padding="0"
     x:DataType="models:HLinkHeaderModel"
@@ -13,5 +14,8 @@
     <Frame
         x:Name="headerFrame"
         BorderColor="Transparent"
-        Style="{DynamicResource FrameLargeVariableCardStyleNS}" />
+        Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+
+        <ucon:ListLineCardLarge x:Name="ListLine" BindingContext="{DynamicResource HeaderCard}" />
+    </Frame>
 </Grid>

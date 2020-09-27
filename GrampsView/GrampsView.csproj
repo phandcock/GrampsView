@@ -338,6 +338,9 @@
     <Compile Update="UserControls\NoteCardFull.xaml.cs">
       <DependentUpon>NoteCardFull.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\PlaceLocationCardSmall.xaml.cs">
+      <DependentUpon>PlaceLocationCardSmall.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\PlaceNameCardSmall.xaml.cs">
       <DependentUpon>PlaceNameCardSmall.xaml</DependentUpon>
     </Compile>
@@ -409,5 +412,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 </Project>

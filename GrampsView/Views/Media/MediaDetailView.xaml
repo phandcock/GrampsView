@@ -19,6 +19,14 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentHLinkMedia.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <!--  TODO Add HLINK to Titles of above  -->
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentMediaObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>

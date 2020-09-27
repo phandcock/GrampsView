@@ -78,9 +78,9 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconSource;
 
                 // Header Card
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                     {
                        new CardListLine("Card Type:", "Source Detail"),
                        new CardListLine("Title:", SourceObject.GSTitle),
@@ -90,16 +90,16 @@ namespace GrampsView.ViewModels
                     });
 
                 // Add Model details
-                t.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
+                BaseDetail.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
 
                 // Add bulk items
-                BaseDetail.Add(SourceObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(SourceObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(SourceObject.GTagRefCollection.GetCardGroup());
-                BaseDetail.Add(SourceObject.GRepositoryRefCollection.GetCardGroup());
-                BaseDetail.Add(SourceObject.GSourceAttributeCollection);
+                //BaseDetail.Add(SourceObject.GMediaRefCollection.GetCardGroup());
+                //BaseDetail.Add(SourceObject.GNoteRefCollection.GetCardGroup());
+                //BaseDetail.Add(SourceObject.GTagRefCollection.GetCardGroup());
+                //BaseDetail.Add(SourceObject.GRepositoryRefCollection.GetCardGroup());
+                //BaseDetail.Add(SourceObject.GSourceAttributeCollection);
             }
         }
     }

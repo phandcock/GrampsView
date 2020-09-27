@@ -13,7 +13,7 @@ namespace GrampsView.Data.Collections
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<AttributeModel>))]
+    [KnownType(typeof(CardGroupBase<AttributeModel>))]
     public class OCAttributeModelCollection : CardGroupBase<AttributeModel>
     {
         public OCAttributeModelCollection()

@@ -213,8 +213,6 @@ namespace GrampsView.Data.Repository
             set;
         }
 
-        = false;
-
         /// <summary>
         /// The local Media data.
         /// </summary>

@@ -88,7 +88,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local database version.
         /// </summary>
-        private int _DatabaseVersion = 0;
+        private int _DatabaseVersion;
 
         /// <summary>
         /// created date.

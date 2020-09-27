@@ -45,7 +45,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local IsFormated.
         /// </summary>
-        private bool _IsFormated = false;
+        private bool _IsFormated;
 
         /// <summary>
         /// The local type.

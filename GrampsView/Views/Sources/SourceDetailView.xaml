@@ -21,6 +21,12 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>

@@ -7,8 +7,6 @@
     using Prism.Events;
     using Prism.Navigation;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// View model for the Hub Page.
     /// </summary>
@@ -83,21 +81,14 @@
         public override void PopulateViewModel()
         {
             // Get Header CardLarge
-            CardGroup hc = new CardGroup();
+            //CardGroup hc = new CardGroup();
             HLinkHeaderModel HeaderCard = DV.HeaderDV.HeaderDataModel.HLink;
-            HeaderCard.CardType = DisplayFormat.HeaderCardLarge;
-            hc.Add(HeaderCard);
+            //HeaderCard.CardType = DisplayFormat.HeaderCardLarge;
+            //hc.Add(HeaderCard);
 
             MediaCard = DV.MediaDV.GetRandomFromCollection(null);
 
-            BaseDetail.Add(hc);
-
-            //if (!HeroImage.Valid)
-            //{
-            //    DataStore.CN.NotifyAlert("No images found in this data.  Consider adding some.");
-            //}
-
-            // Setup Latest Changes list
+            BaseDetail.Add(HeaderCard);
 
             // TODO fix this LatestChanges.Add(DV.BookMarkDV.GetLatestChanges());
 

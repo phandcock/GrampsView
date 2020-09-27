@@ -78,7 +78,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local is living.
         /// </summary>
-        private bool _IsLiving = false;
+        private bool _IsLiving;
 
         /// <summary>
         /// Collection of Media References $$(mediaRef)$$.

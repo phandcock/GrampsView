@@ -83,9 +83,9 @@ namespace GrampsView.ViewModels
                     BaseTitleIcon = CommonConstants.IconEvents;
 
                     // Get basic details
-                    CardGroup t = new CardGroup { Title = "Header Details" };
+                    //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                    t.Add(new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Event Detail"),
                         new CardListLine("Type:", EventObject.GType),
@@ -94,30 +94,30 @@ namespace GrampsView.ViewModels
                     });
 
                     // Get date card
-                    t.Add(EventObject.GDate.AsCardListLine());
+                    BaseDetail.Add(EventObject.GDate.AsCardListLine());
 
                     // Add Model details
-                    t.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));
+                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));
 
                     // Add the description and event place card
                     CardListLineCollection t1 = new CardListLineCollection
                         {
                             new CardListLine("Description", EventObject.GDescription)
                         };
-                    t.Add(t1);
+                    BaseDetail.Add(t1);
 
-                    t.Add(EventObject.GPlace);
+                    BaseDetail.Add(EventObject.GPlace);
 
-                    BaseDetail.Add(t);
+                    //BaseDetail.Add(t);
 
                     BaseDetail.Add(HLinkObject.GAttributeRefCollection);
                     BaseDetail.Add(HLinkObject.GNoteRefCollection.GetCardGroup());
 
-                    BaseDetail.Add(EventObject.GAttribute);
-                    BaseDetail.Add(EventObject.GCitationRefCollection.GetCardGroup());
-                    BaseDetail.Add(EventObject.GMediaRefCollection.GetCardGroup());
-                    BaseDetail.Add(EventObject.GNoteRefCollection.GetCardGroup());
-                    BaseDetail.Add(EventObject.GTagRefCollection.GetCardGroup());
+                    //BaseDetail.Add(EventObject.GAttribute);
+                    //BaseDetail.Add(EventObject.GCitationRefCollection.GetCardGroup());
+                    //BaseDetail.Add(EventObject.GMediaRefCollection.GetCardGroup());
+                    //BaseDetail.Add(EventObject.GNoteRefCollection.GetCardGroup());
+                    //BaseDetail.Add(EventObject.GTagRefCollection.GetCardGroup());
                 }
             }
         }

@@ -44,6 +44,36 @@ namespace GrampsView.ViewModels
             _PlatformSpecific = iocPlatformSpecific;
         }
 
+        /// <summary>
+        /// Gets the persons events and those of any families they were in.
+        /// </summary>
+        /// <returns>
+        /// CardGroup
+        /// </returns>
+        public CardGroupBase<HLinkEventModel> EventsIncFamily
+        {
+            get
+            {
+                // Get the personal events
+                HLinkEventModelCollection t = new HLinkEventModelCollection();
+
+                t.AddRange(PersonObject.GEventRefCollection);
+
+                // Get Family events
+                foreach (HLinkFamilyModel families in PersonObject.GParentInRefCollection)
+                {
+                    foreach (HLinkEventModel familyEvent in families.DeRef.GEventRefCollection)
+                    {
+                        t.Add(familyEvent);
+                    }
+                }
+
+                t.Sort(x => x.DeRef.GDate.SortDate);
+
+                return t;
+            }
+        }
+
         public HLinkMediaModel MediaCard
         {
             get
@@ -73,33 +103,6 @@ namespace GrampsView.ViewModels
             {
                 SetProperty(ref _PersonObject, value);
             }
-        }
-
-        /// <summary>
-        /// Gets the persons events and those of any families they were in.
-        /// </summary>
-        /// <returns>
-        /// CardGroup
-        /// </returns>
-        public CardGroup EventsIncFamily()
-        {
-            // Get the personal events
-            HLinkEventModelCollection t = new HLinkEventModelCollection();
-
-            t.AddRange(PersonObject.GEventRefCollection);
-
-            // Get Family events
-            foreach (HLinkFamilyModel families in PersonObject.GParentInRefCollection)
-            {
-                foreach (HLinkEventModel familyEvent in families.DeRef.GEventRefCollection)
-                {
-                    t.Add(familyEvent);
-                }
-            }
-
-            t.Sort(x => x.DeRef.GDate.SortDate);
-
-            return t.GetCardGroup();
         }
 
         /// <summary>
@@ -137,7 +140,7 @@ namespace GrampsView.ViewModels
                 MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
                 // Get Header Details
-                CardGroup headerCardGroup = new CardGroup { Title = "Header Details" };
+                //CardGroup headerCardGroup = new CardGroup { Title = "Header Details" };
 
                 // Get the Person Details
                 CardListLineCollection nameDetails = new CardListLineCollection
@@ -145,29 +148,29 @@ namespace GrampsView.ViewModels
                     new CardListLine("Card Type:", "Person Detail"),
             };
 
-                headerCardGroup.Add(nameDetails);
+                BaseDetail.Add(nameDetails);
 
                 // Get the Name Details
-                headerCardGroup.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
+                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
 
                 // Get date card
 
-                headerCardGroup.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
+                BaseDetail.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
 
                 // Get details on persons age etc
-                headerCardGroup.Add(GetExtraPersonDetails());
+                BaseDetail.Add(GetExtraPersonDetails());
 
                 // Get parent details
-                headerCardGroup.Add(
+                BaseDetail.Add(
                     new ParentLinkModel
                     {
                         Parents = PersonObject.GChildOf.DeRef,
                     });
 
                 // Add Standard details
-                headerCardGroup.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
+                BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                BaseDetail.Add(headerCardGroup);
+                // BaseDetail.Add(headerCardGroup);
 
                 // Get Bio
                 HLinkNoteModel bioCard = PersonObject.GNoteRefCollection.GetBio;
@@ -191,7 +194,7 @@ namespace GrampsView.ViewModels
                 // Add details
                 //BaseDetail.Add(PersonObject.GPersonNamesCollection.GetCardGroup());
                 //BaseDetail.Add(PersonObject.GParentInRefCollection.GetCardGroup());
-                BaseDetail.Add(EventsIncFamily());
+                //BaseDetail.Add(EventsIncFamily());
                 //BaseDetail.Add(PersonObject.GCitationRefCollection.GetCardGroup());
                 //BaseDetail.Add(PersonObject.GNoteRefCollection.GetCardGroupWithoutBio());
                 //BaseDetail.Add(PersonObject.GMediaRefCollection.GetCardGroup());

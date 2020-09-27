@@ -121,9 +121,9 @@ namespace GrampsView.ViewModels
                     BaseTitleIcon = CommonConstants.IconMedia;
 
                     // Get basic details
-                    CardGroup t = new CardGroup { Title = "Header Details" };
+                    //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                    t.Add(new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Media Detail"),
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
@@ -134,7 +134,7 @@ namespace GrampsView.ViewModels
                     });
 
                     // Get date card
-                    t.Add(CurrentMediaObject.GDateValue.AsCardListLine());
+                    BaseDetail.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
                     // Set up note re opening in photo app
                     CardListLineCollection t1 = new CardListLineCollection
@@ -142,12 +142,12 @@ namespace GrampsView.ViewModels
                             new CardListLine(string.Empty, "Note: Double click the file image / symbol to open it.")
                         };
 
-                    t.Add(t1);
+                    BaseDetail.Add(t1);
 
                     // Add standard details
-                    t.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
+                    BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
 
-                    BaseDetail.Add(t);
+                    //BaseDetail.Add(t);
 
                     // Get media image
                     HLinkHomeImageModel personImage = CurrentMediaObject.HomeImageHLink;
@@ -156,14 +156,14 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(personImage);
 
                     // Add HLink Details
-                    BaseDetail.Add(CurrentHLinkMedia.GAttributeRefCollection);
-                    BaseDetail.Add(CurrentHLinkMedia.GCitationRefCollection.GetCardGroup("HLink Citations"));
-                    BaseDetail.Add(CurrentHLinkMedia.GNoteRefCollection.GetCardGroup("HLink Notes"));
+                    //BaseDetail.Add(CurrentHLinkMedia.GAttributeRefCollection);
+                    //BaseDetail.Add(CurrentHLinkMedia.GCitationRefCollection.GetCardGroup("HLink Citations"));
+                    //BaseDetail.Add(CurrentHLinkMedia.GNoteRefCollection.GetCardGroup("HLink Notes"));
 
-                    // Add Model details
-                    BaseDetail.Add(CurrentMediaObject.GCitationRefCollection.GetCardGroup());
-                    BaseDetail.Add(CurrentMediaObject.GNoteRefCollection.GetCardGroup());
-                    BaseDetail.Add(CurrentMediaObject.GTagRefCollection.GetCardGroup());
+                    //// Add Model details
+                    //BaseDetail.Add(CurrentMediaObject.GCitationRefCollection.GetCardGroup());
+                    //BaseDetail.Add(CurrentMediaObject.GNoteRefCollection.GetCardGroup());
+                    //BaseDetail.Add(CurrentMediaObject.GTagRefCollection.GetCardGroup());
                 }
 
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");

@@ -425,6 +425,90 @@ namespace GrampsView.Data.ExternalStorageNS
             return t;
         }
 
+        private PlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
+        {
+            PlaceLocationCollection t = new PlaceLocationCollection();
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "location")
+                    select orElementEl;
+            if (theERElement.Any())
+            {
+                IEnumerable<XAttribute> attributeElements = theERElement.Attributes();
+
+                // Load attribute object references
+                foreach (XAttribute theLoadORElement in attributeElements)
+                {
+                    PlaceLocationModel newAttributeModel = new PlaceLocationModel();
+
+                    switch (theLoadORElement.Name.LocalName)
+                    {
+                        case "city":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.city;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "country":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.country;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "county":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.county;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "locality":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.locality;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "parish":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.parish;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "phone":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.phone;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "postal":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.postal;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+                        case "street":
+                            {
+                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.street;
+                                newAttributeModel.GLocationName = theLoadORElement.Value;
+                                break;
+                            }
+
+                        default:
+                            {
+                                break;
+                            }
+                    }
+
+                    newAttributeModel.HomeImageHLink.HomeSymbol = CommonConstants.IconPlace;
+                    t.Add(newAttributeModel);
+                }
+            }
+
+            // Return sorted by the default text
+            t.Sort(T => T.DeRef.GetDefaultText);
+            return t;
+        }
+
         private PlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
         {
             PlaceNameModelCollection t = new PlaceNameModelCollection();

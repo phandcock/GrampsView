@@ -95,37 +95,37 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get basic details
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
-            {
-                new CardListLine("Card Type:", "Family Detail"),
-                new CardListLine("Family Display Name:", FamilyObject.FamilyDisplayName),
-                new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
-                new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
-                new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
-            });
+                BaseDetail.Add(new CardListLineCollection
+                    {
+                        new CardListLine("Card Type:", "Family Detail"),
+                        new CardListLine("Family Display Name:", FamilyObject.FamilyDisplayName),
+                        new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
+                        new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
+                        new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
+                    });
 
                 // Add Model details
-                t.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
+                BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
 
                 // Add parent link
-                t.Add(new ParentLinkModel
+                BaseDetail.Add(new ParentLinkModel
                 {
                     Parents = localFamilyModel,
                 });
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
 
                 // Detail reference
-                BaseDetail.Add(FamilyObject.GEventRefCollection.GetCardGroup());
-                BaseDetail.Add(FamilyObject.GChildRefCollection.GetCardGroup()); // TODO , "Children");
+                //BaseDetail.Add(FamilyObject.GEventRefCollection.GetCardGroup());
+                //BaseDetail.Add(FamilyObject.GChildRefCollection.GetCardGroup()); // TODO , "Children");
 
-                BaseDetail.Add(FamilyObject.GCitationRefCollection.GetCardGroup());
-                BaseDetail.Add(FamilyObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(FamilyObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(FamilyObject.GAttributeCollection);
-                BaseDetail.Add(FamilyObject.GTagRefCollection.GetCardGroup());
+                //BaseDetail.Add(FamilyObject.GCitationRefCollection.GetCardGroup());
+                //BaseDetail.Add(FamilyObject.GMediaRefCollection.GetCardGroup());
+                //BaseDetail.Add(FamilyObject.GNoteRefCollection.GetCardGroup());
+                //BaseDetail.Add(FamilyObject.GAttributeCollection);
+                //BaseDetail.Add(FamilyObject.GTagRefCollection.GetCardGroup());
 
                 string outFamEvent;
                 if (FamilyObject.GEventRefCollection.Count > 0)

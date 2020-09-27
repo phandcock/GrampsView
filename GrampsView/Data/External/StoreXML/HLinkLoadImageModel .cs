@@ -23,7 +23,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System;
     using System.Runtime.Serialization;
 
     using Xamarin.Forms;
@@ -83,7 +82,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner1 x.
         /// </value>
 
-        public int GCorner1X { get; set; } = 0;
+        public int GCorner1X { get; set; }
 
         /// <summary>
         /// Gets or sets the g corner1 y.
@@ -92,7 +91,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner1 y.
         /// </value>
 
-        public int GCorner1Y { get; set; } = 0;
+        public int GCorner1Y { get; set; }
 
         /// <summary>
         /// Gets or sets the g corner2 x.
@@ -101,7 +100,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner2 x.
         /// </value>
 
-        public int GCorner2X { get; set; } = 0;
+        public int GCorner2X { get; set; }
 
         /// <summary>
         /// Gets or sets the g corner2 y.
@@ -110,7 +109,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner2 y.
         /// </value>
 
-        public int GCorner2Y { get; set; } = 0;
+        public int GCorner2Y { get; set; }
 
         /// <summary>
         /// Gets the home image display bit map.

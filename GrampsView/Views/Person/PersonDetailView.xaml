@@ -23,6 +23,7 @@
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonNamesCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />

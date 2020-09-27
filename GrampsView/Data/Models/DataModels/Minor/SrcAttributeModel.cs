@@ -22,8 +22,6 @@
             set;
         }
 
-            = false;
-
         /// <summary>
         /// Gets or sets the g text.
         /// </summary>
@@ -36,8 +34,6 @@
             set;
         }
 
-            = null;
-
         /// <summary>
         /// Gets or sets the g value.
         /// </summary>
@@ -49,7 +45,5 @@
             get;
             set;
         }
-
-            = null;
     }
 }

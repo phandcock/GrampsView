@@ -10,7 +10,7 @@
     {
         private DirectoryInfo _CurrentDataFolder;
 
-        private Stream _CurrentInputStream = null;
+        private Stream _CurrentInputStream;
 
         private string _CurrentInputStreamPath;
 
