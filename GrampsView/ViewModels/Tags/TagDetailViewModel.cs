@@ -85,9 +85,9 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconTag;
 
                 // Get Headers
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                 {
                         new CardListLine("Card Type:", "Tag Detail"),
                         new CardListLine("Name:", TagObject.GName),
@@ -95,9 +95,9 @@ namespace GrampsView.ViewModels
                         new CardListLine("Private:", TagObject.PrivAsString),
                 });
 
-                t.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
+                BaseDetail.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
             }
 
             return;

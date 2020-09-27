@@ -70,7 +70,6 @@
         <usercontrols:HeaderCardLarge />
     </DataTemplate>
 
-
     <DataTemplate x:Key="MediaCardSmallDT">
         <usercontrols:MediaCardSmall />
     </DataTemplate>
@@ -115,6 +114,10 @@
         <usercontrols:PlaceCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="PlaceLocationCardSmallDT">
+        <usercontrols:PersonLocationCardSmall />
+    </DataTemplate>
+
     <DataTemplate x:Key="PlaceNameCardSmallDT">
         <usercontrols:PlaceNameCardSmall />
     </DataTemplate>
@@ -155,6 +158,7 @@
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
         PersonTemplate="{StaticResource PersonCardSmallDT}"
+        PlaceLocationTemplate="{StaticResource PlaceLocationCardSmallDT}"
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"
         RepositoryTemplate="{StaticResource RepositoryCardSmallDT}"

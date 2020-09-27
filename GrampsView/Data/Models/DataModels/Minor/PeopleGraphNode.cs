@@ -34,12 +34,12 @@
         /// <summary>
         /// The x start.
         /// </summary>
-        public int XStart { get; set; } = 0;
+        public int XStart { get; set; }
 
         /// <summary>
         /// The y start.
         /// </summary>
-        public int YStart { get; set; } = 0;
+        public int YStart { get; set; }
 
         /// <summary>
         /// Sorts the by y start.

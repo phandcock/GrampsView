@@ -100,7 +100,7 @@ namespace GrampsView.ViewModels
                 MediaCard = AddressObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
                 // Get Header Details
-                CardGroup headerCardGroup = new CardGroup { };
+                //CardGroup headerCardGroup = new CardGroup { };
 
                 // Get the Name Details
                 CardListLineCollection nameDetails = new CardListLineCollection
@@ -120,18 +120,18 @@ namespace GrampsView.ViewModels
                 };
 
                 // Get date card
-                headerCardGroup.Add(AddressObject.GDate.AsCardListLine());
+                BaseDetail.Add(AddressObject.GDate.AsCardListLine());
 
-                headerCardGroup.Add(nameDetails);
+                BaseDetail.Add(nameDetails);
 
                 // Add Standard details
-                headerCardGroup.Add(DV.PersonDV.GetModelInfoFormatted(AddressObject));
+                BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(AddressObject));
 
                 // Add map card
-                headerCardGroup.Add(TurnAddressToURLModel());
+                BaseDetail.Add(TurnAddressToURLModel());
 
                 // Add header
-                BaseDetail.Add(headerCardGroup);
+                //BaseDetail.Add(headerCardGroup);
 
                 BaseDetail.Add(AddressObject.GCitationRefCollection.GetCardGroup());
                 BaseDetail.Add(AddressObject.GNoteRefCollection.GetCardGroup());

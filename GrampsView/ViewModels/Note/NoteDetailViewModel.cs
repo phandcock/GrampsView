@@ -78,9 +78,9 @@ namespace GrampsView.ViewModels
                 BaseTitle = NoteObject.GetDefaultText;
 
                 // Get basic details
-                CardGroup basicHeaderDetails = new CardGroup { Title = "Header Details" };
+              //  CardGroup basicHeaderDetails = new CardGroup { Title = "Header Details" };
 
-                basicHeaderDetails.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                 {
                     new CardListLine("Card Type:", "Note Detail"),
                     new CardListLine("Type:", NoteObject.GType),
@@ -88,9 +88,9 @@ namespace GrampsView.ViewModels
                 });
 
                 // Add Model details
-                basicHeaderDetails.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
+                BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
 
-                BaseDetail.Add(basicHeaderDetails);
+                //BaseDetail.Add(basicHeaderDetails);
 
             }
         }

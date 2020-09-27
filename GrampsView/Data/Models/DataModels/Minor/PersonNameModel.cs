@@ -195,8 +195,6 @@
             set;
         }
 
-            = false;
-
         /// <summary>
         /// Gets or sets the sort.
         /// </summary>

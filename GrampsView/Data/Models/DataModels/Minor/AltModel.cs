@@ -9,7 +9,7 @@
         /// <summary>
         /// Alt field.
         /// </summary>
-        private bool localAlt = false;
+        private bool localAlt;
 
         /// <summary>
         /// Gets or sets a value indicating whether Alt is set.

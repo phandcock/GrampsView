@@ -74,9 +74,9 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get Header details
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Place Detail"),
                         new CardListLine("Title:", PlaceObject.GPTitle),
@@ -85,18 +85,18 @@ namespace GrampsView.ViewModels
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
 
-                // Get Coordinates TODO Setup Map link card button thing
-                t = new CardGroup { Title = "Coordinates" };
+                // Get Coordinates TODO Setup Map link card button thing t = new CardGroup { Title =
+                // "Coordinates" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),
                         new CardListLine("Long:", PlaceObject.GCoordLong),
                 });
 
-                t.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
+                BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
 
                 // Get Place Name details
                 if (PlaceObject.GPlaceNames.Count > 1)
@@ -120,15 +120,15 @@ namespace GrampsView.ViewModels
                 }
 
                 // Details
-                BaseDetail.Add(PlaceObject.GLocation); // TODO Why displayed if empty
-                BaseDetail.Add(PlaceObject.GPlaceRefCollection.GetCardGroup());
-                BaseDetail.Add(PlaceObject.PlaceChildCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.GLocation); // TODO Why displayed if empty
+                //BaseDetail.Add(PlaceObject.GPlaceRefCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.PlaceChildCollection.GetCardGroup());
 
-                BaseDetail.Add(PlaceObject.GCitationRefCollection.GetCardGroup());
-                BaseDetail.Add(PlaceObject.GMediaRefCollection.GetCardGroup());
-                BaseDetail.Add(PlaceObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(PlaceObject.GTagRefCollection.GetCardGroup());
-                BaseDetail.Add(PlaceObject.GURLCollection);
+                //BaseDetail.Add(PlaceObject.GCitationRefCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.GMediaRefCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.GNoteRefCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.GTagRefCollection.GetCardGroup());
+                //BaseDetail.Add(PlaceObject.GURLCollection);
             }
         }
     }

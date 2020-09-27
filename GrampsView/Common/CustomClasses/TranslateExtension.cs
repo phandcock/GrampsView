@@ -16,7 +16,7 @@
 
         private static readonly Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(TranslateExtension)).Assembly));
 
-        private readonly CultureInfo ci = null;
+        private readonly CultureInfo ci;
 
         public TranslateExtension()
         {
@@ -31,7 +31,9 @@
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             if (Text == null)
+            {
                 return string.Empty;
+            }
 
             var translation = ResMgr.Value.GetString(Text, ci);
             if (translation == null)

@@ -54,7 +54,7 @@
         /// <summary>
         /// Dual dated field.
         /// </summary>
-        private bool _GDualdated = false;
+        private bool _GDualdated;
 
         /// <summary>
         /// New year field.

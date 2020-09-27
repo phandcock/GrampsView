@@ -77,18 +77,18 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get basic details
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                     {
                         new CardListLine("Card Type:", "Repository Detail"),
                         new CardListLine("Name:", RepositoryObject.GRName),
                         new CardListLine("Type:", RepositoryObject.GType),
                     });
 
-                t.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
+                BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
 
                 // Add details
                 BaseDetail.Add(RepositoryObject.GNoteRefCollection.GetCardGroup());

@@ -16,11 +16,9 @@ namespace GrampsView.ViewModels
     using Prism.Navigation;
 
     using System;
-    using System.Diagnostics;
     using System.Reflection;
 
     using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     /// <summary>
     /// View model for File Input Page.
@@ -29,7 +27,7 @@ namespace GrampsView.ViewModels
     {
         private bool _CanHandleDataFolderChosen = true;
 
-        private bool _CanHandleUseExistingFolder = false;
+        private bool _CanHandleUseExistingFolder;
         private bool _LocalCanHandleSample = true;
 
         /// <summary>
@@ -100,7 +98,9 @@ namespace GrampsView.ViewModels
         public DelegateCommand PickFileCommand { get; private set; }
         public DelegateCommand UseExistingFolderCommand { get; private set; }
 
-        /// <summary>Loads the sample data.</summary>
+        /// <summary>
+        /// Loads the sample data.
+        /// </summary>
         public void LoadSample()
         {
             BaseCL.LogProgress("Load sample data");

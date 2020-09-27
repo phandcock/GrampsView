@@ -80,6 +80,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                             XElement pName = pPlaceElement.Element(ns + "pname");
 
+                            loadPlace.GLocation = GetPlaceLocationModelCollection(pPlaceElement);
+                            
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
 
                             loadPlace.GCitationRefCollection.Clear();

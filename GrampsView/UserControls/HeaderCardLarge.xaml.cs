@@ -53,11 +53,6 @@ namespace GrampsView.UserControls
             }
 
             HeaderCard.Title = "Header Details";
-
-            this.headerFrame.Content = new ListLineCardLarge
-            {
-                BindingContext = HeaderCard
-            };
         }
     };
 }

@@ -21,6 +21,15 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <!--  // TODO , "Children");  -->
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>

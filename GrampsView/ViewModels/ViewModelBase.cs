@@ -6,7 +6,6 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services.Dialogs;
 
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
@@ -16,9 +15,9 @@ namespace GrampsView.ViewModels
     {
         private bool _BaseIsLoading;
 
-        private HLinkBase _BaseNavParamsHLink = null;
+        private HLinkBase _BaseNavParamsHLink;
 
-        private object _BaseNavParamsModel = null;
+        private object _BaseNavParamsModel;
 
         private string _BaseTitle = string.Empty;
 
@@ -48,6 +47,7 @@ namespace GrampsView.ViewModels
         /// </summary>
         public ViewModelBase()
         {
+            BaseDetail.Title = "Header Details";
         }
 
         /// <summary>
@@ -105,8 +105,6 @@ namespace GrampsView.ViewModels
         }
 
         = new CardGroup();
-
-   
 
         public IDialogService BaseDialogService
         {
@@ -256,7 +254,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// <c>true</c> if [detail data loaded flag]; otherwise, <c>false</c>.
         /// </value>
-        private bool DetailDataLoadedFlag { get; set; } = false;
+        private bool DetailDataLoadedFlag { get; set; }
 
         public void BaseActionDialog(ActionDialogArgs argADA)
         {

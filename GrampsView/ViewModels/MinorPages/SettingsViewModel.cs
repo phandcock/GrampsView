@@ -22,11 +22,11 @@ namespace GrampsView.ViewModels
     {
         private bool _TestButton = true;
 
-        private bool _ThemeButtonDarkChecked = false;
+        private bool _ThemeButtonDarkChecked;
 
-        private bool _ThemeButtonLightChecked = false;
+        private bool _ThemeButtonLightChecked;
 
-        private bool _ThemeButtonSystemChecked = false;
+        private bool _ThemeButtonSystemChecked;
 
         public SettingsViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
                                                                                             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)

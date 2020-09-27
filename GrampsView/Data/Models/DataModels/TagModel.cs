@@ -45,7 +45,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The priority.
         /// </summary>
-        private int _GPriority = 0;
+        private int _GPriority;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TagModel"/> class.

@@ -4,10 +4,6 @@
 
 namespace GrampsView.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -15,6 +11,10 @@ namespace GrampsView.ViewModels
 
     using Prism.Events;
     using Prism.Navigation;
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// View Model for People Graph.
@@ -55,17 +55,17 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// The local canvas height.
         /// </summary>
-        private int localCanvasHeight = 0;
+        private int _CanvasHeight;
 
         /// <summary>
         /// The local canvas width.
         /// </summary>
-        private int localCanvasWidth = 0;
+        private int _CanvasWidth;
 
         /// <summary>
         /// The current family or person.
         /// </summary>
-        private HLinkBase localStartHLink = null;
+        private HLinkBase localStartHLink = new HLinkBase();
 
         /// <summary>
         /// Gets or sets the maximum level.
@@ -73,12 +73,12 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The maximum level.
         /// </value>
-        private int maxLevel = 0;
+        private int maxLevel;
 
         /// <summary>
         /// The maximum level nodes.
         /// </summary>
-        private int maxLevelNodes = 0;
+        private int maxLevelNodes;
 
         /// <summary>
         /// The maximum horizontal.
@@ -90,7 +90,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// The minimum level.
         /// </summary>
-        private int minLevel = 0;
+        private int minLevel;
 
         /// <summary>
         /// The number levels.
@@ -123,12 +123,12 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return localCanvasHeight;
+                return _CanvasHeight;
             }
 
             set
             {
-                SetProperty(ref localCanvasHeight, value);
+                SetProperty(ref _CanvasHeight, value);
             }
         }
 
@@ -142,12 +142,12 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return localCanvasWidth;
+                return _CanvasWidth;
             }
 
             set
             {
-                SetProperty(ref localCanvasWidth, value);
+                SetProperty(ref _CanvasWidth, value);
             }
         }
 

@@ -1,8 +1,4 @@
-﻿// <copyright file="CitationDetailPageViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// Defines the Citation Detail Page View Model
 /// </summary>
 namespace GrampsView.ViewModels
@@ -21,8 +17,6 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
-     
-
         /// <summary>
         /// Holds the Note ViewModel.
         /// </summary>
@@ -51,8 +45,6 @@ namespace GrampsView.ViewModels
         /// The citation object.
         /// </value>
 
-    
-
         public CitationModel CitationObject
         {
             get
@@ -65,8 +57,6 @@ namespace GrampsView.ViewModels
                 SetProperty(ref localCitationObject, value);
             }
         }
-
-       
 
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
@@ -91,9 +81,9 @@ namespace GrampsView.ViewModels
                 BaseTitleIcon = CommonConstants.IconCitation;
 
                 // Get basic details
-                CardGroup t = new CardGroup { Title = "Header Details" };
+                //   CardGroup t = new CardGroup { Title = "Header Details" };
 
-                t.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection
                     {
                             new CardListLine("Card Type:", "Citation Detail"),
                             new CardListLine("Page:", CitationObject.GPage),
@@ -101,11 +91,11 @@ namespace GrampsView.ViewModels
                     });
 
                 // Get date card
-                t.Add(CitationObject.GDateContent.AsCardListLine());
+                BaseDetail.Add(CitationObject.GDateContent.AsCardListLine());
 
-                t.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
+                BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                BaseDetail.Add(t);
+                //BaseDetail.Add(t);
 
                 // If only one note (the most common case) just display it in a large format,
                 // otherwise setup a list of them.
@@ -115,7 +105,6 @@ namespace GrampsView.ViewModels
                 }
 
                 // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
-
             }
         }
     }

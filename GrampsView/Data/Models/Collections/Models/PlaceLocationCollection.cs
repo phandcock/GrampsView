@@ -3,19 +3,16 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
 
-    using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
-    /// Place location model collection.
+    /// Place location model collection
     /// </summary>
-    /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<PlaceLocation>))]
-    public class PlaceLocationCollection : CardGroupBase<PlaceLocation>
+    [KnownType(typeof(CardGroupBase<PlaceLocationModel>))]
+    public class PlaceLocationCollection : CardGroupBase<PlaceLocationModel>
     {
         public PlaceLocationCollection()
         {

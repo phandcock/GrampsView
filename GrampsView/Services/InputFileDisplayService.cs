@@ -13,7 +13,7 @@ namespace GrampsView.Services
     // For instructions on testing this service see https://github.com/Microsoft/WindowsTemplateStudio/tree/master/docs/features/whats-new-prompt.md
     public class InputFileDisplayService : IInputFileDisplayService
     {
-        private static bool shown = false;
+        private static bool shown;
 
         public InputFileDisplayService()
         {

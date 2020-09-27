@@ -82,8 +82,6 @@ namespace GrampsView.Common
             set;
         }
 
- 
-
         /// <summary>
         /// Gets or sets the event template.
         /// </summary>
@@ -119,8 +117,6 @@ namespace GrampsView.Common
             get;
             set;
         }
-
-   
 
         /// <summary>
         /// Gets or sets the media card large template.
@@ -248,6 +244,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate PlaceLocationTemplate
+        {
+            get;
+            set;
+
+        }
         public DataTemplate PlaceNameTemplate
         {
             get;
@@ -340,50 +342,50 @@ namespace GrampsView.Common
                 return AttributeTemplate;
             }
 
-            if (item is CardGroup)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroup)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<AddressModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<AddressModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<AttributeModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<AttributeModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<LdsOrdModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<LdsOrdModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<SrcAttributeModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<SrcAttributeModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<PersonNameModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<PersonNameModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<PlaceLocation>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<PlaceLocation>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is SurnameModelCollection)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is SurnameModelCollection)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
-            if (item is CardGroupBase<URLModel>)
-            {
-                return CardGroupTemplate;
-            }
+            //if (item is CardGroupBase<URLModel>)
+            //{
+            //    return CardGroupTemplate;
+            //}
 
             if (item is ICitationModel)
             {
@@ -423,8 +425,6 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkHomeImageModel).CardType)
                 {
-                    
-
                     case DisplayFormat.MediaImageFullCard:
                         return MediaImageFullTemplate;
 
@@ -436,8 +436,6 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkMediaModel).CardType)
                 {
-                   
-
                     case DisplayFormat.MediaImageFullCard:
                         return MediaImageFullTemplate;
 
@@ -497,6 +495,11 @@ namespace GrampsView.Common
                 return CardGroupTemplate;
             }
 
+            if ( (item is PlaceLocationModel) || ( item is IPlaceLocationModel))
+            {
+                return PlaceLocationTemplate;
+            }
+
             if (item is HLinkPlaceModel)
             {
                 return PlaceTemplate;
@@ -521,8 +524,6 @@ namespace GrampsView.Common
             {
                 return PersonNameSmallTemplate;
             }
-
-       
 
             if (item is NoteModel)
             {

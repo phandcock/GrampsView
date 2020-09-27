@@ -34,7 +34,7 @@ namespace GrampsView.Data.DataView
         /// <summary>
         /// The local common logging
         /// </summary>
-        readonly private ICommonLogging localCL = null;
+        readonly private ICommonLogging localCL;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDataView"/> class.
@@ -311,7 +311,7 @@ namespace GrampsView.Data.DataView
                 // get the next image starting at the random value
                 for (int i = q; i < argCollection.Count; i++)
                 {
-                    HLinkMediaModel tempHLinkMediaModel = argCollection[i] as HLinkMediaModel;
+                    HLinkMediaModel tempHLinkMediaModel = argCollection[i];
                     if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsMediaFile)
                     {
                         tt = tempHLinkMediaModel;
