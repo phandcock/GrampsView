@@ -107,18 +107,6 @@ namespace GrampsView.Common
         }
 
         /// <summary>
-        /// Gets or sets the header template.
-        /// </summary>
-        /// <value>
-        /// The header template.
-        /// </value>
-        public DataTemplate HeaderTemplate
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Gets or sets the media card large template.
         /// </summary>
         /// <value>
@@ -248,8 +236,8 @@ namespace GrampsView.Common
         {
             get;
             set;
-
         }
+
         public DataTemplate PlaceNameTemplate
         {
             get;
@@ -342,51 +330,6 @@ namespace GrampsView.Common
                 return AttributeTemplate;
             }
 
-            //if (item is CardGroup)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<AddressModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<AttributeModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<LdsOrdModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<SrcAttributeModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<PersonNameModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<PlaceLocation>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is SurnameModelCollection)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
-            //if (item is CardGroupBase<URLModel>)
-            //{
-            //    return CardGroupTemplate;
-            //}
-
             if (item is ICitationModel)
             {
                 return CitationTemplate;
@@ -414,11 +357,6 @@ namespace GrampsView.Common
             if (item is HLinkFamilyModel)
             {
                 return FamilyTemplate;
-            }
-
-            if (item is HLinkHeaderModel)
-            {
-                return HeaderTemplate;
             }
 
             if (item is HLinkHomeImageModel)
@@ -495,7 +433,7 @@ namespace GrampsView.Common
                 return CardGroupTemplate;
             }
 
-            if ( (item is PlaceLocationModel) || ( item is IPlaceLocationModel))
+            if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
             {
                 return PlaceLocationTemplate;
             }

@@ -16,7 +16,7 @@
 
         private static readonly Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(TranslateExtension)).Assembly));
 
-        private readonly CultureInfo ci;
+        private readonly CultureInfo ci = null;
 
         public TranslateExtension()
         {
@@ -40,10 +40,10 @@
             {
 #if DEBUG
                 throw new ArgumentException(
-                    string.Format(
+                        string.Format(
                         System.Globalization.CultureInfo.CurrentCulture,
                         "Key '{0}' was not found in resources '{1}' for culture '{2}'.", nameof(Text), ResourceId, ci.Name),
-                    "Text");
+                        "Text");
 #else
 				translation = Text; // HACK: returns the key, which GETS DISPLAYED TO THE USER
 #endif

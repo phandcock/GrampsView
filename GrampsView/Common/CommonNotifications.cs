@@ -255,8 +255,12 @@ namespace GrampsView.Common
             {
                 Name = argHeader,
                 Text = argMessage,
-                ItemDetails = argErrorDetail,
             };
+
+            foreach (var item in argErrorDetail)
+            {
+                t.ItemDetails.Add(item.Key, item.Value);
+            }
 
             NotifyDialogBox(t);
 

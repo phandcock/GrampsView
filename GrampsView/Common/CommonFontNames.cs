@@ -4,7 +4,7 @@
 
 using Xamarin.Forms;
 
-[assembly: ExportFont("materialdesignicons-webfont.ttf", Alias = "MaterialFontFamily")]
+
 
 namespace GrampsView.Common
 {

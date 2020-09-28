@@ -21,6 +21,11 @@
         <StackLayout>
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.HubPage_IntroductionText}" />
+
+            <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" />
+
+            <ucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />

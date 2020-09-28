@@ -26,7 +26,7 @@ namespace GrampsView.ViewModels
     {
         private CardListLineCollection _ApplicationVersionList = new CardListLineCollection();
 
-        private HLinkHeaderModel _HeaderModel = new HLinkHeaderModel();
+        //private HLinkHeaderModel _HeaderModel = new HLinkHeaderModel();
 
         public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
                                             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
@@ -50,6 +50,14 @@ namespace GrampsView.ViewModels
             }
         }
 
+        public CardListLineCollection HeaderData
+        {
+            get
+            {
+                return DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
+            }
+        }
+
         public string AppName
         {
             get
@@ -58,33 +66,16 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Gets or sets the header data.
-        /// </summary>
-        /// <value>
-        /// The header data.
-        /// </value>
      
-        public HLinkHeaderModel HeaderData
-        {
-            get
-            {
-                return _HeaderModel;
-            }
-
-            set
-            {
-                SetProperty(ref _HeaderModel, value);
-            }
-        }
+     
+    
 
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
         public override void PopulateViewModel()
         {
-            // Cache Header Data record
-            HeaderData = DV.HeaderDV.HeaderDataModel.HLink;
+         
 
             // Assembly level stuff
             var assembly = GetType().GetTypeInfo().Assembly;
