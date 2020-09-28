@@ -31,4 +31,3 @@ using System.Runtime.InteropServices;
 [assembly: UsesPermission(Android.Manifest.Permission.ReadExternalStorage)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
 [assembly: AssemblyInformationalVersion("1.5.61")]
-//[assembly: ExportFont("materialdesignicons-webfont.ttf", Alias = "MaterialFontFamily")]

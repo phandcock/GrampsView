@@ -32,7 +32,7 @@ namespace GrampsView.ViewModels
         {
             BaseTitle = "Message Log";
 
-            BaseTitleIcon = CommonConstants.IconLog;
+            BaseTitleIcon = CommonFontAwesome.FileArchive;
 
             Contract.Assert(iocDataLog != null);
             _iocDataLog = iocDataLog;
