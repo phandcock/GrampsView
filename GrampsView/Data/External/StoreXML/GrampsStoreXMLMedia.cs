@@ -42,21 +42,21 @@ namespace GrampsView.Data.ExternalStorageNS
                             case "pdf":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FilePdf;
+                                    argModel.HomeImageHLink.HomeSymbol = IconFont.ZmdiCollectionPdf;
                                     break;
                                 }
 
                             case "x-zip-compressed":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileArchive;
+                                    argModel.HomeImageHLink.HomeSymbol = IconFont.ZmdiArchive;
                                     break;
                                 }
 
                             case "zip":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileArchive;
+                                    argModel.HomeImageHLink.HomeSymbol = IconFont.ZmdiArchive;
                                     break;
                                 }
                         }
@@ -67,14 +67,14 @@ namespace GrampsView.Data.ExternalStorageNS
                 case "image":
                     {
                         argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                        argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileImage;
+                        argModel.HomeImageHLink.HomeSymbol = IconFont.ZmdiImage;
                         break;
                     }
 
                 case "video":
                     {
                         argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                        argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileVideo;
+                        argModel.HomeImageHLink.HomeSymbol = IconFont.ZmdiCollectionVideo;
                         break;
                     }
             }

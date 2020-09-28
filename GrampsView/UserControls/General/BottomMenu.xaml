@@ -12,7 +12,7 @@
             Command="{prism:GoBack GoBackType=ToRoot}"
             Style="{StaticResource GVButtonFont}">
             <Button.ImageSource>
-                <FontImageSource FontFamily="FA-R" Glyph="{Binding HubButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
+                <FontImageSource FontFamily="AppIcons" Glyph="{Binding HubButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
             </Button.ImageSource>
         </Button>
 
@@ -20,10 +20,9 @@
             x:Name="SearchButton"
             Padding="0"
             Command="{prism:NavigateTo 'SearchPage'}"
-            FontFamily="FA-R"
             Style="{StaticResource GVButtonFont}">
             <Button.ImageSource>
-                <FontImageSource FontFamily="FA-R" Glyph="{Binding SearchButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
+                <FontImageSource FontFamily="AppIcons" Glyph="{Binding SearchButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
             </Button.ImageSource>
         </Button>
 
