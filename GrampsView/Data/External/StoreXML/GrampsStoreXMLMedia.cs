@@ -30,7 +30,6 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             Contract.Requires(argModel != null);
 
-
             // Setup HomeImage
             argModel.HomeImageHLink.HLinkKey = argModel.HLinkKey;
 
@@ -43,21 +42,21 @@ namespace GrampsView.Data.ExternalStorageNS
                             case "pdf":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = IconFont.FilePdf;
+                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FilePdf;
                                     break;
                                 }
 
                             case "x-zip-compressed":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = IconFont.ZipBox;
+                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileArchive;
                                     break;
                                 }
 
                             case "zip":
                                 {
                                     argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                                    argModel.HomeImageHLink.HomeSymbol = IconFont.ZipBox;
+                                    argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileArchive;
                                     break;
                                 }
                         }
@@ -68,14 +67,14 @@ namespace GrampsView.Data.ExternalStorageNS
                 case "image":
                     {
                         argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                        argModel.HomeImageHLink.HomeSymbol = IconFont.Image;
+                        argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileImage;
                         break;
                     }
 
                 case "video":
                     {
                         argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                        argModel.HomeImageHLink.HomeSymbol = IconFont.Video;
+                        argModel.HomeImageHLink.HomeSymbol = CommonFontAwesome.FileVideo;
                         break;
                     }
             }
@@ -248,10 +247,6 @@ namespace GrampsView.Data.ExternalStorageNS
                         }
 
                         // Load NoteRefs
-                 
-
-
-                       
 
                         // citationref details TODO Event References
                         loadObject.GCitationRefCollection.Clear();
@@ -261,8 +256,6 @@ namespace GrampsView.Data.ExternalStorageNS
                         {
                             loadObject.GTagRefCollection.Add(item);
                         }
-
-                 
 
                         loadObject = SetHomeImage(loadObject);
 

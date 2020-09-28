@@ -39,7 +39,7 @@
                                 Style="{DynamicResource GVSymbolconPageHeaderType}">
                                 <Image.Source>
                                     <FontImageSource
-                                        FontFamily="{DynamicResource MaterialFontFamily}"
+                                        FontFamily="FA-R"
                                         Glyph="{Binding Icon}"
                                         Size="40"
                                         Color="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},

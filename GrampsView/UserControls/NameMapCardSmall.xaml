@@ -60,7 +60,7 @@
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>
                     <FontImageSource
-                        FontFamily="{DynamicResource MaterialFontFamily}"
+                        FontFamily="FA-R"
                         Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
                         Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
                 </Image.Source>
