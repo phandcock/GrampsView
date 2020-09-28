@@ -54,135 +54,135 @@ namespace GrampsView.Common
         /// </summary>
         public const int HeaderProcessAreaDisplayTime = 30000;
 
-        public const string IconAbout = IconFont.Information;
+        public const string IconAbout = IconFont.ZmdiInfo;
 
         /// <summary>
         /// The icon Address.
         /// </summary>
-        public const string IconAddress = IconFont.HomeCity;
+        public const string IconAddress = IconFont.ZmdiCity;
 
         ///// <summary>
         ///// The icon attribute.
         ///// </summary>
-        public const string IconAttribute = IconFont.VideoInputComponent;
+        public const string IconAttribute = IconFont.ZmdiVideocamSwitch;
 
         /// <summary>
         /// The icon bookMark.
         /// </summary>
-        public const string IconBookMark = IconFont.Bookmark;
+        public const string IconBookMark = IconFont.ZmdiBookmark;
 
         /// <summary>
         /// The icon ChooseDataFile.
         /// </summary>
-        public const string IconChooseDataFile = IconFont.FileImport;
+        public const string IconChooseDataFile = IconFont.ZmdiFileAdd;
 
         /// <summary>
         /// The icon citation.
         /// </summary>
-        public const string IconCitation = IconFont.Directions;
+        public const string IconCitation = IconFont.ZmdiDirections;
 
         /// <summary>
         /// The icon for a default symbol.
         /// </summary>
-        public const string IconDDefault = IconFont.Emoticon;
+        public const string IconDDefault = IconFont.ZmdiFace;
 
         /// <summary>
         /// The icon diagram.
         /// </summary>
-        public const string IconDiagram = IconFont.Clock;
+        public const string IconDiagram = IconFont.ZmdiTime;
 
         /// <summary>
         /// The icon events.
         /// </summary>
-        public const string IconEvents = IconFont.Clock;
+        public const string IconEvents = IconFont.ZmdiTime;
 
         /// <summary>
         /// The icon families.
         /// </summary>
-        public const string IconFamilies = IconFont.AccountMultiple;
+        public const string IconFamilies = IconFont.ZmdiNaturePeople;
 
-        public const string IconHeader = IconFont.GlobeModel;
+        public const string IconHeader = IconFont.ZmdiGlobe;
 
         /// <summary>
         /// The icon hub.
         /// </summary>
-        public const string IconHub = IconFont.Home;
+        public const string IconHub = IconFont.ZmdiHome;
 
-        public const string IconLog = IconFont.MessageBulleted;
+        public const string IconLog = IconFont.ZmdiNotifications;
 
         /// <summary>
         /// The icon media.
         /// </summary>
-        public const string IconMedia = IconFont.FileDocument;
+        public const string IconMedia = IconFont.ZmdiPictureInPicture;
 
         // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
-        public const string IconNameMaps = IconFont.Map;
+        public const string IconNameMaps = IconFont.ZmdiMap;
 
         /// <summary>
         /// The icon notes.
         /// </summary>
-        public const string IconNotes = IconFont.Note;
+        public const string IconNotes = IconFont.ZmdiCalendarNote;
 
         /// <summary>
         /// The icon people.
         /// </summary>
-        public const string IconPeople = IconFont.Account;
+        public const string IconPeople = IconFont.ZmdiNaturePeople;
 
-        public const string IconPeopleBirthday = IconFont.CakeLayered;
+        public const string IconPeopleBirthday = IconFont.ZmdiCake;
 
         /// <summary>
         /// The icon people graph.
         /// </summary>
-        public const string IconPeopleGraph = IconFont.NaturePeople;
+        public const string IconPeopleGraph = IconFont.ZmdiNaturePeople;
 
         /// <summary>
         /// The icon person female.
         /// </summary>
-        public const string IconPersonFemale = IconFont.HumanFemale;
+        public const string IconPersonFemale = IconFont.ZmdiAlertCircle;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconPersonMale = IconFont.GenderMale;
+        public const string IconPersonMale = IconFont.ZmdiMale;
 
-        public const string IconPersonName = IconFont.BookOpen;
+        public const string IconPersonName = IconFont.ZmdiBookmarkOutline;
 
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public const string IconPlace = IconFont.HomeCircle;
+        public const string IconPlace = IconFont.ZmdiHome;
 
         /// <summary>
         /// The symbol Repository.
         /// </summary>
-        public const string IconRepository = IconFont.BookMultiple;
+        public const string IconRepository = IconFont.ZmdiCollectionBookmark;
 
         /// <summary>
         /// The icon Search.
         /// </summary>
-        public const string IconSearch = IconFont.FileFind;
+        public const string IconSearch = IconFont.ZmdiSearch;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSettings = IconFont.SettingsOutline;
+        public const string IconSettings = IconFont.ZmdiSettings;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSource = IconFont.SourceRepository;
+        public const string IconSource = IconFont.ZmdiLocalLibrary;
 
-        public const string IconSurname = IconFont.NaturePeople;
+        public const string IconSurname = IconFont.ZmdiNaturePeople;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconTag = IconFont.Tag;
+        public const string IconTag = IconFont.ZmdiTag;
 
-        public const string IconURL = IconFont.Link;
+        public const string IconURL = IconFont.ZmdiViewWeb;
 
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.

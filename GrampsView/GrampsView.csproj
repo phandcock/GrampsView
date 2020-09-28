@@ -66,7 +66,6 @@
     <Compile Remove="Common\CardGroupTemplateSelectorLarge.cs" />
     <Compile Remove="Common\CardGroupTemplateSelectorRefLarge.cs" />
     <Compile Remove="Common\CommonCropBitmap.cs" />
-    <Compile Remove="Common\CommonFontNames.cs" />
     <Compile Remove="Common\CommonLogCircular.cs" />
     <Compile Remove="Common\CommonPropertyDebug.xaml.cs" />
     <Compile Remove="Common\CommonTheming.cs" />
@@ -194,7 +193,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Assets\Fonts\materialdesignicons.css" />
+
     <EmbeddedResource Remove="Assets\Styles\CardGroupBaseTemplatesDictionary.xaml" />
     <EmbeddedResource Remove="Assets\Styles\DarkThemeDictionary.xaml" />
     <EmbeddedResource Remove="Assets\Styles\LargeCardTemplatesDictionary.xaml" />
@@ -251,6 +250,10 @@
     <EmbeddedResource Remove="Views\StartupPages\ExtendedSplashScreen.xaml" />
     <EmbeddedResource Remove="Views\StartupPages\FirstRunDialog.xaml" />
     <EmbeddedResource Remove="Views\StartupPages\SetupStorageView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Fonts\Material-Design-Iconic-Font.ttf" />
   </ItemGroup>
 
 
@@ -402,7 +405,6 @@
   <ItemGroup>
     <EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
     <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-    <EmbeddedResource Include="Assets\Fonts\fa-regular-400.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -411,6 +413,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
+    <EmbeddedResource Include="Assets\Fonts\Material-Design-Iconic-Font.ttf" />
   </ItemGroup>
 
   <ItemGroup>

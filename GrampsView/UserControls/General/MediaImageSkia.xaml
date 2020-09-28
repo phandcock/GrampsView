@@ -35,7 +35,7 @@
                 IsVisible="True"
                 VerticalOptions="FillAndExpand">
                 <Image.Source>
-                    <FontImageSource FontFamily="FA-R" />
+                    <FontImageSource FontFamily="AppIcons" />
                 </Image.Source>
             </Image>
 
