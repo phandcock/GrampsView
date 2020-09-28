@@ -81,6 +81,8 @@ namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;
 
+    using Xamarin.Essentials;
+
     //// </code>
     [DataContract]
     public class HeaderModel : ModelBase, IHeaderModel
@@ -156,6 +158,28 @@ namespace GrampsView.Data.Model
         public HeaderModel()
         {
             HomeImageHLink.HomeSymbol = Common.CommonConstants.IconHeader;
+        }
+
+        public CardListLineCollection AsCardListLineCollection
+        {
+            get
+            {
+                CardListLineCollection HeaderCard = new CardListLineCollection
+                    {
+                        new CardListLine("Created using version:", GCreatedVersion),
+                        new CardListLine("Created on:", GCreatedDate),
+                        new CardListLine("Researcher Name:", GResearcherName),
+                        new CardListLine("Researcher State:", GResearcherState),
+                        new CardListLine("Researcher Country:", GResearcherCountry),
+                        new CardListLine("Researcher Email:", GResearcherEmail),
+                        new CardListLine("MediaPath:", GMediaPath),
+                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
+                    };
+
+                HeaderCard.Title = "Header Details";
+
+                return HeaderCard;
+            }
         }
 
         /// <summary>

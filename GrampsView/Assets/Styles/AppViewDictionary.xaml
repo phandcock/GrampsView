@@ -21,14 +21,13 @@
         ******************************************************
     -->
 
-    <OnPlatform
+    <!--<OnPlatform
         x:Key="MaterialFontFamily"
         x:TypeArguments="x:String"
         Default="materialdesignicons-webfont.ttf">
         <On Platform="iOS" Value="Material Design Icons" />
         <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
-        <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
-    </OnPlatform>
+    </OnPlatform>-->
 
     <!--
         ******************************************************

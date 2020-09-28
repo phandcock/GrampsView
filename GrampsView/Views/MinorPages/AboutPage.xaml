@@ -56,7 +56,9 @@
 
             <ucon:ListLineCardLarge Grid.Row="1" BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
 
-            <ucon:HeaderCardLarge Grid.Row="2" BindingContext="{Binding HeaderData, Mode=OneWay}" />
+            <ucon:ListLineCardLarge Grid.Row="2" BindingContext="{Binding HeaderData}" />
+
+
 
             <ucon:FileViewCardLarge Grid.Row="3" BindingContext="GrampsView.Attribution.md" />
 

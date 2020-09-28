@@ -12,7 +12,7 @@
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
-        private IHLinkMediaModel _MediaCard = new HLinkMediaModel();
+        //private IHLinkMediaModel _MediaCard = new HLinkMediaModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HubViewModel"/> class.
@@ -32,6 +32,14 @@
             BaseTitleIcon = CommonConstants.IconHub;
         }
 
+        public CardListLineCollection HeaderCard
+        {
+            get
+            {
+                return DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
+            }
+        }
+
         public CardGroupBase<HLinkCitationModel> LatestCitationChanges { get { return DV.CitationDV.GetLatestChanges(); } }
         public CardGroupBase<HLinkEventModel> LatestEventChanges { get { return DV.EventDV.GetLatestChanges(); } }
         public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges { get { return DV.FamilyDV.GetLatestChanges(); } }
@@ -46,11 +54,7 @@
         {
             get
             {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
+                return DV.MediaDV.GetRandomFromCollection(null);
             }
         }
 
@@ -82,13 +86,13 @@
         {
             // Get Header CardLarge
             //CardGroup hc = new CardGroup();
-            HLinkHeaderModel HeaderCard = DV.HeaderDV.HeaderDataModel.HLink;
+            // HLinkHeaderModel HeaderCard = DV.HeaderDV.HeaderDataModel.HLink;
             //HeaderCard.CardType = DisplayFormat.HeaderCardLarge;
             //hc.Add(HeaderCard);
 
-            MediaCard = DV.MediaDV.GetRandomFromCollection(null);
+            // MediaCard = DV.MediaDV.GetRandomFromCollection(null);
 
-            BaseDetail.Add(HeaderCard);
+            //BaseDetail.Add(HeaderCard);
 
             // TODO fix this LatestChanges.Add(DV.BookMarkDV.GetLatestChanges());
 
