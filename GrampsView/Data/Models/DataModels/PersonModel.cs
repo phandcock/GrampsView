@@ -243,16 +243,16 @@ namespace GrampsView.Data.Model
                 //{
                 //    case "F":
                 //        {
-                //            HomeImageHLink.HomeSymbol = IconFont.GenderFemale;
+                //            HomeImageHLink.HomeSymbol = CommonFontNamesFAS.GenderFemale;
                 //            break;
                 //        }
 
-                // case "M": { HomeImageHLink.HomeSymbol = IconFont.GenderMale; break; }
+                // case "M": { HomeImageHLink.HomeSymbol = CommonFontNamesFAS.GenderMale; break; }
 
-                // case "U": { HomeImageHLink.HomeSymbol = IconFont.BatteryUnknown; break; }
+                // case "U": { HomeImageHLink.HomeSymbol = CommonFontNamesFAS.BatteryUnknown; break; }
 
                 //    default:
-                //        HomeImageHLink.HomeSymbol = IconFont.BatteryUnknown;
+                //        HomeImageHLink.HomeSymbol = CommonFontNamesFAS.BatteryUnknown;
                 //        break;
                 //}
             }

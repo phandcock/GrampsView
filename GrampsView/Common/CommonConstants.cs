@@ -54,135 +54,135 @@ namespace GrampsView.Common
         /// </summary>
         public const int HeaderProcessAreaDisplayTime = 30000;
 
-        public const string IconAbout = IconFont.ZmdiInfo;
+        public const string IconAbout = CommonFontNamesFAS.Info;
 
         /// <summary>
         /// The icon Address.
         /// </summary>
-        public const string IconAddress = IconFont.ZmdiCity;
+        public const string IconAddress = CommonFontNamesFAS.AddressCard;
 
         ///// <summary>
         ///// The icon attribute.
         ///// </summary>
-        public const string IconAttribute = IconFont.ZmdiVideocamSwitch;
+        public const string IconAttribute = CommonFontNamesFAS.Atom;
 
         /// <summary>
         /// The icon bookMark.
         /// </summary>
-        public const string IconBookMark = IconFont.ZmdiBookmark;
+        public const string IconBookMark = CommonFontNamesFAS.Bookmark;
 
         /// <summary>
         /// The icon ChooseDataFile.
         /// </summary>
-        public const string IconChooseDataFile = IconFont.ZmdiFileAdd;
+        public const string IconChooseDataFile = CommonFontNamesFAS.FileDownload;
 
         /// <summary>
         /// The icon citation.
         /// </summary>
-        public const string IconCitation = IconFont.ZmdiDirections;
+        public const string IconCitation = CommonFontNamesFAS.Receipt;
 
         /// <summary>
         /// The icon for a default symbol.
         /// </summary>
-        public const string IconDDefault = IconFont.ZmdiFace;
+        public const string IconDDefault = CommonFontNamesFAS.FileAlt;
 
         /// <summary>
         /// The icon diagram.
         /// </summary>
-        public const string IconDiagram = IconFont.ZmdiTime;
+        public const string IconDiagram = CommonFontNamesFAS.ProjectDiagram;
 
         /// <summary>
         /// The icon events.
         /// </summary>
-        public const string IconEvents = IconFont.ZmdiTime;
+        public const string IconEvents = CommonFontNamesFAS.CalendarDay;
 
         /// <summary>
         /// The icon families.
         /// </summary>
-        public const string IconFamilies = IconFont.ZmdiNaturePeople;
+        public const string IconFamilies = CommonFontNamesFAS.PeopleArrows;
 
-        public const string IconHeader = IconFont.ZmdiGlobe;
+        public const string IconHeader = CommonFontNamesFAS.Heading;
 
         /// <summary>
         /// The icon hub.
         /// </summary>
-        public const string IconHub = IconFont.ZmdiHome;
+        public const string IconHub = CommonFontNamesFAS.HouseUser;
 
-        public const string IconLog = IconFont.ZmdiNotifications;
+        public const string IconLog = CommonFontNamesFAS.List;
 
         /// <summary>
         /// The icon media.
         /// </summary>
-        public const string IconMedia = IconFont.ZmdiPictureInPicture;
+        public const string IconMedia = CommonFontNamesFAS.FileImage;
 
         // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
-        public const string IconNameMaps = IconFont.ZmdiMap;
+        public const string IconNameMaps = CommonFontNamesFAS.Mountain;
 
         /// <summary>
         /// The icon notes.
         /// </summary>
-        public const string IconNotes = IconFont.ZmdiCalendarNote;
+        public const string IconNotes = CommonFontNamesFAS.Book;
 
         /// <summary>
         /// The icon people.
         /// </summary>
-        public const string IconPeople = IconFont.ZmdiNaturePeople;
+        public const string IconPeople = CommonFontNamesFAS.Atlas;
 
-        public const string IconPeopleBirthday = IconFont.ZmdiCake;
+        public const string IconPeopleBirthday = CommonFontNamesFAS.BirthdayCake;
 
         /// <summary>
         /// The icon people graph.
         /// </summary>
-        public const string IconPeopleGraph = IconFont.ZmdiNaturePeople;
+        public const string IconPeopleGraph = CommonFontNamesFAS.Atlas;
 
         /// <summary>
         /// The icon person female.
         /// </summary>
-        public const string IconPersonFemale = IconFont.ZmdiAlertCircle;
+        public const string IconPersonFemale = CommonFontNamesFAS.Female;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconPersonMale = IconFont.ZmdiMale;
+        public const string IconPersonMale = CommonFontNamesFAS.Male;
 
-        public const string IconPersonName = IconFont.ZmdiBookmarkOutline;
+        public const string IconPersonName = CommonFontNamesFAS.Images;
 
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public const string IconPlace = IconFont.ZmdiHome;
+        public const string IconPlace = CommonFontNamesFAS.AddressBook;
 
         /// <summary>
         /// The symbol Repository.
         /// </summary>
-        public const string IconRepository = IconFont.ZmdiCollectionBookmark;
+        public const string IconRepository = CommonFontNamesFAS.LifeRing;
 
         /// <summary>
         /// The icon Search.
         /// </summary>
-        public const string IconSearch = IconFont.ZmdiSearch;
+        public const string IconSearch = CommonFontNamesFAS.Search;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSettings = IconFont.ZmdiSettings;
+        public const string IconSettings = CommonFontNamesFAS.Tools;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSource = IconFont.ZmdiLocalLibrary;
+        public const string IconSource = CommonFontNamesFAS.SatelliteDish;
 
-        public const string IconSurname = IconFont.ZmdiNaturePeople;
+        public const string IconSurname = CommonFontNamesFAS.Signature;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconTag = IconFont.ZmdiTag;
+        public const string IconTag = CommonFontNamesFAS.Tag;
 
-        public const string IconURL = IconFont.ZmdiViewWeb;
+        public const string IconURL = CommonFontNamesFAS.Link;
 
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.
