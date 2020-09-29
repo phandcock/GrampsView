@@ -252,9 +252,7 @@
     <EmbeddedResource Remove="Views\StartupPages\SetupStorageView.xaml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Assets\Fonts\Material-Design-Iconic-Font.ttf" />
-  </ItemGroup>
+
 
 
 
@@ -413,7 +411,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
-    <EmbeddedResource Include="Assets\Fonts\Material-Design-Iconic-Font.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\fa-brands-400.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\fa-regular-400.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,7 @@
         {
             get
             {
-                return IconFont.Zmdi3dRotation;
+                return CommonConstants.IconHub;
             }
         }
 

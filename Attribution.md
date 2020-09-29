@@ -8,6 +8,6 @@
     - Microsoft.toolkit.uwp
     - Xamaerin.Essentials
     - Xamarin.Plugin.FilePicker
-    - Wonderful Font to Code website - https://andreinitescu.github.io/IconFont2Code/
+    - Wonderful Font to Code website - https://andreinitescu.github.io/CommonFontNamesFAS2Code/
     - Font material-design-iconic-font.zip
 
