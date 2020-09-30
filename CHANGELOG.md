@@ -1,3 +1,14 @@
+## [16.9.9](https://github.com/phandcock/GrampsView/compare/16.9.8...16.9.9) (2020-09-30)
+
+
+### Bug Fixes
+
+* display full hlinkevent list ([e3f0fea](https://github.com/phandcock/GrampsView/commit/e3f0feaa2893358a08a9860c5fe5d8997d00cd97))
+* show card type icon ([84f4643](https://github.com/phandcock/GrampsView/commit/84f464303eef6b31fd9e7ed043eed8c98694fbca))
+* update to latest Xamarin forms to fix UWP font display bug ([5cb7d9c](https://github.com/phandcock/GrampsView/commit/5cb7d9c05509c5dd9d05b1f614f811cc9860c987))
+
+
+
 ## [16.9.8](https://github.com/phandcock/GrampsView/compare/16.9.7...16.9.8) (2020-09-25)
 
 
@@ -42,16 +53,6 @@
 * trial new detailPage layout ([5643cba](https://github.com/phandcock/GrampsView/commit/5643cbad18f461c0f33d9472c84a50ff7b7b5c5a))
 * tweak card header colours ([781de9c](https://github.com/phandcock/GrampsView/commit/781de9cc3be5b1539f3f999d773d4278fc69f050))
 * tweak display of person name to fit single card ([712ad33](https://github.com/phandcock/GrampsView/commit/712ad33d25a100882ff338a237e5ba6aed2d49a6))
-
-
-
-## [16.9.4](https://github.com/phandcock/GrampsView/compare/16.9.3...16.9.4) (2020-09-14)
-
-
-### Bug Fixes
-
-* tweaks.  Start work on CardListLine linking ([3d644ed](https://github.com/phandcock/GrampsView/commit/3d644edde6afcb032cc0559783d7807022a21dfb))
-* tweal string comapre to use current culture info ([87dde5b](https://github.com/phandcock/GrampsView/commit/87dde5ba53c29f8da81a48ec4db45fa9ee18faee))
 
 
 
