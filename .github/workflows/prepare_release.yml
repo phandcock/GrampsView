@@ -48,6 +48,7 @@ jobs:
           
     - name: Azure Pipelines Build UWP
       uses: azure/pipelines@v1
+      if: ${{ steps.changelog.outputs.skipped == 'false' }}
       with:
         # Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)
         azure-devops-project-url: 'https://handteam.visualstudio.com/GrampsViewXam'
@@ -58,6 +59,7 @@ jobs:
           
     - name: Azure Pipelines Build Android
       uses: azure/pipelines@v1
+      if: ${{ steps.changelog.outputs.skipped == 'false' }}
       with:
         # Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)
         azure-devops-project-url: 'https://handteam.visualstudio.com/GrampsViewXam'
