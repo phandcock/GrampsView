@@ -25,7 +25,7 @@
                 Style="{DynamicResource GVSymbolconPageHeaderType}">
                 <Image.Source>
                     <FontImageSource
-                        FontFamily="Icons"
+                        FontFamily="FA-Solid"
                         Glyph="{Binding BaseTitleIcon}"
                         Size="44"
                         Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},

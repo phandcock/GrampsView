@@ -80,7 +80,7 @@
                 Style="{DynamicResource GVSymbolIconLargeCardType}">
                 <Image.Source>
                     <FontImageSource
-                        FontFamily="Icons"
+                        FontFamily="FA-Solid"
                         Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
                         Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
                 </Image.Source>

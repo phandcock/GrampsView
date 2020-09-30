@@ -49,7 +49,7 @@
     <FlyoutItem Title="Test Page 1">
         <FlyoutItem.Icon>
             <FontImageSource
-                FontFamily="Icons"
+                FontFamily="FA-Solid"
                 Glyph="&#xf21e;"
                 Size="40" />
         </FlyoutItem.Icon>
@@ -59,7 +59,7 @@
     <FlyoutItem Title="Test Page 2">
         <FlyoutItem.Icon>
             <FontImageSource
-                FontFamily="Icons"
+                FontFamily="FA-Solid"
                 Glyph="&#xf21e;"
                 Size="40" />
         </FlyoutItem.Icon>
