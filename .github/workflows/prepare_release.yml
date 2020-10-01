@@ -46,7 +46,7 @@ jobs:
         release_name: ${{ steps.changelog.outputs.tag }}
         body: ${{ steps.changelog.outputs.clean_changelog }}
     
-      - name: Sleep for 30 seconds until Tag is stored
+    - name: Sleep for 30 seconds until Tag is stored
       uses: jakejarvis/wait-action@master
       with:
         time: '30s'
