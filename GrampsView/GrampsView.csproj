@@ -203,7 +203,6 @@
     <EmbeddedResource Remove="Assets\Styles\_Colors.xaml" />
     <EmbeddedResource Remove="Assets\Styles\_FontSizes.xaml" />
     <EmbeddedResource Remove="Assets\Styles\_GenericOverride.xaml" />
-    <EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
     <EmbeddedResource Remove="Common\CommonPropertyDebug.xaml" />
     <EmbeddedResource Remove="UserControls\AttributeCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\BookMarkCardSmall.xaml" />
