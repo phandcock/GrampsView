@@ -1,3 +1,7 @@
+## [16.9.10](https://github.com/phandcock/GrampsView/compare/16.9.9...16.9.10) (2020-10-02)
+
+
+
 ## [16.9.9](https://github.com/phandcock/GrampsView/compare/16.9.8...16.9.9) (2020-09-30)
 
 
@@ -41,18 +45,6 @@
 * change top menu to use TopMenu usercontrol ([fbb1aec](https://github.com/phandcock/GrampsView/commit/fbb1aece439049d6f389b3b2ef22e5061e5eda31))
 * tweak listPage collections ([c52991c](https://github.com/phandcock/GrampsView/commit/c52991cde43a2112b529ffe904854cab392b1439))
 * work on cardbaseheader plus add mother and father family name sort ([aa171fa](https://github.com/phandcock/GrampsView/commit/aa171fa0c6bfd228998c985d2882ca601f359401))
-
-
-
-## [16.9.5](https://github.com/phandcock/GrampsView/compare/16.9.4...16.9.5) (2020-09-20)
-
-
-### Bug Fixes
-
-* cleanup cardGroup title code ([f5771f4](https://github.com/phandcock/GrampsView/commit/f5771f41437ff4094f8000d888b79b39a9874d5d))
-* trial new detailPage layout ([5643cba](https://github.com/phandcock/GrampsView/commit/5643cbad18f461c0f33d9472c84a50ff7b7b5c5a))
-* tweak card header colours ([781de9c](https://github.com/phandcock/GrampsView/commit/781de9cc3be5b1539f3f999d773d4278fc69f050))
-* tweak display of person name to fit single card ([712ad33](https://github.com/phandcock/GrampsView/commit/712ad33d25a100882ff338a237e5ba6aed2d49a6))
 
 
 
