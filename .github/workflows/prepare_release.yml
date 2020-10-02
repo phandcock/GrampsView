@@ -46,10 +46,10 @@ jobs:
         release_name: ${{ steps.changelog.outputs.tag }}
         body: ${{ steps.changelog.outputs.clean_changelog }}
     
-    - name: Sleep for 30 seconds until Tag is stored
+    - name: Sleep for 5 minutes until Tag is stored
       uses: jakejarvis/wait-action@master
       with:
-        time: '30s'
+        time: '5m'
 
     - name: Azure Pipelines Build UWP
       uses: azure/pipelines@v1
