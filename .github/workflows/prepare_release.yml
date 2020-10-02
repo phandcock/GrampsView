@@ -10,7 +10,10 @@ on:
  #   paths-ignore:
  #     - 'package.json'
  #    - 'CHANGELOG.md'
- 
+  workflow_dispatch:
+    inputs:
+    tags:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
