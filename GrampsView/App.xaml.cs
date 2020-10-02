@@ -92,7 +92,8 @@ namespace GrampsView
 
                 var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
 
-                // Assets.Strings.AppResources.Culture = ci; // TODO set the RESX for resource localization
+                // Assets.Strings.AppResources.Culture = ci; 
+                // TODO set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
