@@ -1,7 +1,3 @@
-// <copyright file="PersonDataView.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -133,7 +129,6 @@ namespace GrampsView.Data.DataView
             return new ObservableCollection<PersonModel>(sortedList);
         }
 
-        
         public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroup()
         {
             CardGroupBase<HLinkPersonModel> t = new CardGroupBase<HLinkPersonModel>();
@@ -326,14 +321,15 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// List of Serch HLinks.
         /// </returns>
-        public override List<SearchItem> Search(string argQueryString)
+        public override CardGroupBase<HLinkPersonModel> Search(string argQueryString)
         {
-            if (argQueryString is null)
+            CardGroupBase<HLinkPersonModel> itemsFound = new CardGroupBase<HLinkPersonModel>();
+
+            if (string.IsNullOrEmpty(argQueryString))
             {
-                throw new ArgumentNullException(nameof(argQueryString));
+                return itemsFound;
             }
 
-            List<SearchItem> itemsFound = new List<SearchItem>();
             argQueryString = argQueryString.ToLower(CultureInfo.CurrentCulture);
 
             // TODO Search on FullName collection
@@ -343,11 +339,7 @@ namespace GrampsView.Data.DataView
 
             foreach (PersonModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             // Search by Called By
@@ -355,11 +347,7 @@ namespace GrampsView.Data.DataView
 
             foreach (PersonModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             // Search by Nick Name
@@ -367,11 +355,7 @@ namespace GrampsView.Data.DataView
 
             foreach (PersonModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;

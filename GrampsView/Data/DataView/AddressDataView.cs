@@ -1,13 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="CitationDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -17,11 +7,8 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     // Event repository </summary>
@@ -232,19 +219,20 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkAdressModel> Search(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkAdressModel> itemsFound = new CardGroupBase<HLinkAdressModel>();
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
 
             var temp = DataViewData.Where(x => x.GetDefaultText.Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
             foreach (IAddressModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;

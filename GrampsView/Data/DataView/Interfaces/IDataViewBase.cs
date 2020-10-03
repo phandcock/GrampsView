@@ -10,10 +10,10 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System.Collections.Generic;
-
     using GrampsView.Common;
     using GrampsView.Data.Model;
+
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interfaces for Base Repository.
@@ -120,6 +120,15 @@ namespace GrampsView.Data.DataView
         /// </returns>
         T NewModel();
 
-        List<SearchItem> Search(string queryString);
+        /// <summary>
+        /// Searches the specified query string.
+        /// </summary>
+        /// <param name="queryString">
+        /// The query string.
+        /// </param>
+        /// <returns>
+        /// CardGroupBase list
+        /// </returns>
+        CardGroupBase<TU> Search(string queryString);
     }
 }

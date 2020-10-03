@@ -1,23 +1,13 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="HeaderDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.DataView
+﻿namespace GrampsView.Data.DataView
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.Serialization;
-
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
+
+    using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// repository for the XML file header.
@@ -138,9 +128,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkHeaderModel> Search(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkHeaderModel> itemsFound = new CardGroupBase<HLinkHeaderModel>();
 
             return itemsFound;
         }

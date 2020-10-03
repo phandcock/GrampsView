@@ -20,46 +20,49 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <Grid>
+    <ScrollView>
+        <StackLayout>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+            <SearchBar
+                x:Name="SearchBar"
+                Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                                  Light={StaticResource SurfaceColorLight}}"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsTabStop="True"
+                SearchCommand="{Binding SearchCommand}"
+                SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                TextColor="{DynamicResource OnSurfaceColor}">
+                <SearchBar.Behaviors>
+                    <behaviour:EventToCommandBehavior
+                        Command="{Binding SearchButtonCommand}"
+                        CommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                        EventName="SearchButtonPressed" />
+                </SearchBar.Behaviors>
+            </SearchBar>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-        <SearchBar
-            x:Name="SearchBar"
-            Grid.Row="0"
-            Grid.Column="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                              Light={StaticResource SurfaceColorLight}}"
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsTabStop="True"
-            SearchCommand="{Binding SearchCommand}"
-            SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
-            TextColor="{DynamicResource OnSurfaceColor}">
-            <SearchBar.Behaviors>
-                <behaviour:EventToCommandBehavior
-                    Command="{Binding SearchButtonCommand}"
-                    CommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
-                    EventName="SearchButtonPressed" />
-            </SearchBar.Behaviors>
-        </SearchBar>
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonList, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 
-        <ucon:InstructionCardLarge
-            Grid.Row="1"
-            Grid.Column="0"
-            BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonNameList, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
 
-        <ucon:CardGroupHeader
-            Grid.Row="2"
-            Grid.Column="0"
-            BindingContext="{Binding BaseDetail, Mode=OneWay}" />
-    </Grid>
+            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyList, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding EventList, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding NoteList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding AddressList, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationList, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding MediaList, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceList, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+
+            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

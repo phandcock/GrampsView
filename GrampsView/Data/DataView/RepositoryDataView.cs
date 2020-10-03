@@ -10,18 +10,18 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repositories;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// </summary>
@@ -160,19 +160,25 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkRepositoryModel> Search(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkRepositoryModel> itemsFound = new CardGroupBase<HLinkRepositoryModel>();
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
 
             var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
             foreach (RepositoryModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;

@@ -1,12 +1,9 @@
-﻿// <copyright file="SearchViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Assets.Strings;
     using GrampsView.Common;
     using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
     using GrampsView.UserControls;
 
     using Prism.Events;
@@ -30,7 +27,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// The local search text.
         /// </summary>
-        private string _SearchText;
+        private string _SearchText = string.Empty;
 
         private string lastArg = string.Empty;
 
@@ -54,6 +51,78 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSearch;
 
             SearchButtonCommand = new Command<string>(SearchProcessQuery);
+        }
+
+        public CardGroupBase<HLinkAdressModel> AddressList
+        {
+            get
+            {
+                return DV.AddressDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkCitationModel> CitationList
+        {
+            get
+            {
+                return DV.CitationDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkEventModel> EventList
+        {
+            get
+            {
+                return DV.EventDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkFamilyModel> FamilyList
+        {
+            get
+            {
+                return DV.FamilyDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkMediaModel> MediaList
+        {
+            get
+            {
+                return DV.MediaDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkNoteModel> NoteList
+        {
+            get
+            {
+                return DV.NoteDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkPersonModel> PersonList
+        {
+            get
+            {
+                return DV.PersonDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkPersonNameModel> PersonNameList
+        {
+            get
+            {
+                return DV.PersonNameDV.Search(SearchText);
+            }
+        }
+
+        public CardGroupBase<HLinkPlaceModel> PlaceList
+        {
+            get
+            {
+                return DV.PlaceDV.Search(SearchText);
+            }
         }
 
         /// <summary>
@@ -97,7 +166,10 @@ namespace GrampsView.ViewModels
 
             set
             {
-                SetProperty(ref _SearchText, value);
+                if (!(value is null))
+                {
+                    SetProperty(ref _SearchText, value);
+                }
             }
         }
 
@@ -117,148 +189,12 @@ namespace GrampsView.ViewModels
         /// </param>
         public void ProcessQuery(string argSearch, int argLimit)
         {
-            SearchText = argSearch;
-            //SearchNothingFound = false;
-            BaseDetail.Clear();
-
-            CardGroup SearchCards;
-
-            if (SearchText.Length > 0)
+            if (argSearch.Length > 0)
             {
-                // Create Person Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "People"
-                };
+                SearchText = argSearch;
 
-                foreach (SearchItem item in DV.PersonDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Person Name Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Person Names"
-                };
-
-                foreach (SearchItem item in DV.PersonNameDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Family Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Families"
-                };
-
-                foreach (SearchItem item in DV.FamilyDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Event Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Events"
-                };
-
-                foreach (SearchItem item in DV.EventDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Note cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Notes"
-                };
-
-                foreach (SearchItem item in DV.NoteDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Address Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Addresses"
-                };
-
-                foreach (SearchItem item in DV.AddressDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Citation cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Citations"
-                };
-
-                foreach (SearchItem item in DV.CitationDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Media Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Media"
-                };
-
-                foreach (SearchItem item in DV.MediaDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
-
-                // Create Place Cards
-                SearchCards = new CardGroup
-                {
-                    Title = "Places"
-                };
-
-                foreach (SearchItem item in DV.PlaceDV.Search(SearchText))
-                {
-                    if (SearchCards.Count < argLimit)
-                    {
-                        SearchCards.Add(item.HLink);
-                    }
-                }
-                BaseDetail.Add(SearchCards);
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
             }
 
             if (BaseDetail.Count == 0)

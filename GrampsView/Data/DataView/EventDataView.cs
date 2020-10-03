@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="EventDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -193,8 +184,6 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-
-
         /// <summary>
         /// Gets the first event type in the collection.
         /// </summary>
@@ -302,19 +291,20 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkEventModel> Search(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkEventModel> itemsFound = new CardGroupBase<HLinkEventModel>();
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
 
             IEnumerable<EventModel> temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
             foreach (EventModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;

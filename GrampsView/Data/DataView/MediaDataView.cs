@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Interface defintion for MediaObjectDetailViewModel.cs
-//
-// <copyright file="MediaDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.DataView
+﻿namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -373,19 +364,20 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public override List<SearchItem> Search(string argQueryString)
+        public override CardGroupBase<HLinkMediaModel> Search(string argQueryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkMediaModel> itemsFound = new CardGroupBase<HLinkMediaModel>();
+
+            if (string.IsNullOrEmpty(argQueryString))
+            {
+                return itemsFound;
+            }
 
             var temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQueryString)).OrderBy(y => y.GetDefaultText);
 
             foreach (IMediaModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;
