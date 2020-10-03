@@ -18,16 +18,9 @@
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
             <Frame
                 x:Name="LLCardLargeFrame"
-                Margin="0"
-                Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
-                CornerRadius="2"
-                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
-                <Label
-                    Margin="0"
-                    Style="{StaticResource GVHeaderStyleMedium}"
-                    Text="{Binding Title}" />
+                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
+                Style="{StaticResource GVFrameHeaderMedium}">
+                <Label Style="{StaticResource GVHeaderStyleMedium}" Text="{Binding Title}" />
             </Frame>
 
             <FlexLayout

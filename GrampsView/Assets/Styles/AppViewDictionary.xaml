@@ -44,14 +44,6 @@
         <Setter Property="TextColor" Value="Black" />
     </Style>
 
-    <!--  Create a Material Font Style Button Style  -->
-    <Style
-        x:Key="GVButtonFont"
-        BasedOn="{StaticResource GVButtonStyle}"
-        TargetType="Button">
-        <Setter Property="WidthRequest" Value="40" />
-    </Style>
-
     <!--
         ******************************************************
         CollectionView Styles
@@ -116,6 +108,14 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="1" />
         <Setter Property="CornerRadius" Value="0" />
+    </Style>
+
+    <!--  Create a Header Medium Style  -->
+    <Style x:Key="GVFrameHeaderMedium" TargetType="Frame">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="CornerRadius" Value="2" />
     </Style>
 
     <!--
@@ -421,6 +421,7 @@
         BasedOn="{StaticResource GVSymbolIconBaseType}"
         TargetType="Image">
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="Margin" Value="3" />
     </Style>
 
     <Style
@@ -428,6 +429,21 @@
         BasedOn="{StaticResource GVSymbolIconBaseType}"
         TargetType="Image">
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Image Control Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Material Font Style Button Style  -->
+    <Style x:Key="GVImageButton" TargetType="ImageButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Aspect" Value="AspectFit" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
     <!--

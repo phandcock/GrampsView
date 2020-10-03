@@ -129,7 +129,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The icon people.
         /// </summary>
-        public const string IconPeople = CommonFontNamesFAS.Atlas;
+        public const string IconPeople = CommonFontNamesFAS.AddressBook;
 
         public const string IconPeopleBirthday = CommonFontNamesFAS.BirthdayCake;
 
@@ -153,7 +153,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public const string IconPlace = CommonFontNamesFAS.AddressBook;
+        public const string IconPlace = CommonFontNamesFAS.Atlas;
 
         /// <summary>
         /// The symbol Repository.

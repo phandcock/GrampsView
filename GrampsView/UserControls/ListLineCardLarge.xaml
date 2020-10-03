@@ -33,12 +33,8 @@
                 x:Name="LLCardLargeFrame"
                 Grid.Row="0"
                 Grid.Column="0"
-                Margin="0"
-                Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
-                CornerRadius="2"
-                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
+                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
+                Style="{StaticResource GVFrameHeaderMedium}">
                 <Label
                     x:Name="LLCardLargeTitle"
                     Margin="3,0,3,0"

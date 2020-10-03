@@ -6,27 +6,30 @@
     x:Name="BottomMenuRoot"
     Style="{StaticResource FrameBottomMenu}">
 
-    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-        <Button
-            Padding="0"
-            Command="{prism:GoBack GoBackType=ToRoot}"
-            Style="{StaticResource GVButtonFont}">
-            <Button.ImageSource>
+    <StackLayout
+        Margin="2"
+        HorizontalOptions="Start"
+        Orientation="Horizontal">
+        <ImageButton
+         Style="{StaticResource GVImageButton}"
+            Command="{prism:GoBack GoBackType=ToRoot}">
+            <ImageButton.Source>
                 <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{Binding HubButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
-            </Button.ImageSource>
-        </Button>
+            </ImageButton.Source>
+        </ImageButton>
 
-        <Button
-            x:Name="SearchButton"
-            Padding="0"
+        <ImageButton
+           Style="{StaticResource GVImageButton}"
             Command="{prism:NavigateTo 'SearchPage'}"
-            Style="{StaticResource GVButtonFont}">
-            <Button.ImageSource>
+         >
+            <ImageButton.Source>
                 <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{Binding SearchButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
-            </Button.ImageSource>
-        </Button>
+            </ImageButton.Source>
+        </ImageButton>
 
         <Label
+            Margin="3"
+            Padding="0"
             Text="{Binding StatusText, Source={x:Reference BottomMenuRoot}, Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                         Light={StaticResource OnSecondaryColorLight}}"
