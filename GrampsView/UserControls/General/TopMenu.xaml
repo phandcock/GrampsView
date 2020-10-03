@@ -30,6 +30,7 @@
                                         Light={StaticResource OnPrimaryColorDark}}" />
         </Image.Source>
     </Image>
+    
     <Label
         Grid.Row="0"
         Grid.Column="1"
