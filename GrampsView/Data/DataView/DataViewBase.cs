@@ -207,11 +207,11 @@ namespace GrampsView.Data.DataView
         /// <summary>
         /// Searches the items.
         /// </summary>
-        /// <param name="queryString">
+        /// <param name="argQuery">
         /// The query string.
         /// </param>
         /// <returns>
         /// </returns>
-        public abstract List<SearchItem> Search(string queryString);
+        public abstract CardGroupBase<TU> Search(string argQuery);
     }
 }

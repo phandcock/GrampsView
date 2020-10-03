@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Data View into the Notes repository.
-//
-// <copyright file="NoteDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -164,9 +155,14 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkNoteModel> Search(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>();
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
 
             var temp = DataViewData.Where(x => x.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
@@ -174,11 +170,7 @@ namespace GrampsView.Data.DataView
             {
                 foreach (NoteModel tempMO in temp)
                 {
-                    itemsFound.Add(new SearchItem
-                    {
-                        HLink = tempMO.HLink,
-                        Text = tempMO.GetDefaultText,
-                    });
+                    itemsFound.Add(tempMO.HLink);
                 }
             }
 
@@ -188,6 +180,11 @@ namespace GrampsView.Data.DataView
         public List<SearchItem> SearchTag(string queryString)
         {
             List<SearchItem> itemsFound = new List<SearchItem>();
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                return itemsFound;
+            }
 
             var temp = from gig in DataViewData
                        where gig.GTagRefCollection.Any(act => act.DeRef.GName == queryString)

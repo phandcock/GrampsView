@@ -286,7 +286,15 @@ namespace GrampsView.Data.Model
             get
             {
                 // TODO Enhance to check for zero length files
-                return MediaStorageFile != null && MediaStorageFile.Valid;
+                if (MediaStorageFile == null) { return false; };
+
+                if (!MediaStorageFile.Valid) { return false; };
+
+                if (_MediaStorageFile.FInfo.FullName == null) { return false; };
+
+                //if (!(Uri.IsWellFormedUriString(MediaStorageFileUri.AbsolutePath, UriKind.Absolute))) { return false; };
+
+                return true;
             }
         }
 
@@ -359,7 +367,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return new Uri(MediaStorageFilePath);
+                if (IsMediaStorageFileValid)
+                {
+                    return new Uri(MediaStorageFilePath);
+                }
+
+                return null;
             }
         }
 

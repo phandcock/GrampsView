@@ -17,12 +17,8 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Globalization;
     using System.Linq;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.Serialization;
 
     /// <summary>
     // Event repository </summary>
@@ -229,19 +225,20 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override List<SearchItem> Search(string queryString)
+        public override CardGroupBase<HLinkPersonNameModel> Search(string argString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkPersonNameModel> itemsFound = new CardGroupBase<HLinkPersonNameModel>();
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            if (string.IsNullOrEmpty(argString))
+            {
+                return itemsFound;
+            }
+
+            var temp = DataViewData.Where(x => x.GetDefaultText.Contains(argString)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {
-                itemsFound.Add(new SearchItem
-                {
-                    HLink = tempMO.HLink,
-                    Text = tempMO.GetDefaultText,
-                });
+                itemsFound.Add(tempMO.HLink);
             }
 
             return itemsFound;
