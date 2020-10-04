@@ -117,7 +117,7 @@
     </Color>
 
     <Color x:Key="CardBackGroundFamily">
-        #0000ff
+        #00ffff
     </Color>
 
     <Color x:Key="CardBackGroundMedia">

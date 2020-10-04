@@ -27,6 +27,7 @@
 
                 <Label
                     Grid.Column="0"
+                    Padding="3,0,0,0"
                     FontSize="{x:Static common:CommonFontSize.FontMedium}"
                     Text="{Binding Label}"
                     TextColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
