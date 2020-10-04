@@ -58,8 +58,6 @@
 
             <ucon:ListLineCardLarge Grid.Row="2" BindingContext="{Binding HeaderData}" />
 
-
-
             <ucon:FileViewCardLarge Grid.Row="3" BindingContext="GrampsView.Attribution.md" />
 
             <ucon:FileViewCardLarge Grid.Row="4" BindingContext="GrampsView.CHANGELOG.md" />

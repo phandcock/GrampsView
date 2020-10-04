@@ -4,10 +4,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviour="clr-namespace:GrampsView.Behaviours"
+    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Appearing="ContentPage_Appearing"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -19,6 +19,12 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:StringToVisibleConverter x:Key="stringToBool" />
+        </ResourceDictionary>
+    </Page.Resources>
+
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
@@ -26,6 +32,7 @@
             <SearchBar
                 x:Name="SearchBar"
                 Grid.Row="0"
+                Margin="3"
                 BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                                   Light={StaticResource SurfaceColorLight}}"
                 HorizontalOptions="FillAndExpand"
@@ -62,7 +69,8 @@
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceList, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
+            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" IsVisible="{Binding SearchItemsFound, Converter={StaticResource stringToBool}}" />
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

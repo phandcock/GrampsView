@@ -148,6 +148,7 @@
     <Compile Remove="UserControls\General\FlexSingleGroupSingleCard.xaml.cs" />
     <Compile Remove="UserControls\General\MediaImage.xaml.cs" />
     <Compile Remove="UserControls\General\RadioButtonxExtended .cs" />
+    <Compile Remove="UserControls\HeaderCardLarge.xaml.cs" />
     <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
     <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
     <Compile Remove="UserControls\MediaRefCardSmall.xaml.cs" />
@@ -222,6 +223,7 @@
     <EmbeddedResource Remove="UserControls\General\FlexSingleGroupMultiCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexSingleGroupSingleCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\MediaImage.xaml" />
+    <EmbeddedResource Remove="UserControls\HeaderCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\HLinkCitationCardSmall.xaml" />
     <EmbeddedResource Remove="UserControls\HLinkEventCardSmall.xaml" />
     <EmbeddedResource Remove="UserControls\MediaRefCardSmall.xaml" />
@@ -332,9 +334,6 @@
     </Compile>
     <Compile Update="UserControls\MediaImageFullCard.xaml.cs">
       <DependentUpon>MediaImageFullCard.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\HeaderCardLarge.xaml.cs">
-      <DependentUpon>HeaderCardLarge.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\NoteCardFull.xaml.cs">
       <DependentUpon>NoteCardFull.xaml</DependentUpon>
