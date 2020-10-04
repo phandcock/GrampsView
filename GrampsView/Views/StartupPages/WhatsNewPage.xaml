@@ -12,50 +12,24 @@
     mc:Ignorable="d">
 
     <NavigationPage.TitleView>
-        <Grid Style="{DynamicResource GVPageTitleStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding BaseTitleIcon}"
-                        Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource PrimaryColorLight}}" />
-                </Image.Source>
-            </Image>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
-                Text="{Binding BaseTitle, Mode=OneWay}" />
-        </Grid>
+        <ucon:TopMenu />
     </NavigationPage.TitleView>
 
     <ScrollView>
-        <FlexLayout Direction="Column">
+        <StackLayout>
+
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
 
                 <ucon:FileViewCardLarge
                     Grid.Row="0"
                     BindingContext="GrampsView.CHANGELOG.md"
                     FlexLayout.Basis="75" />
-
-                <!--<ucon:ChangeLogCardLarge Grid.Row="0" FlexLayout.Basis="75" />-->
             </Frame>
 
             <Button
                 Command="{Binding LoadDataCommand}"
                 Style="{DynamicResource GVButtonStyle}"
                 Text="{i18n:Translate WhatsNew_LoadDataButton}" />
-        </FlexLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

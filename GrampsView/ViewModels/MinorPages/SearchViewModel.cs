@@ -69,6 +69,12 @@
             }
         }
 
+        /// <summary>Gets or sets a value indicating whether [search items found].</summary>
+        /// <value>
+        ///   <c>true</c> if [search items found]; otherwise, <c>false</c>.</value>
+        public bool SearchItemsFound { get; set;  }
+
+
         public CardGroupBase<HLinkEventModel> EventList
         {
             get
@@ -193,22 +199,12 @@
             {
                 SearchText = argSearch;
 
+                SearchItemsFound = false;
+
                 // Trigger refresh of View fields via INotifyPropertyChanged
                 RaisePropertyChanged(string.Empty);
             }
 
-            if (BaseDetail.Count == 0)
-            {
-                CardGroup tt = new CardGroup();
-
-                InstructionCardLarge instructionCard = new InstructionCardLarge
-                {
-                    BindingContext = AppResources.SearchPage_NothingFound,
-                };
-
-                tt.Add(instructionCard);
-                BaseDetail.Add(tt);
-            }
         }
 
         /// <summary>

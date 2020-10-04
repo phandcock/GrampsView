@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-   xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -12,67 +12,33 @@
     mc:Ignorable="d">
 
     <NavigationPage.TitleView>
-        <Grid Style="{DynamicResource GVPageTitleStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding BaseTitleIcon}"
-                        Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource PrimaryColorLight}}" />
-                </Image.Source>
-            </Image>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
-                Text="{Binding BaseTitle, Mode=OneWay}" />
-        </Grid>
+        <ucon:TopMenu />
     </NavigationPage.TitleView>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <ScrollView>
+        <StackLayout>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+            <ucon:InstructionCardLarge
+                Grid.Row="0"
+                BindingContext="{x:Static i18n:AppResources.FileInputHandlerPage_Instructions}"
+                HorizontalOptions="Center" />
 
-        <ucon:InstructionCardLarge
-            Grid.Row="0"
-            BindingContext="{x:Static i18n:AppResources.FileInputHandlerPage_Instructions}"
-            HorizontalOptions="Center" />
+            <ucon:ListLineCardLarge
+                Grid.Row="1"
+                BindingContext="{Binding DataDetailList, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-        <ucon:ListLineCardLarge
-            Grid.Row="1"
-            BindingContext="{Binding DataDetailList, Mode=OneWay}"
-            HorizontalOptions="CenterAndExpand" />
+            <Button
+                Grid.Row="2"
+                Command="{Binding PickFileCommand}"
+                Style="{DynamicResource GVButtonStyle}"
+                Text="{x:Static i18n:AppResources.FileInputHandlerPage_Choose_Button_Text}" />
 
-        <Button
-            Grid.Row="2"
-            Command="{Binding PickFileCommand}"
-            Style="{DynamicResource GVButtonStyle}"
-            Text="{x:Static i18n:AppResources.FileInputHandlerPage_Choose_Button_Text}" />
-
-
-        <Button
-            Grid.Row="3"
-            Command="{Binding LoadSampleCommand}"
-            Style="{DynamicResource GVButtonStyle}"
-            Text="{x:Static i18n:AppResources.FirstRun_SampleButton}" />
-    </Grid>
+            <Button
+                Grid.Row="3"
+                Command="{Binding LoadSampleCommand}"
+                Style="{DynamicResource GVButtonStyle}"
+                Text="{x:Static i18n:AppResources.FirstRun_SampleButton}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -12,46 +12,11 @@
     mc:Ignorable="d">
 
     <NavigationPage.TitleView>
-        <Grid Style="{DynamicResource GVPageTitleStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding BaseTitleIcon}"
-                        Size="44"
-                        Color="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                Light={StaticResource PrimaryColorLight}}" />
-                </Image.Source>
-            </Image>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
-                Text="{Binding BaseTitle, Mode=OneWay}" />
-        </Grid>
+        <ucon:TopMenu />
     </NavigationPage.TitleView>
 
     <ScrollView>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <StackLayout>
 
             <ucon:InstructionCardLarge
                 Grid.Row="0"
@@ -68,6 +33,7 @@
                 Command="{Binding LoadDataCommand}"
                 Style="{DynamicResource GVButtonStyle}"
                 Text="{x:Static i18n:AppResources.FirstRun_WhatsNewButton}" />
-        </Grid>
+
+        </StackLayout>
     </ScrollView>
 </ContentPage>
