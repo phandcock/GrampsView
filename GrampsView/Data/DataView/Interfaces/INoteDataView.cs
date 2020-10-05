@@ -50,6 +50,6 @@ namespace GrampsView.Data.DataView
         /// </returns>
         CardGroupBase<INoteModel> GetAllOfType(string argType);
 
-        List<SearchItem> SearchTag(string queryString);
+        CardGroupBase<HLinkNoteModel> SearchTag(string queryString);
     }
 }

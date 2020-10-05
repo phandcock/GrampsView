@@ -177,9 +177,9 @@ namespace GrampsView.Data.DataView
             return itemsFound;
         }
 
-        public List<SearchItem> SearchTag(string queryString)
+        public CardGroupBase<HLinkNoteModel> SearchTag(string queryString)
         {
-            List<SearchItem> itemsFound = new List<SearchItem>();
+            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>();
 
             if (string.IsNullOrEmpty(queryString))
             {
@@ -194,11 +194,7 @@ namespace GrampsView.Data.DataView
             {
                 foreach (NoteModel tempMO in temp)
                 {
-                    itemsFound.Add(new SearchItem
-                    {
-                        HLink = tempMO.HLink,
-                        Text = tempMO.GetDefaultText,
-                    });
+                    itemsFound.Add( tempMO.HLink);
                 }
             }
 

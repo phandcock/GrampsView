@@ -68,6 +68,7 @@
     <Compile Remove="Common\CommonCropBitmap.cs" />
     <Compile Remove="Common\CommonLogCircular.cs" />
     <Compile Remove="Common\CommonPropertyDebug.xaml.cs" />
+    <Compile Remove="Common\CommonSearch.cs" />
     <Compile Remove="Common\CommonTheming.cs" />
     <Compile Remove="Common\CustomClasses\BindableStackLayout.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
