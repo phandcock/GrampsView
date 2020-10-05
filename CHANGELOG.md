@@ -1,3 +1,13 @@
+## [16.9.12](https://github.com/phandcock/GrampsView/compare/16.9.11...16.9.12) (2020-10-05)
+
+
+### Bug Fixes
+
+* fix colour of family cards ([5aed0bf](https://github.com/phandcock/GrampsView/commit/5aed0bf19ab0d2f6b8e0c0c963acb4d364115eb9))
+* tweak card icon layout and search viewpage ([4bdc2f0](https://github.com/phandcock/GrampsView/commit/4bdc2f072008fda688aff80c27a69391e63757c8))
+
+
+
 ## [16.9.11](https://github.com/phandcock/GrampsView/compare/16.9.10...16.9.11) (2020-10-04)
 
 
@@ -32,18 +42,6 @@
 * fix button colour for main menu ([c807fc5](https://github.com/phandcock/GrampsView/commit/c807fc5015c14926b453d1c9dfd8f96e224d3017))
 * fix display of Theme Settings buttons ([c1ecc64](https://github.com/phandcock/GrampsView/commit/c1ecc64a7793ba4d02c94b3844881e3f460e63ee))
 * tweak YAML and fix InstructionCard references ([39339a0](https://github.com/phandcock/GrampsView/commit/39339a08eaec4a76f4d5fcc48d8e58cb566ab9da))
-
-
-
-## [16.9.7](https://github.com/phandcock/GrampsView/compare/16.9.6...16.9.7) (2020-09-23)
-
-
-### Bug Fixes
-
-* hide cardgroupbase if no data ([857a0a1](https://github.com/phandcock/GrampsView/commit/857a0a17b337031299740118ab139d2df8c79ee4))
-* more tweaks to the colour schemes ([b1de020](https://github.com/phandcock/GrampsView/commit/b1de020d663344134016aad37117eb9449de7e6e))
-* rejig color themes to reduce number of different colours ([dce910c](https://github.com/phandcock/GrampsView/commit/dce910cee592d78d348f2ad6cdfde150f1517dac))
-* tweak colours ([fa19816](https://github.com/phandcock/GrampsView/commit/fa1981600edb18dce813d607bace23fc89d73397))
 
 
 
