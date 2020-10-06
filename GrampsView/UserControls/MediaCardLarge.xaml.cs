@@ -34,10 +34,10 @@ namespace GrampsView.UserControls
             {
                 thisMedia = thisObject.BindingContext as HLinkMediaModel;
 
-                if ((thisObject != null) && (thisMedia != null))
-                {
-                    thisObject.AnchorImage.BindingContext = thisMedia.DeRef.HomeImageHLink;
-                }
+                //if ((thisObject != null) && (thisMedia != null))
+                //{
+                //    thisObject.AnchorImage.BindingContext = thisMedia.DeRef.HomeImageHLink;
+                //}
             }
         }
     }

@@ -6,7 +6,7 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:ParentLinkModel"
-    Style="{DynamicResource GridMediumFixedCardStyle}">
+    Style="{DynamicResource GridLargeFixedCardStyle}">
 
     <Frame Style="{DynamicResource FrameMediumFixedCardStyleNS}">
 

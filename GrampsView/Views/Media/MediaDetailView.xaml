@@ -3,7 +3,9 @@
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -17,6 +19,16 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
+            <ffimageloading:CachedImage
+                x:Name="daImage"
+                Aspect="AspectFit"
+                DownsampleToViewSize="true"
+                HeightRequest="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                LoadingPlaceholder="ic_launcher.png"
+                RetryCount="3"
+                RetryDelay="1000"
+                Source="{Binding CurrentHLinkMedia.DeRef.MediaStorageFilePath, Mode=OneWay}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
