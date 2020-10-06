@@ -7,21 +7,16 @@
     Style="{StaticResource FrameBottomMenu}">
 
     <StackLayout
-        Margin="2"
+        Margin="5,2,2,2"
         HorizontalOptions="Start"
         Orientation="Horizontal">
-        <ImageButton
-         Style="{StaticResource GVImageButton}"
-            Command="{prism:GoBack GoBackType=ToRoot}">
+        <ImageButton Command="{prism:GoBack GoBackType=ToRoot}" Style="{StaticResource GVImageButton}">
             <ImageButton.Source>
                 <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{Binding HubButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
             </ImageButton.Source>
         </ImageButton>
 
-        <ImageButton
-           Style="{StaticResource GVImageButton}"
-            Command="{prism:NavigateTo 'SearchPage'}"
-         >
+        <ImageButton Command="{prism:NavigateTo 'SearchPage'}" Style="{StaticResource GVImageButton}">
             <ImageButton.Source>
                 <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{Binding SearchButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
             </ImageButton.Source>
