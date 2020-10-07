@@ -28,10 +28,9 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Style="{StaticResource GVFrameHeaderMedium}">
-
                 <Label
                     Margin="0"
-                    Style="{StaticResource GVHeaderStyleMedium}"
+                    Style="{StaticResource GVHeaderStyleSmall}"
                     Text="Parents" />
             </Frame>
 

@@ -21,6 +21,7 @@
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:SourceCardLarge BindingContext="{Binding CitationObject.GSourceRef, Mode=OneWay}" />
+
             <ucon:NoteCardFull BindingContext="{Binding CitationObject.GNoteRefCollection[0], Mode=OneWay}" />
 
             <ucon:CardGroupBaseHeader BindingContext="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />

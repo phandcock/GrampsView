@@ -298,7 +298,7 @@
         public const string EnvelopeOpen = "\uf2b6";
         public const string EnvelopeOpenText = "\uf658";
         public const string EnvelopeSquare = "\uf199";
-        public const string Equals = "\uf52c";
+        public const string Equals_Symbol = "\uf52c";
         public const string Eraser = "\uf12d";
         public const string Ethernet = "\uf796";
         public const string EuroSign = "\uf153";

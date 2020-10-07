@@ -329,7 +329,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private DateTime GetDateTime(string argUnixSecs)
         {
-            long.TryParse(argUnixSecs, out long ls);
+            if (long.TryParse(argUnixSecs, out long ls))
+            {
+                DataStore.CN.NotifyError("The value passed to GetDateTime was not a valid number of Unix seconds");
+            };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
 

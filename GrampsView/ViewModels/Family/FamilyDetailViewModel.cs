@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Family Detail View Model.
-//
-// <copyright file="FamilyDetailViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -24,13 +15,7 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class FamilyDetailViewModel : ViewModelBase
     {
-        /// <summary>
-        /// The activity session.
-        /// </summary>
-        //[NonSerializedAttribute]
-        //private UserActivitySession localActivitySession;
-
-        private IPlatformSpecific _PlatformSpecific;
+        private readonly IPlatformSpecific _PlatformSpecific;
 
         /// <summary>
         /// Holds the family object.
@@ -62,7 +47,6 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The family object.
         /// </value>
-        // [RestorableState]
         public FamilyModel FamilyObject
         {
             get
@@ -95,16 +79,18 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get basic details
-                //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                BaseDetail.Add(new CardListLineCollection
+                CardListLineCollection t1 = new CardListLineCollection
                     {
-                        new CardListLine("Card Type:", "Family Detail"),
-                        new CardListLine("Family Display Name:", FamilyObject.FamilyDisplayName),
-                        new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
-                        new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
-                        new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
-                    });
+                    new CardListLine("Family Display Name:", FamilyObject.FamilyDisplayName),
+                    new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
+                    new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
+                    new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
+                };
+
+                t1.Title = "Family Detail";
+
+                BaseDetail.Add(t1);
 
                 // Add Model details
                 BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
@@ -115,30 +101,12 @@ namespace GrampsView.ViewModels
                     Parents = localFamilyModel,
                 });
 
-                //BaseDetail.Add(t);
-
-                // Detail reference
-                //BaseDetail.Add(FamilyObject.GEventRefCollection.GetCardGroup());
-                //BaseDetail.Add(FamilyObject.GChildRefCollection.GetCardGroup()); // TODO , "Children");
-
-                //BaseDetail.Add(FamilyObject.GCitationRefCollection.GetCardGroup());
-                //BaseDetail.Add(FamilyObject.GMediaRefCollection.GetCardGroup());
-                //BaseDetail.Add(FamilyObject.GNoteRefCollection.GetCardGroup());
-                //BaseDetail.Add(FamilyObject.GAttributeCollection);
-                //BaseDetail.Add(FamilyObject.GTagRefCollection.GetCardGroup());
-
                 string outFamEvent;
                 if (FamilyObject.GEventRefCollection.Count > 0)
                 {
                     // TODO Handle this
                     outFamEvent = FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GType + ": " + FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GDate.ShortDate;
                 }
-
-                // TODO localActivitySession = await CommonTimeline.AddToTimeLine("Family",
-                // localFamilyModel, localFamilyModel.HomeImageHLink.DeRef.MediaStorageFilePath,
-                // "Family: " + localFamilyModel.FamilyDisplayName, outFamEvent).ConfigureAwait(false);
-
-                // TODO //CommonTimeline.FinishActivitySessionAsync(localActivitySession); }
 
                 _PlatformSpecific.ActivityTimeLineAdd(FamilyObject);
             }

@@ -3,7 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:usercontrols="clr-namespace:GrampsView.UserControls">
 
     <DataTemplate x:Key="AddressCardSmallDT">
@@ -12,42 +11,6 @@
 
     <DataTemplate x:Key="AttributeCardSmallDT">
         <usercontrols:AttributeCardSmall />
-    </DataTemplate>
-
-    <DataTemplate x:Key="CardGroupDT">
-
-        <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{StaticResource CardGroupStyle}">
-            <Frame.Resources>
-                <ResourceDictionary>
-                    <converters:StringToVisibleConverter x:Key="stringToBool" />
-                    <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
-                </ResourceDictionary>
-            </Frame.Resources>
-
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-
-                <Frame
-                    x:Name="LLCardLargeFrame"
-                    Margin="0"
-                    Padding="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                      Light={StaticResource SecondaryColorLight}}"
-                    CornerRadius="2"
-                    IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
-
-                    <Label
-                        Margin="5,0,0,0"
-                        Style="{StaticResource GVHeaderStyleMedium}"
-                        Text="{Binding Title}" />
-                </Frame>
-
-                <FlexLayout
-                    x:Name="CardGroupTemplateFlexer"
-                    BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-                    BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
-                    Style="{StaticResource FlexLayoutCards}" />
-            </StackLayout>
-        </Frame>
     </DataTemplate>
 
     <DataTemplate x:Key="CardListLineCardSmallDT">
@@ -142,7 +105,6 @@
         x:Key="CardTemplateSelector"
         AddressTemplate="{StaticResource AddressCardSmallDT}"
         AttributeTemplate="{StaticResource AttributeCardSmallDT}"
-        CardGroupTemplate="{StaticResource CardGroupDT}"
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"

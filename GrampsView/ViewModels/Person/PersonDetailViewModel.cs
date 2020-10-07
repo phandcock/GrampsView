@@ -1,7 +1,4 @@
-﻿// <copyright file="PersonDetailViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -139,14 +136,10 @@ namespace GrampsView.ViewModels
                 // Get media image
                 MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
-                // Get Header Details
-                //CardGroup headerCardGroup = new CardGroup { Title = "Header Details" };
-
                 // Get the Person Details
-                CardListLineCollection nameDetails = new CardListLineCollection
-                {
-                    new CardListLine("Card Type:", "Person Detail"),
-            };
+                CardListLineCollection nameDetails = GetExtraPersonDetails();
+
+                nameDetails.Title = "Person Detail";
 
                 BaseDetail.Add(nameDetails);
 
@@ -154,11 +147,7 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
 
                 // Get date card
-
                 BaseDetail.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
-
-                // Get details on persons age etc
-                BaseDetail.Add(GetExtraPersonDetails());
 
                 // Get parent details
                 BaseDetail.Add(
@@ -169,8 +158,6 @@ namespace GrampsView.ViewModels
 
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
-
-                // BaseDetail.Add(headerCardGroup);
 
                 // Get Bio
                 HLinkNoteModel bioCard = PersonObject.GNoteRefCollection.GetBio;
@@ -190,20 +177,6 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
                     BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
                 }
-
-                // Add details
-                //BaseDetail.Add(PersonObject.GPersonNamesCollection.GetCardGroup());
-                //BaseDetail.Add(PersonObject.GParentInRefCollection.GetCardGroup());
-                //BaseDetail.Add(EventsIncFamily());
-                //BaseDetail.Add(PersonObject.GCitationRefCollection.GetCardGroup());
-                //BaseDetail.Add(PersonObject.GNoteRefCollection.GetCardGroupWithoutBio());
-                //BaseDetail.Add(PersonObject.GMediaRefCollection.GetCardGroup());
-                //BaseDetail.Add(PersonObject.GAttributeCollection);
-                //BaseDetail.Add(PersonObject.GAddress.GetCardGroup());
-                //BaseDetail.Add(PersonObject.GTagRefCollection.GetCardGroup());
-                //BaseDetail.Add(PersonObject.GURLCollection);
-                //BaseDetail.Add(PersonObject.GLDSCollection);
-                //BaseDetail.Add(PersonObject.GPersonRefCollection.GetCardGroup());
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }

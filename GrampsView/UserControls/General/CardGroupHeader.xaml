@@ -7,33 +7,36 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    IsVisible="{Binding Visible, Mode=OneWay}">
+    IsVisible="{Binding Visible, Mode=OneWay}"
+    Style="{StaticResource CardGroupStyle}">
 
-    <Frame Style="{StaticResource CardGroupStyle}">
-        <Frame.Resources>
-            <ResourceDictionary>
-                <converters:StringToVisibleConverter x:Key="stringToBool" />
-            </ResourceDictionary>
-        </Frame.Resources>
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-            <Frame
-                x:Name="LLCardLargeFrame"
+    <Frame.Resources>
+        <ResourceDictionary>
+            <converters:StringToVisibleConverter x:Key="stringToBool" />
+        </ResourceDictionary>
+    </Frame.Resources>
+
+    <StackLayout HorizontalOptions="FillAndExpand">
+        <Frame
+            x:Name="LLCardLargeFrame"
+            Margin="0"
+            Padding="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                              Light={StaticResource SecondaryColorLight}}"
+            CornerRadius="2"
+            IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
+            <Label
                 Margin="0"
-                Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
-                CornerRadius="2"
-                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
-                <Label
-                    Margin="0"
-                    Style="{StaticResource GVHeaderStyleMedium}"
-                    Text="{Binding Title}" />
-            </Frame>
+                Style="{StaticResource GVHeaderStyleMedium}"
+                Text="{Binding Title}" />
+        </Frame>
+
+        <StackLayout>
             <FlexLayout
                 x:Name="CardGroupTemplateFlexer"
                 BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
                 BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
                 Style="{StaticResource FlexLayoutCards}" />
         </StackLayout>
-    </Frame>
+    </StackLayout>
 </Frame>

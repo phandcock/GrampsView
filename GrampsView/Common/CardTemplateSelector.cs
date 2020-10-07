@@ -7,7 +7,6 @@
 /// </summary>
 namespace GrampsView.Common
 {
-    using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.UserControls;
 
@@ -41,18 +40,6 @@ namespace GrampsView.Common
         /// The attribute template.
         /// </value>
         public DataTemplate AttributeTemplate
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the Card Group template.
-        /// </summary>
-        /// <value>
-        /// The Card Group template.
-        /// </value>
-        public DataTemplate CardGroupTemplate
         {
             get;
             set;
@@ -428,11 +415,6 @@ namespace GrampsView.Common
                 }
             }
 
-            if (item is CardGroupBase<HLinkPersonRefModel>)
-            {
-                return CardGroupTemplate;
-            }
-
             if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
             {
                 return PlaceLocationTemplate;
@@ -496,11 +478,6 @@ namespace GrampsView.Common
             if (item is PlaceNameModel)
             {
                 return PlaceNameTemplate;
-            }
-
-            if (item is PlaceNameModelCollection)
-            {
-                return CardGroupTemplate;
             }
 
             if (item is RepositoryModel)

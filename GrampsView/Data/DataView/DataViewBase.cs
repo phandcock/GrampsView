@@ -10,6 +10,7 @@ namespace GrampsView.Data.DataView
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -80,6 +81,8 @@ namespace GrampsView.Data.DataView
 
         public virtual CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
+            Contract.Assert(argReadOnlyList != null);
+
             CardGroup t = new CardGroup();
 
             foreach (var item in argReadOnlyList)
@@ -156,7 +159,7 @@ namespace GrampsView.Data.DataView
         /// The argument ViewModel.
         /// </param>
         /// <returns>
-        /// A Card List Model object.
+        /// A CardListLineCollection object od the basic admin and id values.
         /// </returns>
         public CardListLineCollection GetModelInfoFormatted(ModelBase argModel)
         {
@@ -165,14 +168,15 @@ namespace GrampsView.Data.DataView
                 throw new ArgumentNullException(nameof(argModel));
             }
 
-            CardListLineCollection
-               modelInfoList = new CardListLineCollection
+            CardListLineCollection modelInfoList = new CardListLineCollection
                {
                  new CardListLine("Handle:", argModel.Handle),
                  new CardListLine("Id:", argModel.Id),
                  new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                  new CardListLine("Private Object:", argModel.PrivAsString),
                };
+
+            modelInfoList.Title = "Admin Details";
 
             return modelInfoList;
         }
