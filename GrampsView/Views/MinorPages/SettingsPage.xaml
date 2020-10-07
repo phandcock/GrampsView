@@ -44,6 +44,14 @@
                 </StackLayout>
             </Frame>
 
+            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
+
+                <Button
+                    Command="{Binding ForceUpdateCheckCommand}"
+                    Style="{DynamicResource GVButtonStyle}"
+                    Text="Force check for App Center Update" />
+            </Frame>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />

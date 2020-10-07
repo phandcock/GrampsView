@@ -118,17 +118,17 @@ namespace GrampsView.Common
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the media image full template.
-        /// </summary>
-        /// <value>
-        /// The media image full template.
-        /// </value>
-        public DataTemplate MediaImageFullTemplate
-        {
-            get;
-            set;
-        }
+        ///// <summary>
+        ///// Gets or sets the media image full template.
+        ///// </summary>
+        ///// <value>
+        ///// The media image full template.
+        ///// </value>
+        //public DataTemplate MediaImageFullTemplate
+        //{
+        //    get;
+        //    set;
+        //}
 
         /// <summary>
         /// Gets or sets the media template.
@@ -363,8 +363,8 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkHomeImageModel).CardType)
                 {
-                    case DisplayFormat.MediaImageFullCard:
-                        return MediaImageFullTemplate;
+                    //case DisplayFormat.MediaImageFullCard:
+                    //    return MediaImageFullTemplate;
 
                     case DisplayFormat.Default:
                         return MediaTemplate;
@@ -374,8 +374,8 @@ namespace GrampsView.Common
             {
                 switch ((item as HLinkMediaModel).CardType)
                 {
-                    case DisplayFormat.MediaImageFullCard:
-                        return MediaImageFullTemplate;
+                    //case DisplayFormat.MediaImageFullCard:
+                    //    return MediaImageFullTemplate;
 
                     case DisplayFormat.Default:
                         return MediaTemplate;

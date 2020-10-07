@@ -1,21 +1,14 @@
 ﻿namespace GrampsView.Droid
 {
-    using Android;
     using Android.App;
-    using Android.Content.PM;
     using Android.OS;
     using Android.Runtime;
-    using Android.Support.V4.App;
-    using Android.Support.V4.Content;
 
     using FFImageLoading.Forms.Platform;
 
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
     using GrampsView.Droid.Common;
-
-    using Microsoft.AppCenter.Distribute;
-
 
     using Prism;
     using Prism.Ioc;
@@ -58,7 +51,9 @@
         }
     }
 
-    /// <summary>Main Activity class</summary>
+    /// <summary>
+    /// Main Activity class
+    /// </summary>
     [Activity(
                 MainLauncher = false,
                 Theme = "@style/MainTheme"
@@ -80,8 +75,6 @@
 
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 
-           
-
             // Init things
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "AppTheme_Experimental",
@@ -93,12 +86,7 @@
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-          
-
-         
-
-            // App Center Distribute
-            Distribute.SetEnabledForDebuggableBuild(true);
+            // App Center Distribute Distribute.SetEnabledForDebuggableBuild(true);
 
             // FFImageLoading Init
             CachedImageRenderer.Init(enableFastRenderer: false);

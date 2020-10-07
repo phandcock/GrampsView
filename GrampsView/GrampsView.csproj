@@ -9,6 +9,8 @@
     <PackageLicenseExpression>https://github.com/phandcock/GrampsView/blob/master/LICENSE</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/phandcock/GrampsView</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <Configurations>Debug;Release;GooglePlay</Configurations>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -152,6 +154,7 @@
     <Compile Remove="UserControls\HeaderCardLarge.xaml.cs" />
     <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
     <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
+    <Compile Remove="UserControls\MediaImageFullCard.xaml.cs" />
     <Compile Remove="UserControls\MediaRefCardSmall.xaml.cs" />
     <Compile Remove="UserControls\NoteCardLarge.xaml.cs" />
     <Compile Remove="UserControls\PersonCardLarge.xaml.cs" />
@@ -227,6 +230,7 @@
     <EmbeddedResource Remove="UserControls\HeaderCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\HLinkCitationCardSmall.xaml" />
     <EmbeddedResource Remove="UserControls\HLinkEventCardSmall.xaml" />
+    <EmbeddedResource Remove="UserControls\MediaImageFullCard.xaml" />
     <EmbeddedResource Remove="UserControls\MediaRefCardSmall.xaml" />
     <EmbeddedResource Remove="UserControls\NoteCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\PersonCardLarge.xaml" />
@@ -263,9 +267,9 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.1" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.1" />
-    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.4.1" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.4.3" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -332,9 +336,6 @@
     </Compile>
     <Compile Update="UserControls\ListLineCardLarge.xaml.cs">
       <DependentUpon>ListLineCardLarge.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\MediaImageFullCard.xaml.cs">
-      <DependentUpon>MediaImageFullCard.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\NoteCardFull.xaml.cs">
       <DependentUpon>NoteCardFull.xaml</DependentUpon>

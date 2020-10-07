@@ -78,9 +78,9 @@
         <usercontrols:MediaCardLarge />
     </DataTemplate>
 
-    <DataTemplate x:Key="MediaImageFullDT">
+    <!--<DataTemplate x:Key="MediaImageFullDT">
         <usercontrols:MediaImageFullCard />
-    </DataTemplate>
+    </DataTemplate>-->
 
     <DataTemplate x:Key="NoteCardFullDT">
         <usercontrols:NoteCardFull />
@@ -147,9 +147,7 @@
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
-       
         MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"
-        MediaImageFullTemplate="{StaticResource MediaImageFullDT}"
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"

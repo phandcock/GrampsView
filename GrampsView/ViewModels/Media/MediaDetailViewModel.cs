@@ -11,10 +11,6 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System.Diagnostics.Contracts;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -147,23 +143,7 @@ namespace GrampsView.ViewModels
                     // Add standard details
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
 
-                    //BaseDetail.Add(t);
-
-                    // Get media image
-                    HLinkHomeImageModel personImage = CurrentMediaObject.HomeImageHLink;
-                    Contract.Assert(CurrentMediaObject.HomeImageHLink != null, CurrentMediaObject.Id);
-                    personImage.CardType = DisplayFormat.MediaImageFullCard;
-                    BaseDetail.Add(personImage);
-
-                    // Add HLink Details
-                    //BaseDetail.Add(CurrentHLinkMedia.GAttributeRefCollection);
-                    //BaseDetail.Add(CurrentHLinkMedia.GCitationRefCollection.GetCardGroup("HLink Citations"));
-                    //BaseDetail.Add(CurrentHLinkMedia.GNoteRefCollection.GetCardGroup("HLink Notes"));
-
-                    //// Add Model details
-                    //BaseDetail.Add(CurrentMediaObject.GCitationRefCollection.GetCardGroup());
-                    //BaseDetail.Add(CurrentMediaObject.GNoteRefCollection.GetCardGroup());
-                    //BaseDetail.Add(CurrentMediaObject.GTagRefCollection.GetCardGroup());
+             
                 }
 
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");
