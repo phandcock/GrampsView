@@ -9,6 +9,7 @@
     using Prism.Events;
     using Prism.Navigation;
 
+    using System.Diagnostics.Contracts;
     using System.Windows.Input;
 
     using Xamarin.Forms;
@@ -193,8 +194,10 @@
         /// <param name="argLimit">
         /// Search Limit for search terms found while typing.
         /// </param>
-        public void ProcessQuery(string argSearch, int argLimit)
+        public void ProcessQuery(string argSearch)
         {
+            Contract.Assert(argSearch != null);
+
             if (argSearch.Length > 0)
             {
                 SearchText = argSearch;
@@ -217,7 +220,7 @@
             // Handle issues with bounce onf EventToCommand
             if (lastArg != argSearch)
             {
-                ProcessQuery(argSearch, int.MaxValue);
+                ProcessQuery(argSearch);
             }
 
             lastArg = argSearch;

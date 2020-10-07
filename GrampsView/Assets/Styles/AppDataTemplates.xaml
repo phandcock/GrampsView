@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common">
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:converters="clr-namespace:GrampsView.Converters">
 
     <!--  DataLog data template Large  -->
     <DataTemplate x:Key="DataLogEntryLarge" x:Name="DataLogEntryLarge">
@@ -41,4 +42,42 @@
             </Grid>
         </Frame>
     </DataTemplate>
+
+    <!--<DataTemplate x:Key="CardGroup">
+
+        <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{StaticResource CardGroupStyle}">
+            <Frame.Resources>
+                <ResourceDictionary>
+                    <converters:StringToVisibleConverter x:Key="stringToBool" />
+                    <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
+                </ResourceDictionary>
+            </Frame.Resources>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                <Frame
+                    x:Name="LLCardLargeFrame"
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                      Light={StaticResource SecondaryColorLight}}"
+                    CornerRadius="2"
+                    IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
+
+                    <Label
+                        Margin="5,0,0,0"
+                        Style="{StaticResource GVHeaderStyleMedium}"
+                        Text="{Binding Title}" />
+                </Frame>
+
+                <StackLayout>
+                    <FlexLayout
+                        x:Name="CardGroupTemplateFlexer"
+                        BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+                        BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
+                        Style="{StaticResource FlexLayoutCards}" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </DataTemplate>-->
 </ResourceDictionary>
