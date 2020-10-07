@@ -9,54 +9,36 @@ namespace GrampsView.UserControls
 
     using System;
 
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public partial class MediaImageFull : Frame
     {
-        public static readonly BindableProperty UCHLinkMediaModelProperty = BindableProperty.Create(
-                                                        propertyName: nameof(UCHLinkMediaModel),
-                                                        returnType: typeof(HLinkHomeImageModel),
-                                                        declaringType: typeof(MediaImageFull),
-                                                        defaultValue: new HLinkHomeImageModel(),
-                                                        defaultBindingMode: BindingMode.OneWay,
-                                                        propertyChanged: HandleVMPropertyChanged
-                                                        );
-
-        private HLinkHomeImageModel HLinkMediaModel = new HLinkHomeImageModel();
+        private HLinkMediaModel CurrentHLinkMediaModel = new HLinkMediaModel();
 
         public MediaImageFull()
         {
             InitializeComponent();
         }
 
-        public HLinkHomeImageModel UCHLinkMediaModel
+        private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            get
-            {
-                return GetValue(UCHLinkMediaModelProperty) as HLinkHomeImageModel;
-            }
+            DataStore.CN.NotifyError("Error in MediaImageFull.  Error is " + e.Exception.Message);
 
-            set
-            {
-                if (UCHLinkMediaModel != value)
-                {
-                    SetValue(UCHLinkMediaModelProperty, value);
-                }
-            }
+            (sender as FFImageLoading.Forms.CachedImage).Cancel();
+            (sender as FFImageLoading.Forms.CachedImage).Source = null;
         }
 
-        private static void HandleVMPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        private void MediaImageFull_BindingContextChanged(object sender, EventArgs e)
         {
-            MediaImageFull mifModel = (bindable as MediaImageFull);
+            MediaImageFull mifModel = (sender as MediaImageFull);
 
-            HLinkHomeImageModel argHLinkMediaModel = newValue as HLinkHomeImageModel;
+            HLinkMediaModel argHLinkMediaModel = mifModel.BindingContext as HLinkMediaModel;
 
-            if (argHLinkMediaModel == mifModel.HLinkMediaModel)
+            if (argHLinkMediaModel == mifModel.CurrentHLinkMediaModel)
             {
                 return;
             }
-
-            mifModel.HLinkMediaModel = argHLinkMediaModel;
 
             if (!(argHLinkMediaModel is null) && (argHLinkMediaModel.Valid))
             {
@@ -67,12 +49,10 @@ namespace GrampsView.UserControls
                     try
                     {
                         mifModel.daImage.Source = t.MediaStorageFilePath;
-                        var tt = mifModel.daImage.Source;
 
                         mifModel.IsVisible = true;
 
-                        // TODO cleanup code so does nto use bindignContext if possible
-                        mifModel.BindingContext = argHLinkMediaModel;
+                        CurrentHLinkMediaModel = argHLinkMediaModel;
 
                         return;
                     }
@@ -88,12 +68,10 @@ namespace GrampsView.UserControls
             mifModel.IsVisible = false;
         }
 
-        private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
+        private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            DataStore.CN.NotifyError("Error in MediaImageFull.  Error is " + e.Exception.Message);
-
-            (sender as FFImageLoading.Forms.CachedImage).Cancel();
-            (sender as FFImageLoading.Forms.CachedImage).Source = null;
+            OpenFileRequest t = new OpenFileRequest(CurrentHLinkMediaModel.DeRef.GDescription, new ReadOnlyFile(CurrentHLinkMediaModel.DeRef.MediaStorageFilePath));
+            Launcher.OpenAsync(t);
         }
     }
 }

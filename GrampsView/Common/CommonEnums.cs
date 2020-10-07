@@ -14,7 +14,6 @@
         {
             Default,
             HeaderCardLarge,
-            MediaImageFullCard,
             NoteCardFull,
             PersonNameCardSingle,
             PersonNameCardSmall,

@@ -2,21 +2,19 @@
     x:Class="GrampsView.UserControls.MediaImageFull"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
-    x:Name="mediaImage"
+    x:Name="MediaImageFullRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
+    BindingContextChanged="MediaImageFull_BindingContextChanged"
     HasShadow="True"
     IsVisible="True">
 
     <Frame.GestureRecognizers>
-        <TapGestureRecognizer Command="{prism:NavigateTo 'MediaDetailPage'}">
-            <TapGestureRecognizer.CommandParameter>
-                <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
-            </TapGestureRecognizer.CommandParameter>
-        </TapGestureRecognizer>
+        <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
     </Frame.GestureRecognizers>
 
     <Frame.Content>
@@ -26,6 +24,7 @@
             Aspect="AspectFit"
             DownsampleToViewSize="true"
             Error="DaImage_Error"
+            HeightRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
             LoadingPlaceholder="ic_launcher.png"
             RetryCount="3"
             RetryDelay="1000" />

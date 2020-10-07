@@ -12,6 +12,8 @@ namespace GrampsView.ViewModels
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
+    using Microsoft.AppCenter.Distribute;
+
     using Prism.Commands;
     using Prism.Events;
     using Prism.Navigation;
@@ -20,8 +22,8 @@ namespace GrampsView.ViewModels
 
     public class SettingsViewModel : ViewModelBase
     {
+        private bool _LocalCanForceUpdate = true;
         private bool _TestButton = true;
-
         private bool _ThemeButtonDarkChecked;
 
         private bool _ThemeButtonLightChecked;
@@ -35,12 +37,22 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSettings;
 
             TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
+
+            ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
         }
 
         public bool CanHandleTestButton
         {
             get { return _TestButton; }
             set { SetProperty(ref _TestButton, value); }
+        }
+
+        public DelegateCommand ForceUpdateCheckCommand { get; private set; }
+
+        public bool LocalCanForceUpdate
+        {
+            get { return _LocalCanForceUpdate; }
+            set { SetProperty(ref _LocalCanForceUpdate, value); }
         }
 
         public DelegateCommand TestCommand { get; private set; }
@@ -106,6 +118,11 @@ namespace GrampsView.ViewModels
                     Application.Current.UserAppTheme = OSAppTheme.Unspecified;
                 }
             }
+        }
+
+        public void ForceUpdate()
+        {
+            Distribute.CheckForUpdate();
         }
 
         public override void PopulateViewModel()
