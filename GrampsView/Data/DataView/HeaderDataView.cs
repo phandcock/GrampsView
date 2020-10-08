@@ -64,7 +64,7 @@
             {
                 if (HeaderData.Count > 0)
                 {
-                    return DataViewData.First();
+                    return DataViewData[0];
                 }
                 else
                 {

@@ -80,8 +80,7 @@ namespace GrampsView.ViewModels
                 BaseTitle = CitationObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconCitation;
 
-                // Get basic details
-                //   CardGroup t = new CardGroup { Title = "Header Details" };
+                // Get basic details CardGroup t = new CardGroup { Title = "Header Details" };
 
                 BaseDetail.Add(new CardListLineCollection
                     {
@@ -105,6 +104,8 @@ namespace GrampsView.ViewModels
                 }
 
                 // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
+
+                RaisePropertyChanged(nameof(BaseDetail));
             }
         }
     }

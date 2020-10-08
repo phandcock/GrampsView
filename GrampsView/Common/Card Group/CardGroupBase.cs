@@ -2,17 +2,21 @@
 /// </summary>
 namespace GrampsView.Common
 {
-    using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Collections.Specialized;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
+    public delegate void ListedItemPropertyChangedEventHandler(IList SourceList, object Item, PropertyChangedEventArgs e);
+
     /// <summary>
     /// </summary>
     public class CardGroupBase<T> : ObservableCollection<T>, INotifyCollectionChanged
     {
+        public ListedItemPropertyChangedEventHandler ItemPropertyChanged;
+
         public CardGroupBase()
         {
             this.CollectionChanged += Cards_CollectionChanged;
@@ -44,45 +48,51 @@ namespace GrampsView.Common
         /// </value>
         public bool Visible
         {
-            get; set;
+            get
+            {
+                return !(Items is null) && (Items.Count > 0);
+            }
+        }
+
+        public new void Clear()
+        {
+            foreach (var item in this)
+            {
+                if (item is INotifyPropertyChanged i)
+                {
+                    i.PropertyChanged -= Element_PropertyChanged;
+                }
+            }
+
+            base.Clear();
         }
 
         private void Cards_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.OldItems != null)
             {
-                foreach (INotifyPropertyChanged item in e.OldItems)
+                foreach (var item in e.OldItems)
                 {
-                    Contract.Assert(item != null);
-
-                    item.PropertyChanged -= Cards_PropertyChanged;
+                    if (item != null && item is INotifyPropertyChanged i)
+                    {
+                        i.PropertyChanged -= Element_PropertyChanged;
+                    }
                 }
             }
 
             if (e.NewItems != null)
             {
-                foreach (INotifyPropertyChanged item in e.NewItems)
+                foreach (var item in e.NewItems)
                 {
-                    Contract.Assert(item != null);
-
-                    item.PropertyChanged += Cards_PropertyChanged;
+                    if (item != null && item is INotifyPropertyChanged i)
+                    {
+                        i.PropertyChanged -= Element_PropertyChanged;
+                        i.PropertyChanged += Element_PropertyChanged;
+                    }
                 }
             }
-
-            if (!(Items is null) && (Items.Count > 0))
-            {
-                Visible = true;
-            }
-            else
-            {
-                Visible = false;
-            }
         }
 
-        private void Cards_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            // TODO What?
-            throw new NotImplementedException();
-        }
+        private void Element_PropertyChanged(object sender, PropertyChangedEventArgs e) => ItemPropertyChanged?.Invoke(this, sender, e);
     }
 }

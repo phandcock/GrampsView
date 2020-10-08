@@ -41,9 +41,9 @@
 #if DEBUG
                 throw new ArgumentException(
                         string.Format(
-                        System.Globalization.CultureInfo.CurrentCulture,
+                        CultureInfo.CurrentCulture,
                         "Key '{0}' was not found in resources '{1}' for culture '{2}'.", nameof(Text), ResourceId, ci.Name),
-                        "Text");
+                        nameof(serviceProvider));
 #else
 				translation = Text; // HACK: returns the key, which GETS DISPLAYED TO THE USER
 #endif

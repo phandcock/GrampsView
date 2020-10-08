@@ -7,8 +7,9 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    IsVisible="{Binding Visible, Mode=OneWay}"
     Style="{StaticResource CardGroupStyle}">
+
+    <!--  TODO IsVisible="{Binding Visible, Mode=OneWay}"  -->
 
     <Frame.Resources>
         <ResourceDictionary>
