@@ -277,11 +277,7 @@ namespace GrampsView.Data.Model
             }
         }
 
-        //    set
-        //    {
-        //        SetProperty(ref localModelUserActivity, value);
-        //    }
-        //}
+     
         /// <summary>
         /// Gets the priv as string.
         /// </summary>

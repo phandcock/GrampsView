@@ -16,8 +16,6 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -78,20 +76,20 @@ namespace GrampsView.ViewModels
                 BaseTitle = NoteObject.GetDefaultText;
 
                 // Get basic details
-              //  CardGroup basicHeaderDetails = new CardGroup { Title = "Header Details" };
-
-                BaseDetail.Add(new CardListLineCollection
+                CardListLineCollection t = new CardListLineCollection
                 {
-                    new CardListLine("Card Type:", "Note Detail"),
                     new CardListLine("Type:", NoteObject.GType),
                     new CardListLine("Formatted:", NoteObject.GIsFormated),
-                });
+                };
+
+                t.Title = "Note Detail";
+
+                BaseDetail.Add(t);
 
                 // Add Model details
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
 
-                //BaseDetail.Add(basicHeaderDetails);
-
+               
             }
         }
     }
