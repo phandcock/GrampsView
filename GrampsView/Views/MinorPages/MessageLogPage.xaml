@@ -21,7 +21,8 @@
             x:Name="MajorStatusList"
             ItemSizingStrategy="MeasureAllItems"
             ItemTemplate="{StaticResource DataLogEntryLarge}"
-            ItemsSource="{Binding MajorStatusList, Mode=OneWay}">
+            ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
+            ItemsUpdatingScrollMode="KeepLastItemInView">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
