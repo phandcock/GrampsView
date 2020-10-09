@@ -44,10 +44,14 @@ namespace GrampsView.Common
         /// </value>
         public ObservableCollection<DataLogEntry> DataLoadLog { get; } = new ObservableCollection<DataLogEntry>();
 
-        /// <summary>Adds the specified entry argument .</summary>
-        /// <param name="argEntry">The argument entry.</param>
+        /// <summary>
+        /// Adds the specified entry argument .
+        /// </summary>
+        /// <param name="argEntry">
+        /// The argument entry.
+        /// </param>
         /// <returns>
-        ///   <br />
+        /// <br/>
         /// </returns>
         public async Task<bool> Add(string argEntry)
         {
@@ -57,16 +61,18 @@ namespace GrampsView.Common
 
               if (!string.IsNullOrEmpty(argEntry))
               {
-                  DataLoadLog.Insert(0, BuildDataLogEntry(argEntry));
+                  DataLoadLog.Add(BuildDataLogEntry(argEntry));
               }
           }).ConfigureAwait(false);
 
             return true;
         }
 
-        /// <summary>Removes the first DataLog entry.</summary>
+        /// <summary>
+        /// Removes the first DataLog entry.
+        /// </summary>
         /// <returns>
-        ///   <br />
+        /// <br/>
         /// </returns>
         public async Task<bool> Remove()
         {
@@ -74,17 +80,21 @@ namespace GrampsView.Common
             {
                 if (DataLoadLog.Count > 0)
                 {
-                    DataLoadLog.Remove(DataLoadLog.FirstOrDefault());
+                    DataLoadLog.Remove(DataLoadLog.Last());
                 }
             }).ConfigureAwait(false);
 
             return true;
         }
 
-        /// <summary>Replaces the first datalog entry.</summary>
-        /// <param name="argEntry">The argument entry.</param>
+        /// <summary>
+        /// Replaces the first datalog entry.
+        /// </summary>
+        /// <param name="argEntry">
+        /// The argument entry.
+        /// </param>
         /// <returns>
-        ///   <br />
+        /// <br/>
         /// </returns>
         public async Task<bool> Replace(string argEntry)
         {
@@ -92,18 +102,24 @@ namespace GrampsView.Common
             {
                 if (!string.IsNullOrEmpty(argEntry))
                 {
-                    // TODO fix this so it replaces
-                    DataLoadLog.Insert(0, BuildDataLogEntry(argEntry));
+                    if (DataLoadLog.Count > 0)
+                    {
+                        DataLoadLog[DataLoadLog.Count - 1] = BuildDataLogEntry(argEntry);
+                    }
                 }
             }).ConfigureAwait(false);
 
             return true;
         }
 
-        /// <summary>Builds a data log entry.</summary>
-        /// <param name="argEntryText">The argument entry text.</param>
+        /// <summary>
+        /// Builds a data log entry.
+        /// </summary>
+        /// <param name="argEntryText">
+        /// The argument entry text.
+        /// </param>
         /// <returns>
-        ///   <br />
+        /// <br/>
         /// </returns>
         private DataLogEntry BuildDataLogEntry(string argEntryText)
         {

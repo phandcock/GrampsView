@@ -9,8 +9,6 @@
 
 namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
-
     using Xamarin.Forms;
 
     /// <summary>
