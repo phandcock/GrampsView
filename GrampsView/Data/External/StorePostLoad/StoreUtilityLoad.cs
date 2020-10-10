@@ -42,7 +42,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 CommonLocalSettings.DataSerialised = false;
                 DataStore.CN.NotifyException("Trying to add media file pointer", ex);
 
-                await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+           
                 throw;
             }
 
@@ -63,7 +63,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
             if (localMediaFolder != null)
             {
-                await DataStore.CN.MinorStatusAdd("Loading media file pointers").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {

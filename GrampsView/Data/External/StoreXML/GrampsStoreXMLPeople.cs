@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// People load routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLPeople.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -61,7 +53,7 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             localGrampsCommonLogging.LogRoutineEntry("loadPeopleData");
 
-            await DataStore.CN.MajorStatusAdd("Loading People data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
                 string defaultImage = string.Empty;
 
@@ -176,7 +168,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+           
 
             return;
         }

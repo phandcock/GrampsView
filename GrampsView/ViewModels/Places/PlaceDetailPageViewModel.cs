@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="PlaceDetailPageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -76,9 +67,8 @@ namespace GrampsView.ViewModels
                 // Get Header details
                 //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                BaseDetail.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
-                        new CardListLine("Card Type:", "Place Detail"),
                         new CardListLine("Title:", PlaceObject.GPTitle),
                         new CardListLine("Name:", PlaceObject.GPlaceNames.GetDefaultText),
                         new CardListLine("Type:", PlaceObject.GType),

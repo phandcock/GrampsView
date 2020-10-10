@@ -1,8 +1,4 @@
-﻿// <copyright file="GrampsStoreXMLTags.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -26,9 +22,8 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadTagsAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading Tag data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
             {
-                // XNamespace ns = grampsXMLNameSpace;
                 try
                 {
                     // Run query
@@ -72,7 +67,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+         
 
             return;
         }

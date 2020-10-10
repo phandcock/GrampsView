@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLFamilies.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-/// <summary>
+﻿/// <summary>
 /// </summary>
 namespace GrampsView.Data.ExternalStorageNS
 {
@@ -71,7 +62,7 @@ namespace GrampsView.Data.ExternalStorageNS
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            await DataStore.CN.MajorStatusAdd("Loading Family data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -166,13 +157,11 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
                     throw;
                 }
             }
 
-            // now let everyone know that we have finished
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
             return true;
         }
     }

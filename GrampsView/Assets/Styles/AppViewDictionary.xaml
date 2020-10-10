@@ -440,11 +440,13 @@
 
     <!--  Create a Material Font Style Button Style  -->
     <Style x:Key="GVImageButton" TargetType="ImageButton">
-        <Setter Property="Margin" Value="1" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="CornerRadius" Value="2" />
         <Setter Property="Aspect" Value="AspectFit" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
+
+        
     </Style>
 
     <!--

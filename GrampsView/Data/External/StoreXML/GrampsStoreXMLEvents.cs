@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLEvents.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -71,7 +62,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadEventsAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading Event data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Event data").ConfigureAwait(false);
             {
                 try
                 {
@@ -129,7 +120,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     DataStore.CN.NotifyException("LoadEventsAsync", e);
 
@@ -137,7 +128,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+        
         }
     }
 }

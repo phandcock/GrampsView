@@ -221,7 +221,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        await DataStore.CN.LoadingMessageReplace("Untaring  file " + tarEntry.Name).ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryReplace("Untaring  file " + tarEntry.Name).ConfigureAwait(false);
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -287,7 +287,7 @@ namespace GrampsView.Data
                     }
                     else
                     {
-                        // TODO write to the output log // await DataStore.CN.MinorStatusAdd("File "
+                        // TODO write to the output log // await DataStore.CN.DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }

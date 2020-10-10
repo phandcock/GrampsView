@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="SourceDetailViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -80,9 +74,8 @@ namespace GrampsView.ViewModels
                 // Header Card
                 //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                BaseDetail.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Source Detail")
                     {
-                       new CardListLine("Card Type:", "Source Detail"),
                        new CardListLine("Title:", SourceObject.GSTitle),
                        new CardListLine("Author:", SourceObject.GSAuthor),
                        new CardListLine("Pub Info:", SourceObject.GSPubInfo),

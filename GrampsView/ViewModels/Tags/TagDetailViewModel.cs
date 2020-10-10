@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="TagDetailViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -87,9 +78,8 @@ namespace GrampsView.ViewModels
                 // Get Headers
                 //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                BaseDetail.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Tag Detail")
                 {
-                        new CardListLine("Card Type:", "Tag Detail"),
                         new CardListLine("Name:", TagObject.GName),
                         new CardListLine("Priority:", TagObject.GPriority.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                         new CardListLine("Private:", TagObject.PrivAsString),

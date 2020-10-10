@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLSources.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -52,7 +43,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            await DataStore.CN.MajorStatusAdd(strMessage: "Loading Source data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd(strMessage: "Loading Source data").ConfigureAwait(false);
             {
                 try
                 {
@@ -62,6 +53,8 @@ namespace GrampsView.Data.ExternalStorageNS
                         select el;
 
                     // TODO get BookMark fields
+
+                    await DataStore.CN.DataLogEntryAdd(strMessage: "Loading Source entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
                     foreach (XElement pSourceElement in de)
@@ -91,6 +84,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
+                        await DataStore.CN.DataLogEntryReplace(argMessage: "Loading Source entry: " + loadSource.GSTitle).ConfigureAwait(false);
+
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 
@@ -103,17 +98,19 @@ namespace GrampsView.Data.ExternalStorageNS
                         // save the event
                         DV.SourceDV.SourceData.Add(loadSource);
                     }
+
+                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+          
             return;
         }
     }

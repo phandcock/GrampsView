@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLDates.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -55,7 +46,6 @@ namespace GrampsView.Data.ExternalStorageNS
         public static DateObjectModelStr SetDateStr(XElement currentElement)
         {
             string aCFormat = string.Empty;
-            bool aDualDated = false;
             string aNewYear = string.Empty;
             string aQuality = string.Empty;
             string aStart = string.Empty;

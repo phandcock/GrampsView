@@ -20,9 +20,9 @@ namespace GrampsView.Common
     public interface ICommonNotifications
     {
      
-        string MajorStatusMessage { get; }
+        string DataLogMessage { get; }
 
-        string MinorStatusMessage { get; }
+        string BottomMessage { get; }
 
         /// <summary>
         /// Changes the loading message.
@@ -32,9 +32,9 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        Task ChangeLoadingMessage(string strMessage);
+        Task BottomMessageAdd(string strMessage);
 
-        Task LoadingMessageReplace(string argMessage);
+        Task BottomMessageReplace(string argMessage);
 
         /// <summary>
         /// Notifies the general status.
@@ -45,9 +45,9 @@ namespace GrampsView.Common
         /// <param name="showProgressRing">
         /// if set to <c>true</c> [show progress ring].
         /// </param>
-        Task MajorStatusAdd(string strMessage);
+        Task DataLogEntryAdd(string strMessage);
 
-        Task MajorStatusReplace(string argMessage);
+        Task DataLogEntryReplace(string argMessage);
 
         /// <summary>
         /// Majors the status add.
@@ -60,25 +60,16 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        Task MajorStatusAdd(string strMessage, bool showProgressRing);
+        Task DataLogEntryAdd(string strMessage, bool showProgressRing);
 
         /// <summary>
         /// Majors the status delete.
         /// </summary>
         /// <returns>
         /// </returns>
-        Task MajorStatusDelete();
+        Task DataLogEntryDelete();
 
-        /// <summary>
-        /// Notifies the general status.
-        /// </summary>
-        /// <param name="strMessage">
-        /// The string message.
-        /// </param>
-        /// <param name="showProgressRing">
-        /// if set to <c>true</c> [show progress ring].
-        /// </param>
-        Task MinorStatusAdd(string strMessage);
+ 
 
         void NotifyAlert(string strMessage);
 
