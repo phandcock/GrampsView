@@ -52,7 +52,7 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.MajorStatusAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
@@ -100,7 +100,7 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.MajorStatusAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }

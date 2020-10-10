@@ -85,9 +85,8 @@ namespace GrampsView.ViewModels
                     // Get basic details
                     //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                    BaseDetail.Add(new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection("Event Detail")
                     {
-                        new CardListLine("Card Type:", "Event Detail"),
                         new CardListLine("Type:", EventObject.GType),
                         new CardListLine("Role",HLinkObject.GRole),
                         new CardListLine("Event Age:", EventObject.GDate.GetAge),

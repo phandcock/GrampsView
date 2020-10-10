@@ -154,7 +154,7 @@ namespace GrampsView.Data.Repository
         /// </param>
         public async void SerializeRepositoriesAsync(object value)
         {
-            await DataStore.CN.MajorStatusAdd("Serialising Data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Serialising Data").ConfigureAwait(false);
 
             localStoreSerial.SerializeObject(DataStore.DS);
 
@@ -199,7 +199,7 @@ namespace GrampsView.Data.Repository
         /// </returns>
         public async Task<bool> StartDataLoadAsync()
         {
-            await DataStore.CN.ChangeLoadingMessage("Loading Data...").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Data...").ConfigureAwait(false);
 
             if (DataStore.DS.IsDataLoaded)
             {
@@ -216,7 +216,7 @@ namespace GrampsView.Data.Repository
                 // 1) UnTar *.GPKG
                 if (DataStore.AD.CurrentInputStreamValid)
                 {
-                    await DataStore.CN.ChangeLoadingMessage("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
 
                     // Clear the file system
                     await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
@@ -231,7 +231,7 @@ namespace GrampsView.Data.Repository
                 {
                     if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, GrampsFile))
                     {
-                        await DataStore.CN.ChangeLoadingMessage("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
                         await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
                     }
@@ -244,7 +244,7 @@ namespace GrampsView.Data.Repository
                 {
                     if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsXMLFileLastDateTimeModified, dataXML))
                     {
-                        await DataStore.CN.ChangeLoadingMessage("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
@@ -259,7 +259,7 @@ namespace GrampsView.Data.Repository
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
                 }
 
-                await DataStore.CN.ChangeLoadingMessage(null).ConfigureAwait(false);
+         
 
                 return true;
             }
@@ -272,7 +272,7 @@ namespace GrampsView.Data.Repository
 
             // TODO Handle special messages if there is a problem
 
-            await DataStore.CN.ChangeLoadingMessage("Unable to load Datafolder").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Unable to load Datafolder").ConfigureAwait(false);
             return false;
         }
 
@@ -299,7 +299,7 @@ namespace GrampsView.Data.Repository
                 return false;
             }
 
-            await DataStore.CN.ChangeLoadingMessage("Loading GPKG data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading GPKG data").ConfigureAwait(false);
 
             if (DataStore.AD.CurrentInputStreamValid)
             {
@@ -320,9 +320,9 @@ namespace GrampsView.Data.Repository
                 // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.AD.CurrentInputFile);
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+          
 
-            await DataStore.CN.ChangeLoadingMessage(null).ConfigureAwait(false);
+         
 
             return false;
         }
@@ -351,9 +351,7 @@ namespace GrampsView.Data.Repository
                 StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, fileGrampsDataInput);
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
-
-            await DataStore.CN.ChangeLoadingMessage(null).ConfigureAwait(false);
+        
 
             return false;
         }
@@ -366,7 +364,7 @@ namespace GrampsView.Data.Repository
         /// </returns>
         public async Task<bool> TriggerLoadGrampsUnZippedFolderAsync()
         {
-            await DataStore.CN.ChangeLoadingMessage("Loading GRAMPS XML unzipped data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading GRAMPS XML unzipped data").ConfigureAwait(false);
             {
                 ClearRepositories();
 
@@ -376,7 +374,7 @@ namespace GrampsView.Data.Repository
                 {
                     await localExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
 
-                    await DataStore.CN.MajorStatusAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
 
                     FileInfoEx t = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
 
@@ -397,9 +395,9 @@ namespace GrampsView.Data.Repository
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+       
 
-            await DataStore.CN.ChangeLoadingMessage(null).ConfigureAwait(false);
+         
 
             return true;
         }
@@ -416,29 +414,29 @@ namespace GrampsView.Data.Repository
             {
                 _CL.LogRoutineEntry("TriggerLoadSerialDataAsync");
 
-                // await DataStore.CN.ChangeLoadingMessage("Checking for Serialised GRAMPS data").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("Checking for Serialised GRAMPS data").ConfigureAwait(false);
                 if (DataStore.DS.IsDataLoaded == false)
                 {
                     if (CommonLocalSettings.DataSerialised)
                     {
-                        await DataStore.CN.ChangeLoadingMessage("Loading GRAMPS Serial data").ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryAdd("Loading GRAMPS Serial data").ConfigureAwait(false);
 
                         localStoreSerial.DeSerializeRepository();
 
-                        await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+                      
 
                         UpdateSettings();
 
                         await localPostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
-                        await DataStore.CN.ChangeLoadingMessage("GRAMPS Serial data load complete").ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryReplace("GRAMPS Serial data load complete").ConfigureAwait(false);
 
                         // let everybody know we have finished loading data
                         _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish(null);
                     }
                     else
                     {
-                        await DataStore.CN.ChangeLoadingMessage("GRAMPS Serial data load failed.").ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryAdd("GRAMPS Serial data load failed.").ConfigureAwait(false);
 
                         CommonLocalSettings.SetReloadDatabase();
                     }

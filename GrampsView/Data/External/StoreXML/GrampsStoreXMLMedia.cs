@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLMedia.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -95,10 +86,10 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             localGrampsCommonLogging.LogRoutineEntry("loadMediaObjects");
 
-            await DataStore.CN.MajorStatusAdd("Loading Media Objects").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 // start file load
-                await DataStore.CN.MajorStatusAdd("Loading Media File").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 //// Get colour
                 //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
@@ -218,7 +209,9 @@ namespace GrampsView.Data.ExternalStorageNS
                                 try
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
-                                    await DataStore.CN.LoadingMessageReplace("Loading media file: " + temp).ConfigureAwait(false);
+
+                                    await DataStore.CN.DataLogEntryReplace("Loading media file: " + temp).ConfigureAwait(false);
+
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata
@@ -264,6 +257,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         localGrampsCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
                     }
+
+                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
@@ -274,7 +269,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+          
 
             localGrampsCommonLogging.LogRoutineExit(nameof(LoadMediaObjectsAsync));
             return true;

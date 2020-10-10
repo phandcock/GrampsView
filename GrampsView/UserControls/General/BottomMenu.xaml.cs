@@ -33,7 +33,7 @@
             get
             {
                 // TODO fix this so it changes as the status message changes
-                return DataStore.CN.MajorStatusMessage;
+                return DataStore.CN.DataLogMessage;
             }
         }
     }

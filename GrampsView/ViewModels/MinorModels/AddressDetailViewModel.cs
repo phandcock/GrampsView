@@ -103,10 +103,8 @@ namespace GrampsView.ViewModels
                 //CardGroup headerCardGroup = new CardGroup { };
 
                 // Get the Name Details
-                CardListLineCollection nameDetails = new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Address Detail")
                 {
-                    new CardListLine("Card Type:", "Address Detail"),
-
                     new CardListLine("Street:", AddressObject.GStreet),
                     new CardListLine("City:", AddressObject.GCity),
                     new CardListLine("Locality:", AddressObject.GLocality),
@@ -117,12 +115,10 @@ namespace GrampsView.ViewModels
                     new CardListLine("Date:", AddressObject.GDate.ShortDate),
                     new CardListLine("Postal:", AddressObject.GPostal),
                     new CardListLine("Phone:", AddressObject.GPhone),
-                };
+                });
 
                 // Get date card
                 BaseDetail.Add(AddressObject.GDate.AsCardListLine());
-
-                BaseDetail.Add(nameDetails);
 
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(AddressObject));

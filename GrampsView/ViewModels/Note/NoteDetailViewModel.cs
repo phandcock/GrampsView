@@ -76,20 +76,14 @@ namespace GrampsView.ViewModels
                 BaseTitle = NoteObject.GetDefaultText;
 
                 // Get basic details
-                CardListLineCollection t = new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Note Detail")
                 {
                     new CardListLine("Type:", NoteObject.GType),
                     new CardListLine("Formatted:", NoteObject.GIsFormated),
-                };
-
-                t.Title = "Note Detail";
-
-                BaseDetail.Add(t);
+                });
 
                 // Add Model details
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
-
-               
             }
         }
     }

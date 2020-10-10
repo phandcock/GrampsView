@@ -152,7 +152,7 @@ namespace GrampsView.ViewModels
 
                     BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
 
-                    await DataStore.CN.ChangeLoadingMessage("File picked").ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
                 }
                 else
                 {

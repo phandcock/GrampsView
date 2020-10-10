@@ -80,14 +80,11 @@ namespace GrampsView.ViewModels
                 BaseTitle = CitationObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconCitation;
 
-                // Get basic details CardGroup t = new CardGroup { Title = "Header Details" };
-
-                BaseDetail.Add(new CardListLineCollection
-                    {
-                            new CardListLine("Card Type:", "Citation Detail"),
-                            new CardListLine("Page:", CitationObject.GPage),
-                            new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture)),
-                    });
+                BaseDetail.Add(new CardListLineCollection("Citation Detail")
+                {
+                    new CardListLine("Page:", CitationObject.GPage),
+                    new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture))
+                });
 
                 // Get date card
                 BaseDetail.Add(CitationObject.GDateContent.AsCardListLine());

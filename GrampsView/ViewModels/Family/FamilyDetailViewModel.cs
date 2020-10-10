@@ -80,17 +80,13 @@
 
                 // Get basic details
 
-                CardListLineCollection t1 = new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Family Detail")
                     {
                     new CardListLine("Family Display Name:", FamilyObject.FamilyDisplayName),
                     new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
                     new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
                     new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
-                };
-
-                t1.Title = "Family Detail";
-
-                BaseDetail.Add(t1);
+                });
 
                 // Add Model details
                 BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));

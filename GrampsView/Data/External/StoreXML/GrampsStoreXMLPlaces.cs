@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLPlaces.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -35,7 +26,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadPlacesAsync()
         {
-            await DataStore.CN.MajorStatusAdd(nameof(LoadPlacesAsync)).ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd(nameof(LoadPlacesAsync)).ConfigureAwait(false);
             {
                 // XNamespace ns = grampsXMLNameSpace;
                 try
@@ -81,7 +72,7 @@ namespace GrampsView.Data.ExternalStorageNS
                             XElement pName = pPlaceElement.Element(ns + "pname");
 
                             loadPlace.GLocation = GetPlaceLocationModelCollection(pPlaceElement);
-                            
+
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
 
                             loadPlace.GCitationRefCollection.Clear();
@@ -109,13 +100,13 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+        
             return;
         }
     }

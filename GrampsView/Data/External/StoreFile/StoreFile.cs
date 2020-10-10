@@ -77,7 +77,7 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.MajorStatusAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
@@ -99,7 +99,7 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Deleting existing datastorage").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
             {
                 try
                 {
@@ -125,18 +125,24 @@ namespace GrampsView.Data
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
 
             return true;
         }
 
-        /// <summary>This routine is heavily customized to decompress GRAMPS whole of database export file
-        /// (i.e. .gramps) files.</summary>
-        /// <param name="inputFile">Input GRAMPS export file.</param>
-        /// <returns>Flag indicating success or not.</returns>
+        /// <summary>
+        /// This routine is heavily customized to decompress GRAMPS whole of database export file
+        /// (i.e. .gramps) files.
+        /// </summary>
+        /// <param name="inputFile">
+        /// Input GRAMPS export file.
+        /// </param>
+        /// <returns>
+        /// Flag indicating success or not.
+        /// </returns>
         public async Task<bool> DecompressGZIP(FileInfoEx inputFile)
         {
-            await DataStore.CN.MinorStatusAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
 
             // Check arguments
             if (inputFile == null)
@@ -149,7 +155,7 @@ namespace GrampsView.Data
             {
                 ExtractGZip(inputFile);
 
-                await DataStore.CN.MinorStatusAdd("GRAMPS file decompressing complete").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("GRAMPS file decompressing complete").ConfigureAwait(false);
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -168,7 +174,7 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await DataStore.CN.MajorStatusAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
 
             // Check arguments
             if (!DataStore.AD.CurrentInputStreamValid)
@@ -180,8 +186,10 @@ namespace GrampsView.Data
             Stream originalFileStream = DataStore.AD.CurrentInputStream;
 
             // open the gzip and extract the tar file
-            await DataStore.CN.MinorStatusAdd("Decompressing individual TAR files").ConfigureAwait(false);
-            await DataStore.CN.MinorStatusAdd("This will take a while...").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
+
+            await DataStore.CN.DataLogEntryAdd("Un Tar ing file").ConfigureAwait(false);
 
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
@@ -192,6 +200,7 @@ namespace GrampsView.Data
                 }
             }
 
+            await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
             return true;
         }
     }

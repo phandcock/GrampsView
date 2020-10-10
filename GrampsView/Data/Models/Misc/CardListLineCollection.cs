@@ -20,6 +20,11 @@ namespace GrampsView.Data.Model
         {
         }
 
+        public CardListLineCollection(string argTitle)
+        {
+            Title = argTitle;
+        }
+
         public string Title { get; set; }
 
         public bool Visible

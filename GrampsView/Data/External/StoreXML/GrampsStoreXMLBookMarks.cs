@@ -1,18 +1,12 @@
-﻿// <copyright file="GrampsStoreXMLBookMarks.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
-
-    using GrampsView.Data.DataView;
-
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// Loads BookMark XML.
@@ -30,7 +24,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadBookMarksAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading BookMark data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
             {
                 try
                 {
@@ -76,13 +70,13 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+        
             return;
         }
 

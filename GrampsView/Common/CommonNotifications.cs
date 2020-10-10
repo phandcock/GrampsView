@@ -36,9 +36,8 @@ namespace GrampsView.Common
         /// </summary>
         private readonly IEventAggregator _iocEventAggregator;
 
-        private string _MajorStatusMessage = string.Empty;
-
-        private string _MinorStatusMessage = string.Empty;
+        private string _BottomMessage = string.Empty;
+        private string _DataLogMessage = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonNotifications"/> class.
@@ -64,29 +63,29 @@ namespace GrampsView.Common
             _DataLog = iocDataLog;
         }
 
-        public string MajorStatusMessage
+        public string BottomMessage
         {
             get
             {
-                return _MajorStatusMessage;
+                return _BottomMessage;
             }
 
             private set
             {
-                SetProperty(ref _MajorStatusMessage, value);
+                SetProperty(ref _BottomMessage, value);
             }
         }
 
-        public string MinorStatusMessage
+        public string DataLogMessage
         {
             get
             {
-                return _MinorStatusMessage;
+                return _DataLogMessage;
             }
 
             private set
             {
-                SetProperty(ref _MinorStatusMessage, value);
+                SetProperty(ref _DataLogMessage, value);
             }
         }
 
@@ -98,29 +97,29 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task ChangeLoadingMessage(string argMessage)
+        public async Task BottomMessageAdd(string argMessage)
         {
             _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
 
             if (!string.IsNullOrEmpty(argMessage))
             {
-                _iocCommonLogging.LogVariable("ChangeLoadingMessage", argMessage);
+                _iocCommonLogging.LogVariable("BottomMessageAdd", argMessage);
 
-                await MajorStatusAdd(argMessage).ConfigureAwait(false);
+                await DataLogEntryAdd(argMessage).ConfigureAwait(false);
             }
 
             return;
         }
 
-        public async Task LoadingMessageReplace(string argMessage)
+        public async Task BottomMessageReplace(string argMessage)
         {
             _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
 
             if (!string.IsNullOrEmpty(argMessage))
             {
-                _iocCommonLogging.LogVariable("LoadingMessageReplace", argMessage);
+                _iocCommonLogging.LogVariable("BottomMessageReplace", argMessage);
 
-                await MajorStatusReplace(argMessage).ConfigureAwait(false);
+                await DataLogEntryReplace(argMessage).ConfigureAwait(false);
             }
 
             return;
@@ -134,9 +133,9 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task MajorStatusAdd(string strMessage)
+        public async Task DataLogEntryAdd(string strMessage)
         {
-            await MajorStatusAdd(strMessage, false).ConfigureAwait(false);
+            await DataLogEntryAdd(strMessage, false).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -150,15 +149,15 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task MajorStatusAdd(string argMessage, bool argShowProgressRing)
+        public async Task DataLogEntryAdd(string argMessage, bool argShowProgressRing)
         {
             await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
             await _DataLog.Add(argMessage).ConfigureAwait(false);
 
-            _iocCommonLogging.LogProgress("MajorStatusAdd: " + argMessage);
+            _iocCommonLogging.LogProgress("DataLogEntryAdd: " + argMessage);
 
-            MajorStatusMessage = argMessage;
+            DataLogMessage = argMessage;
 
             // majorStatusQueue.Enqueue(new QueueItem { Text = strMessage, showProgressRing = false });
             return;
@@ -169,50 +168,21 @@ namespace GrampsView.Common
         /// </summary>
         /// <returns>
         /// </returns>
-        public async Task MajorStatusDelete()
+        public async Task DataLogEntryDelete()
         {
-            //MajorStatusMessage = string.Empty;
-
             await _DataLog.Remove().ConfigureAwait(false);
-
-            //// Pop top item
-            // if (majorStatusQueue.Count > 0) { QueueItem oldItem = majorStatusQueue.Dequeue();
-
-            // localCL.LogVariable("NotifyUserGeneral", "Major Status Delete => " + oldItem.Text); }
-
-            //// Display current item
-            // if (majorStatusQueue.Count > 0) { QueueItem currentItem = majorStatusQueue.Peek();
-
-            // await Task.Run(() =>
-            // localEventAggregator.GetEvent<GVProgressMajorTextUpdate>().Publish(currentItem.Text)).ConfigureAwait(false);
-            // } else { await Task.Run(() =>
-            // localEventAggregator.GetEvent<GVProgressMajorTextUpdate>().Publish(null)).ConfigureAwait(false); }
         }
 
-        public async Task MajorStatusReplace(string argMessage)
+        public async Task DataLogEntryReplace(string argMessage)
         {
             await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
             await _DataLog.Replace(argMessage).ConfigureAwait(false);
 
-            _iocCommonLogging.LogProgress("MajorStatusReplace: " + argMessage);
+            _iocCommonLogging.LogProgress("DataLogEntryReplace: " + argMessage);
 
-            MajorStatusMessage = argMessage;
+            DataLogMessage = argMessage;
 
-            return;
-        }
-
-        public async Task MinorStatusAdd(string argMessage)
-        {
-            await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
-
-            await _DataLog.Add(argMessage).ConfigureAwait(false);
-
-            _iocCommonLogging.LogVariable("MinorStatusAdd", argMessage);
-
-            MinorStatusMessage = argMessage;
-
-            // majorStatusQueue.Enqueue(new QueueItem { Text = strMessage, showProgressRing = false });
             return;
         }
 
@@ -264,7 +234,7 @@ namespace GrampsView.Common
 
             NotifyDialogBox(t);
 
-            //MajorStatusAdd(argMessage);
+            //DataLogEntryAdd(argMessage);
 
             //argErrorDetail.Add("Error", argMessage);
 

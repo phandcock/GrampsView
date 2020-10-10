@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLNotes.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -37,7 +28,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadNotesAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading Note data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Note data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -94,7 +85,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+         
             return;
         }
 

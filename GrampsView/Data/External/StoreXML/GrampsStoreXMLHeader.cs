@@ -1,21 +1,11 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLHeader.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
-
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     /// <summary>
     /// </summary>
@@ -32,7 +22,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadHeaderDataAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading Header Metadata").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
             {
                 try
                 {
@@ -86,7 +76,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+         
 
             return;
         }

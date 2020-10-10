@@ -28,7 +28,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseAddressRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Address data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
 
             foreach (AddressModel theAddressModel in DV.AddressDV.DataViewData)
             {
@@ -55,7 +55,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseCitationRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Citation data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -97,7 +97,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseEventRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Event data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
 
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
@@ -146,7 +146,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseFamilyRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Family data ").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -199,7 +199,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseHeaderRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Header data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
             return true;
         }
@@ -209,7 +209,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseMediaRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Media data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
 
             try
             {
@@ -255,7 +255,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseNameMapRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising NameMap data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
             return true;
         }
@@ -265,7 +265,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseNoteRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Note data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
 
             foreach (NoteModel theNoteModel in DV.NoteDV.DataViewData)
             {
@@ -286,7 +286,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private static async Task<bool> OrganisePersonNameRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Person Name data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
             foreach (PersonNameModel thePersonNameModel in DV.PersonNameDV.DataViewData)
             {
@@ -317,7 +317,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganisePersonRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Person data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
@@ -408,7 +408,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganisePlaceRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Place data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
             foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
             {
@@ -464,7 +464,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseRepositoryRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Repository data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
             foreach (RepositoryModel theRepositoryModel in DV.RepositoryDV.DataViewData)
             {
@@ -488,7 +488,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private static async Task<bool> OrganiseSourceRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Source data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
@@ -540,7 +540,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseTagRepository()
         {
-            await DataStore.CN.MajorStatusAdd("Organising Tag data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
 
             return true;
         }

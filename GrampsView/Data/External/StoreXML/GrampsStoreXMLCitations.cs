@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// Storage routines for GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLCitations.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -68,7 +60,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadCitationsAsync()
         {
-            await DataStore.CN.MajorStatusAdd("Loading Citation data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
             {
                 // Load notes
 
@@ -78,6 +70,8 @@ namespace GrampsView.Data.ExternalStorageNS
                     var de =
                         from el in localGrampsXMLdoc.Descendants(ns + "citation")
                         select el;
+
+                    await DataStore.CN.DataLogEntryAdd("Loading Citation Entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
 
@@ -113,6 +107,8 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         loadCitation.GSourceRef.HLinkKey = GetAttribute(pcitation.Element(ns + "sourceref"), "hlink");
 
+                        await DataStore.CN.DataLogEntryReplace(argMessage: "Loading Citation for: " + loadCitation.GSourceRef.DeRef.GetDefaultText).ConfigureAwait(false);
+
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
                         // set the Home image or symbol now that everything is laoded
@@ -121,6 +117,8 @@ namespace GrampsView.Data.ExternalStorageNS
                         // save the event
                         DV.CitationDV.CitationData.Add(loadCitation);
                     }
+
+                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
@@ -129,7 +127,6 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
             return;
         }
     }

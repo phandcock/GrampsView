@@ -7,7 +7,7 @@
     Style="{StaticResource FrameBottomMenu}">
 
     <StackLayout
-        Margin="5,2,2,2"
+        Margin="10,3,3,3"
         HorizontalOptions="Start"
         Orientation="Horizontal">
         <ImageButton Command="{prism:GoBack GoBackType=ToRoot}" Style="{StaticResource GVImageButton}">

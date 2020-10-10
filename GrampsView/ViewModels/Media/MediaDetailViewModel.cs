@@ -119,9 +119,8 @@ namespace GrampsView.ViewModels
                     // Get basic details
                     //CardGroup t = new CardGroup { Title = "Header Details" };
 
-                    BaseDetail.Add(new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection("Media Detail")
                     {
-                        new CardListLine("Card Type:", "Media Detail"),
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),
                         new CardListLine("File Content Type:", CurrentMediaObject.FileContentType),
@@ -142,8 +141,6 @@ namespace GrampsView.ViewModels
 
                     // Add standard details
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
-
-             
                 }
 
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");

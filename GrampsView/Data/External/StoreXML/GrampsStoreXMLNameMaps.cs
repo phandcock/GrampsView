@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLNameMaps.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -34,7 +25,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadNameMapsAsync()
         {
-            await DataStore.CN.MajorStatusAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
             {
                 // XNamespace ns = grampsXMLNameSpace;
                 try
@@ -74,13 +65,13 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.MajorStatusAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+        
             return;
         }
     }

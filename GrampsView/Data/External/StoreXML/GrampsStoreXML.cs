@@ -92,7 +92,7 @@ namespace GrampsView.Data.ExternalStorageNS
             {
                 FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
 
-                await DataStore.CN.MajorStatusAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {
                     Stream xmlReader = inputFile.FInfo.OpenRead();
 
@@ -127,7 +127,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     xmlReader.Dispose();
                 }
 
-                await DataStore.CN.MajorStatusDelete().ConfigureAwait(false);
+
             }
             catch (Exception ex)
             {
