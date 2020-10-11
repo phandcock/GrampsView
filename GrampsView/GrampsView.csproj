@@ -258,12 +258,6 @@
     <EmbeddedResource Remove="Views\StartupPages\SetupStorageView.xaml" />
   </ItemGroup>
 
-
-
-
-
-
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
@@ -290,6 +284,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Assets\Strings\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -387,7 +386,8 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Assets\Strings\AppResources.resx">
-      <Generator>ResXFileCodeGenerator.</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="UserControls\ListLineCardLarge.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -418,5 +418,11 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <XamlAppDef Include="Assets\Strings\AppResources.resx">
+      <Generator></Generator>
+    </XamlAppDef>
   </ItemGroup>
 </Project>

@@ -28,30 +28,36 @@
             {
                 case "application":
                     {
+                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
+
                         switch (argModel.FileMimeSubType)
                         {
                             case "pdf":
                                 {
-                                    argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
                                     argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FilePdf;
                                     break;
                                 }
 
                             case "x-zip-compressed":
                                 {
-                                    argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
                                     argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileArchive;
                                     break;
                                 }
 
                             case "zip":
                                 {
-                                    argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
                                     argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileArchive;
                                     break;
                                 }
                         }
 
+                        break;
+                    }
+
+                case "audio":
+                    {
+                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
+                        argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileAudio;
                         break;
                     }
 
@@ -187,7 +193,7 @@
                         //    Change = GetDateTime(GetAttribute(pname, "change")),
                         //};
 
-                        if (loadObject.Id == "O0168")
+                        if (loadObject.Id == "O0531")
                         {
                         }
 
@@ -268,8 +274,6 @@
                     throw;
                 }
             }
-
-          
 
             localGrampsCommonLogging.LogRoutineExit(nameof(LoadMediaObjectsAsync));
             return true;

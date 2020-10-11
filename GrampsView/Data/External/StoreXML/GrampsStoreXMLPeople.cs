@@ -41,11 +41,8 @@
         }
 
         /// <summary>
-        /// load the person data from the external storage XML file.
+        /// Load the person data from the external storage XML file.
         /// </summary>
-        /// <param name="personRepository">
-        /// The person repository.
-        /// </param>
         /// <returns>
         /// Flag indicating if people data loaded successfully.
         /// </returns>
@@ -70,17 +67,13 @@
 
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));
-                        //loadPerson.Id = GetAttribute(pname.Attribute("id"));
 
                         if (loadPerson.Id == "I0571")
                         {
                         }
 
-                        //loadPerson.Change = GetDateTime(pname, "change");
-                        //loadPerson.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
-                        //loadPerson.Handle = GetAttribute(pname, "handle");
-
-                        // if (loadPerson.Id == "I0922") { // Why parent hugh cameron display bad? } Address
+                        // if (loadPerson.Id == "I0922") { // TODO Why parent hugh cameron display
+                        // bad? } Address
                         loadPerson.GAddress = GetAddressCollection(pname);
 
                         // Get attribute collection
@@ -167,8 +160,6 @@
                     }
                 }
             }
-
-           
 
             return;
         }

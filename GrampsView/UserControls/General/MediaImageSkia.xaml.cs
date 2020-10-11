@@ -9,17 +9,12 @@ namespace GrampsView.UserControls
 
     using System;
 
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public partial class MediaImageSkia : Frame
     {
-        //public static readonly BindableProperty UConHLinkHomeImageModelProperty
-        //                        = BindableProperty.Create(
-        //                                                    returnType: typeof(HLinkHomeImageModel),
-        //                                                    declaringType: typeof(MediaImageSkia),
-        //                                                    propertyName: nameof(UConHLinkHomeImageModel),
-        //                                                    defaultValue: new HLinkHomeImageModel(),
-        //                                                    propertyChanged: UConHLinkHomeImageModelPropertyChanged);
+        private HLinkHomeImageModel newHLinkMedia = new HLinkHomeImageModel();
 
         public MediaImageSkia()
         {
@@ -33,39 +28,13 @@ namespace GrampsView.UserControls
             }
         }
 
-        //public HLinkHomeImageModel UConHLinkHomeImageModel
-        //{
-        //    get { return (HLinkHomeImageModel)GetValue(UConHLinkHomeImageModelProperty); }
-        //    set { SetValue(UConHLinkHomeImageModelProperty, value); }
-        //}
-
         private HLinkHomeImageModel WorkHLMediaModel { get; set; }
 
-        public void ReloadImage()
-        {
-            this.daImage.ReloadImage();
-
-            this.daImage.LoadingPlaceholder = null;
-        }
-
-        //private static void UConHideSymbolPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        //public void ReloadImage()
         //{
-        //}
+        //    this.daImage.ReloadImage();
 
-        //private static void UConHLinkHomeImageModelPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    MediaImageSkia t = bindable as MediaImageSkia;
-
-        // try { if (!(newValue is HLinkHomeImageModel newHLinkMedia)) {
-        // //DataStore.CN.NotifyError("Bad HlinkMediaModel (is null) passed to MediaImage"); return; }
-
-        // if (string.IsNullOrEmpty(newHLinkMedia.HLinkKey)) { }
-
-        // t.ShowSomething(newHLinkMedia); } catch (Exception ex) {
-        // DataStore.CN.NotifyException("MediaImageSkia", ex);
-
-        //        throw ex;
-        //    }
+        //    this.daImage.LoadingPlaceholder = null;
         //}
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
@@ -84,14 +53,21 @@ namespace GrampsView.UserControls
         {
             try
             {
-                if (!(this.BindingContext is HLinkHomeImageModel newHLinkMedia))
+                newHLinkMedia = new HLinkHomeImageModel();
+
+                if (this.BindingContext is IHLinkMediaModel)
                 {
-                    //DataStore.CN.NotifyError("Bad HlinkMediaModel (is null) passed to MediaImage");
-                    return;
+                    newHLinkMedia = (this.BindingContext as IHLinkMediaModel).DeRef.HomeImageHLink;
+                }
+
+                if (this.BindingContext is HLinkHomeImageModel)
+                {
+                    newHLinkMedia = this.BindingContext as HLinkHomeImageModel;
                 }
 
                 if (!(newHLinkMedia.Valid))
                 {
+                    return;
                 }
 
                 this.ShowSomething(newHLinkMedia);
@@ -102,6 +78,17 @@ namespace GrampsView.UserControls
 
                 throw;
             }
+        }
+
+
+
+        private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            MediaImageSkia tt = sender as MediaImageSkia;
+
+            OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
+
+            Launcher.OpenAsync(t);
         }
 
         private void ShowImage(IMediaModel argMediaModel)
@@ -115,9 +102,9 @@ namespace GrampsView.UserControls
             daSymbol.IsVisible = false;
             daImage.IsVisible = true;
 
-            this.daImage.DownsampleToViewSize = true;
+            //this.daImage.DownsampleToViewSize = true;
 
-            this.daImage.Source = argMediaModel.MediaStorageFilePath;
+            this.daImage.BindingContext = argMediaModel.HLink;
         }
 
         private void ShowSomething(HLinkHomeImageModel argHHomeMedia)
