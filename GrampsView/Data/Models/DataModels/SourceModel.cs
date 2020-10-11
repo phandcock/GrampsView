@@ -128,6 +128,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GSPubInfo { get; set; }
 
+
+        // TODO check if all fields loaded
         /// <summary> Gets or sets the gs title. <code> <optional> <element name = "stitle" > < text
         /// /> </ element > </ optional > </code> </summary> <value> The source title. </value>
         [DataMember]

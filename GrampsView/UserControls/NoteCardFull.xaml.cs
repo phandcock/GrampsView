@@ -1,8 +1,4 @@
-﻿// <copyright file="NoteCardLarge.xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using GrampsView.Data.Model;
 
@@ -22,11 +18,21 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the BindingContextChanged event of the NoteCardFullRoot control. Only shows the
+        /// note if it is valid.
+        /// </summary>
+        /// <param name="sender">
+        /// The source of the event.
+        /// </param>
+        /// <param name="e">
+        /// The <see cref="System.EventArgs"/> instance containing the event data.
+        /// </param>
         private void NoteCardFullRoot_BindingContextChanged(object sender, System.EventArgs e)
         {
             NoteCardFull card = (sender as NoteCardFull);
 
-            if (card is null)
+            if ((card is null) || (card.BindingContext is null))
             {
                 this.IsVisible = false;
                 return;

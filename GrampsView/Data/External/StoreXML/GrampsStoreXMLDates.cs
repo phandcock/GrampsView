@@ -226,10 +226,8 @@
             bool aDualDated = false;
             string aNewYear = string.Empty;
             string aQuality = string.Empty;
-            string aStart = string.Empty;
-            string aStop = string.Empty;
             string aVal = string.Empty;
-            string aValType = string.Empty;
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
 
             // check for date range
             try
@@ -268,7 +266,31 @@
                 stringFound = (string)currentElement.Attribute("type");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-                    aValType = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(stringFound);
+                    switch (CultureInfo.CurrentCulture.TextInfo.ToTitleCase(stringFound))
+                    {
+                        case "About":
+                            {
+                                aValType = CommonEnums.DateValType.about;
+                                break;
+                            }
+
+                        case "Before":
+                            {
+                                aValType = CommonEnums.DateValType.before;
+                                break;
+                            }
+
+                        case "After":
+                            {
+                                aValType = CommonEnums.DateValType.after;
+                                break;
+                            }
+
+                        default:
+                            {
+                                break;
+                            }
+                    }
                 }
 
                 // val CDATA #REQUIRED
@@ -285,7 +307,7 @@
                 throw;
             }
 
-            return new DateObjectModelVal(aVal);
+            return new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
         }
 
         /// <summary>

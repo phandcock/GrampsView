@@ -17,24 +17,31 @@
     {
         private DateValType _GValType = DateValType.unknown;
 
-        public DateObjectModelVal(string aVal)
-
+        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, string aQuality, CommonEnums.DateValType aValType)
         {
-            try
             {
-                GVal = aVal;
+                try
+                {
+                    GCformat = aCFormat;
 
-                // type TODO fix this
-                GValType = Common.CommonEnums.DateValType.unknown;
+                    GDualdated = aDualDated;
 
-                // Set NotionalDate
-                NotionalDate = ConvertRFC1123StringToDateTime(aVal);
-            }
-            catch (Exception e)
-            {
-                // TODO
-                DataStore.CN.NotifyException("Error in SetDate", e);
-                throw;
+                    GNewYear = aNewYear;
+
+                    GQuality = aQuality;
+
+                    GVal = aVal;
+
+                    GValType = aValType;
+
+                    NotionalDate = ConvertRFC1123StringToDateTime(aVal);
+                }
+                catch (Exception e)
+                {
+                    // TODO
+                    DataStore.CN.NotifyException("Error in SetDate", e);
+                    throw;
+                }
             }
         }
 
@@ -173,7 +180,10 @@
                 dateString = GVal;
 
                 // Handle Type
-                dateString = GValType + " " + dateString;
+                if (GValType != DateValType.unknown)
+                {
+                    dateString = GValTypeAsString + " " + dateString;
+                }
 
                 return dateString.Trim();
             }
