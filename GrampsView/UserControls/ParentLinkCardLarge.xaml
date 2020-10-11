@@ -31,7 +31,7 @@
                 <Label
                     Margin="0"
                     Style="{StaticResource GVHeaderStyleSmall}"
-                    Text="Parents" />
+                    Text="Couple" />
             </Frame>
 
             <ucon:PersonLink

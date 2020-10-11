@@ -180,4 +180,7 @@
   <data name="FileInputHandlerPage_Sample_Button_Text" xml:space="preserve">
     <value>Load the sample data</value>
   </data>
+  <data name="Media_Detail_Open_File" xml:space="preserve">
+    <value>Double click the image or symbol to open the file.</value>
+  </data>
 </root>

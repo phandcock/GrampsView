@@ -131,13 +131,7 @@ namespace GrampsView.ViewModels
                     // Get date card
                     BaseDetail.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
-                    // Set up note re opening in photo app
-                    CardListLineCollection t1 = new CardListLineCollection
-                        {
-                            new CardListLine(string.Empty, "Note: Double click the file image / symbol to open it.")
-                        };
-
-                    BaseDetail.Add(t1);
+                  
 
                     // Add standard details
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
