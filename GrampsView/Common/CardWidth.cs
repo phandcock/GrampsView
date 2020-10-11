@@ -188,7 +188,7 @@
                 case TargetIdiom.Unsupported:
 
                 case TargetIdiom.Desktop:
-                    outVal = 660;
+                    outVal = 540;
                     break;
 
                 case TargetIdiom.Tablet:
