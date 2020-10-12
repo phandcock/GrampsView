@@ -1,10 +1,10 @@
-## [16.10.4](https://github.com/phandcock/GrampsView/compare/v16.10.3...v16.10.4) (2020-10-11)
+## [16.10.5](https://github.com/phandcock/GrampsView/compare/v16.10.4...v16.10.5) (2020-10-12)
 
 
 ### Bug Fixes
 
-* cleanup message log and display code. ([c26587b](https://github.com/phandcock/GrampsView/commit/c26587b0af5a7997a93ac3286fadf04b7b3ac3b1))
-* tweaks ([05864ae](https://github.com/phandcock/GrampsView/commit/05864ae534b21e78af6df2a6dd052bbf86b04dae))
+* cleanup media display code ([1ce8335](https://github.com/phandcock/GrampsView/commit/1ce8335bc45fac91fe69b6f30319e3d74d0f1ed5))
+* fix date val display ([2410b5a](https://github.com/phandcock/GrampsView/commit/2410b5a031edb22c4eba73f1bf25919e01332a1d))
 
 
 
