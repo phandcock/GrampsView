@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// The data model defined by this file serves to hold Repository data from the GRAMPS data file
-//
-// <copyright file="RepositoryModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
+﻿
 /// <summary>
 /// Gramps XML 1.71 all configured
 /// </summary>

@@ -34,9 +34,9 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.github_token }}
-        release-count: '1'
+        release-count: '3'
         preset: 'angular'
-        skip-on-empty: 'false' # TODO work out why this fails if true
+        skip-on-empty: 'true' # TODO work out why this fails if true
         tag-prefix: 'v'
 
     - name: Create Release

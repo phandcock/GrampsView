@@ -80,11 +80,11 @@
 
                 //BaseDetail.Add(t);
 
-                // Add details
-                BaseDetail.Add(RepositoryObject.GNoteRefCollection.GetCardGroup());
-                BaseDetail.Add(RepositoryObject.GTagRefCollection.GetCardGroup());
-                BaseDetail.Add(RepositoryObject.GAddress.GetCardGroup());
-                BaseDetail.Add(RepositoryObject.GURL);
+                //// Add details
+                //BaseDetail.Add(RepositoryObject.GNoteRefCollection.GetCardGroup());
+                //BaseDetail.Add(RepositoryObject.GTagRefCollection.GetCardGroup());
+                //BaseDetail.Add(RepositoryObject.GAddress.GetCardGroup());
+                //BaseDetail.Add(RepositoryObject.GURL);
             }
         }
     }
