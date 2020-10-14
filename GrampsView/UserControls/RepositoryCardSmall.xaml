@@ -50,10 +50,8 @@
                 x:Name="NameTextBlock"
                 Grid.Row="0"
                 Grid.Column="1"
-                Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DeRef.GRName, Mode=OneWay}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                            Light={StaticResource OnSecondaryColorLight}}" />
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GRName, Mode=OneWay}" />
 
             <Image
                 Grid.Row="1"

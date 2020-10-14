@@ -19,6 +19,11 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding RepositoryObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
