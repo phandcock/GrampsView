@@ -35,6 +35,10 @@ namespace GrampsView.Data.Model
             set;
         }
 
+    
+      
+   
+
         /// <summary>
         /// Gets the priv as string.
         /// </summary>

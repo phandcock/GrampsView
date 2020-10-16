@@ -160,6 +160,19 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public override string GetDefaultText
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(GDescription))
+                {
+                    return GDescription;
+                }
+
+                return GType;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the g media reference collection.
         /// </summary>

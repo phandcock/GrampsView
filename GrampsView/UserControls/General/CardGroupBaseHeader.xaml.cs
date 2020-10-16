@@ -47,5 +47,9 @@
         {
             MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void CardGroupBaseHeaderRoot_BindingContextChanged(object sender, System.EventArgs e)
+        {
+        }
     }
 }

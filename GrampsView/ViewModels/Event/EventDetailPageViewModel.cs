@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="EventDetailPageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -22,6 +13,8 @@ namespace GrampsView.ViewModels
     /// <seealso cref="Prism.Mvvm.ViewModelBase"/>
     public class EventDetailViewModel : ViewModelBase
     {
+        private HLinkEventModel _HLinkObject = new HLinkEventModel();
+
         /// <summary>
         /// Holds the Event ViewModel.
         /// </summary>
@@ -63,12 +56,25 @@ namespace GrampsView.ViewModels
             }
         }
 
+        public HLinkEventModel HLinkObject
+        {
+            get
+            {
+                return _HLinkObject;
+            }
+
+            set
+            {
+                SetProperty(ref _HLinkObject, value);
+            }
+        }
+
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
         public override void PopulateViewModel()
         {
-            HLinkEventModel HLinkObject = BaseNavParamsHLink as HLinkEventModel;
+            HLinkObject = BaseNavParamsHLink as HLinkEventModel;
 
             if (!(HLinkObject is null) && (HLinkObject.Valid))
             {
@@ -79,12 +85,10 @@ namespace GrampsView.ViewModels
 
                 if (!(EventObject is null) && (EventObject.Valid))
                 {
-                    BaseTitle = EventObject.GDescription;
+                    BaseTitle = EventObject.GetDefaultText;
                     BaseTitleIcon = CommonConstants.IconEvents;
 
                     // Get basic details
-                    //CardGroup t = new CardGroup { Title = "Header Details" };
-
                     BaseDetail.Add(new CardListLineCollection("Event Detail")
                     {
                         new CardListLine("Type:", EventObject.GType),
@@ -106,17 +110,6 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(t1);
 
                     BaseDetail.Add(EventObject.GPlace);
-
-                    //BaseDetail.Add(t);
-
-                    BaseDetail.Add(HLinkObject.GAttributeRefCollection);
-                    BaseDetail.Add(HLinkObject.GNoteRefCollection.GetCardGroup());
-
-                    //BaseDetail.Add(EventObject.GAttribute);
-                    //BaseDetail.Add(EventObject.GCitationRefCollection.GetCardGroup());
-                    //BaseDetail.Add(EventObject.GMediaRefCollection.GetCardGroup());
-                    //BaseDetail.Add(EventObject.GNoteRefCollection.GetCardGroup());
-                    //BaseDetail.Add(EventObject.GTagRefCollection.GetCardGroup());
                 }
             }
         }
