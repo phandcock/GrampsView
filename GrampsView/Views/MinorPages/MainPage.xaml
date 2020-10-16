@@ -2,7 +2,8 @@
 <MasterDetailPage
     x:Class="GrampsView.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms">
 
     <MasterDetailPage.Master>
 
@@ -26,33 +27,40 @@
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate>
-                        <Grid HorizontalOptions="FillAndExpand">
+                        <Grid>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image
-                                Grid.Column="0"
-                                HeightRequest="40"
-                                Style="{DynamicResource GVSymbolconPageHeaderType}">
-                                <Image.Source>
-                                    <FontImageSource
-                                        FontFamily="{StaticResource GlyphFontFamily}"
-                                        Glyph="{Binding Icon}"
-                                        Size="40"
-                                        Color="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                                                Light={StaticResource OnSecondaryColorLight}}" />
-                                </Image.Source>
-                            </Image>
+                            <StackLayout Grid.Column="0" Orientation="Horizontal">
 
-                            <Button
-                                Grid.Column="1"
-                                Command="{Binding Path=BindingContext.NavigateCommand, Source={x:Reference Name=List}}"
-                                CommandParameter="{Binding TargetType}"
-                                Style="{DynamicResource GVButtonMenu}"
-                                Text="{Binding Title}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.NavigateCommand, Source={x:Reference Name=List}}" CommandParameter="{Binding TargetType}" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Image
+                                    HeightRequest="40"
+                                    Style="{DynamicResource GVSymbolconPageHeaderType}"
+                                    VerticalOptions="Center">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="{StaticResource GlyphFontFamily}"
+                                            Glyph="{Binding Icon}"
+                                            Size="40"
+                                            Color="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
+                                                                    Light={StaticResource OnSecondaryColorLight}}" />
+                                    </Image.Source>
+                                </Image>
+
+                                <Label
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{DynamicResource GVCardLabelStyle}"
+                                    Text="{Binding Title}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
+                                                                Light={StaticResource OnSecondaryColorLight}}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
