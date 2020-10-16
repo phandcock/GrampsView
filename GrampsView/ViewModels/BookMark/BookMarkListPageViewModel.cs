@@ -34,14 +34,7 @@
         {
             get
             {
-                CardGroup t = new CardGroup
-                {
-                    DV.BookMarkCollection.GetCardGroup(string.Empty)
-                };
-
-                t.Title = string.Empty;
-
-                return t;
+                return DV.BookMarkCollection.CardGroupAsProperty;
             }
         }
     }
