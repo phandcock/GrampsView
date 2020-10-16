@@ -14,6 +14,11 @@ namespace GrampsView.Data.Collections
     [KnownType(typeof(ObservableCollection<HLinkBackLink>))]
     public class HLinkBackLinkModelCollection : HLinkBaseCollection<HLinkBackLink>
     {
+        public HLinkBackLinkModelCollection()
+        {
+            Title = "BackLink Collection";
+        }
+
         public override CardGroup CardGroupAsProperty
         {
             get
@@ -22,7 +27,7 @@ namespace GrampsView.Data.Collections
 
                 foreach (HLinkBackLink item in Items) { t.Add(item.HLink()); }
 
-                // t.Title = "Backlink Collection";
+                t.Title = Title;
 
                 return t;
             }

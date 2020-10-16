@@ -5,7 +5,6 @@ namespace GrampsView.Data.Collections
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
     /// <summary>

@@ -13,10 +13,10 @@
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// HLink to Event Model but with its own fields as per Gramps
@@ -63,6 +63,8 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public OCAttributeModelCollection GAttributeRefCollection { get; set; } = new OCAttributeModelCollection();
+
+
 
         /// <summary>
         /// Gets or sets the Note Model collection.
