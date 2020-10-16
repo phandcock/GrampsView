@@ -22,7 +22,7 @@ namespace GrampsView.Data.Collections
 
                 foreach (HLinkBackLink item in Items) { t.Add(item.HLink()); }
 
-                t.Title = "Backlink Collection";
+                // t.Title = "Backlink Collection";
 
                 return t;
             }

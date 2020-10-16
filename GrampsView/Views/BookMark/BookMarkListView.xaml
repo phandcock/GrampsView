@@ -15,6 +15,7 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
-
+    <ScrollView>
+        <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
+    </ScrollView>
 </ContentPage>
