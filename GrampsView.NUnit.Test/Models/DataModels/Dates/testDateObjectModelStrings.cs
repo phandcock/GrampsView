@@ -1,22 +1,14 @@
-﻿// <copyright file="testDateObjectModelStrings.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
 
-/// <summary>
-/// </summary>
-namespace GrampsViewXUnit.Data.Models.DataModels
+using NUnit.Framework;
+
+using System;
+using System.Collections.Generic;
+
+namespace GrampsView.NUnit.Data.Models.DateModels
 {
-    using System;
-    using System.Collections.Generic;
-
-    using GrampsView.Data.Model;
-
-
-
-
-    /// <summary>
-    /// </summary>
-    public class TestDateObjectModelStrings
+    public class DateModel
     {
         /// <summary>
         /// Gets the test date data. Format for entries is:
@@ -42,14 +34,40 @@ namespace GrampsViewXUnit.Data.Models.DataModels
         /// <value>
         /// The test date data.
         /// </value>
-        public static IEnumerable<object[]> TestDataDateNotional =>
-              new List<object[]>
+        public static IEnumerable<TestDateData> TestDataDateNotional =>
+        new List<TestDateData>
               {
-                  // TODO Test description
-                  new object[] { "dateval1", "cFormat", false,   "New Year", "Quality", "Start2", "Stop2", "1975-10-01", 1975, 10, 1 },
-                  new object[] { "dateval2", "cFormat", false,   "New Year", "Quality", "Start", "Stop1", "1975-10-02", 1975, 10, 2 },
-                  new object[] { "dateval3", "cFormat", false,   "New Year", "Quality", "Start", "Stop", "1975-10-03", 1975, 10, 3 },
+                // TODO Test description
+                new TestDateData { aType= "dateval1", aCFormat ="cFormat",aDualDated= false,  aNewYear= "New Year", aQuality= "Quality",aStart=  "Start2", aStop="Stop2",aVal= "1975-10-01", argYear=1975, argMonth=10, argDay=1 },
+                new TestDateData { aType= "dateval1", aCFormat ="cFormat",aDualDated= false,  aNewYear= "New Year", aQuality= "Quality",aStart=  "Start2", aStop="Stop2",aVal= "1975-10-01", argYear=1975, argMonth=10, argDay=1 },
+                new TestDateData { aType= "dateval1", aCFormat ="cFormat",aDualDated= false,  aNewYear= "New Year", aQuality= "Quality",aStart=  "Start2", aStop="Stop2",aVal= "1975-10-01", argYear=1975, argMonth=10, argDay=1 },
               };
+
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        public void TestDateNotional(string aType, string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal, int argYear, int argMonth, int argDay)
+        {
+            DateObjectModel testDate = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, CommonEnums.DateValType.unknown);
+
+            Assert.False(testDate == null);
+
+            Assert.True(testDate.NotionalDate == new DateTime(argYear, argMonth, argDay));
+        }
+
+        [Test]
+        public void TestDates()
+        {
+            foreach (TestDateData test in TestDataDateNotional)
+            {
+                TestDateNotional(test.aType, test.aCFormat, test.aDualDated, test.aNewYear, test.aQuality, test.aStart, test.aStop, test.aVal,  test.argYear, test.argMonth, test.argDay);
+
+            }
+
+            Assert.Pass();
+        }
 
         /// <summary>
         /// Tests the date notional date.
@@ -87,17 +105,6 @@ namespace GrampsViewXUnit.Data.Models.DataModels
         /// <param name="argDay">
         /// The argument day.
         /// </param>
-        //[Theory]
-        //[MemberData(nameof(TestDataDateNotional))]
-        public void TestDateNotional(string aType, string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal, int argYear, int argMonth, int argDay)
-        {
-            //DateObjectModel testDate = new DateObjectModelVal(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, null);
-
-            //Assert.False(testDate == null);
-
-            //Assert.True(testDate.NotionalDate == new DateTime(argYear, argMonth, argDay));
-        }
-
         ///// <summary>
         ///// Builds the date.
         ///// </summary>
@@ -127,11 +134,11 @@ namespace GrampsViewXUnit.Data.Models.DataModels
         ///// </param>
         ///// <returns>
         ///// </returns>
-        // private DateObjectModel BuildDate(string aType, string aCFormat, bool aDualDated, string aNewYear, string aQuality, string aStart, string aStop, string aVal)
-        // {
-        //    DateObjectModel returnDate = new DateObjectModelVal(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop, aVal, null);
+        // private DateObjectModel BuildDate(string aType, string aCFormat, bool aDualDated, string
+        // aNewYear, string aQuality, string aStart, string aStop, string aVal) { DateObjectModel
+        // returnDate = new DateObjectModelVal(aCFormat, aDualDated, aNewYear, aQuality, aStart,
+        // aStop, aVal, null);
 
-        // return returnDate;
-        // }
+        // return returnDate; }
     }
 }
