@@ -149,7 +149,7 @@
             string aCFormat = string.Empty;
             bool aDualDated = false;
             string aNewYear = string.Empty;
-            string aQuality = string.Empty;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aStart = string.Empty;
             string aStop = string.Empty;
 
@@ -183,7 +183,10 @@
                 stringFound = (string)argCurrentElement.Attribute("quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-                    aQuality = stringFound;
+                    if (!Enum.TryParse(stringFound, out aQuality))
+                    {
+                        DataStore.CN.NotifyError("Bad Date Quality at " + argCurrentElement.ToString());
+                    }
                 }
 
                 // start CDATA #REQUIRED
@@ -225,7 +228,7 @@
             string aCFormat = string.Empty;
             bool aDualDated = false;
             string aNewYear = string.Empty;
-            string aQuality = string.Empty;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = string.Empty;
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
 
@@ -259,37 +262,20 @@
                 stringFound = (string)currentElement.Attribute("quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-                    aQuality = stringFound;
+                    if (!Enum.TryParse(stringFound, out aQuality))
+                    {
+                        DataStore.CN.NotifyError("Bad Date Quality at " + currentElement.ToString());
+                    }
                 }
 
                 // type CDATA #REQUIRED
                 stringFound = (string)currentElement.Attribute("type");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-                    switch (CultureInfo.CurrentCulture.TextInfo.ToTitleCase(stringFound))
+
+                    if (!Enum.TryParse( stringFound, out aValType))
                     {
-                        case "About":
-                            {
-                                aValType = CommonEnums.DateValType.about;
-                                break;
-                            }
-
-                        case "Before":
-                            {
-                                aValType = CommonEnums.DateValType.before;
-                                break;
-                            }
-
-                        case "After":
-                            {
-                                aValType = CommonEnums.DateValType.after;
-                                break;
-                            }
-
-                        default:
-                            {
-                                break;
-                            }
+                        DataStore.CN.NotifyError("Bad Date Value Type at " + currentElement.ToString());
                     }
                 }
 
@@ -325,7 +311,7 @@
             string aCFormat = string.Empty;
             bool aDualDated = false;
             string aNewYear = string.Empty;
-            string aQuality = string.Empty;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aStart = string.Empty;
             string aStop = string.Empty;
 
@@ -359,7 +345,10 @@
                 stringFound = (string)currentElement.Attribute("quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-                    aQuality = stringFound;
+                    if (!Enum.TryParse(stringFound, out aQuality))
+                    {
+                        DataStore.CN.NotifyError("Bad Date Quality at " + currentElement.ToString());
+                    }
                 }
 
                 // start CDATA #REQUIRED

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -47,46 +49,6 @@
     public abstract class DateObjectModel : ModelBase, IDateObjectModel
     {
         /// <summary>
-        /// $$(cformat)$$ field.
-        /// </summary>
-        private string _GCformat = string.Empty;
-
-        /// <summary>
-        /// Dual dated field.
-        /// </summary>
-        private bool _GDualdated;
-
-        /// <summary>
-        /// New year field.
-        /// </summary>
-        private string _GNewYear = string.Empty;
-
-        /// <summary>
-        /// Quality field.
-        /// </summary>
-        private string _GQuality = string.Empty;
-
-        /// <summary>
-        /// Start field.
-        /// </summary>
-        private string _GStart = string.Empty;
-
-        /// <summary>
-        /// Stop field.
-        /// </summary>
-        private string _GStop = string.Empty;
-
-        /// <summary>
-        /// Type field.
-        /// </summary>
-        private string _GType;
-
-        /// <summary>
-        /// $$(val)$$ field.
-        /// </summary>
-        private string _GVal = string.Empty;
-
-        /// <summary>
         /// Notional Date field - The date used for sorting etc.
         /// </summary>
         private DateTime _NotionalDate = DateTime.MinValue;
@@ -96,43 +58,6 @@
         /// </summary>
         public DateObjectModel()
         {
-        }
-
-        /// <summary>
-        /// Gets the $$(cformat)$$ field.
-        /// </summary>
-        [DataMember]
-        public string GCformat
-        {
-            get
-            {
-                return _GCformat;
-            }
-
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GCformat, value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
-        /// </summary>
-        [DataMember]
-        public bool GDualdated
-        {
-            get
-            {
-                return _GDualdated;
-            }
-
-            internal set
-            {
-                SetProperty(ref _GDualdated, value);
-            }
         }
 
         /// <summary>
@@ -191,123 +116,6 @@
         }
 
         /// <summary>
-        /// Gets the New Year field.
-        /// </summary>
-        [DataMember]
-        public string GNewYear
-        {
-            get
-            {
-                return _GNewYear;
-            }
-
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GNewYear, value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Get the Date Quality.
-        /// </summary>
-        [DataMember]
-        public string GQuality
-        {
-            get
-            {
-                return _GQuality;
-            }
-
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GQuality, value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the Date Start.
-        /// </summary>
-        [DataMember]
-        public string GStart
-        {
-            get
-            {
-                return _GStart;
-            }
-
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GStart, value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the Stop field.
-        /// </summary>
-        [DataMember]
-        public string GStop
-        {
-            get
-            {
-                return _GStop;
-            }
-
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GStop, value);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the Date Type field.
-        /// </summary>
-        [DataMember]
-        public string GType
-        {
-            get
-            {
-                return _GType;
-            }
-
-            private set
-            {
-                SetProperty(ref _GType, value);
-            }
-        }
-
-        /// <summary>
-        /// Gets the $$(val)$$ field.
-        /// </summary>
-        [DataMember]
-        public string GVal
-        {
-            get
-            {
-                return _GVal;
-            }
-
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    SetProperty(ref _GVal, value);
-                }
-            }
-        }
-
-        /// <summary>
         /// Gets the get long date as string. Default so it can be overridden.
         /// </summary>
         /// <value>
@@ -359,9 +167,6 @@
             }
         }
 
-        //        return ShortDate;
-        //    }
-        //}
         /// <summary>
         /// Gets returns a single dateversion of the date field Because the field can have one or
         /// two dates etc this is trickier than it sounds. Overridden by more specific date types.
@@ -369,53 +174,12 @@
         /// <value>
         /// The single date.
         /// </value>
-        public virtual DateTime SingleDate
+        public abstract DateTime SingleDate
         {
-            get
-            {
-                // DateTime outputDateTime;
-
-                // switch (GType) { case DateType.daterange: { if (DateTime.TryParse(Start, out
-                // outputDateTime) == false) { outputDateTime = DateTime.MinValue; }
-
-                // break; }
-
-                // case DateType.datespan: { if (DateTime.TryParse(Start, out outputDateTime) ==
-                // false) { outputDateTime = DateTime.MinValue; }
-
-                // break; }
-
-                // case DateType.dateval: { outputDateTime = notionalDateField; break; }
-
-                // case DateType.datestr: { outputDateTime = notionalDateField; break; }
-
-                // case DateType.nullDate: { outputDateTime = DateTime.MinValue; break; }
-
-                // default: { outputDateTime = DateTime.MinValue; break; } }
-                return NotionalDate;
-            }
+            get;
+   
         }
 
-        ///// <summary>
-        ///// Gets an empty string if a null date or the date string. Used for formatting. Default so
-        ///// it can be overridden.
-        ///// </summary>
-        //public string GetShortDateOrEmptyAsString
-        //{
-        //    get
-        //    {
-        //        if (!Valid)
-        //        {
-        //            return "Unknown";
-        //        }
-        //public DateTimeFormatter ShortDate
-        //{
-        //    get
-        //    {
-        //        return new DateTimeFormatter("‎{day.integer} {month.abbreviated} ‎{year.full}");
-        //    }
-        //}
-        // private set { SetProperty(ref GTypeField, value); } }
         /// <summary>
         /// Gets returns a sortable version of the date field Because the field can have one or two
         /// dates etc this is trickier than it sounds. Overridden by more specific date types.
@@ -423,34 +187,14 @@
         /// <returns>
         /// A DateTime field that can be sorted.
         /// </returns>
-        public virtual DateTime SortDate
+        public abstract DateTime SortDate
         {
-            get
-            {
-                // DateTime outputDateTime;
-
-                // switch (GType) { case DateType.daterange: { if (DateTime.TryParse(Start,
-                // CultureInfo.InvariantCulture, DateTimeStyles.None, out
-                // outputDateTime) == false) { outputDateTime = DateTime.MinValue; }
-
-                // break; }
-
-                // case DateType.datespan: { if (DateTime.TryParse(Start, out outputDateTime) ==
-                // false) { outputDateTime = DateTime.MinValue; }
-
-                // break; }
-
-                // case DateType.dateval: { outputDateTime = notionalDateField; break; }
-
-                // case DateType.datestr: { outputDateTime = notionalDateField; break; }
-
-                // case DateType.nullDate: { outputDateTime = DateTime.MinValue; break; }
-
-                // default: { outputDateTime = DateTime.MinValue; break; } }
-                return NotionalDate;
-            }
+            get;
+         
         }
 
+
+      
         /// <summary>
         /// Gets or sets a value indicating whether the date is valid.
         /// </summary>
@@ -700,7 +444,7 @@
 
             DateObjectModel tempObj = obj as DateObjectModel;
 
-            return ((this.GType == tempObj.GType) && (this.NotionalDate == tempObj.NotionalDate));
+            return (this.NotionalDate == tempObj.NotionalDate);
         }
 
         public override int GetHashCode()

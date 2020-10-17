@@ -13,11 +13,36 @@
     /// </summary>
     /// TODO Update fields as per Schema
     [DataContract]
-    public class DateObjectModelVal : DateObjectModel, IDateObjectModel
+    public class DateObjectModelVal : DateObjectModel, IDateObjectModelVal
     {
+        /// <summary>
+        /// $$(cformat)$$ field.
+        /// </summary>
+        private string _GCformat = string.Empty;
+
+        /// <summary>
+        /// Dual dated field.
+        /// </summary>
+        private bool _GDualdated;
+
+        /// <summary>
+        /// New year field.
+        /// </summary>
+        private string _GNewYear = string.Empty;
+
+        /// <summary>
+        /// Quality field.
+        /// </summary>
+        private CommonEnums.DateQuality _GQuality = DateQuality.unknown;
+
+        /// <summary>
+        /// $$(val)$$ field.
+        /// </summary>
+        private string _GVal = string.Empty;
+
         private DateValType _GValType = DateValType.unknown;
 
-        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, string aQuality, CommonEnums.DateValType aValType)
+        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, CommonEnums.DateQuality aQuality, CommonEnums.DateValType aValType)
         {
             {
                 try
@@ -46,8 +71,44 @@
         }
 
         public DateObjectModelVal()
-
         {
+        }
+
+        /// <summary>
+        /// Gets the $$(cformat)$$ field.
+        /// </summary>
+        [DataMember]
+        public string GCformat
+        {
+            get
+            {
+                return _GCformat;
+            }
+
+            internal set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SetProperty(ref _GCformat, value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
+        /// </summary>
+        [DataMember]
+        public bool GDualdated
+        {
+            get
+            {
+                return _GDualdated;
+            }
+
+            internal set
+            {
+                SetProperty(ref _GDualdated, value);
+            }
         }
 
         public override int GetAge
@@ -80,6 +141,76 @@
         }
 
         /// <summary>
+        /// Gets the New Year field.
+        /// </summary>
+        [DataMember]
+        public string GNewYear
+        {
+            get
+            {
+                return _GNewYear;
+            }
+
+            internal set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SetProperty(ref _GNewYear, value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get the Date Quality.
+        /// </summary>
+        [DataMember]
+        public CommonEnums.DateQuality GQuality
+        {
+            get
+            {
+                return _GQuality;
+            }
+
+            internal set
+            {
+                SetProperty(ref _GQuality, value);
+            }
+        }
+
+        public string GQualityDecoded
+        {
+            get
+            {
+                if (GQuality == DateQuality.unknown)
+                {
+                    return string.Empty;
+                }
+
+                return " ( " + nameof(GQuality) + ")";
+            }
+        }
+
+        /// <summary>
+        /// Gets the $$(val)$$ field.
+        /// </summary>
+        [DataMember]
+        public string GVal
+        {
+            get
+            {
+                return _GVal;
+            }
+
+            internal set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SetProperty(ref _GVal, value);
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets the type of the Val Type, e.g. Before
         /// </summary>
         /// <value>
@@ -99,34 +230,16 @@
             }
         }
 
-        public string GValTypeAsString
+        public string GValTypeDecoded
         {
             get
             {
-                switch (GValType)
+                if (GValType == DateValType.unknown)
                 {
-                    case CommonEnums.DateValType.about:
-                        {
-                            return "About";
-                        }
-
-                    case CommonEnums.DateValType.before:
-                        {
-                            return "Before";
-                        }
-
-                    case CommonEnums.DateValType.after:
-                        {
-                            return "After";
-                        }
-
-                    default:
-                        {
-                            break;
-                        }
+                    return string.Empty;
                 }
 
-                return "";
+                return nameof(GValType) + " ";
             }
         }
 
@@ -143,13 +256,9 @@
                     dateString += " Format: " + GCformat;
                 }
 
-                // Handle Type
-                dateString = GValTypeAsString + " " + dateString;
+                dateString = GValTypeDecoded + dateString;
 
-                if (!string.IsNullOrEmpty(GQuality))
-                {
-                    dateString += GQuality;
-                }
+                dateString += GQualityDecoded;
 
                 if (GDualdated)
                 {
@@ -179,13 +288,27 @@
 
                 dateString = GVal;
 
-                // Handle Type
-                if (GValType != DateValType.unknown)
-                {
-                    dateString = GValTypeAsString + " " + dateString;
-                }
+                dateString = GValTypeDecoded + dateString;
 
                 return dateString.Trim();
+            }
+        }
+
+        public override DateTime SingleDate
+        {
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate;
+            }
+        }
+
+        public override DateTime SortDate
+        {
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate;
             }
         }
 
@@ -201,8 +324,8 @@
                                 new CardListLine("Notional Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Type:", this.GValTypeAsString),
-                                new CardListLine("Quality:", this.GQuality),
+                                new CardListLine("Type:", this.GValTypeDecoded),
+                                new CardListLine("Quality:", this.GQualityDecoded),
                                 new CardListLine("Dual Dated:", this.GDualdated),
                                 new CardListLine("New Year:", this.GNewYear),
                             };
@@ -214,6 +337,38 @@
             }
 
             return DateModelCard;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            if (this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            DateObjectModel tempObj = obj as DateObjectModel;
+
+            return (this.NotionalDate == tempObj.NotionalDate);
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
         }
     }
 }
