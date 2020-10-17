@@ -2,6 +2,13 @@
 {
     public static class CommonEnums
     {
+        public enum DateQuality
+        {
+            calculated,
+            estimated,
+            unknown
+        }
+
         public enum DateValType
         {
             about,

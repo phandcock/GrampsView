@@ -82,7 +82,7 @@ namespace GrampsView.Data.Model
         {
             HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
             HomeImageHLink.HomeSymbol = CommonConstants.IconDDefault;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour =  Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>
