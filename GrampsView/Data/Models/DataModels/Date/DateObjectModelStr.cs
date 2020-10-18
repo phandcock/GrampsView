@@ -144,7 +144,7 @@
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date Type:", "String"),
-                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                             };
             }

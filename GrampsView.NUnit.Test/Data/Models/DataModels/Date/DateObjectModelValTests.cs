@@ -1,16 +1,35 @@
-﻿using GrampsView.Common;
-
-using NUnit.Framework;
-
-namespace GrampsView.Data.Model.Tests
+﻿namespace GrampsView.Data.Model.Tests
 {
+    using global::NUnit.Framework;
+
+    using GrampsView.Common;
+    using GrampsView.NUnit.Test.Utility;
+
     [TestFixture()]
     public class DateObjectModelValTests
     {
+        private DateObjectModelVal testVal;
+
         [Test()]
         public void AsCardListLineTest()
         {
-            Assert.Fail();
+            CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
+
+            if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
+
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date Type:", "Val")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Date:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Val:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[3], "Dual Dated:", testVal.GDualdated.ToString())) { Assert.Fail(); return; }
+
+            Assert.True(AsCardListLineTest_Basic.Count == 4);
+
+            Assert.Pass();
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
         }
 
         [Test()]
@@ -26,6 +45,19 @@ namespace GrampsView.Data.Model.Tests
             DateObjectModelVal testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
 
             Assert.True(testVal.Valid);
+        }
+
+        [SetUp]
+        public void Init()
+        {
+            string aCFormat = null;
+            bool aDualDated = false;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aVal = "1939";
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
+
+            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
         }
     }
 }
