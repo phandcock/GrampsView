@@ -321,7 +321,7 @@
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date Type:", "Val"),
-                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Type:", this.GValTypeDecoded),

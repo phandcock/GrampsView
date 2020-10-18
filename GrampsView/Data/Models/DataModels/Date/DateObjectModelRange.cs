@@ -296,7 +296,7 @@
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date Type:", "Range"),
-                                new CardListLine("Notional Date:", this.LongDate),
+                                new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),
                                 new CardListLine("Quality:", this.GQualityDecoded),
