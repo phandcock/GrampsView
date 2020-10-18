@@ -11,6 +11,8 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
+    using System;
+
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -131,8 +133,6 @@ namespace GrampsView.ViewModels
                     // Get date card
                     BaseDetail.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
-                  
-
                     // Add standard details
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
                 }
@@ -140,5 +140,7 @@ namespace GrampsView.ViewModels
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");
             }
         }
+
+    
     }
 }

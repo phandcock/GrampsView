@@ -3,7 +3,6 @@
     x:Class="GrampsView.UserControls.MediaImageSkia"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Margin="0"
     Padding="0"
@@ -11,9 +10,9 @@
     BindingContextChanged="MediaImageSkia_BindingContextChanged"
     BorderColor="Transparent">
 
-    <Frame.GestureRecognizers>
+    <!--<Frame.GestureRecognizers>
         <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-    </Frame.GestureRecognizers>
+    </Frame.GestureRecognizers>-->
 
     <Frame.Content>
 
@@ -22,9 +21,7 @@
             Margin="0"
             Padding="3">
 
-            <!--<Grid.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-            </Grid.GestureRecognizers>-->
+
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

@@ -68,10 +68,10 @@ namespace GrampsView.UserControls
             mifModel.IsVisible = false;
         }
 
-        private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
-        {
-            OpenFileRequest t = new OpenFileRequest(CurrentHLinkMediaModel.DeRef.GDescription, new ReadOnlyFile(CurrentHLinkMediaModel.DeRef.MediaStorageFilePath));
-            Launcher.OpenAsync(t);
-        }
+        //private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        //{
+        //    OpenFileRequest t = new OpenFileRequest(CurrentHLinkMediaModel.DeRef.GDescription, new ReadOnlyFile(CurrentHLinkMediaModel.DeRef.MediaStorageFilePath));
+        //    Launcher.OpenAsync(t);
+        //}
     }
 }

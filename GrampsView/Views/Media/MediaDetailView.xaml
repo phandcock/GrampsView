@@ -20,7 +20,11 @@
     <ScrollView>
         <StackLayout>
             <Frame HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
+                </Frame.GestureRecognizers>
                 <ucon:MediaImageSkia
+                    x:Name="ImageControl"
                     BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand" />
