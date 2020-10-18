@@ -30,12 +30,7 @@ namespace GrampsView.UserControls
 
         private HLinkHomeImageModel WorkHLMediaModel { get; set; }
 
-        //public void ReloadImage()
-        //{
-        //    this.daImage.ReloadImage();
-
-        //    this.daImage.LoadingPlaceholder = null;
-        //}
+    
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
@@ -82,14 +77,14 @@ namespace GrampsView.UserControls
 
 
 
-        private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
-        {
-            MediaImageSkia tt = sender as MediaImageSkia;
+        //private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        //{
+        //    MediaImageSkia tt = sender as MediaImageSkia;
 
-            OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
+        //    OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
 
-            Launcher.OpenAsync(t);
-        }
+        //    Launcher.OpenAsync(t);
+        //}
 
         private void ShowImage(IMediaModel argMediaModel)
         {

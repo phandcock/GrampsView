@@ -12,9 +12,9 @@
     HasShadow="True"
     IsVisible="True">
 
-    <Frame.GestureRecognizers>
+    <!--<Frame.GestureRecognizers>
         <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-    </Frame.GestureRecognizers>
+    </Frame.GestureRecognizers>-->
 
     <Frame.Content>
 
@@ -25,7 +25,6 @@
             CacheType="All"
             DownsampleToViewSize="True"
             Error="DaImage_Error"
-           
             HeightRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
             IsVisible="True"
             LoadingPlaceholder="ic_launcher.png"
