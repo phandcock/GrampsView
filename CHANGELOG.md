@@ -1,3 +1,13 @@
+## [16.10.9](https://github.com/phandcock/GrampsView/compare/v16.10.8...v16.10.9) (2020-10-19)
+
+
+### Bug Fixes
+
+* cleanup double clicks on media images ([c07303d](https://github.com/phandcock/GrampsView/commit/c07303d1f3ad4450d395515ee3f0fc7be3d17c8c))
+* fix issues with Date models ([8add384](https://github.com/phandcock/GrampsView/commit/8add384ec83cbb2b92080a3ffc16afddb6f04706))
+
+
+
 ## [16.10.8](https://github.com/phandcock/GrampsView/compare/v16.10.7...v16.10.8) (2020-10-18)
 
 
@@ -16,10 +26,6 @@
 ### Bug Fixes
 
 * show repository small card and repostiory detailview ([0d84ef3](https://github.com/phandcock/GrampsView/commit/0d84ef35dca1efa08103d6578c7e62f57fe8c6ff))
-
-
-
-## [16.10.6](https://github.com/phandcock/GrampsView/compare/v16.10.5...v16.10.6) (2020-10-14)
 
 
 
