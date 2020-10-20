@@ -10,7 +10,7 @@
 
     public class CardSizes : INotifyPropertyChanged
     {
-        //Ratio of Height to width is 3 times
+        // Ratio of Height to width is 3 times
 
         private const double CardLargeHeightDefault = 420;
         private const double CardLargeWidthDefault = 420;
@@ -20,6 +20,7 @@
         private const double CardSingleWidthDefault = 270;
         private const double CardSmallHeightDefault = 270;
         private const double CardSmallWidthDefault = 270;
+
         private static double _CardLargeDoubleWidth = CardLargeWidthDefault;
         private static double _CardLargeHeight = CardLargeHeightDefault;
         private static double _CardLargeWidth = CardLargeWidthDefault;
@@ -106,6 +107,77 @@
             get
             {
                 return _CardSmallWidth;
+            }
+        }
+
+        public double MediaDetailImageHeight
+        {
+            get
+            {
+                double outVal;
+
+                switch (Device.Idiom)
+                {
+                    case TargetIdiom.Unsupported:
+
+                    case TargetIdiom.Desktop:
+                        outVal = CardLargeHeight * 3;
+                        break;
+
+                    case TargetIdiom.Tablet:
+                        outVal = CardLargeHeight;
+                        break;
+
+                    case TargetIdiom.Phone:
+
+                        outVal = CardLargeHeight;
+                        break;
+
+                    default:
+                        outVal = CardLargeHeight;
+                        break;
+                };
+
+                return outVal;
+            }
+        }
+
+        public double MediaDetailImageWidth
+        {
+            get
+            {
+                double outVal;
+
+                switch (Device.Idiom)
+                {
+                    case TargetIdiom.Unsupported:
+
+                    case TargetIdiom.Desktop:
+                        outVal = CardLargeWidth * 3;
+                        break;
+
+                    case TargetIdiom.Tablet:
+                        outVal = CardLargeWidth;
+                        break;
+
+                    case TargetIdiom.Phone:
+
+                        outVal = CardLargeWidth;
+
+                        break;
+
+                    default:
+                        outVal = CardLargeWidth;
+                        break;
+                };
+
+                // Check size
+                if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+                {
+                    outVal = DeviceDisplay.MainDisplayInfo.Width;
+                }
+
+                return outVal;
             }
         }
 

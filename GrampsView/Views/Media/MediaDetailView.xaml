@@ -19,17 +19,19 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <Frame HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+            <Frame HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
-                <ucon:MediaImageSkia
-                    x:Name="ImageControl"
-                    BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand" />
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <ucon:MediaImageSkia
+                        x:Name="ImageControl"
+                        BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
+                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
             </Frame>
-            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="CenterAndExpand" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
