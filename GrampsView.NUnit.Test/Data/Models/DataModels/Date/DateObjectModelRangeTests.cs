@@ -1,13 +1,17 @@
-﻿using GrampsView.Common;
-using GrampsView.NUnit.Test.Utility;
-
-using NUnit.Framework;
+﻿
 
 namespace GrampsView.Data.Model.Tests
 {
+    using global::NUnit.Framework;
+
+    using GrampsView.Common;
+    using GrampsView.NUnit.Test.Utility;
+
+
     [TestFixture()]
     public class DateObjectModelRangeTests
     {
+
         private DateObjectModelRange testVal;
 
         [Test()]

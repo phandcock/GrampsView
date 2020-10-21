@@ -135,6 +135,8 @@
             }
         }
 
+    
+
         public override CardListLineCollection AsCardListLine(string argTitle = null)
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();

@@ -1,25 +1,30 @@
-﻿using NUnit.Framework;
-using GrampsView.Data.Model;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GrampsView.Data.Model.Tests
+﻿namespace GrampsView.Data.Model.Tests
 {
+    using global::NUnit.Framework;
+
+    using GrampsView.Data.Model;
+    using GrampsView.NUnit.Test.Utility;
+
     [TestFixture()]
     public class DateObjectModelTests
     {
-        [Test()]
-        public void DateObjectModelTest()
-        {
-            Assert.Fail();
-        }
+        private DateObjectModelAbstractTest testVal;
 
         [Test()]
         public void AsCardListLineTest()
         {
-            Assert.Fail();
+            CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
+
+            if (!string.IsNullOrEmpty(AsCardListLineTest_Basic.Title)) { Assert.Fail(); return; }
+
+            Assert.True(AsCardListLineTest_Basic.Count == 0);
+
+            Assert.Pass();
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
         }
 
         [Test()]
@@ -41,13 +46,19 @@ namespace GrampsView.Data.Model.Tests
         }
 
         [Test()]
+        public void DateDifferenceDecodedTest()
+        {
+            Assert.Fail();
+        }
+
+        [Test()]
         public void DateDifferenceTest()
         {
             Assert.Fail();
         }
 
         [Test()]
-        public void DateDifferenceDecodedTest()
+        public void DateObjectModelTest()
         {
             Assert.Fail();
         }
@@ -62,6 +73,12 @@ namespace GrampsView.Data.Model.Tests
         public void GetHashCodeTest()
         {
             Assert.Fail();
+        }
+
+        [SetUp]
+        public void Init()
+        {
+            testVal = new DateObjectModelAbstractTest();
         }
     }
 }
