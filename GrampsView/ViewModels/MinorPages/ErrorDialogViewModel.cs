@@ -9,16 +9,16 @@
 
 namespace GrampsView.ViewModels
 {
-    using System;
-
     using GrampsView.Common;
 
-    using Prism.AppModel;
     using Prism.Commands;
     using Prism.Mvvm;
     using Prism.Services.Dialogs;
 
-    public class ErrorDialogViewModel : BindableBase, IDialogAware, IAutoInitialize
+    using System;
+    using System.Diagnostics.Contracts;
+
+    public class ErrorDialogViewModel : BindableBase, IDialogAware
     {
         private ActionDialogArgs _ADArgs;
 
@@ -29,7 +29,6 @@ namespace GrampsView.ViewModels
 
         public event Action<IDialogParameters> RequestClose;
 
-        [AutoInitialize(true)] // Makes adaArgs parameter required
         public ActionDialogArgs AdaArgs
         {
             get => _ADArgs;
@@ -42,12 +41,18 @@ namespace GrampsView.ViewModels
 
         public void OnDialogClosed()
         {
-            Console.WriteLine("The Error Dialog has been closed...");
         }
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-            // No need to do anything as IAutoInitialize will take care of what we need here...
+            Contract.Requires(parameters != null);
+            Contract.Requires(parameters.Count == 1);
+
+            AdaArgs = parameters["adaArgs"] as ActionDialogArgs;
+        }
+
+        protected virtual void CloseDialog(string parameter)
+        {
         }
     }
 }

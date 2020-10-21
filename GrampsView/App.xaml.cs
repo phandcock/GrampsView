@@ -17,7 +17,6 @@ using Microsoft.AppCenter.Distribute;
 using Prism;
 using Prism.Events;
 using Prism.Ioc;
-using Prism.Logging;
 using Prism.Modularity;
 
 using System.Diagnostics;
@@ -47,18 +46,6 @@ namespace GrampsView
         {
         }
 
-        /// <summary>
-        /// Creates the logger.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public static ILoggerFacade CreateLogger
-        {
-            get
-            {
-                return new CommonLogPrism(App.Current.Container.Resolve<ICommonLogging>());
-            }
-        }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
