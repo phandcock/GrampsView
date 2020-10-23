@@ -1,17 +1,13 @@
-﻿
-
-namespace GrampsView.Data.Model.Tests
+﻿namespace GrampsView.Data.Model.Tests
 {
     using global::NUnit.Framework;
 
     using GrampsView.Common;
     using GrampsView.NUnit.Test.Utility;
 
-
     [TestFixture()]
     public class DateObjectModelRangeTests
     {
-
         private DateObjectModelRange testVal;
 
         [Test()]
@@ -28,8 +24,6 @@ namespace GrampsView.Data.Model.Tests
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[4], "Dual Dated:", testVal.GDualdated.ToString())) { Assert.Fail(); return; }
 
             Assert.True(AsCardListLineTest_Basic.Count == 5);
-
-            Assert.Pass();
         }
 
         [TearDown]

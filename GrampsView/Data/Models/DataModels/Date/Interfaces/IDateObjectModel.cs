@@ -16,8 +16,6 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IDateObjectModel : IComparable<DateObjectModel>, IComparer<DateObjectModel>
     {
-    
-
         int GetAge { get; }
 
         int GetDecade { get; }
@@ -25,8 +23,6 @@ namespace GrampsView.Data.Model
         DateTime GetMonthDay { get; }
 
         string GetYear { get; }
-
-       
 
         string LongDate { get; }
 

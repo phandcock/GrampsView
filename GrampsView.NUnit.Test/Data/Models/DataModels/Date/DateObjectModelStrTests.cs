@@ -25,7 +25,7 @@ namespace GrampsView.Data.Model.Tests
 
             Assert.True(AsCardListLineTest_Basic.Count == 3);
 
-            Assert.Pass();
+         
         }
 
         [TearDown]
