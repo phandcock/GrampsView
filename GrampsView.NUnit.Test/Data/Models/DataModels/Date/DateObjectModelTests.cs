@@ -8,6 +8,7 @@
     [TestFixture()]
     public class DateObjectModelTests
     {
+        private DateObjectModelAbstractTest compareVal;
         private DateObjectModelAbstractTest testVal;
 
         [Test()]
@@ -30,19 +31,24 @@
         [Test()]
         public void CompareTest()
         {
-            Assert.Fail();
+            Assert.True(testVal.Compare(testVal, compareVal) == 0);
+
+
+          
         }
 
         [Test()]
         public void CompareToTest()
         {
-            Assert.Fail();
+            Assert.True(testVal.CompareTo(compareVal) == 0);
         }
 
         [Test()]
         public void CompareToTest1()
         {
-            Assert.Fail();
+            IDateObjectModel compareVal1 = new DateObjectModelAbstractTest();
+
+            Assert.True(testVal.CompareTo(compareVal1) == 0);
         }
 
         [Test()]
@@ -66,7 +72,7 @@
         [Test()]
         public void EqualsTest()
         {
-            Assert.Fail();
+            Assert.True(testVal == compareVal);
         }
 
         [Test()]
@@ -79,6 +85,8 @@
         public void Init()
         {
             testVal = new DateObjectModelAbstractTest();
+
+            compareVal = new DateObjectModelAbstractTest();
         }
     }
 }
