@@ -24,8 +24,6 @@
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[4], "Dual Dated:", testVal.GDualdated.ToString())) { Assert.Fail(); return; }
 
             Assert.True(AsCardListLineTest_Basic.Count == 5);
-
-            Assert.Pass();
         }
 
         [TearDown]

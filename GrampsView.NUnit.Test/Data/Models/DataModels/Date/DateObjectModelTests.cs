@@ -19,8 +19,6 @@
             if (!string.IsNullOrEmpty(AsCardListLineTest_Basic.Title)) { Assert.Fail(); return; }
 
             Assert.True(AsCardListLineTest_Basic.Count == 0);
-
-            Assert.Pass();
         }
 
         [TearDown]
@@ -32,9 +30,6 @@
         public void CompareTest()
         {
             Assert.True(testVal.Compare(testVal, compareVal) == 0);
-
-
-          
         }
 
         [Test()]
@@ -54,13 +49,13 @@
         [Test()]
         public void DateDifferenceDecodedTest()
         {
-            Assert.Fail();
+            Assert.True(testVal.DateDifferenceDecoded(compareVal) == "");
         }
 
         [Test()]
         public void DateDifferenceTest()
         {
-            Assert.Fail();
+            Assert.True(testVal.DateDifference(compareVal) == new System.TimeSpan());
         }
 
         [Test()]

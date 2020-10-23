@@ -24,7 +24,7 @@
 
             Assert.True(AsCardListLineTest_Basic.Count == 4);
 
-            Assert.Pass();
+           
         }
 
         [TearDown]

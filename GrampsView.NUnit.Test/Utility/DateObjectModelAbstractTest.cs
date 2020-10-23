@@ -4,7 +4,7 @@
 
     using System;
 
-    public class DateObjectModelAbstractTest : DateObjectModel, IDateObjectModel
+    public partial class DateObjectModelAbstractTest : DateObjectModel, IDateObjectModel
     {
         public override int GetAge => throw new NotImplementedException();
 
@@ -16,7 +16,7 @@
 
         public override DateTime SingleDate => throw new NotImplementedException();
 
-        public override DateTime SortDate => throw new NotImplementedException();
+        public override DateTime SortDate { get { return new DateTime(); } }
 
         public override CardListLineCollection AsCardListLine(string argTitle = null)
         {
