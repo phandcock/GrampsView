@@ -326,7 +326,7 @@
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Type:", this.GValTypeDecoded),
                                 new CardListLine("Quality:", this.GQualityDecoded),
-                                new CardListLine("Dual Dated:", this.GDualdated),
+                                new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),
                             };
             }

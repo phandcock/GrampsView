@@ -1,7 +1,4 @@
-﻿/// <summary>
-/// Common routines
-/// </summary>
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System.ComponentModel;
     using System.Runtime.Serialization;
@@ -43,6 +40,27 @@ namespace GrampsView.Data.Model
         {
             Label = LabelArg;
             Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CardListLine"/> class.
+        /// </summary>
+        /// <param name="argLabel">
+        /// The argument label.
+        /// </param>
+        /// <param name="argValue">
+        /// if set to <c>true</c> [argument value].
+        /// </param>
+        /// <param name="argShowIf">
+        /// Show if the value equals this vlaue.
+        /// </param>
+        public CardListLine(string argLabel, bool argValue, bool argShowIf)
+        {
+            if (argValue == argShowIf)
+            {
+                Label = argLabel;
+                Value = argValue.ToString(System.Globalization.CultureInfo.CurrentCulture);
+            }
         }
 
         /// <summary>

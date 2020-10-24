@@ -163,9 +163,20 @@
 
             internal set
             {
-             
-                    SetProperty(ref _GQuality, value);
-                
+                SetProperty(ref _GQuality, value);
+            }
+        }
+
+        public string GQualityDecoded
+        {
+            get
+            {
+                if (GQuality == CommonEnums.DateQuality.unknown)
+                {
+                    return string.Empty;
+                }
+
+                return nameof(GQuality);
             }
         }
 
@@ -206,21 +217,6 @@
                 {
                     SetProperty(ref _GStop, value);
                 }
-            }
-        }
-
-
-
-        public string GQualityDecoded
-        {
-            get
-            {
-                if (GQuality == CommonEnums.DateQuality.unknown)
-                {
-                    return string.Empty;
-                }
-
-                return nameof(GQuality);
             }
         }
 
@@ -301,7 +297,7 @@
                                 new CardListLine("Stop:", this.GStop),
                                 new CardListLine("Quality:", this.GQualityDecoded),
                                 new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Dual Dated:", this.GDualdated),
+                                new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),
                             };
             }

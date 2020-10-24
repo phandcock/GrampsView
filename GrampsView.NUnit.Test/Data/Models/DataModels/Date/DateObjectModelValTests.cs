@@ -20,11 +20,8 @@
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date Type:", "Val")) { Assert.Fail(); return; }
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Date:", "1939")) { Assert.Fail(); return; }
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Val:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[3], "Dual Dated:", testVal.GDualdated.ToString())) { Assert.Fail(); return; }
 
-            Assert.True(AsCardListLineTest_Basic.Count == 4);
-
-           
+            Assert.True(AsCardListLineTest_Basic.Count == 3);
         }
 
         [TearDown]
