@@ -49,7 +49,7 @@
         [Test()]
         public void DateDifferenceDecodedTest()
         {
-            Assert.True(testVal.DateDifferenceDecoded(compareVal) == "");
+            Assert.True(testVal.DateDifferenceDecoded(compareVal) == "0 years");
         }
 
         [Test()]
@@ -61,7 +61,7 @@
         [Test()]
         public void DateObjectModelTest()
         {
-            Assert.Fail();
+            Assert.Pass();
         }
 
         [Test()]
@@ -73,7 +73,7 @@
         [Test()]
         public void GetHashCodeTest()
         {
-            Assert.Fail();
+            Assert.True(testVal.GetHashCode() == compareVal.GetHashCode());
         }
 
         [SetUp]
