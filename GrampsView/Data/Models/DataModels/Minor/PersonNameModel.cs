@@ -33,6 +33,30 @@
             HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
+        public string FirstFirstName
+        {
+            get
+            {
+                return GFirstName.Split()[0];
+            }
+        }
+
+        public string ShortName
+        {
+            get
+            {
+                string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
+                if (fullName.Trim().Length == 0)
+                {
+                    return "Unknown";
+                }
+                else
+                {
+                    return fullName;
+                }
+            }
+        }
+
         /// <summary>
         /// Gets the Persons FullName. Returns 'unknown' if no firstname or surname.
         /// </summary>
