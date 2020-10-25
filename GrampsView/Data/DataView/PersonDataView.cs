@@ -332,31 +332,7 @@ namespace GrampsView.Data.DataView
 
             argQueryString = argQueryString.ToLower(CultureInfo.CurrentCulture);
 
-            // TODO Search on FullName collection
-
-            // Search by Full Name
-            var temp = DataViewData.Where(x => x.GPersonNamesCollection.GetPrimaryName.DeRef.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argQueryString)).OrderBy(y => y.GetDefaultText);
-
-            foreach (PersonModel tempMO in temp)
-            {
-                itemsFound.Add(tempMO.HLink);
-            }
-
-            // Search by Called By
-            temp = DataViewData.Where(x => x.GPersonNamesCollection.GetPrimaryName.DeRef.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQueryString)).OrderBy(y => y.GetDefaultText);
-
-            foreach (PersonModel tempMO in temp)
-            {
-                itemsFound.Add(tempMO.HLink);
-            }
-
-            // Search by Nick Name
-            temp = DataViewData.Where(x => x.GPersonNamesCollection.GetPrimaryName.DeRef.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQueryString)).OrderBy(y => y.GetDefaultText);
-
-            foreach (PersonModel tempMO in temp)
-            {
-                itemsFound.Add(tempMO.HLink);
-            }
+            // TODO What can we search on?
 
             return itemsFound;
         }

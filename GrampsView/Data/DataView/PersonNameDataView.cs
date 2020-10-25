@@ -18,6 +18,7 @@ namespace GrampsView.Data.DataView
 
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
 
     /// <summary>
@@ -234,7 +235,32 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.Contains(argString)).OrderBy(y => y.GetDefaultText);
+            // Search by Full Name
+            var temp = DataViewData.Where(x => x.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+
+            foreach (PersonNameModel tempMO in temp)
+            {
+                itemsFound.Add(tempMO.HLink);
+            }
+
+            // Search by First and Last Name
+            temp = DataViewData.Where(x => x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+
+            foreach (PersonNameModel tempMO in temp)
+            {
+                itemsFound.Add(tempMO.HLink);
+            }
+
+            // Search by Called By
+            temp = DataViewData.Where(x => x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+
+            foreach (PersonNameModel tempMO in temp)
+            {
+                itemsFound.Add(tempMO.HLink);
+            }
+
+            // Search by Nick Name
+            temp = DataViewData.Where(x => x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {

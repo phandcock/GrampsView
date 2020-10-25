@@ -159,13 +159,8 @@
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                // Get Bio
-                HLinkNoteModel bioCard = PersonObject.GNoteRefCollection.GetBio;
-                if (bioCard.Valid)
-                {
-                    bioCard.CardType = DisplayFormat.NoteCardFull;
-                    BaseDetail.Add(bioCard);
-                }
+          
+              
 
                 // Add PersonRefDetails
                 if (BaseNavParamsHLink is HLinkPersonRefModel)

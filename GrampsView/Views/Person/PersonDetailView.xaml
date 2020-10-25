@@ -19,9 +19,12 @@
         <StackLayout>
             <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonNamesCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonNamesCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}"/>
+            
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

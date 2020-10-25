@@ -13,6 +13,8 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IPersonNameModel : IModelBase
     {
+        string FirstFirstName { get; }
+
         /// <summary>
         /// Compares the specified a.
         /// </summary>
