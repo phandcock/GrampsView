@@ -330,7 +330,13 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            argQueryString = argQueryString.ToLower(CultureInfo.CurrentCulture);
+            // Get list of peoples names TODO see if we can make this less fragile. Always only 1 backlink?
+            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQueryString);
+
+            foreach (HLinkPersonNameModel item in tt)
+            {
+                itemsFound.Add(item.DeRef.BackHLinkReferenceCollection[0].HLink() as HLinkPersonModel);
+            }
 
             // TODO What can we search on?
 

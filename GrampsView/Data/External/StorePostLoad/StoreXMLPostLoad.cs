@@ -10,7 +10,6 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -354,6 +353,12 @@ namespace GrampsView.Data.ExternalStorageNS
                     DataStore.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
+                // PersonName Collection
+                foreach (HLinkPersonNameModel personNameRef in thePersonModel.GPersonNamesCollection)
+                {
+                    DataStore.DS.PersonNameData[personNameRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                }
+
                 // Sibling Collection
                 foreach (HLinkPersonModel personRef in thePersonModel.SiblingRefCollection)
                 {
@@ -394,7 +399,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     foreach (HLinkPersonModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey].GChildRefCollection)
                     {
                         thePersonModel.SiblingRefCollection.Add(item);
-                    }  
+                    }
                 }
 
                 DataStore.DS.PersonData[thePersonModel.HLinkKey] = thePersonModel;

@@ -134,7 +134,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkPersonNameModelCollection t = new HLinkPersonNameModelCollection();
 
-            foreach (PersonNameModel item in DataDefaultSort)
+            foreach (IPersonNameModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -266,6 +266,8 @@ namespace GrampsView.Data.DataView
             {
                 itemsFound.Add(tempMO.HLink);
             }
+
+           
 
             return itemsFound;
         }

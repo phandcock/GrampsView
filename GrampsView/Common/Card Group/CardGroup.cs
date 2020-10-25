@@ -49,7 +49,6 @@ namespace GrampsView.Common
 
             argCard.CardType = argDisplayFormat;
 
-      
             base.Add(argCard);
         }
 
@@ -59,7 +58,6 @@ namespace GrampsView.Common
 
             if (argCardGroup.Count > 0)
             {
-             
                 base.Add(argCardGroup);
             }
         }
@@ -70,7 +68,6 @@ namespace GrampsView.Common
 
             if (argCardGroup.Count > 0)
             {
-              
                 base.Add(argCardGroup);
             }
         }
@@ -90,75 +87,9 @@ namespace GrampsView.Common
             if (argCardGroup.Count > 0)
             {
                 base.Add(argCardGroup);
-              
+
                 this.Title = argTitle;
             }
         }
-
-        //public void Add(CardGroupBase<AddressModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-              
-        //        base.Add(argCardGroup);
-        //    }
-        //}
-
-        //public void Add(CardGroupBase<AttributeModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-               
-        //        base.Add(argCardGroup);
-        //    }
-        //}
-
-        //public void Add(CardGroupBase<LdsOrdModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-             
-        //        base.Add(argCardGroup);
-        //    }
-        //}
-
-        //public void Add(CardGroupBase<URLModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-              
-        //        base.Add(argCardGroup);
-        //    }
-        //}
-
-        //public void Add(CardGroupBase<PersonNameModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-            
-        //        base.Add(argCardGroup);
-        //    }
-        //}
-
-        //public void Add(CardGroupBase<SurnameModel> argCardGroup)
-        //{
-        //    Contract.Requires(argCardGroup != null);
-
-        //    if (argCardGroup.Count > 0)
-        //    {
-              
-        //        base.Add(argCardGroup);
-        //    }
-        //}
     }
 }
