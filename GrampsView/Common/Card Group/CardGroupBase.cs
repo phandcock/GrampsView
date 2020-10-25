@@ -54,6 +54,17 @@ namespace GrampsView.Common
             }
         }
 
+        public new void Add(T argItem)
+        {
+            // Check if a duplicate
+            if (this.Contains(argItem))
+            {
+                return;
+            }
+
+            base.Add(argItem);
+        }
+
         public new void Clear()
         {
             foreach (var item in this)

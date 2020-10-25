@@ -1,19 +1,24 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IPersonNameModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// </summary>
     public interface IPersonNameModel : IModelBase
     {
         string FirstFirstName { get; }
+
+        DateObjectModel GDate { get; set; }
+
+        string GDisplay { get; set; }
+
+        new string GetDefaultText { get; }
+
+        string GTitle { get; }
+
+        string GType { get; }
+
+        HLinkPersonNameModel HLink { get; }
+
+        string SortName { get; }
 
         /// <summary>
         /// Compares the specified a.

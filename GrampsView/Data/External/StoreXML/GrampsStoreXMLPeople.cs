@@ -68,12 +68,11 @@
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));
 
-                        if (loadPerson.Id == "I0571")
+                        if (loadPerson.Id == "I0683")
                         {
                         }
 
-                        // if (loadPerson.Id == "I0922") { // TODO Why parent hugh cameron display
-                        // bad? } Address
+                        // Address
                         loadPerson.GAddress = GetAddressCollection(pname);
 
                         // Get attribute collection
@@ -140,6 +139,11 @@
 
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);
+
+                        //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+                        //if (tt.Count() > 0)
+                        //{
+                        //}
                     }
 
                     // let everybody know
@@ -160,6 +164,11 @@
                     }
                 }
             }
+
+            //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+            //if (tt.Count() > 0)
+            //{
+            //}
 
             return;
         }

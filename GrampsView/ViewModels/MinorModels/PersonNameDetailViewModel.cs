@@ -123,7 +123,7 @@ namespace GrampsView.ViewModels
 
                     new CardListLine("Group:", PersonNameObject.GGroup),
                     new CardListLine("Nick:", PersonNameObject.GNick),
-                    new CardListLine("Priv:", PersonNameObject.GPriv),
+                    new CardListLine("Priv:", PersonNameObject.GPriv,true),
                     new CardListLine("Sort:", PersonNameObject.GSort)
                 };
 
@@ -144,11 +144,6 @@ namespace GrampsView.ViewModels
 
                     BaseDetail.Add(SurnameCard);
                 }
-
-                BaseDetail.Add(PersonNameObject.GCitationRefCollection.GetCardGroup());
-                BaseDetail.Add(PersonNameObject.GNoteReferenceCollection.GetCardGroup());
-
-                BaseDetail.Add(PersonNameObject.BackHLinkReferenceCollection.GetCardGroup());
             }
 
             return;

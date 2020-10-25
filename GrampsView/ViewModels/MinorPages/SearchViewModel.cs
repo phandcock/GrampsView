@@ -1,15 +1,14 @@
 ﻿namespace GrampsView.ViewModels
 {
-    using GrampsView.Assets.Strings;
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.UserControls;
 
     using Prism.Events;
     using Prism.Navigation;
 
     using System.Diagnostics.Contracts;
+    using System.Globalization;
     using System.Windows.Input;
 
     using Xamarin.Forms;
@@ -69,12 +68,6 @@
                 return DV.CitationDV.Search(SearchText);
             }
         }
-
-        /// <summary>Gets or sets a value indicating whether [search items found].</summary>
-        /// <value>
-        ///   <c>true</c> if [search items found]; otherwise, <c>false</c>.</value>
-        public bool SearchItemsFound { get; set;  }
-
 
         public CardGroupBase<HLinkEventModel> EventList
         {
@@ -159,6 +152,14 @@
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether [search items found].
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if [search items found]; otherwise, <c>false</c>.
+        /// </value>
+        public bool SearchItemsFound { get; set; }
+
+        /// <summary>
         /// Gets or sets the search text.
         /// </summary>
         /// <value>
@@ -198,16 +199,15 @@
         {
             Contract.Assert(argSearch != null);
 
-            if (argSearch.Length > 0)
-            {
-                SearchText = argSearch;
+            SearchText = argSearch.Trim().ToLower(CultureInfo.CurrentCulture);
 
+            if (SearchText.Length > 0)
+            {
                 SearchItemsFound = false;
 
                 // Trigger refresh of View fields via INotifyPropertyChanged
                 RaisePropertyChanged(string.Empty);
             }
-
         }
 
         /// <summary>
