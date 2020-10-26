@@ -32,12 +32,10 @@
                 Text="{Binding Title}" />
         </Frame>
 
-        <StackLayout>
-            <FlexLayout
-                x:Name="CardGroupTemplateFlexer"
-                BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-                BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
-                Style="{StaticResource FlexLayoutCards}" />
-        </StackLayout>
+        <FlexLayout
+            x:Name="CardGroupTemplateFlexer"
+            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+            BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
+            Style="{StaticResource FlexLayoutCards}" />
     </StackLayout>
 </Frame>

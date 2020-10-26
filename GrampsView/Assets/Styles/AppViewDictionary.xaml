@@ -445,8 +445,6 @@
         <Setter Property="CornerRadius" Value="2" />
         <Setter Property="Aspect" Value="AspectFit" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
-
-
     </Style>
 
     <!--

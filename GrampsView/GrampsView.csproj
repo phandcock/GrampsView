@@ -150,8 +150,10 @@
     <Compile Remove="UserControls\General\FlexSingleCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupMultiCard.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupSingleCard.xaml.cs" />
+    <Compile Remove="UserControls\General\LayoutData.cs" />
     <Compile Remove="UserControls\General\MediaImage.xaml.cs" />
     <Compile Remove="UserControls\General\RadioButtonxExtended .cs" />
+    <Compile Remove="UserControls\General\WrapLayout.cs" />
     <Compile Remove="UserControls\HeaderCardLarge.xaml.cs" />
     <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
     <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
