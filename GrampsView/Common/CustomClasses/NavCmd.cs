@@ -1,12 +1,12 @@
-﻿using GrampsView.Events;
-
-using Prism.Events;
-using Prism.Navigation;
-
-using System;
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
+    using GrampsView.Events;
+
+    using Prism.Events;
+    using Prism.Navigation;
+
+    using System;
+
     public class NavCmd
     {
         private readonly IEventAggregator localEventAggregator;
