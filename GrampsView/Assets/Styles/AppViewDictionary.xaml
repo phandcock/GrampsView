@@ -37,10 +37,8 @@
         BasedOn="{StaticResource GVButtonStyle}"
         TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="TextColor" Value="Black" />
     </Style>
 

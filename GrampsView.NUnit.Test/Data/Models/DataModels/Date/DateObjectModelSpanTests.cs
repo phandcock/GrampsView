@@ -17,12 +17,11 @@
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date Type:", "Span")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Date:", "1939 to 1948")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Start:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[3], "Stop:", "1948")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939 to 1948")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "1948")) { Assert.Fail(); return; }
 
-            Assert.True(AsCardListLineTest_Basic.Count == 4);
+            Assert.True(AsCardListLineTest_Basic.Count == 3);
         }
 
         [TearDown]

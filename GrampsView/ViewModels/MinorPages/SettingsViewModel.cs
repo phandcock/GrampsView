@@ -23,7 +23,9 @@ namespace GrampsView.ViewModels
     public class SettingsViewModel : ViewModelBase
     {
         private bool _LocalCanForceUpdate = true;
+
         private bool _TestButton = true;
+
         private bool _ThemeButtonDarkChecked;
 
         private bool _ThemeButtonLightChecked;
@@ -156,7 +158,7 @@ namespace GrampsView.ViewModels
             ActionDialogArgs t = new ActionDialogArgs
             {
                 Name = "Test Error",
-                Text = "Test Error with detail",
+                Text = "Test Error with detail and even more detail and more and more and more",
             };
 
             t.ItemDetails.Add("Test Line 1", "Test Value 1");

@@ -121,7 +121,7 @@
     <value>ms-appx:///Assets/SmallLogo.scale-100.png</value>
   </data>
   <data name="FileInputHandlerPage_Instructions" xml:space="preserve">
-    <value>Load Gramps Export file that has a GPKG or .GRAMPS extension. </value>
+    <value>Load Gramps Export file that has a .GPKG or .GRAMPS extension. </value>
   </data>
   <data name="HubView_DataNotLoadedText" xml:space="preserve">
     <value>This program displays the information contained in a GRAMPS genealogy program export data file (the type that includes media).  No data file has been loaded.  Choose option from the menu to load one.</value>
@@ -182,5 +182,14 @@
   </data>
   <data name="Media_Detail_Open_File" xml:space="preserve">
     <value>Double click the image or symbol to open the file.</value>
+  </data>
+  <data name="Settings_ForceUpdateCheck" xml:space="preserve">
+    <value>Force check for update</value>
+  </data>
+  <data name="Settings_GotoMessageLog" xml:space="preserve">
+    <value>View Message Log</value>
+  </data>
+  <data name="Settings_ViewAlertDIalog" xml:space="preserve">
+    <value>Test Alert DIalogs</value>
   </data>
 </root>

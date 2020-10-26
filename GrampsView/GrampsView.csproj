@@ -9,7 +9,7 @@
     <PackageLicenseExpression>https://github.com/phandcock/GrampsView/blob/master/LICENSE</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/phandcock/GrampsView</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Configurations>Debug;Release;GooglePlay</Configurations>
+    <Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
 
@@ -25,6 +25,20 @@
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
     <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unit Test|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <DocumentationFile />
   </PropertyGroup>
 
   <ItemGroup>
@@ -391,7 +405,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Assets\Strings\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="UserControls\ListLineCardLarge.xaml">

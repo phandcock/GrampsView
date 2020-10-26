@@ -312,15 +312,14 @@
             }
         }
 
-        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
             if (this.Valid)
             {
-                DateModelCard = new CardListLineCollection
+                DateModelCard = new CardListLineCollection ( "Date Detail")
                             {
-                                new CardListLine("Date Type:", "Val"),
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),

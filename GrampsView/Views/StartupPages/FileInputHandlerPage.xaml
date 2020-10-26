@@ -31,13 +31,13 @@
             <Button
                 Grid.Row="2"
                 Command="{Binding PickFileCommand}"
-                Style="{DynamicResource GVButtonStyle}"
+                Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.FileInputHandlerPage_Choose_Button_Text}" />
 
             <Button
                 Grid.Row="3"
                 Command="{Binding LoadSampleCommand}"
-                Style="{DynamicResource GVButtonStyle}"
+                Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.FirstRun_SampleButton}" />
         </StackLayout>
     </ScrollView>

@@ -7,7 +7,6 @@
 
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
-
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
@@ -46,22 +45,23 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Label
-                    Grid.Row="1"
+                    Grid.Row="0"
                     Grid.Column="0"
                     Margin="20,5"
+                    BackgroundColor="OrangeRed"
+                    HorizontalOptions="CenterAndExpand"
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Text, Mode=OneWay}"
                     TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                 Light={StaticResource OnErrorColorLight}}" />
 
                 <FlexLayout
-                    Grid.Row="2"
+                    Grid.Row="1"
                     Grid.Column="0"
                     Margin="20,0,20,10"
                     AlignItems="Start"
@@ -101,7 +101,7 @@
                 </FlexLayout>
 
                 <Button
-                    Grid.Row="3"
+                    Grid.Row="2"
                     Grid.Column="0"
                     Command="{Binding CloseCommand}"
                     Style="{DynamicResource GVButtonStyle}"

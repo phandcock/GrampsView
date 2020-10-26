@@ -283,7 +283,7 @@
             }
         }
 
-        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
@@ -291,7 +291,6 @@
             {
                 DateModelCard = new CardListLineCollection
                             {
-                                new CardListLine("Date Type:", "Range"),
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),
