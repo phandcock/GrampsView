@@ -159,9 +159,6 @@
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-          
-              
-
                 // Add PersonRefDetails
                 if (BaseNavParamsHLink is HLinkPersonRefModel)
                 {

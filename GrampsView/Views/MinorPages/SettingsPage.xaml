@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prismnav="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -44,13 +45,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
-
-                <Button
-                    Command="{Binding ForceUpdateCheckCommand}"
-                    Style="{DynamicResource GVButtonStyle}"
-                    Text="Force check for App Center Update" />
-            </Frame>
+            <Button
+                Command="{Binding ForceUpdateCheckCommand}"
+                Style="{DynamicResource GVButtonMenu}"
+                Text="{x:Static i18n:AppResources.Settings_ForceUpdateCheck}" />
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -297,13 +295,13 @@
             <Button
                 Command="{prismnav:NavigateTo 'MessageLogPage',
                                               Animated=True}"
-                Style="{DynamicResource GVButtonStyle}"
-                Text="Go To MessageLog" />
+                Style="{DynamicResource GVButtonMenu}"
+                Text="{x:Static i18n:AppResources.Settings_GotoMessageLog}" />
 
             <Button
                 Command="{Binding TestCommand}"
-                Style="{DynamicResource GVButtonStyle}"
-                Text="Alert" />
+                Style="{DynamicResource GVButtonMenu}"
+                Text="{x:Static i18n:AppResources.Settings_ViewAlertDIalog}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

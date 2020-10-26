@@ -1,6 +1,4 @@
-﻿
-
-namespace GrampsView.Data.Model.Tests
+﻿namespace GrampsView.Data.Model.Tests
 {
     using global::NUnit.Framework;
 
@@ -18,14 +16,10 @@ namespace GrampsView.Data.Model.Tests
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date Type:", "String")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Date:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Val:", "1939")) { Assert.Fail(); return; }
-         
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939")) { Assert.Fail(); return; }
 
-            Assert.True(AsCardListLineTest_Basic.Count == 3);
-
-         
+            Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
 
         [TearDown]
@@ -33,27 +27,22 @@ namespace GrampsView.Data.Model.Tests
         {
         }
 
+        [Test()]
+        public void DateObjectModelStr_Basic()
+        {
+            string aVal = "1948";
+
+            DateObjectModelStr testVal = new DateObjectModelStr(aVal);
+
+            Assert.True(testVal.Valid);
+        }
 
         [SetUp]
         public void Init()
         {
-       
             string aVal = "1939";
-        
 
             testVal = new DateObjectModelStr(aVal);
-
-        }
-
-        [Test()]
-        public void DateObjectModelStr_Basic()
-        {
-     
-            string aVal = "1948";
-
-            DateObjectModelStr testVal  = new DateObjectModelStr(aVal);
-
-            Assert.True(testVal.Valid);
         }
     }
 }

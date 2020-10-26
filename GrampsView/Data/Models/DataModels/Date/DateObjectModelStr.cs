@@ -16,9 +16,13 @@
         /// </summary>
         private string _GVal = string.Empty;
 
-        /// <summary>Initializes a new instance of the <see cref="DateObjectModelStr" /> class. Date but
-        /// stored as a string so can not be converted to a DateTime.</summary>
-        /// <param name="aVal">a value.</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but
+        /// stored as a string so can not be converted to a DateTime.
+        /// </summary>
+        /// <param name="aVal">
+        /// a value.
+        /// </param>
         public DateObjectModelStr(string aVal)
         {
             try
@@ -38,29 +42,6 @@
             }
         }
 
-        public override int GetHashCode()
-        {
-            return HLinkKey.GetHashCode();
-        }
-
-        public override DateTime SingleDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-        }
-
-        public override DateTime SortDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-
-        }
         /// <summary>
         /// Not a properly formatted date so return 0;
         /// </summary>
@@ -135,9 +116,25 @@
             }
         }
 
-    
+        public override DateTime SingleDate
+        {
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate;
+            }
+        }
 
-        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        public override DateTime SortDate
+        {
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate;
+            }
+        }
+
+        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
@@ -145,7 +142,6 @@
             {
                 DateModelCard = new CardListLineCollection
                             {
-                                new CardListLine("Date Type:", "String"),
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                             };
@@ -184,6 +180,11 @@
             DateObjectModel tempObj = obj as DateObjectModel;
 
             return (this.NotionalDate == tempObj.NotionalDate);
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
         }
     }
 }

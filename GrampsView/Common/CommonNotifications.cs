@@ -188,9 +188,7 @@ namespace GrampsView.Common
 
         public void NotifyAlert(string strMessage)
         {
-            Dictionary<string, string> argErrorDetail = new Dictionary<string, string>();
-
-            NotifyDialogBox("Alert", strMessage, argErrorDetail);
+            NotifyDialogBox("Alert", strMessage);
         }
 
         /// <summary>
@@ -214,7 +212,7 @@ namespace GrampsView.Common
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        public void NotifyDialogBox(string argHeader, string argMessage, Dictionary<string, string> argErrorDetail)
+        public void NotifyDialogBox(string argHeader, string argMessage, Dictionary<string, string> argErrorDetail = null)
         {
             if (argErrorDetail is null)
             {
@@ -233,12 +231,6 @@ namespace GrampsView.Common
             }
 
             NotifyDialogBox(t);
-
-            //DataLogEntryAdd(argMessage);
-
-            //argErrorDetail.Add("Error", argMessage);
-
-            //CommonLogging.LogError(argMessage, argErrorDetail);
         }
 
         public void NotifyError(string argMessage, Dictionary<string, string> argErrorDetail)
