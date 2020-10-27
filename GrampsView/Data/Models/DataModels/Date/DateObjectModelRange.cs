@@ -224,7 +224,7 @@
         {
             get
             {
-                string dateString = "Range from " + GStart + " to " + GStop;
+                string dateString = "From " + GStart + " to " + GStop;
 
                 if (GQuality != CommonEnums.DateQuality.unknown)
                 {
@@ -238,7 +238,7 @@
 
                 if (GDualdated)
                 {
-                    dateString += " Dual dated";
+                    dateString += " (Dual dated)";
                 }
 
                 if (!string.IsNullOrEmpty(GNewYear))

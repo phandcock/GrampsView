@@ -230,19 +230,6 @@
             }
         }
 
-        public string GValTypeDecoded
-        {
-            get
-            {
-                if (GValType == DateValType.unknown)
-                {
-                    return string.Empty;
-                }
-
-                return nameof(GValType) + " ";
-            }
-        }
-
         public override string LongDate
         {
             get
@@ -256,7 +243,10 @@
                     dateString += " Format: " + GCformat;
                 }
 
-                dateString = GValTypeDecoded + dateString;
+                if (GValType != DateValType.unknown)
+                {
+                    dateString = Enum.GetName(typeof(DateValType), GValType) + " " + dateString;
+                }
 
                 dateString += GQualityDecoded;
 
@@ -288,7 +278,10 @@
 
                 dateString = GVal;
 
-                dateString = GValTypeDecoded + dateString;
+                if (GValType != DateValType.unknown)
+                {
+                    dateString = Enum.GetName(typeof(DateValType), GValType) + " " + dateString;
+                }
 
                 return dateString.Trim();
             }
@@ -312,13 +305,26 @@
             }
         }
 
+        private string GValTypeDecoded
+        {
+            get
+            {
+                if (GValType != DateValType.unknown)
+                {
+                    return Enum.GetName(typeof(DateValType), GValType);
+                }
+
+                return string.Empty;
+            }
+        }
+
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
             if (this.Valid)
             {
-                DateModelCard = new CardListLineCollection ( "Date Detail")
+                DateModelCard = new CardListLineCollection("Date Detail")
                             {
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),

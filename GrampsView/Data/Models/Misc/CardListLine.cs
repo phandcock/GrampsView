@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using System.ComponentModel;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -15,16 +16,21 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="CardListLine"/> class.
         /// </summary>
-        /// <param name="LabelArg">
-        /// The label argument.
+        /// <param name="argLabel">
+        /// The argument label.
         /// </param>
-        /// <param name="ValueArg">
-        /// The value argument.
+        /// <param name="argValue">
+        /// The argument value.
         /// </param>
-        public CardListLine(string LabelArg, string ValueArg)
+        public CardListLine(string argLabel, string argValue)
         {
-            Label = LabelArg;
-            Value = ValueArg;
+            Contract.Assert(argLabel != null);
+
+            if (argValue != null)
+            {
+                Label = argLabel.Trim();
+                Value = argValue.Trim();
+            }
         }
 
         /// <summary>
@@ -36,10 +42,12 @@
         /// <param name="ValueArg">
         /// if set to <c>true</c> [value argument].
         /// </param>
-        public CardListLine(string LabelArg, bool ValueArg)
+        public CardListLine(string argLabel, bool argValue)
         {
-            Label = LabelArg;
-            Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
+            Contract.Assert(argLabel != null);
+
+            Label = argLabel.Trim();
+            Value = argValue.ToString(System.Globalization.CultureInfo.CurrentCulture);
         }
 
         /// <summary>
@@ -56,9 +64,11 @@
         /// </param>
         public CardListLine(string argLabel, bool argValue, bool argShowIf)
         {
+            Contract.Assert(argLabel != null);
+
             if (argValue == argShowIf)
             {
-                Label = argLabel;
+                Label = argLabel.Trim();
                 Value = argValue.ToString(System.Globalization.CultureInfo.CurrentCulture);
             }
         }
@@ -72,9 +82,11 @@
         /// <param name="ValueArg">
         /// if set to <c>true</c> [value argument].
         /// </param>
-        public CardListLine(string LabelArg, int ValueArg)
+        public CardListLine(string argLabel, int ValueArg)
         {
-            Label = LabelArg;
+            Contract.Assert(argLabel != null);
+
+            Label = argLabel.Trim();
             Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
         }
 

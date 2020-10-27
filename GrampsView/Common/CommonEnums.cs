@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Common
+﻿using System.ComponentModel;
+
+namespace GrampsView.Common
 {
     public static class CommonEnums
     {
@@ -11,9 +13,13 @@
 
         public enum DateValType
         {
+            [Description("About")]
             about,
+            [Description("After")]
             after,
+            [Description("Before")]
             before,
+            [Description("Unknown")]
             unknown
         }
 

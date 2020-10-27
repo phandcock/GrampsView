@@ -17,11 +17,35 @@
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "Range from 1939 to 1948")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "From 1939 to 1948")) { Assert.Fail(); return; }
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "1939")) { Assert.Fail(); return; }
             if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "1948")) { Assert.Fail(); return; }
 
             Assert.True(AsCardListLineTest_Basic.Count == 3);
+        }
+
+        [Test()]
+        public void AsCardListLineTest_DualDated()
+        {
+            string aCFormat = null;
+            bool aDualDated = true;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aStart = "1939";
+            string aStop = "1948";
+
+            testVal = new DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop);
+
+            CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
+
+            if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
+
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "From 1939 to 1948 (Dual dated)")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "1948")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[3], "Dual Dated:", "True")) { Assert.Fail("Should be 'Dual Dated: True'"); return; }
+
+            Assert.True(AsCardListLineTest_Basic.Count == 4);
         }
 
         [TearDown]
