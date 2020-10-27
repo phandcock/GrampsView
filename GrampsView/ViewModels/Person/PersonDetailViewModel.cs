@@ -136,15 +136,15 @@
                 // Get media image
                 MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
+                // Get the Name Details
+                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
+
                 // Get the Person Details
                 CardListLineCollection nameDetails = GetExtraPersonDetails();
 
                 nameDetails.Title = "Person Detail";
 
                 BaseDetail.Add(nameDetails);
-
-                // Get the Name Details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
 
                 // Get date card
                 BaseDetail.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
