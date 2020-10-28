@@ -1,3 +1,13 @@
+## [16.10.14](https://github.com/phandcock/GrampsView/compare/v16.10.13...v16.10.14) (2020-10-28)
+
+
+### Bug Fixes
+
+* tweaks ([a79847f](https://github.com/phandcock/GrampsView/commit/a79847f4362bd979ad8bca28c7c40a47c2b0c36f))
+* update unit tests for chanegs to standard date display ([40207f7](https://github.com/phandcock/GrampsView/commit/40207f797e2a9fa405a7ebb916073071d3563d15))
+
+
+
 ## [16.10.13](https://github.com/phandcock/GrampsView/compare/v16.10.12...v16.10.13) (2020-10-26)
 
 
@@ -14,15 +24,6 @@
 ### Bug Fixes
 
 * tweak tests and fix display of DualDate field ([a86b94c](https://github.com/phandcock/GrampsView/commit/a86b94cee8d32c36498f6e15708bd1bcdf36cbe2))
-
-
-
-## [16.10.11](https://github.com/phandcock/GrampsView/compare/v16.10.10...v16.10.11) (2020-10-23)
-
-
-### Bug Fixes
-
-* upgrade to Prism 8 and associated changes ([4ec6c58](https://github.com/phandcock/GrampsView/commit/4ec6c587944f6eb4d4d9087b4c76621ad1b42ea7))
 
 
 
