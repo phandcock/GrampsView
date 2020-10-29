@@ -29,7 +29,7 @@
                 Command="{prismnav:NavigateTo 'FileInputHandlerPage',
                                               Animated=True}"
                 HorizontalOptions="Center"
-                Style="{DynamicResource GVButtonStyle}"
+                  Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.LoadDataBase_GotoLoadData}" />
         </StackLayout>
     </ScrollView>

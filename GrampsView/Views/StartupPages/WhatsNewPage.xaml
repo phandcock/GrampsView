@@ -28,7 +28,7 @@
 
             <Button
                 Command="{Binding LoadDataCommand}"
-                Style="{DynamicResource GVButtonStyle}"
+                Style="{DynamicResource GVButtonMenu}"
                 Text="{i18n:Translate WhatsNew_LoadDataButton}" />
         </StackLayout>
     </ScrollView>

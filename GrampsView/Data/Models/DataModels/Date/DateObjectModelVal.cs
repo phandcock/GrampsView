@@ -234,9 +234,12 @@
         {
             get
             {
-                string dateString;
+                string dateString = string.Empty;
 
-                dateString = GVal;
+                if (NotionalDate != DateTime.MinValue)
+                {
+                    dateString = NotionalDate.ToLongDateString();
+                }
 
                 if (!string.IsNullOrEmpty(GCformat))
                 {
@@ -274,9 +277,12 @@
         {
             get
             {
-                string dateString;
+                string dateString = string.Empty;
 
-                dateString = GVal;
+                if (NotionalDate != DateTime.MinValue)
+                {
+                    dateString = NotionalDate.ToShortDateString();
+                }
 
                 if (GValType != DateValType.unknown)
                 {

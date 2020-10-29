@@ -330,15 +330,21 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            // Get list of peoples names TODO see if we can make this less fragile. Always only 1 backlink?
+            // Get list of peoples names
             CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQueryString);
 
             foreach (HLinkPersonNameModel item in tt)
             {
-                itemsFound.Add(item.DeRef.BackHLinkReferenceCollection[0].HLink() as HLinkPersonModel);
+                foreach (HLinkBackLink item_backlink in item.DeRef.BackHLinkReferenceCollection)
+                {
+                    if (item_backlink.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
+                    {
+                        itemsFound.Add(item_backlink.HLink() as HLinkPersonModel);
+                    }
+                }
             }
 
-            // TODO What can we search on?
+         
 
             return itemsFound;
         }

@@ -1,4 +1,4 @@
-﻿<!--  This exists as CollectionView i faster than FLexLayout for lists  -->
+﻿<!--  This exists as CollectionView as faster than FLexLayout for lists  -->
 
 <Frame
     x:Class="GrampsView.UserControls.CollectionSingleCard"
