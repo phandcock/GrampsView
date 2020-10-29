@@ -31,7 +31,7 @@
             <Button
                 Grid.Row="2"
                 Command="{Binding LoadDataCommand}"
-                Style="{DynamicResource GVButtonStyle}"
+                 Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.FirstRun_WhatsNewButton}" />
 
         </StackLayout>

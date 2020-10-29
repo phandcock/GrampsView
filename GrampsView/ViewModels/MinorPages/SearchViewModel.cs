@@ -24,6 +24,8 @@
         /// </summary>
         private ICommand _searchCommand;
 
+        private bool _SearchItemsFound = true;
+
         /// <summary>
         /// The local search text.
         /// </summary>
@@ -157,7 +159,18 @@
         /// <value>
         /// <c>true</c> if [search items found]; otherwise, <c>false</c>.
         /// </value>
-        public bool SearchItemsFound { get; set; }
+        public bool SearchItemsFound
+        {
+            get
+            {
+                return _SearchItemsFound;
+            }
+
+            set
+            {
+                SetProperty(ref _SearchItemsFound, value);
+            }
+        }
 
         /// <summary>
         /// Gets or sets the search text.
@@ -203,10 +216,17 @@
 
             if (SearchText.Length > 0)
             {
-                SearchItemsFound = false;
+                SearchItemsFound = true;
 
                 // Trigger refresh of View fields via INotifyPropertyChanged
                 RaisePropertyChanged(string.Empty);
+
+                // Check for searchTermsFound
+                int sumValuesFound = AddressList.Count + CitationList.Count + EventList.Count
+                    + FamilyList.Count + MediaList.Count + NoteList.Count + PersonList.Count
+                    + PersonNameList.Count + PlaceList.Count;
+
+                if (sumValuesFound > 0) { SearchItemsFound = true; } else { SearchItemsFound = false; }
             }
         }
 
