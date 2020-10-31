@@ -9,10 +9,10 @@ namespace GrampsView.Views
     {
         public MainPage()
         {
-            if (Device.RuntimePlatform == Device.UWP)
-            {
-                MasterBehavior = MasterBehavior.Popover;
-            }
+            //if ( (Device.RuntimePlatform == ) || (Device.RuntimePlatform == Device.UWP))
+            //{
+            //    MasterBehavior = MasterBehavior.Popover;
+            //}
 
             InitializeComponent();
         }

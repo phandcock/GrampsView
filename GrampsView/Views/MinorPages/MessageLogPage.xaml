@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
     <!--  Header  -->
-    <NavigationPage.TitleView>
+    <NavigationPage.TitleView >
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
