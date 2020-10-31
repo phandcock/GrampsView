@@ -132,7 +132,7 @@
 
                 if (ValidYear && ValidMonth)
                 {
-                    return NotionalDate.ToString("mmm yyyy", CultureInfo.CurrentCulture);
+                    return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
                 }
 
                 if (ValidYear)
@@ -504,7 +504,7 @@
             // Try progressivly looser conversions
 
             // YYYY-MM-DD
-            if (DateTime.TryParse(inputArg, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime outputDateTime) == true)
+            if (DateTime.TryParseExact(inputArg, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime outputDateTime) == true)
             {
                 Valid = true;
                 ValidYear = true;
