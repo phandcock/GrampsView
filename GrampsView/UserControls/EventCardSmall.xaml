@@ -48,7 +48,7 @@
                 Grid.Column="1"
                 LineBreakMode="WordWrap"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDate.GetYear, Mode=OneWay}" />
+                Text="{Binding DeRef.GDate.ShortDate, Mode=OneWay}" />
 
             <Label
                 x:Name="typeTextBlock"
