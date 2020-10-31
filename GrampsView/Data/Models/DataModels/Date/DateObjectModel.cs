@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -48,9 +47,9 @@
     public abstract class DateObjectModel : ModelBase, IDateObjectModel
     {
         /// <summary>
-        /// Notional Date field - The date used for sorting etc.
+        /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
         /// </summary>
-        private DateTime _NotionalDate = DateTime.MinValue;
+        private DateTime _NotionalDate;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DateObjectModel"/> class.
@@ -60,7 +59,7 @@
         }
 
         /// <summary>
-        /// Gets the number of years ago Because the field can have one or two dates etc this is
+        /// Gets the number of years ago. Because the field can have one or two dates etc this is
         /// trickier than it sounds.
         /// </summary>
         /// <returns>
@@ -120,9 +119,29 @@
         /// <value>
         /// The get long date as string.
         /// </value>
-        public abstract string LongDate
+        public virtual string LongDate
         {
-            get;
+            get
+            {
+                if (ValidYear && ValidMonth & ValidDay)
+                {
+                    return NotionalDate.ToLongDateString();
+                }
+
+                // TODO Handle international date formats
+
+                if (ValidYear && ValidMonth)
+                {
+                    return NotionalDate.ToString("mmm yyyy", CultureInfo.CurrentCulture);
+                }
+
+                if (ValidYear)
+                {
+                    return NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture);
+                }
+
+                return "!Invalid Date";
+            }
         }
 
         /// <summary>
@@ -148,9 +167,29 @@
         /// <returns>
         /// a string version of the date.
         /// </returns>
-        public abstract string ShortDate
+        public virtual string ShortDate
         {
-            get;
+            get
+            {
+                if (ValidYear && ValidMonth & ValidDay)
+                {
+                    return NotionalDate.ToShortDateString();
+                }
+
+                // TODO Handle international date formats
+
+                if (ValidYear && ValidMonth)
+                {
+                    return NotionalDate.ToString("mm yyyy",CultureInfo.CurrentCulture);
+                }
+
+                if (ValidYear )
+                {
+                    return NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture);
+                }
+
+                return "!Invalid Date";
+            }
         }
 
         public string ShortDateOrEmpty
@@ -176,7 +215,6 @@
         public abstract DateTime SingleDate
         {
             get;
-   
         }
 
         /// <summary>
@@ -189,11 +227,8 @@
         public abstract DateTime SortDate
         {
             get;
-         
         }
 
-
-      
         /// <summary>
         /// Gets or sets a value indicating whether the date is valid.
         /// </summary>
@@ -450,6 +485,11 @@
         {
             return this.NotionalDate.GetHashCode();
         }
+
+ 
+
+
+
 
         /// <summary>
         /// Converts the RFC1123 string to date time.

@@ -238,7 +238,7 @@
 
                 if (NotionalDate != DateTime.MinValue)
                 {
-                    dateString = NotionalDate.ToLongDateString();
+                    dateString = base.LongDate;
                 }
 
                 if (!string.IsNullOrEmpty(GCformat))
@@ -281,7 +281,7 @@
 
                 if (NotionalDate != DateTime.MinValue)
                 {
-                    dateString = NotionalDate.ToShortDateString();
+                    dateString = base.ShortDate;
                 }
 
                 if (GValType != DateValType.unknown)
