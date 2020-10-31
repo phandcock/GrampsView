@@ -180,10 +180,10 @@
 
                 if (ValidYear && ValidMonth)
                 {
-                    return NotionalDate.ToString("mm yyyy",CultureInfo.CurrentCulture);
+                    return NotionalDate.ToString("mm yyyy", CultureInfo.CurrentCulture);
                 }
 
-                if (ValidYear )
+                if (ValidYear)
                 {
                     return NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture);
                 }
@@ -486,13 +486,8 @@
             return this.NotionalDate.GetHashCode();
         }
 
- 
-
-
-
-
         /// <summary>
-        /// Converts the RFC1123 string to date time.
+        /// Converts the RFC1123 or almost string to date time.
         /// </summary>
         /// <param name="inputArg">
         /// The input argument.
@@ -501,8 +496,6 @@
         /// </returns>
         internal DateTime ConvertRFC1123StringToDateTime(string inputArg)
         {
-            // Try progressivly looser conversions
-
             // YYYY-MM-DD
             if (DateTime.TryParseExact(inputArg, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime outputDateTime) == true)
             {
