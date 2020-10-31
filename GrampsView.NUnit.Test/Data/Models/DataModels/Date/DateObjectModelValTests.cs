@@ -46,6 +46,75 @@
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
 
+        [Test()]
+        public void AsCardListLineTest_YearMonthDayOnly()
+        {
+            string aCFormat = null;
+            bool aDualDated = false;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aVal = "1939-05-03";
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
+
+            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+
+            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after Wednesday, 3 May 1939")) { Assert.Fail("Should be 'Date after Wednesday, 3 May 1939'"); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05-03")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+
+            Assert.True(AsCardListLineTest_After.Count == 3);
+        }
+
+        [Test()]
+        public void AsCardListLineTest_YearMonthOnly()
+        {
+            string aCFormat = null;
+            bool aDualDated = false;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aVal = "1939-05";
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
+
+            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+
+            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after May 1939")) { Assert.Fail("Should be 'Date after May 1939'"); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+
+            Assert.True(AsCardListLineTest_After.Count == 3);
+        }
+
+        [Test()]
+        public void AsCardListLineTest_YearOnly()
+        {
+            string aCFormat = null;
+            bool aDualDated = false;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aVal = "1939";
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
+
+            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+
+            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939")) { Assert.Fail("Should be 'Date after 1939'"); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939")) { Assert.Fail(); return; }
+            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+
+            Assert.True(AsCardListLineTest_After.Count == 3);
+        }
+
         [TearDown]
         public void Cleanup()
         {
