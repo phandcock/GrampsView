@@ -46,5 +46,15 @@
 
             return false;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as PlaceNameModel);
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
+        }
     }
 }

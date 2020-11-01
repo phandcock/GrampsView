@@ -38,7 +38,7 @@ namespace GrampsView.Data
         {
             using (FileStream fsIn = new FileStream(tarFileName, FileMode.Open, FileAccess.Read))
             {
-                using (TarInputStream tarIn = new TarInputStream(fsIn))
+                using (TarInputStream tarIn = new TarInputStream(fsIn, System.Text.Encoding.ASCII))
                 {
                     TarEntry tarEntry;
                     while ((tarEntry = tarIn.GetNextEntry()) != null)

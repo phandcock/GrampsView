@@ -1,8 +1,7 @@
-﻿
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
-
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -22,12 +21,9 @@ namespace GrampsView.Data.Model
 
         public int CompareTo(StyledTextRangeModel other)
         {
-            if (other is null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
+            Contract.Assert(other != null);
 
-                return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture); 
+            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(StyledTextRangeModel other)
@@ -43,6 +39,16 @@ namespace GrampsView.Data.Model
             }
 
             return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as StyledTextRangeModel);
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
         }
     }
 }
