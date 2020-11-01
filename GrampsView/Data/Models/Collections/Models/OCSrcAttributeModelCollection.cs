@@ -1,5 +1,4 @@
-﻿/// <summary>
-/// </summary>
+﻿
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
@@ -20,7 +19,5 @@ namespace GrampsView.Data.Collections
         {
             Title = "Source Attribute Collection";
         }
-
-    
     }
 }

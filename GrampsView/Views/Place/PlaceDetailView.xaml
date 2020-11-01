@@ -27,7 +27,7 @@
             <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding PlaceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

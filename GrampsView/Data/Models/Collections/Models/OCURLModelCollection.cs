@@ -1,6 +1,4 @@
-﻿/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -11,7 +9,6 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// URL model collection.
     /// </summary>
-    /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<URLModel>))]
     public class OCURLModelCollection : CardGroupBase<URLModel>
