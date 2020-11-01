@@ -1,3 +1,14 @@
+## [16.10.16](https://github.com/phandcock/GrampsView/compare/v16.10.15...v16.10.16) (2020-11-01)
+
+
+### Bug Fixes
+
+* cleanup short and long date formatting ([71214df](https://github.com/phandcock/GrampsView/commit/71214df40c1c6a981cdffd21dd976cab267a70d4))
+* fix DateModel after setting up tests ([0a237fe](https://github.com/phandcock/GrampsView/commit/0a237fe2253a7fde614caadb9300bff43fb9e05e))
+* fix menu popover for android tablets ([e804a06](https://github.com/phandcock/GrampsView/commit/e804a067c33defea83c9a6481db92839b2c24440))
+
+
+
 ## [16.10.15](https://github.com/phandcock/GrampsView/compare/v16.10.14...v16.10.15) (2020-10-30)
 
 
@@ -14,16 +25,6 @@
 
 * tweaks ([a79847f](https://github.com/phandcock/GrampsView/commit/a79847f4362bd979ad8bca28c7c40a47c2b0c36f))
 * update unit tests for chanegs to standard date display ([40207f7](https://github.com/phandcock/GrampsView/commit/40207f797e2a9fa405a7ebb916073071d3563d15))
-
-
-
-## [16.10.13](https://github.com/phandcock/GrampsView/compare/v16.10.12...v16.10.13) (2020-10-26)
-
-
-### Bug Fixes
-
-* fix display of PersonNameDetail and searching on personnames ([ffad9b0](https://github.com/phandcock/GrampsView/commit/ffad9b0f2a74ba45870a0a4eaf1bcf565a3d3d4f))
-* search on shortname and move name search to personname dataview ([88580bc](https://github.com/phandcock/GrampsView/commit/88580bc23089af0c3b5dad77caaa20aa1864f3c0))
 
 
 
