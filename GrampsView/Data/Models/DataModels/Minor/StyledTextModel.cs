@@ -54,5 +54,15 @@
 
             return false;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as StyledTextModel);
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
+        }
     }
 }

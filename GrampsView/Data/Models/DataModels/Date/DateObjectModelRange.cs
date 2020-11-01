@@ -321,10 +321,7 @@
                 return true;
             }
 
-            if (obj is null)
-            {
-                return false;
-            }
+      
 
             if (this.GetType() != obj.GetType())
             {

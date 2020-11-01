@@ -193,7 +193,7 @@ namespace GrampsView.Data
 
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
-                using (TarInputStream tarIn = new TarInputStream(stream))
+                using (TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII))
                 {
                     // DO NOT AWAIT as causes thread blocking await
                     await ExtractTarArchive(tarIn).ConfigureAwait(false);

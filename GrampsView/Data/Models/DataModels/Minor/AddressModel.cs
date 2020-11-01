@@ -9,11 +9,11 @@
 
 namespace GrampsView.Data.Model
 {
-    using System;
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
 
+    using System;
     using System.Runtime.Serialization;
-    using GrampsView.Common;
 
     /// <summary>
     /// XML 1.71 all done
@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the g citation reference collection.
+        /// Gets or sets the citation reference collection.
         /// </summary>
         /// <value>
         /// The citation reference collection.
@@ -151,7 +151,29 @@ namespace GrampsView.Data.Model
                 throw new ArgumentNullException(nameof(other));
             }
 
-            return string.Compare( GetDefaultText, other.GetDefaultText,true,System.Globalization.CultureInfo.CurrentCulture);
+            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            AddressModel tempObj = obj as AddressModel;
+
+            return (this.GetDefaultText == tempObj.GetDefaultText);
         }
 
         public bool Equals(AddressModel other)
@@ -167,6 +189,11 @@ namespace GrampsView.Data.Model
             }
 
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
         }
     }
 }

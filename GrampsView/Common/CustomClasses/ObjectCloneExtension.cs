@@ -13,6 +13,7 @@
             public static void ForEach(this Array array, Action<Array, int[]> action)
             {
                 Contract.Requires(array != null);
+                Contract.Requires(action != null);
 
                 if (array.LongLength == 0) return;
                 ArrayTraverse walker = new ArrayTraverse(array);
@@ -24,7 +25,7 @@
         internal class ArrayTraverse
         {
             public int[] Position;
-            private int[] maxLengths;
+            private readonly int[] maxLengths;
 
             public ArrayTraverse(Array array)
             {
@@ -74,6 +75,8 @@
 
         public static bool IsPrimitive(this Type type)
         {
+            Contract.Assert(!(type == null));
+
             if (type == typeof(String)) return true;
             return (type.IsValueType & type.IsPrimitive);
         }

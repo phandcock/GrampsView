@@ -16,7 +16,12 @@
 
             HLinkBase t = value as HLinkBase;
 
-            return t.Valid;
+            if (t != null)
+            {
+                return t.Valid;
+            }
+
+            return false;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
