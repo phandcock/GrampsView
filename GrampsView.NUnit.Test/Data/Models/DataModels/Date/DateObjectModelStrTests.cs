@@ -16,8 +16,8 @@
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");
 
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }

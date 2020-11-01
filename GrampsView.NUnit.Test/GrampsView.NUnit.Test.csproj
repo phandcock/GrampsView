@@ -23,8 +23,4 @@
   <ItemGroup>
     <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Models\DataModels\Minor\" />
-  </ItemGroup>
 </Project>
