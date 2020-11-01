@@ -26,9 +26,9 @@
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939")) { Assert.Fail("Should be 'Date after 1939'"); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after");
 
             Assert.True(AsCardListLineTest_After.Count == 3);
         }
@@ -40,8 +40,8 @@
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");
 
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
@@ -62,9 +62,9 @@
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after Wednesday, 3 May 1939")) { Assert.Fail("Should be 'Date after Wednesday, 3 May 1939'"); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05-03")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after Wednesday, 3 May 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05-03");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after");
 
             Assert.True(AsCardListLineTest_After.Count == 3);
         }
@@ -85,9 +85,9 @@
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after May 1939")) { Assert.Fail("Should be 'Date after May 1939'"); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after May 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after");
 
             Assert.True(AsCardListLineTest_After.Count == 3);
         }
@@ -108,9 +108,9 @@
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939")) { Assert.Fail("Should be 'Date after 1939'"); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939")) { Assert.Fail(); return; }
-            if (!CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after")) { Assert.Fail(); return; }
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after");
 
             Assert.True(AsCardListLineTest_After.Count == 3);
         }
