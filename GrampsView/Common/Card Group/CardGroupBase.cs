@@ -15,7 +15,7 @@ namespace GrampsView.Common
     /// </summary>
     public class CardGroupBase<T> : ObservableCollection<T>, INotifyCollectionChanged
     {
-        public ListedItemPropertyChangedEventHandler ItemPropertyChanged;
+        private ListedItemPropertyChangedEventHandler ItemPropertyChanged;
 
         public CardGroupBase()
         {

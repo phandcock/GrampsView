@@ -108,17 +108,6 @@
 
                     BaseDetail.Add(PlaceObject.GPlaceNames);
                 }
-
-                // Details
-                //BaseDetail.Add(PlaceObject.GLocation); // TODO Why displayed if empty
-                //BaseDetail.Add(PlaceObject.GPlaceRefCollection.GetCardGroup());
-                //BaseDetail.Add(PlaceObject.PlaceChildCollection.GetCardGroup());
-
-                //BaseDetail.Add(PlaceObject.GCitationRefCollection.GetCardGroup());
-                //BaseDetail.Add(PlaceObject.GMediaRefCollection.GetCardGroup());
-                //BaseDetail.Add(PlaceObject.GNoteRefCollection.GetCardGroup());
-                //BaseDetail.Add(PlaceObject.GTagRefCollection.GetCardGroup());
-                //BaseDetail.Add(PlaceObject.GURLCollection);
             }
         }
     }

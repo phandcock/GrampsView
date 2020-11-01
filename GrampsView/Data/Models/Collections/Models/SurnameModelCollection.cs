@@ -1,6 +1,4 @@
-﻿/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -11,9 +9,6 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Surname model collection.
     /// </summary>
-    /// <seealso cref="Collections.ObjectViewModel.ObservableCollection%7BData.ViewModel.AttributeModel%7D">
-    /// Collections.ObjectViewModel.ObservableCollection{Data.ViewModel.AttributeModel}
-    /// </seealso>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<SurnameModel>))]
     public class SurnameModelCollection : CardGroupBase<SurnameModel>
