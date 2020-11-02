@@ -221,7 +221,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        await DataStore.CN.DataLogEntryReplace("Untaring  file " + tarEntry.Name).ConfigureAwait(false);
+                        await DataStore.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "Untaring  file {0}", tarEntry.Name)).ConfigureAwait(false);
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -294,11 +294,10 @@ namespace GrampsView.Data
 
                     // Check file ceated successfully
                     bool checkFileExistsFlag = await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false);
+
                     if (!checkFileExistsFlag)
                     {
-                        DataStore.CN.NotifyError("Error UnTaring file: "
-                            + newFolder.FullName + "-" + filename
-                            + ". File not created.  Perhaps the path is too long?");
+                        DataStore.CN.NotifyError(string.Format(System.Globalization.CultureInfo.CurrentCulture, "Error UnTaring file: {0}-{1}. File not created.  Perhaps the path is too long?", newFolder.FullName, filename));
 
                         // TODO copy dummy file in its place
                     }
