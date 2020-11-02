@@ -22,11 +22,8 @@ namespace GrampsView.Data
     public partial class StoreFolder : CommonBindableBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StoreFile"/> class.
+        /// Initializes a new instance of the <see cref="StoreFolder"/> class.
         /// </summary>
-        /// <param name="iocCommonProgress">
-        /// The ioc common progress.
-        /// </param>
         public StoreFolder()
         {
         }
@@ -41,7 +38,7 @@ namespace GrampsView.Data
                 return null;
             }
 
-            // load the real file
+            // Load the real file
             if (argBaseFolder != null)
             {
                 try
@@ -67,8 +64,11 @@ namespace GrampsView.Data
         }
 
         /// <summary>
-        /// get the StorageFile of the file.
+        /// Get the StorageFile of the file.
         /// </summary>
+        /// <param name="argBaseFolder">
+        /// Base Folder to start checking
+        /// </param>
         /// <param name="argFileName">
         /// file path relative to the provider base folder.
         /// </param>
@@ -83,7 +83,7 @@ namespace GrampsView.Data
                 return false;
             }
 
-            // load the real file
+            // Load the real file
             if (argBaseFolder != null)
             {
                 try
