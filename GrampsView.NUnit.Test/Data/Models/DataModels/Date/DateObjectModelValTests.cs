@@ -6,6 +6,7 @@
     using GrampsView.NUnit.Test.Utility;
 
     [TestFixture()]
+    [Culture("en-AU")]
     public class DateObjectModelValTests
     {
         private DateObjectModelVal testVal;
