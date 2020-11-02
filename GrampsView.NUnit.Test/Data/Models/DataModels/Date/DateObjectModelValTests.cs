@@ -9,7 +9,13 @@
     [Culture("en-AU")]
     public class DateObjectModelValTests
     {
-        private DateObjectModelVal testVal;
+        private DateObjectModelVal testValBasic;
+
+        private DateObjectModelVal testValYearOnly;
+
+        private DateObjectModelVal testValYearMonthDayOnly;
+
+        private DateObjectModelVal testValYearMonthOnly;
 
         [Test()]
         public void AsCardListLineTest_After()
@@ -21,9 +27,9 @@
             string aVal = "1939";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
 
-            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+            testValBasic = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
 
-            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+            CardListLineCollection AsCardListLineTest_After = testValBasic.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
@@ -37,7 +43,7 @@
         [Test()]
         public void AsCardListLineTest_Basic()
         {
-            CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
+            CardListLineCollection AsCardListLineTest_Basic = testValBasic.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
 
@@ -50,16 +56,9 @@
         [Test()]
         public void AsCardListLineTest_YearMonthDayOnly()
         {
-            string aCFormat = null;
-            bool aDualDated = false;
-            string aNewYear = null;
-            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
-            string aVal = "1939-05-03";
-            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
+         
 
-            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
-
-            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+            CardListLineCollection AsCardListLineTest_After = testValYearMonthDayOnly.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
@@ -73,16 +72,7 @@
         [Test()]
         public void AsCardListLineTest_YearMonthOnly()
         {
-            string aCFormat = null;
-            bool aDualDated = false;
-            string aNewYear = null;
-            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
-            string aVal = "1939-05";
-            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
-
-            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
-
-            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+            CardListLineCollection AsCardListLineTest_After = testValYearMonthOnly.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
@@ -96,16 +86,7 @@
         [Test()]
         public void AsCardListLineTest_YearOnly()
         {
-            string aCFormat = null;
-            bool aDualDated = false;
-            string aNewYear = null;
-            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
-            string aVal = "1939";
-            CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
-
-            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
-
-            CardListLineCollection AsCardListLineTest_After = testVal.AsCardListLine("Test Title");
+            CardListLineCollection AsCardListLineTest_After = testValYearOnly.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
 
@@ -139,14 +120,52 @@
         [SetUp]
         public void Init()
         {
-            string aCFormat = null;
-            bool aDualDated = false;
+            string aCFormat;
+            bool aDualDated;
             string aNewYear = null;
-            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
-            string aVal = "1939";
-            CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
+            CommonEnums.DateQuality aQuality;
+            string aVal;
+            CommonEnums.DateValType aValType;
 
-            testVal = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+            // Basic date
+            aCFormat = null;
+            aDualDated = false;
+            aNewYear = null;
+            aQuality = CommonEnums.DateQuality.unknown;
+            aVal = "1939";
+            aValType = CommonEnums.DateValType.unknown;
+
+            testValBasic = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            // Year Month Day Only
+             aCFormat = null;
+             aDualDated = false;
+             aNewYear = null;
+             aQuality = CommonEnums.DateQuality.unknown;
+             aVal = "1939-05-03";
+             aValType = CommonEnums.DateValType.after;
+
+            testValYearMonthDayOnly = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            // Year Month Only
+            aCFormat = null;
+            aDualDated = false;
+            aNewYear = null;
+            aQuality = CommonEnums.DateQuality.unknown;
+            aVal = "1939-05";
+            aValType = CommonEnums.DateValType.after;
+
+            testValYearMonthOnly = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
+            // Year Only
+            aCFormat = null;
+            aDualDated = false;
+            aNewYear = null;
+            aQuality = CommonEnums.DateQuality.unknown;
+            aVal = "1939";
+            aValType = CommonEnums.DateValType.after;
+
+            testValYearOnly = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
         }
     }
 }

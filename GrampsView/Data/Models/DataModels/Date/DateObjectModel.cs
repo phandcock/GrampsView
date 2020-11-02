@@ -180,7 +180,7 @@
 
                 if (ValidYear && ValidMonth)
                 {
-                    return NotionalDate.ToString("mm yyyy", CultureInfo.CurrentCulture);
+                    return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
                 }
 
                 if (ValidYear)
