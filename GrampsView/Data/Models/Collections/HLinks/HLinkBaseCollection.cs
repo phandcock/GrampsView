@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="HLinkBaseCollection.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {

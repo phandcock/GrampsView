@@ -1,6 +1,5 @@
-﻿// <copyright file="TagModel.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿// TODO Needs XML 1.71 check
+
 ////<define name = "tag-content" >
 ////  <ref name="table-object" />
 ////  <attribute name = "name" >

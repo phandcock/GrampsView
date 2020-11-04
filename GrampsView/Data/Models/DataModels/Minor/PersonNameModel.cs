@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿// TODO Needs XML 1.71 check
+
+namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -38,22 +40,6 @@
             get
             {
                 return GFirstName.Split()[0];
-            }
-        }
-
-        public string ShortName
-        {
-            get
-            {
-                string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
-                if (fullName.Trim().Length == 0)
-                {
-                    return "Unknown";
-                }
-                else
-                {
-                    return fullName;
-                }
             }
         }
 
@@ -296,6 +282,22 @@
                 };
 
                 return t;
+            }
+        }
+
+        public string ShortName
+        {
+            get
+            {
+                string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
+                if (fullName.Trim().Length == 0)
+                {
+                    return "Unknown";
+                }
+                else
+                {
+                    return fullName;
+                }
             }
         }
 

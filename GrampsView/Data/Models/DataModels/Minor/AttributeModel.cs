@@ -1,12 +1,5 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles GRAMPS Alt fields
-//
-// <copyright file="AttributeModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-/// TODO Update fields as per Schema
+﻿// TODO Needs XML 1.71 check
+
 ////<define name = "attribute-content" >
 ////  < optional >
 ////    < attribute name="priv">

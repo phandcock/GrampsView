@@ -1,19 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various note models
-//
-// <copyright file="HLinkNoteModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-////<define name = "noteref-content" >
-////  < attribute name="hlink">
-////    <data type = "IDREF" />
-////  </ attribute >
-////</ define >
-
-/// TODO Update fields as per Schema
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {

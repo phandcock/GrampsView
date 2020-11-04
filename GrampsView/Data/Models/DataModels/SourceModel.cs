@@ -1,4 +1,6 @@
-﻿/// - Completed
+﻿// TODO Needs XML 1.71 check
+
+/// - Completed
 /// -- SecondaryColor-object
 /// -- stitle
 /// -- sauthor
@@ -127,7 +129,6 @@ namespace GrampsView.Data.Model
         /// text /> </ element > </ optional > </code> </summary> <value> The source author. </value>
         [DataMember]
         public string GSPubInfo { get; set; }
-
 
         // TODO check if all fields loaded
         /// <summary> Gets or sets the gs title. <code> <optional> <element name = "stitle" > < text

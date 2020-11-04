@@ -1,6 +1,4 @@
 ﻿// XML 171 - Not in definition so created this for use with BackLink functionality
-//
-// HLink
 
 namespace GrampsView.Data.Model
 {

@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// datamodel for the external storage metadata
-//
-// <copyright file="HeaderModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 ////<code>
 ////  <element name = "header" >

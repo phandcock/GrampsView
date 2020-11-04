@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the FamilyModel
-//
-// <copyright file="HLinkHeaderModelCollection.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Collections
 {

@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various note models
-//
-// <copyright file="HLinkTableObjectModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {

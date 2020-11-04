@@ -1,17 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="HLinkHomeImageModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-//// gramps XML 1.71 - Done
-////
-
-/// TODO Update fields as per Schema
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {

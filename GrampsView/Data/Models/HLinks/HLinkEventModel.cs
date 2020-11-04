@@ -1,15 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// <copyright file="HLinkEventModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-// XML 171 - All fields defined
-//
-// HLink
-
-/// TODO Update fields as per Schema
+﻿// XML 171 - All fields defined
 
 namespace GrampsView.Data.Model
 {
@@ -63,8 +52,6 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public OCAttributeModelCollection GAttributeRefCollection { get; set; } = new OCAttributeModelCollection();
-
-
 
         /// <summary>
         /// Gets or sets the Note Model collection.
