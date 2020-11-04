@@ -74,24 +74,18 @@
                     await DataStore.CN.DataLogEntryAdd("Loading Citation Entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
-
                     foreach (XElement pcitation in de)
                     {
                         CitationModel loadCitation = DV.CitationDV.NewModel();
 
                         // Citation attributes
                         loadCitation.LoadBasics(GetBasics(pcitation));
-                        //loadCitation.Id = GetAttribute(pcitation, "id");
-                        //loadCitation.Change = GetDateTime(pcitation, "change");
-                        //loadCitation.Priv = SetPrivateObject(GetAttribute(pcitation, "priv"));
-                        //loadCitation.Handle = GetAttribute(pcitation, "handle");
 
                         if (loadCitation.Id == "C0656")
                         {
                         }
 
                         // Citation fields
-
                         loadCitation.GDateContent = GetDate(pcitation);
 
                         loadCitation.GPage = GetElement(pcitation.Element(ns + "page"));

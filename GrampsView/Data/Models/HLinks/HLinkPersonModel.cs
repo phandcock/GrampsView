@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data models too small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="HLinkPersonModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {

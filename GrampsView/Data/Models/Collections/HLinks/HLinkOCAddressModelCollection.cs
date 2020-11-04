@@ -1,6 +1,4 @@
-﻿// <copyright file="HLinkOCAddressModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿// TODO Needs XML 1.71 check
 
 /// <summary>
 /// Collection of HLinks to Address models.

@@ -1,26 +1,10 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various note models
-//
-// <copyright file="HLinkPlaceModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-////<define name = "placeref-content" >
-////  < attribute name="hlink">
-////    <data type = "IDREF" />
-////  </ attribute >
-////  < optional >
-////    <ref name="date-content" />
-////  </optional>
-////</define>
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

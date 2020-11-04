@@ -1,11 +1,4 @@
-﻿// <copyright file="HLinkAdressModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-// XML 171 - Not in definition so created this for use with BackLink functionality
-//
-// HLink
+﻿// XML 171 - Not in definition so created this for use with BackLink functionality
 
 namespace GrampsView.Data.Model
 {

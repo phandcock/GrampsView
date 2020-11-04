@@ -1,16 +1,17 @@
-﻿
+﻿// TODO Needs XML 1.71 check
+
 /// <summary>
 /// Gramps XML 1.71 all configured
 /// </summary>
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
 
     /// <summary>
     /// </summary>

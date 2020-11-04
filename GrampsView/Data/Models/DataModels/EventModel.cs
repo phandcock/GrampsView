@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// The data model defined by this file serves to hold Event data from the GRAMPS data file
-//
-// <copyright file="EventModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 // XML 171 - All fields defined
 //

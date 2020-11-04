@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.External.StoreFile
+﻿namespace GrampsView.Data
 {
     public interface IStoreFileFile
     {

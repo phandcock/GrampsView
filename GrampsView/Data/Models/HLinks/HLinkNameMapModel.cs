@@ -1,12 +1,10 @@
-﻿// <copyright file="HLinkNameMapModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

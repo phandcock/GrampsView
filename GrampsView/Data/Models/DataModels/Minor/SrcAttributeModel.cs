@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿// TODO Needs XML 1.71 check
+
+namespace GrampsView.Data.Model
 {
     /// <summary>
     /// GRAMPS Alt element class. TODO Update fields as per Schema

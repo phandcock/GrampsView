@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿// TODO Needs XML 1.71 check
+
+namespace GrampsView.Data.Model
 {
     using System;
     using System.Runtime.Serialization;

@@ -1,27 +1,7 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="HLinkMediaModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-//// gramps XML 1.71 - Done
-////
-//// HLink
-//// Priv
-//// region
-//// attribute
-//// citationref
-//// noteref
-
-/// TODO Update fields as per Schema
+﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
@@ -88,8 +68,6 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
-
-     
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note

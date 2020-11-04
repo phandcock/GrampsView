@@ -1,16 +1,14 @@
-﻿// <copyright file="HLinkRepositoryModelCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿// TODO Needs XML 1.71 check
 
 /// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-
     using GrampsView.Common;
     using GrampsView.Data.Model;
+
+    using System.Collections.ObjectModel;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// </summary>

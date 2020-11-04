@@ -1,18 +1,10 @@
-﻿// <copyright file="HLinkTagModel.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-// ALL DONE
-////<define name = "tagref-content" >
-////  < attribute name="hlink">
-////    <data type = "IDREF" />
-////  </ attribute >
-////</ define >
+﻿// XML 1.71 All done
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

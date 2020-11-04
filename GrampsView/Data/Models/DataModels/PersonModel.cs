@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage model for the PersonModel
-//
-// <copyright file="PersonModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 ////    -- All Completed (Version 1.71)
 ////    - address

@@ -1,21 +1,14 @@
-﻿//-----------------------------------------------------------------------
-//
-// Repository Reference models
-//
-// <copyright file="HLinkRepositoryModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// TODO Needs XML 1.71 check
 
 /// <summary>
 /// </summary>
 /// "hlink" Done "priv" Done "callno" Done "medium" Done; "noteref" Done
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
+
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

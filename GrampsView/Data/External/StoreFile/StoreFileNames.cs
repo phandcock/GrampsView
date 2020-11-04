@@ -1,6 +1,4 @@
-﻿// <copyright file="StoreFileNames.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿
 
 namespace GrampsView.Data
 {
@@ -15,7 +13,7 @@ namespace GrampsView.Data
     /// <summary>
     /// Common file handling routines.
     /// </summary>
-    public static class StoreFileNames
+    public static class StoreFileNames 
     {
         /// <summary>
         /// Was the file modified since the last datetime saved?

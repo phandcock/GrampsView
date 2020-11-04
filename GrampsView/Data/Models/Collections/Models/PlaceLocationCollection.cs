@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿// TODO Needs XML 1.71 check
+
+/// <summary>
 /// </summary>
 namespace GrampsView.Data.Collections
 {
