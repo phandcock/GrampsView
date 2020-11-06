@@ -1,70 +1,59 @@
 ﻿// TODO Needs XML 1.71 check
 
+/// <summary>
+/// </summary>
 namespace GrampsView.Data.Model
 {
-    using System;
-    using System.Collections.Generic;
+    using GrampsView.Common;
+    using GrampsView.Data.Model;
+    using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
-    using static GrampsView.Common.CommonEnums;
-
-    //// gramps XML 1.71
-    //// TODO Update fields as per Schema
-    //// style
-    //// name
-    //// value
-    //// range
+    /// <summary>
+    /// Styled Text model collection.
     /// </summary>
-    public class StyledTextModel : ModelBase, IStyledTextModel, IComparable<StyledTextModel>, IEquatable<StyledTextModel>
+
+    [DataContract]
+    [KnownType(typeof(StyledTextModel))]
+    public class StyledTextModel : CommonBindableBase, IStyledTextModel
     {
+        private string _GText = string.Empty;
+
+        private ObservableCollection<IGrampsStyle> _Styles
+
+            = new ObservableCollection<IGrampsStyle>();
+
         public StyledTextModel()
         {
         }
 
         [DataMember]
-        public List<StyledTextRangeModel> GRange { get; set; }
-                                                = new List<StyledTextRangeModel>();
+        public ObservableCollection<IGrampsStyle> Styles
+        {
+            get
+            {
+                return _Styles;
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets the text.
+        /// </summary>
+        /// <value>
+        /// The text.
+        /// </value>
         [DataMember]
-        public TextStyle GStyle { get; set; }
-                                = TextStyle.unknown;
-
-        [DataMember]
-        public string GValue { get; set; }
-
-        public int CompareTo(StyledTextModel other)
+        public string GText
         {
-            if (other is null)
+            get
             {
-                throw new ArgumentNullException(nameof(other));
+                return _GText;
             }
 
-            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
-        }
-
-        public bool Equals(StyledTextModel other)
-        {
-            if (other is null)
+            set
             {
-                return false;
+                SetProperty(ref _GText, value);
             }
-
-            if (GetDefaultText == other.GetDefaultText)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as StyledTextModel);
-        }
-
-        public override int GetHashCode()
-        {
-            return HLinkKey.GetHashCode();
         }
     }
 }

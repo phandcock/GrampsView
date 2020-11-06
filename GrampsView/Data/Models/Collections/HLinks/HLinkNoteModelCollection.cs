@@ -85,7 +85,7 @@ namespace GrampsView.Data.Collections
                 }
                 else
                 {
-                    return this[0].DeRef.GText;
+                    return this[0].DeRef.GStyledText.GText;
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace GrampsView.Data.Collections
         }
 
         /// <summary>
-        /// Helper method to sort and set the firt image link.
+        /// Helper method to sort and set the first image link.
         /// </summary>
         public void SortAndSetFirst()
         {
@@ -134,7 +134,7 @@ namespace GrampsView.Data.Collections
                 FirstHLinkHomeImage = this[0].DeRef.HomeImageHLink;
 
                 // Sort the collection
-                List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GText).ToList();
+                List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GStyledText.GText).ToList();
 
                 Items.Clear();
 

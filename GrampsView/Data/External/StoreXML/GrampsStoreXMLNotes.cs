@@ -61,11 +61,11 @@
                         {
                         }
 
-                        loadNote.GText = (string)pname.Element(ns + "text");
-
-                        foreach (StyledTextModel item in GetStyledTextCollection(pname))
+                        StyledTextModel tempStyledText = GetStyledTextCollection(pname);
+                        loadNote.GStyledText.GText = tempStyledText.GText;
+                        foreach (IGrampsStyle item in tempStyledText.Styles)
                         {
-                            loadNote.GStyledTextCollection.Add(item);
+                            loadNote.GStyledText.Styles.Add(item);
                         }
 
                         foreach (HLinkTagModel item in GetTagCollection(pname))
@@ -85,7 +85,6 @@
                 }
             }
 
-         
             return;
         }
 

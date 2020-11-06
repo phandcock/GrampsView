@@ -1,6 +1,6 @@
 ﻿// TODO Needs XML 1.71 check
 
-//// gramps XML 1.71
+//// gramps XML 1.71 - Done
 ////
 ////    primary-object
 ////    format
@@ -33,7 +33,7 @@ namespace GrampsView.Data.Model
 
         private FormattedString _FormattedText = new FormattedString();
 
-        private string _GText = string.Empty;
+      
 
         /// <summary>
         /// The local IsFormated.
@@ -116,7 +116,7 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public StyledTextModelCollection GStyledTextCollection { get; set; } = new StyledTextModelCollection();
+        public IStyledTextModel GStyledText { get; set; } = new StyledTextModel();
 
         /// <summary>
         /// Gets or sets the g tag reference collection.
@@ -132,25 +132,7 @@ namespace GrampsView.Data.Model
 
         = new HLinkTagModelCollection();
 
-        /// <summary>
-        /// Gets or sets the text.
-        /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
-        [DataMember]
-        public string GText
-        {
-            get
-            {
-                return _GText;
-            }
 
-            set
-            {
-                SetProperty(ref _GText, value);
-            }
-        }
 
         // TODO add field style*
         /// <summary>
@@ -201,7 +183,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return GText.Substring(0, Math.Min(GText.Length, 100));
+                return GStyledText.GText.Substring(0, Math.Min(GStyledText.GText.Length, 100));
             }
         }
 
@@ -233,7 +215,7 @@ namespace GrampsView.Data.Model
             NoteModel secondEvent = (NoteModel)b;
 
             // compare on Date first
-            int testFlag = string.Compare(firstEvent.GText, secondEvent.GText, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(firstEvent.GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.CurrentCulture);
 
             return testFlag;
         }
@@ -257,7 +239,7 @@ namespace GrampsView.Data.Model
             NoteModel secondEvent = (NoteModel)obj;
 
             // compare on String first
-            int testFlag = string.Compare(GText, secondEvent.GText, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.CurrentCulture);
 
             return testFlag;
         }
@@ -271,7 +253,7 @@ namespace GrampsView.Data.Model
             {
                 FormattedString loadString = new FormattedString();
 
-                loadString.Spans.Add(new Span { Text = GText, FontSize = argFontSize });
+                loadString.Spans.Add(new Span { Text = GStyledText.GText, FontSize = argFontSize });
 
                 return loadString;
             }

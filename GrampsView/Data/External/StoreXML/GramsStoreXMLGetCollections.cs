@@ -667,9 +667,11 @@ namespace GrampsView.Data.ExternalStorageNS
             return t;
         }
 
-        private StyledTextModelCollection GetStyledTextCollection(XElement xmlData)
+        private StyledTextModel GetStyledTextCollection(XElement xmlData)
         {
-            StyledTextModelCollection t = new StyledTextModelCollection();
+            StyledTextModel t = new StyledTextModel();
+
+            t.GText = (string)xmlData.Element(ns + "text");
 
             // Run query
             var theERElement =
@@ -682,11 +684,11 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    StyledTextModel newStyleModel = new StyledTextModel
+                    IGrampsStyle newStyleModel = new GrampsStyle
                     {
-                        Handle = "StyledTextCollection",
-
                         GStyle = GetTextStyle(theLoadORElement),
+
+                        // TODO cleanup
 
                         //GCitationReferenceCollection = GetCitationCollection(theLoadORElement),
 
@@ -699,7 +701,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         //GValue = GetAttribute(theLoadORElement.Attribute("value")),
                     };
 
-                    t.Add(newStyleModel);
+                    t.Styles.Add(newStyleModel);
                 }
             }
 
