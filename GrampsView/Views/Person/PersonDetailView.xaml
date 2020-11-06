@@ -15,8 +15,8 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
+    <ScrollView Orientation="Vertical">
+        <FlexLayout Direction="Column">
             <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
@@ -36,6 +36,6 @@
             <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </StackLayout>
+        </FlexLayout>
     </ScrollView>
 </ContentPage>

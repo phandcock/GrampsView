@@ -17,8 +17,8 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
+    <ScrollView Orientation="Vertical">
+        <FlexLayout Direction="Column">
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.HubPage_IntroductionText}" />
 
@@ -39,6 +39,6 @@
             <ucon:CardGroupBaseHeader BindingContext="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
             <ucon:CardGroupBaseHeader BindingContext="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-        </StackLayout>
+        </FlexLayout>
     </ScrollView>
 </ContentPage>
