@@ -271,8 +271,8 @@ namespace GrampsView.Data.ExternalStorageNS
                 HLinkNoteModel t = theNoteModel.HLink;
 
                 // -- Organse Back Links ---------------------
+           
 
-         
                 // TODO Citation Collection
 
                 foreach (HLinkTagModel tagRef in theNoteModel.GTagRefCollection)

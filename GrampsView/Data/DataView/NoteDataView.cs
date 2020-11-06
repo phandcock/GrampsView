@@ -29,7 +29,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(NoteModel => NoteModel.GText).ToList();
+                return DataViewData.OrderBy(NoteModel => NoteModel.GStyledText.GText).ToList();
             }
         }
 
@@ -164,7 +164,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
 
             if (temp.Any())
             {

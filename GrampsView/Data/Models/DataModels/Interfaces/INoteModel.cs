@@ -52,7 +52,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        StyledTextModelCollection GStyledTextCollection { get;  }
+        IStyledTextModel GStyledText { get;  }
 
         /// <summary>
         /// Gets or sets the g tag reference collection.
@@ -65,18 +65,7 @@ namespace GrampsView.Data.Model
             get; 
         }
 
-        /// <summary>
-        /// Gets or sets the text.
-        /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
-        string GText
-        {
-            get;
-
-            set;
-        }
+ 
 
         /// <summary>
         /// Gets or sets the type CDATA #REQUIRED.

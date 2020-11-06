@@ -9,9 +9,9 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// XML 1.71 not part of
     /// </summary>
-    public class StyledTextRangeModel : ModelBase, IComparable<StyledTextRangeModel>, IEquatable<StyledTextRangeModel>
+    public class GrampsStyleRangeModel : ModelBase, IComparable<GrampsStyleRangeModel>, IEquatable<GrampsStyleRangeModel>
     {
-        public StyledTextRangeModel()
+        public GrampsStyleRangeModel()
         {
         }
 
@@ -21,14 +21,14 @@ namespace GrampsView.Data.Model
         [DataMember]
         public int Start { get; set; }
 
-        public int CompareTo(StyledTextRangeModel other)
+        public int CompareTo(GrampsStyleRangeModel other)
         {
             Contract.Assert(other != null);
 
             return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
-        public bool Equals(StyledTextRangeModel other)
+        public bool Equals(GrampsStyleRangeModel other)
         {
             if (other is null)
             {
@@ -45,7 +45,7 @@ namespace GrampsView.Data.Model
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as StyledTextRangeModel);
+            return Equals(obj as GrampsStyleRangeModel);
         }
 
         public override int GetHashCode()

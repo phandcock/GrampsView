@@ -1,18 +1,17 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IStyledTextModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿
+
+using GrampsView.Data.Collections;
+using System.Collections.ObjectModel;
 
 namespace GrampsView.Data.Model
 {
     /// <summary>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
-    public interface IStyledTextModel : IModelBase
+    public interface IStyledTextModel 
     {
+        ObservableCollection<IGrampsStyle> Styles { get;  }
+
+        string GText { get; set; }
     }
 }
