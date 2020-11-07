@@ -27,7 +27,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
