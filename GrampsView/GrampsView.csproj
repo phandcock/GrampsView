@@ -309,6 +309,9 @@
     <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\General\CardGroupBaseFlex.xaml.cs">
+      <DependentUpon>CardGroupBaseFlex.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\CardGroupHeader.xaml.cs">
       <DependentUpon>CardGroupHeader.xaml</DependentUpon>
     </Compile>
