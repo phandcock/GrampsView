@@ -22,7 +22,7 @@ namespace GrampsView.iOS
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
-            DataStore.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }
 }

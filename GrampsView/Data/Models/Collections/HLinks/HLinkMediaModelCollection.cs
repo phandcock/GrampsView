@@ -52,7 +52,7 @@ namespace GrampsView.Data.Collections
                 // Step through each mediamodel hlink in the collection
                 for (int i = 0; i < Count; i++)
                 {
-                    tempMediaModel = DataStore.DS.MediaData.GetModelFromHLink(this[i]);
+                    tempMediaModel = DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
 
                     if (tempMediaModel.IsMediaFile)
                     {

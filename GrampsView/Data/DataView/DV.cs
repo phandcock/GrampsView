@@ -29,7 +29,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.BookMarkCollection;
+                return DataStore.Instance.DS.BookMarkCollection;
             }
         }
 

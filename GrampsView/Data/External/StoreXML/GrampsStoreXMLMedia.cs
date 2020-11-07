@@ -92,10 +92,10 @@
         {
             localGrampsCommonLogging.LogRoutineEntry("loadMediaObjects");
 
-            await DataStore.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 // start file load
-                await DataStore.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 //// Get colour
                 //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
@@ -207,7 +207,7 @@
 
                             if (mediaFileName.Length == 0)
                             {
-                                DataStore.CN.NotifyError("Error trying to load a media file for object (" + loadObject.Id + ") listed in the GRAMPS file.  FileName is null");
+                                DataStore.Instance.CN.NotifyError("Error trying to load a media file for object (" + loadObject.Id + ") listed in the GRAMPS file.  FileName is null");
                                 loadObject.MediaStorageFile = null;
                             }
                             else
@@ -216,7 +216,7 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                    await DataStore.CN.DataLogEntryReplace("Loading media file: " + temp).ConfigureAwait(false);
+                                    await DataStore.Instance.CN.DataLogEntryReplace("Loading media file: " + temp).ConfigureAwait(false);
 
                                     loadObject.OriginalFilePath = temp;
 
@@ -230,7 +230,7 @@
                                 }
                                 catch (Exception ex)
                                 {
-                                    DataStore.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
+                                    DataStore.Instance.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                     throw;
                                 }
                             }
@@ -259,17 +259,17 @@
                         loadObject = SetHomeImage(loadObject);
 
                         // save the object
-                        DataStore.DS.MediaData.Add((MediaModel)loadObject);
+                        DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
                         localGrampsCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
                     }
 
-                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    DataStore.CN.NotifyException("Loading Media Objects", e);
+                    DataStore.Instance.CN.NotifyException("Loading Media Objects", e);
 
                     throw;
                 }

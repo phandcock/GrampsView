@@ -154,7 +154,7 @@ namespace GrampsView.Data
                     // Apply further name transformations here as necessary
                     string filename = Path.GetFileName(tarName);
 
-                    string outName = Path.Combine(DataStore.AD.CurrentDataFolder.FullName, tarName);
+                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, tarName);
 
                     string relativePath = Path.GetDirectoryName(tarEntry.Name);
 
@@ -164,11 +164,11 @@ namespace GrampsView.Data
 
                     if (relativePath.Length > 0)
                     {
-                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.AD.CurrentDataFolder.FullName, relativePath));
+                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, relativePath));
                     }
                     else
                     {
-                        newFolder = DataStore.AD.CurrentDataFolder;
+                        newFolder = DataStore.Instance.AD.CurrentDataFolder;
                     }
 
                     // Check if the folder was created successfully.
@@ -221,7 +221,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        await DataStore.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "Untaring  file {0}", tarEntry.Name)).ConfigureAwait(false);
+                        await DataStore.Instance.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "Untaring  file {0}", tarEntry.Name)).ConfigureAwait(false);
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -287,7 +287,8 @@ namespace GrampsView.Data
                     }
                     else
                     {
-                        // TODO write to the output log // await DataStore.CN.DataLogEntryAdd("File "
+                        // TODO write to the output log // await
+                        // DataStore.Instance.CN.DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }
@@ -297,7 +298,7 @@ namespace GrampsView.Data
 
                     if (!checkFileExistsFlag)
                     {
-                        DataStore.CN.NotifyError(string.Format(System.Globalization.CultureInfo.CurrentCulture, "Error UnTaring file: {0}-{1}. File not created.  Perhaps the path is too long?", newFolder.FullName, filename));
+                        DataStore.Instance.CN.NotifyError(string.Format(System.Globalization.CultureInfo.CurrentCulture, "Error UnTaring file: {0}-{1}. File not created.  Perhaps the path is too long?", newFolder.FullName, filename));
 
                         // TODO copy dummy file in its place
                     }
@@ -312,18 +313,18 @@ namespace GrampsView.Data
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    DataStore.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    DataStore.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    DataStore.CN.NotifyException("UnTar tarEntry null Exception ", ex);
+                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }

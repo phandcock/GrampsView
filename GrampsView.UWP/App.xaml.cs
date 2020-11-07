@@ -64,7 +64,7 @@
                     {
                         case CommonConstants.ModelNameFamily:
                             {
-                                DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
                                 {
                                     { CommonConstants.NavigationParameterHLink, new HLinkFamilyModel { HLinkKey = uriSegments[2] } },
                                     { CommonConstants.NavigationParameterTargetView, nameof(FamilyDetailPage) }
@@ -75,7 +75,7 @@
 
                         case CommonConstants.ModelNamePerson:
                             {
-                                DataStore.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
                                 {
                                     { CommonConstants.NavigationParameterHLink, new HLinkPersonModel { HLinkKey = uriSegments[2] } },
                                     { CommonConstants.NavigationParameterTargetView, nameof(PersonDetailPage) }
@@ -93,7 +93,7 @@
                     }
                 }
 
-                DataStore.NV.Nav(DataStore.NV.TargetNavParams);
+                DataStore.Instance.NV.Nav(DataStore.Instance.NV.TargetNavParams);
             }
         }
 
@@ -180,14 +180,14 @@
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
-            DataStore.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
 
         private static void UnhandledExceptionHandler(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs args)
         {
             Exception e = args.Exception;
 
-            DataStore.CN.NotifyException("UnhandledExceptionHandler", e);
+            DataStore.Instance.CN.NotifyException("UnhandledExceptionHandler", e);
         }
 
         /// <summary>
@@ -201,7 +201,7 @@
         /// </param>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            DataStore.CN.NotifyError("Failed to load Page " + e.SourcePageType.FullName);
+            DataStore.Instance.CN.NotifyError("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         /// <summary>

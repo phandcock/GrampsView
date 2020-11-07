@@ -101,7 +101,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.PersonData;
+                return DataStore.Instance.DS.PersonData;
             }
         }
 

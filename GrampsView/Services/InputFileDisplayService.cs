@@ -28,7 +28,7 @@ namespace GrampsView.Services
             {
                 shown = true;
 
-                DataStore.NV.Nav(nameof(FileInputHandlerPage));
+                DataStore.Instance.NV.Nav(nameof(FileInputHandlerPage));
             }
         }
     }

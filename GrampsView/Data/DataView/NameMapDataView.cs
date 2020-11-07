@@ -60,7 +60,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.NameMapData;
+                return DataStore.Instance.DS.NameMapData;
             }
         }
 

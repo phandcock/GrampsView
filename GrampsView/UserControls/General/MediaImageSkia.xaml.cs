@@ -9,7 +9,6 @@ namespace GrampsView.UserControls
 
     using System;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public partial class MediaImageSkia : Frame
@@ -30,11 +29,9 @@ namespace GrampsView.UserControls
 
         private HLinkHomeImageModel WorkHLMediaModel { get; set; }
 
-    
-
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            DataStore.CN.NotifyError("Error in MediaImageSkia.  Error is " + e.Exception.Message);
+            DataStore.Instance.CN.NotifyError("Error in MediaImageSkia.  Error is " + e.Exception.Message);
 
             (sender as FFImageLoading.Forms.CachedImage).Cancel();
             (sender as FFImageLoading.Forms.CachedImage).Source = null;
@@ -69,19 +66,17 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("MediaImageSkia", ex);
+                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex);
 
                 throw;
             }
         }
 
-
-
         //private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         //{
         //    MediaImageSkia tt = sender as MediaImageSkia;
 
-        //    OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
+        // OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
 
         //    Launcher.OpenAsync(t);
         //}
@@ -90,7 +85,7 @@ namespace GrampsView.UserControls
         {
             if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
             {
-                DataStore.CN.NotifyError("The media file path is null for Id:" + argMediaModel.Id);
+                DataStore.Instance.CN.NotifyError("The media file path is null for Id:" + argMediaModel.Id);
                 return;
             }
             // Input valid so start work
@@ -108,7 +103,7 @@ namespace GrampsView.UserControls
             {
                 if (!argHHomeMedia.Valid)
                 {
-                    //DataStore.CN.NotifyError("Invalid HlinkMediaModel (" + HLinkMedia.HLinkKey + ") passed to MediaImage");
+                    //DataStore.Instance.CN.NotifyError("Invalid HlinkMediaModel (" + HLinkMedia.HLinkKey + ") passed to MediaImage");
                     return;
                 }
 
@@ -133,7 +128,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("MediaImageSkia", ex);
+                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex);
 
                 throw;
             }
@@ -152,12 +147,12 @@ namespace GrampsView.UserControls
 
             if (tt.Glyph == null)
             {
-                DataStore.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
+                DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
             }
 
             if (tt.Color == null)
             {
-                DataStore.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
+                DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
             }
 
             this.daSymbol.Source = tt;

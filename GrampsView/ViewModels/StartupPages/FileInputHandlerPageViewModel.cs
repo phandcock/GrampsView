@@ -111,9 +111,9 @@ namespace GrampsView.ViewModels
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
-            DataStore.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
-            DataStore.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
+            DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 
             BaseCL.LogProgress("Tell someone to load the file");
 
@@ -152,12 +152,12 @@ namespace GrampsView.ViewModels
 
                     BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
 
-                    await DataStore.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
                 }
                 else
                 {
                     BaseCL.LogProgress("File picker error");
-                    DataStore.CN.NotifyAlert("No input file was selected");
+                    DataStore.Instance.CN.NotifyAlert("No input file was selected");
 
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
@@ -165,7 +165,7 @@ namespace GrampsView.ViewModels
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception when using File Picker", ex);
+                DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
             }
         }
 
@@ -177,14 +177,14 @@ namespace GrampsView.ViewModels
         {
             BaseEventAggregator.GetEvent<ProgressLoading>().Publish(null);
 
-            if (DataStore.AD.CurrentDataFolderValid)
+            if (DataStore.Instance.AD.CurrentDataFolderValid)
             {
                 DataDetailList.Clear();
 
                 DataDetailList.Add(
                     new CardListLine(
                         "Data Folder:",
-                        DataStore.AD.CurrentDataFolder.FullName));
+                        DataStore.Instance.AD.CurrentDataFolder.FullName));
 
                 LocalCanHandleUseExistingFolder = true;
             }
@@ -214,7 +214,7 @@ namespace GrampsView.ViewModels
         {
             LocalCanHandleDataFolderChosen = false;
 
-            if (DataStore.AD.CurrentDataFolderValid)
+            if (DataStore.Instance.AD.CurrentDataFolderValid)
             {
                 BaseCL.LogProgress("Tell someone to load the file");
 

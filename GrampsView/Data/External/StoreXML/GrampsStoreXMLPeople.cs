@@ -50,7 +50,7 @@
         {
             localGrampsCommonLogging.LogRoutineEntry("loadPeopleData");
 
-            await DataStore.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
                 string defaultImage = string.Empty;
 
@@ -140,7 +140,7 @@
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);
 
-                        //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+                        //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
                         //if (tt.Count() > 0)
                         //{
                         //}
@@ -154,18 +154,18 @@
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        DataStore.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
+                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
                         throw;
                     }
                     else
                     {
-                        DataStore.CN.NotifyException("Loading person from GRAMPSXML storage.  No people have been loaded", ex);
+                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  No people have been loaded", ex);
                         throw;
                     }
                 }
             }
 
-            //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+            //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
             //if (tt.Count() > 0)
             //{
             //}

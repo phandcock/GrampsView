@@ -73,7 +73,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.RepositoryData;
+                return DataStore.Instance.DS.RepositoryData;
             }
         }
 

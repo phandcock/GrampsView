@@ -195,7 +195,7 @@ namespace GrampsView.Common
             Preferences.Remove(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
             Preferences.Remove(CommonConstants.SettingsXMLFileLastDateTimeModified);
 
-            DataStore.DS.IsDataLoaded = false;
+            DataStore.Instance.DS.IsDataLoaded = false;
 
             DataSerialised = false;
         }

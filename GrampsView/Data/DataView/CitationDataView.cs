@@ -33,7 +33,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.CitationData;
+                return DataStore.Instance.DS.CitationData;
             }
         }
 

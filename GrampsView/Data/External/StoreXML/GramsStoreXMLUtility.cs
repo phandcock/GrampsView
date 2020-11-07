@@ -63,7 +63,7 @@ namespace GrampsView.Data.ExternalStorageNS
              string newHLinkKey = argHLinkLoadImageModel.HLinkKey + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y;
              string outFileName = Path.Combine("Cropped", newHLinkKey + ".png");
 
-             string outFilePath = Path.Combine(DataStore.AD.CurrentDataFolder.FullName, outFileName);
+             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
 
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 
@@ -136,7 +136,7 @@ namespace GrampsView.Data.ExternalStorageNS
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFileName;
-                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, outFileName); ;
+                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName); ;
                  newMediaModel.IsClippedFile = true;
 
                  newMediaModel.MetaDataHeight = cropRect.Height;
@@ -144,7 +144,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
                  newMediaModel = SetHomeImage(newMediaModel);
 
-                 DataStore.DS.MediaData.Add((MediaModel)newMediaModel);
+                 DataStore.Instance.DS.MediaData.Add((MediaModel)newMediaModel);
              }
              else
              {
@@ -155,7 +155,7 @@ namespace GrampsView.Data.ExternalStorageNS
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 
-                 DataStore.CN.NotifyError("File not found when Region specified in ClipMedia", argErrorDetail);
+                 DataStore.Instance.CN.NotifyError("File not found when Region specified in ClipMedia", argErrorDetail);
              }
 
              resourceBitmap.Dispose();
@@ -223,21 +223,21 @@ namespace GrampsView.Data.ExternalStorageNS
             }
             catch (UriFormatException ex)
             {
-                DataStore.CN.NotifyError("The URI in the Internet address is not well formed. Specific error message: " + ex.Message,
+                DataStore.Instance.CN.NotifyError("The URI in the Internet address is not well formed. Specific error message: " + ex.Message,
                         xmlData);
 
                 return null;
             }
             catch (FormatException ex)
             {
-                DataStore.CN.NotifyError("The URI in the Internet address is not in the correct format. Specific error message: " + ex.Message,
+                DataStore.Instance.CN.NotifyError("The URI in the Internet address is not in the correct format. Specific error message: " + ex.Message,
                         xmlData);
 
                 return null;
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception in GetUri", ex);
+                DataStore.Instance.CN.NotifyException("Exception in GetUri", ex);
 
                 throw;
             }
@@ -286,7 +286,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         { "Attribute is", b }
                     };
 
-                    DataStore.CN.NotifyError("Bad colour in GetColour", argErrorDetail);
+                    DataStore.Instance.CN.NotifyError("Bad colour in GetColour", argErrorDetail);
 
                     hexColour = "#000000";
                 }
@@ -302,7 +302,7 @@ namespace GrampsView.Data.ExternalStorageNS
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Error in XML Utils GetColour", ex);
+                DataStore.Instance.CN.NotifyException("Error in XML Utils GetColour", ex);
                 throw;
             }
         }
@@ -331,7 +331,7 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                DataStore.CN.NotifyError("The value passed to GetDateTime was not a valid number of Unix seconds");
+                DataStore.Instance.CN.NotifyError("The value passed to GetDateTime was not a valid number of Unix seconds");
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);

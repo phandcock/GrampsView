@@ -25,7 +25,7 @@
         /// </returns>
         public async Task LoadNameMapsAsync()
         {
-            await DataStore.CN.DataLogEntryAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
             {
                 // XNamespace ns = grampsXMLNameSpace;
                 try
@@ -65,7 +65,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }

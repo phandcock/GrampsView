@@ -25,22 +25,22 @@ namespace GrampsView.Data.ExternalStorageNS
                 if (argMediaModel.IsOriginalFilePathValid)
                 {
                     //_CL.LogVariable("tt.OriginalFilePath", argMediaModel.OriginalFilePath); //
-                    //_CL.LogVariable("localMediaFolder.path", DataStore.AD.CurrentDataFolder.FullName); //
-                    //_CL.LogVariable("path", DataStore.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
+                    //_CL.LogVariable("localMediaFolder.path", DataStore.Instance.AD.CurrentDataFolder.FullName); //
+                    //_CL.LogVariable("path", DataStore.Instance.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
 
-                    DataStore.DS.MediaData[argMediaModel.HLinkKey].MediaStorageFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, argMediaModel.OriginalFilePath);
+                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey].MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, argMediaModel.OriginalFilePath);
                 }
             }
             catch (FileNotFoundException ex)
             {
-                DataStore.CN.NotifyError("File (" + argMediaModel.OriginalFilePath + ") not found while   loading media. Has the GRAMPS database been verified ? " + ex.ToString());
+                DataStore.Instance.CN.NotifyError("File (" + argMediaModel.OriginalFilePath + ") not found while   loading media. Has the GRAMPS database been verified ? " + ex.ToString());
 
-                DataStore.CN.NotifyException("Trying to  add media file pointer", ex);
+                DataStore.Instance.CN.NotifyException("Trying to  add media file pointer", ex);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                DataStore.CN.NotifyException("Trying to add media file pointer", ex);
+                DataStore.Instance.CN.NotifyException("Trying to add media file pointer", ex);
 
            
                 throw;
@@ -59,11 +59,11 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             _CommonLogging.LogRoutineEntry("FixMediaFiles");
 
-            DirectoryInfo localMediaFolder = DataStore.AD.CurrentDataFolder;
+            DirectoryInfo localMediaFolder = DataStore.Instance.AD.CurrentDataFolder;
 
             if (localMediaFolder != null)
             {
-                await DataStore.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {

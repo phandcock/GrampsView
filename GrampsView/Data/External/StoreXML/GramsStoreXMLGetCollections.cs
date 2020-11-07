@@ -76,7 +76,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     newAddressModel.HLinkKey = newGuid;
                     newAddressModel.Id = newGuid;
                     newAddressModel.Handle = newGuid;
-                    DataStore.DS.AddressData.Add(newAddressModel);
+                    DataStore.Instance.DS.AddressData.Add(newAddressModel);
 
                     // Create a HLink to the model
                     HLinkAdressModel newHlink = new HLinkAdressModel
@@ -380,9 +380,9 @@ namespace GrampsView.Data.ExternalStorageNS
                     // Set model hlinkkey
                     newPersonNameModel.HLinkKey = Guid.NewGuid().ToString();
 
-                    DataStore.DS.PersonNameData.Add(newPersonNameModel);
+                    DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
-                    //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+                    //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
                     //if (tt.Count() > 0)
                     //{
                     //}

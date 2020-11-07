@@ -23,7 +23,7 @@ namespace GrampsView.UserControls
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            DataStore.CN.NotifyError("Error in MediaImageFull.  Error is " + e.Exception.Message);
+            DataStore.Instance.CN.NotifyError("Error in MediaImageFull.  Error is " + e.Exception.Message);
 
             (sender as FFImageLoading.Forms.CachedImage).Cancel();
             (sender as FFImageLoading.Forms.CachedImage).Source = null;
@@ -58,7 +58,7 @@ namespace GrampsView.UserControls
                     }
                     catch (Exception ex)
                     {
-                        DataStore.CN.NotifyException("Exception in MediaImageFull control", ex);
+                        DataStore.Instance.CN.NotifyException("Exception in MediaImageFull control", ex);
                         throw;
                     }
                 }

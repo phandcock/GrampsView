@@ -269,7 +269,7 @@
 
                 case TargetIdiom.Phone:
 
-                    switch (DataStore.AD.CurrentOrientation)
+                    switch (DataStore.Instance.AD.CurrentOrientation)
                     {
                         case DisplayOrientation.Portrait:
                             {
@@ -354,7 +354,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    switch (DataStore.AD.CurrentOrientation)
+                    switch (DataStore.Instance.AD.CurrentOrientation)
                     {
                         case DisplayOrientation.Portrait:
                             {
@@ -435,7 +435,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    switch (DataStore.AD.CurrentOrientation)
+                    switch (DataStore.Instance.AD.CurrentOrientation)
                     {
                         case DisplayOrientation.Portrait:
                             {
@@ -516,7 +516,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    switch (DataStore.AD.CurrentOrientation)
+                    switch (DataStore.Instance.AD.CurrentOrientation)
                     {
                         case DisplayOrientation.Portrait:
                             {

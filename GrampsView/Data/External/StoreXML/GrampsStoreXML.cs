@@ -90,9 +90,9 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             try
             {
-                FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+                FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
 
-                await DataStore.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {
                     Stream xmlReader = inputFile.FInfo.OpenRead();
 
@@ -103,7 +103,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     }
                     catch (Exception ex)
                     {
-                        DataStore.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        DataStore.Instance.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
                         throw;
                     }
@@ -111,7 +111,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, CommonConstants.GrampsXMLPublicId, StringComparison.CurrentCulture);
                     if (compareFlag < 0)
                     {
-                        DataStore.CN.NotifyError("The program can only load files with a Gramps XML version of " + CommonConstants.GrampsXMLPublicId + " or greater.  This file is version " + localGrampsXMLdoc.DocumentType.PublicId);
+                        DataStore.Instance.CN.NotifyError("The program can only load files with a Gramps XML version of " + CommonConstants.GrampsXMLPublicId + " or greater.  This file is version " + localGrampsXMLdoc.DocumentType.PublicId);
                         return false;
                     }
 
@@ -131,7 +131,7 @@ namespace GrampsView.Data.ExternalStorageNS
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("trying to load Gramps data only", ex);
+                DataStore.Instance.CN.NotifyException("trying to load Gramps data only", ex);
                 throw;
             }
 

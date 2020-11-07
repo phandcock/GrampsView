@@ -24,7 +24,7 @@
         /// </returns>
         public async Task LoadBookMarksAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
             {
                 try
                 {
@@ -52,11 +52,11 @@
 
                         if (newHlinkBackLink.Valid)
                         {
-                            DataStore.DS.BookMarkCollection.Add(newHlinkBackLink);
+                            DataStore.Instance.DS.BookMarkCollection.Add(newHlinkBackLink);
                         }
                         else
                         {
-                            DataStore.CN.NotifyError("Bad BookMark HLink: " + argBookMark.ToString());
+                            DataStore.Instance.CN.NotifyError("Bad BookMark HLink: " + argBookMark.ToString());
                         }
 
                         // save the event
@@ -70,7 +70,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }

@@ -12,7 +12,7 @@
             //    VerticalOptions = LayoutOptions.CenterAndExpand,
             //    HorizontalOptions = LayoutOptions.Center
             //};
-            //button.Clicked += async (sender, args) => throw new ArgumentNullException("Test"); // DataStore.CN.NotifyError("Test Error");
+            //button.Clicked += async (sender, args) => throw new ArgumentNullException("Test"); // DataStore.Instance.CN.NotifyError("Test Error");
 
             //Content = new StackLayout
             //{
