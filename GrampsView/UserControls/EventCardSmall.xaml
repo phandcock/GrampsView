@@ -1,4 +1,4 @@
-﻿<Grid
+﻿<Frame
     x:Class="GrampsView.UserControls.EventCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -6,77 +6,76 @@
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkEventModel"
-    Style="{DynamicResource GridSmallFixedCardStyle}">
-    <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
+    Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid x:Name="controlRoot" RowSpacing="3">
+    <Grid x:Name="controlRoot" RowSpacing="3">
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{prism:NavigateTo 'EventDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
-            </Grid.GestureRecognizers>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{prism:NavigateTo 'EventDetailPage'}">
+                <TapGestureRecognizer.CommandParameter>
+                    <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
+                </TapGestureRecognizer.CommandParameter>
+            </TapGestureRecognizer>
+        </Grid.GestureRecognizers>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
 
-            <Grid
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="0"
-                Style="{DynamicResource CardImageBackground}">
+        <Grid
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Style="{DynamicResource CardImageBackground}">
 
-                <ucon:MediaImageSkia
-                    x:Name="AnchorImage"
-                    BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}" />
-            </Grid>
-
-            <Label
-                x:Name="dateTextBlock"
-                Grid.Row="0"
-                Grid.Column="1"
-                LineBreakMode="WordWrap"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDate.ShortDate, Mode=OneWay}" />
-
-            <Label
-                x:Name="typeTextBlock"
-                Grid.Row="0"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                HorizontalOptions="EndAndExpand"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GType, Mode=OneWay}" />
-
-            <Label
-                x:Name="descriptionTextBlock"
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDescription, Mode=OneWay}" />
-
-            <Image
-                Grid.Row="1"
-                Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
-                        Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
-                </Image.Source>
-            </Image>
+            <ucon:MediaImageSkia
+                x:Name="AnchorImage"
+                BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                Style="{DynamicResource MediaImageStyle}" />
         </Grid>
-    </Frame>
-</Grid>
+
+        <Label
+            x:Name="dateTextBlock"
+            Grid.Row="0"
+            Grid.Column="1"
+            LineBreakMode="WordWrap"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDate.ShortDate, Mode=OneWay}" />
+
+        <Label
+            x:Name="typeTextBlock"
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
+
+        <Label
+            x:Name="descriptionTextBlock"
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDescription, Mode=OneWay}" />
+
+        <Image
+            Grid.Row="1"
+            Grid.Column="2"
+            Style="{DynamicResource GVSymbolIconSmallCardType}">
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="{StaticResource GlyphFontFamily}"
+                    Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
+                    Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
+            </Image.Source>
+        </Image>
+    </Grid>
+</Frame>
