@@ -684,7 +684,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    IGrampsStyle newStyleModel = new GrampsStyle
+                    GrampsStyle newStyleModel = new GrampsStyle
                     {
                         GStyle = GetTextStyle(theLoadORElement),
 
