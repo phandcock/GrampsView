@@ -7,51 +7,47 @@
 
     <ControlTemplate x:Key="DetailPageTemplate">
 
-        <FlexLayout Direction="Column">
+        <StackLayout>
 
             <!--  Header  -->
 
             <!--  Body  -->
-            <FlexLayout FlexLayout.Grow="1">
 
-                <!--  Content  -->
+            <!--  Content  -->
 
-                <ContentPresenter />
+            <ContentPresenter />
 
-                <!--  Content End  -->
+            <!--  Content End  -->
 
-                <!--  Navigation items  -->
+            <!--  Navigation items  -->
 
-                <!--  Aside items  -->
+            <!--  Aside items  -->
 
-                <!--  Body End  -->
-            </FlexLayout>
+            <!--  Body End  -->
 
             <!--  Footer  -->
             <ucon:BottomMenu />
-        </FlexLayout>
+        </StackLayout>
     </ControlTemplate>
 
     <!--  List Page Control Template  -->
 
     <ControlTemplate x:Key="ListPageTemplate">
 
-        <FlexLayout Direction="Column">
+        <StackLayout>
 
             <!--  Body  -->
-            <FlexLayout FlexLayout.Grow="1">
 
-                <!--  Content  -->
-                <ContentPresenter />
-                <!--  Content End  -->
+            <!--  Content  -->
+            <ContentPresenter />
+            <!--  Content End  -->
 
-                <!--  Navigation items  -->
+            <!--  Navigation items  -->
 
-                <!--  Aside items  -->
-            </FlexLayout>
+            <!--  Aside items  -->
 
             <!--  Footer  -->
             <ucon:BottomMenu />
-        </FlexLayout>
+        </StackLayout>
     </ControlTemplate>
 </ResourceDictionary>

@@ -94,7 +94,7 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="MinimumHeightRequest" Value="40" />
         <Setter Property="HeightRequest" Value="40" />
-        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="CornerRadius" Value="1" />
     </Style>
 
@@ -173,6 +173,7 @@
         x:Key="FrameSmallFixedCardStyle"
         BasedOn="{StaticResource FrameCardSmallStyle}"
         TargetType="Frame">
+        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="0" />
     </Style>
 

@@ -1,10 +1,4 @@
-﻿// <copyright file="EventCardLarge.xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-/// <summary>
-/// </summary>
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using Xamarin.Forms;
 
@@ -15,7 +9,7 @@ namespace GrampsView.UserControls
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector"/>
     /// /// /// /// /// /// ///
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2"/>
-    public partial class EventCardSmall : Grid
+    public partial class EventCardSmall : Frame
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCardLarge"/> class.
