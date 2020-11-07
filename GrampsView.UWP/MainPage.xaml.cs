@@ -1,14 +1,12 @@
-﻿using GrampsView.Common.CustomClasses;
-
-using Prism;
-using Prism.Ioc;
-
-namespace GrampsView.UWP
+﻿namespace GrampsView.UWP
 {
+    using GrampsView.Common.CustomClasses;
+
+    using Prism;
+    using Prism.Ioc;
+
     public sealed partial class MainPage
     {
-        //public CommonTileUpdate tileUpdater;
-
         public MainPage()
         {
             this.InitializeComponent();

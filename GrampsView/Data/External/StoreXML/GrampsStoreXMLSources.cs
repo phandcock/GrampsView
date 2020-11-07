@@ -43,7 +43,7 @@
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            await DataStore.CN.DataLogEntryAdd(strMessage: "Loading Source data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd(strMessage: "Loading Source data").ConfigureAwait(false);
             {
                 try
                 {
@@ -54,7 +54,7 @@
 
                     // TODO get BookMark fields
 
-                    await DataStore.CN.DataLogEntryAdd(strMessage: "Loading Source entry").ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(strMessage: "Loading Source entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
                     foreach (XElement pSourceElement in de)
@@ -84,7 +84,7 @@
 
                         loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
-                        await DataStore.CN.DataLogEntryReplace(argMessage: "Loading Source entry: " + loadSource.GSTitle).ConfigureAwait(false);
+                        await DataStore.Instance.CN.DataLogEntryReplace(argMessage: "Loading Source entry: " + loadSource.GSTitle).ConfigureAwait(false);
 
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
@@ -99,12 +99,12 @@
                         DV.SourceDV.SourceData.Add(loadSource);
                     }
 
-                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }

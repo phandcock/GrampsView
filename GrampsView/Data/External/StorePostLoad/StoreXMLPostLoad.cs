@@ -27,7 +27,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseAddressRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
 
             foreach (AddressModel theAddressModel in DV.AddressDV.DataViewData)
             {
@@ -40,7 +40,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in theAddressModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // TODO finish adding the collections to the backlinks
@@ -54,7 +54,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseCitationRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -69,22 +69,22 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Media Collection - Create backlinks in media models to citation models
                 foreach (HLinkMediaModel mediaRef in theCitationModel.GMediaRefCollection)
                 {
-                    DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theCitationModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Source HLink
-                DataStore.DS.SourceData[theCitationModel.GSourceRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                DataStore.Instance.DS.SourceData[theCitationModel.GSourceRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theCitationModel.GTagRef)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -96,7 +96,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseEventRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
 
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
@@ -109,31 +109,31 @@ namespace GrampsView.Data.ExternalStorageNS
                 // tagref Citation Collection
                 foreach (HLinkCitationModel citationRef in theEventModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Media Collection
                 foreach (HLinkMediaModel mediaRef in theEventModel.GMediaRefCollection)
                 {
-                    DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Place Reference
                 if (theEventModel.GPlace.Valid)
                 {
-                    DataStore.DS.PlaceData[theEventModel.GPlace.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.PlaceData[theEventModel.GPlace.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theEventModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theEventModel.GTagRefCollection)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -145,7 +145,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseFamilyRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -156,37 +156,37 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Child Collection
                 foreach (HLinkPersonModel personRef in theFamilyModel.GChildRefCollection)
                 {
-                    DataStore.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in theFamilyModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Event HLinks
                 foreach (HLinkEventModel eventRef in theFamilyModel.GEventRefCollection)
                 {
-                    DataStore.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Media Collection
                 foreach (HLinkMediaModel mediaRef in theFamilyModel.GMediaRefCollection)
                 {
-                    DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in theFamilyModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Tag Collection
                 foreach (HLinkTagModel tagRef in theFamilyModel.GTagRefCollection)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -198,7 +198,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseHeaderRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
             return true;
         }
@@ -208,7 +208,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseMediaRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
 
             try
             {
@@ -223,25 +223,25 @@ namespace GrampsView.Data.ExternalStorageNS
                     // Back Reference Citation HLinks
                     foreach (HLinkCitationModel citationRef in theMediaObject.GCitationRefCollection)
                     {
-                        DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Back Reference Note HLinks
                     foreach (HLinkNoteModel noteRef in theMediaObject.GNoteRefCollection)
                     {
-                        DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Back Reference Tag HLinks
                     foreach (HLinkTagModel tagRef in theMediaObject.GTagRefCollection)
                     {
-                        DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
                 }
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
+                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
 
                 throw;
             }
@@ -254,7 +254,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseNameMapRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
             return true;
         }
@@ -264,7 +264,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseNoteRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
 
             foreach (NoteModel theNoteModel in DV.NoteDV.DataViewData)
             {
@@ -277,7 +277,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
                 foreach (HLinkTagModel tagRef in theNoteModel.GTagRefCollection)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -286,7 +286,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private static async Task<bool> OrganisePersonNameRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
             foreach (PersonNameModel thePersonNameModel in DV.PersonNameDV.DataViewData)
             {
@@ -299,13 +299,13 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonNameModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in thePersonNameModel.GNoteReferenceCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -317,7 +317,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganisePersonRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
@@ -328,49 +328,49 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Event Collection
                 foreach (HLinkEventModel eventRef in thePersonModel.GEventRefCollection)
                 {
-                    DataStore.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 foreach (HLinkMediaModel mediaRef in thePersonModel.GMediaRefCollection)
                 {
-                    DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in thePersonModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Parent RelationShip
                 foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
                 {
-                    DataStore.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // PersonName Collection
                 foreach (HLinkPersonNameModel personNameRef in thePersonModel.GPersonNamesCollection)
                 {
-                    DataStore.DS.PersonNameData[personNameRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.PersonNameData[personNameRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Sibling Collection
                 foreach (HLinkPersonModel personRef in thePersonModel.SiblingRefCollection)
                 {
-                    DataStore.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in thePersonModel.GTagRefCollection)
                 {
                     // Set the backlinks
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // -- Setup some extra values ------------------------------
@@ -403,7 +403,7 @@ namespace GrampsView.Data.ExternalStorageNS
                     }
                 }
 
-                DataStore.DS.PersonData[thePersonModel.HLinkKey] = thePersonModel;
+                DataStore.Instance.DS.PersonData[thePersonModel.HLinkKey] = thePersonModel;
             }
 
             return true;
@@ -414,7 +414,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganisePlaceRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
             foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
             {
@@ -425,31 +425,31 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Back Reference Citation HLinks
                 foreach (HLinkCitationModel citationRef in thePlaceModel.GCitationRefCollection)
                 {
-                    DataStore.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in thePlaceModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Media HLinks
                 foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
                 {
-                    DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Setup Child Place HLinks
                 foreach (HLinkPlaceModel placeRef in thePlaceModel.GPlaceRefCollection)
                 {
-                    DataStore.DS.PlaceData[placeRef.HLinkKey].PlaceChildCollection.Add(t);
+                    DataStore.Instance.DS.PlaceData[placeRef.HLinkKey].PlaceChildCollection.Add(t);
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in thePlaceModel.GTagRefCollection)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -470,7 +470,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseRepositoryRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
             foreach (RepositoryModel theRepositoryModel in DV.RepositoryDV.DataViewData)
             {
@@ -479,13 +479,13 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theRepositoryModel.GNoteRefCollection)
                 {
-                    DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theRepositoryModel.GTagRefCollection)
                 {
-                    DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
 
@@ -494,7 +494,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private static async Task<bool> OrganiseSourceRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
@@ -510,30 +510,30 @@ namespace GrampsView.Data.ExternalStorageNS
 
                     foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
                     {
-                        DataStore.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Note Collection
                     foreach (IHLinkNoteModel noteRef in theSourceModel.GNoteRefCollection)
                     {
-                        DataStore.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Repository Collection
                     foreach (HLinkRepositoryModel repositoryRef in theSourceModel.GRepositoryRefCollection)
                     {
-                        DataStore.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Tag Collection
                     foreach (HLinkTagModel tagRef in theSourceModel.GTagRefCollection)
                     {
-                        DataStore.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                        DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException("OrganiseSourceRepository", ex);
+                    DataStore.Instance.CN.NotifyException("OrganiseSourceRepository", ex);
                     throw;
                 }
             }
@@ -546,7 +546,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </summary>
         private static async Task<bool> OrganiseTagRepository()
         {
-            await DataStore.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
 
             return true;
         }

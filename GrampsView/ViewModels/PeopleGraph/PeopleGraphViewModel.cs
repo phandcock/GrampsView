@@ -560,7 +560,7 @@ namespace GrampsView.ViewModels
 
             if (!StartHLink.Valid)
             {
-                DataStore.CN.NotifyError("HLink passed to PersonGraph not found");
+                DataStore.Instance.CN.NotifyError("HLink passed to PersonGraph not found");
                 return;
             }
 

@@ -123,7 +123,7 @@
         {
             get
             {
-                return DataStore.DS.MediaData;
+                return DataStore.Instance.DS.MediaData;
             }
         }
 

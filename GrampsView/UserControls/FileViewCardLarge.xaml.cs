@@ -44,13 +44,13 @@ namespace GrampsView.UserControls
                         }
                         else
                         {
-                            DataStore.CN.NotifyError("Error trying to open " + resourceName);
+                            DataStore.Instance.CN.NotifyError("Error trying to open " + resourceName);
                         }
                     }
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.CN.NotifyException("File not Found Exception trying to open " + resourceName, ex);
+                    DataStore.Instance.CN.NotifyException("File not Found Exception trying to open " + resourceName, ex);
                 }
             }
         }

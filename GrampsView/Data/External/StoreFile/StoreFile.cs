@@ -50,7 +50,7 @@
             }
 
             // load the real file
-            DirectoryInfo tt = DataStore.AD.CurrentDataFolder;
+            DirectoryInfo tt = DataStore.Instance.AD.CurrentDataFolder;
             if (tt != null)
             {
                 try
@@ -68,13 +68,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException(ex.Message + relativeFilePath, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + relativeFilePath, ex);
                     throw;
                 }
             }
@@ -90,11 +90,11 @@
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
             {
                 try
                 {
-                    DirectoryInfo t = DataStore.AD.CurrentDataFolder;
+                    DirectoryInfo t = DataStore.Instance.AD.CurrentDataFolder;
 
                     foreach (FileInfo item in t.GetFiles())
                     {
@@ -111,12 +111,12 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException("DataStorageInitialiseAsync", ex);
+                    DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
                     throw;
                 }
             }
 
-            await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
 
             return true;
         }
@@ -133,12 +133,12 @@
         /// </returns>
         public async Task<bool> DecompressGZIP(FileInfoEx inputFile)
         {
-            await DataStore.CN.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
 
             // Check arguments
             if (inputFile == null)
             {
-                DataStore.CN.NotifyError("The input file is null");
+                DataStore.Instance.CN.NotifyError("The input file is null");
                 return false;
             }
 
@@ -146,12 +146,12 @@
             {
                 ExtractGZip(inputFile);
 
-                await DataStore.CN.DataLogEntryAdd("GRAMPS file decompressing complete").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("GRAMPS file decompressing complete").ConfigureAwait(false);
                 return true;
             }
             catch (UnauthorizedAccessException ex)
             {
-                DataStore.CN.NotifyError("Unauthorised Access exception when trying to acess file. " + ex.Message);
+                DataStore.Instance.CN.NotifyError("Unauthorised Access exception when trying to acess file. " + ex.Message);
                 return false;
             }
         }
@@ -165,22 +165,22 @@
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await DataStore.CN.DataLogEntryAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
 
             // Check arguments
-            if (!DataStore.AD.CurrentInputStreamValid)
+            if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                DataStore.CN.NotifyAlert("The input file is invalid");
+                DataStore.Instance.CN.NotifyAlert("The input file is invalid");
                 return false;
             }
 
-            Stream originalFileStream = DataStore.AD.CurrentInputStream;
+            Stream originalFileStream = DataStore.Instance.AD.CurrentInputStream;
 
             // open the gzip and extract the tar file
-            await DataStore.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
-            await DataStore.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
 
-            await DataStore.CN.DataLogEntryAdd("Un Tar ing file").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Un Tar ing file").ConfigureAwait(false);
 
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
@@ -191,7 +191,7 @@
                 }
             }
 
-            await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
             return true;
         }
     }

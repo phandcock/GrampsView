@@ -1,23 +1,28 @@
-﻿// <copyright file="DataStore.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿using GrampsView.Common;
 
-/// <summary>
-/// </summary>
+using System;
+
 namespace GrampsView.Data.Repository
 {
-    using GrampsView.Common;
-
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// Static Data Store.
     /// </summary>
-    [DataContract]
+
     public sealed class DataStore : CommonBindableBase
+
     {
+        private static readonly Lazy<DataStore> lazy = new Lazy<DataStore>(() => new DataStore());
+
         private DataStore()
         {
+        }
+
+        public static DataStore Instance
+        {
+            get
+            {
+                return lazy.Value;
+            }
         }
 
         /// <summary>
@@ -26,7 +31,7 @@ namespace GrampsView.Data.Repository
         /// <value>
         /// The ad.
         /// </value>
-        public static ApplicationWideData AD { get; set; } = new ApplicationWideData();
+        public ApplicationWideData AD { get; set; } = new ApplicationWideData();
 
         /// <summary>
         /// Gets or sets the cn.
@@ -34,16 +39,16 @@ namespace GrampsView.Data.Repository
         /// <value>
         /// The cn.
         /// </value>
-        public static ICommonNotifications CN { get; set; }
+        public ICommonNotifications CN { get; set; }
 
         /// <summary>
         /// Gets the Data Store.
         /// </summary>
         /// <value>
-        /// The datastore.
+        /// The DataStore.Instance.
         /// </value>
-        public static DataInstance DS { get; } = new DataInstance();
+        public DataInstance DS { get; } = new DataInstance();
 
-        public static NavCmd NV { get; set; } = new NavCmd();
+        public NavCmd NV { get; set; } = new NavCmd();
     }
 }

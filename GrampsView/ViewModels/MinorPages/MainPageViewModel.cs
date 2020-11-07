@@ -151,7 +151,7 @@
             ///     DataBase Reload Needed
             ///     Load Data
             ///     Goto Hub Page
-            if (DataStore.DS.IsDataLoaded)
+            if (DataStore.Instance.DS.IsDataLoaded)
             {
                 OnNavigateCommandExecuted(nameof(HubPage));
                 return;
@@ -216,13 +216,13 @@
 
                     if (!result.Success)
                     {
-                        DataStore.CN.NotifyException("OnNavigateCommandExecuted", result.Exception);
+                        DataStore.Instance.CN.NotifyException("OnNavigateCommandExecuted", result.Exception);
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                DataStore.CN.NotifyException("OnNavigateCommandExecuted", ex);
+                DataStore.Instance.CN.NotifyException("OnNavigateCommandExecuted", ex);
                 throw;
             }
         }
@@ -241,7 +241,7 @@
 
             if (!result.Success)
             {
-                DataStore.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
+                DataStore.Instance.CN.NotifyException("OnNavigateParmsCommandExecuted", result.Exception);
             }
             //}
         }

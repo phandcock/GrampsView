@@ -62,7 +62,7 @@ namespace GrampsView.Data.ExternalStorageNS
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            await DataStore.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -157,7 +157,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
                     throw;
                 }
             }

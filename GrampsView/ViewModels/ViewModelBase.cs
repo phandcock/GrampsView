@@ -325,7 +325,7 @@ namespace GrampsView.ViewModels
 
                 DetailDataLoadedFlag = true;
 
-                //PopulateViewModel().SafeFireAndForget(onException: ex => DataStore.CN.NotifyException("Trouble calling PopulateViewModel for " + BaseNavParams.TargetView, ex));
+                //PopulateViewModel().SafeFireAndForget(onException: ex => DataStore.Instance.CN.NotifyException("Trouble calling PopulateViewModel for " + BaseNavParams.TargetView, ex));
 
                 //MainThread.BeginInvokeOnMainThread(() =>
                 //{

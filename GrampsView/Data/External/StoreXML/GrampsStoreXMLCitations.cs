@@ -60,7 +60,7 @@
         /// </returns>
         public async Task LoadCitationsAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
             {
                 // Load notes
 
@@ -71,7 +71,7 @@
                         from el in localGrampsXMLdoc.Descendants(ns + "citation")
                         select el;
 
-                    await DataStore.CN.DataLogEntryAdd("Loading Citation Entry").ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation Entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
                     foreach (XElement pcitation in de)
@@ -101,7 +101,7 @@
 
                         loadCitation.GSourceRef.HLinkKey = GetAttribute(pcitation.Element(ns + "sourceref"), "hlink");
 
-                        await DataStore.CN.DataLogEntryReplace(argMessage: "Loading Citation for: " + loadCitation.GSourceRef.DeRef.GetDefaultText).ConfigureAwait(false);
+                        await DataStore.Instance.CN.DataLogEntryReplace(argMessage: "Loading Citation for: " + loadCitation.GSourceRef.DeRef.GetDefaultText).ConfigureAwait(false);
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
@@ -112,11 +112,11 @@
                         DV.CitationDV.CitationData.Add(loadCitation);
                     }
 
-                    await DataStore.CN.DataLogEntryDelete().ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
-                    DataStore.CN.NotifyException("Exception loading Citations form XML", e);
+                    DataStore.Instance.CN.NotifyException("Exception loading Citations form XML", e);
                     throw;
                 }
             }

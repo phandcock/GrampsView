@@ -153,7 +153,7 @@ namespace GrampsView.ViewModels
 
         public void TestButtonHandler()
         {
-            DataStore.CN.NotifyAlert("Test Alert");
+            DataStore.Instance.CN.NotifyAlert("Test Alert");
 
             ActionDialogArgs t = new ActionDialogArgs
             {
@@ -164,7 +164,7 @@ namespace GrampsView.ViewModels
             t.ItemDetails.Add("Test Line 1", "Test Value 1");
             t.ItemDetails.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.CN.NotifyDialogBox(t);
+            DataStore.Instance.CN.NotifyDialogBox(t);
         }
     }
 }

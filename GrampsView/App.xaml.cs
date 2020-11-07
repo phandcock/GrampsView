@@ -46,7 +46,6 @@ namespace GrampsView
         {
         }
 
-
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
         }
@@ -79,8 +78,7 @@ namespace GrampsView
 
                 var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
 
-                // Assets.Strings.AppResources.Culture = ci; 
-                // TODO set the RESX for resource localization
+                // Assets.Strings.AppResources.Culture = ci; TODO set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
@@ -114,7 +112,7 @@ namespace GrampsView
 
         protected override void OnStart()
         {
-            if (DataStore.DS.IsDataLoaded)
+            if (DataStore.Instance.DS.IsDataLoaded)
             {
                 NavigationService.NavigateAsync("MainPage/NavigationPage/" + nameof(HubPage));
                 return;
@@ -129,19 +127,19 @@ namespace GrampsView
 
             IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
 
-            DataStore.CN = Container.Resolve<ICommonNotifications>();
+            DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
-            DataStore.NV = new NavCmd(Container.Resolve<IEventAggregator>());
+            DataStore.Instance.NV = new NavCmd(Container.Resolve<IEventAggregator>());
 
             IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
 
             // Start at the MessageLog Page if no other paramaters and work from there
-            if (!DataStore.NV.TargetNavParams.Any())
+            if (!DataStore.Instance.NV.TargetNavParams.Any())
             {
-                DataStore.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
+                DataStore.Instance.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
             }
 
-            DataStore.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
+            DataStore.Instance.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
 
             NavigationService.NavigateAsync("MainPage/NavigationPage/" + targetView);
         }
@@ -265,7 +263,7 @@ namespace GrampsView
                 ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
                 // TODO fu because seems to be one rotation behind on emulator
-                DataStore.AD.CurrentOrientation = e.DisplayInfo.Orientation;
+                DataStore.Instance.AD.CurrentOrientation = e.DisplayInfo.Orientation;
 
                 // Card width reset
                 CardSizes.Current.ReCalculateCardWidths();

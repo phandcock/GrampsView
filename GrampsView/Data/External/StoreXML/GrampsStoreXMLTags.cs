@@ -22,7 +22,7 @@
         /// </returns>
         public async Task LoadTagsAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
             {
                 try
                 {
@@ -62,7 +62,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException("Error in LoadTagsAsync", ex);
+                    DataStore.Instance.CN.NotifyException("Error in LoadTagsAsync", ex);
                     throw;
                 }
             }

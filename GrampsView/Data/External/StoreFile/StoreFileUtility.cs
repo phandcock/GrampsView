@@ -71,7 +71,7 @@ namespace GrampsView.Data
 
             if (aFail)
             {
-                DataStore.CN.NotifyError("Relative folder path names are not allowed." + path + ".");
+                DataStore.Instance.CN.NotifyError("Relative folder path names are not allowed." + path + ".");
                 returnValue = false;
             }
 
@@ -83,19 +83,19 @@ namespace GrampsView.Data
         {
             Contract.Assert(argPath != null);
 
-            if (DataStore.AD.CurrentDataFolder.FullName == argPath)
+            if (DataStore.Instance.AD.CurrentDataFolder.FullName == argPath)
             {
                 return string.Empty;
             }
 
-            if (argPath.Length < DataStore.AD.CurrentDataFolder.FullName.Length)
+            if (argPath.Length < DataStore.Instance.AD.CurrentDataFolder.FullName.Length)
             {
                 return argPath;
             }
 
-            if (argPath.Substring(0, DataStore.AD.CurrentDataFolder.FullName.Length) == DataStore.AD.CurrentDataFolder.FullName)
+            if (argPath.Substring(0, DataStore.Instance.AD.CurrentDataFolder.FullName.Length) == DataStore.Instance.AD.CurrentDataFolder.FullName)
             {
-                return argPath.Substring(DataStore.AD.CurrentDataFolder.FullName.Length, argPath.Length - DataStore.AD.CurrentDataFolder.FullName.Length);
+                return argPath.Substring(DataStore.Instance.AD.CurrentDataFolder.FullName.Length, argPath.Length - DataStore.Instance.AD.CurrentDataFolder.FullName.Length);
             }
 
             return argPath;
@@ -119,9 +119,9 @@ namespace GrampsView.Data
 
                 Debug.WriteLine("Picked file name is: " + t.FileName);
 
-                DataStore.AD.CurrentInputStream = t.GetStream();
+                DataStore.Instance.AD.CurrentInputStream = t.GetStream();
 
-                DataStore.AD.CurrentInputStreamPath = t.FilePath;
+                DataStore.Instance.AD.CurrentInputStreamPath = t.FilePath;
 
                 // TODO Add platform specific file type checking
             }
@@ -129,7 +129,7 @@ namespace GrampsView.Data
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception in GetInputFolder", ex);
+                DataStore.Instance.CN.NotifyException("Exception in GetInputFolder", ex);
 
                 throw;
             }
