@@ -1,17 +1,13 @@
-﻿
-
-using GrampsView.Data.Collections;
-using System.Collections.ObjectModel;
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
+    using System.Collections.ObjectModel;
+
     /// <summary>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
-    public interface IStyledTextModel 
+    public interface IStyledTextModel
     {
-        ObservableCollection<IGrampsStyle> Styles { get;  }
-
         string GText { get; set; }
+        ObservableCollection<GrampsStyle> Styles { get; }
     }
 }

@@ -63,7 +63,7 @@
 
                         StyledTextModel tempStyledText = GetStyledTextCollection(pname);
                         loadNote.GStyledText.GText = tempStyledText.GText;
-                        foreach (IGrampsStyle item in tempStyledText.Styles)
+                        foreach (GrampsStyle item in tempStyledText.Styles)
                         {
                             loadNote.GStyledText.Styles.Add(item);
                         }

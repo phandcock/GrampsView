@@ -19,16 +19,16 @@ namespace GrampsView.Data.Model
     {
         private string _GText = string.Empty;
 
-        private ObservableCollection<IGrampsStyle> _Styles
+        private ObservableCollection<GrampsStyle> _Styles
 
-            = new ObservableCollection<IGrampsStyle>();
+            = new ObservableCollection<GrampsStyle>();
 
         public StyledTextModel()
         {
         }
 
         [DataMember]
-        public ObservableCollection<IGrampsStyle> Styles
+        public ObservableCollection<GrampsStyle> Styles
         {
             get
             {

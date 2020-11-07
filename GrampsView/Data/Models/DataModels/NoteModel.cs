@@ -33,8 +33,6 @@ namespace GrampsView.Data.Model
 
         private FormattedString _FormattedText = new FormattedString();
 
-      
-
         /// <summary>
         /// The local IsFormated.
         /// </summary>
@@ -116,7 +114,7 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public IStyledTextModel GStyledText { get; set; } = new StyledTextModel();
+        public StyledTextModel GStyledText { get; set; } = new StyledTextModel();
 
         /// <summary>
         /// Gets or sets the g tag reference collection.
@@ -131,8 +129,6 @@ namespace GrampsView.Data.Model
         }
 
         = new HLinkTagModelCollection();
-
-
 
         // TODO add field style*
         /// <summary>
