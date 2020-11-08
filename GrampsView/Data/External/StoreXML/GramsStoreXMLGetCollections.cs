@@ -791,7 +791,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 HLinkHomeImageModel newHomeLink = new HLinkHomeImageModel
                 {
                     HomeImageType = CommonEnums.HomeImageType.Symbol,
-                    HomeSymbol = CommonConstants.IconBookMark // TODO  Windows.UI.Xaml.Controls.Symbol.World,
+                    HomeSymbol = CommonConstants.IconURL,
                 };
 
                 // load event object references

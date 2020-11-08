@@ -90,7 +90,7 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
         <Setter Property="HasShadow" Value="False" />
-        <Setter Property="Margin" Value="1" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="MinimumHeightRequest" Value="40" />
         <Setter Property="HeightRequest" Value="40" />

@@ -125,6 +125,7 @@
     <Compile Remove="Data\Models\DataModels\Minor\InstructCardModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkBookMarkModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkInstructionCard.cs" />
+    <Compile Remove="Data\Models\HLinks\HLinkPrimaryObjectModel.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\HLinkAddressModel.cs" />
     <Compile Remove="Data\Models\Item.cs" />
     <Compile Remove="Data\Models\Misc\MediaImageFullModel.cs" />

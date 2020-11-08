@@ -4,10 +4,14 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls;assembly=GrampsView">
 
     <!--  Detail Page Control Template  -->
-
     <ControlTemplate x:Key="DetailPageTemplate">
 
-        <StackLayout>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
 
             <!--  Header  -->
 
@@ -15,7 +19,7 @@
 
             <!--  Content  -->
 
-            <ContentPresenter />
+            <ContentPresenter Grid.Row="0" />
 
             <!--  Content End  -->
 
@@ -26,12 +30,11 @@
             <!--  Body End  -->
 
             <!--  Footer  -->
-            <ucon:BottomMenu />
-        </StackLayout>
+            <ucon:BottomMenu Grid.Row="1" />
+        </Grid>
     </ControlTemplate>
 
     <!--  List Page Control Template  -->
-
     <ControlTemplate x:Key="ListPageTemplate">
 
         <StackLayout>
