@@ -11,22 +11,21 @@
     mc:Ignorable="d">
 
     <!--  Header  -->
-    <NavigationPage.TitleView >
+    <NavigationPage.TitleView>
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <Grid>
-        <CollectionView
-            x:Name="MajorStatusList"
-            ItemSizingStrategy="MeasureAllItems"
-            ItemTemplate="{StaticResource DataLogEntryLarge}"
-            ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
-            ItemsUpdatingScrollMode="KeepLastItemInView">
 
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-        </CollectionView>
-    </Grid>
+    <CollectionView
+        x:Name="MajorStatusList"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemTemplate="{StaticResource DataLogEntryLarge}"
+        ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
+        ItemsUpdatingScrollMode="KeepLastItemInView"
+        VerticalOptions="FillAndExpand">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+    </CollectionView>
 </ContentPage>

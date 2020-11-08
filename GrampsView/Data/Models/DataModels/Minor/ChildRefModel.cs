@@ -5,13 +5,12 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     /// <summary>
-    /// GRAMPS Alt element class.
+    /// Child Reference model
     /// </summary>
-    /// TODO Update fields as per Schema
     public class ChildRefModel : ModelBase, IChildRefModel
     {
         /// <summary>
-        /// Sets the child ref citation collection reference.
+        /// Citation collection reference.
         /// </summary>
         /// <value>
         /// The citation collection reference.
@@ -48,7 +47,7 @@ namespace GrampsView.Data.Model
             = new HLinkPersonModel();
 
         /// <summary>
-        /// Gets or sets the g note collection reference.
+        /// Gets the note collection reference.
         /// </summary>
         /// <value>
         /// The g note collection reference.
