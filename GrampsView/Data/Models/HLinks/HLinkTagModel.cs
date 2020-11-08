@@ -1,5 +1,7 @@
 ﻿// XML 1.71 All done
 
+// TODO fix Deref caching
+
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;

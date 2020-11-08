@@ -1,5 +1,7 @@
 ﻿// TODO Needs XML 1.71 check
 
+// TODO fix Deref caching
+
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;

@@ -6,24 +6,21 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
     [DataContract]
     public class HLinkNoteModel : HLinkBase, IHLinkNoteModel
     {
+        private NoteModel _Deref = new NoteModel();
+
         public INoteModel DeRef
         {
             get
             {
-                if (Valid)
+                if (Valid && (!_Deref.Valid))
                 {
-                    return DV.NoteDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.NoteDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return new NoteModel();
-                }
+
+                return _Deref;
             }
         }
     }
