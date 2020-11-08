@@ -15,10 +15,13 @@ namespace GrampsView.Common
         {
             [Description("About")]
             about,
+
             [Description("After")]
             after,
+
             [Description("Before")]
             before,
+
             [Description("Unknown")]
             unknown
         }
@@ -27,7 +30,6 @@ namespace GrampsView.Common
         {
             Default,
             HeaderCardLarge,
-            NoteCardFull,
             PersonNameCardSingle,
             PersonNameCardSmall,
             SourceCardSmall,

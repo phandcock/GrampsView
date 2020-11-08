@@ -8,7 +8,6 @@
 namespace GrampsView.Common
 {
     using GrampsView.Data.Model;
-    using GrampsView.UserControls;
 
     using System.Diagnostics.Contracts;
 
@@ -348,25 +347,12 @@ namespace GrampsView.Common
 
             if (item is HLinkHomeImageModel)
             {
-                switch ((item as HLinkHomeImageModel).CardType)
-                {
-                    //case DisplayFormat.MediaImageFullCard:
-                    //    return MediaImageFullTemplate;
-
-                    case DisplayFormat.Default:
-                        return MediaTemplate;
-                }
+                return MediaTemplate;
             }
+
             if ((item is HLinkMediaModel) || (item is IHLinkMediaModel))
             {
-                switch ((item as HLinkMediaModel).CardType)
-                {
-                    //case DisplayFormat.MediaImageFullCard:
-                    //    return MediaImageFullTemplate;
-
-                    case DisplayFormat.Default:
-                        return MediaTemplate;
-                }
+                return MediaTemplate;
             }
 
             if (item is HLinkNameMapModel)
@@ -376,17 +362,7 @@ namespace GrampsView.Common
 
             if (item is HLinkNoteModel)
             {
-                switch ((item as HLinkNoteModel).CardType)
-                {
-                    case DisplayFormat.Default:
-                        return NoteTemplate;
-
-                    case DisplayFormat.NoteCardFull:
-                        return NoteCardFullTemplate;
-
-                    default:
-                        return NoteTemplate;
-                }
+                return NoteCardFullTemplate;
             }
 
             // Goes here as is child of HLinkPerson
@@ -485,10 +461,10 @@ namespace GrampsView.Common
                 return RepositoryTemplate;
             }
 
-            if (item is SourceCardSmall)
-            {
-                return SourceTemplate;
-            }
+            //if (item is SourceCardSmall)
+            //{
+            //    return SourceTemplate;
+            //}
 
             if (item is SourceModel)
             {

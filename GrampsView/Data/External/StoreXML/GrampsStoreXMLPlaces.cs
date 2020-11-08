@@ -10,9 +10,6 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Private Storage Routines.
-    /// </summary>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
         /// <summary>
@@ -28,7 +25,6 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadPlacesAsync)).ConfigureAwait(false);
             {
-                // XNamespace ns = grampsXMLNameSpace;
                 try
                 {
                     // Run query
@@ -48,19 +44,14 @@
 
                             // Place attributes
                             loadPlace.LoadBasics(GetBasics(pPlaceElement));
-                            //loadPlace.Id = (string)pPlaceElement.Attribute("id");
 
-                            //loadPlace.Change = GetDateTime(pPlaceElement, "change");
-                            //loadPlace.Priv = SetPrivateObject((string)pPlaceElement.Attribute("priv"));
-                            //loadPlace.Handle = (string)pPlaceElement.Attribute("handle");
+                            //if (String.IsNullOrEmpty(loadPlace.Handle))
+                            //{
+                            //}
 
-                            if (String.IsNullOrEmpty(loadPlace.Handle))
-                            {
-                            }
-
-                            if (loadPlace.Id == "P0018")
-                            {
-                            }
+                            //if (loadPlace.Id == "P0018")
+                            //{
+                            //}
 
                             loadPlace.GCode = GetElement(pPlaceElement, "code");
 
@@ -91,22 +82,14 @@
                             // save the event
                             DV.PlaceDV.PlaceData.Add(loadPlace);
                         }
-
-                        // sort the collection eventRepository.Items.Sort(EventModel => EventModel);
-
-                        // let everybody know
                     }
                 }
                 catch (Exception e)
                 {
-                    // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
-
-                    throw;
+                    DataStore.Instance.CN.NotifyException("Exception loading Place data from the file", e);
                 }
             }
 
-        
             return;
         }
     }

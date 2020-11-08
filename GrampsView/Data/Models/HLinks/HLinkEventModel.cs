@@ -1,7 +1,5 @@
 ﻿// XML 171 - All fields defined
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
@@ -30,19 +28,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!_Deref.Valid))
                 {
-                    if ((_Deref is null) || (!_Deref.Valid))
-                    {
-                        _Deref = DV.EventDV.GetModelFromHLinkString(HLinkKey);
-                    }
+                    _Deref = DV.EventDV.GetModelFromHLinkString(HLinkKey);
+                }
 
-                    return _Deref;
-                }
-                else
-                {
-                    return new EventModel();
-                }
+                return _Deref;
             }
         }
 
