@@ -467,6 +467,7 @@
         <Setter Property="HorizontalOptions" Value="StartAndExpand" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
         <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="VerticalOptions" Value="StartAndExpand" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
