@@ -166,6 +166,8 @@ namespace GrampsView.ViewModels
             catch (Exception ex)
             {
                 DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
+
+                throw;
             }
         }
 

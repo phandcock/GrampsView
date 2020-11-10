@@ -61,7 +61,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local gramps store serial.
         /// </summary>
-        private IGrampsStoreSerial localStoreSerial;
+        private readonly IGrampsStoreSerial _StoreSerial;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -89,7 +89,7 @@ namespace GrampsView.Data.Repository
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
             localExternalStorage = iocExternalStorage ?? throw new ArgumentNullException(nameof(iocExternalStorage));
             localPostLoad = iocGrampsStorePostLoad;
-            localStoreSerial = iocGrampsStoreSerial;
+            _StoreSerial = iocGrampsStoreSerial;
             localStoreFile = iocStoreFile;
             _EventAggregator = iocEventAggregator;
 
@@ -156,7 +156,7 @@ namespace GrampsView.Data.Repository
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Serialising Data").ConfigureAwait(false);
 
-            localStoreSerial.SerializeObject(DataStore.Instance.DS);
+            _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
             CommonLocalSettings.DataSerialised = true;
         }
@@ -409,7 +409,7 @@ namespace GrampsView.Data.Repository
                     {
                         await DataStore.Instance.CN.DataLogEntryAdd("Loading GRAMPS Serial data").ConfigureAwait(false);
 
-                        localStoreSerial.DeSerializeRepository();
+                        _StoreSerial.DeSerializeRepository();
 
                         UpdateSettings();
 

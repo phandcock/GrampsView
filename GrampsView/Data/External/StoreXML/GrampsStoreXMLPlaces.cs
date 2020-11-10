@@ -87,6 +87,8 @@
                 catch (Exception e)
                 {
                     DataStore.Instance.CN.NotifyException("Exception loading Place data from the file", e);
+
+                    throw;
                 }
             }
 

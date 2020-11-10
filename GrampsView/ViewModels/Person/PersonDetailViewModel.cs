@@ -83,6 +83,20 @@
             }
         }
 
+        public HLinkPersonNameModelCollection PersonNameMultipleDetails
+        {
+            get
+            {
+                // If only one name then its already display in the detail section
+                if (PersonObject.GPersonNamesCollection.Count == 1)
+                {
+                    return new HLinkPersonNameModelCollection();
+                }
+
+                return PersonObject.GPersonNamesCollection;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the Person to be shown on the page.
         /// </summary>
@@ -141,9 +155,7 @@
 
                 // Get the Person Details
                 CardListLineCollection nameDetails = GetExtraPersonDetails();
-
                 nameDetails.Title = "Person Detail";
-
                 BaseDetail.Add(nameDetails);
 
                 // Get date card

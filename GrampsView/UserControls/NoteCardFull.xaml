@@ -19,7 +19,7 @@
             <Grid x:Name="controlRoot">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                     Grid.Row="0"
                     FormattedText="{Binding DeRef.GFormattedTextSmall}"
                     Style="{DynamicResource GVLabelStyleNoteFull}"
-                    Text="{Binding DeRef.}" />
+                    Text="{Binding DeRef}" />
             </Grid>
         </Frame.Content>
     </Frame>

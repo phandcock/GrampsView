@@ -45,6 +45,8 @@
         /// </returns>
         public static DateObjectModelStr SetDateStr(XElement currentElement)
         {
+            Contract.Assert(currentElement != null);
+
             string aCFormat = string.Empty;
             string aNewYear = string.Empty;
             string aQuality = string.Empty;

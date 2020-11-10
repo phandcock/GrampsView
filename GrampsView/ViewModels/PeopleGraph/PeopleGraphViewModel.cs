@@ -14,6 +14,7 @@ namespace GrampsView.ViewModels
 
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -606,46 +607,7 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Details on an edge between nodes.
-        /// </summary>
-        public struct EdgeItem
-        {
-            /// <summary>
-            /// Gets or sets from.
-            /// </summary>
-            public string From { get; set; }
-
-            /// <summary>
-            /// Gets or sets the line.
-            /// </summary>
-            public object TheLine { get; set; }
-
-            /// <summary>
-            /// Gets or sets to.
-            /// </summary>
-            public string To { get; set; }
-
-            public static bool operator !=(EdgeItem left, EdgeItem right)
-            {
-                return !(left == right);
-            }
-
-            public static bool operator ==(EdgeItem left, EdgeItem right)
-            {
-                return left.Equals(right);
-            }
-
-            public override bool Equals(object obj)
-            {
-                return GetHashCode() == obj.GetHashCode();
-            }
-
-            public override int GetHashCode()
-            {
-                return (From + To).GetHashCode();
-            }
-        }
+       
 
         /// <summary>
         /// The next model to be looked at as we traverse the treee.
@@ -666,6 +628,49 @@ namespace GrampsView.ViewModels
             /// The level.
             /// </summary>
             public int Level;
+        }
+    }
+
+    /// <summary>
+    /// Details on an edge between nodes.
+    /// </summary>
+    public struct EdgeItem
+    {
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        public string From { get; set; }
+
+        /// <summary>
+        /// Gets or sets the line.
+        /// </summary>
+        public object TheLine { get; set; }
+
+        /// <summary>
+        /// Gets or sets to.
+        /// </summary>
+        public string To { get; set; }
+
+        public static bool operator !=(EdgeItem left, EdgeItem right)
+        {
+            return !(left == right);
+        }
+
+        public static bool operator ==(EdgeItem left, EdgeItem right)
+        {
+            return left.Equals(right);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Contract.Assert(obj != null);
+
+            return GetHashCode() == obj.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return (From + To).GetHashCode();
         }
     }
 }
