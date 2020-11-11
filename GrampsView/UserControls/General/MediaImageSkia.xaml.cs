@@ -11,7 +11,7 @@ namespace GrampsView.UserControls
 
     using Xamarin.Forms;
 
-    public partial class MediaImageSkia : Frame
+    public partial class MediaImageSkia : Grid
     {
         private HLinkHomeImageModel newHLinkMedia = new HLinkHomeImageModel();
 
