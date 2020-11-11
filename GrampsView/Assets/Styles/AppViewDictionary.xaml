@@ -99,13 +99,9 @@
     </Style>
 
     <!--  Create a MediaImage Style  -->
-    <Style x:Key="MediaImageStyle" TargetType="Frame">
-        <!--<Setter Property="BackgroundColor" Value="{DynamicResource SurfaceVariantDark2Color}" />-->
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
-        <Setter Property="HasShadow" Value="False" />
+    <Style x:Key="MediaImageStyle" TargetType="Grid">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="1" />
-        <Setter Property="CornerRadius" Value="0" />
     </Style>
 
     <!--  Create a Header Medium Style  -->

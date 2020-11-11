@@ -110,6 +110,8 @@
             }
         }
 
+
+
         public double MediaDetailImageHeight
         {
             get

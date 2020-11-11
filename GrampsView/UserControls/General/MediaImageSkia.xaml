@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Frame
+<Grid
     x:Class="GrampsView.UserControls.MediaImageSkia"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,45 +7,35 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    BindingContextChanged="MediaImageSkia_BindingContextChanged"
-    BorderColor="Transparent">
-
-    <!--<Frame.GestureRecognizers>
-        <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-    </Frame.GestureRecognizers>-->
-
-    <Frame.Content>
-
-        <Grid
-            x:Name="skiaHostControl"
-            Margin="0"
-            Padding="3">
+    BindingContextChanged="MediaImageSkia_BindingContextChanged">
 
 
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
 
-            <Image
-                x:Name="daSymbol"
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="5"
-                Aspect="AspectFit"
-                BackgroundColor="Transparent"
-                IsVisible="True"
-                VerticalOptions="FillAndExpand">
-                <Image.Source>
-                    <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" />
-                </Image.Source>
-            </Image>
+    <Image
+        x:Name="daSymbol"
+        Grid.Row="0"
+        Grid.Column="0"
+        Margin="5"
+        Aspect="AspectFit"
+        BackgroundColor="Transparent"
+        IsVisible="True"
+        VerticalOptions="FillAndExpand">
+        <Image.Source>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" />
+        </Image.Source>
+    </Image>
 
-            <ucon:MediaImageFull x:Name="daImage" />
-        </Grid>
-    </Frame.Content>
-</Frame>
+    <ucon:MediaImageFull
+        x:Name="daImage"
+        Grid.Row="0"
+        Grid.Column="0"
+        Margin="3" />
+</Grid>

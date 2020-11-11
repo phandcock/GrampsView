@@ -22,6 +22,8 @@
         5
     </x:Double>
 
+
+
     <OnPlatform x:Key="GVCardIconSize" x:TypeArguments="x:Single">
         <On Platform="Android">20</On>
         <On Platform="UWP">15</On>
