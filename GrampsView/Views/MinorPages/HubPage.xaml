@@ -17,6 +17,8 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
+
+
     <ScrollView Orientation="Vertical">
         <FlexLayout Direction="Column">
 
@@ -41,4 +43,5 @@
             <ucon:CardGroupBaseHeader BindingContext="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
         </FlexLayout>
     </ScrollView>
+
 </ContentPage>

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:state="clr-namespace:Xamarin.Forms.StateSquid;assembly=Xamarin.Forms.StateSquid"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
@@ -14,28 +15,43 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
-    <!--  Content  -->
-    <ScrollView Orientation="Vertical">
-        <FlexLayout Direction="Column">
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
+    <Grid state:StateLayout.CurrentState="{Binding BaseCurrentState}">
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+        <state:StateLayout.StateViews>
+            <state:StateView StateKey="Loading">
+                <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-            <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
+                        <ActivityIndicator IsRunning="True" Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+                        <Label HorizontalOptions="Center" Text="Loading Person Details..." />
+                    </StackLayout>
+                </Grid>
+            </state:StateView>
+        </state:StateLayout.StateViews>
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+        <!--  Content  -->
+        <ScrollView Orientation="Vertical">
+            <FlexLayout Direction="Column">
+                <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </FlexLayout>
-    </ScrollView>
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+                <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
+
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+                <ucon:CardGroupBaseHeader BindingContext="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+
+                <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            </FlexLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

@@ -138,6 +138,8 @@
         {
             BaseCL.LogRoutineEntry("PersonDetailViewModel");
 
+            BaseCurrentState = Xamarin.Forms.StateSquid.State.Loading;
+
             PersonObject = DV.PersonDV.GetModelFromHLink(BaseNavParamsHLink);
 
             // Trigger refresh of View fields via INotifyPropertyChanged
