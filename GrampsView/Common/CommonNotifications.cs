@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonProgressRoutines
-//
-// <copyright file="CommonNotifications.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using GrampsView.Events;
 
@@ -19,7 +10,7 @@ namespace GrampsView.Common
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Common Progress routines.
+    /// Common Notification routines.
     /// </summary>
     [DataContract]
     public class CommonNotifications : CommonBindableBase, ICommonNotifications
@@ -37,6 +28,7 @@ namespace GrampsView.Common
         private readonly IEventAggregator _iocEventAggregator;
 
         private string _BottomMessage = string.Empty;
+
         private string _DataLogMessage = string.Empty;
 
         /// <summary>
@@ -47,6 +39,8 @@ namespace GrampsView.Common
         /// </param>
         /// <param name="iocEventAggregator">
         /// The event aggregator.
+        /// </param>
+        /// <param name="iocDataLog">
         /// </param>
         public CommonNotifications(ICommonLogging iocCommonLogging,
                                    IEventAggregator iocEventAggregator, IDataLog iocDataLog)
@@ -90,7 +84,7 @@ namespace GrampsView.Common
         }
 
         /// <summary>
-        /// Changes the loading message.
+        /// Changes the bottom message.
         /// </summary>
         /// <param name="argMessage">
         /// The string message.

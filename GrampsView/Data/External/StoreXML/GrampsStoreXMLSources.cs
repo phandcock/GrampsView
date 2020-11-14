@@ -43,7 +43,7 @@
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd(strMessage: "Loading Source data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd(argMessage: "Loading Source data").ConfigureAwait(false);
             {
                 try
                 {
@@ -54,7 +54,7 @@
 
                     // TODO get BookMark fields
 
-                    await DataStore.Instance.CN.DataLogEntryAdd(strMessage: "Loading Source entry").ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(argMessage: "Loading Source entry").ConfigureAwait(false);
 
                     // Loop through results to get the Citation
                     foreach (XElement pSourceElement in de)
@@ -110,7 +110,6 @@
                 }
             }
 
-          
             return;
         }
     }

@@ -3,6 +3,7 @@
     using Android.App;
     using Android.OS;
     using Android.Runtime;
+    using Android.Views;
 
     using FFImageLoading.Forms.Platform;
 
@@ -94,6 +95,9 @@
             CachedImageRenderer.InitImageViewHandler();
 
             Platform.Init(this, savedInstanceState);
+
+            // Set Status Bar background to Light or Dark as required
+            Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             // Load the app
             LoadApplication(new App(new AndroidInitializer()));

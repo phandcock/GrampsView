@@ -16,22 +16,10 @@
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
 
-            <Grid x:Name="controlRoot">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Label
-                    Grid.Row="0"
-                    FormattedText="{Binding DeRef.GFormattedTextSmall}"
-                    Style="{DynamicResource GVLabelStyleNoteFull}"
-                    Text="{Binding DeRef}" />
-            </Grid>
+            <Label
+                FormattedText="{Binding DeRef.GFormattedTextSmall}"
+                Style="{DynamicResource GVLabelStyleNoteFull}"
+                Text="{Binding DeRef}" />
         </Frame.Content>
     </Frame>
 </Grid>
