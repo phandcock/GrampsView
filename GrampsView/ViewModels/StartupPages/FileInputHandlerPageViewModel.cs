@@ -140,6 +140,8 @@ namespace GrampsView.ViewModels
 
             try
             {
+                base.BaseCurrentState = Xamarin.Forms.StateSquid.State.Loading;
+
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
                     BaseCL.LogProgress("Tell someone to load the file");

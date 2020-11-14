@@ -1,6 +1,6 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Model;
-
+using GrampsView.Events;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -9,11 +9,13 @@ using Prism.Services.Dialogs;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
+using Xamarin.Forms.StateSquid;
+
 namespace GrampsView.ViewModels
 {
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible, IInitialize
     {
-        private bool _BaseIsLoading;
+        private State _BaseCurrentState = State.Loading;
 
         private HLinkBase _BaseNavParamsHLink;
 
@@ -65,11 +67,18 @@ namespace GrampsView.ViewModels
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
             BaseNavigationService = iocNavigationService;
+
+            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(SetDataLoadedViewState, ThreadOption.BackgroundThread);
         }
 
         public ViewModelBase(ICommonLogging iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
+        }
+
+        public void SetDataLoadedViewState(object value)
+        {
+            this.BaseCurrentState = State.None;
         }
 
         /// <summary>
@@ -90,6 +99,20 @@ namespace GrampsView.ViewModels
             private set
             {
                 SetProperty(ref _CL, value);
+            }
+        }
+
+        public State BaseCurrentState
+        {
+            get
+            {
+                return this._BaseCurrentState;
+            }
+
+            set
+            {
+                this._BaseCurrentState = value;
+                RaisePropertyChanged(nameof(BaseCurrentState));
             }
         }
 
@@ -139,20 +162,6 @@ namespace GrampsView.ViewModels
             private set
             {
                 SetProperty(ref _EventAggregator, value);
-            }
-        }
-
-        public bool BaseIsLoading
-        {
-            get
-            {
-                return this._BaseIsLoading;
-            }
-
-            set
-            {
-                this._BaseIsLoading = value;
-                RaisePropertyChanged(nameof(BaseIsLoading));
             }
         }
 
@@ -321,7 +330,7 @@ namespace GrampsView.ViewModels
         {
             if (!DetailDataLoadedFlag)
             {
-                BaseIsLoading = true;
+                BaseCurrentState = State.Loading;
 
                 DetailDataLoadedFlag = true;
 
@@ -332,7 +341,7 @@ namespace GrampsView.ViewModels
                 PopulateViewModel();
                 //});
 
-                BaseIsLoading = false;
+                BaseCurrentState = State.None;
             }
         }
 

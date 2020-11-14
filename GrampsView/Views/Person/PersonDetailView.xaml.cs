@@ -20,5 +20,7 @@ namespace GrampsView.Views
         {
             InitializeComponent();
         }
+
+      
     }
 }
