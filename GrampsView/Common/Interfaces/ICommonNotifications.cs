@@ -1,13 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="ICommonNotifications.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Common
 {
     using System;
@@ -19,20 +9,18 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
-     
-        string DataLogMessage { get; }
-
         string BottomMessage { get; }
+        string DataLogMessage { get; }
 
         /// <summary>
         /// Changes the loading message.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
         /// <returns>
         /// </returns>
-        Task BottomMessageAdd(string strMessage);
+        Task BottomMessageAdd(string argMessage);
 
         Task BottomMessageReplace(string argMessage);
 
@@ -45,14 +33,12 @@ namespace GrampsView.Common
         /// <param name="showProgressRing">
         /// if set to <c>true</c> [show progress ring].
         /// </param>
-        Task DataLogEntryAdd(string strMessage);
-
-        Task DataLogEntryReplace(string argMessage);
+        Task DataLogEntryAdd(string argMessage);
 
         /// <summary>
         /// Majors the status add.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
         /// <param name="showProgressRing">
@@ -60,7 +46,7 @@ namespace GrampsView.Common
         /// </param>
         /// <returns>
         /// </returns>
-        Task DataLogEntryAdd(string strMessage, bool showProgressRing);
+        Task DataLogEntryAdd(string argMessage, bool argShowProgressRing);
 
         /// <summary>
         /// Majors the status delete.
@@ -69,14 +55,14 @@ namespace GrampsView.Common
         /// </returns>
         Task DataLogEntryDelete();
 
- 
+        Task DataLogEntryReplace(string argMessage);
 
-        void NotifyAlert(string strMessage);
+        void NotifyAlert(string argMessage);
 
         /// <summary>
         /// Notifies the dialog box.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
         void NotifyDialogBox(ActionDialogArgs argADA);
@@ -84,42 +70,42 @@ namespace GrampsView.Common
         /// <summary>
         /// Notifies the error.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
-        void NotifyError(string strMessage);
+        void NotifyError(string argMessage);
 
         /// <summary>
         /// Notifies the error.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
         /// <param name="argErrorDetail">
         /// Error detail.
         /// </param>
-        void NotifyError(string strMessage, Dictionary<string, string> argErrorDetail);
+        void NotifyError(string argMessage, Dictionary<string, string> argErrorDetail);
 
         /// <summary>
         /// Helper to Notify Error.
         /// </summary>
-        /// <param name="strMessage">
+        /// <param name="argMessage">
         /// The string message.
         /// </param>
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        void NotifyError(string strMessage, string argErrorDetail);
+        void NotifyError(string argMessage, string argErrorDetail);
 
         /// <summary>
         /// Notify the user about an Exception.
         /// </summary>
-        /// <param name="strMessage">
-        /// The string message.
+        /// <param name="argMessage">
+        /// Message to be displayed
         /// </param>
         /// <param name="ex">
         /// The ex.
         /// </param>
-        void NotifyException(string strMessage, Exception ex);
+        void NotifyException(string argMessage, Exception ex);
     }
 }
