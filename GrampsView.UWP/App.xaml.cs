@@ -187,7 +187,7 @@
         {
             Exception e = args.Exception;
 
-            DataStore.Instance.CN.NotifyException("UnhandledExceptionHandler", e);
+            DataStore.Instance.CN.NotifyException(string.Format("UnhandledExceptionHandler-{0}", args.Message), e);
         }
 
         /// <summary>

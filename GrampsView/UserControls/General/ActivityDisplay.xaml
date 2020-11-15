@@ -1,0 +1,14 @@
+﻿<Grid
+    x:Class="GrampsView.UserControls.ActivityDisplay"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="ActivityDisplayRoot">
+
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+            <ActivityIndicator IsRunning="True" Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+            <Label HorizontalOptions="Center" Text="Downloading file.  If it is large then this will take a while..." />
+        </StackLayout>
+    </Grid>
+</Grid>

@@ -324,6 +324,9 @@
     <Compile Update="UserControls\General\CardGroupBaseHeader.xaml.cs">
       <DependentUpon>CardGroupBaseHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\General\ActivityDisplay.xaml.cs">
+      <DependentUpon>ActivityDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\TopMenu.xaml.cs">
       <DependentUpon>TopMenu.xaml</DependentUpon>
     </Compile>

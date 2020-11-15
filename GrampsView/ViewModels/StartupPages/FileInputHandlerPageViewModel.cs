@@ -18,7 +18,7 @@ namespace GrampsView.ViewModels
     using System;
     using System.Reflection;
 
-    using Xamarin.Essentials;
+    using Xamarin.Forms.StateSquid;
 
     /// <summary>
     /// View model for File Input Page.
@@ -27,7 +27,7 @@ namespace GrampsView.ViewModels
     {
         private bool _CanHandleDataFolderChosen = true;
 
-        private bool _CanHandleUseExistingFolder;
+        //private bool _CanHandleUseExistingFolder;
         private bool _LocalCanHandleSample = true;
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace GrampsView.ViewModels
 
             PickFileCommand = new DelegateCommand(PickFile).ObservesCanExecute(() => LocalCanHandleDataFolderChosen);
 
-            UseExistingFolderCommand = new DelegateCommand(UseExistingFolder).ObservesCanExecute(() => LocalCanHandleUseExistingFolder);
+            //UseExistingFolderCommand = new DelegateCommand(UseExistingFolder).ObservesCanExecute(() => LocalCanHandleUseExistingFolder);
         }
 
         /// <summary>
@@ -89,14 +89,15 @@ namespace GrampsView.ViewModels
             set { SetProperty(ref _LocalCanHandleSample, value); }
         }
 
-        public bool LocalCanHandleUseExistingFolder
-        {
-            get { return _CanHandleUseExistingFolder; }
-            set { SetProperty(ref _CanHandleUseExistingFolder, value); }
-        }
+        //public bool LocalCanHandleUseExistingFolder
+        //{
+        //    get { return _CanHandleUseExistingFolder; }
+        //    set { SetProperty(ref _CanHandleUseExistingFolder, value); }
+        //}
 
         public DelegateCommand PickFileCommand { get; private set; }
-        public DelegateCommand UseExistingFolderCommand { get; private set; }
+
+        //public DelegateCommand UseExistingFolderCommand { get; private set; }
 
         /// <summary>
         /// Loads the sample data.
@@ -140,7 +141,7 @@ namespace GrampsView.ViewModels
 
             try
             {
-                base.BaseCurrentState = Xamarin.Forms.StateSquid.State.Loading;
+                base.BaseCurrentState = State.Loading;
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -190,7 +191,7 @@ namespace GrampsView.ViewModels
                         "Data Folder:",
                         DataStore.Instance.AD.CurrentDataFolder.FullName));
 
-                LocalCanHandleUseExistingFolder = true;
+                //LocalCanHandleUseExistingFolder = true;
             }
             else
             {
@@ -201,37 +202,36 @@ namespace GrampsView.ViewModels
                          "Data Folder:",
                         "Not set"));
 
-                LocalCanHandleUseExistingFolder = false;
+                //LocalCanHandleUseExistingFolder = false;
             }
         }
 
-        /// <summary>
-        /// Gramps export XML plus media.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="parameter">
-        /// The parameter.
-        /// </param>
-        public void UseExistingFolder()
-        {
-            LocalCanHandleDataFolderChosen = false;
+        ///// <summary>
+        ///// Gramps export XML plus media.
+        ///// </summary>
+        ///// <param name="sender">
+        ///// The sender.
+        ///// </param>
+        ///// <param name="parameter">
+        ///// The parameter.
+        ///// </param>
+        //public void UseExistingFolder()
+        //{
+        //    LocalCanHandleDataFolderChosen = false;
 
-            if (DataStore.Instance.AD.CurrentDataFolderValid)
-            {
-                BaseCL.LogProgress("Tell someone to load the file");
+        // if (DataStore.Instance.AD.CurrentDataFolderValid) { BaseCL.LogProgress("Tell someone to
+        // load the file");
 
-                // Remove the old dateTime stamps so the files get reloaded even if they have been
-                // seen before
-                Preferences.Set(CommonConstants.SettingsGPKGFileLastDateTimeModified, DateTime.MinValue);
-                Preferences.Set(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, DateTime.MinValue);
-                Preferences.Set(CommonConstants.SettingsXMLFileLastDateTimeModified, DateTime.MinValue);
+        // // Remove the old dateTime stamps so the files get reloaded even if they have been //
+        // seen before Preferences.Set(CommonConstants.SettingsGPKGFileLastDateTimeModified,
+        // DateTime.MinValue);
+        // Preferences.Set(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified,
+        // DateTime.MinValue); Preferences.Set(CommonConstants.SettingsXMLFileLastDateTimeModified, DateTime.MinValue);
 
-                BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
+        // BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-                BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
-            }
-        }
+        //        BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+        //    }
+        //}
     }
 }

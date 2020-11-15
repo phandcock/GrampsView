@@ -5,11 +5,12 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
 
     using Prism.Navigation;
 
     using System.Diagnostics.Contracts;
-
+    using Xamarin.Forms.StateSquid;
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
@@ -116,6 +117,21 @@
             }
         }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            // Setup for loading if no data is loaded
+            if (!DataStore.Instance.DS.IsDataLoaded)
+            {
+                BaseCurrentState = State.None;
+            }
+            else
+            {
+                BaseCurrentState = State.Loading;
+            }
+
+            base.OnNavigatedTo(parameters);
+        }
+
         /// <summary>
         /// Called when [navigating from].
         /// </summary>
@@ -138,7 +154,7 @@
         {
             BaseCL.LogRoutineEntry("PersonDetailViewModel");
 
-            BaseCurrentState = Xamarin.Forms.StateSquid.State.Loading;
+            BaseCurrentState = State.Loading;
 
             PersonObject = DV.PersonDV.GetModelFromHLink(BaseNavParamsHLink);
 
@@ -187,6 +203,8 @@
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }
 
+            // TODO fix this
+            BaseCurrentState = State.None;
             return;
         }
 
