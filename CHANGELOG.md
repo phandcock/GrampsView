@@ -1,3 +1,17 @@
+# [16.11.0](https://github.com/phandcock/GrampsView/compare/v16.10.23...v16.11.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* update nugets ([942217e](https://github.com/phandcock/GrampsView/commit/942217e56cc97909ef96e52e000d2cd65e3903d8))
+
+
+### Features
+
+* add loading screen for long operations ([53c37f7](https://github.com/phandcock/GrampsView/commit/53c37f7247be65ce34241f9eb0c549d538f887d3))
+
+
+
 ## [16.10.23](https://github.com/phandcock/GrampsView/compare/v16.10.22...v16.10.23) (2020-11-13)
 
 
@@ -13,18 +27,6 @@
 ### Bug Fixes
 
 * fix full note card speed and tweaks warnings ([d42b876](https://github.com/phandcock/GrampsView/commit/d42b87617d36ddd5ae4fea1b783306dafde628ba))
-
-
-
-## [16.10.21](https://github.com/phandcock/GrampsView/compare/v16.10.20...v16.10.21) (2020-11-09)
-
-
-### Bug Fixes
-
-* implement new Lazy Datastore ([cdeb35a](https://github.com/phandcock/GrampsView/commit/cdeb35afa873c1a68973f6d8013be73e336e56c6))
-* start work on hlink deref caching ([408f6ad](https://github.com/phandcock/GrampsView/commit/408f6ad1ffb2948589144285cbd4bb5b36591dff))
-* tweaks ([de4b4d8](https://github.com/phandcock/GrampsView/commit/de4b4d83a5f2a587361dd164d031010ab3d85b47))
-* tweaks ([e318129](https://github.com/phandcock/GrampsView/commit/e3181295600196240ed58c96d99683f91045b3d3))
 
 
 
