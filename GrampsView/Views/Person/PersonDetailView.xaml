@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:state="clr-namespace:Xamarin.Forms.StateSquid;assembly=Xamarin.Forms.StateSquid"
+    xmlns:toolkit="clr-namespace:Xamarin.Forms.StateSquid;assembly=Xamarin.Forms.StateSquid"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
@@ -15,19 +15,13 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
-    <Grid state:StateLayout.CurrentState="{Binding BaseCurrentState}">
+    <Grid toolkit:StateLayout.CurrentState="{Binding BaseCurrentState}">
 
-        <state:StateLayout.StateViews>
-            <state:StateView StateKey="Loading">
-                <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}">
-                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-
-                        <ActivityIndicator IsRunning="True" Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
-                        <Label HorizontalOptions="Center" Text="Loading Person Details..." />
-                    </StackLayout>
-                </Grid>
-            </state:StateView>
-        </state:StateLayout.StateViews>
+        <toolkit:StateLayout.StateViews>
+            <toolkit:StateView StateKey="Loading">
+                <ucon:ActivityDisplay />
+            </toolkit:StateView>
+        </toolkit:StateLayout.StateViews>
 
         <!--  Content  -->
         <ScrollView Orientation="Vertical">

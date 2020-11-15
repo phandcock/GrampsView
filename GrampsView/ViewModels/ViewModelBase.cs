@@ -1,6 +1,7 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Events;
+
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -8,14 +9,13 @@ using Prism.Services.Dialogs;
 
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
-
 using Xamarin.Forms.StateSquid;
 
 namespace GrampsView.ViewModels
 {
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible, IInitialize
     {
-        private State _BaseCurrentState = State.Loading;
+        private State _BaseCurrentState = State.None;
 
         private HLinkBase _BaseNavParamsHLink;
 
@@ -74,11 +74,6 @@ namespace GrampsView.ViewModels
         public ViewModelBase(ICommonLogging iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
-        }
-
-        public void SetDataLoadedViewState(object value)
-        {
-            this.BaseCurrentState = State.None;
         }
 
         /// <summary>
@@ -265,18 +260,15 @@ namespace GrampsView.ViewModels
         /// </value>
         private bool DetailDataLoadedFlag { get; set; }
 
-        public void BaseActionDialog(ActionDialogArgs argADA)
-        {
-            Contract.Assert(argADA != null);
+        //public void BaseActionDialog(ActionDialogArgs argADA)
+        //{
+        //    Contract.Assert(argADA != null);
 
-            DialogParameters t = new DialogParameters
-            {
-                { "adaArgs", argADA },
-            };
+        // DialogParameters t = new DialogParameters { { "adaArgs", argADA }, };
 
-            //Using the dialog service as-is
-            BaseDialogService.ShowDialog("ErrorDialog", t);
-        }
+        //    //Using the dialog service as-is
+        //    BaseDialogService.ShowDialog("ErrorDialog", t);
+        //}
 
         public HLinkBase BaseNavParamsHLinkDefault(HLinkBase argDefault)
         {
@@ -330,24 +322,15 @@ namespace GrampsView.ViewModels
         {
             if (!DetailDataLoadedFlag)
             {
-                BaseCurrentState = State.Loading;
-
                 DetailDataLoadedFlag = true;
 
-                //PopulateViewModel().SafeFireAndForget(onException: ex => DataStore.Instance.CN.NotifyException("Trouble calling PopulateViewModel for " + BaseNavParams.TargetView, ex));
-
-                //MainThread.BeginInvokeOnMainThread(() =>
-                //{
                 PopulateViewModel();
-                //});
-
-                BaseCurrentState = State.None;
             }
         }
 
-        public virtual void OnNavigatingTo(INavigationParameters parameters)
-        {
-        }
+        //public virtual void OnNavigatingTo(INavigationParameters parameters)
+        //{
+        //}
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -358,6 +341,11 @@ namespace GrampsView.ViewModels
         public virtual void PopulateViewModel()
         {
             return;
+        }
+
+        public void SetDataLoadedViewState(object value)
+        {
+            this.BaseCurrentState = State.None;
         }
     }
 }
