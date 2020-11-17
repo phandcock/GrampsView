@@ -101,12 +101,12 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return this._BaseCurrentState;
+                return _BaseCurrentState;
             }
 
             set
             {
-                this._BaseCurrentState = value;
+                _BaseCurrentState = value;
                 RaisePropertyChanged(nameof(BaseCurrentState));
             }
         }

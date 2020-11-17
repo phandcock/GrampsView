@@ -148,16 +148,18 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkSourceModel> Search(string queryString)
+        public override CardGroupBase<HLinkSourceModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkSourceModel> itemsFound = new CardGroupBase<HLinkSourceModel>();
-
-            if (string.IsNullOrEmpty(queryString))
+            CardGroupBase<HLinkSourceModel> itemsFound = new CardGroupBase<HLinkSourceModel>
+            {
+                Title = "Sources"
+            };
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (SourceModel tempMO in temp)
             {

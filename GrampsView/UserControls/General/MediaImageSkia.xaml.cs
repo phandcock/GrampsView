@@ -113,7 +113,6 @@ namespace GrampsView.UserControls
                 }
 
                 // Save the HLink so can check for duplicate changes later
-
                 WorkHLMediaModel = argHHomeMedia;
 
                 if (!argHHomeMedia.Valid || !argHHomeMedia.LinkToImage)

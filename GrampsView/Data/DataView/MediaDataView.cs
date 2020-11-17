@@ -364,16 +364,19 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public override CardGroupBase<HLinkMediaModel> Search(string argQueryString)
+        public override CardGroupBase<HLinkMediaModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkMediaModel> itemsFound = new CardGroupBase<HLinkMediaModel>();
+            CardGroupBase<HLinkMediaModel> itemsFound = new CardGroupBase<HLinkMediaModel>
+            {
+                Title = "Media"
+            };
 
-            if (string.IsNullOrEmpty(argQueryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQueryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (IMediaModel tempMO in temp)
             {

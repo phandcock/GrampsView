@@ -1,13 +1,13 @@
 ﻿<Grid
-    x:Class="GrampsView.UserControls.AttributeCardSmall"
+    x:Class="GrampsView.UserControls.AttributeCardSingle"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:AttributeModel"
-    Style="{DynamicResource GridSmallFixedCardStyle}">
+    Style="{DynamicResource GridSingleFixedCardStyle}">
 
-    <Frame Style="{DynamicResource FrameSmallFixedCardStyleNS}">
+    <Frame Style="{DynamicResource FrameSingleFixedCardStyleNS}">
 
         <Grid x:Name="controlRoot">
 

@@ -1,13 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="CitationDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -226,17 +216,20 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkPersonNameModel> Search(string argString)
+        public override CardGroupBase<HLinkPersonNameModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkPersonNameModel> itemsFound = new CardGroupBase<HLinkPersonNameModel>();
+            CardGroupBase<HLinkPersonNameModel> itemsFound = new CardGroupBase<HLinkPersonNameModel>
+            {
+                Title = "Person Names"
+            };
 
-            if (string.IsNullOrEmpty(argString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
             // Search by Full Name
-            var temp = DataViewData.Where(x => x.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {
@@ -244,7 +237,7 @@ namespace GrampsView.Data.DataView
             }
 
             // Search by First and Last Name
-            temp = DataViewData.Where(x => x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+            temp = DataViewData.Where(x => x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {
@@ -252,7 +245,7 @@ namespace GrampsView.Data.DataView
             }
 
             // Search by Called By
-            temp = DataViewData.Where(x => x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+            temp = DataViewData.Where(x => x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {
@@ -260,14 +253,12 @@ namespace GrampsView.Data.DataView
             }
 
             // Search by Nick Name
-            temp = DataViewData.Where(x => x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argString)).OrderBy(y => y.GetDefaultText);
+            temp = DataViewData.Where(x => x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (PersonNameModel tempMO in temp)
             {
                 itemsFound.Add(tempMO.HLink);
             }
-
-           
 
             return itemsFound;
         }

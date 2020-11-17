@@ -305,16 +305,19 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkFamilyModel> Search(string queryString)
+        public override CardGroupBase<HLinkFamilyModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkFamilyModel> itemsFound = new CardGroupBase<HLinkFamilyModel>();
+            CardGroupBase<HLinkFamilyModel> itemsFound = new CardGroupBase<HLinkFamilyModel>
+            {
+                Title = "Families"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.FamilyDisplayName.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.FamilyDisplayName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (FamilyModel tempMO in temp)
             {

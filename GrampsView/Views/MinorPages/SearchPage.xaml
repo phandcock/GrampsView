@@ -4,10 +4,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviour="clr-namespace:GrampsView.Behaviours"
-    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     x:Name="SearchPageRoot"
@@ -24,8 +24,7 @@
 
     <Page.Resources>
         <ResourceDictionary>
-
-            <converters:FlipBoolConverter x:Key="flipBool" />
+            <toolkitc:InvertedBoolConverter x:Key="flipBool" />
         </ResourceDictionary>
     </Page.Resources>
 

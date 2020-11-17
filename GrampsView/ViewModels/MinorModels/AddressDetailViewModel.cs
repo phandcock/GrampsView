@@ -126,11 +126,8 @@ namespace GrampsView.ViewModels
                 // Add map card
                 BaseDetail.Add(TurnAddressToURLModel());
 
-                // Add header
-                //BaseDetail.Add(headerCardGroup);
-
-                BaseDetail.Add(AddressObject.GCitationRefCollection.GetCardGroup());
-                BaseDetail.Add(AddressObject.GNoteRefCollection.GetCardGroup());
+          
+     
             }
 
             return;

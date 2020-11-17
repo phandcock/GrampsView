@@ -177,24 +177,27 @@ namespace GrampsView.Data.DataView
             return itemsFound;
         }
 
-        public CardGroupBase<HLinkNoteModel> SearchTag(string queryString)
+        public CardGroupBase<HLinkNoteModel> SearchTag(string argQuery)
         {
-            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>();
+            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>
+            {
+                Title = "Notes"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
             var temp = from gig in DataViewData
-                       where gig.GTagRefCollection.Any(act => act.DeRef.GName == queryString)
+                       where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
                        select gig;
 
             if (temp.Any())
             {
                 foreach (NoteModel tempMO in temp)
                 {
-                    itemsFound.Add( tempMO.HLink);
+                    itemsFound.Add(tempMO.HLink);
                 }
             }
 

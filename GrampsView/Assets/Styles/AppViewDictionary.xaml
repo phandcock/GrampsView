@@ -151,6 +151,13 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
+    <Style
+        x:Key="FrameSingleFixedCardStyleNS"
+        BasedOn="{StaticResource FrameSingleFixedCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+    </Style>
+    
     <!--
         Create Small Card Styles
     -->

@@ -9,8 +9,8 @@
         <usercontrols:AddressCardSmall />
     </DataTemplate>
 
-    <DataTemplate x:Key="AttributeCardSmallDT">
-        <usercontrols:AttributeCardSmall />
+    <DataTemplate x:Key="AttributeCardSingleDT">
+        <usercontrols:AttributeCardSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="CardListLineCardSmallDT">
@@ -104,7 +104,7 @@
     <common:CardTemplateSelector
         x:Key="CardTemplateSelector"
         AddressTemplate="{StaticResource AddressCardSmallDT}"
-        AttributeTemplate="{StaticResource AttributeCardSmallDT}"
+        AttributeTemplate="{StaticResource AttributeCardSingleDT}"
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"

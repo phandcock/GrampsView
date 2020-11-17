@@ -12,8 +12,5 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionHeaderSingleCard
-        Margin="0"
-        FsctSource="{Binding FamilySource, Mode=OneWay}"
-        FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+    <ucon:CollectionSingleCard FsctSource="{Binding FamilySource, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
 </ContentPage>

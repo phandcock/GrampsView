@@ -219,16 +219,19 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkAdressModel> Search(string queryString)
+        public override CardGroupBase<HLinkAdressModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkAdressModel> itemsFound = new CardGroupBase<HLinkAdressModel>();
+            CardGroupBase<HLinkAdressModel> itemsFound = new CardGroupBase<HLinkAdressModel>
+            {
+                Title = "Addresses"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (IAddressModel tempMO in temp)
             {

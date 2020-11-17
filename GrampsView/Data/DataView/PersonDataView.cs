@@ -321,17 +321,20 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// List of Serch HLinks.
         /// </returns>
-        public override CardGroupBase<HLinkPersonModel> Search(string argQueryString)
+        public override CardGroupBase<HLinkPersonModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkPersonModel> itemsFound = new CardGroupBase<HLinkPersonModel>();
+            CardGroupBase<HLinkPersonModel> itemsFound = new CardGroupBase<HLinkPersonModel>
+            {
+                Title = "People"
+            };
 
-            if (string.IsNullOrEmpty(argQueryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
             // Get list of peoples names
-            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQueryString);
+            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQuery);
 
             foreach (HLinkPersonNameModel item in tt)
             {
@@ -343,8 +346,6 @@ namespace GrampsView.Data.DataView
                     }
                 }
             }
-
-         
 
             return itemsFound;
         }

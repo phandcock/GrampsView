@@ -12,10 +12,6 @@
     HasShadow="True"
     IsVisible="True">
 
-    <!--<Frame.GestureRecognizers>
-        <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-    </Frame.GestureRecognizers>-->
-
     <Frame.Content>
 
         <ffimageloading:CachedImage

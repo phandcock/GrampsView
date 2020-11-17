@@ -13,6 +13,4 @@
 
     <!--  Content  -->
     <ucon:CollectionSingleCard FsctSource="{Binding PlaceSource, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-
-
 </ContentPage>

@@ -128,7 +128,7 @@
             return tt;
         }
 
-        public override CardGroupBase<HLinkHeaderModel> Search(string queryString)
+        public override CardGroupBase<HLinkHeaderModel> Search(string argQuery)
         {
             CardGroupBase<HLinkHeaderModel> itemsFound = new CardGroupBase<HLinkHeaderModel>();
 

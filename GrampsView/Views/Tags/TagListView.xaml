@@ -13,5 +13,4 @@
 
     <!--  Content  -->
     <ucon:CollectionSingleCard FsctSource="{Binding TagSource, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-
 </ContentPage>
