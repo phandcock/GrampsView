@@ -102,6 +102,7 @@
     <Compile Remove="Common\CustomClasses\ScollViewInfinite.cs" />
     <Compile Remove="Common\Interfaces\ICommonCircularLog.cs" />
     <Compile Remove="Common\NavigationHelper.cs" />
+    <Compile Remove="Converters\FlipBoolConverter.cs" />
     <Compile Remove="Converters\GetGyyph.cs" />
     <Compile Remove="Converters\IconPath.cs" />
     <Compile Remove="Converters\NegateBooleanConverter.cs" />
@@ -160,6 +161,7 @@
     <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionCardList.xaml.cs" />
+    <Compile Remove="UserControls\General\CollectionSingleCardHeader.xaml.cs" />
     <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiCardEnum.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiGroupMultiCard - Copy.xaml.cs" />
@@ -240,6 +242,7 @@
     <EmbeddedResource Remove="UserControls\General\CardGroupBaseList.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardList.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CollectionSingleCardHeader.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCardEnum.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiGroupMultiCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexSingleCardGroup.xaml" />
@@ -295,6 +298,7 @@
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-pre4" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
@@ -310,6 +314,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\AttributeCardSingle.xaml.cs">
+      <DependentUpon>AttributeCardSingle.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -324,6 +331,12 @@
     </Compile>
     <Compile Update="UserControls\General\ActivityDisplay.xaml.cs">
       <DependentUpon>ActivityDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
+      <DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\CollectionSingleCardGrouped.xaml.cs">
+      <DependentUpon>CollectionSingleCardGrouped.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\TopMenu.xaml.cs">
       <DependentUpon>TopMenu.xaml</DependentUpon>

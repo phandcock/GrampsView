@@ -1,5 +1,3 @@
-/// <summary>
-/// </summary>
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -130,16 +128,19 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkNameMapModel> Search(string queryString)
+        public override CardGroupBase<HLinkNameMapModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkNameMapModel> itemsFound = new CardGroupBase<HLinkNameMapModel>();
+            CardGroupBase<HLinkNameMapModel> itemsFound = new CardGroupBase<HLinkNameMapModel>
+            {
+                Title = "Name Maps"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (NameMapModel tempMO in temp)
             {

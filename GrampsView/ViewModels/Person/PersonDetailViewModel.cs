@@ -10,7 +10,9 @@
     using Prism.Navigation;
 
     using System.Diagnostics.Contracts;
+
     using Xamarin.Forms.StateSquid;
+
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>

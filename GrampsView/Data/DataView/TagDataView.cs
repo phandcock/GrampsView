@@ -157,21 +157,25 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkTagModel> Search(string queryString)
+        public override CardGroupBase<HLinkTagModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkTagModel> itemsFound = new CardGroupBase<HLinkTagModel>();
+            CardGroupBase<HLinkTagModel> itemsFound = new CardGroupBase<HLinkTagModel>
 
-            if (string.IsNullOrEmpty(queryString))
+            {
+                Title = "Tags"
+            };
+
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (TagModel tempMO in temp)
             {

@@ -150,16 +150,19 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkPlaceModel> Search(string queryString)
+        public override CardGroupBase<HLinkPlaceModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkPlaceModel> itemsFound = new CardGroupBase<HLinkPlaceModel>();
+            CardGroupBase<HLinkPlaceModel> itemsFound = new CardGroupBase<HLinkPlaceModel>
+            {
+                Title = "Places"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (PlaceModel tempMO in temp)
             {

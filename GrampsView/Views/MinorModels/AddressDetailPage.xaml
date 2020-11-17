@@ -21,6 +21,9 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:CardGroupBaseHeader BindingContext="{Binding AddressObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CardGroupBaseHeader BindingContext="{Binding AddressObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            
             <ucon:CardGroupHeader BindingContext="{Binding AddressObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>

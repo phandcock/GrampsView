@@ -1,13 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="RepositoryDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -25,9 +15,9 @@ namespace GrampsView.Data.DataView
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.DataView.DataViewBase{GrampsView.Data.ViewModel.RepositoryModel, GrampsView.Data.ViewModel.HLinkRepositoryModel, GrampsView.Data.Collections.HLinkRepositoryModelCollection}"/>
+    /// <seealso cref="DataViewBase{Data.ViewModel.RepositoryModel, Data.ViewModel.HLinkRepositoryModel, HLinkRepositoryModelCollection}"/>
     /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.DataView.IRepositoryDataView"/>
+    /// <seealso cref="IRepositoryDataView"/>
     public class RepositoryDataView : DataViewBase<RepositoryModel, HLinkRepositoryModel, HLinkRepositoryModelCollection>, IRepositoryDataView
     {
         /// <summary>
@@ -160,21 +150,21 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkRepositoryModel> Search(string queryString)
+        public override CardGroupBase<HLinkRepositoryModel> Search(string argQuery)
         {
-            CardGroupBase<HLinkRepositoryModel> itemsFound = new CardGroupBase<HLinkRepositoryModel>();
+            CardGroupBase<HLinkRepositoryModel> itemsFound = new CardGroupBase<HLinkRepositoryModel>
+            {
+                Title = "Repositories"
+            };
 
-            if (string.IsNullOrEmpty(queryString))
+            if (string.IsNullOrEmpty(argQuery))
             {
                 return itemsFound;
             }
 
-            if (string.IsNullOrEmpty(queryString))
-            {
-                return itemsFound;
-            }
+  
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (RepositoryModel tempMO in temp)
             {

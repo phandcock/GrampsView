@@ -9,20 +9,20 @@
 
     using Xamarin.Forms;
 
-    public partial class CollectionHeaderSingleCard : Frame, INotifyPropertyChanged
+    public partial class CollectionMultiCardGrouped : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionHeaderSingleCard), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionMultiCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
-                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionHeaderSingleCard), propertyChanged: OnItemTemplateChanged);
+                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionMultiCardGrouped), propertyChanged: OnItemTemplateChanged);
 
         private int _NumColumns = 3;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
         /// </summary>
-        public CollectionHeaderSingleCard()
+        public CollectionMultiCardGrouped()
         {
             InitializeComponent();
         }
@@ -117,7 +117,7 @@
             Contract.Requires(argSource != null);
             Contract.Requires(newValue != null);
 
-            CollectionHeaderSingleCard layout = argSource as CollectionHeaderSingleCard;
+            CollectionMultiCardGrouped layout = argSource as CollectionMultiCardGrouped;
             Contract.Requires(layout != null);
 
             DataTemplate iTemplate = newValue as DataTemplate;
@@ -148,11 +148,11 @@
         /// <param name="e">
         /// The <see cref="EventArgs"/> instance containing the event data.
         /// </param>
-        private void CollectionHeaderSingleCardRoot_SizeChanged(object sender, EventArgs e)
+        private void CollectionMultiCardGroupedRoot_SizeChanged(object sender, EventArgs e)
         {
             Contract.Requires(sender != null);
 
-            CollectionHeaderSingleCard t = sender as CollectionHeaderSingleCard;
+            CollectionMultiCardGrouped t = sender as CollectionMultiCardGrouped;
 
             NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth + 1);  // +1 for padding
         }

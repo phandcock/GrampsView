@@ -1,7 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
@@ -15,6 +13,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkMediaModel : HLinkBase, IHLinkMediaModel
     {
+        private MediaModel _Deref = new MediaModel();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkMediaModel"/> class.
         /// </summary>
@@ -33,14 +33,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!_Deref.Valid))
                 {
-                    return DV.MediaDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.MediaDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return new MediaModel();
-                }
+
+                return _Deref;
             }
         }
 

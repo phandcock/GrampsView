@@ -1,24 +1,31 @@
-﻿<Frame
-    x:Class="GrampsView.UserControls.CollectionHeaderSingleCard"
+﻿<!--  This exists as CollectionView as faster than FLexLayout for lists  -->
+
+<Frame
+    x:Class="GrampsView.UserControls.CollectionSingleCardGrouped"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Name="CollectionHeaderSingleCardRoot"
+    xmlns:convertor="clr-namespace:GrampsView.Converters"
+    x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    SizeChanged="CollectionHeaderSingleCardRoot_SizeChanged">
+    SizeChanged="CollectionSingleCardGroupedRoot_SizeChanged">
+
+    <Frame.Resources>
+        <convertor:StringToVisibleConverter x:Key="SingleToVisible" />
+    </Frame.Resources>
 
     <CollectionView
         x:Name="theCollectionView"
         Grid.Column="0"
         IsGrouped="True"
-        ItemsSource="{Binding FsctSource, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
+        ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
         <CollectionView.ItemsLayout>
             <GridItemsLayout
                 HorizontalItemSpacing="2"
                 Orientation="Vertical"
-                Span="{Binding NumColumns, Source={x:Reference CollectionHeaderSingleCardRoot}, Mode=OneWay}"
+                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
                 VerticalItemSpacing="2" />
         </CollectionView.ItemsLayout>
         <CollectionView.GroupHeaderTemplate>
@@ -28,7 +35,8 @@
                     Margin="0"
                     Padding="3"
                     BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                                      Light={StaticResource SecondaryDarkColorLight}}">
+                                                      Light={StaticResource SecondaryDarkColorLight}}"
+                    IsVisible="{Binding Visible, Mode=OneWay, Converter={StaticResource SingleToVisible}}">
                     <Label
                         x:Name="LLCardLargeTitle"
                         Margin="0"

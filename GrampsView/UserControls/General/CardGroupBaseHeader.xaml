@@ -15,6 +15,7 @@
                 <converters:StringToVisibleConverter x:Key="stringToBool" />
             </ResourceDictionary>
         </Frame.Resources>
+
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
             <Frame
                 x:Name="LLCardLargeFrame"
