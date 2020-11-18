@@ -1,3 +1,13 @@
+## [16.11.1](https://github.com/phandcock/GrampsView/compare/v16.11.0...v16.11.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* fix URL card and cleanup search and cardGroupBase controls ([fd09f27](https://github.com/phandcock/GrampsView/commit/fd09f27f8755efece00df8694e13246863685539))
+* work on activity control ([a5511bd](https://github.com/phandcock/GrampsView/commit/a5511bd3065ac9ec6b1be705bc45fb45aab5865b))
+
+
+
 # [16.11.0](https://github.com/phandcock/GrampsView/compare/v16.10.23...v16.11.0) (2020-11-15)
 
 
@@ -18,15 +28,6 @@
 ### Bug Fixes
 
 * tweak mediaimageskia touse grid instead of frame tro reduce layout complexity ([7ac658b](https://github.com/phandcock/GrampsView/commit/7ac658b59099362b39f30ea26a22f92c0a57ab2a))
-
-
-
-## [16.10.22](https://github.com/phandcock/GrampsView/compare/v16.10.21...v16.10.22) (2020-11-11)
-
-
-### Bug Fixes
-
-* fix full note card speed and tweaks warnings ([d42b876](https://github.com/phandcock/GrampsView/commit/d42b87617d36ddd5ae4fea1b783306dafde628ba))
 
 
 
