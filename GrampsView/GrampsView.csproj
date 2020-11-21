@@ -95,6 +95,7 @@
     <Compile Remove="Common\CustomClasses\CustomImageStreamSource.cs" />
     <Compile Remove="Common\CustomClasses\ExNavigatetoExtension.cs" />
     <Compile Remove="Common\CustomClasses\FlexLayoutVirtual.cs" />
+    <Compile Remove="Common\CustomClasses\FlexPlus.cs" />
     <Compile Remove="Common\CustomClasses\LabelExtended.cs" />
     <Compile Remove="Common\CustomClasses\NavCommand.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionEx.cs" />
@@ -157,6 +158,8 @@
     <Compile Remove="UserControls\FamilyCardLarge.xaml.cs" />
     <Compile Remove="UserControls\General\CardGridMultiType.xaml.cs" />
     <Compile Remove="UserControls\General\CardGridSingleType.xaml.cs" />
+    <Compile Remove="UserControls\General\CardGroupBaseFlex.xaml.cs" />
+    <Compile Remove="UserControls\General\CardGroupBaseHeader.xaml.cs" />
     <Compile Remove="UserControls\General\CardGroupBaseList.xaml.cs" />
     <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
@@ -169,10 +172,8 @@
     <Compile Remove="UserControls\General\FlexSingleCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupMultiCard.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupSingleCard.xaml.cs" />
-    <Compile Remove="UserControls\General\LayoutData.cs" />
     <Compile Remove="UserControls\General\MediaImage.xaml.cs" />
     <Compile Remove="UserControls\General\RadioButtonxExtended .cs" />
-    <Compile Remove="UserControls\General\WrapLayout.cs" />
     <Compile Remove="UserControls\HeaderCardLarge.xaml.cs" />
     <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
     <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
@@ -240,6 +241,8 @@
     <EmbeddedResource Remove="UserControls\FamilyCardLarge.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGridMultiType.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGridSingleType.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CardGroupBaseFlex.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CardGroupBaseHeader.xaml" />
     <EmbeddedResource Remove="UserControls\General\CardGroupBaseList.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardList.xaml" />
@@ -322,14 +325,8 @@
     <Compile Update="UserControls\FileViewCardLarge.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\General\CardGroupBaseFlex.xaml.cs">
-      <DependentUpon>CardGroupBaseFlex.xaml</DependentUpon>
-    </Compile>
     <Compile Update="UserControls\General\CardGroupHeader.xaml.cs">
       <DependentUpon>CardGroupHeader.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\CardGroupBaseHeader.xaml.cs">
-      <DependentUpon>CardGroupBaseHeader.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\ActivityDisplay.xaml.cs">
       <DependentUpon>ActivityDisplay.xaml</DependentUpon>

@@ -17,20 +17,21 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
+
             <ucon:MediaCardLarge BindingContext="{Binding FamilyObject.HomeImageHLink.ConvertToHLinkMediaModel, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
             <!--  // TODO , "Children");  -->
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader Grid.Row="9" BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

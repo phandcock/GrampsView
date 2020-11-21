@@ -31,7 +31,10 @@ namespace GrampsView.Data.ExternalStorageNS
     {
         private HLinkOCAddressModelCollection GetAddressCollection(XElement xmlData)
         {
-            HLinkOCAddressModelCollection t = new HLinkOCAddressModelCollection();
+            HLinkOCAddressModelCollection t = new HLinkOCAddressModelCollection
+            {
+                Title = "Address Collection"
+            };
 
             // Run query
             var theERElement =
@@ -104,8 +107,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private OCAttributeModelCollection GetAttributeCollection(XElement xmlData)
         {
-            OCAttributeModelCollection t = new OCAttributeModelCollection();
-
+            OCAttributeModelCollection t = new OCAttributeModelCollection
+            {
+                Title = "Attribute Collection"
+            };
             // Run query
             var theERElement =
                     from orElementEl
@@ -156,7 +161,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private HLinkCitationModelCollection GetCitationCollection(XElement xmlData)
         {
-            HLinkCitationModelCollection t = new HLinkCitationModelCollection();
+            HLinkCitationModelCollection t = new HLinkCitationModelCollection
+            {
+                Title = "Citation Collection"
+            };
 
             IEnumerable<XElement> theERElement =
                     from ORElementEl in xmlData.Elements(ns + "citationref")
@@ -195,7 +203,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private HLinkEventModelCollection GetEventCollection(XElement xmlData)
         {
-            HLinkEventModelCollection t = new HLinkEventModelCollection();
+            HLinkEventModelCollection t = new HLinkEventModelCollection
+            {
+                Title = "Event Collection"
+            };
 
             var theERElement =
                     from _ORElementEl in xmlData.Elements(ns + "eventref")
@@ -237,7 +248,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private HLinkNoteModelCollection GetNoteCollection(XElement xmlData)
         {
-            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
+            HLinkNoteModelCollection t = new HLinkNoteModelCollection
+            {
+                Title = "Note Collection"
+            };
 
             // Load NoteRefs
             var localNoteElement =
@@ -276,7 +290,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private async Task<HLinkMediaModelCollection> GetObjectCollection(XElement xmlData)
         {
-            HLinkMediaModelCollection t = new HLinkMediaModelCollection();
+            HLinkMediaModelCollection t = new HLinkMediaModelCollection
+            {
+                Title = "Media Collection"
+            };
 
             var theORElement = from _ORElementEl in xmlData.Elements(ns + "objref")
                                select _ORElementEl;
@@ -329,7 +346,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private HLinkPersonNameModelCollection GetPersonNameCollection(XElement xmlData)
         {
-            HLinkPersonNameModelCollection t = new HLinkPersonNameModelCollection();
+            HLinkPersonNameModelCollection t = new HLinkPersonNameModelCollection
+            {
+                Title = "Person Name Collection"
+            };
 
             var theERElement =
                     from orElementEl
@@ -404,7 +424,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private HLinkPersonRefModelCollection GetPersonRefCollection(XElement xmlData)
         {
-            HLinkPersonRefModelCollection t = new HLinkPersonRefModelCollection();
+            HLinkPersonRefModelCollection t = new HLinkPersonRefModelCollection
+            {
+                Title = "Person Collection"
+            };
 
             IEnumerable<XElement> theERElement =
                     from ORElementEl in xmlData.Elements(ns + "personref")
@@ -433,7 +456,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private PlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
         {
-            PlaceLocationCollection t = new PlaceLocationCollection();
+            PlaceLocationCollection t = new PlaceLocationCollection
+            {
+                Title = "Place Location Collection"
+            };
             // Run query
             var theERElement =
                     from orElementEl
@@ -517,7 +543,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private PlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
         {
-            PlaceNameModelCollection t = new PlaceNameModelCollection();
+            PlaceNameModelCollection t = new PlaceNameModelCollection
+            {
+                Title = "Place Name Collection"
+            };
 
             // Run query
             var theERElement =
@@ -555,7 +584,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private HLinkPlaceModelCollection GetPlaceRefCollection(XElement xmlData)
         {
-            HLinkPlaceModelCollection t = new HLinkPlaceModelCollection();
+            HLinkPlaceModelCollection t = new HLinkPlaceModelCollection
+            {
+                Title = "Place Collection"
+            };
 
             // Load NoteRefs
             var localPlaceElement =
@@ -595,7 +627,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private HLinkRepositoryModelCollection GetRepositoryCollection(XElement xmlData)
         {
-            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection();
+            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection
+            {
+                Title = "Repository Collection"
+            };
 
             var theERElement = from _ORElementEl in xmlData.Elements(ns + "reporef")
                                select _ORElementEl;
@@ -638,7 +673,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private OCSrcAttributeModelCollection GetSrcAttributeCollection(XElement xmlData)
         {
-            OCSrcAttributeModelCollection t = new OCSrcAttributeModelCollection();
+            OCSrcAttributeModelCollection t = new OCSrcAttributeModelCollection
+            {
+                Title = "Source Attribute Collection"
+            };
 
             var theERElement =
                     from oRElementEl in xmlData.Elements(ns + "srcattribute")
@@ -710,7 +748,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
         private SurnameModelCollection GetSurnameCollection(XElement xmlData)
         {
-            SurnameModelCollection t = new SurnameModelCollection();
+            SurnameModelCollection t = new SurnameModelCollection
+            {
+                Title = "Surname Collection"
+            };
 
             var theERElement = from _ORElementEl in xmlData.Elements(ns + "surname")
                                select _ORElementEl;
@@ -744,7 +785,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         private HLinkTagModelCollection GetTagCollection(XElement xmlData)
         {
-            HLinkTagModelCollection t = new HLinkTagModelCollection();
+            HLinkTagModelCollection t = new HLinkTagModelCollection
+            {
+                Title = "Tag Collection"
+            };
 
             var theERElement =
                     from _ORElementEl in xmlData.Elements(ns + "tagref")
@@ -778,7 +822,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </param>
         private OCURLModelCollection GetURLCollection(XElement xmlData)
         {
-            OCURLModelCollection t = new OCURLModelCollection();
+            OCURLModelCollection t = new OCURLModelCollection
+            {
+                Title = "URL Collection"
+            };
 
             // Run query
             var theERElement =

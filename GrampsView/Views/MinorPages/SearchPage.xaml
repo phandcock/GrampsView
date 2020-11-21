@@ -54,23 +54,23 @@
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonList, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PersonList, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PersonNameList, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameList, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding FamilyList, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding FamilyList, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding EventList, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding EventList, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding NoteList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding NoteList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding AddressList, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding AddressList, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding CitationList, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding CitationList, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding MediaList, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding MediaList, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceList, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceList, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}" />
         </StackLayout>

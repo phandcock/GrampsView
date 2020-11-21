@@ -21,7 +21,7 @@
 
             <ucon:NoteCardFull BindingContext="{Binding NoteObject.HLink}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding NoteObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding NoteObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding NoteObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

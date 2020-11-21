@@ -19,15 +19,15 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GLocation, Mode=OneWay}" FsctTemplate="{StaticResource PlaceLocationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GLocation, Mode=OneWay}" FsctTemplate="{StaticResource PlaceLocationCardSmallDT}" />
             <!--  // TODO Why displayed if empty  -->
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GPlaceRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.PlaceChildCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CardGroupBaseHeader BindingContext="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GPlaceRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.PlaceChildCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding PlaceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
