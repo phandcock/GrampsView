@@ -17,9 +17,15 @@
         </ResourceDictionary>
     </Frame.Resources>
 
-    <StackLayout HorizontalOptions="FillAndExpand">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <Frame
             x:Name="LLCardLargeFrame"
+            Grid.Row="0"
             Margin="0"
             Padding="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
@@ -34,8 +40,9 @@
 
         <FlexLayout
             x:Name="CardGroupTemplateFlexer"
+            Grid.Row="1"
             BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
             BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
             Style="{StaticResource FlexLayoutCards}" />
-    </StackLayout>
+    </Grid>
 </Frame>

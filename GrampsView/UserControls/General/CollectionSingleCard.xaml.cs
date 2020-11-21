@@ -101,7 +101,7 @@
             Contract.Requires(layout != null);
             IEnumerable iSource = newValue as IEnumerable;
 
-            layout.theCollectionView.ItemsSource = iSource;
+            // layout.theCollectionView. = iSource;
         }
 
         /// <summary>
@@ -126,7 +126,7 @@
 
             DataTemplate iTemplate = newValue as DataTemplate;
 
-            layout.theCollectionView.ItemTemplate = iTemplate;
+            //layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
         /// <summary>
