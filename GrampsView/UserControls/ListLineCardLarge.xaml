@@ -14,7 +14,7 @@
     <Grid.Resources>
         <ResourceDictionary>
             <converters:StringToVisibleConverter x:Key="stringToBool" />
-            <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
+            <!--<converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />-->
         </ResourceDictionary>
     </Grid.Resources>
 
@@ -30,16 +30,11 @@
             </Grid.ColumnDefinitions>
 
             <Frame
-                x:Name="LLCardLargeFrame"
                 Grid.Row="0"
                 Grid.Column="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
-                Style="{StaticResource GVFrameHeaderMedium}">
-                <Label
-                    x:Name="LLCardLargeTitle"
-                    Margin="3,0,3,0"
-                    Style="{StaticResource GVHeaderStyleMedium}"
-                    Text="{Binding Title, Mode=OneWay}" />
+                Style="{DynamicResource GVFrameHeaderStyle}">
+                <Label Style="{StaticResource GVHeaderStyleMedium}" Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 
             <StackLayout

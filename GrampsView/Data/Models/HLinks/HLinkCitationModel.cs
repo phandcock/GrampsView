@@ -14,6 +14,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkCitationModel : HLinkBase, IHLinkCitationModel
     {
+        private CitationModel _Deref = new CitationModel();
+
         /// <summary>
         /// Gets the de reference.
         /// </summary>
@@ -24,14 +26,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid & (!_Deref.Valid))
                 {
-                    return DV.CitationDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.CitationDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 

@@ -22,6 +22,8 @@ namespace GrampsView.Data.Model
     [KnownType(typeof(HLinkSourceModel))]
     public sealed class CitationModel : ModelBase, ICitationModel, IComparable, IComparer
     {
+        private HLinkSourceModel _GSourceRef = new HLinkSourceModel();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CitationModel"/> class.
         /// </summary>
@@ -149,11 +151,16 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkSourceModel GSourceRef
         {
-            get;
-            set;
-        }
+            get
+            {
+                return _GSourceRef;
+            }
 
-            = new HLinkSourceModel();
+            set
+            {
+                SetProperty(ref _GSourceRef, value);
+            }
+        }
 
         /// <summary>
         /// Gets or sets the gramps tag reference.

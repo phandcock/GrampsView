@@ -47,8 +47,8 @@
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
-                Style="{DynamicResource GVLabelStyleSmall}"
-                Text="{Binding DeRef.GSTitle, Mode=OneWay}">
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GetDefaultText, Mode=OneWay}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer CanDrag="True" />
                 </Label.GestureRecognizers>
@@ -57,7 +57,7 @@
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
-                Style="{DynamicResource GVLabelStyleSmall}"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GSPubInfo, Mode=OneWay}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer CanDrag="True" />
@@ -67,7 +67,7 @@
             <Label
                 Grid.Row="2"
                 Grid.Column="1"
-                Style="{DynamicResource GVLabelStyleSmall}"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GSAuthor, Mode=OneWay}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer CanDrag="True" />

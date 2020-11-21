@@ -27,7 +27,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Style="{StaticResource GVFrameHeaderMedium}">
+                Style="{StaticResource GVFrameHeaderStyle}">
                 <Label
                     Margin="0"
                     Style="{StaticResource GVHeaderStyleSmall}"
