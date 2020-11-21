@@ -105,12 +105,13 @@
     </Style>
 
     <!--  Create a Header Medium Style  -->
+    <!--
     <Style x:Key="GVFrameHeaderMedium" TargetType="Frame">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
         <Setter Property="CornerRadius" Value="2" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************
@@ -157,7 +158,7 @@
         TargetType="Frame">
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
     </Style>
-    
+
     <!--
         Create Small Card Styles
     -->
@@ -300,13 +301,13 @@
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
     </Style>
 
-    <Style
+    <!--<Style
         x:Key="BackLinkCollection"
         BasedOn="{StaticResource FlexMultiCollection}"
         TargetType="Frame">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
-    </Style>
+    </Style>-->
 
     <Style
         x:Key="NoteFullTextStyle"
@@ -323,6 +324,14 @@
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+    </Style>
+
+    <!--  Create a Style for a Text Block Header  -->
+    <Style
+        x:Key="GVFrameHeaderStyle"
+        BasedOn="{StaticResource FlexSingleCollection}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
 
     <!--
@@ -345,12 +354,19 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
     </Style>
 
+    <Style x:Key="GVPageTitleStyle" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+    </Style>
+
+    <!--  Grid Single  -->
     <Style
         x:Key="GridSingleFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
         <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
+
+    <!--  Grid Small  -->
 
     <Style
         x:Key="GridSmallFixedCardStyle"
@@ -360,12 +376,19 @@
     </Style>
 
     <Style
+        x:Key="GridSmallVariableCardStyle"
+        BasedOn="{StaticResource GridBaseStyle}"
+        TargetType="Grid" />
+
+    <!--  Grid Medium  -->
+    <Style
         x:Key="GridMediumFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
         <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
+    <!--  Grid Large  -->
     <Style
         x:Key="GridLargeFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
@@ -377,15 +400,6 @@
         x:Key="GridLargeVariableCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid" />
-
-    <Style
-        x:Key="GridSmallVariableCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid" />
-
-    <Style x:Key="GVPageTitleStyle" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
-    </Style>
 
     <!--
         ******************************************************
@@ -456,7 +470,8 @@
         ******************************************************
     -->
     <!--  Create a Base Style for a Image Control Style  -->
-    <Style x:Key="ImageControlStyle" TargetType="Image" />
+    <!--
+    <Style x:Key="ImageControlStyle" TargetType="Image" />-->
 
     <!--
         ******************************************************
@@ -486,13 +501,6 @@
     </Style>
 
     <!--  Create a Small Style for a TextBlock  -->
-    <Style
-        x:Key="GVHeaderStyleSmall"
-        BasedOn="{StaticResource GVCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
-    </Style>
 
     <Style
         x:Key="GVCardLabelStyleSmall"
@@ -502,11 +510,20 @@
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
     </Style>
 
+    <Style
+        x:Key="GVHeaderStyleSmall"
+        BasedOn="{StaticResource GVCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
+    </Style>
+
     <!--  Create a Medium Style for a Text Block Header  -->
     <Style
         x:Key="GVHeaderStyleMedium"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
+        <Setter Property="Margin" Value="3,0,3,0" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
@@ -568,15 +585,18 @@
     -->
 
     <!--  Create a Basic Style for a ListView  -->
+    <!--
     <Style x:Key="ListViewBasic" TargetType="ListView" />
 
+    -->
     <!--  Create a Label Style for a ListView  -->
+    <!--
     <Style
         x:Key="ListViewLabel"
         BaseResourceKey="ListViewBasic"
         TargetType="ListView">
         <Setter Property="BackgroundColor" Value="Transparent" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************
@@ -585,7 +605,8 @@
     -->
 
     <!--  Create a Large Style for a TextBlock  -->
+    <!--
     <Style x:Key="GVTextBlockStyleLarge" TargetType="Label">
         <Setter Property="IsEnabled" Value="False" />
-    </Style>
+    </Style>-->
 </ResourceDictionary>

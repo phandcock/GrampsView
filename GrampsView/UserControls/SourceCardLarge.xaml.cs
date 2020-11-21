@@ -15,5 +15,7 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
         }
+
+   
     }
 }

@@ -105,6 +105,7 @@
     <Compile Remove="Common\NavigationHelper.cs" />
     <Compile Remove="Converters\FlipBoolConverter.cs" />
     <Compile Remove="Converters\GetGyyph.cs" />
+    <Compile Remove="Converters\HLinkValidToVisibleConverter.cs" />
     <Compile Remove="Converters\IconPath.cs" />
     <Compile Remove="Converters\NegateBooleanConverter.cs" />
     <Compile Remove="Converters\NewtonSoftOSCOBJConverter.cs" />

@@ -14,13 +14,13 @@
     <Grid.Resources>
         <ResourceDictionary>
             <converters:StringToVisibleConverter x:Key="stringToBool" />
-            <converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />
+            <!--<converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />-->
         </ResourceDictionary>
     </Grid.Resources>
 
     <Frame Style="{DynamicResource FrameSmallVariableCardStyleNS}">
 
-        <Grid Padding="5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -31,20 +31,14 @@
             </Grid.ColumnDefinitions>
 
             <Frame
-                x:Name="LLCardLargeFrame"
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="0"
                 Padding="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                  Light={StaticResource SecondaryColorLight}}"
                 CornerRadius="2"
-                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
-                <Label
-                    x:Name="LLCardLargeTitle"
-                    Margin="3,0,3,0"
-                    Style="{StaticResource GVHeaderStyleSmall}"
-                    Text="{Binding Title, Mode=OneWay}" />
+                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
+                Style="{DynamicResource GVFrameHeaderStyle}">
+                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 
             <StackLayout
