@@ -25,7 +25,7 @@
 
         <!--  Content  -->
         <ScrollView Orientation="Vertical">
-            <FlexLayout Direction="Column">
+            <StackLayout>
                 <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
@@ -45,7 +45,7 @@
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-            </FlexLayout>
+            </StackLayout>
         </ScrollView>
     </Grid>
 </ContentPage>
