@@ -35,7 +35,8 @@
             <Label
                 Margin="0"
                 Style="{StaticResource GVHeaderStyleMedium}"
-                Text="{Binding Title}" />
+                Text="{Binding Title}"
+                TextColor="Black" />
         </Frame>
 
         <FlexLayout

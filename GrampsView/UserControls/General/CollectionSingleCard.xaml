@@ -22,15 +22,16 @@
                 x:Name="LLCardLargeFrame"
                 Margin="0"
                 Padding="3"
-                BackgroundColor="MediumPurple"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                  Light={StaticResource SecondaryColorLight}}"
                 HorizontalOptions="FillAndExpand"
-                IsVisible="{Binding Title, Mode=OneWay, Converter={StaticResource StringToVisible}}"
+                IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
                 Style="{DynamicResource FlexSingleCollection}">
                 <Label
                     x:Name="LLCardLargeTitle"
                     Margin="0"
-                    Style="{DynamicResource GVHeaderStyleLarge}"
-                    Text="{Binding Title, Mode=OneWay}"
+                    Style="{StaticResource GVHeaderStyleMedium}"
+                    Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
                     TextColor="Black" />
             </Frame>
         </Grid>
@@ -41,8 +42,7 @@
             BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
             MinimumHeightRequest="100"
-            Style="{StaticResource CollectionViewBase}"
-            Wrap="Wrap">
+            Style="{StaticResource FlexLayoutCards}">
 
             <!--<FlexLayout.Header>
             <Grid>
