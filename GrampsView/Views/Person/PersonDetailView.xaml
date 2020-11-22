@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Xamarin.Forms.StateSquid;assembly=Xamarin.Forms.StateSquid"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -19,7 +20,7 @@
 
         <toolkit:StateLayout.StateViews>
             <toolkit:StateView StateKey="Loading">
-                <ucon:ActivityDisplay />
+                <ucon:ActivityDisplay BindingContext="{x:Static i18n:AppResources.PersonDetailPage_Loading}" />
             </toolkit:StateView>
         </toolkit:StateLayout.StateViews>
 

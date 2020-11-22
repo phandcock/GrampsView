@@ -192,4 +192,10 @@
   <data name="Settings_ViewAlertDIalog" xml:space="preserve">
     <value>Test Alert DIalogs</value>
   </data>
+  <data name="FileInputHandlerPage_Loading" xml:space="preserve">
+    <value>Downloading file.  If it is large then this will take a while...</value>
+  </data>
+  <data name="PersonDetailPage_Loading" xml:space="preserve">
+    <value>Loadign details.  If it is large then this will take a while...</value>
+  </data>
 </root>
