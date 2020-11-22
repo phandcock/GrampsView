@@ -180,9 +180,9 @@
             return;
         }
 
-        public void NotifyAlert(string strMessage)
+        public void NotifyAlert(string argMessage)
         {
-            NotifyDialogBox("Alert", strMessage);
+            NotifyDialogBox("Alert", argMessage);
         }
 
         /// <summary>

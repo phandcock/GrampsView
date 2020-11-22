@@ -20,7 +20,7 @@
 
         <toolkit:StateLayout.StateViews>
             <toolkit:StateView StateKey="Loading">
-                <ucon:ActivityDisplay />
+                <ucon:ActivityDisplay BindingContext="{x:Static i18n:AppResources.FileInputHandlerPage_Loading}" />
             </toolkit:StateView>
         </toolkit:StateLayout.StateViews>
 

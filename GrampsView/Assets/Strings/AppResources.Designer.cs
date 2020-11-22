@@ -97,6 +97,15 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading file.  If it is large then this will take a while....
+        /// </summary>
+        public static string FileInputHandlerPage_Loading {
+            get {
+                return ResourceManager.GetString("FileInputHandlerPage_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load the sample data.
         /// </summary>
         public static string FileInputHandlerPage_Sample_Button_Text {
@@ -228,6 +237,15 @@ namespace GrampsView.Assets.Strings {
         public static string NeedDatabaseReloadPage_Instructions {
             get {
                 return ResourceManager.GetString("NeedDatabaseReloadPage_Instructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loadign details.  If it is large then this will take a while....
+        /// </summary>
+        public static string PersonDetailPage_Loading {
+            get {
+                return ResourceManager.GetString("PersonDetailPage_Loading", resourceCulture);
             }
         }
         
