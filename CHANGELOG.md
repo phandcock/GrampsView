@@ -1,3 +1,14 @@
+## [16.11.2](https://github.com/phandcock/GrampsView/compare/v16.11.1...v16.11.2) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix sourcecardlarge text display ([281f969](https://github.com/phandcock/GrampsView/commit/281f9696be6fb89091c9010f885c2ab8cd449995))
+* more work on workarounds while waitign for flexlayout space fix ([f4dc410](https://github.com/phandcock/GrampsView/commit/f4dc4101224d617e536a710481ac7285e34d47ac))
+* tidy up CollectionSIngleView ([25ee7bf](https://github.com/phandcock/GrampsView/commit/25ee7bf68868551ea71e4a1f2878d1464098ce4c))
+
+
+
 ## [16.11.1](https://github.com/phandcock/GrampsView/compare/v16.11.0...v16.11.1) (2020-11-18)
 
 
@@ -28,6 +39,15 @@
 ### Bug Fixes
 
 * tweak mediaimageskia touse grid instead of frame tro reduce layout complexity ([7ac658b](https://github.com/phandcock/GrampsView/commit/7ac658b59099362b39f30ea26a22f92c0a57ab2a))
+
+
+
+## [16.10.22](https://github.com/phandcock/GrampsView/compare/v16.10.21...v16.10.22) (2020-11-11)
+
+
+### Bug Fixes
+
+* fix full note card speed and tweaks warnings ([d42b876](https://github.com/phandcock/GrampsView/commit/d42b87617d36ddd5ae4fea1b783306dafde628ba))
 
 
 
