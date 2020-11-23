@@ -514,6 +514,7 @@
         x:Key="GVHeaderStyleSmall"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
+        <Setter Property="Margin" Value="5,3,3,3" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
@@ -523,7 +524,7 @@
         x:Key="GVHeaderStyleMedium"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="Margin" Value="3,0,3,0" />
+        <Setter Property="Margin" Value="5,3,3,3" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
@@ -575,6 +576,7 @@
         <Setter Property="LineBreakMode" Value="TailTruncation" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
     </Style>
 
