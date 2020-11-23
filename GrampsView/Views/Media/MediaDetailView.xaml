@@ -25,11 +25,19 @@
                 </Frame.GestureRecognizers>
                 <StackLayout HorizontalOptions="CenterAndExpand">
                     <ucon:MediaImageSkia
-                        x:Name="ImageControl"
+                        x:Name="daImage"
                         BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="CenterAndExpand" />
+
+                    <MediaElement
+                        x:Name="daMediaElement"
+                        AutoPlay="False"
+                        BackgroundColor="Firebrick"
+                        ShowsPlaybackControls="True"
+                        Source="{Binding CurrentMediaObject.MediaStorageFilePath, Mode=OneWay}"
+                        VerticalOptions="FillAndExpand" />
                 </StackLayout>
             </Frame>
 
