@@ -1,10 +1,4 @@
-﻿// <copyright file="CommonTileUpdate.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
-/// </summary>
-namespace GrampsView.UWP.Common
+﻿namespace GrampsView.UWP.Common
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;

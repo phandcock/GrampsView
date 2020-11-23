@@ -39,6 +39,7 @@
         <uap:Extension Category="windows.protocol">
           <uap:Protocol Name="gramps">
             <uap:DisplayName>GrampsView</uap:DisplayName>
+            <uap:Logo>ic_launcher.png</uap:Logo>
           </uap:Protocol>
         </uap:Extension>
       </Extensions>
