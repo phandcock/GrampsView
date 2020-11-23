@@ -11,8 +11,6 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
-    using System;
-
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -24,6 +22,8 @@ namespace GrampsView.ViewModels
         /// The local media object.
         /// </summary>
         private MediaModel _MediaObject;
+
+        private bool _ShowMediaElement = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
@@ -75,6 +75,19 @@ namespace GrampsView.ViewModels
             }
         }
 
+        public bool ShowMediaElement
+        {
+            get
+            {
+                return _ShowMediaElement;
+            }
+
+            set
+            {
+                SetProperty(ref _ShowMediaElement, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets the h link parameter.
         /// </summary>
@@ -119,7 +132,7 @@ namespace GrampsView.ViewModels
                     BaseTitleIcon = CommonConstants.IconMedia;
 
                     // Get basic details
-                      BaseDetail.Add(new CardListLineCollection("Media Detail")
+                    BaseDetail.Add(new CardListLineCollection("Media Detail")
                     {
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),
@@ -135,10 +148,14 @@ namespace GrampsView.ViewModels
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
                 }
 
+                // Show MediaElement
+                if ((CurrentMediaObject.FileMimeType == "video") || (CurrentMediaObject.FileMimeType == "audio"))
+                {
+                    ShowMediaElement = true;
+                }
+
                 BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");
             }
         }
-
-    
     }
 }

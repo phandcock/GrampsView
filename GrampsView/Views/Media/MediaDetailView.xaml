@@ -7,7 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="MediaDetailPageRoot"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
@@ -16,28 +18,50 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <toolkitc:InvertedBoolConverter x:Key="flipBool" />
+        </ResourceDictionary>
+    </Page.Resources>
+
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <Frame HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+            <Frame
+                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                IsVisible="{Binding ShowMediaElement, Converter={StaticResource flipBool}, Mode=OneWay}"
+                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
-                <StackLayout HorizontalOptions="CenterAndExpand">
+                <StackLayout>
                     <ucon:MediaImageSkia
                         x:Name="daImage"
                         BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
-                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="CenterAndExpand" />
+
+                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                IsVisible="{Binding ShowMediaElement, Mode=OneWay}"
+                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
 
                     <MediaElement
                         x:Name="daMediaElement"
                         AutoPlay="False"
-                        BackgroundColor="Firebrick"
                         ShowsPlaybackControls="True"
                         Source="{Binding CurrentMediaObject.MediaStorageFilePath, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
+
+                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
 

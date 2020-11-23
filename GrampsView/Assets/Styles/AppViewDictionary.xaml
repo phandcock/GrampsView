@@ -23,12 +23,11 @@
 
     <!--  Create a Base Style for a Button Style  -->
     <Style x:Key="GVButtonStyle" TargetType="Button">
-
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderWidth" Value="2" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
+        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="2" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
     <!--  Create a Menu Style Button Style  -->
