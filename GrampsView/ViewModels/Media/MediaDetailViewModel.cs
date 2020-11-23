@@ -119,9 +119,7 @@ namespace GrampsView.ViewModels
                     BaseTitleIcon = CommonConstants.IconMedia;
 
                     // Get basic details
-                    //CardGroup t = new CardGroup { Title = "Header Details" };
-
-                    BaseDetail.Add(new CardListLineCollection("Media Detail")
+                      BaseDetail.Add(new CardListLineCollection("Media Detail")
                     {
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),

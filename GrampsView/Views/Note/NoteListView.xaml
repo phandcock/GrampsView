@@ -12,5 +12,7 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+    <ScrollView>
+        <ucon:CollectionSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+    </ScrollView>
 </ContentPage>

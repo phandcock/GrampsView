@@ -12,5 +12,7 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionSingleCard FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+    <ScrollView>
+        <ucon:CollectionSingleCard FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+    </ScrollView>
 </ContentPage>
