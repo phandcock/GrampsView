@@ -1,8 +1,4 @@
-﻿// <copyright file="CommonTimeline.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Model;
 
