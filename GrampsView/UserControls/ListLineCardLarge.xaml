@@ -19,7 +19,7 @@
     </Grid.Resources>
 
     <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
-        <Grid Padding="5">
+        <Grid Padding="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -32,6 +32,7 @@
             <Frame
                 Grid.Row="0"
                 Grid.Column="0"
+                Margin="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
                 Style="{DynamicResource GVFrameHeaderStyle}">
                 <Label Style="{StaticResource GVHeaderStyleMedium}" Text="{Binding Title, Mode=OneWay}" />

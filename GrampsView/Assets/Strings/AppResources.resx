@@ -196,6 +196,6 @@
     <value>Downloading file.  If it is large then this will take a while...</value>
   </data>
   <data name="PersonDetailPage_Loading" xml:space="preserve">
-    <value>Loadign details.  If it is large then this will take a while...</value>
+    <value>Loading details.  If there are a lot then this will take a while...</value>
   </data>
 </root>

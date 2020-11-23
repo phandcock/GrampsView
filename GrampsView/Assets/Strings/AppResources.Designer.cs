@@ -241,7 +241,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loadign details.  If it is large then this will take a while....
+        ///   Looks up a localized string similar to Loading details.  If there are a lot then this will take a while....
         /// </summary>
         public static string PersonDetailPage_Loading {
             get {

@@ -9,58 +9,82 @@ using Prism.Services.Dialogs;
 
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
+
 using Xamarin.Forms.StateSquid;
 
 namespace GrampsView.ViewModels
 {
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible, IInitialize
     {
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private State _BaseCurrentState = State.None;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private HLinkBase _BaseNavParamsHLink;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private object _BaseNavParamsModel;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private string _BaseTitle = string.Empty;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private string _BaseTitleIcon = string.Empty;
 
         /// <summary>
-        /// The local cl.
+        /// Backing store for the base current state
         /// </summary>
         private ICommonLogging _CL;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private IDialogService _DialogService;
 
         /// <summary>
-        /// The local event aggregator.
+        /// Backing store for the base current state
         /// </summary>
         private IEventAggregator _EventAggregator;
 
+        /// <summary>
+        /// Backing store for the base current state
+        /// </summary>
         private INavigationService _NavigationService;
 
         /// <summary>
-        /// The local nav parameters.
+        /// Backing store for the base current state
         /// </summary>
         private INavigationParameters _NavParams;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseViewModel"/> class.
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
         public ViewModelBase()
         {
-            BaseDetail.Title = "Header Details";
+            BaseDetail.Title = "Unknown Details";
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseViewModel"/> class. Initializes the
-        /// specified ioc common logging.
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
         /// The ioc common logging.
         /// </param>
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
+        /// </param>
+        /// <param name="iocNavigationService">
+        /// The ioc navigation service.
         /// </param>
         public ViewModelBase(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
         {
@@ -71,6 +95,12 @@ namespace GrampsView.ViewModels
             _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(SetDataLoadedViewState, ThreadOption.BackgroundThread);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
         public ViewModelBase(ICommonLogging iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
@@ -97,6 +127,12 @@ namespace GrampsView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the state of the base current.
+        /// </summary>
+        /// <value>
+        /// The state of the base current.
+        /// </value>
         public State BaseCurrentState
         {
             get
@@ -112,10 +148,10 @@ namespace GrampsView.ViewModels
         }
 
         /// <summary>
-        /// Gets or sets the model grid view.
+        /// Gets the base detail.
         /// </summary>
         /// <value>
-        /// The model grid view.
+        /// The base detail.
         /// </value>
         public CardGroup BaseDetail
         {
@@ -124,6 +160,12 @@ namespace GrampsView.ViewModels
 
         = new CardGroup();
 
+        /// <summary>
+        /// Gets or sets the base dialog service.
+        /// </summary>
+        /// <value>
+        /// The base dialog service.
+        /// </value>
         public IDialogService BaseDialogService
         {
             get
@@ -160,6 +202,12 @@ namespace GrampsView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the base navigation service.
+        /// </summary>
+        /// <value>
+        /// The base navigation service.
+        /// </value>
         public INavigationService BaseNavigationService
         {
             get
@@ -192,6 +240,12 @@ namespace GrampsView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the base nav parameters h link.
+        /// </summary>
+        /// <value>
+        /// The base nav parameters h link.
+        /// </value>
         public HLinkBase BaseNavParamsHLink
         {
             get
@@ -207,21 +261,28 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public object BaseNavParamsModel
-        {
-            get
-            {
-                Contract.Assert(_BaseNavParamsModel != null, "BaseNavParamsModel is null.");
+        ///// <summary>Gets or sets the base nav parameters model.</summary>
+        ///// <value>The base nav parameters model.</value>
+        //public object BaseNavParamsModel
+        //{
+        //    get
+        //    {
+        //        Contract.Assert(_BaseNavParamsModel != null, "BaseNavParamsModel is null.");
 
-                return _BaseNavParamsModel;
-            }
+        // return _BaseNavParamsModel; }
 
-            set
-            {
-                SetProperty(ref _BaseNavParamsModel, value);
-            }
-        }
+        //    set
+        //    {
+        //        SetProperty(ref _BaseNavParamsModel, value);
+        //    }
+        //}
 
+        /// <summary>
+        /// Gets or sets the base title.
+        /// </summary>
+        /// <value>
+        /// The base title.
+        /// </value>
         public string BaseTitle
         {
             get
@@ -239,6 +300,12 @@ namespace GrampsView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the base title icon.
+        /// </summary>
+        /// <value>
+        /// The base title icon.
+        /// </value>
         public string BaseTitleIcon
         {
             get
@@ -260,16 +327,15 @@ namespace GrampsView.ViewModels
         /// </value>
         private bool DetailDataLoadedFlag { get; set; }
 
-        //public void BaseActionDialog(ActionDialogArgs argADA)
-        //{
-        //    Contract.Assert(argADA != null);
-
-        // DialogParameters t = new DialogParameters { { "adaArgs", argADA }, };
-
-        //    //Using the dialog service as-is
-        //    BaseDialogService.ShowDialog("ErrorDialog", t);
-        //}
-
+        /// <summary>
+        /// Bases the nav parameters h link default.
+        /// </summary>
+        /// <param name="argDefault">
+        /// The argument default.
+        /// </param>
+        /// <returns>
+        /// <br/>
+        /// </returns>
         public HLinkBase BaseNavParamsHLinkDefault(HLinkBase argDefault)
         {
             if (_BaseNavParamsHLink is null)
@@ -280,6 +346,9 @@ namespace GrampsView.ViewModels
             return BaseNavParamsHLink;
         }
 
+        /// <summary>
+        /// This method allows cleanup of any resources used by your View/ViewModel
+        /// </summary>
         public virtual void Destroy()
         {
         }
@@ -318,6 +387,12 @@ namespace GrampsView.ViewModels
             //BaseCL.LogRoutineExit("Navigated from " + BaseNavParams.TargetView);
         }
 
+        /// <summary>
+        /// Called when [navigated to].
+        /// </summary>
+        /// <param name="parameters">
+        /// The parameters.
+        /// </param>
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
             if (!DetailDataLoadedFlag)
@@ -326,11 +401,11 @@ namespace GrampsView.ViewModels
 
                 PopulateViewModel();
             }
+            else
+            {
+                BaseCurrentState = State.None;
+            }
         }
-
-        //public virtual void OnNavigatingTo(INavigationParameters parameters)
-        //{
-        //}
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -343,6 +418,12 @@ namespace GrampsView.ViewModels
             return;
         }
 
+        /// <summary>
+        /// Sets the state of the data loaded view.
+        /// </summary>
+        /// <param name="value">
+        /// The value.
+        /// </param>
         public void SetDataLoadedViewState(object value)
         {
             this.BaseCurrentState = State.None;

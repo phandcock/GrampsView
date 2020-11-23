@@ -8,7 +8,7 @@
     using Prism.Navigation;
 
     /// <summary>
-    /// Defines the EVent Detail Page View ViewModel.
+    /// Defines the Event Detail Page View ViewModel.
     /// </summary>
     /// <seealso cref="Prism.Mvvm.ViewModelBase"/>
     public class EventDetailViewModel : ViewModelBase
@@ -23,14 +23,14 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="EventDetailViewModel"/> class.
         /// </summary>
-        /// <param name="iocCommonModelGridBuilder">
-        /// The ioc common model grid builder.
+        /// <param name="iocCommonLogging">
+        /// Common Logging interface.
         /// </param>
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        /// <param name="iocCommonLogging">
-        /// Common Logging interface.
+        /// <param name="iocNavigationService">
+        /// NAvigation Service
         /// </param>
         public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)

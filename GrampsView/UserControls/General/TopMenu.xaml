@@ -34,6 +34,7 @@
     <Label
         Grid.Row="0"
         Grid.Column="1"
+        Margin="0"
         Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
         Text="{Binding BaseTitle, Mode=OneWay}" />
 </Grid>

@@ -44,7 +44,7 @@
             <StackLayout
                 Grid.Row="1"
                 Grid.Column="0"
-                Padding="3"
+                Margin="3"
                 BindableLayout.ItemsSource="{Binding .}">
                 <BindableLayout.ItemTemplate>
 
