@@ -1,3 +1,12 @@
+## [16.11.3](https://github.com/phandcock/GrampsView/compare/v16.11.2...v16.11.3) (2020-11-23)
+
+
+### Bug Fixes
+
+* fix activity loading screen ([bad224e](https://github.com/phandcock/GrampsView/commit/bad224e4aeaeb11d32a8c146f707811e95cfdde2))
+
+
+
 ## [16.11.2](https://github.com/phandcock/GrampsView/compare/v16.11.1...v16.11.2) (2020-11-22)
 
 
@@ -39,15 +48,6 @@
 ### Bug Fixes
 
 * tweak mediaimageskia touse grid instead of frame tro reduce layout complexity ([7ac658b](https://github.com/phandcock/GrampsView/commit/7ac658b59099362b39f30ea26a22f92c0a57ab2a))
-
-
-
-## [16.10.22](https://github.com/phandcock/GrampsView/compare/v16.10.21...v16.10.22) (2020-11-11)
-
-
-### Bug Fixes
-
-* fix full note card speed and tweaks warnings ([d42b876](https://github.com/phandcock/GrampsView/commit/d42b87617d36ddd5ae4fea1b783306dafde628ba))
 
 
 
