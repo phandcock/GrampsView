@@ -1,3 +1,19 @@
+# [16.12.0](https://github.com/phandcock/GrampsView/compare/v16.11.3...v16.12.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* cleanup ([b880eb1](https://github.com/phandcock/GrampsView/commit/b880eb1f2169a0cf5961dd7bd33b8e3b41c74f37))
+* fix display of persondetails when pressing back button ([c0059a4](https://github.com/phandcock/GrampsView/commit/c0059a456eccfef72f6efe60ddd95ce56e157e2c))
+* fix object listpages adn start work on media element ([eb51294](https://github.com/phandcock/GrampsView/commit/eb51294bda7fc2bf75f760d15f32a3ea4247c575))
+
+
+### Features
+
+* use mediaelement ([0d6639e](https://github.com/phandcock/GrampsView/commit/0d6639e36fc26023e3e8660dafb013061b81c052))
+
+
+
 ## [16.11.3](https://github.com/phandcock/GrampsView/compare/v16.11.2...v16.11.3) (2020-11-23)
 
 
@@ -39,15 +55,6 @@
 ### Features
 
 * add loading screen for long operations ([53c37f7](https://github.com/phandcock/GrampsView/commit/53c37f7247be65ce34241f9eb0c549d538f887d3))
-
-
-
-## [16.10.23](https://github.com/phandcock/GrampsView/compare/v16.10.22...v16.10.23) (2020-11-13)
-
-
-### Bug Fixes
-
-* tweak mediaimageskia touse grid instead of frame tro reduce layout complexity ([7ac658b](https://github.com/phandcock/GrampsView/commit/7ac658b59099362b39f30ea26a22f92c0a57ab2a))
 
 
 
