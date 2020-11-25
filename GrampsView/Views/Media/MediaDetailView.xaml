@@ -46,9 +46,10 @@
             </Frame>
 
             <Frame
-                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                HeightRequest="300"
                 IsVisible="{Binding ShowMediaElement, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+                Style="{StaticResource FrameLargeFixedCardStyle}"
+                WidthRequest="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
