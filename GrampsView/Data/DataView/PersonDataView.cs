@@ -129,7 +129,7 @@ namespace GrampsView.Data.DataView
             return new ObservableCollection<PersonModel>(sortedList);
         }
 
-        public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkPersonModel> t = new CardGroupBase<HLinkPersonModel>();
 
@@ -155,7 +155,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroup info = new CardGroup
+                CardGroupBase<HLinkPersonModel> info = new CardGroupBase<HLinkPersonModel>
                 {
                     Title = g.GroupName.ToString("MMMM dd", CultureInfo.CurrentCulture.DateTimeFormat),
                 };

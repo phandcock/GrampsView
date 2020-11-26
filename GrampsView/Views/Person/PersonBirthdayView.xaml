@@ -13,7 +13,7 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <ucon:CollectionSingleCard
+    <ucon:CollectionSingleCardGrouped
         Margin="0"
         FsctSource="{Binding PersonSource, Mode=OneWay}"
         FsctTemplate="{StaticResource PersonCardSmallDT}" />

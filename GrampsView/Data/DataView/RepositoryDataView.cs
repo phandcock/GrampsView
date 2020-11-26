@@ -68,7 +68,7 @@ namespace GrampsView.Data.DataView
         }
 
         // TODO cleanup up this code
-        public override CardGroupBase<HLinkRepositoryModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkRepositoryModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkRepositoryModel> t = new CardGroupBase<HLinkRepositoryModel>();
 

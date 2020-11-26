@@ -1,16 +1,5 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="NoteListViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
-    using System.Collections.ObjectModel;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -43,7 +32,7 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return DV.NoteDV.GetAllAsCardGroup();
+                return DV.NoteDV.GetAllAsCardGroupBase();
             }
         }
     }

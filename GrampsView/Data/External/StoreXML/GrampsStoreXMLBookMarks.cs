@@ -66,6 +66,8 @@
                     // sort the collection eventRepository.Items.Sort(EventModel => EventModel);
 
                     // let everybody know
+
+                    DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
                 }
                 catch (Exception e)
                 {
@@ -76,7 +78,6 @@
                 }
             }
 
-        
             return;
         }
 

@@ -328,8 +328,13 @@
     <!--  Create a Style for a Text Block Header  -->
     <Style
         x:Key="GVFrameHeaderStyle"
-        BasedOn="{StaticResource FlexSingleCollection}"
+        BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
 

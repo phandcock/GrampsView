@@ -32,15 +32,11 @@
             <DataTemplate>
                 <Frame
                     x:Name="LLCardLargeFrame"
-                    Margin="0"
-                    Padding="3"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                                      Light={StaticResource SecondaryDarkColorLight}}"
-                    IsVisible="{Binding Visible, Mode=OneWay, Converter={StaticResource SingleToVisible}}">
+                    IsVisible="{Binding Visible, Mode=OneWay}"
+                    Style="{DynamicResource GVFrameHeaderStyle}">
                     <Label
                         x:Name="LLCardLargeTitle"
-                        Margin="0"
-                        Style="{DynamicResource GVHeaderStyleLarge}"
+                        Style="{DynamicResource GVHeaderStyleSmall}"
                         Text="{Binding Title, Mode=OneWay}" />
                 </Frame>
             </DataTemplate>
