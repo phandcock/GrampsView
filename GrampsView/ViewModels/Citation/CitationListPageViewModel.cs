@@ -1,10 +1,6 @@
-﻿// <copyright file="CitationListPageViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
+﻿
 namespace GrampsView.ViewModels
 {
-    using System.Collections.ObjectModel;
 
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -14,7 +10,7 @@ namespace GrampsView.ViewModels
     using Prism.Navigation;
 
     /// <summary>
-    /// View Model for the Event Section Page.
+    /// View Model for the Citation Section Page.
     /// </summary>
     public class CitationListViewModel : ViewModelBase
     {
@@ -35,7 +31,7 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return DV.CitationDV.GetAllAsCardGroup();
+                return DV.CitationDV.GetAllAsCardGroupBase();
             }
         }
     }

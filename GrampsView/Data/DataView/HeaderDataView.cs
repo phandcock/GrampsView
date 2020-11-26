@@ -82,7 +82,7 @@
         /// <remarks>
         /// Assume sonly one header as per the spec.
         /// </remarks>
-        public override CardGroupBase<HLinkHeaderModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkHeaderModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkHeaderModel> t = new CardGroupBase<HLinkHeaderModel>();
 

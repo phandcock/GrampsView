@@ -46,7 +46,7 @@ namespace GrampsView.ViewModels
         {
             get
             {
-                return DV.EventDV.GetAllAsCardGroup();
+                return DV.EventDV.GetAllAsCardGroupBase();
             }
         }
     }

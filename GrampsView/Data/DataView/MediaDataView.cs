@@ -136,7 +136,7 @@
         /// <remarks>
         /// Only returns the original mediaitems and not the clipped ones added to speed things up.
         /// </remarks>
-        public override CardGroupBase<HLinkMediaModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkMediaModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
 

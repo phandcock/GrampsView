@@ -29,13 +29,14 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid
                 Grid.Row="0"
-                Grid.RowSpan="3"
+                Grid.RowSpan="4"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
 
@@ -57,10 +58,16 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GFamilyRelationship, Mode=OneWay}" />
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GEventRefCollection.GetFirst.DeRef.GDate.ShortDate, Mode=OneWay}" />
 
             <Image
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="2"
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>

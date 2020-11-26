@@ -102,7 +102,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkCitationModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkCitationModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkCitationModel> t = new CardGroupBase<HLinkCitationModel>();
 

@@ -68,7 +68,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkPlaceModel> GetAllAsCardGroup()
+        public override CardGroupBase<HLinkPlaceModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkPlaceModel> t = new CardGroupBase<HLinkPlaceModel>();
 

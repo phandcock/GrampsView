@@ -41,7 +41,7 @@
         {
             get
             {
-                return DV.TagDV.GetAllAsCardGroup();
+                return DV.TagDV.GetAllAsCardGroupBase();
             }
         }
     }
