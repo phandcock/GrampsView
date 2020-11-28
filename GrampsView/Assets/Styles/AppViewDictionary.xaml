@@ -547,6 +547,7 @@
         x:Key="GVHeaderStyleLarge"
         BasedOn="{StaticResource GVLabelStyleLarge}"
         TargetType="Label">
+        <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
