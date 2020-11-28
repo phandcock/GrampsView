@@ -17,7 +17,10 @@
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
 
-        private int _NumColumns = 3;
+        private int _NumColumns = 10;
+
+        private int _NumRows = 10;
+        private int _ucHeight = 100;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -76,6 +79,20 @@
             }
         }
 
+        public int ucHeight
+        {
+            get
+            {
+                return _ucHeight;
+            }
+
+            set
+            {
+                _ucHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
         /// <summary>
         /// Called when [items source changed].
         /// </summary>
@@ -99,9 +116,19 @@
 
             CollectionSingleCard layout = argSource as CollectionSingleCard;
             Contract.Requires(layout != null);
+
             IEnumerable iSource = newValue as IEnumerable;
 
-            // layout.theCollectionView. = iSource;
+            layout.theCollectionView.ItemsSource = iSource;
+
+            layout._NumRows = 0;
+
+            foreach (var item in iSource)
+            {
+                layout._NumRows++;
+            }
+
+            layout.setUcHeight();
         }
 
         /// <summary>
@@ -126,7 +153,7 @@
 
             DataTemplate iTemplate = newValue as DataTemplate;
 
-            //layout.theCollectionView.ItemTemplate = iTemplate;
+            layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
         /// <summary>
@@ -158,7 +185,16 @@
 
             CollectionSingleCard t = sender as CollectionSingleCard;
 
-            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth + 1);  // +1 for padding
+            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);  // +1 for padding
+
+            setUcHeight();
+        }
+
+        private void setUcHeight()
+        {
+            int t = (Convert.ToInt32(_NumRows / NumColumns) + 1);
+            ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);  // +1 for padding
+            ucHeight = ucHeight + 50;
         }
     }
 }

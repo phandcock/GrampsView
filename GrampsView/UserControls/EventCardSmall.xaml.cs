@@ -9,10 +9,10 @@
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector"/>
     /// /// /// /// /// /// ///
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2"/>
-    public partial class EventCardSmall : Frame
+    public partial class EventCardSmall : Grid
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventCardLarge"/> class.
+        /// Initializes a new instance of the <see cref="EventCardSmall"/> class.
         /// </summary>
         public EventCardSmall()
         {

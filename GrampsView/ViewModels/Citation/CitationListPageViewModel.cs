@@ -1,7 +1,5 @@
-﻿
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;

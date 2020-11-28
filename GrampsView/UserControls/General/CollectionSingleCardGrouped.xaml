@@ -30,14 +30,8 @@
         </CollectionView.ItemsLayout>
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Frame
-                    x:Name="LLCardLargeFrame"
-                    IsVisible="{Binding Visible, Mode=OneWay}"
-                    Style="{DynamicResource GVFrameHeaderStyle}">
-                    <Label
-                        x:Name="LLCardLargeTitle"
-                        Style="{DynamicResource GVHeaderStyleSmall}"
-                        Text="{Binding Title, Mode=OneWay}" />
+                <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{DynamicResource GVFrameHeaderStyle}">
+                    <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding Title, Mode=OneWay}" />
                 </Frame>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>

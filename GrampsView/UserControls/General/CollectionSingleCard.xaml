@@ -5,61 +5,36 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:convertor="clr-namespace:GrampsView.Converters"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
     SizeChanged="CollectionSingleCardRoot_SizeChanged">
 
     <Frame.Resources>
-        <convertor:StringToVisibleConverter x:Key="StringToVisible" />
+        <convertor:StringToVisibleConverter x:Key="SingleToVisible" />
     </Frame.Resources>
 
-    <StackLayout>
-        <Grid>
-            <Frame
-                Margin="0"
-                Padding="3"
-                CornerRadius="0"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-                Style="{DynamicResource GVFrameHeaderStyle}">
-                <Label
-                    Margin="5,0,0,0"
-                    Padding="0"
-                    Style="{StaticResource GVHeaderStyleMedium}"
-                    Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
+    <ucon:CollectionViewExtended
+        x:Name="theCollectionView"
+        Grid.Column="0"
+        HeightRequest="{Binding ucHeight, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+        IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+        ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+        Style="{StaticResource CollectionViewBase}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout
+                HorizontalItemSpacing="2"
+                Orientation="Vertical"
+                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+                VerticalItemSpacing="2" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.Header>
+            <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource SingleToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
+                <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
             </Frame>
-        </Grid>
-
-        <FlexLayout
-            x:Name="theCollectionView"
-            Grid.Column="0"
-            BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-            BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-            MinimumHeightRequest="100"
-            Style="{StaticResource FlexLayoutCards}">
-
-            <!--<FlexLayout.Header>
-            <Grid>
-                <Frame
-                    x:Name="LLCardLargeFrame"
-                    Margin="0"
-                    Padding="3"
-                    BackgroundColor="MediumPurple"
-                    HorizontalOptions="FillAndExpand"
-                    IsVisible="{Binding Title, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-                    Style="{DynamicResource FlexSingleCollection}">
-                    <Label
-                        x:Name="LLCardLargeTitle"
-                        Margin="0"
-                        Style="{DynamicResource GVHeaderStyleLarge}"
-                        Text="{Binding Title, Mode=OneWay}"
-                        TextColor="Black" />
-                </Frame>
-            </Grid>
-        </FlexLayout.Header>-->
-        </FlexLayout>
-    </StackLayout>
+        </CollectionView.Header>
+    </ucon:CollectionViewExtended>
 </Frame>
