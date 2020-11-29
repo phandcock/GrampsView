@@ -187,7 +187,7 @@
 
             CollectionSingleCard t = sender as CollectionSingleCard;
 
-            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);  // +1 for padding
+            NumColumns = t.theCollectionView.SetNumColumns();
 
             setUcHeight();
         }
@@ -195,7 +195,13 @@
         private void setUcHeight()
         {
             int t = (Convert.ToInt32(_NumRows / NumColumns) + 1);
-            ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);  // +1 for padding
+            ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
+
+            if (ucHeight < 1)
+            {
+                ucHeight = 1;
+            }
+
             ucHeight = ucHeight + 50;
         }
     }
