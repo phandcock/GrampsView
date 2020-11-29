@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common;
-
     using System;
     using System.Collections;
     using System.ComponentModel;
@@ -9,7 +7,7 @@
 
     using Xamarin.Forms;
 
-    public partial class CollectionSingleCard : Frame, INotifyPropertyChanged
+    public partial class FlexSingleCard : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
               = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
@@ -17,23 +15,13 @@
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
 
-        private int _NumColumns = 10;
-
-        private int _NumRows = 10;
-        private int _ucHeight = 100;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
         /// </summary>
-        public CollectionSingleCard()
+        public FlexSingleCard()
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// Occurs when we want to trigger a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler MyPropertyChanged;
 
         /// <summary>
         /// Gets or sets the FSCT source.
@@ -59,52 +47,6 @@
             set { SetValue(FsctTemplateProperty, value); }
         }
 
-        /// <summary>
-        /// Gets or sets the number columns to display.
-        /// </summary>
-        /// <value>
-        /// The number columns.
-        /// </value>
-        public int NumColumns
-        {
-            get
-            {
-                return _NumColumns;
-            }
-
-            set
-            {
-                _NumColumns = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int ucHeight
-        {
-            get
-            {
-                return _ucHeight;
-            }
-
-            set
-            {
-                _ucHeight = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Called when [items source changed].
-        /// </summary>
-        /// <param name="argSource">
-        /// The argument source.
-        /// </param>
-        /// <param name="oldValue">
-        /// The old value.
-        /// </param>
-        /// <param name="newValue">
-        /// The new value.
-        /// </param>
         public static void OnItemsSourceChanged(BindableObject argSource, object oldValue, object newValue)
         {
             Contract.Assert(argSource != null);
@@ -119,18 +61,18 @@
 
             IEnumerable iSource = newValue as IEnumerable;
 
-            layout.theCollectionView.ItemsSource = iSource;
+            // layout.theCollectionView.ItemsSource = iSource;
 
-            int counter = 0;
+            int Counter = 0;
 
             foreach (var item in iSource)
             {
-                counter++;
+                Counter++;
             }
 
-            layout.theCollectionView.NumItems = counter;
+            // layout.theCollectionView.NumRows = Counter;
 
-            layout.setUcHeight();
+            // layout.theCollectionView.SetUcHeight();
         }
 
         /// <summary>
@@ -155,21 +97,7 @@
 
             DataTemplate iTemplate = newValue as DataTemplate;
 
-            layout.theCollectionView.ItemTemplate = iTemplate;
-        }
-
-        /// <summary>
-        /// Method that is called when a bound property is changed.
-        /// </summary>
-        /// <param name="propertyName">
-        /// The name of the bound property that changed.
-        /// </param>
-        /// <remarks>
-        /// To be added.
-        /// </remarks>
-        protected new void OnPropertyChanged(string propertyName)
-        {
-            MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            // layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
         /// <summary>
@@ -187,16 +115,9 @@
 
             CollectionSingleCard t = sender as CollectionSingleCard;
 
-            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);  // +1 for padding
+            //t.theCollectionView.NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);  // +1 for padding
 
-            setUcHeight();
-        }
-
-        private void setUcHeight()
-        {
-            int t = (Convert.ToInt32(_NumRows / NumColumns) + 1);
-            ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);  // +1 for padding
-            ucHeight = ucHeight + 50;
+            //t.theCollectionView.setUcHeight();
         }
     }
 }

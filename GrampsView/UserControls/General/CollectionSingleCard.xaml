@@ -18,18 +18,9 @@
 
     <ucon:CollectionViewExtended
         x:Name="theCollectionView"
-        Grid.Column="0"
-        HeightRequest="{Binding ucHeight, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout
-                HorizontalItemSpacing="2"
-                Orientation="Vertical"
-                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-                VerticalItemSpacing="2" />
-        </CollectionView.ItemsLayout>
 
         <CollectionView.Header>
             <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource SingleToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
