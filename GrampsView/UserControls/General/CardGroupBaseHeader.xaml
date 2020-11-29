@@ -20,8 +20,8 @@
             <Frame
                 x:Name="LLCardLargeFrame"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
-                Style="{StaticResource GVFrameHeaderMedium}">
-                <Label Style="{StaticResource GVHeaderStyleMedium}" Text="{Binding Title}" />
+                Style="{StaticResource GVFrameHeaderSmall}">
+                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
             </Frame>
 
             <FlexLayout
