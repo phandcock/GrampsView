@@ -1,3 +1,12 @@
+## [16.12.2](https://github.com/phandcock/GrampsView/compare/v16.12.1...v16.12.2) (2020-11-29)
+
+
+### Bug Fixes
+
+* tweak collectionView Rows ([002ea54](https://github.com/phandcock/GrampsView/commit/002ea541563495edc9c00f71afe16473f668bd17))
+
+
+
 ## [16.12.1](https://github.com/phandcock/GrampsView/compare/v16.12.0...v16.12.1) (2020-11-27)
 
 
@@ -41,16 +50,6 @@
 * fix sourcecardlarge text display ([281f969](https://github.com/phandcock/GrampsView/commit/281f9696be6fb89091c9010f885c2ab8cd449995))
 * more work on workarounds while waitign for flexlayout space fix ([f4dc410](https://github.com/phandcock/GrampsView/commit/f4dc4101224d617e536a710481ac7285e34d47ac))
 * tidy up CollectionSIngleView ([25ee7bf](https://github.com/phandcock/GrampsView/commit/25ee7bf68868551ea71e4a1f2878d1464098ce4c))
-
-
-
-## [16.11.1](https://github.com/phandcock/GrampsView/compare/v16.11.0...v16.11.1) (2020-11-18)
-
-
-### Bug Fixes
-
-* fix URL card and cleanup search and cardGroupBase controls ([fd09f27](https://github.com/phandcock/GrampsView/commit/fd09f27f8755efece00df8694e13246863685539))
-* work on activity control ([a5511bd](https://github.com/phandcock/GrampsView/commit/a5511bd3065ac9ec6b1be705bc45fb45aab5865b))
 
 
 
