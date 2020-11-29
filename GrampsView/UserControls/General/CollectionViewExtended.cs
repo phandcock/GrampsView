@@ -9,11 +9,10 @@
 
     public class CollectionViewExtended : CollectionView
     {
-        private readonly GridItemsLayout newGridLayout = new GridItemsLayout(ItemsLayoutOrientation.Vertical)
+        private static GridItemsLayout newGridLayout = new GridItemsLayout(10, ItemsLayoutOrientation.Vertical)
         {
             HorizontalItemSpacing = 2,
             VerticalItemSpacing = 2,
-            Span = 10,
         };
 
         private int _NumColumns = 10;
@@ -72,6 +71,18 @@
             }
         }
 
+        public int SetNumColumns()
+        {
+            int tt = (Int32)(this.Width / CardSizes.Current.CardSmallWidth);
+
+            if (tt < 1)
+            {
+                tt = 1;
+            }
+
+            return tt;
+        }
+
         public void SetUcHeight()
         {
             int t = (Convert.ToInt32(NumItems / NumColumns) + 1);
@@ -98,7 +109,7 @@
         {
             base.OnSizeAllocated(width, height);
 
-            int t = (Int32)(width / CardSizes.Current.CardSmallWidth);
+            int t = this.SetNumColumns();
 
             NumColumns = t;
 

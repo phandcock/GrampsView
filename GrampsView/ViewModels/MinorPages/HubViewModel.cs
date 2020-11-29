@@ -98,8 +98,6 @@
 
             RaisePropertyChanged(string.Empty);
 
-          
-
             return;
         }
     }

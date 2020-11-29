@@ -26,7 +26,7 @@
 
             <ucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <!--<ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />-->
 
             <ucon:CollectionSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
