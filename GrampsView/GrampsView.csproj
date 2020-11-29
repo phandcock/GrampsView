@@ -335,6 +335,9 @@
     <Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
       <DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\General\FlexSingleCard.xaml.cs">
+      <DependentUpon>FlexSingleCard.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\CollectionSingleCardGrouped.xaml.cs">
       <DependentUpon>CollectionSingleCardGrouped.xaml</DependentUpon>
     </Compile>
