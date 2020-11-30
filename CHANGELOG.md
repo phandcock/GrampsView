@@ -1,3 +1,13 @@
+## [16.12.4](https://github.com/phandcock/GrampsView/compare/v16.12.3...v16.12.4) (2020-11-30)
+
+
+### Bug Fixes
+
+* fix [#2](https://github.com/phandcock/GrampsView/issues/2) for collectionView crash ([9b8efec](https://github.com/phandcock/GrampsView/commit/9b8efec279766b7e5ea99f703c2b5b8d2ad6c155))
+* tweal flexcardsingle control ([34f713f](https://github.com/phandcock/GrampsView/commit/34f713fddb5a146eff505c398e022760fe83359c))
+
+
+
 ## [16.12.3](https://github.com/phandcock/GrampsView/compare/v16.12.2...v16.12.3) (2020-11-29)
 
 
@@ -39,15 +49,6 @@
 ### Features
 
 * use mediaelement ([0d6639e](https://github.com/phandcock/GrampsView/commit/0d6639e36fc26023e3e8660dafb013061b81c052))
-
-
-
-## [16.11.3](https://github.com/phandcock/GrampsView/compare/v16.11.2...v16.11.3) (2020-11-23)
-
-
-### Bug Fixes
-
-* fix activity loading screen ([bad224e](https://github.com/phandcock/GrampsView/commit/bad224e4aeaeb11d32a8c146f707811e95cfdde2))
 
 
 
