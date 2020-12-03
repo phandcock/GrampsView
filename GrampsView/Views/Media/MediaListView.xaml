@@ -16,6 +16,6 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:CollectionSingleCard FsctSource="{Binding MediaSource, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding MediaSource, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
     </ScrollView>
 </ContentPage>

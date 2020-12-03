@@ -166,6 +166,7 @@
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionCardList.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionSingleCardHeader.xaml.cs" />
+    <Compile Remove="UserControls\General\CollectionViewExtended.cs" />
     <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiCardEnum.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiGroupMultiCard - Copy.xaml.cs" />

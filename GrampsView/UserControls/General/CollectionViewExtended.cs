@@ -86,8 +86,18 @@
         public void SetUcHeight()
         {
             int t = (Convert.ToInt32(NumItems / NumColumns) + 1);
-            int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);  // +1 for padding
+            int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
+
+            if (ucHeight < 1)
+            {
+                ucHeight = 1;
+            }
+
             ucHeight = ucHeight + 50;
+
+            //int t = (Convert.ToInt32(NumItems / NumColumns) + 1);
+            //int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);  // +1 for padding
+            //ucHeight = ucHeight + 50;
             this.HeightRequest = ucHeight;
         }
 
@@ -113,7 +123,13 @@
 
             NumColumns = t;
 
-            newGridLayout.Span = t;
+            // newGridLayout.Span = t;
+
+            GridItemsLayout newGridLayout = new GridItemsLayout(NumColumns, ItemsLayoutOrientation.Vertical)
+            {
+                HorizontalItemSpacing = 2,
+                VerticalItemSpacing = 2,
+            };
 
             this.ItemsLayout = newGridLayout;
 

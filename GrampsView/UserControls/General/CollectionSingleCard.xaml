@@ -16,16 +16,26 @@
         <convertor:StringToVisibleConverter x:Key="SingleToVisible" />
     </Frame.Resources>
 
-    <ucon:CollectionViewExtended
+    <CollectionView SizeChanged="theCollectionView_SizeChanged"
         x:Name="theCollectionView"
         IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+        RemainingItemsThreshold="5"
+        RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}"
         Style="{StaticResource CollectionViewBase}">
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout
+                HorizontalItemSpacing="2"
+                Orientation="Vertical"
+                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+                VerticalItemSpacing="2" />
+        </CollectionView.ItemsLayout>
 
         <CollectionView.Header>
             <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource SingleToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
                 <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
             </Frame>
         </CollectionView.Header>
-    </ucon:CollectionViewExtended>
+    </CollectionView>
 </Frame>
