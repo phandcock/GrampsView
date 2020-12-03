@@ -21,11 +21,11 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CollectionSingleCard FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

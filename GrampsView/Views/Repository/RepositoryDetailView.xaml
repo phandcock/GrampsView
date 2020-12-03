@@ -19,10 +19,10 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CollectionSingleCard FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding RepositoryObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

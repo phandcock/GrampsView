@@ -8,7 +8,7 @@
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
-    public class CardSizes : INotifyPropertyChanged
+    public class CardSizes : CommonBindableBase
     {
         // Ratio of Height to width is 3 times
 
@@ -44,6 +44,11 @@
             {
                 return _CardLargeDoubleWidth;
             }
+
+            set
+            {
+                SetProperty(ref _CardLargeDoubleWidth, value);
+            }
         }
 
         public double CardLargeHeight
@@ -51,6 +56,11 @@
             get
             {
                 return _CardLargeHeight;
+            }
+
+            set
+            {
+                SetProperty(ref _CardLargeHeight, value);
             }
         }
 
@@ -60,6 +70,11 @@
             {
                 return _CardLargeWidth;
             }
+
+            set
+            {
+                SetProperty(ref _CardLargeWidth, value);
+            }
         }
 
         public double CardMediumHeight
@@ -67,6 +82,11 @@
             get
             {
                 return _CardMediumHeight;
+            }
+
+            set
+            {
+                SetProperty(ref _CardMediumHeight, value);
             }
         }
 
@@ -76,6 +96,11 @@
             {
                 return _CardMediumWidth;
             }
+
+            set
+            {
+                SetProperty(ref _CardMediumWidth, value);
+            }
         }
 
         public double CardSingleHeight
@@ -83,6 +108,11 @@
             get
             {
                 return _CardSingleHeight;
+            }
+
+            set
+            {
+                SetProperty(ref _CardSingleHeight, value);
             }
         }
 
@@ -92,6 +122,11 @@
             {
                 return _CardSingleWidth;
             }
+
+            set
+            {
+                SetProperty(ref _CardSingleWidth, value);
+            }
         }
 
         public double CardSmallHeight
@@ -99,6 +134,11 @@
             get
             {
                 return _CardSmallHeight;
+            }
+
+            set
+            {
+                SetProperty(ref _CardSmallHeight, value);
             }
         }
 
@@ -108,80 +148,61 @@
             {
                 return _CardSmallWidth;
             }
-        }
 
-
-
-        public double MediaDetailImageHeight
-        {
-            get
+            set
             {
-                double outVal;
-
-                switch (Device.Idiom)
-                {
-                    case TargetIdiom.Unsupported:
-
-                    case TargetIdiom.Desktop:
-                        outVal = CardLargeHeight * 3;
-                        break;
-
-                    case TargetIdiom.Tablet:
-                        outVal = CardLargeHeight;
-                        break;
-
-                    case TargetIdiom.Phone:
-
-                        outVal = CardLargeHeight;
-                        break;
-
-                    default:
-                        outVal = CardLargeHeight;
-                        break;
-                };
-
-                return outVal;
+                SetProperty(ref _CardSmallWidth, value);
             }
         }
 
-        public double MediaDetailImageWidth
-        {
-            get
-            {
-                double outVal;
+        //public double MediaDetailImageHeight
+        //{
+        //    get
+        //    {
+        //        double outVal;
 
-                switch (Device.Idiom)
-                {
-                    case TargetIdiom.Unsupported:
+        // switch (Device.Idiom) { case TargetIdiom.Unsupported:
 
-                    case TargetIdiom.Desktop:
-                        outVal = CardLargeWidth * 3;
-                        break;
+        // case TargetIdiom.Desktop: outVal = CardLargeHeight * 3; break;
 
-                    case TargetIdiom.Tablet:
-                        outVal = CardLargeWidth;
-                        break;
+        // case TargetIdiom.Tablet: outVal = CardLargeHeight; break;
 
-                    case TargetIdiom.Phone:
+        // case TargetIdiom.Phone:
 
-                        outVal = CardLargeWidth;
+        // outVal = CardLargeHeight; break;
 
-                        break;
+        // default: outVal = CardLargeHeight; break; };
 
-                    default:
-                        outVal = CardLargeWidth;
-                        break;
-                };
+        //        return outVal;
+        //    }
+        //}
 
-                // Check size
-                if (outVal > DeviceDisplay.MainDisplayInfo.Width)
-                {
-                    outVal = DeviceDisplay.MainDisplayInfo.Width;
-                }
+        //public double MediaDetailImageWidth
+        //{
+        //    get
+        //    {
+        //        double outVal;
 
-                return outVal;
-            }
-        }
+        // switch (Device.Idiom) { case TargetIdiom.Unsupported:
+
+        // case TargetIdiom.Desktop: outVal = CardLargeWidth * 3; break;
+
+        // case TargetIdiom.Tablet: outVal = CardLargeWidth; break;
+
+        // case TargetIdiom.Phone:
+
+        // outVal = CardLargeWidth;
+
+        // break;
+
+        // default: outVal = CardLargeWidth; break; };
+
+        // // Check size if (outVal > DeviceDisplay.MainDisplayInfo.Width) { outVal =
+        // DeviceDisplay.MainDisplayInfo.Width; }
+
+        //        return outVal;
+        //    }
+        //}
 
         public void ReCalculateCardWidths()
         {
@@ -197,15 +218,15 @@
             SetCardLargeHeight();
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged == null)
-            {
-                return;
-            }
+        //protected virtual void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged == null)
+        //    {
+        //        return;
+        //    }
 
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
         private void SetCardLargeDoubleWidth()
         {
@@ -217,9 +238,7 @@
                 outVal = DeviceDisplay.MainDisplayInfo.Width;
             }
 
-            _CardLargeDoubleWidth = outVal;
-
-            OnPropertyChanged(nameof(CardLargeDoubleWidth));
+            CardLargeDoubleWidth = outVal;
         }
 
         private void SetCardLargeHeight()
@@ -248,9 +267,7 @@
                     break;
             };
 
-            _CardLargeHeight = outVal;
-
-            OnPropertyChanged(nameof(CardLargeHeight));
+            CardLargeHeight = outVal;
         }
 
         private void SetCardLargeWidth()
@@ -303,9 +320,7 @@
                 outVal = DeviceDisplay.MainDisplayInfo.Width;
             }
 
-            _CardLargeWidth = outVal;
-
-            OnPropertyChanged(nameof(CardLargeWidth));
+            CardLargeWidth = outVal;
         }
 
         private void SetCardMediumHeight()
@@ -334,9 +349,7 @@
                     break;
             };
 
-            _CardMediumHeight = outVal;
-
-            OnPropertyChanged(nameof(CardMediumHeight));
+            CardMediumHeight = outVal;
         }
 
         private void SetCardMediumWidth()
@@ -388,9 +401,7 @@
                 outVal = DeviceDisplay.MainDisplayInfo.Width;
             }
 
-            _CardMediumWidth = outVal;
-
-            OnPropertyChanged(nameof(CardMediumWidth));
+            CardMediumWidth = outVal;
         }
 
         private void SetCardSingleHeight()
@@ -418,9 +429,7 @@
                     break;
             };
 
-            _CardSingleHeight = outVal;
-
-            OnPropertyChanged(nameof(CardSingleHeight));
+            CardSingleHeight = outVal;
         }
 
         private void SetCardSingleWidth()
@@ -469,9 +478,7 @@
             }
 
             Debug.WriteLine("Card Single Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
-            _CardSingleWidth = outVal;
-
-            OnPropertyChanged(nameof(CardSingleWidth));
+            CardSingleWidth = outVal;
         }
 
         private void SetCardSmallHeight()
@@ -499,9 +506,7 @@
                     break;
             };
 
-            _CardSmallHeight = outVal;
-
-            OnPropertyChanged(nameof(CardSmallHeight));
+            CardSmallHeight = outVal;
         }
 
         private void SetCardSmallWidth()
@@ -550,9 +555,7 @@
             }
 
             Debug.WriteLine("Card Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
-            _CardSmallWidth = outVal;
-
-            OnPropertyChanged(nameof(CardSmallWidth));
+            CardSmallWidth = outVal;
         }
     }
 }

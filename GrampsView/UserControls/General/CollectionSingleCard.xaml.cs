@@ -6,6 +6,7 @@
     using System.Collections;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
+    using System.Windows.Input;
 
     using Xamarin.Forms;
 
@@ -19,7 +20,8 @@
 
         private int _NumColumns = 10;
 
-        private int _NumRows = 10;
+        private int _NumItems = 10;
+
         private int _ucHeight = 100;
 
         /// <summary>
@@ -59,12 +61,8 @@
             set { SetValue(FsctTemplateProperty, value); }
         }
 
-        /// <summary>
-        /// Gets or sets the number columns to display.
-        /// </summary>
-        /// <value>
-        /// The number columns.
-        /// </value>
+        public ICommand LoadMoreDataCommand => new Command(GetNextPageOfData);
+
         public int NumColumns
         {
             get
@@ -74,7 +72,27 @@
 
             set
             {
-                _NumColumns = value;
+                if ((_NumColumns != value) && (value > 0) && (value < 20))
+                {
+                    _NumColumns = value;
+                    OnPropertyChanged();
+                }
+                else
+                {
+                }
+            }
+        }
+
+        public int NumItems
+        {
+            get
+            {
+                return _NumItems;
+            }
+
+            set
+            {
+                _NumItems = value;
                 OnPropertyChanged();
             }
         }
@@ -128,9 +146,9 @@
                 counter++;
             }
 
-            layout.theCollectionView.NumItems = counter;
+            layout.NumItems = counter;
 
-            layout.setUcHeight();
+            layout.SetUcHeight();
         }
 
         /// <summary>
@@ -158,6 +176,21 @@
             layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
+        public void SetUcHeight()
+        {
+            int t = (Convert.ToInt32(NumItems / NumColumns) + 1);
+            int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
+
+            if (ucHeight < 1)
+            {
+                ucHeight = 1;
+            }
+
+            ucHeight = ucHeight + 50;
+
+            this.HeightRequest = ucHeight;
+        }
+
         /// <summary>
         /// Method that is called when a bound property is changed.
         /// </summary>
@@ -172,37 +205,40 @@
             MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        /// <summary>
-        /// Handles the SizeChanged event of the CollectionSingleCardRoot control.
-        /// </summary>
-        /// <param name="sender">
-        /// The source of the event.
-        /// </param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/> instance containing the event data.
-        /// </param>
         private void CollectionSingleCardRoot_SizeChanged(object sender, EventArgs e)
         {
             Contract.Requires(sender != null);
 
             CollectionSingleCard t = sender as CollectionSingleCard;
 
-            NumColumns = t.theCollectionView.SetNumColumns();
+            int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
 
-            setUcHeight();
-        }
-
-        private void setUcHeight()
-        {
-            int t = (Convert.ToInt32(_NumRows / NumColumns) + 1);
-            ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
-
-            if (ucHeight < 1)
+            if (tt < 1)
             {
-                ucHeight = 1;
+                tt = 1;
             }
 
-            ucHeight = ucHeight + 50;
+            // _NumColumns = tt;
+        }
+
+        private void GetNextPageOfData()
+        {
+        }
+
+        private void theCollectionView_SizeChanged(object sender, EventArgs e)
+        {
+            Contract.Requires(sender != null);
+
+            CollectionView t = sender as CollectionView;
+
+            int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
+
+            if (tt < 1)
+            {
+                tt = 1;
+            }
+
+            NumColumns = tt;
         }
     }
 }

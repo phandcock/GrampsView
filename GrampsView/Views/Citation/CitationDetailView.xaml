@@ -24,10 +24,10 @@
 
             <ucon:NoteCardFull BindingContext="{Binding CitationObject.GNoteRefCollection[0], Mode=OneWay}" />
 
-            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

@@ -13,6 +13,6 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:CollectionSingleCard FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
     </ScrollView>
 </ContentPage>
