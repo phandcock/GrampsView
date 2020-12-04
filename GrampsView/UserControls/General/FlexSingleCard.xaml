@@ -6,16 +6,14 @@
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent">
+    BackgroundColor="Transparent"
+    IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
 
     <Frame.Resources>
         <convertor:StringToVisibleConverter x:Key="StringToVisible" />
     </Frame.Resources>
 
-    <StackLayout
-        HorizontalOptions="FillAndExpand"
-        IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-        VerticalOptions="Start">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
         <Frame
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
