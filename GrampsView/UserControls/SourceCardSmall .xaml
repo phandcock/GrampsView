@@ -10,12 +10,7 @@
     Style="{DynamicResource GridSmallFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid
-            x:Name="controlRoot"
-            FlexLayout.AlignSelf="Start"
-            FlexLayout.Basis="{OnIdiom Phone='50%',
-                                       Tablet='33%',
-                                       Desktop='33%'}">
+        <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{prism:NavigateTo 'SourceDetailPage'}">
@@ -49,6 +44,7 @@
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GetDefaultText, Mode=OneWay}" />
 

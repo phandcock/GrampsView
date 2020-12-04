@@ -29,10 +29,6 @@
         <usercontrols:FamilyCardSmall />
     </DataTemplate>
 
-    <!--<DataTemplate x:Key="HederCardLargeDT">
-        <usercontrols:HeaderCardLarge />
-    </DataTemplate>-->
-
     <DataTemplate x:Key="MediaCardSmallDT">
         <usercontrols:MediaCardSmall />
     </DataTemplate>
@@ -40,10 +36,6 @@
     <DataTemplate x:Key="MediaCardLargeDT">
         <usercontrols:MediaCardLarge />
     </DataTemplate>
-
-    <!--<DataTemplate x:Key="MediaImageFullDT">
-        <usercontrols:MediaImageFullCard />
-    </DataTemplate>-->
 
     <DataTemplate x:Key="NoteCardFullDT">
         <usercontrols:NoteCardFull />

@@ -9,7 +9,7 @@
 
     <Frame Style="{DynamicResource FrameSingleFixedCardStyleNS}">
 
-        <Grid x:Name="controlRoot">
+        <Grid x:Name="controlRoot" RowSpacing="1">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
