@@ -165,6 +165,7 @@
     <Compile Remove="UserControls\General\CheckBoxExtended.cs" />
     <Compile Remove="UserControls\General\CollectionCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionCardList.xaml.cs" />
+    <Compile Remove="UserControls\General\CollectionMultiCardGrouped.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionSingleCardHeader.xaml.cs" />
     <Compile Remove="UserControls\General\CollectionViewExtended.cs" />
     <Compile Remove="UserControls\General\FlexBase.xaml.cs" />
@@ -174,8 +175,10 @@
     <Compile Remove="UserControls\General\FlexSingleCardGroup.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupMultiCard.xaml.cs" />
     <Compile Remove="UserControls\General\FlexSingleGroupSingleCard.xaml.cs" />
+    <Compile Remove="UserControls\General\LayoutData.cs" />
     <Compile Remove="UserControls\General\MediaImage.xaml.cs" />
     <Compile Remove="UserControls\General\RadioButtonxExtended .cs" />
+    <Compile Remove="UserControls\General\WrapLayout.cs" />
     <Compile Remove="UserControls\HeaderCardLarge.xaml.cs" />
     <Compile Remove="UserControls\HLinkCitationCardSmall.xaml.cs" />
     <Compile Remove="UserControls\HLinkEventCardSmall.xaml.cs" />
@@ -247,6 +250,7 @@
     <EmbeddedResource Remove="UserControls\General\CardGroupBaseList.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardGroup.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionCardList.xaml" />
+    <EmbeddedResource Remove="UserControls\General\CollectionMultiCardGrouped.xaml" />
     <EmbeddedResource Remove="UserControls\General\CollectionSingleCardHeader.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCardEnum.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiGroupMultiCard.xaml" />
@@ -330,9 +334,6 @@
     </Compile>
     <Compile Update="UserControls\General\ActivityDisplay.xaml.cs">
       <DependentUpon>ActivityDisplay.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
-      <DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\FlexSingleCard.xaml.cs">
       <DependentUpon>FlexSingleCard.xaml</DependentUpon>

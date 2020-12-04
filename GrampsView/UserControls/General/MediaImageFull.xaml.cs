@@ -1,15 +1,10 @@
-﻿// <copyright file="MediaImageFull.xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using System;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public partial class MediaImageFull : Frame

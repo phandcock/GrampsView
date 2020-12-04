@@ -33,8 +33,14 @@
 
                 <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
 
-                <ucon:FlexSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+                <ucon:FlexSingleCard
+                    BackgroundColor="AliceBlue"
+                    FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}"
+                    FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+                <ucon:FlexSingleCard
+                    BackgroundColor="AliceBlue"
+                    FsctSource="{Binding EventsIncFamily, Mode=OneWay}"
+                    FsctTemplate="{StaticResource EventCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />

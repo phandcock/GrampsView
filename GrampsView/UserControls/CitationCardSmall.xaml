@@ -51,7 +51,7 @@
                 x:Name="idTextBlock"
                 Grid.Row="0"
                 Grid.Column="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GetDefaultText, Mode=OneWay}" />
 

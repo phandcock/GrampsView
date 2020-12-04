@@ -2,13 +2,14 @@
 {
     using System.Collections;
     using System.ComponentModel;
+    using System.Diagnostics.Contracts;
 
     using Xamarin.Forms;
 
     public partial class FlexSingleCard : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard)); //, propertyChanged: OnItemTemplateChanged);
@@ -43,6 +44,18 @@
         {
             get { return (DataTemplate)GetValue(FsctTemplateProperty); }
             set { SetValue(FsctTemplateProperty, value); }
+        }
+
+        public static void OnItemsSourceChanged(BindableObject argSource, object oldValue, object newValue)
+        {
+            Contract.Assert(argSource != null);
+
+            FlexSingleCard thisCard = argSource as FlexSingleCard;
+
+            if (newValue is null)
+            {
+                thisCard.IsVisible = false;
+            }
         }
     }
 }

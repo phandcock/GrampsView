@@ -9,7 +9,7 @@
     BackgroundColor="Transparent">
 
     <Frame.Resources>
-        <convertor:StringToVisibleConverter x:Key="SingleToVisible" />
+        <convertor:StringToVisibleConverter x:Key="StringToVisible" />
     </Frame.Resources>
 
     <StackLayout
@@ -18,7 +18,7 @@
         VerticalOptions="Start">
         <Frame
             x:Name="LLCardLargeFrame"
-            IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource SingleToVisible}}"
+            IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
             Style="{StaticResource GVFrameHeaderStyle}">
             <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
         </Frame>
