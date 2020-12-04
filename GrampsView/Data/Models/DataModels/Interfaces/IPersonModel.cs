@@ -11,6 +11,8 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// </summary>
     public interface IPersonModel : IModelBase
@@ -66,7 +68,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The gender.
         /// </value>
-        string GGender
+        Gender GGender
         {
             get;
             set;
@@ -103,7 +105,6 @@ namespace GrampsView.Data.Model
         HLinkFamilyModelCollection GParentInRefCollection
         {
             get;
-          
         }
 
         /// <summary>
@@ -115,7 +116,6 @@ namespace GrampsView.Data.Model
         HLinkPersonNameModelCollection GPersonNamesCollection
         {
             get;
-            
         }
 
         /// <summary>

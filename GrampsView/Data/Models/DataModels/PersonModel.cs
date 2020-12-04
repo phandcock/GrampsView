@@ -26,6 +26,8 @@ namespace GrampsView.Data.Model
     using System.Collections;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Data model for a person.
     /// </summary>
@@ -56,7 +58,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Person Element - Gender.
         /// </summary>
-        private string _Gender = string.Empty;
+        private Gender _Gender = Gender.Unknown;
 
         /// <summary>
         /// The local LDS collection.
@@ -221,7 +223,7 @@ namespace GrampsView.Data.Model
         /// The gender.
         /// </value>
         [DataMember]
-        public string GGender
+        public Gender GGender
         {
             get
             {
@@ -231,23 +233,6 @@ namespace GrampsView.Data.Model
             set
             {
                 SetProperty(ref _Gender, value);
-
-                //switch (value)
-                //{
-                //    case "F":
-                //        {
-                //            HomeImageHLink.HomeSymbol = CommonFontNamesFAS.GenderFemale;
-                //            break;
-                //        }
-
-                // case "M": { HomeImageHLink.HomeSymbol = CommonFontNamesFAS.GenderMale; break; }
-
-                // case "U": { HomeImageHLink.HomeSymbol = CommonFontNamesFAS.BatteryUnknown; break; }
-
-                //    default:
-                //        HomeImageHLink.HomeSymbol = CommonFontNamesFAS.BatteryUnknown;
-                //        break;
-                //}
             }
         }
 
@@ -261,26 +246,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                switch (GGender)
-                {
-                    case "F":
-                        {
-                            return "Female";
-                        }
-
-                    case "M":
-                        {
-                            return "Male";
-                        }
-
-                    case "U":
-                        {
-                            return "Unknown";
-                        }
-
-                    default:
-                        return "Unknown";
-                }
+                return Enum.GetName(typeof(Gender), GGender);
             }
         }
 

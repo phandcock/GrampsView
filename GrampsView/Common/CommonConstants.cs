@@ -32,12 +32,12 @@ namespace GrampsView.Common
         /// <summary>
         /// The file not found default name.
         /// </summary>
-        public const string FileNotFoundDefaultName = "ms-appx:///Assets/Icons/AppLogos/MediaLogo.png";
+      // public const string FileNotFoundDefaultName = "ms-appx:///Assets/Icons/AppLogos/MediaLogo.png";
 
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 49;
+        public const int GrampsViewDatabaseVersion = 50;
 
         /// <summary>
         /// The Gramps XML name space.
