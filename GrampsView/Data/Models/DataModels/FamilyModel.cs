@@ -109,7 +109,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Collection of Child References $$(childref)$$.
         /// </summary>
-        private HLinkPersonModelCollection childRefCollection = new HLinkPersonModelCollection();
+        private HLinkPersonModelCollection childRefCollection = new HLinkPersonModelCollection("Children");
 
         /// <summary>
         /// relationship $$(rel)$$.

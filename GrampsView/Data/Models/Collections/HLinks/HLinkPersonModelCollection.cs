@@ -26,6 +26,11 @@ namespace GrampsView.Data.Collections
             Title = "People Collection";
         }
 
+        public HLinkPersonModelCollection(string argTitle)
+        {
+            Title = argTitle;
+        }
+
         /// <summary>
         /// Gets the dereferenced person models.
         /// </summary>
