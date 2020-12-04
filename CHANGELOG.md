@@ -1,3 +1,12 @@
+## [16.12.5](https://github.com/phandcock/GrampsView/compare/v16.12.4...v16.12.5) (2020-12-04)
+
+
+### Bug Fixes
+
+* change collection cntrol back to using a flexlayout ([3108af6](https://github.com/phandcock/GrampsView/commit/3108af6c190795ad5b2a9045f3b7fa4cf938cc43))
+
+
+
 ## [16.12.4](https://github.com/phandcock/GrampsView/compare/v16.12.3...v16.12.4) (2020-11-30)
 
 
@@ -33,22 +42,6 @@
 
 * fix list detailpages ([51997f2](https://github.com/phandcock/GrampsView/commit/51997f2ead19084d932f266c9c070908bb889e41))
 * tweak mediaelelment size ([f5ce528](https://github.com/phandcock/GrampsView/commit/f5ce528933b0e5eae3b8cd800a904b59ab437e71))
-
-
-
-# [16.12.0](https://github.com/phandcock/GrampsView/compare/v16.11.3...v16.12.0) (2020-11-25)
-
-
-### Bug Fixes
-
-* cleanup ([b880eb1](https://github.com/phandcock/GrampsView/commit/b880eb1f2169a0cf5961dd7bd33b8e3b41c74f37))
-* fix display of persondetails when pressing back button ([c0059a4](https://github.com/phandcock/GrampsView/commit/c0059a456eccfef72f6efe60ddd95ce56e157e2c))
-* fix object listpages adn start work on media element ([eb51294](https://github.com/phandcock/GrampsView/commit/eb51294bda7fc2bf75f760d15f32a3ea4247c575))
-
-
-### Features
-
-* use mediaelement ([0d6639e](https://github.com/phandcock/GrampsView/commit/0d6639e36fc26023e3e8660dafb013061b81c052))
 
 
 
