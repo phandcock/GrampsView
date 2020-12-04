@@ -24,13 +24,25 @@
 
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+            <ucon:FlexSingleCard
+                BackgroundColor="AliceBlue"
+                FsctSource="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard
+                BackgroundColor="AliceBlue"
+                FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard
+                BackgroundColor="AliceBlue"
+                FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard
+                BackgroundColor="AliceBlue"
+                FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
 
-            <ucon:CardGroupHeader Grid.Row="9" BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
