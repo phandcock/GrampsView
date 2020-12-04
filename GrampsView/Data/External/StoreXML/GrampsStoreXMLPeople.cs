@@ -92,7 +92,26 @@
                         loadPerson.GEventRefCollection = GetEventCollection(pname);
 
                         // gender
-                        loadPerson.GGender = GetElement(pname, "gender");
+                        switch (GetElement(pname, "gender"))
+                        {
+                            case "F":
+                                {
+                                    loadPerson.GGender = CommonEnums.Gender.Female;
+                                    break;
+                                }
+
+                            case "M":
+                                {
+                                    loadPerson.GGender = CommonEnums.Gender.Male;
+                                    break;
+                                }
+
+                            default:
+                                {
+                                    loadPerson.GGender = CommonEnums.Gender.Unknown;
+                                    break;
+                                }
+                        }
 
                         // TODO load LDS collection
 

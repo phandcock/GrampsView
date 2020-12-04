@@ -35,6 +35,13 @@ namespace GrampsView.Common
             SourceCardSmall,
         }
 
+        public enum Gender
+        {
+            Female,
+            Male,
+            Unknown
+        }
+
         public enum HomeImageType
         {
             Symbol,
