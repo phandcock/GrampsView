@@ -7,6 +7,7 @@
     using Xamarin.Forms;
 
     public partial class FlexSingleCard : Frame, INotifyPropertyChanged
+
     {
         public static readonly BindableProperty FsctSourceProperty
               = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
@@ -53,6 +54,19 @@
             FlexSingleCard thisCard = argSource as FlexSingleCard;
 
             if (newValue is null)
+            {
+                thisCard.IsVisible = false;
+                return;
+            }
+
+            // TODO cleanup this code when we work out how
+            IEnumerator counter = thisCard.FsctSource.GetEnumerator();
+            if (counter.MoveNext())
+            {
+                // We have some data
+                thisCard.IsVisible = true;
+            }
+            else
             {
                 thisCard.IsVisible = false;
             }

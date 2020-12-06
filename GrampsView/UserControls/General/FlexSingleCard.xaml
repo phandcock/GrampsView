@@ -11,6 +11,7 @@
 
     <Frame.Resources>
         <convertor:StringToVisibleConverter x:Key="StringToVisible" />
+        <convertor:BoolToVisibleConverter x:Key="BoolToVisible" />
     </Frame.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
