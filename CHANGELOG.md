@@ -1,3 +1,12 @@
+## [16.12.7](https://github.com/phandcock/GrampsView/compare/v16.12.6...v16.12.7) (2020-12-06)
+
+
+### Bug Fixes
+
+* fix display of flexcollection control ([12fdddd](https://github.com/phandcock/GrampsView/commit/12fdddd0e184d2b3b40eaf7e063e721c3ce61186))
+
+
+
 ## [16.12.6](https://github.com/phandcock/GrampsView/compare/v16.12.5...v16.12.6) (2020-12-06)
 
 
@@ -35,15 +44,6 @@
 ### Bug Fixes
 
 * fix bug in NumColumns ([431fa57](https://github.com/phandcock/GrampsView/commit/431fa5757eaf8fe40bbf1435c0de2f955ab3ac3c))
-
-
-
-## [16.12.2](https://github.com/phandcock/GrampsView/compare/v16.12.1...v16.12.2) (2020-11-29)
-
-
-### Bug Fixes
-
-* tweak collectionView Rows ([002ea54](https://github.com/phandcock/GrampsView/commit/002ea541563495edc9c00f71afe16473f668bd17))
 
 
 
