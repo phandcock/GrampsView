@@ -10,7 +10,7 @@
         <ResourceDictionary Source="Assets/Styles/AppThemeDictionary.xaml" />
 
         <ResourceDictionary Source="Assets/Styles/_Glyphs.xaml" />
-        
+
         <ResourceDictionary Source="Assets/Styles/_Thickness.xaml" />
 
         <ResourceDictionary Source="Assets/Styles/AppDataTemplates.xaml" />

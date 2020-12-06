@@ -21,5 +21,7 @@ namespace GrampsView.Data.Model
         /// The first image h link.
         /// </value>
         HLinkHomeImageModel FirstHLinkHomeImage { get; set; }
+
+        int Count { get; }
     }
 }
