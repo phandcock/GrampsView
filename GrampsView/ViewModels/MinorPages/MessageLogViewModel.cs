@@ -27,7 +27,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageLogViewModel"/> class.
         /// </summary>
-        public MessageLogViewModel(IDataLog iocDataLog)
+        public MessageLogViewModel(IDataLog iocDataLog, ICommonNotifications iocCommonNotifications)
 
         {
             BaseTitle = "Message Log";
@@ -36,7 +36,10 @@ namespace GrampsView.ViewModels
 
             Contract.Assert(iocDataLog != null);
             _iocDataLog = iocDataLog;
+            _iocCommonNotifications = iocCommonNotifications;
         }
+
+        private ICommonNotifications _iocCommonNotifications;
 
         /// <summary>
         /// Gets the data load log.
@@ -51,5 +54,14 @@ namespace GrampsView.ViewModels
                 return _iocDataLog.DataLoadLog;
             }
         }
+
+        public string MinorStatus
+        {
+            get
+            {
+                return _iocCommonNotifications.MinorMessage;
+            }
+        }
+
     }
 }

@@ -31,6 +31,8 @@
 
         private string _DataLogMessage = string.Empty;
 
+        private string _MinorMessage;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonNotifications"/> class.
         /// </summary>
@@ -80,6 +82,19 @@
             private set
             {
                 SetProperty(ref _DataLogMessage, value);
+            }
+        }
+
+        public string MinorMessage
+        {
+            get
+            {
+                return _MinorMessage;
+            }
+
+            set
+            {
+                SetProperty(ref _MinorMessage, value);
             }
         }
 

@@ -75,7 +75,8 @@ namespace GrampsView.Data
                             }
                         }
 
-                        // outStr.Close(); Set the modification date/time. This approach seems to
+                        // outStr.Close();
+                        // Set the modification date/time. This approach seems to
                         // solve timezone issues.
                         DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime, DateTimeKind.Utc);
                         File.SetLastWriteTime(outName, myDt);
@@ -221,7 +222,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "Untaring  file {0}", tarEntry.Name)).ConfigureAwait(false);
+                        DataStore.Instance.CN.MinorMessage = String.Format(System.Globalization.CultureInfo.CurrentCulture, "Untaring  file {0}", tarEntry.Name);
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 

@@ -16,16 +16,31 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <CollectionView
-        x:Name="MajorStatusList"
-        ItemSizingStrategy="MeasureAllItems"
-        ItemTemplate="{StaticResource DataLogEntryLarge}"
-        ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
-        ItemsUpdatingScrollMode="KeepLastItemInView"
-        VerticalOptions="FillAndExpand">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
-        </CollectionView.ItemsLayout>
-    </CollectionView>
+        <CollectionView
+            x:Name="MajorStatusList"
+            Grid.Row="0"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemTemplate="{StaticResource DataLogEntryLarge}"
+            ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
+            ItemsUpdatingScrollMode="KeepLastItemInView"
+            VerticalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+
+        <Frame
+            Grid.Row="1"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
+                                              Light={StaticResource PrimaryColorLight}}"
+            HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding MinorStatus}" TextColor="Black" />
+        </Frame>
+    </Grid>
 </ContentPage>
