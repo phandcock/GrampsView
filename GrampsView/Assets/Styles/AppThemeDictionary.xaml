@@ -37,7 +37,7 @@
     </Color>
 
     <Color x:Key="OnErrorColorDark">
-        #888888
+        #000000
     </Color>
 
     <Color x:Key="SurfaceColorDark">
@@ -87,7 +87,7 @@
     </Color>
 
     <Color x:Key="OnErrorColorLight">
-        #FFFFFF
+        #000000
     </Color>
 
     <Color x:Key="SurfaceColorLight">

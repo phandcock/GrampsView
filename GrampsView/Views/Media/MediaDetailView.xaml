@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:converters="clr-namespace:GrampsView.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -21,6 +22,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <toolkitc:InvertedBoolConverter x:Key="flipBool" />
+            <converters:VideoSourceConverter x:Key="vsc" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -58,6 +60,7 @@
                     <MediaElement
                         x:Name="daMediaElement"
                         AutoPlay="False"
+                        MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
                         Source="{Binding CurrentMediaObject.MediaStorageFilePath, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />

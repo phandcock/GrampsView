@@ -95,7 +95,7 @@
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 // start file load
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd( "Loading Media File").ConfigureAwait(false);
 
                 //// Get colour
                 //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
@@ -216,7 +216,7 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                    await DataStore.Instance.CN.DataLogEntryReplace("Loading media file: " + temp).ConfigureAwait(false);
+                                     DataStore.Instance.CN.MinorMessage = "Loading media file: " + temp;
 
                                     loadObject.OriginalFilePath = temp;
 

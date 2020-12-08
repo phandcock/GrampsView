@@ -15,6 +15,13 @@
             InitializeComponent();
         }
 
+        private void daMediaElement_MediaFailed(object sender, EventArgs e)
+        {
+            (sender as MediaElement).Source = null;
+
+            // TODO Handle when can not play video better
+        }
+
         private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
             Frame theFrame = sender as Frame;

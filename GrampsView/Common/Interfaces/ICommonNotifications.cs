@@ -12,6 +12,8 @@ namespace GrampsView.Common
         string BottomMessage { get; }
         string DataLogMessage { get; }
 
+        string MinorMessage { get; set; }
+
         /// <summary>
         /// Changes the loading message.
         /// </summary>
