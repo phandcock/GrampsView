@@ -1,3 +1,12 @@
+## [16.12.8](https://github.com/phandcock/GrampsView/compare/v16.12.7...v16.12.8) (2020-12-09)
+
+
+### Bug Fixes
+
+* cleanup messagelog display ([529ca39](https://github.com/phandcock/GrampsView/commit/529ca397a3a7fca206a1be17a25b8840afa02cf7))
+
+
+
 ## [16.12.7](https://github.com/phandcock/GrampsView/compare/v16.12.6...v16.12.7) (2020-12-06)
 
 
@@ -35,15 +44,6 @@
 
 * fix [#2](https://github.com/phandcock/GrampsView/issues/2) for collectionView crash ([9b8efec](https://github.com/phandcock/GrampsView/commit/9b8efec279766b7e5ea99f703c2b5b8d2ad6c155))
 * tweal flexcardsingle control ([34f713f](https://github.com/phandcock/GrampsView/commit/34f713fddb5a146eff505c398e022760fe83359c))
-
-
-
-## [16.12.3](https://github.com/phandcock/GrampsView/compare/v16.12.2...v16.12.3) (2020-11-29)
-
-
-### Bug Fixes
-
-* fix bug in NumColumns ([431fa57](https://github.com/phandcock/GrampsView/commit/431fa5757eaf8fe40bbf1435c0de2f955ab3ac3c))
 
 
 
