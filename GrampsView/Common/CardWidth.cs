@@ -34,7 +34,7 @@
         // Singleton
         private static CardSizes _current;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         public static CardSizes Current => _current ?? (_current = new CardSizes());
 

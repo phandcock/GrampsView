@@ -1,8 +1,4 @@
-﻿// <copyright file="DataInstance.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// Data Repository singleton
 /// </summary>
 namespace GrampsView.Data.Repository

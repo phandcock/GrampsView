@@ -10,7 +10,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -24,9 +24,10 @@
 
         <Label
             Grid.Row="0"
-            Grid.Column="1" VerticalTextAlignment="Center"
+            Grid.Column="1"
             Text="{Binding ., Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                        Light={StaticResource OnSecondaryColorLight}}" />
+                                        Light={StaticResource OnSecondaryColorLight}}"
+            VerticalTextAlignment="Center" />
     </Grid>
 </Grid>

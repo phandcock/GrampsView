@@ -17,7 +17,7 @@
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)
         {
-            (sender as MediaElement).Source = null;
+            (sender as Xamarin.CommunityToolkit.UI.Views.MediaElement).Source = null;
 
             // TODO Handle when can not play video better
         }

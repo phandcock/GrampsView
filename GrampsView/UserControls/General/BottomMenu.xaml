@@ -2,6 +2,7 @@
     x:Class="GrampsView.UserControls.BottomMenu"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:datarepository="clr-namespace:GrampsView.Data.Repository"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     x:Name="BottomMenuRoot"
     Style="{StaticResource FrameBottomMenu}">
@@ -25,7 +26,7 @@
         <Label
             Margin="3"
             Padding="0"
-            Text="{Binding StatusText, Source={x:Reference BottomMenuRoot}, Mode=OneWay}"
+            Text="{Binding CN.MinorMessage, Source={x:Static datarepository:DataStore.Instance}, Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                         Light={StaticResource OnSecondaryColorLight}}"
             VerticalTextAlignment="Center" />

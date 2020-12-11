@@ -59,31 +59,20 @@
             _DataLog = iocDataLog;
         }
 
-        public string BottomMessage
-        {
-            get
-            {
-                return _BottomMessage;
-            }
+      
 
-            private set
-            {
-                SetProperty(ref _BottomMessage, value);
-            }
-        }
+        //public string DataLogMessage
+        //{
+        //    get
+        //    {
+        //        return _DataLogMessage;
+        //    }
 
-        public string DataLogMessage
-        {
-            get
-            {
-                return _DataLogMessage;
-            }
-
-            private set
-            {
-                SetProperty(ref _DataLogMessage, value);
-            }
-        }
+        //    private set
+        //    {
+        //        SetProperty(ref _DataLogMessage, value);
+        //    }
+        //}
 
         public string MinorMessage
         {
@@ -166,7 +155,7 @@
 
             _iocCommonLogging.LogProgress("DataLogEntryAdd: " + argMessage);
 
-            DataLogMessage = argMessage;
+            MinorMessage = argMessage;
 
             // majorStatusQueue.Enqueue(new QueueItem { Text = strMessage, showProgressRing = false });
             return;
@@ -190,7 +179,7 @@
 
             _iocCommonLogging.LogProgress("DataLogEntryReplace: " + argMessage);
 
-            DataLogMessage = argMessage;
+            MinorMessage = argMessage;
 
             return;
         }
