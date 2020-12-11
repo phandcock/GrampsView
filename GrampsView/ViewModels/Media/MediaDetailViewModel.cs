@@ -1,7 +1,4 @@
-﻿// <copyright file="MediaDetailViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
+﻿
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
@@ -23,7 +20,7 @@ namespace GrampsView.ViewModels
         /// </summary>
         private MediaModel _MediaObject;
 
-        private bool _ShowMediaElement = false;
+        private bool _ShowMediaElement ;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.

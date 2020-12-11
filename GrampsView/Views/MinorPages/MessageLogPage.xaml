@@ -4,8 +4,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:datarepository="clr-namespace:GrampsView.Data.Repository"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="MessageLogPageRoot"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
@@ -19,7 +21,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <!--<RowDefinition Height="Auto" />-->
         </Grid.RowDefinitions>
 
         <CollectionView
@@ -35,12 +37,8 @@
             </CollectionView.ItemsLayout>
         </CollectionView>
 
-        <Frame
-            Grid.Row="1"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                              Light={StaticResource PrimaryColorLight}}"
-            HorizontalOptions="FillAndExpand">
-            <Label Text="{Binding MinorStatus}" TextColor="Black" />
-        </Frame>
+        <!--<Frame Grid.Row="1" Style="{StaticResource FrameBottomMenu}">
+            <Label Text="{Binding CN.MinorMessage, Source={x:Static datarepository:DataStore.Instance}, Mode=OneWay}" TextColor="Black" />
+        </Frame>-->
     </Grid>
 </ContentPage>

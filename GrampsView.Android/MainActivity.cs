@@ -80,7 +80,6 @@
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "AppTheme_Experimental",
                 "DragAndDrop_Experimental",
-                "MediaElement_Experimental",
                 "RadioButton_Experimental",
                 "Shell_UWP_Experimental"
                 });

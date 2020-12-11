@@ -28,13 +28,13 @@
             }
         }
 
-        public string StatusText
-        {
-            get
-            {
-                // TODO fix this so it changes as the status message changes
-                return DataStore.Instance.CN.DataLogMessage;
-            }
-        }
+        //public string StatusText
+        //{
+        //    get
+        //    {
+        //        // TODO fix this so it changes as the status message changes
+        //        return DataStore.Instance.CN.MinorMessage;
+        //    }
+        //}
     }
 }

@@ -10,6 +10,7 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Repository;
 
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
@@ -19,6 +20,8 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class MessageLogViewModel : ViewModelBase
     {
+        public ICommonNotifications _iocCommonNotifications;
+
         /// <summary>
         /// The injected data log
         /// </summary>
@@ -39,8 +42,6 @@ namespace GrampsView.ViewModels
             _iocCommonNotifications = iocCommonNotifications;
         }
 
-        private ICommonNotifications _iocCommonNotifications;
-
         /// <summary>
         /// Gets the data load log.
         /// </summary>
@@ -55,13 +56,12 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public string MinorStatus
-        {
-            get
-            {
-                return _iocCommonNotifications.MinorMessage;
-            }
-        }
-
+        //public string MinorStatus
+        //{
+        //    get
+        //    {
+        //        return DataStore.Instance.CN.MinorMessage;
+        //    }
+        //}
     }
 }

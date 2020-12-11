@@ -9,8 +9,8 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
-        string BottomMessage { get; }
-        string DataLogMessage { get; }
+        //string BottomMessage { get; }
+        //string DataLogMessage { get; }
 
         string MinorMessage { get; set; }
 
