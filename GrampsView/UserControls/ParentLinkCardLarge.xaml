@@ -27,20 +27,17 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-             
                 Style="{StaticResource GVFrameHeaderStyle}">
-                <Label
-                   
-                    Style="{StaticResource GVHeaderStyleSmall}"
-                    Text="Parents" />
+                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="Parents" />
             </Frame>
 
             <ucon:PersonLink
                 x:Name="AnchorImage1"
                 Grid.Row="1"
                 Grid.Column="0"
+                Margin="5"
                 BindingContext="{Binding Parents.GFather, Mode=OneWay}"
-                HorizontalOptions="Center"
+                HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
@@ -48,8 +45,9 @@
                 x:Name="AnchorImage2"
                 Grid.Row="1"
                 Grid.Column="1"
+                Margin="5"
                 BindingContext="{Binding Parents.GMother, Mode=OneWay}"
-                HorizontalOptions="Center"
+                HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
         </Grid>

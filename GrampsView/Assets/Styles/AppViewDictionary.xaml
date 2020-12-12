@@ -78,6 +78,12 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
+    <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
+        <Setter Property="Margin" Value="1,5,1,1" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
+    </Style>
+
     <!--
         ******************************************************
         Frame Styles
@@ -282,14 +288,6 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
-    </Style>
-
-    <Style x:Key="FlexSingleCollection" TargetType="Frame">
-        <Setter Property="HasShadow" Value="False" />
-        <Setter Property="Margin" Value="1,5,1,1" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
     </Style>
 
     <Style x:Key="FlexMultiCollection" TargetType="Frame">

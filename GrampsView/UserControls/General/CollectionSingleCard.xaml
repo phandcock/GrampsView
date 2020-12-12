@@ -5,7 +5,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:convertor="clr-namespace:GrampsView.Converters"
-    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"

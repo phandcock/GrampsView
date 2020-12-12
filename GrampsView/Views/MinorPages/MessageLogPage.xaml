@@ -4,10 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:datarepository="clr-namespace:GrampsView.Data.Repository"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="MessageLogPageRoot"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
@@ -18,27 +16,15 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <!--<RowDefinition Height="Auto" />-->
-        </Grid.RowDefinitions>
-
-        <CollectionView
-            x:Name="MajorStatusList"
-            Grid.Row="0"
-            ItemSizingStrategy="MeasureAllItems"
-            ItemTemplate="{StaticResource DataLogEntryLarge}"
-            ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
-            ItemsUpdatingScrollMode="KeepLastItemInView"
-            VerticalOptions="FillAndExpand">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-        </CollectionView>
-
-        <!--<Frame Grid.Row="1" Style="{StaticResource FrameBottomMenu}">
-            <Label Text="{Binding CN.MinorMessage, Source={x:Static datarepository:DataStore.Instance}, Mode=OneWay}" TextColor="Black" />
-        </Frame>-->
-    </Grid>
+    <CollectionView
+        x:Name="MajorStatusList"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemTemplate="{StaticResource DataLogEntryLarge}"
+        ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
+        ItemsUpdatingScrollMode="KeepLastItemInView"
+        VerticalOptions="FillAndExpand">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+    </CollectionView>
 </ContentPage>

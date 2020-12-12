@@ -21,6 +21,8 @@ namespace GrampsView.ViewModels
         /// </summary>
         private State _BaseCurrentState = State.None;
 
+        private CardGroup _BaseDetail = new CardGroup();
+
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
@@ -155,10 +157,16 @@ namespace GrampsView.ViewModels
         /// </value>
         public CardGroup BaseDetail
         {
-            get;
-        }
+            get
+            {
+                return _BaseDetail;
+            }
 
-        = new CardGroup();
+            set
+            {
+                SetProperty(ref _BaseDetail, value);
+            }
+        }
 
         /// <summary>
         /// Gets or sets the base dialog service.

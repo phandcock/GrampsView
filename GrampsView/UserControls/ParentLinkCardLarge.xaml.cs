@@ -1,8 +1,4 @@
-﻿// <copyright file="ParentLinkCardLarge.xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using Xamarin.Forms;
 
@@ -14,8 +10,6 @@ namespace GrampsView.UserControls
         public ParentLinkCardLarge()
         {
             InitializeComponent();
-
-            // DataContextChanged += (s, e) => Bindings.Update();
         }
     }
 }

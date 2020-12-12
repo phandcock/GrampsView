@@ -14,7 +14,7 @@
 
     <Frame.Content>
 
-        <Grid x:Name="controlRoot" IsEnabled="{Binding Valid, Mode=OneWay}">
+        <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer prism:Navigation.CanNavigate="{Binding Valid, Mode=OneWay}" Command="{prism:NavigateTo 'PersonDetailPage'}">
@@ -25,7 +25,7 @@
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -39,12 +39,15 @@
                 Grid.Column="0"
                 BackgroundColor="Transparent"
                 BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                HorizontalOptions="FillAndExpand"
                 IsEnabled="False"
                 Style="{DynamicResource MediaImageStyle}" />
 
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
                 IsEnabled="false"
                 Style="{DynamicResource GVCardLabelStyleVerySmall}"
                 Text="{Binding DeRef.GetDefaultText}"
