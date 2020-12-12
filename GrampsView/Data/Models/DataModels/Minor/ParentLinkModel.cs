@@ -9,7 +9,7 @@ namespace GrampsView.Data.Model
     /// </summary>
     /// TODO Update fields as per Schema
     [DataContract]
-    public class ParentLinkModel : ModelBase, IDetailViewText
+    public class ParentLinkModel : ModelBase, IParentLinkModel
     {
         private FamilyModel _Parents = new FamilyModel();
 

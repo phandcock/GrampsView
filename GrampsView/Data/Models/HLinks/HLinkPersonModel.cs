@@ -1,7 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
@@ -16,6 +14,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
     {
+        private PersonModel _Deref = new PersonModel();
+
         /// <summary>
         /// Gets the de reference.
         /// </summary>
@@ -26,14 +26,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid & (!_Deref.Valid))
                 {
-                    return DV.PersonDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.PersonDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return new PersonModel();
-                }
+
+                return _Deref;
             }
         }
     }

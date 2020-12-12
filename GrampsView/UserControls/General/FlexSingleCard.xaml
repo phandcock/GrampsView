@@ -26,7 +26,7 @@
             x:Name="theCollectionView"
             BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-            Style="{StaticResource CollectionViewBase}"
+            Style="{StaticResource FlexSingleCollection}"
             Wrap="Wrap" />
     </StackLayout>
 </Frame>
