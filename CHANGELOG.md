@@ -1,3 +1,12 @@
+## [16.12.10](https://github.com/phandcock/GrampsView/compare/v16.12.9...v16.12.10) (2020-12-13)
+
+
+### Bug Fixes
+
+* code cleanup and tweaks ([3f95479](https://github.com/phandcock/GrampsView/commit/3f95479211c77bd8ca2aad8100f2bd52dbe79093))
+
+
+
 ## [16.12.9](https://github.com/phandcock/GrampsView/compare/v16.12.8...v16.12.9) (2020-12-12)
 
 
@@ -34,15 +43,6 @@
 * display Children for title of family children collection ([1c7a382](https://github.com/phandcock/GrampsView/commit/1c7a382ddf1f46900f2428e64a316cc0dbc0098c))
 * hide flexsinglecollection controls if visible flag false ([f2673db](https://github.com/phandcock/GrampsView/commit/f2673db585050f00dbd1a391a841da8eefb4f51d))
 * update person gender to use enum ([5f83a06](https://github.com/phandcock/GrampsView/commit/5f83a06240921df2d5e6f5787e31d940639fc898))
-
-
-
-## [16.12.5](https://github.com/phandcock/GrampsView/compare/v16.12.4...v16.12.5) (2020-12-04)
-
-
-### Bug Fixes
-
-* change collection cntrol back to using a flexlayout ([3108af6](https://github.com/phandcock/GrampsView/commit/3108af6c190795ad5b2a9045f3b7fa4cf938cc43))
 
 
 
