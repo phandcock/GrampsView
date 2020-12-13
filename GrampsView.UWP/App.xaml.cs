@@ -179,6 +179,7 @@
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
+
             DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
 

@@ -161,8 +161,8 @@ namespace GrampsView.ViewModels
                 Text = "Test Error with detail and even more detail and more and more and more",
             };
 
-            t.ItemDetails.Add("Test Line 1", "Test Value 1");
-            t.ItemDetails.Add("Test LIne 2", "Test Value 2");
+            t.Add("Test Line 1", "Test Value 1");
+            t.Add("Test LIne 2", "Test Value 2");
 
             DataStore.Instance.CN.NotifyDialogBox(t);
         }

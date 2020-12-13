@@ -148,7 +148,7 @@ namespace GrampsView.Data.ExternalStorageNS
              }
              else
              {
-                 Dictionary<string, string> argErrorDetail = new Dictionary<string, string>
+                 AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
                  {
                      { "Original ID", theMediaModel.Id },
                      { "Original File", theMediaModel.MediaStorageFilePath },
@@ -280,7 +280,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 // Validate
                 if ((!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet))
                 {
-                    Dictionary<string, string> argErrorDetail = new Dictionary<string, string>
+                    AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
                     {
                         { "Color element is", a.ToString() },
                         { "Attribute is", b }

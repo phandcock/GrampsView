@@ -24,8 +24,8 @@
 
             if (CurrentHLinkMediaModel.Valid)
             {
-                extraInfo.ItemDetails.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey);
-                extraInfo.ItemDetails.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
+                extraInfo.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey);
+                extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
             }
 
             DataStore.Instance.CN.NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);

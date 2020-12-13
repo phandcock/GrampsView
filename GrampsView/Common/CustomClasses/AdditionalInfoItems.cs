@@ -2,9 +2,7 @@
 
 namespace GrampsView.Common
 {
-    public class AdditionalInfoItems
+    public class AdditionalInfoItems : Dictionary<string, string>
     {
-        public Dictionary<string, string> ItemDetails { get; }
-            = new Dictionary<string, string>();
     }
 }
