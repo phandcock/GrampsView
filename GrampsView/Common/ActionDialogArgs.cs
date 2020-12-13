@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
-    public class ActionDialogArgs
+    public class ActionDialogArgs : AdditionalInfoItems
     {
-        public Dictionary<string, string> ItemDetails { get; }
-            = new Dictionary<string, string>();
-
         public string Name { get; set; }
                             = string.Empty;
 

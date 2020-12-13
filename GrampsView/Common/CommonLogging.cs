@@ -45,7 +45,7 @@ namespace GrampsView.Common
             }
         }
 
-        public static void LogException(string argMessage, Exception argEx)
+        public static void LogException(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null)
         {
             if (argMessage is null)
             {
@@ -59,11 +59,21 @@ namespace GrampsView.Common
 
             Dictionary<string, string> errorDetail = new Dictionary<string, string>
             {
-                { "Message", argEx.Message },
-                { "Source", argEx.Source },
+                { "Message", argMessage },
 
-                { "StackTrace", argEx.StackTrace }
+                { "Exception Message", argEx.Message },
+                { "Exception Source", argEx.Source },
+                { "Exception StackTrace", argEx.StackTrace }
             };
+
+            if (argExtraItems != null)
+            {
+                foreach (var item in argExtraItems.ItemDetails)
+                {
+                    errorDetail.Add(item.Key, item.Value);
+                }
+            }
+
             if (argEx.InnerException != null)
             {
                 errorDetail.Add("Inner Exception", argEx.InnerException.Message);
@@ -71,16 +81,12 @@ namespace GrampsView.Common
 
             Log.LogCritical(argMessage, errorDetail);
 
-            // Only Start App Center if there
-            string exceptionMessage = argMessage + " - Exception:" + argEx.Message + " - " + argEx.Source + " - " + argEx.InnerException + " - " + argEx.StackTrace;
+            // Only Start App Center if there string exceptionMessage = argMessage + " - Exception:"
+            // + argEx.Message + " - " + argEx.Source + " - " + argEx.InnerException + " - " + argEx.StackTrace;
 
-            if (!Common.CommonRoutines.IsEmulator())
+            if (!CommonRoutines.IsEmulator())
             {
-                Crashes.TrackError(argEx,
-                new Dictionary<string, string>{
-                { "Message", argMessage },
-                { "Exception Message", exceptionMessage },
-                });
+                Crashes.TrackError(argEx, errorDetail);
             }
         }
 
