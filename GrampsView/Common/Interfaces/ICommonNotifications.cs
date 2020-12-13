@@ -108,6 +108,6 @@ namespace GrampsView.Common
         /// <param name="ex">
         /// The ex.
         /// </param>
-        void NotifyException(string argMessage, Exception ex);
+        void NotifyException(string argMessage, Exception argException, AdditionalInfoItems argExtraItems = null);
     }
 }

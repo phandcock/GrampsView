@@ -59,8 +59,6 @@
             _DataLog = iocDataLog;
         }
 
-      
-
         //public string DataLogMessage
         //{
         //    get
@@ -284,18 +282,18 @@
         /// <param name="ex">
         /// Exception object.
         /// </param>
-        public void NotifyException(string argMessage, Exception ex)
+        public void NotifyException(string argMessage, Exception argException, AdditionalInfoItems argExtraItems = null)
         {
-            if (ex is null)
+            if (argException is null)
             {
-                throw new ArgumentNullException(nameof(ex));
+                throw new ArgumentNullException(nameof(argException));
             }
 
-            string exceptionMessage = argMessage + " - Exception:" + ex.Message + " - " + ex.Source + " - " + ex.InnerException + " - " + ex.StackTrace;
+            string exceptionMessage = argMessage + " - Exception:" + argException.Message + " - " + argException.Source + " - " + argException.InnerException + " - " + argException.StackTrace;
 
             NotifyError(exceptionMessage);
 
-            CommonLogging.LogException(argMessage, ex);
+            CommonLogging.LogException(argMessage, argException, argExtraItems);
 
             // Remove serialised data in case it is the issue
             CommonLocalSettings.DataSerialised = false;
