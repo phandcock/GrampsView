@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// ViewModel for the About View
-//
-// <copyright file="AboutView.xaml.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Views
+﻿namespace GrampsView.Views
 {
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;

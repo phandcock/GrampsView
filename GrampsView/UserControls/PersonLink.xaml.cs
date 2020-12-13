@@ -1,6 +1,4 @@
-﻿
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using Xamarin.Forms;
 
@@ -15,8 +13,8 @@ namespace GrampsView.UserControls
         public PersonLink()
         {
             InitializeComponent();
-
-         
         }
+
+       
     }
 }
