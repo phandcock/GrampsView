@@ -29,28 +29,28 @@
         }
     }
 
-    public class CustomLogger : FFImageLoading.Helpers.IMiniLogger
+    //public class CustomLogger : FFImageLoading.Helpers.IMiniLogger
 
-    {
-        public void Debug(string message)
+    //{
+    //    public void Debug(string message)
 
-        {
-            Console.WriteLine(message);
-        }
+    //    {
+    //        Console.WriteLine(message);
+    //    }
 
-        public void Error(string errorMessage)
+    //    public void Error(string errorMessage)
 
-        {
-            Console.WriteLine(errorMessage);
-        }
+    //    {
+    //        Console.WriteLine(errorMessage);
+    //    }
 
-        public void Error(string errorMessage, Exception ex)
-        {
-            Contract.Assert(ex != null);
+    //    public void Error(string errorMessage, Exception ex)
+    //    {
+    //        Contract.Assert(ex != null);
 
-            Error(errorMessage + System.Environment.NewLine + ex.ToString());
-        }
-    }
+    //        Error(errorMessage + System.Environment.NewLine + ex.ToString());
+    //    }
+    //}
 
     /// <summary>
     /// Main Activity class

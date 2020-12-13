@@ -86,7 +86,7 @@ namespace GrampsView.Common
         /// <param name="argErrorDetail">
         /// Error detail.
         /// </param>
-        void NotifyError(string argMessage, Dictionary<string, string> argErrorDetail);
+        void NotifyError(string argMessage, AdditionalInfoItems argErrorDetail = null);
 
         /// <summary>
         /// Helper to Notify Error.

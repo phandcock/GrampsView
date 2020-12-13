@@ -32,16 +32,28 @@ namespace GrampsView.Common
             Log.LogInformation("Log started");
         }
 
-        public static void LogError(string argMessage, Dictionary<string, string> argErrorDetail)
+        public static void LogError(string argMessage, AdditionalInfoItems argErrorDetail = null)
         {
             Log.LogError(argMessage, argErrorDetail);
+
+            AdditionalInfoItems errorDetail = new AdditionalInfoItems();
+
+            errorDetail.Add("Message", argMessage);
+
+            if (argErrorDetail != null)
+            {
+                foreach (var item in argErrorDetail)
+                {
+                    errorDetail.Add(item.Key, item.Value);
+                }
+            }
 
             // Only Start App Center if there
             if (!CommonRoutines.IsEmulator())
             {
-                Crashes.TrackError(null, argErrorDetail);
+                Crashes.TrackError(null, errorDetail);
 
-                Analytics.TrackEvent(argMessage, argErrorDetail);
+                Analytics.TrackEvent(argMessage, errorDetail);
             }
         }
 
@@ -68,7 +80,7 @@ namespace GrampsView.Common
 
             if (argExtraItems != null)
             {
-                foreach (var item in argExtraItems.ItemDetails)
+                foreach (var item in argExtraItems)
                 {
                     errorDetail.Add(item.Key, item.Value);
                 }

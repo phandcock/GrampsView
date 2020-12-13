@@ -208,11 +208,11 @@
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        public void NotifyDialogBox(string argHeader, string argMessage, Dictionary<string, string> argErrorDetail = null)
+        public void NotifyDialogBox(string argHeader, string argMessage, AdditionalInfoItems argErrorDetail = null)
         {
             if (argErrorDetail is null)
             {
-                argErrorDetail = new Dictionary<string, string>();
+                argErrorDetail = new AdditionalInfoItems();
             }
 
             ActionDialogArgs t = new ActionDialogArgs
@@ -223,17 +223,17 @@
 
             foreach (var item in argErrorDetail)
             {
-                t.ItemDetails.Add(item.Key, item.Value);
+                t.Add(item.Key, item.Value);
             }
 
             NotifyDialogBox(t);
         }
 
-        public void NotifyError(string argMessage, Dictionary<string, string> argErrorDetail)
+        public void NotifyError(string argMessage, AdditionalInfoItems argErrorDetail)
         {
             if (argErrorDetail is null)
             {
-                argErrorDetail = new Dictionary<string, string>();
+                argErrorDetail = new AdditionalInfoItems();
             }
 
             CommonLogging.LogError(argMessage, argErrorDetail);
@@ -249,7 +249,7 @@
         /// </param>
         public void NotifyError(string argMessage)
         {
-            Dictionary<string, string> argErrorDetail = new Dictionary<string, string>();
+            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems();
 
             NotifyError(argMessage, argErrorDetail);
         }
@@ -265,10 +265,9 @@
         /// </param>
         public void NotifyError(string argMessage, string argDetails)
         {
-            Dictionary<string, string> argErrorDetail = new Dictionary<string, string>
-            {
-                { "Details", argDetails }
-            };
+            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems();
+
+            argErrorDetail.Add("Details", argDetails);
 
             NotifyError(argMessage, argErrorDetail);
         }
@@ -291,7 +290,7 @@
 
             string exceptionMessage = argMessage + " - Exception:" + argException.Message + " - " + argException.Source + " - " + argException.InnerException + " - " + argException.StackTrace;
 
-            NotifyError(exceptionMessage);
+            NotifyError(exceptionMessage, argExtraItems);
 
             CommonLogging.LogException(argMessage, argException, argExtraItems);
 
