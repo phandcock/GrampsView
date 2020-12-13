@@ -11,7 +11,7 @@
 
     using System.Diagnostics.Contracts;
 
-    using Xamarin.Forms.StateSquid;
+    using Xamarin.CommunityToolkit.UI.Views;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -124,11 +124,11 @@
             // Setup for loading if no data is loaded
             if (!DataStore.Instance.DS.IsDataLoaded)
             {
-                BaseCurrentState = State.None;
+                BaseCurrentState = LayoutState.None;
             }
             else
             {
-                BaseCurrentState = State.Loading;
+                BaseCurrentState = LayoutState.Loading;
             }
 
             base.OnNavigatedTo(parameters);
@@ -156,7 +156,9 @@
         {
             BaseCL.LogRoutineEntry("PersonDetailViewModel");
 
-            BaseCurrentState = State.Loading;
+            // TODO try again to set this up when the toolkit is a little more mature or I have an
+            // idea where the bug is coming from
+            BaseCurrentState = LayoutState.Loading;
 
             PersonObject = DV.PersonDV.GetModelFromHLink(BaseNavParamsHLink);
 
@@ -206,7 +208,7 @@
             }
 
             // TODO fix this
-            BaseCurrentState = State.None;
+            BaseCurrentState = LayoutState.None;
             return;
         }
 

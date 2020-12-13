@@ -14,7 +14,7 @@
     using System;
     using System.Reflection;
 
-    using Xamarin.Forms.StateSquid;
+    using Xamarin.CommunityToolkit.UI.Views;
 
     /// <summary>
     /// View model for File Input Page.
@@ -126,7 +126,7 @@
 
             try
             {
-                base.BaseCurrentState = State.Loading;
+                base.BaseCurrentState = LayoutState.Loading;
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -150,7 +150,7 @@
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
 
-                    base.BaseCurrentState = State.None;
+                    base.BaseCurrentState = LayoutState.None;
                 }
             }
             catch (Exception ex)
