@@ -180,7 +180,7 @@
             await DataStore.Instance.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
             await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Un Tar ing file").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("UnTaring file").ConfigureAwait(false);
 
             using (Stream stream = new GZipInputStream(originalFileStream))
             {

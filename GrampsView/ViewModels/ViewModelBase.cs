@@ -10,7 +10,8 @@ using Prism.Services.Dialogs;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
-using Xamarin.Forms.StateSquid;
+using Xamarin.CommunityToolkit.UI.Views;
+
 
 namespace GrampsView.ViewModels
 {
@@ -19,7 +20,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        private State _BaseCurrentState = State.None;
+        private LayoutState _BaseCurrentState = LayoutState.None;
 
         private CardGroup _BaseDetail = new CardGroup();
 
@@ -135,7 +136,7 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The state of the base current.
         /// </value>
-        public State BaseCurrentState
+        public LayoutState BaseCurrentState
         {
             get
             {
@@ -411,7 +412,7 @@ namespace GrampsView.ViewModels
             }
             else
             {
-                BaseCurrentState = State.None;
+                BaseCurrentState = LayoutState.None;
             }
         }
 
@@ -434,7 +435,7 @@ namespace GrampsView.ViewModels
         /// </param>
         public void SetDataLoadedViewState(object value)
         {
-            this.BaseCurrentState = State.None;
+            this.BaseCurrentState = LayoutState.None;
         }
     }
 }
