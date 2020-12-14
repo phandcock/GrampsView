@@ -51,7 +51,7 @@ namespace GrampsView.Data.External.StoreSerial
 
         public void DeSerializeRepository()
         {
-            localGVLogging.LogRoutineEntry(nameof(DeSerializeRepository));
+            localGVLogging.RoutineEntry(nameof(DeSerializeRepository));
 
             try
             {
@@ -191,11 +191,11 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                 }
 
-                localGVLogging.LogRoutineExit(nameof(DeSerializeRepository));
+                localGVLogging.RoutineExit(nameof(DeSerializeRepository));
             }
             catch (Exception ex)
             {
-                localGVLogging.LogProgress("DeSerializeRepository - Exception ");
+                localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
                 DataStore.Instance.CN.NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
                 throw;

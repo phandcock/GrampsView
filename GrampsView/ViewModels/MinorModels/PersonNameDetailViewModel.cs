@@ -88,7 +88,7 @@ namespace GrampsView.ViewModels
         /// </returns>
         public override void PopulateViewModel()
         {
-            BaseCL.LogRoutineEntry("NameDetailViewModel");
+            BaseCL.RoutineEntry("NameDetailViewModel");
 
             PersonNameObject = DV.PersonNameDV.GetModelFromHLink(BaseNavParamsHLink);
 

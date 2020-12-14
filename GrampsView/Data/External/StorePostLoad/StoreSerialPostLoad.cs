@@ -24,11 +24,11 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task LoadSerialUiItems()
         {
-            _CommonLogging.LogRoutineEntry("LoadSerialUiItems");
+            _CommonLogging.RoutineEntry("LoadSerialUiItems");
 
             await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
-                _CommonLogging.LogRoutineExit(string.Empty);
+                _CommonLogging.RoutineExit(string.Empty);
 
                 await FixMediaFiles().ConfigureAwait(false);
             }
@@ -36,7 +36,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
             await DataStore.Instance.CN.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
 
-            _CommonLogging.LogRoutineExit(nameof(LoadSerialUiItems));
+            _CommonLogging.RoutineExit(nameof(LoadSerialUiItems));
         }
     }
 }

@@ -8,6 +8,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 
 namespace GrampsView.Common
@@ -19,7 +20,11 @@ namespace GrampsView.Common
     {
         void LogGeneral(string argMessage);
 
-        void LogGeneral(string argMessage, Dictionary<string, string> argDetails);
+        void Error(string argMessage, AdditionalInfoItems argErrorDetail = null);
+
+        void Exception(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null);
+
+        void LogGeneral(string argMessage, AdditionalInfoItems argDetails);
 
         /// <summary>
         /// Logs the progress.
@@ -27,7 +32,7 @@ namespace GrampsView.Common
         /// <param name="value">
         /// The value.
         /// </param>
-        void LogProgress(string value);
+        void Progress(string value);
 
         /// <summary>
         /// Log start of routine.
@@ -35,7 +40,7 @@ namespace GrampsView.Common
         /// <param name="routine">
         /// Subroutine starting.
         /// </param>
-        void LogRoutineEntry(string routine);
+        void RoutineEntry(string routine);
 
         /// <summary>
         /// Logs the routine exit.
@@ -43,7 +48,7 @@ namespace GrampsView.Common
         /// <param name="message">
         /// The message.
         /// </param>
-        void LogRoutineExit(string message);
+        void RoutineExit(string message);
 
         /// <summary>
         /// Logs the variable.

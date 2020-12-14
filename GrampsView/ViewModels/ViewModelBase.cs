@@ -393,7 +393,7 @@ namespace GrampsView.ViewModels
         {
             //TryFromJson(parameters, out localNavParams);
 
-            //BaseCL.LogRoutineExit("Navigated from " + BaseNavParams.TargetView);
+            //BaseCL.RoutineExit("Navigated from " + BaseNavParams.TargetView);
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </returns>
         public async Task<bool> FixMediaFiles()
         {
-            _CommonLogging.LogRoutineEntry("FixMediaFiles");
+            _CommonLogging.RoutineEntry("FixMediaFiles");
 
             DirectoryInfo localMediaFolder = DataStore.Instance.AD.CurrentDataFolder;
 
@@ -71,7 +71,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
 
-            _CommonLogging.LogRoutineExit(string.Empty);
+            _CommonLogging.RoutineExit(string.Empty);
 
             return true;
         }

@@ -541,7 +541,7 @@ namespace GrampsView.ViewModels
         /// </summary>
         public override void PopulateViewModel()
         {
-            BaseCL.LogRoutineEntry("PeopleGraphViewModel");
+            BaseCL.RoutineEntry("PeopleGraphViewModel");
 
             string startPoint = BaseNavParamsHLinkDefault(new HLinkBase { HLinkKey = "_c47a6bd11500b4b0cc8" }).HLinkKey;
 

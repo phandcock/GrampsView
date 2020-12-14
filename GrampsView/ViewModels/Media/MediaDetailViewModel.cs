@@ -37,7 +37,7 @@
         public MediaDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
             : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
         {
-            BaseCL.LogProgress("MediaDetailViewModel created");
+            BaseCL.Progress("MediaDetailViewModel created");
         }
 
         public HLinkMediaModel CurrentHLinkMedia
@@ -126,7 +126,7 @@
         /// </returns>
         public override void PopulateViewModel()
         {
-            BaseCL.LogRoutineEntry("MediaDetailViewModel OnNavigatedTo");
+            BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
             CurrentHLinkMedia = BaseNavParamsHLink as HLinkMediaModel;
 
@@ -165,7 +165,7 @@
                     ShowMediaElement = true;
                 }
 
-                BaseCL.LogRoutineExit("MediaDetailViewModel OnNavigatedTo");
+                BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");
             }
         }
     }
