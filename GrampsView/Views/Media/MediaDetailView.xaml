@@ -2,14 +2,14 @@
 <ContentPage
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     xmlns:toolkitv="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaDetailPageRoot"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
@@ -61,7 +61,7 @@
                         AutoPlay="False"
                         MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
-                        Source="{Binding CurrentMediaObject.MediaStorageFilePath, Mode=OneWay}"
+                        Source="{Binding MediaPath, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />

@@ -20,8 +20,6 @@
             (sender as Xamarin.CommunityToolkit.UI.Views.MediaElement).Source = null;
 
             // TODO Handle when can not play video better
-
-            // TODO Do not set source if nothing to show!
         }
 
         private void OnTapGestureRecognizerTapped(object sender, EventArgs args)

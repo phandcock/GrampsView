@@ -1,5 +1,4 @@
-﻿
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -20,7 +19,8 @@ namespace GrampsView.ViewModels
         /// </summary>
         private MediaModel _MediaObject;
 
-        private bool _ShowMediaElement ;
+        private string _MediaPath;
+        private bool _ShowMediaElement;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
@@ -72,6 +72,19 @@ namespace GrampsView.ViewModels
             }
         }
 
+        public string MediaPath
+        {
+            get
+            {
+                return _MediaPath;
+            }
+
+            set
+            {
+                SetProperty(ref _MediaPath, value);
+            }
+        }
+
         public bool ShowMediaElement
         {
             get
@@ -82,6 +95,7 @@ namespace GrampsView.ViewModels
             set
             {
                 SetProperty(ref _ShowMediaElement, value);
+                MediaPath = CurrentMediaObject.MediaStorageFilePath;
             }
         }
 
