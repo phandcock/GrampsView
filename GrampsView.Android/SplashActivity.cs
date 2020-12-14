@@ -28,7 +28,6 @@
                 ResizeableActivity = true
             )]
     public class SplashActivity : AppCompatActivity
-
     {
         private static readonly string TAG = "X:" + typeof(SplashActivity).Name;
 
@@ -38,7 +37,6 @@
         }
 
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
-
         {
             base.OnCreate(savedInstanceState, persistentState);
 
@@ -57,9 +55,7 @@
         }
 
         // Launches the startup task
-
         protected override void OnResume()
-
         {
             base.OnResume();
 
