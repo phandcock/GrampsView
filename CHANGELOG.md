@@ -1,3 +1,15 @@
+## [16.12.11](https://github.com/phandcock/GrampsView/compare/v16.12.10...v16.12.11) (2020-12-14)
+
+
+### Bug Fixes
+
+* change from squidstate to communitytoolkit ([d0f8edc](https://github.com/phandcock/GrampsView/commit/d0f8edc2516e7396d795ca37b485300b3ff9b9bc))
+* enhance exception reporting and use in mediafull error handling ([7ba8b3d](https://github.com/phandcock/GrampsView/commit/7ba8b3d1ce99852ae92facf06200ea13365b0e98))
+* more work on error and exception handling ([94e4480](https://github.com/phandcock/GrampsView/commit/94e44807fb5bb55db10e463693dca2e2b5afe42e))
+* tweaks ([0216c80](https://github.com/phandcock/GrampsView/commit/0216c804946a7f84f4805f89c3de521bd7a43a75))
+
+
+
 ## [16.12.10](https://github.com/phandcock/GrampsView/compare/v16.12.9...v16.12.10) (2020-12-13)
 
 
@@ -31,18 +43,6 @@
 ### Bug Fixes
 
 * fix display of flexcollection control ([12fdddd](https://github.com/phandcock/GrampsView/commit/12fdddd0e184d2b3b40eaf7e063e721c3ce61186))
-
-
-
-## [16.12.6](https://github.com/phandcock/GrampsView/compare/v16.12.5...v16.12.6) (2020-12-06)
-
-
-### Bug Fixes
-
-* cleanup flexcard layout and visibility ([4215c34](https://github.com/phandcock/GrampsView/commit/4215c34ccf87f41e8981981dd07082a2b07fcde9))
-* display Children for title of family children collection ([1c7a382](https://github.com/phandcock/GrampsView/commit/1c7a382ddf1f46900f2428e64a316cc0dbc0098c))
-* hide flexsinglecollection controls if visible flag false ([f2673db](https://github.com/phandcock/GrampsView/commit/f2673db585050f00dbd1a391a841da8eefb4f51d))
-* update person gender to use enum ([5f83a06](https://github.com/phandcock/GrampsView/commit/5f83a06240921df2d5e6f5787e31d940639fc898))
 
 
 
