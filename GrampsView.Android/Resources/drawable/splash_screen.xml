@@ -4,12 +4,12 @@
   <item
     android:drawable="@color/splash_background" />
 
-  <item>
+  <item android:width="100dp"
+        android:gravity="center"
+        android:height="100dp">
     <bitmap
       android:src="@mipmap/ic_launcher"
       android:tileMode="disabled"
-      android:gravity="center"
-      android:scaleHeight="200"
-      android:scaleWidth="200" />
+      android:gravity="fill" />
   </item>
 </layer-list>
