@@ -85,7 +85,7 @@ namespace GrampsView.ViewModels
         /// </returns>
         public override void PopulateViewModel()
         {
-            BaseCL.LogRoutineEntry("AddressDetailViewModel");
+            BaseCL.RoutineEntry("AddressDetailViewModel");
 
             AddressObject = DV.AddressDV.GetModelFromHLink(BaseNavParamsHLink);
 

@@ -54,7 +54,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// </param>
         private async void LoadXMLUIItems(object notUsed)
         {
-            _CommonLogging.LogRoutineEntry("LoadXMLUIItems");
+            _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
             await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
@@ -103,7 +103,7 @@ namespace GrampsView.Data.ExternalStorageNS
             // let everybody know we have finished loading data
             _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish(null);
 
-            _CommonLogging.LogRoutineExit(nameof(LoadXMLUIItems));
+            _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }
     }
 }

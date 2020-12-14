@@ -89,7 +89,7 @@
         /// </summary>
         public void LoadSample()
         {
-            BaseCL.LogProgress("Load sample data");
+            BaseCL.Progress("Load sample data");
 
             CommonRoutines.ListEmbeddedResources();
 
@@ -101,7 +101,7 @@
 
             DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 
-            BaseCL.LogProgress("Tell someone to load the file");
+            BaseCL.Progress("Tell someone to load the file");
 
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
@@ -122,7 +122,7 @@
         /// </param>
         public async void PickFile()
         {
-            BaseCL.LogProgress("Calling folder picker");
+            BaseCL.Progress("Calling folder picker");
 
             try
             {
@@ -130,7 +130,7 @@
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
-                    BaseCL.LogProgress("Tell someone to load the file");
+                    BaseCL.Progress("Tell someone to load the file");
 
                     // Remove the old dateTime stamps so the files get reloaded even if they have
                     // been seen before
@@ -144,7 +144,7 @@
                 }
                 else
                 {
-                    BaseCL.LogProgress("File picker error");
+                    BaseCL.Progress("File picker error");
                     DataStore.Instance.CN.NotifyAlert("No input file was selected");
 
                     // Allow another pick if required

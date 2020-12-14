@@ -154,7 +154,7 @@
         /// </returns>
         public override void PopulateViewModel()
         {
-            BaseCL.LogRoutineEntry("PersonDetailViewModel");
+            BaseCL.RoutineEntry("PersonDetailViewModel");
 
             // TODO try again to set this up when the toolkit is a little more mature or I have an
             // idea where the bug is coming from

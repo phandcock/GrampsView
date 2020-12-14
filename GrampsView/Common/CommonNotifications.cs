@@ -59,18 +59,7 @@
             _DataLog = iocDataLog;
         }
 
-        //public string DataLogMessage
-        //{
-        //    get
-        //    {
-        //        return _DataLogMessage;
-        //    }
-
-        //    private set
-        //    {
-        //        SetProperty(ref _DataLogMessage, value);
-        //    }
-        //}
+      
 
         public string MinorMessage
         {
@@ -151,7 +140,7 @@
 
             await _DataLog.Add(argMessage).ConfigureAwait(false);
 
-            _iocCommonLogging.LogProgress("DataLogEntryAdd: " + argMessage);
+            _iocCommonLogging.Progress("DataLogEntryAdd: " + argMessage);
 
             MinorMessage = argMessage;
 
@@ -175,7 +164,7 @@
 
             await _DataLog.Replace(argMessage).ConfigureAwait(false);
 
-            _iocCommonLogging.LogProgress("DataLogEntryReplace: " + argMessage);
+            _iocCommonLogging.Progress("DataLogEntryReplace: " + argMessage);
 
             MinorMessage = argMessage;
 
@@ -236,7 +225,7 @@
                 argErrorDetail = new AdditionalInfoItems();
             }
 
-            CommonLogging.LogError(argMessage, argErrorDetail);
+            _iocCommonLogging.Error(argMessage, argErrorDetail);
 
             NotifyDialogBox("Error", argMessage, argErrorDetail);
         }
@@ -265,9 +254,10 @@
         /// </param>
         public void NotifyError(string argMessage, string argDetails)
         {
-            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems();
-
-            argErrorDetail.Add("Details", argDetails);
+            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
+            {
+                { "Details", argDetails }
+            };
 
             NotifyError(argMessage, argErrorDetail);
         }
@@ -292,7 +282,7 @@
 
             NotifyError(exceptionMessage, argExtraItems);
 
-            CommonLogging.LogException(argMessage, argException, argExtraItems);
+            _iocCommonLogging.Exception(argMessage, argException, argExtraItems);
 
             // Remove serialised data in case it is the issue
             CommonLocalSettings.DataSerialised = false;

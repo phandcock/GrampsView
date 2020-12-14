@@ -32,13 +32,12 @@ namespace GrampsView.Common
             Log.LogInformation("Log started");
         }
 
-        public static void LogError(string argMessage, AdditionalInfoItems argErrorDetail = null)
+        public void Error(string argMessage, AdditionalInfoItems argErrorDetail = null)
         {
-            Log.LogError(argMessage, argErrorDetail);
-
-            AdditionalInfoItems errorDetail = new AdditionalInfoItems();
-
-            errorDetail.Add("Message", argMessage);
+            AdditionalInfoItems errorDetail = new AdditionalInfoItems
+            {
+                { "Message", argMessage }
+            };
 
             if (argErrorDetail != null)
             {
@@ -55,9 +54,11 @@ namespace GrampsView.Common
 
                 Analytics.TrackEvent(argMessage, errorDetail);
             }
+
+            Log.LogError(argMessage, argErrorDetail);
         }
 
-        public static void LogException(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null)
+        public void Exception(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null)
         {
             if (argMessage is null)
             {
@@ -94,7 +95,6 @@ namespace GrampsView.Common
             Log.LogCritical(argMessage, errorDetail);
 
             // Only Start App Center if there string exceptionMessage = argMessage + " - Exception:"
-            // + argEx.Message + " - " + argEx.Source + " - " + argEx.InnerException + " - " + argEx.StackTrace;
 
             if (!CommonRoutines.IsEmulator())
             {
@@ -119,7 +119,7 @@ namespace GrampsView.Common
                 throw new ArgumentNullException(nameof(argMessage));
             }
 
-            Dictionary<string, string> errorDetail = new Dictionary<string, string>
+            AdditionalInfoItems errorDetail = new AdditionalInfoItems
             {
                 //{ "Message", ex.Message },
             };
@@ -127,7 +127,7 @@ namespace GrampsView.Common
             LogGeneral(argMessage, errorDetail);
         }
 
-        public void LogGeneral(string argMessage, Dictionary<string, string> argDetails)
+        public void LogGeneral(string argMessage, AdditionalInfoItems argDetails)
         {
             if (argMessage is null)
             {
@@ -142,36 +142,6 @@ namespace GrampsView.Common
             Log.LogDebug(argMessage, argDetails);
         }
 
-        public void LogProgress(string argMessage)
-        {
-            if (argMessage is null)
-            {
-                throw new ArgumentNullException(nameof(argMessage));
-            }
-
-            Log.LogTrace(argMessage);
-        }
-
-        public void LogRoutineEntry(string argRoutineName)
-        {
-            if (argRoutineName is null)
-            {
-                throw new ArgumentNullException(nameof(argRoutineName));
-            }
-
-            Log.LogTrace("Start=> " + argRoutineName);
-        }
-
-        public void LogRoutineExit(string argRoutineName)
-        {
-            if (argRoutineName is null)
-            {
-                throw new ArgumentNullException(nameof(argRoutineName));
-            }
-
-            Log.LogTrace("End <= " + argRoutineName);
-        }
-
         public void LogVariable(string argName, string argValue)
         {
             if (argName is null)
@@ -184,12 +154,42 @@ namespace GrampsView.Common
                 throw new ArgumentNullException(nameof(argValue));
             }
 
-            Dictionary<string, string> moreDetail = new Dictionary<string, string>
+            AdditionalInfoItems moreDetail = new AdditionalInfoItems
             {
                 //{ "Message", ex.Message },
             };
 
             Log.LogDebug(argName + " = " + argValue, moreDetail);
+        }
+
+        public void Progress(string argMessage)
+        {
+            if (argMessage is null)
+            {
+                throw new ArgumentNullException(nameof(argMessage));
+            }
+
+            Log.LogTrace(argMessage);
+        }
+
+        public void RoutineEntry(string argRoutineName)
+        {
+            if (argRoutineName is null)
+            {
+                throw new ArgumentNullException(nameof(argRoutineName));
+            }
+
+            Log.LogTrace("Start=> " + argRoutineName);
+        }
+
+        public void RoutineExit(string argRoutineName)
+        {
+            if (argRoutineName is null)
+            {
+                throw new ArgumentNullException(nameof(argRoutineName));
+            }
+
+            Log.LogTrace("End <= " + argRoutineName);
         }
     }
 }

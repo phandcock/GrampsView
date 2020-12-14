@@ -400,7 +400,7 @@ namespace GrampsView.Data.Repository
         {
             try
             {
-                _CL.LogRoutineEntry("TriggerLoadSerialDataAsync");
+                _CL.RoutineEntry("TriggerLoadSerialDataAsync");
 
                 await DataStore.Instance.CN.DataLogEntryAdd("Checking for Serialised GRAMPS data").ConfigureAwait(false);
                 if (DataStore.Instance.DS.IsDataLoaded == false)
@@ -439,7 +439,7 @@ namespace GrampsView.Data.Repository
                 throw;
             }
 
-            _CL.LogRoutineExit("");
+            _CL.RoutineExit("");
 
             return false;
         }

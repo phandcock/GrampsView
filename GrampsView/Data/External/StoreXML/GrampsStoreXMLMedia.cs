@@ -90,7 +90,7 @@
         /// </returns>
         public async Task<bool> LoadMediaObjectsAsync()
         {
-            localGrampsCommonLogging.LogRoutineEntry("loadMediaObjects");
+            localGrampsCommonLogging.RoutineEntry("loadMediaObjects");
 
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
@@ -275,7 +275,7 @@
                 }
             }
 
-            localGrampsCommonLogging.LogRoutineExit(nameof(LoadMediaObjectsAsync));
+            localGrampsCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
             return true;
         }
     }
