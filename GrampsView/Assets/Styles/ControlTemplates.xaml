@@ -13,24 +13,12 @@
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
 
-            <!--  Header  -->
-
-            <!--  Body  -->
-
             <!--  Content  -->
 
             <ContentPresenter Grid.Row="0" />
 
-            <!--  Content End  -->
-
-            <!--  Navigation items  -->
-
-            <!--  Aside items  -->
-
-            <!--  Body End  -->
-
             <!--  Footer  -->
-            <ucon:BottomMenu Grid.Row="1" />
+            <ucon:BottomMenu Grid.Row="1" VerticalOptions="End" />
         </Grid>
     </ControlTemplate>
 
@@ -53,6 +41,4 @@
             <ucon:BottomMenu />
         </StackLayout>
     </ControlTemplate>
-
-
 </ResourceDictionary>

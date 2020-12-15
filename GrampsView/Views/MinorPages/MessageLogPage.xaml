@@ -21,8 +21,7 @@
         ItemSizingStrategy="MeasureAllItems"
         ItemTemplate="{StaticResource DataLogEntryLarge}"
         ItemsSource="{Binding MajorStatusList, Mode=OneWay}"
-        ItemsUpdatingScrollMode="KeepLastItemInView"
-        VerticalOptions="FillAndExpand">
+        ItemsUpdatingScrollMode="KeepLastItemInView">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
