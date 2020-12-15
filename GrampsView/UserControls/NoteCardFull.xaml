@@ -6,7 +6,6 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="NoteCardFullRoot"
     x:DataType="models:HLinkNoteModel"
-
     BindingContextChanged="NoteCardFullRoot_BindingContextChanged"
     IsVisible="{Binding Valid}">
 
