@@ -2,7 +2,7 @@
     x:Class="GrampsView.UserControls.CardGroupHeader"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converters="clr-namespace:GrampsView.Converters"
+    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
@@ -13,7 +13,7 @@
 
     <Frame.Resources>
         <ResourceDictionary>
-            <converters:StringToVisibleConverter x:Key="stringToBool" />
+            <toolkitc:IsNotNullOrEmptyConverter x:Key="stringToBool" />
         </ResourceDictionary>
     </Frame.Resources>
 
@@ -31,7 +31,7 @@
             BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                               Light={StaticResource SecondaryColorLight}}"
             CornerRadius="2"
-            IsVisible="{Binding Title, Converter={StaticResource stringToBool}}">
+            IsVisible="{Binding Title, Converter={StaticResource stringToBool}, Mode=OneWay}">
             <Label
                 Margin="0"
                 Style="{StaticResource GVHeaderStyleMedium}"

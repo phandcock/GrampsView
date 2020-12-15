@@ -2,7 +2,7 @@
     x:Class="GrampsView.UserControls.FlexSingleCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:convertor="clr-namespace:GrampsView.Converters"
+    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
@@ -10,8 +10,8 @@
     IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
 
     <Frame.Resources>
-        <convertor:StringToVisibleConverter x:Key="StringToVisible" />
-        <convertor:BoolToVisibleConverter x:Key="BoolToVisible" />
+        <toolkitc:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
+        <!--<convertor:BoolToVisibleConverter x:Key="BoolToVisible" />-->
     </Frame.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
