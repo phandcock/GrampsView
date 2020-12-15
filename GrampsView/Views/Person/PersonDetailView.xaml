@@ -18,8 +18,6 @@
 
     <Grid>
 
-
-
         <!--  Content  -->
         <ScrollView Orientation="Vertical">
             <StackLayout>
@@ -31,6 +29,7 @@
 
                 <ucon:FlexSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
