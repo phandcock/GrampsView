@@ -95,7 +95,7 @@
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 // start file load
-                await DataStore.Instance.CN.DataLogEntryAdd( "Loading Media File").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 //// Get colour
                 //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
@@ -146,54 +146,10 @@
 
                         // <ref name="attribute-content"/>
 
-                        // </ element >
-
-                        // </ zeroOrMore >
-
-                        // < zeroOrMore >
-
-                        // < element name = "noteref" >
-
-                        // <ref name="noteref-content"/>
-
-                        // </ element >
-
-                        // </ zeroOrMore >
-
-                        // < optional >
-
-                        // <ref name="date-content"/>
-
-                        // </ optional >
-
-                        // < zeroOrMore >
-
-                        // < element name = "citationref" >
-
-                        // <ref name="citationref-content"/>
-
-                        // </ element >
-
-                        // </ zeroOrMore >
-
-                        // </ element >
-
-                        // </ zeroOrMore >
-
-                        // </ define >
                         IMediaModel loadObject = new MediaModel();
                         loadObject.LoadBasics(GetBasics(pname));
 
-                        //IMediaModel loadObject = new MediaModel
-                        //{
-                        //    // object details
-                        //    Id = (string)pname.Attribute("id"),
-                        //    Handle = (string)pname.Attribute("handle"),
-                        //    Priv = SetPrivateObject((string)pname.Attribute("priv")),
-                        //    Change = GetDateTime(GetAttribute(pname, "change")),
-                        //};
-
-                        if (loadObject.Id == "O0531")
+                        if (loadObject.Id == "O0521")
                         {
                         }
 
@@ -216,7 +172,7 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                     DataStore.Instance.CN.MinorMessage = "Loading media file: " + temp;
+                                    DataStore.Instance.CN.MinorMessage = "Loading media file: " + temp;
 
                                     loadObject.OriginalFilePath = temp;
 
@@ -235,6 +191,9 @@
                                 }
                             }
                         }
+
+                        // Get attributes
+
                         // Get description
                         loadObject.GDescription = (string)filedetails.Attribute("description");
 
@@ -246,6 +205,8 @@
                         }
 
                         // Load NoteRefs
+                        loadObject.GNoteRefCollection.Clear();
+                        loadObject.GNoteRefCollection.AddRange(GetNoteCollection(pname));
 
                         // citationref details TODO Event References
                         loadObject.GCitationRefCollection.Clear();

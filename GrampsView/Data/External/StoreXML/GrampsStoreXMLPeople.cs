@@ -68,7 +68,7 @@
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));
 
-                        if (loadPerson.Id == "I0683")
+                        if (loadPerson.Id == "I0727")
                         {
                         }
 
