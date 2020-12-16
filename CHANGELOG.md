@@ -1,3 +1,17 @@
+## [16.12.12](https://github.com/phandcock/GrampsView/compare/v16.12.11...v16.12.12) (2020-12-16)
+
+
+### Bug Fixes
+
+* add familycollection to persondetail page ([57d11ff](https://github.com/phandcock/GrampsView/commit/57d11ff2fed168d295f4a1f6f2b1f6b7320ce484))
+* fix bottom menu location when messagelog starts on UWP ([de9eda0](https://github.com/phandcock/GrampsView/commit/de9eda0cb4189bd28c93806b3e41903a3b557070))
+* fix mediaelement where source is null ([5793997](https://github.com/phandcock/GrampsView/commit/5793997564458e98c86ef723bf1a4e5c9d0bbf3d))
+* make splash screen icon larger ([4d0a97f](https://github.com/phandcock/GrampsView/commit/4d0a97fd7a20365dd8050b281c49ee768a018277))
+* move to use toolkit converters ([cd27088](https://github.com/phandcock/GrampsView/commit/cd27088679ec1dff67110dcda0ea6cca21849c3a))
+* refactor logging code ([bb5ed6d](https://github.com/phandcock/GrampsView/commit/bb5ed6d357d943838304a5173863571e049bb72d))
+
+
+
 ## [16.12.11](https://github.com/phandcock/GrampsView/compare/v16.12.10...v16.12.11) (2020-12-14)
 
 
@@ -34,15 +48,6 @@
 ### Bug Fixes
 
 * cleanup messagelog display ([529ca39](https://github.com/phandcock/GrampsView/commit/529ca397a3a7fca206a1be17a25b8840afa02cf7))
-
-
-
-## [16.12.7](https://github.com/phandcock/GrampsView/compare/v16.12.6...v16.12.7) (2020-12-06)
-
-
-### Bug Fixes
-
-* fix display of flexcollection control ([12fdddd](https://github.com/phandcock/GrampsView/commit/12fdddd0e184d2b3b40eaf7e063e721c3ce61186))
 
 
 
