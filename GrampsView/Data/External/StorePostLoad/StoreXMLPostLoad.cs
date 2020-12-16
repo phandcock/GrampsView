@@ -149,9 +149,21 @@ namespace GrampsView.Data.ExternalStorageNS
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
+                if (theFamilyModel.Id == "F0201")
+                {
+                }
+
                 HLinkFamilyModel t = theFamilyModel.HLink;
 
-                // -- Organse Back Links ---------------------
+                if (theFamilyModel.GFather.Valid)
+                {
+                    DataStore.Instance.DS.PersonData[theFamilyModel.GFather.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                }
+
+                if (theFamilyModel.GMother.Valid)
+                {
+                    DataStore.Instance.DS.PersonData[theFamilyModel.GMother.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                }
 
                 // Child Collection
                 foreach (HLinkPersonModel personRef in theFamilyModel.GChildRefCollection)
@@ -216,9 +228,9 @@ namespace GrampsView.Data.ExternalStorageNS
                 {
                     HLinkMediaModel t = theMediaObject.HLink;
 
-                    //if (theMediaObject.Id == "O0032")
-                    //{
-                    //}
+                    if (theMediaObject.Id == "O0521")
+                    {
+                    }
 
                     // Back Reference Citation HLinks
                     foreach (HLinkCitationModel citationRef in theMediaObject.GCitationRefCollection)
@@ -271,7 +283,6 @@ namespace GrampsView.Data.ExternalStorageNS
                 HLinkNoteModel t = theNoteModel.HLink;
 
                 // -- Organse Back Links ---------------------
-           
 
                 // TODO Citation Collection
 
@@ -321,6 +332,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0727")
+                {
+                }
+
                 HLinkPersonModel t = thePersonModel.HLink;
 
                 // -- Organse Back Links ---------------------
