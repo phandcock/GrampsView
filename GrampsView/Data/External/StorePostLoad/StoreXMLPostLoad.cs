@@ -507,6 +507,13 @@ namespace GrampsView.Data.ExternalStorageNS
             return true;
         }
 
+        /// <summary>
+        /// Organises the source repository backlinks.
+        /// - XML 1.71 Completed
+        /// </summary>
+        /// <returns>
+        /// true if the organisation worked.
+        /// </returns>
         private static async Task<bool> OrganiseSourceRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
@@ -519,10 +526,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 {
                     // -- Organse Back Links ---------------------
 
-                    // Source Attribute Collection is model so no backlink
-
                     //// Media Collection
-
                     foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
                     {
                         DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
@@ -539,6 +543,8 @@ namespace GrampsView.Data.ExternalStorageNS
                     {
                         DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
+
+                    // Source Attribute Collection is model so no backlink
 
                     // Tag Collection
                     foreach (HLinkTagModel tagRef in theSourceModel.GTagRefCollection)

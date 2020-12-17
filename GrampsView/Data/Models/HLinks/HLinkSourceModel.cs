@@ -1,4 +1,4 @@
-﻿// TODO Needs XML 1.71 check
+﻿// - XML 1.71 complete
 
 namespace GrampsView.Data.Model
 {
@@ -6,11 +6,6 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
-
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
     {
@@ -58,7 +53,7 @@ namespace GrampsView.Data.Model
             // Null objects go first
             if (argObj is null) { return 1; }
 
-            // Can only comapre if they are the same type so assume equal
+            // Can only compare if they are the same type so assume equal
             if (argObj.GetType() != typeof(HLinkSourceModel))
             {
                 return 0;

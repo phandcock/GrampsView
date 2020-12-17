@@ -10,8 +10,9 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
+    /// - XML 1.71 Completed
     /// <summary>
-    /// Private Storage Routines.
+    /// Source Storage Routines.
     /// </summary>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
@@ -39,7 +40,7 @@
         /// load events from external storage.
         /// </summary>
         /// <returns>
-        /// Flag of loaded successfully.
+        /// Flag if loaded successfully.
         /// </returns>
         public async Task LoadSourcesAsync()
         {
@@ -52,23 +53,17 @@
                         from el in localGrampsXMLdoc.Descendants(ns + "source")
                         select el;
 
-                    // TODO get BookMark fields
-
-                    await DataStore.Instance.CN.DataLogEntryAdd(argMessage: "Loading Source entry").ConfigureAwait(false);
-
-                    // Loop through results to get the Citation
+                    // Loop through results to get the Source
                     foreach (XElement pSourceElement in de)
                     {
                         SourceModel loadSource = DV.SourceDV.NewModel();
 
-                        // Citation attributes
+                        // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
                         if (loadSource.Id == "S0057")
                         {
                         }
-
-                        loadSource.GSourceAttributeCollection = GetAttributeCollection(pSourceElement);
 
                         // Media refs
                         loadSource.GMediaRefCollection = await GetObjectCollection(pSourceElement).ConfigureAwait(false);
@@ -76,9 +71,14 @@
                         // Note refs
                         loadSource.GNoteRefCollection = GetNoteCollection(pSourceElement);
 
+                        // Repository refs
+                        loadSource.GRepositoryRefCollection = GetRepositoryCollection(pSourceElement);
+
                         loadSource.GSAbbrev = GetElement(pSourceElement, "sabbrev");
 
                         loadSource.GSAuthor = GetElement(pSourceElement, "sauthor");
+
+                        loadSource.GSourceAttributeCollection = GetAttributeCollection(pSourceElement);
 
                         loadSource.GSPubInfo = GetElement(pSourceElement, "spubinfo");
 
@@ -89,10 +89,7 @@
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 
-                        // Repository refs
-                        loadSource.GRepositoryRefCollection = GetRepositoryCollection(pSourceElement);
-
-                        // set the Home image or symbol now that everything is laoded
+                        // set the Home image or symbol now that everything is loaded
                         loadSource = SetHomeImage(loadSource);
 
                         // save the event
