@@ -1,16 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// - Completed
-/// -- SecondaryColor-object
-/// -- stitle
-/// -- sauthor
-/// -- spubinfo
-/// -- sabbrev
-/// -- noteref
-/// -- objref
-/// -- srcattribute
-/// -- reporef
-/// -- tagref
+﻿/// - XML 1.71 Completed
 
 namespace GrampsView.Data.Model
 {
@@ -34,7 +22,7 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class SourceModel : ModelBase, ISourceModel, IComparable, IComparer<SourceModel>
     {
-        private HLinkMediaModelCollection localMediaCollection = new HLinkMediaModelCollection();
+        private HLinkMediaModelCollection _MediaCollection = new HLinkMediaModelCollection();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceModel"/> class.
@@ -60,33 +48,30 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the g media reference collection.
-        /// <code><zeroOrMore><element name="objref"><ref name="objref-content" /></element></zeroOrMore></code>
+        /// Gets or sets the media reference collection.
         /// </summary>
         /// <value>
-        /// The g media reference collection.
+        /// The media reference collection.
         /// </value>
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get
             {
-                return localMediaCollection;
+                return _MediaCollection;
             }
 
             set
             {
-                SetProperty(ref localMediaCollection, value);
+                SetProperty(ref _MediaCollection, value);
             }
         }
 
-        /// <code><ref name="SecondaryColor-object" /></code>
         /// <summary>
-        /// Gets or sets the g note reference.
-        /// <code><zeroOrMore><element name="noteref"><ref name="noteref-content" /></element></zeroOrMore></code>
+        /// Gets or sets the note reference collection.
         /// </summary>
         /// <value>
-        /// The g note reference.
+        /// The note reference collection.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
@@ -101,56 +86,70 @@ namespace GrampsView.Data.Model
         /// Gets or sets the g repository reference collection.
         /// </summary>
         /// <value>
-        /// The g repository reference collection.
+        /// The repository reference collection.
         /// </value>
         [DataMember]
         public HLinkRepositoryModelCollection GRepositoryRefCollection { get; set; }
 
-        /// <summary> Gets or sets the gs title. <code> < optional > < element name="sabbrev"> <text
-        /// /> </element> </optional> </code> </summary> <value> The source author. </value>
+        /// <summary>
+        /// Gets or sets the sabbrev.
+        /// </summary>
+        /// <value>
+        /// The sabbrev.
+        /// </value>
         [DataMember]
         public string GSAbbrev { get; set; }
 
-        /// <summary> Gets or sets the gs title. <code> < optional > < element name="sauthor"> <text
-        /// /> </element> </optional> </code> </summary> <value> The source author. </value>
+        /// <summary>
+        /// Gets or sets the sauthor.
+        /// </summary>
+        /// <value>
+        /// The sauthor.
+        /// </value>
         [DataMember]
         public string GSAuthor { get; set; }
 
         /// <summary>
-        /// Gets or sets the g source attribute collection.
+        /// Gets or sets the source attribute collection.
         /// </summary>
         /// <value>
-        /// The g source attribute collection.
+        /// The source attribute collection.
         /// </value>
         [DataMember]
         public OCAttributeModelCollection GSourceAttributeCollection { get; set; }
 
-        /// <summary> Gets or sets the gs title. <code> <optional> <element name = "spubinfo" > <
-        /// text /> </ element > </ optional > </code> </summary> <value> The source author. </value>
+        /// <summary>
+        /// Gets or sets the spub information.
+        /// </summary>
+        /// <value>
+        /// The spub information.
+        /// </value>
         [DataMember]
         public string GSPubInfo { get; set; }
 
-        // TODO check if all fields loaded
-        /// <summary> Gets or sets the gs title. <code> <optional> <element name = "stitle" > < text
-        /// /> </ element > </ optional > </code> </summary> <value> The source title. </value>
+        /// <summary>
+        /// Gets or sets the stitle.
+        /// </summary>
+        /// <value>
+        /// The stitle.
+        /// </value>
         [DataMember]
         public string GSTitle { get; set; }
 
         /// <summary>
-        /// Gets or sets the gs title.
-        /// <code><zeroOrMore><element name="tagref"><ref name="tagref-content" /></element></zeroOrMore></code>
+        /// Gets or sets the tag reference collection.
         /// </summary>
         /// <value>
-        /// The source author.
+        /// The tag reference collection.
         /// </value>
         [DataMember]
         public HLinkTagModelCollection GTagRefCollection { get; set; }
 
         /// <summary>
-        /// Gets the get h link.
+        /// Gets the hlink.
         /// </summary>
         /// <value>
-        /// The get h link.
+        /// The hlink.
         /// </value>
         public HLinkSourceModel HLink
         {
@@ -186,7 +185,6 @@ namespace GrampsView.Data.Model
             SourceModel firstSource = (SourceModel)a;
             SourceModel secondSource = (SourceModel)b;
 
-            // compare on Page first TODO compare on Page?
             int testFlag = Compare(firstSource.GSTitle, secondSource.GSTitle);
 
             return testFlag;
@@ -208,7 +206,6 @@ namespace GrampsView.Data.Model
             return Compare(x.GSTitle, y.GSTitle);
         }
 
-        // TODO tagref*
         /// <summary>
         /// Implement IComparable CompareTo method.
         /// </summary>
@@ -227,7 +224,6 @@ namespace GrampsView.Data.Model
 
             SourceModel secondSource = (SourceModel)obj;
 
-            // compare on Page first TODO compare on Page?
             int testFlag = string.Compare(GSTitle, secondSource.GSTitle, StringComparison.CurrentCulture);
 
             return testFlag;
@@ -250,7 +246,6 @@ namespace GrampsView.Data.Model
 
             SourceModel secondSource = ArgHlinkSM.DeRef;
 
-            // compare on Page first TODO compare on Page?
             int testFlag = string.Compare(GSTitle, secondSource.GSTitle, StringComparison.CurrentCulture);
 
             return testFlag;

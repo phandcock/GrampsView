@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.Repository;
 
-    using System.ComponentModel;
     using System.Diagnostics;
 
     using Xamarin.Essentials;
@@ -155,54 +154,63 @@
             }
         }
 
-        //public double MediaDetailImageHeight
-        //{
-        //    get
-        //    {
-        //        double outVal;
+        public double MediaDetailImageHeight
+        {
+            get
+            {
+                double outVal;
 
-        // switch (Device.Idiom) { case TargetIdiom.Unsupported:
+                switch (Device.Idiom)
+                {
+                    case TargetIdiom.Unsupported:
 
-        // case TargetIdiom.Desktop: outVal = CardLargeHeight * 3; break;
+                    case TargetIdiom.Desktop: outVal = CardLargeHeight * 3; break;
 
-        // case TargetIdiom.Tablet: outVal = CardLargeHeight; break;
+                    case TargetIdiom.Tablet: outVal = CardLargeHeight; break;
 
-        // case TargetIdiom.Phone:
+                    case TargetIdiom.Phone:
 
-        // outVal = CardLargeHeight; break;
+                        outVal = CardLargeHeight * 2; break;
 
-        // default: outVal = CardLargeHeight; break; };
+                    default: outVal = CardLargeHeight; break;
+                };
 
-        //        return outVal;
-        //    }
-        //}
+                return outVal;
+            }
+        }
 
-        //public double MediaDetailImageWidth
-        //{
-        //    get
-        //    {
-        //        double outVal;
+        public double MediaDetailImageWidth
+        {
+            get
+            {
+                double outVal;
 
-        // switch (Device.Idiom) { case TargetIdiom.Unsupported:
+                switch (Device.Idiom)
+                {
+                    case TargetIdiom.Unsupported:
 
-        // case TargetIdiom.Desktop: outVal = CardLargeWidth * 3; break;
+                    case TargetIdiom.Desktop: outVal = CardLargeWidth * 3; break;
 
-        // case TargetIdiom.Tablet: outVal = CardLargeWidth; break;
+                    case TargetIdiom.Tablet: outVal = CardLargeWidth; break;
 
-        // case TargetIdiom.Phone:
+                    case TargetIdiom.Phone:
 
-        // outVal = CardLargeWidth;
+                        outVal = CardLargeWidth;
 
-        // break;
+                        break;
 
-        // default: outVal = CardLargeWidth; break; };
+                    default: outVal = CardLargeWidth; break;
+                };
 
-        // // Check size if (outVal > DeviceDisplay.MainDisplayInfo.Width) { outVal =
-        // DeviceDisplay.MainDisplayInfo.Width; }
+                // Check size
+                if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+                {
+                    outVal = DeviceDisplay.MainDisplayInfo.Width;
+                }
 
-        //        return outVal;
-        //    }
-        //}
+                return outVal;
+            }
+        }
 
         public void ReCalculateCardWidths()
         {
