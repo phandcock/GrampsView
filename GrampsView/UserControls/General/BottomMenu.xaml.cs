@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
 
     using Xamarin.Forms;
 
@@ -27,14 +26,5 @@
                 return CommonConstants.IconSearch;
             }
         }
-
-        //public string StatusText
-        //{
-        //    get
-        //    {
-        //        // TODO fix this so it changes as the status message changes
-        //        return DataStore.Instance.CN.MinorMessage;
-        //    }
-        //}
     }
 }

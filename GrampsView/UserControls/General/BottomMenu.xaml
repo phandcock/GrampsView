@@ -11,11 +11,11 @@
         Margin="10,3,3,3"
         HorizontalOptions="Start"
         Orientation="Horizontal">
-        <ImageButton Command="{prism:GoBack GoBackType=ToRoot}" Style="{StaticResource GVImageButton}">
-            <ImageButton.Source>
-                <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{Binding HubButtonGlyph, Source={x:Reference BottomMenuRoot}}" />
-            </ImageButton.Source>
-        </ImageButton>
+        <ImageButton
+            Command="{prism:GoBack GoBackType=ToRoot}"
+            Source="{FontImage FontFamily={StaticResource GlyphFontFamily},
+                               Glyph={StaticResource IconHub}}"
+            Style="{StaticResource GVImageButton}" />
 
         <ImageButton Command="{prism:NavigateTo 'SearchPage'}" Style="{StaticResource GVImageButton}">
             <ImageButton.Source>

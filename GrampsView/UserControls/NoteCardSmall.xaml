@@ -3,6 +3,7 @@
     x:Class="GrampsView.UserControls.NoteCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -27,8 +28,8 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3*" />
             </Grid.RowDefinitions>
 
             <Grid
@@ -44,9 +45,17 @@
             </Grid>
 
             <Label
-                x:Name="SummaryTextBlock"
                 Grid.Row="0"
-                Grid.RowSpan="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+                FormattedText="{Binding DeRef.GType, Mode=OneWay}"
+                HorizontalOptions="End"
+                Style="{DynamicResource GVCardLabelStyleSmall}" />
+
+            <Label
+                x:Name="SummaryTextBlock"
+                Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 FormattedText="{Binding DeRef.GFormattedTextSmall, Mode=OneWay}"
@@ -55,7 +64,6 @@
                     <DragGestureRecognizer CanDrag="True" />
                 </Label.GestureRecognizers>
             </Label>
-
             <Image
                 Grid.Row="1"
                 Grid.Column="2"
