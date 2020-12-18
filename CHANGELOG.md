@@ -1,3 +1,13 @@
+## [16.12.13](https://github.com/phandcock/GrampsView/compare/v16.12.12...v16.12.13) (2020-12-18)
+
+
+### Bug Fixes
+
+* add some missing backlinks ([f59d51e](https://github.com/phandcock/GrampsView/commit/f59d51ea991a67a829fdda29b3bb0321a81f9349))
+* cleanup mediaimagedetail width ([9121610](https://github.com/phandcock/GrampsView/commit/91216106977cb79fdea712f322d4ccd631b59ceb))
+
+
+
 ## [16.12.12](https://github.com/phandcock/GrampsView/compare/v16.12.11...v16.12.12) (2020-12-16)
 
 
@@ -39,15 +49,6 @@
 ### Bug Fixes
 
 * fix messagelogdisplay and tweaks ([1618cb6](https://github.com/phandcock/GrampsView/commit/1618cb689dd5295e5c3f3bb6aaff7fe02007ac6c))
-
-
-
-## [16.12.8](https://github.com/phandcock/GrampsView/compare/v16.12.7...v16.12.8) (2020-12-09)
-
-
-### Bug Fixes
-
-* cleanup messagelog display ([529ca39](https://github.com/phandcock/GrampsView/commit/529ca397a3a7fca206a1be17a25b8840afa02cf7))
 
 
 
