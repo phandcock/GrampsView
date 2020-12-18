@@ -13,8 +13,7 @@
 
     <Grid.Resources>
         <ResourceDictionary>
-            <toolkitc:IsNullOrEmptyConverter x:Key="stringToBool" />
-            <!--<converters:HLinkValidToVisibleConverter x:Key="HLinkToBool" />-->
+            <toolkitc:IsNotNullOrEmptyConverter x:Key="stringToBool" />
         </ResourceDictionary>
     </Grid.Resources>
 
