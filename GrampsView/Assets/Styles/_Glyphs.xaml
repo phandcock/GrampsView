@@ -10,5 +10,7 @@
         FA-Solid
     </x:String>
 
-  
+    <x:String x:Key="IconHub">
+        &#xe065;
+    </x:String>
 </ResourceDictionary>

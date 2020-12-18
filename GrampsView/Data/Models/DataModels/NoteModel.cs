@@ -1,13 +1,10 @@
-﻿// TODO Needs XML 1.71 check
-
-//// gramps XML 1.71 - Done
+﻿//// gramps XML 1.71 - Done
 ////
 ////    primary-object
 ////    format
 ////    type
 ////    styledtext
 ///     tagref
-///TODO Update fields as per Schema
 
 namespace GrampsView.Data.Model
 {
@@ -21,13 +18,13 @@ namespace GrampsView.Data.Model
     using Xamarin.Forms;
 
     /// <summary>
-    /// data model for an event.
+    /// Data model for a note.
     /// </summary>
     [DataContract]
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
         /// <summary>
-        /// The g type to do.
+        /// The type to do.
         /// </summary>
         public const string GTypeToDo = "To Do";
 
@@ -53,7 +50,7 @@ namespace GrampsView.Data.Model
         /// Gets the default text for notes which is the first twenty characters.
         /// </summary>
         /// <value>
-        /// The get default text.
+        /// Get the default text.
         /// </value>
         public new string GetDefaultText
         {
@@ -117,10 +114,10 @@ namespace GrampsView.Data.Model
         public StyledTextModel GStyledText { get; set; } = new StyledTextModel();
 
         /// <summary>
-        /// Gets or sets the g tag reference collection.
+        /// Gets or sets the tag reference collection.
         /// </summary>
         /// <value>
-        /// The g tag reference collection.
+        /// The tag reference collection.
         /// </value>
         [DataMember]
         public HLinkTagModelCollection GTagRefCollection

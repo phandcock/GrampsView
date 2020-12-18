@@ -18,7 +18,7 @@
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
         /// <summary>
-        /// load Notes from external storage.
+        /// Load Notes from external storage.
         /// </summary>
         /// <param name="noteRepository">
         /// The event repository.
@@ -47,10 +47,7 @@
 
                         // Note attributes
                         loadNote.LoadBasics(GetBasics(pname));
-                        //loadNote.Id = (string)pname.Attribute("id");
-                        //loadNote.Change = GetDateTime(pname, "change");
-                        //loadNote.Priv = SetPrivateObject((string)pname.Attribute("priv"));
-                        //loadNote.Handle = (string)pname.Attribute("handle");
+                   
 
                         //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");
@@ -63,11 +60,14 @@
 
                         StyledTextModel tempStyledText = GetStyledTextCollection(pname);
                         loadNote.GStyledText.GText = tempStyledText.GText;
+
+                        tempStyledText.Styles.Clear();
                         foreach (GrampsStyle item in tempStyledText.Styles)
                         {
                             loadNote.GStyledText.Styles.Add(item);
                         }
 
+                        loadNote.GTagRefCollection.Clear();
                         foreach (HLinkTagModel item in GetTagCollection(pname))
                         {
                             loadNote.GTagRefCollection.Add(item);
@@ -79,7 +79,7 @@
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    DataStore.Instance.CN.NotifyException("Exception loading Notes form the Gramps file", ex);
+                    DataStore.Instance.CN.NotifyException("Exception loading Notes from the Gramps file", ex);
 
                     throw;
                 }
