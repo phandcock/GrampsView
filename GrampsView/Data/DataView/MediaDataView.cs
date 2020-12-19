@@ -351,7 +351,7 @@
         {
             MediaModel t = base.NewModel();
 
-            t.ModelCommonLogging = localCL;
+            //t.ModelCommonLogging = localCL;
 
             return t;
         }
