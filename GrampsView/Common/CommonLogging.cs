@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonRoutines
-//
-// <copyright file="CommonLogging.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using Microsoft.AppCenter.Analytics;
     using Microsoft.AppCenter.Crashes;
