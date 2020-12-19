@@ -57,7 +57,7 @@ namespace GrampsView.Data.Model
 
         string Id { get; set; }
 
-        ICommonLogging ModelCommonLogging { get; set; }
+        //ICommonLogging ModelCommonLogging { get; set; }
 
         bool Priv { get; set; }
 

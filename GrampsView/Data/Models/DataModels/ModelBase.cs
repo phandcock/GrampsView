@@ -196,10 +196,10 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the image h link key.
+        /// Gets or sets the image hlink key.
         /// </summary>
         /// <value>
-        /// The image h link key.
+        /// The image hlink key.
         /// </value>
         [DataMember]
         public virtual HLinkHomeImageModel HomeImageHLink
@@ -235,13 +235,13 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets or sets the model common logging.
-        /// </summary>
-        /// <value>
-        /// The model common logging.
-        /// </value>
-        public ICommonLogging ModelCommonLogging { get; set; }
+        ///// <summary>
+        ///// Gets or sets the model common logging.
+        ///// </summary>
+        ///// <value>
+        ///// The model common logging.
+        ///// </value>
+        //public ICommonLogging ModelCommonLogging { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether [h link key valid].
