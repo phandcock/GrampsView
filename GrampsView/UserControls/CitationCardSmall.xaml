@@ -30,19 +30,17 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
             <Grid
                 Grid.Row="0"
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
 
                 <ucon:MediaImageSkia
                     x:Name="AnchorImage"
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="0"
                     BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
             </Grid>
@@ -60,10 +58,17 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.GPage, Mode=OneWay}" />
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GDateContent.ShortDate, Mode=OneWay}" />
 
             <Image
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="3"
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>
