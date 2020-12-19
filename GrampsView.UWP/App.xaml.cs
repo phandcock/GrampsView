@@ -136,7 +136,8 @@
                 var assembliesToInclude = new List<Assembly>
                     {
                         typeof(CachedImage).GetTypeInfo().Assembly,
-                        typeof(FFImageLoading.Forms.Platform.CachedImageRenderer).GetTypeInfo().Assembly
+                        typeof(FFImageLoading.Forms.Platform.CachedImageRenderer).GetTypeInfo().Assembly,
+                        typeof(GrampsView.App).GetTypeInfo().Assembly
                     };
 
                 // App Center
