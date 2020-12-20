@@ -29,5 +29,7 @@
     <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Options" />
     <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Logging" />
     <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Logging.Console" />
+    <Assembly Dynamic="Required All" Name="Prism.Services.Dialogs" />
+    <Assembly Dynamic="Required All" Name="Xamarin.CommunityToolkit.UI.Views" />
   </Application>
 </Directives>

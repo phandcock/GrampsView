@@ -179,6 +179,16 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            if (GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return (HLinkType == (obj as HLinkBackLink).HLinkType) && (HLink().HLinkKey == (obj as HLinkBackLink).HLink().HLinkKey);
+        }
+
         public HLinkBase HLink()
         {
             switch (HLinkType)
