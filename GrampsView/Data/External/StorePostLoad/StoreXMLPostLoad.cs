@@ -332,7 +332,11 @@ namespace GrampsView.Data.ExternalStorageNS
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0727")
+                if (thePersonModel.Id == "I0054")
+                {
+                }
+
+                if (thePersonModel.Id == "I0338")
                 {
                 }
 

@@ -79,6 +79,24 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relationship: {0}.
+        /// </summary>
+        public static string FieldPrefixFamilyRelationship {
+            get {
+                return ResourceManager.GetString("FieldPrefixFamilyRelationship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Occured: {0}.
+        /// </summary>
+        public static string FieldPrefixShortDate {
+            get {
+                return ResourceManager.GetString("FieldPrefixShortDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a file with a *.GPKG extension.
         /// </summary>
         public static string FileInputHandlerPage_Choose_Button_Text {

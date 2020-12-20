@@ -5,11 +5,11 @@
     xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
     x:Name="CardGroupHeaderRoot"
     Margin="0"
-    Padding="0"
+    Padding="0" BindingContextChanged="CardGroupHeaderRoot_BindingContextChanged"
     BackgroundColor="Transparent"
     Style="{StaticResource CardGroupStyle}">
 
-    <!--  TODO IsVisible="{Binding Visible, Mode=OneWay}"  -->
+  
 
     <Frame.Resources>
         <ResourceDictionary>

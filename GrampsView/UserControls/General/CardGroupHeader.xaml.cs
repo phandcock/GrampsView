@@ -4,13 +4,14 @@
 
     public partial class CardGroupHeader : Frame
     {
-        /// <summary>
-        /// Initializes a new instance of the <a onclick="return false;" href="CardGroupHeader"
-        /// originaltag="see">CardGroupHeader</a> class.
-        /// </summary>
         public CardGroupHeader()
         {
             InitializeComponent();
+        }
+
+        private void CardGroupHeaderRoot_BindingContextChanged(object sender, System.EventArgs e)
+        {
+            var t = sender;
         }
     }
 }
