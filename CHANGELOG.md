@@ -1,3 +1,17 @@
+## [16.12.14](https://github.com/phandcock/GrampsView/compare/v16.12.13...v16.12.14) (2020-12-20)
+
+
+### Bug Fixes
+
+* add Page field to Citstion card ([d5d6438](https://github.com/phandcock/GrampsView/commit/d5d643882922db945129928f5d036064a6bdc5e9))
+* fix display of fonts in UWP app in release mode ([30c56ac](https://github.com/phandcock/GrampsView/commit/30c56ac91235fb452361ea6af48ef602cc14764f))
+* fix display of listlinecardsmall title and make mediacardlarge image larger ([9f14e6d](https://github.com/phandcock/GrampsView/commit/9f14e6dccda004ccbcee9a36ee49fa647c9a3d43))
+* remove unused commonlogging from modelbase ([82a755b](https://github.com/phandcock/GrampsView/commit/82a755bad018bfb1ccacc8800a4d01a0eca19230))
+* tweak notes ([c27bed7](https://github.com/phandcock/GrampsView/commit/c27bed7aff3e8b17640e01ee5725e88ba225bfeb))
+* workaround for https://github.com/dotnet/runtime/issues/44697 ([75c0d04](https://github.com/phandcock/GrampsView/commit/75c0d045ea1b51bb614b7f8a6b11b8c42aa5d023))
+
+
+
 ## [16.12.13](https://github.com/phandcock/GrampsView/compare/v16.12.12...v16.12.13) (2020-12-18)
 
 
@@ -40,15 +54,6 @@
 ### Bug Fixes
 
 * code cleanup and tweaks ([3f95479](https://github.com/phandcock/GrampsView/commit/3f95479211c77bd8ca2aad8100f2bd52dbe79093))
-
-
-
-## [16.12.9](https://github.com/phandcock/GrampsView/compare/v16.12.8...v16.12.9) (2020-12-12)
-
-
-### Bug Fixes
-
-* fix messagelogdisplay and tweaks ([1618cb6](https://github.com/phandcock/GrampsView/commit/1618cb689dd5295e5c3f3bb6aaff7fe02007ac6c))
 
 
 
