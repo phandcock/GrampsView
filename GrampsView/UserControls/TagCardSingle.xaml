@@ -1,20 +1,16 @@
 ﻿<Grid
-    x:Class="GrampsView.UserControls.TagCardSmall"
+    x:Class="GrampsView.UserControls.TagCardSingle"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkTagModel"
-    Style="{DynamicResource GridSmallFixedCardStyle}">
-    <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
+    Style="{DynamicResource GridSingleFixedCardStyle}">
 
-        <Grid
-            x:Name="controlRoot"
-            FlexLayout.AlignSelf="Start"
-            FlexLayout.Basis="{OnIdiom Phone='50%',
-                                       Tablet='33%',
-                                       Desktop='33%'}">
+    <Frame Style="{DynamicResource FrameSingleFixedCardStyle}">
+
+        <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{prism:NavigateTo 'TagDetailPage'}">
@@ -31,13 +27,11 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
             <Grid
                 Grid.Row="0"
-                Grid.RowSpan="2"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
 
@@ -55,7 +49,7 @@
                 Text="{Binding DeRef.GName, Mode=OneWay}" />
 
             <Image
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="2"
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>

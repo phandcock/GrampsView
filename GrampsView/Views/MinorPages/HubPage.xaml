@@ -26,7 +26,7 @@
 
             <ucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
 
-            <!--<ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />-->
+        
 
             <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
@@ -38,7 +38,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

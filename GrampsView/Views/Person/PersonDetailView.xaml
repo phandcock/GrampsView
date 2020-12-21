@@ -35,9 +35,9 @@
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />

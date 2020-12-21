@@ -20,7 +20,7 @@
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 

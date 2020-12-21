@@ -388,6 +388,9 @@
     <Compile Update="UserControls\PlaceNameCardSmall.xaml.cs">
       <DependentUpon>PlaceNameCardSmall.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\TagCardSingle.xaml.cs">
+      <DependentUpon>TagCardSingle.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Person\PersonBirthdayView.xaml.cs">
       <DependentUpon>PersonBirthdayView.xaml</DependentUpon>
     </Compile>

@@ -54,7 +54,7 @@
         {
             get
             {
-                return DV.MediaDV.GetRandomFromCollection(null);
+                return DV.MediaDV.GetRandomFromCollection(DV.MediaDV.GetAllNotClippedAsHLink());
             }
         }
 
