@@ -1,3 +1,12 @@
+## [16.12.15](https://github.com/phandcock/GrampsView/compare/v16.12.14...v16.12.15) (2020-12-21)
+
+
+### Bug Fixes
+
+* cleanup activity control, familycardsmall and backlink collections ([96415e2](https://github.com/phandcock/GrampsView/commit/96415e25c2fd71481f031703fbce392536b23061))
+
+
+
 ## [16.12.14](https://github.com/phandcock/GrampsView/compare/v16.12.13...v16.12.14) (2020-12-20)
 
 
@@ -45,15 +54,6 @@
 * enhance exception reporting and use in mediafull error handling ([7ba8b3d](https://github.com/phandcock/GrampsView/commit/7ba8b3d1ce99852ae92facf06200ea13365b0e98))
 * more work on error and exception handling ([94e4480](https://github.com/phandcock/GrampsView/commit/94e44807fb5bb55db10e463693dca2e2b5afe42e))
 * tweaks ([0216c80](https://github.com/phandcock/GrampsView/commit/0216c804946a7f84f4805f89c3de521bd7a43a75))
-
-
-
-## [16.12.10](https://github.com/phandcock/GrampsView/compare/v16.12.9...v16.12.10) (2020-12-13)
-
-
-### Bug Fixes
-
-* code cleanup and tweaks ([3f95479](https://github.com/phandcock/GrampsView/commit/3f95479211c77bd8ca2aad8100f2bd52dbe79093))
 
 
 
