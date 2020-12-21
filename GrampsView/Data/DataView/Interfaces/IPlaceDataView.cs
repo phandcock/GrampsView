@@ -9,6 +9,7 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
 
     using GrampsView.Data.Model;
@@ -29,6 +30,8 @@ namespace GrampsView.Data.DataView
         {
             get;
         }
+
+        CardGroup GetAllAsGroupedAlphabeticCardGroup();
 
         /// <summary>
         /// Gets all as hlink.

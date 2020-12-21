@@ -29,15 +29,14 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid
                 Grid.Row="0"
-                Grid.RowSpan="4"
+                Grid.RowSpan="3"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
 
@@ -50,25 +49,25 @@
             <Label
                 x:Name="FamilySummaryDisplayNameTextBlock"
                 Grid.Row="0"
-                Grid.RowSpan="2"
                 Grid.Column="1"
+                LineBreakMode="WordWrap"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.FamilyDisplayName, Mode=OneWay}" />
 
             <Label
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GFamilyRelationship, StringFormat={x:Static i18n:AppResources.FieldPrefixFamilyRelationship}, Mode=OneWay}" />
 
             <Label
-                Grid.Row="3"
+                Grid.Row="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GEventRefCollection.GetFirst.DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
 
             <Image
-                Grid.Row="3"
+                Grid.Row="2"
                 Grid.Column="2"
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>

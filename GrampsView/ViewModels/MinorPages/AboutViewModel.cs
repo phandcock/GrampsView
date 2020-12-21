@@ -50,14 +50,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public CardListLineCollection HeaderData
-        {
-            get
-            {
-                return DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
-            }
-        }
-
         public string AppName
         {
             get
@@ -66,17 +58,19 @@ namespace GrampsView.ViewModels
             }
         }
 
-     
-     
-    
+        public CardListLineCollection HeaderData
+        {
+            get
+            {
+                return DV.HeaderDV.HeaderDataModel.DetailAsCardListLineCollection;
+            }
+        }
 
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
         public override void PopulateViewModel()
         {
-         
-
             // Assembly level stuff
             var assembly = GetType().GetTypeInfo().Assembly;
             var assemblyName = new AssemblyName(assembly.FullName);
