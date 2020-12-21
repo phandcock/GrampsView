@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="GrampsStoreXMLPostLoad.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;

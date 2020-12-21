@@ -28,7 +28,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

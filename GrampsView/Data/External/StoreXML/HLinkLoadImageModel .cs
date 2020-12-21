@@ -208,24 +208,24 @@ namespace GrampsView.Data.ExternalStorageNS
             }
         }
 
-        // Gramps uses (0,0,0,0) or (0,0,100,100) for the entire bitmap.
-        public bool NeedsClipping
-        {
-            get
-            {
-                if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 0) && (GCorner2Y == 0))
-                {
-                    return false;
-                }
+        //// Gramps uses (0,0,0,0) or (0,0,100,100) for the entire bitmap.
+        //public bool NeedsClipping
+        //{
+        //    get
+        //    {
+        //        if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 0) && (GCorner2Y == 0))
+        //        {
+        //            return false;
+        //        }
 
-                if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 100) && (GCorner2Y == 100))
-                {
-                    return false;
-                }
+        //        if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 100) && (GCorner2Y == 100))
+        //        {
+        //            return false;
+        //        }
 
-                return true;
-            }
-        }
+        //        return true;
+        //    }
+        //}
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note

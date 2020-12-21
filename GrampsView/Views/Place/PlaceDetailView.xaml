@@ -26,7 +26,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding PlaceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
