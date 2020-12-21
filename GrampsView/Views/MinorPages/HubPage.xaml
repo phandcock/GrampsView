@@ -26,8 +26,6 @@
 
             <ucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
 
-        
-
             <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

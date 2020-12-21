@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="PlaceListViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
+﻿
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
@@ -15,7 +7,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Events;
     using Prism.Navigation;
-    using System.Collections.ObjectModel;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -38,11 +29,11 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconPlace;
         }
 
-        public CardGroupBase<HLinkPlaceModel> PlaceSource
+        public CardGroup PlaceSource
         {
             get
             {
-                return DV.PlaceDV.GetAllAsCardGroupBase();
+                return DV.PlaceDV.GetAllAsGroupedAlphabeticCardGroup();
             }
         }
     }

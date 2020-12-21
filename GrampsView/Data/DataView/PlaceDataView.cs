@@ -82,6 +82,33 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+        public CardGroup GetAllAsGroupedAlphabeticCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GetDefaultText
+                        group item by (item.GetDefaultText.Substring(0, 1).ToUpper()) into g
+                        select new { GroupName = g.Key, Items = g };
+
+            foreach (var g in query)
+            {
+                CardGroup info = new CardGroup
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// Gets all as hlink.
         /// </summary>

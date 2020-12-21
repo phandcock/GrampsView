@@ -72,6 +72,8 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Data.DataView;
+
     using System.Runtime.Serialization;
 
     using Xamarin.Essentials;
@@ -167,7 +169,44 @@ namespace GrampsView.Data.Model
                         new CardListLine("Researcher Email:", GResearcherEmail),
                         new CardListLine("MediaPath:", GMediaPath),
                         new CardListLine("Application Version:", VersionTracking.CurrentVersion),
-                    };
+
+            };
+
+                HeaderCard.Title = "Header Details";
+
+                return HeaderCard;
+            }
+        }
+
+        public CardListLineCollection DetailAsCardListLineCollection
+        {
+            get
+            {
+                CardListLineCollection HeaderCard = new CardListLineCollection
+                    {
+                        new CardListLine("Created using version:", GCreatedVersion),
+                        new CardListLine("Created on:", GCreatedDate),
+                        new CardListLine("Researcher Name:", GResearcherName),
+                        new CardListLine("Researcher State:", GResearcherState),
+                        new CardListLine("Researcher Country:", GResearcherCountry),
+                        new CardListLine("Researcher Email:", GResearcherEmail),
+                        new CardListLine("MediaPath:", GMediaPath),
+                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
+
+                        new CardListLine("Address Items", DV.AddressDV.DataViewData.Count),
+                        new CardListLine("Citation Items", DV.CitationDV.DataViewData.Count),
+                        new CardListLine("Event Items", DV.EventDV.DataViewData.Count),
+                        new CardListLine("Family Items", DV.FamilyDV.DataViewData.Count),
+                        new CardListLine("Media Items", DV.MediaDV.DataViewData.Count),
+                        new CardListLine("Note Items", DV.NoteDV.DataViewData.Count),
+                        new CardListLine("Person Items", DV.PersonDV.DataViewData.Count),
+                        new CardListLine("Person Name Items", DV.PersonNameDV.DataViewData.Count),
+                        new CardListLine("Place Items", DV.PlaceDV.DataViewData.Count),
+                        new CardListLine("Repository Items", DV.RepositoryDV.DataViewData.Count),
+                        new CardListLine("Source Items", DV.SourceDV.DataViewData.Count),
+                        new CardListLine("Tag Items", DV.TagDV.DataViewData.Count),
+
+            };
 
                 HeaderCard.Title = "Header Details";
 
