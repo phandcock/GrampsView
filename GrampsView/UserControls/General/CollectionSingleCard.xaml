@@ -4,7 +4,7 @@
     x:Class="GrampsView.UserControls.CollectionSingleCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
@@ -12,7 +12,7 @@
     SizeChanged="CollectionSingleCardRoot_SizeChanged">
 
     <Frame.Resources>
-        <toolkitc:IsNotNullOrEmptyConverter x:Key="SingleToVisible" />
+        <toolkit:IsNotNullOrEmptyConverter x:Key="SingleToVisible" />
     </Frame.Resources>
 
     <CollectionView

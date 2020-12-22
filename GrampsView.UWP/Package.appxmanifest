@@ -32,7 +32,7 @@
         <uap:Extension Category="windows.fileOpenPicker">
           <uap:FileOpenPicker>
             <uap:SupportedFileTypes>
-              <uap:SupportsAnyFileType />
+              <uap:FileType>.gpkg</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileOpenPicker>
         </uap:Extension>

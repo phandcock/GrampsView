@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="models:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
     MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
@@ -13,7 +13,7 @@
 
     <Grid.Resources>
         <ResourceDictionary>
-            <toolkitc:IsNotNullOrEmptyConverter x:Key="stringToBool" />
+            <toolkit:IsNotNullOrEmptyConverter x:Key="stringToBool" />
         </ResourceDictionary>
     </Grid.Resources>
 

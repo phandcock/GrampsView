@@ -1,12 +1,5 @@
 ﻿//-----------------------------------------------------------------------
 //
-// View model for the fly-out page view
-//
-// <copyright file="AboutViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
