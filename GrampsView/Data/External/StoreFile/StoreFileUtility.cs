@@ -9,15 +9,16 @@
 
 namespace GrampsView.Data
 {
+    using GrampsView.Data.Repository;
+
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Diagnostics.Contracts;
     using System.IO;
     using System.Threading.Tasks;
 
-    using GrampsView.Data.Repository;
-    using Plugin.FilePicker;
-    using Plugin.FilePicker.Abstractions;
+    using Xamarin.Essentials;
 
     /// <summary>
     /// Various common routines.
@@ -102,7 +103,7 @@ namespace GrampsView.Data
         }
 
         /// <summary>
-        /// Gets the CurrentDataFolder folder and sets the CurrentThumbnailFolder.
+        /// Gets the CurrentDataFolder folder
         /// </summary>
         /// <returns>
         /// True if a file was picked. False if not.
@@ -111,19 +112,35 @@ namespace GrampsView.Data
         {
             try
             {
-                FileData t = await CrossFilePicker.Current.PickFile().ConfigureAwait(false);
-                if (t == null)
+                var customFileType =
+                        new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                        {
+                            //{ DevicePlatform.iOS, new[] { "public.my.comic.extension" } }, // TODO add these or general UTType values
+                            { DevicePlatform.Android, new[] { "application/octet-stream" } },
+                            { DevicePlatform.UWP, new[] { ".gpkg"} },
+                            //{ DevicePlatform.macOS, new[] { "cbr" } }, // TODO add these or general UTType values
+                        });
+
+                var options = new PickOptions
+                {
+                    PickerTitle = "Please select a Gramps file",
+                    FileTypes = customFileType,
+                };
+
+                FileResult result = await FilePicker.PickAsync(options);
+
+                if (result == null)
                 {
                     return false; // user canceled file picking
                 }
 
-                Debug.WriteLine("Picked file name is: " + t.FileName);
+                // DataStore.Instance.CN.NotifyAlert(result.ContentType);
 
-                DataStore.Instance.AD.CurrentInputStream = t.GetStream();
+                Debug.WriteLine("Picked file name is: " + result.FileName);
 
-                DataStore.Instance.AD.CurrentInputStreamPath = t.FilePath;
+                DataStore.Instance.AD.CurrentInputStream = await result.OpenReadAsync();
 
-                // TODO Add platform specific file type checking
+                DataStore.Instance.AD.CurrentInputStreamPath = result.FullPath;
             }
 
             // TODO fix this. Fail and force reload next time.

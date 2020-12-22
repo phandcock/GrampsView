@@ -1,8 +1,4 @@
-﻿// <copyright file="GrampsStorePostLoad.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -18,7 +14,7 @@ namespace GrampsView.Data.ExternalStorageNS
     /// </summary>
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
-        public async static Task<bool> FixSingleMediaFile(IMediaModel argMediaModel)
+        public static bool FixSingleMediaFile(IMediaModel argMediaModel)
         {
             try
             {
@@ -42,7 +38,6 @@ namespace GrampsView.Data.ExternalStorageNS
                 CommonLocalSettings.DataSerialised = false;
                 DataStore.Instance.CN.NotifyException("Trying to add media file pointer", ex);
 
-           
                 throw;
             }
 
@@ -67,7 +62,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {
-                    await FixSingleMediaFile(item).ConfigureAwait(false);
+                    FixSingleMediaFile(item);
                 }
             }
 

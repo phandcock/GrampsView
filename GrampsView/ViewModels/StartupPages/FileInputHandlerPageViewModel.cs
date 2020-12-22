@@ -97,7 +97,7 @@
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
-            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream =  assemblyExec.GetManifestResourceStream(resourceName);
 
             DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 

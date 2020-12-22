@@ -7,8 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-    xmlns:toolkitv="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaDetailPageRoot"
     ControlTemplate="{StaticResource DetailPageTemplate}"
@@ -21,7 +20,7 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <toolkitc:InvertedBoolConverter x:Key="flipBool" />
+            <toolkit:InvertedBoolConverter x:Key="flipBool" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -56,9 +55,10 @@
                 </Frame.GestureRecognizers>
                 <StackLayout>
 
-                    <toolkitv:MediaElement
+                    <toolkit:MediaElement
                         x:Name="daMediaElement"
                         AutoPlay="False"
+                        BackgroundColor="AliceBlue"
                         MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
                         Source="{Binding MediaPath, Mode=OneWay}"
