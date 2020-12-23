@@ -1,3 +1,15 @@
+## [16.12.16](https://github.com/phandcock/GrampsView/compare/v16.12.15...v16.12.16) (2020-12-23)
+
+
+### Bug Fixes
+
+* group placelist items and add DataView counts ([30c2a26](https://github.com/phandcock/GrampsView/commit/30c2a26c2201951e4a983a0c59e87f21428a7617))
+* move to Xamaerin Essentail 1.6 and the new filepicker ([2bcf6a7](https://github.com/phandcock/GrampsView/commit/2bcf6a77a15eff4face4e7e19512ed038839a3bc))
+* tweak ([6951dda](https://github.com/phandcock/GrampsView/commit/6951ddac0b301405578be9ebc0ae140e6dc1336c))
+* Tweaks ([17ecc72](https://github.com/phandcock/GrampsView/commit/17ecc724969739762ed774cfac6d5d960b9576dc))
+
+
+
 ## [16.12.15](https://github.com/phandcock/GrampsView/compare/v16.12.14...v16.12.15) (2020-12-21)
 
 
@@ -42,18 +54,6 @@
 * make splash screen icon larger ([4d0a97f](https://github.com/phandcock/GrampsView/commit/4d0a97fd7a20365dd8050b281c49ee768a018277))
 * move to use toolkit converters ([cd27088](https://github.com/phandcock/GrampsView/commit/cd27088679ec1dff67110dcda0ea6cca21849c3a))
 * refactor logging code ([bb5ed6d](https://github.com/phandcock/GrampsView/commit/bb5ed6d357d943838304a5173863571e049bb72d))
-
-
-
-## [16.12.11](https://github.com/phandcock/GrampsView/compare/v16.12.10...v16.12.11) (2020-12-14)
-
-
-### Bug Fixes
-
-* change from squidstate to communitytoolkit ([d0f8edc](https://github.com/phandcock/GrampsView/commit/d0f8edc2516e7396d795ca37b485300b3ff9b9bc))
-* enhance exception reporting and use in mediafull error handling ([7ba8b3d](https://github.com/phandcock/GrampsView/commit/7ba8b3d1ce99852ae92facf06200ea13365b0e98))
-* more work on error and exception handling ([94e4480](https://github.com/phandcock/GrampsView/commit/94e44807fb5bb55db10e463693dca2e2b5afe42e))
-* tweaks ([0216c80](https://github.com/phandcock/GrampsView/commit/0216c804946a7f84f4805f89c3de521bd7a43a75))
 
 
 
