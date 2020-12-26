@@ -11,6 +11,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Windows.Input;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -26,15 +27,14 @@ namespace GrampsView.Data.Model
         private string localCallNo;
 
         /// <summary>
-        /// The local image h link.
-        /// </summary>
-        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
-
-        /// <summary>
         /// The local medium.
         /// </summary>
         private string localMedium;
 
+        /// <summary>
+        /// The local image h link.
+        /// </summary>
+        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
         /// <summary>
         /// Gets the de reference.
         /// </summary>
@@ -111,6 +111,7 @@ namespace GrampsView.Data.Model
 
         = new HLinkNoteModelCollection();
 
+        public ICommand UCNavigateCommand { get; private set; }
         ///// <summary>
         ///// Gets or sets the image h link key.
         ///// </summary>

@@ -97,6 +97,7 @@
     <Compile Remove="Common\CustomClasses\FlexLayoutVirtual.cs" />
     <Compile Remove="Common\CustomClasses\FlexPlus.cs" />
     <Compile Remove="Common\CustomClasses\LabelExtended.cs" />
+    <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\CustomClasses\NavCommand.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionEx.cs" />
     <Compile Remove="Common\CustomClasses\PlatformSpecific.cs" />
@@ -149,6 +150,7 @@
     <Compile Remove="Events\LoadImageBitMapEvent.cs" />
     <Compile Remove="Events\LoadMediaBitmapEvent.cs" />
     <Compile Remove="Events\PageMenuPanelOpenEvent.cs" />
+    <Compile Remove="Events\PageNavigateEvent.cs" />
     <Compile Remove="Events\PageTitleChangedEvent.cs" />
     <Compile Remove="Events\PageTitleChangedEventArgs.cs" />
     <Compile Remove="Events\PersonCurrentChanged.cs" />
@@ -196,6 +198,7 @@
     <Compile Remove="UserControls\TagRefCardLarge.xaml.cs" />
     <Compile Remove="UserControls\TagRefCardSmall.xaml.cs" />
     <Compile Remove="UserControls\TestControl.xaml.cs" />
+    <Compile Remove="UserControls\UserControlBase.cs" />
     <Compile Remove="ViewModels\AboutViewModel.cs" />
     <Compile Remove="ViewModels\BaseViewModel.cs" />
     <Compile Remove="ViewModels\BookMark\BookMarkDetailViewModel.cs" />
@@ -205,6 +208,7 @@
     <Compile Remove="ViewModels\MinorPages\AppShellMessages.cs" />
     <Compile Remove="ViewModels\MinorPages\AppShellNavigation.cs" />
     <Compile Remove="ViewModels\MinorPages\AppShellViewModel.cs" />
+    <Compile Remove="ViewModels\MinorPages\MainPageViewModel.cs" />
     <Compile Remove="ViewModels\MinorPages\NavigationPageViewModel.cs" />
     <Compile Remove="ViewModels\MinorPages\SerialLoadViewModel.cs" />
     <Compile Remove="ViewModels\Person\Interfaces\IPersonHourGlassPageViewModel.cs" />
@@ -218,7 +222,9 @@
     <Compile Remove="Views\ItemsPage.xaml.cs" />
     <Compile Remove="Views\Media\MediaDisplayPage.xaml.cs" />
     <Compile Remove="Views\Media\MediaRefDetailPage.xaml.cs" />
+    <Compile Remove="Views\MinorPages\AppShell.xaml.cs" />
     <Compile Remove="Views\MinorPages\AppShellView.xaml.cs" />
+    <Compile Remove="Views\MinorPages\MainPage.xaml.cs" />
     <Compile Remove="Views\MinorPages\NavigationPage.xaml.cs" />
     <Compile Remove="Views\MinorPages\SerialLoadPage.xaml.cs" />
     <Compile Remove="Views\NewItemPage.xaml.cs" />
@@ -283,7 +289,9 @@
     <EmbeddedResource Remove="Views\ItemsPage.xaml" />
     <EmbeddedResource Remove="Views\Media\MediaDisplayPage.xaml" />
     <EmbeddedResource Remove="Views\Media\MediaRefDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\MinorPages\AppShell.xaml" />
     <EmbeddedResource Remove="Views\MinorPages\AppShellView.xaml" />
+    <EmbeddedResource Remove="Views\MinorPages\MainPage.xaml" />
     <EmbeddedResource Remove="Views\MinorPages\NavigationPage.xaml" />
     <EmbeddedResource Remove="Views\MinorPages\SerialLoadPage.xaml" />
     <EmbeddedResource Remove="Views\NewItemPage.xaml" />
@@ -430,14 +438,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Assets\Strings\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="UserControls\ListLineCardLarge.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\MinorPages\AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MinorPages\ErrorDialog.xaml">

@@ -10,6 +10,7 @@ namespace GrampsView.ViewModels
     using Prism.Events;
     using Prism.Navigation;
 
+    using System;
     using System.Globalization;
 
     /// <summary>
@@ -33,8 +34,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocNavigationService">
         /// Navigation Service
         /// </param>
-        public CitationDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public CitationDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
         }
 
@@ -70,7 +71,9 @@ namespace GrampsView.ViewModels
         public override void PopulateViewModel()
         {
             // Handle HLinkKeys
-            CitationObject = DV.CitationDV.GetModelFromHLinkString(BaseNavParamsHLink.HLinkKey);
+            HLinkCitationModel HLinkCitation = CommonRoutines.DeserialiseObject<HLinkCitationModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            CitationObject = HLinkCitation.DeRef;
 
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);

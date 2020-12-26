@@ -13,11 +13,7 @@
         <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{prism:NavigateTo 'CitationDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>

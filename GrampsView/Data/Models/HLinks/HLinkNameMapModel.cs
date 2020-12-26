@@ -4,9 +4,13 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -16,6 +20,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkNameMapModel : HLinkBase, IHLinkNameMapModel
     {
+        public HLinkNameMapModel()
+        {
+            UCNavigateCommand = new Command<HLinkNameMapModel>(UCNavigate);
+        }
+
         /// <summary>
         /// Gets the de reference.
         /// </summary>
@@ -35,6 +44,13 @@ namespace GrampsView.Data.Model
                     return null;
                 }
             }
+        }
+
+        public async void UCNavigate(HLinkNameMapModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkNameMapModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("MediaDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }

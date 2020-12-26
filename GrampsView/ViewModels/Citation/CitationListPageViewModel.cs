@@ -18,8 +18,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public CitationListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public CitationListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+                                    : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Citation List";
             BaseTitleIcon = CommonConstants.IconCitation;

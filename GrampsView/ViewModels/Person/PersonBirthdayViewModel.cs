@@ -4,7 +4,6 @@
     using GrampsView.Data.DataView;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -23,8 +22,8 @@
         /// <param name="iocNavigationService">
         /// Prism Navigation Service.
         /// </param>
-        public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Person Birthday List";
             BaseTitleIcon = CommonConstants.IconPeopleBirthday;

@@ -1,7 +1,7 @@
-﻿namespace GrampsView.UserControls
-{
-    using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
+namespace GrampsView.UserControls
+{
     /// <summary>
     /// </summary>
     /// <seealso cref="Windows.UI.Xaml.Controls.UserControl"/>

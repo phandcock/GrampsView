@@ -14,7 +14,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Commands;
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// <c>First Run View Model</c>
@@ -32,8 +31,8 @@ namespace GrampsView.ViewModels
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);
 

@@ -6,8 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="HubPageRoot"
+    prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">

@@ -9,15 +9,11 @@
 
 namespace GrampsView.ViewModels
 {
-    using System.Collections.ObjectModel;
-    using System.Threading.Tasks;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// </summary>
@@ -35,8 +31,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocNavigationService">
         /// The ioc navigation service.
         /// </param>
-        public MediaListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public MediaListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Media List";
             BaseTitleIcon = CommonConstants.IconMedia;

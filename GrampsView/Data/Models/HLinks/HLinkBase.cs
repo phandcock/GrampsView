@@ -7,6 +7,7 @@
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
+    using System.Windows.Input;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -48,8 +49,6 @@
             }
         }
 
-  
-
         /// <summary>
         /// Gets or sets the h link key.
         /// </summary>
@@ -83,6 +82,8 @@
                 return _Priv.ToString(CultureInfo.CurrentCulture);
             }
         }
+
+        public ICommand UCNavigateCommand { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid.

@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkFamilyModel"
     Style="{DynamicResource GridSmallFixedCardStyle}">
@@ -15,11 +14,7 @@
         <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{prism:NavigateTo 'FamilyDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>

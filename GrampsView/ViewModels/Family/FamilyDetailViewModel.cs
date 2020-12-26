@@ -6,8 +6,8 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
+    using System;
     using System.Linq;
 
     /// <summary>
@@ -35,8 +35,8 @@
         /// </param>
         /// <param name="iocPlatformSpecific">
         /// </param>
-        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService, IPlatformSpecific iocPlatformSpecific)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+                                    : base(iocCommonLogging, iocEventAggregator)
         {
             _PlatformSpecific = iocPlatformSpecific;
         }
@@ -68,10 +68,9 @@
         /// </returns>
         public override void PopulateViewModel()
         {
-            FamilyObject = DV.FamilyDV.GetModelFromHLink(BaseNavParamsHLink);
+            HLinkFamilyModel HLinkFamily = CommonRoutines.DeserialiseObject<HLinkFamilyModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
-         
-
+            FamilyObject = HLinkFamily.DeRef;
 
             if (!(FamilyObject is null))
             {

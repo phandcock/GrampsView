@@ -5,6 +5,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Windows.Input;
 
     [DataContract]
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
@@ -29,6 +30,8 @@ namespace GrampsView.Data.Model
                 return _Deref;
             }
         }
+
+        public ICommand UCNavigateCommand { get; private set; }
 
         /// <summary>
         /// Compares to.

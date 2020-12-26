@@ -49,6 +49,6 @@ namespace GrampsView.Data.Repository
         /// </value>
         public DataInstance DS { get; } = new DataInstance();
 
-        public NavCmd NV { get; set; } = new NavCmd();
+        //public NavCmd NV { get; set; } = new NavCmd();
     }
 }

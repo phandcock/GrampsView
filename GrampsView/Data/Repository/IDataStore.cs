@@ -22,6 +22,6 @@
         /// </value>
         DataInstance DS { get; }
 
-        NavCmd NV { get; set; }
+        //NavCmd NV { get; set; }
     }
 }

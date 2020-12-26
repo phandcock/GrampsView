@@ -3,9 +3,7 @@
     using FFImageLoading.Forms;
 
     using GrampsView.Common;
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.Views;
 
     using Microsoft.AppCenter;
 
@@ -18,13 +16,12 @@
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
     using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Navigation;
 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : Windows.UI.Xaml.Application
     {
         /// <summary>
         /// Initializes the singleton application object. This is the first line of authored code
@@ -64,22 +61,26 @@
                     {
                         case CommonConstants.ModelNameFamily:
                             {
-                                DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
-                                {
-                                    { CommonConstants.NavigationParameterHLink, new HLinkFamilyModel { HLinkKey = uriSegments[2] } },
-                                    { CommonConstants.NavigationParameterTargetView, nameof(FamilyDetailPage) }
-                                };
+                                // TODO Fix for shell
+                                //Shell.Current.GoToAsync(nameof(FamilyDetailPage));
+
+                                //DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                //{
+                                //    { CommonConstants.NavigationParameterHLink, new HLinkFamilyModel { HLinkKey = uriSegments[2] } },
+                                //    { CommonConstants.NavigationParameterTargetView, nameof(FamilyDetailPage) }
+                                //};
 
                                 break;
                             }
 
                         case CommonConstants.ModelNamePerson:
                             {
-                                DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
-                                {
-                                    { CommonConstants.NavigationParameterHLink, new HLinkPersonModel { HLinkKey = uriSegments[2] } },
-                                    { CommonConstants.NavigationParameterTargetView, nameof(PersonDetailPage) }
-                                };
+                                // TODO fix for shell
+                                //DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
+                                //{
+                                //    { CommonConstants.NavigationParameterHLink, new HLinkPersonModel { HLinkKey = uriSegments[2] } },
+                                //    { CommonConstants.NavigationParameterTargetView, nameof(PersonDetailPage) }
+                                //};
 
                                 break;
                             }
@@ -93,7 +94,7 @@
                     }
                 }
 
-                DataStore.Instance.NV.Nav(DataStore.Instance.NV.TargetNavParams);
+                ////DataStore.Instance.NV.Nav(DataStore.Instance.NV.TargetNavParams);
             }
         }
 
@@ -108,10 +109,10 @@
         {
             // Do not repeat app initialization when the Window already has content, just ensure
             // that the window is active
-            if (!(Window.Current.Content is Frame rootFrame))
+            if (!(Window.Current.Content is Windows.UI.Xaml.Controls.Frame rootFrame))
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                rootFrame = new Windows.UI.Xaml.Controls.Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 

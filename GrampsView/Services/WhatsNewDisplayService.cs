@@ -10,6 +10,7 @@ namespace GrampsView.Services
     using Prism.Events;
 
     using Xamarin.Essentials;
+    using Xamarin.Forms;
 
     public class WhatsNewDisplayService : IWhatsNewDisplayService
     {
@@ -29,7 +30,8 @@ namespace GrampsView.Services
             if ((VersionTracking.IsFirstLaunchForCurrentBuild)) // && (!Common.CommonLocalSettings.WhatsNewDisplayed))
             {
                 // Common.CommonLocalSettings.WhatsNewDisplayed = true;
-                iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(WhatsNewPage));
+                Shell.Current.GoToAsync(nameof(WhatsNewPage));
+                //iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(WhatsNewPage));
 
                 return true;
             }

@@ -7,8 +7,7 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Prism.Navigation;
-
+    using System;
     using System.Diagnostics.Contracts;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -119,8 +118,8 @@
             }
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
+        public override void BaseOnNavigatedTo()
+        { // TODO Fix this
             // Setup for loading if no data is loaded
             if (!DataStore.Instance.DS.IsDataLoaded)
             {
@@ -131,21 +130,21 @@
                 BaseCurrentState = LayoutState.Loading;
             }
 
-            base.OnNavigatedTo(parameters);
+            base.BaseOnNavigatedTo();
         }
 
-        /// <summary>
-        /// Called when [navigating from].
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public void OnNavigatingFrom(INavigationParameters parameters)
-        {
-            OnNavigatedFrom(parameters);
+        ///// <summary>
+        ///// Called when [navigating from].
+        ///// </summary>
+        ///// <param name="parameters">
+        ///// The parameters.
+        ///// </param>
+        //public void OnNavigatingFrom(INavigationParameters parameters)
+        //{
+        //    OnNavigatedFrom(parameters);
 
-            // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
-        }
+        //    // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
+        //}
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -160,7 +159,9 @@
             // idea where the bug is coming from
             BaseCurrentState = LayoutState.Loading;
 
-            PersonObject = DV.PersonDV.GetModelFromHLink(BaseNavParamsHLink);
+            HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink)); ;
+
+            PersonObject = HLinkPerson.DeRef;
 
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);

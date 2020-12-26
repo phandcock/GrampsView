@@ -5,7 +5,8 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
+
+    using System;
 
     /// <summary>
     /// Defines the Event Detail Page View ViewModel.
@@ -32,8 +33,12 @@
         /// <param name="iocNavigationService">
         /// NAvigation Service
         /// </param>
-        public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public EventDetailViewModel()
+        {
+        }
+
+        public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+                                    : base(iocCommonLogging, iocEventAggregator)
         {
         }
 
@@ -74,7 +79,7 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            HLinkObject = BaseNavParamsHLink as HLinkEventModel;
+            HLinkObject = CommonRoutines.DeserialiseObject<HLinkEventModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
             if (!(HLinkObject is null) && (HLinkObject.Valid))
             {

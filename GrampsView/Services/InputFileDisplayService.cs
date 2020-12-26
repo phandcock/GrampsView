@@ -5,10 +5,11 @@
 namespace GrampsView.Services
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
     using GrampsView.Views;
 
     using Prism.Navigation;
+
+    using Xamarin.Forms;
 
     // For instructions on testing this service see https://github.com/Microsoft/WindowsTemplateStudio/tree/master/docs/features/whats-new-prompt.md
     public class InputFileDisplayService : IInputFileDisplayService
@@ -22,13 +23,14 @@ namespace GrampsView.Services
         /// <summary>
         /// Shows if appropriate asynchronous.
         /// </summary>
-        public void ShowIfAppropriate(INavigationService iocNavigationService)
+        public void ShowIfAppropriate()
         {
             if (!CommonLocalSettings.DataSerialised && !shown)
             {
                 shown = true;
 
-                DataStore.Instance.NV.Nav(nameof(FileInputHandlerPage));
+                Shell.Current.GoToAsync(nameof(FileInputHandlerPage));
+                //DataStore.Instance.NV.Nav(nameof(FileInputHandlerPage));
             }
         }
     }

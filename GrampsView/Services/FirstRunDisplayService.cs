@@ -9,6 +9,7 @@ namespace GrampsView.Services
     using Prism.Events;
 
     using Xamarin.Essentials;
+    using Xamarin.Forms;
 
     public class FirstRunDisplayService : IFirstRunDisplayService
     {
@@ -33,7 +34,8 @@ namespace GrampsView.Services
             if (VersionTracking.IsFirstLaunchEver) //  && !Common.CommonLocalSettings.FirstRunDisplay)
             {
                 Common.CommonLocalSettings.FirstRunDisplay = true;
-                iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(FirstRunPage));
+                Shell.Current.GoToAsync(nameof(FirstRunPage));
+                //iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(FirstRunPage));
 
                 return true;
             }

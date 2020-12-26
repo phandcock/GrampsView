@@ -67,16 +67,7 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Called when [navigating from].
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public void OnNavigatingFrom(INavigationParameters parameters)
-        {
-            OnNavigatedFrom(parameters);
-        }
+
 
         /// <summary>
         /// Populates the view ViewModel.

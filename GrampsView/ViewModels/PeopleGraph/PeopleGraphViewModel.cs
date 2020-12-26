@@ -107,8 +107,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PeopleGraphViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public PeopleGraphViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+                                    : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "People Graph";
             BaseTitleIcon = CommonConstants.IconPeopleGraph;

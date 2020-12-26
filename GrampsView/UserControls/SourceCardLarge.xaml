@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="PersonCardSmallRoot"
     x:DataType="models:HLinkSourceModel"
@@ -14,11 +13,7 @@
         <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{prism:NavigateTo 'SourceDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding DeRef.HLink}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>

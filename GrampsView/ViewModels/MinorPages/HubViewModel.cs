@@ -5,7 +5,6 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -25,8 +24,8 @@
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-       : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+       : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;

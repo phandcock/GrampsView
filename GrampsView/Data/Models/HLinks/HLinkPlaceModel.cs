@@ -7,6 +7,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Windows.Input;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -30,5 +31,7 @@ namespace GrampsView.Data.Model
                 }
             }
         }
+
+        public ICommand UCNavigateCommand { get; private set; }
     }
 }

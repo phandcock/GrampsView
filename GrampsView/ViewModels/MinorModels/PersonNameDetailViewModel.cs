@@ -66,18 +66,18 @@ namespace GrampsView.ViewModels
             }
         }
 
-        /// <summary>
-        /// Called when [navigating from].
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public void OnNavigatingFrom(INavigationParameters parameters)
-        {
-            OnNavigatedFrom(parameters);
+        ///// <summary>
+        ///// Called when [navigating from].
+        ///// </summary>
+        ///// <param name="parameters">
+        ///// The parameters.
+        ///// </param>
+        //public void OnNavigatingFrom(INavigationParameters parameters)
+        //{
+        //    OnNavigatedFrom(parameters);
 
-            // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
-        }
+        //    // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
+        //}
 
         /// <summary>
         /// Populates the view ViewModel.

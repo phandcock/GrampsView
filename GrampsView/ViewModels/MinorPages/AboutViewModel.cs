@@ -16,7 +16,6 @@ namespace GrampsView.ViewModels
     using Microsoft.AppCenter.Distribute;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     using System.Reflection;
 
@@ -28,8 +27,8 @@ namespace GrampsView.ViewModels
 
         //private HLinkHeaderModel _HeaderModel = new HLinkHeaderModel();
 
-        public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-                                            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+                                            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "About";
             BaseTitleIcon = CommonConstants.IconAbout;

@@ -1,14 +1,8 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonRoutines
-//
-// <copyright file="CommonRoutines.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
+﻿
 namespace GrampsView.Common
 {
+    using Newtonsoft.Json;
+
     using System.Diagnostics;
     using System.Reflection;
     using System.Text.RegularExpressions;
@@ -75,5 +69,20 @@ namespace GrampsView.Common
             if (Application.Current.Resources.TryGetValue(keyName, out var retVal)) { }
             return retVal;
         }
+
+        // serialise object
+        public static string SerialiseObject<T>(T dataIn) where T : new()
+        {
+            var ser = JsonConvert.SerializeObject(dataIn);
+            return ser;
+        }
+
+        // deserialise object
+        public static T DeserialiseObject<T>(string dataIn) where T : new()
+        {
+            var ser = JsonConvert.DeserializeObject<T>(dataIn);
+            return ser;
+        }
+
     }
 }

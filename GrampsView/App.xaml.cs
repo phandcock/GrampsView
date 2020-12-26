@@ -18,9 +18,9 @@ using Prism;
 using Prism.Events;
 using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Services.Dialogs;
 
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
 
 using Unity;
@@ -119,7 +119,7 @@ namespace GrampsView
         {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                NavigationService.NavigateAsync("MainPage/NavigationPage/" + nameof(HubPage));
+                Shell.Current.GoToAsync("HubPage");
                 return;
             }
 
@@ -134,19 +134,27 @@ namespace GrampsView
 
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
-            DataStore.Instance.NV = new NavCmd(Container.Resolve<IEventAggregator>());
+            //DataStore.Instance.NV = new NavCmd(Container.Resolve<IEventAggregator>());
 
             IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
 
             // Start at the MessageLog Page if no other paramaters and work from there
-            if (!DataStore.Instance.NV.TargetNavParams.Any())
+            //if (!DataStore.Instance.NV.TargetNavParams.Any())
+            //{
+            //    DataStore.Instance.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
+            //}
+
+            //DataStore.Instance.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
+
+            //NavigationService.NavigateAsync("MainPage/NavigationPage/" + targetView);
+
+            MainPage = new AppShell(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
+               Container.Resolve<DatabaseReloadDisplayService>(), Container.Resolve<IDialogService>());
+
+            if (!Container.Resolve<FirstRunDisplayService>().ShowIfAppropriate(Container.Resolve<IEventAggregator>()))
             {
-                DataStore.Instance.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
+                Container.Resolve<IEventAggregator>().GetEvent<AppStartWhatsNewEvent>().Publish();
             }
-
-            DataStore.Instance.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
-
-            NavigationService.NavigateAsync("MainPage/NavigationPage/" + targetView);
         }
 
         protected override void RegisterTypes(IContainerRegistry container)
@@ -198,7 +206,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<NavigationPage>();
 
-            container.RegisterForNavigation<MainPage, MainPageViewModel>();
+            //container.RegisterForNavigation<MainPage, MainPageViewModel>();
 
             container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 

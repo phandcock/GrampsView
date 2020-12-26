@@ -4,9 +4,13 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// HLink to an Address model.
@@ -16,6 +20,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
+        public HLinkAdressModel()
+        {
+            UCNavigateCommand = new Command<HLinkAdressModel>(UCNavigate);
+        }
+
         /// <summary>
         /// Gets the de reference.
         /// </summary>
@@ -59,6 +68,13 @@ namespace GrampsView.Data.Model
             }
 
             return DeRef.CompareTo(arg.DeRef);
+        }
+
+        public async void UCNavigate(HLinkAdressModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkAdressModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("AddressDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }

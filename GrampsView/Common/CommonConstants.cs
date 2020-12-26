@@ -1,8 +1,4 @@
-﻿// <copyright file="CommonConstants.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     /// <summary>
     /// Common Constants.

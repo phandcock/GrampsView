@@ -1,12 +1,9 @@
-﻿
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -22,8 +19,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlaceListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public PlaceListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Place List";
             BaseTitleIcon = CommonConstants.IconPlace;

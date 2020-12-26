@@ -11,20 +11,22 @@
             InitializeComponent();
         }
 
-        public string HubButtonGlyph
-        {
-            get
-            {
-                return CommonConstants.IconHub;
-            }
-        }
-
         public string SearchButtonGlyph
         {
             get
             {
                 return CommonConstants.IconSearch;
             }
+        }
+
+        private async void HubButton_Pressed(object sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("HubPage");
+        }
+
+        private async void SearchButton_Pressed(object sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("SearchPage");
         }
     }
 }

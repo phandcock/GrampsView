@@ -5,7 +5,8 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
+
+    using System;
 
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
@@ -20,6 +21,7 @@
         private MediaModel _MediaObject;
 
         private string _MediaPath;
+
         private bool _ShowMediaElement;
 
         /// <summary>
@@ -34,8 +36,8 @@
         /// <param name="iocNavigationService">
         /// The navigation service.
         /// </param>
-        public MediaDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public MediaDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseCL.Progress("MediaDetailViewModel created");
         }
@@ -99,25 +101,25 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the h link parameter.
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        /// <value>
-        /// The h link parameter.
-        /// </value>
-        public override void OnNavigatedFrom(INavigationParameters parameters)
-        {
-            base.OnNavigatedFrom(parameters);
+        ///// <summary>
+        ///// Gets or sets the h link parameter.
+        ///// </summary>
+        ///// <param name="parameters">
+        ///// The parameters.
+        ///// </param>
+        ///// <value>
+        ///// The h link parameter.
+        ///// </value>
+        //public override void OnNavigatedFrom(INavigationParameters parameters)
+        //{
+        //    base.OnNavigatedFrom(parameters);
 
-            // Clear large Bitmap Image
-            if (CurrentMediaObject != null)
-            {
-                CurrentMediaObject.FullImageClean();
-            }
-        }
+        //    // Clear large Bitmap Image
+        //    if (CurrentMediaObject != null)
+        //    {
+        //        CurrentMediaObject.FullImageClean();
+        //    }
+        //}
 
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
@@ -128,7 +130,7 @@
         {
             BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
-            CurrentHLinkMedia = BaseNavParamsHLink as HLinkMediaModel;
+            CurrentHLinkMedia = CommonRoutines.DeserialiseObject<HLinkMediaModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
             if (!(CurrentHLinkMedia is null))
             {

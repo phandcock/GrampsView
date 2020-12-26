@@ -15,6 +15,7 @@
     using System.Reflection;
 
     using Xamarin.CommunityToolkit.UI.Views;
+    using Xamarin.Forms;
 
     /// <summary>
     /// View model for File Input Page.
@@ -42,8 +43,8 @@
         /// <param name="iocNavigationService">
         /// Prism Navigation Service
         /// </param>
-        public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            :                           base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "File Input Handler";
 
@@ -97,7 +98,7 @@
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
-            DataStore.Instance.AD.CurrentInputStream =  assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
             DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 
@@ -108,7 +109,8 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-            BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+            Shell.Current.GoToAsync(nameof(MessageLogPage));
+            //BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
         }
 
         /// <summary>
@@ -138,7 +140,8 @@
 
                     BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-                    BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+                    Shell.Current.GoToAsync(nameof(MessageLogPage));
+                    //BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
                 }

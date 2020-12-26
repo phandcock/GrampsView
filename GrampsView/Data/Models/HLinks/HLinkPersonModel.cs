@@ -2,9 +2,13 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -15,6 +19,11 @@ namespace GrampsView.Data.Model
     public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
     {
         private PersonModel _Deref = new PersonModel();
+
+        public HLinkPersonModel()
+        {
+            UCNavigateCommand = new Command<HLinkPersonModel>(UCNavigate);
+        }
 
         /// <summary>
         /// Gets the de reference.
@@ -33,6 +42,13 @@ namespace GrampsView.Data.Model
 
                 return _Deref;
             }
+        }
+
+        public async void UCNavigate(HLinkPersonModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkPersonModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("PersonDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }

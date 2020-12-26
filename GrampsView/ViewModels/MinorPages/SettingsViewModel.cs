@@ -16,7 +16,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Commands;
     using Prism.Events;
-    using Prism.Navigation;
 
     using Xamarin.Forms;
 
@@ -32,8 +31,8 @@ namespace GrampsView.ViewModels
 
         private bool _ThemeButtonSystemChecked;
 
-        public SettingsViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-                                                                                            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public SettingsViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+                                : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;

@@ -7,6 +7,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Windows.Input;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -20,6 +23,8 @@ namespace GrampsView.Data.Model
         /// The local image h link.
         /// </summary>
         private HLinkMediaModel localImageHLink = new HLinkMediaModel();
+
+   
 
         /// <summary>
         /// Gets the dereferenced Tag ViewModel.
@@ -61,5 +66,7 @@ namespace GrampsView.Data.Model
                 SetProperty(ref localImageHLink, value);
             }
         }
+
+        public ICommand UCNavigateCommand { get; private set; }
     }
 }

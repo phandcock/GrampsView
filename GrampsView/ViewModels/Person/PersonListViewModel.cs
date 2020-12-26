@@ -4,7 +4,6 @@
     using GrampsView.Data.DataView;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// People Page View ViewModel.
@@ -20,8 +19,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PersonListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public PersonListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Person List";
             BaseTitleIcon = CommonConstants.IconPeople;

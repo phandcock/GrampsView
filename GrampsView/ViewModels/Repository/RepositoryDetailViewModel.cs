@@ -5,7 +5,6 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
@@ -28,8 +27,8 @@
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public RepositoryDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public RepositoryDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
         }
 

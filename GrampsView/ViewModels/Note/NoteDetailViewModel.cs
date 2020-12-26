@@ -1,20 +1,12 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="NoteDetailViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
+
+    using System;
 
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
@@ -34,8 +26,8 @@ namespace GrampsView.ViewModels
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public NoteDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public NoteDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconNotes;
         }
@@ -64,7 +56,7 @@ namespace GrampsView.ViewModels
         /// </summary>
         public override void PopulateViewModel()
         {
-            HLinkNoteModel HLinkObject = BaseNavParamsHLink as HLinkNoteModel;
+            HLinkNoteModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkNoteModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
             if (!(HLinkObject is null) && (HLinkObject.Valid))
             {

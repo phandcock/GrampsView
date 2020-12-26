@@ -5,7 +5,6 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.
@@ -26,8 +25,8 @@
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public SourceDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public SourceDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Source Detail";
             BaseTitleIcon = CommonConstants.IconSource;

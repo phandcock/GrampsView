@@ -12,7 +12,6 @@ namespace GrampsView.ViewModels
     using GrampsView.Common;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// <c>viewmodel</c> for the About <c>Flyout</c>.
@@ -30,8 +29,8 @@ namespace GrampsView.ViewModels
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Database reload needed";
 

@@ -5,7 +5,6 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -45,8 +44,8 @@
         /// <param name="iocNavigationService">
         /// NavigationService
         /// </param>
-        public SearchPageViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public SearchPageViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Search Page";
 

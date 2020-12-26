@@ -1,21 +1,21 @@
-﻿using GrampsView.Common;
-using GrampsView.Data.Model;
-using GrampsView.Events;
-
-using Prism.Events;
-using Prism.Mvvm;
-using Prism.Navigation;
-using Prism.Services.Dialogs;
-
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-
-using Xamarin.CommunityToolkit.UI.Views;
-
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
-    public class ViewModelBase : BindableBase, INavigationAware, IDestructible, IInitialize
+    using GrampsView.Common;
+    using GrampsView.Data.Model;
+    using GrampsView.Events;
+
+    using Prism.Events;
+    using Prism.Mvvm;
+    using Prism.Navigation;
+    using Prism.Services.Dialogs;
+
+    using System.Diagnostics;
+
+    using Xamarin.CommunityToolkit.UI.Views;
+    using Xamarin.Forms;
+
+    [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
+    public class ViewModelBase : BindableBase, IDestructible
     {
         /// <summary>
         /// Backing store for the base current state
@@ -28,11 +28,6 @@ namespace GrampsView.ViewModels
         /// Backing store for the base current state
         /// </summary>
         private HLinkBase _BaseNavParamsHLink;
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private object _BaseNavParamsModel;
 
         /// <summary>
         /// Backing store for the base current state
@@ -69,6 +64,8 @@ namespace GrampsView.ViewModels
         /// </summary>
         private INavigationParameters _NavParams;
 
+        private string _ParamsHLink;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -89,11 +86,10 @@ namespace GrampsView.ViewModels
         /// <param name="iocNavigationService">
         /// The ioc navigation service.
         /// </param>
-        public ViewModelBase(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
+        public ViewModelBase(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
         {
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
-            BaseNavigationService = iocNavigationService;
 
             _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(SetDataLoadedViewState, ThreadOption.BackgroundThread);
         }
@@ -212,25 +208,6 @@ namespace GrampsView.ViewModels
         }
 
         /// <summary>
-        /// Gets or sets the base navigation service.
-        /// </summary>
-        /// <value>
-        /// The base navigation service.
-        /// </value>
-        public INavigationService BaseNavigationService
-        {
-            get
-            {
-                return _NavigationService;
-            }
-
-            set
-            {
-                SetProperty(ref _NavigationService, value);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the base nav parameters.
         /// </summary>
         /// <value>
@@ -270,19 +247,26 @@ namespace GrampsView.ViewModels
             }
         }
 
-        ///// <summary>Gets or sets the base nav parameters model.</summary>
-        ///// <value>The base nav parameters model.</value>
-        //public object BaseNavParamsModel
+        public string BaseParamsHLink
+        {
+            get
+            {
+                return _ParamsHLink;
+            }
+
+            set
+            {
+                SetProperty(ref _ParamsHLink, value, PopulateViewModel);
+            }
+        }
+
+        //public object BaseParamsHLinkDecode
         //{
         //    get
         //    {
-        //        Contract.Assert(_BaseNavParamsModel != null, "BaseNavParamsModel is null.");
+        //        var t =  JsonConvert.DeserializeObject(Uri.UnescapeDataString(BaseParamsHLink));
 
-        // return _BaseNavParamsModel; }
-
-        //    set
-        //    {
-        //        SetProperty(ref _BaseNavParamsModel, value);
+        //        return t;
         //    }
         //}
 
@@ -355,54 +339,7 @@ namespace GrampsView.ViewModels
             return BaseNavParamsHLink;
         }
 
-        /// <summary>
-        /// This method allows cleanup of any resources used by your View/ViewModel
-        /// </summary>
-        public virtual void Destroy()
-        {
-        }
-
-        /// <summary>
-        /// Initializes the specified parameters.
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public void Initialize(INavigationParameters parameters)
-        {
-            Contract.Assert(parameters != null);
-
-            // TODO See https://github.com/PrismLibrary/Prism/issues/1748
-
-            BaseNavParams = parameters;
-
-            parameters.TryGetValue(CommonConstants.NavigationParameterHLink, out _BaseNavParamsHLink);
-            parameters.TryGetValue(CommonConstants.NavigationParameterModel, out _BaseNavParamsModel);
-        }
-
-        /// <summary>
-        /// Gets or sets the h link parameter.
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        /// <value>
-        /// The h link parameter.
-        /// </value>
-        public virtual void OnNavigatedFrom(INavigationParameters parameters)
-        {
-            //TryFromJson(parameters, out localNavParams);
-
-            //BaseCL.RoutineExit("Navigated from " + BaseNavParams.TargetView);
-        }
-
-        /// <summary>
-        /// Called when [navigated to].
-        /// </summary>
-        /// <param name="parameters">
-        /// The parameters.
-        /// </param>
-        public virtual void OnNavigatedTo(INavigationParameters parameters)
+        public virtual void BaseOnNavigatedTo()
         {
             if (!DetailDataLoadedFlag)
             {
@@ -416,6 +353,50 @@ namespace GrampsView.ViewModels
             }
         }
 
+        /// <summary>
+        /// This method allows cleanup of any resources used by your View/ViewModel
+        /// </summary>
+        public virtual void Destroy()
+        {
+        }
+
+        ///// <summary>
+        ///// Initializes the specified parameters.
+        ///// </summary>
+        ///// <param name="parameters">
+        ///// The parameters.
+        ///// </param>
+        //public void Initialize(INavigationParameters parameters)
+        //{
+        //    Contract.Assert(parameters != null);
+
+        // // TODO See https://github.com/PrismLibrary/Prism/issues/1748
+
+        // BaseNavParams = parameters;
+
+        //    parameters.TryGetValue(CommonConstants.NavigationParameterHLink, out _BaseNavParamsHLink);
+        //    //parameters.TryGetValue(CommonConstants.NavigationParameterModel, out _BaseNavParamsModel);
+        //}
+
+        ///// <summary>
+        ///// Gets or sets the h link parameter.
+        ///// </summary>
+        ///// <param name="parameters">
+        ///// The parameters.
+        ///// </param>
+        ///// <value>
+        ///// The h link parameter.
+        ///// </value>
+        //public virtual void OnNavigatedFrom(INavigationParameters parameters)
+        //{
+        //    //TryFromJson(parameters, out localNavParams);
+
+        //    //BaseCL.RoutineExit("Navigated from " + BaseNavParams.TargetView);
+        //}
+
+        /// <summary>
+        /// Called when [navigated to].
+        /// </summary>
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>

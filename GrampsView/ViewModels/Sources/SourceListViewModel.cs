@@ -9,14 +9,11 @@
 
 namespace GrampsView.ViewModels
 {
-    using System.Collections.ObjectModel;
-
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -32,8 +29,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public SourceListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public SourceListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Source List";
             BaseTitleIcon = CommonConstants.IconSource;

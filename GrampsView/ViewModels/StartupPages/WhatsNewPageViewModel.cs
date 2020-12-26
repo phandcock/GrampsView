@@ -41,8 +41,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocNavigationService">
         /// The navigation service.
         /// </param>
-        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(LoadDataAction);
 

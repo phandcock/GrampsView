@@ -3,7 +3,9 @@
     x:Class="GrampsView.Views.ErrorDialog"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:i18n="clr-namespace:GrampsView.Common">
+    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True">
 
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />

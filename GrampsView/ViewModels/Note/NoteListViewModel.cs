@@ -5,7 +5,6 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -21,8 +20,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public NoteListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public NoteListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Note List";
             BaseTitleIcon = CommonConstants.IconNotes;

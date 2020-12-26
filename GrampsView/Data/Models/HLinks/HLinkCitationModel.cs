@@ -4,9 +4,13 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// HLink to Citation Model.
@@ -15,6 +19,11 @@ namespace GrampsView.Data.Model
     public class HLinkCitationModel : HLinkBase, IHLinkCitationModel
     {
         private CitationModel _Deref = new CitationModel();
+
+        public HLinkCitationModel()
+        {
+            UCNavigateCommand = new Command<HLinkCitationModel>(UCNavigate);
+        }
 
         /// <summary>
         /// Gets the de reference.
@@ -55,6 +64,13 @@ namespace GrampsView.Data.Model
             }
 
             return DeRef.CompareTo((obj as HLinkCitationModel).DeRef);
+        }
+
+        public async void UCNavigate(HLinkCitationModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkCitationModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("CitationDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }

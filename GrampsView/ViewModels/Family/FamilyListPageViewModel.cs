@@ -4,7 +4,6 @@
     using GrampsView.Data.DataView;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     /// <summary>
     /// Creates a Family Section Page View ViewModel.
@@ -23,8 +22,8 @@
         /// <param name="iocNavigationService">
         /// Injected Navigation Service.
         /// </param>
-        public FamilyListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, INavigationService iocNavigationService)
-            : base(iocCommonLogging, iocEventAggregator, iocNavigationService)
+        public FamilyListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Family List";
             BaseTitleIcon = CommonConstants.IconFamilies;

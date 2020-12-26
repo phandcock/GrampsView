@@ -35,10 +35,6 @@ namespace GrampsView.Data.Model
             set;
         }
 
-    
-      
-   
-
         /// <summary>
         /// Gets the priv as string.
         /// </summary>
@@ -67,5 +63,7 @@ namespace GrampsView.Data.Model
         /// The argument.
         /// </param>
         void SetBase(HLinkBase arg);
+
+       
     }
 }

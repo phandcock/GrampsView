@@ -8,9 +8,13 @@
 /// TODO Update fields as per Schema
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// HLink to the Family Model.
@@ -18,6 +22,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkFamilyModel : HLinkBase, IHLinkFamilyModel
     {
+        public HLinkFamilyModel()
+        {
+            UCNavigateCommand = new Command<HLinkFamilyModel>(UCNavigate);
+        }
+
         /// <summary>
         /// Gets.
         /// </summary>
@@ -34,6 +43,13 @@ namespace GrampsView.Data.Model
                     return new FamilyModel();
                 }
             }
+        }
+
+        public async void UCNavigate(HLinkFamilyModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkFamilyModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("FamilyDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }
