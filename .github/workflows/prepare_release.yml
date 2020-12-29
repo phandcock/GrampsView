@@ -6,7 +6,7 @@ on:
  #   displayName: Four day a week build
  #   branches:
  #       include:
- #       - master
+ #       - main
  #   paths-ignore:
  #     - 'package.json'
  #    - 'CHANGELOG.md'
@@ -34,7 +34,7 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.github_token }}
-        release-count: '5'
+        release-count: '1'
         preset: 'angular'
         skip-on-empty: 'true' # TODO work out why this fails if true
         tag-prefix: 'v'

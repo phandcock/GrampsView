@@ -18,10 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Attribution.md = Attribution.md
 		CHANGELOG.md = CHANGELOG.md
 		Committ coding rules.md = Committ coding rules.md
+		.github\contributing.md = .github\contributing.md
 		LICENSE = LICENSE
 		package.json = package.json
 		PrivacyPolicy.md = PrivacyPolicy.md
 		README.md = README.md
+		.github\SECURITY.md = .github\SECURITY.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B48C-2D99-4498-97DF-136E379816A4}"
@@ -56,10 +58,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{23F1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF772D0-B54F-4526-9FF6-535E9ED88E14}"
 	ProjectSection(SolutionItems) = preProject
-		.github\contributing.md = .github\contributing.md
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\hub view.png = .github\hub view.png
-		.github\person view.png = .github\person view.png
-		.github\SECURITY.md = .github\SECURITY.md
+		.github\workflows\prepare_release.yml = .github\workflows\prepare_release.yml
+		.github\workflows\stale.yml = .github\workflows\stale.yml
+		.github\workflows\yearly_licence_update.yml = .github\workflows\yearly_licence_update.yml
 	EndProjectSection
 EndProject
 Global
