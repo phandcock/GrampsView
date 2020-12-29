@@ -141,7 +141,7 @@ namespace GrampsView.Data.Repository
         /// <param name="value">
         /// The value.
         /// </param>
-        public static void DataLoadedSetTrue(object value)
+        public static void DataLoadedSetTrue()
         {
             DataStore.Instance.DS.IsDataLoaded = true;
         }
@@ -418,7 +418,7 @@ namespace GrampsView.Data.Repository
                         await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS Serial data load complete").ConfigureAwait(false);
 
                         // let everybody know we have finished loading data
-                        _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish(null);
+                        _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish();
                     }
                     else
                     {

@@ -202,6 +202,6 @@
     <value>When: {0}</value>
   </data>
   <data name="FieldPrefixFamilyRelationship" xml:space="preserve">
-    <value>Relationship: {0}</value>
+    <value>Relationship: {0}   </value>
   </data>
 </root>

@@ -54,16 +54,6 @@
         /// </summary>
         private IEventAggregator _EventAggregator;
 
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private INavigationService _NavigationService;
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private INavigationParameters _NavParams;
-
         private string _ParamsHLink;
 
         /// <summary>
@@ -208,25 +198,6 @@
         }
 
         /// <summary>
-        /// Gets or sets the base nav parameters.
-        /// </summary>
-        /// <value>
-        /// The base nav parameters.
-        /// </value>
-        public INavigationParameters BaseNavParams
-        {
-            get
-            {
-                return _NavParams;
-            }
-
-            set
-            {
-                SetProperty(ref _NavParams, value);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the base nav parameters h link.
         /// </summary>
         /// <value>
@@ -259,16 +230,6 @@
                 SetProperty(ref _ParamsHLink, value, PopulateViewModel);
             }
         }
-
-        //public object BaseParamsHLinkDecode
-        //{
-        //    get
-        //    {
-        //        var t =  JsonConvert.DeserializeObject(Uri.UnescapeDataString(BaseParamsHLink));
-
-        //        return t;
-        //    }
-        //}
 
         /// <summary>
         /// Gets or sets the base title.
@@ -321,7 +282,7 @@
         private bool DetailDataLoadedFlag { get; set; }
 
         /// <summary>
-        /// Bases the nav parameters h link default.
+        /// Bases the nav parameters hlink default.
         /// </summary>
         /// <param name="argDefault">
         /// The argument default.
@@ -360,40 +321,6 @@
         {
         }
 
-        ///// <summary>
-        ///// Initializes the specified parameters.
-        ///// </summary>
-        ///// <param name="parameters">
-        ///// The parameters.
-        ///// </param>
-        //public void Initialize(INavigationParameters parameters)
-        //{
-        //    Contract.Assert(parameters != null);
-
-        // // TODO See https://github.com/PrismLibrary/Prism/issues/1748
-
-        // BaseNavParams = parameters;
-
-        //    parameters.TryGetValue(CommonConstants.NavigationParameterHLink, out _BaseNavParamsHLink);
-        //    //parameters.TryGetValue(CommonConstants.NavigationParameterModel, out _BaseNavParamsModel);
-        //}
-
-        ///// <summary>
-        ///// Gets or sets the h link parameter.
-        ///// </summary>
-        ///// <param name="parameters">
-        ///// The parameters.
-        ///// </param>
-        ///// <value>
-        ///// The h link parameter.
-        ///// </value>
-        //public virtual void OnNavigatedFrom(INavigationParameters parameters)
-        //{
-        //    //TryFromJson(parameters, out localNavParams);
-
-        //    //BaseCL.RoutineExit("Navigated from " + BaseNavParams.TargetView);
-        //}
-
         /// <summary>
         /// Called when [navigated to].
         /// </summary>
@@ -414,7 +341,7 @@
         /// <param name="value">
         /// The value.
         /// </param>
-        public void SetDataLoadedViewState(object value)
+        public void SetDataLoadedViewState()
         {
             this.BaseCurrentState = LayoutState.None;
         }

@@ -1,16 +1,6 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="MessageLogViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-/// <summary>
-/// Message Log routines.
-/// </summary>
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
 
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
@@ -56,12 +46,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        //public string MinorStatus
-        //{
-        //    get
-        //    {
-        //        return DataStore.Instance.CN.MinorMessage;
-        //    }
-        //}
+
     }
 }

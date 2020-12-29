@@ -4,11 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:GrampsView.Views"
-    Title="App1">
+    Title="GrampsView"
+    Visual="Material">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
-        
+
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
@@ -17,7 +18,7 @@
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
@@ -39,14 +40,14 @@
                 ApplyToDerivedTypes="True"
                 Class="FlyoutItemLayoutStyle"
                 TargetType="Layout">
-                <Setter Property="BackgroundColor" Value="LightBlue" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="White" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Black" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
@@ -86,71 +87,127 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Hub" Icon="{StaticResource IconHub}">
+    <FlyoutItem Title="Hub">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconHub}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:HubPage}" Route="HubPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Birthdays" Icon="icon_feed.png">
+    <FlyoutItem Title="Birthdays">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonBirthdayPage}" Route="PersonBirthdayPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Bookmarks" Icon="icon_about.png">
+    <FlyoutItem Title="Bookmarks">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:BookMarkListPage}" Route="BookMarkListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Citations" Icon="icon_feed.png">
+    <FlyoutItem Title="Citations">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:CitationListPage}" Route="CitationListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Events" Icon="icon_about.png">
+    <FlyoutItem Title="Events">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:EventListPage}" Route="EventListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Families" Icon="icon_feed.png">
+    <FlyoutItem Title="Families">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FamilyListPage}" Route="FamilyListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Media" Icon="icon_about.png">
+    <FlyoutItem Title="Media">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:MediaListPage}" Route="MediaListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Notes" Icon="icon_feed.png">
+    <FlyoutItem Title="Notes">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:NoteListPage}" Route="NoteListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="People" Icon="icon_about.png">
+    <FlyoutItem Title="People">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonListPage}" Route="PersonListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Places" Icon="icon_feed.png">
+    <FlyoutItem Title="Places">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PlaceListPage}" Route="PlaceListPage" />
     </FlyoutItem>
-    <FlyoutItem Title="Repositories" Icon="icon_about.png">
+
+    <FlyoutItem Title="Repositories">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:RepositoryListPage}" Route="RepositoryListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Sources" Icon="icon_feed.png">
+    <FlyoutItem Title="Sources">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SourceListPage}" Route="SourceListPage" />
     </FlyoutItem>
-    <FlyoutItem Title="Tags" Icon="icon_about.png">
+
+    <FlyoutItem Title="Tags">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:TagListPage}" Route="TagListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="People Graph" Icon="icon_feed.png">
+    <FlyoutItem Title="People Graph">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PeopleGraphPage}" Route="PeopleGraphPage" />
     </FlyoutItem>
-    <FlyoutItem Title="Search" Icon="icon_about.png">
+    <FlyoutItem Title="Search">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Load Data File" Icon="icon_feed.png">
+    <FlyoutItem Title="Load Data File">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FileInputHandlerPage}" Route="FileInputHandlerPage" />
     </FlyoutItem>
-    <FlyoutItem Title="Settings" Icon="icon_about.png">
+    <FlyoutItem Title="Settings">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="About" Icon="icon_feed.png">
+    <FlyoutItem Title="About">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
     </FlyoutItem>
 

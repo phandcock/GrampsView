@@ -6,10 +6,20 @@
     x:Name="BottomMenuRoot"
     Style="{StaticResource FrameBottomMenu}">
 
-    <StackLayout
+
+  
+        <ToolbarItem Text="Example Item"
+                 IconImageSource="example_icon.png"
+                 Order="Primary"
+                 Priority="0" />
+  
+
+
+    <!--<StackLayout
         Margin="10,3,3,3"
         HorizontalOptions="Start"
         Orientation="Horizontal">
+        
         <ImageButton
             Pressed="HubButton_Pressed"
             Source="{FontImage FontFamily={StaticResource GlyphFontFamily},
@@ -29,5 +39,5 @@
             TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                         Light={StaticResource OnSecondaryColorLight}}"
             VerticalTextAlignment="Center" />
-    </StackLayout>
+    </StackLayout>-->
 </Frame>

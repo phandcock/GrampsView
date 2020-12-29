@@ -79,7 +79,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Relationship: {0}.
+        ///   Looks up a localized string similar to Relationship: {0}   .
         /// </summary>
         public static string FieldPrefixFamilyRelationship {
             get {

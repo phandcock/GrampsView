@@ -17,6 +17,8 @@ namespace GrampsView.ViewModels
     using Prism.Commands;
     using Prism.Events;
 
+    using System.Windows.Input;
+
     using Xamarin.Forms;
 
     public class SettingsViewModel : ViewModelBase
@@ -40,6 +42,8 @@ namespace GrampsView.ViewModels
             TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
 
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
+
+            UCNavigateCommand = new DelegateCommand(UCNavigate);
         }
 
         public bool CanHandleTestButton
@@ -121,6 +125,8 @@ namespace GrampsView.ViewModels
             }
         }
 
+        public ICommand UCNavigateCommand { get; private set; }
+
         public void ForceUpdate()
         {
             Distribute.CheckForUpdate();
@@ -164,6 +170,11 @@ namespace GrampsView.ViewModels
             t.Add("Test LIne 2", "Test Value 2");
 
             DataStore.Instance.CN.NotifyDialogBox(t);
+        }
+
+        private async void UCNavigate()
+        {
+            await Shell.Current.GoToAsync("MessageLogPage");
         }
     }
 }

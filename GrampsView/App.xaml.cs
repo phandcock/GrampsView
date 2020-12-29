@@ -1,5 +1,4 @@
 ﻿using GrampsView.Common;
-using GrampsView.Common.CustomClasses;
 using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorageNS;
@@ -95,6 +94,8 @@ namespace GrampsView
             VersionTracking.Track();
 
             Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
+
+            MainPage = new AppShell();
         }
 
         protected override void OnResume()
@@ -130,31 +131,14 @@ namespace GrampsView
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
 
-            IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
+            // IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
 
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
-            //DataStore.Instance.NV = new NavCmd(Container.Resolve<IEventAggregator>());
-
             IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
 
-            // Start at the MessageLog Page if no other paramaters and work from there
-            //if (!DataStore.Instance.NV.TargetNavParams.Any())
-            //{
-            //    DataStore.Instance.NV.TargetNavParams.Add(CommonConstants.NavigationParameterTargetView, nameof(MessageLogPage));
-            //}
-
-            //DataStore.Instance.NV.TargetNavParams.TryGetValue(CommonConstants.NavigationParameterTargetView, out string targetView);
-
-            //NavigationService.NavigateAsync("MainPage/NavigationPage/" + targetView);
-
-            MainPage = new AppShell(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
-               Container.Resolve<DatabaseReloadDisplayService>(), Container.Resolve<IDialogService>());
-
-            if (!Container.Resolve<FirstRunDisplayService>().ShowIfAppropriate(Container.Resolve<IEventAggregator>()))
-            {
-                Container.Resolve<IEventAggregator>().GetEvent<AppStartWhatsNewEvent>().Publish();
-            }
+            StartEvents(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
+                Container.Resolve<DatabaseReloadDisplayService>(), Container.Resolve<IDialogService>());
         }
 
         protected override void RegisterTypes(IContainerRegistry container)

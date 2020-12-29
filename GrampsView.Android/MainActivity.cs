@@ -11,11 +11,12 @@
     using GrampsView.Data.Repository;
     using GrampsView.Droid.Common;
 
+    using GrampsView;
+
     using Prism;
     using Prism.Ioc;
 
     using System;
-    using System.Diagnostics.Contracts;
     using System.Threading.Tasks;
 
     using Xamarin.Essentials;
@@ -28,29 +29,6 @@
             containerRegistry.RegisterSingleton<IPlatformSpecific, PlatformSpecific>();
         }
     }
-
-    //public class CustomLogger : FFImageLoading.Helpers.IMiniLogger
-
-    //{
-    //    public void Debug(string message)
-
-    //    {
-    //        Console.WriteLine(message);
-    //    }
-
-    //    public void Error(string errorMessage)
-
-    //    {
-    //        Console.WriteLine(errorMessage);
-    //    }
-
-    //    public void Error(string errorMessage, Exception ex)
-    //    {
-    //        Contract.Assert(ex != null);
-
-    //        Error(errorMessage + System.Environment.NewLine + ex.ToString());
-    //    }
-    //}
 
     /// <summary>
     /// Main Activity class
@@ -80,8 +58,7 @@
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "AppTheme_Experimental",
                 "DragAndDrop_Experimental",
-                "RadioButton_Experimental",
-                "Shell_UWP_Experimental"
+                "RadioButton_Experimental"
                 });
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -99,7 +76,7 @@
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             // Load the app
-            LoadApplication(new App(new AndroidInitializer()));
+            LoadApplication(new App());
         }
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)

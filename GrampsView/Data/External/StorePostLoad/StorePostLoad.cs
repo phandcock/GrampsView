@@ -5,13 +5,10 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
-
-    using Xamarin.Forms;
 
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
@@ -90,7 +87,6 @@ namespace GrampsView.Data.ExternalStorageNS
                     // People last as they pretty much depend on everything else
                     await OrganisePersonRepository().ConfigureAwait(false);
                 }
-
             }
 
             await DataStore.Instance.CN.DataLogEntryAdd(null).ConfigureAwait(false);
@@ -101,7 +97,7 @@ namespace GrampsView.Data.ExternalStorageNS
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
             // let everybody know we have finished loading data
-            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish(null);
+            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish();
 
             _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }

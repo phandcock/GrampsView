@@ -16,6 +16,14 @@
         <ucon:TopMenu />
     </NavigationPage.TitleView>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="example_icon.png"
+            Order="Primary"
+            Priority="0"
+            Text="Example Item" />
+    </ContentPage.ToolbarItems>
+
     <!--  Content  -->
     <ScrollView>
         <StackLayout>

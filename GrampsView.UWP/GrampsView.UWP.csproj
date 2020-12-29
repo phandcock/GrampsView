@@ -223,14 +223,8 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.11" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1821</Version>
+      <Version>4.8.0.1451</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GrampsView\GrampsView.csproj">
-      <Project>{A8655380-0BB4-4F34-8C51-64FF7AEB0A31}</Project>
-      <Name>GrampsView</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Misc\UserActivityCard.json" />
@@ -244,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrampsView\GrampsView.csproj">
+      <Project>{54eaf1e8-e560-4a93-8206-263171b8900d}</Project>
+      <Name>GrampsView</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

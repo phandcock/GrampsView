@@ -1,12 +1,6 @@
-﻿// <copyright file="FirstRunDisplayService.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Services
+﻿namespace GrampsView.Services
 {
-    using GrampsView.Events;
     using GrampsView.Views;
-    using Prism.Events;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -24,18 +18,12 @@ namespace GrampsView.Services
         /// </param>
         /// <returns>
         /// </returns>
-        public bool ShowIfAppropriate(IEventAggregator iocEventAggregator)
+        public bool ShowIfAppropriate()
         {
-            if (iocEventAggregator is null)
-            {
-                return false;
-            }
-
             if (VersionTracking.IsFirstLaunchEver) //  && !Common.CommonLocalSettings.FirstRunDisplay)
             {
                 Common.CommonLocalSettings.FirstRunDisplay = true;
                 Shell.Current.GoToAsync(nameof(FirstRunPage));
-                //iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(FirstRunPage));
 
                 return true;
             }

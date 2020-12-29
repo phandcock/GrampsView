@@ -70,7 +70,7 @@
         /// <param name="obj">
         /// The object.
         /// </param>
-        private void UpdateTile(object obj)
+        private void UpdateTile()
 
         {
             CommonTileUpdate.UpdateTile();

@@ -5,16 +5,15 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Events;
-    using GrampsView.Views;
 
     using Prism.Commands;
     using Prism.Events;
-    using Prism.Navigation;
 
     using System;
     using System.Reflection;
 
     using Xamarin.CommunityToolkit.UI.Views;
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     /// <summary>
@@ -44,7 +43,7 @@
         /// Prism Navigation Service
         /// </param>
         public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
-            :                           base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "File Input Handler";
 
@@ -88,7 +87,7 @@
         /// <summary>
         /// Loads the sample data.
         /// </summary>
-        public void LoadSample()
+        public async void LoadSample()
         {
             BaseCL.Progress("Load sample data");
 
@@ -109,8 +108,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-            Shell.Current.GoToAsync(nameof(MessageLogPage));
-            //BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+            await Shell.Current.GoToAsync("..");
         }
 
         /// <summary>
@@ -140,8 +138,10 @@
 
                     BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
 
-                    Shell.Current.GoToAsync(nameof(MessageLogPage));
-                    //BaseEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(MessageLogPage));
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Shell.Current.GoToAsync("..");
+                    });
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
                 }

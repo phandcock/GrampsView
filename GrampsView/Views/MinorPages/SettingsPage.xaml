@@ -295,8 +295,7 @@
             <BoxView />
 
             <Button
-                Command="{prismnav:NavigateTo 'MessageLogPage',
-                                              Animated=True}"
+                Command="{Binding UCNavigateCommand}"
                 Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.Settings_GotoMessageLog}" />
 

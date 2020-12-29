@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ucon="clr-namespace:GrampsView.UserControls;assembly=GrampsView">
+    xmlns:ucon="clr-namespace:GrampsView.UserControls">
 
     <!--  Detail Page Control Template  -->
     <ControlTemplate x:Key="DetailPageTemplate">
@@ -18,8 +18,11 @@
             <ContentPresenter Grid.Row="0" />
 
             <!--  Footer  -->
-            <ucon:BottomMenu Grid.Row="1" VerticalOptions="End" />
+            <!--<ucon:BottomMenu Grid.Row="1" VerticalOptions="End" />-->
         </Grid>
+
+
+
     </ControlTemplate>
 
     <!--  List Page Control Template  -->
@@ -38,7 +41,7 @@
             <!--  Aside items  -->
 
             <!--  Footer  -->
-            <ucon:BottomMenu />
+            <!--<ucon:BottomMenu />-->
         </StackLayout>
     </ControlTemplate>
 </ResourceDictionary>

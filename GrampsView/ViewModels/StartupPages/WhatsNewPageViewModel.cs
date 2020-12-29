@@ -1,26 +1,10 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the Whats New Page View Model
-//
-// <copyright file="SetupStorageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Commands;
     using Prism.Events;
-    using Prism.Navigation;
-
-    using System.IO;
-    using System.Reflection;
-
-    using Xam.Forms.Markdown;
 
     /// <summary>
     /// View model for WHats New Page.

@@ -267,16 +267,10 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1821</Version>
+      <Version>4.8.0.1451</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\GrampsView\GrampsView.csproj">
-      <Project>{A8655380-0BB4-4F34-8C51-64FF7AEB0A31}</Project>
-      <Name>GrampsView</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_history_blue_light_36pt.png" />
   </ItemGroup>
@@ -285,5 +279,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_history_blue_light_36pt%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrampsView\GrampsView.csproj">
+      <Project>{54eaf1e8-e560-4a93-8206-263171b8900d}</Project>
+      <Name>GrampsView</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

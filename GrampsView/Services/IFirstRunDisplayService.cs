@@ -1,13 +1,12 @@
-﻿// <copyright file="IFirstRunDisplayService.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿
 
-using Prism.Events;
 
 namespace GrampsView.Services
 {
+    using Prism.Events;
+
     public interface IFirstRunDisplayService
     {
-        bool ShowIfAppropriate(IEventAggregator iocEventAggregator);
+        bool ShowIfAppropriate();
     }
 }
