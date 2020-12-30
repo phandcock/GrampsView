@@ -1,9 +1,9 @@
-## [16.13.1](https://github.com/phandcock/GrampsView/compare/v16.13.0...v16.13.1) (2020-12-30)
+## [16.13.2](https://github.com/phandcock/GrampsView/compare/v16.13.1...v16.13.2) (2020-12-30)
 
 
 ### Bug Fixes
 
-* temporaryily reduce changelog size to meet 5000 character limit ([520bc1c](https://github.com/phandcock/GrampsView/commit/520bc1ca50cdc7f7199b3c3858eda37fe3105def))
+* fix various shell errors ([d8bb406](https://github.com/phandcock/GrampsView/commit/d8bb406853803a42b465068c7048f0785f96e3eb))
 
 
 
