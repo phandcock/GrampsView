@@ -25,13 +25,13 @@ namespace GrampsView.ViewModels
     {
         private CardListLineCollection _ApplicationVersionList = new CardListLineCollection();
 
-        //private HLinkHeaderModel _HeaderModel = new HLinkHeaderModel();
-
         public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
                                             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "About";
             BaseTitleIcon = CommonConstants.IconAbout;
+
+            PopulateViewModel();
         }
 
         /// <summary>

@@ -10,12 +10,54 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.Repository;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Linq;
+
+    /// <summary>
+    /// Details on an edge between nodes.
+    /// </summary>
+    public struct EdgeItem
+    {
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        public string From { get; set; }
+
+        /// <summary>
+        /// Gets or sets the line.
+        /// </summary>
+        public object TheLine { get; set; }
+
+        /// <summary>
+        /// Gets or sets to.
+        /// </summary>
+        public string To { get; set; }
+
+        public static bool operator !=(EdgeItem left, EdgeItem right)
+        {
+            return !(left == right);
+        }
+
+        public static bool operator ==(EdgeItem left, EdgeItem right)
+        {
+            return left.Equals(right);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Contract.Assert(obj != null);
+
+            return GetHashCode() == obj.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return (From + To).GetHashCode();
+        }
+    }
 
     /// <summary>
     /// View Model for People Graph.
@@ -543,7 +585,7 @@ namespace GrampsView.ViewModels
         {
             BaseCL.RoutineEntry("PeopleGraphViewModel");
 
-            string startPoint = BaseNavParamsHLinkDefault(new HLinkBase { HLinkKey = "_c47a6bd11500b4b0cc8" }).HLinkKey;
+            string startPoint = "_c47a6bd11500b4b0cc8";
 
             // Assume person
             PersonModel t = DV.PersonDV.GetModelFromHLinkString(startPoint);
@@ -607,8 +649,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-       
-
         /// <summary>
         /// The next model to be looked at as we traverse the treee.
         /// </summary>
@@ -628,49 +668,6 @@ namespace GrampsView.ViewModels
             /// The level.
             /// </summary>
             public int Level;
-        }
-    }
-
-    /// <summary>
-    /// Details on an edge between nodes.
-    /// </summary>
-    public struct EdgeItem
-    {
-        /// <summary>
-        /// Gets or sets from.
-        /// </summary>
-        public string From { get; set; }
-
-        /// <summary>
-        /// Gets or sets the line.
-        /// </summary>
-        public object TheLine { get; set; }
-
-        /// <summary>
-        /// Gets or sets to.
-        /// </summary>
-        public string To { get; set; }
-
-        public static bool operator !=(EdgeItem left, EdgeItem right)
-        {
-            return !(left == right);
-        }
-
-        public static bool operator ==(EdgeItem left, EdgeItem right)
-        {
-            return left.Equals(right);
-        }
-
-        public override bool Equals(object obj)
-        {
-            Contract.Assert(obj != null);
-
-            return GetHashCode() == obj.GetHashCode();
-        }
-
-        public override int GetHashCode()
-        {
-            return (From + To).GetHashCode();
         }
     }
 }

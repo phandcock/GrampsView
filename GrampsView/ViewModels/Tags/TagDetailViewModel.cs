@@ -5,7 +5,8 @@
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
+
+    using System;
 
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
@@ -65,7 +66,9 @@
         /// </param>
         public override void PopulateViewModel()
         {
-            TagObject = DV.TagDV.GetModelFromHLinkString(BaseNavParamsHLink.HLinkKey);
+            HLinkTagModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkTagModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            TagObject = HLinkObject.DeRef;
 
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);

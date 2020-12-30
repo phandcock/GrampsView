@@ -2,15 +2,23 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Windows.Input;
+    using System.Threading.Tasks;
+
+    using Xamarin.Forms;
 
     [DataContract]
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
     {
         private SourceModel _Deref = new SourceModel();
+
+        public HLinkSourceModel()
+        {
+            UCNavigateCommand = new Command<HLinkSourceModel>(UCNavigate);
+        }
 
         /// <summary>
         /// Gets the model from the HLink.
@@ -30,8 +38,6 @@ namespace GrampsView.Data.Model
                 return _Deref;
             }
         }
-
-        public ICommand UCNavigateCommand { get; private set; }
 
         /// <summary>
         /// Compares to.
@@ -63,6 +69,13 @@ namespace GrampsView.Data.Model
             }
 
             return DeRef.CompareTo((argObj as HLinkSourceModel).DeRef);
+        }
+
+        public async void UCNavigate(HLinkSourceModel argHLink)
+        {
+            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkSourceModel>(argHLink));
+
+            await Shell.Current.GoToAsync(string.Format("SourceDetailPage?BaseParamsHLink={0}", jason));
         }
     }
 }

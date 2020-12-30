@@ -6,6 +6,8 @@
 
     using Prism.Events;
 
+    using System;
+
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.
     /// </summary>
@@ -58,8 +60,10 @@
         /// </returns>
         public override void PopulateViewModel()
         {
+            HLinkSourceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkSourceModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
             // Cache the Source model
-            SourceObject = DV.SourceDV.GetModelFromHLink(BaseNavParamsHLink);
+            SourceObject = HLinkObject.DeRef;
 
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);

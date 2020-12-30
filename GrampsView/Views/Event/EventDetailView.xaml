@@ -7,22 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            IconImageSource="example_icon.png"
-            Order="Primary"
-            Priority="0"
-            Text="Example Item" />
-    </ContentPage.ToolbarItems>
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource GlyphFontFamily}"
+            Glyph="{Binding BaseTitleIcon}"
+            Size="44"
+            Color="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                    Light={StaticResource SecondaryColorLight}}" />
+    </ContentPage.IconImageSource>
 
     <!--  Content  -->
     <ScrollView>

@@ -234,23 +234,23 @@
     </FlyoutItem>
 
     <!--  Hidden pages  -->
-    <FlyoutItem Title="MessageLog">
+    <FlyoutItem Title="MessageLog" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:MessageLogPage}" Route="MessageLog" />
     </FlyoutItem>
 
-    <FlyoutItem Title="FileInputHandler">
+    <FlyoutItem Title="FileInputHandler" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:FileInputHandlerPage}" Route="FileInputHandlerPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="FirstRun">
+    <FlyoutItem Title="FirstRun" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:FirstRunPage}" Route="FirstRunPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="NeedDatabaseReload">
+    <FlyoutItem Title="NeedDatabaseReload" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:NeedDatabaseReloadPage}" Route="NeedDatabaseReloadPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="WhatsNew">
+    <FlyoutItem Title="WhatsNew" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:WhatsNewPage}" Route="WhatsNewPage" />
     </FlyoutItem>
 

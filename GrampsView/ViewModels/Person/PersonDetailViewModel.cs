@@ -8,7 +8,6 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Diagnostics.Contracts;
 
     using Xamarin.CommunityToolkit.UI.Views;
 
@@ -194,16 +193,16 @@
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                // Add PersonRefDetails
-                if (BaseNavParamsHLink is HLinkPersonRefModel)
-                {
-                    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
+                // Add PersonRefDetails - TODO
+                //if (BaseNavParamsHLink is HLinkPersonRefModel)
+                //{
+                //    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
 
-                    Contract.Assert(personRef != null);
+                // Contract.Assert(personRef != null);
 
-                    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
-                    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
-                }
+                //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
+                //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
+                //}
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }

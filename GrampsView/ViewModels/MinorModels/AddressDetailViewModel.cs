@@ -7,7 +7,7 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Navigation;
+    using System;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -67,8 +67,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-
-
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -78,7 +76,7 @@ namespace GrampsView.ViewModels
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            AddressObject = DV.AddressDV.GetModelFromHLink(BaseNavParamsHLink);
+            AddressObject = CommonRoutines.DeserialiseObject<AddressModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
             if (AddressObject.Valid)
             {
@@ -116,9 +114,6 @@ namespace GrampsView.ViewModels
 
                 // Add map card
                 BaseDetail.Add(TurnAddressToURLModel());
-
-          
-     
             }
 
             return;

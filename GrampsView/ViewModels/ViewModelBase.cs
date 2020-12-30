@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Model;
     using GrampsView.Events;
 
     using Prism.Events;
@@ -23,11 +22,6 @@
         private LayoutState _BaseCurrentState = LayoutState.None;
 
         private CardGroup _BaseDetail = new CardGroup();
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private HLinkBase _BaseNavParamsHLink;
 
         /// <summary>
         /// Backing store for the base current state
@@ -197,27 +191,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the base nav parameters h link.
-        /// </summary>
-        /// <value>
-        /// The base nav parameters h link.
-        /// </value>
-        public HLinkBase BaseNavParamsHLink
-        {
-            get
-            {
-                Debug.Assert(_BaseNavParamsHLink != null, "BaseNavParamsHLink is null.");
-
-                return _BaseNavParamsHLink;
-            }
-
-            set
-            {
-                SetProperty(ref _BaseNavParamsHLink, value);
-            }
-        }
-
         public string BaseParamsHLink
         {
             get
@@ -280,25 +253,6 @@
         /// <c>true</c> if [detail data loaded flag]; otherwise, <c>false</c>.
         /// </value>
         private bool DetailDataLoadedFlag { get; set; }
-
-        /// <summary>
-        /// Bases the nav parameters hlink default.
-        /// </summary>
-        /// <param name="argDefault">
-        /// The argument default.
-        /// </param>
-        /// <returns>
-        /// <br/>
-        /// </returns>
-        public HLinkBase BaseNavParamsHLinkDefault(HLinkBase argDefault)
-        {
-            if (_BaseNavParamsHLink is null)
-            {
-                return argDefault;
-            }
-
-            return BaseNavParamsHLink;
-        }
 
         public virtual void BaseOnNavigatedTo()
         {

@@ -4,10 +4,9 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Navigation;
+    using System;
 
     /// <summary>
     /// ViewModel for the Address Detail page.
@@ -66,19 +65,6 @@ namespace GrampsView.ViewModels
             }
         }
 
-        ///// <summary>
-        ///// Called when [navigating from].
-        ///// </summary>
-        ///// <param name="parameters">
-        ///// The parameters.
-        ///// </param>
-        //public void OnNavigatingFrom(INavigationParameters parameters)
-        //{
-        //    OnNavigatedFrom(parameters);
-
-        //    // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
-        //}
-
         /// <summary>
         /// Populates the view ViewModel.
         ///
@@ -90,7 +76,9 @@ namespace GrampsView.ViewModels
         {
             BaseCL.RoutineEntry("NameDetailViewModel");
 
-            PersonNameObject = DV.PersonNameDV.GetModelFromHLink(BaseNavParamsHLink);
+            HLinkPersonNameModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPersonNameModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            PersonNameObject = HLinkObject.DeRef;
 
             if (PersonNameObject.Valid)
             {

@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// View model for the Settings ViewModel
-//
-// <copyright file="SettingsViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
@@ -44,6 +35,8 @@ namespace GrampsView.ViewModels
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
 
             UCNavigateCommand = new DelegateCommand(UCNavigate);
+
+            PopulateViewModel();
         }
 
         public bool CanHandleTestButton

@@ -6,6 +6,8 @@
 
     using Prism.Events;
 
+    using System;
+
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -56,7 +58,9 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            RepositoryObject = DV.RepositoryDV.GetModelFromHLink(BaseNavParamsHLink);
+            HLinkRepositoryModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkRepositoryModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            RepositoryObject = HLinkObject.DeRef;
 
             if (!(RepositoryObject == null))
             {

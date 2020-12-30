@@ -6,6 +6,8 @@
 
     using Prism.Events;
 
+    using System;
+
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
@@ -53,7 +55,9 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            PlaceObject = DV.PlaceDV.GetModelFromHLink(BaseNavParamsHLink);
+            HLinkPlaceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPlaceModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            PlaceObject = HLinkObject.DeRef;
 
             if (PlaceObject != null)
             {

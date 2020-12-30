@@ -33,9 +33,6 @@
         /// <param name="iocNavigationService">
         /// NAvigation Service
         /// </param>
-        public EventDetailViewModel()
-        {
-        }
 
         public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
