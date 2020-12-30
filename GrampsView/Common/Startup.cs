@@ -4,7 +4,6 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
     using GrampsView.Services;
-    using GrampsView.Views;
 
     using Prism.Events;
     using Prism.Services.Dialogs;
@@ -19,24 +18,25 @@
         private IFirstRunDisplayService _FirstRunDisplayService = new FirstRunDisplayService();
         private IEventAggregator _iocEventAggregator;
         private IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
-        private string CurrentPage = string.Empty;
 
-        public async void ServiceLoadData()
+        private async void ServiceLoadData()
         {
             if (CommonLocalSettings.DataSerialised)
             {
                 // Start data load
 
-                _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
+                _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
                 return;
             }
 
             // No Serialised Data and made it this far so some problem has occurred. Load everything
             // from the beginning.
-            await Shell.Current.GoToAsync(nameof(FileInputHandlerPage));
+            var t = Shell.Current.Navigation.NavigationStack;
+
+            await Shell.Current.GoToAsync("FileInputHandlerPage");
         }
 
-        public void ServiceReloadDatabase()
+        private void ServiceReloadDatabase()
         {
             if (!_DatabaseReloadDisplayService.ShowIfAppropriate(_iocEventAggregator))
             {
@@ -44,7 +44,7 @@
             }
         }
 
-        public void ServiceWhatsNew()
+        private void ServiceWhatsNew()
         {
             if (!_WhatsNewDisplayService.ShowIfAppropriate(_iocEventAggregator))
             {
@@ -52,7 +52,7 @@
             }
         }
 
-        public void StartEvents(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService, IDialogService dialogService)
+        private void StartEvents(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService, IDialogService dialogService)
 
         {
             _iocEventAggregator = iocEventAggregator;
@@ -78,32 +78,35 @@
 
             _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Subscribe(ServiceWhatsNew, ThreadOption.UIThread);
 
-            _iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(LoadHubPage, ThreadOption.UIThread);
+            _iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.LoadHubPage, ThreadOption.UIThread);
 
-            //BaseEventAggregator.GetEvent<PageNavigateEvent>().Subscribe(OnNavigateCommandExecuted, ThreadOption.UIThread);
-
-            //BaseEventAggregator.GetEvent<PageNavigateParmsEvent>().Subscribe(OnNavigateParmsCommandExecuted, ThreadOption.UIThread);
-
-            // Always display the log
-            Shell.Current.GoToAsync(nameof(MessageLogPage));
-
-            if (DataStore.Instance.DS.IsDataLoaded)
-            {
-                LoadHubPage();
-                return;
-            }
-
-            if (!_FirstRunDisplayService.ShowIfAppropriate())
-            {
-                _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
-            }
+            StartProcessing();
         }
 
-        private async void LoadHubPage()
+        private void StartProcessing()
         {
-            MainThread.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(async () =>
             {
-                Shell.Current.GoToAsync("HubPage");
+                // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
+
+                var t = Shell.Current.Navigation.NavigationStack;
+
+                // Make the hub page the root CommonRoutines.LoadHubPage(); await
+                // Shell.Current.GoToAsync(nameof(HubPage), animate: true);
+
+                // Always display the log await Shell.Current.GoToAsync(nameof(MessageLogPage),
+                // animate: true);
+
+                if (DataStore.Instance.DS.IsDataLoaded)
+                {
+                    CommonRoutines.LoadHubPage();
+                    return;
+                }
+
+                if (!_FirstRunDisplayService.ShowIfAppropriate())
+                {
+                    _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
+                }
             });
         }
     }

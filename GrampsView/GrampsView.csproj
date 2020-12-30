@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
   </ItemGroup>
 

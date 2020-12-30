@@ -7,19 +7,20 @@
     Style="{StaticResource FrameBottomMenu}">
 
 
-  
-        <ToolbarItem Text="Example Item"
-                 IconImageSource="example_icon.png"
-                 Order="Primary"
-                 Priority="0" />
-  
+
+    <ToolbarItem
+        IconImageSource="example_icon.png"
+        Order="Primary"
+        Priority="0"
+        Text="Example Item" />
+
 
 
     <!--<StackLayout
         Margin="10,3,3,3"
         HorizontalOptions="Start"
         Orientation="Horizontal">
-        
+
         <ImageButton
             Pressed="HubButton_Pressed"
             Source="{FontImage FontFamily={StaticResource GlyphFontFamily},

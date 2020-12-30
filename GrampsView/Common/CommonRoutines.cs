@@ -1,6 +1,7 @@
-﻿
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
+    using GrampsView.Views;
+
     using Newtonsoft.Json;
 
     using System.Diagnostics;
@@ -16,20 +17,14 @@ namespace GrampsView.Common
 
     public static class CommonRoutines
     {
-
-        [Conditional("DEBUG")]
-        [DebuggerStepThrough]
-        public static void ListEmbeddedResources()
+        // deserialise object
+        public static T DeserialiseObject<T>(string dataIn) where T : new()
         {
-            // ... // NOTE: use for debugging, not in released app code!
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-            foreach (var res in assembly.GetManifestResourceNames())
-            {
-                Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
-            }
+            var ser = JsonConvert.DeserializeObject<T>(dataIn);
+            return ser;
         }
 
-    public static Color GetResourceColour(string argColourResourceName)
+        public static Color GetResourceColour(string argColourResourceName)
         {
             // Get colour
             Application.Current.Resources.TryGetValue(argColourResourceName, out var varCardColour);
@@ -44,6 +39,28 @@ namespace GrampsView.Common
             }
 
             return false;
+        }
+
+        [Conditional("DEBUG")]
+        [DebuggerStepThrough]
+        public static void ListEmbeddedResources()
+        {
+            // ... // NOTE: use for debugging, not in released app code!
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            foreach (var res in assembly.GetManifestResourceNames())
+            {
+                Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
+            }
+        }
+
+        public static void LoadHubPage()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await Shell.Current.Navigation.PopToRootAsync(animated: true);
+
+                await Shell.Current.GoToAsync(nameof(HubPage));
+            });
         }
 
         public static string ReplaceLineSeperators(string argString)
@@ -76,13 +93,5 @@ namespace GrampsView.Common
             var ser = JsonConvert.SerializeObject(dataIn);
             return ser;
         }
-
-        // deserialise object
-        public static T DeserialiseObject<T>(string dataIn) where T : new()
-        {
-            var ser = JsonConvert.DeserializeObject<T>(dataIn);
-            return ser;
-        }
-
     }
 }

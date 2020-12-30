@@ -120,7 +120,7 @@ namespace GrampsView
         {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                Shell.Current.GoToAsync("HubPage");
+                Shell.Current.Navigation.PopToRootAsync(animated: true);
                 return;
             }
 

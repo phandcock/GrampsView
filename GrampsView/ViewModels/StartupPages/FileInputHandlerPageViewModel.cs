@@ -106,7 +106,7 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
+            BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
             await Shell.Current.GoToAsync("..");
         }
@@ -136,11 +136,11 @@
                     // been seen before
                     CommonLocalSettings.SetReloadDatabase();
 
-                    BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(false);
+                    BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        Shell.Current.GoToAsync("..");
+                        Shell.Current.GoToAsync("MessageLogPage");
                     });
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);

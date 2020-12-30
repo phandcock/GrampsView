@@ -44,6 +44,11 @@ namespace GrampsView.Data.Repository
         private readonly IEventAggregator _EventAggregator;
 
         /// <summary>
+        /// The local gramps store serial.
+        /// </summary>
+        private readonly IGrampsStoreSerial _StoreSerial;
+
+        /// <summary>
         /// Injected External Storage.
         /// </summary>
         private readonly IGrampsStoreXML localExternalStorage;
@@ -57,11 +62,6 @@ namespace GrampsView.Data.Repository
         /// The local store file.
         /// </summary>
         private readonly IStoreFile localStoreFile;
-
-        /// <summary>
-        /// The local gramps store serial.
-        /// </summary>
-        private readonly IGrampsStoreSerial _StoreSerial;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -164,19 +164,6 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// Starts the data load.
         /// </summary>
-        /// <param name="unUsed">
-        /// if set to <c>true</c> [un used].
-        /// </param>
-        public void StartDataLoad(bool unUsed)
-        {
-            Task<bool> t = Task.Run(() => StartDataLoadAsync());
-
-            if (!t.Result)
-            {
-                DataStore.Instance.CN.NotifyError("Failed to load existing data...");
-            }
-        }
-
         public void StartDataLoad()
         {
             Task<bool> t = Task.Run(() => StartDataLoadAsync());

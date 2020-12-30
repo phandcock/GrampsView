@@ -5,7 +5,7 @@
     x:Name="TopMenuRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="red"
+    BackgroundColor="Orange"
     Style="{DynamicResource GVPageTitleStyle}"
     VerticalOptions="CenterAndExpand">
 

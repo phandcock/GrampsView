@@ -39,8 +39,6 @@ namespace GrampsView.Data.Repository
         ///// <returns> loaded or not </returns>
         // Task<bool> TriggerLoadGPKGFileAsync(bool deleteOld);
 
-        void StartDataLoad(bool unUsed);
-
         void StartDataLoad();
 
         /// <summary>
