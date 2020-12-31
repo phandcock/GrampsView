@@ -9,14 +9,15 @@
     xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="HubPageRoot"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <!--  Content  -->
     <ScrollView>

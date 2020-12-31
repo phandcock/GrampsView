@@ -11,14 +11,15 @@
     xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaDetailPageRoot"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <Page.Resources>
         <ResourceDictionary>

@@ -5,13 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <!--  Content  -->
 

@@ -9,15 +9,16 @@
     xmlns:prism="http://prismlibrary.com"
     xmlns:prismnav="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Shell.NavBarIsVisible="False"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <ScrollView>
         <StackLayout Orientation="Vertical">

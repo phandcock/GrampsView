@@ -8,15 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Shell.NavBarIsVisible="False"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <ScrollView>
         <StackLayout>

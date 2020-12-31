@@ -12,6 +12,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     x:Name="SearchPageRoot"
+    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="viewmodels:SearchPageViewModel"
     Appearing="ContentPage_Appearing"
@@ -20,9 +21,9 @@
     mc:Ignorable="d">
 
     <!--  Header  -->
-    <NavigationPage.TitleView>
-        <ucon:TopMenu />
-    </NavigationPage.TitleView>
+   
+       
+ 
 
     <Page.Resources>
         <ResourceDictionary>

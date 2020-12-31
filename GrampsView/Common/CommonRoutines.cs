@@ -3,6 +3,7 @@
     using Newtonsoft.Json;
 
     using System.Diagnostics;
+    using System.Linq;
     using System.Reflection;
     using System.Text.RegularExpressions;
 
@@ -55,6 +56,15 @@
         {
             MainThread.BeginInvokeOnMainThread(async () =>
             {
+                if (Shell.Current.Navigation.NavigationStack.Count > 0)
+                {
+                    if (Shell.Current.Navigation.NavigationStack.First() == null)
+                    {
+                        //var t = ((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page;
+                        //Shell.Current.Navigation.RemovePage(((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page);
+                    }
+                }
+
                 await Shell.Current.Navigation.PopToRootAsync(animated: true);
 
                 // await Shell.Current.GoToAsync(nameof(HubPage));
