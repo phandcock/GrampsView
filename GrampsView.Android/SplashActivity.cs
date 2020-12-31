@@ -5,10 +5,12 @@
     using Android.Content;
     using Android.Content.PM;
     using Android.OS;
-    using Android.Support.V4.App;
-    using Android.Support.V4.Content;
-    using Android.Support.V7.App;
+
     using Android.Util;
+
+    using AndroidX.AppCompat.App;
+    using AndroidX.Core.App;
+    using AndroidX.Core.Content;
 
     using System.Threading.Tasks;
 
