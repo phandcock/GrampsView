@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Common
 {
-    using GrampsView.Views;
-
     using Newtonsoft.Json;
 
     using System.Diagnostics;
@@ -59,7 +57,7 @@
             {
                 await Shell.Current.Navigation.PopToRootAsync(animated: true);
 
-                await Shell.Current.GoToAsync(nameof(HubPage));
+                // await Shell.Current.GoToAsync(nameof(HubPage));
             });
         }
 

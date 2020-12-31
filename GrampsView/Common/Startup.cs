@@ -25,6 +25,11 @@
             {
                 // Start data load
 
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Shell.Current.GoToAsync("MessageLogPage");
+                });
+
                 _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
                 return;
             }
@@ -69,8 +74,6 @@
             _FirstRunDisplayService = iocFirstRunDisplayService;
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
-
-            //_iocEventAggregator.GetEvent<AppStartFirstRunEvent>().Subscribe(ServiceFirstRun, ThreadOption.UIThread);
 
             _iocEventAggregator.GetEvent<AppStartLoadDataEvent>().Subscribe(ServiceLoadData, ThreadOption.UIThread);
 

@@ -3,6 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Events;
 
     using Prism.Events;
 
@@ -29,6 +30,8 @@
         {
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
+
+            BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateView, ThreadOption.UIThread);
         }
 
         public CardListLineCollection HeaderCard
@@ -40,13 +43,21 @@
         }
 
         public CardGroupBase<HLinkCitationModel> LatestCitationChanges { get { return DV.CitationDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkEventModel> LatestEventChanges { get { return DV.EventDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges { get { return DV.FamilyDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkMediaModel> LatestMediaChanges { get { return DV.MediaDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkNoteModel> LatestNoteChanges { get { return DV.NoteDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkPersonModel> LatestPersonChanges { get { return DV.PersonDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkPlaceModel> LatestPlaceChanges { get { return DV.PlaceDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkSourceModel> LatestSourceChanges { get { return DV.SourceDV.GetLatestChanges(); } }
+
         public CardGroupBase<HLinkTagModel> LatestTagChanges { get { return DV.TagDV.GetLatestChanges(); } }
 
         public IHLinkMediaModel MediaCard
@@ -98,6 +109,11 @@
             RaisePropertyChanged(string.Empty);
 
             return;
+        }
+
+        private void UpdateView()
+        {
+            RaisePropertyChanged(string.Empty);
         }
     }
 }
