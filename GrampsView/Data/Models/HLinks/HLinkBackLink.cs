@@ -189,6 +189,11 @@ namespace GrampsView.Data.Model
             return (HLinkType == (obj as HLinkBackLink).HLinkType) && (HLink().HLinkKey == (obj as HLinkBackLink).HLink().HLinkKey);
         }
 
+        public override int GetHashCode()
+        {
+            return HLinkKey.GetHashCode();
+        }
+
         public HLinkBase HLink()
         {
             switch (HLinkType)

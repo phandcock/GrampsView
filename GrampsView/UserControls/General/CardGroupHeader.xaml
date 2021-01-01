@@ -7,10 +7,7 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    BindingContextChanged="CardGroupHeaderRoot_BindingContextChanged"
     Style="{StaticResource CardGroupStyle}">
-
-
 
     <Frame.Resources>
         <ResourceDictionary>

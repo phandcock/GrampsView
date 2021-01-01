@@ -12,13 +12,8 @@
     Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
-    Shell.NavBarIsVisible="False"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
-
-   
-       
- 
 
     <ScrollView>
         <StackLayout Orientation="Vertical">

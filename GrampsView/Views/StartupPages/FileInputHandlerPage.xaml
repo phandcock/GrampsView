@@ -15,10 +15,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-   
-       
- 
-
     <Grid toolkit:StateLayout.CurrentState="{Binding BaseCurrentState}">
 
         <toolkit:StateLayout.StateViews>

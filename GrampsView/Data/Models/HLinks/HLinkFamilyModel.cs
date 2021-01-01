@@ -2,17 +2,11 @@
 
 // TODO fix Deref caching
 
-/// <summary>
-/// </summary>
-
-/// TODO Update fields as per Schema
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
 
     using Xamarin.Forms;
 
@@ -47,9 +41,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkFamilyModel argHLink)
         {
-            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkFamilyModel>(argHLink));
-
-            await Shell.Current.GoToAsync(string.Format("FamilyDetailPage?BaseParamsHLink={0}", jason));
+            await UCNavigateBase(argHLink, "FamilyDetailPage");
         }
     }
 }

@@ -95,11 +95,11 @@
             return retVal;
         }
 
-        // serialise object
-        public static string SerialiseObject<T>(T dataIn) where T : new()
-        {
-            var ser = JsonConvert.SerializeObject(dataIn);
-            return ser;
-        }
+        //// serialise object
+        //public static string SerialiseObject<T>(T dataIn) where T : new()
+        //{
+        //    var ser = JsonConvert.SerializeObject(dataIn);
+        //    return ser;
+        //}
     }
 }

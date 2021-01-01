@@ -11,7 +11,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Windows.Input;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
@@ -110,26 +109,5 @@ namespace GrampsView.Data.Model
         }
 
         = new HLinkNoteModelCollection();
-
-        public ICommand UCNavigateCommand { get; private set; }
-        ///// <summary>
-        ///// Gets or sets the image h link key.
-        ///// </summary>
-        ///// <value>
-        ///// The image h link key.
-        ///// </value>
-        //[DataMember]
-        //public HLinkMediaModel HomeImageHLink
-        //{
-        //    get
-        //    {
-        //        return localImageHLink;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref localImageHLink, value);
-        //    }
-        //}
     }
 }

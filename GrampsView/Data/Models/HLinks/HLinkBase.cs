@@ -2,12 +2,17 @@
 {
     using GrampsView.Common;
 
+    using Newtonsoft.Json;
+
     using System;
     using System.Collections;
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
     using System.Windows.Input;
+
+    using Xamarin.Forms;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -204,6 +209,13 @@
             Contract.Assert(arg != null);
 
             HLinkKey = arg.HLinkKey;
+        }
+
+        public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
+        {
+            string ser = JsonConvert.SerializeObject(dataIn);
+
+            await Shell.Current.GoToAsync(string.Format("{0}?BaseParamsHLink={1}", argPage, ser));
         }
 
         /// <summary>

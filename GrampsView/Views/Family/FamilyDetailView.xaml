@@ -13,10 +13,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-   
-       
- 
-
     <!--  Content  -->
     <ScrollView>
         <StackLayout>

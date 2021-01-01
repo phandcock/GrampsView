@@ -8,10 +8,5 @@
         {
             InitializeComponent();
         }
-
-        private void CardGroupHeaderRoot_BindingContextChanged(object sender, System.EventArgs e)
-        {
-            var t = sender;
-        }
     }
 }

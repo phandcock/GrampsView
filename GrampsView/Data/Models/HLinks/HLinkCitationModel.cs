@@ -1,14 +1,10 @@
 ﻿// XML 171 - All fields defined
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
 
     using Xamarin.Forms;
 
@@ -68,9 +64,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkCitationModel argHLink)
         {
-            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkCitationModel>(argHLink));
-
-            await Shell.Current.GoToAsync(string.Format("CitationDetailPage?BaseParamsHLink={0}", jason));
+            await UCNavigateBase(argHLink, "CitationDetailPage");
         }
     }
 }

@@ -1,31 +1,15 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="FamilyDetailPage.xaml.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-// The Item Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234232
-namespace GrampsView.Views
+﻿namespace GrampsView.Views
 {
     using Xamarin.Forms;
 
-    /// <summary>
-    /// A page that displays details for a single item within a group while allowing gestures to flip
-    /// through other items belonging to the same group.
-    /// </summary>
     public partial class FamilyDetailPage : ContentPage
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FamilyDetailPage" /> class.
+        /// Initializes a new instance of the <see cref="FamilyDetailPage"/> class.
         /// </summary>
         public FamilyDetailPage()
         {
             InitializeComponent();
         }
-
     }
 }

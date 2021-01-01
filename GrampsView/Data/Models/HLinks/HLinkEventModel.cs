@@ -2,12 +2,10 @@
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
 
     using Xamarin.Forms;
 
@@ -79,9 +77,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkEventModel argHLink)
         {
-            string jason = await Task.Run(() => CommonRoutines.SerialiseObject<HLinkEventModel>(argHLink));
-
-            await Shell.Current.GoToAsync(string.Format("EventDetailPage?BaseParamsHLink={0}", jason));
+            await UCNavigateBase(argHLink, "EventDetailPage");
         }
     }
 }

@@ -13,10 +13,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-   
-       
- 
-
     <ScrollView>
         <StackLayout>
             <ucon:MediaCardLarge BindingContext="{Binding CitationObject.HomeImageHLink.ConvertToHLinkMediaModel, Mode=OneWay}" />
