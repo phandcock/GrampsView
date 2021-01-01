@@ -236,9 +236,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GrampsView\GrampsView.csproj">
       <Project>{54eaf1e8-e560-4a93-8206-263171b8900d}</Project>

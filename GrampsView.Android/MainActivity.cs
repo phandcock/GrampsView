@@ -7,11 +7,10 @@
 
     using FFImageLoading.Forms.Platform;
 
+    using GrampsView;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
     using GrampsView.Droid.Common;
-
-    using GrampsView;
 
     using Prism;
     using Prism.Ioc;
@@ -23,6 +22,10 @@
 
     public class AndroidInitializer : IPlatformInitializer
     {
+        public AndroidInitializer()
+        {
+        }
+
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
@@ -76,7 +79,7 @@
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             // Load the app
-            LoadApplication(new App());
+            LoadApplication(new App(new AndroidInitializer()));
         }
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)

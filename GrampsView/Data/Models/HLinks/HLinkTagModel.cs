@@ -7,7 +7,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
-    using System.Windows.Input;
 
     using Xamarin.Forms;
 
@@ -24,7 +23,10 @@ namespace GrampsView.Data.Model
         /// </summary>
         private HLinkMediaModel localImageHLink = new HLinkMediaModel();
 
-   
+        public HLinkTagModel()
+        {
+            UCNavigateCommand = new Command<HLinkTagModel>(UCNavigate);
+        }
 
         /// <summary>
         /// Gets the dereferenced Tag ViewModel.
@@ -67,6 +69,9 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public ICommand UCNavigateCommand { get; private set; }
+        public async void UCNavigate(HLinkTagModel argHLink)
+        {
+            await UCNavigateBase(argHLink, "TagDetailPage");
+        }
     }
 }

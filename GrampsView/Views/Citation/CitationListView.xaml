@@ -13,11 +13,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-   
-       
- 
-
     <!--  Content  -->
-
     <ucon:CollectionSingleCard FsctSource="{Binding CitationSource, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
 </ContentPage>

@@ -8,6 +8,8 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
+    using Xamarin.Forms;
+
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -16,6 +18,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkPlaceModel : HLinkBase, IHLinkPlaceModel
     {
+        public HLinkPlaceModel()
+        {
+            UCNavigateCommand = new Command<HLinkPlaceModel>(UCNavigate);
+        }
+
         public PlaceModel DeRef
         {
             get
@@ -29,6 +36,11 @@ namespace GrampsView.Data.Model
                     return null;
                 }
             }
+        }
+
+        public async void UCNavigate(HLinkPlaceModel argHLink)
+        {
+            await UCNavigateBase(argHLink, "PlaceDetailPage");
         }
     }
 }

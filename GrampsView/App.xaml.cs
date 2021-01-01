@@ -1,4 +1,5 @@
 ﻿using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorageNS;
@@ -131,7 +132,7 @@ namespace GrampsView
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
 
-            // IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
+            IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
 
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 

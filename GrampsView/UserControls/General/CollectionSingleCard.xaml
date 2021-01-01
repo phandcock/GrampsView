@@ -19,8 +19,6 @@
         x:Name="theCollectionView"
         IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-        RemainingItemsThreshold="5"
-        RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}"
         SizeChanged="theCollectionView_SizeChanged"
         Style="{StaticResource CollectionViewBase}">
 

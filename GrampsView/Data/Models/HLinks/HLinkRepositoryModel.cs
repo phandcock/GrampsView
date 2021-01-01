@@ -12,6 +12,8 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
+    using Xamarin.Forms;
+
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -29,6 +31,11 @@ namespace GrampsView.Data.Model
         /// The local medium.
         /// </summary>
         private string localMedium;
+
+        public HLinkRepositoryModel()
+        {
+            UCNavigateCommand = new Command<HLinkRepositoryModel>(UCNavigate);
+        }
 
         /// <summary>
         /// The local image h link.
@@ -109,5 +116,10 @@ namespace GrampsView.Data.Model
         }
 
         = new HLinkNoteModelCollection();
+
+        public async void UCNavigate(HLinkRepositoryModel argHLink)
+        {
+            await UCNavigateBase(argHLink, "RepositoryDetailPage");
+        }
     }
 }
