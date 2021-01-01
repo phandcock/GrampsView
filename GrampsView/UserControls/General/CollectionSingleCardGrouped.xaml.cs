@@ -3,7 +3,6 @@
     using GrampsView.Common;
 
     using System;
-    using System.Collections;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
@@ -12,7 +11,7 @@
     public partial class CollectionSingleCardGrouped : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(CardGroup), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCardGrouped), propertyChanged: OnItemTemplateChanged);
@@ -38,9 +37,9 @@
         /// <value>
         /// The Control Item Source.
         /// </value>
-        public IEnumerable FsctSource
+        public CardGroup FsctSource
         {
-            get { return (IEnumerable)GetValue(FsctSourceProperty); }
+            get { return (CardGroup)GetValue(FsctSourceProperty); }
             set { SetValue(FsctSourceProperty, value); }
         }
 
@@ -75,30 +74,6 @@
                 OnPropertyChanged();
             }
         }
-
-        ///// <summary>
-        ///// Called when [items source changed].
-        ///// </summary>
-        ///// <param name="argSource">
-        ///// The argument source.
-        ///// </param>
-        ///// <param name="oldValue">
-        ///// The old value.
-        ///// </param>
-        ///// <param name="newValue">
-        ///// The new value.
-        ///// </param>
-        //public static void OnItemsSourceChanged(BindableObject argSource, object oldValue, object newValue)
-        //{
-        //    Contract.Assert(argSource != null);
-
-        // if (newValue is null) { return; }
-
-        // CollectionHeaderSingleCard layout = argSource as CollectionHeaderSingleCard;
-        // Contract.Requires(layout != null); IEnumerable iSource = newValue as IEnumerable;
-
-        //    layout.theCollectionView.ItemsSource = iSource;
-        //}
 
         /// <summary>
         /// Called when [item template changed].

@@ -10,10 +10,6 @@
     ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}">
 
-   
-       
- 
-
     <!--  Content  -->
     <ScrollView>
         <ucon:CollectionSingleCardGrouped FsctSource="{Binding PersonSource, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />

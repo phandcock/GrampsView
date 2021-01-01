@@ -4,23 +4,18 @@
     x:Class="GrampsView.UserControls.CollectionSingleCardGrouped"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
     SizeChanged="CollectionSingleCardGroupedRoot_SizeChanged">
 
-    <Frame.Resources>
-        <toolkit:IsNotNullOrEmptyConverter x:Key="SingleToVisible" />
-    </Frame.Resources>
-
     <CollectionView
         x:Name="theCollectionView"
-        Grid.Column="0"
         IsGrouped="True"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
+
         <CollectionView.ItemsLayout>
             <GridItemsLayout
                 HorizontalItemSpacing="2"
@@ -28,6 +23,7 @@
                 Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
                 VerticalItemSpacing="2" />
         </CollectionView.ItemsLayout>
+
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
                 <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{DynamicResource GVFrameHeaderStyle}">

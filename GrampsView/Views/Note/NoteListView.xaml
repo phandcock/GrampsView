@@ -10,11 +10,8 @@
     ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}">
 
-   
-       
- 
-
     <!--  Content  -->
-
-    <ucon:FlexSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+    <ScrollView>
+        <ucon:FlexSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+    </ScrollView>
 </ContentPage>

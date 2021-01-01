@@ -12,21 +12,19 @@
     HasShadow="True"
     IsVisible="True">
 
-    <Frame.Content>
-
-        <ffimageloading:CachedImage
-            x:Name="daImage"
-            Aspect="AspectFit"
-            BackgroundColor="Transparent"
-            CacheType="All"
-            DownsampleToViewSize="True"
-            Error="DaImage_Error"
-            HeightRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-            IsVisible="True"
-            LoadingPlaceholder="ic_launcher.png"
-            MinimumHeightRequest="50"
-            MinimumWidthRequest="50"
-            RetryCount="3"
-            RetryDelay="1000" />
-    </Frame.Content>
+    <ffimageloading:CachedImage
+        x:Name="daImage"
+        Aspect="AspectFill"
+        BackgroundColor="Transparent"
+        CacheType="All"
+        DownsampleToViewSize="True"
+        Error="DaImage_Error"
+        HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+        IsVisible="True"
+        LoadingPlaceholder="ic_launcher.png"
+        MinimumHeightRequest="50"
+        MinimumWidthRequest="50"
+        RetryCount="3"
+        RetryDelay="1000"
+        WidthRequest="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
 </Frame>

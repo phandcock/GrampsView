@@ -468,15 +468,6 @@
 
     <!--
         ******************************************************
-        Image Control Styles
-        ******************************************************
-    -->
-    <!--  Create a Base Style for a Image Control Style  -->
-    <!--
-    <Style x:Key="ImageControlStyle" TargetType="Image" />-->
-
-    <!--
-        ******************************************************
         Label Styles
         ******************************************************
     -->
@@ -582,36 +573,4 @@
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
     </Style>
-
-    <!--
-        ******************************************************
-        Listview Item Styles
-        ******************************************************
-    -->
-
-    <!--  Create a Basic Style for a ListView  -->
-    <!--
-    <Style x:Key="ListViewBasic" TargetType="ListView" />
-
-    -->
-    <!--  Create a Label Style for a ListView  -->
-    <!--
-    <Style
-        x:Key="ListViewLabel"
-        BaseResourceKey="ListViewBasic"
-        TargetType="ListView">
-        <Setter Property="BackgroundColor" Value="Transparent" />
-    </Style>-->
-
-    <!--
-        ******************************************************
-        TextBlock Styles
-        ******************************************************
-    -->
-
-    <!--  Create a Large Style for a TextBlock  -->
-    <!--
-    <Style x:Key="GVTextBlockStyleLarge" TargetType="Label">
-        <Setter Property="IsEnabled" Value="False" />
-    </Style>-->
 </ResourceDictionary>

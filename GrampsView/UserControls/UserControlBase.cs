@@ -8,14 +8,8 @@
     {
         public UserControlBase()
         {
-       
         }
 
         public ICommand UCNavigateCommand { get; private set; }
-
-        private async void UCNavigate()
-        {
-            await Shell.Current.GoToAsync("EventDetailPage");
-        }
     }
 }

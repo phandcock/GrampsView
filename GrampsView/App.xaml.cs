@@ -21,7 +21,6 @@ using Prism.Modularity;
 using Prism.Services.Dialogs;
 
 using System.Diagnostics;
-using System.Reflection;
 
 using Unity;
 
@@ -64,16 +63,16 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            Debug.WriteLine("====== resource debug info =========");
+            //Debug.WriteLine("====== resource debug info =========");
 
-            var assembly = typeof(App).GetTypeInfo().Assembly;
+            //var assembly = typeof(App).GetTypeInfo().Assembly;
 
-            foreach (var res in assembly.GetManifestResourceNames())
-            {
-                Debug.WriteLine("found resource: " + res);
-            }
+            //foreach (var res in assembly.GetManifestResourceNames())
+            //{
+            //    Debug.WriteLine("found resource: " + res);
+            //}
 
-            Debug.WriteLine("====================================");
+            //Debug.WriteLine("====================================");
 
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
@@ -89,8 +88,6 @@ namespace GrampsView
 
             // Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += OnMainDisplayInfoChanged;
-
-            // Update Card widths CardWidths.ResetCardWidths();
 
             VersionTracking.Track();
 
@@ -132,11 +129,11 @@ namespace GrampsView
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
 
-            IPlatformSpecific ps = Container.Resolve<IPlatformSpecific>();
+            Container.Resolve<IPlatformSpecific>();
 
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
-            IDataRepositoryManager temp = Container.Resolve<IDataRepositoryManager>();
+            Container.Resolve<IDataRepositoryManager>();
 
             StartEvents(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
                 Container.Resolve<DatabaseReloadDisplayService>(), Container.Resolve<IDialogService>());
@@ -191,8 +188,6 @@ namespace GrampsView
 
             container.RegisterForNavigation<NavigationPage>();
 
-            //container.RegisterForNavigation<MainPage, MainPageViewModel>();
-
             container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 
             container.RegisterSingleton<ICommonLogging, CommonLogging>();
@@ -213,20 +208,6 @@ namespace GrampsView
 
             container.RegisterSingleton<DatabaseReloadDisplayService>();
             container.RegisterForNavigation<NeedDatabaseReloadPage>();
-
-            // Set a factory for the ViewModelLocator to use the container to construct view models
-            // so their dependencies get injected by the container TODO
-            // ViewModelLocationProvider.SetDefaultViewModelFactory((viewModelType) => container.Resolve(viewModelType));
-
-            // Sections of code should not be "commented out" // set the convention used to match
-            // views and viewmodels
-            // ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver((viewType) => {
-            // string ViewNamespace = "Views"; string ViewModelNamespace = "ViewModels"; var
-            // friendlyName = viewType.FullName; friendlyName = friendlyName.Replace(ViewNamespace,
-            // ViewModelNamespace); var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
-            // var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}ViewModel, {1}",
-            // friendlyName, viewAssemblyName); return Type.GetType(viewModelName); }); Sections of
-            // code should not be "commented out"
         }
 
         /// <summary>
