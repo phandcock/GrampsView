@@ -1,3 +1,14 @@
+## [16.14.1](https://github.com/phandcock/GrampsView/compare/v16.14.0...v16.14.1) (2021-01-01)
+
+
+### Bug Fixes
+
+* code cleanup ([0c209b3](https://github.com/phandcock/GrampsView/commit/0c209b3eb641e61bed77315f94ac3a8e1b723f1e))
+* fix android ipatform initializer null bug ([51aab80](https://github.com/phandcock/GrampsView/commit/51aab802edddc8ad2c621c335017d71c4a209577))
+* more fixes to usercontrol tap links ([68012aa](https://github.com/phandcock/GrampsView/commit/68012aae8db77999051647515121636a90abd8a3))
+
+
+
 # [16.14.0](https://github.com/phandcock/GrampsView/compare/v16.13.2...v16.14.0) (2020-12-31)
 
 
