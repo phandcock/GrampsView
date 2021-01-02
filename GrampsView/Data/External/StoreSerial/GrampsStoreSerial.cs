@@ -22,7 +22,7 @@ namespace GrampsView.Data.External.StoreSerial
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    public class GrampsStoreSerial : IGrampsStoreSerial
+    public class GrampsStoreSerial : CommonBindableBase, IGrampsStoreSerial
     {
         /// <summary>
         /// The local common logging.

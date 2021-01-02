@@ -60,6 +60,27 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        public override CardGroupBase<HLinkFamilyModel> GetLatestChanges
+        {
+            get
+            {
+                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                CardGroupBase<HLinkFamilyModel> returnCardGroup = new CardGroupBase<HLinkFamilyModel>();
+
+                foreach (FamilyModel item in tt)
+                {
+                    returnCardGroup.Add(item.HLink);
+                }
+
+                returnCardGroup.Title = "Latest Family Changes";
+
+                return returnCardGroup;
+            }
+        }
+
         public override CardGroupBase<HLinkFamilyModel> GetAllAsCardGroupBase()
         {
             CardGroupBase<HLinkFamilyModel> t = new CardGroupBase<HLinkFamilyModel>();
@@ -227,24 +248,6 @@ namespace GrampsView.Data.DataView
             }
 
             return GetModelFromHLinkString(arg).GFather.DeRef;
-        }
-
-        public override CardGroupBase<HLinkFamilyModel> GetLatestChanges()
-        {
-            DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-            IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-            CardGroupBase<HLinkFamilyModel> returnCardGroup = new CardGroupBase<HLinkFamilyModel>();
-
-            foreach (FamilyModel item in tt)
-            {
-                returnCardGroup.Add(item.HLink);
-            }
-
-            returnCardGroup.Title = "Latest Family Changes";
-
-            return returnCardGroup;
         }
 
         public override FamilyModel GetModelFromHLinkString(string HLinkString)

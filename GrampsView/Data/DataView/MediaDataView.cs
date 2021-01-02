@@ -112,6 +112,27 @@
             }
         }
 
+        public override CardGroupBase<HLinkMediaModel> GetLatestChanges
+        {
+            get
+            {
+                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotClipped => NotClipped.IsClippedFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                CardGroupBase<HLinkMediaModel> returnCardGroup = new CardGroupBase<HLinkMediaModel>();
+
+                foreach (IMediaModel item in tt)
+                {
+                    returnCardGroup.Add(item.HLink);
+                }
+
+                returnCardGroup.Title = "Latest Media Changes";
+
+                return returnCardGroup;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the media data.
         /// </summary>
@@ -243,24 +264,6 @@
 
             // return the image
             return returnMediaModel;
-        }
-
-        public override CardGroupBase<HLinkMediaModel> GetLatestChanges()
-        {
-            DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-            IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotClipped => NotClipped.IsClippedFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-            CardGroupBase<HLinkMediaModel> returnCardGroup = new CardGroupBase<HLinkMediaModel>();
-
-            foreach (IMediaModel item in tt)
-            {
-                returnCardGroup.Add(item.HLink);
-            }
-
-            returnCardGroup.Title = "Latest Media Changes";
-
-            return returnCardGroup;
         }
 
         public override MediaModel GetModelFromHLinkString(string HLinkString)

@@ -52,6 +52,27 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        public override CardGroupBase<HLinkRepositoryModel> GetLatestChanges
+        {
+            get
+            {
+                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                CardGroupBase<HLinkRepositoryModel> returnCardGroup = new CardGroupBase<HLinkRepositoryModel>();
+
+                foreach (RepositoryModel item in tt)
+                {
+                    returnCardGroup.Add(item.HLink);
+                }
+
+                returnCardGroup.Title = "Latest Repository Changes";
+
+                return returnCardGroup;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the person data.
         /// </summary>
@@ -99,24 +120,6 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroupBase<HLinkRepositoryModel> GetLatestChanges()
-        {
-            DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-            IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-            CardGroupBase<HLinkRepositoryModel> returnCardGroup = new CardGroupBase<HLinkRepositoryModel>();
-
-            foreach (RepositoryModel item in tt)
-            {
-                returnCardGroup.Add(item.HLink);
-            }
-
-            returnCardGroup.Title = "Latest Repository Changes";
-
-            return returnCardGroup;
-        }
-
         public override RepositoryModel GetModelFromHLinkString(string HLinkString)
         {
             return RepositoryData[HLinkString];
@@ -161,8 +164,6 @@ namespace GrampsView.Data.DataView
             {
                 return itemsFound;
             }
-
-  
 
             var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 

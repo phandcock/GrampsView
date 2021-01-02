@@ -1,11 +1,14 @@
 ﻿namespace GrampsView.Common
 {
+    using GrampsView.Data.Repository;
+
     using Newtonsoft.Json;
 
     using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -69,6 +72,27 @@
 
                 // await Shell.Current.GoToAsync(nameof(HubPage));
             });
+        }
+
+        public static void Navigate(string argPageName)
+        {
+            DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+
+            Shell.Current.GoToAsync(argPageName, animate: true);
+        }
+
+        public static async Task NavigateAsync(string argPageName)
+        {
+            await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+
+            await Shell.Current.GoToAsync(argPageName, animate: true);
+        }
+
+        public static async Task NavigateBackAsync()
+        {
+            await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigate back"));
+
+            await Shell.Current.GoToAsync("..", animate: true);
         }
 
         public static string ReplaceLineSeperators(string argString)

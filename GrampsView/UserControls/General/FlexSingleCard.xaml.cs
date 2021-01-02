@@ -13,7 +13,7 @@
               = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
-                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard)); //, propertyChanged: OnItemTemplateChanged);
+                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexSingleCard"/> class.

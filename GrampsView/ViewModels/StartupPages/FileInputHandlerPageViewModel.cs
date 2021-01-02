@@ -13,8 +13,6 @@
     using System.Reflection;
 
     using Xamarin.CommunityToolkit.UI.Views;
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     /// <summary>
     /// View model for File Input Page.
@@ -108,7 +106,11 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            await Shell.Current.GoToAsync("..");
+            //await MainThread.InvokeOnMainThreadAsync(async () =>
+            //  {
+            //      await CommonRoutines.NavigateBackAsync();
+            //  }
+            // );
         }
 
         /// <summary>
@@ -137,11 +139,6 @@
                     CommonLocalSettings.SetReloadDatabase();
 
                     BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
-
-                    MainThread.BeginInvokeOnMainThread(() =>
-                    {
-                        Shell.Current.GoToAsync("MessageLogPage");
-                    });
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
                 }

@@ -93,8 +93,6 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroupBase<HLinkNameMapModel> GetLatestChanges() => throw new System.NotImplementedException();
-
         public override NameMapModel GetModelFromHLinkString(string HLinkString)
         {
             return NameMapData[HLinkString];

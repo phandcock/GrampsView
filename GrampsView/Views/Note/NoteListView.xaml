@@ -3,15 +3,18 @@
     x:Class="GrampsView.Views.NoteListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource ListPageTemplate}"
-    Style="{DynamicResource GVBaseContentPage}">
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:FlexSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+        <ucon:CollectionSingleCard FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
     </ScrollView>
 </ContentPage>

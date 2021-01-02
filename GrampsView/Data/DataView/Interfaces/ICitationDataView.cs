@@ -4,32 +4,16 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System.Collections.Generic;
-
     using GrampsView.Data.Collections;
-
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
+
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interface for the Note Repository.
     /// </summary>
     public interface ICitationDataView : IDataViewBase<CitationModel, HLinkCitationModel, HLinkCitationModelCollection>
     {
-        /// <summary>
-        /// Gets or sets the specified h link string.
-        /// </summary>
-        /// <value>
-        /// The citation data.
-        /// </value>
-        /// <param name="HLinkString">
-        /// The h link string.
-        /// </param>
-        RepositoryModelDictionary<CitationModel, HLinkCitationModel> CitationData
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets the data default sort.
         /// </summary>

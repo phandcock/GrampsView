@@ -4,13 +4,12 @@
 
 namespace GrampsView.Services
 {
-    using GrampsView.Events;
+    using GrampsView.Common;
     using GrampsView.Views;
 
     using Prism.Events;
 
     using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     public class WhatsNewDisplayService : IWhatsNewDisplayService
     {
@@ -29,9 +28,7 @@ namespace GrampsView.Services
             // first run. If this service is called multiple times then it will need the flag.
             if ((VersionTracking.IsFirstLaunchForCurrentBuild)) // && (!Common.CommonLocalSettings.WhatsNewDisplayed))
             {
-                // Common.CommonLocalSettings.WhatsNewDisplayed = true;
-                Shell.Current.GoToAsync(nameof(WhatsNewPage));
-                //iocEventAggregator.GetEvent<PageNavigateEvent>().Publish(nameof(WhatsNewPage));
+                CommonRoutines.Navigate(nameof(WhatsNewPage));
 
                 return true;
             }

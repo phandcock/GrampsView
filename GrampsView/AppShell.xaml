@@ -10,7 +10,7 @@
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
-
+        
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
@@ -90,7 +90,6 @@
         the flyout menu won't be available. This is useful for creating areas of the application where
         you don't want users to be able to navigate away from. If you would like to navigate to this
         content you can do so by calling
-        await Shell.Current.GoToAsync("//LoginPage");
     -->
     <!--<TabBar>
         <Tab Title="Home">

@@ -93,8 +93,6 @@
             return t;
         }
 
-        public override CardGroupBase<HLinkHeaderModel> GetLatestChanges() => throw new System.NotImplementedException();
-
         public override HeaderModel GetModelFromHLinkString(string HLinkString)
         {
             return HeaderData.Values.First();

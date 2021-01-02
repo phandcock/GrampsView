@@ -6,7 +6,6 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
 
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
@@ -176,11 +175,6 @@ namespace GrampsView.Data.DataView
 
             // return the image
             return returnMediaModel;
-        }
-
-        public override CardGroupBase<HLinkPersonNameModel> GetLatestChanges()
-        {
-            throw new NotImplementedException();
         }
 
         public override PersonNameModel GetModelFromHLinkString(string HLinkString)

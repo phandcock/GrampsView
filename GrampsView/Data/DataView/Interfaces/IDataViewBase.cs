@@ -49,6 +49,8 @@ namespace GrampsView.Data.DataView
             get;
         }
 
+        CardGroupBase<TU> GetLatestChanges { get; }
+
         CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList);
 
         CardGroupBase<TU> GetAllAsCardGroupBase();
@@ -69,8 +71,6 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// </returns>
         HLinkHomeImageModel GetFirstImageFromCollection(TH theCollection);
-
-        CardGroupBase<TU> GetLatestChanges();
 
         /// <summary>
         /// Gets the model from the hlink. Helper method.

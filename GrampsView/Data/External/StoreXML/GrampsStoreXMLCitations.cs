@@ -109,7 +109,7 @@
                         loadCitation = SetHomeImage(loadCitation);
 
                         // save the event
-                        DV.CitationDV.CitationData.Add(loadCitation);
+                        DataStore.Instance.DS.CitationData.Add(loadCitation);
                     }
 
                     await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);

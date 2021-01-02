@@ -79,6 +79,14 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        public virtual CardGroupBase<TU> GetLatestChanges
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public virtual CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
             Contract.Assert(argReadOnlyList != null);
@@ -119,8 +127,6 @@ namespace GrampsView.Data.DataView
         {
             throw new NotImplementedException();
         }
-
-        public abstract CardGroupBase<TU> GetLatestChanges();
 
         /// <summary>
         /// Gets the model.

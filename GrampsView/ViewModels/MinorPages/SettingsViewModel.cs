@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
+    using GrampsView.Views;
 
     using Microsoft.AppCenter.Distribute;
 
@@ -167,7 +168,7 @@
 
         private async void UCNavigate()
         {
-            await Shell.Current.GoToAsync("MessageLogPage");
+            await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
         }
     }
 }

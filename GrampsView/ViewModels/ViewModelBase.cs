@@ -5,7 +5,6 @@
 
     using Prism.Events;
     using Prism.Mvvm;
-    using Prism.Navigation;
     using Prism.Services.Dialogs;
 
     using System.Diagnostics;
@@ -14,7 +13,7 @@
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
-    public class ViewModelBase : BindableBase, IDestructible
+    public class ViewModelBase : BindableBase
     {
         /// <summary>
         /// Backing store for the base current state
@@ -200,7 +199,7 @@
 
             set
             {
-                SetProperty(ref _ParamsHLink, value, PopulateViewModel);
+                SetProperty(ref _ParamsHLink, value, BaseOnNavigatedTo);
             }
         }
 
@@ -254,7 +253,7 @@
         /// </value>
         private bool DetailDataLoadedFlag { get; set; }
 
-        public virtual void BaseOnNavigatedTo()
+        public void BaseOnNavigatedTo()
         {
             if (!DetailDataLoadedFlag)
             {
@@ -266,13 +265,6 @@
             {
                 BaseCurrentState = LayoutState.None;
             }
-        }
-
-        /// <summary>
-        /// This method allows cleanup of any resources used by your View/ViewModel
-        /// </summary>
-        public virtual void Destroy()
-        {
         }
 
         /// <summary>

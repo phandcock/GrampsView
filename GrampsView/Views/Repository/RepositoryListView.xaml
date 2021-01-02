@@ -12,6 +12,6 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:FlexSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+        <ucon:CollectionSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
     </ScrollView>
 </ContentPage>

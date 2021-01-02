@@ -47,6 +47,28 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        public override CardGroupBase<HLinkNoteModel> GetLatestChanges
+
+        {
+            get
+            {
+                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                CardGroupBase<HLinkNoteModel> returnCardGroup = new CardGroupBase<HLinkNoteModel>();
+
+                foreach (NoteModel item in tt)
+                {
+                    returnCardGroup.Add(item.HLink);
+                }
+
+                returnCardGroup.Title = "Latest Note Changes";
+
+                return returnCardGroup;
+            }
+        }
+
         public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
         {
             get
@@ -102,24 +124,6 @@ namespace GrampsView.Data.DataView
             IEnumerable<INoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
 
             return new CardGroupBase<INoteModel>(q);
-        }
-
-        public override CardGroupBase<HLinkNoteModel> GetLatestChanges()
-        {
-            DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-            IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-            CardGroupBase<HLinkNoteModel> returnCardGroup = new CardGroupBase<HLinkNoteModel>();
-
-            foreach (NoteModel item in tt)
-            {
-                returnCardGroup.Add(item.HLink);
-            }
-
-            returnCardGroup.Title = "Latest Note Changes";
-
-            return returnCardGroup;
         }
 
         public override NoteModel GetModelFromHLinkString(string HLinkString)

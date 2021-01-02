@@ -3,7 +3,6 @@ namespace GrampsView.Data.DataView
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
 
     using System;
@@ -12,8 +11,6 @@ namespace GrampsView.Data.DataView
     using System.Globalization;
     using System.Linq;
 
-    /// <summary>
-    // Event repository </summary>
     public class CitationDataView : DataViewBase<CitationModel, HLinkCitationModel, HLinkCitationModelCollection>, ICitationDataView
     {
         /// <summary>
@@ -21,20 +18,6 @@ namespace GrampsView.Data.DataView
         /// </summary>
         public CitationDataView()
         {
-        }
-
-        /// <summary>
-        /// Gets or sets the citation data.
-        /// </summary>
-        /// <value>
-        /// The citation data.
-        /// </value>
-        public RepositoryModelDictionary<CitationModel, HLinkCitationModel> CitationData
-        {
-            get
-            {
-                return DataStore.Instance.DS.CitationData;
-            }
         }
 
         /// <summary>
@@ -61,7 +44,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return CitationData.Values.ToList();
+                return DataStore.Instance.DS.CitationData.Values.ToList();
             }
         }
 
@@ -99,6 +82,32 @@ namespace GrampsView.Data.DataView
                 }
 
                 return groups;
+            }
+        }
+
+        /// <summary>
+        /// Gets the latest changes.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public override CardGroupBase<HLinkCitationModel> GetLatestChanges
+        {
+            get
+            {
+                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                CardGroupBase<HLinkCitationModel> returnCardGroup = new CardGroupBase<HLinkCitationModel>();
+
+                foreach (ICitationModel item in tt)
+                {
+                    returnCardGroup.Add(item.HLink);
+                }
+
+                returnCardGroup.Title = "Latest Citation Changes";
+
+                return returnCardGroup;
             }
         }
 
@@ -178,32 +187,9 @@ namespace GrampsView.Data.DataView
             return returnMediaModel;
         }
 
-        /// <summary>
-        /// Gets the latest changes.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override CardGroupBase<HLinkCitationModel> GetLatestChanges()
-        {
-            DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-            IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-            CardGroupBase<HLinkCitationModel> returnCardGroup = new CardGroupBase<HLinkCitationModel>();
-
-            foreach (ICitationModel item in tt)
-            {
-                returnCardGroup.Add(item.HLink);
-            }
-
-            returnCardGroup.Title = "Latest Citation Changes";
-
-            return returnCardGroup;
-        }
-
         public override CitationModel GetModelFromHLinkString(string HLinkString)
         {
-            return CitationData[HLinkString];
+            return DataStore.Instance.DS.CitationData[HLinkString];
         }
 
         /// <summary>

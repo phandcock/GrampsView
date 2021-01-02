@@ -117,7 +117,7 @@
             }
         }
 
-        public override void BaseOnNavigatedTo()
+        public void OnNavigatedTo()
         { // TODO Fix this
             // Setup for loading if no data is loaded
             if (!DataStore.Instance.DS.IsDataLoaded)
@@ -129,7 +129,7 @@
                 BaseCurrentState = LayoutState.Loading;
             }
 
-            base.BaseOnNavigatedTo();
+            BaseOnNavigatedTo();
         }
 
         ///// <summary>

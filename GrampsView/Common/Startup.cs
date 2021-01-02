@@ -4,6 +4,7 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
     using GrampsView.Services;
+    using GrampsView.Views;
 
     using Prism.Events;
     using Prism.Services.Dialogs;
@@ -25,10 +26,7 @@
             {
                 // Start data load
 
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    Shell.Current.GoToAsync("MessageLogPage");
-                });
+                await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
 
                 _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
                 return;
@@ -38,7 +36,7 @@
             // from the beginning.
             var t = Shell.Current.Navigation.NavigationStack;
 
-            await Shell.Current.GoToAsync("FileInputHandlerPage");
+            await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
         }
 
         private void ServiceReloadDatabase()

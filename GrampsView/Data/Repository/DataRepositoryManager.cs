@@ -16,6 +16,7 @@ namespace GrampsView.Data.Repository
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorageNS;
     using GrampsView.Events;
+    using GrampsView.Views;
 
     using Microsoft.AppCenter.Analytics;
 
@@ -26,6 +27,8 @@ namespace GrampsView.Data.Repository
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
+
+    using Xamarin.Essentials;
 
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
@@ -192,6 +195,12 @@ namespace GrampsView.Data.Repository
             {
                 return true;
             }
+
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+            }
+                                        );
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();

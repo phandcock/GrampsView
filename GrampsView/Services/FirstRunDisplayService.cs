@@ -1,9 +1,9 @@
 ﻿namespace GrampsView.Services
 {
+    using GrampsView.Common;
     using GrampsView.Views;
 
     using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     public class FirstRunDisplayService : IFirstRunDisplayService
     {
@@ -23,7 +23,7 @@
             if (VersionTracking.IsFirstLaunchEver) //  && !Common.CommonLocalSettings.FirstRunDisplay)
             {
                 Common.CommonLocalSettings.FirstRunDisplay = true;
-                Shell.Current.GoToAsync(nameof(FirstRunPage));
+                CommonRoutines.Navigate(nameof(FirstRunPage));
 
                 return true;
             }

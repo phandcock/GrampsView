@@ -50,7 +50,7 @@ namespace GrampsView.Data.Collections
                 // Step through each citationmodel hlink in the collection
                 for (int i = 0; i < Count; i++)
                 {
-                    tempCitationModel = DV.CitationDV.CitationData.GetModelFromHLink(this[i]);
+                    tempCitationModel = DV.CitationDV.GetModelFromHLink(this[i]);
 
                     if (tempCitationModel.HomeImageHLink.LinkToImage)
                     {
