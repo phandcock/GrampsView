@@ -1,7 +1,6 @@
 namespace GrampsView.Common
 {
     using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -58,6 +57,8 @@ namespace GrampsView.Common
         Task DataLogEntryDelete();
 
         Task DataLogEntryReplace(string argMessage);
+
+        Task MinorMessageAdd(string argMessage);
 
         void NotifyAlert(string argMessage);
 

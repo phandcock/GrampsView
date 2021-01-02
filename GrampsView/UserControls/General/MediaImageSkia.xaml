@@ -9,8 +9,6 @@
     BackgroundColor="Transparent"
     BindingContextChanged="MediaImageSkia_BindingContextChanged">
 
-
-
     <Grid.RowDefinitions>
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>

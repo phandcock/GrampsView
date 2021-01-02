@@ -17,10 +17,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-   
-       
- 
-
     <Page.Resources>
         <ResourceDictionary>
             <toolkit:InvertedBoolConverter x:Key="flipBool" />

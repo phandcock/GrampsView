@@ -101,7 +101,7 @@
 
                         loadCitation.GSourceRef.HLinkKey = GetAttribute(pcitation.Element(ns + "sourceref"), "hlink");
 
-                        DataStore.Instance.CN.MinorMessage = "Loading Citation for: " + loadCitation.GSourceRef.DeRef.GetDefaultText;
+                        await DataStore.Instance.CN.MinorMessageAdd(String.Format("Loading Citation for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 

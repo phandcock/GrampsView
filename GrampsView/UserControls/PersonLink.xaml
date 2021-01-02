@@ -4,11 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:prism="http://prismlibrary.com"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonModel"
     BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                       Light={StaticResource SecondaryColorLight}}"
+    IsEnabled="{Binding Valid}"
     MinimumHeightRequest="100"
     Style="{DynamicResource FrameCardStyle}">
 
@@ -17,11 +18,7 @@
         <Grid x:Name="controlRoot">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer prism:Navigation.CanNavigate="{Binding Valid, Mode=OneWay}" Command="{prism:NavigateTo 'PersonDetailPage'}">
-                    <TapGestureRecognizer.CommandParameter>
-                        <prism:NavigationParameter Key="hlink" Value="{Binding ., Mode=OneWay}" />
-                    </TapGestureRecognizer.CommandParameter>
-                </TapGestureRecognizer>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>

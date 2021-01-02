@@ -172,7 +172,7 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                    DataStore.Instance.CN.MinorMessage = "Loading media file: " + temp;
+                                    await DataStore.Instance.CN.MinorMessageAdd(string.Format("Loading media file: {0}", temp));
 
                                     loadObject.OriginalFilePath = temp;
 

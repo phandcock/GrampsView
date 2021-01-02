@@ -61,7 +61,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF7
 		.github\hub view.png = .github\hub view.png
 		.github\workflows\prepare_release.yml = .github\workflows\prepare_release.yml
 		.github\workflows\stale.yml = .github\workflows\stale.yml
-		.github\workflows\yearly_licence_update.yml = .github\workflows\yearly_licence_update.yml
 	EndProjectSection
 EndProject
 Global

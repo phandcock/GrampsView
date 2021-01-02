@@ -5,7 +5,6 @@
     using Prism.Events;
 
     using System;
-    using System.Collections.Generic;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -58,8 +57,6 @@
 
             _DataLog = iocDataLog;
         }
-
-      
 
         public string MinorMessage
         {
@@ -167,6 +164,23 @@
             _iocCommonLogging.Progress("DataLogEntryReplace: " + argMessage);
 
             MinorMessage = argMessage;
+
+            return;
+        }
+
+        public async Task MinorMessageAdd(string argMessage)
+        {
+            _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
+
+            if (!string.IsNullOrEmpty(argMessage))
+            {
+                _iocCommonLogging.LogVariable("MinorMessageAdd", argMessage);
+
+                MinorMessage = argMessage;
+
+                // TODO display in a status bar when we have worked out how
+                await DataLogEntryReplace(argMessage).ConfigureAwait(false);
+            }
 
             return;
         }

@@ -84,7 +84,7 @@
 
                         loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
-                        DataStore.Instance.CN.MinorMessage = "Loading Source entry: " + loadSource.GSTitle;
+                        await DataStore.Instance.CN.MinorMessageAdd(string.Format("Loading Source entry: {0}", loadSource.GSTitle));
 
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);

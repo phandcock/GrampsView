@@ -10,19 +10,16 @@
     Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
+    IsEnabled="{Binding Valid}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
-
-   
-       
- 
 
     <Grid>
 
         <!--  Content  -->
         <ScrollView Orientation="Vertical">
             <StackLayout>
-                <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
+                <ucon:MediaImageFull BindingContext="{Binding MediaCard, Mode=OneWay}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
