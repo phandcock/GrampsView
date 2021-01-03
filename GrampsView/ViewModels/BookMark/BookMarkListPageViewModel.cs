@@ -10,18 +10,6 @@
     /// </summary>
     public class BookMarkListViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BookMarkListViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
-        /// Prism Navigation Service.
-        /// </param>
         public BookMarkListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {

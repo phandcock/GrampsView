@@ -10,18 +10,6 @@
     /// </summary>
     public class PersonBirthdayViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventListViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
-        /// Prism Navigation Service.
-        /// </param>
         public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {

@@ -2,12 +2,11 @@
 <ContentPage
     x:Class="GrampsView.Views.NeedDatabaseReloadPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
-    xmlns:prismnav="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
@@ -25,8 +24,7 @@
 
             <Button
                 Grid.Row="1"
-                Command="{prismnav:NavigateTo 'FileInputHandlerPage',
-                                              Animated=True}"
+                Command="{Binding LoadDataCommand}"
                 HorizontalOptions="Center"
                 Style="{DynamicResource GVButtonMenu}"
                 Text="{x:Static i18n:AppResources.LoadDataBase_GotoLoadData}" />

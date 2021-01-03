@@ -55,25 +55,6 @@
             }
         }
 
-        public static void LoadHubPage()
-        {
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                if (Shell.Current.Navigation.NavigationStack.Count > 0)
-                {
-                    if (Shell.Current.Navigation.NavigationStack.First() == null)
-                    {
-                        //var t = ((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page;
-                        //Shell.Current.Navigation.RemovePage(((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page);
-                    }
-                }
-
-                await Shell.Current.Navigation.PopToRootAsync(animated: true);
-
-                // await Shell.Current.GoToAsync(nameof(HubPage));
-            });
-        }
-
         public static void Navigate(string argPageName)
         {
             DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
@@ -93,6 +74,25 @@
             await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigate back"));
 
             await Shell.Current.GoToAsync("..", animate: true);
+        }
+
+        public static void NavigateHub()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                if (Shell.Current.Navigation.NavigationStack.Count > 0)
+                {
+                    if (Shell.Current.Navigation.NavigationStack.First() == null)
+                    {
+                        //var t = ((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page;
+                        //Shell.Current.Navigation.RemovePage(((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page);
+                    }
+                }
+
+                await Shell.Current.Navigation.PopToRootAsync(animated: true);
+
+                // await Shell.Current.GoToAsync(nameof(HubPage));
+            });
         }
 
         public static string ReplaceLineSeperators(string argString)

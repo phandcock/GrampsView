@@ -1,8 +1,9 @@
-﻿
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Views;
 
+    using Prism.Commands;
     using Prism.Events;
 
     /// <summary>
@@ -27,6 +28,15 @@ namespace GrampsView.ViewModels
             BaseTitle = "Database reload needed";
 
             BaseTitleIcon = CommonConstants.IconSettings;
+
+            LoadDataCommand = new DelegateCommand(LoadDataAction);
+        }
+
+        public DelegateCommand LoadDataCommand { get; private set; }
+
+        public async void LoadDataAction()
+        {
+            await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
         }
     }
 }

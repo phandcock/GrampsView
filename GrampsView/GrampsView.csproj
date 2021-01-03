@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\MainMenuItem.cs" />
+    <Compile Remove="Events\PageNavigateEvent.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
   </ItemGroup>
 

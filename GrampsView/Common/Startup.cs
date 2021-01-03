@@ -79,7 +79,7 @@
 
             _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Subscribe(ServiceWhatsNew, ThreadOption.UIThread);
 
-            _iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.LoadHubPage, ThreadOption.UIThread);
+            _iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.NavigateHub, ThreadOption.UIThread);
 
             StartProcessing();
         }
@@ -100,7 +100,7 @@
 
                 if (DataStore.Instance.DS.IsDataLoaded)
                 {
-                    CommonRoutines.LoadHubPage();
+                    CommonRoutines.NavigateHub();
                     return;
                 }
 

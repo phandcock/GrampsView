@@ -1,14 +1,10 @@
-﻿/// <summary>
-/// Defines the Citation Detail Page View Model
-/// </summary>
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using Prism.Events;
-    using Prism.Navigation;
 
     using System;
     using System.Globalization;
