@@ -1,3 +1,12 @@
+## [16.14.3](https://github.com/phandcock/GrampsView/compare/v16.14.2...v16.14.3) (2021-01-03)
+
+
+### Bug Fixes
+
+* tweak android min version back to 9 ([f8082e0](https://github.com/phandcock/GrampsView/commit/f8082e03135384fed237c878dbc9301519a3423c))
+
+
+
 ## [16.14.2](https://github.com/phandcock/GrampsView/compare/v16.14.1...v16.14.2) (2021-01-03)
 
 
