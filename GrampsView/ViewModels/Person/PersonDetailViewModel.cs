@@ -132,19 +132,6 @@
             BaseOnNavigatedTo();
         }
 
-        ///// <summary>
-        ///// Called when [navigating from].
-        ///// </summary>
-        ///// <param name="parameters">
-        ///// The parameters.
-        ///// </param>
-        //public void OnNavigatingFrom(INavigationParameters parameters)
-        //{
-        //    OnNavigatedFrom(parameters);
-
-        //    // TODO CommonTimeline.FinishActivitySessionAsync(localActivitySession);
-        //}
-
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>

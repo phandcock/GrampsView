@@ -76,7 +76,9 @@ namespace GrampsView.ViewModels
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            AddressObject = CommonRoutines.DeserialiseObject<AddressModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkAdressModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkAdressModel>(Uri.UnescapeDataString(BaseParamsHLink));
+
+            AddressObject = HLinkObject.DeRef;
 
             if (AddressObject.Valid)
             {
