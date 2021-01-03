@@ -6,6 +6,9 @@
     using GrampsView.Events;
 
     using Prism.Events;
+    using Prism.Services.Dialogs;
+
+    using System.Diagnostics.Contracts;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -23,13 +26,17 @@
         /// </param>
         /// <param name="iocNavigationService">
         /// </param>
-        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IDialogService iocDialogService)
        : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
 
+            BaseDialogService = iocDialogService;
+
             BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateView, ThreadOption.UIThread);
+
+            BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
         }
 
         public CardListLineCollection HeaderCard
@@ -85,6 +92,19 @@
 
                 return toDoCardGroup;
             }
+        }
+
+        public void ErrorActionDialog(ActionDialogArgs argADA)
+        {
+            Contract.Assert(argADA != null);
+
+            DialogParameters t = new DialogParameters
+            {
+                { "adaArgs", argADA },
+            };
+
+            //Using the dialog service as-is
+            BaseDialogService.ShowDialog("ErrorDialog", t);
         }
 
         /// <summary>
