@@ -9,6 +9,7 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
+    CornerRadius="0"
     SizeChanged="CollectionSingleCardRoot_SizeChanged">
 
     <Frame.Resources>

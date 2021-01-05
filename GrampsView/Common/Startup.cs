@@ -26,7 +26,7 @@
             {
                 // Start data load
 
-                await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+                // await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
 
                 _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
                 return;

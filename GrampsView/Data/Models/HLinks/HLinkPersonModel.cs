@@ -3,14 +3,11 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
+    using GrampsView.Views;
 
     using System.Runtime.Serialization;
 
     using Xamarin.Forms;
-
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
 
     /// TODO Update fields as per Schema
     [DataContract]
@@ -44,7 +41,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkPersonModel argHLink)
         {
-            await UCNavigateBase(argHLink, "PersonDetailPage");
+            await UCNavigateBase(argHLink, nameof(PersonDetailPage));
         }
     }
 }

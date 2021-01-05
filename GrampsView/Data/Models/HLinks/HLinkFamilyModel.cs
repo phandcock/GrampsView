@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
+    using GrampsView.Views;
 
     using System.Runtime.Serialization;
 
@@ -41,7 +42,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkFamilyModel argHLink)
         {
-            await UCNavigateBase(argHLink, "FamilyDetailPage");
+            await UCNavigateBase(argHLink, nameof(FamilyDetailPage));
         }
     }
 }
