@@ -34,7 +34,7 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.github_token }}
-        release-count: '3'
+        release-count: '4'
         preset: 'angular'
         skip-on-empty: 'true' # TODO work out why this fails if true
         tag-prefix: 'v'

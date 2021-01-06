@@ -109,15 +109,6 @@
         <Setter Property="Padding" Value="1" />
     </Style>
 
-    <!--  Create a Header Medium Style  -->
-    <!--
-    <Style x:Key="GVFrameHeaderMedium" TargetType="Frame">
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="3" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
-        <Setter Property="CornerRadius" Value="2" />
-    </Style>-->
-
     <!--
         ******************************************************
         Frame Card Styles
@@ -128,10 +119,9 @@
         Create a Frame Card Style
     -->
     <Style x:Key="FrameCardStyle" TargetType="Frame">
-        <!--<Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />-->
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="Padding" Value="5" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
@@ -171,7 +161,6 @@
         x:Key="FrameCardSmallStyle"
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
-        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />-->
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="2" />
@@ -297,14 +286,6 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
     </Style>
-
-    <!--<Style
-        x:Key="BackLinkCollection"
-        BasedOn="{StaticResource FlexMultiCollection}"
-        TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="Padding" Value="0" />
-    </Style>-->
 
     <Style
         x:Key="NoteFullTextStyle"
