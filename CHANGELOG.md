@@ -1,3 +1,18 @@
+# [16.15.0](https://github.com/phandcock/GrampsView/compare/v16.14.6...v16.15.0) (2021-01-06)
+
+
+### Bug Fixes
+
+* bodgy hubpage navigation until UWP shell fixed ([e7ab131](https://github.com/phandcock/GrampsView/commit/e7ab1318ff021b8067d41b481e5f7bf3475bcf35))
+* tweal theme colours for cards ([cb5f8da](https://github.com/phandcock/GrampsView/commit/cb5f8daa83b5bce1fa8419bd3c5f22160edeb0f9))
+
+
+### Features
+
+* start work on Shell search handler ([5e25fa9](https://github.com/phandcock/GrampsView/commit/5e25fa99d8677e9823df898003cd5f6681dc7cff))
+
+
+
 ## [16.14.6](https://github.com/phandcock/GrampsView/compare/v16.14.5...v16.14.6) (2021-01-06)
 
 
