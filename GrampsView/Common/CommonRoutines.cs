@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Repository;
+    using GrampsView.Views;
 
     using Newtonsoft.Json;
 
@@ -89,9 +90,12 @@
                     }
                 }
 
+                // TODO Bodgy until UWP navigation to root fixed
                 await Shell.Current.Navigation.PopToRootAsync(animated: true);
 
-                // await Shell.Current.GoToAsync(nameof(HubPage));
+                await Shell.Current.GoToAsync(nameof(HubPage));
+
+                await Shell.Current.Navigation.PopToRootAsync(animated: true);
             });
         }
 

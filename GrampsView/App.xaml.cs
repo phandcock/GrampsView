@@ -100,6 +100,12 @@ namespace GrampsView
         {
             // Support IApplicationLifecycleAware
 
+            if (DataStore.Instance.DS.IsDataLoaded)
+            {
+                //Shell.Current.Navigation.PopToRootAsync(animated: true);
+                //return;
+            }
+
             base.OnResume();
 
             // Handle when your app resumes

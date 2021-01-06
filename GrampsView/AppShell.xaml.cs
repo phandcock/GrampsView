@@ -1,6 +1,5 @@
 ﻿namespace GrampsView
 {
-    using GrampsView.Data.Repository;
     using GrampsView.Views;
 
     using Xamarin.Forms;
@@ -17,12 +16,6 @@
             RegisterListRoutes();
 
             RegisterDetailRoutes();
-
-            if (DataStore.Instance.DS.IsDataLoaded)
-            {
-                Shell.Current.Navigation.PopToRootAsync(animated: true);
-                return;
-            }
         }
 
         private void RegisterDetailRoutes()
