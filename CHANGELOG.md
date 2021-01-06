@@ -1,3 +1,12 @@
+## [16.14.6](https://github.com/phandcock/GrampsView/compare/v16.14.5...v16.14.6) (2021-01-06)
+
+
+### Bug Fixes
+
+* more cleanup ([b182d3e](https://github.com/phandcock/GrampsView/commit/b182d3ec841cf8ba6bfea412dab6003c9e61cfed))
+
+
+
 ## [16.14.5](https://github.com/phandcock/GrampsView/compare/v16.14.4...v16.14.5) (2021-01-04)
 
 
@@ -14,15 +23,6 @@
 ### Bug Fixes
 
 * fix fileinputhandler wheeeeeeeeeeeeeeeeen navigationing from datareload page ([ad432f6](https://github.com/phandcock/GrampsView/commit/ad432f63f59c154c35657ce99e1454822af8470c))
-
-
-
-## [16.14.3](https://github.com/phandcock/GrampsView/compare/v16.14.2...v16.14.3) (2021-01-03)
-
-
-### Bug Fixes
-
-* tweak android min version back to 9 ([f8082e0](https://github.com/phandcock/GrampsView/commit/f8082e03135384fed237c878dbc9301519a3423c))
 
 
 
