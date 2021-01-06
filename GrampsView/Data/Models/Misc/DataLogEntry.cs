@@ -3,8 +3,12 @@
     /// <summary>
     /// Defines format of Data Log Entries.
     /// </summary>
-    public struct DataLogEntry : System.IEquatable<DataLogEntry>
+    public class DataLogEntry : CommonBindableBase, System.IEquatable<DataLogEntry>
     {
+        private string _Label;
+
+        private string _Text;
+
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
@@ -13,7 +17,15 @@
         /// </value>
         public string Label
         {
-            get; set;
+            get
+            {
+                return _Label;
+            }
+
+            set
+            {
+                SetProperty(ref _Label, value);
+            }
         }
 
         /// <summary>
@@ -24,7 +36,15 @@
         /// </value>
         public string Text
         {
-            get; set;
+            get
+            {
+                return _Text;
+            }
+
+            set
+            {
+                SetProperty(ref _Text, value);
+            }
         }
 
         public static bool operator !=(DataLogEntry left, DataLogEntry right)

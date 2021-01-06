@@ -18,9 +18,9 @@
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardStyle}">
+            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeFixedCardStyle}">
 
-                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" HorizontalOptions="Start">
+                <StackLayout HorizontalOptions="Start">
 
                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="Choose Application Theme" />
 

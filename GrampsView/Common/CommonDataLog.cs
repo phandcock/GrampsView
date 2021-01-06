@@ -123,10 +123,11 @@ namespace GrampsView.Common
         /// </returns>
         private DataLogEntry BuildDataLogEntry(string argEntryText)
         {
-            DataLogEntry t = default(DataLogEntry);
-
-            t.Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim();
-            t.Text = argEntryText.Trim();
+            DataLogEntry t = new DataLogEntry
+            {
+                Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim(),
+                Text = argEntryText.Trim()
+            };
 
             return t;
         }

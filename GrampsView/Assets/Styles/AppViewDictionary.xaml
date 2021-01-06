@@ -81,7 +81,7 @@
     <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
         <Setter Property="Margin" Value="1,5,1,1" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
 
     <!--
