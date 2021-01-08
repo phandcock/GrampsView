@@ -21,9 +21,6 @@
     mc:Ignorable="d">
 
     <!--  Header  -->
-   
-       
- 
 
     <Page.Resources>
         <ResourceDictionary>

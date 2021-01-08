@@ -5,9 +5,8 @@
     x:Name="TopMenuRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Orange"
     Style="{DynamicResource GVPageTitleStyle}"
-    VerticalOptions="CenterAndExpand">
+    VerticalOptions="Center">
 
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
@@ -21,6 +20,7 @@
     <Image
         Grid.Row="0"
         Grid.Column="0"
+        Margin="10"
         Style="{DynamicResource GVSymbolconPageHeaderType}">
         <Image.Source>
             <FontImageSource

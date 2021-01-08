@@ -10,12 +10,13 @@
 
 namespace GrampsView.Data.DataView
 {
-    using System.Collections.ObjectModel;
-
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
+
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// I Person Repository.
@@ -33,10 +34,6 @@ namespace GrampsView.Data.DataView
             get; set;
         }
 
-        CardGroup GetAllAsGroupedSurnameCardGroup();
-
-        CardGroup GetAllAsGroupedBirthDayCardGroup();
-
         /// <summary>
         /// Gets or sets the person data.
         /// </summary>
@@ -48,22 +45,16 @@ namespace GrampsView.Data.DataView
             get;
         }
 
+        CardGroup GetAllAsGroupedBirthDayCardGroup();
+
+        CardGroup GetAllAsGroupedSurnameCardGroup();
+
         /// <summary>
         /// Gets all as hlink.
         /// </summary>
         /// <returns>
         /// </returns>
         HLinkPersonModelCollection GetAllAsHLink();
-
-        ///// <summary>
-        ///// Gets the default image from collection.
-        ///// </summary>
-        ///// <param name="argModel">
-        ///// The argument ViewModel.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //HLinkHomeImageModel GetDefaultImageFromCollection(PersonModel argModel);
 
         ///// <summary>
         ///// Gets the groups by category.
@@ -82,5 +73,17 @@ namespace GrampsView.Data.DataView
         /// Person and where parent in families events.
         /// </returns>
         ObservableCollection<EventModel> GetPersonPlusFamilyEvents(PersonModel argPerson);
+
+        List<HLinkPersonModel> SearchShell(string argQuery);
+
+        ///// <summary>
+        ///// Gets the default image from collection.
+        ///// </summary>
+        ///// <param name="argModel">
+        ///// The argument ViewModel.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //HLinkHomeImageModel GetDefaultImageFromCollection(PersonModel argModel);
     }
 }

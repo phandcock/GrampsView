@@ -1,9 +1,8 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms.Xaml;
+    using Xamarin.Forms;
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public sealed partial class AboutPage : DetailViewBase
+    public sealed partial class AboutPage : ContentPage
     {
         public AboutPage()
         {

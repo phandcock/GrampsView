@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:DetailViewBase
+<ContentPage
     x:Class="GrampsView.Views.CitationDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:views="clr-namespace:GrampsView.Views"
-    Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
-    ControlTemplate="{StaticResource DetailPageTemplate}"
+    ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
+
+    <Shell.TitleView>
+        <ucon:TopMenu />
+    </Shell.TitleView>
 
     <ScrollView>
         <StackLayout>
@@ -32,4 +34,4 @@
             <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
-</views:DetailViewBase>
+</ContentPage>

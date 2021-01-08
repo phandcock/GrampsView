@@ -1,6 +1,8 @@
 ﻿namespace GrampsView.Views
 {
-    public partial class CitationDetailPage : DetailViewBase
+    using Xamarin.Forms;
+
+    public partial class CitationDetailPage : ContentPage
     {
         public CitationDetailPage()
         {

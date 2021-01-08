@@ -353,5 +353,31 @@ namespace GrampsView.Data.DataView
 
             return itemsFound;
         }
+
+        public List<HLinkPersonModel> SearchShell(string argQuery)
+        {
+            List<HLinkPersonModel> itemsFound = new List<HLinkPersonModel>();
+
+            if (string.IsNullOrEmpty(argQuery))
+            {
+                return itemsFound;
+            }
+
+            // Get list of peoples names
+            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQuery);
+
+            foreach (HLinkPersonNameModel item in tt)
+            {
+                foreach (HLinkBackLink item_backlink in item.DeRef.BackHLinkReferenceCollection)
+                {
+                    if (item_backlink.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
+                    {
+                        itemsFound.Add(item_backlink.HLink() as HLinkPersonModel);
+                    }
+                }
+            }
+
+            return itemsFound;
+        }
     }
 }
