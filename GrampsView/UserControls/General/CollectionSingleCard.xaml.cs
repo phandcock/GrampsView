@@ -205,21 +205,18 @@
             MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void CollectionSingleCardRoot_SizeChanged(object sender, EventArgs e)
-        {
-            Contract.Requires(sender != null);
+        //private void CollectionSingleCardRoot_SizeChanged(object sender, EventArgs e)
+        //{
+        //    Contract.Requires(sender != null);
 
-            CollectionSingleCard t = sender as CollectionSingleCard;
+        // CollectionSingleCard t = sender as CollectionSingleCard;
 
-            int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
+        // int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
 
-            if (tt < 1)
-            {
-                tt = 1;
-            }
+        // if (tt < 1) { tt = 1; }
 
-            // _NumColumns = tt;
-        }
+        //    // _NumColumns = tt;
+        //}
 
         private void GetNextPageOfData()
         {

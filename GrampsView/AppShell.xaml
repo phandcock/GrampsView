@@ -208,7 +208,7 @@
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PeopleGraphPage}" Route="PeopleGraphPage" />
     </FlyoutItem>
-    <FlyoutItem Title="Search">
+    <FlyoutItem Title="Advanced Search">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{StaticResource IconSearch}" />
         </FlyoutItem.FlyoutIcon>

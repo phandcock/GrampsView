@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:DetailViewBase
     x:Class="GrampsView.Views.HubPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:prism="http://prismlibrary.com"
@@ -9,6 +9,7 @@
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle, Mode=OneWay}"
     prism:ViewModelLocator.AutowireViewModel="True"
@@ -19,9 +20,15 @@
     <Shell.SearchHandler>
         <common:GrampsViewSearchHandler
             DisplayMemberName="Name"
-            Placeholder="Enter search term"
+            Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
-            ShowsResults="true" />
+            ShowsResults="true">
+            <common:GrampsViewSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <ucon:PersonCardSmall />
+                </DataTemplate>
+            </common:GrampsViewSearchHandler.ItemTemplate>
+        </common:GrampsViewSearchHandler>
     </Shell.SearchHandler>
 
     <!--  Content  -->
@@ -47,4 +54,4 @@
             <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</views:DetailViewBase>

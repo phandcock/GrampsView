@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class BookMarkListPage : ContentPage
+    public sealed partial class BookMarkListPage : DetailViewBase
     {
         public BookMarkListPage()
         {
