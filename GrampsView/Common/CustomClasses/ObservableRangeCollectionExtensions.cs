@@ -1,41 +1,16 @@
-﻿// <copyright file="ObservableCollectionExtensions.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
-/// Extensions tot he Observable Collection class
-/// </summary>
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
-    using GrampsView.Data.Model;
-
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// </summary>
-    public static class ObservableCollection
+    public static class ObservableRangeCollection
     {
-        public static void AddRange<T>(this ObservableCollection<T> thisObservableCollection, IList<T> newList)
-        {
-            if (newList is null)
-            {
-                throw new ArgumentNullException(nameof(newList));
-            }
-
-            if (thisObservableCollection is null)
-            {
-                throw new ArgumentNullException(nameof(thisObservableCollection));
-            }
-
-            foreach (var item in newList)
-            {
-                thisObservableCollection.Add(item);
-            }
-        }
-
         /// <summary>
         /// Sorts the specified key selector. See https://stackoverflow.com/questions/1945461/how-do-i-sort-an-observable-collection
         /// </summary>
@@ -51,7 +26,7 @@ namespace GrampsView.Common
         /// <param name="keySelector">
         /// The key selector.
         /// </param>
-        public static void Sort<TSource, TKey>(this ObservableCollection<TSource> theSource, Func<TSource, TKey> keySelector)
+        public static void Sort<TSource, TKey>(this ObservableRangeCollection<TSource> theSource, Func<TSource, TKey> keySelector)
         {
             if (theSource is null)
             {

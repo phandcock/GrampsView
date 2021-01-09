@@ -10,6 +10,7 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="HubPageRoot"
+    Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">

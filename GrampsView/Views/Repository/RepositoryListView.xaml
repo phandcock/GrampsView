@@ -2,13 +2,17 @@
 <ContentPage
     x:Class="GrampsView.Views.RepositoryListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    Title="{Binding BaseTitle, Mode=OneWay}"
+    Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource ListPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}">
+
+    <Shell.TitleView>
+        <ucon:TopMenu />
+    </Shell.TitleView>
 
     <!--  Content  -->
     <ScrollView>

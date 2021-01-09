@@ -8,11 +8,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    Title="{Binding BaseTitle, Mode=OneWay}"
+    Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     ControlTemplate="{StaticResource DetailPageTemplate}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
+
+    <Shell.TitleView>
+        <ucon:TopMenu />
+    </Shell.TitleView>
 
     <ScrollView>
         <StackLayout>

@@ -9,6 +9,7 @@
     <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
     <Compile Remove="Common\CustomClasses\NavCmd.cs" />
+    <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
     <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="Events\PageNavigateEvent.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />

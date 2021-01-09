@@ -4,16 +4,17 @@ namespace GrampsView.Common
 {
     using System.Collections;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Collections.Specialized;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     public delegate void ListedItemPropertyChangedEventHandler(IList SourceList, object Item, PropertyChangedEventArgs e);
 
     /// <summary>
     /// </summary>
-    public class CardGroupBase<T> : ObservableCollection<T>, INotifyCollectionChanged
+    public class CardGroupBase<T> : ObservableRangeCollection<T>, INotifyCollectionChanged
     {
         private ListedItemPropertyChangedEventHandler ItemPropertyChanged;
 

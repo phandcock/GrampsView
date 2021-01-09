@@ -1,20 +1,14 @@
-﻿// <copyright file="CardListLineCollection.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
-/// Common routines
-/// </summary>
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
-    using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// </summary>
     [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<CardListLine>))]
-    public class CardListLineCollection : ObservableCollection<CardListLine>
+    [KnownType(typeof(ObservableRangeCollection<CardListLine>))]
+    public class CardListLineCollection : ObservableRangeCollection<CardListLine>
     {
         public CardListLineCollection()
         {
