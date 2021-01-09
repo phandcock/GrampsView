@@ -1,3 +1,15 @@
+## [16.15.1](https://github.com/phandcock/GrampsView/compare/v16.15.0...v16.15.1) (2021-01-09)
+
+
+### Bug Fixes
+
+* display the correct icons in Shell Flyouts ([dfe67f2](https://github.com/phandcock/GrampsView/commit/dfe67f213c181ad845eeaa4bf3925fbe43f02ed1))
+* use more of toolkit, add titleview for Android ([5462aa5](https://github.com/phandcock/GrampsView/commit/5462aa516cabf70e8c77066710626b2ad4d62aff))
+* work on Shell Search ([36733ea](https://github.com/phandcock/GrampsView/commit/36733ea316260ed7633aa013b83fef57ebe0627d))
+* work on Shell Search and TitleView ([66d2e9b](https://github.com/phandcock/GrampsView/commit/66d2e9be4315e8331cc706c01cbdac6e4a5a5e69))
+
+
+
 # [16.15.0](https://github.com/phandcock/GrampsView/compare/v16.14.6...v16.15.0) (2021-01-06)
 
 
@@ -29,15 +41,6 @@
 
 * add Dialog service display back and remove Settings colour display ([20416e1](https://github.com/phandcock/GrampsView/commit/20416e1e715286548ea690f70dedcc97ebd46078))
 * fux AddressDetailPage not populated bug ([c06ba90](https://github.com/phandcock/GrampsView/commit/c06ba90e7f57fb7628d3b2c99025773b0c85727a))
-
-
-
-## [16.14.4](https://github.com/phandcock/GrampsView/compare/v16.14.3...v16.14.4) (2021-01-03)
-
-
-### Bug Fixes
-
-* fix fileinputhandler wheeeeeeeeeeeeeeeeen navigationing from datareload page ([ad432f6](https://github.com/phandcock/GrampsView/commit/ad432f63f59c154c35657ce99e1454822af8470c))
 
 
 
