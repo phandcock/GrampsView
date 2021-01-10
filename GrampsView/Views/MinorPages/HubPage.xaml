@@ -27,7 +27,7 @@
             ShowsResults="true">
             <common:GrampsViewSearchHandler.ItemTemplate>
                 <DataTemplate>
-                    <ucon:PersonCardSmall />
+                    <ucon:PersonCardSmall HeightRequest="20" />
                 </DataTemplate>
             </common:GrampsViewSearchHandler.ItemTemplate>
         </common:GrampsViewSearchHandler>

@@ -17,8 +17,6 @@
 
         <ResourceDictionary Source="Assets/Styles/AppViewDictionary.xaml" />
 
-        <ResourceDictionary Source="Assets/Styles/ControlTemplates.xaml" />
-
         <ResourceDictionary Source="Assets/Styles/_Sizes.xaml" />
 
         <ResourceDictionary Source="Assets/Styles/CardTemplatesDictionary.xaml" />
