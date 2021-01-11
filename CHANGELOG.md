@@ -1,3 +1,12 @@
+## [16.15.2](https://github.com/phandcock/GrampsView/compare/v16.15.1...v16.15.2) (2021-01-11)
+
+
+### Bug Fixes
+
+* remove unused contentpage controls ([2bbbed9](https://github.com/phandcock/GrampsView/commit/2bbbed97ed8bd3e7b9f09a632625149698323322))
+
+
+
 ## [16.15.1](https://github.com/phandcock/GrampsView/compare/v16.15.0...v16.15.1) (2021-01-09)
 
 
@@ -31,16 +40,6 @@
 ### Bug Fixes
 
 * more cleanup ([b182d3e](https://github.com/phandcock/GrampsView/commit/b182d3ec841cf8ba6bfea412dab6003c9e61cfed))
-
-
-
-## [16.14.5](https://github.com/phandcock/GrampsView/compare/v16.14.4...v16.14.5) (2021-01-04)
-
-
-### Bug Fixes
-
-* add Dialog service display back and remove Settings colour display ([20416e1](https://github.com/phandcock/GrampsView/commit/20416e1e715286548ea690f70dedcc97ebd46078))
-* fux AddressDetailPage not populated bug ([c06ba90](https://github.com/phandcock/GrampsView/commit/c06ba90e7f57fb7628d3b2c99025773b0c85727a))
 
 
 
