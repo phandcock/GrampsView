@@ -1,12 +1,10 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Repository;
-    using GrampsView.Views;
 
     using Newtonsoft.Json;
 
     using System.Diagnostics;
-    using System.Linq;
     using System.Reflection;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -70,33 +68,16 @@
             await Shell.Current.GoToAsync(argPageName, animate: true);
         }
 
-        public static async Task NavigateBackAsync()
-        {
-            await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigate back"));
+        //public static async Task NavigateBackAsync()
+        //{
+        //    await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigate back"));
 
-            await Shell.Current.GoToAsync("..", animate: true);
-        }
+        //    await Shell.Current.GoToAsync("..", animate: true);
+        //}
 
         public static void NavigateHub()
         {
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                if (Shell.Current.Navigation.NavigationStack.Count > 0)
-                {
-                    if (Shell.Current.Navigation.NavigationStack.First() == null)
-                    {
-                        //var t = ((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page;
-                        //Shell.Current.Navigation.RemovePage(((IShellContentController)Shell.Current.CurrentItem.CurrentItem.CurrentItem).Page);
-                    }
-                }
-
-                // TODO Bodgy until UWP navigation to root fixed
-                await Shell.Current.Navigation.PopToRootAsync(animated: true);
-
-                await Shell.Current.GoToAsync(nameof(HubPage));
-
-                await Shell.Current.Navigation.PopToRootAsync(animated: true);
-            });
+            Shell.Current.Navigation.PopToRootAsync(animated: true);
         }
 
         public static string ReplaceLineSeperators(string argString)

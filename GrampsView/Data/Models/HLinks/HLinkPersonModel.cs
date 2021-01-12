@@ -39,7 +39,7 @@ namespace GrampsView.Data.Model
             }
         }
 
-        // ODO WHy pass HLinkPersonModel to HLinkPersonModel?
+        // TODO WHy pass HLinkPersonModel to HLinkPersonModel?
         public async void UCNavigate(HLinkPersonModel argHLink)
         {
             await UCNavigateBase(argHLink, nameof(PersonDetailPage));
