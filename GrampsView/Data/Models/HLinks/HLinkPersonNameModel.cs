@@ -8,20 +8,16 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
+    using Xamarin.Forms;
 
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkPersonNameModel : HLinkBase, IHLinkPersonNameModel
     {
-        /// <summary>
-        /// Gets the de reference.
-        /// </summary>
-        /// <value>
-        /// The de reference.
-        /// </value>
+        public HLinkPersonNameModel()
+        {
+            UCNavigateCommand = new Command<HLinkPersonNameModel>(UCNavigate);
+        }
+
         public PersonNameModel DeRef
         {
             get
@@ -38,7 +34,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Compares to. Bases it on the HLInkKey for want of anything else that makes sense.
+        /// Compares to. Bases it on the HLinkKey for want of anything else that makes sense.
         /// </summary>
         /// <param name="obj">
         /// The object.
@@ -59,6 +55,11 @@ namespace GrampsView.Data.Model
             }
 
             return DeRef.CompareTo(arg.DeRef);
+        }
+
+        public async void UCNavigate(HLinkPersonNameModel argHLink)
+        {
+            await UCNavigateBase(argHLink, nameof(PersonNameDataView));
         }
     }
 }

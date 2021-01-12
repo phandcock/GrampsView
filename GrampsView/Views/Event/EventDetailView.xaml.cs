@@ -4,9 +4,6 @@
 
     public partial class EventDetailPage : ContentPage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventDetailPage"/> class.
-        /// </summary>
         public EventDetailPage()
         {
             InitializeComponent();

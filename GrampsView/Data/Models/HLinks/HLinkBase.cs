@@ -12,8 +12,6 @@
     using System.Threading.Tasks;
     using System.Windows.Input;
 
-    using Xamarin.Forms;
-
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
@@ -215,7 +213,7 @@
         {
             string ser = JsonConvert.SerializeObject(dataIn);
 
-            await Shell.Current.GoToAsync(string.Format("{0}?BaseParamsHLink={1}", argPage, ser));
+            await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", argPage, ser));
         }
 
         /// <summary>

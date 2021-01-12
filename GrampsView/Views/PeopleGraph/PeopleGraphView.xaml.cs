@@ -2,24 +2,11 @@
 {
     using Xamarin.Forms;
 
-    /// <summary>
-    /// Code behind for PeopleGraph page.
-    /// </summary>
-    /// <seealso cref="Windows.UI.Xaml.Controls.Page"/>
-    /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector"/>
-    /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2"/>
     public sealed partial class PeopleGraphPage : ContentPage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleGraphView"/> class.
-        /// </summary>
         public PeopleGraphPage()
         {
             InitializeComponent();
-
-            //Loaded += GraphViewerPage_Loaded;
         }
 
         ///// <summary>
