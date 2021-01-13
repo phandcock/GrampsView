@@ -1,3 +1,13 @@
+## [16.15.3](https://github.com/phandcock/GrampsView/compare/v16.15.2...v16.15.3) (2021-01-13)
+
+
+### Bug Fixes
+
+* add personname jump to detail page ([f14b6e9](https://github.com/phandcock/GrampsView/commit/f14b6e9e2239983106b48eefc084404ccfb6a6f4))
+* fix Shell back navigation ([43e3cff](https://github.com/phandcock/GrampsView/commit/43e3cff8b7f55ef327d75e9acb3be9f37c1792a0))
+
+
+
 ## [16.15.2](https://github.com/phandcock/GrampsView/compare/v16.15.1...v16.15.2) (2021-01-11)
 
 
@@ -31,15 +41,6 @@
 ### Features
 
 * start work on Shell search handler ([5e25fa9](https://github.com/phandcock/GrampsView/commit/5e25fa99d8677e9823df898003cd5f6681dc7cff))
-
-
-
-## [16.14.6](https://github.com/phandcock/GrampsView/compare/v16.14.5...v16.14.6) (2021-01-06)
-
-
-### Bug Fixes
-
-* more cleanup ([b182d3e](https://github.com/phandcock/GrampsView/commit/b182d3ec841cf8ba6bfea412dab6003c9e61cfed))
 
 
 
