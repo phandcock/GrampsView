@@ -12,8 +12,6 @@
     using System.Threading.Tasks;
     using System.Windows.Input;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// GRAMPS $$(Hlink)$$ element class.
     /// </summary>
@@ -36,7 +34,7 @@
         {
         }
 
-        public DisplayFormat CardType { get; set; } = DisplayFormat.Default;
+        //public DisplayFormat CardType { get; set; } = DisplayFormat.Default;
 
         [DataMember]
         public bool GPriv

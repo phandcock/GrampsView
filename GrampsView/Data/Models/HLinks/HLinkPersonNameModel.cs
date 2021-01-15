@@ -5,31 +5,32 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
+    using GrampsView.Views;
+
+    using Prism.Commands;
 
     using System.Runtime.Serialization;
-
-    using Xamarin.Forms;
 
     [DataContract]
     public class HLinkPersonNameModel : HLinkBase, IHLinkPersonNameModel
     {
+        private PersonNameModel _Deref = new PersonNameModel();
+
         public HLinkPersonNameModel()
         {
-            UCNavigateCommand = new Command<HLinkPersonNameModel>(UCNavigate);
+            UCNavigateCommand = new DelegateCommand<HLinkPersonNameModel>(UCNavigate);
         }
 
         public PersonNameModel DeRef
         {
             get
             {
-                if (Valid)
+                if (Valid & (!_Deref.Valid))
                 {
-                    return DV.PersonNameDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.PersonNameDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return new PersonNameModel();
-                }
+
+                return _Deref;
             }
         }
 
@@ -59,7 +60,7 @@ namespace GrampsView.Data.Model
 
         public async void UCNavigate(HLinkPersonNameModel argHLink)
         {
-            await UCNavigateBase(argHLink, nameof(PersonNameDataView));
+            await UCNavigateBase(argHLink, nameof(PersonNameDetailPage));
         }
     }
 }

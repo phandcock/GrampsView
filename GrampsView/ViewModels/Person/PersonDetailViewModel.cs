@@ -11,8 +11,6 @@
 
     using Xamarin.CommunityToolkit.UI.Views;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// ViewModel for the Person Detail page.
     /// </summary>
@@ -160,7 +158,7 @@
                 MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
 
                 // Get the Name Details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName.Copy(), argDisplayFormat: DisplayFormat.PersonNameCardSingle);
+                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 
                 // Get the Person Details
                 CardListLineCollection nameDetails = GetExtraPersonDetails();

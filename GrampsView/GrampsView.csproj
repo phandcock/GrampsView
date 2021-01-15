@@ -14,10 +14,12 @@
     <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="Events\PageNavigateEvent.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
+    <Compile Remove="UserControls\PersonNameCardSmall.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
+    <EmbeddedResource Remove="UserControls\PersonNameCardSmall.xaml" />
   </ItemGroup>
 
   <ItemGroup>

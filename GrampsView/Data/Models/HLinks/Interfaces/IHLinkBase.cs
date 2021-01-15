@@ -12,14 +12,12 @@ namespace GrampsView.Data.Model
     using System;
     using System.Collections;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Public interfaces for the Event elements.
     /// </summary>
     public interface IHLinkBase : IComparer, IComparable
     {
-        DisplayFormat CardType { get; set; }
+        //DisplayFormat CardType { get; set; }
 
         bool GPriv { get; set; }
 
@@ -63,7 +61,5 @@ namespace GrampsView.Data.Model
         /// The argument.
         /// </param>
         void SetBase(HLinkBase arg);
-
-       
     }
 }

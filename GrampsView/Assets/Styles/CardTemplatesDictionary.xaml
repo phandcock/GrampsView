@@ -57,10 +57,6 @@
         <usercontrols:PersonNameCardSingle />
     </DataTemplate>
 
-    <DataTemplate x:Key="PersonNameCardSmallDT">
-        <usercontrols:PersonNameCardSmall />
-    </DataTemplate>
-
     <DataTemplate x:Key="PersonRefCardSmallDT">
         <usercontrols:PersonRefCardSmall />
     </DataTemplate>
@@ -107,7 +103,6 @@
         NoteTemplate="{StaticResource NoteCardSmallDT}"
         ParentLinkTemplate="{StaticResource ParentLinkCardSmallDT}"
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
-        PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
         PersonTemplate="{StaticResource PersonCardSmallDT}"
         PlaceLocationTemplate="{StaticResource PlaceLocationCardSmallDT}"

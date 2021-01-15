@@ -13,8 +13,6 @@ namespace GrampsView.Common
 
     using Xamarin.Forms;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Card Template Selector.
     /// </summary>
@@ -188,17 +186,17 @@ namespace GrampsView.Common
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the person name template.
-        /// </summary>
-        /// <value>
-        /// The person name template.
-        /// </value>
-        public DataTemplate PersonNameSmallTemplate
-        {
-            get;
-            set;
-        }
+        ///// <summary>
+        ///// Gets or sets the person name template.
+        ///// </summary>
+        ///// <value>
+        ///// The person name template.
+        ///// </value>
+        //public DataTemplate PersonNameSmallTemplate
+        //{
+        //    get;
+        //    set;
+        //}
 
         public DataTemplate PersonRefTemplate
         {
@@ -378,17 +376,7 @@ namespace GrampsView.Common
 
             if (item is HLinkPersonNameModel)
             {
-                switch ((item as HLinkPersonNameModel).CardType)
-                {
-                    case DisplayFormat.Default:
-                        return PersonNameSmallTemplate;
-
-                    case DisplayFormat.PersonNameCardSingle:
-                        return PersonNameSingleTemplate;
-
-                    default:
-                        return PersonNameSmallTemplate;
-                }
+                return PersonNameSingleTemplate;
             }
 
             if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
@@ -416,11 +404,6 @@ namespace GrampsView.Common
                 return TagTemplate;
             }
 
-            if (item is PersonNameModel)
-            {
-                return PersonNameSmallTemplate;
-            }
-
             if (item is NoteModel)
             {
                 return NoteTemplate;
@@ -438,7 +421,7 @@ namespace GrampsView.Common
 
             if (item is PersonNameModel)
             {
-                return PersonNameSmallTemplate;
+                return PersonNameSingleTemplate;
             }
 
             if (item is PersonRefModel)

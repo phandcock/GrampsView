@@ -7,8 +7,6 @@ namespace GrampsView.Common
     using System;
     using System.Diagnostics.Contracts;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// </summary>
     public class CardGroup : CardGroupBase<object>
@@ -34,14 +32,14 @@ namespace GrampsView.Common
             base.Add(t);
         }
 
-        public void Add(HLinkBase argCard, DisplayFormat argDisplayFormat = DisplayFormat.Default)
-        {
-            Contract.Assert(argCard != null);
+        //public void Add(HLinkBase argCard, DisplayFormat argDisplayFormat = DisplayFormat.Default)
+        //{
+        //    Contract.Assert(argCard != null);
 
-            argCard.CardType = argDisplayFormat;
+        // argCard.CardType = argDisplayFormat;
 
-            base.Add(argCard);
-        }
+        //    base.Add(argCard);
+        //}
 
         public void Add(CardGroup argCardGroup)
         {
