@@ -164,7 +164,7 @@
                 {
                     case TargetIdiom.Unsupported:
 
-                    case TargetIdiom.Desktop: outVal = CardLargeHeight * 3; break;
+                    case TargetIdiom.Desktop: outVal = CardLargeHeight * 2; break;
 
                     case TargetIdiom.Tablet: outVal = CardLargeHeight; break;
 
