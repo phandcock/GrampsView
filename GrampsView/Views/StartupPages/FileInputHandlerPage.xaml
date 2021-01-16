@@ -11,7 +11,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
-
+    Shell.PresentationMode="ModalAnimated"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 

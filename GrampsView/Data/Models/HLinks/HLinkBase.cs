@@ -211,7 +211,7 @@
         {
             string ser = JsonConvert.SerializeObject(dataIn);
 
-            await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", argPage, ser));
+            await AppShell.Current.GoToAsync(string.Format("{0}?BaseParamsHLink={1}", argPage, ser));
         }
 
         /// <summary>

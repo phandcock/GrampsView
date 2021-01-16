@@ -68,15 +68,10 @@
             await Shell.Current.GoToAsync(argPageName, animate: true);
         }
 
-        //public static async Task NavigateBackAsync()
-        //{
-        //    await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigate back"));
-
-        //    await Shell.Current.GoToAsync("..", animate: true);
-        //}
-
         public static void NavigateHub()
         {
+            DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
+
             Shell.Current.Navigation.PopToRootAsync(animated: true);
         }
 
@@ -103,12 +98,5 @@
             if (Application.Current.Resources.TryGetValue(keyName, out var retVal)) { }
             return retVal;
         }
-
-        //// serialise object
-        //public static string SerialiseObject<T>(T dataIn) where T : new()
-        //{
-        //    var ser = JsonConvert.SerializeObject(dataIn);
-        //    return ser;
-        //}
     }
 }
