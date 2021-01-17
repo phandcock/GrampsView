@@ -37,8 +37,7 @@
                 <ucon:MediaImageSkia
                     x:Name="AnchorImage"
                     BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}"
-                    VerticalOptions="CenterAndExpand" />
+                    Style="{DynamicResource MediaImageStyle}" />
             </Grid>
 
             <Label

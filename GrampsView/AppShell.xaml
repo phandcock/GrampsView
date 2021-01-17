@@ -226,6 +226,13 @@
         <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="About">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconAbout}" />
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
+    </FlyoutItem>
+
     <!--  Hidden pages  -->
     <FlyoutItem Title="MessageLog" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:MessageLogPage}" Route="MessageLog" />
