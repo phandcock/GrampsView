@@ -23,7 +23,7 @@
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeFixedCardStyle}">
+            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardLargeFixedStyle}">
 
                 <StackLayout HorizontalOptions="Start">
 

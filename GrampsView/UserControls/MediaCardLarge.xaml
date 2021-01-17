@@ -13,7 +13,7 @@
     IsVisible="{Binding Valid}"
     Style="{DynamicResource GridLargeFixedCardStyle}">
 
-    <Frame Style="{DynamicResource FrameLargeFixedCardStyle}">
+    <Frame Style="{DynamicResource FrameCardLargeFixedStyle}">
 
         <Frame.Content>
 
