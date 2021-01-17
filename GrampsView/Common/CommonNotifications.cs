@@ -81,7 +81,7 @@
         /// </returns>
         public async Task BottomMessageAdd(string argMessage)
         {
-            _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
+            // _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
 
             if (!string.IsNullOrEmpty(argMessage))
             {
@@ -95,7 +95,7 @@
 
         public async Task BottomMessageReplace(string argMessage)
         {
-            _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
+            // _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
 
             if (!string.IsNullOrEmpty(argMessage))
             {
@@ -133,7 +133,7 @@
         /// </returns>
         public async Task DataLogEntryAdd(string argMessage, bool argShowProgressRing)
         {
-            await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
+            // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
             await _DataLog.Add(argMessage).ConfigureAwait(false);
 
@@ -157,7 +157,7 @@
 
         public async Task DataLogEntryReplace(string argMessage)
         {
-            await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
+            // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
             await _DataLog.Replace(argMessage).ConfigureAwait(false);
 
@@ -170,7 +170,7 @@
 
         public async Task MinorMessageAdd(string argMessage)
         {
-            _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
+            // _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
 
             if (!string.IsNullOrEmpty(argMessage))
             {

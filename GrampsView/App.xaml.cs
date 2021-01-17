@@ -4,7 +4,6 @@ using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorageNS;
 using GrampsView.Data.Repository;
-using GrampsView.Events;
 using GrampsView.Services;
 using GrampsView.ViewModels;
 using GrampsView.Views;
@@ -246,8 +245,7 @@ namespace GrampsView
             {
                 var t = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
 
-                // TODO Is this needed?
-                ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
+                // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
                 // TODO fu because seems to be one rotation behind on emulator
                 DataStore.Instance.AD.CurrentOrientation = e.DisplayInfo.Orientation;

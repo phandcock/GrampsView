@@ -167,7 +167,7 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            BaseEventAggregator.GetEvent<ProgressLoading>().Publish(null);
+            // BaseEventAggregator.GetEvent<ProgressLoading>().Publish(null);
 
             if (DataStore.Instance.AD.CurrentDataFolderValid)
             {

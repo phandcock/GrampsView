@@ -12,7 +12,17 @@
     <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
     <Compile Remove="Common\MainMenuItem.cs" />
+    <Compile Remove="Events\AppStartFirstRunEvent.cs" />
+    <Compile Remove="Events\AppStartSaveSerial.cs" />
+    <Compile Remove="Events\DataLoadUnzipped.cs" />
+    <Compile Remove="Events\LoadImageBitMapEvent.cs" />
+    <Compile Remove="Events\LoadMediaBitmapEvent.cs" />
+    <Compile Remove="Events\OrientationChanged.cs" />
     <Compile Remove="Events\PageNavigateEvent.cs" />
+    <Compile Remove="Events\PersonCurrentChanged.cs" />
+    <Compile Remove="Events\ProgressLoading.cs" />
+    <Compile Remove="Events\ProgressRingUpdate.cs" />
+    <Compile Remove="Events\StatusUpdated.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
     <Compile Remove="UserControls\PersonNameCardSmall.xaml.cs" />
   </ItemGroup>
