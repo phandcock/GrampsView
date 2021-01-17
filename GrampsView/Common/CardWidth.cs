@@ -429,7 +429,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSingleWidth / (6 * DeviceDisplay.MainDisplayInfo.Density);
+                    outVal = CardSingleWidth / 6; // * DeviceDisplay.MainDisplayInfo.Density);
                     break;
 
                 default:
@@ -506,7 +506,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSmallWidth / (3 * DeviceDisplay.MainDisplayInfo.Density);
+                    outVal = CardSmallWidth / 3; // / DeviceDisplay.MainDisplayInfo.Density);
                     break;
 
                 default:

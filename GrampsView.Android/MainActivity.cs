@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Droid
 {
     using Android.App;
+    using Android.Content.PM;
     using Android.OS;
     using Android.Runtime;
     using Android.Views;
@@ -38,7 +39,13 @@
     /// </summary>
     [Activity(
                 MainLauncher = false,
-                Theme = "@style/MainTheme"
+                Theme = "@style/MainTheme",
+                ConfigurationChanges = ConfigChanges.ScreenSize |
+                                        ConfigChanges.UiMode |
+                                        ConfigChanges.Orientation |
+                                        ConfigChanges.ScreenLayout |
+                                        ConfigChanges.SmallestScreenSize,
+                ScreenOrientation = ScreenOrientation.User
              )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

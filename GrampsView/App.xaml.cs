@@ -244,6 +244,8 @@ namespace GrampsView
 
             if (!(ea is null))
             {
+                var t = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+
                 // TODO Is this needed?
                 ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
