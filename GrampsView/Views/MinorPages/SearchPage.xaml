@@ -57,7 +57,7 @@
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding PersonList, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonList, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding PersonNameList, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSingleDT}" />
 

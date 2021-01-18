@@ -68,15 +68,6 @@
             }
         }
 
-        //private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
-        //{
-        //    MediaImageSkia tt = sender as MediaImageSkia;
-
-        // OpenFileRequest t = new OpenFileRequest(tt.newHLinkMedia.DeRef.GDescription, new ReadOnlyFile(tt.newHLinkMedia.DeRef.MediaStorageFilePath));
-
-        //    Launcher.OpenAsync(t);
-        //}
-
         private void ShowImage(IMediaModel argMediaModel)
         {
             if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
