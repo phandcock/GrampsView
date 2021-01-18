@@ -30,8 +30,8 @@ namespace GrampsView.Common
         {
             Default,
             HeaderCardLarge,
-            PersonNameCardSingle,
-            PersonNameCardSmall,
+            NoteCardFull,
+            NoteCardSmall,
             SourceCardSmall,
         }
 

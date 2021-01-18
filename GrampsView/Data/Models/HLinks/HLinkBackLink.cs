@@ -4,6 +4,8 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -102,6 +104,7 @@ namespace GrampsView.Data.Model
         public HLinkBackLink(HLinkNoteModel ArgHLinkLink)
         {
             _HLinkNoteModel = ArgHLinkLink;
+            _HLinkNoteModel.DisplayAs = CommonEnums.DisplayFormat.NoteCardSmall;
 
             HLinkType = HLinkBackLinkEnum.HLinkNoteModel;
         }

@@ -52,11 +52,11 @@
     <!--  Light colour  -->
 
     <Color x:Key="PrimaryColorLight">
-        #6200EE
+        #4169E1
     </Color>
 
     <Color x:Key="PrimaryDarkColorLight">
-        #3700b3
+        #0000CD
     </Color>
 
     <Color x:Key="OnPrimaryColorLight">

@@ -1,8 +1,4 @@
-﻿// <copyright file="CardTemplateSelector.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-/// <summary>
+﻿/// <summary>
 /// Card template selector code
 /// </summary>
 namespace GrampsView.Common
@@ -186,18 +182,6 @@ namespace GrampsView.Common
             set;
         }
 
-        ///// <summary>
-        ///// Gets or sets the person name template.
-        ///// </summary>
-        ///// <value>
-        ///// The person name template.
-        ///// </value>
-        //public DataTemplate PersonNameSmallTemplate
-        //{
-        //    get;
-        //    set;
-        //}
-
         public DataTemplate PersonRefTemplate
         {
             get;
@@ -304,6 +288,8 @@ namespace GrampsView.Common
         {
             Contract.Assert(item != null);
 
+            // Address related
+
             if ((item is AddressModel) || (item is IHLinkAddressModel))
             {
                 return AddressTemplate;
@@ -358,12 +344,37 @@ namespace GrampsView.Common
                 return NameMapTemplate;
             }
 
+            // Note related
+
             if (item is HLinkNoteModel)
             {
-                return NoteCardFullTemplate;
+                switch ((item as HLinkNoteModel).DisplayAs)
+                {
+                    case CommonEnums.DisplayFormat.NoteCardSmall:
+                        {
+                            return NoteTemplate;
+                        }
+
+                    case CommonEnums.DisplayFormat.NoteCardFull:
+                        {
+                            return NoteCardFullTemplate;
+                        }
+
+                    default:
+                        {
+                            return NoteTemplate;
+                           
+                        }
+                }
             }
 
-            // Goes here as is child of HLinkPerson
+            if (item is NoteModel)
+            {
+                return NoteTemplate;
+            }
+
+            // PersonRef related
+
             if (item is HLinkPersonRefModel)
             {
                 return PersonRefTemplate;
@@ -402,11 +413,6 @@ namespace GrampsView.Common
             if (item is HLinkTagModel)
             {
                 return TagTemplate;
-            }
-
-            if (item is NoteModel)
-            {
-                return NoteTemplate;
             }
 
             if (item is ParentLinkModel)
