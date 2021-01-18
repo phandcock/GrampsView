@@ -1,3 +1,14 @@
+## [16.15.6](https://github.com/phandcock/GrampsView/compare/v16.15.5...v16.15.6) (2021-01-18)
+
+
+### Bug Fixes
+
+* Add AboutPage back and fix size of media card icons ([5b726e8](https://github.com/phandcock/GrampsView/commit/5b726e8ecbd1d40ae8109c85df5fd004516e70a2))
+* tweak android card rotation sizes ([a8bd361](https://github.com/phandcock/GrampsView/commit/a8bd361c5d217af8a32c6ab34fd7c1b9ea32fea5))
+* tweak colours ([4a6fc60](https://github.com/phandcock/GrampsView/commit/4a6fc6080220c507d6355971279963d4bc9f5683))
+
+
+
 ## [16.15.5](https://github.com/phandcock/GrampsView/compare/v16.15.4...v16.15.5) (2021-01-17)
 
 
