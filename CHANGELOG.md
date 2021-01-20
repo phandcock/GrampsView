@@ -1,3 +1,12 @@
+## [16.15.8](https://github.com/phandcock/GrampsView/compare/v16.15.7...v16.15.8) (2021-01-20)
+
+
+### Bug Fixes
+
+* fix small card height on android ([766dfeb](https://github.com/phandcock/GrampsView/commit/766dfebfb3f23870f2d9022debfcfed7cad57764))
+
+
+
 ## [16.15.7](https://github.com/phandcock/GrampsView/compare/v16.15.6...v16.15.7) (2021-01-20)
 
 
@@ -35,16 +44,6 @@
 ### Bug Fixes
 
 * tweak ([c302bf0](https://github.com/phandcock/GrampsView/commit/c302bf0b1f9914ab95f044b0ebf2d59461af8181))
-
-
-
-## [16.15.3](https://github.com/phandcock/GrampsView/compare/v16.15.2...v16.15.3) (2021-01-13)
-
-
-### Bug Fixes
-
-* add personname jump to detail page ([f14b6e9](https://github.com/phandcock/GrampsView/commit/f14b6e9e2239983106b48eefc084404ccfb6a6f4))
-* fix Shell back navigation ([43e3cff](https://github.com/phandcock/GrampsView/commit/43e3cff8b7f55ef327d75e9acb3be9f37c1792a0))
 
 
 
