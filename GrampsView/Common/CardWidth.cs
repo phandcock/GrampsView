@@ -226,16 +226,6 @@
             SetCardLargeHeight();
         }
 
-        //protected virtual void OnPropertyChanged(string propertyName)
-        //{
-        //    if (PropertyChanged == null)
-        //    {
-        //        return;
-        //    }
-
-        //    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //}
-
         private void SetCardLargeDoubleWidth()
         {
             double outVal = _CardLargeWidth * 2;
@@ -258,18 +248,20 @@
                 case TargetIdiom.Unsupported:
 
                 case TargetIdiom.Desktop:
-                    outVal = CardLargeWidth / 3;
-                    break;
-
+                    {
+                        outVal = CardLargeWidth / 3;
+                        break;
+                    }
                 case TargetIdiom.Tablet:
-                    outVal = CardLargeWidth / 3;
-                    break;
-
+                    {
+                        outVal = CardLargeWidth / 3;
+                        break;
+                    }
                 case TargetIdiom.Phone:
-
-                    outVal = CardLargeWidth / (2 * DeviceDisplay.MainDisplayInfo.Density);
-                    break;
-
+                    {
+                        outVal = CardLargeWidth / 3;
+                        break;
+                    }
                 default:
                     outVal = CardLargeWidth / 3;
                     break;
@@ -348,13 +340,15 @@
                     break;
 
                 case TargetIdiom.Phone:
-
-                    outVal = CardMediumWidth / (3 * DeviceDisplay.MainDisplayInfo.Density);
-                    break;
-
+                    {
+                        outVal = CardMediumWidth / 3;
+                        break;
+                    }
                 default:
-                    outVal = CardMediumWidth / 3;
-                    break;
+                    {
+                        outVal = CardMediumWidth / 3;
+                        break;
+                    }
             };
 
             CardMediumHeight = outVal;
@@ -429,7 +423,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSingleWidth / 6; // * DeviceDisplay.MainDisplayInfo.Density);
+                    outVal = CardSingleWidth / 6;
                     break;
 
                 default:
@@ -496,22 +490,30 @@
             switch (Device.Idiom)
             {
                 case TargetIdiom.Unsupported:
-
+                    {
+                        outVal = CardSmallWidth / 3;
+                        break;
+                    }
                 case TargetIdiom.Desktop:
-                    outVal = CardSmallWidth / 3;
-                    break;
-
+                    {
+                        outVal = CardSmallWidth / 3;
+                        break;
+                    }
                 case TargetIdiom.Tablet:
-                    outVal = CardSmallWidth / 3;
-                    break;
-
+                    {
+                        outVal = CardSmallWidth / 3;
+                        break;
+                    }
                 case TargetIdiom.Phone:
-                    outVal = CardSmallWidth / 3; // / DeviceDisplay.MainDisplayInfo.Density);
-                    break;
-
+                    {
+                        outVal = CardSmallWidth / (3 * DeviceDisplay.MainDisplayInfo.Density);
+                        break;
+                    }
                 default:
-                    outVal = CardSmallWidth / 3;
-                    break;
+                    {
+                        outVal = CardSmallWidth / 3;
+                        break;
+                    }
             };
 
             CardSmallHeight = outVal;

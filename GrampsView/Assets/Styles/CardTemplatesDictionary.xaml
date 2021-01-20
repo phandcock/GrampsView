@@ -62,7 +62,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="PlaceCardSmallDT">
-        <usercontrols:PlaceCardSmall />
+        <usercontrols:PlaceCardSmall  />
     </DataTemplate>
 
     <DataTemplate x:Key="PlaceLocationCardSmallDT">

@@ -345,7 +345,7 @@
         x:Key="GridSingleFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <!--<Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
     </Style>
 
     <!--  Grid Small  -->
@@ -354,7 +354,7 @@
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight1, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -367,7 +367,7 @@
         x:Key="GridMediumFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <!--<Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
     </Style>
 
     <!--  Grid Large  -->
@@ -375,7 +375,7 @@
         x:Key="GridLargeFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <!--<Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
     </Style>
 
     <Style
