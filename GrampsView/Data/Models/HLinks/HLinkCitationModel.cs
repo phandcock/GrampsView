@@ -5,7 +5,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     /// <summary>
@@ -16,9 +18,11 @@ namespace GrampsView.Data.Model
     {
         private CitationModel _Deref = new CitationModel();
 
+        public IAsyncCommand<HLinkCitationModel> UCNavigateCommand { get; set; }
+
         public HLinkCitationModel()
         {
-            UCNavigateCommand = new Command<HLinkCitationModel>(UCNavigate);
+            UCNavigateCommand = new AsyncCommand<HLinkCitationModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -62,9 +66,10 @@ namespace GrampsView.Data.Model
             return DeRef.CompareTo((obj as HLinkCitationModel).DeRef);
         }
 
-        public async void UCNavigate(HLinkCitationModel argHLink)
+        public async Task UCNavigate(HLinkCitationModel argHLink)
         {
             await UCNavigateBase(argHLink, "CitationDetailPage");
-        }
+            return;
+            }
     }
 }

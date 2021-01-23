@@ -1,5 +1,5 @@
 ﻿namespace GrampsView.Data.Model
-{
+    {
     using GrampsView.Common;
 
     using Newtonsoft.Json;
@@ -10,7 +10,6 @@
     using System.Globalization;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
-    using System.Windows.Input;
 
     /// <summary>
     /// GRAMPS $$(Hlink)$$ element class.
@@ -85,7 +84,7 @@
             }
         }
 
-        public ICommand UCNavigateCommand { get; set; }
+      
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid.

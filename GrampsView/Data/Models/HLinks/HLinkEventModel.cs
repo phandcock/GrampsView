@@ -6,7 +6,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     /// <summary>
@@ -17,12 +19,14 @@ namespace GrampsView.Data.Model
     {
         private EventModel _Deref = new EventModel();
 
+        public IAsyncCommand<HLinkEventModel> UCNavigateCommand { get; set; }
+
         [DataMember]
         private string _GRole;
 
         public HLinkEventModel()
         {
-            UCNavigateCommand = new Command<HLinkEventModel>(UCNavigate);
+            UCNavigateCommand = new AsyncCommand<HLinkEventModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -75,9 +79,10 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public async void UCNavigate(HLinkEventModel argHLink)
+        public async Task UCNavigate(HLinkEventModel argHLink)
         {
             await UCNavigateBase(argHLink, "EventDetailPage");
-        }
+            return;
+            }
     }
 }

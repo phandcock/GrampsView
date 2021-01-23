@@ -1,29 +1,30 @@
 ﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
-{
+    {
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
-    using Xamarin.Forms;
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
     [DataContract]
     public class HLinkMediaModel : HLinkBase, IHLinkMediaModel
-    {
+        {
         private MediaModel _Deref = new MediaModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkMediaModel"/> class.
         /// </summary>
         public HLinkMediaModel()
-        {
-            UCNavigateCommand = new Command<HLinkMediaModel>(UCNavigate);
-        }
+            {
+            UCNavigateCommand = new AsyncCommand<HLinkMediaModel>(NavPage => UCNavigate(NavPage));
+            }
 
         /// <summary>
         /// Gets the associated media model
@@ -33,17 +34,17 @@ namespace GrampsView.Data.Model
         /// as the Model Base has a hlinkmediamodel in it and this will cause a referene loop</note>
         /// </value>
         public IMediaModel DeRef
-        {
-            get
             {
-                if (Valid && (!_Deref.Valid))
+            get
                 {
+                if (Valid && (!_Deref.Valid))
+                    {
                     _Deref = DV.MediaDV.GetModelFromHLinkString(HLinkKey);
-                }
+                    }
 
                 return _Deref;
+                }
             }
-        }
 
         /// <summary>
         /// Gets or sets the Attribute.
@@ -72,6 +73,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
 
+        public IAsyncCommand<HLinkMediaModel> UCNavigateCommand { get; set; }
+
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
         /// type="note">Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid
@@ -81,16 +84,17 @@ namespace GrampsView.Data.Model
         /// Boolean showing if $$(HLink)$$ is valid.
         /// </value>
         public override bool Valid
-        {
-            get
             {
+            get
+                {
                 return !string.IsNullOrEmpty(HLinkKey);
+                }
+            }
+
+        public async Task UCNavigate(HLinkMediaModel argHLink)
+            {
+            await UCNavigateBase(argHLink, "MediaDetailPage");
+            return;
             }
         }
-
-        public async void UCNavigate(HLinkMediaModel argHLink)
-        {
-            await UCNavigateBase(argHLink, "MediaDetailPage");
-        }
     }
-}

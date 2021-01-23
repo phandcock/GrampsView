@@ -1,16 +1,16 @@
 ﻿// TODO Needs XML 1.71 check
 
 namespace GrampsView.Data.Model
-{
+    {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
-
-    using Prism.Commands;
 
     using System;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
 
     using static GrampsView.Common.CommonEnums;
@@ -19,7 +19,7 @@ namespace GrampsView.Data.Model
     /// GRAMPS URL element class. TODO Update fields as per Schema
     /// </summary>
     public class URLModel : ModelBase, IURLModel
-    {
+        {
         //// "url-content"
         //// "priv"
         //// "type"
@@ -30,11 +30,11 @@ namespace GrampsView.Data.Model
         /// Initializes a new instance of the <see cref="URLModel"/> class.
         /// </summary>
         public URLModel()
-        {
-            OpenURLCommand = new DelegateCommand(OpenURL, CanOpenURL);
+            {
+            OpenURLCommand = new AsyncCommand(() => OpenURL());
 
             HomeImageHLink.HomeSymbol = CommonConstants.IconURL;
-        }
+            }
 
         /// <summary>
         /// Gets the default text.
@@ -43,19 +43,19 @@ namespace GrampsView.Data.Model
         /// The default text.
         /// </value>
         public string DefaultText
-        {
-            get
             {
+            get
+                {
                 string returnVal = string.Empty;
 
                 if (!string.IsNullOrEmpty(GType))
-                {
+                    {
                     returnVal = GType + ":";
-                }
+                    }
 
                 return returnVal + GDescription;
+                }
             }
-        }
 
         /// <summary>
         /// Gets or sets the description.
@@ -65,10 +65,10 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public string GDescription
-        {
+            {
             get;
             set;
-        }
+            }
 
         /// <summary>
         /// Gets or sets the hlink reference.
@@ -78,81 +78,76 @@ namespace GrampsView.Data.Model
         /// </value>
         [DataMember]
         public Uri GHRef
-        {
+            {
             get;
             set;
-        }
+            }
 
         [DataMember]
         public string GType
-        {
+            {
             get;
             set;
-        }
+            }
 
         public Placemark MapLocation { get; set; } = new Placemark();
 
-        public DelegateCommand OpenURLCommand { get; private set; }
+        public IAsyncCommand OpenURLCommand { get; private set; }
 
         [DataMember]
         public URIType URLType
-        {
+            {
             get;
             set;
-        } = URIType.URL;
-
-        private bool CanOpenURL()
-        {
-            return true;
-        }
+            } = URIType.URL;
 
         /// <summary>
         /// Opens the URL.
         /// </summary>
-        private void OpenURL()
-        {
-            switch (URLType)
+        private async Task OpenURL()
             {
+            switch (URLType)
+                {
                 case URIType.Map:
-                    {
+                        {
                         try
-                        {
-                            MapLaunchOptions mapOptions = new MapLaunchOptions
                             {
+                            MapLaunchOptions mapOptions = new MapLaunchOptions
+                                {
                                 Name = DefaultText,
-                            };
+                                };
 
-                            MapLocation.OpenMapsAsync(mapOptions);
-                        }
+                            await MapLocation.OpenMapsAsync(mapOptions);
+                            }
                         catch (Exception ex)
-                        {
+                            {
                             DataStore.Instance.CN.NotifyException("No map application available to open", ex);
 
                             throw;
-                        }
+                            }
 
                         break;
-                    }
+                        }
                 case URIType.URL:
-                    {
-                        if (GHRef is null)
                         {
+                        if (GHRef is null)
+                            {
                             DataStore.Instance.CN.NotifyError("Bad URI for URL Model");
                             break;
-                        }
+                            }
 
                         if (GHRef.IsWellFormedOriginalString())
-                        {
-                            Launcher.OpenAsync(GHRef);
-                        }
+                            {
+                            await Launcher.OpenAsync(GHRef);
+                            }
                         break;
-                    }
+                        }
                 default:
-                    {
+                        {
                         Contract.Assert(false, "Bad URI Type");
                         break;
-                    }
+                        }
+                }
             }
         }
     }
-}

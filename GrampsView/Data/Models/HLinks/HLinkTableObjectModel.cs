@@ -6,6 +6,8 @@ namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -14,5 +16,7 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkTableObjectModel : HLinkBase, IHLinkTableObjectModel
     {
-    }
+
+        public IAsyncCommand<HLinkTableObjectModel> UCNavigateCommand { get; set; }
+        }
 }

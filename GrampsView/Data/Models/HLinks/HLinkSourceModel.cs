@@ -5,7 +5,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     [DataContract]
@@ -13,9 +15,11 @@ namespace GrampsView.Data.Model
     {
         private SourceModel _Deref = new SourceModel();
 
+        public IAsyncCommand<HLinkSourceModel> UCNavigateCommand { get; set; }
+
         public HLinkSourceModel()
         {
-            UCNavigateCommand = new Command<HLinkSourceModel>(UCNavigate);
+            UCNavigateCommand = new AsyncCommand<HLinkSourceModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -69,7 +73,7 @@ namespace GrampsView.Data.Model
             return DeRef.CompareTo((argObj as HLinkSourceModel).DeRef);
         }
 
-        public async void UCNavigate(HLinkSourceModel argHLink)
+        public async Task UCNavigate(HLinkSourceModel argHLink)
         {
             await UCNavigateBase(argHLink, "SourceDetailPage");
         }

@@ -9,8 +9,9 @@
     using Prism.Commands;
     using Prism.Events;
 
-    using System.Windows.Input;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     public class SettingsViewModel : ViewModelBase
@@ -35,26 +36,44 @@
 
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
 
-            UCNavigateCommand = new DelegateCommand(UCNavigate);
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
 
             PopulateViewModel();
         }
 
         public bool CanHandleTestButton
         {
-            get { return _TestButton; }
-            set { SetProperty(ref _TestButton, value); }
+            get
+            {
+                return _TestButton;
+            }
+            set
+            {
+                SetProperty(ref _TestButton, value);
+            }
         }
 
-        public DelegateCommand ForceUpdateCheckCommand { get; private set; }
+        public DelegateCommand ForceUpdateCheckCommand
+        {
+            get; private set;
+        }
 
         public bool LocalCanForceUpdate
         {
-            get { return _LocalCanForceUpdate; }
-            set { SetProperty(ref _LocalCanForceUpdate, value); }
+            get
+            {
+                return _LocalCanForceUpdate;
+            }
+            set
+            {
+                SetProperty(ref _LocalCanForceUpdate, value);
+            }
         }
 
-        public DelegateCommand TestCommand { get; private set; }
+        public DelegateCommand TestCommand
+        {
+            get; private set;
+        }
 
         public bool ThemeButtonDarkChecked
         {
@@ -119,7 +138,10 @@
             }
         }
 
-        public ICommand UCNavigateCommand { get; private set; }
+        public IAsyncCommand UCNavigateCommand
+        {
+            get; private set;
+        }
 
         public void ForceUpdate()
         {
@@ -166,9 +188,10 @@
             DataStore.Instance.CN.NotifyDialogBox(t);
         }
 
-        private async void UCNavigate()
+        private async Task UCNavigate()
         {
             await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+            return;
         }
     }
 }

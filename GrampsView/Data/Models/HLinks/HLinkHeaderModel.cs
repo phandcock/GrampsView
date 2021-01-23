@@ -8,6 +8,8 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// HLink to the Header model.
     /// </summary>
@@ -16,6 +18,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {
+        public IAsyncCommand<HLinkHeaderModel> UCNavigateCommand { get; set; }
+
         /// <summary>
         /// Gets the dereference.
         /// </summary>

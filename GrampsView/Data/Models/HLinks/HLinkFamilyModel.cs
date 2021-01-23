@@ -8,7 +8,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Views;
 
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     /// <summary>
@@ -17,9 +19,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkFamilyModel : HLinkBase, IHLinkFamilyModel
     {
+        public IAsyncCommand<HLinkFamilyModel> UCNavigateCommand { get; set; }
+
         public HLinkFamilyModel()
         {
-            UCNavigateCommand = new Command<HLinkFamilyModel>(UCNavigate);
+            UCNavigateCommand = new AsyncCommand<HLinkFamilyModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -40,9 +44,10 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public async void UCNavigate(HLinkFamilyModel argHLink)
+        public async Task UCNavigate(HLinkFamilyModel argHLink)
         {
             await UCNavigateBase(argHLink, nameof(FamilyDetailPage));
-        }
+            return;
+            }
     }
 }

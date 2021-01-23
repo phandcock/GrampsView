@@ -1,17 +1,18 @@
 ﻿namespace GrampsView.ViewModels
-{
+    {
     using GrampsView.Common;
     using GrampsView.Data;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using Prism.Commands;
     using Prism.Events;
 
     using System;
     using System.Reflection;
+    using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.CommunityToolkit.UI.Views;
 
     /// <summary>
@@ -47,9 +48,9 @@
 
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            LoadSampleCommand = new DelegateCommand(LoadSample).ObservesCanExecute(() => LocalCanHandleSample);
+            LoadSampleCommand = new AsyncCommand(() => LoadSample(), _ => LocalCanHandleSample);
 
-            PickFileCommand = new DelegateCommand(PickFile).ObservesCanExecute(() => LocalCanHandleDataFolderChosen);
+            PickFileCommand = new AsyncCommand(() =>  PickFile(), _ => LocalCanHandleDataFolderChosen);
         }
 
         /// <summary>
@@ -66,7 +67,7 @@
             }
         }
 
-        public DelegateCommand LoadSampleCommand { get; private set; }
+        public IAsyncCommand LoadSampleCommand { get; private set; }
 
         public bool LocalCanHandleDataFolderChosen
         {
@@ -77,15 +78,17 @@
         public bool LocalCanHandleSample
         {
             get { return _LocalCanHandleSample; }
-            set { SetProperty(ref _LocalCanHandleSample, value); }
+            set {
+                SetProperty(ref _LocalCanHandleSample, value);
+                }
         }
 
-        public DelegateCommand PickFileCommand { get; private set; }
+        public IAsyncCommand PickFileCommand { get; private set; }
 
         /// <summary>
         /// Loads the sample data.
         /// </summary>
-        public async void LoadSample()
+        public async Task LoadSample()
         {
             BaseCL.Progress("Load sample data");
 
@@ -106,11 +109,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            //await MainThread.InvokeOnMainThreadAsync(async () =>
-            //  {
-            //      await CommonRoutines.NavigateBackAsync();
-            //  }
-            // );
+           
         }
 
         /// <summary>
@@ -122,7 +121,7 @@
         /// <param name="parameter">
         /// The parameter.
         /// </param>
-        public async void PickFile()
+        public async Task PickFile()
         {
             BaseCL.Progress("Calling folder picker");
 

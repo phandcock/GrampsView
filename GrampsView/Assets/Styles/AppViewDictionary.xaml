@@ -354,7 +354,7 @@
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight1, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
