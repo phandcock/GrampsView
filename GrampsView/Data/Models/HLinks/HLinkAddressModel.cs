@@ -69,9 +69,9 @@ namespace GrampsView.Data.Model
             return DeRef.CompareTo(arg.DeRef);
         }
 
-        public async Task UCNavigate(HLinkAdressModel argHLink)
+        public override async Task UCNavigate()
         {
-            await UCNavigateBase(argHLink, "AddressDetailPage");
+            await UCNavigateBase(this, "AddressDetailPage");
 
             return;
         }

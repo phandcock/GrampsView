@@ -58,7 +58,11 @@ namespace GrampsView.Data.DataView
                 var query = from item in DataViewData
                             orderby item.GetDefaultText
                             group item by item.GetDefaultText into g
-                            select new { GroupName = g.Key, Items = g };
+                            select new
+                            {
+                                GroupName = g.Key,
+                                Items = g
+                            };
 
                 foreach (var g in query)
                 {
@@ -212,6 +216,8 @@ namespace GrampsView.Data.DataView
 
         public override CardGroupBase<HLinkPersonNameModel> Search(string argQuery)
         {
+            argQuery = argQuery.ToLower();
+
             CardGroupBase<HLinkPersonNameModel> itemsFound = new CardGroupBase<HLinkPersonNameModel>
             {
                 Title = "Person Names"
