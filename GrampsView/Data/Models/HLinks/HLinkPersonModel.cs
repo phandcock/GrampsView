@@ -8,8 +8,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
@@ -18,7 +16,6 @@ namespace GrampsView.Data.Model
 
         public HLinkPersonModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkPersonModel>(NavPage => UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -40,15 +37,10 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public IAsyncCommand<HLinkPersonModel> UCNavigateCommand
-        {
-            get;
-        }
-
         // TODO Why pass HLinkPersonModel to HLinkPersonModel?
-        public async Task UCNavigate(HLinkPersonModel argHLink)
+        public override async Task UCNavigate()
         {
-            await UCNavigateBase(argHLink, nameof(PersonDetailPage));
+            await UCNavigateBase(this, nameof(PersonDetailPage));
             return;
         }
     }

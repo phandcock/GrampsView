@@ -8,8 +8,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     [DataContract]
     public class HLinkNoteModel : HLinkBase, IHLinkNoteModel
     {
@@ -17,7 +15,6 @@ namespace GrampsView.Data.Model
 
         public HLinkNoteModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkNoteModel>(NavPage => UCNavigate(NavPage));
         }
 
         public INoteModel DeRef
@@ -33,14 +30,9 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public IAsyncCommand<HLinkNoteModel> UCNavigateCommand
+        public override async Task UCNavigate()
         {
-            get; set;
-        }
-
-        public async Task UCNavigate(HLinkNoteModel argHLink)
-        {
-            await UCNavigateBase(argHLink, nameof(NoteDetailPage));
+            await UCNavigateBase(this, nameof(NoteDetailPage));
             return;
         }
     }

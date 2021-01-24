@@ -10,7 +10,6 @@ namespace GrampsView.Data.Model
     using System;
     using System.Runtime.Serialization;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     /// <summary>
@@ -24,8 +23,6 @@ namespace GrampsView.Data.Model
         private Color _HomeSymbolColour = Color.White;
 
         private string _IDefaultSymbol = CommonConstants.IconDDefault;
-
-        public IAsyncCommand<HLinkHomeImageModel> UCNavigateCommand { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkHomeImageModel"/> class.

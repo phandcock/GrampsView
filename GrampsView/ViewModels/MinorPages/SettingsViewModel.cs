@@ -36,7 +36,7 @@
 
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
 
-            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
+           
 
             PopulateViewModel();
         }

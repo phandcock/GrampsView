@@ -1,5 +1,5 @@
 ﻿namespace GrampsView.Data.Model
-    {
+{
     using GrampsView.Common;
 
     using Newtonsoft.Json;
@@ -10,6 +10,8 @@
     using System.Globalization;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// GRAMPS $$(Hlink)$$ element class.
@@ -31,6 +33,7 @@
 
         public HLinkBase()
         {
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
@@ -84,7 +87,10 @@
             }
         }
 
-      
+        public IAsyncCommand UCNavigateCommand
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid.
@@ -206,6 +212,8 @@
 
             HLinkKey = arg.HLinkKey;
         }
+
+        public virtual Task UCNavigate() => throw new NotImplementedException();
 
         public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
         {

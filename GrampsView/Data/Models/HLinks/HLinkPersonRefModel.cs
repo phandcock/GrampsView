@@ -38,17 +38,12 @@ namespace GrampsView.Data.Model
 
     using System.Runtime.Serialization;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
     [DataContract]
     public sealed class HLinkPersonRefModel : HLinkPersonModel
     {
-
-        public IAsyncCommand<HLinkPersonRefModel> UCNavigateCommand { get; set; }
-
         [DataMember]
         public HLinkCitationModelCollection GCitationCollection
         {
@@ -72,6 +67,9 @@ namespace GrampsView.Data.Model
             = new HLinkNoteModelCollection();
 
         [DataMember]
-        public string GRelationship { get; set; }
+        public string GRelationship
+        {
+            get; set;
+        }
     }
 }

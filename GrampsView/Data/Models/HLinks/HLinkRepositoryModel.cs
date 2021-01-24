@@ -13,9 +13,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
-
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -24,8 +21,6 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkRepositoryModel : HLinkBase, IHLinkRepositoryModel
     {
-        public IAsyncCommand<HLinkRepositoryModel> UCNavigateCommand { get; set; }
-
         /// <summary>
         /// The local call no.
         /// </summary>
@@ -38,7 +33,6 @@ namespace GrampsView.Data.Model
 
         public HLinkRepositoryModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkRepositoryModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -121,10 +115,10 @@ namespace GrampsView.Data.Model
 
         = new HLinkNoteModelCollection();
 
-        public async Task UCNavigate(HLinkRepositoryModel argHLink)
+        public override async Task UCNavigate()
         {
-            await UCNavigateBase(argHLink, "RepositoryDetailPage");
+            await UCNavigateBase(this, "RepositoryDetailPage");
             return;
-            }
+        }
     }
 }

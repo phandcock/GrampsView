@@ -3,27 +3,20 @@
 // TODO fix Deref caching
 
 namespace GrampsView.Data.Model
-    {
+{
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     [DataContract]
     public class HLinkPersonNameModel : HLinkBase, IHLinkPersonNameModel
     {
         private PersonNameModel _Deref = new PersonNameModel();
 
-
-        public IAsyncCommand<HLinkPersonNameModel> UCNavigateCommand { get; set; }
-
-
         public HLinkPersonNameModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkPersonNameModel>(navPage => UCNavigate(navPage));
         }
 
         public PersonNameModel DeRef
@@ -52,7 +45,10 @@ namespace GrampsView.Data.Model
             HLinkPersonNameModel arg = obj as HLinkPersonNameModel;
 
             // Null objects go first
-            if (arg is null) { return 1; }
+            if (arg is null)
+            {
+                return 1;
+            }
 
             // Can only comapre if they are the same type so assume equal
             if (arg.GetType() != typeof(HLinkPersonNameModel))
@@ -63,9 +59,9 @@ namespace GrampsView.Data.Model
             return DeRef.CompareTo(arg.DeRef);
         }
 
-        public async Task UCNavigate(HLinkPersonNameModel argHLink)
+        public override async Task UCNavigate()
         {
-            await UCNavigateBase(argHLink, nameof(PersonNameDetailPage));
+            await UCNavigateBase(this, nameof(PersonNameDetailPage));
         }
     }
 }

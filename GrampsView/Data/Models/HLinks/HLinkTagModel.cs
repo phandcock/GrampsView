@@ -9,8 +9,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -26,7 +24,6 @@ namespace GrampsView.Data.Model
 
         public HLinkTagModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkTagModel>(NavPage => UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -70,14 +67,9 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public IAsyncCommand<HLinkTagModel> UCNavigateCommand
+        public override async Task UCNavigate()
         {
-            get; set;
-        }
-
-        public async Task UCNavigate(HLinkTagModel argHLink)
-        {
-            await UCNavigateBase(argHLink, "TagDetailPage");
+            await UCNavigateBase(this, "TagDetailPage");
             return;
         }
     }

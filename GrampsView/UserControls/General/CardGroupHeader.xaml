@@ -24,17 +24,9 @@
         <Frame
             x:Name="LLCardLargeFrame"
             Grid.Row="0"
-            Margin="0"
-            Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                              Light={StaticResource SecondaryColorLight}}"
-            CornerRadius="2"
-            IsVisible="{Binding Title, Converter={StaticResource stringToBool}, Mode=OneWay}">
-            <Label
-                Margin="0"
-                Style="{StaticResource GVHeaderStyleMedium}"
-                Text="{Binding Title}"
-                TextColor="Black" />
+            IsVisible="{Binding Title, Converter={StaticResource stringToBool}, Mode=OneWay}"
+            Style="{DynamicResource GVFrameHeaderStyle}">
+            <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
         </Frame>
 
         <FlexLayout

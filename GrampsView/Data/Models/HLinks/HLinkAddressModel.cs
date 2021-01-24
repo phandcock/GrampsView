@@ -9,9 +9,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
-
     /// <summary>
     /// HLink to an Address model.
     /// </summary>
@@ -20,11 +17,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
-        public IAsyncCommand<HLinkAdressModel> UCNavigateCommand { get; set; }
-
         public HLinkAdressModel()
         {
-            UCNavigateCommand = new AsyncCommand<HLinkAdressModel>(NavPage =>UCNavigate(NavPage));
         }
 
         /// <summary>
@@ -61,7 +55,10 @@ namespace GrampsView.Data.Model
             HLinkAdressModel arg = obj as HLinkAdressModel;
 
             // Null objects go first
-            if (arg is null) { return 1; }
+            if (arg is null)
+            {
+                return 1;
+            }
 
             // Can only comapre if they are the same type so assume equal
             if (arg.GetType() != typeof(HLinkAdressModel))
