@@ -39,7 +39,10 @@ namespace GrampsView.Common
         /// <value>
         /// The title.
         /// </value>
-        public string Title { get; set; }
+        public string Title
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets a value indicating whether [control visible].

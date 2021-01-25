@@ -7,24 +7,21 @@
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    Style="{StaticResource CardGroupStyle}">
+    IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
     <Frame.Resources>
         <ResourceDictionary>
-            <toolkit:IsNotNullOrEmptyConverter x:Key="stringToBool" />
+            <toolkit:IsNotNullOrEmptyConverter x:Key="StringToBool" />
+            <toolkit:IntToBoolConverter x:Key="IntToBool" />
         </ResourceDictionary>
     </Frame.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
 
         <Frame
             x:Name="LLCardLargeFrame"
             Grid.Row="0"
-            IsVisible="{Binding Title, Converter={StaticResource stringToBool}, Mode=OneWay}"
+            IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
             Style="{DynamicResource GVFrameHeaderStyle}">
             <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
         </Frame>
@@ -35,5 +32,5 @@
             BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
             BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
             Style="{StaticResource FlexLayoutCards}" />
-    </Grid>
+    </StackLayout>
 </Frame>
