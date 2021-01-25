@@ -1,3 +1,12 @@
+## [16.15.9](https://github.com/phandcock/GrampsView/compare/v16.15.8...v16.15.9) (2021-01-25)
+
+
+### Bug Fixes
+
+* change shell search to be lower case ([0ad5b55](https://github.com/phandcock/GrampsView/commit/0ad5b55af5fcf89406cb0d7066b0d9641161f4a8))
+
+
+
 ## [16.15.8](https://github.com/phandcock/GrampsView/compare/v16.15.7...v16.15.8) (2021-01-20)
 
 
@@ -35,15 +44,6 @@
 
 * change ServicePages to be Shell modal ([39af6f4](https://github.com/phandcock/GrampsView/commit/39af6f42bfa1858f2f13ec4c2bdffd1ba44a80c3))
 * tweak mediaimnagefull card height ([e944e32](https://github.com/phandcock/GrampsView/commit/e944e32847d010c6df5a58c2a30c1bbf5fab75cb))
-
-
-
-## [16.15.4](https://github.com/phandcock/GrampsView/compare/v16.15.3...v16.15.4) (2021-01-15)
-
-
-### Bug Fixes
-
-* tweak ([c302bf0](https://github.com/phandcock/GrampsView/commit/c302bf0b1f9914ab95f044b0ebf2d59461af8181))
 
 
 
