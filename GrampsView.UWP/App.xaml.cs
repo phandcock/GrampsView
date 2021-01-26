@@ -55,8 +55,16 @@
 
                     if (uriSegments[1] != "handle/")
                     {
-                        // TODO Handle error
+                        AdditionalInfoItems badUriAdditionalInfo = new AdditionalInfoItems
+                        {
+                            { "URI", uriArgs.Uri.ToString() },
+                            { "Data", uriArgs.Data.ToString() }
+                        };
+
+                        DataStore.Instance.CN.NotifyError("Bad Protocol Activation Argument", badUriAdditionalInfo);
                     }
+
+                    // TODO Handle if GrampsView not running
 
                     switch (uriArgs.Uri.Host)
                     {

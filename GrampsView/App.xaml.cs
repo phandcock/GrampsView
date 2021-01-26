@@ -3,6 +3,7 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorageNS;
+using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Services;
 using GrampsView.ViewModels;
@@ -20,6 +21,7 @@ using Prism.Modularity;
 using Prism.Services.Dialogs;
 
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 using Unity;
 
@@ -35,6 +37,10 @@ namespace GrampsView
 {
     public sealed partial class App
     {
+        private static HLinkFamilyModel FamilyStartModel = null;
+
+        private static HLinkPersonModel PersonStartPage = null;
+
         public App()
         {
         }
@@ -93,6 +99,8 @@ namespace GrampsView
             Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
 
             MainPage = new AppShell();
+
+            StartAtDetailPage();
         }
 
         protected override void OnResume()
@@ -245,14 +253,26 @@ namespace GrampsView
             {
                 var t = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
 
-                // TODO Is this needed?
-                // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
+                // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
                 // TODO fu because seems to be one rotation behind on emulator
                 DataStore.Instance.AD.CurrentOrientation = e.DisplayInfo.Orientation;
 
                 // Card width reset
                 CardSizes.Current.ReCalculateCardWidths();
+            }
+        }
+
+        private async Task StartAtDetailPage()
+        {
+            if (PersonStartPage != null)
+            {
+                await PersonStartPage.UCNavigate();
+            }
+
+            if (FamilyStartModel != null)
+            {
+                await FamilyStartModel.UCNavigate();
             }
         }
     }

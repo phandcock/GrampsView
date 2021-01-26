@@ -29,7 +29,7 @@
 
                 if (theModel.Valid)
                 {
-                    _ModelUserActivity.VisualElements.DisplayText = area;
+                    _ModelUserActivity.VisualElements.DisplayText = area.ToUpper();
                     _ModelUserActivity.VisualElements.Description = bodyText;
 
                     // _ModelUserActivity.VisualElements.Content =

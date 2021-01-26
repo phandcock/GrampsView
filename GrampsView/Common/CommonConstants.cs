@@ -200,9 +200,9 @@
         /// </summary>
         public const string LogDefaultSessionName = "GrampsViewSessionDefault";
 
-        public const string ModelNameFamily = "Family";
+        public const string ModelNameFamily = "family";
 
-        public const string ModelNamePerson = "Person";
+        public const string ModelNamePerson = "person";
 
         public const string NameTypeMarried = "Married Name";
 
