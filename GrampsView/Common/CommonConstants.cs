@@ -200,17 +200,17 @@
         /// </summary>
         public const string LogDefaultSessionName = "GrampsViewSessionDefault";
 
-        public const string ModelNameFamily = "family";
+        public const string ModelNameFamily = "Family";
 
-        public const string ModelNamePerson = "person";
+        public const string ModelNamePerson = "Person";
 
         public const string NameTypeMarried = "Married Name";
 
-        public const string NavigationParameterHLink = "hlink";
+        //public const string NavigationParameterHLink = "hlink";
 
-        public const string NavigationParameterModel = "model";
+        //public const string NavigationParameterModel = "model";
 
-        public const string NavigationParameterTargetView = "targetview";
+        //public const string NavigationParameterTargetView = "targetview";
 
         /// <summary>
         /// The search no results.

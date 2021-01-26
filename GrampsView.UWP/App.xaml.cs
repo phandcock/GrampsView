@@ -3,6 +3,7 @@
     using FFImageLoading.Forms;
 
     using GrampsView.Common;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using Microsoft.AppCenter;
@@ -21,7 +22,7 @@
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Windows.UI.Xaml.Application
+    sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object. This is the first line of authored code
@@ -61,26 +62,24 @@
                     {
                         case CommonConstants.ModelNameFamily:
                             {
-                                // TODO Fix for shell
-                                //Shell.Current.GoToAsync(nameof(FamilyDetailPage));
+                                HLinkFamilyModel targetFamily = new HLinkFamilyModel
+                                {
+                                    HLinkKey = uriSegments[2]
+                                };
 
-                                //DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
-                                //{
-                                //    { CommonConstants.NavigationParameterHLink, new HLinkFamilyModel { HLinkKey = uriSegments[2] } },
-                                //    { CommonConstants.NavigationParameterTargetView, nameof(FamilyDetailPage) }
-                                //};
+                                targetFamily.UCNavigate();
 
                                 break;
                             }
 
                         case CommonConstants.ModelNamePerson:
                             {
-                                // TODO fix for shell
-                                //DataStore.Instance.NV.TargetNavParams = new Prism.Navigation.NavigationParameters
-                                //{
-                                //    { CommonConstants.NavigationParameterHLink, new HLinkPersonModel { HLinkKey = uriSegments[2] } },
-                                //    { CommonConstants.NavigationParameterTargetView, nameof(PersonDetailPage) }
-                                //};
+                                HLinkPersonModel targetPerson = new HLinkPersonModel
+                                {
+                                    HLinkKey = uriSegments[2]
+                                };
+
+                                targetPerson.UCNavigate();
 
                                 break;
                             }
@@ -93,8 +92,6 @@
                             }
                     }
                 }
-
-                ////DataStore.Instance.NV.Nav(DataStore.Instance.NV.TargetNavParams);
             }
         }
 

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common
 {
+    using AdaptiveCards;
+
     using GrampsView.Data.Model;
 
     using System;
@@ -20,29 +22,24 @@
             {
                 // Record in the TimeLine
                 UserActivityChannel channel = UserActivityChannel.GetDefault();
+
                 UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
-                Uri _Uri;
+
                 UserActivitySession activitySession = null;
 
                 if (theModel.Valid)
                 {
-                    // Set deep-link and properties.
-                    _Uri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
-
-                    //// TODO Add Adapative card visuals once the API has settled down StorageFile // cardFile
-                    // = await StorageFile.GetFileFromApplicationUriAsync(new //
-                    // Uri("ms-appx:///Assets/Misc/UserActivityCard.json")); string cardText = await
-                    // // FileIO.ReadTextAsync(cardFile); // theModel.ModelUserActivity.VisualElements.Content
-
-                    // = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-                    // theModel.ModelUserActivity.VisualElements.DisplayText = headerText;
-
                     _ModelUserActivity.VisualElements.DisplayText = area;
                     _ModelUserActivity.VisualElements.Description = bodyText;
+
+                    // _ModelUserActivity.VisualElements.Content =
+                    // AdaptiveCardBuilder.CreateAdaptiveCardFromJson(CreateAdaptiveCardForTimeline(area,
+                    // theModel, bodyText).ToJson());
+
                     _ModelUserActivity.ActivationUri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
 
                     //Save
-                    await _ModelUserActivity.SaveAsync(); //save the new metadata
+                    await _ModelUserActivity.SaveAsync();
 
                     if (_ModelUserActivity != null)
                     {
@@ -68,6 +65,67 @@
             {
                 theActivitySession.Dispose();
             }
+        }
+
+        internal static AdaptiveCard CreateAdaptiveCardForTimeline(string argArea, ModelBase argTheModel, string argBodyText)
+        {
+            // _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.HomeImageHLink.HomeSymbolColour);
+
+            // Create an adaptive card specifically to reference this app in Windows 10 Timeline.
+            AdaptiveCard apodTimelineCard = new AdaptiveCard("1.0");
+
+            // Add a heading to the card, which allows the heading to wrap to the next line if necessary.
+            var apodHeading = new AdaptiveTextBlock
+            {
+                Text = argArea,
+                Size = AdaptiveTextSize.Large,
+                Weight = AdaptiveTextWeight.Bolder,
+                Wrap = true,
+                MaxLines = 2
+            };
+            apodTimelineCard.Body.Add(apodHeading);
+
+            //// Add Column set
+            //var apodColumnSet = new AdaptiveColumnSet();
+
+            //// Column 1
+            //var apodColumn1 = new AdaptiveColumn();
+
+            // Add a description to the card, and note that it can wrap for several lines.
+            var apodDesc = new AdaptiveTextBlock
+            {
+                Text = argBodyText,
+                Size = AdaptiveTextSize.Default,
+                Weight = AdaptiveTextWeight.Lighter,
+                Wrap = true,
+                MaxLines = 3,
+                Separator = true
+            };
+
+            apodTimelineCard.Body.Add(apodDesc);
+
+            // Add column1
+            //apodColumn1.Items.Add(apodDesc);
+            //apodColumnSet.Columns.Add(apodColumn1);
+
+            // Column 2
+
+            //// Add a background image to the card.
+            //if (argTheModel.HomeImageHLink.IsImageType)
+            //{
+            //    var apodColumn2 = new AdaptiveColumn();
+
+            // var apodImage = new AdaptiveImage { Url = new
+            // Uri(argTheModel.HomeImageHLink.ConvertToHLinkMediaModel.DeRef.MediaStorageFilePath), };
+
+            // // Add column1 apodColumn2.Items.Add(apodImage);
+
+            //    apodColumnSet.Columns.Add(apodColumn2);
+            //}
+
+            //apodTimelineCard.Body.Add(apodColumnSet);
+
+            return apodTimelineCard;
         }
 
         /// <summary>
