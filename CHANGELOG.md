@@ -1,3 +1,14 @@
+## [16.15.10](https://github.com/phandcock/GrampsView/compare/v16.15.9...v16.15.10) (2021-01-27)
+
+
+### Bug Fixes
+
+* fix UWP start uri and tweak activity cards a bit ([e95bf00](https://github.com/phandcock/GrampsView/commit/e95bf007f95a713d0bb3360eeb544cb2bb1604f5))
+* hide CardgroupHeader Title and Control when nothing to show ([fcfe894](https://github.com/phandcock/GrampsView/commit/fcfe894c35d5d378a1724d7c63d185cc3a3e75fa))
+* update timeline display and error reporting ([8b3c589](https://github.com/phandcock/GrampsView/commit/8b3c5897ded3a26f79e39a3dbe5d8842dfa1bd8c))
+
+
+
 ## [16.15.9](https://github.com/phandcock/GrampsView/compare/v16.15.8...v16.15.9) (2021-01-25)
 
 
@@ -34,16 +45,6 @@
 * Add AboutPage back and fix size of media card icons ([5b726e8](https://github.com/phandcock/GrampsView/commit/5b726e8ecbd1d40ae8109c85df5fd004516e70a2))
 * tweak android card rotation sizes ([a8bd361](https://github.com/phandcock/GrampsView/commit/a8bd361c5d217af8a32c6ab34fd7c1b9ea32fea5))
 * tweak colours ([4a6fc60](https://github.com/phandcock/GrampsView/commit/4a6fc6080220c507d6355971279963d4bc9f5683))
-
-
-
-## [16.15.5](https://github.com/phandcock/GrampsView/compare/v16.15.4...v16.15.5) (2021-01-17)
-
-
-### Bug Fixes
-
-* change ServicePages to be Shell modal ([39af6f4](https://github.com/phandcock/GrampsView/commit/39af6f42bfa1858f2f13ec4c2bdffd1ba44a80c3))
-* tweak mediaimnagefull card height ([e944e32](https://github.com/phandcock/GrampsView/commit/e944e32847d010c6df5a58c2a30c1bbf5fab75cb))
 
 
 
