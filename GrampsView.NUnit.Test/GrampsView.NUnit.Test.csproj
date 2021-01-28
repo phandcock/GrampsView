@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
+    <Compile Remove="Utility\DataStoreClean.cs" />
   </ItemGroup>
 
   <ItemGroup>

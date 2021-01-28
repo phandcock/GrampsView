@@ -39,7 +39,10 @@ namespace GrampsView.Data.Repository
         /// <value>
         /// The cn.
         /// </value>
-        public ICommonNotifications CN { get; set; }
+        public ICommonNotifications CN
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets the Data Store.
@@ -48,7 +51,5 @@ namespace GrampsView.Data.Repository
         /// The DataStore.Instance.
         /// </value>
         public DataInstance DS { get; } = new DataInstance();
-
-        //public NavCmd NV { get; set; } = new NavCmd();
     }
 }

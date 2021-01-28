@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Handles the loading of GrampsData
-//
-// <copyright file="DataRepositoryManager.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Repository
+﻿namespace GrampsView.Data.Repository
 {
     using FFImageLoading;
     using FFImageLoading.Cache;
@@ -123,7 +114,8 @@ namespace GrampsView.Data.Repository
         public static void ClearRepositories()
         {
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
-            DataStore.Instance.DS.BookMarkCollection.Clear(); ;
+            DataStore.Instance.DS.BookMarkCollection.Clear();
+            ;
             DataStore.Instance.DS.CitationData.Clear();
             DataStore.Instance.DS.EventData.Clear();
             DataStore.Instance.DS.FamilyData.Clear();
@@ -197,10 +189,10 @@ namespace GrampsView.Data.Repository
             }
 
             await MainThread.InvokeOnMainThreadAsync(async () =>
-            {
-                await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
-            }
-                                        );
+                {
+                    await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+                }
+            );
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();

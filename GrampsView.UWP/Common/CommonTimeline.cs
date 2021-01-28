@@ -31,6 +31,7 @@
                 {
                     _ModelUserActivity.VisualElements.DisplayText = area.ToUpper();
                     _ModelUserActivity.VisualElements.Description = bodyText;
+                    _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.HomeImageHLink.HomeSymbolColour);
 
                     // _ModelUserActivity.VisualElements.Content =
                     // AdaptiveCardBuilder.CreateAdaptiveCardFromJson(CreateAdaptiveCardForTimeline(area,
