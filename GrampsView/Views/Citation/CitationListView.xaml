@@ -9,7 +9,6 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
-
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 

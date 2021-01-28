@@ -14,7 +14,7 @@
     <!--  SizeChanged="CollectionSingleCardRoot_SizeChanged">  -->
 
     <Frame.Resources>
-        <toolkit:IsNotNullOrEmptyConverter x:Key="SingleToVisible" />
+        <toolkit:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
     </Frame.Resources>
 
     <CollectionView
@@ -33,7 +33,7 @@
         </CollectionView.ItemsLayout>
 
         <CollectionView.Header>
-            <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource SingleToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
+            <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
                 <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
             </Frame>
         </CollectionView.Header>
