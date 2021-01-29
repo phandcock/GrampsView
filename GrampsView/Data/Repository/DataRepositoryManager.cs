@@ -81,7 +81,9 @@
         public DataRepositoryManager(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IGrampsStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
+
             localExternalStorage = iocExternalStorage ?? throw new ArgumentNullException(nameof(iocExternalStorage));
+
             localPostLoad = iocGrampsStorePostLoad;
             _StoreSerial = iocGrampsStoreSerial;
             localStoreFile = iocStoreFile;
