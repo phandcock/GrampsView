@@ -12,8 +12,6 @@
     {
         public static string DataStorePath = Path.Combine(Path.GetTempPath(), "UnitTestDataStore");
 
-        // public static DataRepositoryManager DataStoreRepositoryManager = new DataRepositoryManager();
-
         public static void DataStoreSetup()
         {
             if (!DataStore.Instance.AD.CurrentDataFolderValid)
@@ -21,7 +19,7 @@
                 // Delete if it exists
                 if (Directory.Exists(DataStorePath))
                 {
-                    Directory.Delete(DataStorePath);
+                    Directory.Delete(DataStorePath, true);
                 }
 
                 Directory.CreateDirectory(DataStorePath);
