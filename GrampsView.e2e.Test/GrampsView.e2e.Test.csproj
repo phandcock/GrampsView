@@ -14,6 +14,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Test Data\Basic.gpkg" />
+    <None Remove="Test Data\grampsxml.171.rng" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Test Data\Basic.gpkg" />
+    <EmbeddedResource Include="Test Data\grampsxml.171.rng" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.1.0" />
     <PackageReference Include="Moq" Version="4.16.0" />
     <PackageReference Include="nunit" Version="3.13.0" />

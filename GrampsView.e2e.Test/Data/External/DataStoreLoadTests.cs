@@ -30,7 +30,7 @@
 
             // Load Resource
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = "GrampsView.NUnit.Test.Test_Data.Basic.gpkg";
+            var resourceName = "GrampsView.e2e.Test.Test_Data.Basic.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 

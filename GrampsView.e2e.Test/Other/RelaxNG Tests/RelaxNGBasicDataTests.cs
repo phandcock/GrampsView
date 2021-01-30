@@ -31,7 +31,7 @@
             DataStoreUtility.ListEmbeddedResources();
 
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = "GrampsView.NUnit.Test.Test_Data.grampsxml.171.rng";
+            var resourceName = "GrampsView.e2e.Test.Test_Data.grampsxml.171.rng";
 
             rngStream = assemblyExec.GetManifestResourceStream(resourceName);
         }
