@@ -178,6 +178,10 @@
         /// </summary>
         public const string IconTag = CommonFontNamesFAS.Tag;
 
+        public const string IconThemeDark = CommonFontNamesFAS.Moon;
+        public const string IconThemeLight = CommonFontNamesFAS.Sun;
+        public const string IconThemeSystem = CommonFontNamesFAS.Globe;
+
         public const string IconURL = CommonFontNamesFAS.Link;
 
         /// <summary>

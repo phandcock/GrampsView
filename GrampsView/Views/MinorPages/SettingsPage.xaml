@@ -7,10 +7,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
-
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -25,24 +25,52 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameCardLargeFixedStyle}">
 
-                <StackLayout HorizontalOptions="Start">
+                <StackLayout>
 
-                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Choose Application Theme" />
+                    <Frame Style="{DynamicResource GVFrameHeaderStyle}">
+                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Application Theme" />
+                    </Frame>
 
-                    <!--  Do this until radiobutton text display in Android works.  See https://github.com/xamarin/Xamarin.Forms/issues/11467  -->
-                    <StackLayout Orientation="Horizontal">
-                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}" />
-                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Force Light Theme" />
-                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="AppTheme">
 
-                    <StackLayout Orientation="Horizontal">
-                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}" />
-                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Force Dark Theme" />
-                    </StackLayout>
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeLight}" />
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Light" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
 
-                    <StackLayout Orientation="Horizontal">
-                        <RadioButton GroupName="AppTheme" IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}" />
-                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Use Operating System Theme" />
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeDark}" />
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Dark" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeSystem}" />
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="System" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
                     </StackLayout>
                 </StackLayout>
             </Frame>

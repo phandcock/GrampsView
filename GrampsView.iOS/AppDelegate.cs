@@ -28,11 +28,8 @@ namespace GrampsView.iOS
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Xamarin.Forms.Device.SetFlags(new string[] {
-                "AppTheme_Experimental",
-                "RadioButton_Experimental",
-                "Shell_UWP_Experimental"
-                });
+            //Xamarin.Forms.Device.SetFlags(new string[] {
+            //    });
 
             global::Xamarin.Forms.Forms.Init();
 

@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ControlTemplate x:Key="GVRadioButtonTemplate">
+        <Frame
+            Padding="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                              Light={StaticResource SecondaryDarkColorLight}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
+                                          Light={StaticResource PrimaryDarkColorLight}}"
+            HasShadow="False"
+            HeightRequest="100"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            WidthRequest="100">
+            <Grid Margin="4" WidthRequest="100">
+                <Grid
+                    HeightRequest="18"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    WidthRequest="18">
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="16"
+                        HorizontalOptions="Center"
+                        Stroke="#2E2545"
+                        StrokeThickness="0.5"
+                        VerticalOptions="Center"
+                        WidthRequest="16" />
+                    <Ellipse
+                        x:Name="Check"
+                        Fill="#2E2545"
+                        HeightRequest="8"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="8" />
+                </Grid>
+                <ContentPresenter />
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CheckedStates">
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                <!--<Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />-->
+                                <!--<Setter TargetName="Check" Property="Opacity" Value="1" />-->
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked">
+                            <VisualState.Setters>
+                                <!--<Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />-->
+                                <!--<Setter TargetName="Check" Property="Opacity" Value="0" />-->
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </VisualStateManager.VisualStateGroups>
+        </Frame>
+    </ControlTemplate>
+</ResourceDictionary>

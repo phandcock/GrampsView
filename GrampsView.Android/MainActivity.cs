@@ -66,9 +66,7 @@
 
             // Init things
             Xamarin.Forms.Forms.SetFlags(new string[] {
-                "AppTheme_Experimental",
-                "DragAndDrop_Experimental",
-                "RadioButton_Experimental"
+                "DragAndDrop_Experimental"
                 });
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
