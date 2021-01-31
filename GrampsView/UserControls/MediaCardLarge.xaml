@@ -11,9 +11,9 @@
     BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
     HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
     IsVisible="{Binding Valid}"
-    Style="{DynamicResource GridLargeFixedCardStyle}">
+    Style="{DynamicResource GridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource FrameCardLargeFixedStyle}">
+    <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
 
         <Frame.Content>
 

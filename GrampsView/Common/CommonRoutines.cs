@@ -95,7 +95,9 @@
         public static object ResourceValueGet(string keyName)
         {
             // Search all dictionaries
-            if (Application.Current.Resources.TryGetValue(keyName, out var retVal)) { }
+            if (Application.Current.Resources.TryGetValue(keyName, out var retVal))
+            {
+            }
             return retVal;
         }
     }
