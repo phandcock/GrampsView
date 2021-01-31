@@ -1,3 +1,12 @@
+## [16.15.11](https://github.com/phandcock/GrampsView/compare/v16.15.10...v16.15.11) (2021-01-31)
+
+
+### Bug Fixes
+
+* update Theme Settings to use a control template ([2b1a046](https://github.com/phandcock/GrampsView/commit/2b1a0465a31b6135a66199b7870ccae2fa3afa71))
+
+
+
 ## [16.15.10](https://github.com/phandcock/GrampsView/compare/v16.15.9...v16.15.10) (2021-01-27)
 
 
@@ -34,17 +43,6 @@
 
 * fix notecard display ([4649dfd](https://github.com/phandcock/GrampsView/commit/4649dfd7c6324a679f267ea8a01cf89f07fa7e79))
 * fix Search person hlink display ([b1682ca](https://github.com/phandcock/GrampsView/commit/b1682ca17f91f580ee3266cfd73f08e1c25eb116))
-
-
-
-## [16.15.6](https://github.com/phandcock/GrampsView/compare/v16.15.5...v16.15.6) (2021-01-18)
-
-
-### Bug Fixes
-
-* Add AboutPage back and fix size of media card icons ([5b726e8](https://github.com/phandcock/GrampsView/commit/5b726e8ecbd1d40ae8109c85df5fd004516e70a2))
-* tweak android card rotation sizes ([a8bd361](https://github.com/phandcock/GrampsView/commit/a8bd361c5d217af8a32c6ab34fd7c1b9ea32fea5))
-* tweak colours ([4a6fc60](https://github.com/phandcock/GrampsView/commit/4a6fc6080220c507d6355971279963d4bc9f5683))
 
 
 
