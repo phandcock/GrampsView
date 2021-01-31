@@ -1,4 +1,4 @@
-﻿namespace GrampsView.NUnit.Test.Utility
+﻿namespace GrampsView.e2e.Test.Utility
 {
     using GrampsView.Data.Repository;
 
@@ -10,6 +10,8 @@
 
     public static class DataStoreUtility
     {
+        public const string BasePath = "GrampsView.Test.e2e";
+
         public static string DataStorePath = Path.Combine(Path.GetTempPath(), "UnitTestDataStore");
 
         public static void DataStoreSetup()

@@ -90,14 +90,6 @@
             {
                 // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
 
-                var t = Shell.Current.Navigation.NavigationStack;
-
-                // Make the hub page the root CommonRoutines.LoadHubPage(); await
-                // Shell.Current.GoToAsync(nameof(HubPage), animate: true);
-
-                // Always display the log await Shell.Current.GoToAsync(nameof(MessageLogPage),
-                // animate: true);
-
                 if (DataStore.Instance.DS.IsDataLoaded)
                 {
                     CommonRoutines.NavigateHub();

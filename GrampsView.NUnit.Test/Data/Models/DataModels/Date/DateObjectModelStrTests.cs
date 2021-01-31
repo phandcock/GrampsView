@@ -2,7 +2,7 @@
 {
     using global::NUnit.Framework;
 
-    using GrampsView.NUnit.Test.Utility;
+    using GrampsView.e2e.Test.Utility;
 
     [TestFixture()]
     public class DateObjectModelStrTests

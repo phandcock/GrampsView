@@ -6,7 +6,7 @@
 
     using GrampsView.Common;
     using GrampsView.Data.Repository;
-    using GrampsView.NUnit.Test.Utility;
+    using GrampsView.e2e.Test.Utility;
 
     using System.IO;
     using System.Reflection;
@@ -31,7 +31,7 @@
             DataStoreUtility.ListEmbeddedResources();
 
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = "GrampsView.e2e.Test.Test_Data.grampsxml.171.rng";
+            var resourceName = DataStoreUtility.BasePath + ".Test_Data.grampsxml.171.rng";
 
             rngStream = assemblyExec.GetManifestResourceStream(resourceName);
         }

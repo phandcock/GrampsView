@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.Droid", "GrampsV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.iOS", "GrampsView.iOS\GrampsView.iOS.csproj", "{2B89A712-6A2B-466C-9730-5B0890A17EE4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.NUnit.Test", "GrampsView.NUnit.Test\GrampsView.NUnit.Test.csproj", "{E2DB197D-B2DD-4C6A-BBAC-28928889D62E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.Test.NUnit", "GrampsView.NUnit.Test\GrampsView.Test.NUnit.csproj", "{E2DB197D-B2DD-4C6A-BBAC-28928889D62E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.UWP", "GrampsView.UWP\GrampsView.UWP.csproj", "{C9E3D22C-DD30-4D5D-9CDE-99C1CC514105}"
 EndProject
@@ -63,7 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF7
 		.github\workflows\stale.yml = .github\workflows\stale.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.e2e.Test", "GrampsView.e2e.Test\GrampsView.e2e.Test.csproj", "{49C4F91D-4486-47CB-921F-371AA0F5E367}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.Test.e2e", "GrampsView.e2e.Test\GrampsView.Test.e2e.csproj", "{49C4F91D-4486-47CB-921F-371AA0F5E367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

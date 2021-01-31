@@ -3,7 +3,7 @@
     using global::NUnit.Framework;
 
     using GrampsView.Common;
-    using GrampsView.NUnit.Test.Utility;
+    using GrampsView.e2e.Test.Utility;
 
     [TestFixture()]
     public class DateObjectModelRangeTests

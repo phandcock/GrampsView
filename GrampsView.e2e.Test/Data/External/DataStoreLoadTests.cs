@@ -6,8 +6,8 @@
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorageNS;
     using GrampsView.Data.Repository;
+    using GrampsView.e2e.Test.Utility;
     using GrampsView.Events;
-    using GrampsView.NUnit.Test.Utility;
 
     using Moq;
 
@@ -30,7 +30,7 @@
 
             // Load Resource
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = "GrampsView.e2e.Test.Test_Data.Basic.gpkg";
+            var resourceName = DataStoreUtility.BasePath + ".Test_Data.Basic.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 

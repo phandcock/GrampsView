@@ -1,4 +1,4 @@
-﻿namespace GrampsView.NUnit.Test.Utility
+﻿namespace GrampsView.e2e.Test.Utility
 {
     using global::NUnit.Framework;
 
