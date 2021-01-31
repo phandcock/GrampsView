@@ -1,15 +1,4 @@
-﻿// <summary>
-// Utility routines for GramspStore XML readers
-// </summary>
-// <remarks>
-// Can not load and sort as we go as we then lose the ability to choose the first image link for
-// references. This can only be done when everything is fully loaded.
-// </remarks>
-// <copyright file="GramsStoreXMLUtility.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -19,7 +8,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using SkiaSharp;
 
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
     using System.Text.RegularExpressions;
@@ -136,7 +124,8 @@ namespace GrampsView.Data.ExternalStorageNS
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFileName;
-                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName); ;
+                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
+
                  newMediaModel.IsClippedFile = true;
 
                  newMediaModel.MetaDataHeight = cropRect.Height;

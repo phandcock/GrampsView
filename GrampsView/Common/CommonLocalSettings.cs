@@ -54,19 +54,19 @@ namespace GrampsView.Common
                 {
                     case OSAppTheme.Dark:
                         {
-                            SetInt(SettingsAppTheme, 1);
+                            Preferences.Set(SettingsAppTheme, 1);
                             break;
                         }
 
                     case OSAppTheme.Light:
                         {
-                            SetInt(SettingsAppTheme, 2);
+                            Preferences.Set(SettingsAppTheme, 2);
                             break;
                         }
 
                     default:
                         {
-                            SetInt(SettingsAppTheme, 3);
+                            Preferences.Set(SettingsAppTheme, 3);
                             break;
                         }
                 }
@@ -112,15 +112,12 @@ namespace GrampsView.Common
                     return int.MinValue;
                 }
 
-                // bool validDatabaseReloadFlag = int.TryParse(localGrampsViewDatabaseVersion, out
-                // int grampsViewDatabaseVersion);
-
                 return localGrampsViewDatabaseVersion;
             }
 
             set
             {
-                SetInt("GrampsViewDatabaseVersion", value);
+                Preferences.Set("GrampsViewDatabaseVersion", value);
             }
         }
 
@@ -139,7 +136,7 @@ namespace GrampsView.Common
 
             set
             {
-                SetBool("SerialisedData", value);
+                Preferences.Set("SerialisedData", value);
             }
         }
 
@@ -152,7 +149,20 @@ namespace GrampsView.Common
 
             set
             {
-                SetBool("FirstRunDisplay", value);
+                Preferences.Set("FirstRunDisplay", value);
+            }
+        }
+
+        public static DateTime LatestDatabaseChange
+        {
+            get
+            {
+                return Preferences.Get("LatestDatabaseChange", new DateTime());
+            }
+
+            set
+            {
+                Preferences.Set("LatestDatabaseChange", value);
             }
         }
 
@@ -171,7 +181,7 @@ namespace GrampsView.Common
 
             set
             {
-                SetBool("LoggingEnabled", value);
+                Preferences.Set("LoggingEnabled", value);
             }
         }
 
@@ -184,7 +194,7 @@ namespace GrampsView.Common
 
             set
             {
-                SetBool("WhatsNewDisplayed", value);
+                Preferences.Set("WhatsNewDisplayed", value);
             }
         }
 
@@ -215,7 +225,7 @@ namespace GrampsView.Common
 
             if (string.IsNullOrEmpty(settingFlag))
             {
-                SetBool(setting, false);
+                Preferences.Set(setting, false);
                 return false;
             }
 
@@ -227,48 +237,6 @@ namespace GrampsView.Common
             {
                 return false;
             }
-        }
-
-        private static Int32 GetInt(string setting, Int32 argDefault)
-        {
-            Int32 settingFlag = Preferences.Get(setting, argDefault);
-
-            return settingFlag;
-        }
-
-        /// <summary>
-        /// Sets the bool.
-        /// </summary>
-        /// <param name="setting">
-        /// The setting.
-        /// </param>
-        /// <param name="value">
-        /// if set to <c>true</c> [value].
-        /// </param>
-        private static void SetBool(string setting, bool value)
-        {
-            if (value)
-            {
-                Preferences.Set(setting, "Y");
-            }
-            else
-            {
-                Preferences.Set(setting, "N");
-            }
-        }
-
-        /// <summary>
-        /// Sets the int.
-        /// </summary>
-        /// <param name="setting">
-        /// The setting.
-        /// </param>
-        /// <param name="value">
-        /// The value.
-        /// </param>
-        private static void SetInt(string setting, Int32 value)
-        {
-            Preferences.Set(setting, value);
         }
     }
 }

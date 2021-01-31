@@ -9,6 +9,7 @@
     Padding="0"
     BackgroundColor="Transparent"
     BindingContextChanged="MediaImageFull_BindingContextChanged"
+    BorderColor="Transparent"
     HasShadow="True"
     IsVisible="True"
     Style="{DynamicResource FrameLargeVariableCardStyleNS}">

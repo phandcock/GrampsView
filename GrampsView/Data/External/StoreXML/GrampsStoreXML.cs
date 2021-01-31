@@ -1,23 +1,14 @@
-﻿// <copyright file="GrampsStoreXML.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
-    using System;
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
-    using Prism.Events;
-
+    using System;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Private Storage Routines.
-    /// </summary>
     public partial class GrampsStoreXML : CommonBindableBase, IGrampsStoreXML
     {
         /// <summary>
@@ -98,7 +89,6 @@ namespace GrampsView.Data.ExternalStorageNS
 
                     try
                     {
-                        // string t = inputFile.Path;
                         localGrampsXMLdoc = XDocument.Load(xmlReader);
                     }
                     catch (Exception ex)
@@ -126,8 +116,6 @@ namespace GrampsView.Data.ExternalStorageNS
 
                     xmlReader.Dispose();
                 }
-
-
             }
             catch (Exception ex)
             {

@@ -93,7 +93,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
             await DataStore.Instance.CN.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
 
-            //// save the data in a serial format for next time
+            // save the data in a serial format for next time
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
             // let everybody know we have finished loading data
