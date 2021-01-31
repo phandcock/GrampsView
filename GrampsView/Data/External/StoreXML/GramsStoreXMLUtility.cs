@@ -156,6 +156,43 @@
         }
 
         /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <returns>
+        /// Text of the XML Attribute.
+        /// </returns>
+        private static string GetAttribute(XAttribute a)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return ((string)a).Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <param name="b">
+        /// The b.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static string GetAttribute(XElement a, string b)
+        {
+            return GetAttribute(a.Attribute(b));
+        }
+
+        /// <summary>
         /// Gets the bool.
         /// </summary>
         /// <param name="xmlData">
@@ -191,6 +228,51 @@
                     {
                         return false;
                     }
+            }
+        }
+
+        /// <summary>
+        /// Gets the element.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <returns>
+        /// Text of the XML Element.
+        /// </returns>
+        private static string GetElement(XElement a)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return ((string)a).Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the element.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <param name="b">
+        /// The b.
+        /// </param>
+        /// <returns>
+        /// Text of the XML element int he provided namespace.
+        /// </returns>
+        private static string GetElement(XElement a, string b)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return GetElement(a.Element(ns + b));
             }
         }
 

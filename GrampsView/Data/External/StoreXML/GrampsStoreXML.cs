@@ -12,6 +12,11 @@
     public partial class GrampsStoreXML : CommonBindableBase, IGrampsStoreXML
     {
         /// <summary>
+        /// The default XML namespace.
+        /// </summary>
+        private static XNamespace ns;
+
+        /// <summary>
         /// IOC local copy of GramsView Logging routines.
         /// </summary>
         private readonly ICommonLogging localGrampsCommonLogging;
@@ -20,11 +25,6 @@
         /// The Gramps XML document.
         /// </summary>
         private XDocument localGrampsXMLdoc;
-
-        /// <summary>
-        /// The default XML namespace.
-        /// </summary>
-        private XNamespace ns;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GrampsStoreXML"/> class.
@@ -158,88 +158,6 @@
             // People last because they rely on pretty much everything else
             await LoadPeopleDataAsync().ConfigureAwait(false);
             return true;
-        }
-
-        /// <summary>
-        /// Gets the attribute.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <returns>
-        /// Text of the XML Attribute.
-        /// </returns>
-        private static string GetAttribute(XAttribute a)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gets the element.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <returns>
-        /// Text of the XML Element.
-        /// </returns>
-        private static string GetElement(XElement a)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gets the attribute.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <param name="b">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private string GetAttribute(XElement a, string b)
-        {
-            return GetAttribute(a.Attribute(b));
-        }
-
-        /// <summary>
-        /// Gets the element.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <param name="b">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// Text of the XML element int he provided namespace.
-        /// </returns>
-        private string GetElement(XElement a, string b)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return GetElement(a.Element(ns + b));
-            }
         }
     }
 }

@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonRoutines
-//
-// <copyright file="CommonLocalSettings.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Repository;
 
@@ -16,9 +7,6 @@ namespace GrampsView.Common
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
-    /// <summary>
-    /// Various common routines.
-    /// </summary>
     public static class CommonLocalSettings
     {
         private const string SettingsAppTheme = "ApplicationTheme";
@@ -131,7 +119,7 @@ namespace GrampsView.Common
         {
             get
             {
-                return GetBool("SerialisedData");
+                return Preferences.Get("SerialisedData", false);
             }
 
             set
@@ -144,7 +132,7 @@ namespace GrampsView.Common
         {
             get
             {
-                return GetBool("FirstRunDisplay");
+                return Preferences.Get("FirstRunDisplay", false);
             }
 
             set
@@ -176,7 +164,7 @@ namespace GrampsView.Common
         {
             get
             {
-                return GetBool("LoggingEnabled");
+                return Preferences.Get("LoggingEnabled", false);
             }
 
             set
@@ -189,7 +177,7 @@ namespace GrampsView.Common
         {
             get
             {
-                return GetBool("WhatsNewDisplayed");
+                return Preferences.Get("WhatsNewDisplayed", false);
             }
 
             set
@@ -208,35 +196,6 @@ namespace GrampsView.Common
             DataStore.Instance.DS.IsDataLoaded = false;
 
             DataSerialised = false;
-        }
-
-        /// <summary>
-        /// Gets the bool local setting data.
-        /// </summary>
-        /// <param name="setting">
-        /// The setting.
-        /// </param>
-        /// <returns>
-        /// true if the value is Y.
-        /// </returns>
-        private static bool GetBool(string setting)
-        {
-            string settingFlag = Preferences.Get(setting, string.Empty);
-
-            if (string.IsNullOrEmpty(settingFlag))
-            {
-                Preferences.Set(setting, false);
-                return false;
-            }
-
-            if (settingFlag == "Y")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

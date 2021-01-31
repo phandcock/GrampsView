@@ -16,14 +16,14 @@ namespace GrampsView.Data.ExternalStorageNS
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
         /// <summary>
+        /// The local common logging.
+        /// </summary>
+        private readonly ICommonLogging _CommonLogging;
+
+        /// <summary>
         /// Gets or sets injected Event Aggregator.
         /// </summary>
         private readonly IEventAggregator _EventAggregator;
-
-        /// <summary>
-        /// The local common logging.
-        /// </summary>
-        private ICommonLogging _CommonLogging;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
