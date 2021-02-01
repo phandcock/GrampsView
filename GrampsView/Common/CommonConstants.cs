@@ -26,14 +26,9 @@
         public const string EventTypeMarriage = "Marriage";
 
         /// <summary>
-        /// The file not found default name.
-        /// </summary>
-      // public const string FileNotFoundDefaultName = "ms-appx:///Assets/Icons/AppLogos/MediaLogo.png";
-
-        /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 50;
+        public const int GrampsViewDatabaseVersion = 51;
 
         /// <summary>
         /// The Gramps XML name space.

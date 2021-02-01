@@ -13,7 +13,6 @@
     x:Name="MediaDetailPageRoot"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
-
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -58,14 +57,14 @@
                 </Frame.GestureRecognizers>
                 <StackLayout>
 
-                    <toolkit:MediaElement
+                    <!--<toolkit:MediaElement
                         x:Name="daMediaElement"
                         AutoPlay="False"
                         BackgroundColor="AliceBlue"
                         MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
                         Source="{Binding MediaPath, Mode=OneWay}"
-                        VerticalOptions="FillAndExpand" />
+                        VerticalOptions="FillAndExpand" />-->
 
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
                 </StackLayout>

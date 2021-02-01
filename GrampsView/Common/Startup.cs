@@ -86,21 +86,21 @@
 
         private void StartProcessing()
         {
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
+            MainThread.BeginInvokeOnMainThread(() =>
+           {
                 // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
 
                 if (DataStore.Instance.DS.IsDataLoaded)
-                {
-                    CommonRoutines.NavigateHub();
-                    return;
-                }
+               {
+                   CommonRoutines.NavigateHub();
+                   return;
+               }
 
-                if (!_FirstRunDisplayService.ShowIfAppropriate())
-                {
-                    _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
-                }
-            });
+               if (!_FirstRunDisplayService.ShowIfAppropriate())
+               {
+                   _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
+               }
+           });
         }
     }
 }

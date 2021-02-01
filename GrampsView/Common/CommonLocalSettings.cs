@@ -72,6 +72,7 @@
             {
                 if (DatabaseVersion < CommonConstants.GrampsViewDatabaseVersion)
                 {
+                    ClearPreferences();
                     return true;
                 }
                 else
@@ -184,6 +185,17 @@
             {
                 Preferences.Set("WhatsNewDisplayed", value);
             }
+        }
+
+        public static void ClearPreferences()
+        {
+            Preferences.Remove("ApplicationTheme");
+            Preferences.Remove("GrampsViewDatabaseVersion");
+            Preferences.Remove("SerialisedData");
+            Preferences.Remove("FirstRunDisplay");
+            Preferences.Remove("LatestDatabaseChange");
+            Preferences.Remove("LoggingEnabled");
+            Preferences.Remove("WhatsNewDisplayed");
         }
 
         public static void SetReloadDatabase()
