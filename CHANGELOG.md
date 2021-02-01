@@ -1,3 +1,12 @@
+## [16.15.12](https://github.com/phandcock/GrampsView/compare/v16.15.11...v16.15.12) (2021-02-01)
+
+
+### Bug Fixes
+
+* tweak headings and layout ([8bbdb8d](https://github.com/phandcock/GrampsView/commit/8bbdb8da796727af08e4f281d3f7527f0d7446c7))
+
+
+
 ## [16.15.11](https://github.com/phandcock/GrampsView/compare/v16.15.10...v16.15.11) (2021-01-31)
 
 
@@ -33,16 +42,6 @@
 ### Bug Fixes
 
 * fix small card height on android ([766dfeb](https://github.com/phandcock/GrampsView/commit/766dfebfb3f23870f2d9022debfcfed7cad57764))
-
-
-
-## [16.15.7](https://github.com/phandcock/GrampsView/compare/v16.15.6...v16.15.7) (2021-01-20)
-
-
-### Bug Fixes
-
-* fix notecard display ([4649dfd](https://github.com/phandcock/GrampsView/commit/4649dfd7c6324a679f267ea8a01cf89f07fa7e79))
-* fix Search person hlink display ([b1682ca](https://github.com/phandcock/GrampsView/commit/b1682ca17f91f580ee3266cfd73f08e1c25eb116))
 
 
 
