@@ -22,6 +22,7 @@
 
         private string _MediaPath;
 
+        private bool _ShowImageElement = false;
         private bool _ShowMediaElement = false;
 
         /// <summary>
@@ -87,6 +88,19 @@
             }
         }
 
+        public bool ShowImageElement
+        {
+            get
+            {
+                return _ShowImageElement;
+            }
+
+            set
+            {
+                SetProperty(ref _ShowImageElement, value);
+            }
+        }
+
         public bool ShowMediaElement
         {
             get
@@ -145,6 +159,12 @@
                 if ((CurrentMediaObject.FileMimeType == "video") || (CurrentMediaObject.FileMimeType == "audio"))
                 {
                     ShowMediaElement = true;
+                    ShowImageElement = false;
+                }
+                else
+                {
+                    ShowMediaElement = false;
+                    ShowImageElement = true;
                 }
 
                 BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");

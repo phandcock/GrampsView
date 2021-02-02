@@ -16,12 +16,6 @@
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <ResourceDictionary>
-            <toolkit:InvertedBoolConverter x:Key="flipBool" />
-        </ResourceDictionary>
-    </Page.Resources>
-
     <Shell.TitleView>
         <ucon:TopMenu />
     </Shell.TitleView>
@@ -38,7 +32,7 @@
                         x:Name="daImage"
                         BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
-                        IsVisible="{Binding ShowMediaElement, Converter={StaticResource flipBool}, Mode=OneWay}"
+                        IsVisible="{Binding ShowImageElement, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
                     <toolkit:MediaElement
