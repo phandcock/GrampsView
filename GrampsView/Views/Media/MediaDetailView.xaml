@@ -29,10 +29,7 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <Frame
-                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                IsVisible="{Binding ShowMediaElement, Converter={StaticResource flipBool}, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+            <Frame HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
@@ -41,30 +38,19 @@
                         x:Name="daImage"
                         BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding ShowMediaElement, Converter={StaticResource flipBool}, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
-                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                HeightRequest="300"
-                IsVisible="{Binding ShowMediaElement, Mode=OneWay}"
-                Style="{StaticResource FrameCardLargeFixedStyle}"
-                WidthRequest="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-                </Frame.GestureRecognizers>
-                <StackLayout>
-
-                    <!--<toolkit:MediaElement
+                    <toolkit:MediaElement
                         x:Name="daMediaElement"
                         AutoPlay="False"
                         BackgroundColor="AliceBlue"
+                        HeightRequest="300"
+                        IsVisible="{Binding ShowMediaElement, Mode=OneWay}"
                         MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
                         Source="{Binding MediaPath, Mode=OneWay}"
-                        VerticalOptions="FillAndExpand" />-->
+                        VerticalOptions="FillAndExpand" />
 
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
                 </StackLayout>

@@ -3,7 +3,7 @@
     x:Class="GrampsView.UserControls.MediaImageSkia"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="MediaImageSkiaRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
@@ -17,7 +17,9 @@
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
-    <Image
+    <ContentPresenter Grid.Row="0" Grid.Column="0" />
+
+    <!--<Image
         x:Name="daSymbol"
         Grid.Row="0"
         Grid.Column="0"
@@ -29,11 +31,11 @@
         <Image.Source>
             <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" />
         </Image.Source>
-    </Image>
+    </Image>-->
 
-    <ucon:MediaImageFull
+    <!--<ucon:MediaImageFull
         x:Name="daImage"
         Grid.Row="0"
         Grid.Column="0"
-        Margin="3" />
+        Margin="3" />-->
 </Grid>

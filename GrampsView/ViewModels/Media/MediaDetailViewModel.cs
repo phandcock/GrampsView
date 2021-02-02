@@ -22,7 +22,7 @@
 
         private string _MediaPath;
 
-        private bool _ShowMediaElement;
+        private bool _ShowMediaElement = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
@@ -100,26 +100,6 @@
                 MediaPath = CurrentMediaObject.MediaStorageFilePath;
             }
         }
-
-        ///// <summary>
-        ///// Gets or sets the h link parameter.
-        ///// </summary>
-        ///// <param name="parameters">
-        ///// The parameters.
-        ///// </param>
-        ///// <value>
-        ///// The h link parameter.
-        ///// </value>
-        //public override void OnNavigatedFrom(INavigationParameters parameters)
-        //{
-        //    base.OnNavigatedFrom(parameters);
-
-        //    // Clear large Bitmap Image
-        //    if (CurrentMediaObject != null)
-        //    {
-        //        CurrentMediaObject.FullImageClean();
-        //    }
-        //}
 
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.

@@ -15,15 +15,18 @@
         {
             InitializeComponent();
 
-            // Handle IsEnabled on the control and pass to the image Tap event
-            this.daImage.IsEnabled = true;
-            if (!this.IsEnabled)
-            {
-                this.daImage.IsEnabled = false;
-            }
+            //// Handle IsEnabled on the control and pass to the image Tap event
+            //this.daImage.IsEnabled = true;
+            //if (!this.IsEnabled)
+            //{
+            //    this.daImage.IsEnabled = false;
+            //}
         }
 
-        private HLinkHomeImageModel WorkHLMediaModel { get; set; }
+        private HLinkHomeImageModel WorkHLMediaModel
+        {
+            get; set;
+        }
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
@@ -76,12 +79,14 @@
                 return;
             }
             // Input valid so start work
-            daSymbol.IsVisible = false;
-            daImage.IsVisible = true;
+            MediaImageFull newMediaControl = new MediaImageFull
+            {
+                BindingContext = argMediaModel.HLink,
+                Margin = 3
+            };
 
-            //this.daImage.DownsampleToViewSize = true;
-
-            this.daImage.BindingContext = argMediaModel.HLink;
+            this.MediaImageSkiaRoot.Children.Clear();
+            this.MediaImageSkiaRoot.Children.Add(newMediaControl);
         }
 
         private void ShowSomething(HLinkHomeImageModel argHHomeMedia)
@@ -122,26 +127,44 @@
 
         private void ShowSymbol(HLinkHomeImageModel argHLMediaModel)
         {
+            // create symbol control
+
+            Image newImageControl = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                BackgroundColor = Color.Transparent,
+                IsVisible = true,
+                Margin = 5,
+                Source = new FontImageSource
+                {
+                },
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+
             // Input valid so start work
-            daSymbol.IsVisible = true;
-            daImage.IsVisible = false;
 
             // Set symbol
-            FontImageSource tt = this.daSymbol.Source as FontImageSource;
-            tt.Glyph = argHLMediaModel.HomeSymbol;
-            tt.Color = argHLMediaModel.HomeSymbolColour;
+            FontImageSource fontGlyph = new FontImageSource
+            {
+                Glyph = argHLMediaModel.HomeSymbol,
+                Color = argHLMediaModel.HomeSymbolColour,
+                FontFamily = "FA-Solid"
+            };
 
-            if (tt.Glyph == null)
+            if (fontGlyph.Glyph == null)
             {
                 DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
             }
 
-            if (tt.Color == null)
+            if (fontGlyph.Color == null)
             {
                 DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
             }
 
-            this.daSymbol.Source = tt;
+            newImageControl.Source = fontGlyph;
+
+            this.MediaImageSkiaRoot.Children.Clear();
+            this.MediaImageSkiaRoot.Children.Add(newImageControl);
         }
     }
 }
