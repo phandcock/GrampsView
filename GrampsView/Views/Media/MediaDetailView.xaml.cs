@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Views
 {
     using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
     using GrampsView.ViewModels;
 
     using System;
@@ -18,6 +19,14 @@
         private void daMediaElement_MediaFailed(object sender, EventArgs e)
         {
             (sender as Xamarin.CommunityToolkit.UI.Views.MediaElement).Source = null;
+
+            Common.AdditionalInfoItems argDetail = new Common.AdditionalInfoItems
+                {
+                    { "Type", "Media Element" },
+                    { "e", e.ToString() },
+                };
+
+            DataStore.Instance.CN.NotifyError("Error displaying Media Element", argDetail);
 
             // TODO Handle when can not play video better
         }

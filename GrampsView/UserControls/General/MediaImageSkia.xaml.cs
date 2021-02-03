@@ -73,20 +73,35 @@
 
         private void ShowImage(IMediaModel argMediaModel)
         {
-            if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+            try
             {
-                DataStore.Instance.CN.NotifyError("The media file path is null for Id:" + argMediaModel.Id);
-                return;
-            }
-            // Input valid so start work
-            MediaImageFull newMediaControl = new MediaImageFull
-            {
-                BindingContext = argMediaModel.HLink,
-                Margin = 3
-            };
+                if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                {
+                    DataStore.Instance.CN.NotifyError("The media file path is null for Id:" + argMediaModel.Id);
+                    return;
+                }
+                // Input valid so start work
+                MediaImageFull newMediaControl = new MediaImageFull
+                {
+                    BindingContext = argMediaModel.HLink,
+                    Margin = 3
+                };
 
-            this.MediaImageSkiaRoot.Children.Clear();
-            this.MediaImageSkiaRoot.Children.Add(newMediaControl);
+                this.MediaImageSkiaRoot.Children.Clear();
+                this.MediaImageSkiaRoot.Children.Add(newMediaControl);
+            }
+            catch (Exception ex)
+            {
+                Common.AdditionalInfoItems argDetail = new Common.AdditionalInfoItems
+                {
+                    { "Type", "Image" },
+                    { "Media Model Id", argMediaModel.Id },
+                    { "Media Model Path", argMediaModel.MediaStorageFilePath },
+                };
+
+                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex, argExtraItems: argDetail);
+                throw;
+            }
         }
 
         private void ShowSomething(HLinkHomeImageModel argHHomeMedia)
@@ -127,44 +142,59 @@
 
         private void ShowSymbol(HLinkHomeImageModel argHLMediaModel)
         {
-            // create symbol control
-
-            Image newImageControl = new Image
+            try
             {
-                Aspect = Aspect.AspectFit,
-                BackgroundColor = Color.Transparent,
-                IsVisible = true,
-                Margin = 5,
-                Source = new FontImageSource
+                // create symbol control
+
+                Image newImageControl = new Image
                 {
-                },
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
+                    Aspect = Aspect.AspectFit,
+                    BackgroundColor = Color.Transparent,
+                    IsVisible = true,
+                    Margin = 5,
+                    Source = new FontImageSource
+                    {
+                    },
+                    VerticalOptions = LayoutOptions.FillAndExpand,
+                };
 
-            // Input valid so start work
+                // Input valid so start work
 
-            // Set symbol
-            FontImageSource fontGlyph = new FontImageSource
-            {
-                Glyph = argHLMediaModel.HomeSymbol,
-                Color = argHLMediaModel.HomeSymbolColour,
-                FontFamily = "FA-Solid"
-            };
+                // Set symbol
+                FontImageSource fontGlyph = new FontImageSource
+                {
+                    Glyph = argHLMediaModel.HomeSymbol,
+                    Color = argHLMediaModel.HomeSymbolColour,
+                    FontFamily = "FA-Solid"
+                };
 
-            if (fontGlyph.Glyph == null)
-            {
-                DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
+                if (fontGlyph.Glyph == null)
+                {
+                    DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
+                }
+
+                if (fontGlyph.Color == null)
+                {
+                    DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
+                }
+
+                newImageControl.Source = fontGlyph;
+
+                this.MediaImageSkiaRoot.Children.Clear();
+                this.MediaImageSkiaRoot.Children.Add(newImageControl);
             }
-
-            if (fontGlyph.Color == null)
+            catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
+                Common.AdditionalInfoItems argDetail = new Common.AdditionalInfoItems
+                {
+                    { "Type", "Symbol" },
+                    { "Media Model Hlink Key", argHLMediaModel.HLinkKey },
+                    { "Media Model Symbol", argHLMediaModel.HomeSymbol },
+                };
+
+                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex, argExtraItems: argDetail);
+                throw;
             }
-
-            newImageControl.Source = fontGlyph;
-
-            this.MediaImageSkiaRoot.Children.Clear();
-            this.MediaImageSkiaRoot.Children.Add(newImageControl);
         }
     }
 }
