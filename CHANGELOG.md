@@ -1,3 +1,13 @@
+## [16.15.13](https://github.com/phandcock/GrampsView/compare/v16.15.12...v16.15.13) (2021-02-03)
+
+
+### Bug Fixes
+
+* fix system preferences changes bug ([897b3e3](https://github.com/phandcock/GrampsView/commit/897b3e359f2a21e2ddc9ef59bacb223214db8687))
+* remove invertbool toolkit usage until its working better ([8e054af](https://github.com/phandcock/GrampsView/commit/8e054af11cd040d58926bc1c7cf1219421e6bb2d))
+
+
+
 ## [16.15.12](https://github.com/phandcock/GrampsView/compare/v16.15.11...v16.15.12) (2021-02-01)
 
 
@@ -33,15 +43,6 @@
 ### Bug Fixes
 
 * change shell search to be lower case ([0ad5b55](https://github.com/phandcock/GrampsView/commit/0ad5b55af5fcf89406cb0d7066b0d9641161f4a8))
-
-
-
-## [16.15.8](https://github.com/phandcock/GrampsView/compare/v16.15.7...v16.15.8) (2021-01-20)
-
-
-### Bug Fixes
-
-* fix small card height on android ([766dfeb](https://github.com/phandcock/GrampsView/commit/766dfebfb3f23870f2d9022debfcfed7cad57764))
 
 
 
