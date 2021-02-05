@@ -49,7 +49,7 @@
                 argExtraItems.Add("Inner Exception", argEx.InnerException.Message);
             }
 
-            Log.LogCritical(argExtraItems.Name, argEx.Message);
+            Log.LogCritical(argExtraItems.Name, argExtraItems.ToString());
 
             // Only Start App Center if there string exceptionMessage = argMessage + " - Exception:"
 

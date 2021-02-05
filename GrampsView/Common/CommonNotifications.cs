@@ -26,9 +26,9 @@
         /// </summary>
         private readonly IEventAggregator _iocEventAggregator;
 
-        private string _BottomMessage = string.Empty;
+        //private string _BottomMessage = string.Empty;
 
-        private string _DataLogMessage = string.Empty;
+        //private string _DataLogMessage = string.Empty;
 
         private string _MinorMessage;
 
@@ -196,16 +196,6 @@
             NotifyDialogBox(t);
         }
 
-        ///// <summary>
-        ///// Handle DialogBox messages.
-        ///// </summary>
-        ///// <param name="argADA">
-        ///// The message text.
-        ///// </param>
-        //public void NotifyDialogBox(ErrorInfo argADA)
-        //{
-        //}
-
         /// <summary>
         /// Notifies the user of an error and logs it for further analysis.
         /// </summary>
@@ -226,20 +216,6 @@
             _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
         }
 
-        //public void NotifyError(string argMessage, ErrorInfo argErrorDetail)
-        //{
-        //    if (argErrorDetail is null)
-        //    {
-        //        argErrorDetail = new ErrorInfo();
-        //    }
-
-        // argErrorDetail.Text = argMessage; argErrorDetail.Name = "Error";
-
-        // _iocCommonLogging.Error(argErrorDetail);
-
-        //    NotifyDialogBox(argErrorDetail);
-        //}
-
         public void NotifyError(ErrorInfo argErrorDetail)
         {
             if (argErrorDetail is null)
@@ -253,40 +229,6 @@
 
             NotifyDialogBox(argErrorDetail);
         }
-
-        ///// <summary>
-        ///// Notifies the error.
-        ///// </summary>
-        ///// <param name="argMessage">
-        ///// The string message.
-        ///// </param>
-        //public void NotifyError(string argMessage)
-        //{
-        //    ErrorInfo argErrorDetail = new ErrorInfo();
-
-        //    NotifyError(argMessage, argErrorDetail);
-        //}
-
-        ///// <summary>
-        ///// Helper to Notify Error.
-        ///// </summary>
-        ///// <param name="strMessage">
-        ///// The string message.
-        ///// </param>
-        ///// <param name="argErrorDetail">
-        ///// The argument error detail.
-        ///// </param>
-        //public void NotifyError(string argMessage, string argDetails)
-        //{
-        //    ErrorInfo argErrorDetail = new ErrorInfo
-        //    {
-        //        { "Details", argDetails },
-        //    };
-
-        // argErrorDetail.Text = argMessage;
-
-        //    NotifyError(argMessage, argErrorDetail);
-        //}
 
         /// <summary>
         /// notify the user about an Exception.
