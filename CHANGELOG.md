@@ -1,3 +1,12 @@
+## [16.15.14](https://github.com/phandcock/GrampsView/compare/v16.15.13...v16.15.14) (2021-02-05)
+
+
+### Bug Fixes
+
+* test cleanup and add better exception handling ([4756d17](https://github.com/phandcock/GrampsView/commit/4756d17e1cf8a2d3c6579bca27adcf7603664d88))
+
+
+
 ## [16.15.13](https://github.com/phandcock/GrampsView/compare/v16.15.12...v16.15.13) (2021-02-03)
 
 
@@ -34,15 +43,6 @@
 * fix UWP start uri and tweak activity cards a bit ([e95bf00](https://github.com/phandcock/GrampsView/commit/e95bf007f95a713d0bb3360eeb544cb2bb1604f5))
 * hide CardgroupHeader Title and Control when nothing to show ([fcfe894](https://github.com/phandcock/GrampsView/commit/fcfe894c35d5d378a1724d7c63d185cc3a3e75fa))
 * update timeline display and error reporting ([8b3c589](https://github.com/phandcock/GrampsView/commit/8b3c5897ded3a26f79e39a3dbe5d8842dfa1bd8c))
-
-
-
-## [16.15.9](https://github.com/phandcock/GrampsView/compare/v16.15.8...v16.15.9) (2021-01-25)
-
-
-### Bug Fixes
-
-* change shell search to be lower case ([0ad5b55](https://github.com/phandcock/GrampsView/commit/0ad5b55af5fcf89406cb0d7066b0d9641161f4a8))
 
 
 
