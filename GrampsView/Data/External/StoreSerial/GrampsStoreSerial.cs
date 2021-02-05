@@ -64,7 +64,12 @@ namespace GrampsView.Data.External.StoreSerial
 
                     if (!isoStore.FileExists(DataInstanceFileName))
                     {
-                        DataStore.Instance.CN.NotifyError("DeSerializeRepository - File: " + DataInstanceFileName + " does not exist.  Reload the GPKG file");
+                        ErrorInfo t = new ErrorInfo("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
+                                {
+                                    { "File", DataInstanceFileName },
+                                };
+
+                        DataStore.Instance.CN.NotifyError(t);
                         CommonLocalSettings.DataSerialised = false;
                         return;
                     }
@@ -86,7 +91,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.BookMarkCollection != null)
@@ -96,7 +101,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.CitationData != null)
@@ -106,7 +111,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.EventData != null)
@@ -116,7 +121,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.FamilyData != null)
@@ -126,7 +131,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.MediaData != null)
@@ -136,7 +141,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.PersonData != null)
@@ -146,7 +151,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.PersonNameData != null)
@@ -156,7 +161,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // Check for nulls
@@ -167,7 +172,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // Check for nulls
@@ -178,7 +183,7 @@ namespace GrampsView.Data.External.StoreSerial
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data.");
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // TODO Finish setting the checks up on these

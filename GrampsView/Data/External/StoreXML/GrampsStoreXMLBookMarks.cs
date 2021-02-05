@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Common;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -56,7 +57,12 @@
                         }
                         else
                         {
-                            DataStore.Instance.CN.NotifyError("Bad BookMark HLink: " + argBookMark.ToString());
+                            ErrorInfo t = new ErrorInfo("Bad BookMark")
+                                {
+                                    { "HLink",  argBookMark.ToString()}
+                                };
+
+                            DataStore.Instance.CN.NotifyError(t);
                         }
 
                         // save the event

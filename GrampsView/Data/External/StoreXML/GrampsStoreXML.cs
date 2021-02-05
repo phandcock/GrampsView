@@ -101,7 +101,13 @@
                     int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, CommonConstants.GrampsXMLPublicId, StringComparison.CurrentCulture);
                     if (compareFlag < 0)
                     {
-                        DataStore.Instance.CN.NotifyError("The program can only load files with a Gramps XML version of " + CommonConstants.GrampsXMLPublicId + " or greater.  This file is version " + localGrampsXMLdoc.DocumentType.PublicId);
+                        ErrorInfo t = new ErrorInfo("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
+                                {
+                                    { "Minimum Version", CommonConstants.GrampsXMLPublicId },
+                                    { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
+                        };
+
+                        DataStore.Instance.CN.NotifyError(t);
                         return false;
                     }
 

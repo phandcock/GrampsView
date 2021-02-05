@@ -5,7 +5,6 @@
     using Microsoft.Extensions.Logging;
 
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Provides default logging services usign microsoft.extensions.logger
@@ -23,73 +22,40 @@
             Log.LogInformation("Log started");
         }
 
-        public void Error(string argMessage, AdditionalInfoItems argErrorDetail = null)
+        public void Error(ErrorInfo argErrorDetail = null)
         {
-            AdditionalInfoItems errorDetail = new AdditionalInfoItems
-            {
-                { "Message", argMessage }
-            };
-
-            if (argErrorDetail != null)
-            {
-                foreach (var item in argErrorDetail)
-                {
-                    errorDetail.Add(item.Key, item.Value);
-                }
-            }
-
             // Only Start App Center if there
             if (!CommonRoutines.IsEmulator())
             {
-                Crashes.TrackError(null, errorDetail);
-
-                Analytics.TrackEvent(argMessage, errorDetail);
+                Analytics.TrackEvent("Error", argErrorDetail);
             }
 
-            Log.LogError(argMessage, argErrorDetail);
+            Log.LogError(argErrorDetail.ToString());
         }
 
-        public void Exception(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null)
+        public void Exception(Exception argEx, ErrorInfo argExtraItems = null)
         {
-            if (argMessage is null)
-            {
-                throw new ArgumentNullException(nameof(argMessage));
-            }
-
             if (argEx is null)
             {
                 throw new ArgumentNullException(nameof(argEx));
             }
 
-            Dictionary<string, string> errorDetail = new Dictionary<string, string>
-            {
-                { "Message", argMessage },
-
-                { "Exception Message", argEx.Message },
-                { "Exception Source", argEx.Source },
-                { "Exception StackTrace", argEx.StackTrace }
-            };
-
-            if (argExtraItems != null)
-            {
-                foreach (var item in argExtraItems)
-                {
-                    errorDetail.Add(item.Key, item.Value);
-                }
-            }
+            argExtraItems.Add("Exception Message", argEx.Message);
+            argExtraItems.Add("Exception Source", argEx.Source);
+            argExtraItems.Add("Exception StackTrace", argEx.StackTrace);
 
             if (argEx.InnerException != null)
             {
-                errorDetail.Add("Inner Exception", argEx.InnerException.Message);
+                argExtraItems.Add("Inner Exception", argEx.InnerException.Message);
             }
 
-            Log.LogCritical(argMessage, errorDetail);
+            Log.LogCritical(argExtraItems.Name, argEx.Message);
 
             // Only Start App Center if there string exceptionMessage = argMessage + " - Exception:"
 
             if (!CommonRoutines.IsEmulator())
             {
-                Crashes.TrackError(argEx, errorDetail);
+                Crashes.TrackError(argEx, argExtraItems);
             }
         }
 
@@ -97,7 +63,8 @@
         {
             if (argCategory is null)
             {
-                return LogFactory.CreateLogger("GrampsView"); ;
+                return LogFactory.CreateLogger("GrampsView");
+                ;
             }
 
             return LogFactory.CreateLogger(argCategory);
@@ -110,7 +77,7 @@
                 throw new ArgumentNullException(nameof(argMessage));
             }
 
-            AdditionalInfoItems errorDetail = new AdditionalInfoItems
+            ErrorInfo errorDetail = new ErrorInfo
             {
                 //{ "Message", ex.Message },
             };
@@ -118,7 +85,7 @@
             LogGeneral(argMessage, errorDetail);
         }
 
-        public void LogGeneral(string argMessage, AdditionalInfoItems argDetails)
+        public void LogGeneral(string argMessage, ErrorInfo argDetails)
         {
             if (argMessage is null)
             {
@@ -145,7 +112,7 @@
                 throw new ArgumentNullException(nameof(argValue));
             }
 
-            AdditionalInfoItems moreDetail = new AdditionalInfoItems
+            ErrorInfo moreDetail = new ErrorInfo
             {
                 //{ "Message", ex.Message },
             };

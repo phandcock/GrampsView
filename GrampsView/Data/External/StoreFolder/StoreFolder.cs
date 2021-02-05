@@ -145,13 +145,13 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyError(ex.Message + ex.FileName);
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
 
                     // default to a standard file marker
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyError("Directory not found when deserialising the data.  Perahps the GPKG filenames are too long?" + ex.Message);
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when deserialising the data.  Perahps the GPKG filenames are too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }

@@ -6,7 +6,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Globalization;
     using System.Xml.Linq;
 
     /// <summary> Private Storage Routines. </summary> <code> <define name="date-content">
@@ -187,7 +186,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError("Bad Date Quality at " + argCurrentElement.ToString());
+                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -266,7 +265,12 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError("Bad Date Quality at " + currentElement.ToString());
+                        ErrorInfo t = new ErrorInfo("Bad Date Quality")
+                        {
+                            { "Current Element",  currentElement.ToString()}
+                        };
+
+                        DataStore.Instance.CN.NotifyError(t);
                     }
                 }
 
@@ -274,10 +278,14 @@
                 stringFound = (string)currentElement.Attribute("type");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
-
-                    if (!Enum.TryParse( stringFound, out aValType))
+                    if (!Enum.TryParse(stringFound, out aValType))
                     {
-                        DataStore.Instance.CN.NotifyError("Bad Date Value Type at " + currentElement.ToString());
+                        ErrorInfo t = new ErrorInfo("Bad Date Value")
+                        {
+                            { "Current Element",  currentElement.ToString()}
+                        };
+
+                        DataStore.Instance.CN.NotifyError(t);
                     }
                 }
 
@@ -349,7 +357,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError("Bad Date Quality at " + currentElement.ToString());
+                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", currentElement.ToString() }, });
                     }
                 }
 

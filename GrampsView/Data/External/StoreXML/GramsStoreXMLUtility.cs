@@ -137,14 +137,15 @@
              }
              else
              {
-                 AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
+                 ErrorInfo t = new Common.ErrorInfo("File not found when Region specified in ClipMedia")
+
                  {
                      { "Original ID", theMediaModel.Id },
                      { "Original File", theMediaModel.MediaStorageFilePath },
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 
-                 DataStore.Instance.CN.NotifyError("File not found when Region specified in ClipMedia", argErrorDetail);
+                 DataStore.Instance.CN.NotifyError(t);
              }
 
              resourceBitmap.Dispose();
@@ -294,15 +295,25 @@
             }
             catch (UriFormatException ex)
             {
-                DataStore.Instance.CN.NotifyError("The URI in the Internet address is not well formed. Specific error message: " + ex.Message,
-                        xmlData);
+                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not well formed")
+                    {
+                        { "Exception Message ", ex.Message },
+                        { "xmlData", xmlData }
+                    };
+
+                DataStore.Instance.CN.NotifyError(t);
 
                 return null;
             }
             catch (FormatException ex)
             {
-                DataStore.Instance.CN.NotifyError("The URI in the Internet address is not in the correct format. Specific error message: " + ex.Message,
-                        xmlData);
+                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not in the correct format")
+                    {
+                        { "Exception Message ", ex.Message },
+                        { "xmlData", xmlData }
+                    };
+
+                DataStore.Instance.CN.NotifyError(t);
 
                 return null;
             }
@@ -351,13 +362,13 @@
                 // Validate
                 if ((!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet))
                 {
-                    AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
+                    ErrorInfo argErrorDetail = new ErrorInfo("Bad colour in GetColour")
                     {
                         { "Color element is", a.ToString() },
                         { "Attribute is", b }
                     };
 
-                    DataStore.Instance.CN.NotifyError("Bad colour in GetColour", argErrorDetail);
+                    DataStore.Instance.CN.NotifyError(argErrorDetail);
 
                     hexColour = "#000000";
                 }
@@ -402,7 +413,7 @@
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                DataStore.Instance.CN.NotifyError("The value passed to GetDateTime was not a valid number of Unix seconds");
+                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);

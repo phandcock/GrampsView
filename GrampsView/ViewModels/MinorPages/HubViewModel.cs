@@ -47,23 +47,77 @@
             }
         }
 
-        public CardGroupBase<HLinkCitationModel> LatestCitationChanges { get { return DV.CitationDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkCitationModel> LatestCitationChanges
+        {
+            get
+            {
+                return DV.CitationDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkEventModel> LatestEventChanges { get { return DV.EventDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkEventModel> LatestEventChanges
+        {
+            get
+            {
+                return DV.EventDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges { get { return DV.FamilyDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges
+        {
+            get
+            {
+                return DV.FamilyDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkMediaModel> LatestMediaChanges { get { return DV.MediaDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkMediaModel> LatestMediaChanges
+        {
+            get
+            {
+                return DV.MediaDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkNoteModel> LatestNoteChanges { get { return DV.NoteDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkNoteModel> LatestNoteChanges
+        {
+            get
+            {
+                return DV.NoteDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkPersonModel> LatestPersonChanges { get { return DV.PersonDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkPersonModel> LatestPersonChanges
+        {
+            get
+            {
+                return DV.PersonDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkPlaceModel> LatestPlaceChanges { get { return DV.PlaceDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkPlaceModel> LatestPlaceChanges
+        {
+            get
+            {
+                return DV.PlaceDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkSourceModel> LatestSourceChanges { get { return DV.SourceDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkSourceModel> LatestSourceChanges
+        {
+            get
+            {
+                return DV.SourceDV.GetLatestChanges;
+            }
+        }
 
-        public CardGroupBase<HLinkTagModel> LatestTagChanges { get { return DV.TagDV.GetLatestChanges; } }
+        public CardGroupBase<HLinkTagModel> LatestTagChanges
+        {
+            get
+            {
+                return DV.TagDV.GetLatestChanges;
+            }
+        }
 
         public IHLinkMediaModel MediaCard
         {
@@ -94,13 +148,15 @@
             }
         }
 
-        public void ErrorActionDialog(ActionDialogArgs argADA)
+        public void ErrorActionDialog(ErrorInfo argADA)
         {
             Contract.Assert(argADA != null);
 
-            DialogParameters t = new DialogParameters
+            argADA.Add("Title", "Error Dialog");
+
+            IDialogParameters t = new DialogParameters()
             {
-                { "adaArgs", argADA },
+                { "argADA", argADA },
             };
 
             //Using the dialog service as-is

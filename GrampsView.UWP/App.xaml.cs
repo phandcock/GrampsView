@@ -55,13 +55,13 @@
 
                     if (uriSegments[1] != "handle/")
                     {
-                        AdditionalInfoItems badUriAdditionalInfo = new AdditionalInfoItems
+                        ErrorInfo badUriAdditionalInfo = new ErrorInfo("Bad Protocol Activation Argument")
                         {
                             { "URI", uriArgs.Uri.ToString() },
                             { "Data", uriArgs.Data.ToString() }
                         };
 
-                        DataStore.Instance.CN.NotifyError("Bad Protocol Activation Argument", badUriAdditionalInfo);
+                        DataStore.Instance.CN.NotifyError(badUriAdditionalInfo);
                     }
 
                     // TODO Handle if GrampsView not running
@@ -207,7 +207,7 @@
         /// </param>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            DataStore.Instance.CN.NotifyError("Failed to load Page " + e.SourcePageType.FullName);
+            DataStore.Instance.CN.NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
         }
 
         /// <summary>

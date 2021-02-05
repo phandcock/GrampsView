@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
+    using GrampsView.Common;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -30,7 +31,12 @@
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            DataStore.Instance.CN.NotifyError("Error in MediaImageSkia.  Error is " + e.Exception.Message);
+            ErrorInfo t = new ErrorInfo("Error in MediaImageSkia.")
+            {
+                { "Error is ", e.Exception.Message }
+            };
+
+            DataStore.Instance.CN.NotifyError(t);
 
             (sender as FFImageLoading.Forms.CachedImage).Cancel();
             (sender as FFImageLoading.Forms.CachedImage).Source = null;
@@ -77,7 +83,12 @@
             {
                 if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
                 {
-                    DataStore.Instance.CN.NotifyError("The media file path is null for Id:" + argMediaModel.Id);
+                    ErrorInfo t = new ErrorInfo("The media file path is null")
+                        {
+                            { "Id", argMediaModel.Id }
+                        };
+
+                    DataStore.Instance.CN.NotifyError(t);
                     return;
                 }
                 // Input valid so start work
@@ -92,7 +103,7 @@
             }
             catch (Exception ex)
             {
-                Common.AdditionalInfoItems argDetail = new Common.AdditionalInfoItems
+                ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
@@ -170,12 +181,22 @@
 
                 if (fontGlyph.Glyph == null)
                 {
-                    DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Glyph");
+                    ErrorInfo t = new ErrorInfo("MediaImageSkia", "Null Glyph")
+                        {
+                            { "HLinkKey", argHLMediaModel.HLinkKey }
+                        };
+
+                    DataStore.Instance.CN.NotifyError(t);
                 }
 
                 if (fontGlyph.Color == null)
                 {
-                    DataStore.Instance.CN.NotifyError("MediaImageSkia (" + argHLMediaModel.HLinkKey + ") Null Colour");
+                    ErrorInfo t = new ErrorInfo("MediaImageSkia", "Null Glyph Colour")
+                        {
+                            { "HLinkKey", argHLMediaModel.HLinkKey }
+                        };
+
+                    DataStore.Instance.CN.NotifyError(t);
                 }
 
                 newImageControl.Source = fontGlyph;
@@ -185,7 +206,7 @@
             }
             catch (Exception ex)
             {
-                Common.AdditionalInfoItems argDetail = new Common.AdditionalInfoItems
+                ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Symbol" },
                     { "Media Model Hlink Key", argHLMediaModel.HLinkKey },

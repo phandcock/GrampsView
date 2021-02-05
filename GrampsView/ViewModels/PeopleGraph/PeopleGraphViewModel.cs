@@ -24,17 +24,26 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Gets or sets from.
         /// </summary>
-        public string From { get; set; }
+        public string From
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the line.
         /// </summary>
-        public object TheLine { get; set; }
+        public object TheLine
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets to.
         /// </summary>
-        public string To { get; set; }
+        public string To
+        {
+            get; set;
+        }
 
         public static bool operator !=(EdgeItem left, EdgeItem right)
         {
@@ -200,7 +209,10 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The edges.
         /// </value>
-        public List<EdgeItem> Edges { get; set; }
+        public List<EdgeItem> Edges
+        {
+            get; set;
+        }
 
             = new List<EdgeItem>();
 
@@ -210,7 +222,10 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The graph canvas.
         /// </value>
-        public SkiaSharp.SKCanvas GraphCanvas { get; set; }
+        public SkiaSharp.SKCanvas GraphCanvas
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the current person ViewModel.
@@ -603,7 +618,7 @@ namespace GrampsView.ViewModels
 
             if (!StartHLink.Valid)
             {
-                DataStore.Instance.CN.NotifyError("HLink passed to PersonGraph not found");
+                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("HLink passed to PersonGraph not found"));
                 return;
             }
 

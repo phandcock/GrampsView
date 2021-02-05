@@ -167,7 +167,7 @@
 
             if (!t.Result)
             {
-                DataStore.Instance.CN.NotifyError("Failed to load existing data...");
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Failed to load existing data..."));
             }
         }
 
@@ -253,7 +253,7 @@
             }
             else
             {
-                DataStore.Instance.CN.NotifyError("DataStorageFolder not valid.  It will need to be reloaded...");
+                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
 
                 CommonLocalSettings.SetReloadDatabase();
             }

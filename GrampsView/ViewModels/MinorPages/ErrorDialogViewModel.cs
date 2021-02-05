@@ -13,7 +13,9 @@ namespace GrampsView.ViewModels
 
     public class ErrorDialogViewModel : BindableBase, IDialogAware
     {
-        private ActionDialogArgs _ADArgs;
+        private ErrorInfo _ADArgs = new ErrorInfo();
+
+        private string _Title;
 
         public ErrorDialogViewModel()
         {
@@ -22,13 +24,29 @@ namespace GrampsView.ViewModels
 
         public event Action<IDialogParameters> RequestClose;
 
-        public ActionDialogArgs AdaArgs
+        public ErrorInfo AdaArgs
         {
             get => _ADArgs;
             set => SetProperty(ref _ADArgs, value);
         }
 
-        public DelegateCommand CloseCommand { get; }
+        public DelegateCommand CloseCommand
+        {
+            get;
+        }
+
+        public string Title
+        {
+            get
+            {
+                return _Title;
+            }
+
+            set
+            {
+                SetProperty(ref _Title, value);
+            }
+        }
 
         public bool CanCloseDialog() => true;
 
@@ -41,7 +59,15 @@ namespace GrampsView.ViewModels
             Contract.Requires(parameters != null);
             Contract.Requires(parameters.Count == 1);
 
-            AdaArgs = parameters["adaArgs"] as ActionDialogArgs;
+            // AdaArgs.Name = parameters.GetValue<string>("Name"); AdaArgs.Text = parameters.GetValue<string>("Text");
+
+            ErrorInfo tempArgs = parameters["argADA"] as ErrorInfo;
+
+            Title = tempArgs["Title"];
+
+            tempArgs.Remove("Title");
+
+            AdaArgs = tempArgs;
         }
 
         protected virtual void CloseDialog(string parameter)

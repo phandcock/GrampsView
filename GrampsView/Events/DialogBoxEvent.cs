@@ -4,7 +4,7 @@
 
     using Prism.Events;
 
-    public class DialogBoxEvent : PubSubEvent<ActionDialogArgs>
+    public class DialogBoxEvent : PubSubEvent<ErrorInfo>
     {
     }
 }

@@ -29,7 +29,7 @@
             }
             catch (FileNotFoundException ex)
             {
-                DataStore.Instance.CN.NotifyError("File (" + argMediaModel.OriginalFilePath + ") not found while   loading media. Has the GRAMPS database been verified ? " + ex.ToString());
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
                 DataStore.Instance.CN.NotifyException("Trying to  add media file pointer", ex);
             }

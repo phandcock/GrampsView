@@ -36,8 +36,6 @@
 
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
 
-           
-
             PopulateViewModel();
         }
 
@@ -176,7 +174,7 @@
         {
             DataStore.Instance.CN.NotifyAlert("Test Alert");
 
-            ActionDialogArgs t = new ActionDialogArgs
+            ErrorInfo t = new ErrorInfo
             {
                 Name = "Test Error",
                 Text = "Test Error with detail and even more detail and more and more and more",

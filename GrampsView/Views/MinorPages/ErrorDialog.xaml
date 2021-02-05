@@ -31,7 +31,7 @@
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Center"
             Style="{DynamicResource GVHeaderStyleLarge}"
-            Text="{Binding AdaArgs.Name, Mode=OneWay}"
+            Text="{Binding Title, Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                         Light={StaticResource OnErrorColorLight}}" />
     </Frame>
@@ -47,63 +47,68 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
                 <Label
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="20,5"
                     BackgroundColor="OrangeRed"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Text, Mode=OneWay}"
                     TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
                                                 Light={StaticResource OnErrorColorLight}}" />
 
-                <FlexLayout
+                <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    Margin="20,0,20,10"
-                    AlignItems="Start"
-                    BindableLayout.ItemsSource="{Binding AdaArgs.ItemDetails, Mode=OneWay}"
-                    Direction="Column"
-                    JustifyContent="SpaceEvenly">
+                    BackgroundColor="OrangeRed"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{DynamicResource GVCardLabelStyleSmall}"
+                    Text="{Binding AdaArgs.Name, Mode=OneWay}"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
+                                                Light={StaticResource OnErrorColorLight}}" />
+
+                <StackLayout
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5"
+                    BindableLayout.ItemsSource="{Binding AdaArgs, Mode=OneWay}">
                     <BindableLayout.ItemTemplate>
 
                         <DataTemplate>
-                            <Grid>
+                            <Grid BackgroundColor="OrangeRed">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20" />
-                                </Grid.RowDefinitions>
 
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    Text="{Binding Key}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                                                Light={StaticResource OnErrorColorLight}}" />
+                                    Style="{DynamicResource GVCardLabelStyleSmall}"
+                                    Text="{Binding Key}" />
 
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     LineBreakMode="WordWrap"
-                                    Text="{Binding Value}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
-                                                                Light={StaticResource OnSurfaceColorLight}}" />
+                                    Style="{DynamicResource GVCardLabelStyleSmall}"
+                                    Text="{Binding Value}" />
                             </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
-                </FlexLayout>
+                </StackLayout>
 
                 <Button
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="0"
                     Command="{Binding CloseCommand}"
                     Style="{DynamicResource GVButtonStyle}"

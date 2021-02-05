@@ -298,7 +298,15 @@ namespace GrampsView.Data
 
                     if (!checkFileExistsFlag)
                     {
-                        DataStore.Instance.CN.NotifyError(string.Format(System.Globalization.CultureInfo.CurrentCulture, "Error UnTaring file: {0}-{1}. File not created.  Perhaps the path is too long?", newFolder.FullName, filename));
+                        ErrorInfo t = new ErrorInfo("Error UnTaring file. File not created.  Perhaps the path is too long?")
+                                {
+                                    { "New Folder",  newFolder.FullName },
+                                    { "Filename",  filename },
+                                };
+
+                        // string.Format(System.Globalization.CultureInfo.CurrentCulture
+
+                        DataStore.Instance.CN.NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }

@@ -163,7 +163,8 @@
 
                             if (mediaFileName.Length == 0)
                             {
-                                DataStore.Instance.CN.NotifyError("Error trying to load a media file for object (" + loadObject.Id + ") listed in the GRAMPS file.  FileName is null");
+                                DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
+
                                 loadObject.MediaStorageFile = null;
                             }
                             else

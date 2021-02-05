@@ -9,7 +9,6 @@
 //-----------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 namespace GrampsView.Common
 {
@@ -18,13 +17,24 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonLogging
     {
+        void Error(ErrorInfo argErrorDetail = null);
+
+        void Exception(Exception argEx, ErrorInfo argExtraItems = null);
+
         void LogGeneral(string argMessage);
 
-        void Error(string argMessage, AdditionalInfoItems argErrorDetail = null);
+        void LogGeneral(string argMessage, ErrorInfo argDetails);
 
-        void Exception(string argMessage, Exception argEx, AdditionalInfoItems argExtraItems = null);
-
-        void LogGeneral(string argMessage, AdditionalInfoItems argDetails);
+        /// <summary>
+        /// Logs the variable.
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
+        /// <param name="value">
+        /// The value.
+        /// </param>
+        void LogVariable(string name, string value);
 
         /// <summary>
         /// Logs the progress.
@@ -49,16 +59,5 @@ namespace GrampsView.Common
         /// The message.
         /// </param>
         void RoutineExit(string message);
-
-        /// <summary>
-        /// Logs the variable.
-        /// </summary>
-        /// <param name="name">
-        /// The name.
-        /// </param>
-        /// <param name="value">
-        /// The value.
-        /// </param>
-        void LogVariable(string name, string value);
     }
 }

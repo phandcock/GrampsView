@@ -20,7 +20,7 @@
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            AdditionalInfoItems extraInfo = new AdditionalInfoItems();
+            ErrorInfo extraInfo = new ErrorInfo();
 
             if (CurrentHLinkMediaModel.Valid)
             {

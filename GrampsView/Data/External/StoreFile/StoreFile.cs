@@ -138,7 +138,7 @@
             // Check arguments
             if (inputFile == null)
             {
-                DataStore.Instance.CN.NotifyError("The input file is null");
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("The input file is null"));
                 return false;
             }
 
@@ -151,7 +151,12 @@
             }
             catch (UnauthorizedAccessException ex)
             {
-                DataStore.Instance.CN.NotifyError("Unauthorised Access exception when trying to acess file. " + ex.Message);
+                ErrorInfo t = new ErrorInfo("Unauthorised Access exception when trying to acess file")
+                    {
+                        { "Exception Message ", ex.Message },
+                    };
+
+                DataStore.Instance.CN.NotifyError(t);
                 return false;
             }
         }

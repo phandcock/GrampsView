@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
+    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System.IO;
@@ -36,7 +37,7 @@
                         }
                         else
                         {
-                            DataStore.Instance.CN.NotifyError("Error trying to open " + resourceName);
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to open resource") { { "Resource Name", resourceName }, });
                         }
                     }
                 }

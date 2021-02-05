@@ -18,24 +18,4 @@
     </Grid.ColumnDefinitions>
 
     <ContentPresenter Grid.Row="0" Grid.Column="0" />
-
-    <!--<Image
-        x:Name="daSymbol"
-        Grid.Row="0"
-        Grid.Column="0"
-        Margin="5"
-        Aspect="AspectFit"
-        BackgroundColor="Transparent"
-        IsVisible="True"
-        VerticalOptions="FillAndExpand">
-        <Image.Source>
-            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" />
-        </Image.Source>
-    </Image>-->
-
-    <!--<ucon:MediaImageFull
-        x:Name="daImage"
-        Grid.Row="0"
-        Grid.Column="0"
-        Margin="3" />-->
 </Grid>

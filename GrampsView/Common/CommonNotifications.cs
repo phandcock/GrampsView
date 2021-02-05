@@ -187,20 +187,24 @@
 
         public void NotifyAlert(string argMessage)
         {
-            NotifyDialogBox("Alert", argMessage);
+            ErrorInfo t = new ErrorInfo
+            {
+                Name = "Alert",
+                Text = argMessage
+            };
+
+            NotifyDialogBox(t);
         }
 
-        /// <summary>
-        /// Handle DialogBox messages.
-        /// </summary>
-        /// <param name="argADA">
-        /// The message text.
-        /// </param>
-        public void NotifyDialogBox(ActionDialogArgs argADA)
-        {
-            // TODO not very clean but what to do when displaying messages before hub page is loaded
-            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argADA);
-        }
+        ///// <summary>
+        ///// Handle DialogBox messages.
+        ///// </summary>
+        ///// <param name="argADA">
+        ///// The message text.
+        ///// </param>
+        //public void NotifyDialogBox(ErrorInfo argADA)
+        //{
+        //}
 
         /// <summary>
         /// Notifies the user of an error and logs it for further analysis.
@@ -211,70 +215,78 @@
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        public void NotifyDialogBox(string argHeader, string argMessage, AdditionalInfoItems argErrorDetail = null)
+        public void NotifyDialogBox(ErrorInfo argErrorDetail = null)
         {
             if (argErrorDetail is null)
             {
-                argErrorDetail = new AdditionalInfoItems();
+                argErrorDetail = new ErrorInfo();
             }
 
-            ActionDialogArgs t = new ActionDialogArgs
-            {
-                Name = argHeader,
-                Text = argMessage,
-            };
-
-            foreach (var item in argErrorDetail)
-            {
-                t.Add(item.Key, item.Value);
-            }
-
-            NotifyDialogBox(t);
+            // TODO not very clean but what to do when displaying messages before hub page is loaded
+            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
         }
 
-        public void NotifyError(string argMessage, AdditionalInfoItems argErrorDetail)
+        //public void NotifyError(string argMessage, ErrorInfo argErrorDetail)
+        //{
+        //    if (argErrorDetail is null)
+        //    {
+        //        argErrorDetail = new ErrorInfo();
+        //    }
+
+        // argErrorDetail.Text = argMessage; argErrorDetail.Name = "Error";
+
+        // _iocCommonLogging.Error(argErrorDetail);
+
+        //    NotifyDialogBox(argErrorDetail);
+        //}
+
+        public void NotifyError(ErrorInfo argErrorDetail)
         {
             if (argErrorDetail is null)
             {
-                argErrorDetail = new AdditionalInfoItems();
+                argErrorDetail = new ErrorInfo();
             }
 
-            _iocCommonLogging.Error(argMessage, argErrorDetail);
+            argErrorDetail.Name = "Error";
 
-            NotifyDialogBox("Error", argMessage, argErrorDetail);
+            _iocCommonLogging.Error(argErrorDetail);
+
+            NotifyDialogBox(argErrorDetail);
         }
 
-        /// <summary>
-        /// Notifies the error.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
-        public void NotifyError(string argMessage)
-        {
-            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems();
+        ///// <summary>
+        ///// Notifies the error.
+        ///// </summary>
+        ///// <param name="argMessage">
+        ///// The string message.
+        ///// </param>
+        //public void NotifyError(string argMessage)
+        //{
+        //    ErrorInfo argErrorDetail = new ErrorInfo();
 
-            NotifyError(argMessage, argErrorDetail);
-        }
+        //    NotifyError(argMessage, argErrorDetail);
+        //}
 
-        /// <summary>
-        /// Helper to Notify Error.
-        /// </summary>
-        /// <param name="strMessage">
-        /// The string message.
-        /// </param>
-        /// <param name="argErrorDetail">
-        /// The argument error detail.
-        /// </param>
-        public void NotifyError(string argMessage, string argDetails)
-        {
-            AdditionalInfoItems argErrorDetail = new AdditionalInfoItems
-            {
-                { "Details", argDetails }
-            };
+        ///// <summary>
+        ///// Helper to Notify Error.
+        ///// </summary>
+        ///// <param name="strMessage">
+        ///// The string message.
+        ///// </param>
+        ///// <param name="argErrorDetail">
+        ///// The argument error detail.
+        ///// </param>
+        //public void NotifyError(string argMessage, string argDetails)
+        //{
+        //    ErrorInfo argErrorDetail = new ErrorInfo
+        //    {
+        //        { "Details", argDetails },
+        //    };
 
-            NotifyError(argMessage, argErrorDetail);
-        }
+        // argErrorDetail.Text = argMessage;
+
+        //    NotifyError(argMessage, argErrorDetail);
+        //}
 
         /// <summary>
         /// notify the user about an Exception.
@@ -285,18 +297,24 @@
         /// <param name="ex">
         /// Exception object.
         /// </param>
-        public void NotifyException(string argMessage, Exception argException, AdditionalInfoItems argExtraItems = null)
+        public void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null)
         {
             if (argException is null)
             {
                 throw new ArgumentNullException(nameof(argException));
             }
 
-            string exceptionMessage = argMessage + " - Exception:" + argException.Message + " - " + argException.Source + " - " + argException.InnerException + " - " + argException.StackTrace;
+            argExtraItems.Name = "Exception";
+            argExtraItems.Text = argMessage;
 
-            NotifyError(exceptionMessage, argExtraItems);
+            argExtraItems.Add("Exception Message", argException.Message);
+            argExtraItems.Add("Exception Source", argException.Source);
+            argExtraItems.Add("Innerexception", argException.InnerException.ToString());
+            argExtraItems.Add("Stack Trace", argException.StackTrace);
 
-            _iocCommonLogging.Exception(argMessage, argException, argExtraItems);
+            NotifyError(argExtraItems);
+
+            _iocCommonLogging.Exception(argException, argExtraItems);
 
             // Remove serialised data in case it is the issue
             CommonLocalSettings.DataSerialised = false;

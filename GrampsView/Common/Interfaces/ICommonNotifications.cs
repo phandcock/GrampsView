@@ -11,7 +11,10 @@ namespace GrampsView.Common
         //string BottomMessage { get; }
         //string DataLogMessage { get; }
 
-        string MinorMessage { get; set; }
+        string MinorMessage
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Changes the loading message.
@@ -68,26 +71,37 @@ namespace GrampsView.Common
         /// <param name="argMessage">
         /// The string message.
         /// </param>
-        void NotifyDialogBox(ActionDialogArgs argADA);
+        void NotifyDialogBox(ErrorInfo argADA);
 
-        /// <summary>
-        /// Notifies the error.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
-        void NotifyError(string argMessage);
+        ///// <summary>
+        ///// Notifies the error.
+        ///// </summary>
+        ///// <param name="argMessage">
+        ///// The string message.
+        ///// </param>
+        //void NotifyError(string argMessage);
 
-        /// <summary>
-        /// Notifies the error.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
-        /// <param name="argErrorDetail">
-        /// Error detail.
-        /// </param>
-        void NotifyError(string argMessage, AdditionalInfoItems argErrorDetail = null);
+        ///// <summary>
+        ///// Notifies the error.
+        ///// </summary>
+        ///// <param name="argMessage">
+        ///// The string message.
+        ///// </param>
+        ///// <param name="argErrorDetail">
+        ///// Error detail.
+        ///// </param>
+        //void NotifyError(string argMessage, ErrorInfo argErrorDetail = null);
+
+        ///// <summary>
+        ///// Helper to Notify Error.
+        ///// </summary>
+        ///// <param name="argMessage">
+        ///// The string message.
+        ///// </param>
+        ///// <param name="argErrorDetail">
+        ///// The argument error detail.
+        ///// </param>
+        //void NotifyError(string argMessage, string argErrorDetail);
 
         /// <summary>
         /// Helper to Notify Error.
@@ -98,7 +112,7 @@ namespace GrampsView.Common
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        void NotifyError(string argMessage, string argErrorDetail);
+        void NotifyError(ErrorInfo argErrorDetail = null);
 
         /// <summary>
         /// Notify the user about an Exception.
@@ -109,6 +123,6 @@ namespace GrampsView.Common
         /// <param name="ex">
         /// The ex.
         /// </param>
-        void NotifyException(string argMessage, Exception argException, AdditionalInfoItems argExtraItems = null);
+        void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
     }
 }
