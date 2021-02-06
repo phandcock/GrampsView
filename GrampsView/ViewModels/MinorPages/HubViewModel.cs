@@ -152,8 +152,6 @@
         {
             Contract.Assert(argADA != null);
 
-            argADA.Add("Title", "Error Dialog");
-
             IDialogParameters t = new DialogParameters()
             {
                 { "argADA", argADA },

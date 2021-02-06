@@ -172,9 +172,18 @@
 
         public void TestButtonHandler()
         {
-            DataStore.Instance.CN.NotifyAlert("Test Alert");
-
             ErrorInfo t = new ErrorInfo
+            {
+                Name = "Test Alert",
+                Text = "Test Alert with detail and even more detail and more and more and more",
+            };
+
+            t.Add("Test Line 1", "Test Value 1");
+            t.Add("Test LIne 2", "Test Value 2");
+
+            DataStore.Instance.CN.NotifyAlert("Test Alert", t);
+
+            t = new ErrorInfo
             {
                 Name = "Test Error",
                 Text = "Test Error with detail and even more detail and more and more and more",
@@ -183,7 +192,18 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.Instance.CN.NotifyDialogBox(t);
+            DataStore.Instance.CN.NotifyError(t);
+
+            t = new ErrorInfo
+            {
+                Name = "Test Exception",
+                Text = "Test Exception with detail and even more detail and more and more and more",
+            };
+
+            t.Add("Test Line 1", "Test Value 1");
+            t.Add("Test LIne 2", "Test Value 2");
+
+            DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
         }
 
         private async Task UCNavigate()

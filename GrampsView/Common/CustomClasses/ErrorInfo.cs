@@ -19,6 +19,11 @@ namespace GrampsView.Common
             Text = argText;
         }
 
+        public string DialogBoxTitle
+        {
+            get; set;
+        } = string.Empty;
+
         public string Name
         {
             get; set;

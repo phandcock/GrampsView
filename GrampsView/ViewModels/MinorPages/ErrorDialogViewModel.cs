@@ -63,9 +63,7 @@ namespace GrampsView.ViewModels
 
             ErrorInfo tempArgs = parameters["argADA"] as ErrorInfo;
 
-            Title = tempArgs["Title"];
-
-            tempArgs.Remove("Title");
+            Title = tempArgs.DialogBoxTitle;
 
             AdaArgs = tempArgs;
         }

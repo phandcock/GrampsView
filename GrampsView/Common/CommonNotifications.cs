@@ -26,10 +26,6 @@
         /// </summary>
         private readonly IEventAggregator _iocEventAggregator;
 
-        //private string _BottomMessage = string.Empty;
-
-        //private string _DataLogMessage = string.Empty;
-
         private string _MinorMessage;
 
         /// <summary>
@@ -185,32 +181,15 @@
             return;
         }
 
-        public void NotifyAlert(string argMessage)
+        public void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null)
         {
-            ErrorInfo t = new ErrorInfo
-            {
-                Name = "Alert",
-                Text = argMessage
-            };
-
-            NotifyDialogBox(t);
-        }
-
-        /// <summary>
-        /// Notifies the user of an error and logs it for further analysis.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The argument message.
-        /// </param>
-        /// <param name="argErrorDetail">
-        /// The argument error detail.
-        /// </param>
-        public void NotifyDialogBox(ErrorInfo argErrorDetail = null)
-        {
-            if (argErrorDetail is null)
+            if (argErrorDetail == null)
             {
                 argErrorDetail = new ErrorInfo();
             }
+
+            argErrorDetail.DialogBoxTitle = "Alert";
+            argErrorDetail.Text = argMessage;
 
             // TODO not very clean but what to do when displaying messages before hub page is loaded
             _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
@@ -223,11 +202,12 @@
                 argErrorDetail = new ErrorInfo();
             }
 
-            argErrorDetail.Name = "Error";
+            argErrorDetail.DialogBoxTitle = "Error";
 
             _iocCommonLogging.Error(argErrorDetail);
 
-            NotifyDialogBox(argErrorDetail);
+            // TODO not very clean but what to do when displaying messages before hub page is loaded
+            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
         }
 
         /// <summary>
@@ -246,15 +226,25 @@
                 throw new ArgumentNullException(nameof(argException));
             }
 
-            argExtraItems.Name = "Exception";
+            if (argExtraItems is null)
+            {
+                argExtraItems = new ErrorInfo();
+            }
+
+            argExtraItems.DialogBoxTitle = "Exception";
             argExtraItems.Text = argMessage;
 
             argExtraItems.Add("Exception Message", argException.Message);
             argExtraItems.Add("Exception Source", argException.Source);
-            argExtraItems.Add("Innerexception", argException.InnerException.ToString());
+
+            if (argException.InnerException != null)
+            {
+                argExtraItems.Add("Innerexception", argException.InnerException.ToString());
+            }
+
             argExtraItems.Add("Stack Trace", argException.StackTrace);
 
-            NotifyError(argExtraItems);
+            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argExtraItems);
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 

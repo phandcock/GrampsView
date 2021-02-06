@@ -8,9 +8,6 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
-        //string BottomMessage { get; }
-        //string DataLogMessage { get; }
-
         string MinorMessage
         {
             get; set;
@@ -63,52 +60,11 @@ namespace GrampsView.Common
 
         Task MinorMessageAdd(string argMessage);
 
-        void NotifyAlert(string argMessage);
-
-        /// <summary>
-        /// Notifies the dialog box.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
-        void NotifyDialogBox(ErrorInfo argADA);
-
-        ///// <summary>
-        ///// Notifies the error.
-        ///// </summary>
-        ///// <param name="argMessage">
-        ///// The string message.
-        ///// </param>
-        //void NotifyError(string argMessage);
-
-        ///// <summary>
-        ///// Notifies the error.
-        ///// </summary>
-        ///// <param name="argMessage">
-        ///// The string message.
-        ///// </param>
-        ///// <param name="argErrorDetail">
-        ///// Error detail.
-        ///// </param>
-        //void NotifyError(string argMessage, ErrorInfo argErrorDetail = null);
-
-        ///// <summary>
-        ///// Helper to Notify Error.
-        ///// </summary>
-        ///// <param name="argMessage">
-        ///// The string message.
-        ///// </param>
-        ///// <param name="argErrorDetail">
-        ///// The argument error detail.
-        ///// </param>
-        //void NotifyError(string argMessage, string argErrorDetail);
+        void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null);
 
         /// <summary>
         /// Helper to Notify Error.
         /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
@@ -120,8 +76,11 @@ namespace GrampsView.Common
         /// <param name="argMessage">
         /// Message to be displayed
         /// </param>
-        /// <param name="ex">
-        /// The ex.
+        /// <param name="argException">
+        /// Exception details
+        /// </param>
+        /// <param name="argExtraItems">
+        /// Extra information
         /// </param>
         void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
     }

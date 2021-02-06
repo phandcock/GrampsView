@@ -33,6 +33,21 @@
             Log.LogError(argErrorDetail.ToString());
         }
 
+        /// <summary>
+        /// Exceptions the specified argument ex.
+        /// </summary>
+        /// <param name="argEx">
+        /// The argument ex.
+        /// </param>
+        /// <param name="argExtraItems">
+        /// The argument extra items.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// argEx
+        /// </exception>
+        /// <remarks>
+        /// Assumes the ErrorInfo parameter already has had the Exxception detail added to it.
+        /// </remarks>
         public void Exception(Exception argEx, ErrorInfo argExtraItems = null)
         {
             if (argEx is null)
@@ -40,18 +55,7 @@
                 throw new ArgumentNullException(nameof(argEx));
             }
 
-            argExtraItems.Add("Exception Message", argEx.Message);
-            argExtraItems.Add("Exception Source", argEx.Source);
-            argExtraItems.Add("Exception StackTrace", argEx.StackTrace);
-
-            if (argEx.InnerException != null)
-            {
-                argExtraItems.Add("Inner Exception", argEx.InnerException.Message);
-            }
-
             Log.LogCritical(argExtraItems.Name, argExtraItems.ToString());
-
-            // Only Start App Center if there string exceptionMessage = argMessage + " - Exception:"
 
             if (!CommonRoutines.IsEmulator())
             {
