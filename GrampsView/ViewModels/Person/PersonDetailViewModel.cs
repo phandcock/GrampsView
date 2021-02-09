@@ -5,7 +5,6 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System;
 
@@ -115,21 +114,6 @@
             }
         }
 
-        public void OnNavigatedTo()
-        { // TODO Fix this
-            // Setup for loading if no data is loaded
-            if (!DataStore.Instance.DS.IsDataLoaded)
-            {
-                BaseCurrentState = LayoutState.None;
-            }
-            else
-            {
-                BaseCurrentState = LayoutState.Loading;
-            }
-
-            BaseOnNavigatedTo();
-        }
-
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -143,7 +127,8 @@
             // idea where the bug is coming from
             BaseCurrentState = LayoutState.Loading;
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink)); ;
+            HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            ;
 
             PersonObject = HLinkPerson.DeRef;
 

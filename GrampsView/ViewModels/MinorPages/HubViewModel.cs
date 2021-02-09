@@ -24,7 +24,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
+        /// <param name="iocDialogService">
+        /// Prism DIalog service
         /// </param>
         public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IDialogService iocDialogService)
        : base(iocCommonLogging, iocEventAggregator)
@@ -33,8 +34,6 @@
             BaseTitleIcon = CommonConstants.IconHub;
 
             BaseDialogService = iocDialogService;
-
-            BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateView, ThreadOption.UIThread);
 
             BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
         }
@@ -169,11 +168,6 @@
             RaisePropertyChanged(string.Empty);
 
             return;
-        }
-
-        private void UpdateView()
-        {
-            BaseOnNavigatedTo();
         }
     }
 }

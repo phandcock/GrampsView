@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class MessageLogPage : ContentPage
+    public sealed partial class MessageLogPage : ViewBase
     {
         public MessageLogPage()
         {

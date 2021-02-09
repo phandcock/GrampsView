@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class PeopleGraphPage : ContentPage
+    public sealed partial class PeopleGraphPage : ViewBase
     {
         public PeopleGraphPage()
         {

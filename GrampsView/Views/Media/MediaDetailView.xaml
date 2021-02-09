@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:ViewBase
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -11,6 +11,7 @@
     xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodelss="clr-namespace:GrampsView.ViewModels"
+    xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="MediaDetailPageRoot"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
@@ -73,4 +74,4 @@
                 x:Name="graphbutton"
                 Background="{StaticResource GVThemeDominantBackground}"
                 ToolTipService.ToolTip="Show Graph">-->
-</ContentPage>
+</views:ViewBase>

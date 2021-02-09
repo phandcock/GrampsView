@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class HubPage : ContentPage
+    public sealed partial class HubPage : ViewBase
     {
         public HubPage()
         {

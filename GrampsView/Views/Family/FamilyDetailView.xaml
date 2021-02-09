@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:ViewBase
     x:Class="GrampsView.Views.FamilyDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     Style="{DynamicResource GVBaseContentPage}"
@@ -35,4 +36,4 @@
             <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</views:ViewBase>

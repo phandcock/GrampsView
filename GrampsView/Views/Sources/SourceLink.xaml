@@ -1,13 +1,10 @@
-﻿<ContentPage
+﻿<views:ViewBase
     x:Class="GrampsView.UserControls.SourceLink"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:interactivityCore="using:Microsoft.Xaml.Interactions.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:tkConverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-    xmlns:userControls="using:GrampsView.UserControls"
+    xmlns:views="clr-namespace:GrampsView.Views"
     d:DesignHeight="200"
     d:DesignWidth="200"
     mc:Ignorable="d">
@@ -42,4 +39,4 @@
             RelativePanel.AlignHorizontalCenterWithPanel="True"
             RelativePanel.AlignVerticalCenterWithPanel="True" />
     </Viewbox>-->
-</ContentPage>
+</views:ViewBase>

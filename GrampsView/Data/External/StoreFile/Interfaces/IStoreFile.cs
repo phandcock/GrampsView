@@ -1,15 +1,7 @@
-//-----------------------------------------------------------------------
-//
-// Interface definition for External Storage Providers
-//
-// <copyright file="IStoreFile.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data
 {
     using GrampsView.Common;
+
     using System.Threading.Tasks;
 
     /// <summary>

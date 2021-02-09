@@ -10,7 +10,7 @@
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
-    public partial class MediaDetailPage : ContentPage
+    public partial class MediaDetailPage : ViewBase
     {
         public MediaDetailPage()
         {

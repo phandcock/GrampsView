@@ -14,15 +14,15 @@
     [DataContract]
     public partial class StoreFile : CommonBindableBase, IStoreFile
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StoreFile"/> class.
-        /// </summary>
-        /// <param name="iocCommonProgress">
-        /// The ioc common progress.
-        /// </param>
-        public StoreFile()
-        {
-        }
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="StoreFile"/> class.
+        ///// </summary>
+        ///// <param name="iocCommonProgress">
+        ///// The ioc common progress.
+        ///// </param>
+        //public StoreFile()
+        //{
+        //}
 
         /// <summary>
         /// get the StorageFile of the file.

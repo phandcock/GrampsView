@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage file routines for the GrampsStoreXML
-//
-// <copyright file="StoreFile.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data
+﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;

@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class FileInputHandlerPage : ContentPage
+    public sealed partial class FileInputHandlerPage : ViewBase
     {
         public FileInputHandlerPage()
         {

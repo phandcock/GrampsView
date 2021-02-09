@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
@@ -8,6 +9,7 @@
     using Prism.Services.Dialogs;
 
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
@@ -74,7 +76,7 @@
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
 
-            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(SetDataLoadedViewState, ThreadOption.BackgroundThread);
+            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(InternalOnDataLoaded, ThreadOption.UIThread);
         }
 
         /// <summary>
@@ -199,7 +201,7 @@
 
             set
             {
-                SetProperty(ref _ParamsHLink, value, BaseOnNavigatedTo);
+                SetProperty(ref _ParamsHLink, value); // , BaseOnNavigatedTo);
             }
         }
 
@@ -251,20 +253,13 @@
         /// <value>
         /// <c>true</c> if [detail data loaded flag]; otherwise, <c>false</c>.
         /// </value>
-        private bool DetailDataLoadedFlag { get; set; }
-
-        public void BaseOnNavigatedTo()
+        private bool DetailDataLoadedFlag
         {
-            if (!DetailDataLoadedFlag)
-            {
-                DetailDataLoadedFlag = true;
+            get; set;
+        }
 
-                PopulateViewModel();
-            }
-            else
-            {
-                BaseCurrentState = LayoutState.None;
-            }
+        public virtual async Task BaseOnDataLoaded()
+        {
         }
 
         /// <summary>
@@ -281,15 +276,48 @@
             return;
         }
 
+        internal void InternalOnAppearing()
+        {
+            if (!DetailDataLoadedFlag)
+            {
+                BaseCurrentState = LayoutState.Loading;
+
+                PopulateViewModel();
+
+                DetailDataLoadedFlag = true;
+            }
+            else
+            {
+                BaseCurrentState = LayoutState.None;
+            }
+
+            // Setup for loading if no data is loaded
+            if (!DataStore.Instance.DS.IsDataLoaded)
+            {
+                BaseCurrentState = LayoutState.None;
+            }
+            else
+            {
+                BaseCurrentState = LayoutState.Loading;
+            }
+        }
+
         /// <summary>
         /// Sets the state of the data loaded view.
         /// </summary>
         /// <param name="value">
         /// The value.
         /// </param>
-        public void SetDataLoadedViewState()
+        internal async void InternalOnDataLoaded()
         {
+            DetailDataLoadedFlag = false;
+
             this.BaseCurrentState = LayoutState.None;
+
+            // Trigger refresh of View fields via INotifyPropertyChanged
+            RaisePropertyChanged(string.Empty);
+
+            await BaseOnDataLoaded();
         }
     }
 }

@@ -1,19 +1,17 @@
-﻿
-
-namespace GrampsView.Data
+﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
-    using System.Diagnostics.Contracts;
 
     using System;
+    using System.Diagnostics.Contracts;
 
     using Xamarin.Essentials;
 
     /// <summary>
     /// Common file handling routines.
     /// </summary>
-    public static class StoreFileNames 
+    public static class StoreFileNames
     {
         /// <summary>
         /// Was the file modified since the last datetime saved?

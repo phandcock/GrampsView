@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using Xamarin.Forms;
-
-    public sealed partial class PersonBirthdayPage : ContentPage
+    public sealed partial class PersonBirthdayPage : ViewBase
     {
         public PersonBirthdayPage()
         {

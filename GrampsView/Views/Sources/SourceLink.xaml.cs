@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.UserControls
 {
-    using Xamarin.Forms;
+    using GrampsView.Views;
 
-    public partial class SourceLink : ContentPage
+    public partial class SourceLink : ViewBase
     {
         public SourceLink()
         {

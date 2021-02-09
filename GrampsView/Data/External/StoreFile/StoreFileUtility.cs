@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonRoutines
-//
-// <copyright file="StoreFileUtility.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data
+﻿namespace GrampsView.Data
 {
     using GrampsView.Data.Repository;
 

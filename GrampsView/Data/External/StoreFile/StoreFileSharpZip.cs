@@ -1,8 +1,4 @@
-﻿// <copyright file="StoreFileSharpZip.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data
+﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
@@ -10,9 +6,9 @@ namespace GrampsView.Data
     using ICSharpCode.SharpZipLib.Core;
     using ICSharpCode.SharpZipLib.GZip;
     using ICSharpCode.SharpZipLib.Zip;
+
     using System;
     using System.IO;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -106,7 +102,6 @@ namespace GrampsView.Data
                 }
 
                 fs.Close();
-
             }
             finally
             {

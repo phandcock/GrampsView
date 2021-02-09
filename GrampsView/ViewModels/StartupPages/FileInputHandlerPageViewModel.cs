@@ -1,5 +1,5 @@
 ﻿namespace GrampsView.ViewModels
-    {
+{
     using GrampsView.Common;
     using GrampsView.Data;
     using GrampsView.Data.Model;
@@ -50,7 +50,7 @@
 
             LoadSampleCommand = new AsyncCommand(() => LoadSample(), _ => LocalCanHandleSample);
 
-            PickFileCommand = new AsyncCommand(() =>  PickFile(), _ => LocalCanHandleDataFolderChosen);
+            PickFileCommand = new AsyncCommand(() => PickFile(), _ => LocalCanHandleDataFolderChosen);
         }
 
         /// <summary>
@@ -67,23 +67,39 @@
             }
         }
 
-        public IAsyncCommand LoadSampleCommand { get; private set; }
+        public IAsyncCommand LoadSampleCommand
+        {
+            get; private set;
+        }
 
         public bool LocalCanHandleDataFolderChosen
         {
-            get { return _CanHandleDataFolderChosen; }
-            set { SetProperty(ref _CanHandleDataFolderChosen, value); }
+            get
+            {
+                return _CanHandleDataFolderChosen;
+            }
+            set
+            {
+                SetProperty(ref _CanHandleDataFolderChosen, value);
+            }
         }
 
         public bool LocalCanHandleSample
         {
-            get { return _LocalCanHandleSample; }
-            set {
+            get
+            {
+                return _LocalCanHandleSample;
+            }
+            set
+            {
                 SetProperty(ref _LocalCanHandleSample, value);
-                }
+            }
         }
 
-        public IAsyncCommand PickFileCommand { get; private set; }
+        public IAsyncCommand PickFileCommand
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Loads the sample data.
@@ -108,8 +124,6 @@
             CommonLocalSettings.SetReloadDatabase();
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
-
-           
         }
 
         /// <summary>
@@ -166,8 +180,6 @@
         /// </summary>
         public override void PopulateViewModel()
         {
-            // BaseEventAggregator.GetEvent<ProgressLoading>().Publish(null);
-
             if (DataStore.Instance.AD.CurrentDataFolderValid)
             {
                 DataDetailList.Clear();
@@ -186,6 +198,8 @@
                          "Data Folder:",
                         "Not set"));
             }
+
+            RaisePropertyChanged(string.Empty);
         }
     }
 }

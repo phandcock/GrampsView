@@ -117,7 +117,7 @@
         {
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
-            ;
+
             DataStore.Instance.DS.CitationData.Clear();
             DataStore.Instance.DS.EventData.Clear();
             DataStore.Instance.DS.FamilyData.Clear();
