@@ -163,7 +163,7 @@
         /// <summary>
         /// Populate the Hub View.
         /// </summary>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             RaisePropertyChanged(string.Empty);
 

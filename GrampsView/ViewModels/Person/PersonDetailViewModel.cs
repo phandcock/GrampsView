@@ -119,7 +119,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 

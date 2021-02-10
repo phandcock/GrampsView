@@ -31,7 +31,7 @@ namespace GrampsView.ViewModels
             BaseTitle = "About";
             BaseTitleIcon = CommonConstants.IconAbout;
 
-            PopulateViewModel();
+            BaseHandleAppearingEvent();
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             // Assembly level stuff
             var assembly = GetType().GetTypeInfo().Assembly;

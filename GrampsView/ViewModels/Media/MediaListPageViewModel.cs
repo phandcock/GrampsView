@@ -46,7 +46,7 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             return;
         }

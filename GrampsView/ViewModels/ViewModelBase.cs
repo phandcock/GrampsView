@@ -76,7 +76,7 @@
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
 
-            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(InternalOnDataLoaded, ThreadOption.UIThread);
+            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(BaseHandleDataLoadedEventInternal, ThreadOption.UIThread);
         }
 
         /// <summary>
@@ -258,10 +258,6 @@
             get; set;
         }
 
-        public virtual async Task BaseOnDataLoaded()
-        {
-        }
-
         /// <summary>
         /// Called when [navigated to].
         /// </summary>
@@ -271,18 +267,22 @@
         /// <returns>
         /// Nothibg.
         /// </returns>
-        public virtual void PopulateViewModel()
+        public virtual void BaseHandleAppearingEvent()
         {
             return;
         }
 
-        internal void InternalOnAppearing()
+        public virtual async Task BaseHandledDataLoadedEvent()
+        {
+        }
+
+        internal void BaseHandleAppearingEventInternal()
         {
             if (!DetailDataLoadedFlag)
             {
                 BaseCurrentState = LayoutState.Loading;
 
-                PopulateViewModel();
+                BaseHandleAppearingEvent();
 
                 DetailDataLoadedFlag = true;
             }
@@ -308,7 +308,7 @@
         /// <param name="value">
         /// The value.
         /// </param>
-        internal async void InternalOnDataLoaded()
+        internal async void BaseHandleDataLoadedEventInternal()
         {
             DetailDataLoadedFlag = false;
 
@@ -317,7 +317,7 @@
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);
 
-            await BaseOnDataLoaded();
+            await BaseHandledDataLoadedEvent();
         }
     }
 }

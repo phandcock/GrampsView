@@ -56,7 +56,7 @@
         /// <summary>
         /// Handles navigation inwards and sets up the repository model parameter.
         /// </summary>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             HLinkRepositoryModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkRepositoryModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

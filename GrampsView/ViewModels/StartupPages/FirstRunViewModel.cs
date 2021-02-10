@@ -82,7 +82,7 @@ namespace GrampsView.ViewModels
         /// <param name="viewModelState">
         /// State of the view ViewModel.
         /// </param>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
         }
     }

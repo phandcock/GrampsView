@@ -54,7 +54,7 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             HLinkNoteModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkNoteModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

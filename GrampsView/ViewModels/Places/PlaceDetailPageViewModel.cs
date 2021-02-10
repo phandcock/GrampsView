@@ -53,7 +53,7 @@
         /// <summary>
         /// Handles navigation in wards and sets up the place model parameter.
         /// </summary>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             HLinkPlaceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPlaceModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

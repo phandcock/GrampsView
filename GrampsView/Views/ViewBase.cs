@@ -8,7 +8,7 @@
     {
         protected override void OnAppearing()
         {
-            (this.BindingContext as ViewModelBase).InternalOnAppearing();
+            (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
         }
     }
 }

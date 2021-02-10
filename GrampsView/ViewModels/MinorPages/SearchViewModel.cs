@@ -193,7 +193,7 @@
             }
         }
 
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             // TODO Do we need this?
         }

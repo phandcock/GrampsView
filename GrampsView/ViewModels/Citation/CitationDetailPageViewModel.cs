@@ -64,7 +64,7 @@
         /// <param name="viewModelState">
         /// The parameter is not used.
         /// </param>
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             // Handle HLinkKeys
             HLinkCitationModel HLinkCitation = CommonRoutines.DeserialiseObject<HLinkCitationModel>(Uri.UnescapeDataString(BaseParamsHLink));

@@ -36,7 +36,7 @@
 
             ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
 
-            PopulateViewModel();
+            BaseHandleAppearingEvent();
         }
 
         public bool CanHandleTestButton
@@ -146,7 +146,7 @@
             Distribute.CheckForUpdate();
         }
 
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             switch (CommonLocalSettings.ApplicationTheme)
             {

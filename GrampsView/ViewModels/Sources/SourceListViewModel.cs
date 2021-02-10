@@ -44,7 +44,7 @@ namespace GrampsView.ViewModels
             }
         }
 
-        public override void PopulateViewModel()
+        public override void BaseHandleAppearingEvent()
         {
             BaseTitle = "Source List";
             BaseTitleIcon = CommonConstants.IconSource;
