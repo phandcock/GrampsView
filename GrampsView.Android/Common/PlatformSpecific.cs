@@ -28,11 +28,12 @@
             // No Timeline functionality so ignore this
         }
 
-        public Stream GenerateThumbImageFromVideo(string filePath, long millisecond)
+        public async Task<Stream> GenerateThumbImageFromVideo(MediaModel argFile, long millisecond)
         {
             MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-            retriever.SetDataSource(filePath);
+            retriever.SetDataSource(argFile.MediaStorageFilePath);
             Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(millisecond);
+
             if (bitmap != null)
             {
                 MemoryStream stream = new MemoryStream();

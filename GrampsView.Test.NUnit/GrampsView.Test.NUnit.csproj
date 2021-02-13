@@ -6,6 +6,7 @@
     <IsPackable>false</IsPackable>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
