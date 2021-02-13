@@ -101,17 +101,16 @@
                     // Get date card
                     BaseDetail.Add(EventObject.GDate.AsCardListLine());
 
-                    // Add Model details
-                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));
-
                     // Add the description and event place card
-                    CardListLineCollection t1 = new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection
                         {
                             new CardListLine("Description", EventObject.GDescription)
-                        };
-                    BaseDetail.Add(t1);
+                        });
 
                     BaseDetail.Add(EventObject.GPlace);
+
+                    // Add Model details
+                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));
                 }
             }
         }

@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-//
-// <copyright file="IDateObjectModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Collections.Generic;
@@ -16,31 +8,75 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IDateObjectModel : IComparable<DateObjectModel>, IComparer<DateObjectModel>
     {
-        int GetAge { get; }
+        int GetAge
+        {
+            get;
+        }
 
-        int GetDecade { get; }
+        int GetDecade
+        {
+            get;
+        }
 
-        DateTime GetMonthDay { get; }
+        DateTime GetMonthDay
+        {
+            get;
+        }
 
-        string GetYear { get; }
+        string GetYear
+        {
+            get;
+        }
 
-        string LongDate { get; }
+        string LongDate
+        {
+            get;
+        }
 
-        string ShortDate { get; }
+        string ShortDate
+        {
+            get;
+        }
 
-        string ShortDateOrEmpty { get; }
+        string ShortDateOrEmpty
+        {
+            get;
+        }
 
-        DateTime SingleDate { get; }
+        string ShortDateWithPrefix
+        {
+            get;
+        }
 
-        DateTime SortDate { get; }
+        DateTime SingleDate
+        {
+            get;
+        }
 
-        bool Valid { get; set; }
+        DateTime SortDate
+        {
+            get;
+        }
 
-        bool ValidDay { get; set; }
+        bool Valid
+        {
+            get; set;
+        }
 
-        bool ValidMonth { get; set; }
+        bool ValidDay
+        {
+            get; set;
+        }
 
-        bool ValidYear { get; set; }
+        bool ValidMonth
+        {
+            get; set;
+        }
+
+        bool ValidYear
+        {
+            get; set;
+        }
 
         CardListLineCollection AsCardListLine(string argTitle = null);
 
