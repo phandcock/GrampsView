@@ -1,14 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="HLinkMediaModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-//// gramps XML 1.71 - Done
+﻿//// gramps XML 1.71 - Done
 ////
 //// HLink
 //// Priv
@@ -26,12 +16,6 @@ namespace GrampsView.Data.ExternalStorageNS
     using System.Runtime.Serialization;
 
     using Xamarin.Forms;
-
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    ///
-    /// Cut down model that only has image code without the dependencies that muck things up by recursion.
-    /// </summary>
 
     public class HLinkLoadImageModel : HLinkBase
     {
@@ -82,7 +66,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner1 x.
         /// </value>
 
-        public int GCorner1X { get; set; }
+        public int GCorner1X
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the g corner1 y.
@@ -91,7 +78,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner1 y.
         /// </value>
 
-        public int GCorner1Y { get; set; }
+        public int GCorner1Y
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the g corner2 x.
@@ -100,7 +90,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner2 x.
         /// </value>
 
-        public int GCorner2X { get; set; }
+        public int GCorner2X
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the g corner2 y.
@@ -109,7 +102,10 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The g corner2 y.
         /// </value>
 
-        public int GCorner2Y { get; set; }
+        public int GCorner2Y
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets the home image display bit map.
@@ -218,10 +214,8 @@ namespace GrampsView.Data.ExternalStorageNS
         //            return false;
         //        }
 
-        //        if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 100) && (GCorner2Y == 100))
-        //        {
-        //            return false;
-        //        }
+        // if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 100) && (GCorner2Y == 100)) {
+        // return false; }
 
         //        return true;
         //    }

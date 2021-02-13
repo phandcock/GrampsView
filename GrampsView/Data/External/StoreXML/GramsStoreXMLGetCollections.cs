@@ -304,7 +304,7 @@ namespace GrampsView.Data.ExternalStorageNS
                 foreach (XElement theLoadORElement in theORElement)
                 {
                     // save the MediaObject reference
-                    HLinkMediaModel t2 = new HLinkMediaModel
+                    HLinkMediaModel outHLMediaModel = new HLinkMediaModel
                     {
                         HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
                     };
@@ -313,9 +313,9 @@ namespace GrampsView.Data.ExternalStorageNS
                     XElement regionDetails = theLoadORElement.Element(ns + "region");
                     if (regionDetails != null)
                     {
-                        HLinkLoadImageModel t3 = new HLinkLoadImageModel
+                        HLinkLoadImageModel tempHLMediaModel = new HLinkLoadImageModel
                         {
-                            HLinkKey = t2.HLinkKey,
+                            HLinkKey = outHLMediaModel.HLinkKey,
                             HomeImageType = CommonEnums.HomeImageType.ThumbNail,
 
                             GCorner1X = (int)regionDetails.Attribute("corner1_x"),
@@ -324,17 +324,17 @@ namespace GrampsView.Data.ExternalStorageNS
                             GCorner2Y = (int)regionDetails.Attribute("corner2_y"),
                         };
 
-                        t2 = await CreateClippedMediaModel(t3).ConfigureAwait(false);
+                        outHLMediaModel = await CreateClippedMediaModel(tempHLMediaModel).ConfigureAwait(false);
                     }
 
                     // Get remaining fields
-                    t2.GAttributeRefCollection = GetAttributeCollection(theLoadORElement);
-                    t2.GCitationRefCollection = GetCitationCollection(theLoadORElement);
-                    t2.GNoteRefCollection = GetNoteCollection(theLoadORElement);
+                    outHLMediaModel.GAttributeRefCollection = GetAttributeCollection(theLoadORElement);
+                    outHLMediaModel.GCitationRefCollection = GetCitationCollection(theLoadORElement);
+                    outHLMediaModel.GNoteRefCollection = GetNoteCollection(theLoadORElement);
 
                     // TODO !ELEMENT objref (region?, attribute*, citationref*, noteref*)&gt;
                     // !ATTLIST objref hlink IDREF #REQUIRED priv (0|1) #IMPLIED
-                    t.Add(t2);
+                    t.Add(outHLMediaModel);
                 }
             }
 

@@ -45,32 +45,36 @@
 
             HLinkMediaModel argHLinkMediaModel = mifModel.BindingContext as HLinkMediaModel;
 
+            // Hide if not valid
+            if ((argHLinkMediaModel is null) || (!argHLinkMediaModel.Valid))
+            {
+                mifModel.IsVisible = false;
+                return;
+            }
+
             if (argHLinkMediaModel == mifModel.CurrentHLinkMediaModel)
             {
                 return;
             }
 
-            if (!(argHLinkMediaModel is null) && (argHLinkMediaModel.Valid))
+            IMediaModel t = argHLinkMediaModel.DeRef;
+
+            if ((t.IsMediaStorageFileValid) && (t.IsMediaFile))
             {
-                IMediaModel t = argHLinkMediaModel.DeRef;
-
-                if ((t.IsMediaStorageFileValid) && (t.IsMediaFile))
+                try
                 {
-                    try
-                    {
-                        mifModel.daImage.Source = t.MediaStorageFilePath;
+                    mifModel.daImage.Source = t.MediaStorageFilePath;
 
-                        mifModel.IsVisible = true;
+                    mifModel.IsVisible = true;
 
-                        CurrentHLinkMediaModel = argHLinkMediaModel;
+                    CurrentHLinkMediaModel = argHLinkMediaModel;
 
-                        return;
-                    }
-                    catch (Exception ex)
-                    {
-                        DataStore.Instance.CN.NotifyException("Exception in MediaImageFull control", ex);
-                        throw;
-                    }
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    DataStore.Instance.CN.NotifyException("Exception in MediaImageFull control", ex);
+                    throw;
                 }
             }
 
