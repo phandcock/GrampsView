@@ -1,3 +1,13 @@
+## [16.15.17](https://github.com/phandcock/GrampsView/compare/v16.15.16...v16.15.17) (2021-02-14)
+
+
+### Bug Fixes
+
+* cleanup IPlatform and hide MediaFullCard if null or invalid ([70408d1](https://github.com/phandcock/GrampsView/commit/70408d188ceca50be672199f4d9159cb13441480))
+* tweaks ([9727e89](https://github.com/phandcock/GrampsView/commit/9727e89fd0062fde2120d38978e61543dcad5696))
+
+
+
 ## [16.15.16](https://github.com/phandcock/GrampsView/compare/v16.15.15...v16.15.16) (2021-02-10)
 
 
@@ -33,15 +43,6 @@
 
 * fix system preferences changes bug ([897b3e3](https://github.com/phandcock/GrampsView/commit/897b3e359f2a21e2ddc9ef59bacb223214db8687))
 * remove invertbool toolkit usage until its working better ([8e054af](https://github.com/phandcock/GrampsView/commit/8e054af11cd040d58926bc1c7cf1219421e6bb2d))
-
-
-
-## [16.15.12](https://github.com/phandcock/GrampsView/compare/v16.15.11...v16.15.12) (2021-02-01)
-
-
-### Bug Fixes
-
-* tweak headings and layout ([8bbdb8d](https://github.com/phandcock/GrampsView/commit/8bbdb8da796727af08e4f281d3f7527f0d7446c7))
 
 
 
