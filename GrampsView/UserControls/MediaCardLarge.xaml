@@ -3,17 +3,15 @@
     x:Class="GrampsView.UserControls.MediaCardLarge"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaCardLargeRoot"
     x:DataType="models:HLinkMediaModel"
     BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
-    HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
     IsVisible="{Binding Valid}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+    <Frame Style="{DynamicResource FrameCardLargeStyle}" VerticalOptions="Start">
 
         <Frame.Content>
 
