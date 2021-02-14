@@ -102,6 +102,36 @@
         }
 
         /// <summary>
+        /// Called when navigation is performed to a page. You can use this method to load state if
+        /// it is available.
+        /// </summary>
+        public override void BaseHandleAppearingEvent()
+        {
+            base.BaseCurrentState = LayoutState.None;
+
+            if (DataStore.Instance.AD.CurrentDataFolderValid)
+            {
+                DataDetailList.Clear();
+
+                DataDetailList.Add(
+                    new CardListLine(
+                        "Data Folder:",
+                        DataStore.Instance.AD.CurrentDataFolder.FullName));
+            }
+            else
+            {
+                DataDetailList.Clear();
+
+                DataDetailList.Add(
+                    new CardListLine(
+                         "Data Folder:",
+                        "Not set"));
+            }
+
+            RaisePropertyChanged(string.Empty);
+        }
+
+        /// <summary>
         /// Loads the sample data.
         /// </summary>
         public async Task LoadSample()
@@ -172,34 +202,6 @@
 
                 throw;
             }
-        }
-
-        /// <summary>
-        /// Called when navigation is performed to a page. You can use this method to load state if
-        /// it is available.
-        /// </summary>
-        public override void BaseHandleAppearingEvent()
-        {
-            if (DataStore.Instance.AD.CurrentDataFolderValid)
-            {
-                DataDetailList.Clear();
-
-                DataDetailList.Add(
-                    new CardListLine(
-                        "Data Folder:",
-                        DataStore.Instance.AD.CurrentDataFolder.FullName));
-            }
-            else
-            {
-                DataDetailList.Clear();
-
-                DataDetailList.Add(
-                    new CardListLine(
-                         "Data Folder:",
-                        "Not set"));
-            }
-
-            RaisePropertyChanged(string.Empty);
         }
     }
 }

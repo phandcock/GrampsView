@@ -72,7 +72,10 @@
         {
             DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
 
-            Shell.Current.Navigation.PopToRootAsync(animated: true);
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Shell.Current.Navigation.PopToRootAsync();
+            });
         }
 
         public static string ReplaceLineSeperators(string argString)

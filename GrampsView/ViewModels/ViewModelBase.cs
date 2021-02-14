@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
@@ -291,15 +290,15 @@
                 BaseCurrentState = LayoutState.None;
             }
 
-            // Setup for loading if no data is loaded
-            if (!DataStore.Instance.DS.IsDataLoaded)
-            {
-                BaseCurrentState = LayoutState.None;
-            }
-            else
-            {
-                BaseCurrentState = LayoutState.Loading;
-            }
+            //// Setup for loading if no data is loaded
+            //if (!DataStore.Instance.DS.IsDataLoaded)
+            //{
+            //    BaseCurrentState = LayoutState.None;
+            //}
+            //else
+            //{
+            //    BaseCurrentState = LayoutState.Loading;
+            //}
         }
 
         /// <summary>
