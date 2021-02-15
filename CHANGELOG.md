@@ -1,3 +1,13 @@
+## [16.15.18](https://github.com/phandcock/GrampsView/compare/v16.15.17...v16.15.18) (2021-02-15)
+
+
+### Bug Fixes
+
+* fix height of mediacardfull ([57bcbfc](https://github.com/phandcock/GrampsView/commit/57bcbfc0697c2ee6114adc528d9c955d773bf6f9))
+* update various nugets ([0f51064](https://github.com/phandcock/GrampsView/commit/0f510646ec7b81f1b46918112ec6be59171f55fa))
+
+
+
 ## [16.15.17](https://github.com/phandcock/GrampsView/compare/v16.15.16...v16.15.17) (2021-02-14)
 
 
@@ -33,16 +43,6 @@
 ### Bug Fixes
 
 * test cleanup and add better exception handling ([4756d17](https://github.com/phandcock/GrampsView/commit/4756d17e1cf8a2d3c6579bca27adcf7603664d88))
-
-
-
-## [16.15.13](https://github.com/phandcock/GrampsView/compare/v16.15.12...v16.15.13) (2021-02-03)
-
-
-### Bug Fixes
-
-* fix system preferences changes bug ([897b3e3](https://github.com/phandcock/GrampsView/commit/897b3e359f2a21e2ddc9ef59bacb223214db8687))
-* remove invertbool toolkit usage until its working better ([8e054af](https://github.com/phandcock/GrampsView/commit/8e054af11cd040d58926bc1c7cf1219421e6bb2d))
 
 
 
