@@ -1,3 +1,12 @@
+## [16.15.19](https://github.com/phandcock/GrampsView/compare/v16.15.18...v16.15.19) (2021-02-17)
+
+
+### Bug Fixes
+
+* tweak ([f92ef94](https://github.com/phandcock/GrampsView/commit/f92ef941cfc294dd60428bd001cf9a87bdcad8f5))
+
+
+
 ## [16.15.18](https://github.com/phandcock/GrampsView/compare/v16.15.17...v16.15.18) (2021-02-15)
 
 
@@ -34,15 +43,6 @@
 
 * cleanup exception error and alert dialogs ([f5bb4c3](https://github.com/phandcock/GrampsView/commit/f5bb4c347b54b2b56829356a05fa850256d1efd7))
 * work on errordialog ([2fafef4](https://github.com/phandcock/GrampsView/commit/2fafef4d6a56df68cda2ebf3d0f74563fd429705))
-
-
-
-## [16.15.14](https://github.com/phandcock/GrampsView/compare/v16.15.13...v16.15.14) (2021-02-05)
-
-
-### Bug Fixes
-
-* test cleanup and add better exception handling ([4756d17](https://github.com/phandcock/GrampsView/commit/4756d17e1cf8a2d3c6579bca27adcf7603664d88))
 
 
 
