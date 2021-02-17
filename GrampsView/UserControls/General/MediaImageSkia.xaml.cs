@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.UserControls
 {
+    using FFImageLoading.Forms;
+
     using GrampsView.Common;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -92,10 +94,22 @@
                     return;
                 }
                 // Input valid so start work
-                MediaImageFull newMediaControl = new MediaImageFull
+                CachedImage newMediaControl = new CachedImage
                 {
-                    BindingContext = argMediaModel.HLink,
-                    Margin = 3
+                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                    Margin = 3,
+                    Aspect = Aspect.AspectFit,
+                    BackgroundColor = Color.Transparent,
+                    CacheType = FFImageLoading.Cache.CacheType.All,
+                    DownsampleToViewSize = true,
+                    //Error = "DaImage_Error",
+                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    IsVisible = true,
+                    LoadingPlaceholder = "ic_launcher.png",
+                    RetryCount = 3,
+                    RetryDelay = 1000,
+                    VerticalOptions = LayoutOptions.FillAndExpand,
                 };
 
                 this.MediaImageSkiaRoot.Children.Clear();
