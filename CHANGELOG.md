@@ -1,3 +1,12 @@
+## [16.15.20](https://github.com/phandcock/GrampsView/compare/v16.15.19...v16.15.20) (2021-02-19)
+
+
+### Bug Fixes
+
+* work on mediafullcard ([9d16f4c](https://github.com/phandcock/GrampsView/commit/9d16f4cef3953a35261a407f3e6dfed62b24c8c3))
+
+
+
 ## [16.15.19](https://github.com/phandcock/GrampsView/compare/v16.15.18...v16.15.19) (2021-02-17)
 
 
@@ -33,16 +42,6 @@
 ### Bug Fixes
 
 * add onappearing and ondataload events ([969177a](https://github.com/phandcock/GrampsView/commit/969177a29df815af5ebd5b890135614e42862afa))
-
-
-
-## [16.15.15](https://github.com/phandcock/GrampsView/compare/v16.15.14...v16.15.15) (2021-02-07)
-
-
-### Bug Fixes
-
-* cleanup exception error and alert dialogs ([f5bb4c3](https://github.com/phandcock/GrampsView/commit/f5bb4c347b54b2b56829356a05fa850256d1efd7))
-* work on errordialog ([2fafef4](https://github.com/phandcock/GrampsView/commit/2fafef4d6a56df68cda2ebf3d0f74563fd429705))
 
 
 
