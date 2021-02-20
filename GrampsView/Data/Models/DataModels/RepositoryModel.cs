@@ -40,15 +40,18 @@ namespace GrampsView.Data.Model
         /// </summary>
         public RepositoryModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconRepository;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundRepository");
+            ModelItemGlyph.Symbol = CommonConstants.IconRepository;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundRepository");
         }
 
         /// <summary>
         /// Gets or sets address collection.
         /// </summary>
         [DataMember]
-        public HLinkOCAddressModelCollection GAddress { get; set; }
+        public HLinkOCAddressModelCollection GAddress
+        {
+            get; set;
+        }
 
         = new HLinkOCAddressModelCollection();
 
@@ -73,7 +76,10 @@ namespace GrampsView.Data.Model
         /// The g note reference collection.
         /// </value>
         [DataMember]
-        public HLinkNoteModelCollection GNoteRefCollection { get; set; }
+        public HLinkNoteModelCollection GNoteRefCollection
+        {
+            get; set;
+        }
             = new HLinkNoteModelCollection();
 
         /// <summary>
@@ -129,7 +135,10 @@ namespace GrampsView.Data.Model
         /// Gets or sets uRL collection.
         /// </summary>
         [DataMember]
-        public OCURLModelCollection GURL { get; set; }
+        public OCURLModelCollection GURL
+        {
+            get; set;
+        }
 
         = new OCURLModelCollection();
 
@@ -146,6 +155,7 @@ namespace GrampsView.Data.Model
                 HLinkRepositoryModel t = new HLinkRepositoryModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

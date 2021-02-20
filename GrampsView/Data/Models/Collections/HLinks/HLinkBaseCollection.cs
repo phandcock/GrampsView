@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the first image hlink.
         /// </summary>
-        public HLinkHomeImageModel FirstHLinkHomeImage { get; set; } = new HLinkHomeImageModel();
+        public ItemGlyph FirstHLinkHomeImage { get; set; } = new ItemGlyph();
 
         public T GetFirst
         {
@@ -41,7 +41,10 @@ namespace GrampsView.Data.Model
         {
             CardGroup t = GetCardGroup();
 
-            if (!string.IsNullOrEmpty(argTitle)) { t.Title = argTitle; };
+            if (!string.IsNullOrEmpty(argTitle))
+            {
+                t.Title = argTitle;
+            };
 
             return t;
         }
@@ -50,7 +53,10 @@ namespace GrampsView.Data.Model
         {
             CardGroup t = new CardGroup();
 
-            foreach (T item in Items) { t.Add(item); }
+            foreach (T item in Items)
+            {
+                t.Add(item);
+            }
 
             return t;
         }

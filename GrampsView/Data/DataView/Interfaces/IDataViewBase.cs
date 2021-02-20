@@ -70,7 +70,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        HLinkHomeImageModel GetFirstImageFromCollection(TH theCollection);
+        ItemGlyph GetFirstImageFromCollection(TH theCollection);
 
         /// <summary>
         /// Gets the model from the hlink. Helper method.

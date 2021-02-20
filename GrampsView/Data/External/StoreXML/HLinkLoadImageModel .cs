@@ -19,17 +19,17 @@ namespace GrampsView.Data.ExternalStorageNS
 
     public class HLinkLoadImageModel : HLinkBase
     {
-        /// <summary>
-        /// The local home use image.
-        /// </summary>
-        private CommonEnums.HomeImageType _HomeImageType = CommonEnums.HomeImageType.Unknown;
-
-        private Color _HomeSymbolColour = Color.White;
-
         ///// <summary>
         ///// The local internal default character icon
         ///// </summary
         private string _IDefaultSymbol = CommonConstants.IconDDefault;
+
+        /// <summary>
+        /// The local home use image.
+        /// </summary>
+        private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
+
+        private Color _SymbolColour = Color.White;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkMediaModel"/> class.
@@ -108,54 +108,22 @@ namespace GrampsView.Data.ExternalStorageNS
         }
 
         /// <summary>
-        /// Gets the home image display bit map.
-        /// </summary>
-        /// <value>
-        /// The home image display bit map.
-        /// </value>
-        public Image HomeImageDisplayBitMap
-        {
-            get
-            {
-                switch (_HomeImageType)
-                {
-                    //case CommonConstants.HomeImageTypeClippedBitmap:
-                    //    {
-                    //        return HomeImageClippedBitmap;
-                    //    }
-
-                    case CommonEnums.HomeImageType.ThumbNail:
-                        {
-                            // TODO FIx this
-                            //return DeRef.ImageThumbNail;
-                            return null;
-                        }
-
-                    default:
-                        {
-                            return null;
-                        }
-                }
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether [home use image].
         /// </summary>
         /// <value>
         /// <c>true</c> if [home use image]; otherwise, <c>false</c>.
         /// </value>
         [DataMember]
-        public CommonEnums.HomeImageType HomeImageType
+        public CommonEnums.HLinkGlyphType ImageType
         {
             get
             {
-                return _HomeImageType;
+                return _ImageType;
             }
 
             set
             {
-                SetProperty(ref _HomeImageType, value);
+                SetProperty(ref _ImageType, value);
             }
         }
 
@@ -167,7 +135,7 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The home symbol.
         /// </value>
         [DataMember]
-        public string HomeSymbol
+        public string Symbol
         {
             get
             {
@@ -187,11 +155,11 @@ namespace GrampsView.Data.ExternalStorageNS
         /// The background colour.
         /// </value>
         [DataMember]
-        public Color HomeSymbolColour
+        public Color SymbolColour
         {
             get
             {
-                return _HomeSymbolColour;
+                return _SymbolColour;
             }
 
             set
@@ -200,26 +168,9 @@ namespace GrampsView.Data.ExternalStorageNS
                 {
                 }
 
-                SetProperty(ref _HomeSymbolColour, value);
+                SetProperty(ref _SymbolColour, value);
             }
         }
-
-        //// Gramps uses (0,0,0,0) or (0,0,100,100) for the entire bitmap.
-        //public bool NeedsClipping
-        //{
-        //    get
-        //    {
-        //        if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 0) && (GCorner2Y == 0))
-        //        {
-        //            return false;
-        //        }
-
-        // if ((GCorner1X == 0) && (GCorner1Y == 0) && (GCorner2X == 100) && (GCorner2Y == 100)) {
-        // return false; }
-
-        //        return true;
-        //    }
-        //}
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
@@ -233,21 +184,16 @@ namespace GrampsView.Data.ExternalStorageNS
         {
             get
             {
-                switch (HomeImageType)
+                switch (ImageType)
                 {
-                    case CommonEnums.HomeImageType.Symbol:
+                    case CommonEnums.HLinkGlyphType.Symbol:
                         {
                             return true;
                         }
-                    case CommonEnums.HomeImageType.ThumbNail:
+                    case CommonEnums.HLinkGlyphType.Image:
                         {
                             return !string.IsNullOrEmpty(HLinkKey);
                         }
-                    case CommonEnums.HomeImageType.Unknown:
-                        {
-                            return false;
-                        }
-
                     default:
                         {
                             // TODO Unknown type
@@ -257,20 +203,19 @@ namespace GrampsView.Data.ExternalStorageNS
             }
         }
 
-        public HLinkHomeImageModel GetHLinkHomeImageModel()
-        {
-            HLinkHomeImageModel returnHLinkHomeImageModel = new HLinkHomeImageModel
-            {
-                // Copy fields
-                GPriv = GPriv,
-                HLinkKey = HLinkKey,
-                //HomeImageClippedBitmap = argHLinkMediaModel.LoadingClipInfo.HomeImageClippedBitmap;
-                HomeImageType = HomeImageType,
-                HomeSymbol = HomeSymbol,
-                HomeSymbolColour = HomeSymbolColour
-            };
+        //public HLinkGlyph GetHLinkGlyph()
+        //{
+        //    HLinkGlyph returnHLinkGlyph = new HLinkGlyph
+        //    {
+        //        // Copy fields
+        //        GPriv = GPriv,
+        //        HLinkKey = HLinkKey,
+        //        ImageType = ImageType,
+        //        Symbol = Symbol,
+        //        SymbolColour = SymbolColour
+        //    };
 
-            return returnHLinkHomeImageModel;
-        }
+        //    return returnHLinkGlyph;
+        //}
     }
 }

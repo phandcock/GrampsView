@@ -31,8 +31,8 @@ namespace GrampsView.Data.Model
     {
         public PersonNameModel()
         {
-            HomeImageHLink.HomeSymbol = Common.CommonConstants.IconPersonName;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
+            ModelItemGlyph.Symbol = CommonConstants.IconPersonName;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
         public string FirstFirstName
@@ -92,7 +92,10 @@ namespace GrampsView.Data.Model
         /// The citation reference collection.
         /// </value>
         [DataMember]
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; }
+        public HLinkCitationModelCollection GCitationRefCollection
+        {
+            get; set;
+        }
 
         = new HLinkCitationModelCollection();
 
@@ -189,7 +192,10 @@ namespace GrampsView.Data.Model
         /// The note reference collection.
         /// </value>
         [DataMember]
-        public HLinkNoteModelCollection GNoteReferenceCollection { get; set; }
+        public HLinkNoteModelCollection GNoteReferenceCollection
+        {
+            get; set;
+        }
 
         = new HLinkNoteModelCollection();
 

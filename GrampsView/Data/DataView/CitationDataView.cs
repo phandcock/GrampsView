@@ -57,7 +57,11 @@ namespace GrampsView.Data.DataView
                 var query = from item in DataViewData
                             orderby item.GDateContent.SortDate
                             group item by item.GDateContent.GetDecade into g
-                            select new { GroupName = g.Key, Items = g };
+                            select new
+                            {
+                                GroupName = g.Key,
+                                Items = g
+                            };
 
                 foreach (var g in query)
                 {
@@ -150,14 +154,14 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public new HLinkHomeImageModel GetFirstImageFromCollection(HLinkCitationModelCollection theCollection)
+        public new ItemGlyph GetFirstImageFromCollection(HLinkCitationModelCollection theCollection)
         {
             if (theCollection == null)
             {
                 return null;
             }
 
-            HLinkHomeImageModel returnMediaModel = new HLinkHomeImageModel();
+            ItemGlyph returnMediaModel = new ItemGlyph();
 
             if (theCollection.Count > 0)
             {
@@ -171,9 +175,9 @@ namespace GrampsView.Data.DataView
                     returnMediaModel = currentHLink.DeRef.GMediaRefCollection.FirstHLinkHomeImage;
 
                     // Handle Source Links
-                    if (currentHLink.DeRef.HomeImageHLink.LinkToImage)
+                    if (currentHLink.DeRef.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
                     {
-                        returnMediaModel = currentHLink.DeRef.HomeImageHLink;
+                        returnMediaModel = currentHLink.DeRef.ModelItemGlyph;
                     }
 
                     if (returnMediaModel.Valid)

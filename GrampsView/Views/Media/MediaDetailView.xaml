@@ -2,13 +2,12 @@
 <views:ViewBase
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodelss="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -31,15 +30,15 @@
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
                 <StackLayout>
-                    <ucon:MediaImageSkia
+                    <ucon:ModelVisualDisplay
                         x:Name="daImage"
-                        BindingContext="{Binding CurrentHLinkMedia, Mode=OneWay}"
+                        BindingContext="{Binding CurrentHLinkMedia.DeRef, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding ShowImageElement, Mode=OneWay}"
                         IsVisible="{Binding ShowImageElement, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
-                    <toolkit:MediaElement
+                    <!--<toolkit:MediaElement
                         x:Name="daMediaElement"
                         Aspect="AspectFit"
                         AutoPlay="False"
@@ -50,7 +49,7 @@
                         MediaFailed="daMediaElement_MediaFailed"
                         ShowsPlaybackControls="True"
                         Source="{Binding MediaPath, Mode=OneWay}"
-                        VerticalOptions="FillAndExpand" />
+                        VerticalOptions="FillAndExpand" />-->
 
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
                 </StackLayout>

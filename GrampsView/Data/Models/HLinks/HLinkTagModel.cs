@@ -54,7 +54,7 @@ namespace GrampsView.Data.Model
         /// The image h link key.
         /// </value>
         [DataMember]
-        public HLinkMediaModel HomeImageHLink
+        public HLinkMediaModel HLinkGlyph
         {
             get
             {

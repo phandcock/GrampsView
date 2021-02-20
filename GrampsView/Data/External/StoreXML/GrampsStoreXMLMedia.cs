@@ -22,31 +22,31 @@
             Contract.Requires(argModel != null);
 
             // Setup HomeImage
-            argModel.HomeImageHLink.HLinkKey = argModel.HLinkKey;
+            argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLink.HLinkKey;
 
             switch (argModel.FileMimeType)
             {
                 case "application":
                     {
-                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
+                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
                         switch (argModel.FileMimeSubType)
                         {
                             case "pdf":
                                 {
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FilePdf;
+                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
                                     break;
                                 }
 
                             case "x-zip-compressed":
                                 {
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileArchive;
+                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                     break;
                                 }
 
                             case "zip":
                                 {
-                                    argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileArchive;
+                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                     break;
                                 }
                         }
@@ -56,22 +56,22 @@
 
                 case "audio":
                     {
-                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                        argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileAudio;
+                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
                         break;
                     }
 
                 case "image":
                     {
-                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                        argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileImage;
+                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
                         break;
                     }
 
                 case "video":
                     {
-                        argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-                        argModel.HomeImageHLink.HomeSymbol = CommonFontNamesFAS.FileVideo;
+                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
                         break;
                     }
             }

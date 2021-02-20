@@ -43,7 +43,7 @@ namespace GrampsView.Data.Collections
             // Gramps if we need it to be, e.g. Citations.
             ICitationModel tempCitationModel = new CitationModel();
 
-            FirstHLinkHomeImage.HomeImageType = CommonEnums.HomeImageType.Unknown;
+            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
             if (Count > 0)
             {
@@ -52,9 +52,9 @@ namespace GrampsView.Data.Collections
                 {
                     tempCitationModel = DV.CitationDV.GetModelFromHLink(this[i]);
 
-                    if (tempCitationModel.HomeImageHLink.LinkToImage)
+                    if (tempCitationModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
                     {
-                        FirstHLinkHomeImage = tempCitationModel.HomeImageHLink;
+                        FirstHLinkHomeImage = tempCitationModel.ModelItemGlyph;
                         break;
                     }
                 }

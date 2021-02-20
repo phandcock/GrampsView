@@ -21,10 +21,14 @@
     [DataContract]
     public class HLinkBase : CommonBindableBase, IHLinkBase
     {
+        private ItemGlyph _HLinkGlyphItem = new ItemGlyph();
+
         /// <summary>
         /// The local h link key.
         /// </summary>
         private string _HLinkKey = string.Empty;
+
+        // private string _IDefaultSymbol = CommonConstants.IconDDefault;
 
         /// <summary>
         /// The local priv.
@@ -50,6 +54,26 @@
             set
             {
                 SetProperty(ref _Priv, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [home use image].
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if [home use image]; otherwise, <c>false</c>.
+        /// </value>
+        [DataMember]
+        public ItemGlyph HLinkGlyphItem
+        {
+            get
+            {
+                return _HLinkGlyphItem;
+            }
+
+            set
+            {
+                SetProperty(ref _HLinkGlyphItem, value);
             }
         }
 

@@ -46,7 +46,6 @@ namespace GrampsView.Data.Model
             get;
         }
 
-
         /// <summary>
         /// Gets or sets the date value.
         /// </summary>
@@ -74,11 +73,12 @@ namespace GrampsView.Data.Model
         HLinkNoteModelCollection GNoteRefCollection
         {
             get;
-
-          
         }
 
-        HLinkTagModelCollection GTagRefCollection { get;  }
+        HLinkTagModelCollection GTagRefCollection
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets the get h link Media Model that points to this ViewModel.
@@ -98,7 +98,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        bool IsMediaFile
+        bool IsImage
         {
             get;
         }
@@ -109,6 +109,11 @@ namespace GrampsView.Data.Model
         }
 
         bool IsOriginalFilePathValid
+        {
+            get;
+        }
+
+        CommonEnums.HLinkGlyphType MediaDisplayType
         {
             get;
         }
@@ -137,7 +142,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The height of the meta data.
         /// </value>
-        double MetaDataHeight { get; set; }
+        double MetaDataHeight
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the width of the meta data.
@@ -145,7 +153,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The width of the meta data.
         /// </value>
-        double MetaDataWidth { get; set; }
+        double MetaDataWidth
+        {
+            get; set;
+        }
 
         string OriginalFilePath
         {

@@ -100,8 +100,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public PersonModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconPeople;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
+            ModelItemGlyph.Symbol = CommonConstants.IconPeople;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
         /// <summary>
@@ -122,7 +122,10 @@ namespace GrampsView.Data.Model
         /// Gets or sets address collection.
         /// </summary>
         [DataMember]
-        public HLinkOCAddressModelCollection GAddress { get; set; }
+        public HLinkOCAddressModelCollection GAddress
+        {
+            get; set;
+        }
 
         = new HLinkOCAddressModelCollection();
 
@@ -380,6 +383,7 @@ namespace GrampsView.Data.Model
                 HLinkPersonModel t = new HLinkPersonModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
 
                 return t;

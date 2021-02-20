@@ -43,8 +43,8 @@ namespace GrampsView.Data.Model
     {
         public AttributeModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconAttribute;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAttribute");
+            ModelItemGlyph.Symbol = CommonConstants.IconAttribute;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAttribute");
         }
 
         /// <summary>

@@ -329,11 +329,6 @@ namespace GrampsView.Common
                 return FamilyTemplate;
             }
 
-            if (item is HLinkHomeImageModel)
-            {
-                return MediaTemplate;
-            }
-
             if ((item is HLinkMediaModel) || (item is IHLinkMediaModel))
             {
                 return MediaTemplate;
@@ -363,7 +358,6 @@ namespace GrampsView.Common
                     default:
                         {
                             return NoteTemplate;
-                           
                         }
                 }
             }

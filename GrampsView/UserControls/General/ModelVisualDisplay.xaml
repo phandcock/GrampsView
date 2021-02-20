@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
-    x:Class="GrampsView.UserControls.MediaImageSkia"
+    x:Class="GrampsView.UserControls.ModelVisualDisplay"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Name="MediaImageSkiaRoot"
+    x:Name="ModelVisualDisplayRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    BindingContextChanged="MediaImageSkia_BindingContextChanged">
+    BindingContextChanged="ModelVisualDisplay_BindingContextChanged">
 
     <Grid.RowDefinitions>
         <RowDefinition Height="*" />

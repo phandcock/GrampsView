@@ -31,7 +31,7 @@
                 {
                     _ModelUserActivity.VisualElements.DisplayText = area.ToUpper();
                     _ModelUserActivity.VisualElements.Description = bodyText;
-                    _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.HomeImageHLink.HomeSymbolColour);
+                    _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.SymbolColour);
 
                     // _ModelUserActivity.VisualElements.Content =
                     // AdaptiveCardBuilder.CreateAdaptiveCardFromJson(CreateAdaptiveCardForTimeline(area,
@@ -70,7 +70,7 @@
 
         internal static AdaptiveCard CreateAdaptiveCardForTimeline(string argArea, ModelBase argTheModel, string argBodyText)
         {
-            // _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.HomeImageHLink.HomeSymbolColour);
+            // _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.Symbol);
 
             // Create an adaptive card specifically to reference this app in Windows 10 Timeline.
             AdaptiveCard apodTimelineCard = new AdaptiveCard("1.0");
@@ -112,12 +112,12 @@
             // Column 2
 
             //// Add a background image to the card.
-            //if (argTheModel.HomeImageHLink.IsImageType)
+            //if (argTheModel.HLinkGlyph.IsImageType)
             //{
             //    var apodColumn2 = new AdaptiveColumn();
 
             // var apodImage = new AdaptiveImage { Url = new
-            // Uri(argTheModel.HomeImageHLink.ConvertToHLinkMediaModel.DeRef.MediaStorageFilePath), };
+            // Uri(argTheModel.HLinkGlyph.ConvertToHLinkMediaModel.DeRef.MediaStorageFilePath), };
 
             // // Add column1 apodColumn2.Items.Add(apodImage);
 

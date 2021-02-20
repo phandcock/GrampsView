@@ -88,7 +88,7 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get media image
-                MediaCard = PersonNameObject.HomeImageHLink.ConvertToHLinkMediaModel;
+                MediaCard = PersonNameObject.ModelItemGlyph.HLinkMedia;
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Person Name Details" };

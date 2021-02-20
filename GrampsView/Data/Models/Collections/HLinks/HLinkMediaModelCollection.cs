@@ -45,7 +45,7 @@ namespace GrampsView.Data.Collections
             // Gramps if we need it to be, e.g. Citations.
             IMediaModel tempMediaModel = new MediaModel();
 
-            FirstHLinkHomeImage.HomeImageType = CommonEnums.HomeImageType.Unknown;
+            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
             if (Count > 0)
             {
@@ -54,9 +54,9 @@ namespace GrampsView.Data.Collections
                 {
                     tempMediaModel = DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
 
-                    if (tempMediaModel.IsMediaFile)
+                    if (tempMediaModel.IsImage)
                     {
-                        FirstHLinkHomeImage.ConvertFromMediaModel(this[i].DeRef);
+                        FirstHLinkHomeImage = this[i].HLinkGlyphItem;
 
                         break;
                     }

@@ -29,8 +29,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public SourceModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconSource;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
+            ModelItemGlyph.Symbol = CommonConstants.IconSource;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
         /// <summary>
@@ -89,7 +89,10 @@ namespace GrampsView.Data.Model
         /// The repository reference collection.
         /// </value>
         [DataMember]
-        public HLinkRepositoryModelCollection GRepositoryRefCollection { get; set; }
+        public HLinkRepositoryModelCollection GRepositoryRefCollection
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the sabbrev.
@@ -98,7 +101,10 @@ namespace GrampsView.Data.Model
         /// The sabbrev.
         /// </value>
         [DataMember]
-        public string GSAbbrev { get; set; }
+        public string GSAbbrev
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the sauthor.
@@ -107,7 +113,10 @@ namespace GrampsView.Data.Model
         /// The sauthor.
         /// </value>
         [DataMember]
-        public string GSAuthor { get; set; }
+        public string GSAuthor
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the source attribute collection.
@@ -116,7 +125,10 @@ namespace GrampsView.Data.Model
         /// The source attribute collection.
         /// </value>
         [DataMember]
-        public OCAttributeModelCollection GSourceAttributeCollection { get; set; }
+        public OCAttributeModelCollection GSourceAttributeCollection
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the spub information.
@@ -125,7 +137,10 @@ namespace GrampsView.Data.Model
         /// The spub information.
         /// </value>
         [DataMember]
-        public string GSPubInfo { get; set; }
+        public string GSPubInfo
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the stitle.
@@ -134,7 +149,10 @@ namespace GrampsView.Data.Model
         /// The stitle.
         /// </value>
         [DataMember]
-        public string GSTitle { get; set; }
+        public string GSTitle
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the tag reference collection.
@@ -143,7 +161,10 @@ namespace GrampsView.Data.Model
         /// The tag reference collection.
         /// </value>
         [DataMember]
-        public HLinkTagModelCollection GTagRefCollection { get; set; }
+        public HLinkTagModelCollection GTagRefCollection
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets the hlink.
@@ -158,6 +179,7 @@ namespace GrampsView.Data.Model
                 HLinkSourceModel t = new HLinkSourceModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

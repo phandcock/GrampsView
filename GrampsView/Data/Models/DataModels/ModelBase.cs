@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// The data model defined by this file serves to hold Event data from the GRAMPS data file
-//
-// <copyright file="ModelBase.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -63,26 +54,25 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _HLinkKey = string.Empty;
 
-        /// <summary>
-        /// The local identifier.
-        /// </summary>
+        // private HLinkMediaModel _HomeHLinkMediaModel = new HLinkMediaModel();
         private string _Id = string.Empty;
 
-        /// <summary>
-        /// The local image h link.
-        /// </summary>
-        private HLinkHomeImageModel _ImageHLink = new HLinkHomeImageModel();
+        // private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
+
+        private ItemGlyph _ModelItemGlyph = new ItemGlyph();
 
         /// <summary>
         /// The local priv.
         /// </summary>
         private bool _Priv;
 
+        // private string _Symbol = CommonConstants.IconDDefault; private Color _SymbolColour = Color.White;
+
         public ModelBase()
         {
-            HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.Symbol;
-            HomeImageHLink.HomeSymbol = CommonConstants.IconDDefault;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour =  Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
+            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>
@@ -196,26 +186,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the image hlink key.
-        /// </summary>
-        /// <value>
-        /// The image hlink key.
-        /// </value>
-        [DataMember]
-        public virtual HLinkHomeImageModel HomeImageHLink
-        {
-            get
-            {
-                return _ImageHLink;
-            }
-
-            set
-            {
-                SetProperty(ref _ImageHLink, value);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>
@@ -235,13 +205,19 @@ namespace GrampsView.Data.Model
             }
         }
 
-        ///// <summary>
-        ///// Gets or sets the model common logging.
-        ///// </summary>
-        ///// <value>
-        ///// The model common logging.
-        ///// </value>
-        //public ICommonLogging ModelCommonLogging { get; set; }
+        [DataMember]
+        public ItemGlyph ModelItemGlyph
+        {
+            get
+            {
+                return _ModelItemGlyph;
+            }
+
+            set
+            {
+                SetProperty(ref _ModelItemGlyph, value);
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether [h link key valid].
@@ -277,7 +253,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-     
         /// <summary>
         /// Gets the priv as string.
         /// </summary>

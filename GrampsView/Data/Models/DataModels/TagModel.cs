@@ -51,8 +51,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public TagModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconTag;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            ModelItemGlyph.Symbol = CommonConstants.IconTag;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>
@@ -128,6 +128,7 @@ namespace GrampsView.Data.Model
                 HLinkTagModel t = new HLinkTagModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

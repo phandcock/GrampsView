@@ -42,12 +42,21 @@ namespace GrampsView.Common
             Unknown
         }
 
-        public enum HomeImageType
+        public enum HLinkGlyphType
         {
+            Image,
+            Media,
             Symbol,
-            ThumbNail,
             Unknown,
         }
+
+        //public enum ModelDisplayType
+        //{
+        //    Image,
+        //    Media,
+        //    Symbol,
+        //    Unknown,
+        //}
 
         public enum PlaceLocation
         {

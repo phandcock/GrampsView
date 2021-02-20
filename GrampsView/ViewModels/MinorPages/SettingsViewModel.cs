@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Views;
 
@@ -73,6 +74,16 @@
             get; private set;
         }
 
+        public IHLinkMediaModel TestMedia
+        {
+            get
+            {
+                var t = DataStore.Instance.DS.MediaData.GetRandomItem().HLink;
+
+                return t;
+            }
+        }
+
         public bool ThemeButtonDarkChecked
         {
             get
@@ -141,11 +152,6 @@
             get; private set;
         }
 
-        public void ForceUpdate()
-        {
-            Distribute.CheckForUpdate();
-        }
-
         public override void BaseHandleAppearingEvent()
         {
             switch (CommonLocalSettings.ApplicationTheme)
@@ -168,6 +174,11 @@
                         break;
                     }
             }
+        }
+
+        public void ForceUpdate()
+        {
+            Distribute.CheckForUpdate();
         }
 
         public void TestButtonHandler()

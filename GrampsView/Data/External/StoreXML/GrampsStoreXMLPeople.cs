@@ -22,7 +22,7 @@
                 throw new ArgumentNullException(nameof(argModel));
             }
 
-            HLinkHomeImageModel hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
 
             // Check Citation for Images
             if (!hlink.Valid)
@@ -33,8 +33,7 @@
             // Action any Link
             if (hlink.Valid)
             {
-                argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                argModel.HomeImageHLink.HLinkKey = hlink.HLinkKey;
+                argModel.ModelItemGlyph = hlink;
             }
 
             return argModel;

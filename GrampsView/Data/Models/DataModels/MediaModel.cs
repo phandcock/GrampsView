@@ -60,8 +60,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public MediaModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconMedia;
-            HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundMedia");
+            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundMedia");
         }
 
         /// <summary>
@@ -117,7 +117,10 @@ namespace GrampsView.Data.Model
 
         /// <summary> Gets or sets the file MIME type. </summary> <value> The file MIME type.
         [DataMember]
-        public string FileMimeType { get; set; }
+        public string FileMimeType
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the citation reference collection.
@@ -230,6 +233,7 @@ namespace GrampsView.Data.Model
                 HLinkMediaModel t = new HLinkMediaModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }
@@ -249,22 +253,11 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance is media file.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is media file; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsMediaFile
+        public bool IsImage
         {
             get
             {
-                if (FileMimeType == "image")
-                {
-                    return true;
-                }
-
-                return false;
+                return (FileMimeType == "image");
             }
         }
 
@@ -279,11 +272,20 @@ namespace GrampsView.Data.Model
             get
             {
                 // TODO Enhance to check for zero length files
-                if (MediaStorageFile == null) { return false; };
+                if (MediaStorageFile == null)
+                {
+                    return false;
+                };
 
-                if (!MediaStorageFile.Valid) { return false; };
+                if (!MediaStorageFile.Valid)
+                {
+                    return false;
+                };
 
-                if (_MediaStorageFile.FInfo.FullName == null) { return false; };
+                if (_MediaStorageFile.FInfo.FullName == null)
+                {
+                    return false;
+                };
 
                 //if (!(Uri.IsWellFormedUriString(MediaStorageFileUri.AbsolutePath, UriKind.Absolute))) { return false; };
 
@@ -307,6 +309,36 @@ namespace GrampsView.Data.Model
                 }
 
                 return StoreFileUtility.IsRelativeFilePathValid(OriginalFilePath);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is media file.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is media file; otherwise, <c>false</c>.
+        /// </value>
+        public CommonEnums.HLinkGlyphType MediaDisplayType
+        {
+            get
+            {
+                switch (FileMimeType)
+                {
+                    case "image":
+                        {
+                            return CommonEnums.HLinkGlyphType.Image;
+                        }
+
+                    case "video":
+                        {
+                            return CommonEnums.HLinkGlyphType.Media;
+                        }
+
+                    default:
+                        {
+                            return CommonEnums.HLinkGlyphType.Symbol;
+                        }
+                }
             }
         }
 
@@ -376,7 +408,10 @@ namespace GrampsView.Data.Model
         /// The height of the meta data.
         /// </value>
         [DataMember]
-        public double MetaDataHeight { get; set; }
+        public double MetaDataHeight
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the width of the image metadata.
@@ -385,7 +420,10 @@ namespace GrampsView.Data.Model
         /// The width of the meta data.
         /// </value>
         [DataMember]
-        public double MetaDataWidth { get; set; }
+        public double MetaDataWidth
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the original file path.
@@ -433,10 +471,14 @@ namespace GrampsView.Data.Model
                 GDescription = this.GDescription,
                 GNoteRefCollection = this.GNoteRefCollection,
                 GTagRefCollection = this.GTagRefCollection,
-                HomeImageHLink = this.HomeImageHLink,
+
                 MetaDataHeight = this.MetaDataHeight,
                 OriginalFilePath = this.OriginalFilePath
             };
+
+            t.ModelItemGlyph.ImageType = this.ModelItemGlyph.ImageType;
+            t.ModelItemGlyph.Symbol = this.ModelItemGlyph.Symbol;
+            t.ModelItemGlyph.SymbolColour = this.ModelItemGlyph.SymbolColour;
 
             t.GCitationRefCollection.Clear();
             t.GCitationRefCollection.AddRange(this.GCitationRefCollection);

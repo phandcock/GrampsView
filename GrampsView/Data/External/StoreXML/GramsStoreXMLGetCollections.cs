@@ -316,7 +316,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         HLinkLoadImageModel tempHLMediaModel = new HLinkLoadImageModel
                         {
                             HLinkKey = outHLMediaModel.HLinkKey,
-                            HomeImageType = CommonEnums.HomeImageType.ThumbNail,
+                            ImageType = CommonEnums.HLinkGlyphType.Image,
 
                             GCorner1X = (int)regionDetails.Attribute("corner1_x"),
                             GCorner1Y = (int)regionDetails.Attribute("corner1_y"),
@@ -531,7 +531,7 @@ namespace GrampsView.Data.ExternalStorageNS
                             }
                     }
 
-                    newAttributeModel.HomeImageHLink.HomeSymbol = CommonConstants.IconPlace;
+                    newAttributeModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
                     t.Add(newAttributeModel);
                 }
             }
@@ -570,7 +570,7 @@ namespace GrampsView.Data.ExternalStorageNS
                         GDate = GetDate(theLoadORElement),
                     };
 
-                    newAttributeModel.HomeImageHLink.HomeSymbol = CommonConstants.IconPlace;
+                    newAttributeModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
 
                     t.Add(newAttributeModel);
                 }
@@ -835,20 +835,12 @@ namespace GrampsView.Data.ExternalStorageNS
 
             if (theERElement.Any())
             {
-                HLinkHomeImageModel newHomeLink = new HLinkHomeImageModel
-                {
-                    HomeImageType = CommonEnums.HomeImageType.Symbol,
-                    HomeSymbol = CommonConstants.IconURL,
-                };
-
                 // load event object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
                     URLModel tt = new URLModel
                     {
                         Handle = "URL Collection",
-
-                        HomeImageHLink = newHomeLink,
 
                         Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
@@ -858,6 +850,10 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         GDescription = GetAttribute(theLoadORElement.Attribute("description")),
                     };
+
+                    tt.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+
+                    tt.ModelItemGlyph.Symbol = CommonConstants.IconURL;
 
                     t.Add(tt);
                 }

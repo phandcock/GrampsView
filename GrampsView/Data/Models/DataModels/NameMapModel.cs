@@ -24,8 +24,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public NameMapModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconNameMaps;
-            HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNameMap");
+            ModelItemGlyph.Symbol = CommonConstants.IconNameMaps;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNameMap");
         }
 
         /// <summary>
@@ -41,6 +41,7 @@ namespace GrampsView.Data.Model
                 HLinkNameMapModel t = new HLinkNameMapModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

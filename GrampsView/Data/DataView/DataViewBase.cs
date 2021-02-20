@@ -123,7 +123,7 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// A HLink Media Model of the first image in the collection or null if none are found.
         /// </returns>
-        public virtual HLinkHomeImageModel GetFirstImageFromCollection(TH theCollection)
+        public virtual ItemGlyph GetFirstImageFromCollection(TH theCollection)
         {
             throw new NotImplementedException();
         }

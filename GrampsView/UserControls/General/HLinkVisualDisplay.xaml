@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.HLinkVisualDisplay"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="HLinkVisualDisplayRoot"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent"
+    BindingContextChanged="HLinkVisualDisplay_BindingContextChanged">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <ContentPresenter Grid.Row="0" Grid.Column="0" />
+</Grid>

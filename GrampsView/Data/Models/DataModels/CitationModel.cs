@@ -29,8 +29,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public CitationModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconCitation;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundCitation");
+            ModelItemGlyph.Symbol = CommonConstants.IconCitation;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundCitation");
         }
 
         /// <summary>
@@ -190,6 +190,7 @@ namespace GrampsView.Data.Model
                 HLinkCitationModel t = new HLinkCitationModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

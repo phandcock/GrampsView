@@ -88,7 +88,7 @@ namespace GrampsView.ViewModels
                 BaseTitle = AddressObject.GetDefaultText;
 
                 // Get media image
-                MediaCard = AddressObject.HomeImageHLink.ConvertToHLinkMediaModel;
+                MediaCard = AddressObject.ModelItemGlyph.HLinkMedia;
 
                 // Get Header Details
                 //CardGroup headerCardGroup = new CardGroup { };

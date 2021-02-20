@@ -18,7 +18,7 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkHomeImageModel : HLinkBase, IHLinkHomeImageModel
     {
-        private CommonEnums.HomeImageType _HomeImageType = CommonEnums.HomeImageType.Symbol;
+        private CommonEnums.HLinkGlyphType _HomeImageType = CommonEnums.HLinkGlyphType.Symbol;
 
         private Color _HomeSymbolColour = Color.White;
 
@@ -73,7 +73,7 @@ namespace GrampsView.Data.Model
         /// <c>true</c> if [home use image]; otherwise, <c>false</c>.
         /// </value>
         [DataMember]
-        public CommonEnums.HomeImageType HomeImageType
+        public CommonEnums.HLinkGlyphType HomeImageType
         {
             get
             {
@@ -130,32 +130,32 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public bool IsImageType
-        {
-            get
-            {
-                return (Valid) && (_HomeImageType == CommonEnums.HomeImageType.ThumbNail);
-            }
-        }
+        //public bool IsImageType
+        //{
+        //    get
+        //    {
+        //        return (Valid) && (_HomeImageType == CommonEnums.HomeImageType.ThumbNail);
+        //    }
+        //}
 
-        /// <summary>
-        /// Gets a value indicating whether this is for an image or a symbol.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if image; otherwise, <c>false</c>.
-        /// </value>
-        public bool LinkToImage
-        {
-            get
-            {
-                if (HomeImageType == CommonEnums.HomeImageType.ThumbNail)
-                {
-                    return true;
-                }
+        ///// <summary>
+        ///// Gets a value indicating whether this is for an image or a symbol.
+        ///// </summary>
+        ///// <value>
+        ///// <c>true</c> if image; otherwise, <c>false</c>.
+        ///// </value>
+        //public bool LinkToImage
+        //{
+        //    get
+        //    {
+        //        if (HomeImageType == CommonEnums.HomeImageType.ThumbNail)
+        //        {
+        //            return true;
+        //        }
 
-                return false;
-            }
-        }
+        //        return false;
+        //    }
+        //}
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
@@ -171,17 +171,13 @@ namespace GrampsView.Data.Model
             {
                 switch (HomeImageType)
                 {
-                    case CommonEnums.HomeImageType.Symbol:
+                    case CommonEnums.HLinkGlyphType.Symbol:
                         {
                             return true;
                         }
-                    case CommonEnums.HomeImageType.ThumbNail:
+                    case CommonEnums.HLinkGlyphType.Image:
                         {
                             return !string.IsNullOrEmpty(HLinkKey);
-                        }
-                    case CommonEnums.HomeImageType.Unknown:
-                        {
-                            return false;
                         }
 
                     default:
@@ -212,7 +208,25 @@ namespace GrampsView.Data.Model
             // Copy fields
             GPriv = argMediaModel.Priv;
             HLinkKey = argMediaModel.HLinkKey;
-            HomeImageType = CommonEnums.HomeImageType.ThumbNail;
+
+            switch (argMediaModel.MediaDisplayType)
+            {
+                case CommonEnums.ModelDisplayType.Image:
+                    {
+                        HomeImageType = CommonEnums.HLinkGlyphType.Image;
+                        break;
+                    }
+                case CommonEnums.ModelDisplayType.Media:
+                    {
+                        HomeImageType = CommonEnums.HLinkGlyphType.Image;
+                        break;
+                    }
+                default:
+                    {
+                        HomeImageType = CommonEnums.HLinkGlyphType.Symbol;
+                        break;
+                    }
+            }
         }
     }
 }

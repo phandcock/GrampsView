@@ -42,8 +42,8 @@ namespace GrampsView.Data.Model
 
         public NoteModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconNotes;
-            HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
+            ModelItemGlyph.Symbol = CommonConstants.IconNotes;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
         /// <summary>
@@ -161,6 +161,7 @@ namespace GrampsView.Data.Model
                 HLinkNoteModel t = new HLinkNoteModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

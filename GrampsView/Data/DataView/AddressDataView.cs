@@ -20,12 +20,6 @@ namespace GrampsView.Data.DataView
         {
         }
 
-        /// <summary>
-        /// Gets or sets the citation data.
-        /// </summary>
-        /// <value>
-        /// The citation data.
-        /// </value>
         public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
         {
             get
@@ -71,7 +65,11 @@ namespace GrampsView.Data.DataView
                 var query = from item in DataViewData
                             orderby item.GetDefaultText
                             group item by item.GetDefaultText into g
-                            select new { GroupName = g.Key, Items = g };
+                            select new
+                            {
+                                GroupName = g.Key,
+                                Items = g
+                            };
 
                 foreach (var g in query)
                 {
@@ -138,14 +136,14 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public new HLinkHomeImageModel GetFirstImageFromCollection(HLinkOCAddressModelCollection theCollection)
+        public new HLinkMediaModel GetFirstImageFromCollection(HLinkOCAddressModelCollection theCollection)
         {
             if (theCollection == null)
             {
                 return null;
             }
 
-            HLinkHomeImageModel returnMediaModel = new HLinkHomeImageModel();
+            HLinkMediaModel returnMediaModel = new HLinkMediaModel();
 
             if (theCollection.Count > 0)
             {
@@ -156,13 +154,13 @@ namespace GrampsView.Data.DataView
                 {
                     HLinkAdressModel currentHLink = theCollection[i];
 
-                    returnMediaModel = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
+                    returnMediaModel.HLinkGlyphItem = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
 
-                    // TODO Still needed Handle Source Links
-                    if (currentHLink.DeRef.HomeImageHLink.LinkToImage)
-                    {
-                        returnMediaModel = currentHLink.DeRef.HomeImageHLink;
-                    }
+                    //// TODO Still needed Handle Source Links
+                    //if (currentHLink.DeRef.so.LinkToImage)
+                    //{
+                    //    returnMediaModel = currentHLink.DeRef.HLinkGlyph;
+                    //}
 
                     if (returnMediaModel.Valid)
                     {

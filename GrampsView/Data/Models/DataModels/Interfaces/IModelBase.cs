@@ -9,7 +9,6 @@
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Collections;
 
     using System;
@@ -20,11 +19,20 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IModelBase : IComparable<ModelBase>, INotifyPropertyChanged
     {
-        HLinkBackLinkModelCollection BackHLinkReferenceCollection { get; }
+        HLinkBackLinkModelCollection BackHLinkReferenceCollection
+        {
+            get;
+        }
 
-        DateTime Change { get; set; }
+        DateTime Change
+        {
+            get; set;
+        }
 
-        ModelBase DeRef { get; }
+        ModelBase DeRef
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets the default text.
@@ -32,7 +40,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get default text.
         /// </value>
-        string GetDefaultText { get; }
+        string GetDefaultText
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets or sets the model handle.
@@ -40,7 +51,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The handle.
         /// </value>
-        string Handle { get; set; }
+        string Handle
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets or sets the h link key.
@@ -53,20 +67,6 @@ namespace GrampsView.Data.Model
             get; set;
         }
 
-        HLinkHomeImageModel HomeImageHLink { get; set; }
-
-        string Id { get; set; }
-
-        //ICommonLogging ModelCommonLogging { get; set; }
-
-        bool Priv { get; set; }
-
-        string PrivAsString { get; }
-
-        bool Valid { get; }
-
-        void LoadBasics(ModelBase argBasics);
-
         ///// <summary>
         ///// Gets or sets the model user activity.
         ///// </summary>
@@ -74,5 +74,34 @@ namespace GrampsView.Data.Model
         ///// The model user activity.
         ///// </value>
         //UserActivity ModelUserActivity { get; set; }
+
+        string Id
+        {
+            get; set;
+        }
+
+        ItemGlyph ModelItemGlyph
+        {
+            get;
+
+            set;
+        }
+
+        bool Priv
+        {
+            get; set;
+        }
+
+        string PrivAsString
+        {
+            get;
+        }
+
+        bool Valid
+        {
+            get;
+        }
+
+        void LoadBasics(ModelBase argBasics);
     }
 }

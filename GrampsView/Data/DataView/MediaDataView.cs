@@ -91,7 +91,11 @@
                 var query = from item in DataViewData
                             orderby item.GDescription
                             group item by (item.GDescription + " ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g
-                            select new { GroupName = g.Key, Items = g };
+                            select new
+                            {
+                                GroupName = g.Key,
+                                Items = g
+                            };
 
                 foreach (var g in query)
                 {
@@ -219,7 +223,7 @@
                 theCollection = GetAllAsHLink();
             }
 
-            IEnumerable<IHLinkMediaModel> t = theCollection.Where(HLinkMediaModel => HLinkMediaModel.DeRef.IsMediaFile == true);
+            IEnumerable<IHLinkMediaModel> t = theCollection.Where(HLinkMediaModel => HLinkMediaModel.DeRef.IsImage == true);
 
             return t.FirstOrDefault();
         }
@@ -235,7 +239,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public new HLinkHomeImageModel GetFirstImageFromCollection(HLinkMediaModelCollection argCollection)
+        public new HLinkMediaModel GetFirstImageFromCollection(HLinkMediaModelCollection argCollection)
         {
             // Handle null argument
             if (argCollection == null)
@@ -243,7 +247,7 @@
                 argCollection = GetAllAsHLink();
             }
 
-            HLinkHomeImageModel returnMediaModel = new HLinkHomeImageModel();
+            HLinkMediaModel returnMediaModel = new HLinkMediaModel();
 
             IMediaModel tempMediaModel;
 
@@ -254,9 +258,9 @@
                 {
                     tempMediaModel = MediaData.GetModelFromHLink(argCollection[i]);
 
-                    if (tempMediaModel.IsMediaFile)
+                    if (tempMediaModel.IsImage)
                     {
-                        returnMediaModel.ConvertFromMediaModel(argCollection[i].DeRef);
+                        returnMediaModel = argCollection[i];
                         break;
                     }
                 }
@@ -306,7 +310,7 @@
                 for (int i = q; i < argCollection.Count; i++)
                 {
                     HLinkMediaModel tempHLinkMediaModel = argCollection[i];
-                    if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsMediaFile)
+                    if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsImage)
                     {
                         tt = tempHLinkMediaModel;
                         break;

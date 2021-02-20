@@ -59,7 +59,7 @@
 
             IMediaModel t = argHLinkMediaModel.DeRef;
 
-            if ((t.IsMediaStorageFileValid) && (t.IsMediaFile))
+            if ((t.IsMediaStorageFileValid) && (t.IsImage))
             {
                 try
                 {

@@ -31,12 +31,12 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ucon:MediaImageSkia
+                <ucon:HLinkVisualDisplay
                     x:Name="AnchorImage"
                     Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    BindingContext="{Binding DeRef.HomeImageHLink, Mode=OneWay}"
+                    BindingContext="{Binding HLinkGlyphItem, Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
 
                 <Label
@@ -56,8 +56,8 @@
                     <Image.Source>
                         <FontImageSource
                             FontFamily="{StaticResource GlyphFontFamily}"
-                            Glyph="{Binding DeRef.HomeImageHLink.HomeSymbol}"
-                            Color="{Binding DeRef.HomeImageHLink.HomeSymbolColour}" />
+                            Glyph="{Binding HLinkGlyphItem.Symbol}"
+                            Color="{Binding HLinkGlyphItem.SymbolColour}" />
                     </Image.Source>
                 </Image>
             </Grid>

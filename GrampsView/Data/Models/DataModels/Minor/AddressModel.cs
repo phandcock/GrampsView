@@ -15,8 +15,8 @@ namespace GrampsView.Data.Model
     {
         public AddressModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconAddress;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
+            ModelItemGlyph.Symbol = CommonConstants.IconAddress;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
         }
 
         /// <summary>

@@ -96,7 +96,6 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// </returns>
         public override CardGroupBase<HLinkPersonModel> GetLatestChanges
-
         {
             get
             {
@@ -178,7 +177,11 @@ namespace GrampsView.Data.DataView
                         orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
                         where ((item.IsLiving == true) && (item.BirthDate.Valid) && (item.BirthDate.ValidMonth == true) && (item.BirthDate.ValidDay == true))
                         group item by (item.BirthDate.GetMonthDay) into g
-                        select new { GroupName = g.Key, Items = g };
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
 
             foreach (var g in query)
             {
@@ -205,7 +208,11 @@ namespace GrampsView.Data.DataView
             var query = from item in DataViewData
                         orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
                         group item by (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname) into g
-                        select new { GroupName = g.Key, Items = g };
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
 
             foreach (var g in query)
             {

@@ -33,7 +33,7 @@ namespace GrampsView.Data.Model
         {
             OpenURLCommand = new AsyncCommand(() => OpenURL());
 
-            HomeImageHLink.HomeSymbol = CommonConstants.IconURL;
+            ModelItemGlyph.Symbol = CommonConstants.IconURL;
         }
 
         /// <summary>

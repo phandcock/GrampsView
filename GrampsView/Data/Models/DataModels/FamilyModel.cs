@@ -133,8 +133,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public FamilyModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconFamilies;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
+            ModelItemGlyph.Symbol = CommonConstants.IconFamilies;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
 
         /// <summary>
@@ -419,6 +419,7 @@ namespace GrampsView.Data.Model
                 HLinkFamilyModel t = new HLinkFamilyModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

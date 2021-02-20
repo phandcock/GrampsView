@@ -152,7 +152,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public HeaderModel()
         {
-            HomeImageHLink.HomeSymbol = Common.CommonConstants.IconHeader;
+            ModelItemGlyph.Symbol = Common.CommonConstants.IconHeader;
         }
 
         public CardListLineCollection AsCardListLineCollection
@@ -169,12 +169,31 @@ namespace GrampsView.Data.Model
                         new CardListLine("Researcher Email:", GResearcherEmail),
                         new CardListLine("MediaPath:", GMediaPath),
                         new CardListLine("Application Version:", VersionTracking.CurrentVersion),
-
             };
 
                 HeaderCard.Title = "Header Details";
 
                 return HeaderCard;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the database version.
+        /// </summary>
+        /// <value>
+        /// The database version.
+        /// </value>
+        [DataMember]
+        public int DatabaseVersion
+        {
+            get
+            {
+                return _DatabaseVersion;
+            }
+
+            set
+            {
+                SetProperty(ref _DatabaseVersion, value);
             }
         }
 
@@ -205,32 +224,11 @@ namespace GrampsView.Data.Model
                         new CardListLine("Repository Items", DV.RepositoryDV.DataViewData.Count),
                         new CardListLine("Source Items", DV.SourceDV.DataViewData.Count),
                         new CardListLine("Tag Items", DV.TagDV.DataViewData.Count),
-
             };
 
                 HeaderCard.Title = "Header Details";
 
                 return HeaderCard;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the database version.
-        /// </summary>
-        /// <value>
-        /// The database version.
-        /// </value>
-        [DataMember]
-        public int DatabaseVersion
-        {
-            get
-            {
-                return _DatabaseVersion;
-            }
-
-            set
-            {
-                SetProperty(ref _DatabaseVersion, value);
             }
         }
 
@@ -445,6 +443,7 @@ namespace GrampsView.Data.Model
                 HLinkHeaderModel t = new HLinkHeaderModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
 
                 return t;

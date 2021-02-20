@@ -140,7 +140,7 @@
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
 
                 // Get media image
-                MediaCard = PersonObject.HomeImageHLink.ConvertToHLinkMediaModel;
+                MediaCard = PersonObject.ModelItemGlyph.HLinkMedia;
 
                 // Get the Name Details
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);

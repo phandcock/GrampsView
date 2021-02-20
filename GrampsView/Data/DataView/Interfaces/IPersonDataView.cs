@@ -84,6 +84,6 @@ namespace GrampsView.Data.DataView
         ///// </param>
         ///// <returns>
         ///// </returns>
-        //HLinkHomeImageModel GetDefaultImageFromCollection(PersonModel argModel);
+        //HLinkGlyph GetDefaultImageFromCollection(PersonModel argModel);
     }
 }

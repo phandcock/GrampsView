@@ -34,19 +34,18 @@
             }
 
             // Try media reference collection first
-            HLinkHomeImageModel hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
 
             // Check Source for Image
-            if ((!hlink.Valid) && (argModel.GSourceRef.DeRef.HomeImageHLink.LinkToImage))
+            if ((!hlink.Valid) && (argModel.GSourceRef.DeRef.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image))
             {
-                hlink = argModel.GSourceRef.DeRef.HomeImageHLink;
+                hlink = argModel.GSourceRef.DeRef.ModelItemGlyph;
             }
 
             // Handle the link if we can
             if (hlink.Valid)
             {
-                argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                argModel.HomeImageHLink.HLinkKey = hlink.HLinkKey;
+                argModel.ModelItemGlyph = hlink;
             }
 
             return argModel;

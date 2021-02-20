@@ -10,11 +10,11 @@
 
     using Xamarin.Forms;
 
-    public partial class MediaImageSkia : Grid
+    public partial class HLinkVisualDisplay : Grid
     {
-        private HLinkHomeImageModel newHLinkMedia = new HLinkHomeImageModel();
+        private ItemGlyph newItemGlyph = new ItemGlyph();
 
-        public MediaImageSkia()
+        public HLinkVisualDisplay()
         {
             InitializeComponent();
 
@@ -26,14 +26,14 @@
             //}
         }
 
-        private HLinkHomeImageModel WorkHLMediaModel
+        private ItemGlyph WorkHLMediaModel
         {
             get; set;
         }
 
         private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
         {
-            ErrorInfo t = new ErrorInfo("Error in MediaImageSkia.")
+            ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
             {
                 { "Error is ", e.Exception.Message }
             };
@@ -48,32 +48,32 @@
         {
         }
 
-        private void MediaImageSkia_BindingContextChanged(object sender, EventArgs e)
+        private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
             try
             {
-                newHLinkMedia = new HLinkHomeImageModel();
+                newItemGlyph = new ItemGlyph();
 
                 if (this.BindingContext is IHLinkMediaModel)
                 {
-                    newHLinkMedia = (this.BindingContext as IHLinkMediaModel).DeRef.HomeImageHLink;
+                    newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
                 }
 
-                if (this.BindingContext is HLinkHomeImageModel)
+                if (this.BindingContext is ItemGlyph)
                 {
-                    newHLinkMedia = this.BindingContext as HLinkHomeImageModel;
+                    newItemGlyph = this.BindingContext as ItemGlyph;
                 }
 
-                if (!(newHLinkMedia.Valid))
+                if (!(newItemGlyph.Valid))
                 {
                     return;
                 }
 
-                this.ShowSomething(newHLinkMedia);
+                this.ShowSomething(newItemGlyph);
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -112,8 +112,8 @@
                     VerticalOptions = LayoutOptions.FillAndExpand,
                 };
 
-                this.MediaImageSkiaRoot.Children.Clear();
-                this.MediaImageSkiaRoot.Children.Add(newMediaControl);
+                this.HLinkVisualDisplayRoot.Children.Clear();
+                this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
             }
             catch (Exception ex)
             {
@@ -124,48 +124,65 @@
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex, argExtraItems: argDetail);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }
 
-        private void ShowSomething(HLinkHomeImageModel argHHomeMedia)
+        private void ShowSomething(ItemGlyph argItemGlyph)
         {
             try
             {
-                if (!argHHomeMedia.Valid)
+                if (!argItemGlyph.Valid)
                 {
                     //DataStore.Instance.CN.NotifyError("Invalid HlinkMediaModel (" + HLinkMedia.HLinkKey + ") passed to MediaImage");
                     return;
                 }
 
-                if (argHHomeMedia == WorkHLMediaModel)
+                if (argItemGlyph == WorkHLMediaModel)
                 {
                     return;
                 }
 
                 // Save the HLink so can check for duplicate changes later
-                WorkHLMediaModel = argHHomeMedia;
+                WorkHLMediaModel = argItemGlyph;
 
-                if (!argHHomeMedia.Valid || !argHHomeMedia.LinkToImage)
+                //if (argHHomeMedia.HLinkKey == "_e1823d5e765308999f4c16addb5")
+                //{
+                //}
+
+                if (argItemGlyph.Valid)
                 {
-                    ShowSymbol(argHHomeMedia);
-                    return;
-                }
-                else
-                {
-                    ShowImage(argHHomeMedia.DeRef);
+                    switch (argItemGlyph.ImageType)
+                    {
+                        case CommonEnums.HLinkGlyphType.Image:
+                            {
+                                ShowImage(argItemGlyph.HLinkMedia.DeRef);
+                                break;
+                            }
+
+                        case CommonEnums.HLinkGlyphType.Symbol:
+                            {
+                                ShowSymbol(argItemGlyph);
+                                break;
+                            }
+
+                        default:
+                            {
+                                break;
+                            }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
         }
 
-        private void ShowSymbol(HLinkHomeImageModel argHLMediaModel)
+        private void ShowSymbol(ItemGlyph argItemGlyph)
         {
             try
             {
@@ -188,16 +205,16 @@
                 // Set symbol
                 FontImageSource fontGlyph = new FontImageSource
                 {
-                    Glyph = argHLMediaModel.HomeSymbol,
-                    Color = argHLMediaModel.HomeSymbolColour,
+                    Glyph = argItemGlyph.Symbol,
+                    Color = argItemGlyph.SymbolColour,
                     FontFamily = "FA-Solid"
                 };
 
                 if (fontGlyph.Glyph == null)
                 {
-                    ErrorInfo t = new ErrorInfo("MediaImageSkia", "Null Glyph")
+                    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph")
                         {
-                            { "HLinkKey", argHLMediaModel.HLinkKey }
+                            { "HLinkKey", argItemGlyph.ToString() }
                         };
 
                     DataStore.Instance.CN.NotifyError(t);
@@ -205,9 +222,9 @@
 
                 if (fontGlyph.Color == null)
                 {
-                    ErrorInfo t = new ErrorInfo("MediaImageSkia", "Null Glyph Colour")
+                    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
                         {
-                            { "HLinkKey", argHLMediaModel.HLinkKey }
+                            { "HLinkKey", argItemGlyph.HLinkMediHLink }
                         };
 
                     DataStore.Instance.CN.NotifyError(t);
@@ -215,19 +232,19 @@
 
                 newImageControl.Source = fontGlyph;
 
-                this.MediaImageSkiaRoot.Children.Clear();
-                this.MediaImageSkiaRoot.Children.Add(newImageControl);
+                this.HLinkVisualDisplayRoot.Children.Clear();
+                this.HLinkVisualDisplayRoot.Children.Add(newImageControl);
             }
             catch (Exception ex)
             {
                 ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Symbol" },
-                    { "Media Model Hlink Key", argHLMediaModel.HLinkKey },
-                    { "Media Model Symbol", argHLMediaModel.HomeSymbol },
+                    { "Media Model Hlink Key", argItemGlyph.HLinkMediHLink },
+                    { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                DataStore.Instance.CN.NotifyException("MediaImageSkia", ex, argExtraItems: argDetail);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }

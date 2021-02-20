@@ -19,7 +19,7 @@
 
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding CitationObject.HomeImageHLink.ConvertToHLinkMediaModel, Mode=OneWay}" />
+            <ucon:MediaCardLarge BindingContext="{Binding CitationObject.HLinkGlyph.ConvertToHLinkMediaModel, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

@@ -2,7 +2,6 @@
 /// </summary>
 namespace GrampsView.Data.ExternalStorageNS
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -23,7 +22,7 @@ namespace GrampsView.Data.ExternalStorageNS
         public static FamilyModel SetHomeImage(FamilyModel argModel)
         {
             // Try media reference collection first
-            HLinkHomeImageModel hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
 
             if (!hlink.Valid)
             {
@@ -43,8 +42,7 @@ namespace GrampsView.Data.ExternalStorageNS
             // Set the image if available
             if (hlink.Valid)
             {
-                argModel.HomeImageHLink.HomeImageType = CommonEnums.HomeImageType.ThumbNail;
-                argModel.HomeImageHLink.HLinkKey = hlink.HLinkKey;
+                argModel.ModelItemGlyph = hlink;
             }
 
             return argModel;

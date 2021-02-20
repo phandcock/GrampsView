@@ -13,7 +13,7 @@ namespace GrampsView.Data.Model
     {
         public SurnameModel()
         {
-            HomeImageHLink.HomeSymbol = Common.CommonConstants.IconSurname;
+            ModelItemGlyph.Symbol = Common.CommonConstants.IconSurname;
         }
 
         public string DefaultText

@@ -70,8 +70,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public EventModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconEvents;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
+            ModelItemGlyph.Symbol = CommonConstants.IconEvents;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
         }
 
         /// <summary>
@@ -279,6 +279,7 @@ namespace GrampsView.Data.Model
                 HLinkEventModel t = new HLinkEventModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

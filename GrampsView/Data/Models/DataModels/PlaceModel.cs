@@ -79,8 +79,8 @@ namespace GrampsView.Data.Model
         /// </summary>
         public PlaceModel()
         {
-            HomeImageHLink.HomeSymbol = CommonConstants.IconPlace;
-            HomeImageHLink.HomeSymbolColour = HomeImageHLink.HomeSymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
+            ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
 
             PlaceChildCollection.Title = "Enclosed Places";
             GPlaceRefCollection.Title = "Enclosing Place";
@@ -113,10 +113,16 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public string GCoordLat { get; set; }
+        public string GCoordLat
+        {
+            get; set;
+        }
 
         [DataMember]
-        public string GCoordLong { get; set; }
+        public string GCoordLong
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Gets the default text for this Model.
@@ -268,7 +274,10 @@ namespace GrampsView.Data.Model
         /// Gets or sets uRL model collection.
         /// </summary>
         [DataMember]
-        public OCURLModelCollection GURLCollection { get; set; }
+        public OCURLModelCollection GURLCollection
+        {
+            get; set;
+        }
 
         = new OCURLModelCollection();
 
@@ -285,6 +294,7 @@ namespace GrampsView.Data.Model
                 HLinkPlaceModel t = new HLinkPlaceModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

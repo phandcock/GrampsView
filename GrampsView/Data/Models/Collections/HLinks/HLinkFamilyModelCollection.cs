@@ -65,7 +65,7 @@ namespace GrampsView.Data.Collections
             // Gramps if we need it to be, e.g. Citations.
             FamilyModel tempModel = new FamilyModel();
 
-            FirstHLinkHomeImage.HomeImageType = CommonEnums.HomeImageType.Unknown;
+            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Unknown;
 
             if (Count > 0)
             {
@@ -74,9 +74,9 @@ namespace GrampsView.Data.Collections
                 {
                     tempModel = DV.FamilyDV.FamilyData.GetModelFromHLink(this[i]);
 
-                    if (tempModel.HomeImageHLink.LinkToImage)
+                    if (tempModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
                     {
-                        FirstHLinkHomeImage = tempModel.HomeImageHLink;
+                        FirstHLinkHomeImage = tempModel.ModelItemGlyph;
                         break;
                     }
                 }

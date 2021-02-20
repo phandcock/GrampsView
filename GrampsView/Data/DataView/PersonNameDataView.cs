@@ -143,14 +143,14 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public new HLinkHomeImageModel GetFirstImageFromCollection(HLinkPersonNameModelCollection theCollection)
+        public new ItemGlyph GetFirstImageFromCollection(HLinkPersonNameModelCollection theCollection)
         {
             if (theCollection == null)
             {
                 return null;
             }
 
-            HLinkHomeImageModel returnMediaModel = new HLinkHomeImageModel();
+            ItemGlyph returnMediaModel = new ItemGlyph();
 
             if (theCollection.Count > 0)
             {
@@ -165,9 +165,9 @@ namespace GrampsView.Data.DataView
                     returnMediaModel = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
 
                     // TODO Still needed Handle Source Links
-                    if (currentHLink.DeRef.HomeImageHLink.LinkToImage)
+                    if (currentHLink.HLinkGlyphItem.ImageType == CommonEnums.HLinkGlyphType.Image)
                     {
-                        returnMediaModel = currentHLink.DeRef.HomeImageHLink;
+                        returnMediaModel = currentHLink.DeRef.ModelItemGlyph;
                     }
 
                     if (returnMediaModel.Valid)

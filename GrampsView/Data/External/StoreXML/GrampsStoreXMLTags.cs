@@ -54,7 +54,7 @@
                         loadTag.LoadBasics(GetBasics(pTagElement));
 
                         // Set tag colour
-                        loadTag.HomeImageHLink.HomeSymbolColour = loadTag.GColor;
+                        loadTag.ModelItemGlyph.SymbolColour = loadTag.GColor;
 
                         // save the Tag
                         DV.TagDV.TagData.Add(loadTag);
@@ -66,8 +66,6 @@
                     throw;
                 }
             }
-
-         
 
             return;
         }
