@@ -4,6 +4,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
@@ -18,6 +19,8 @@ namespace GrampsView.Data.Model
     {
         public HLinkFamilyModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconFamilies;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
 
         /// <summary>

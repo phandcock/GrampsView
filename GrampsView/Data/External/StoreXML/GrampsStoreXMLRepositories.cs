@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for GrampsStoreXML
-//
-// <copyright file="GrampsStoreXMLRepositories.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -76,7 +67,6 @@ namespace GrampsView.Data.ExternalStorageNS
 
                 throw;
             }
-
 
             return;
         }

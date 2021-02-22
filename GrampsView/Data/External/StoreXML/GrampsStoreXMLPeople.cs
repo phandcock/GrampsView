@@ -22,12 +22,20 @@
                 throw new ArgumentNullException(nameof(argModel));
             }
 
-            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph hlink = argModel.ModelItemGlyph;
+
+            // check media
+            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
+            {
+                hlink = t;
+            }
 
             // Check Citation for Images
-            if (!hlink.Valid)
+            t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+                hlink = t;
             }
 
             // Action any Link
@@ -67,7 +75,7 @@
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));
 
-                        if (loadPerson.Id == "I0727")
+                        if (loadPerson.Id == "I0600")
                         {
                         }
 

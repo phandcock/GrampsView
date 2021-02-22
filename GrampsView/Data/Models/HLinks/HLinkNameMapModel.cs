@@ -4,14 +4,11 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
-
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
 
     /// TODO Update fields as per Schema
     [DataContract]
@@ -19,6 +16,8 @@ namespace GrampsView.Data.Model
     {
         public HLinkNameMapModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconNameMaps;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNameMap");
         }
 
         /// <summary>

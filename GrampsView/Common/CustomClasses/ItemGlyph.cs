@@ -118,5 +118,13 @@
                 }
             }
         }
+
+        public bool ValidImage
+        {
+            get
+            {
+                return (Valid && (ImageType == CommonEnums.HLinkGlyphType.Image));
+            }
+        }
     }
 }

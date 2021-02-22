@@ -7,6 +7,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Xml;
     using System.Xml.Linq;
 
     public partial class GrampsStoreXML : CommonBindableBase, IGrampsStoreXML
@@ -85,7 +86,13 @@
 
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {
+                    // TODO Handle no network connection
                     Stream xmlReader = inputFile.FInfo.OpenRead();
+
+                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings
+                    {
+                        DtdProcessing = DtdProcessing.Parse
+                    };
 
                     try
                     {

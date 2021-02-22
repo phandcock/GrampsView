@@ -30,6 +30,9 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
+        /// <param name="iocPlatformSpecific">
+        /// platform specific routines
+        /// </param>
         public PersonDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging)
         {
@@ -132,9 +135,6 @@
 
             PersonObject = HLinkPerson.DeRef;
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (!(PersonObject is null))
             {
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
@@ -175,6 +175,9 @@
                 //}
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
+
+                // Trigger refresh of View fields via INotifyPropertyChanged
+                RaisePropertyChanged(string.Empty);
             }
 
             // TODO fix this

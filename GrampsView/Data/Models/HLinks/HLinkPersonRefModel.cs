@@ -34,6 +34,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
 
     using System.Runtime.Serialization;
@@ -44,6 +45,12 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class HLinkPersonRefModel : HLinkPersonModel
     {
+        public HLinkPersonRefModel()
+        {
+            HLinkGlyphItem.Symbol = CommonConstants.IconPeople;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
+        }
+
         [DataMember]
         public HLinkCitationModelCollection GCitationCollection
         {

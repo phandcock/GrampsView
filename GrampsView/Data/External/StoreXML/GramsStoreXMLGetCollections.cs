@@ -1,15 +1,4 @@
-﻿// <summary>
-// Utility routines for GramspStore XML readers
-// </summary>
-// <remarks>
-// Can not load and sort as we go as we then lose the ability to choose the first image link for
-// references. This can only be done when everything is fully loaded.
-// </remarks>
-// <copyright file="GramsStoreXMLUtility.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;

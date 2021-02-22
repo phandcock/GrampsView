@@ -4,6 +4,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
@@ -17,6 +18,8 @@ namespace GrampsView.Data.Model
 
         public HLinkPersonNameModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconPersonName;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
         public PersonNameModel DeRef

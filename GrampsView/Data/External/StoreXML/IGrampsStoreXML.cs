@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Interface definition for External Storage Providers
-//
-// <copyright file="IGrampsStoreXML.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.ExternalStorageNS
 {
     using System.Threading.Tasks;

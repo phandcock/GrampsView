@@ -22,8 +22,14 @@
                 throw new ArgumentNullException(nameof(argModel));
             }
 
+            ItemGlyph hlink = argModel.ModelItemGlyph;
+
             // Get default image if available
-            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage && t.ValidImage)
+            {
+                hlink = t;
+            }
 
             // Set default
             if (hlink.Valid)

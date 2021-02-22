@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorageNS
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -33,13 +32,20 @@
                 throw new ArgumentNullException(nameof(argModel));
             }
 
+            ItemGlyph hlink = argModel.ModelItemGlyph;
+
             // Try media reference collection first
-            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph t = argModel.GSourceRef.DeRef.ModelItemGlyph;
+            if ((!hlink.ValidImage) && (t.ValidImage))
+            {
+                hlink = t;
+            }
 
             // Check Source for Image
-            if ((!hlink.Valid) && (argModel.GSourceRef.DeRef.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image))
+            t = argModel.GSourceRef.DeRef.ModelItemGlyph;
+            if ((!hlink.ValidImage) && (t.ValidImage))
             {
-                hlink = argModel.GSourceRef.DeRef.ModelItemGlyph;
+                hlink = t;
             }
 
             // Handle the link if we can

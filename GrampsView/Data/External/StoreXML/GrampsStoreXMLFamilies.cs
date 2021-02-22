@@ -21,22 +21,31 @@ namespace GrampsView.Data.ExternalStorageNS
     {
         public static FamilyModel SetHomeImage(FamilyModel argModel)
         {
-            // Try media reference collection first
-            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            ItemGlyph hlink = argModel.ModelItemGlyph;
 
-            if (!hlink.Valid)
+            // check media
+            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+                hlink = t;
             }
 
-            if (!hlink.Valid)
+            t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GEventRefCollection.FirstHLinkHomeImage;
+                hlink = t;
             }
 
-            if (!hlink.Valid)
+            t = argModel.GEventRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GNoteRefCollection.FirstHLinkHomeImage;
+                hlink = t;
+            }
+
+            t = argModel.GNoteRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
+            {
+                hlink = t;
             }
 
             // Set the image if available

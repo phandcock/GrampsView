@@ -22,22 +22,20 @@
             }
 
             // Setup home images
+            ItemGlyph hlink = argModel.ModelItemGlyph;
 
-            // Try media reference collection first
-            ItemGlyph hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-
-            // Check Media for Images
-            if (!hlink.Valid)
+            // check media
+            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+                hlink = t;
             }
 
             // Check Citation for Images
-            if (!hlink.Valid)
+            t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+            if (!hlink.ValidImage & t.ValidImage)
             {
-                hlink = argModel.GCitationRefCollection.FirstHLinkHomeImage;
-
-                //hlink = DV.CitationDV.GetFirstImageFromCollection(argModel.GCitationRefCollection);
+                hlink = t;
             }
 
             // Handle the link if we can

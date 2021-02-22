@@ -333,6 +333,12 @@
 
                 HLinkPersonModel t = thePersonModel.HLink;
 
+                // -- Update links to include ItemGlyphs
+                if (thePersonModel.GChildOf.Valid)
+                {
+                    thePersonModel.GChildOf = DataStore.Instance.DS.FamilyData[thePersonModel.GChildOf.HLinkKey].HLink;
+                }
+
                 // -- Organse Back Links ---------------------
 
                 // Citation Collection
