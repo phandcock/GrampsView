@@ -1,3 +1,13 @@
+## [16.15.22](https://github.com/phandcock/GrampsView/compare/v16.15.21...v16.15.22) (2021-02-23)
+
+
+### Bug Fixes
+
+* more glyph loading cleanup ([3d92a39](https://github.com/phandcock/GrampsView/commit/3d92a39ce5319d056d6ce728e00a06f84215b2f9))
+* **HLinks:** further work on itemGlyph defaults for HLinks ([e12ab82](https://github.com/phandcock/GrampsView/commit/e12ab821a494f31d26dc3e0b07402d2d587d43f4))
+
+
+
 ## [16.15.21](https://github.com/phandcock/GrampsView/compare/v16.15.20...v16.15.21) (2021-02-21)
 
 
@@ -32,16 +42,6 @@
 
 * fix height of mediacardfull ([57bcbfc](https://github.com/phandcock/GrampsView/commit/57bcbfc0697c2ee6114adc528d9c955d773bf6f9))
 * update various nugets ([0f51064](https://github.com/phandcock/GrampsView/commit/0f510646ec7b81f1b46918112ec6be59171f55fa))
-
-
-
-## [16.15.17](https://github.com/phandcock/GrampsView/compare/v16.15.16...v16.15.17) (2021-02-14)
-
-
-### Bug Fixes
-
-* cleanup IPlatform and hide MediaFullCard if null or invalid ([70408d1](https://github.com/phandcock/GrampsView/commit/70408d188ceca50be672199f4d9159cb13441480))
-* tweaks ([9727e89](https://github.com/phandcock/GrampsView/commit/9727e89fd0062fde2120d38978e61543dcad5696))
 
 
 
