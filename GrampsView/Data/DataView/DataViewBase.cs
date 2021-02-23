@@ -1,8 +1,4 @@
-﻿// <copyright file="DataViewBase.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.DataView
+﻿namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -126,6 +122,11 @@ namespace GrampsView.Data.DataView
         public virtual ItemGlyph GetFirstImageFromCollection(TH theCollection)
         {
             throw new NotImplementedException();
+        }
+
+        public virtual ItemGlyph GetGlyph(string argHLinkKey)
+        {
+            return GetModelFromHLinkString(argHLinkKey).ModelItemGlyph;
         }
 
         /// <summary>

@@ -137,7 +137,7 @@
              }
              else
              {
-                 ErrorInfo t = new Common.ErrorInfo("File not found when Region specified in ClipMedia")
+                 ErrorInfo t = new ErrorInfo("File not found when Region specified in ClipMedia")
 
                  {
                      { "Original ID", theMediaModel.Id },

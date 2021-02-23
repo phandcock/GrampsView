@@ -14,6 +14,11 @@
             get; set;
         }
 
+        ItemGlyph HLinkGlyphItem
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Gets or sets the h link key.
         /// </summary>

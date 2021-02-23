@@ -41,7 +41,6 @@
         }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
-        //public DisplayFormat CardType { get; set; } = DisplayFormat.Default;
 
         [DataMember]
         public bool GPriv

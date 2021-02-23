@@ -29,7 +29,10 @@ namespace GrampsView.Data.DataView
         where T : ModelBase, new()
         where TU : HLinkBase, new()
     {
-        int Count { get; }
+        int Count
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets the data default sort.
@@ -42,14 +45,20 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        IReadOnlyList<T> DataViewData { get; }
+        IReadOnlyList<T> DataViewData
+        {
+            get;
+        }
 
         List<CommonGroupInfoCollection<T>> GetGroupsByLetter
         {
             get;
         }
 
-        CardGroupBase<TU> GetLatestChanges { get; }
+        CardGroupBase<TU> GetLatestChanges
+        {
+            get;
+        }
 
         CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList);
 
@@ -71,6 +80,8 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// </returns>
         ItemGlyph GetFirstImageFromCollection(TH theCollection);
+
+        ItemGlyph GetGlyph(string argHLinkKey);
 
         /// <summary>
         /// Gets the model from the hlink. Helper method.

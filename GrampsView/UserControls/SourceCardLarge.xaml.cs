@@ -1,8 +1,4 @@
-﻿// <copyright file="SourceCardLarge.xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
     using Xamarin.Forms;
 
@@ -15,7 +11,5 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
         }
-
-   
     }
 }

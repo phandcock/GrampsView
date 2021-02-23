@@ -47,26 +47,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets or sets the image h link key.
-        /// </summary>
-        /// <value>
-        /// The image h link key.
-        /// </value>
-        [DataMember]
-        public HLinkMediaModel HLinkGlyph
-        {
-            get
-            {
-                return localImageHLink;
-            }
-
-            set
-            {
-                SetProperty(ref localImageHLink, value);
-            }
-        }
-
         public override async Task UCNavigate()
         {
             await UCNavigateBase(this, "TagDetailPage");

@@ -22,16 +22,12 @@
 
             foreach (AddressModel theAddressModel in DV.AddressDV.DataViewData)
             {
-                HLinkAdressModel t = theAddressModel.HLink;
-
-                //if (theEventModel.Id == "E0059")
-                //{
-                //}
-
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in theAddressModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(citationRef));
                 }
 
                 // TODO finish adding the collections to the backlinks
@@ -60,21 +56,29 @@
                 // Media Collection - Create backlinks in media models to citation models
                 foreach (HLinkMediaModel mediaRef in theCitationModel.GMediaRefCollection)
                 {
+                    mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theCitationModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Source HLink
+                theCitationModel.GSourceRef.HLinkGlyphItem = DV.SourceDV.GetGlyph(theCitationModel.GSourceRef.HLinkKey);
+
                 DataStore.Instance.DS.SourceData[theCitationModel.GSourceRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theCitationModel.GTagRef)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -100,12 +104,16 @@
                 // tagref Citation Collection
                 foreach (HLinkCitationModel citationRef in theEventModel.GCitationRefCollection)
                 {
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Media Collection
                 foreach (HLinkMediaModel mediaRef in theEventModel.GMediaRefCollection)
                 {
+                    mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
@@ -118,12 +126,16 @@
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theEventModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theEventModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -159,12 +171,16 @@
                 // Child Collection
                 foreach (HLinkPersonModel personRef in theFamilyModel.GChildRefCollection)
                 {
+                    personRef.HLinkGlyphItem = DV.PersonDV.GetGlyph(personRef.HLinkKey);
+
                     DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in theFamilyModel.GCitationRefCollection)
                 {
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
@@ -177,18 +193,24 @@
                 // Media Collection
                 foreach (HLinkMediaModel mediaRef in theFamilyModel.GMediaRefCollection)
                 {
+                    mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in theFamilyModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Tag Collection
                 foreach (HLinkTagModel tagRef in theFamilyModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -226,18 +248,24 @@
                     // Back Reference Citation HLinks
                     foreach (HLinkCitationModel citationRef in theMediaObject.GCitationRefCollection)
                     {
+                        citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                         DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Back Reference Note HLinks
                     foreach (HLinkNoteModel noteRef in theMediaObject.GNoteRefCollection)
                     {
+                        noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                         DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Back Reference Tag HLinks
                     foreach (HLinkTagModel tagRef in theMediaObject.GTagRefCollection)
                     {
+                        tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                         DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
                 }
@@ -279,6 +307,8 @@
 
                 foreach (HLinkTagModel tagRef in theNoteModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -301,12 +331,16 @@
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonNameModel.GCitationRefCollection)
                 {
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in thePersonNameModel.GNoteReferenceCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -344,47 +378,63 @@
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonModel.GCitationRefCollection)
                 {
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Event Collection
                 foreach (HLinkEventModel eventRef in thePersonModel.GEventRefCollection)
                 {
+                    eventRef.HLinkGlyphItem = DV.EventDV.GetGlyph(eventRef.HLinkKey);
+
                     DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 foreach (HLinkMediaModel mediaRef in thePersonModel.GMediaRefCollection)
                 {
+                    mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in thePersonModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Parent RelationShip
                 foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
                 {
+                    familyRef.HLinkGlyphItem = DV.FamilyDV.GetGlyph(familyRef.HLinkKey);
+
                     DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // PersonName Collection
                 foreach (HLinkPersonNameModel personNameRef in thePersonModel.GPersonNamesCollection)
                 {
+                    personNameRef.HLinkGlyphItem = DV.PersonNameDV.GetGlyph(personNameRef.HLinkKey);
+
                     DataStore.Instance.DS.PersonNameData[personNameRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Sibling Collection
                 foreach (HLinkPersonModel personRef in thePersonModel.SiblingRefCollection)
                 {
+                    personRef.HLinkGlyphItem = DV.PersonDV.GetGlyph(personRef.HLinkKey);
+
                     DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in thePersonModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     // Set the backlinks
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
@@ -441,18 +491,24 @@
                 // Back Reference Citation HLinks
                 foreach (HLinkCitationModel citationRef in thePlaceModel.GCitationRefCollection)
                 {
+                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in thePlaceModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Media HLinks
                 foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
                 {
+                    mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
@@ -465,6 +521,8 @@
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in thePlaceModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -495,12 +553,16 @@
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theRepositoryModel.GNoteRefCollection)
                 {
+                    noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
 
                 // Back Reference Tag HLinks
                 foreach (HLinkTagModel tagRef in theRepositoryModel.GTagRefCollection)
                 {
+                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                 }
             }
@@ -530,18 +592,24 @@
                     //// Media Collection
                     foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
                     {
+                        mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
                         DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Note Collection
                     foreach (IHLinkNoteModel noteRef in theSourceModel.GNoteRefCollection)
                     {
+                        noteRef.HLinkGlyphItem = DV.NoteDV.GetGlyph(noteRef.HLinkKey);
+
                         DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
                     // Repository Collection
                     foreach (HLinkRepositoryModel repositoryRef in theSourceModel.GRepositoryRefCollection)
                     {
+                        repositoryRef.HLinkGlyphItem = DV.RepositoryDV.GetGlyph(repositoryRef.HLinkKey);
+
                         DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
 
@@ -550,6 +618,8 @@
                     // Tag Collection
                     foreach (HLinkTagModel tagRef in theSourceModel.GTagRefCollection)
                     {
+                        tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
+
                         DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(t));
                     }
                 }
