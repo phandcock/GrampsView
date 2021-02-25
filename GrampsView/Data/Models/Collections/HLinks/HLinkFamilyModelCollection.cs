@@ -56,6 +56,16 @@ namespace GrampsView.Data.Collections
             return t;
         }
 
+        public override void SetGlyph()
+        {
+            foreach (HLinkFamilyModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.FamilyDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            SortAndSetFirst();
+        }
+
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>

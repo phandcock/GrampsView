@@ -327,8 +327,7 @@
                 }
             }
 
-            // Return sorted by the default text
-            t.SortAndSetFirst();
+            // Return sorted by the default text t.SortAndSetFirst();
 
             return t;
         }

@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
@@ -73,6 +74,16 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkPersonNameModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.PersonNameDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            // TODO Do we need this? SortAndSetFirst();
         }
     }
 }

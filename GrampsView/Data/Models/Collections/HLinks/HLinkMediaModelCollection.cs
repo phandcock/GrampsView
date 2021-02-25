@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -31,6 +32,16 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkMediaModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.MediaDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            SortAndSetFirst();
         }
 
         /// <summary>

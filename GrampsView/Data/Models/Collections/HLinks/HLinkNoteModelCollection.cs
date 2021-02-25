@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Collection of HLinks to Notes.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkNoteModel}"/>
+    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{Data.ViewModel.HLinkNoteModel}"/>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkNoteModel>))]
     public class HLinkNoteModelCollection : HLinkBaseCollection<HLinkNoteModel>
@@ -116,6 +117,16 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkNoteModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            SortAndSetFirst();
         }
 
         /// <summary>

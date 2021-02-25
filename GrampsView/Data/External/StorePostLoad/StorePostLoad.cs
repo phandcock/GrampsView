@@ -54,34 +54,50 @@
                 await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
                 {
                     // Called in order of media linkages from Media outwards
+                    SetMediaImages();
                     await OrganiseMediaRepository().ConfigureAwait(false);
 
+                    await SetSourceImages().ConfigureAwait(false);
                     await OrganiseSourceRepository().ConfigureAwait(false);
 
+                    await SetCitationImages().ConfigureAwait(false);
                     await OrganiseCitationRepository().ConfigureAwait(false);
 
+                    await SetEventImages().ConfigureAwait(false);
                     await OrganiseEventRepository().ConfigureAwait(false);
 
+                    await SetFamilyImages().ConfigureAwait(false);
                     await OrganiseFamilyRepository().ConfigureAwait(false);
 
+                    await SetHeaderImages().ConfigureAwait(false);
                     await OrganiseHeaderRepository().ConfigureAwait(false);
 
+                    await SetNameMapImages().ConfigureAwait(false);
                     await OrganiseNameMapRepository().ConfigureAwait(false);
 
+                    await SetNotesImages().ConfigureAwait(false);
                     await OrganiseNoteRepository().ConfigureAwait(false);
 
+                    await SetPlaceImages().ConfigureAwait(false);
                     await OrganisePlaceRepository().ConfigureAwait(false);
 
+                    await SetRepositoryImages().ConfigureAwait(false);
                     await OrganiseRepositoryRepository().ConfigureAwait(false);
 
+                    await SetTagImages().ConfigureAwait(false);
                     await OrganiseTagRepository().ConfigureAwait(false);
 
+                    await SetAddressImages().ConfigureAwait(false);
                     await OrganiseAddressRepository().ConfigureAwait(false);
 
+                    await SetPersonNameImages().ConfigureAwait(false);
                     await OrganisePersonNameRepository().ConfigureAwait(false);
 
                     // People last as they pretty much depend on everything else
+                    await SetPersonImages().ConfigureAwait(false);
                     await OrganisePersonRepository().ConfigureAwait(false);
+
+                    await SetHomeImages();
                 }
             }
 

@@ -34,6 +34,17 @@ namespace GrampsView.Data.Collections
             return t;
         }
 
+        public override void SetGlyph()
+        {
+            // Back Reference Citation HLinks
+            foreach (HLinkCitationModel citationRef in this)
+            {
+                citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+            }
+
+            SortAndSetFirst();
+        }
+
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>

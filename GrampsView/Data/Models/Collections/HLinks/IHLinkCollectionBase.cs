@@ -11,5 +11,7 @@
         {
             get; set;
         }
+
+        void SetGlyph();
     }
 }

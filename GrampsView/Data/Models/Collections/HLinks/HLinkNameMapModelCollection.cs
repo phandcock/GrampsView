@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
@@ -13,7 +14,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// </summary>
     [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
+    [KnownType(typeof(ObservableCollection<HLinkNameMapModel>))]
     public class HLinkNameMapModelCollection : HLinkBaseCollection<HLinkNameMapModel>
     {
         public HLinkNameMapModelCollection()
@@ -28,6 +29,16 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkNameMapModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.NameMapDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            // TODO SortAndSetFirst();
         }
     }
 }

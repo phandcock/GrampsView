@@ -131,7 +131,7 @@
                  newMediaModel.MetaDataHeight = cropRect.Height;
                  newMediaModel.MetaDataWidth = cropRect.Width;
 
-                 newMediaModel = SetHomeImage(newMediaModel);
+                 // newMediaModel = SetHomeImage(newMediaModel);
 
                  DataStore.Instance.DS.MediaData.Add((MediaModel)newMediaModel);
              }

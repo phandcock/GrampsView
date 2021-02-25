@@ -19,44 +19,6 @@ namespace GrampsView.Data.ExternalStorageNS
     /// <seealso cref="GrampsView.Data.ExternalStorageNS.IGrampsStoreXML"/>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
-        public static FamilyModel SetHomeImage(FamilyModel argModel)
-        {
-            ItemGlyph hlink = argModel.ModelItemGlyph;
-
-            // check media
-            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            t = argModel.GEventRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            t = argModel.GNoteRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            // Set the image if available
-            if (hlink.Valid)
-            {
-                argModel.ModelItemGlyph = hlink;
-            }
-
-            return argModel;
-        }
-
         /// <summary>
         /// load families from external storage.
         /// </summary>
@@ -153,8 +115,7 @@ namespace GrampsView.Data.ExternalStorageNS
 
                         loadFamily.GTagRefCollection = GetTagCollection(familyElement);
 
-                        // set the Home image or symbol now that everything is laoded
-                        loadFamily = SetHomeImage(loadFamily);
+                        // set the Home image or symbol now that everything is laoded loadFamily = SetHomeImage(loadFamily);
 
                         // save the family
                         DV.FamilyDV.FamilyData.Add(loadFamily);

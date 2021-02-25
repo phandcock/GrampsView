@@ -5,7 +5,6 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Diagnostics.Contracts;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -17,68 +16,6 @@
     /// </summary>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
-        public static IMediaModel SetHomeImage(IMediaModel argModel)
-        {
-            Contract.Requires(argModel != null);
-
-            // Setup HomeImage
-            argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLink.HLinkKey;
-
-            switch (argModel.FileMimeType)
-            {
-                case "application":
-                    {
-                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-
-                        switch (argModel.FileMimeSubType)
-                        {
-                            case "pdf":
-                                {
-                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
-                                    break;
-                                }
-
-                            case "x-zip-compressed":
-                                {
-                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                    break;
-                                }
-
-                            case "zip":
-                                {
-                                    argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                    break;
-                                }
-                        }
-
-                        break;
-                    }
-
-                case "audio":
-                    {
-                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
-                        break;
-                    }
-
-                case "image":
-                    {
-                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
-                        break;
-                    }
-
-                case "video":
-                    {
-                        argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
-                        break;
-                    }
-            }
-
-            return argModel;
-        }
-
         /// <summary>
         /// load media objects from external storage.
         /// </summary>
@@ -218,7 +155,7 @@
                             loadObject.GTagRefCollection.Add(item);
                         }
 
-                        loadObject = SetHomeImage(loadObject);
+                        // loadObject = SetHomeImage(loadObject);
 
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);

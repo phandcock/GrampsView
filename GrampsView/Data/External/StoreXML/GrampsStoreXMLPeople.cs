@@ -15,38 +15,6 @@
     /// </summary>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
-        public static PersonModel SetHomeImage(PersonModel argModel)
-        {
-            if (argModel is null)
-            {
-                throw new ArgumentNullException(nameof(argModel));
-            }
-
-            ItemGlyph hlink = argModel.ModelItemGlyph;
-
-            // check media
-            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            // Check Citation for Images
-            t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage & t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            // Action any Link
-            if (hlink.Valid)
-            {
-                argModel.ModelItemGlyph = hlink;
-            }
-
-            return argModel;
-        }
-
         /// <summary>
         /// Load the person data from the external storage XML file.
         /// </summary>
@@ -160,8 +128,7 @@
                         // URL
                         loadPerson.GURLCollection = GetURLCollection(pname);
 
-                        // HomeImageLink
-                        loadPerson = SetHomeImage(loadPerson);
+                        // HomeImageLink loadPerson = SetHomeImage(loadPerson);
 
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);

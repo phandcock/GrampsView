@@ -1,10 +1,9 @@
 ﻿// TODO Needs XML 1.71 check
 
-/// <summary>
-/// </summary>
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
@@ -29,6 +28,21 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkTagModel argHLink in this)
+            {
+                argHLink.HLinkGlyphItem = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            SortAndSetFirst();
+        }
+
+        public void SortAndSetFirst()
+        {
+            // Need this
         }
     }
 }

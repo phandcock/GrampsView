@@ -84,5 +84,9 @@ namespace GrampsView.Data.Model
 
             return t;
         }
+
+        public virtual void SetGlyph()
+        {
+        }
     }
 }

@@ -170,6 +170,7 @@
 
             // People last because they rely on pretty much everything else
             await LoadPeopleDataAsync().ConfigureAwait(false);
+
             return true;
         }
     }

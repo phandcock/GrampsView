@@ -15,31 +15,6 @@
     /// </summary>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
-        public static SourceModel SetHomeImage(SourceModel argModel)
-        {
-            if (argModel is null)
-            {
-                throw new ArgumentNullException(nameof(argModel));
-            }
-
-            ItemGlyph hlink = argModel.ModelItemGlyph;
-
-            // Get default image if available
-            ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-            if (!hlink.ValidImage && t.ValidImage)
-            {
-                hlink = t;
-            }
-
-            // Set default
-            if (hlink.Valid)
-            {
-                argModel.ModelItemGlyph = hlink;
-            }
-
-            return argModel;
-        }
-
         /// <summary>
         /// load events from external storage.
         /// </summary>
@@ -93,8 +68,7 @@
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 
-                        // set the Home image or symbol now that everything is loaded
-                        loadSource = SetHomeImage(loadSource);
+                        // set the Home image or symbol now that everything is loaded loadSource = SetHomeImage(loadSource);
 
                         // save the event
                         DV.SourceDV.SourceData.Add(loadSource);

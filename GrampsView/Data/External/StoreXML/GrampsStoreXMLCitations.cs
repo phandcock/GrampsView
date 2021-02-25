@@ -15,49 +15,6 @@
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
         /// <summary>
-        /// Sets the Citation home image.
-        /// </summary>
-        /// <param name="argModel">
-        /// The argument model.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        /// argModel
-        /// </exception>
-        public static CitationModel SetHomeImage(CitationModel argModel)
-        {
-            if (argModel is null)
-            {
-                throw new ArgumentNullException(nameof(argModel));
-            }
-
-            ItemGlyph hlink = argModel.ModelItemGlyph;
-
-            // Try media reference collection first
-            ItemGlyph t = argModel.GSourceRef.DeRef.ModelItemGlyph;
-            if ((!hlink.ValidImage) && (t.ValidImage))
-            {
-                hlink = t;
-            }
-
-            // Check Source for Image
-            t = argModel.GSourceRef.DeRef.ModelItemGlyph;
-            if ((!hlink.ValidImage) && (t.ValidImage))
-            {
-                hlink = t;
-            }
-
-            // Handle the link if we can
-            if (hlink.Valid)
-            {
-                argModel.ModelItemGlyph = hlink;
-            }
-
-            return argModel;
-        }
-
-        /// <summary>
         /// Load Citations from external storage.
         /// </summary>
         /// <returns>
@@ -110,8 +67,7 @@
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
-                        // set the Home image or symbol now that everything is laoded
-                        loadCitation = SetHomeImage(loadCitation);
+                        // set the Home image or symbol now that everything is laoded loadCitation = SetHomeImage(loadCitation);
 
                         // save the event
                         DataStore.Instance.DS.CitationData.Add(loadCitation);

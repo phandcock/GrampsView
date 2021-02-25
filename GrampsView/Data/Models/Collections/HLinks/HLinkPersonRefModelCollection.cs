@@ -5,6 +5,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.Generic;
@@ -25,24 +26,6 @@ namespace GrampsView.Data.Collections
             Title = "People Ref Collection";
         }
 
-        ///// <summary>
-        ///// Gets the dereferenced person models.
-        ///// </summary>
-        ///// <value>
-        ///// The de reference.
-        ///// </value>
-        //public ObservableCollection<PersonModel> DeRef
-        //{
-        //    get
-        //    {
-        //        ObservableCollection<PersonModel> t = new ObservableCollection<PersonModel>();
-
-        // foreach (HLinkPersonModel item in Items) { t.Add(item.DeRef); }
-
-        //        return t;
-        //    }
-        //}
-
         public override CardGroup GetCardGroup()
         {
             CardGroup t = base.GetCardGroup();
@@ -50,6 +33,17 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public override void SetGlyph()
+        {
+            foreach (HLinkPersonRefModel argHLink in this)
+            {
+                // TODO check this
+                argHLink.HLinkGlyphItem = DV.PersonDV.GetGlyph(argHLink.HLinkKey);
+            }
+
+            SortAndSetFirst();
         }
 
         /// <summary>
@@ -70,8 +64,8 @@ namespace GrampsView.Data.Collections
             //    {
             //        tempModel = DV.PersonDV.PersonData.GetModelFromHLink(this[i]);
 
-            // if (tempModel.HLinkGlyph.LinkToImage) { FirstHLinkHomeImage =
-            // tempModel.HLinkGlyph; break; } }
+            // if (tempModel.HLinkGlyph.LinkToImage) { FirstHLinkHomeImage = tempModel.HLinkGlyph;
+            // break; } }
 
             // Sort the collection
             List<HLinkPersonRefModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName).ToList();
