@@ -34,7 +34,10 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkTagModel argHLink in this)
             {
-                argHLink.HLinkGlyphItem = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
             }
 
             SortAndSetFirst();
@@ -42,7 +45,7 @@ namespace GrampsView.Data.Collections
 
         public void SortAndSetFirst()
         {
-            // Need this
+            // TODO Need this
         }
     }
 }

@@ -205,8 +205,8 @@
                 // Set symbol
                 FontImageSource fontGlyph = new FontImageSource
                 {
-                    Glyph = argItemGlyph.Symbol,
-                    Color = argItemGlyph.SymbolColour,
+                    Glyph = argItemGlyph.ImageSymbol,
+                    Color = argItemGlyph.ImageSymbolColour,
                     FontFamily = "FA-Solid"
                 };
 

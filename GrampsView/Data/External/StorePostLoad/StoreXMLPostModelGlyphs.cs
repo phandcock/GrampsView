@@ -10,11 +10,11 @@
 
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
-        public async Task SetAddressImages()
+        public async static Task SetAddressImages()
         {
         }
 
-        public async Task SetCitationImages()
+        public async static Task SetCitationImages()
         {
             foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
             {
@@ -53,7 +53,7 @@
             return;
         }
 
-        public async Task SetEventImages()
+        public async static Task SetEventImages()
         {
             foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
             {
@@ -87,7 +87,7 @@
             }
         }
 
-        public async Task SetFamilyImages()
+        public async static Task SetFamilyImages()
         {
             foreach (FamilyModel argModel in DataStore.Instance.DS.FamilyData.Values)
             {
@@ -126,54 +126,17 @@
             }
         }
 
-        public async Task SetHeaderImages()
+        public async static Task SetHeaderImages()
         {
         }
 
-        public async Task SetHomeImages()
-        {
-            await DataStore.Instance.CN.DataLogEntryAdd("Setting Home Images after load").ConfigureAwait(false);
-            {
-                await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
-                {
-                    // Called in order of media linkages from Media outwards - Media is the start so
-                    // called ahead await SetMediaImages().ConfigureAwait(false);
-
-                    //await SetCitationImages().ConfigureAwait(false);
-
-                    //await SetEventImages().ConfigureAwait(false);
-
-                    //await SetFamilyImages().ConfigureAwait(false);
-
-                    //await SetHeaderImages().ConfigureAwait(false);
-
-                    //await SetNameMapImages().ConfigureAwait(false);
-
-                    //await SetNotesImages().ConfigureAwait(false);
-
-                    //await SetPlaceImages().ConfigureAwait(false);
-
-                    //await SetRepositoryImages().ConfigureAwait(false);
-
-                    //await SetTagImages().ConfigureAwait(false);
-
-                    //await SetAddressImages().ConfigureAwait(false);
-
-                    //await SetPersonNameImages().ConfigureAwait(false);
-
-                    //// People last as they pretty much depend on everything else
-                    //await SetPersonImages().ConfigureAwait(false);
-                }
-            }
-        }
-
-        public void SetMediaImages()
+        public static void SetMediaImages()
         {
             foreach (MediaModel argModel in DataStore.Instance.DS.MediaData.Values)
             {
                 Contract.Requires(argModel != null);
 
-                if (argModel.Id == "C0497")
+                if (argModel.Id == "O0334")
                 {
                 }
 
@@ -234,16 +197,22 @@
             }
         }
 
-        public async Task SetNameMapImages()
+        public async static Task SetNameMapImages()
         {
         }
 
-        public async Task SetNotesImages()
+        //            //// People last as they pretty much depend on everything else
+        //            //await SetPersonImages().ConfigureAwait(false);
+        //        }
+        //    }
+        //}
+        public async static Task SetNotesImages()
         {
         }
 
-        // People last as they pretty much depend on everything else
-        public async Task SetPersonImages()
+        // //await SetPersonNameImages().ConfigureAwait(false); People last as they pretty much
+        // depend on everything else
+        public async static Task SetPersonImages()
         {
             foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
             {
@@ -280,19 +249,22 @@
             }
         }
 
-        public async Task SetPersonNameImages()
+        // //await SetAddressImages().ConfigureAwait(false);
+        public async static Task SetPersonNameImages()
         {
         }
 
-        public async Task SetPlaceImages()
+        // //await SetTagImages().ConfigureAwait(false);
+        public async static Task SetPlaceImages()
         {
         }
 
-        public async Task SetRepositoryImages()
+        // //await SetRepositoryImages().ConfigureAwait(false);
+        public async static Task SetRepositoryImages()
         {
         }
 
-        public async Task SetSourceImages()
+        public static async Task SetSourceImages()
         {
             foreach (SourceModel argModel in DataStore.Instance.DS.SourceData.Values)
             {
@@ -322,7 +294,29 @@
             }
         }
 
-        public async Task SetTagImages()
+        //public async Task SetHomeImages()
+        //{
+        //    await DataStore.Instance.CN.DataLogEntryAdd("Setting Home Images after load").ConfigureAwait(false);
+        //    {
+        //        await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
+        //        {
+        //            // Called in order of media linkages from Media outwards - Media is the start so
+        //            // called ahead await SetMediaImages().ConfigureAwait(false);
+
+        // //await SetCitationImages().ConfigureAwait(false);
+
+        // //await SetEventImages().ConfigureAwait(false);
+
+        // //await SetFamilyImages().ConfigureAwait(false);
+
+        // //await SetHeaderImages().ConfigureAwait(false);
+
+        // //await SetNameMapImages().ConfigureAwait(false);
+
+        // //await SetNotesImages().ConfigureAwait(false);
+
+        // //await SetPlaceImages().ConfigureAwait(false);
+        public async static Task SetTagImages()
         {
         }
     }

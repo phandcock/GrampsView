@@ -29,7 +29,10 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkHeaderModel argHLink in this)
             {
-                argHLink.HLinkGlyphItem = DV.HeaderDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.HeaderDV.GetGlyph(argHLink.HLinkKey);
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
             }
 
             // TODO SortAndSetFirst();

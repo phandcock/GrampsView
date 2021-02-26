@@ -11,7 +11,7 @@
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    public partial class StorePostLoad : IStorePostLoad
+    public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
         /// <summary>
         /// Organises the address repository.
@@ -19,6 +19,8 @@
         private static async Task<bool> OrganiseAddressRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
+
+            await SetAddressImages().ConfigureAwait(false);
 
             return true;
         }
@@ -29,6 +31,8 @@
         private static async Task<bool> OrganiseCitationRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
+
+            await SetCitationImages().ConfigureAwait(false);
 
             foreach (AddressModel theAddressModel in DV.AddressDV.DataViewData)
             {
@@ -89,16 +93,21 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0005")
-                {
-                }
-
                 thePersonModel.GCitationRefCollection.SetGlyph();
 
-                // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonModel.GCitationRefCollection)
                 {
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                }
+            }
+
+            foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
+            {
+                thePlaceModel.GCitationRefCollection.SetGlyph();
+
+                foreach (HLinkCitationModel citationRef in thePlaceModel.GCitationRefCollection)
+                {
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                 }
             }
 
@@ -113,6 +122,8 @@
         private static async Task<bool> OrganiseEventRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
+
+            await SetEventImages().ConfigureAwait(false);
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -143,6 +154,8 @@
         private static async Task<bool> OrganiseFamilyRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
+
+            await SetFamilyImages().ConfigureAwait(false);
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -178,6 +191,8 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
+            await SetHeaderImages().ConfigureAwait(false);
+
             return true;
         }
 
@@ -187,6 +202,8 @@
         private static async Task<bool> OrganiseMediaRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+
+            SetMediaImages();
 
             try
             {
@@ -241,8 +258,22 @@
                     }
                 }
 
+                foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
+                {
+                    thePlaceModel.GMediaRefCollection.SetGlyph();
+
+                    foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
+                    {
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                    }
+                }
+
                 foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
                 {
+                    if (theSourceModel.Id == "S0384")
+                    {
+                    }
+
                     theSourceModel.GMediaRefCollection.SetGlyph();
 
                     foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
@@ -268,6 +299,8 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
+            await SetNameMapImages().ConfigureAwait(false);
+
             return true;
         }
 
@@ -277,6 +310,8 @@
         private static async Task<bool> OrganiseNoteRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
+
+            await SetNotesImages().ConfigureAwait(false);
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -343,6 +378,17 @@
                 }
             }
 
+            foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
+            {
+                // Back Reference Note HLinks
+                thePlaceModel.GNoteRefCollection.SetGlyph();
+
+                foreach (HLinkNoteModel noteRef in thePlaceModel.GNoteRefCollection)
+                {
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                }
+            }
+
             foreach (RepositoryModel theRepositoryModel in DV.RepositoryDV.DataViewData)
             {
                 theRepositoryModel.GNoteRefCollection.SetGlyph();
@@ -372,6 +418,8 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
+            await SetPersonNameImages().ConfigureAwait(false);
+
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
                 thePersonModel.GPersonNamesCollection.SetGlyph();
@@ -392,6 +440,8 @@
         private static async Task<bool> OrganisePersonRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
+
+            await SetPersonImages().ConfigureAwait(false);
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -466,6 +516,8 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
+            await SetPlaceImages().ConfigureAwait(false);
+
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
                 if (theEventModel.GPlace.Valid)
@@ -476,44 +528,11 @@
 
             foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
             {
-                thePlaceModel.GCitationRefCollection.SetGlyph();
-
-                // Back Reference Citation HLinks
-                foreach (HLinkCitationModel citationRef in thePlaceModel.GCitationRefCollection)
-                {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
-                }
-
-                // Back Reference Note HLinks
-                thePlaceModel.GNoteRefCollection.SetGlyph();
-
-                foreach (HLinkNoteModel noteRef in thePlaceModel.GNoteRefCollection)
-                {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
-                }
-
-                // Back Reference Media HLinks
-                thePlaceModel.GMediaRefCollection.SetGlyph();
-
-                foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
-                {
-                    DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
-                }
-
-                // Setup Child Place HLinks
-
                 thePlaceModel.GPlaceRefCollection.SetGlyph();
+
                 foreach (HLinkPlaceModel placeRef in thePlaceModel.GPlaceRefCollection)
                 {
                     DataStore.Instance.DS.PlaceData[placeRef.HLinkKey].PlaceChildCollection.Add(thePlaceModel.HLink);
-                }
-
-                // Back Reference Tag HLinks
-                thePlaceModel.GTagRefCollection.SetGlyph();
-
-                foreach (HLinkTagModel tagRef in thePlaceModel.GTagRefCollection)
-                {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                 }
             }
 
@@ -537,18 +556,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
-            foreach (RepositoryModel theRepositoryModel in DV.RepositoryDV.DataViewData)
-            {
-                // Back Reference Tag HLinks
-                theRepositoryModel.GTagRefCollection.SetGlyph();
-
-                foreach (HLinkTagModel tagRef in theRepositoryModel.GTagRefCollection)
-                {
-                    tagRef.HLinkGlyphItem = DV.TagDV.GetGlyph(tagRef.HLinkKey);
-
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
-                }
-            }
+            await SetRepositoryImages().ConfigureAwait(false);
 
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
@@ -576,13 +584,10 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
+            await SetSourceImages().ConfigureAwait(false);
+
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
-                if (theCitationModel.Id == "C0300")
-                {
-                }
-
-                // Back Reference Source HLink
                 theCitationModel.GSourceRef.HLinkGlyphItem = DV.SourceDV.GetGlyph(theCitationModel.GSourceRef.HLinkKey);
 
                 DataStore.Instance.DS.SourceData[theCitationModel.GSourceRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
@@ -597,6 +602,8 @@
         private static async Task<bool> OrganiseTagRepository()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
+
+            await SetTagImages().ConfigureAwait(false);
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -659,6 +666,16 @@
                 }
             }
 
+            foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
+            {
+                thePlaceModel.GTagRefCollection.SetGlyph();
+
+                foreach (HLinkTagModel tagRef in thePlaceModel.GTagRefCollection)
+                {
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                }
+            }
+
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
                 theSourceModel.GTagRefCollection.SetGlyph();
@@ -666,6 +683,17 @@
                 foreach (HLinkTagModel tagRef in theSourceModel.GTagRefCollection)
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                }
+            }
+
+            foreach (RepositoryModel theRepositoryModel in DV.RepositoryDV.DataViewData)
+            {
+                // Back Reference Tag HLinks
+                theRepositoryModel.GTagRefCollection.SetGlyph();
+
+                foreach (HLinkTagModel tagRef in theRepositoryModel.GTagRefCollection)
+                {
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
                 }
             }
 

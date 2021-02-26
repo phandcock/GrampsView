@@ -35,7 +35,10 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkRepositoryModel argHLink in this)
             {
-                argHLink.HLinkGlyphItem = DV.RepositoryDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.RepositoryDV.GetGlyph(argHLink.HLinkKey);
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
             }
 
             // TODO Need this SortAndSetFirst();

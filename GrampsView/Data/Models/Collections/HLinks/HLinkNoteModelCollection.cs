@@ -123,7 +123,10 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkNoteModel argHLink in this)
             {
-                argHLink.HLinkGlyphItem = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
             }
 
             SortAndSetFirst();

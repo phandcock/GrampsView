@@ -80,7 +80,10 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkPersonNameModel argHLink in this)
             {
-                argHLink.HLinkGlyphItem = DV.PersonNameDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.PersonNameDV.GetGlyph(argHLink.HLinkKey);
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
             }
 
             // TODO Do we need this? SortAndSetFirst();

@@ -11,6 +11,8 @@
     public class ItemGlyph : CommonBindableBase
     {
         private string _HLinkMedia = string.Empty;
+        private string _ImageSymbol = CommonConstants.IconDDefault;
+        private Color _ImageSymbolColour = Color.White;
         private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
         private string _Symbol = CommonConstants.IconDDefault;
         private Color _SymbolColour = Color.White;
@@ -38,6 +40,46 @@
             set
             {
                 SetProperty(ref _HLinkMedia, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the home symbol font glyph.
+        /// </summary>
+        /// <value>
+        /// The home symbol.
+        /// </value>
+        [DataMember]
+        public string ImageSymbol
+        {
+            get
+            {
+                return _ImageSymbol;
+            }
+
+            set
+            {
+                SetProperty(ref _ImageSymbol, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Home Symbol background colour.
+        /// </summary>
+        /// <value>
+        /// The background colour.
+        /// </value>
+        [DataMember]
+        public Color ImageSymbolColour
+        {
+            get
+            {
+                return _ImageSymbolColour;
+            }
+
+            set
+            {
+                SetProperty(ref _ImageSymbolColour, value);
             }
         }
 
@@ -72,6 +114,7 @@
             set
             {
                 SetProperty(ref _Symbol, value);
+                SetProperty(ref _ImageSymbol, value);
             }
         }
 
@@ -92,6 +135,7 @@
             set
             {
                 SetProperty(ref _SymbolColour, value);
+                SetProperty(ref _ImageSymbolColour, value);
             }
         }
 
