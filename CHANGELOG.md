@@ -1,3 +1,12 @@
+## [16.15.23](https://github.com/phandcock/GrampsView/compare/v16.15.22...v16.15.23) (2021-02-26)
+
+
+### Bug Fixes
+
+* start rework glyph setting to surface images ([e1a1da9](https://github.com/phandcock/GrampsView/commit/e1a1da90c7591cd5f8f4869256225a777e163be5))
+
+
+
 ## [16.15.22](https://github.com/phandcock/GrampsView/compare/v16.15.21...v16.15.22) (2021-02-23)
 
 
@@ -32,16 +41,6 @@
 ### Bug Fixes
 
 * tweak ([f92ef94](https://github.com/phandcock/GrampsView/commit/f92ef941cfc294dd60428bd001cf9a87bdcad8f5))
-
-
-
-## [16.15.18](https://github.com/phandcock/GrampsView/compare/v16.15.17...v16.15.18) (2021-02-15)
-
-
-### Bug Fixes
-
-* fix height of mediacardfull ([57bcbfc](https://github.com/phandcock/GrampsView/commit/57bcbfc0697c2ee6114adc528d9c955d773bf6f9))
-* update various nugets ([0f51064](https://github.com/phandcock/GrampsView/commit/0f510646ec7b81f1b46918112ec6be59171f55fa))
 
 
 
