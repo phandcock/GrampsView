@@ -67,9 +67,7 @@
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
-                        // set the Home image or symbol now that everything is laoded loadCitation = SetHomeImage(loadCitation);
-
-                        // save the event
+                        // save the citation
                         DataStore.Instance.DS.CitationData.Add(loadCitation);
                     }
 

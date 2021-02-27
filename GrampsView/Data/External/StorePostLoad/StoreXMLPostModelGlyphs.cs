@@ -23,14 +23,18 @@
                     throw new ArgumentNullException(nameof(argModel));
                 }
 
+                if (argModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
+                {
+                }
+
                 ItemGlyph hlink = argModel.ModelItemGlyph;
 
-                if (argModel.Id == "C0496")
+                if (argModel.Id == "C0682")
                 {
                 }
 
                 // Try media reference collection first
-                ItemGlyph t = argModel.GSourceRef.DeRef.ModelItemGlyph;
+                ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
                 if ((!hlink.ValidImage) && (t.ValidImage))
                 {
                     hlink = t;
@@ -216,7 +220,7 @@
         {
             foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
             {
-                if (argModel.Id == "I0005")
+                if (argModel.Id == "I0693")
                 {
                 }
 
@@ -294,30 +298,11 @@
             }
         }
 
-        //public async Task SetHomeImages()
-        //{
-        //    await DataStore.Instance.CN.DataLogEntryAdd("Setting Home Images after load").ConfigureAwait(false);
-        //    {
-        //        await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
-        //        {
-        //            // Called in order of media linkages from Media outwards - Media is the start so
-        //            // called ahead await SetMediaImages().ConfigureAwait(false);
-
-        // //await SetCitationImages().ConfigureAwait(false);
-
-        // //await SetEventImages().ConfigureAwait(false);
-
-        // //await SetFamilyImages().ConfigureAwait(false);
-
-        // //await SetHeaderImages().ConfigureAwait(false);
-
-        // //await SetNameMapImages().ConfigureAwait(false);
-
-        // //await SetNotesImages().ConfigureAwait(false);
-
-        // //await SetPlaceImages().ConfigureAwait(false);
         public async static Task SetTagImages()
         {
+            //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
+            //{
+            //}
         }
     }
 }

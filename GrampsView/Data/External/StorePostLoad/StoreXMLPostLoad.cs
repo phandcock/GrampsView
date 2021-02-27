@@ -93,6 +93,10 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0693")
+                {
+                }
+
                 thePersonModel.GCitationRefCollection.SetGlyph();
 
                 foreach (HLinkCitationModel citationRef in thePersonModel.GCitationRefCollection)
@@ -657,6 +661,10 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0729")
+                {
+                }
+
                 thePersonModel.GTagRefCollection.SetGlyph();
 
                 foreach (HLinkTagModel tagRef in thePersonModel.GTagRefCollection)

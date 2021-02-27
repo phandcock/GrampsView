@@ -34,10 +34,15 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkTagModel argHLink in this)
             {
-                ItemGlyph t = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.TagDV.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
+
+                // Tags are special in that the colour of the icon is the colour of the tag
+                argHLink.HLinkGlyphItem.SymbolColour = t.ImageSymbolColour;
             }
 
             SortAndSetFirst();
