@@ -1,3 +1,13 @@
+## [16.15.24](https://github.com/phandcock/GrampsView/compare/v16.15.23...v16.15.24) (2021-02-27)
+
+
+### Bug Fixes
+
+* cleanup glyph setting ([59b8a5a](https://github.com/phandcock/GrampsView/commit/59b8a5a3f804185546b5fc8c3ab70d95623be6da))
+* use clipped images for citations ([9eccf32](https://github.com/phandcock/GrampsView/commit/9eccf32d0abcbcf42caacf5e1b83af14b481d2e7))
+
+
+
 ## [16.15.23](https://github.com/phandcock/GrampsView/compare/v16.15.22...v16.15.23) (2021-02-26)
 
 
@@ -32,15 +42,6 @@
 ### Bug Fixes
 
 * work on mediafullcard ([9d16f4c](https://github.com/phandcock/GrampsView/commit/9d16f4cef3953a35261a407f3e6dfed62b24c8c3))
-
-
-
-## [16.15.19](https://github.com/phandcock/GrampsView/compare/v16.15.18...v16.15.19) (2021-02-17)
-
-
-### Bug Fixes
-
-* tweak ([f92ef94](https://github.com/phandcock/GrampsView/commit/f92ef941cfc294dd60428bd001cf9a87bdcad8f5))
 
 
 
