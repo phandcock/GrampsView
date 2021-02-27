@@ -306,16 +306,18 @@
                 // get a random value
                 int q = randomValue.Next(0, argCollection.Count);
 
-                // get the next image starting at the random value
-                for (int i = q; i < argCollection.Count; i++)
-                {
-                    HLinkMediaModel tempHLinkMediaModel = argCollection[i];
-                    if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsImage)
-                    {
-                        tt = tempHLinkMediaModel;
-                        break;
-                    }
-                }
+                tt = argCollection[q];
+
+                //// get the next image starting at the random value
+                //for (int i = q; i < argCollection.Count; i++)
+                //{
+                //    HLinkMediaModel tempHLinkMediaModel = argCollection[i];
+                //    if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsImage)
+                //    {
+                //        tt = tempHLinkMediaModel;
+                //        break;
+                //    }
+                //}
             }
 
             // return the image hlink

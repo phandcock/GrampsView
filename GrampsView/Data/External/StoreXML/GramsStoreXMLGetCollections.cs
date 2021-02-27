@@ -176,8 +176,7 @@
                 }
             }
 
-            // Return sorted by the default text
-            t.SortAndSetFirst();
+            // Do not sort but accept input Citation order
 
             return t;
         }
