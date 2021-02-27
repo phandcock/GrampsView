@@ -127,6 +127,8 @@ namespace GrampsView.Data.Collections
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
             SortAndSetFirst();
@@ -140,7 +142,7 @@ namespace GrampsView.Data.Collections
             // Set the first image link. Assumes main image is manually set to the first image in
             // Gramps if we need it to be, e.g. Citations.
 
-            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Unknown;
+            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
             if (Count > 0)
             {

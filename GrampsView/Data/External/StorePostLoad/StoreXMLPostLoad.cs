@@ -176,6 +176,10 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0613")
+                {
+                }
+
                 thePersonModel.GParentInRefCollection.SetGlyph();
 
                 // Parent RelationShip
@@ -374,6 +378,10 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0337")
+                {
+                }
+
                 thePersonModel.GNoteRefCollection.SetGlyph();
 
                 foreach (HLinkNoteModel noteRef in thePersonModel.GNoteRefCollection)
@@ -456,6 +464,10 @@
                 {
                     DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
+
+                // Parents
+                theFamilyModel.GFather.HLinkGlyphItem = theFamilyModel.GFather.DeRef.ModelItemGlyph;
+                theFamilyModel.GMother.HLinkGlyphItem = theFamilyModel.GMother.DeRef.ModelItemGlyph;
             }
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
@@ -471,9 +483,13 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0693")
+                {
+                }
+
                 // -- Setup some extra values ------------------------------
 
-                // -- Update links to include ItemGlyphs
+                // --
                 if (thePersonModel.GChildOf.Valid)
                 {
                     thePersonModel.GChildOf = DataStore.Instance.DS.FamilyData[thePersonModel.GChildOf.HLinkKey].HLink;

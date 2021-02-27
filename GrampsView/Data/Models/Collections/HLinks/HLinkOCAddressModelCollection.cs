@@ -41,6 +41,8 @@ namespace GrampsView.Data.Collections
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.HLinkMediHLink = t.HLinkMediHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
             // TODO Needed? SortAndSetFirst();
