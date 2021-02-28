@@ -52,7 +52,10 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        StyledTextModel GStyledText { get; }
+        StyledTextModel GStyledText
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets or sets the g tag reference collection.
@@ -84,7 +87,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get h link.
         /// </value>
-        HLinkNoteModel HLink { get; }
+        HLinkNoteModel HLink
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets the shortened form of the text. Maximum length is 100.
@@ -93,6 +99,16 @@ namespace GrampsView.Data.Model
         /// The text short.
         /// </value>
         string TextShort
+        {
+            get;
+        }
+
+        bool TypeIsList
+        {
+            get;
+        }
+
+        bool TypeIsToDo
         {
             get;
         }

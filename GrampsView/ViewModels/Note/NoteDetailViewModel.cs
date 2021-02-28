@@ -8,9 +8,8 @@
 
     using System;
 
-    /// <summary>
-    /// Defines the EVent Detail Page View ViewModel.
-    /// </summary>
+    using static GrampsView.Common.CommonEnums;
+
     public class NoteDetailViewModel : ViewModelBase
     {
         private INoteModel _NoteObject = new NoteModel();
@@ -24,20 +23,12 @@
         /// <param name="iocEventAggregator">
         /// Common Event Aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         public NoteDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconNotes;
         }
 
-        /// <summary>
-        /// Gets or sets the public Event ViewModel.
-        /// </summary>
-        /// <value>
-        /// The current event ViewModel.
-        /// </value>
         public INoteModel NoteObject
         {
             get
@@ -76,6 +67,19 @@
 
                 // Add Model details
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
+
+                // Handle Link Note types
+                if (NoteObject.TypeIsList)
+                {
+                    URLModel newLinkURL = new URLModel
+                    {
+                        GDescription = NoteObject.GetDefaultText,
+                        URLType = URIType.URL,
+                        GHRef = new Uri(NoteObject.TextShort)
+                    };
+
+                    BaseDetail.Add(newLinkURL);
+                }
             }
         }
     }

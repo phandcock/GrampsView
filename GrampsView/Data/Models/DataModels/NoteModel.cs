@@ -23,9 +23,7 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
-        /// <summary>
-        /// The type to do.
-        /// </summary>
+        public const string GTypeLink = "Link";
         public const string GTypeToDo = "To Do";
 
         private FormattedString _FormattedText = new FormattedString();
@@ -178,6 +176,22 @@ namespace GrampsView.Data.Model
             get
             {
                 return GStyledText.GText.Substring(0, Math.Min(GStyledText.GText.Length, 100));
+            }
+        }
+
+        public bool TypeIsList
+        {
+            get
+            {
+                return (GType == GTypeLink);
+            }
+        }
+
+        public bool TypeIsToDo
+        {
+            get
+            {
+                return (GType == GTypeToDo);
             }
         }
 
