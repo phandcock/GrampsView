@@ -1,3 +1,13 @@
+## [16.15.25](https://github.com/phandcock/GrampsView/compare/v16.15.24...v16.15.25) (2021-02-28)
+
+
+### Bug Fixes
+
+* make random media call more random ([61c692f](https://github.com/phandcock/GrampsView/commit/61c692fc0d7a3213a941cce12d5a369dd24a643b))
+* more glyph cleanup ([4bd6ab1](https://github.com/phandcock/GrampsView/commit/4bd6ab1b49cd151f3c346c5adcc01a16c96b65ea))
+
+
+
 ## [16.15.24](https://github.com/phandcock/GrampsView/compare/v16.15.23...v16.15.24) (2021-02-27)
 
 
@@ -33,15 +43,6 @@
 ### Bug Fixes
 
 * Base chnage to use ItemGlyph class ([112343a](https://github.com/phandcock/GrampsView/commit/112343aedd7236b85422f31145b18f551b5e6ccc))
-
-
-
-## [16.15.20](https://github.com/phandcock/GrampsView/compare/v16.15.19...v16.15.20) (2021-02-19)
-
-
-### Bug Fixes
-
-* work on mediafullcard ([9d16f4c](https://github.com/phandcock/GrampsView/commit/9d16f4cef3953a35261a407f3e6dfed62b24c8c3))
 
 
 
