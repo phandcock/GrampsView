@@ -32,7 +32,7 @@ namespace GrampsView.Data.Model
         public PersonNameModel()
         {
             ModelItemGlyph.Symbol = CommonConstants.IconPersonName;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
         public string FirstFirstName

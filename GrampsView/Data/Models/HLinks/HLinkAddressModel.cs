@@ -4,6 +4,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
@@ -19,6 +20,8 @@ namespace GrampsView.Data.Model
     {
         public HLinkAdressModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconAddress;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
         }
 
         /// <summary>

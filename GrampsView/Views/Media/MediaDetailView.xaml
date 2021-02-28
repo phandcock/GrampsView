@@ -25,7 +25,11 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <Frame HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+            <Frame
+                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                              Light={StaticResource SecondaryDarkColorLight}}"
+                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
@@ -38,24 +42,11 @@
                         IsVisible="{Binding ShowImageElement, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
-                    <!--<toolkit:MediaElement
-                        x:Name="daMediaElement"
-                        Aspect="AspectFit"
-                        AutoPlay="False"
-                        BackgroundColor="AliceBlue"
-                        HeightRequest="300"
-                        IsEnabled="{Binding ShowMediaElement, Mode=OneWay}"
-                        IsVisible="{Binding ShowMediaElement, Mode=OneWay}"
-                        MediaFailed="daMediaElement_MediaFailed"
-                        ShowsPlaybackControls="True"
-                        Source="{Binding MediaPath, Mode=OneWay}"
-                        VerticalOptions="FillAndExpand" />-->
-
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" HorizontalOptions="CenterAndExpand" />
 
             <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

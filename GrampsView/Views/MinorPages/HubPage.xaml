@@ -2,12 +2,12 @@
 <views:ViewBase
     x:Class="GrampsView.Views.HubPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="HubPageRoot"
@@ -40,7 +40,7 @@
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.HubPage_IntroductionText}" />
 
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" />
+            <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" MinimumHeightRequest="100" />
 
             <ucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
 

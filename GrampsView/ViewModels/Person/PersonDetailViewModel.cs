@@ -131,7 +131,6 @@
             BaseCurrentState = LayoutState.Loading;
 
             HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink));
-            ;
 
             PersonObject = HLinkPerson.DeRef;
 

@@ -54,10 +54,7 @@
         /// </summary>
         private string _HLinkKey = string.Empty;
 
-        // private HLinkMediaModel _HomeHLinkMediaModel = new HLinkMediaModel();
         private string _Id = string.Empty;
-
-        // private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
 

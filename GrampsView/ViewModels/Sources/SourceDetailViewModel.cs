@@ -13,6 +13,8 @@
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
+        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+
         /// <summary>
         /// The local Source object.
         /// </summary>
@@ -32,6 +34,18 @@
         {
             BaseTitle = "Source Detail";
             BaseTitleIcon = CommonConstants.IconSource;
+        }
+
+        public HLinkMediaModel MediaCard
+        {
+            get
+            {
+                return _MediaCard;
+            }
+            set
+            {
+                SetProperty(ref _MediaCard, value);
+            }
         }
 
         /// <summary>
@@ -65,18 +79,15 @@
             // Cache the Source model
             SourceObject = HLinkObject.DeRef;
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (!(SourceObject is null))
             {
                 // Get basic details
                 BaseTitle = SourceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconSource;
 
-                // Header Card
-                //CardGroup t = new CardGroup { Title = "Header Details" };
+                MediaCard = SourceObject.ModelItemGlyph.HLinkMedia;
 
+                // Header Card
                 BaseDetail.Add(new CardListLineCollection("Source Detail")
                     {
                        new CardListLine("Title:", SourceObject.GSTitle),

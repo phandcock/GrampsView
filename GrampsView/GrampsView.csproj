@@ -16,6 +16,10 @@
     <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkHomeImageModel.cs" />
+    <Compile Remove="Data\Models\HLinks\HLinkPrimaryObjectModel.cs" />
+    <Compile Remove="Data\Models\HLinks\HLinkTableObjectModel.cs" />
+    <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
+    <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
     <Compile Remove="Events\AppStartFirstRunEvent.cs" />
     <Compile Remove="Events\AppStartSaveSerial.cs" />
     <Compile Remove="Events\DataLoadUnzipped.cs" />

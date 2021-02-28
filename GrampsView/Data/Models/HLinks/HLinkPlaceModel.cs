@@ -10,10 +10,6 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
-
     /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkPlaceModel : HLinkBase, IHLinkPlaceModel

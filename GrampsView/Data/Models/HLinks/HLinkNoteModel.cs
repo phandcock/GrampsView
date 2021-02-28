@@ -2,6 +2,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
@@ -15,6 +16,8 @@ namespace GrampsView.Data.Model
 
         public HLinkNoteModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconNotes;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
         public INoteModel DeRef

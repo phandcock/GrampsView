@@ -7,15 +7,12 @@
 /// "hlink" Done "priv" Done "callno" Done "medium" Done; "noteref" Done
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
-
-    /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    /// </summary>
 
     /// TODO Update fields as per Schema
     [DataContract]
@@ -24,15 +21,17 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local call no.
         /// </summary>
-        private string localCallNo;
+        private string _CallNo;
 
         /// <summary>
         /// The local medium.
         /// </summary>
-        private string localMedium;
+        private string _Medium;
 
         public HLinkRepositoryModel()
         {
+            HLinkGlyphItem.Symbol = CommonConstants.IconRepository;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundRepository");
         }
 
         /// <summary>
@@ -71,12 +70,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localCallNo;
+                return _CallNo;
             }
 
             set
             {
-                SetProperty(ref localCallNo, value);
+                SetProperty(ref _CallNo, value);
             }
         }
 
@@ -91,12 +90,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localMedium;
+                return _Medium;
             }
 
             set
             {
-                SetProperty(ref localMedium, value);
+                SetProperty(ref _Medium, value);
             }
         }
 

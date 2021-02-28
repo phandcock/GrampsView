@@ -50,7 +50,10 @@
                 // Handle the link if we can
                 if (hlink.Valid)
                 {
-                    argModel.ModelItemGlyph = hlink;
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
 
@@ -86,7 +89,10 @@
                 // Handle the link if we can
                 if (hlink.Valid)
                 {
-                    argModel.ModelItemGlyph = hlink;
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
         }
@@ -125,7 +131,10 @@
                 // Set the image if available
                 if (hlink.Valid)
                 {
-                    argModel.ModelItemGlyph = hlink;
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
         }
@@ -248,7 +257,10 @@
                 // Action any Link
                 if (hlink.Valid)
                 {
-                    argModel.ModelItemGlyph = hlink;
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
         }
@@ -293,7 +305,10 @@
                 // Set default
                 if (hlink.Valid)
                 {
-                    argModel.ModelItemGlyph = hlink;
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
         }

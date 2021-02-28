@@ -18,10 +18,10 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkTagModel : HLinkBase, IHLinkTagModel
     {
-        /// <summary>
-        /// The local image h link.
-        /// </summary>
-        private HLinkMediaModel localImageHLink = new HLinkMediaModel();
+        ///// <summary>
+        ///// The local image h link.
+        ///// </summary>
+        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
 
         public HLinkTagModel()
         {

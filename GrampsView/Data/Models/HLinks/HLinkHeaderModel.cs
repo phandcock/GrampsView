@@ -16,6 +16,11 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {
+        public HLinkHeaderModel()
+        {
+            HLinkGlyphItem.Symbol = Common.CommonConstants.IconHeader;
+        }
+
         /// <summary>
         /// Gets the dereference.
         /// </summary>
