@@ -1,3 +1,12 @@
+## [16.15.26](https://github.com/phandcock/GrampsView/compare/v16.15.25...v16.15.26) (2021-02-28)
+
+
+### Bug Fixes
+
+* more display changes ([7b2b303](https://github.com/phandcock/GrampsView/commit/7b2b303e9690677034f92672d41a5c64b12654c6))
+
+
+
 ## [16.15.25](https://github.com/phandcock/GrampsView/compare/v16.15.24...v16.15.25) (2021-02-28)
 
 
@@ -34,15 +43,6 @@
 
 * more glyph loading cleanup ([3d92a39](https://github.com/phandcock/GrampsView/commit/3d92a39ce5319d056d6ce728e00a06f84215b2f9))
 * **HLinks:** further work on itemGlyph defaults for HLinks ([e12ab82](https://github.com/phandcock/GrampsView/commit/e12ab821a494f31d26dc3e0b07402d2d587d43f4))
-
-
-
-## [16.15.21](https://github.com/phandcock/GrampsView/compare/v16.15.20...v16.15.21) (2021-02-21)
-
-
-### Bug Fixes
-
-* Base chnage to use ItemGlyph class ([112343a](https://github.com/phandcock/GrampsView/commit/112343aedd7236b85422f31145b18f551b5e6ccc))
 
 
 
