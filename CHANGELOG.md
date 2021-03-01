@@ -1,3 +1,12 @@
+## [16.15.27](https://github.com/phandcock/GrampsView/compare/v16.15.26...v16.15.27) (2021-03-01)
+
+
+### Bug Fixes
+
+* add URL card to Note Link types ([7569955](https://github.com/phandcock/GrampsView/commit/7569955d87fa2885be5cd18c0a57c90110469800))
+
+
+
 ## [16.15.26](https://github.com/phandcock/GrampsView/compare/v16.15.25...v16.15.26) (2021-02-28)
 
 
@@ -33,16 +42,6 @@
 ### Bug Fixes
 
 * start rework glyph setting to surface images ([e1a1da9](https://github.com/phandcock/GrampsView/commit/e1a1da90c7591cd5f8f4869256225a777e163be5))
-
-
-
-## [16.15.22](https://github.com/phandcock/GrampsView/compare/v16.15.21...v16.15.22) (2021-02-23)
-
-
-### Bug Fixes
-
-* more glyph loading cleanup ([3d92a39](https://github.com/phandcock/GrampsView/commit/3d92a39ce5319d056d6ce728e00a06f84215b2f9))
-* **HLinks:** further work on itemGlyph defaults for HLinks ([e12ab82](https://github.com/phandcock/GrampsView/commit/e12ab821a494f31d26dc3e0b07402d2d587d43f4))
 
 
 
