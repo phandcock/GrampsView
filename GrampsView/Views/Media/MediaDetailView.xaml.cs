@@ -37,7 +37,7 @@
         private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
             Frame theFrame = sender as Frame;
-            MediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
+            IMediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
 
             OpenFileRequest t = new OpenFileRequest(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));
             Launcher.OpenAsync(t);

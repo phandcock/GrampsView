@@ -9,7 +9,7 @@
     using System;
 
     /// <summary>
-    /// Defines the EVent Detail Page View ViewModel.
+    /// Media Detail ViewModel
     /// </summary>
     public class MediaDetailViewModel : ViewModelBase
     {
@@ -18,21 +18,18 @@
         /// <summary>
         /// The local media object.
         /// </summary>
-        private MediaModel _MediaObject;
+        private IMediaModel _CurrentMediaObject;
 
-        private ItemGlyph _MediaObjectItemGlyph = new ItemGlyph();
+        private IHLinkMediaModel _MediaCard = new HLinkMediaModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
-        /// The common logging.
+        /// Common logger.
         /// </param>
         /// <param name="iocEventAggregator">
         /// The event aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
-        /// The navigation service.
         /// </param>
         public MediaDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
@@ -59,34 +56,34 @@
         /// <value>
         /// The current media object.
         /// </value>
-        public MediaModel CurrentMediaObject
+        public IMediaModel CurrentMediaObject
         {
             get
             {
-                return _MediaObject;
+                return _CurrentMediaObject;
             }
 
             set
             {
-                SetProperty(ref _MediaObject, value);
+                SetProperty(ref _CurrentMediaObject, value);
             }
         }
 
-        public ItemGlyph MediaObjectItemGlyph
+        public IHLinkMediaModel MediaCard
         {
             get
             {
-                return _MediaObjectItemGlyph;
+                return _MediaCard;
             }
 
             set
             {
-                SetProperty(ref _MediaObjectItemGlyph, value);
+                SetProperty(ref _MediaCard, value);
             }
         }
 
         /// <summary>
-        /// Handles navigation in wards and sets up the event model parameter.
+        /// Handles navigation inwards and gets the media model parameter.
         /// </summary>
         /// <returns>
         /// </returns>
@@ -98,14 +95,14 @@
 
             if (!(CurrentHLinkMedia is null))
             {
-                CurrentMediaObject = DV.MediaDV.GetModelFromHLink(CurrentHLinkMedia);
+                CurrentMediaObject = CurrentHLinkMedia.DeRef;
 
                 if (!(CurrentMediaObject is null))
                 {
                     BaseTitle = CurrentMediaObject.GetDefaultText;
                     BaseTitleIcon = CommonConstants.IconMedia;
 
-                    MediaObjectItemGlyph = CurrentMediaObject.ModelItemGlyph;
+                    MediaCard = CurrentMediaObject.ModelItemGlyph.HLinkMedia;
 
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Media Detail")
@@ -121,7 +118,8 @@
                     BaseDetail.Add(CurrentMediaObject.GDateValue.AsCardListLine());
 
                     // Add standard details
-                    BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
+                    MediaModel t = CurrentMediaObject as MediaModel;
+                    BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(t));
                 }
 
                 BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");

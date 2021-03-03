@@ -32,11 +32,13 @@
     <Compile Remove="Events\ProgressRingUpdate.cs" />
     <Compile Remove="Events\StatusUpdated.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
+    <Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
     <Compile Remove="UserControls\PersonNameCardSmall.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
+    <EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
     <EmbeddedResource Remove="UserControls\PersonNameCardSmall.xaml" />
   </ItemGroup>
 
@@ -97,9 +99,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\ModelVisualDisplay.xaml.cs">
-      <DependentUpon>ModelVisualDisplay.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
