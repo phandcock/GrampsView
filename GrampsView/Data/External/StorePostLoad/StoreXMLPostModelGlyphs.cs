@@ -5,11 +5,14 @@
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Threading.Tasks;
 
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
+        private List<MediaModel> addLater = new List<MediaModel>();
+
         public async static Task SetAddressImages()
         {
         }
@@ -143,73 +146,6 @@
         {
         }
 
-        public static void SetMediaImages()
-        {
-            foreach (MediaModel argModel in DataStore.Instance.DS.MediaData.Values)
-            {
-                Contract.Requires(argModel != null);
-
-                if (argModel.Id == "O0334")
-                {
-                }
-
-                // Setup HomeImage
-                argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLink.HLinkKey;
-
-                switch (argModel.FileMimeType)
-                {
-                    case "application":
-                        {
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-
-                            switch (argModel.FileMimeSubType)
-                            {
-                                case "pdf":
-                                    {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
-                                        break;
-                                    }
-
-                                case "x-zip-compressed":
-                                    {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                        break;
-                                    }
-
-                                case "zip":
-                                    {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                        break;
-                                    }
-                            }
-
-                            break;
-                        }
-
-                    case "audio":
-                        {
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
-                            break;
-                        }
-
-                    case "image":
-                        {
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
-                            break;
-                        }
-
-                    case "video":
-                        {
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
-                            break;
-                        }
-                }
-            }
-        }
-
         public async static Task SetNameMapImages()
         {
         }
@@ -229,7 +165,7 @@
         {
             foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
             {
-                if (argModel.Id == "I0693")
+                if (argModel.Id == "I0704")
                 {
                 }
 
@@ -249,6 +185,13 @@
 
                 // Check Citation for Images
                 t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+                if (!hlink.ValidImage & t.ValidImage)
+                {
+                    hlink = t;
+                }
+
+                // Check Events for Images
+                t = argModel.GEventRefCollection.FirstHLinkHomeImage;
                 if (!hlink.ValidImage & t.ValidImage)
                 {
                     hlink = t;
@@ -318,6 +261,109 @@
             //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
             //{
             //}
+        }
+
+        public async Task<ItemGlyph> GetThumbImageFromPDF(MediaModel argMediaModel)
+        {
+            ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
+
+            returnItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
+
+            // check if we can get an image for the first page of the PDF
+            MediaModel pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel);
+
+            if (pdfimage.Valid)
+            {
+                addLater.Add(pdfimage);
+
+                returnItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                returnItemGlyph.HLinkMediHLink = pdfimage.HLinkKey;
+            }
+            else
+            {
+                returnItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                returnItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
+            }
+
+            return returnItemGlyph;
+        }
+
+        public async Task<bool> SetMediaImages()
+        {
+            // Save new mediaModels for later as we can not modify a list in the middle of a foreach loop
+            addLater = new List<MediaModel>();
+
+            foreach (MediaModel argModel in DataStore.Instance.DS.MediaData.Values)
+            {
+                Contract.Requires(argModel != null);
+
+                if (argModel.Id == "O0592")
+                {
+                }
+
+                // Setup HomeImage
+                argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLink.HLinkKey;
+
+                switch (argModel.FileMimeType)
+                {
+                    case "application":
+                        {
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+
+                            switch (argModel.FileMimeSubType)
+                            {
+                                case "pdf":
+                                    {
+                                        argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
+                                        break;
+                                    }
+
+                                case "x-zip-compressed":
+                                    {
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        break;
+                                    }
+
+                                case "zip":
+                                    {
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        break;
+                                    }
+                            }
+
+                            break;
+                        }
+
+                    case "audio":
+                        {
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileAudio;
+                            break;
+                        }
+
+                    case "image":
+                        {
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                            argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLinkKey;
+                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
+                            break;
+                        }
+
+                    case "video":
+                        {
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
+                            break;
+                        }
+                }
+            }
+
+            foreach (MediaModel item in addLater)
+            {
+                DataStore.Instance.DS.MediaData.Add(item);
+            }
+
+            return true;
         }
     }
 }

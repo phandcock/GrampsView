@@ -20,10 +20,7 @@
         /// </summary>
         private MediaModel _MediaObject;
 
-        private string _MediaPath;
-
-        private bool _ShowImageElement = false;
-        private bool _ShowMediaElement = false;
+        private ItemGlyph _MediaObjectItemGlyph = new ItemGlyph();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
@@ -75,43 +72,16 @@
             }
         }
 
-        public string MediaPath
+        public ItemGlyph MediaObjectItemGlyph
         {
             get
             {
-                return _MediaPath;
+                return _MediaObjectItemGlyph;
             }
 
             set
             {
-                SetProperty(ref _MediaPath, value);
-            }
-        }
-
-        public bool ShowImageElement
-        {
-            get
-            {
-                return _ShowImageElement;
-            }
-
-            set
-            {
-                SetProperty(ref _ShowImageElement, value);
-            }
-        }
-
-        public bool ShowMediaElement
-        {
-            get
-            {
-                return _ShowMediaElement;
-            }
-
-            set
-            {
-                SetProperty(ref _ShowMediaElement, value);
-                MediaPath = CurrentMediaObject.MediaStorageFilePath;
+                SetProperty(ref _MediaObjectItemGlyph, value);
             }
         }
 
@@ -130,13 +100,12 @@
             {
                 CurrentMediaObject = DV.MediaDV.GetModelFromHLink(CurrentHLinkMedia);
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
-
                 if (!(CurrentMediaObject is null))
                 {
                     BaseTitle = CurrentMediaObject.GetDefaultText;
                     BaseTitleIcon = CommonConstants.IconMedia;
+
+                    MediaObjectItemGlyph = CurrentMediaObject.ModelItemGlyph;
 
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Media Detail")
@@ -153,18 +122,6 @@
 
                     // Add standard details
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(CurrentMediaObject));
-                }
-
-                // Show MediaElement
-                if ((CurrentMediaObject.FileMimeType == "video") || (CurrentMediaObject.FileMimeType == "audio"))
-                {
-                    ShowMediaElement = true;
-                    ShowImageElement = false;
-                }
-                else
-                {
-                    ShowMediaElement = false;
-                    ShowImageElement = true;
                 }
 
                 BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");

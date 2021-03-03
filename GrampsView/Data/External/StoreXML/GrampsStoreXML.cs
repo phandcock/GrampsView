@@ -44,32 +44,6 @@
         }
 
         /// <summary>
-        /// Sets the private object.
-        /// </summary>
-        /// <param name="thePriv">
-        /// The priv.
-        /// </param>
-        /// <returns>
-        /// True or False depending on if the object is private.
-        /// </returns>
-        public static bool SetPrivateObject(string thePriv)
-        {
-            switch (thePriv)
-            {
-                case "1":
-                    {
-                        return true;
-                    }
-
-                case "0":
-                default:
-                    {
-                        return false;
-                    }
-            }
-        }
-
-        /// <summary>
         /// Loads the Gramps XML data.
         /// </summary>
         /// <param name="dataFolder">
@@ -140,7 +114,7 @@
         }
 
         /// <summary>
-        /// Loads the repositories asynchronous.
+        /// Load the repositories .
         /// </summary>
         /// <returns>
         /// true or false if the routine is successful.

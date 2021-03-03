@@ -79,6 +79,8 @@ namespace GrampsView.Data.Model
 
             set
             {
+                // TODO Gramps does not set the correct mimetype sometimes so need a better way of
+                // handling it. Maybe FileInfo COntent Type
                 if (value != null)
                 {
                     if (value != "image/jpeg")

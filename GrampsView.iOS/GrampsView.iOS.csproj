@@ -117,6 +117,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Common\Localize.cs" />
+    <Compile Include="Common\PlatformSpecificThumbNail.cs" />
     <Compile Include="Common\PlatformSpecific.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

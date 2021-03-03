@@ -1,16 +1,11 @@
 ﻿namespace GrampsView.Droid.Common
 {
-    using Android.Media;
-
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
-    using System.IO;
     using System.Threading.Tasks;
 
-    using Stream = System.IO.Stream;
-
-    internal class PlatformSpecific : IPlatformSpecific
+    internal partial class PlatformSpecific : IPlatformSpecific
     {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
@@ -26,21 +21,6 @@
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             // No Timeline functionality so ignore this
-        }
-
-        public async Task<Stream> GenerateThumbImageFromVideo(MediaModel argFile, long millisecond)
-        {
-            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-            retriever.SetDataSource(argFile.MediaStorageFilePath);
-            Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(millisecond);
-
-            if (bitmap != null)
-            {
-                MemoryStream stream = new MemoryStream();
-                bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 80, stream);
-                return stream;
-            }
-            return null;
         }
     }
 }

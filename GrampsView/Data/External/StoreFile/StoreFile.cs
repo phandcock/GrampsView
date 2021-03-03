@@ -35,6 +35,10 @@
         /// </returns>
         public async static Task<FileInfoEx> GetStorageFileAsync(string relativeFilePath)
         {
+            if (relativeFilePath == "handcocks\\cemetaries\\Grave - Ethel handcock.jpg")
+            {
+            }
+
             FileInfoEx resultFile = new FileInfoEx();
 
             // Validate the input
@@ -64,6 +68,7 @@
                             resultFile.FInfo = t[0];
                         }
                     }
+
                     return resultFile;
                 }
                 catch (FileNotFoundException ex)

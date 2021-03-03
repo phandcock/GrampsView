@@ -31,23 +31,6 @@
             get; set;
         }
 
-        private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
-        {
-            ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
-            {
-                { "Error is ", e.Exception.Message }
-            };
-
-            DataStore.Instance.CN.NotifyError(t);
-
-            (sender as FFImageLoading.Forms.CachedImage).Cancel();
-            (sender as FFImageLoading.Forms.CachedImage).Source = null;
-        }
-
-        private void DaImage_Finish(object sender, FFImageLoading.Forms.CachedImageEvents.FinishEventArgs e)
-        {
-        }
-
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
             try
@@ -79,6 +62,22 @@
             }
         }
 
+        private void NewMediaControl_Error(object sender, CachedImageEvents.ErrorEventArgs e)
+        {
+            ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
+            {
+                {
+                    "Error is ", e.Exception.Message},
+            };
+
+            t.Add("File", (sender as CachedImage).Source.ToString());
+
+            DataStore.Instance.CN.NotifyError(t);
+
+            (sender as CachedImage).Cancel();
+            (sender as CachedImage).Source = null;
+        }
+
         private void ShowImage(IMediaModel argMediaModel)
         {
             try
@@ -102,15 +101,19 @@
                     BackgroundColor = Color.Transparent,
                     CacheType = FFImageLoading.Cache.CacheType.All,
                     DownsampleToViewSize = true,
-                    //Error = "DaImage_Error",
-                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+
+                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static
+                    // common:CardSizes.Current}, Mode=OneWay}"
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     IsVisible = true,
+                    ErrorPlaceholder = "ic_launcher.png",
                     LoadingPlaceholder = "ic_launcher.png",
                     RetryCount = 3,
                     RetryDelay = 1000,
                     VerticalOptions = LayoutOptions.FillAndExpand,
                 };
+
+                newMediaControl.Error += NewMediaControl_Error;
 
                 this.HLinkVisualDisplayRoot.Children.Clear();
                 this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);

@@ -73,25 +73,6 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
 
-        //public override ItemGlyph HLinkGlyphItem
-        //{
-        //    get
-        //    {
-        //        return base.HLinkGlyphItem;
-        //    }
-
-        //    set
-        //    {
-        //        if (base.HLinkGlyphItem.HLinkMedia.HLinkKey == value.HLinkMedia.HLinkKey)
-        //        {
-        //        }
-        //        else
-        //        {
-        //            base.HLinkGlyphItem = value;
-        //        }
-        //    }
-        //}
-
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
         /// type="note">Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid

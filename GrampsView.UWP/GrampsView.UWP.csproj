@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="Common\CommonTileUpdate.cs" />
     <Compile Include="Common\CommonTimeline.cs" />
+    <Compile Include="Common\PlatformSpecificThumbNail.cs" />
     <Compile Include="Common\PlatformSpecific.cs" />
     <Compile Include="Common\XamDepends.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -175,6 +176,7 @@
     <Content Include="Assets\Icons\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="ic_launcher.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

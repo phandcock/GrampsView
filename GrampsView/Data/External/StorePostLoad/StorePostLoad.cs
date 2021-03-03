@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.ExternalStorageNS
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
@@ -21,6 +22,8 @@
         /// </summary>
         private readonly IEventAggregator _EventAggregator;
 
+        private readonly IPlatformSpecific _iocPlatformSpecific;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
         /// </summary>
@@ -30,10 +33,11 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public StorePostLoad(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;
+            _iocPlatformSpecific = iocPlatformSpecific;
 
             _EventAggregator.GetEvent<DataLoadXMLEvent>().Subscribe(LoadXMLUIItems, ThreadOption.UIThread);
         }

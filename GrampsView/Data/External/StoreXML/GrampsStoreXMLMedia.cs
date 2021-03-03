@@ -17,11 +17,8 @@
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
         /// <summary>
-        /// load media objects from external storage.
+        /// Load media objects from external storage.
         /// </summary>
-        /// <param name="mediaRepository">
-        /// The media repository.
-        /// </param>
         /// <returns>
         /// Flag showing of loaded successfully.
         /// </returns>
@@ -33,10 +30,6 @@
             {
                 // start file load
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
-
-                //// Get colour
-                //Application.Current.Resources.TryGetValue("CardBackGroundMedia", out var varCardColour);
-                //Color cardColour = (Color)varCardColour;
 
                 // Load notes Run query
                 var de =
@@ -86,7 +79,7 @@
                         IMediaModel loadObject = new MediaModel();
                         loadObject.LoadBasics(GetBasics(pname));
 
-                        if (loadObject.Id == "O0521")
+                        if (loadObject.Id == "O0592")
                         {
                         }
 
@@ -121,6 +114,8 @@
 
                                     loadObject.MetaDataHeight = imageSize.Height;
                                     loadObject.MetaDataWidth = imageSize.Width;
+
+                                    // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
                                 }
                                 catch (Exception ex)
                                 {

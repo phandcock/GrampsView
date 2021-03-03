@@ -2,12 +2,12 @@
 <views:ViewBase
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodelss="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -36,10 +36,8 @@
                 <StackLayout>
                     <ucon:ModelVisualDisplay
                         x:Name="daImage"
-                        BindingContext="{Binding CurrentHLinkMedia.DeRef, Mode=OneWay}"
+                        BindingContext="{Binding MediaObjectItemGlyph, Mode=OneWay}"
                         HorizontalOptions="FillAndExpand"
-                        IsEnabled="{Binding ShowImageElement, Mode=OneWay}"
-                        IsVisible="{Binding ShowImageElement, Mode=OneWay}"
                         VerticalOptions="FillAndExpand" />
 
                     <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />

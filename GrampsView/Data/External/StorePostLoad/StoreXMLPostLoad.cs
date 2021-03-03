@@ -131,6 +131,8 @@
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
+                theFamilyModel.GEventRefCollection.SetGlyph();
+
                 // Back Reference Event HLinks
                 foreach (HLinkEventModel eventRef in theFamilyModel.GEventRefCollection)
                 {
@@ -140,11 +142,15 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
+                if (thePersonModel.Id == "I0704")
+                {
+                }
+
+                thePersonModel.GEventRefCollection.SetGlyph();
+
                 // Event Collection
                 foreach (HLinkEventModel eventRef in thePersonModel.GEventRefCollection)
                 {
-                    eventRef.HLinkGlyphItem = DV.EventDV.GetGlyph(eventRef.HLinkKey);
-
                     DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
@@ -200,102 +206,6 @@
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
             await SetHeaderImages().ConfigureAwait(false);
-
-            return true;
-        }
-
-        /// <summary>
-        /// Organises the media repository.
-        /// </summary>
-        private static async Task<bool> OrganiseMediaRepository()
-        {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
-
-            SetMediaImages();
-
-            try
-            {
-                foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
-                {
-                    theCitationModel.GMediaRefCollection.SetGlyph();
-
-                    // Media Collection - Create backlinks in media models to citation models
-                    foreach (HLinkMediaModel mediaRef in theCitationModel.GMediaRefCollection)
-                    {
-                        mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
-
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
-                    }
-                }
-
-                foreach (EventModel theEventModel in DV.EventDV.DataViewData)
-                {
-                    theEventModel.GMediaRefCollection.SetGlyph();
-
-                    // Media Collection
-                    foreach (HLinkMediaModel mediaRef in theEventModel.GMediaRefCollection)
-                    {
-                        mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
-
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
-                    }
-                }
-
-                foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
-                {
-                    theFamilyModel.GMediaRefCollection.SetGlyph();
-
-                    // Media Collection
-                    foreach (HLinkMediaModel mediaRef in theFamilyModel.GMediaRefCollection)
-                    {
-                        mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
-
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
-                    }
-                }
-
-                foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
-                {
-                    thePersonModel.GMediaRefCollection.SetGlyph();
-
-                    foreach (HLinkMediaModel mediaRef in thePersonModel.GMediaRefCollection)
-                    {
-                        mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
-
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
-                    }
-                }
-
-                foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
-                {
-                    thePlaceModel.GMediaRefCollection.SetGlyph();
-
-                    foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
-                    {
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
-                    }
-                }
-
-                foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
-                {
-                    if (theSourceModel.Id == "S0273")
-                    {
-                    }
-
-                    theSourceModel.GMediaRefCollection.SetGlyph();
-
-                    foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
-                    {
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
-
-                throw;
-            }
 
             return true;
         }
@@ -719,6 +629,106 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
                 }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Organises the media repository.
+        /// </summary>
+        private async Task<bool> OrganiseMediaRepository()
+        {
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+
+            await SetMediaImages();
+
+            try
+            {
+                foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
+                {
+                    theCitationModel.GMediaRefCollection.SetGlyph();
+
+                    // Media Collection - Create backlinks in media models to citation models
+                    foreach (HLinkMediaModel mediaRef in theCitationModel.GMediaRefCollection)
+                    {
+                        //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
+                    }
+                }
+
+                foreach (EventModel theEventModel in DV.EventDV.DataViewData)
+                {
+                    theEventModel.GMediaRefCollection.SetGlyph();
+
+                    // Media Collection
+                    foreach (HLinkMediaModel mediaRef in theEventModel.GMediaRefCollection)
+                    {
+                        //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                    }
+                }
+
+                foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
+                {
+                    theFamilyModel.GMediaRefCollection.SetGlyph();
+
+                    // Media Collection
+                    foreach (HLinkMediaModel mediaRef in theFamilyModel.GMediaRefCollection)
+                    {
+                        //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    }
+                }
+
+                foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
+                {
+                    if (thePersonModel.Id == "I0704")
+                    {
+                    }
+
+                    thePersonModel.GMediaRefCollection.SetGlyph();
+
+                    foreach (HLinkMediaModel mediaRef in thePersonModel.GMediaRefCollection)
+                    {
+                        //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
+
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    }
+                }
+
+                foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
+                {
+                    thePlaceModel.GMediaRefCollection.SetGlyph();
+
+                    foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
+                    {
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                    }
+                }
+
+                foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
+                {
+                    if (theSourceModel.Id == "S0273")
+                    {
+                    }
+
+                    theSourceModel.GMediaRefCollection.SetGlyph();
+
+                    foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
+                    {
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
+
+                throw;
             }
 
             return true;

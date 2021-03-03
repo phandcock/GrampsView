@@ -157,6 +157,32 @@
         }
 
         /// <summary>
+        /// Sets the private object.
+        /// </summary>
+        /// <param name="thePriv">
+        /// The priv.
+        /// </param>
+        /// <returns>
+        /// True or False depending on if the object is private.
+        /// </returns>
+        public static bool SetPrivateObject(string thePriv)
+        {
+            switch (thePriv)
+            {
+                case "1":
+                    {
+                        return true;
+                    }
+
+                case "0":
+                default:
+                    {
+                        return false;
+                    }
+            }
+        }
+
+        /// <summary>
         /// Gets the attribute.
         /// </summary>
         /// <param name="a">

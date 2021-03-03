@@ -10,16 +10,12 @@
     using Prism.Events;
 
     using System;
-    using System.IO;
     using System.Threading.Tasks;
-
-    using Windows.Storage;
-    using Windows.Storage.FileProperties;
 
     /// <summary>
     /// UWP Platform specific code
     /// </summary>
-    internal class PlatformSpecific : IPlatformSpecific
+    internal partial class PlatformSpecific : IPlatformSpecific
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformSpecific"/> class.
@@ -66,19 +62,6 @@
             {
                 DataStore.Instance.CN.NotifyException("Exception when trying to add FamilyDetailView to Windows Timneline", ex);
             }
-        }
-
-        public async Task<Stream> GenerateThumbImageFromVideo(MediaModel argFile, long millisecond)
-        {
-            StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(argFile.MediaStorageFilePath);
-            StorageFile videoFile = await storageFolder.GetFileAsync(argFile.MediaStorageFilePath);
-            StorageItemThumbnail thumbnail = await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem);
-
-            Stream stream = thumbnail.AsStream();
-            byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
-            stream.Position = 0;
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-            return new MemoryStream(bytes);
         }
 
         /// <summary>
