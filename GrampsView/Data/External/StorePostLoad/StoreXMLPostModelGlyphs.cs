@@ -297,12 +297,12 @@
             {
                 Contract.Requires(argModel != null);
 
-                if (argModel.Id == "O0592")
+                if (argModel.Id == "O0328")
                 {
                 }
 
                 // Setup HomeImage
-                argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLink.HLinkKey;
+                argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLinkKey;
 
                 switch (argModel.FileMimeType)
                 {
