@@ -20,14 +20,14 @@
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
-        private bool _CanHandleDataFolderChosen = true;
-
-        private bool _LocalCanHandleSample = true;
-
         /// <summary>
         /// The local data detail list.
         /// </summary>
-        private CardListLineCollection localDataDetailList = new CardListLineCollection();
+        private readonly CardListLineCollection _DataDetailList = new CardListLineCollection();
+
+        private bool _CanHandleDataFolderChosen = true;
+
+        private bool _LocalCanHandleSample = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
@@ -63,7 +63,7 @@
         {
             get
             {
-                return localDataDetailList;
+                return _DataDetailList;
             }
         }
 
@@ -128,7 +128,7 @@
                         "Not set"));
             }
 
-            RaisePropertyChanged(string.Empty);
+            // RaisePropertyChanged(string.Empty);
         }
 
         /// <summary>

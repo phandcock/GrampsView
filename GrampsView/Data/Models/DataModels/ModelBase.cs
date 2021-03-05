@@ -32,6 +32,7 @@
     [KnownType(typeof(HLinkRepositoryModel))]
     [KnownType(typeof(HLinkSourceModel))]
     [KnownType(typeof(HLinkTagModel))]
+    [KnownType(typeof(ItemGlyph))]
     public class ModelBase : CommonBindableBase, IModelBase
     {
         /// <summary>

@@ -8,7 +8,7 @@
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        public async Task<HLinkMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argFile)
+        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
             //MemoryStream stream = new MemoryStream();
             //// Create memory stream from file stream.
@@ -61,7 +61,7 @@
             ////Save the image. It is a custom method to save the image
             //Save("PDFtoImage.png", "image/png", imageStream);
 
-            return new HLinkMediaModel();
+            return new MediaModel();
         }
 
         public async Task<HLinkMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel filePath, long millisecond)

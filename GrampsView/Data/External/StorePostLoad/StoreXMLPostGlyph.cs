@@ -263,31 +263,6 @@
             //}
         }
 
-        public async Task<ItemGlyph> GetThumbImageFromPDF(MediaModel argMediaModel)
-        {
-            ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
-
-            returnItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
-
-            // check if we can get an image for the first page of the PDF
-            MediaModel pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel);
-
-            if (pdfimage.Valid)
-            {
-                addLater.Add(pdfimage);
-
-                returnItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                returnItemGlyph.HLinkMediHLink = pdfimage.HLinkKey;
-            }
-            else
-            {
-                returnItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-                returnItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
-            }
-
-            return returnItemGlyph;
-        }
-
         public async Task<bool> SetMediaImages()
         {
             // Save new mediaModels for later as we can not modify a list in the middle of a foreach loop

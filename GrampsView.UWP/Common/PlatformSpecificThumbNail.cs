@@ -2,8 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data;
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -21,100 +19,79 @@
     /// </summary>
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argFile)
+        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
             try
             {
                 StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
 
-                StorageFile file = await currentFolder.GetFileAsync(argFile.OriginalFilePath);
-
-                if (file.ContentType != "application/pdf")
-                {
-                    return new MediaModel();
-                }
-
-                if (file.ContentType != argFile.FileContentType)
-                {
-                }
-
-                MediaModel newMediaModel = new MediaModel();
+                StorageFile file = await currentFolder.GetFileAsync(argExistingMediaModel.OriginalFilePath);
 
                 // Load selected PDF file from the file picker.
                 PdfDocument pdfDocument = await PdfDocument.LoadFromFileAsync(file);
 
                 if (pdfDocument != null && pdfDocument.PageCount > 0)
                 {
-                    //  for (int pageIndex = 0; pageIndex < pdfDocument.PageCount; pageIndex++)
-                    //  {
-                    //Get page from a PDF file.
-                    var pdfPage = pdfDocument.GetPage((uint)0); //  pageIndex); ;
+                    // Get page from a PDF file.
+                    var pdfPage = pdfDocument.GetPage((uint)0);
 
                     if (pdfPage != null)
                     {
-                        string newHLinkKey = argFile.HLinkKey + "-pdfimage";
-                        string outFileName = Path.Combine("pdfimage", newHLinkKey + ".jpg");
+                        // Create image file.
+                        StorageFile destinationFile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
 
-                        string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
-
-                        // Check if already exists
-                        IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newHLinkKey);
-
-                        if ((!fileExists.Valid) && (argFile.IsMediaStorageFileValid))
+                        if (destinationFile != null)
                         {
-                            //Create image file.
-                            StorageFile destinationFile = await currentFolder.CreateFileAsync(outFileName);
+                            IRandomAccessStream randomStream = await destinationFile.OpenAsync(FileAccessMode.ReadWrite);
 
-                            if (destinationFile != null)
+                            //Crerate PDF rendering options
+                            PdfPageRenderOptions pdfPageRenderOptions = new PdfPageRenderOptions
                             {
-                                IRandomAccessStream randomStream = await destinationFile.OpenAsync(FileAccessMode.ReadWrite);
+                                DestinationWidth = (uint)(300)
+                            };
 
-                                //Crerate PDF rendering options
-                                PdfPageRenderOptions pdfPageRenderOptions = new PdfPageRenderOptions
-                                {
-                                    DestinationWidth = (uint)(300)
-                                };
+                            // Render the PDF's page as stream.
+                            await pdfPage.RenderToStreamAsync(randomStream, pdfPageRenderOptions);
 
-                                // Render the PDF's page as stream.
-                                await pdfPage.RenderToStreamAsync(randomStream, pdfPageRenderOptions);
+                            await randomStream.FlushAsync();
 
-                                await randomStream.FlushAsync();
+                            //Dispose the random stream
+                            randomStream.Dispose();
 
-                                //Dispose the random stream
-                                randomStream.Dispose();
-
-                                //Dispose the PDF's page.
-                                pdfPage.Dispose();
-                            }
-
-                            // ------------ Save new MediaObject
-                            newMediaModel = argFile.Copy();
-                            newMediaModel.HLinkKey = newHLinkKey;
-
-                            newMediaModel.OriginalFilePath = outFileName;
-                            newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
-                            newMediaModel.IsClippedFile = true; // Do not show in media list as it is internal
+                            //Dispose the PDF's page.
+                            pdfPage.Dispose();
                         }
-                        else
-                        {
-                            ErrorInfo t = new ErrorInfo("File not found when trying to create image form PDF file")
-                                 {
-                                     { "Original ID", argFile.Id },
-                                     { "Original File", argFile.MediaStorageFilePath },
-                                     { "Clipped Id", argFile.DeRef.Id }
-                                 };
-
-                            DataStore.Instance.CN.NotifyError(t);
-                        }
-                        // }
                     }
                 }
 
-                return newMediaModel;
+                return argNewMediaModel;
             }
-            catch (Exception ex)
+            catch (System.IO.DirectoryNotFoundException ex)
             {
-                throw;
+                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                                 {
+                                     { "Original ID", argExistingMediaModel.Id },
+                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Clipped Id", argExistingMediaModel.DeRef.Id },
+                                     { "New path", "pdfimage" }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+
+                return new MediaModel();
+            }
+            catch (System.Exception ex)
+            {
+                ErrorInfo t = new ErrorInfo("Exception when trying to create image form PDF file")
+                                 {
+                                     { "Original ID", argExistingMediaModel.Id },
+                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Clipped Id", argExistingMediaModel.DeRef.Id }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+
+                return new MediaModel();
             }
         }
 
