@@ -55,7 +55,6 @@
 
             await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
-                await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
                 {
                     // Called in order of media linkages from Media outwards
 

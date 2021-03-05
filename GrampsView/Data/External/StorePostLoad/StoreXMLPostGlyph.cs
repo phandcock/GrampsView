@@ -67,6 +67,10 @@
         {
             foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
             {
+                if (argModel.Id == "E0203")
+                {
+                }
+
                 if (argModel is null)
                 {
                     throw new ArgumentNullException(nameof(argModel));
@@ -208,17 +212,14 @@
             }
         }
 
-        // //await SetAddressImages().ConfigureAwait(false);
         public async static Task SetPersonNameImages()
         {
         }
 
-        // //await SetTagImages().ConfigureAwait(false);
         public async static Task SetPlaceImages()
         {
         }
 
-        // //await SetRepositoryImages().ConfigureAwait(false);
         public async static Task SetRepositoryImages()
         {
         }
@@ -289,6 +290,7 @@
                             {
                                 case "pdf":
                                     {
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
                                     }
@@ -296,12 +298,14 @@
                                 case "x-zip-compressed":
                                     {
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
                                         break;
                                     }
 
                                 case "zip":
                                     {
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
                                         break;
                                     }
                             }

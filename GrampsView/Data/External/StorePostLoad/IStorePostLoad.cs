@@ -1,5 +1,7 @@
 namespace GrampsView.Data.ExternalStorageNS
 {
+    using GrampsView.Data.Model;
+
     using System.Threading.Tasks;
 
     /// <summary>
@@ -7,11 +9,8 @@ namespace GrampsView.Data.ExternalStorageNS
     /// </summary>
     public interface IStorePostLoad
     {
-        /// <summary>
-        /// Loads the serial UI items.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        Task<ItemGlyph> GetThumbImageFromZip(MediaModel argMediaModel);
+
         Task LoadSerialUiItems();
     }
 }

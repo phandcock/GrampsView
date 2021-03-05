@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// Organises the citation repository.
+        /// Organises the Citation Repository.
         /// </summary>
         private static async Task<bool> OrganiseCitationRepository()
         {
@@ -47,6 +47,10 @@
 
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
+                if (theEventModel.Id == "E0203")
+                {
+                }
+
                 theEventModel.GCitationRefCollection.SetGlyph();
 
                 // tagref Citation Collection

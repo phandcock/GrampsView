@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.Core;
@@ -9,6 +10,7 @@
 
     using System;
     using System.IO;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -52,7 +54,7 @@
         }
 
         /// <summary>
-        /// Extracts the zip file.
+        /// Extracts the first image from a zip file.
         /// </summary>
         /// <param name="archiveFilenameIn">
         /// The archive filename in.
@@ -60,12 +62,12 @@
         /// <param name="outFolder">
         /// The out folder.
         /// </param>
-        public static void ExtractZipFile(string archiveFilenameIn, string outFolder)
+        public static async Task<MediaModel> ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
             ZipFile zf = null;
             try
             {
-                FileStream fs = File.OpenRead(archiveFilenameIn);
+                FileStream fs = File.OpenRead(argExistingMediaModel.MediaStorageFilePath);
                 zf = new ZipFile(fs);
 
                 foreach (ZipEntry zipEntry in zf)
@@ -77,31 +79,60 @@
 
                     string entryFileName = zipEntry.Name;
 
-                    // to remove the folder from the entry:- entryFileName =
-                    // Path.GetFileName(entryFileName); Optionally match entrynames against a
-                    // selection list here to skip as desired. The unpacked length is available in
-                    // the zipEntry.Size property.
-                    byte[] buffer = new byte[4096];     // 4K is optimum
-                    Stream zipStream = zf.GetInputStream(zipEntry);
-
-                    // Manipulate the output filename here as desired.
-                    string fullZipToPath = Path.Combine(outFolder, entryFileName);
-                    string directoryName = Path.GetDirectoryName(fullZipToPath);
-                    if (directoryName.Length > 0)
+                    // check for image TODO do proper mimetype mapping. See https://github.com/samuelneff/MimeTypeMap
+                    if (Path.GetExtension(zipEntry.Name) != ".jpg")
                     {
-                        Directory.CreateDirectory(directoryName);
+                        continue;
                     }
-
-                    // Unzip file in buffered chunks. This is just as fast as unpacking to a buffer
-                    // the full size of the file, but does not waste memory. The "using" will close
-                    // the stream even if an exception occurs.
-                    using (FileStream streamWriter = File.Create(fullZipToPath))
+                    else
                     {
-                        StreamUtils.Copy(zipStream, streamWriter, buffer);
+                        byte[] buffer = new byte[4096];     // 4K is optimum
+                        Stream zipStream = zf.GetInputStream(zipEntry);
+
+                        // Unzip file in buffered chunks. This is just as fast as unpacking to a
+                        // buffer the full size of the file, but does not waste memory. The "using"
+                        // will close the stream even if an exception occurs.
+                        using (FileStream streamWriter = File.Create(System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath)))
+                        {
+                            StreamUtils.Copy(zipStream, streamWriter, buffer);
+                        }
+
+                        // exit early
+                        return argNewMediaModel;
                     }
                 }
 
                 fs.Close();
+
+                // Exit
+                return new MediaModel();
+            }
+            catch (System.IO.DirectoryNotFoundException ex)
+            {
+                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                                 {
+                                     { "Original ID", argExistingMediaModel.Id },
+                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Clipped Id", argExistingMediaModel.DeRef.Id },
+                                     { "New path", "pdfimage" }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+
+                return new MediaModel();
+            }
+            catch (System.Exception ex)
+            {
+                ErrorInfo t = new ErrorInfo("Exception when trying to create image form PDF file")
+                                 {
+                                     { "Original ID", argExistingMediaModel.Id },
+                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Clipped Id", argExistingMediaModel.DeRef.Id }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+
+                return new MediaModel();
             }
             finally
             {
@@ -112,5 +143,54 @@
                 }
             }
         }
+
+        ///// <summary>
+        ///// Extracts the zip file.
+        ///// </summary>
+        ///// <param name="archiveFilenameIn">
+        ///// The archive filename in.
+        ///// </param>
+        ///// <param name="outFolder">
+        ///// The out folder.
+        ///// </param>
+        //public static void ExtractZipFile(string archiveFilenameIn, string outFolder)
+        //{
+        //    ZipFile zf = null;
+        //    try
+        //    {
+        //        FileStream fs = File.OpenRead(archiveFilenameIn);
+        //        zf = new ZipFile(fs);
+
+        // foreach (ZipEntry zipEntry in zf) { if (!zipEntry.IsFile) { continue; // Ignore
+        // directories }
+
+        // string entryFileName = zipEntry.Name;
+
+        // // to remove the folder from the entry:- entryFileName = //
+        // Path.GetFileName(entryFileName); Optionally match entrynames against a // selection list
+        // here to skip as desired. The unpacked length is available in // the zipEntry.Size
+        // property. byte[] buffer = new byte[4096]; // 4K is optimum Stream zipStream = zf.GetInputStream(zipEntry);
+
+        // // Manipulate the output filename here as desired. string fullZipToPath =
+        // Path.Combine(outFolder, entryFileName); string directoryName =
+        // Path.GetDirectoryName(fullZipToPath); if (directoryName.Length > 0) {
+        // Directory.CreateDirectory(directoryName); }
+
+        // // Unzip file in buffered chunks. This is just as fast as unpacking to a buffer // the
+        // full size of the file, but does not waste memory. The "using" will close // the stream
+        // even if an exception occurs. using (FileStream streamWriter = File.Create(fullZipToPath))
+        // { StreamUtils.Copy(zipStream, streamWriter, buffer); } }
+
+        //        fs.Close();
+        //    }
+        //    finally
+        //    {
+        //        if (zf != null)
+        //        {
+        //            zf.IsStreamOwner = true; // Makes close also shut the underlying stream
+        //            zf.Close(); // Ensure we release resources
+        //        }
+        //    }
+        //}
     }
 }
