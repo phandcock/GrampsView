@@ -1,3 +1,13 @@
+## [16.15.29](https://github.com/phandcock/GrampsView/compare/v16.15.28...v16.15.29) (2021-03-05)
+
+
+### Bug Fixes
+
+* add zip file first image unzip ([a2a3dad](https://github.com/phandcock/GrampsView/commit/a2a3dad8677ff7d54d56a2073486537718b803c4))
+* refactor pdf glyph code and fix xml load goto hub ([64f5395](https://github.com/phandcock/GrampsView/commit/64f5395ca39129216560a39fac4a757538ebe413))
+
+
+
 ## [16.15.28](https://github.com/phandcock/GrampsView/compare/v16.15.27...v16.15.28) (2021-03-05)
 
 
@@ -34,16 +44,6 @@
 
 * make random media call more random ([61c692f](https://github.com/phandcock/GrampsView/commit/61c692fc0d7a3213a941cce12d5a369dd24a643b))
 * more glyph cleanup ([4bd6ab1](https://github.com/phandcock/GrampsView/commit/4bd6ab1b49cd151f3c346c5adcc01a16c96b65ea))
-
-
-
-## [16.15.24](https://github.com/phandcock/GrampsView/compare/v16.15.23...v16.15.24) (2021-02-27)
-
-
-### Bug Fixes
-
-* cleanup glyph setting ([59b8a5a](https://github.com/phandcock/GrampsView/commit/59b8a5a3f804185546b5fc8c3ab70d95623be6da))
-* use clipped images for citations ([9eccf32](https://github.com/phandcock/GrampsView/commit/9eccf32d0abcbcf42caacf5e1b83af14b481d2e7))
 
 
 
