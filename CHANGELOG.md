@@ -1,3 +1,14 @@
+## [16.15.28](https://github.com/phandcock/GrampsView/compare/v16.15.27...v16.15.28) (2021-03-05)
+
+
+### Bug Fixes
+
+* add pdf to image to Android ([3503c60](https://github.com/phandcock/GrampsView/commit/3503c6023e9dd1a4565f7eded3c5991fe95b420c))
+* cleanup mediadetailview mediacard display ([a61b5ce](https://github.com/phandcock/GrampsView/commit/a61b5ce5e4d8887f87f4182cfc751fe8bef8208b))
+* handle bad file details ([90a2db1](https://github.com/phandcock/GrampsView/commit/90a2db1757fd1b225699ede39b34301fcd2673d6))
+
+
+
 ## [16.15.27](https://github.com/phandcock/GrampsView/compare/v16.15.26...v16.15.27) (2021-03-01)
 
 
@@ -33,15 +44,6 @@
 
 * cleanup glyph setting ([59b8a5a](https://github.com/phandcock/GrampsView/commit/59b8a5a3f804185546b5fc8c3ab70d95623be6da))
 * use clipped images for citations ([9eccf32](https://github.com/phandcock/GrampsView/commit/9eccf32d0abcbcf42caacf5e1b83af14b481d2e7))
-
-
-
-## [16.15.23](https://github.com/phandcock/GrampsView/compare/v16.15.22...v16.15.23) (2021-02-26)
-
-
-### Bug Fixes
-
-* start rework glyph setting to surface images ([e1a1da9](https://github.com/phandcock/GrampsView/commit/e1a1da90c7591cd5f8f4869256225a777e163be5))
 
 
 
