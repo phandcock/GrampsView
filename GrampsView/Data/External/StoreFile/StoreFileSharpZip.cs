@@ -80,12 +80,16 @@
                     string entryFileName = zipEntry.Name;
 
                     // check for image TODO do proper mimetype mapping. See https://github.com/samuelneff/MimeTypeMap
-                    if (Path.GetExtension(zipEntry.Name) != ".jpg")
+                    if (CommonRoutines.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
                     {
                         continue;
                     }
                     else
                     {
+                        // set extension
+                        argNewMediaModel.OriginalFilePath = Path.ChangeExtension(argNewMediaModel.OriginalFilePath, Path.GetExtension(zipEntry.Name));
+
+                        // Unzip the file
                         byte[] buffer = new byte[4096];     // 4K is optimum
                         Stream zipStream = zf.GetInputStream(zipEntry);
 

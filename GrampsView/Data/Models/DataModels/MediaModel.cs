@@ -83,24 +83,11 @@ namespace GrampsView.Data.Model
                 // handling it. Maybe FileInfo COntent Type
                 if (value != null)
                 {
-                    if (value != "image/jpeg")
-                    {
-                    }
-
                     SetProperty(ref _FileContentType, value);
 
-                    // get the first part
-                    string[] t = value.Split('/');
+                    FileMimeType = CommonRoutines.MimeMimeTypeGet(value);
 
-                    if (t.Length > 0)
-                    {
-                        FileMimeType = t[0].ToLower(System.Globalization.CultureInfo.CurrentCulture);
-                    }
-
-                    if (t.Length > 1)
-                    {
-                        FileMimeSubType = t[1].ToLower(System.Globalization.CultureInfo.CurrentCulture);
-                    }
+                    FileMimeSubType = CommonRoutines.MimeMimeSubTypeGet(value);
                 }
             }
         }

@@ -54,6 +54,63 @@
             }
         }
 
+        public static string MimeFileContentTypeGet(string argFileExtension)
+        {
+            return MimeTypes.MimeTypeMap.GetMimeType(argFileExtension);
+        }
+
+        public static string MimeMimeSubTypeGet(string argContentType)
+        {
+            // Gramps unknown override
+            if (argContentType == "unknown")
+            {
+                return argContentType;
+            }
+
+            // get the first part
+            string[] t = argContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture).Split('/');
+
+            if (t.Length > 1)
+            {
+                return t[1].ToLower(System.Globalization.CultureInfo.CurrentCulture);
+            }
+
+            ErrorInfo errorDetails = new ErrorInfo("MimeMimeSubTypeGet", "Invalid ContentType")
+            {
+                { "argContentType", argContentType }
+            };
+
+            DataStore.Instance.CN.NotifyError(errorDetails);
+
+            return string.Empty;
+        }
+
+        public static string MimeMimeTypeGet(string argContentType)
+        {
+            // Gramps unknown override
+            if (argContentType == "unknown")
+            {
+                return argContentType;
+            }
+
+            // get the first part
+            string[] t = argContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture).Split('/');
+
+            if (t.Length > 0)
+            {
+                return t[0].ToLower(System.Globalization.CultureInfo.CurrentCulture);
+            }
+
+            ErrorInfo errorDetails = new ErrorInfo("MimeMimeTypeGet", "Invalid ContentType")
+            {
+                { "argContentType", argContentType }
+            };
+
+            DataStore.Instance.CN.NotifyError(errorDetails);
+
+            return string.Empty;
+        }
+
         public static void Navigate(string argPageName)
         {
             DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
