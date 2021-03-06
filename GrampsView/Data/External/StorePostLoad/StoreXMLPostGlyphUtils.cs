@@ -17,6 +17,8 @@
 
             newMediaModel.HLinkKey = argMediaModel.HLinkKey + "-pdfimage";
             newMediaModel.OriginalFilePath = System.IO.Path.Combine("pdfimage", newMediaModel.HLinkKey + ".jpg");
+            newMediaModel.IsClippedFile = true; // Do not show in media list as it is internal
+            newMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
 
             string outFilePath = System.IO.Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, newMediaModel.OriginalFilePath);
 
@@ -43,9 +45,7 @@
 
                 if (pdfimage.Valid)
                 {
-                    pdfimage.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
-                    pdfimage.IsClippedFile = true; // Do not show in media list as it is internal
-                    pdfimage.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                    pdfimage.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, pdfimage.OriginalFilePath);
 
                     addLater.Add(pdfimage);
 

@@ -108,6 +108,10 @@
         {
             foreach (FamilyModel argModel in DataStore.Instance.DS.FamilyData.Values)
             {
+                if (argModel.Id == "F0144")
+                {
+                }
+
                 ItemGlyph hlink = argModel.ModelItemGlyph;
 
                 // check media
@@ -143,6 +147,8 @@
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
+
+                var tt = (argModel.ModelItemGlyph.Symbol == CommonConstants.IconFamilies);
             }
         }
 
