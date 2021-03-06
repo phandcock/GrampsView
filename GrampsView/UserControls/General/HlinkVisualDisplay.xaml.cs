@@ -33,6 +33,11 @@
 
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
+            if (this.BindingContext == null)
+            {
+                return;
+            }
+
             try
             {
                 newItemGlyph = new ItemGlyph();

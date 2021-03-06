@@ -64,8 +64,6 @@
         /// </summary>
         private bool _Priv;
 
-        // private string _Symbol = CommonConstants.IconDDefault; private Color _SymbolColour = Color.White;
-
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;

@@ -70,6 +70,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The type of the file content.
         /// </value>
+        [DataMember]
         public string FileContentType
         {
             get

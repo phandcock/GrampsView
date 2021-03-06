@@ -28,8 +28,6 @@
         /// </summary>
         private string _HLinkKey = string.Empty;
 
-        // private string _IDefaultSymbol = CommonConstants.IconDDefault;
-
         /// <summary>
         /// The local priv.
         /// </summary>

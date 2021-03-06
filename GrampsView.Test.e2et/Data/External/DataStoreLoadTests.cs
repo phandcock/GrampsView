@@ -3,6 +3,7 @@
     using global::NUnit.Framework;
 
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorageNS;
     using GrampsView.Data.Repository;
@@ -70,11 +71,17 @@
                 .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
                 .Returns(mockedEventDataLoadCompleteEvent.Object);
 
+            // Mock Platform specific
+            Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
+
+            IPlatformSpecific iocPlatformSpecific = mocPlatformSpecific.Object;
+
+            // Other setup
             IEventAggregator iocEventAggregator = mocEventAggregator.Object;
 
             IGrampsStoreXML iocExternalStorage = new GrampsStoreXML(iocCommonLogging);
 
-            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator);
+            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
 
             IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
 

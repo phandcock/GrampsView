@@ -40,11 +40,13 @@
                 pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
                 // ------------ Save new MediaObject
-                pdfimage.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
-                pdfimage.IsClippedFile = true; // Do not show in media list as it is internal
 
                 if (pdfimage.Valid)
                 {
+                    pdfimage.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
+                    pdfimage.IsClippedFile = true; // Do not show in media list as it is internal
+                    pdfimage.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+
                     addLater.Add(pdfimage);
 
                     returnItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;

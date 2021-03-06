@@ -71,8 +71,8 @@
 
             CitationObject = HLinkCitation.DeRef;
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
+            //// Trigger refresh of View fields via INotifyPropertyChanged
+            //RaisePropertyChanged(string.Empty);
 
             if (CitationObject != null)
             {

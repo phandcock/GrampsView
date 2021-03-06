@@ -202,20 +202,5 @@ namespace GrampsView.Data.ExternalStorageNS
                 }
             }
         }
-
-        //public HLinkGlyph GetHLinkGlyph()
-        //{
-        //    HLinkGlyph returnHLinkGlyph = new HLinkGlyph
-        //    {
-        //        // Copy fields
-        //        GPriv = GPriv,
-        //        HLinkKey = HLinkKey,
-        //        ImageType = ImageType,
-        //        Symbol = Symbol,
-        //        SymbolColour = SymbolColour
-        //    };
-
-        //    return returnHLinkGlyph;
-        //}
     }
 }

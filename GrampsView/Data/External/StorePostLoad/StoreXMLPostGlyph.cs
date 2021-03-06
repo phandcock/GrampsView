@@ -290,6 +290,7 @@
                             {
                                 case "pdf":
                                     {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
@@ -297,6 +298,7 @@
 
                                 case "x-zip-compressed":
                                     {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
                                         break;
@@ -304,6 +306,7 @@
 
                                 case "zip":
                                     {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
                                         break;
@@ -315,6 +318,7 @@
 
                     case "audio":
                         {
+                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileAudio;
                             break;
@@ -322,6 +326,7 @@
 
                     case "image":
                         {
+                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                             argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLinkKey;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
@@ -330,6 +335,7 @@
 
                     case "video":
                         {
+                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
                             break;

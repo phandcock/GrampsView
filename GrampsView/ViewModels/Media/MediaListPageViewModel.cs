@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// View model for the MediaObjectSectionPageView
-//
-// <copyright file="MediaListPageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -15,8 +6,6 @@ namespace GrampsView.ViewModels
 
     using Prism.Events;
 
-    /// <summary>
-    /// </summary>
     public class MediaListViewModel : ViewModelBase
     {
         /// <summary>
@@ -27,9 +16,6 @@ namespace GrampsView.ViewModels
         /// </param>
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
-        /// The ioc navigation service.
         /// </param>
         public MediaListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)

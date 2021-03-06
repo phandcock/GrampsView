@@ -159,7 +159,7 @@ namespace GrampsView.Data.DataView
                     //// TODO Still needed Handle Source Links
                     //if (currentHLink.DeRef.so.LinkToImage)
                     //{
-                    //    returnMediaModel = currentHLink.DeRef.HLinkGlyph;
+                    //    returnMediaModel = currentHLink.DeRef.HLinkGlyphItem;
                     //}
 
                     if (returnMediaModel.Valid)
