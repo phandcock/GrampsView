@@ -42,7 +42,7 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
 
                 // Tags are special in that the colour of the icon is the colour of the tag
-                argHLink.HLinkGlyphItem.SymbolColour = t.ImageSymbolColour;
+                argHLink.HLinkGlyphItem.SymbolColour = t.SymbolColour;
             }
 
             SortAndSetFirst();

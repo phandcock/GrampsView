@@ -268,9 +268,9 @@
 
         public async static Task SetTagImages()
         {
-            //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
-            //{
-            //}
+            foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
+            {
+            }
         }
 
         public async Task<bool> SetMediaImages()
