@@ -1,3 +1,18 @@
+# [16.16.0](https://github.com/phandcock/GrampsView/compare/v16.15.29...v16.16.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* Deserialisation bug and e2e tests ([be93e91](https://github.com/phandcock/GrampsView/commit/be93e917cf63434e67af8d61aeb3762cc338a825))
+* more work on pdf glyphs ([bb6c818](https://github.com/phandcock/GrampsView/commit/bb6c8185f001a0ad467befb84485b44d0cadb099))
+
+
+### Features
+
+* use MineType nuget to correctly create images from zip files ([22e72f7](https://github.com/phandcock/GrampsView/commit/22e72f773fb6dd306722d450314594d9b5ed20c2))
+
+
+
 ## [16.15.29](https://github.com/phandcock/GrampsView/compare/v16.15.28...v16.15.29) (2021-03-05)
 
 
@@ -34,16 +49,6 @@
 ### Bug Fixes
 
 * more display changes ([7b2b303](https://github.com/phandcock/GrampsView/commit/7b2b303e9690677034f92672d41a5c64b12654c6))
-
-
-
-## [16.15.25](https://github.com/phandcock/GrampsView/compare/v16.15.24...v16.15.25) (2021-02-28)
-
-
-### Bug Fixes
-
-* make random media call more random ([61c692f](https://github.com/phandcock/GrampsView/commit/61c692fc0d7a3213a941cce12d5a369dd24a643b))
-* more glyph cleanup ([4bd6ab1](https://github.com/phandcock/GrampsView/commit/4bd6ab1b49cd151f3c346c5adcc01a16c96b65ea))
 
 
 
