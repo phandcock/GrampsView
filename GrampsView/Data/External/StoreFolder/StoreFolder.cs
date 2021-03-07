@@ -105,6 +105,18 @@
             return false;
         }
 
+        public static FileInfoEx FolderGetCreateFile(DirectoryInfo argBaseFolder, string argFileName)
+        {
+            FileInfoEx t = FolderGetFile(argBaseFolder, argFileName);
+
+            if (t.FInfo == null)
+            {
+                t.FInfo = new FileInfo(Path.Combine(argBaseFolder.FullName, argFileName));
+            }
+
+            return t;
+        }
+
         public static FileInfoEx FolderGetFile(DirectoryInfo argBaseFolder, string argFileName)
         {
             Contract.Requires(argBaseFolder != null);

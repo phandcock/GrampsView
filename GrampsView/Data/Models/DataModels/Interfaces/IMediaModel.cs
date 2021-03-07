@@ -91,16 +91,14 @@ namespace GrampsView.Data.Model
             get;
         }
 
-        bool IsClippedFile
-        {
-            get;
-
-            set;
-        }
-
         bool IsImage
         {
             get;
+        }
+
+        bool IsInternalMediaFile
+        {
+            get; set;
         }
 
         bool IsMediaStorageFileValid

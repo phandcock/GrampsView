@@ -122,7 +122,7 @@
             {
                 DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
-                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotClipped => NotClipped.IsClippedFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotClipped => NotClipped.IsInternalMediaFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
                 CardGroupBase<HLinkMediaModel> returnCardGroup = new CardGroupBase<HLinkMediaModel>();
 
@@ -165,7 +165,7 @@
         {
             CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
 
-            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsClippedFile == false))
+            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
                 t.Add(item.HLink);
             }
@@ -196,7 +196,7 @@
         {
             HLinkMediaModelCollection t = new HLinkMediaModelCollection();
 
-            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsClippedFile == false))
+            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
                 t.Add(item.HLink);
             }

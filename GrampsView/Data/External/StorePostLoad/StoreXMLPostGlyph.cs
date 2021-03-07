@@ -169,8 +169,7 @@
         {
         }
 
-        // //await SetPersonNameImages().ConfigureAwait(false); People last as they pretty much
-        // depend on everything else
+        // People last as they pretty much depend on everything else
         public async static Task SetPersonImages()
         {
             foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
@@ -235,6 +234,10 @@
             foreach (SourceModel argModel in DataStore.Instance.DS.SourceData.Values)
             {
                 if (argModel.Id == "S0299")
+                {
+                }
+
+                if (argModel.ModelItemGlyph.SymbolColour != CommonRoutines.ResourceColourGet("CardBackGroundSource"))
                 {
                 }
 
@@ -325,7 +328,6 @@
                     case "audio":
                         {
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileAudio;
                             break;
                         }
@@ -342,8 +344,8 @@
                     case "video":
                         {
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
-                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
+                            argModel.ModelItemGlyph = await GetThumbImageFromVideo(argModel);
                             break;
                         }
                 }

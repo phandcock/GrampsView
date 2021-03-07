@@ -151,7 +151,7 @@
             {
                 ExtractGZip(inputFile);
 
-                await DataStore.Instance.CN.DataLogEntryAdd("GRAMPS file decompressing complete").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GSZIP file decompress complete").ConfigureAwait(false);
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -175,7 +175,7 @@
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS TAR file").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
@@ -187,10 +187,10 @@
             Stream originalFileStream = DataStore.Instance.AD.CurrentInputStream;
 
             // open the gzip and extract the tar file
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
-            await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
+            //await DataStore.Instance.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
+            //await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
 
-            await DataStore.Instance.CN.DataLogEntryAdd("UnTaring file").ConfigureAwait(false);
+            //await DataStore.Instance.CN.DataLogEntryAdd("UnTaring file").ConfigureAwait(false);
 
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
@@ -201,7 +201,7 @@
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryReplace("UnTaring of files complete").ConfigureAwait(false);
             return true;
         }
     }

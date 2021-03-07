@@ -41,7 +41,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _FileDescription = string.Empty;
 
-        private bool _IsClippedFile;
+        private bool _IsInternalMediaFile;
 
         /// <summary>
         /// Local Storage File for media object.
@@ -229,25 +229,25 @@ namespace GrampsView.Data.Model
             }
         }
 
-        [DataMember]
-        public bool IsClippedFile
-        {
-            get
-            {
-                return _IsClippedFile;
-            }
-
-            set
-            {
-                SetProperty(ref _IsClippedFile, value);
-            }
-        }
-
         public bool IsImage
         {
             get
             {
                 return (FileMimeType == "image");
+            }
+        }
+
+        [DataMember]
+        public bool IsInternalMediaFile
+        {
+            get
+            {
+                return _IsInternalMediaFile;
+            }
+
+            set
+            {
+                SetProperty(ref _IsInternalMediaFile, value);
             }
         }
 

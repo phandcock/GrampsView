@@ -63,7 +63,8 @@
 
                         loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
-                        await DataStore.Instance.CN.MinorMessageAdd(string.Format("Loading Source entry: {0}", loadSource.GSTitle));
+                        // await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
+                        // Source entry: {0}", loadSource.GSTitle));
 
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
@@ -74,7 +75,9 @@
                         DV.SourceDV.SourceData.Add(loadSource);
                     }
 
-                    await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryReplace("Source load complete");
+
+                    // await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {

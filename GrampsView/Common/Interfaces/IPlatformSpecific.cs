@@ -11,10 +11,8 @@ namespace GrampsView.Common.CustomClasses
 
         Task ActivityTimeLineAdd(FamilyModel argFamilyModel);
 
-        // TODO Implement this
         Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel);
 
-        // TODO Implement this
-        Task<HLinkMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, long millisecond);
+        Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel);
     }
 }

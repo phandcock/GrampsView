@@ -126,7 +126,7 @@
                  newMediaModel.OriginalFilePath = outFileName;
                  newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
 
-                 newMediaModel.IsClippedFile = true;
+                 newMediaModel.IsInternalMediaFile = true;
 
                  newMediaModel.MetaDataHeight = cropRect.Height;
                  newMediaModel.MetaDataWidth = cropRect.Width;

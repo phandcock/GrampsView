@@ -1,5 +1,6 @@
 ﻿using Android.Graphics;
 using Android.Graphics.Pdf;
+using Android.Media;
 using Android.OS;
 
 using GrampsView.Common;
@@ -7,6 +8,7 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -20,8 +22,10 @@ namespace GrampsView.Droid.Common
         {
             try
             {
+                string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
+
                 // Initialize PDFRenderer by passing PDF file from location.
-                PdfRenderer renderer = new PdfRenderer(GetSeekableFileDescriptor(argCurrentDataFolder, argNewMediaModel));
+                PdfRenderer renderer = new PdfRenderer(GetSeekableFileDescriptor(argCurrentDataFolder, argExistingMediaModel));
                 int pageCount = renderer.PageCount;
 
                 // Use `openPage` to open a specific page in PDF.
@@ -34,7 +38,7 @@ namespace GrampsView.Droid.Common
                 page.Render(bmp, null, null, PdfRenderMode.ForDisplay);
 
                 //Save the bitmap
-                var stream = new FileStream(argNewMediaModel.OriginalFilePath, FileMode.Create);
+                var stream = new FileStream(outFilePath, FileMode.Create);
                 bmp.Compress(Bitmap.CompressFormat.Png, 100, stream);
                 stream.Close();
 
@@ -71,20 +75,28 @@ namespace GrampsView.Droid.Common
             }
         }
 
-        public async Task<HLinkMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argFile, long millisecond)
+        public async Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
-            //MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-            //retriever.SetDataSource(argFile.MediaStorageFilePath);
-            //Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(millisecond);
+            string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
 
-            //if (bitmap != null)
-            //{
-            //    MemoryStream stream = new MemoryStream();
-            //    bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 80, stream);
-            //    return stream;
-            //}
+            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+            retriever.SetDataSource(argExistingMediaModel.MediaStorageFilePath);
+            Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(0);
 
-            return new HLinkMediaModel();
+            if (bitmap != null)
+            {
+                // MemoryStream stream = new MemoryStream();
+                // bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 80, stream);
+
+                //Save the bitmap
+                var outStream = new FileStream(outFilePath, FileMode.Create);
+                bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, outStream);
+                outStream.Close();
+
+                return argNewMediaModel;
+            }
+
+            return new MediaModel();
         }
 
         //Method to retrieve PDF file from the location
@@ -93,12 +105,32 @@ namespace GrampsView.Droid.Common
             ParcelFileDescriptor fileDescriptor = null;
             try
             {
-                string root = System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath);
-                fileDescriptor = ParcelFileDescriptor.Open(new Java.IO.File(root), ParcelFileMode.ReadOnly
-                );
+                // string root = System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath);
+                fileDescriptor = ParcelFileDescriptor.Open(new Java.IO.File(argFile.MediaStorageFilePath), ParcelFileMode.ReadOnly);
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException ex)
             {
+                ErrorInfo t = new ErrorInfo("File not found exception when trying to create ParcelFileDescriptor")
+                                 {
+                                    { "Original ID", argFile.Id },
+                                    { "Original File", argFile.OriginalFilePath },
+                                    { "Storage Folder", argCurrentDataFolder.FullName },
+                                    { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
+            }
+            catch (Exception ex)
+            {
+                ErrorInfo t = new ErrorInfo("Exception when trying to create ParcelFileDescriptor")
+                                 {
+                                    { "Original ID", argFile.Id },
+                                    { "Original File", argFile.OriginalFilePath },
+                                    { "Storage Folder", argCurrentDataFolder.FullName },
+                                    { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
+                                 };
+
+                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             return fileDescriptor;
         }

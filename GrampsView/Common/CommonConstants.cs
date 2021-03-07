@@ -25,6 +25,8 @@
         /// </summary>
         public const string EventTypeMarriage = "Marriage";
 
+        public const string fileToImageSubDirectory = "~imageAssets";
+
         /// <summary>
         /// The gramps view database version.
         /// </summary>

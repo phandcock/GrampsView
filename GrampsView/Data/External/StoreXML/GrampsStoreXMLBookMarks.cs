@@ -12,9 +12,6 @@
     /// <summary>
     /// Loads BookMark XML.
     /// </summary>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
-    /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.ExternalStorageNS.IGrampsStoreXML"/>
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
         /// <summary>
@@ -37,14 +34,11 @@
                     // set BookMark count field
                     int bookMarkCount = 0;
 
-                    // Loop through results to get the Citation Uri _baseUri = new Uri("ms-appx:///");
+                    // Loop through results
                     foreach (XElement argBookMark in de)
                     {
-                        //BookMarkModel loadBookMark = new BookMarkModel();
-
                         // BookMark Handle
                         bookMarkCount++;
-                        //loadBookMark.Handle = "BookMark" + Convert.ToString(bookMarkCount, System.Globalization.CultureInfo.CurrentCulture).Trim();
 
                         // BookMark fields
                         string GTarget = GetAttribute(argBookMark.Attribute("target"));
@@ -65,13 +59,8 @@
                             DataStore.Instance.CN.NotifyError(t);
                         }
 
-                        // save the event
-                        //DV.BookMarkDV.BookMarkData.Add(loadBookMark);
+                        await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading bookmark: {0}", newHlinkBackLink.HLinkType));
                     }
-
-                    // sort the collection eventRepository.Items.Sort(EventModel => EventModel);
-
-                    // let everybody know
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
                 }
@@ -83,6 +72,8 @@
                     throw;
                 }
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
 
             return;
         }

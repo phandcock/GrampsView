@@ -3,10 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
-    using Newtonsoft.Json.Converters;
-
     using System.Runtime.Serialization;
-    using System.Text.Json.Serialization;
 
     using Xamarin.Forms;
 
@@ -87,7 +84,6 @@
         }
 
         [DataMember]
-        [JsonConverter(typeof(StringEnumConverter))]
         public CommonEnums.HLinkGlyphType ImageType
         {
             get
@@ -118,7 +114,6 @@
             set
             {
                 SetProperty(ref _Symbol, value);
-                //SetProperty(ref _ImageSymbol, value);
             }
         }
 
@@ -139,7 +134,6 @@
             set
             {
                 SetProperty(ref _SymbolColour, value);
-                SetProperty(ref _ImageSymbolColour, value);
             }
         }
 

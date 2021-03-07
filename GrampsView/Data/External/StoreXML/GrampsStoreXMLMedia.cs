@@ -28,8 +28,8 @@
 
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
-                // start file load
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
+                //// start file load
+                //await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 // Load notes Run query
                 var de =
@@ -103,7 +103,9 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                    await DataStore.Instance.CN.MinorMessageAdd(string.Format("Loading media file: {0}", temp));
+                                    // await
+                                    // DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
+                                    // media file: {0}", temp));
 
                                     loadObject.OriginalFilePath = temp;
 
@@ -158,7 +160,7 @@
                         localGrampsCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
                     }
 
-                    await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryReplace("Media loading complete").ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {

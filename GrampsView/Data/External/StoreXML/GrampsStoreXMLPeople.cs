@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadPeopleDataAsync()
         {
-            localGrampsCommonLogging.RoutineEntry("loadPeopleData");
+            localGrampsCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
             await DataStore.Instance.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
@@ -128,15 +128,11 @@
                         // URL
                         loadPerson.GURLCollection = GetURLCollection(pname);
 
-                        // HomeImageLink loadPerson = SetHomeImage(loadPerson);
-
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);
 
-                        //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
-                        //if (tt.Count() > 0)
-                        //{
-                        //}
+                        // await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
+                        // Person: {0}", loadPerson.GetDefaultText)).ConfigureAwait(false);
                     }
 
                     // let everybody know
@@ -152,7 +148,7 @@
                     }
                     else
                     {
-                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  No people have been loaded", ex);
+                        DataStore.Instance.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
                         throw;
                     }
                 }
@@ -162,6 +158,8 @@
             //if (tt.Count() > 0)
             //{
             //}
+
+            await DataStore.Instance.CN.DataLogEntryReplace("People load complete").ConfigureAwait(false);
 
             return;
         }

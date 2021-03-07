@@ -29,7 +29,7 @@
                     from el in localGrampsXMLdoc.Descendants(ns + "citation")
                     select el;
 
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation Entry").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation Entries").ConfigureAwait(false);
 
                 // Loop through results to get the Citation
                 foreach (XElement pcitation in de)
@@ -59,7 +59,8 @@
 
                     loadCitation.GSourceRef.HLinkKey = GetAttribute(pcitation.Element(ns + "sourceref"), "hlink");
 
-                    await DataStore.Instance.CN.DataLogEntryReplace(String.Format("Loading Citation for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
+                    // await DataStore.Instance.CN.DataLogEntryReplace(String.Format("Loading
+                    // Citation for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
 
                     loadCitation.GTagRef = GetTagCollection(pcitation);
 
@@ -75,7 +76,7 @@
                 throw;
             }
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Citation data loaded").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Citation loading complete").ConfigureAwait(false);
 
             return;
         }

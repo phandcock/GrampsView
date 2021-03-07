@@ -82,7 +82,7 @@
             }
             catch (System.Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Exception when trying to create image form PDF file")
+                ErrorInfo t = new ErrorInfo("Exception when trying to create image from PDF file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
@@ -95,19 +95,41 @@
             }
         }
 
-        public async Task<HLinkMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argFile, long millisecond)
+        public async Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
-            StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(argFile.MediaStorageFilePath);
-            StorageFile videoFile = await storageFolder.GetFileAsync(argFile.MediaStorageFilePath);
+            StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
+
+            StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
+
+            StorageFile videoFile = await currentFolder.GetFileAsync(argExistingMediaModel.OriginalFilePath);
+
             StorageItemThumbnail thumbnail = await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem);
 
-            Stream stream = thumbnail.AsStream();
-            byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
-            stream.Position = 0;
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-            // return new MemoryStream(bytes);
+            if (thumbnail.Type == ThumbnailType.Image)
+            {
+                //BitmapImage bitmap = new BitmapImage();
+                //bitmap.SetSource(await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem));
 
-            return new HLinkMediaModel();
+                //Stream stream = thumbnail.AsStream();
+                //byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
+                //stream.Position = 0;
+
+                //await stream.ReadAsync(bytes, 0, bytes.Length);
+
+                Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
+                IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
+                using (var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    await strm.WriteAsync(iBuf);
+                }
+
+                return argNewMediaModel;
+            }
+            else
+            {
+            }
+
+            return new MediaModel();
         }
     }
 }
