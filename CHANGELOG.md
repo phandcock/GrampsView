@@ -1,3 +1,14 @@
+## [16.16.1](https://github.com/phandcock/GrampsView/compare/v16.16.0...v16.16.1) (2021-03-08)
+
+
+### Bug Fixes
+
+* fix symbol colour and icon ([15d4740](https://github.com/phandcock/GrampsView/commit/15d47401e300b71507ebd146fde861ccc9066480))
+* fix tag colour in tagsmall card ([939b7c6](https://github.com/phandcock/GrampsView/commit/939b7c69c2203c71a38ca1696f1ae37cbaf3e3eb))
+* fix videotoimage on Android ([b2cae15](https://github.com/phandcock/GrampsView/commit/b2cae1564618211c90a230fb4b8678d6b38194bc))
+
+
+
 # [16.16.0](https://github.com/phandcock/GrampsView/compare/v16.15.29...v16.16.0) (2021-03-07)
 
 
@@ -40,15 +51,6 @@
 ### Bug Fixes
 
 * add URL card to Note Link types ([7569955](https://github.com/phandcock/GrampsView/commit/7569955d87fa2885be5cd18c0a57c90110469800))
-
-
-
-## [16.15.26](https://github.com/phandcock/GrampsView/compare/v16.15.25...v16.15.26) (2021-02-28)
-
-
-### Bug Fixes
-
-* more display changes ([7b2b303](https://github.com/phandcock/GrampsView/commit/7b2b303e9690677034f92672d41a5c64b12654c6))
 
 
 
