@@ -35,6 +35,147 @@ namespace GrampsView.Common
             SourceCardSmall,
         }
 
+        public enum EventModelType
+        {
+            [Description("Adopted")]
+            ADOPT,
+
+            [Description("Adult Christening")]
+            ADULT_CHRISTEN,
+
+            [Description("Annulment")]
+            ANNULMENT,
+
+            [Description("Baptism")]
+            BAPTISM,
+
+            [Description("Bar Mitzvah")]
+            BAR_MITZVAH,
+
+            [Description("Bas Mitzvah")]
+            BAS_MITZVAH,
+
+            [Description("Birth")]
+            BIRTH,
+
+            [Description("Blessing")]
+            BLESS,
+
+            [Description("Burial")]
+            BURIAL,
+
+            [Description("Cause Of Death")]
+            CAUSE_DEATH,
+
+            [Description("Census")]
+            CENSUS,
+
+            [Description("Christening")]
+            CHRISTEN,
+
+            [Description("Confirmation")]
+            CONFIRMATION,
+
+            [Description("Cremation")]
+            CREMATION,
+
+            [Description("Custom")]
+            CUSTOM,
+
+            [Description("Death")]
+            DEATH,
+
+            [Description("Degree")]
+            DEGREE,
+
+            [Description("Divorce Filing")]
+            DIV_FILING,
+
+            [Description("Divorce")]
+            DIVORCE,
+
+            [Description("Education")]
+            EDUCATION,
+
+            [Description("Elected")]
+            ELECTED,
+
+            [Description("Emigration")]
+            EMIGRATION,
+
+            [Description("Engagement")]
+            ENGAGEMENT,
+
+            [Description("First Communion")]
+            FIRST_COMMUN,
+
+            [Description("Graduation")]
+            GRADUATION,
+
+            [Description("Immigration")]
+            IMMIGRATION,
+
+            [Description("Alternate Marriage")]
+            MARR_ALT,
+
+            [Description("Marriage Banns")]
+            MARR_BANNS,
+
+            [Description("Marriage Contract")]
+            MARR_CONTR,
+
+            [Description("Marriage License")]
+            MARR_LIC,
+
+            [Description("Marriage Settlement")]
+            MARR_SETTL,
+
+            [Description("Marriage")]
+            MARRIAGE,
+
+            [Description("Medical Information")]
+            MED_INFO,
+
+            [Description("Military Service")]
+            MILITARY_SERV,
+
+            [Description("Naturalization")]
+            NATURALIZATION,
+
+            [Description("Nobility Title")]
+            NOB_TITLE,
+
+            [Description("Number of Marriages")]
+            NUM_MARRIAGES,
+
+            [Description("Occupation")]
+            OCCUPATION,
+
+            [Description("Ordination")]
+            ORDINATION,
+
+            [Description("Probate")]
+            PROBATE,
+
+            [Description("Property")]
+            PROPERTY,
+
+            [Description("Religion")]
+            RELIGION,
+
+            [Description("Residence")]
+            RESIDENCE,
+
+            [Description("Retirement")]
+            RETIREMENT,
+
+            [Description("Unknown")]
+            UNKNOWN,
+
+            [Description("Will")]
+            WILL
+        }
+
         public enum Gender
         {
             Female,

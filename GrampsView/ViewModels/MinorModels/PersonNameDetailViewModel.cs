@@ -18,7 +18,7 @@ namespace GrampsView.ViewModels
         /// </summary>
         private PersonNameModel _AddressObject = new PersonNameModel();
 
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+        private ItemGlyph _MediaCard = new ItemGlyph();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
@@ -33,7 +33,7 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconPersonName;
         }
 
-        public HLinkMediaModel MediaCard
+        public ItemGlyph MediaCard
         {
             get
             {
@@ -88,7 +88,7 @@ namespace GrampsView.ViewModels
                 RaisePropertyChanged(string.Empty);
 
                 // Get media image
-                MediaCard = PersonNameObject.ModelItemGlyph.HLinkMedia;
+                MediaCard = PersonNameObject.ModelItemGlyph;
 
                 // Get Header Details
                 CardGroup headerCardGroup = new CardGroup { Title = "Person Name Details" };

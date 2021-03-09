@@ -12,6 +12,8 @@ namespace GrampsView.Data.Model
     using System;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Event ViewModel.
     /// </summary>
@@ -25,6 +27,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class EventModel : ModelBase, IEventModel
     {
+        public EventModelType _EventType = EventModelType.CUSTOM;
+
         /// <summary>
         /// The local g citation reference collection.
         /// </summary>
@@ -72,6 +76,21 @@ namespace GrampsView.Data.Model
         {
             ModelItemGlyph.Symbol = CommonConstants.IconEvents;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
+        }
+
+        // TODO display different text according to the model types
+        [DataMember]
+        public EventModelType EventType
+        {
+            get
+            {
+                return _EventType;
+            }
+
+            set
+            {
+                SetProperty(ref _EventType, value);
+            }
         }
 
         /// <summary>

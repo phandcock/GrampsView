@@ -13,7 +13,7 @@
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+        private ItemGlyph _MediaCard = new ItemGlyph();
 
         /// <summary>
         /// The local Source object.
@@ -36,7 +36,7 @@
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
-        public HLinkMediaModel MediaCard
+        public ItemGlyph MediaCard
         {
             get
             {
@@ -85,7 +85,7 @@
                 BaseTitle = SourceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconSource;
 
-                MediaCard = SourceObject.ModelItemGlyph.HLinkMedia;
+                MediaCard = SourceObject.ModelItemGlyph;
 
                 // Header Card
                 BaseDetail.Add(new CardListLineCollection("Source Detail")

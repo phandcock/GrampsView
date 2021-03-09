@@ -17,7 +17,7 @@
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
+        private ItemGlyph _MediaCard = new ItemGlyph();
 
         /// <summary>
         /// The current person.
@@ -72,7 +72,7 @@
             }
         }
 
-        public HLinkMediaModel MediaCard
+        public ItemGlyph MediaCard
         {
             get
             {
@@ -139,7 +139,7 @@
                 BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
 
                 // Get media image
-                MediaCard = PersonObject.ModelItemGlyph.HLinkMedia;
+                MediaCard = PersonObject.ModelItemGlyph;
 
                 // Get the Name Details
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);

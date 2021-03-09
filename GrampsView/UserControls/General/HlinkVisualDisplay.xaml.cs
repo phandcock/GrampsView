@@ -12,6 +12,9 @@
 
     public partial class HLinkVisualDisplay : Grid
     {
+        public static readonly BindableProperty FsctShowMediaProperty
+      = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowMedia), defaultValue: false);
+
         private ItemGlyph newItemGlyph = new ItemGlyph();
 
         public HLinkVisualDisplay()
@@ -24,6 +27,18 @@
             //{
             //    this.daImage.IsEnabled = false;
             //}
+        }
+
+        public bool FsctShowMedia
+        {
+            get
+            {
+                return (bool)GetValue(FsctShowMediaProperty);
+            }
+            set
+            {
+                SetValue(FsctShowMediaProperty, value);
+            }
         }
 
         private ItemGlyph WorkHLMediaModel
@@ -137,6 +152,60 @@
             }
         }
 
+        private void ShowMedia(IMediaModel argMediaModel)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                {
+                    ErrorInfo t = new ErrorInfo("The media file path is null")
+                        {
+                            { "Id", argMediaModel.Id }
+                        };
+
+                    DataStore.Instance.CN.NotifyError(t);
+                    return;
+                }
+                // Input valid so start work
+                CachedImage newMediaControl = new CachedImage
+                {
+                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                    Margin = 3,
+                    Aspect = Aspect.AspectFit,
+                    BackgroundColor = Color.Transparent,
+                    CacheType = FFImageLoading.Cache.CacheType.All,
+                    DownsampleToViewSize = true,
+
+                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static
+                    // common:CardSizes.Current}, Mode=OneWay}"
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    IsVisible = true,
+                    ErrorPlaceholder = "ic_launcher.png",
+                    LoadingPlaceholder = "ic_launcher.png",
+                    RetryCount = 3,
+                    RetryDelay = 1000,
+                    VerticalOptions = LayoutOptions.FillAndExpand,
+                };
+
+                newMediaControl.Error += NewMediaControl_Error;
+
+                this.HLinkVisualDisplayRoot.Children.Clear();
+                this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+            }
+            catch (Exception ex)
+            {
+                ErrorInfo argDetail = new ErrorInfo
+                {
+                    { "Type", "Image" },
+                    { "Media Model Id", argMediaModel.Id },
+                    { "Media Model Path", argMediaModel.MediaStorageFilePath },
+                };
+
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                throw;
+            }
+        }
+
         private void ShowSomething(ItemGlyph argItemGlyph)
         {
             try
@@ -165,7 +234,20 @@
                     {
                         case CommonEnums.HLinkGlyphType.Image:
                             {
-                                ShowImage(argItemGlyph.HLinkMedia.DeRef);
+                                ShowImage(argItemGlyph.ImageHLinkMedia.DeRef);
+                                break;
+                            }
+
+                        case CommonEnums.HLinkGlyphType.Media:
+                            {
+                                if (FsctShowMedia)
+                                {
+                                    ShowMedia(argItemGlyph.ImageHLinkMedia.DeRef);
+                                }
+                                else
+                                {
+                                    ShowImage(argItemGlyph.ImageHLinkMedia.DeRef);
+                                }
                                 break;
                             }
 
@@ -174,7 +256,6 @@
                                 ShowSymbol(argItemGlyph);
                                 break;
                             }
-
                         default:
                             {
                                 break;
@@ -232,7 +313,7 @@
                 {
                     ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
                         {
-                            { "HLinkKey", argItemGlyph.HLinkMediHLink }
+                            { "HLinkKey", argItemGlyph.ImageHLinkMediHLink }
                         };
 
                     DataStore.Instance.CN.NotifyError(t);
@@ -248,7 +329,7 @@
                 ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Symbol" },
-                    { "Media Model Hlink Key", argItemGlyph.HLinkMediHLink },
+                    { "Media Model Hlink Key", argItemGlyph.ImageHLinkMediHLink },
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 

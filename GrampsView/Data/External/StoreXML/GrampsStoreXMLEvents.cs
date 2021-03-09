@@ -9,20 +9,10 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Private Storage Routines.
-    /// </summary>
+    using static GrampsView.Common.CommonEnums;
+
     public partial class GrampsStoreXML : IGrampsStoreXML
     {
-        /// <summary>
-        /// load events from external storage.
-        /// </summary>
-        /// <param name="eventRepository">
-        /// The event repository.
-        /// </param>
-        /// <returns>
-        /// Flag of loaded successfully.
-        /// </returns>
         public async Task LoadEventsAsync()
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Event data").ConfigureAwait(false);
@@ -43,14 +33,10 @@
 
                         // Event attributes
                         loadEvent.LoadBasics(GetBasics(pname));
-                        //loadEvent.Id = GetAttribute(pname.Attribute("id"));
-                        //loadEvent.Change = GetDateTime(GetAttribute(pname, "change"));
-                        //loadEvent.Priv = SetPrivateObject(GetAttribute(pname.Attribute("priv")));
-                        //loadEvent.Handle = GetAttribute(pname.Attribute("handle"));
 
-                        if (loadEvent.Id == "E0715")
-                        {
-                        }
+                        //if (loadEvent.Id == "E0715")
+                        //{
+                        //}
 
                         // Event fields
                         loadEvent.GAttribute = GetAttributeCollection(pname);
@@ -71,13 +57,12 @@
 
                         loadEvent.GType = GetElement(pname.Element(ns + "type"));
 
-                        // set the Home image or symbol now that everythign is laoded loadEvent = SetHomeImage(loadEvent);
+                        Enum.TryParse(loadEvent.GType, out EventModelType loadEventType);
+                        loadEvent.EventType = loadEventType;
 
                         // save the event
                         DV.EventDV.EventData.Add(loadEvent);
                     }
-
-                    // sort the collection eventRepository.Items.Sort(EventModel => EventModel);
                 }
                 catch (Exception e)
                 {
@@ -89,6 +74,8 @@
                     throw;
                 }
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("Event data loaded").ConfigureAwait(false);
         }
     }
 }

@@ -101,33 +101,44 @@
 
             StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
 
+            if (outfile.Name == "_e9e27fbe8ed34e9b554a0ba93aa~imagevideo.jpg")
+            {
+            }
+
             StorageFile videoFile = await currentFolder.GetFileAsync(argExistingMediaModel.OriginalFilePath);
 
             StorageItemThumbnail thumbnail = await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem);
 
-            if (thumbnail.Type == ThumbnailType.Image)
+            //if (thumbnail.Type == ThumbnailType.Image)
+            //{
+            //BitmapImage bitmap = new BitmapImage();
+            //bitmap.SetSource(await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem));
+
+            //Stream stream = thumbnail.AsStream();
+            //byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
+            //stream.Position = 0;
+
+            //await stream.ReadAsync(bytes, 0, bytes.Length);
+
+            Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
+            IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
+            using (var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite))
             {
-                //BitmapImage bitmap = new BitmapImage();
-                //bitmap.SetSource(await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem));
-
-                //Stream stream = thumbnail.AsStream();
-                //byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
-                //stream.Position = 0;
-
-                //await stream.ReadAsync(bytes, 0, bytes.Length);
-
-                Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
-                IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
-                using (var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite))
-                {
-                    await strm.WriteAsync(iBuf);
-                }
-
-                return argNewMediaModel;
+                await strm.WriteAsync(iBuf);
             }
-            else
+
+            // check size
+            BasicProperties outProperties = await outfile.GetBasicPropertiesAsync();
+            if (outProperties.Size == 0)
             {
+                return new MediaModel();
             }
+
+            return argNewMediaModel;
+            //}
+            //else
+            //{
+            //}
 
             return new MediaModel();
         }

@@ -54,7 +54,7 @@
                 if (hlink.Valid)
                 {
                     argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageHLinkMediHLink = hlink.ImageHLinkMediHLink;
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
@@ -97,7 +97,7 @@
                 if (hlink.Valid)
                 {
                     argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageHLinkMediHLink = hlink.ImageHLinkMediHLink;
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
@@ -143,7 +143,7 @@
                 if (hlink.Valid)
                 {
                     argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageHLinkMediHLink = hlink.ImageHLinkMediHLink;
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
@@ -210,7 +210,7 @@
                 if (hlink.Valid)
                 {
                     argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageHLinkMediHLink = hlink.ImageHLinkMediHLink;
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
@@ -259,7 +259,7 @@
                 if (hlink.Valid)
                 {
                     argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.HLinkMediHLink = hlink.HLinkMediHLink;
+                    argModel.ModelItemGlyph.ImageHLinkMediHLink = hlink.ImageHLinkMediHLink;
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
@@ -287,7 +287,7 @@
                 }
 
                 // Setup HomeImage
-                argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLinkKey;
+                argModel.ModelItemGlyph.ImageHLinkMediHLink = argModel.HLinkKey;
 
                 switch (argModel.FileMimeType)
                 {
@@ -336,7 +336,7 @@
                         {
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                            argModel.ModelItemGlyph.HLinkMediHLink = argModel.HLinkKey;
+                            argModel.ModelItemGlyph.ImageHLinkMediHLink = argModel.HLinkKey;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
                             break;
                         }
@@ -346,6 +346,10 @@
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
                             argModel.ModelItemGlyph = await GetThumbImageFromVideo(argModel);
+
+                            // Override Glyph type to be media
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Media;
+                            argModel.ModelItemGlyph.MediaHLinkMediHLink = argModel.HLinkKey;
                             break;
                         }
                 }

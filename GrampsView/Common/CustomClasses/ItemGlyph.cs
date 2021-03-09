@@ -10,10 +10,11 @@
     [DataContract]
     public class ItemGlyph : CommonBindableBase
     {
-        private string _HLinkMedia = string.Empty;
+        private string _ImageHLinkMedia = string.Empty;
         private string _ImageSymbol = CommonConstants.IconDDefault;
         private Color _ImageSymbolColour = Color.White;
         private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
+        private string _MediaHLinkMedia = string.Empty;
         private string _Symbol = CommonConstants.IconDDefault;
         private Color _SymbolColour = Color.White;
 
@@ -21,25 +22,25 @@
         {
         }
 
-        public HLinkMediaModel HLinkMedia
+        public HLinkMediaModel ImageHLinkMedia
         {
             get
             {
-                return DataStore.Instance.DS.MediaData.Find(_HLinkMedia).HLink;
+                return DataStore.Instance.DS.MediaData.Find(_ImageHLinkMedia).HLink;
             }
         }
 
         [DataMember]
-        public string HLinkMediHLink
+        public string ImageHLinkMediHLink
         {
             get
             {
-                return _HLinkMedia;
+                return _ImageHLinkMedia;
             }
 
             set
             {
-                SetProperty(ref _HLinkMedia, value);
+                SetProperty(ref _ImageHLinkMedia, value);
             }
         }
 
@@ -97,6 +98,28 @@
             }
         }
 
+        public HLinkMediaModel MediaHLinkMedia
+        {
+            get
+            {
+                return DataStore.Instance.DS.MediaData.Find(_MediaHLinkMedia).HLink;
+            }
+        }
+
+        [DataMember]
+        public string MediaHLinkMediHLink
+        {
+            get
+            {
+                return _MediaHLinkMedia;
+            }
+
+            set
+            {
+                SetProperty(ref _MediaHLinkMedia, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets the home symbol font glyph.
         /// </summary>
@@ -149,9 +172,12 @@
                         }
                     case CommonEnums.HLinkGlyphType.Image:
                         {
-                            return HLinkMedia.Valid;
+                            return ImageHLinkMedia.Valid;
                         }
-
+                    case CommonEnums.HLinkGlyphType.Media:
+                        {
+                            return ImageHLinkMedia.Valid;
+                        }
                     default:
                         {
                             // TODO Unknown type

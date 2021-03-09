@@ -113,21 +113,21 @@
 
         public static void Navigate(string argPageName)
         {
-            DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+            //DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
 
             Shell.Current.GoToAsync(argPageName, animate: true);
         }
 
         public static async Task NavigateAsync(string argPageName)
         {
-            await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+            //await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
 
             await Shell.Current.GoToAsync(argPageName, animate: true);
         }
 
         public static void NavigateHub()
         {
-            DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
+            //DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
 
             MainThread.BeginInvokeOnMainThread(() =>
             {

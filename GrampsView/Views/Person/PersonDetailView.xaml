@@ -24,7 +24,7 @@
         <!--  Content  -->
         <ScrollView Orientation="Vertical">
             <StackLayout>
-                <ucon:MediaImageFull BindingContext="{Binding PersonObject.ModelItemGlyph.HLinkMedia, Mode=OneWay}" />
+                <ucon:MediaImageFull BindingContext="{Binding PersonObject.ModelItemGlyph.ImageHLinkMedia, Mode=OneWay}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

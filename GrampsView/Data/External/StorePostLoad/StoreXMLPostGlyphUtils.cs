@@ -15,21 +15,11 @@
 
             MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagepdf", ".jpg");
 
-            //MediaModel newMediaModel = argMediaModel.Copy();
-            //newMediaModel.HLinkKey = argMediaModel.HLinkKey + "~imagepdf";
-            //newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey + ".jpg");
-            //newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
-
-            //string outFilePath = System.IO.Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, newMediaModel.OriginalFilePath);
-
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
                 return new ItemGlyph();
             }
-
-            //// create folder if required
-            //DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
 
             MediaModel pdfimage;
 
@@ -59,14 +49,6 @@
 
             MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagevideo", ".jpg");
 
-            //MediaModel newMediaModel = argMediaModel.Copy();
-            //newMediaModel.HLinkKey = argMediaModel.HLinkKey + "~imagevideo";
-            //newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey + ".jpg");
-            //newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
-
-            //// create folder if required
-            //DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
-
             MediaModel videoImage;
 
             // Check if new image file already exists
@@ -95,19 +77,11 @@
 
             MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
 
-            //MediaModel newMediaModel = argMediaModel.Copy();
-            //newMediaModel.HLinkKey = argMediaModel.HLinkKey + "~zipimage";
-            //newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey + ".jpg");
-            //newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, newMediaModel.OriginalFilePath);
-
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
             {
                 return new ItemGlyph();
             }
-
-            //// create folder if required
-            //DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
 
             MediaModel zipimage;
 
@@ -166,7 +140,7 @@
                 addLater.Add(argNewMediaModel);
 
                 argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                argNewGlyph.HLinkMediHLink = argNewMediaModel.HLinkKey;
+                argNewGlyph.ImageHLinkMediHLink = argNewMediaModel.HLinkKey;
 
                 return argNewGlyph;
             }
