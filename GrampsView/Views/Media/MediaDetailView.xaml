@@ -37,6 +37,7 @@
                     <ucon:HLinkVisualDisplay
                         x:Name="daImage"
                         BindingContext="{Binding CurrentHLinkMedia.HLinkGlyphItem, Mode=OneWay}"
+                        FsctShowMedia="True"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
 

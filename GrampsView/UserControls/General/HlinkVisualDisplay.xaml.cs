@@ -8,6 +8,7 @@
 
     using System;
 
+    using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
 
     public partial class HLinkVisualDisplay : Grid
@@ -167,27 +168,17 @@
                     return;
                 }
                 // Input valid so start work
-                CachedImage newMediaControl = new CachedImage
+                MediaElement newMediaControl = new MediaElement
                 {
-                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                    Margin = 3,
                     Aspect = Aspect.AspectFit,
+                    AutoPlay = false,
                     BackgroundColor = Color.Transparent,
-                    CacheType = FFImageLoading.Cache.CacheType.All,
-                    DownsampleToViewSize = true,
-
-                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static
-                    // common:CardSizes.Current}, Mode=OneWay}"
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     IsVisible = true,
-                    ErrorPlaceholder = "ic_launcher.png",
-                    LoadingPlaceholder = "ic_launcher.png",
-                    RetryCount = 3,
-                    RetryDelay = 1000,
+                    Margin = 3,
+                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
                     VerticalOptions = LayoutOptions.FillAndExpand,
                 };
-
-                newMediaControl.Error += NewMediaControl_Error;
 
                 this.HLinkVisualDisplayRoot.Children.Clear();
                 this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
@@ -242,7 +233,7 @@
                             {
                                 if (FsctShowMedia)
                                 {
-                                    ShowMedia(argItemGlyph.ImageHLinkMedia.DeRef);
+                                    ShowMedia(argItemGlyph.MediaHLinkMedia.DeRef);
                                 }
                                 else
                                 {
