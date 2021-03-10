@@ -175,6 +175,9 @@
     <Content Include="Assets\Icons\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Fonts\fa-brands-400.ttf" />
+    <Content Include="Assets\Fonts\fa-regular-400.ttf" />
+    <Content Include="Assets\Fonts\fa-solid-900.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="ic_launcher.png" />
     <Content Include="Properties\Default.rd.xml" />

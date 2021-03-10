@@ -13,11 +13,11 @@
     {
         private List<MediaModel> addLater = new List<MediaModel>();
 
-        public async static Task SetAddressImages()
+        public static void SetAddressImages()
         {
         }
 
-        public async static Task SetCitationImages()
+        public static void SetCitationImages()
         {
             foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
             {
@@ -59,11 +59,9 @@
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
             }
-
-            return;
         }
 
-        public async static Task SetEventImages()
+        public static void SetEventImages()
         {
             foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
             {
@@ -104,7 +102,7 @@
             }
         }
 
-        public async static Task SetFamilyImages()
+        public static void SetFamilyImages()
         {
             foreach (FamilyModel argModel in DataStore.Instance.DS.FamilyData.Values)
             {
@@ -148,29 +146,24 @@
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
 
-                var tt = (argModel.ModelItemGlyph.Symbol == CommonConstants.IconFamilies);
+                //var tt = (argModel.ModelItemGlyph.Symbol == CommonConstants.IconFamilies);
             }
         }
 
-        public async static Task SetHeaderImages()
+        public static void SetHeaderImages()
         {
         }
 
-        public async static Task SetNameMapImages()
+        public static void SetNameMapImages()
         {
         }
 
-        //            //// People last as they pretty much depend on everything else
-        //            //await SetPersonImages().ConfigureAwait(false);
-        //        }
-        //    }
-        //}
-        public async static Task SetNotesImages()
+        public static void SetNotesImages()
         {
         }
 
         // People last as they pretty much depend on everything else
-        public async static Task SetPersonImages()
+        public static void SetPersonImages()
         {
             foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
             {
@@ -217,19 +210,19 @@
             }
         }
 
-        public async static Task SetPersonNameImages()
+        public static void SetPersonNameImages()
         {
         }
 
-        public async static Task SetPlaceImages()
+        public static void SetPlaceImages()
         {
         }
 
-        public async static Task SetRepositoryImages()
+        public static void SetRepositoryImages()
         {
         }
 
-        public static async Task SetSourceImages()
+        public static void SetSourceImages()
         {
             foreach (SourceModel argModel in DataStore.Instance.DS.SourceData.Values)
             {
@@ -266,11 +259,11 @@
             }
         }
 
-        public async static Task SetTagImages()
+        public static void SetTagImages()
         {
-            foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
-            {
-            }
+            //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
+            //{
+            //}
         }
 
         public async Task<bool> SetMediaImages()

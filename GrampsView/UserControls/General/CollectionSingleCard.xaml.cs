@@ -22,7 +22,7 @@
 
         private int _NumItems = 10;
 
-        private int _ucHeight = 100;
+        private int _UCHeight = 100;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -45,8 +45,14 @@
         /// </value>
         public IEnumerable FsctSource
         {
-            get { return (IEnumerable)GetValue(FsctSourceProperty); }
-            set { SetValue(FsctSourceProperty, value); }
+            get
+            {
+                return (IEnumerable)GetValue(FsctSourceProperty);
+            }
+            set
+            {
+                SetValue(FsctSourceProperty, value);
+            }
         }
 
         /// <summary>
@@ -57,8 +63,14 @@
         /// </value>
         public DataTemplate FsctTemplate
         {
-            get { return (DataTemplate)GetValue(FsctTemplateProperty); }
-            set { SetValue(FsctTemplateProperty, value); }
+            get
+            {
+                return (DataTemplate)GetValue(FsctTemplateProperty);
+            }
+            set
+            {
+                SetValue(FsctTemplateProperty, value);
+            }
         }
 
         public ICommand LoadMoreDataCommand => new Command(GetNextPageOfData);
@@ -97,16 +109,16 @@
             }
         }
 
-        public int ucHeight
+        private int UCHeight
         {
             get
             {
-                return _ucHeight;
+                return _UCHeight;
             }
 
             set
             {
-                _ucHeight = value;
+                _UCHeight = value;
                 OnPropertyChanged();
             }
         }
@@ -204,19 +216,6 @@
         {
             MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        //private void CollectionSingleCardRoot_SizeChanged(object sender, EventArgs e)
-        //{
-        //    Contract.Requires(sender != null);
-
-        // CollectionSingleCard t = sender as CollectionSingleCard;
-
-        // int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
-
-        // if (tt < 1) { tt = 1; }
-
-        //    // _NumColumns = tt;
-        //}
 
         private void GetNextPageOfData()
         {

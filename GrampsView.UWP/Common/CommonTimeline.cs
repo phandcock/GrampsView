@@ -142,7 +142,7 @@
             // TODO Finish this code
 
             // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
+            //UserActivityChannel channel = UserActivityChannel.GetDefault();
 
             // Save to activity feed.
             await argActivity.SaveAsync();

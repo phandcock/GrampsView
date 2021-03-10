@@ -234,8 +234,6 @@ namespace GrampsView
 
             Debug.WriteLine(initString, "AppCenterInit");
 
-            //AppCenter.LogLevel = LogLevel.Info;
-
             AppCenter.Start(initString,
                             typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
@@ -251,7 +249,7 @@ namespace GrampsView
 
             if (!(ea is null))
             {
-                var t = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+                //var t = DeviceDisplay.MainDisplayInfo;
 
                 // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 

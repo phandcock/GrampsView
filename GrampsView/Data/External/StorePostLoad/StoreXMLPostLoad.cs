@@ -20,7 +20,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
 
-            await SetAddressImages().ConfigureAwait(false);
+            SetAddressImages();
 
             return true;
         }
@@ -32,7 +32,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
 
-            await SetCitationImages().ConfigureAwait(false);
+            SetCitationImages();
 
             foreach (AddressModel theAddressModel in DV.AddressDV.DataViewData)
             {
@@ -131,7 +131,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
 
-            await SetEventImages().ConfigureAwait(false);
+            SetEventImages();
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -169,7 +169,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
 
-            await SetFamilyImages().ConfigureAwait(false);
+            SetFamilyImages();
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -209,7 +209,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
-            await SetHeaderImages().ConfigureAwait(false);
+            SetHeaderImages();
 
             return true;
         }
@@ -221,7 +221,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
-            await SetNameMapImages().ConfigureAwait(false);
+            SetNameMapImages();
 
             return true;
         }
@@ -233,7 +233,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
 
-            await SetNotesImages().ConfigureAwait(false);
+            SetNotesImages();
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -344,7 +344,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
-            await SetPersonNameImages().ConfigureAwait(false);
+            SetPersonNameImages();
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
@@ -367,7 +367,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
-            await SetPersonImages().ConfigureAwait(false);
+            SetPersonImages();
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
@@ -450,7 +450,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
-            await SetPlaceImages().ConfigureAwait(false);
+            SetPlaceImages();
 
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
@@ -490,7 +490,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
-            await SetRepositoryImages().ConfigureAwait(false);
+            SetRepositoryImages();
 
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
@@ -518,7 +518,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
-            await SetSourceImages().ConfigureAwait(false);
+            SetSourceImages();
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {
@@ -537,7 +537,7 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
 
-            await SetTagImages().ConfigureAwait(false);
+            SetTagImages();
 
             foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
             {

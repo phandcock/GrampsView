@@ -83,6 +83,9 @@
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Fonts\fa-brands-400.ttf" />
+    <AndroidAsset Include="Assets\Fonts\fa-regular-400.ttf" />
+    <AndroidAsset Include="Assets\Fonts\fa-solid-900.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

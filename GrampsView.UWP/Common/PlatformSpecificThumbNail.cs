@@ -135,12 +135,6 @@
             }
 
             return argNewMediaModel;
-            //}
-            //else
-            //{
-            //}
-
-            return new MediaModel();
         }
     }
 }
