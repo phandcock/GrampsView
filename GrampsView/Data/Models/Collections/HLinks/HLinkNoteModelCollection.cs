@@ -131,33 +131,36 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
         /// <summary>
         /// Helper method to sort and set the first image link.
         /// </summary>
-        public void SortAndSetFirst()
+        public void Sort()
         {
-            // Set the first image link. Assumes main image is manually set to the first image in
-            // Gramps if we need it to be, e.g. Citations.
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
 
-            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            //FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
-            if (Count > 0)
+            //if (Count > 0)
+            //{
+            //    // For Note collections just grab the first one
+            //    FirstHLinkHomeImage = this[0].DeRef.ModelItemGlyph;
+
+            // Sort the collection
+            List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GStyledText.GText).ToList();
+
+            Items.Clear();
+
+            foreach (HLinkNoteModel item in t)
             {
-                // For Note collections just grab the first one
-                FirstHLinkHomeImage = this[0].DeRef.ModelItemGlyph;
-
-                // Sort the collection
-                List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GStyledText.GText).ToList();
-
-                Items.Clear();
-
-                foreach (HLinkNoteModel item in t)
-                {
-                    Items.Add(item);
-                }
+                Items.Add(item);
             }
         }
     }

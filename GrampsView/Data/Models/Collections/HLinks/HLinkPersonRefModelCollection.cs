@@ -48,30 +48,18 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void SortAndSetFirst()
+        public void Sort()
         {
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-            //PersonModel tempModel = new PersonModel();
-
-            //FirstHLinkHomeImage.ImageType = CommonEnums.ImageType.Unknown;
-
-            //if (Count > 0)
-            //{
-            //    // Step through each citationmodel hlink in the collection
-            //    for (int i = 0; i < Count; i++)
-            //    {
-            //        tempModel = DV.PersonDV.PersonData.GetModelFromHLink(this[i]);
-
-            // if (tempModel.HLinkGlyph.LinkToImage) { FirstHLinkHomeImage = tempModel.HLinkGlyph;
-            // break; } }
-
             // Sort the collection
             List<HLinkPersonRefModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName).ToList();
 

@@ -116,7 +116,7 @@
                                 loadPerson.GParentInRefCollection.Add(t);
                             }
 
-                            loadPerson.GParentInRefCollection.SortAndSetFirst();
+                            // loadPerson.GParentInRefCollection.SortAndSetFirst();
                         }
 
                         // PersonRef

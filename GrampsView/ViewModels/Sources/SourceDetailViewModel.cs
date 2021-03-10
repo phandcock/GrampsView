@@ -36,17 +36,17 @@
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
-        public ItemGlyph MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
-        }
+        //public ItemGlyph MediaCard
+        //{
+        //    get
+        //    {
+        //        return _MediaCard;
+        //    }
+        //    set
+        //    {
+        //        SetProperty(ref _MediaCard, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the public Source ViewModel.
@@ -85,7 +85,7 @@
                 BaseTitle = SourceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconSource;
 
-                MediaCard = SourceObject.ModelItemGlyph;
+                //MediaCard = SourceObject.ModelItemGlyph;
 
                 // Header Card
                 BaseDetail.Add(new CardListLineCollection("Source Detail")
@@ -98,15 +98,6 @@
 
                 // Add Model details
                 BaseDetail.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
-
-                //BaseDetail.Add(t);
-
-                // Add bulk items
-                //BaseDetail.Add(SourceObject.GMediaRefCollection.GetCardGroup());
-                //BaseDetail.Add(SourceObject.GNoteRefCollection.GetCardGroup());
-                //BaseDetail.Add(SourceObject.GTagRefCollection.GetCardGroup());
-                //BaseDetail.Add(SourceObject.GRepositoryRefCollection.GetCardGroup());
-                //BaseDetail.Add(SourceObject.GSourceAttributeCollection);
             }
         }
     }

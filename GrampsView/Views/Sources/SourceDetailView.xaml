@@ -7,9 +7,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewmodels:SourceDetailViewModel"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -20,7 +22,7 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" />
+            <ucon:MediaCardLarge BindingContext="{Binding SourceObject.ModelItemGlyph.ImageHLinkMedia, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

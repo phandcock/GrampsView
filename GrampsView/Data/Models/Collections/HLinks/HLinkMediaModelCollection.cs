@@ -7,7 +7,6 @@ namespace GrampsView.Data.Collections
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -46,47 +45,28 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
         /// <summary>
-        /// Helper method to sort and set the firt image link.
+        /// Helper method to sort.
         /// </summary>
         /// <param name="collectionArg">
         /// The collection argument.
         /// </param>
-        public void SortAndSetFirst()
+        public void Sort()
         {
-            // Set the first image link. Assumes main image is manually set to the first image in
-            // Gramps if we need it to be, e.g. Citations.
-            IMediaModel tempMediaModel = new MediaModel();
+            List<HLinkMediaModel> t = this.OrderBy(hLinkMediaModel => hLinkMediaModel.DeRef.GDescription).ToList();
 
-            FirstHLinkHomeImage = tempMediaModel.ModelItemGlyph;
+            Items.Clear();
 
-            if (Count > 0)
+            foreach (HLinkMediaModel item in t)
             {
-                // Step through each mediamodel hlink in the collection
-                for (int i = 0; i < Count; i++)
-                {
-                    tempMediaModel = DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
-
-                    if (tempMediaModel.IsImage)
-                    {
-                        FirstHLinkHomeImage = this[i].HLinkGlyphItem;
-
-                        break;
-                    }
-                }
-
-                // Sort the collection
-                List<HLinkMediaModel> t = this.OrderBy(hLinkMediaModel => hLinkMediaModel.DeRef.GDescription).ToList();
-
-                Items.Clear();
-
-                foreach (HLinkMediaModel item in t)
-                {
-                    Items.Add(item);
-                }
+                Items.Add(item);
             }
         }
     }

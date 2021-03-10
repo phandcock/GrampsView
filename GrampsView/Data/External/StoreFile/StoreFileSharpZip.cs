@@ -10,7 +10,6 @@
 
     using System;
     using System.IO;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -62,7 +61,7 @@
         /// <param name="outFolder">
         /// The out folder.
         /// </param>
-        public static async Task<MediaModel> ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public static MediaModel ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
             ZipFile zf = null;
             try

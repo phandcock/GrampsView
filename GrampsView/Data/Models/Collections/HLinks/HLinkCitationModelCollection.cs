@@ -47,43 +47,26 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void SortAndSetFirst()
+        public void Sort()
         {
-            // Set the first image link. Assumes main image is manually set to the first image in
-            // Gramps if we need it to be, e.g. Citations.
-            ICitationModel tempCitationModel = new CitationModel();
+            // Sort the collection
+            List<HLinkCitationModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent.SortDate).ToList();
 
-            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            Items.Clear();
 
-            if (Count > 0)
+            foreach (HLinkCitationModel item in t)
             {
-                // Step through each citationmodel hlink in the collection
-                for (int i = 0; i < Count; i++)
-                {
-                    tempCitationModel = DV.CitationDV.GetModelFromHLink(this[i]);
-
-                    if (tempCitationModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
-                    {
-                        FirstHLinkHomeImage = tempCitationModel.ModelItemGlyph;
-                        break;
-                    }
-                }
-
-                // Sort the collection
-                List<HLinkCitationModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent.SortDate).ToList();
-
-                Items.Clear();
-
-                foreach (HLinkCitationModel item in t)
-                {
-                    Items.Add(item);
-                }
+                Items.Add(item);
             }
         }
     }

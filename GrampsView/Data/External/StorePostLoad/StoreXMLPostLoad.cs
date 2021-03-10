@@ -474,10 +474,11 @@
 
             foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
             {
-                if (thePlaceModel.PlaceChildCollection.Count > 0)
-                {
-                    thePlaceModel.PlaceChildCollection.SortAndSetFirst();
-                }
+                thePlaceModel.PlaceChildCollection.SetGlyph();
+                //{
+                //    thePlaceModel.PlaceChildCollection.SetFirstImage();
+                //    thePlaceModel.PlaceChildCollection.Sort();
+                //}
             }
 
             return true;
@@ -716,7 +717,7 @@
 
                 foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
                 {
-                    if (theSourceModel.Id == "S0273")
+                    if (theSourceModel.Id == "S0010")
                     {
                     }
 

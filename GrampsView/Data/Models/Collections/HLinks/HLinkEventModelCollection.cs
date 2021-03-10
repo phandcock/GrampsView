@@ -65,43 +65,26 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void SortAndSetFirst()
+        public void Sort()
         {
-            // Set the first image link. Assumes main image is manually set to the first image in
-            // Gramps if we need it to be, e.g. Citations.
-            EventModel tempModel = new EventModel();
+            // Sort the collection
+            List<HLinkEventModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate.SortDate).ToList();
 
-            FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            Items.Clear();
 
-            if (Count > 0)
+            foreach (HLinkEventModel item in t)
             {
-                // Step through each eventmodel hlink in the collection
-                for (int i = 0; i < Count; i++)
-                {
-                    tempModel = DV.EventDV.EventData.GetModelFromHLink(this[i]);
-
-                    if (tempModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
-                    {
-                        FirstHLinkHomeImage = tempModel.ModelItemGlyph;
-                        break;
-                    }
-                }
-
-                // Sort the collection
-                List<HLinkEventModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate.SortDate).ToList();
-
-                Items.Clear();
-
-                foreach (HLinkEventModel item in t)
-                {
-                    Items.Add(item);
-                }
+                Items.Add(item);
             }
         }
     }

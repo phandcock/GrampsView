@@ -45,10 +45,14 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.SymbolColour = t.SymbolColour;
             }
 
-            SortAndSetFirst();
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            Sort();
         }
 
-        public void SortAndSetFirst()
+        public void Sort()
         {
             // TODO Need this
         }

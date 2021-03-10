@@ -85,6 +85,27 @@ namespace GrampsView.Data.Model
             return t;
         }
 
+        public void SetFirstImage()
+        {
+            // Set the first image link. Assumes main image is manually set to the first image in
+            // Gramps if we need it to be, e.g. Citations.
+            //ItemGlyph tempMediaModel = new ItemGlyph();
+
+            FirstHLinkHomeImage = new ItemGlyph();
+
+            if (Count > 0)
+            {
+                // Step through each mediamodel hlink in the collection
+                for (int i = 0; i < Count; i++)
+                {
+                    if (this[i].HLinkGlyphItem.ImageType == CommonEnums.HLinkGlyphType.Image)
+                    {
+                        FirstHLinkHomeImage = this[i].HLinkGlyphItem;       // DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
+                    }
+                }
+            }
+        }
+
         public virtual void SetGlyph()
         {
         }
