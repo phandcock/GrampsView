@@ -1,3 +1,12 @@
+## [16.16.2](https://github.com/phandcock/GrampsView/compare/v16.16.1...v16.16.2) (2021-03-10)
+
+
+### Bug Fixes
+
+* cleanup image display ([ed3b372](https://github.com/phandcock/GrampsView/commit/ed3b372ce62b5b68bc519b77fc3ad08be667fc77))
+
+
+
 ## [16.16.1](https://github.com/phandcock/GrampsView/compare/v16.16.0...v16.16.1) (2021-03-08)
 
 
@@ -42,15 +51,6 @@
 * add pdf to image to Android ([3503c60](https://github.com/phandcock/GrampsView/commit/3503c6023e9dd1a4565f7eded3c5991fe95b420c))
 * cleanup mediadetailview mediacard display ([a61b5ce](https://github.com/phandcock/GrampsView/commit/a61b5ce5e4d8887f87f4182cfc751fe8bef8208b))
 * handle bad file details ([90a2db1](https://github.com/phandcock/GrampsView/commit/90a2db1757fd1b225699ede39b34301fcd2673d6))
-
-
-
-## [16.15.27](https://github.com/phandcock/GrampsView/compare/v16.15.26...v16.15.27) (2021-03-01)
-
-
-### Bug Fixes
-
-* add URL card to Note Link types ([7569955](https://github.com/phandcock/GrampsView/commit/7569955d87fa2885be5cd18c0a57c90110469800))
 
 
 
