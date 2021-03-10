@@ -440,7 +440,7 @@
 
             if (Valid)
             {
-                return SingleDate.Subtract(otherDate.SingleDate);
+                return SingleDate.Subtract(otherDate.SingleDate).Duration();
             }
 
             return new TimeSpan();

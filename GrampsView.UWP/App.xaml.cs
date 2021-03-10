@@ -160,8 +160,6 @@
 
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 
-                //GrampsView.UserControls.UWP.Renderers.BorderlessEntryRenderer.Init();
-
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
