@@ -174,6 +174,19 @@
             }
         }
 
+        public static bool SortHLinkCollections
+        {
+            get
+            {
+                return Preferences.Get("SortHLinkCollections", false);
+            }
+
+            set
+            {
+                Preferences.Set("SortHLinkCollections", value);
+            }
+        }
+
         public static bool WhatsNewDisplayed
         {
             get

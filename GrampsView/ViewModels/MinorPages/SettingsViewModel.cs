@@ -69,6 +69,19 @@
             }
         }
 
+        public bool SortCollectionsFlag
+        {
+            get
+            {
+                return Common.CommonLocalSettings.SortHLinkCollections;
+            }
+            set
+            {
+                CommonLocalSettings.SortHLinkCollections = value;
+                // SetProperty(ref CommonLocalSettings.SortHLinkCollections, value);
+            }
+        }
+
         public DelegateCommand TestCommand
         {
             get; private set;

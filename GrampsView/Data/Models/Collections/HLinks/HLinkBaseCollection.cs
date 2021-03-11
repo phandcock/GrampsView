@@ -101,6 +101,9 @@ namespace GrampsView.Data.Model
                     if (this[i].HLinkGlyphItem.ImageType == CommonEnums.HLinkGlyphType.Image)
                     {
                         FirstHLinkHomeImage = this[i].HLinkGlyphItem;       // DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
+
+                        // Stop after the first match
+                        return;
                     }
                 }
             }

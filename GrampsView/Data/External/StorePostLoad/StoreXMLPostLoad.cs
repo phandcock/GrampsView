@@ -97,7 +97,7 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0693")
+                if (thePersonModel.Id == "I0600")
                 {
                 }
 

@@ -73,6 +73,10 @@
                     return;
                 }
 
+                if (newItemGlyph.ImageHLinkMedia.HLinkKey == "_c4c5aaa038602727de3~zipimage")
+                {
+                }
+
                 this.ShowSomething(newItemGlyph);
             }
             catch (Exception ex)
