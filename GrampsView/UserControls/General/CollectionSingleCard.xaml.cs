@@ -22,7 +22,7 @@
 
         private int _NumItems = 10;
 
-        private int _UCHeight = 100;
+        //private int _UCHeight = 100;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -109,19 +109,19 @@
             }
         }
 
-        private int UCHeight
-        {
-            get
-            {
-                return _UCHeight;
-            }
+        //private int UCHeight
+        //{
+        //    get
+        //    {
+        //        return _UCHeight;
+        //    }
 
-            set
-            {
-                _UCHeight = value;
-                OnPropertyChanged();
-            }
-        }
+        //    set
+        //    {
+        //        _UCHeight = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         /// <summary>
         /// Called when [items source changed].
@@ -198,7 +198,7 @@
                 ucHeight = 1;
             }
 
-            ucHeight = ucHeight + 50;
+            ucHeight += 50;
 
             this.HeightRequest = ucHeight;
         }

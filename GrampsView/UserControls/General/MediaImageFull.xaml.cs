@@ -43,10 +43,8 @@
 
             MediaImageFull mifModel = (sender as MediaImageFull);
 
-            HLinkMediaModel argHLinkMediaModel = mifModel.BindingContext as HLinkMediaModel;
-
             // Hide if not valid
-            if ((argHLinkMediaModel is null) || (!argHLinkMediaModel.Valid))
+            if ((!(mifModel.BindingContext is HLinkMediaModel argHLinkMediaModel)) || (!argHLinkMediaModel.Valid))
             {
                 mifModel.IsVisible = false;
                 return;

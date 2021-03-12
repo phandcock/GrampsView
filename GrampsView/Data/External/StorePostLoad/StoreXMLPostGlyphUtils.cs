@@ -9,6 +9,16 @@
 
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
     {
+        public static ErrorInfo UtilGetPostGlyphErrorInfo(string argErrorText, MediaModel argMediaModel)
+        {
+            return new ErrorInfo(argErrorText)
+                                 {
+                                     { "Original ID", argMediaModel.Id },
+                                     { "Original File", argMediaModel.MediaStorageFilePath },
+                                     { "Clipped Id", argMediaModel.DeRef.Id }
+                                 };
+        }
+
         public async Task<ItemGlyph> GetThumbImageFromPDF(MediaModel argMediaModel)
         {
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
@@ -106,16 +116,6 @@
             return returnItemGlyph;
         }
 
-        public ErrorInfo UtilGetPostGlyphErrorInfo(string argErrorText, MediaModel argMediaModel)
-        {
-            return new ErrorInfo(argErrorText)
-                                 {
-                                     { "Original ID", argMediaModel.Id },
-                                     { "Original File", argMediaModel.MediaStorageFilePath },
-                                     { "Clipped Id", argMediaModel.DeRef.Id }
-                                 };
-        }
-
         private MediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
             // create folder if required
@@ -130,7 +130,7 @@
 
         private ItemGlyph UtilSaveNewMediaObject(ItemGlyph argNewGlyph, MediaModel argNewMediaModel, string argDefaultSymbol)
         {
-            // ------------ Save new MediaObject
+            // Save new MediaObject
             if (argNewMediaModel.Valid)
             {
                 argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;

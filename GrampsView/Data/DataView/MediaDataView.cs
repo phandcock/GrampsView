@@ -3,7 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
 
     using System;
@@ -11,7 +10,6 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Datamodel for media object files.
@@ -19,33 +17,10 @@
     public class MediaDataView : DataViewBase<MediaModel, HLinkMediaModel, HLinkMediaModelCollection>, IMediaDataView
     {
         /// <summary>
-        /// The local media data.
-        /// </summary>
-
-        /// <summary>
-        /// The local common logging
-        /// </summary>
-        readonly private ICommonLogging localCL;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MediaDataView"/> class.
         /// </summary>
         public MediaDataView()
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaDataView"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocCommonProgress">
-        /// The ioc common progress.
-        /// </param>
-        public MediaDataView(ICommonLogging iocCommonLogging)
-        {
-            localCL = iocCommonLogging;
         }
 
         /// <summary>
@@ -72,7 +47,15 @@
         {
             get
             {
-                return MediaData.Values.ToList();
+                return DataStore.Instance.DS.MediaData.Values.ToList();
+            }
+        }
+
+        public IReadOnlyList<MediaModel> DataViewDataPublic
+        {
+            get
+            {
+                return DataStore.Instance.DS.MediaData.Values.SkipWhile(MediaModel => MediaModel.IsInternalMediaFile).ToList();
             }
         }
 
@@ -138,21 +121,6 @@
         }
 
         /// <summary>
-        /// Gets or sets the media data.
-        /// </summary>
-        /// <value>
-        /// The media data.
-        /// </value>
-        [DataMember]
-        public RepositoryModelDictionary<MediaModel, HLinkMediaModel> MediaData
-        {
-            get
-            {
-                return DataStore.Instance.DS.MediaData;
-            }
-        }
-
-        /// <summary>
         /// Gets all as card group.
         /// </summary>
         /// <returns>
@@ -165,7 +133,7 @@
         {
             CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
 
-            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
+            foreach (IMediaModel item in DataDefaultSort.SkipWhile(x => x.IsInternalMediaFile))
             {
                 t.Add(item.HLink);
             }
@@ -206,73 +174,9 @@
             return t;
         }
 
-        /// <summary>
-        /// Gets the first icon from collection.
-        /// </summary>
-        /// <param name="theCollection">
-        /// The collection.
-        /// </param>
-        /// <returns>
-        /// HLink Media ViewModel.
-        /// </returns>
-        public IHLinkMediaModel GetFirstIconFromCollection(HLinkMediaModelCollection theCollection)
-        {
-            // handle null argument
-            if (theCollection == null)
-            {
-                theCollection = GetAllAsHLink();
-            }
-
-            IEnumerable<IHLinkMediaModel> t = theCollection.Where(HLinkMediaModel => HLinkMediaModel.DeRef.IsImage == true);
-
-            return t.FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Gets the first image from collection or null if none found.
-        /// </summary>
-        /// <param name="argCollection">
-        /// The collection. If null then the whole Media Repository is used.
-        /// </param>
-        /// <param name="DefaultHLink">
-        /// The default h link.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public new HLinkMediaModel GetFirstImageFromCollection(HLinkMediaModelCollection argCollection)
-        {
-            // Handle null argument
-            if (argCollection == null)
-            {
-                argCollection = GetAllAsHLink();
-            }
-
-            HLinkMediaModel returnMediaModel = new HLinkMediaModel();
-
-            IMediaModel tempMediaModel;
-
-            if (argCollection.Count > 0)
-            {
-                // step through each mediamodel hlink in the collection
-                for (int i = 0; i < argCollection.Count; i++)
-                {
-                    tempMediaModel = MediaData.GetModelFromHLink(argCollection[i]);
-
-                    if (tempMediaModel.IsImage)
-                    {
-                        returnMediaModel = argCollection[i];
-                        break;
-                    }
-                }
-            }
-
-            // return the image
-            return returnMediaModel;
-        }
-
         public override MediaModel GetModelFromHLinkString(string HLinkString)
         {
-            return MediaData[HLinkString];
+            return DataStore.Instance.DS.MediaData[HLinkString];
         }
 
         /// <summary>
@@ -307,17 +211,6 @@
                 int q = randomValue.Next(0, argCollection.Count);
 
                 tt = argCollection[q];
-
-                //// get the next image starting at the random value
-                //for (int i = q; i < argCollection.Count; i++)
-                //{
-                //    HLinkMediaModel tempHLinkMediaModel = argCollection[i];
-                //    if (MediaData.GetModelFromHLink(tempHLinkMediaModel).IsImage)
-                //    {
-                //        tt = tempHLinkMediaModel;
-                //        break;
-                //    }
-                //}
             }
 
             // return the image hlink
@@ -349,20 +242,6 @@
             }
 
             return tt;
-        }
-
-        /// <summary>
-        /// News this instance.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override MediaModel NewModel()
-        {
-            MediaModel t = base.NewModel();
-
-            //t.ModelCommonLogging = localCL;
-
-            return t;
         }
 
         /// <summary>
