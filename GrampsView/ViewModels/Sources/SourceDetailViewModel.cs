@@ -18,7 +18,7 @@
         /// <summary>
         /// The local Source object.
         /// </summary>
-        private SourceModel _SourcesObject;
+        private SourceModel _SourcesObject = new SourceModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceDetailViewModel"/> class.
@@ -36,17 +36,18 @@
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
-        public ItemGlyph MediaCard
-        {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
-        }
+        //public ItemGlyph MediaCard
+        //{
+        //    get
+        //    {
+        //        return _MediaCard;
+        //    }
+
+        //    set
+        //    {
+        //        SetProperty(ref _MediaCard, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the public Source ViewModel.
@@ -85,7 +86,7 @@
                 BaseTitle = SourceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconSource;
 
-                MediaCard = SourceObject.ModelItemGlyph;
+                // MediaCard = SourceObject.ModelItemGlyph;
 
                 // Header Card
                 BaseDetail.Add(new CardListLineCollection("Source Detail")

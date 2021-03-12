@@ -9,10 +9,12 @@
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:ViewModels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="ViewModels:HubViewModel"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 

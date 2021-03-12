@@ -3,8 +3,12 @@
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
-    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
 
+    using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     [DataContract]
@@ -20,6 +24,7 @@
 
         public ItemGlyph()
         {
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
         public HLinkMediaModel ImageHLinkMedia
@@ -160,6 +165,11 @@
             }
         }
 
+        public IAsyncCommand UCNavigateCommand
+        {
+            get;
+        }
+
         public bool Valid
         {
             get
@@ -193,6 +203,18 @@
             {
                 return (Valid && (ImageType == CommonEnums.HLinkGlyphType.Image));
             }
+        }
+
+        public async Task UCNavigate()
+        {
+            if ((this.ImageType == CommonEnums.HLinkGlyphType.Image) || (this.ImageType == CommonEnums.HLinkGlyphType.Media))
+            {
+                string ser = JsonConvert.SerializeObject(this.ImageHLinkMedia);
+
+                await AppShell.Current.GoToAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+            }
+
+            return;
         }
     }
 }

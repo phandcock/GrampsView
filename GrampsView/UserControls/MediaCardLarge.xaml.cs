@@ -15,9 +15,11 @@
         {
             MediaCardLarge thisObject = sender as MediaCardLarge;
 
-            if (thisObject.BindingContext is null)
+            HLinkBase theHLink = thisObject.BindingContext as HLinkBase;
+
+            if (theHLink != null)
             {
-                (sender as MediaCardLarge).BindingContext = new HLinkMediaModel();
+                this.AnchorImage.BindingContext = theHLink.HLinkGlyphItem;
             }
         }
     }

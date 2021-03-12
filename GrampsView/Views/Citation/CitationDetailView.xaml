@@ -21,7 +21,7 @@
 
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding CitationObject.ModelItemGlyph, Mode=OneWay}" />
+            <ucon:MediaGlyphCardLarge BindingContext="{Binding CitationObject.ModelItemGlyph, Mode=OneWay}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

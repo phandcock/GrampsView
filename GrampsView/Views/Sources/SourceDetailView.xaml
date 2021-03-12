@@ -22,7 +22,7 @@
     <!--  Content  -->
     <ScrollView>
         <StackLayout>
-            <ucon:MediaCardLarge BindingContext="{Binding MediaCard, Mode=OneWay}" MinimumHeightRequest="100" />
+            <ucon:MediaGlyphCardLarge BindingContext="{Binding SourceObject.ModelItemGlyph, Mode=OneWay}" MinimumHeightRequest="100" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

@@ -58,14 +58,31 @@
             {
                 newItemGlyph = new ItemGlyph();
 
-                if (this.BindingContext is IHLinkMediaModel)
+                switch (this.BindingContext.GetType().Name)
                 {
-                    newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
-                }
+                    case nameof(IHLinkMediaModel):
+                        {
+                            newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            break;
+                        }
 
-                if (this.BindingContext is ItemGlyph)
-                {
-                    newItemGlyph = this.BindingContext as ItemGlyph;
+                    case nameof(HLinkMediaModel):
+                        {
+                            newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            break;
+                        }
+
+                    case nameof(ItemGlyph):
+                        {
+                            newItemGlyph = this.BindingContext as ItemGlyph;
+                            break;
+                        }
+
+                    default:
+                        {
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay is not ItemGlyph but " + this.BindingContext.GetType().ToString()));
+                            return;
+                        }
                 }
 
                 if (!(newItemGlyph.Valid))

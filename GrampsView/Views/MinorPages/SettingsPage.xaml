@@ -95,7 +95,7 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="Sort Item collections" />
+                            Text="Sort Item collections on load" />
 
                         <Switch
                             Grid.Row="0"

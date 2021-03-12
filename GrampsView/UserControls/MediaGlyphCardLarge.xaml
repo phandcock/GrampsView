@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
-    x:Class="GrampsView.UserControls.MediaCardLarge"
+    x:Class="GrampsView.UserControls.MediaGlyphCardLarge"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="MediaCardLargeRoot"
-    x:DataType="models:HLinkMediaModel"
-    BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
+    x:Name="MediaGlyphCardLargeRoot"
+    x:DataType="models:ItemGlyph"
     IsVisible="{Binding Valid}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
@@ -18,7 +17,7 @@
             <Grid x:Name="controlRoot">
 
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
+                    <TapGestureRecognizer Command="{Binding UCNavigateCommand}" />
                 </Grid.GestureRecognizers>
 
                 <Grid.ColumnDefinitions>
@@ -36,17 +35,8 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
+                    BindingContext="{Binding ., Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
-
-                <Label
-                    x:Name="MediaObjectTitle"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HorizontalOptions="CenterAndExpand"
-                    HorizontalTextAlignment="Center"
-                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                    Text="{Binding DeRef.GDescription, Mode=OneWay}" />
 
                 <Image
                     Grid.Row="1"
@@ -55,8 +45,8 @@
                     <Image.Source>
                         <FontImageSource
                             FontFamily="{StaticResource GlyphFontFamily}"
-                            Glyph="{Binding HLinkGlyphItem.Symbol}"
-                            Color="{Binding HLinkGlyphItem.SymbolColour}" />
+                            Glyph="{Binding Symbol}"
+                            Color="{Binding SymbolColour}" />
                     </Image.Source>
                 </Image>
             </Grid>

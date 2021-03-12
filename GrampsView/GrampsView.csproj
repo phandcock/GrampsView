@@ -104,6 +104,9 @@
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\MediaGlyphCardLarge.xaml.cs">
+      <DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
