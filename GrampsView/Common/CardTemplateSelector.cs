@@ -98,18 +98,6 @@ namespace GrampsView.Common
             set;
         }
 
-        ///// <summary>
-        ///// Gets or sets the media image full template.
-        ///// </summary>
-        ///// <value>
-        ///// The media image full template.
-        ///// </value>
-        //public DataTemplate MediaImageFullTemplate
-        //{
-        //    get;
-        //    set;
-        //}
-
         /// <summary>
         /// Gets or sets the media template.
         /// </summary>
@@ -287,8 +275,6 @@ namespace GrampsView.Common
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
             Contract.Assert(item != null);
-
-            // Address related
 
             if ((item is AddressModel) || (item is IHLinkAddressModel))
             {

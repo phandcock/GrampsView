@@ -55,7 +55,7 @@
         {
             get
             {
-                return DataStore.Instance.DS.MediaData.Values.SkipWhile(MediaModel => MediaModel.IsInternalMediaFile).ToList();
+                return DataStore.Instance.DS.MediaData.Values.Where(MediaModel => MediaModel.IsInternalMediaFile == false).ToList();
             }
         }
 
@@ -133,7 +133,7 @@
         {
             CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
 
-            foreach (IMediaModel item in DataDefaultSort.SkipWhile(x => x.IsInternalMediaFile))
+            foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
                 t.Add(item.HLink);
             }
