@@ -2,7 +2,7 @@
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
-using GrampsView.Data.ExternalStorageNS;
+using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Services;
@@ -210,7 +210,7 @@ namespace GrampsView
             container.RegisterSingleton<IEventAggregator, EventAggregator>();
             container.RegisterSingleton<IStorePostLoad, StorePostLoad>();
             container.RegisterSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
-            container.RegisterSingleton<IGrampsStoreXML, GrampsStoreXML>();
+            container.RegisterSingleton<IStoreXML, StoreXML>();
             container.RegisterSingleton<IStoreFile, StoreFile>();
 
             container.RegisterSingleton<WhatsNewDisplayService>();

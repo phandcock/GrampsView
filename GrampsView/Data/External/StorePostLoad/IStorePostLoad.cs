@@ -1,4 +1,4 @@
-namespace GrampsView.Data.ExternalStorageNS
+namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.Model;
 

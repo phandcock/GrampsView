@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -11,8 +11,8 @@
     /// </summary>
     /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
     /// /// ///
-    /// <seealso cref="GrampsView.Data.ExternalStorageNS.IGrampsStoreXML"/>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// Loads the header meta data.
@@ -75,8 +75,6 @@
                     throw;
                 }
             }
-
-         
 
             return;
         }

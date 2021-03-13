@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -12,7 +12,7 @@
     /// <summary>
     /// Private Storage Routines.
     /// </summary>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// load events from external storage.
@@ -71,7 +71,6 @@
                 }
             }
 
-        
             return;
         }
     }

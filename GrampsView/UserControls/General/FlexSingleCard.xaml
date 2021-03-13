@@ -3,11 +3,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-    x:Name="CollectionSingleCardRoot"
+    x:Name="FlexSingleCardRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
-    IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
+    IsVisible="{Binding FsctSource.Visible, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}">
 
     <Frame.Resources>
         <toolkitc:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
@@ -17,15 +17,15 @@
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
         <Frame
             x:Name="LLCardLargeFrame"
-            IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
+            IsVisible="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
             Style="{StaticResource GVFrameHeaderStyle}">
-            <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
+            <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
         </Frame>
 
         <FlexLayout
             x:Name="theCollectionView"
-            BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-            BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+            BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
+            BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
             Style="{StaticResource FlexSingleCollection}"
             Wrap="Wrap" />
     </StackLayout>

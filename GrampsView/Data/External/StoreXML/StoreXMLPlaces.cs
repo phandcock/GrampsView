@@ -1,6 +1,5 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -10,7 +9,7 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// load events from external storage.

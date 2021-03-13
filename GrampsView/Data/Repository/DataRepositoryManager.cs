@@ -5,7 +5,7 @@
 
     using GrampsView.Common;
     using GrampsView.Data.External.StoreSerial;
-    using GrampsView.Data.ExternalStorageNS;
+    using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
     using GrampsView.Views;
 
@@ -45,7 +45,7 @@
         /// <summary>
         /// Injected External Storage.
         /// </summary>
-        private readonly IGrampsStoreXML localExternalStorage;
+        private readonly IStoreXML localExternalStorage;
 
         /// <summary>
         /// The local post load.
@@ -78,7 +78,7 @@
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IGrampsStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 

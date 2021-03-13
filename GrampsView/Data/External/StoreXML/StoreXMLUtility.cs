@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -22,9 +22,9 @@
     /// <summary>
     /// Various utility and loading routines for XML data.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ExternalStorageNS.IGrampsStoreXML"/>
-    /// <seealso cref="IGrampsStoreXML"/>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
+    /// <seealso cref="IStoreXML"/>
+    public partial class StoreXML : IStoreXML
     {
         public static async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
         {

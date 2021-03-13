@@ -1,19 +1,12 @@
-namespace GrampsView.Data.ExternalStorageNS
+namespace GrampsView.Data.ExternalStorage
 {
     using System.Threading.Tasks;
 
     /// <summary>
     /// Interface definitions for IExternal Storage.
     /// </summary>
-    public interface IGrampsStoreXML
+    public interface IStoreXML
     {
-        /// <summary>
-        /// Initialises the data storage asynchronous.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        // Task<bool> DataStorageInitialiseAsync(StorageFolder dataStorageFolder);
-
         /// <summary>
         /// Loads the gramps data only.
         /// </summary>

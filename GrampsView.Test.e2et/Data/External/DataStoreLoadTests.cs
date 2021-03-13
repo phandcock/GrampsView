@@ -5,7 +5,7 @@
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.External.StoreSerial;
-    using GrampsView.Data.ExternalStorageNS;
+    using GrampsView.Data.ExternalStorage;
     using GrampsView.Data.Repository;
     using GrampsView.e2e.Test.Utility;
     using GrampsView.Events;
@@ -79,7 +79,7 @@
             // Other setup
             IEventAggregator iocEventAggregator = mocEventAggregator.Object;
 
-            IGrampsStoreXML iocExternalStorage = new GrampsStoreXML(iocCommonLogging);
+            IStoreXML iocExternalStorage = new StoreXML(iocCommonLogging);
 
             IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
 

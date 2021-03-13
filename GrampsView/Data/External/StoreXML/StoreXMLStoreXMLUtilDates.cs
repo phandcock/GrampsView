@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -32,7 +32,7 @@
     // <optional><attribute name = "newyear" >< text /></ attribute ></ optional > </ element > <
     // element name="datestr"> <attribute name = "val" >< text /></ attribute > </ element > </
     // choice > </ define > </ code >
-    public partial class GrampsStoreXML : CommonBindableBase, IGrampsStoreXML
+    public partial class StoreXML : CommonBindableBase, IStoreXML
     {
         /// <summary>
         /// Sets the date string.

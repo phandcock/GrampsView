@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -12,7 +12,7 @@
     /// <summary>
     /// Load Citations from external storage routines.
     /// </summary>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// Load Citations from external storage.

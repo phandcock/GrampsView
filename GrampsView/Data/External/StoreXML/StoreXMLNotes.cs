@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -15,7 +15,7 @@
     /// <summary>
     /// Private Storage Routines.
     /// </summary>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// Load Notes from external storage.
@@ -47,7 +47,6 @@
 
                         // Note attributes
                         loadNote.LoadBasics(GetBasics(pname));
-                   
 
                         //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");

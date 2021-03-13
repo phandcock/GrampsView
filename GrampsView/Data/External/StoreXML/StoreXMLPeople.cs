@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -13,7 +13,7 @@
     /// <summary>
     /// People load Routines.
     /// </summary>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// Load the person data from the external storage XML file.

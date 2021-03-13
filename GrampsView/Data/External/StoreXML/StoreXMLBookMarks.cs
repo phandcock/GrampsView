@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.Model;
@@ -12,7 +12,7 @@
     /// <summary>
     /// Loads BookMark XML.
     /// </summary>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// Loads the BookMark data asynchronous.

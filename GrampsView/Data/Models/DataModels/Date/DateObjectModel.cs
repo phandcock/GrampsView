@@ -53,13 +53,6 @@
         /// </summary>
         private DateTime _NotionalDate;
 
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="DateObjectModel"/> class.
-        ///// </summary>
-        //public DateObjectModel()
-        //{
-        //}
-
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is
         /// trickier than it sounds.

@@ -276,6 +276,8 @@ namespace GrampsView.Common
         {
             Contract.Assert(item != null);
 
+            // TODO finish moving to using a switch statement
+
             switch (item)
             {
                 case AddressModel i:

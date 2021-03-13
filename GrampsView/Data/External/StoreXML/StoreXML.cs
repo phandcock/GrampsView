@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Data.ExternalStorageNS
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
     using GrampsView.Data.Repository;
@@ -10,7 +10,7 @@
     using System.Xml;
     using System.Xml.Linq;
 
-    public partial class GrampsStoreXML : CommonBindableBase, IGrampsStoreXML
+    public partial class StoreXML : CommonBindableBase, IStoreXML
     {
         /// <summary>
         /// The default XML namespace.
@@ -28,7 +28,7 @@
         private XDocument localGrampsXMLdoc;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrampsStoreXML"/> class.
+        /// Initializes a new instance of the <see cref="StoreXML"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
         /// The gramps view common logging.
@@ -36,7 +36,7 @@
         /// <param name="iocGrampsStorePostLoad">
         /// The ioc gramps store post load.
         /// </param>
-        public GrampsStoreXML(ICommonLogging iocCommonLogging)
+        public StoreXML(ICommonLogging iocCommonLogging)
         {
             localGrampsCommonLogging = iocCommonLogging;
 

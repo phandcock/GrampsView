@@ -6,7 +6,7 @@
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Create Val version of DateObjectModel. TODO Update fields as per Schema
+    /// Create Range version of DateObjectModel. TODO Update fields as per Schema
     /// </summary>
 
     public partial class DateObjectModelRange : DateObjectModel, IDateObjectModelRange
@@ -320,8 +320,6 @@
             {
                 return true;
             }
-
-      
 
             if (this.GetType() != obj.GetType())
             {

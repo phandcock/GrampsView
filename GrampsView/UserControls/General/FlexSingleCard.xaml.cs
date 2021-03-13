@@ -13,7 +13,7 @@
               = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
-                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard));
+                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(FlexSingleCard));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexSingleCard"/> class.
@@ -24,27 +24,39 @@
         }
 
         /// <summary>
-        /// Gets or sets the FSCT source.
+        /// Gets or sets the Fsct source.
         /// </summary>
         /// <value>
         /// The Control Item Source.
         /// </value>
         public IEnumerable FsctSource
         {
-            get { return (IEnumerable)GetValue(FsctSourceProperty); }
-            set { SetValue(FsctSourceProperty, value); }
+            get
+            {
+                return (IEnumerable)GetValue(FsctSourceProperty);
+            }
+            set
+            {
+                SetValue(FsctSourceProperty, value);
+            }
         }
 
         /// <summary>
-        /// Gets or sets the FSCT template.
+        /// Gets or sets the Fsct template.
         /// </summary>
         /// <value>
         /// The Control Item Template.
         /// </value>
         public DataTemplate FsctTemplate
         {
-            get { return (DataTemplate)GetValue(FsctTemplateProperty); }
-            set { SetValue(FsctTemplateProperty, value); }
+            get
+            {
+                return (DataTemplate)GetValue(FsctTemplateProperty);
+            }
+            set
+            {
+                SetValue(FsctTemplateProperty, value);
+            }
         }
 
         public static void OnItemsSourceChanged(BindableObject argSource, object oldValue, object newValue)
@@ -61,6 +73,7 @@
 
             // TODO cleanup this code when we work out how
             IEnumerator counter = thisCard.FsctSource.GetEnumerator();
+
             if (counter.MoveNext())
             {
                 // We have some data

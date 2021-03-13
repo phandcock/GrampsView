@@ -1,6 +1,6 @@
 ﻿/// <summary>
 /// </summary>
-namespace GrampsView.Data.ExternalStorageNS
+namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -16,8 +16,8 @@ namespace GrampsView.Data.ExternalStorageNS
     /// </summary>
     /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
     /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.ExternalStorageNS.IGrampsStoreXML"/>
-    public partial class GrampsStoreXML : IGrampsStoreXML
+    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
+    public partial class StoreXML : IStoreXML
     {
         /// <summary>
         /// load families from external storage.

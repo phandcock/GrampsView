@@ -88,7 +88,7 @@
         {
             get
             {
-                // If only one name then its already display in the detail section
+                // If only one name then its already displayed in the detail section
                 if (PersonObject.GPersonNamesCollection.Count == 1)
                 {
                     return new HLinkPersonNameModelCollection();
