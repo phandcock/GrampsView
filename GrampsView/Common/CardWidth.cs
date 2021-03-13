@@ -164,15 +164,22 @@
                 {
                     case TargetIdiom.Unsupported:
 
-                    case TargetIdiom.Desktop: outVal = CardLargeHeight * 2; break;
+                    case TargetIdiom.Desktop:
+                        outVal = CardLargeHeight * 2;
+                        break;
 
-                    case TargetIdiom.Tablet: outVal = CardLargeHeight; break;
+                    case TargetIdiom.Tablet:
+                        outVal = CardLargeHeight;
+                        break;
 
                     case TargetIdiom.Phone:
 
-                        outVal = CardLargeHeight * 2; break;
+                        outVal = CardLargeHeight * 2;
+                        break;
 
-                    default: outVal = CardLargeHeight; break;
+                    default:
+                        outVal = CardLargeHeight;
+                        break;
                 };
 
                 return outVal;
@@ -189,9 +196,13 @@
                 {
                     case TargetIdiom.Unsupported:
 
-                    case TargetIdiom.Desktop: outVal = CardLargeWidth * 3; break;
+                    case TargetIdiom.Desktop:
+                        outVal = CardLargeWidth * 3;
+                        break;
 
-                    case TargetIdiom.Tablet: outVal = CardLargeWidth; break;
+                    case TargetIdiom.Tablet:
+                        outVal = CardLargeWidth;
+                        break;
 
                     case TargetIdiom.Phone:
 
@@ -199,7 +210,9 @@
 
                         break;
 
-                    default: outVal = CardLargeWidth; break;
+                    default:
+                        outVal = CardLargeWidth;
+                        break;
                 };
 
                 // Check size
@@ -423,7 +436,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSingleWidth / 6;
+                    outVal = CardSingleWidth / 8;
                     break;
 
                 default:

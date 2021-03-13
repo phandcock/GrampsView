@@ -16,6 +16,9 @@
         public static readonly BindableProperty FsctShowMediaProperty
       = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowMedia), defaultValue: false);
 
+        public static readonly BindableProperty FsctShowSymbolsProperty
+          = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowSymbols), defaultValue: true);
+
         private ItemGlyph newItemGlyph = new ItemGlyph();
 
         public HLinkVisualDisplay()
@@ -39,6 +42,18 @@
             set
             {
                 SetValue(FsctShowMediaProperty, value);
+            }
+        }
+
+        public bool FsctShowSymbols
+        {
+            get
+            {
+                return (bool)GetValue(FsctShowSymbolsProperty);
+            }
+            set
+            {
+                SetValue(FsctShowSymbolsProperty, value);
             }
         }
 
@@ -265,7 +280,10 @@
 
                         case CommonEnums.HLinkGlyphType.Symbol:
                             {
-                                ShowSymbol(argItemGlyph);
+                                if (FsctShowSymbols)
+                                {
+                                    ShowSymbol(argItemGlyph);
+                                }
                                 break;
                             }
                         default:

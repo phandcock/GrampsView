@@ -276,20 +276,43 @@ namespace GrampsView.Common
         {
             Contract.Assert(item != null);
 
-            if ((item is AddressModel) || (item is IHLinkAddressModel))
+            switch (item)
             {
-                return AddressTemplate;
+                case AddressModel i:
+                case IHLinkAddressModel i2:
+                    {
+                        return AddressTemplate;
+                    }
+
+                case AttributeModel i:
+                    {
+                        return AttributeTemplate;
+                    }
+
+                case HLinkCitationModel i:
+                case ICitationModel i2:
+                    {
+                        return CitationTemplate;
+                    }
+
+                default:
+                    break;
             }
 
-            if (item is AttributeModel)
-            {
-                return AttributeTemplate;
-            }
+            //if ((item is AddressModel) || (item is IHLinkAddressModel))
+            //{
+            //    return AddressTemplate;
+            //}
 
-            if (item is ICitationModel)
-            {
-                return CitationTemplate;
-            }
+            //if (item is AttributeModel)
+            //{
+            //    return AttributeTemplate;
+            //}
+
+            //if (item is ICitationModel)
+            //{
+            //    return CitationTemplate;
+            //}
 
             if (item is CardListLineCollection)
             {
@@ -300,10 +323,10 @@ namespace GrampsView.Common
                 return FamilyTemplate;
             }
 
-            if (item is HLinkCitationModel)
-            {
-                return CitationTemplate;
-            }
+            //if (item is HLinkCitationModel)
+            //{
+            //    return CitationTemplate;
+            //}
 
             if (item is HLinkEventModel)
             {
