@@ -53,20 +53,6 @@
             PickFileCommand = new AsyncCommand(() => PickFile(), _ => LocalCanHandleDataFolderChosen);
         }
 
-        /// <summary>
-        /// Gets the data detail list.
-        /// </summary>
-        /// <value>
-        /// The data detail list.
-        /// </value>
-        public CardListLineCollection DataDetailList
-        {
-            get
-            {
-                return _DataDetailList;
-            }
-        }
-
         public IAsyncCommand LoadSampleCommand
         {
             get; private set;
@@ -108,27 +94,6 @@
         public override void BaseHandleAppearingEvent()
         {
             base.BaseCurrentState = LayoutState.None;
-
-            if (DataStore.Instance.AD.CurrentDataFolderValid)
-            {
-                DataDetailList.Clear();
-
-                DataDetailList.Add(
-                    new CardListLine(
-                        "Data Folder:",
-                        DataStore.Instance.AD.CurrentDataFolder.FullName));
-            }
-            else
-            {
-                DataDetailList.Clear();
-
-                DataDetailList.Add(
-                    new CardListLine(
-                         "Data Folder:",
-                        "Not set"));
-            }
-
-            // RaisePropertyChanged(string.Empty);
         }
 
         /// <summary>

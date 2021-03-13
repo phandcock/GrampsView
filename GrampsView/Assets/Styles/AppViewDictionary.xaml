@@ -119,7 +119,7 @@
         Create a Frame Card Style
     -->
     <Style x:Key="FrameCardStyle" TargetType="Frame">
-        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="Margin" Value="10" />
