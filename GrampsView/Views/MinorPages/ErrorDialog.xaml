@@ -2,9 +2,9 @@
 <Grid
     x:Class="GrampsView.Views.ErrorDialog"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:i18n="clr-namespace:GrampsView.Common"
-    xmlns:prism="http://prismlibrary.com"
     prism:ViewModelLocator.AutowireViewModel="True">
 
     <Grid.RowDefinitions>
@@ -13,7 +13,7 @@
     </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="400" />
+        <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
     <Frame
@@ -59,7 +59,8 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="0"
-                    BackgroundColor="OrangeRed"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
+                                                      Light={StaticResource ErrorColorLight}}"
                     HorizontalOptions="FillAndExpand"
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Text, Mode=OneWay}"
@@ -69,7 +70,8 @@
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    BackgroundColor="OrangeRed"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
+                                                      Light={StaticResource ErrorColorLight}}"
                     HorizontalOptions="FillAndExpand"
                     Style="{DynamicResource GVCardLabelStyleSmall}"
                     Text="{Binding AdaArgs.Name, Mode=OneWay}"
@@ -84,7 +86,7 @@
                     <BindableLayout.ItemTemplate>
 
                         <DataTemplate>
-                            <Grid BackgroundColor="OrangeRed">
+                            <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark}, Light={StaticResource ErrorColorLight}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />

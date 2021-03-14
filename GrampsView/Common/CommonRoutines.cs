@@ -157,6 +157,7 @@
             // Search all dictionaries
             if (Application.Current.Resources.TryGetValue(keyName, out var retVal))
             {
+                //TODO cleanup
             }
             return retVal;
         }
