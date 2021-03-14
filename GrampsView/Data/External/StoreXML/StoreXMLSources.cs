@@ -74,8 +74,6 @@
                         // save the event
                         DV.SourceDV.SourceData.Add(loadSource);
                     }
-
-                    await DataStore.Instance.CN.DataLogEntryReplace("Source load complete");
                 }
                 catch (Exception e)
                 {
@@ -85,6 +83,8 @@
                     throw;
                 }
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("Source load complete");
 
             return;
         }

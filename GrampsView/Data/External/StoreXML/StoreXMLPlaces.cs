@@ -13,7 +13,8 @@
     {
         public async Task LoadPlacesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadPlacesAsync)).ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Place data").ConfigureAwait(false);
+
             {
                 try
                 {

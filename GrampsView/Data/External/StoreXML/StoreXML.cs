@@ -107,7 +107,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("trying to load Gramps data only", ex);
+                DataStore.Instance.CN.NotifyException("Trying to load Gramps data only", ex);
                 throw;
             }
 

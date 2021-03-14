@@ -13,7 +13,8 @@
     {
         public async Task LoadNameMapsAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading NameMap data").ConfigureAwait(false);
+
             {
                 // XNamespace ns = grampsXMLNameSpace;
                 try
