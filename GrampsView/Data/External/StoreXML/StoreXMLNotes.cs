@@ -84,6 +84,8 @@
                 }
             }
 
+            await DataStore.Instance.CN.DataLogEntryReplace("Notes load complete");
+
             return;
         }
 

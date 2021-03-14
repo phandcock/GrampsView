@@ -9,19 +9,8 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// </summary>
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// load events from external storage.
-        /// </summary>
-        /// <param name="eventRepository">
-        /// The event repository.
-        /// </param>
-        /// <returns>
-        /// Flag of loaded successfully.
-        /// </returns>
         public async Task LoadRepositoriesAsync()
         {
             await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadRepositoriesAsync)).ConfigureAwait(false);
@@ -67,6 +56,8 @@
 
                 throw;
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("Repository load complete");
 
             return;
         }

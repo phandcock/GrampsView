@@ -76,8 +76,6 @@
                     }
 
                     await DataStore.Instance.CN.DataLogEntryReplace("Source load complete");
-
-                    // await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {

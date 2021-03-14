@@ -9,20 +9,8 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Private Storage Routines.
-    /// </summary>
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// load events from external storage.
-        /// </summary>
-        /// <param name="eventRepository">
-        /// The event repository.
-        /// </param>
-        /// <returns>
-        /// Flag of loaded successfully.
-        /// </returns>
         public async Task LoadNameMapsAsync()
         {
             await DataStore.Instance.CN.DataLogEntryAdd(nameof(LoadNameMapsAsync)).ConfigureAwait(false);
@@ -70,6 +58,8 @@
                     throw;
                 }
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("NameMap load complete");
 
             return;
         }

@@ -76,6 +76,8 @@
                 }
             }
 
+            await DataStore.Instance.CN.DataLogEntryReplace("Header load complete");
+
             return;
         }
     }

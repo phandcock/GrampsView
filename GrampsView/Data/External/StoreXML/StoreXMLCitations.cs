@@ -9,17 +9,8 @@
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Load Citations from external storage routines.
-    /// </summary>
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// Load Citations from external storage.
-        /// </summary>
-        /// <returns>
-        /// Flag if loaded successfully.
-        /// </returns>
         public async Task LoadCitationsAsync()
         {
             try
@@ -76,7 +67,7 @@
                 throw;
             }
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Citation loading complete").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryReplace("Citation load complete");
 
             return;
         }

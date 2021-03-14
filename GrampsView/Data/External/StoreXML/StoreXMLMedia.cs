@@ -159,8 +159,6 @@
 
                         localGrampsCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
                     }
-
-                    await DataStore.Instance.CN.DataLogEntryReplace("Media loading complete").ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
@@ -171,7 +169,10 @@
                 }
             }
 
+            await DataStore.Instance.CN.DataLogEntryReplace("Media load complete");
+
             localGrampsCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
+
             return true;
         }
     }

@@ -67,6 +67,8 @@
                 }
             }
 
+            await DataStore.Instance.CN.DataLogEntryReplace("Tag load complete");
+
             return;
         }
     }

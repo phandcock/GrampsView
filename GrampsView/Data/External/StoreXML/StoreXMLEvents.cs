@@ -75,7 +75,7 @@
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Event data loaded").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryReplace("Event load complete");
         }
     }
 }

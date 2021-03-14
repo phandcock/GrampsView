@@ -1,6 +1,4 @@
-﻿/// <summary>
-/// </summary>
-namespace GrampsView.Data.ExternalStorage
+﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -11,12 +9,6 @@ namespace GrampsView.Data.ExternalStorage
     using System.Threading.Tasks;
     using System.Xml.Linq;
 
-    /// <summary>
-    /// Private Storage Routines.
-    /// </summary>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
-    /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
         /// <summary>
@@ -129,6 +121,8 @@ namespace GrampsView.Data.ExternalStorage
                     throw;
                 }
             }
+
+            await DataStore.Instance.CN.DataLogEntryReplace("Family load complete");
 
             return true;
         }
