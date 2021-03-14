@@ -1,3 +1,16 @@
+## [16.17.1](https://github.com/phandcock/GrampsView/compare/v16.17.0...v16.17.1) (2021-03-14)
+
+
+### Bug Fixes
+
+* center single cards and cleanup fileLoad screen ([b6a6299](https://github.com/phandcock/GrampsView/commit/b6a62999d3c5106b9d87b1114cb50b8da8a535ab))
+* cleanup detailview pages ([69c86a6](https://github.com/phandcock/GrampsView/commit/69c86a63d256147d5056ff563d3d4a62df91cf3c))
+* cleanup list code ([0bc9f91](https://github.com/phandcock/GrampsView/commit/0bc9f91ff072e9404c6dab931f92617bf6b39ac3))
+* refactoring ([3dc1e71](https://github.com/phandcock/GrampsView/commit/3dc1e7126aadaf5aa5fd7b142f45210f0624b7c6))
+* tweaks ([22d01f0](https://github.com/phandcock/GrampsView/commit/22d01f043bcd1eac4ac0b8525f5512e8fe8b3a8f))
+
+
+
 # [16.17.0](https://github.com/phandcock/GrampsView/compare/v16.16.2...v16.17.0) (2021-03-12)
 
 
@@ -47,16 +60,6 @@
 ### Features
 
 * use MineType nuget to correctly create images from zip files ([22e72f7](https://github.com/phandcock/GrampsView/commit/22e72f773fb6dd306722d450314594d9b5ed20c2))
-
-
-
-## [16.15.29](https://github.com/phandcock/GrampsView/compare/v16.15.28...v16.15.29) (2021-03-05)
-
-
-### Bug Fixes
-
-* add zip file first image unzip ([a2a3dad](https://github.com/phandcock/GrampsView/commit/a2a3dad8677ff7d54d56a2073486537718b803c4))
-* refactor pdf glyph code and fix xml load goto hub ([64f5395](https://github.com/phandcock/GrampsView/commit/64f5395ca39129216560a39fac4a757538ebe413))
 
 
 
