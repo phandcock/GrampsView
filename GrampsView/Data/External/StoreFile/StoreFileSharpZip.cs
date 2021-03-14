@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common.CustomClasses
 {
+    using System.Collections.Generic;
+
     public class ErrorInfo : Dictionary<string, string>
     {
         public ErrorInfo(string argName, string argText)

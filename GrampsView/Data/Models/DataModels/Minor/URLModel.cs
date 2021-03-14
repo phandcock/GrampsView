@@ -3,6 +3,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using System;
@@ -135,7 +136,7 @@ namespace GrampsView.Data.Model
                     {
                         if (GHRef is null)
                         {
-                            DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("Bad URI for URL Model"));
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
                             break;
                         }
 

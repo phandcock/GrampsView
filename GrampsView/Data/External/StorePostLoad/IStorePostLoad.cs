@@ -1,5 +1,6 @@
 namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
     using System.Threading.Tasks;

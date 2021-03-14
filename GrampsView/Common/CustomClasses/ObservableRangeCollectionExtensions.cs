@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Common
+﻿namespace GrampsView.Common.CustomClasses
 {
     using System;
     using System.Collections.Generic;

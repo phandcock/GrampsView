@@ -4,6 +4,7 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
     using System;

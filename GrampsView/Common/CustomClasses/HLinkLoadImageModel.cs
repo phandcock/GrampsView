@@ -7,7 +7,7 @@
 //// citationref
 //// noteref
 
-namespace GrampsView.Data.ExternalStorage
+namespace GrampsView.Common.CustomClasses
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;

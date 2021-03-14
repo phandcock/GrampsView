@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Common
+﻿namespace GrampsView.Common.CustomClasses
 {
     using System;
     using System.Globalization;
@@ -26,7 +26,10 @@
             }
         }
 
-        public string Text { get; set; }
+        public string Text
+        {
+            get; set;
+        }
 
         public object ProvideValue(IServiceProvider serviceProvider)
         {

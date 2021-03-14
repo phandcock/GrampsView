@@ -1,6 +1,7 @@
-﻿namespace GrampsView.Data.Model
+﻿namespace GrampsView.Common.CustomClasses
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using Newtonsoft.Json;

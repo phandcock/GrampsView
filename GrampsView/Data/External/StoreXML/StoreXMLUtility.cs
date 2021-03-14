@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -439,7 +439,7 @@
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);

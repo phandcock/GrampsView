@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using System;
@@ -63,7 +64,7 @@
 
             if (aFail)
             {
-                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
                 returnValue = false;
             }
 

@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Events
 {
-    using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
 
     using Prism.Events;
 

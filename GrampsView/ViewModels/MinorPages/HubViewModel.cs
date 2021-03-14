@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Events;
@@ -147,6 +148,16 @@
             }
         }
 
+        /// <summary>
+        /// Populate the Hub View.
+        /// </summary>
+        public override void BaseHandleAppearingEvent()
+        {
+            RaisePropertyChanged(string.Empty);
+
+            return;
+        }
+
         public void ErrorActionDialog(ErrorInfo argADA)
         {
             Contract.Assert(argADA != null);
@@ -158,16 +169,6 @@
 
             //Using the dialog service as-is
             BaseDialogService.ShowDialog("ErrorDialog", t);
-        }
-
-        /// <summary>
-        /// Populate the Hub View.
-        /// </summary>
-        public override void BaseHandleAppearingEvent()
-        {
-            RaisePropertyChanged(string.Empty);
-
-            return;
         }
     }
 }

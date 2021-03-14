@@ -10,6 +10,7 @@
     <Compile Remove="Common\ActionDialogArgs.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
+    <Compile Remove="Common\CustomClasses\FlexPlus.cs" />
     <Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
     <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />

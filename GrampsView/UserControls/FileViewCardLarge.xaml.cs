@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using System.IO;

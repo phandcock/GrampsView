@@ -1,17 +1,9 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="ICommonLogging.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-using System;
-
 namespace GrampsView.Common
 {
+    using GrampsView.Common.CustomClasses;
+
+    using System;
+
     /// <summary>
     /// Interface for the GrampsView common progress routines.
     /// </summary>

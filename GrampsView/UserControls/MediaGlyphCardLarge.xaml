@@ -3,10 +3,10 @@
     x:Class="GrampsView.UserControls.MediaGlyphCardLarge"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:customclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaGlyphCardLargeRoot"
-    x:DataType="models:ItemGlyph"
+    x:DataType="customclasses:ItemGlyph"
     IsVisible="{Binding ValidImage}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common.CustomClasses;
+
     using System;
     using System.Collections;
     using System.Threading.Tasks;

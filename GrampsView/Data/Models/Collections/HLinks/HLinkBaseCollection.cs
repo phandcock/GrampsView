@@ -3,6 +3,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
 
     using System.Linq;
     using System.Runtime.Serialization;

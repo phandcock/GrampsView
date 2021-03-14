@@ -2,7 +2,7 @@
 //
 namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
 
     using Prism.Commands;
     using Prism.Mvvm;

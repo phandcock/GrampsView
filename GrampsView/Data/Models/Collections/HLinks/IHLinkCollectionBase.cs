@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common.CustomClasses;
+
+namespace GrampsView.Data.Model
 {
     public interface IHLinkCollectionBase<T>
     {

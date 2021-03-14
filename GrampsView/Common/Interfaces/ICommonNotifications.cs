@@ -1,5 +1,7 @@
 namespace GrampsView.Common
 {
+    using GrampsView.Common.CustomClasses;
+
     using System;
     using System.Threading.Tasks;
 

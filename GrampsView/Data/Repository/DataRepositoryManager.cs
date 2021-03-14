@@ -4,6 +4,7 @@
     using FFImageLoading.Cache;
 
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
@@ -253,7 +254,7 @@
             }
             else
             {
-                DataStore.Instance.CN.NotifyError(new Common.ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
 
                 CommonLocalSettings.SetReloadDatabase();
             }
