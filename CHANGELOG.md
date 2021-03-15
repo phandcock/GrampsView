@@ -1,3 +1,15 @@
+## [16.17.2](https://github.com/phandcock/GrampsView/compare/v16.17.1...v16.17.2) (2021-03-15)
+
+
+### Bug Fixes
+
+* cleanup namespaces for custom classes ([60c6b41](https://github.com/phandcock/GrampsView/commit/60c6b4140ce06ee3905f4ee877b5650bf38fbe3d))
+* cleanup XML loading messages ([464842d](https://github.com/phandcock/GrampsView/commit/464842d1c6c331ff0280ba74222960e1f3dae37b))
+* cleanup XML loading messages ([3c01479](https://github.com/phandcock/GrampsView/commit/3c014796fe3fb8c3ece61e6720b164593b1986e6))
+* tweak errordialog display ([3edacb7](https://github.com/phandcock/GrampsView/commit/3edacb74198bc2fa9528f0ab35f93bc5c7e4871c))
+
+
+
 ## [16.17.1](https://github.com/phandcock/GrampsView/compare/v16.17.0...v16.17.1) (2021-03-14)
 
 
@@ -45,21 +57,6 @@
 * fix symbol colour and icon ([15d4740](https://github.com/phandcock/GrampsView/commit/15d47401e300b71507ebd146fde861ccc9066480))
 * fix tag colour in tagsmall card ([939b7c6](https://github.com/phandcock/GrampsView/commit/939b7c69c2203c71a38ca1696f1ae37cbaf3e3eb))
 * fix videotoimage on Android ([b2cae15](https://github.com/phandcock/GrampsView/commit/b2cae1564618211c90a230fb4b8678d6b38194bc))
-
-
-
-# [16.16.0](https://github.com/phandcock/GrampsView/compare/v16.15.29...v16.16.0) (2021-03-07)
-
-
-### Bug Fixes
-
-* Deserialisation bug and e2e tests ([be93e91](https://github.com/phandcock/GrampsView/commit/be93e917cf63434e67af8d61aeb3762cc338a825))
-* more work on pdf glyphs ([bb6c818](https://github.com/phandcock/GrampsView/commit/bb6c8185f001a0ad467befb84485b44d0cadb099))
-
-
-### Features
-
-* use MineType nuget to correctly create images from zip files ([22e72f7](https://github.com/phandcock/GrampsView/commit/22e72f773fb6dd306722d450314594d9b5ed20c2))
 
 
 
