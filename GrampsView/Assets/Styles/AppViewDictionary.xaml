@@ -134,7 +134,7 @@
         x:Key="FrameCardSingleStyle"
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
@@ -145,7 +145,7 @@
         BasedOn="{StaticResource FrameCardSingleStyle}"
         TargetType="Frame">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -346,7 +346,7 @@
         x:Key="GridSingleFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <!--<Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
+        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--  Grid Small  -->

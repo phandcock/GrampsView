@@ -15,7 +15,7 @@
         private const double CardLargeWidthDefault = 420;
         private const double CardMediumHeightDefault = 300;
         private const double CardMediumWidthDefault = 300;
-        private const double CardSingleHeightDefault = 180;
+        private const double CardSingleHeightDefault = 20;
         private const double CardSingleWidthDefault = 270;
         private const double CardSmallHeightDefault = 270;
         private const double CardSmallWidthDefault = 270;
