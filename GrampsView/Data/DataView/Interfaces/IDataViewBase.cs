@@ -72,15 +72,15 @@ namespace GrampsView.Data.DataView
         /// </returns>
         List<T> GetAllAsModel();
 
-        /// <summary>
-        /// Gets the first image from collection.
-        /// </summary>
-        /// <param name="theCollection">
-        /// The collection.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        ItemGlyph GetFirstImageFromCollection(TH theCollection);
+        ///// <summary>
+        ///// Gets the first image from collection.
+        ///// </summary>
+        ///// <param name="theCollection">
+        ///// The collection.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //ItemGlyph GetFirstImageFromCollection(TH theCollection);
 
         ItemGlyph GetGlyph(string argHLinkKey);
 

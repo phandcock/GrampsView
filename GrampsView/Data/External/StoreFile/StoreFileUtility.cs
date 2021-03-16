@@ -6,7 +6,6 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
     using System.IO;
     using System.Threading.Tasks;
 
@@ -71,28 +70,23 @@
             return returnValue;
         }
 
-        // TODO WHen NetStandard 2.3 out then Path.MakeRelative
-        public static string MakeRelativePath(string argPath)
-        {
-            Contract.Assert(argPath != null);
+        //// TODO WHen NetStandard 2.3 out then Path.MakeRelative
+        //public static string MakeRelativePath(string argPath)
+        //{
+        //    Contract.Assert(argPath != null);
 
-            if (DataStore.Instance.AD.CurrentDataFolder.FullName == argPath)
-            {
-                return string.Empty;
-            }
+        // if (DataStore.Instance.AD.CurrentDataFolder.FullName == argPath) { return string.Empty; }
 
-            if (argPath.Length < DataStore.Instance.AD.CurrentDataFolder.FullName.Length)
-            {
-                return argPath;
-            }
+        // if (argPath.Length < DataStore.Instance.AD.CurrentDataFolder.FullName.Length) { return
+        // argPath; }
 
-            if (argPath.Substring(0, DataStore.Instance.AD.CurrentDataFolder.FullName.Length) == DataStore.Instance.AD.CurrentDataFolder.FullName)
-            {
-                return argPath.Substring(DataStore.Instance.AD.CurrentDataFolder.FullName.Length, argPath.Length - DataStore.Instance.AD.CurrentDataFolder.FullName.Length);
-            }
+        // if (argPath.Substring(0, DataStore.Instance.AD.CurrentDataFolder.FullName.Length) ==
+        // DataStore.Instance.AD.CurrentDataFolder.FullName) { return
+        // argPath.Substring(DataStore.Instance.AD.CurrentDataFolder.FullName.Length, argPath.Length
+        // - DataStore.Instance.AD.CurrentDataFolder.FullName.Length); }
 
-            return argPath;
-        }
+        //    return argPath;
+        //}
 
         /// <summary>
         /// Gets the CurrentDataFolder folder
@@ -105,13 +99,16 @@
             try
             {
                 var customFileType =
-                        new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
-                        {
-                            //{ DevicePlatform.iOS, new[] { "public.my.comic.extension" } }, // TODO add these or general UTType values
-                            { DevicePlatform.Android, new[] { "application/octet-stream" } },
-                            { DevicePlatform.UWP, new[] { ".gpkg"} },
-                            //{ DevicePlatform.macOS, new[] { "cbr" } }, // TODO add these or general UTType values
-                        });
+                        new FilePickerFileType(
+                            new Dictionary<DevicePlatform,
+                            IEnumerable<string>>
+                                {
+                                    //{ DevicePlatform.iOS, new[] { "public.my.comic.extension" } }, // TODO add these or general UTType values
+                                    { DevicePlatform.Android, new[] { "application/octet-stream" } },
+                                    { DevicePlatform.UWP, new[] { ".gpkg"} },
+                                    //{ DevicePlatform.macOS, new[] { "cbr" } }, // TODO add these or general UTType values
+                                }
+                            );
 
                 var options = new PickOptions
                 {
@@ -126,8 +123,6 @@
                     return false; // user canceled file picking
                 }
 
-                // DataStore.Instance.CN.NotifyAlert(result.ContentType);
-
                 Debug.WriteLine("Picked file name is: " + result.FileName);
 
                 DataStore.Instance.AD.CurrentInputStream = await result.OpenReadAsync();
@@ -138,7 +133,7 @@
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in GetInputFolder", ex);
+                DataStore.Instance.CN.NotifyException("Exception in PickCurrentInputFile", ex);
 
                 throw;
             }

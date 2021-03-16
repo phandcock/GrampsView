@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data;
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
@@ -20,11 +19,6 @@
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
-        /// <summary>
-        /// The local data detail list.
-        /// </summary>
-        private readonly CardListLineCollection _DataDetailList = new CardListLineCollection();
-
         private bool _CanHandleDataFolderChosen = true;
 
         private bool _LocalCanHandleSample = true;
@@ -38,13 +32,10 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// Prism Navigation Service
-        /// </param>
         public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
-            BaseTitle = "File Input Handler";
+            BaseTitle = "File Chooser";
 
             BaseTitleIcon = CommonConstants.IconSettings;
 
@@ -124,12 +115,6 @@
         /// <summary>
         /// Gramps export XML plus media.
         /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="parameter">
-        /// The parameter.
-        /// </param>
         public async Task PickFile()
         {
             BaseCL.Progress("Calling folder picker");

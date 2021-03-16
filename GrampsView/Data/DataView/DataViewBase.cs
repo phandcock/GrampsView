@@ -111,19 +111,19 @@
             return DataViewData.OrderBy(t => t).ToList();
         }
 
-        /// <summary>
-        /// Gets the first image from collection.
-        /// </summary>
-        /// <param name="theCollection">
-        /// The collection.
-        /// </param>
-        /// <returns>
-        /// A HLink Media Model of the first image in the collection or null if none are found.
-        /// </returns>
-        public virtual ItemGlyph GetFirstImageFromCollection(TH theCollection)
-        {
-            throw new NotImplementedException();
-        }
+        ///// <summary>
+        ///// Gets the first image from collection.
+        ///// </summary>
+        ///// <param name="theCollection">
+        ///// The collection.
+        ///// </param>
+        ///// <returns>
+        ///// A HLink Media Model of the first image in the collection or null if none are found.
+        ///// </returns>
+        //public virtual ItemGlyph GetFirstImageFromCollection(TH theCollection)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public virtual ItemGlyph GetGlyph(string argHLinkKey)
         {

@@ -268,7 +268,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type something and hit Search to find it..
+        ///   Looks up a localized string similar to Type something and press Search or the Search icon to find it..
         /// </summary>
         public static string SearchPage_Instructions {
             get {

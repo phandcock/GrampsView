@@ -27,12 +27,35 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
-    public class PersonNameModel : ModelBase, IPersonNameModel, IComparable, IComparer
+    public class PersonNameModel : ModelBase, IPersonNameModel, IComparable, IComparer, IEquatable<PersonNameModel>
     {
         public PersonNameModel()
         {
             ModelItemGlyph.Symbol = CommonConstants.IconPersonName;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
+        }
+
+        public string ExtraNames
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(GCall))
+                {
+                    return string.Format("Called: {0}", GCall);
+                }
+
+                if (!string.IsNullOrEmpty(GNick))
+                {
+                    return string.Format("Nickname: {0}", GNick);
+                }
+
+                if (!string.IsNullOrEmpty(GFamilyNick))
+                {
+                    return string.Format("Family Nickname: {0}", GFamilyNick);
+                }
+
+                return string.Empty;
+            }
         }
 
         public string FirstFirstName
@@ -376,6 +399,11 @@ namespace GrampsView.Data.Model
             int testFlag = string.Compare(SortName, secondEvent.SortName, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        public bool Equals(PersonNameModel other)
+        {
+            return base.Equals(other);
         }
     }
 }

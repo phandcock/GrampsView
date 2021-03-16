@@ -170,6 +170,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate PersonNameSmallTemplate
+        {
+            get;
+            set;
+        }
+
         public DataTemplate PersonRefTemplate
         {
             get;
@@ -297,6 +303,27 @@ namespace GrampsView.Common
                         return CitationTemplate;
                     }
 
+                case HLinkPersonNameModel i:
+                    {
+                        switch ((item as HLinkPersonNameModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SingleCard:
+                                {
+                                    return PersonNameSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return PersonNameSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return PersonNameSingleTemplate;
+                                }
+                        }
+                    }
+
                 default:
                     break;
             }
@@ -390,10 +417,10 @@ namespace GrampsView.Common
                 return PersonTemplate;
             }
 
-            if (item is HLinkPersonNameModel)
-            {
-                return PersonNameSingleTemplate;
-            }
+            //if (item is HLinkPersonNameModel)
+            //{
+            //    return PersonNameSingleTemplate;
+            //}
 
             if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
             {

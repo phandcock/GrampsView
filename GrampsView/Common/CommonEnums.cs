@@ -33,6 +33,8 @@ namespace GrampsView.Common
             NoteCardFull,
             NoteCardSmall,
             SourceCardSmall,
+            SingleCard,
+            SmallCard
         }
 
         public enum EventModelType

@@ -43,7 +43,7 @@
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));
 
-                        if (loadPerson.Id == "I0600")
+                        if (loadPerson.Id == "I1068")
                         {
                         }
 
@@ -137,6 +137,11 @@
 
                     // let everybody know
                     localGrampsCommonLogging.RoutineExit("loadPeopleData");
+
+                    //foreach (var item in DataStore.Instance.DS.PersonNameData.Values)
+                    //{
+                    //    Debug.WriteLine(item.FullName);
+                    //}
                 }
                 catch (Exception ex)
                 {

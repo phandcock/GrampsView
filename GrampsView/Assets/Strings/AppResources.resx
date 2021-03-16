@@ -151,7 +151,7 @@
     <value>Unknown</value>
   </data>
   <data name="SearchPage_Instructions" xml:space="preserve">
-    <value>Type something and hit Search to find it.</value>
+    <value>Type something and press Search or the Search icon to find it.</value>
   </data>
   <data name="HubPage_IntroductionText" xml:space="preserve">
     <value>This program displays the information contained in a GRAMPS geneology program export data file (the type that includes media).</value>

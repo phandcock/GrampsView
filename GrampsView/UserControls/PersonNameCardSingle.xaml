@@ -23,10 +23,12 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid
                 Grid.Row="0"
+                Grid.RowSpan="2"
                 Grid.Column="0"
                 Style="{DynamicResource CardImageBackground}">
 
@@ -40,11 +42,18 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.FullName, Mode=OneWay}"
+                Text="{Binding DeRef.GetDefaultText, Mode=OneWay}"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{DynamicResource GVCardLabelStyleSmall}"
+                Text="{Binding DeRef.ExtraNames, Mode=OneWay}"
                 VerticalTextAlignment="Center" />
 
             <Image
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="2"
                 Style="{DynamicResource GVSymbolIconSmallCardType}">
                 <Image.Source>
