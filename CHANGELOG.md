@@ -1,3 +1,14 @@
+## [16.17.3](https://github.com/phandcock/GrampsView/compare/v16.17.2...v16.17.3) (2021-03-17)
+
+
+### Bug Fixes
+
+* cleanup fonts ([31d2b3d](https://github.com/phandcock/GrampsView/commit/31d2b3d1b85660ca33e76b2ca99402ed258fc897))
+* cleanup personnamecard display ([6693f3e](https://github.com/phandcock/GrampsView/commit/6693f3e4c329d4f08e266b13d087e772137cd21a))
+* work on singlecard height ([f2641e7](https://github.com/phandcock/GrampsView/commit/f2641e705f0b8982f3271e7d352141a6a4b1e9b7))
+
+
+
 ## [16.17.2](https://github.com/phandcock/GrampsView/compare/v16.17.1...v16.17.2) (2021-03-15)
 
 
@@ -46,17 +57,6 @@
 ### Bug Fixes
 
 * cleanup image display ([ed3b372](https://github.com/phandcock/GrampsView/commit/ed3b372ce62b5b68bc519b77fc3ad08be667fc77))
-
-
-
-## [16.16.1](https://github.com/phandcock/GrampsView/compare/v16.16.0...v16.16.1) (2021-03-08)
-
-
-### Bug Fixes
-
-* fix symbol colour and icon ([15d4740](https://github.com/phandcock/GrampsView/commit/15d47401e300b71507ebd146fde861ccc9066480))
-* fix tag colour in tagsmall card ([939b7c6](https://github.com/phandcock/GrampsView/commit/939b7c69c2203c71a38ca1696f1ae37cbaf3e3eb))
-* fix videotoimage on Android ([b2cae15](https://github.com/phandcock/GrampsView/commit/b2cae1564618211c90a230fb4b8678d6b38194bc))
 
 
 
