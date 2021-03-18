@@ -98,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\General\CollectionMultiCard.xaml.cs">
+      <DependentUpon>CollectionMultiCard.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>

@@ -30,9 +30,6 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// NAvigation Service
-        /// </param>
 
         public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
@@ -83,7 +80,7 @@
                 EventObject = HLinkObject.DeRef;
 
                 // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //RaisePropertyChanged(string.Empty);
 
                 if (!(EventObject is null) && (EventObject.Valid))
                 {
@@ -102,9 +99,9 @@
                     BaseDetail.Add(EventObject.GDate.AsCardListLine());
 
                     // Add the description and event place card
-                    BaseDetail.Add(new CardListLineCollection
+                    BaseDetail.Add(new CardListLineCollection("Description")
                         {
-                            new CardListLine("Description", EventObject.GDescription)
+                            new CardListLine(string.Empty, EventObject.GDescription)
                         });
 
                     BaseDetail.Add(EventObject.GPlace);

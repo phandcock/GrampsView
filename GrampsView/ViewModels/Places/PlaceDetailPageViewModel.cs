@@ -65,7 +65,7 @@
                 BaseTitleIcon = CommonConstants.IconPlace;
 
                 // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //RaisePropertyChanged(string.Empty);
 
                 // Get Header details
                 //CardGroup t = new CardGroup { Title = "Header Details" };
