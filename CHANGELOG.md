@@ -1,3 +1,12 @@
+## [16.17.4](https://github.com/phandcock/GrampsView/compare/v16.17.3...v16.17.4) (2021-03-19)
+
+
+### Bug Fixes
+
+* tweaks ([3e6ce60](https://github.com/phandcock/GrampsView/commit/3e6ce60f14aa2b7d50c3dec3752143426deb5ae6))
+
+
+
 ## [16.17.3](https://github.com/phandcock/GrampsView/compare/v16.17.2...v16.17.3) (2021-03-17)
 
 
@@ -48,15 +57,6 @@
 ### Features
 
 * add mediaelement display in mediadetailview ([ee46f9a](https://github.com/phandcock/GrampsView/commit/ee46f9a60fea17affc3c2c61de586c5d4b9e97cd))
-
-
-
-## [16.16.2](https://github.com/phandcock/GrampsView/compare/v16.16.1...v16.16.2) (2021-03-10)
-
-
-### Bug Fixes
-
-* cleanup image display ([ed3b372](https://github.com/phandcock/GrampsView/commit/ed3b372ce62b5b68bc519b77fc3ad08be667fc77))
 
 
 
