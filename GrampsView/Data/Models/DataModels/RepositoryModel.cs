@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
+﻿/// <summary>
 /// Gramps XML 1.71 all configured
 /// </summary>
 
@@ -28,12 +26,12 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The local r name.
         /// </summary>
-        private string localRName;
+        private string _RName;
 
         /// <summary>
         /// The local type.
         /// </summary>
-        private string localType;
+        private string _Type;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryModel"/> class.
@@ -93,12 +91,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localRName;
+                return _RName;
             }
 
             set
             {
-                SetProperty(ref localRName, value);
+                SetProperty(ref _RName, value);
             }
         }
 
@@ -122,12 +120,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return localType;
+                return _Type;
             }
 
             set
             {
-                SetProperty(ref localType, value);
+                SetProperty(ref _Type, value);
             }
         }
 
@@ -157,6 +155,7 @@ namespace GrampsView.Data.Model
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
+
                 return t;
             }
         }

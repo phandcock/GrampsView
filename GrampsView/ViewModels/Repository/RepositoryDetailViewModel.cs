@@ -27,8 +27,6 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         public RepositoryDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {

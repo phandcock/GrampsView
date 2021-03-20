@@ -6,12 +6,11 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     x:Name="NoteCardFullRoot"
     x:DataType="models:HLinkNoteModel"
-    BindingContextChanged="NoteCardFullRoot_BindingContextChanged"
     IsVisible="{Binding Valid}">
 
-    <Grid.GestureRecognizers>
+    <!--<Grid.GestureRecognizers>
         <DragGestureRecognizer CanDrag="True" DragStarting="OnDragStarting" />
-    </Grid.GestureRecognizers>
+    </Grid.GestureRecognizers>-->
 
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>

@@ -47,9 +47,9 @@
 
             foreach (EventModel theEventModel in DV.EventDV.DataViewData)
             {
-                if (theEventModel.Id == "E0203")
-                {
-                }
+                //if (theEventModel.Id == "E0203")
+                //{
+                //}
 
                 theEventModel.GCitationRefCollection.SetGlyph();
 
@@ -64,7 +64,6 @@
             {
                 theFamilyModel.GCitationRefCollection.SetGlyph();
 
-                // Citation Collection
                 foreach (HLinkCitationModel citationRef in theFamilyModel.GCitationRefCollection)
                 {
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
@@ -75,7 +74,6 @@
             {
                 theMediaObject.GCitationRefCollection.SetGlyph();
 
-                // Back Reference Citation HLinks
                 foreach (HLinkCitationModel citationRef in theMediaObject.GCitationRefCollection)
                 {
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
@@ -86,7 +84,6 @@
             {
                 thePersonNameModel.GCitationRefCollection.SetGlyph();
 
-                // Citation Collection
                 foreach (HLinkCitationModel citationRef in thePersonNameModel.GCitationRefCollection)
                 {
                     citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
@@ -97,9 +94,9 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0600")
-                {
-                }
+                //if (thePersonModel.Id == "I0600")
+                //{
+                //}
 
                 thePersonModel.GCitationRefCollection.SetGlyph();
 
@@ -137,7 +134,6 @@
             {
                 theFamilyModel.GEventRefCollection.SetGlyph();
 
-                // Back Reference Event HLinks
                 foreach (HLinkEventModel eventRef in theFamilyModel.GEventRefCollection)
                 {
                     DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
@@ -146,13 +142,12 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0704")
-                {
-                }
+                //if (thePersonModel.Id == "I0704")
+                //{
+                //}
 
                 thePersonModel.GEventRefCollection.SetGlyph();
 
-                // Event Collection
                 foreach (HLinkEventModel eventRef in thePersonModel.GEventRefCollection)
                 {
                     DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
@@ -186,13 +181,8 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0613")
-                {
-                }
-
                 thePersonModel.GParentInRefCollection.SetGlyph();
 
-                // Parent RelationShip
                 foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
                 {
                     DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
@@ -292,9 +282,9 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                if (thePersonModel.Id == "I0337")
-                {
-                }
+                //if (thePersonModel.Id == "I0337")
+                //{
+                //}
 
                 thePersonModel.GNoteRefCollection.SetGlyph();
 
@@ -333,8 +323,6 @@
                 {
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                 }
-
-                return true;
             }
 
             return true;
@@ -495,14 +483,16 @@
 
             foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
             {
+                if (theSourceModel.Id == "S0011")
+                {
+                }
+
                 theSourceModel.GRepositoryRefCollection.SetGlyph();
 
                 foreach (HLinkRepositoryModel repositoryRef in theSourceModel.GRepositoryRefCollection)
                 {
                     DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                 }
-
-                return true;
             }
 
             return true;
