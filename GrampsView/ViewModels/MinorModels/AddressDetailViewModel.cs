@@ -1,7 +1,4 @@
-﻿// <copyright file="AddressDetailViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -82,16 +79,10 @@ namespace GrampsView.ViewModels
 
             if (AddressObject.Valid)
             {
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
-
                 BaseTitle = AddressObject.GetDefaultText;
 
                 // Get media image
                 MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMedia;
-
-                // Get Header Details
-                //CardGroup headerCardGroup = new CardGroup { };
 
                 // Get the Name Details
                 BaseDetail.Add(new CardListLineCollection("Address Detail")
@@ -112,7 +103,7 @@ namespace GrampsView.ViewModels
                 BaseDetail.Add(AddressObject.GDate.AsCardListLine());
 
                 // Add Standard details
-                BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(AddressObject));
+                BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
 
                 // Add map card
                 BaseDetail.Add(TurnAddressToURLModel());
