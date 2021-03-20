@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -132,6 +130,7 @@ namespace GrampsView.Data.Model
                 HLinkAdressModel t = new HLinkAdressModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
             }

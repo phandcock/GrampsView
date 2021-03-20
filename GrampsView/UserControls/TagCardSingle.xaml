@@ -41,7 +41,8 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GName, Mode=OneWay}" />
+                Text="{Binding DeRef.GName, Mode=OneWay}"
+                VerticalOptions="CenterAndExpand" />
 
             <Image
                 Grid.Row="0"

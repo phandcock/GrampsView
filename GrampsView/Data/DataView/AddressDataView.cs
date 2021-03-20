@@ -128,50 +128,38 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        /// <summary>
-        /// Gets the first image from collection.
-        /// </summary>
-        /// <param name="theCollection">
-        /// The collection.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public new HLinkMediaModel GetFirstImageFromCollection(HLinkOCAddressModelCollection theCollection)
-        {
-            if (theCollection == null)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// Gets the first image from collection.
+        ///// </summary>
+        ///// <param name="theCollection">
+        ///// The collection.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public new HLinkMediaModel GetFirstImageFromCollection(HLinkOCAddressModelCollection theCollection)
+        //{
+        //    if (theCollection == null)
+        //    {
+        //        return null;
+        //    }
 
-            HLinkMediaModel returnMediaModel = new HLinkMediaModel();
+        // HLinkMediaModel returnMediaModel = new HLinkMediaModel();
 
-            if (theCollection.Count > 0)
-            {
-                // step through each mediamodel hlink in the collection Accept either a direct
-                // mediamodel reference or a hlink to a Source media reference.
+        // if (theCollection.Count > 0) { // step through each mediamodel hlink in the collection
+        // Accept either a direct // mediamodel reference or a hlink to a Source media reference.
 
-                for (int i = 0; i < theCollection.Count; i++)
-                {
-                    HLinkAdressModel currentHLink = theCollection[i];
+        // for (int i = 0; i < theCollection.Count; i++) { HLinkAdressModel currentHLink = theCollection[i];
 
-                    returnMediaModel.HLinkGlyphItem = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
+        // returnMediaModel.HLinkGlyphItem = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
 
-                    //// TODO Still needed Handle Source Links
-                    //if (currentHLink.DeRef.so.LinkToImage)
-                    //{
-                    //    returnMediaModel = currentHLink.DeRef.HLinkGlyphItem;
-                    //}
+        // //// Still needed Handle Source Links //if (currentHLink.DeRef.so.LinkToImage) //{ //
+        // returnMediaModel = currentHLink.DeRef.HLinkGlyphItem; //}
 
-                    if (returnMediaModel.Valid)
-                    {
-                        break;
-                    }
-                }
-            }
+        // if (returnMediaModel.Valid) { break; } } }
 
-            // return the image
-            return returnMediaModel;
-        }
+        //    // return the image
+        //    return returnMediaModel;
+        //}
 
         public override AddressModel GetModelFromHLinkString(string HLinkString)
         {

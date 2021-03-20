@@ -16,11 +16,13 @@
 
   <ItemGroup>
     <None Remove="Test Data\Basic.gpkg" />
+    <None Remove="Test Data\GrampsView Test Basic.gpkg" />
     <None Remove="Test Data\grampsxml.171.rng" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Test Data\Basic.gpkg" />
+    <EmbeddedResource Include="Test Data\GrampsView Test Basic.gpkg" />
     <EmbeddedResource Include="Test Data\grampsxml.171.rng" />
   </ItemGroup>
 

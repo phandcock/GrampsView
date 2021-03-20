@@ -148,15 +148,15 @@
             }
         }
 
-        /// <summary>
-        /// Populate the Hub View.
-        /// </summary>
-        public override void BaseHandleAppearingEvent()
-        {
-            RaisePropertyChanged(string.Empty);
+        ///// <summary>
+        ///// Populate the Hub View.
+        ///// </summary>
+        //public override void BaseHandleAppearingEvent()
+        //{
+        //    RaisePropertyChanged(string.Empty);
 
-            return;
-        }
+        //    return;
+        //}
 
         public void ErrorActionDialog(ErrorInfo argADA)
         {
