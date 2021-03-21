@@ -1,3 +1,13 @@
+## [16.17.5](https://github.com/phandcock/GrampsView/compare/v16.17.4...v16.17.5) (2021-03-21)
+
+
+### Bug Fixes
+
+* fix citation note display ([0d1bc6a](https://github.com/phandcock/GrampsView/commit/0d1bc6ab6f4d7920037da7c49f440479847b2ed4))
+* fix repository backlinks not loaded and remove notefull drag code ([d47bc3a](https://github.com/phandcock/GrampsView/commit/d47bc3a03dd0f58f22e0388d092c3d93c04db0eb))
+
+
+
 ## [16.17.4](https://github.com/phandcock/GrampsView/compare/v16.17.3...v16.17.4) (2021-03-19)
 
 
@@ -40,23 +50,6 @@
 * cleanup list code ([0bc9f91](https://github.com/phandcock/GrampsView/commit/0bc9f91ff072e9404c6dab931f92617bf6b39ac3))
 * refactoring ([3dc1e71](https://github.com/phandcock/GrampsView/commit/3dc1e7126aadaf5aa5fd7b142f45210f0624b7c6))
 * tweaks ([22d01f0](https://github.com/phandcock/GrampsView/commit/22d01f043bcd1eac4ac0b8525f5512e8fe8b3a8f))
-
-
-
-# [16.17.0](https://github.com/phandcock/GrampsView/compare/v16.16.2...v16.17.0) (2021-03-12)
-
-
-### Bug Fixes
-
-* attempt to fix missing font bug ([9503171](https://github.com/phandcock/GrampsView/commit/9503171b30ccc7335ae4eb0b903041c115718f6d))
-* cleanup set first image code ([a36729c](https://github.com/phandcock/GrampsView/commit/a36729ce51d3b0bc9733fc222cf6d382b49102ac))
-* fix DateDifference to provide duration so handles negative differences ([c087ef0](https://github.com/phandcock/GrampsView/commit/c087ef0e4eb89c06c0994b816127fab442387096))
-* set collection image to first image and add setting to sort on load ([9a5b3f0](https://github.com/phandcock/GrampsView/commit/9a5b3f09c3e3c7d902ecaeb1138eed8b1734052a))
-
-
-### Features
-
-* add mediaelement display in mediadetailview ([ee46f9a](https://github.com/phandcock/GrampsView/commit/ee46f9a60fea17affc3c2c61de586c5d4b9e97cd))
 
 
 
