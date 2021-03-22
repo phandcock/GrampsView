@@ -1,5 +1,4 @@
-﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!--  Dark colour  -->
     <Color x:Key="PrimaryColorDark">
@@ -64,7 +63,7 @@
     </Color>
 
     <Color x:Key="SecondaryColorLight">
-        #03DAC6
+        #03C6DA
     </Color>
 
     <Color x:Key="OnSecondaryColorLight">
@@ -92,7 +91,7 @@
     </Color>
 
     <Color x:Key="SurfaceColorLight">
-        #C0C0C0
+        #B8B8B8
     </Color>
 
     <Color x:Key="OnSurfaceColorLight">

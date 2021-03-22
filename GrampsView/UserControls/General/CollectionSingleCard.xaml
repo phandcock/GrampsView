@@ -11,8 +11,6 @@
     BackgroundColor="Transparent"
     CornerRadius="0">
 
-    <!--  SizeChanged="CollectionSingleCardRoot_SizeChanged">  -->
-
     <Frame.Resources>
         <toolkit:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
     </Frame.Resources>
@@ -21,6 +19,8 @@
         x:Name="theCollectionView"
         IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+        RemainingItemsThreshold="0"
+        RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand, Source={x:Reference CollectionSingleCardRoot}}"
         SizeChanged="theCollectionView_SizeChanged"
         Style="{StaticResource CollectionViewBase}">
 

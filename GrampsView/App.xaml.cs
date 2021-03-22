@@ -29,8 +29,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 
 // Needs to be here to fix UWP font issue - TODO https://github.com/xamarin/Xamarin.Forms/issues/12404
-[assembly: ExportFont("fa-brands-400.ttf", Alias = "FA-Brands")]
-[assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-Regular")]
+//[assembly: ExportFont("fa-brands-400.ttf", Alias = "FA-Brands")]
+//[assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-Regular")]
 [assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-Solid")]
 
 namespace GrampsView
@@ -92,7 +92,7 @@ namespace GrampsView
             }
 
             // Subscribe to changes of screen metrics
-            DeviceDisplay.MainDisplayInfoChanged += OnMainDisplayInfoChanged;
+            DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
 
             VersionTracking.Track();
 
@@ -242,7 +242,7 @@ namespace GrampsView
             Distribute.CheckForUpdate();
         }
 
-        private void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+        private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
             // Process changes
             EventAggregator ea = this.Container.Resolve<EventAggregator>();
@@ -253,8 +253,16 @@ namespace GrampsView
 
                 // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
-                // TODO fu because seems to be one rotation behind on emulator
-                DataStore.Instance.AD.CurrentOrientation = e.DisplayInfo.Orientation;
+                // TODO fu because seems to be one rotation behind on emulator. Try the old school
+                // way until fixed
+                if (e.DisplayInfo.Width > e.DisplayInfo.Height)
+                {
+                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                }
+                else
+                {
+                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                }
 
                 // Card width reset
                 CardSizes.Current.ReCalculateCardWidths();

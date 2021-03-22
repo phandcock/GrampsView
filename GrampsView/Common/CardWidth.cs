@@ -436,7 +436,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSingleWidth / 8;
+                    outVal = CardSingleWidth / 18;
                     break;
 
                 default:

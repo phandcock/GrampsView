@@ -20,9 +20,9 @@
                 Label = "GrampsView",
                 Icon = "@mipmap/icon",
                 RoundIcon = "@mipmap/ic_launcher_round",
-                ConfigurationChanges = ConfigChanges.ScreenSize |
+                ConfigurationChanges = /*ConfigChanges.ScreenSize |*/
                                         ConfigChanges.UiMode |
-                                        ConfigChanges.Orientation |
+                                        //ConfigChanges.Orientation |
                                         ConfigChanges.ScreenLayout |
                                         ConfigChanges.SmallestScreenSize,
                 ScreenOrientation = ScreenOrientation.User,

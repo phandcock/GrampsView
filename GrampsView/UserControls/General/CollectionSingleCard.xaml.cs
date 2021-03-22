@@ -18,11 +18,10 @@
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
 
+        private ICommand _LoadMoreDataCommand;
         private int _NumColumns = 10;
 
         private int _NumItems = 10;
-
-        //private int _UCHeight = 100;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -30,6 +29,8 @@
         public CollectionSingleCard()
         {
             InitializeComponent();
+
+            LoadMoreDataCommand = new Command(GetNextPageOfData);
         }
 
         /// <summary>
@@ -73,7 +74,19 @@
             }
         }
 
-        public ICommand LoadMoreDataCommand => new Command(GetNextPageOfData);
+        public ICommand LoadMoreDataCommand
+        {
+            get
+            {
+                return _LoadMoreDataCommand;
+            }
+
+            private set
+            {
+                _LoadMoreDataCommand = value;
+                OnPropertyChanged();
+            }
+        }
 
         public int NumColumns
         {
@@ -108,20 +121,6 @@
                 OnPropertyChanged();
             }
         }
-
-        //private int UCHeight
-        //{
-        //    get
-        //    {
-        //        return _UCHeight;
-        //    }
-
-        //    set
-        //    {
-        //        _UCHeight = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
 
         /// <summary>
         /// Called when [items source changed].

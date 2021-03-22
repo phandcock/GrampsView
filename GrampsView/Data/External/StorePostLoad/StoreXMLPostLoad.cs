@@ -179,15 +179,17 @@
                 }
             }
 
-            foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
-            {
-                thePersonModel.GParentInRefCollection.SetGlyph();
+            // The family model already contains a reference to the person
 
-                foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
-                {
-                    DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
-                }
-            }
+            //foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
+            //{
+            //    thePersonModel.GParentInRefCollection.SetGlyph();
+
+            //    foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
+            //    {
+            //        DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+            //    }
+            //}
 
             return true;
         }

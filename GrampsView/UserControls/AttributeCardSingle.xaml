@@ -6,10 +6,9 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:AttributeModel"
     Style="{DynamicResource GridSingleFixedCardStyle}">
-
     <Frame Style="{DynamicResource FrameSingleFixedCardStyleNS}">
 
-        <Grid x:Name="controlRoot" RowSpacing="1">
+        <Grid x:Name="controlRoot">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
@@ -38,12 +37,6 @@
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding GType, Mode=OneWay}" />
-
-            <!--<Label
-            Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding GValue, Mode=OneWay}" />-->
 
             <Image
                 Grid.Row="0"
