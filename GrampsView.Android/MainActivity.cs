@@ -64,10 +64,10 @@
 
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 
-            // Init things
-            Xamarin.Forms.Forms.SetFlags(new string[] {
-                "DragAndDrop_Experimental"
-                });
+            //// Init things
+            //Xamarin.Forms.Forms.SetFlags(new string[] {
+            //    "DragAndDrop_Experimental"
+            //    });
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 

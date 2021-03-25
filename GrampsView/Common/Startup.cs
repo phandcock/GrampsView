@@ -22,6 +22,8 @@
 
         private async void ServiceLoadData()
         {
+            var t = Shell.Current.Navigation.NavigationStack;
+
             if (CommonLocalSettings.DataSerialised)
             {
                 // Start data load
@@ -34,9 +36,9 @@
 
             // No Serialised Data and made it this far so some problem has occurred. Load everything
             // from the beginning.
-            var t = Shell.Current.Navigation.NavigationStack;
-
             await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
+
+            //await CommonRoutines.NavigateAsync(nameof(HubPage) + "///" + nameof(FileInputHandlerPage));
         }
 
         private void ServiceReloadDatabase()
@@ -88,11 +90,11 @@
         {
             MainThread.BeginInvokeOnMainThread(() =>
            {
-                // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
+               // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
 
-                if (DataStore.Instance.DS.IsDataLoaded)
+               if (DataStore.Instance.DS.IsDataLoaded)
                {
-                   CommonRoutines.NavigateHub();
+                   // CommonRoutines.NavigateHub();
                    return;
                }
 

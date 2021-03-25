@@ -16,8 +16,6 @@
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCardGrouped), propertyChanged: OnItemTemplateChanged);
 
-        private int _NumColumns = 3;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
         /// </summary>
@@ -39,8 +37,14 @@
         /// </value>
         public CardGroup FsctSource
         {
-            get { return (CardGroup)GetValue(FsctSourceProperty); }
-            set { SetValue(FsctSourceProperty, value); }
+            get
+            {
+                return (CardGroup)GetValue(FsctSourceProperty);
+            }
+            set
+            {
+                SetValue(FsctSourceProperty, value);
+            }
         }
 
         /// <summary>
@@ -51,8 +55,14 @@
         /// </value>
         public DataTemplate FsctTemplate
         {
-            get { return (DataTemplate)GetValue(FsctTemplateProperty); }
-            set { SetValue(FsctTemplateProperty, value); }
+            get
+            {
+                return (DataTemplate)GetValue(FsctTemplateProperty);
+            }
+            set
+            {
+                SetValue(FsctTemplateProperty, value);
+            }
         }
 
         /// <summary>
@@ -63,17 +73,8 @@
         /// </value>
         public int NumColumns
         {
-            get
-            {
-                return _NumColumns;
-            }
-
-            set
-            {
-                _NumColumns = value;
-                OnPropertyChanged();
-            }
-        }
+            get; set;
+        } = 3;
 
         /// <summary>
         /// Called when [item template changed].

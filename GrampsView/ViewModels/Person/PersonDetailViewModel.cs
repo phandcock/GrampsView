@@ -10,6 +10,8 @@
 
     using Xamarin.CommunityToolkit.UI.Views;
 
+    // TODO Implement Fody atuo propertychnaged everywhere
+
     /// <summary>
     /// ViewModel for the Person Detail page.
     /// </summary>
@@ -17,12 +19,12 @@
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
-        private ItemGlyph _MediaCard = new ItemGlyph();
+        // private ItemGlyph _MediaCard = new ItemGlyph();
 
         /// <summary>
         /// The current person.
         /// </summary>
-        private PersonModel _PersonObject = new PersonModel();
+        // private PersonModel _PersonObject = new PersonModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
@@ -74,15 +76,10 @@
 
         public ItemGlyph MediaCard
         {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
+            get; set;
         }
+
+        = new ItemGlyph();
 
         public HLinkPersonNameModelCollection PersonNameMultipleDetails
         {
@@ -106,16 +103,10 @@
         /// </value>
         public PersonModel PersonObject
         {
-            get
-            {
-                return _PersonObject;
-            }
-
-            set
-            {
-                SetProperty(ref _PersonObject, value);
-            }
+            get; set;
         }
+
+        = new PersonModel();
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -128,7 +119,7 @@
 
             // TODO try again to set this up when the toolkit is a little more mature or I have an
             // idea where the bug is coming from
-            BaseCurrentState = LayoutState.Loading;
+            BaseCurrentLayoutState = LayoutState.Loading;
 
             HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
@@ -180,7 +171,7 @@
             }
 
             // TODO fix this
-            BaseCurrentState = LayoutState.None;
+            BaseCurrentLayoutState = LayoutState.None;
             return;
         }
 

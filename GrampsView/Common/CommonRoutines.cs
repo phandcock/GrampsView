@@ -128,12 +128,26 @@
 
         public static void NavigateHub()
         {
+            ShellNavigationState t = Shell.Current.CurrentState;
+
+            // Shell.Current.Navigation.PopAsync();
+
             //DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
 
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Shell.Current.Navigation.PopToRootAsync();
-            });
+            //if (Device.RuntimePlatform == Device.UWP)
+            //{
+            //    foreach (var item in Shell.Current.Navigation.NavigationStack)
+            //    {
+            //        Shell.Current.Navigation.PopAsync();
+            //    }
+            //}
+            //else
+            //{
+            //MainThread.BeginInvokeOnMainThread(() =>
+            //{
+            Shell.Current.Navigation.PopToRootAsync();
+            //});
+            //}
         }
 
         public static string ReplaceLineSeperators(string argString)

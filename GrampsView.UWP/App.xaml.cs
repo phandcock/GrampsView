@@ -154,8 +154,6 @@
                 // Forms Init
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 Xamarin.Forms.Forms.SetFlags(new string[] {
-                    "DragAndDrop_Experimental",
-
                     "Shell_UWP_Experimental"
                 });
 

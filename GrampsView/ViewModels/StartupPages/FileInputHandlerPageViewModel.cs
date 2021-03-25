@@ -84,7 +84,7 @@
         /// </summary>
         public override void BaseHandleAppearingEvent()
         {
-            base.BaseCurrentState = LayoutState.None;
+            base.BaseCurrentLayoutState = LayoutState.None;
         }
 
         /// <summary>
@@ -110,6 +110,8 @@
             CommonLocalSettings.SetReloadDatabase();
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
+
+            await AppShell.Current.Navigation.PopAsync();
         }
 
         /// <summary>
@@ -121,7 +123,7 @@
 
             try
             {
-                base.BaseCurrentState = LayoutState.Loading;
+                BaseCurrentLayoutState = LayoutState.Loading;
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -134,6 +136,8 @@
                     BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
+
+                    await AppShell.Current.Navigation.PopAsync();
                 }
                 else
                 {
@@ -143,7 +147,7 @@
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
 
-                    base.BaseCurrentState = LayoutState.None;
+                    base.BaseCurrentLayoutState = LayoutState.None;
                 }
             }
             catch (Exception ex)

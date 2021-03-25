@@ -101,6 +101,8 @@ namespace GrampsView
             MainPage = new AppShell();
 
             StartAtDetailPage();
+
+            CommonRoutines.Navigate("///HubPage");
         }
 
         protected override void OnResume()

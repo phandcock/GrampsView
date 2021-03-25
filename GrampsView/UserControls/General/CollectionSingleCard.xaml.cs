@@ -18,10 +18,7 @@
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
 
-        private ICommand _LoadMoreDataCommand;
         private int _NumColumns = 10;
-
-        private int _NumItems = 10;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -76,16 +73,7 @@
 
         public ICommand LoadMoreDataCommand
         {
-            get
-            {
-                return _LoadMoreDataCommand;
-            }
-
-            private set
-            {
-                _LoadMoreDataCommand = value;
-                OnPropertyChanged();
-            }
+            get; set;
         }
 
         public int NumColumns
@@ -110,17 +98,8 @@
 
         public int NumItems
         {
-            get
-            {
-                return _NumItems;
-            }
-
-            set
-            {
-                _NumItems = value;
-                OnPropertyChanged();
-            }
-        }
+            get; set;
+        } = 10;
 
         /// <summary>
         /// Called when [items source changed].

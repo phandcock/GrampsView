@@ -7,6 +7,7 @@
     using Prism.Mvvm;
     using Prism.Services.Dialogs;
 
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.Threading.Tasks;
 
@@ -14,14 +15,14 @@
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
-    public class ViewModelBase : BindableBase
+    public class ViewModelBase : BindableBase, INotifyPropertyChanged
     {
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        private LayoutState _BaseCurrentState = LayoutState.None;
+        //private LayoutState _BaseCurrentLayoutState = LayoutState.None;
 
-        private CardGroup _BaseDetail = new CardGroup();
+        //private CardGroup _BaseDetail = new CardGroup();
 
         /// <summary>
         /// Backing store for the base current state
@@ -36,17 +37,17 @@
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        private ICommonLogging _CL;
+        private ICommonLogging _CL = new CommonLogging();
 
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        private IDialogService _DialogService;
+        //private IDialogService _DialogService;
 
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        private IEventAggregator _EventAggregator;
+        private IEventAggregator _EventAggregator = new EventAggregator();
 
         private string _ParamsHLink;
 
@@ -116,19 +117,25 @@
         /// <value>
         /// The state of the base current.
         /// </value>
-        public LayoutState BaseCurrentState
+        public LayoutState BaseCurrentLayoutState
         {
-            get
-            {
-                return _BaseCurrentState;
-            }
-
-            set
-            {
-                _BaseCurrentState = value;
-                RaisePropertyChanged(nameof(BaseCurrentState));
-            }
+            get; set;
         }
+
+        = LayoutState.None;
+
+        //{
+        //    get
+        //    {
+        //        return _BaseCurrentLayoutState;
+        //    }
+
+        //    set
+        //    {
+        //        _BaseCurrentLayoutState = value;
+        //        RaisePropertyChanged(nameof(BaseCurrentLayoutState));
+        //    }
+        //}
 
         /// <summary>
         /// Gets the base detail.
@@ -138,16 +145,22 @@
         /// </value>
         public CardGroup BaseDetail
         {
-            get
-            {
-                return _BaseDetail;
-            }
-
-            set
-            {
-                SetProperty(ref _BaseDetail, value);
-            }
+            get; set;
         }
+
+        = new CardGroup();
+
+        //{
+        //    get
+        //    {
+        //        return _BaseDetail;
+        //    }
+
+        //    set
+        //    {
+        //        SetProperty(ref _BaseDetail, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the base dialog service.
@@ -157,18 +170,22 @@
         /// </value>
         public IDialogService BaseDialogService
         {
-            get
-            {
-                Debug.Assert(_DialogService != null, "DialogService is null.  Was this set in the constructor for the derived class?");
-
-                return _DialogService;
-            }
-
-            set
-            {
-                SetProperty(ref _DialogService, value);
-            }
+            get; set;
         }
+
+        //{
+        //    get
+        //    {
+        //        // Debug.Assert(_DialogService != null, "DialogService is null. Was this set in the
+        //        // constructor for the derived class?");
+
+        // return _DialogService; }
+
+        //    set
+        //    {
+        //        SetProperty(ref _DialogService, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the base event aggregator.
@@ -279,7 +296,7 @@
         {
             if (!DetailDataLoadedFlag)
             {
-                BaseCurrentState = LayoutState.Loading;
+                BaseCurrentLayoutState = LayoutState.Loading;
 
                 BaseHandleAppearingEvent();
 
@@ -287,7 +304,7 @@
             }
             else
             {
-                BaseCurrentState = LayoutState.None;
+                BaseCurrentLayoutState = LayoutState.None;
             }
 
             //// Setup for loading if no data is loaded
@@ -311,7 +328,7 @@
         {
             DetailDataLoadedFlag = false;
 
-            this.BaseCurrentState = LayoutState.None;
+            this.BaseCurrentLayoutState = LayoutState.None;
 
             // Trigger refresh of View fields via INotifyPropertyChanged
             RaisePropertyChanged(string.Empty);
