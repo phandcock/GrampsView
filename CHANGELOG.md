@@ -1,3 +1,12 @@
+## [16.17.7](https://github.com/phandcock/GrampsView/compare/v16.17.6...v16.17.7) (2021-03-26)
+
+
+### Bug Fixes
+
+* start adding fody and cleanup navigation and start work on top menu home button ([06cc72f](https://github.com/phandcock/GrampsView/commit/06cc72f4c1195beff6aaf9d3703a6a2ba7b83ac8))
+
+
+
 ## [16.17.6](https://github.com/phandcock/GrampsView/compare/v16.17.5...v16.17.6) (2021-03-24)
 
 
@@ -35,18 +44,6 @@
 * cleanup fonts ([31d2b3d](https://github.com/phandcock/GrampsView/commit/31d2b3d1b85660ca33e76b2ca99402ed258fc897))
 * cleanup personnamecard display ([6693f3e](https://github.com/phandcock/GrampsView/commit/6693f3e4c329d4f08e266b13d087e772137cd21a))
 * work on singlecard height ([f2641e7](https://github.com/phandcock/GrampsView/commit/f2641e705f0b8982f3271e7d352141a6a4b1e9b7))
-
-
-
-## [16.17.2](https://github.com/phandcock/GrampsView/compare/v16.17.1...v16.17.2) (2021-03-15)
-
-
-### Bug Fixes
-
-* cleanup namespaces for custom classes ([60c6b41](https://github.com/phandcock/GrampsView/commit/60c6b4140ce06ee3905f4ee877b5650bf38fbe3d))
-* cleanup XML loading messages ([464842d](https://github.com/phandcock/GrampsView/commit/464842d1c6c331ff0280ba74222960e1f3dae37b))
-* cleanup XML loading messages ([3c01479](https://github.com/phandcock/GrampsView/commit/3c014796fe3fb8c3ece61e6720b164593b1986e6))
-* tweak errordialog display ([3edacb7](https://github.com/phandcock/GrampsView/commit/3edacb74198bc2fa9528f0ab35f93bc5c7e4871c))
 
 
 
