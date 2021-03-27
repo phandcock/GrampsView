@@ -14,13 +14,6 @@
     public class AddressDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// The current address.
-        /// </summary>
-        private AddressModel _AddressObject = new AddressModel();
-
-        private HLinkMediaModel _MediaCard = new HLinkMediaModel();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -41,27 +34,12 @@
         /// </value>
         public AddressModel AddressObject
         {
-            get
-            {
-                return _AddressObject;
-            }
-
-            set
-            {
-                SetProperty(ref _AddressObject, value);
-            }
+            get; set;
         }
 
         public HLinkMediaModel MediaCard
         {
-            get
-            {
-                return _MediaCard;
-            }
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
+            get; set;
         }
 
         /// <summary>

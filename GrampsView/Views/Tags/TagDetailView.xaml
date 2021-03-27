@@ -9,6 +9,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    x:Name="TagDetailPageRoot"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="viewmodels:TagDetailViewModel"
@@ -24,7 +25,7 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding TagObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CollectionMultiCardGrouped FsctSource="{Binding Path=TagObject.BackHLinkReferenceCollection.AsGroupedCardGroup, Source={RelativeSource AncestorType={x:Type viewmodels:TagDetailViewModel}}, Mode=OneWay}" />
         </StackLayout>
     </ScrollView>
 </views:ViewBase>

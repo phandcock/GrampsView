@@ -15,11 +15,6 @@
     public class CitationDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// Holds the Note ViewModel.
-        /// </summary>
-        private CitationModel localCitationObject = new CitationModel();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -44,15 +39,7 @@
 
         public CitationModel CitationObject
         {
-            get
-            {
-                return localCitationObject;
-            }
-
-            set
-            {
-                SetProperty(ref localCitationObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

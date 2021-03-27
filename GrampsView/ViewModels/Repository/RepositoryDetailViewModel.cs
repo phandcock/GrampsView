@@ -14,11 +14,6 @@
     public class RepositoryDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// The local book mark object.
-        /// </summary>
-        private RepositoryModel _RepositoryObject;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -40,15 +35,7 @@
         /// </value>
         public RepositoryModel RepositoryObject
         {
-            get
-            {
-                return _RepositoryObject;
-            }
-
-            set
-            {
-                SetProperty(ref _RepositoryObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

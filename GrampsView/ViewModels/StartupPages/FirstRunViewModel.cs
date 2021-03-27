@@ -1,5 +1,4 @@
-﻿
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Events;
@@ -21,8 +20,6 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
@@ -33,7 +30,23 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSettings;
         }
 
-        public DelegateCommand LoadDataCommand { get; private set; }
+        public DelegateCommand LoadDataCommand
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// Raises the <see cref="avigatedTo"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
+        /// </param>
+        /// <param name="viewModelState">
+        /// State of the view ViewModel.
+        /// </param>
+        public override void BaseHandleAppearingEvent()
+        {
+        }
 
         /// <summary>
         /// Gramps export XML plus media.
@@ -71,19 +84,6 @@ namespace GrampsView.ViewModels
 
             ////// Navigate to the Hubpage
             //// localNavigationService.NavigateAsync(nameof(Views.MessageLogPage));
-        }
-
-        /// <summary>
-        /// Raises the <see cref="avigatedTo"/> event.
-        /// </summary>
-        /// <param name="e">
-        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
-        /// </param>
-        /// <param name="viewModelState">
-        /// State of the view ViewModel.
-        /// </param>
-        public override void BaseHandleAppearingEvent()
-        {
         }
     }
 }

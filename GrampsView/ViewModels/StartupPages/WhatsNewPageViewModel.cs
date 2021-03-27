@@ -22,9 +22,6 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// The navigation service.
-        /// </param>
         public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
@@ -35,7 +32,10 @@
             BaseTitleIcon = CommonConstants.IconSettings;
         }
 
-        public DelegateCommand LoadDataCommand { get; private set; }
+        public DelegateCommand LoadDataCommand
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Gets or sets the whats new text.

@@ -131,9 +131,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        //        return groups;
-        //    }
-        //}
         /// <summary>
         /// Collections the sort birth date asc.
         /// </summary>

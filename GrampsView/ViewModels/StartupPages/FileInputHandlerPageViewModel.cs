@@ -19,10 +19,6 @@
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
-        private bool _CanHandleDataFolderChosen = true;
-
-        private bool _LocalCanHandleSample = true;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
         /// </summary>
@@ -51,27 +47,13 @@
 
         public bool LocalCanHandleDataFolderChosen
         {
-            get
-            {
-                return _CanHandleDataFolderChosen;
-            }
-            set
-            {
-                SetProperty(ref _CanHandleDataFolderChosen, value);
-            }
-        }
+            get; set;
+        } = true;
 
         public bool LocalCanHandleSample
         {
-            get
-            {
-                return _LocalCanHandleSample;
-            }
-            set
-            {
-                SetProperty(ref _LocalCanHandleSample, value);
-            }
-        }
+            get; set;
+        } = true;
 
         public IAsyncCommand PickFileCommand
         {

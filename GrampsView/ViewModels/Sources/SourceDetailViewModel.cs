@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -14,13 +13,6 @@
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
-        private ItemGlyph _MediaCard = new ItemGlyph();
-
-        /// <summary>
-        /// The local Source object.
-        /// </summary>
-        private SourceModel _SourcesObject = new SourceModel();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceDetailViewModel"/> class.
         /// </summary>
@@ -37,19 +29,6 @@
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
-        //public ItemGlyph MediaCard
-        //{
-        //    get
-        //    {
-        //        return _MediaCard;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref _MediaCard, value);
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the public Source ViewModel.
         /// </summary>
@@ -58,15 +37,7 @@
         /// </value>
         public SourceModel SourceObject
         {
-            get
-            {
-                return _SourcesObject;
-            }
-
-            set
-            {
-                SetProperty(ref _SourcesObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

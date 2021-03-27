@@ -1,7 +1,4 @@
-﻿// <copyright file="AddressDetailViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -9,18 +6,8 @@ namespace GrampsView.ViewModels
 
     using System;
 
-    /// <summary>
-    /// ViewModel for the Address Detail page.
-    /// </summary>
     public class PersonNameDetailViewModel : ViewModelBase
     {
-        /// <summary>
-        /// The current address.
-        /// </summary>
-        private PersonNameModel _AddressObject = new PersonNameModel();
-
-        private ItemGlyph _MediaCard = new ItemGlyph();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
         /// </summary>
@@ -36,15 +23,7 @@ namespace GrampsView.ViewModels
 
         public ItemGlyph MediaCard
         {
-            get
-            {
-                return _MediaCard;
-            }
-
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
+            get; set;
         }
 
         /// <summary>
@@ -55,15 +34,7 @@ namespace GrampsView.ViewModels
         /// </value>
         public PersonNameModel PersonNameObject
         {
-            get
-            {
-                return _AddressObject;
-            }
-
-            set
-            {
-                SetProperty(ref _AddressObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

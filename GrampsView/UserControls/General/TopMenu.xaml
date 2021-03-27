@@ -2,7 +2,6 @@
     x:Class="GrampsView.UserControls.TopMenu"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     x:Name="TopMenuRoot"
     Margin="0"
@@ -43,7 +42,7 @@
         Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
         Text="{Binding BaseTitle, Mode=OneWay}" />
 
-    <ImageButton
+    <!--<ImageButton
         Grid.Row="0"
         Grid.Column="2"
         Clicked="ImageButton_Clicked"
@@ -52,5 +51,5 @@
         <ImageButton.Source>
             <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconHub}" />
         </ImageButton.Source>
-    </ImageButton>
+    </ImageButton>-->
 </Grid>

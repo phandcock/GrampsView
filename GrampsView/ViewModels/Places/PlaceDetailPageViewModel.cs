@@ -14,19 +14,12 @@
     public class PlaceDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// The local place object.
-        /// </summary>
-        private PlaceModel _PlaceObject;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="PlaceDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
         /// </param>
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
         /// </param>
         public PlaceDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
@@ -39,15 +32,7 @@
 
         public PlaceModel PlaceObject
         {
-            get
-            {
-                return _PlaceObject;
-            }
-
-            set
-            {
-                SetProperty(ref _PlaceObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

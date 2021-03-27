@@ -14,18 +14,10 @@
     public class TagDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// The local book mark object.
-        /// </summary>
-        private TagModel localTagObject;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="TagDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
         /// The ioc common logging.
-        /// </param>
-        /// <param name="iocCommonModelGridBuilder">
-        /// The ioc common model grid builder.
         /// </param>
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
@@ -44,15 +36,7 @@
 
         public TagModel TagObject
         {
-            get
-            {
-                return localTagObject;
-            }
-
-            set
-            {
-                SetProperty(ref localTagObject, value);
-            }
+            get; set;
         }
 
         /// <summary>
@@ -70,9 +54,6 @@
 
             TagObject = HLinkObject.DeRef;
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
-
             if (!(TagObject is null))
             {
                 BaseTitle = "Tag Detail";
@@ -89,11 +70,33 @@
                 });
 
                 BaseDetail.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
-
-                //BaseDetail.Add(t);
             }
 
             return;
         }
+
+        //private int numColumns = 3;
+
+        //public GridItemsLayout GL
+        //{
+        //    get
+
+        // { GridItemsLayout t = new GridItemsLayout(orientation: ItemsLayoutOrientation.Vertical) {
+        // HorizontalItemSpacing = 2, VerticalItemSpacing = 2, Span = numColumns, };
+
+        //        return t;
+        //    }
+        //}
+
+        //private void TagDetailPageRoot_SizeChanged(object sender, EventArgs e)
+        //{
+        //    Contract.Requires(sender != null);
+
+        // TagDetailPage tt = sender as TagDetailPage;
+
+        // this.numColumns = (Int32)(tt.Width / CardSizes.Current.CardSmallWidth + 1); // +1 for padding
+
+        //    tt.theCollectionView.ItemsLayout = GL;
+        //}
     }
 }

@@ -109,6 +109,38 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+        public CardGroup GetAllAsGroupedCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GName
+
+                        group item by (item.GName) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
+            {
+                CardGroupBase<HLinkTagModel> info = new CardGroupBase<HLinkTagModel>
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// Gets all as hlink.
         /// </summary>

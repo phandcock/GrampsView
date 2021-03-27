@@ -16,13 +16,6 @@
         private HLinkMediaModel _CurrentHLinkMedia = new HLinkMediaModel();
 
         /// <summary>
-        /// The local media object.
-        /// </summary>
-        private IMediaModel _CurrentMediaObject;
-
-        private IHLinkMediaModel _MediaCard = new HLinkMediaModel();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -58,28 +51,12 @@
         /// </value>
         public IMediaModel CurrentMediaObject
         {
-            get
-            {
-                return _CurrentMediaObject;
-            }
-
-            set
-            {
-                SetProperty(ref _CurrentMediaObject, value);
-            }
+            get; set;
         }
 
         public IHLinkMediaModel MediaCard
         {
-            get
-            {
-                return _MediaCard;
-            }
-
-            set
-            {
-                SetProperty(ref _MediaCard, value);
-            }
+            get; set;
         }
 
         /// <summary>

@@ -20,8 +20,6 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
@@ -32,7 +30,10 @@
             LoadDataCommand = new DelegateCommand(LoadDataAction);
         }
 
-        public DelegateCommand LoadDataCommand { get; private set; }
+        public DelegateCommand LoadDataCommand
+        {
+            get; private set;
+        }
 
         public async void LoadDataAction()
         {

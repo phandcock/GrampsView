@@ -297,6 +297,11 @@ namespace GrampsView.Common
                         return AttributeTemplate;
                     }
 
+                case HLinkBackLink i:
+                    {
+                        return OnSelectTemplate(i.HLink(), container);
+                    }
+
                 case HLinkCitationModel i:
                 case ICitationModel i2:
                     {

@@ -1,0 +1,36 @@
+﻿<!--  This exists as CollectionView as faster than FLexLayout for lists  -->
+
+<Frame
+    x:Class="GrampsView.UserControls.CollectionMultiCardGrouped"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="CollectionMultiCardGroupedRoot"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent"
+    SizeChanged="CollectionMultiCardGroupedRoot_SizeChanged">
+
+    <CollectionView
+        x:Name="theCollectionView"
+        IsGrouped="True"
+        ItemTemplate="{StaticResource CardTemplateSelector}"
+        ItemsSource="{Binding FsctSource, Source={x:Reference CollectionMultiCardGroupedRoot}, Mode=OneWay}"
+        Style="{StaticResource CollectionViewBase}">
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout
+                HorizontalItemSpacing="2"
+                Orientation="Vertical"
+                Span="{Binding NumColumns, Source={x:Reference CollectionMultiCardGroupedRoot}, Mode=OneWay}"
+                VerticalItemSpacing="2" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{DynamicResource GVFrameHeaderStyle}">
+                    <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding Title, Mode=OneWay}" />
+                </Frame>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+    </CollectionView>
+</Frame>

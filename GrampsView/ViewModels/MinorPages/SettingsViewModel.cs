@@ -43,14 +43,7 @@
 
         public bool CanHandleTestButton
         {
-            get
-            {
-                return _TestButton;
-            }
-            set
-            {
-                SetProperty(ref _TestButton, value);
-            }
+            get; set;
         }
 
         public DelegateCommand ForceUpdateCheckCommand
@@ -60,14 +53,7 @@
 
         public bool LocalCanForceUpdate
         {
-            get
-            {
-                return _LocalCanForceUpdate;
-            }
-            set
-            {
-                SetProperty(ref _LocalCanForceUpdate, value);
-            }
+            get; set;
         }
 
         public bool SortCollectionsFlag
@@ -79,7 +65,6 @@
             set
             {
                 CommonLocalSettings.SortHLinkCollections = value;
-                // SetProperty(ref CommonLocalSettings.SortHLinkCollections, value);
             }
         }
 

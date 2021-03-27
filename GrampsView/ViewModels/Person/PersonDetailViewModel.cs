@@ -7,24 +7,16 @@
     using GrampsView.Data.Model;
 
     using System;
+    using System.ComponentModel;
 
     using Xamarin.CommunityToolkit.UI.Views;
-
-    // TODO Implement Fody atuo propertychnaged everywhere
 
     /// <summary>
     /// ViewModel for the Person Detail page.
     /// </summary>
-    public class PersonDetailViewModel : ViewModelBase
+    public class PersonDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private readonly IPlatformSpecific _PlatformSpecific;
-
-        // private ItemGlyph _MediaCard = new ItemGlyph();
-
-        /// <summary>
-        /// The current person.
-        /// </summary>
-        // private PersonModel _PersonObject = new PersonModel();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.

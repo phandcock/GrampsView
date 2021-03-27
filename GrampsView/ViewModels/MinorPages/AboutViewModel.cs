@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// View model for the fly-out page view
-//
-// <copyright file="AboutViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -23,8 +14,6 @@ namespace GrampsView.ViewModels
 
     public class AboutViewModel : ViewModelBase
     {
-        private CardListLineCollection _ApplicationVersionList = new CardListLineCollection();
-
         public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
                                             : base(iocCommonLogging, iocEventAggregator)
         {
@@ -43,10 +32,7 @@ namespace GrampsView.ViewModels
 
         public CardListLineCollection ApplicationVersionList
         {
-            get
-            {
-                return _ApplicationVersionList;
-            }
+            get;
         }
 
         public string AppName

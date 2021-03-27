@@ -12,8 +12,6 @@
 
     public class NoteDetailViewModel : ViewModelBase
     {
-        private INoteModel _NoteObject = new NoteModel();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteDetailViewModel"/> class. Common logging.
         /// </summary>
@@ -31,15 +29,7 @@
 
         public INoteModel NoteObject
         {
-            get
-            {
-                return _NoteObject;
-            }
-
-            set
-            {
-                SetProperty(ref _NoteObject, value);
-            }
+            get; set;
         }
 
         /// <summary>

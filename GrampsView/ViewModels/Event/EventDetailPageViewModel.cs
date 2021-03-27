@@ -7,20 +7,14 @@
     using Prism.Events;
 
     using System;
+    using System.ComponentModel;
 
     /// <summary>
     /// Defines the Event Detail Page View ViewModel.
     /// </summary>
     /// <seealso cref="Prism.Mvvm.ViewModelBase"/>
-    public class EventDetailViewModel : ViewModelBase
+    public class EventDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private HLinkEventModel _HLinkObject = new HLinkEventModel();
-
-        /// <summary>
-        /// Holds the Event ViewModel.
-        /// </summary>
-        private EventModel localEventObject;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="EventDetailViewModel"/> class.
         /// </summary>
@@ -44,28 +38,12 @@
         /// </value>
         public EventModel EventObject
         {
-            get
-            {
-                return localEventObject;
-            }
-
-            set
-            {
-                SetProperty(ref localEventObject, value);
-            }
+            get; set;
         }
 
         public HLinkEventModel HLinkObject
         {
-            get
-            {
-                return _HLinkObject;
-            }
-
-            set
-            {
-                SetProperty(ref _HLinkObject, value);
-            }
+            get; set;
         }
 
         /// <summary>
@@ -78,9 +56,6 @@
             if (!(HLinkObject is null) && (HLinkObject.Valid))
             {
                 EventObject = HLinkObject.DeRef;
-
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                //RaisePropertyChanged(string.Empty);
 
                 if (!(EventObject is null) && (EventObject.Valid))
                 {
@@ -107,7 +82,7 @@
                     BaseDetail.Add(EventObject.GPlace);
 
                     // Add Model details
-                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(localEventObject));
+                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
                 }
             }
         }

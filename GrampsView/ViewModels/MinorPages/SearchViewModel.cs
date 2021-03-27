@@ -132,7 +132,10 @@
         /// <value>
         /// The search button command.
         /// </value>
-        public ICommand SearchButtonCommand { get; private set; }
+        public ICommand SearchButtonCommand
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Handles the search command.
@@ -225,7 +228,14 @@
                     + FamilyList.Count + MediaList.Count + NoteList.Count + PersonList.Count
                     + PersonNameList.Count + PlaceList.Count;
 
-                if (sumValuesFound > 0) { SearchItemsFound = true; } else { SearchItemsFound = false; }
+                if (sumValuesFound > 0)
+                {
+                    SearchItemsFound = true;
+                }
+                else
+                {
+                    SearchItemsFound = false;
+                }
             }
         }
 

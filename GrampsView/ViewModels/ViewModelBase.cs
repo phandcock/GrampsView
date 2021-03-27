@@ -20,13 +20,6 @@
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        //private LayoutState _BaseCurrentLayoutState = LayoutState.None;
-
-        //private CardGroup _BaseDetail = new CardGroup();
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
         private string _BaseTitle = string.Empty;
 
         /// <summary>
