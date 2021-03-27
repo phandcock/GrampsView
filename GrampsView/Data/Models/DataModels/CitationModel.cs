@@ -13,6 +13,7 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -20,10 +21,8 @@ namespace GrampsView.Data.Model
     /// </summary>
     [DataContract]
     [KnownType(typeof(HLinkSourceModel))]
-    public sealed class CitationModel : ModelBase, ICitationModel, IComparable, IComparer
+    public sealed class CitationModel : ModelBase, ICitationModel, IComparable, IComparer, INotifyPropertyChanged
     {
-        private HLinkSourceModel _GSourceRef = new HLinkSourceModel();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CitationModel"/> class.
         /// </summary>
@@ -34,7 +33,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the VConfidence.
+        /// Gets or sets the Confidence level.
         /// </summary>
         /// <value>
         /// The Confidence.
@@ -151,15 +150,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkSourceModel GSourceRef
         {
-            get
-            {
-                return _GSourceRef;
-            }
-
-            set
-            {
-                SetProperty(ref _GSourceRef, value);
-            }
+            get;
+            set;
         }
 
         /// <summary>

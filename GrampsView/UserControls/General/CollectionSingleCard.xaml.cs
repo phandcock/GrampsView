@@ -31,11 +31,6 @@
         }
 
         /// <summary>
-        /// Occurs when we want to trigger a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler MyPropertyChanged;
-
-        /// <summary>
         /// Gets or sets the FSCT source.
         /// </summary>
         /// <value>
@@ -88,7 +83,6 @@
                 if ((_NumColumns != value) && (value > 0) && (value < 20))
                 {
                     _NumColumns = value;
-                    OnPropertyChanged();
                 }
                 else
                 {
@@ -179,20 +173,6 @@
             ucHeight += 50;
 
             this.HeightRequest = ucHeight;
-        }
-
-        /// <summary>
-        /// Method that is called when a bound property is changed.
-        /// </summary>
-        /// <param name="propertyName">
-        /// The name of the bound property that changed.
-        /// </param>
-        /// <remarks>
-        /// To be added.
-        /// </remarks>
-        protected new void OnPropertyChanged(string propertyName)
-        {
-            MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void GetNextPageOfData()

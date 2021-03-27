@@ -25,11 +25,6 @@
         }
 
         /// <summary>
-        /// Occurs when we want to trigger a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler MyPropertyChanged;
-
-        /// <summary>
         /// Gets or sets the FSCT source.
         /// </summary>
         /// <value>
@@ -99,20 +94,6 @@
             DataTemplate iTemplate = newValue as DataTemplate;
 
             layout.theCollectionView.ItemTemplate = iTemplate;
-        }
-
-        /// <summary>
-        /// Method that is called when a bound property is changed.
-        /// </summary>
-        /// <param name="propertyName">
-        /// The name of the bound property that changed.
-        /// </param>
-        /// <remarks>
-        /// To be added.
-        /// </remarks>
-        protected new void OnPropertyChanged(string propertyName)
-        {
-            MyPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

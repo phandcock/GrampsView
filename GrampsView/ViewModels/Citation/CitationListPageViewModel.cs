@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -15,11 +14,11 @@
             BaseTitleIcon = CommonConstants.IconCitation;
         }
 
-        public CardGroupBase<HLinkCitationModel> CitationSource
+        public CardGroup CitationSource
         {
             get
             {
-                return DV.CitationDV.GetAllAsCardGroupBase();
+                return DV.CitationDV.GetAllAsGroupedCardGroup();
             }
         }
     }

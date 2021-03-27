@@ -65,6 +65,8 @@ namespace GrampsView.Data.DataView
 
         CardGroupBase<TU> GetAllAsCardGroupBase();
 
+        CardGroup GetAllAsGroupedCardGroup();
+
         /// <summary>
         /// Gets all as ViewModel.
         /// </summary>

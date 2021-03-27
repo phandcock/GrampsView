@@ -98,7 +98,15 @@
             return t;
         }
 
-        public abstract CardGroupBase<TU> GetAllAsCardGroupBase();
+        public virtual CardGroupBase<TU> GetAllAsCardGroupBase()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual CardGroup GetAllAsGroupedCardGroup()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Gets all as ViewModel.

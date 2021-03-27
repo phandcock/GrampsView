@@ -9,9 +9,9 @@
             InitializeComponent();
         }
 
-        private void ImageButton_Clicked(object sender, System.EventArgs e)
-        {
-            AppShell.Current.Navigation.PopToRootAsync();
-        }
+        //private void ImageButton_Clicked(object sender, System.EventArgs e)
+        //{
+        //    AppShell.Current.Navigation.PopToRootAsync();
+        //}
     }
 }
