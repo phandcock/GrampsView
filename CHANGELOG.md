@@ -1,3 +1,13 @@
+## [16.17.8](https://github.com/phandcock/GrampsView/compare/v16.17.7...v16.17.8) (2021-03-28)
+
+
+### Bug Fixes
+
+* furst cut at speeding up tagdetailview ([66fcd2e](https://github.com/phandcock/GrampsView/commit/66fcd2eb8be35d4ecba74f6a62462a37b5f66ed7))
+* speed up citation list display ([1e54e93](https://github.com/phandcock/GrampsView/commit/1e54e93fbcabcdbc9305ad01c7b6cf5eecc63d9b))
+
+
+
 ## [16.17.7](https://github.com/phandcock/GrampsView/compare/v16.17.6...v16.17.7) (2021-03-26)
 
 
@@ -33,17 +43,6 @@
 ### Bug Fixes
 
 * tweaks ([3e6ce60](https://github.com/phandcock/GrampsView/commit/3e6ce60f14aa2b7d50c3dec3752143426deb5ae6))
-
-
-
-## [16.17.3](https://github.com/phandcock/GrampsView/compare/v16.17.2...v16.17.3) (2021-03-17)
-
-
-### Bug Fixes
-
-* cleanup fonts ([31d2b3d](https://github.com/phandcock/GrampsView/commit/31d2b3d1b85660ca33e76b2ca99402ed258fc897))
-* cleanup personnamecard display ([6693f3e](https://github.com/phandcock/GrampsView/commit/6693f3e4c329d4f08e266b13d087e772137cd21a))
-* work on singlecard height ([f2641e7](https://github.com/phandcock/GrampsView/commit/f2641e705f0b8982f3271e7d352141a6a4b1e9b7))
 
 
 
