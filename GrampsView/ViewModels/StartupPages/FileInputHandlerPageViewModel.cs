@@ -119,7 +119,7 @@
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
 
-                    await AppShell.Current.Navigation.PopAsync();
+                    Common.CommonRoutines.NavigateHub();
                 }
                 else
                 {

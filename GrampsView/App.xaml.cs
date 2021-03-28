@@ -29,8 +29,6 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 
 // Needs to be here to fix UWP font issue - TODO https://github.com/xamarin/Xamarin.Forms/issues/12404
-//[assembly: ExportFont("fa-brands-400.ttf", Alias = "FA-Brands")]
-//[assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-Regular")]
 [assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-Solid")]
 
 namespace GrampsView
@@ -253,7 +251,10 @@ namespace GrampsView
             {
                 //var t = DeviceDisplay.MainDisplayInfo;
 
-                // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
+                // TODO Is this needed? TODO Has hack in ViewBase to set orientation properly on
+                // Android until I work out what is wrong
+                //
+                // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
                 // TODO fu because seems to be one rotation behind on emulator. Try the old school
                 // way until fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) {

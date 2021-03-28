@@ -143,10 +143,11 @@
             //}
             //else
             //{
-            //MainThread.BeginInvokeOnMainThread(() =>
-            //{
-            Shell.Current.Navigation.PopToRootAsync();
-            //});
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Shell.Current.Navigation.PopToRootAsync();
+            });
+
             //}
         }
 

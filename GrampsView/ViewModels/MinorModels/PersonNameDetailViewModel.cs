@@ -63,7 +63,8 @@
                 MediaCard = PersonNameObject.ModelItemGlyph;
 
                 // Get Header Details
-                CardGroup headerCardGroup = new CardGroup { Title = "Person Name Details" };
+                CardListLineCollection headerCardGroup = new CardListLineCollection { Title = "Person Name Details" };
+                headerCardGroup.Add(new CardListLine("Full Name:", PersonNameObject.FullName));
                 BaseDetail.Add(headerCardGroup);
 
                 // TODO Show All Surnames
@@ -73,7 +74,7 @@
                     new CardListLine("Full Name:", PersonNameObject.FullName),
                     new CardListLine("Title:", PersonNameObject.GTitle),
                     new CardListLine("FirstName:", PersonNameObject.GFirstName),
-                    new CardListLine("SurName:", PersonNameObject.GSurName.GetPrimarySurname),
+                    new CardListLine("Primary SurName:", PersonNameObject.GSurName.GetPrimarySurname),
                     new CardListLine("Suffix:", PersonNameObject.GSuffix),
 
                     new CardListLine("Alt:", PersonNameObject.GAlt.GetDefaultText),
@@ -94,8 +95,9 @@
 
                 foreach (SurnameModel item in PersonNameObject.GSurName)
                 {
-                    CardListLineCollection SurnameCard = new CardListLineCollection
+                    CardListLineCollection SurnameCard = new CardListLineCollection("Surnames")
                         {
+                            new CardListLine("Surname:", item.DefaultText),
                             new CardListLine("Prefix:", item.GPrefix),
                             new CardListLine("Primary:", item.GPrim),
                             new CardListLine("Derivation:", item.GDerivation),

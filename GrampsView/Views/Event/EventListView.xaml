@@ -2,8 +2,8 @@
 <views:ViewBase
     x:Class="GrampsView.Views.EventListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
@@ -16,6 +16,6 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:CollectionSingleCard FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+        <ucon:CollectionSingleCardGrouped FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
     </ScrollView>
 </views:ViewBase>

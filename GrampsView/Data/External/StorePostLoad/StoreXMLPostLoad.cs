@@ -166,30 +166,9 @@
 
             SetFamilyImages();
 
-            foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
-            {
-                if (theFamilyModel.GFather.Valid)
-                {
-                    DataStore.Instance.DS.PersonData[theFamilyModel.GFather.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
-                }
-
-                if (theFamilyModel.GMother.Valid)
-                {
-                    DataStore.Instance.DS.PersonData[theFamilyModel.GMother.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
-                }
-            }
+            // Person models already contain a link tot he family model (if they in in one)
 
             // The family model already contains a reference to the person
-
-            //foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
-            //{
-            //    thePersonModel.GParentInRefCollection.SetGlyph();
-
-            //    foreach (HLinkFamilyModel familyRef in thePersonModel.GParentInRefCollection)
-            //    {
-            //        DataStore.Instance.DS.FamilyData[familyRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
-            //    }
-            //}
 
             return true;
         }

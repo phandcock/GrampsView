@@ -48,28 +48,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        //public override List<CommonGroupInfoCollection<CitationModel>> GetGroupsByLetter
-        //{
-        //    get
-        //    {
-        //        List<CommonGroupInfoCollection<CitationModel>> groups = new List<CommonGroupInfoCollection<CitationModel>>();
-
-        // var query = from item in DataViewData orderby item.GDateContent.SortDate group item by
-        // item.GDateContent.GetDecade into g select new { GroupName = g.Key, Items = g };
-
-        // foreach (var g in query) { CommonGroupInfoCollection<CitationModel> info = new CommonGroupInfoCollection<CitationModel>();
-
-        // // Handle 0's if (g.GroupName == 0) { info.Key = "Unknown Date"; } else { info.Key =
-        // g.GroupName + "'s"; }
-
-        // foreach (var item in g.Items) { info.Add(item); }
-
-        // groups.Add(info); }
-
-        //        return groups;
-        //    }
-        //}
-
         /// <summary>
         /// Gets the latest changes.
         /// </summary>
@@ -143,39 +121,6 @@ namespace GrampsView.Data.DataView
 
             return t;
         }
-
-        ///// <summary>
-        ///// Gets the first image from collection.
-        ///// </summary>
-        ///// <param name="theCollection">
-        ///// The collection.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //public new ItemGlyph GetFirstImageFromCollection(HLinkCitationModelCollection theCollection)
-        //{
-        //    if (theCollection == null)
-        //    {
-        //        return null;
-        //    }
-
-        // ItemGlyph returnMediaModel = new ItemGlyph();
-
-        // if (theCollection.Count > 0) { // step through each mediamodel hlink in the collection
-        // Accept either a direct // mediamodel reference or a hlink to a Source media reference.
-
-        // for (int i = 0; i < theCollection.Count; i++) { HLinkCitationModel currentHLink = theCollection[i];
-
-        // returnMediaModel = currentHLink.DeRef.GMediaRefCollection.FirstHLinkHomeImage;
-
-        // // Handle Source Links if (currentHLink.DeRef.ModelItemGlyph.ImageType ==
-        // CommonEnums.HLinkGlyphType.Image) { returnMediaModel = currentHLink.DeRef.ModelItemGlyph; }
-
-        // if (returnMediaModel.Valid) { break; } } }
-
-        //    // return the image
-        //    return returnMediaModel;
-        //}
 
         public override CitationModel GetModelFromHLinkString(string HLinkString)
         {

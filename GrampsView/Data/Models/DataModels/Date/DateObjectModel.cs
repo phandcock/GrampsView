@@ -46,7 +46,7 @@
     /// </code>
     /// </summary>
 
-    public abstract class DateObjectModel : ModelBase, IDateObjectModel
+    public abstract class DateObjectModel : ModelBase, IDateObjectModel, IComparable
     {
         /// <summary>
         /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
@@ -417,6 +417,20 @@
             Contract.Requires(other != null);
 
             return DateTime.Compare(SortDate, other.SortDate);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            DateObjectModel secondEvent = (DateObjectModel)obj;
+
+            int testFlag = DateTime.Compare(SortDate, secondEvent.SortDate);
+
+            return testFlag;
         }
 
         /// <summary>

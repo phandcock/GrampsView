@@ -87,7 +87,11 @@ namespace GrampsView.Data.DataView
                 var query = from item in DataViewData
                             orderby item.GDate
                             group item by item.GDate.GetDecade into g
-                            select new { GroupName = g.Key, Items = g };
+                            select new
+                            {
+                                GroupName = g.Key,
+                                Items = g
+                            };
 
                 foreach (var g in query)
                 {
@@ -172,16 +176,44 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroupBase<HLinkEventModel> GetAllAsCardGroupBase()
+        //public override CardGroupBase<HLinkEventModel> GetAllAsCardGroupBase()
+        //{
+        //    CardGroupBase<HLinkEventModel> t = new CardGroupBase<HLinkEventModel>();
+
+        // foreach (var item in DataDefaultSort) { t.Add(item.HLink); }
+
+        // // Sort TODO Sort t = HLinkCollectionSort(t);
+
+        //    return t;
+        //}
+
+        public override CardGroup GetAllAsGroupedCardGroup()
         {
-            CardGroupBase<HLinkEventModel> t = new CardGroupBase<HLinkEventModel>();
+            CardGroup t = new CardGroup();
 
-            foreach (var item in DataDefaultSort)
+            var query = from item in DataViewData
+                        orderby item.GDate
+                        group item by (item.GDate.GetDecade) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
             {
-                t.Add(item.HLink);
-            }
+                CardGroupBase<HLinkEventModel> info = new CardGroupBase<HLinkEventModel>
+                {
+                    Title = g.GroupName.ToString(),
+                };
 
-            // Sort TODO Sort t = HLinkCollectionSort(t);
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
 
             return t;
         }

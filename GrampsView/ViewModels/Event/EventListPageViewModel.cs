@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     public class EventListViewModel : ViewModelBase
     {
@@ -17,11 +16,11 @@
             BaseTitleIcon = CommonConstants.IconEvents;
         }
 
-        public CardGroupBase<HLinkEventModel> EventSource
+        public CardGroup EventSource
         {
             get
             {
-                return DV.EventDV.GetAllAsCardGroupBase();
+                return DV.EventDV.GetAllAsGroupedCardGroup();
             }
         }
     }

@@ -154,6 +154,8 @@ namespace GrampsView.Data.Model
             set;
         }
 
+        = new HLinkSourceModel();
+
         /// <summary>
         /// Gets or sets the gramps tag reference.
         /// </summary>
