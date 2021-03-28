@@ -40,12 +40,12 @@
     [Activity(
                 MainLauncher = false,
                 Theme = "@style/MainTheme",
-                ConfigurationChanges = /*ConfigChanges.ScreenSize |*/
+                ConfigurationChanges = ConfigChanges.ScreenSize |
                                         ConfigChanges.UiMode |
-                                        //ConfigChanges.Orientation |
+                                        ConfigChanges.Orientation |
                                         ConfigChanges.ScreenLayout |
                                         ConfigChanges.SmallestScreenSize,
-                ScreenOrientation = ScreenOrientation.User
+                ScreenOrientation = ScreenOrientation.FullSensor
              )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

@@ -256,18 +256,11 @@ namespace GrampsView
                 // TODO Is this needed? ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
                 // TODO fu because seems to be one rotation behind on emulator. Try the old school
-                // way until fixed
-                if (e.DisplayInfo.Width > e.DisplayInfo.Height)
-                {
-                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
-                }
-                else
-                {
-                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
-                }
+                // way until fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) {
+                // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else {
+                // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
 
-                // Card width reset
-                CardSizes.Current.ReCalculateCardWidths();
+                // // Card width reset CardSizes.Current.ReCalculateCardWidths();
             }
         }
 

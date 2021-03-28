@@ -17,15 +17,7 @@
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     public class ViewModelBase : BindableBase, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private string _BaseTitle = string.Empty;
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private string _BaseTitleIcon = string.Empty;
+        private string _BaseTitle;
 
         /// <summary>
         /// Backing store for the base current state
@@ -35,14 +27,7 @@
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
-        //private IDialogService _DialogService;
-
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
         private IEventAggregator _EventAggregator = new EventAggregator();
-
-        private string _ParamsHLink;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -117,19 +102,6 @@
 
         = LayoutState.None;
 
-        //{
-        //    get
-        //    {
-        //        return _BaseCurrentLayoutState;
-        //    }
-
-        //    set
-        //    {
-        //        _BaseCurrentLayoutState = value;
-        //        RaisePropertyChanged(nameof(BaseCurrentLayoutState));
-        //    }
-        //}
-
         /// <summary>
         /// Gets the base detail.
         /// </summary>
@@ -143,18 +115,6 @@
 
         = new CardGroup();
 
-        //{
-        //    get
-        //    {
-        //        return _BaseDetail;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref _BaseDetail, value);
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the base dialog service.
         /// </summary>
@@ -165,20 +125,6 @@
         {
             get; set;
         }
-
-        //{
-        //    get
-        //    {
-        //        // Debug.Assert(_DialogService != null, "DialogService is null. Was this set in the
-        //        // constructor for the derived class?");
-
-        // return _DialogService; }
-
-        //    set
-        //    {
-        //        SetProperty(ref _DialogService, value);
-        //    }
-        //}
 
         /// <summary>
         /// Gets or sets the base event aggregator.
@@ -203,15 +149,7 @@
 
         public string BaseParamsHLink
         {
-            get
-            {
-                return _ParamsHLink;
-            }
-
-            set
-            {
-                SetProperty(ref _ParamsHLink, value); // , BaseOnNavigatedTo);
-            }
+            get; set;
         }
 
         /// <summary>
@@ -245,15 +183,7 @@
         /// </value>
         public string BaseTitleIcon
         {
-            get
-            {
-                return _BaseTitleIcon;
-            }
-
-            set
-            {
-                SetProperty(ref _BaseTitleIcon, value);
-            }
+            get; set;
         }
 
         /// <summary>
