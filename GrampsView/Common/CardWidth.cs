@@ -35,6 +35,8 @@
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
+        private double ScaledHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density;
+        private double ScaledWidth = DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density;
         public static CardSizes Current => _current ?? (_current = new CardSizes());
 
         public double CardLargeDoubleWidth
@@ -216,9 +218,9 @@
                 };
 
                 // Check size
-                if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+                if (outVal > ScaledWidth)
                 {
-                    outVal = DeviceDisplay.MainDisplayInfo.Width;
+                    outVal = ScaledWidth;
                 }
 
                 return outVal;
@@ -227,6 +229,9 @@
 
         public void ReCalculateCardWidths()
         {
+            ScaledHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density;
+            ScaledWidth = DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density;
+
             SetCardSingleWidth();
             SetCardSmallWidth();
             SetCardMediumWidth();
@@ -244,9 +249,9 @@
             double outVal = _CardLargeWidth * 2;
 
             // Check size
-            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            if (outVal > ScaledWidth)
             {
-                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                outVal = ScaledWidth;
             }
 
             CardLargeDoubleWidth = outVal;
@@ -305,7 +310,7 @@
                     {
                         case DisplayOrientation.Portrait:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                         case DisplayOrientation.Landscape:
@@ -315,7 +320,7 @@
                             }
                         default:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                     }
@@ -328,9 +333,9 @@
             };
 
             // Check size
-            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            if (outVal > ScaledWidth)
             {
-                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                outVal = ScaledWidth;
             }
 
             CardLargeWidth = outVal;
@@ -388,7 +393,7 @@
                     {
                         case DisplayOrientation.Portrait:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                         case DisplayOrientation.Landscape:
@@ -398,7 +403,7 @@
                             }
                         default:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                     }
@@ -411,9 +416,9 @@
             };
 
             // Check size
-            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            if (outVal > ScaledWidth)
             {
-                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                outVal = ScaledWidth;
             }
 
             CardMediumWidth = outVal;
@@ -465,7 +470,7 @@
                     {
                         case DisplayOrientation.Portrait:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                         case DisplayOrientation.Landscape:
@@ -487,9 +492,9 @@
             };
 
             // Check size
-            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            if (outVal > ScaledWidth)
             {
-                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                outVal = ScaledWidth;
             }
 
             Debug.WriteLine("Card Single Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
@@ -519,7 +524,7 @@
                     }
                 case TargetIdiom.Phone:
                     {
-                        outVal = CardSmallWidth / 3; // (3 * DeviceDisplay.MainDisplayInfo.Density);
+                        outVal = CardSmallWidth / 3;
                         break;
                     }
                 default:
@@ -550,7 +555,7 @@
                     {
                         case DisplayOrientation.Portrait:
                             {
-                                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                                outVal = ScaledWidth;
                                 break;
                             }
                         case DisplayOrientation.Landscape:
@@ -572,9 +577,9 @@
             };
 
             // Check size
-            if (outVal > DeviceDisplay.MainDisplayInfo.Width)
+            if (outVal > ScaledWidth)
             {
-                outVal = DeviceDisplay.MainDisplayInfo.Width;
+                outVal = ScaledWidth;
             }
 
             Debug.WriteLine("Card Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));

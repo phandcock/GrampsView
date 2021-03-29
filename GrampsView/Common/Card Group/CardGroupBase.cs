@@ -14,10 +14,8 @@ namespace GrampsView.Common
 
     /// <summary>
     /// </summary>
-    public class CardGroupBase<T> : ObservableRangeCollection<T>, INotifyCollectionChanged
+    public class CardGroupBase<T> : ObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
     {
-        private ListedItemPropertyChangedEventHandler ItemPropertyChanged;
-
         public CardGroupBase()
         {
             this.CollectionChanged += Cards_CollectionChanged;
@@ -71,13 +69,13 @@ namespace GrampsView.Common
 
         public new void Clear()
         {
-            foreach (var item in this)
-            {
-                if (item is INotifyPropertyChanged i)
-                {
-                    i.PropertyChanged -= Element_PropertyChanged;
-                }
-            }
+            //foreach (var item in this)
+            //{
+            //    if (item is INotifyPropertyChanged i)
+            //    {
+            //        i.PropertyChanged -= Element_PropertyChanged;
+            //    }
+            //}
 
             base.Clear();
         }
@@ -86,28 +84,26 @@ namespace GrampsView.Common
         {
             if (e.OldItems != null)
             {
-                foreach (var item in e.OldItems)
-                {
-                    if (item != null && item is INotifyPropertyChanged i)
-                    {
-                        i.PropertyChanged -= Element_PropertyChanged;
-                    }
-                }
+                //foreach (var item in e.OldItems)
+                //{
+                //    if (item != null && item is INotifyPropertyChanged i)
+                //    {
+                //        i.PropertyChanged -= Element_PropertyChanged;
+                //    }
+                //}
             }
 
             if (e.NewItems != null)
             {
-                foreach (var item in e.NewItems)
-                {
-                    if (item != null && item is INotifyPropertyChanged i)
-                    {
-                        i.PropertyChanged -= Element_PropertyChanged;
-                        i.PropertyChanged += Element_PropertyChanged;
-                    }
-                }
+                //foreach (var item in e.NewItems)
+                //{
+                //    if (item != null && item is INotifyPropertyChanged i)
+                //    {
+                //        i.PropertyChanged -= Element_PropertyChanged;
+                //        i.PropertyChanged += Element_PropertyChanged;
+                //    }
+                //}
             }
         }
-
-        private void Element_PropertyChanged(object sender, PropertyChangedEventArgs e) => ItemPropertyChanged?.Invoke(this, sender, e);
     }
 }
