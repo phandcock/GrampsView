@@ -1,3 +1,13 @@
+## [16.17.9](https://github.com/phandcock/GrampsView/compare/v16.17.8...v16.17.9) (2021-03-29)
+
+
+### Bug Fixes
+
+* group and speedup eventlist and cleanup personname display ([d70d15c](https://github.com/phandcock/GrampsView/commit/d70d15c38cb3d62ab05d6a72c759c0738db219ba))
+* **another try at android screen rotation:** work on ([eb4d92e](https://github.com/phandcock/GrampsView/commit/eb4d92e2a23453511be4e17cfad7bb15fb7de073))
+
+
+
 ## [16.17.8](https://github.com/phandcock/GrampsView/compare/v16.17.7...v16.17.8) (2021-03-28)
 
 
@@ -34,15 +44,6 @@
 
 * fix citation note display ([0d1bc6a](https://github.com/phandcock/GrampsView/commit/0d1bc6ab6f4d7920037da7c49f440479847b2ed4))
 * fix repository backlinks not loaded and remove notefull drag code ([d47bc3a](https://github.com/phandcock/GrampsView/commit/d47bc3a03dd0f58f22e0388d092c3d93c04db0eb))
-
-
-
-## [16.17.4](https://github.com/phandcock/GrampsView/compare/v16.17.3...v16.17.4) (2021-03-19)
-
-
-### Bug Fixes
-
-* tweaks ([3e6ce60](https://github.com/phandcock/GrampsView/commit/3e6ce60f14aa2b7d50c3dec3752143426deb5ae6))
 
 
 
