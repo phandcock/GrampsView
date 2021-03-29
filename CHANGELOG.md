@@ -1,3 +1,12 @@
+## [16.17.10](https://github.com/phandcock/GrampsView/compare/v16.17.9...v16.17.10) (2021-03-29)
+
+
+### Bug Fixes
+
+* work on pixel density to get better android card sizes ([985cef2](https://github.com/phandcock/GrampsView/commit/985cef2a1f913cfb90308430bc4c425cc18fb280))
+
+
+
 ## [16.17.9](https://github.com/phandcock/GrampsView/compare/v16.17.8...v16.17.9) (2021-03-29)
 
 
@@ -34,16 +43,6 @@
 
 * nuget updates ([e2c1572](https://github.com/phandcock/GrampsView/commit/e2c157248f247336f0ed7e0b6f00c5c92f5ad450))
 * work on SignleCard Heights and android orientation ([756ca27](https://github.com/phandcock/GrampsView/commit/756ca27ee7bbcbcc30f960c19445045cbd96a48c))
-
-
-
-## [16.17.5](https://github.com/phandcock/GrampsView/compare/v16.17.4...v16.17.5) (2021-03-21)
-
-
-### Bug Fixes
-
-* fix citation note display ([0d1bc6a](https://github.com/phandcock/GrampsView/commit/0d1bc6ab6f4d7920037da7c49f440479847b2ed4))
-* fix repository backlinks not loaded and remove notefull drag code ([d47bc3a](https://github.com/phandcock/GrampsView/commit/d47bc3a03dd0f58f22e0388d092c3d93c04db0eb))
 
 
 
