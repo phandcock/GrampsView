@@ -2,6 +2,7 @@
     x:Class="GrampsView.UserControls.PlaceCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPlaceModel"
@@ -40,25 +41,29 @@
             </Grid>
 
             <Label
-                x:Name="TitleTextBlock"
+                x:Name="typeTextBlock"
                 Grid.Row="0"
                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+                HorizontalOptions="EndAndExpand"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GPTitle, Mode=OneWay}" />
+                Text="{Binding DeRef.GType, Mode=OneWay}" />
 
             <Label
                 x:Name="NameTextBlock"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GPlaceNames.GetDefaultText, Mode=OneWay}" />
 
             <Label
-                x:Name="TypeTextBlock"
-                Grid.Row="2"
+                x:Name="TitleTextBlock"
+                Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GType, Mode=OneWay}" />
+                Text="{Binding DeRef.GPTitle, Mode=OneWay}" />
 
             <Image
                 Grid.Row="2"
