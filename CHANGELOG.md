@@ -1,3 +1,12 @@
+## [16.17.11](https://github.com/phandcock/GrampsView/compare/v16.17.10...v16.17.11) (2021-03-31)
+
+
+### Bug Fixes
+
+* cleanup Place Card layout ([0c3a946](https://github.com/phandcock/GrampsView/commit/0c3a9465b45174417889389c16e19655338e2571))
+
+
+
 ## [16.17.10](https://github.com/phandcock/GrampsView/compare/v16.17.9...v16.17.10) (2021-03-29)
 
 
@@ -33,16 +42,6 @@
 ### Bug Fixes
 
 * start adding fody and cleanup navigation and start work on top menu home button ([06cc72f](https://github.com/phandcock/GrampsView/commit/06cc72f4c1195beff6aaf9d3703a6a2ba7b83ac8))
-
-
-
-## [16.17.6](https://github.com/phandcock/GrampsView/compare/v16.17.5...v16.17.6) (2021-03-24)
-
-
-### Bug Fixes
-
-* nuget updates ([e2c1572](https://github.com/phandcock/GrampsView/commit/e2c157248f247336f0ed7e0b6f00c5c92f5ad450))
-* work on SignleCard Heights and android orientation ([756ca27](https://github.com/phandcock/GrampsView/commit/756ca27ee7bbcbcc30f960c19445045cbd96a48c))
 
 
 
