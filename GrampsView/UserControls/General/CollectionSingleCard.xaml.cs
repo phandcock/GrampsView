@@ -71,25 +71,6 @@
             get; set;
         }
 
-        public int NumColumns
-        {
-            get
-            {
-                return _NumColumns;
-            }
-
-            set
-            {
-                if ((_NumColumns != value) && (value > 0) && (value < 20))
-                {
-                    _NumColumns = value;
-                }
-                else
-                {
-                }
-            }
-        }
-
         public int NumItems
         {
             get; set;
@@ -162,7 +143,7 @@
 
         public void SetUcHeight()
         {
-            int t = (Convert.ToInt32(NumItems / NumColumns) + 1);
+            int t = (Convert.ToInt32(NumItems / Common.CardSizes.Current.CollectionViewNumColumns) + 1);
             int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
 
             if (ucHeight < 1)
@@ -177,22 +158,6 @@
 
         private void GetNextPageOfData()
         {
-        }
-
-        private void theCollectionView_SizeChanged(object sender, EventArgs e)
-        {
-            Contract.Requires(sender != null);
-
-            CollectionView t = sender as CollectionView;
-
-            int tt = (Int32)(t.Width / CardSizes.Current.CardSmallWidth);
-
-            if (tt < 1)
-            {
-                tt = 1;
-            }
-
-            NumColumns = tt;
         }
     }
 }

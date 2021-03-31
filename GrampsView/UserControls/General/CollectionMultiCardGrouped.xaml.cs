@@ -2,9 +2,7 @@
 {
     using GrampsView.Common;
 
-    using System;
     using System.ComponentModel;
-    using System.Diagnostics.Contracts;
 
     using Xamarin.Forms;
 
@@ -32,16 +30,10 @@
 
         public int NumColumns
         {
-            get; set;
-        } = 3;
-
-        private void CollectionMultiCardGroupedRoot_SizeChanged(object sender, EventArgs e)
-        {
-            Contract.Requires(sender != null);
-
-            CollectionMultiCardGrouped t = sender as CollectionMultiCardGrouped;
-
-            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth + 1);  // +1 for padding
+            get
+            {
+                return Common.CardSizes.Current.CollectionViewNumColumns;
+            }
         }
     }
 }

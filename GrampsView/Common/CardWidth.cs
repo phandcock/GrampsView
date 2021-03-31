@@ -2,6 +2,7 @@
 {
     using GrampsView.Data.Repository;
 
+    using System;
     using System.Diagnostics;
 
     using Xamarin.Essentials;
@@ -156,6 +157,21 @@
             }
         }
 
+        public Int32 CollectionViewNumColumns
+        {
+            get
+            {
+                Int32 numCols = (Int32)(ScaledWidth / CardSizes.Current.CardSmallWidth);  // +1 for padding
+
+                if (numCols == 0)
+                {
+                    numCols = 1;
+                }
+
+                return numCols;
+            }
+        }
+
         public double MediaDetailImageHeight
         {
             get
@@ -242,6 +258,8 @@
             SetCardSmallHeight();
             SetCardMediumHeight();
             SetCardLargeHeight();
+
+            OnPropertyChanged(nameof(CollectionViewNumColumns));
         }
 
         private void SetCardLargeDoubleWidth()
@@ -441,7 +459,7 @@
                     break;
 
                 case TargetIdiom.Phone:
-                    outVal = CardSingleWidth / 18;
+                    outVal = CardSingleWidth / 6;
                     break;
 
                 default:

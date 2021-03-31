@@ -5,6 +5,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:common="clr-namespace:GrampsView.Common"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
@@ -21,20 +22,19 @@
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         RemainingItemsThreshold="0"
         RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand, Source={x:Reference CollectionSingleCardRoot}}"
-        SizeChanged="theCollectionView_SizeChanged"
         Style="{StaticResource CollectionViewBase}">
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout
                 HorizontalItemSpacing="2"
                 Orientation="Vertical"
-                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+                Span="{Binding CollectionViewNumColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
                 VerticalItemSpacing="2" />
         </CollectionView.ItemsLayout>
 
         <CollectionView.Header>
             <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
-                <Label Style="{DynamicResource GVHeaderStyleLarge}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
+                <Label Style="{DynamicResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
             </Frame>
         </CollectionView.Header>
     </CollectionView>
