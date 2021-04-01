@@ -158,8 +158,8 @@
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //// Trigger refresh of View fields via INotifyPropertyChanged
+                //OnPropertyChanged(string.Empty);
             }
 
             // TODO fix this

@@ -37,6 +37,7 @@
             BaseDialogService = iocDialogService;
 
             BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
+            BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(HandledDataLoadedEvent, ThreadOption.UIThread);
         }
 
         public CardListLineCollection HeaderCard
@@ -148,15 +149,12 @@
             }
         }
 
-        ///// <summary>
-        ///// Populate the Hub View.
-        ///// </summary>
-        //public override void BaseHandleAppearingEvent()
-        //{
-        //    RaisePropertyChanged(string.Empty);
-
-        //    return;
-        //}
+        /// <summary>
+        /// Populate the Hub View.
+        /// </summary>
+        public override void BaseHandleAppearingEvent()
+        {
+        }
 
         public void ErrorActionDialog(ErrorInfo argADA)
         {
@@ -169,6 +167,11 @@
 
             //Using the dialog service as-is
             BaseDialogService.ShowDialog("ErrorDialog", t);
+        }
+
+        public void HandledDataLoadedEvent()
+        {
+            OnPropertyChanged(string.Empty);
         }
     }
 }

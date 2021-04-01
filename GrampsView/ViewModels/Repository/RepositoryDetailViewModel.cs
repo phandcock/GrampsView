@@ -52,8 +52,8 @@
                 BaseTitle = RepositoryObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //// Trigger refresh of View fields via INotifyPropertyChanged
+                //OnPropertyChanged(string.Empty);
 
                 // Get basic details
                 //CardGroup t = new CardGroup { Title = "Header Details" };

@@ -85,7 +85,7 @@
 
                 // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
 
-                RaisePropertyChanged(nameof(BaseDetail));
+                //OnPropertyChanged(nameof(BaseDetail));
             }
         }
     }

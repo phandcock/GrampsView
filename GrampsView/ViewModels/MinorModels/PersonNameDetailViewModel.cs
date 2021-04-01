@@ -56,8 +56,8 @@
             {
                 BaseTitle = PersonNameObject.GetDefaultText;
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //// Trigger refresh of View fields via INotifyPropertyChanged
+                //OnPropertyChanged(string.Empty);
 
                 // Get media image
                 MediaCard = PersonNameObject.ModelItemGlyph;

@@ -1,24 +1,19 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Events;
 
     using Prism.Events;
-    using Prism.Mvvm;
     using Prism.Services.Dialogs;
 
     using System.ComponentModel;
     using System.Diagnostics;
-    using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
-    public class ViewModelBase : BindableBase, INotifyPropertyChanged
+    public class ViewModelBase : CommonBindableBase, INotifyPropertyChanged
     {
-        private string _BaseTitle;
-
         /// <summary>
         /// Backing store for the base current state
         /// </summary>
@@ -54,7 +49,7 @@
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
 
-            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(BaseHandleDataLoadedEventInternal, ThreadOption.UIThread);
+            //_EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(BaseHandleDataLoadedEventInternal, ThreadOption.UIThread);
         }
 
         /// <summary>
@@ -76,17 +71,7 @@
         /// </value>
         public ICommonLogging BaseCL
         {
-            get
-            {
-                Debug.Assert(_CL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
-
-                return _CL;
-            }
-
-            private set
-            {
-                SetProperty(ref _CL, value);
-            }
+            get; set;
         }
 
         /// <summary>
@@ -134,17 +119,7 @@
         /// </value>
         public IEventAggregator BaseEventAggregator
         {
-            get
-            {
-                Debug.Assert(_EventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
-
-                return _EventAggregator;
-            }
-
-            private set
-            {
-                SetProperty(ref _EventAggregator, value);
-            }
+            get; set;
         }
 
         public string BaseParamsHLink
@@ -160,19 +135,7 @@
         /// </value>
         public string BaseTitle
         {
-            get
-            {
-                return _BaseTitle;
-            }
-            set
-            {
-                if (!(value == null))
-                {
-                    value = CommonRoutines.ReplaceLineSeperators(value);
-
-                    SetProperty(ref _BaseTitle, value.Substring(0, value.Length > 50 ? 50 : value.Length));
-                }
-            }
+            get; set;
         }
 
         /// <summary>
@@ -211,9 +174,27 @@
             return;
         }
 
-        public virtual async Task BaseHandledDataLoadedEvent()
-        {
-        }
+        ///// <summary>
+        ///// Sets the state of the data loaded view.
+        ///// </summary>
+        ///// <param name="value">
+        ///// The value.
+        ///// </param>
+        //public async void BaseHandleDataLoadedEventInternal()
+        //{
+        //    DetailDataLoadedFlag = false;
+
+        // this.BaseCurrentLayoutState = LayoutState.None;
+
+        // // Trigger refresh of View fields via INotifyPropertyChanged OnPropertyChanged(string.Empty);
+
+        //    await BaseHandledDataLoadedEvent();
+        //}
+
+        //public virtual async Task<bool> BaseHandledDataLoadedEvent()
+        //{
+        //    return true;
+        //}
 
         internal void BaseHandleAppearingEventInternal()
         {
@@ -241,22 +222,24 @@
             //}
         }
 
-        /// <summary>
-        /// Sets the state of the data loaded view.
-        /// </summary>
-        /// <param name="value">
-        /// The value.
-        /// </param>
-        internal async void BaseHandleDataLoadedEventInternal()
+        private void OnBaseCLChanged()
         {
-            DetailDataLoadedFlag = false;
+            Debug.Assert(_CL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
+        }
 
-            this.BaseCurrentLayoutState = LayoutState.None;
+        private void OnBaseEventAggregatorChanged()
+        {
+            Debug.Assert(_EventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
+        }
 
-            // Trigger refresh of View fields via INotifyPropertyChanged
-            RaisePropertyChanged(string.Empty);
+        private void OnBaseTitleChanged()
+        {
+            if (!(BaseTitle == null))
+            {
+                BaseTitle = CommonRoutines.ReplaceLineSeperators(BaseTitle);
 
-            await BaseHandledDataLoadedEvent();
+                BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
+            }
         }
     }
 }

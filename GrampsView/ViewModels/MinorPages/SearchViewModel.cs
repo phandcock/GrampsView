@@ -220,8 +220,8 @@
             {
                 SearchItemsFound = true;
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //// Trigger refresh of View fields via INotifyPropertyChanged
+                //OnPropertyChanged(string.Empty);
 
                 // Check for searchTermsFound
                 int sumValuesFound = AddressList.Count + CitationList.Count + EventList.Count

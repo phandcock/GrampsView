@@ -77,8 +77,8 @@
                 BaseTitle = FamilyObject.FamilyDisplayName;
                 BaseTitleIcon = CommonConstants.IconFamilies;
 
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                RaisePropertyChanged(string.Empty);
+                //// Trigger refresh of View fields via INotifyPropertyChanged
+                //OnPropertyChanged(string.Empty);
 
                 // Get basic details
 
