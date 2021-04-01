@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -27,11 +26,11 @@
             BaseTitleIcon = CommonConstants.IconNotes;
         }
 
-        public CardGroupBase<HLinkNoteModel> NoteSource
+        public CardGroup NoteSource
         {
             get
             {
-                return DV.NoteDV.GetAllAsCardGroupBase();
+                return DV.NoteDV.GetAllAsGroupedCardGroup();
             }
         }
     }

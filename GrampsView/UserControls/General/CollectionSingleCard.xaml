@@ -34,7 +34,7 @@
 
         <CollectionView.Header>
             <Frame IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}" Style="{DynamicResource GVFrameHeaderStyle}">
-                <Label Style="{DynamicResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
+                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
             </Frame>
         </CollectionView.Header>
     </CollectionView>

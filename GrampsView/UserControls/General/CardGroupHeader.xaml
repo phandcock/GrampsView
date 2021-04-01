@@ -20,7 +20,6 @@
 
         <Frame
             x:Name="LLCardLargeFrame"
-            Grid.Row="0"
             IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
             Style="{DynamicResource GVFrameHeaderStyle}">
             <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
@@ -28,7 +27,6 @@
 
         <FlexLayout
             x:Name="CardGroupTemplateFlexer"
-            Grid.Row="1"
             BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
             BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
             Style="{StaticResource FlexLayoutCards}" />

@@ -91,6 +91,37 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+        public override CardGroup GetAllAsGroupedCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GType
+                        group item by (item.GType) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
+            {
+                CardGroupBase<HLinkNoteModel> info = new CardGroupBase<HLinkNoteModel>
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// </summary>
         /// <value>
