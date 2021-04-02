@@ -27,8 +27,14 @@
 
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{DynamicResource GVFrameHeaderStyle}">
-                    <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
+                <Frame Style="{StaticResource GVFrameHeaderStyle}">
+                    <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="UWP">6</On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
                 </Frame>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>

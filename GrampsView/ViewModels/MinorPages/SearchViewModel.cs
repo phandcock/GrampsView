@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -54,77 +53,12 @@
             SearchButtonCommand = new Command<string>(SearchProcessQuery);
         }
 
-        public CardGroupBase<HLinkAdressModel> AddressList
+        public CardGroup ItemsFoundList
         {
-            get
-            {
-                return DV.AddressDV.Search(SearchText);
-            }
+            get; set;
         }
 
-        public CardGroupBase<HLinkCitationModel> CitationList
-        {
-            get
-            {
-                return DV.CitationDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkEventModel> EventList
-        {
-            get
-            {
-                return DV.EventDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkFamilyModel> FamilyList
-        {
-            get
-            {
-                return DV.FamilyDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkMediaModel> MediaList
-        {
-            get
-            {
-                return DV.MediaDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkNoteModel> NoteList
-        {
-            get
-            {
-                return DV.NoteDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkPersonModel> PersonList
-        {
-            get
-            {
-                return DV.PersonDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkPersonNameModel> PersonNameList
-        {
-            get
-            {
-                return DV.PersonNameDV.Search(SearchText);
-            }
-        }
-
-        public CardGroupBase<HLinkPlaceModel> PlaceList
-        {
-            get
-            {
-                return DV.PlaceDV.Search(SearchText);
-            }
-        }
+        = new CardGroup();
 
         /// <summary>
         /// Gets the search button command.
@@ -220,15 +154,19 @@
             {
                 SearchItemsFound = true;
 
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
+                ItemsFoundList.Clear();
 
-                // Check for searchTermsFound
-                int sumValuesFound = AddressList.Count + CitationList.Count + EventList.Count
-                    + FamilyList.Count + MediaList.Count + NoteList.Count + PersonList.Count
-                    + PersonNameList.Count + PlaceList.Count;
+                ItemsFoundList.Add(DV.AddressDV.Search(SearchText));
+                ItemsFoundList.Add(DV.CitationDV.Search(SearchText));
+                ItemsFoundList.Add(DV.EventDV.Search(SearchText));
+                ItemsFoundList.Add(DV.FamilyDV.Search(SearchText));
+                ItemsFoundList.Add(DV.MediaDV.Search(SearchText));
+                ItemsFoundList.Add(DV.NoteDV.Search(SearchText));
+                ItemsFoundList.Add(DV.PersonDV.Search(SearchText));
+                ItemsFoundList.Add(DV.PersonNameDV.Search(SearchText));
+                ItemsFoundList.Add(DV.PlaceDV.Search(SearchText));
 
-                if (sumValuesFound > 0)
+                if (ItemsFoundList.Count > 0)
                 {
                     SearchItemsFound = true;
                 }
