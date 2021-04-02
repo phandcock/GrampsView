@@ -1,3 +1,13 @@
+## [16.17.12](https://github.com/phandcock/GrampsView/compare/v16.17.11...v16.17.12) (2021-04-02)
+
+
+### Bug Fixes
+
+* more work on screen rotation in views ([16fcfc8](https://github.com/phandcock/GrampsView/commit/16fcfc89aa37f9b689efe13bfd9c7bdd9c30ad51))
+* speed up note list display ([c35101a](https://github.com/phandcock/GrampsView/commit/c35101ae3752148e438d1f64bd34e86db188e500))
+
+
+
 ## [16.17.11](https://github.com/phandcock/GrampsView/compare/v16.17.10...v16.17.11) (2021-03-31)
 
 
@@ -33,15 +43,6 @@
 
 * furst cut at speeding up tagdetailview ([66fcd2e](https://github.com/phandcock/GrampsView/commit/66fcd2eb8be35d4ecba74f6a62462a37b5f66ed7))
 * speed up citation list display ([1e54e93](https://github.com/phandcock/GrampsView/commit/1e54e93fbcabcdbc9305ad01c7b6cf5eecc63d9b))
-
-
-
-## [16.17.7](https://github.com/phandcock/GrampsView/compare/v16.17.6...v16.17.7) (2021-03-26)
-
-
-### Bug Fixes
-
-* start adding fody and cleanup navigation and start work on top menu home button ([06cc72f](https://github.com/phandcock/GrampsView/commit/06cc72f4c1195beff6aaf9d3703a6a2ba7b83ac8))
 
 
 
