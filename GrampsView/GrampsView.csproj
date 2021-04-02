@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Behaviours\**" />
+    <EmbeddedResource Remove="Behaviours\**" />
+    <None Remove="Behaviours\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Common\ActionDialogArgs.cs" />
     <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
     <Compile Remove="Common\CommonFontNamesFAB.cs" />

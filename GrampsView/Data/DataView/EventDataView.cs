@@ -72,53 +72,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        /// <summary>
-        /// Gets the get event groups by decade.
-        /// </summary>
-        /// <value>
-        /// The get groups by letter.
-        /// </value>
-        public override List<CommonGroupInfoCollection<EventModel>> GetGroupsByLetter
-        {
-            get
-            {
-                List<CommonGroupInfoCollection<EventModel>> groups = new List<CommonGroupInfoCollection<EventModel>>();
-
-                var query = from item in DataViewData
-                            orderby item.GDate
-                            group item by item.GDate.GetDecade into g
-                            select new
-                            {
-                                GroupName = g.Key,
-                                Items = g
-                            };
-
-                foreach (var g in query)
-                {
-                    CommonGroupInfoCollection<EventModel> info = new CommonGroupInfoCollection<EventModel>();
-
-                    // Handle 0's
-                    if (g.GroupName == 0)
-                    {
-                        info.Key = "Unknown Date";
-                    }
-                    else
-                    {
-                        info.Key = g.GroupName + "'s";
-                    }
-
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
-
-                    groups.Add(info);
-                }
-
-                return groups;
-            }
-        }
-
         public override CardGroupBase<HLinkEventModel> GetLatestChanges
         {
             get
@@ -175,17 +128,6 @@ namespace GrampsView.Data.DataView
 
             return t;
         }
-
-        //public override CardGroupBase<HLinkEventModel> GetAllAsCardGroupBase()
-        //{
-        //    CardGroupBase<HLinkEventModel> t = new CardGroupBase<HLinkEventModel>();
-
-        // foreach (var item in DataDefaultSort) { t.Add(item.HLink); }
-
-        // // Sort TODO Sort t = HLinkCollectionSort(t);
-
-        //    return t;
-        //}
 
         public override CardGroup GetAllAsGroupedCardGroup()
         {

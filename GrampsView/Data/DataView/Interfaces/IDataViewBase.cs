@@ -51,11 +51,6 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        List<CommonGroupInfoCollection<T>> GetGroupsByLetter
-        {
-            get;
-        }
-
         CardGroupBase<TU> GetLatestChanges
         {
             get;
@@ -73,16 +68,6 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// </returns>
         List<T> GetAllAsModel();
-
-        ///// <summary>
-        ///// Gets the first image from collection.
-        ///// </summary>
-        ///// <param name="theCollection">
-        ///// The collection.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //ItemGlyph GetFirstImageFromCollection(TH theCollection);
 
         ItemGlyph GetGlyph(string argHLinkKey);
 
