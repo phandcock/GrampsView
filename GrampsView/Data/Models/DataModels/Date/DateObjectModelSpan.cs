@@ -112,17 +112,18 @@
             }
         }
 
-        public override int GetAge
+        public override Nullable<int> GetAge
         {
             get
             {
-                int outputAge;
+                if (Valid)
+                {
+                    // calculate the age
+                    DateTime today = DateTime.Today;
+                    return today.Year - NotionalDate.Year;
+                }
 
-                // calculate the age
-                DateTime today = DateTime.Today;
-                outputAge = today.Year - NotionalDate.Year;
-
-                return outputAge;
+                return null;
             }
         }
 
@@ -299,7 +300,6 @@
             {
                 DateModelCard = new CardListLineCollection
                             {
-                              
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),

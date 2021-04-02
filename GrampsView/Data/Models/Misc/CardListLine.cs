@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using System;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
@@ -88,6 +89,17 @@
 
             Label = argLabel.Trim();
             Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        public CardListLine(string argLabel, Nullable<int> ValueArg)
+        {
+            Contract.Assert(argLabel != null);
+
+            if (ValueArg != null)
+            {
+                Label = argLabel.Trim();
+                Value = ValueArg.HasValue ? ValueArg.Value.ToString(System.Globalization.CultureInfo.CurrentCulture) : string.Empty;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

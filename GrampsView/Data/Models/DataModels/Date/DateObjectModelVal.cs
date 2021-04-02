@@ -111,17 +111,18 @@
             }
         }
 
-        public override int GetAge
+        public override Nullable<int> GetAge
         {
             get
             {
-                int outputAge;
+                if (Valid)
+                {
+                    // Calculate the age - ROUGHLY
+                    DateTime today = DateTime.Today;
+                    return ((today - NotionalDate).Days) / 365;
+                }
 
-                // Calculate the age - ROUGHLY
-                DateTime today = DateTime.Today;
-                outputAge = ((today - NotionalDate).Days) / 365;
-
-                return outputAge;
+                return null;
             }
         }
 

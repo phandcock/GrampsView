@@ -8,12 +8,12 @@
     /// </summary>
     public interface IDateObjectModel : IComparable<DateObjectModel>, IComparer<DateObjectModel>
     {
-        int GetAge
+        Nullable<int> GetAge
         {
             get;
         }
 
-        int GetDecade
+        Nullable<int> GetDecade
         {
             get;
         }

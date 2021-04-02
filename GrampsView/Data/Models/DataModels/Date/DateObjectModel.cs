@@ -60,7 +60,7 @@
         /// <returns>
         /// age.
         /// </returns>
-        public abstract int GetAge
+        public abstract Nullable<int> GetAge
         {
             get;
         }
@@ -71,7 +71,7 @@
         /// <value>
         /// The get decade.
         /// </value>
-        public int GetDecade
+        public Nullable<int> GetDecade
         {
             get
             {

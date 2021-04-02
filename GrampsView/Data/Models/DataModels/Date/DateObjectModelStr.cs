@@ -45,11 +45,11 @@
         /// <summary>
         /// Not a properly formatted date so return 0;
         /// </summary>
-        public override int GetAge
+        public override Nullable<int> GetAge
         {
             get
             {
-                return 0;
+                return null;
             }
         }
 

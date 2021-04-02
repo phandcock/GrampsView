@@ -12,7 +12,7 @@
     /// <summary>
     /// Defines the Event Detail Page View ViewModel.
     /// </summary>
-    /// <seealso cref="Prism.Mvvm.ViewModelBase"/>
+
     public class EventDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
         /// <summary>
