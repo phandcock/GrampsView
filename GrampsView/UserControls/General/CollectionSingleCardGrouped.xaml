@@ -26,7 +26,10 @@
 
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Frame IsVisible="{Binding Visible, Mode=OneWay}" Style="{DynamicResource GVFrameHeaderStyle}">
+                <Frame
+                    Padding="0"
+                    IsVisible="{Binding Visible, Mode=OneWay}"
+                    Style="{DynamicResource GVFrameHeaderStyle}">
                     <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
                         <!--  TODO checkout another bug in UWP CollectionView  -->
                         <Label.FontSize>

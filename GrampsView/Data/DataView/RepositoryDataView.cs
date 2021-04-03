@@ -103,6 +103,8 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
+        public override CardGroup GetAllAsGroupedCardGroup() => throw new NotImplementedException();
+
         /// <summary>
         /// Gets all as hlink.
         /// </summary>

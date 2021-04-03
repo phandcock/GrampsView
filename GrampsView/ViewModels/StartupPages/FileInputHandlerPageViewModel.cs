@@ -107,6 +107,8 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
+                await DataStore.Instance.CN.DataLogEntryClear();
+
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
                     BaseCL.Progress("Tell someone to load the file");

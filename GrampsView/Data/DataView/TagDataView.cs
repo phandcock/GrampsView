@@ -109,7 +109,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public CardGroup GetAllAsGroupedCardGroup()
+        public override CardGroup GetAllAsGroupedCardGroup()
         {
             CardGroup t = new CardGroup();
 

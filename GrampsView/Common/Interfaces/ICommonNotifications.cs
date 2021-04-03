@@ -51,6 +51,8 @@ namespace GrampsView.Common
         /// </returns>
         Task DataLogEntryAdd(string argMessage, bool argShowProgressRing);
 
+        Task DataLogEntryClear();
+
         /// <summary>
         /// Majors the status delete.
         /// </summary>

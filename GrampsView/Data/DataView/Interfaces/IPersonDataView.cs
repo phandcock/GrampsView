@@ -1,13 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="IPersonDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
@@ -47,8 +37,6 @@ namespace GrampsView.Data.DataView
 
         CardGroup GetAllAsGroupedBirthDayCardGroup();
 
-        CardGroup GetAllAsGroupedSurnameCardGroup();
-
         /// <summary>
         /// Gets all as hlink.
         /// </summary>
@@ -56,13 +44,6 @@ namespace GrampsView.Data.DataView
         /// </returns>
         HLinkPersonModelCollection GetAllAsHLink();
 
-        ///// <summary>
-        ///// Gets the groups by category.
-        ///// </summary>
-        ///// <returns>
-        ///// List.
-        ///// </returns>
-        //CommonGroupInfoCollection GetGroupsByCategory();
         /// <summary>
         /// Gets the person plus family events.
         /// </summary>

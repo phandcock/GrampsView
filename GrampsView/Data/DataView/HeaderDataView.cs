@@ -93,6 +93,8 @@
             return t;
         }
 
+        public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
+
         public override HeaderModel GetModelFromHLinkString(string HLinkString)
         {
             return HeaderData.Values.First();

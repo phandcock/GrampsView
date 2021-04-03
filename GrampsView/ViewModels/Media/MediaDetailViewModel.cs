@@ -13,8 +13,6 @@
     /// </summary>
     public class MediaDetailViewModel : ViewModelBase
     {
-        private HLinkMediaModel _CurrentHLinkMedia = new HLinkMediaModel();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
         /// </summary>
@@ -32,15 +30,7 @@
 
         public HLinkMediaModel CurrentHLinkMedia
         {
-            get
-            {
-                return _CurrentHLinkMedia;
-            }
-
-            set
-            {
-                SetProperty(ref _CurrentHLinkMedia, value);
-            }
+            get; set;
         }
 
         /// <summary>

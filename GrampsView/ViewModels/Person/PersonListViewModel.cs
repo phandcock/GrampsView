@@ -36,7 +36,7 @@
         {
             get
             {
-                return DV.PersonDV.GetAllAsGroupedSurnameCardGroup();
+                return DV.PersonDV.GetAllAsGroupedCardGroup();
             }
         }
     }

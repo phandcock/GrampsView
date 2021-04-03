@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -24,11 +23,11 @@
             BaseTitleIcon = CommonConstants.IconMedia;
         }
 
-        public CardGroupBase<HLinkMediaModel> MediaSource
+        public CardGroup MediaSource
         {
             get
             {
-                return DV.MediaDV.GetAllAsCardGroupBase();
+                return DV.MediaDV.GetAllAsGroupedCardGroup();
             }
         }
 

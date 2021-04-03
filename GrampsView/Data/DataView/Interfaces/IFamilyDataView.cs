@@ -9,7 +9,6 @@
 
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -21,7 +20,10 @@ namespace GrampsView.Data.DataView
     /// </summary>
     public interface IFamilyDataView : IDataViewBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>
     {
-        new IReadOnlyList<FamilyModel> DataDefaultSort { get; }
+        new IReadOnlyList<FamilyModel> DataDefaultSort
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets or sets the family data.
@@ -33,8 +35,6 @@ namespace GrampsView.Data.DataView
         {
             get;
         }
-
-        CardGroup GetAllAsGroupedFamilyNameCardGroup();
 
         /// <summary>
         /// Gets all as hlink.

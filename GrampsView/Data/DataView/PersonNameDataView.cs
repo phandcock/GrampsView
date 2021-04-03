@@ -44,47 +44,6 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override List<CommonGroupInfoCollection<PersonNameModel>> GetGroupsByLetter
-        {
-            get
-            {
-                List<CommonGroupInfoCollection<PersonNameModel>> groups = new List<CommonGroupInfoCollection<PersonNameModel>>();
-
-                var query = from item in DataViewData
-                            orderby item.GetDefaultText
-                            group item by item.GetDefaultText into g
-                            select new
-                            {
-                                GroupName = g.Key,
-                                Items = g
-                            };
-
-                foreach (var g in query)
-                {
-                    CommonGroupInfoCollection<PersonNameModel> info = new CommonGroupInfoCollection<PersonNameModel>();
-
-                    // Handle 0's
-                    if (string.IsNullOrEmpty(g.GroupName))
-                    {
-                        info.Key = "Unknown Date";
-                    }
-                    else
-                    {
-                        info.Key = g.GroupName + "'s";
-                    }
-
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
-
-                    groups.Add(info);
-                }
-
-                return groups;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the citation data.
         /// </summary>
@@ -108,10 +67,10 @@ namespace GrampsView.Data.DataView
                 t.Add(item.HLink);
             }
 
-            // Sort TODO Sort t = HLinkCollectionSort(t);
-
             return t;
         }
+
+        public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
 
         /// <summary>
         /// Gets all as hlink.
@@ -129,40 +88,6 @@ namespace GrampsView.Data.DataView
 
             return t;
         }
-
-        ///// <summary>
-        ///// Gets the first image from collection.
-        ///// </summary>
-        ///// <param name="theCollection">
-        ///// The collection.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //public new ItemGlyph GetFirstImageFromCollection(HLinkPersonNameModelCollection theCollection)
-        //{
-        //    if (theCollection == null)
-        //    {
-        //        return null;
-        //    }
-
-        // ItemGlyph returnMediaModel = new ItemGlyph();
-
-        // if (theCollection.Count > 0) { // step through each mediamodel hlink in the collection
-        // Accept either a direct // mediamodel reference or a hlink to a Source media reference.
-
-        // // do { } while (!mediaFoundFlag); for (int i = 0; i < theCollection.Count; i++) {
-        // HLinkPersonNameModel currentHLink = theCollection[i];
-
-        // returnMediaModel = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
-
-        // // TODO Still needed Handle Source Links if (currentHLink.HLinkGlyphItem.ImageType ==
-        // CommonEnums.HLinkGlyphType.Image) { returnMediaModel = currentHLink.DeRef.ModelItemGlyph; }
-
-        // if (returnMediaModel.Valid) { break; } } }
-
-        //    // return the image
-        //    return returnMediaModel;
-        //}
 
         public override PersonNameModel GetModelFromHLinkString(string HLinkString)
         {
@@ -224,30 +149,6 @@ namespace GrampsView.Data.DataView
             {
                 itemsFound.Add(tempMO.HLink);
             }
-
-            //// Search by First and Last Name
-            //temp = DataViewData.Where(x => x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
-
-            //foreach (PersonNameModel tempMO in temp)
-            //{
-            //    itemsFound.Add(tempMO.HLink);
-            //}
-
-            //// Search by Called By
-            //temp = DataViewData.Where(x => x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
-
-            //foreach (PersonNameModel tempMO in temp)
-            //{
-            //    itemsFound.Add(tempMO.HLink);
-            //}
-
-            //// Search by Nick Name
-            //temp = DataViewData.Where(x => x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
-
-            //foreach (PersonNameModel tempMO in temp)
-            //{
-            //    itemsFound.Add(tempMO.HLink);
-            //}
 
             return itemsFound;
         }

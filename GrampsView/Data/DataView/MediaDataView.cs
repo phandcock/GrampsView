@@ -59,46 +59,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the get groups by letter.
-        /// </summary>
-        /// <value>
-        /// The get groups by letter.
-        /// </value>
-        public override List<CommonGroupInfoCollection<MediaModel>> GetGroupsByLetter
-        {
-            get
-            {
-                List<CommonGroupInfoCollection<MediaModel>> groups = new List<CommonGroupInfoCollection<MediaModel>>();
-
-                var query = from item in DataViewData
-                            orderby item.GDescription
-                            group item by (item.GDescription + " ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g
-                            select new
-                            {
-                                GroupName = g.Key,
-                                Items = g
-                            };
-
-                foreach (var g in query)
-                {
-                    CommonGroupInfoCollection<MediaModel> info = new CommonGroupInfoCollection<MediaModel>
-                    {
-                        Key = g.GroupName,
-                    };
-
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
-
-                    groups.Add(info);
-                }
-
-                return groups;
-            }
-        }
-
         public override CardGroupBase<HLinkMediaModel> GetLatestChanges
         {
             get
@@ -120,6 +80,9 @@
             }
         }
 
+        //        return groups;
+        //    }
+        //}
         /// <summary>
         /// Gets all as card group.
         /// </summary>
@@ -141,6 +104,59 @@
             return t;
         }
 
+        public override CardGroup GetAllAsGroupedCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.FileContentType, item.GDescription
+                        group item by (item.FileContentType) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
+            {
+                CardGroupBase<HLinkMediaModel> info = new CardGroupBase<HLinkMediaModel>
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
+
+        ///// <summary>
+        ///// Gets the get groups by letter.
+        ///// </summary>
+        ///// <value>
+        ///// The get groups by letter.
+        ///// </value>
+        //public override List<CommonGroupInfoCollection<MediaModel>> GetGroupsByLetter
+        //{
+        //    get
+        //    {
+        //        List<CommonGroupInfoCollection<MediaModel>> groups = new List<CommonGroupInfoCollection<MediaModel>>();
+
+        // var query = from item in DataViewData orderby item.GDescription group item by
+        // (item.GDescription + " ").ToUpper(CultureInfo.CurrentCulture).Substring(0, 1) into g
+        // select new { GroupName = g.Key, Items = g };
+
+        // foreach (var g in query) { CommonGroupInfoCollection<MediaModel> info = new
+        // CommonGroupInfoCollection<MediaModel> { Key = g.GroupName, };
+
+        // foreach (var item in g.Items) { info.Add(item); }
+
+        // groups.Add(info); }
         /// <summary>
         /// Gets all as hlink.
         /// </summary>

@@ -13,11 +13,26 @@
 
         private double width = 0;
 
+        private double windowHeight = 0;
+        private double windowWidth = 0;
+
         protected override void OnAppearing()
         {
             (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
         }
 
+        /// <summary>
+        /// Indicates that the <see cref="T:Xamarin.Forms.Page"/> has been assigned a size.
+        /// </summary>
+        /// <param name="width">
+        /// The width allocated to the <see cref="T:Xamarin.Forms.Page"/>.
+        /// </param>
+        /// <param name="height">
+        /// The height allocated to the <see cref="T:Xamarin.Forms.Page"/>.
+        /// </param>
+        /// <remarks>
+        /// Height and Width only set when created or rotated in xamarin
+        /// </remarks>
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height); //must be called
@@ -38,6 +53,8 @@
 
                 CardSizes.Current.ReCalculateCardWidths();
             }
+
+            // Handle UWP windows resize
         }
     }
 }

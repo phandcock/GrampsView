@@ -18,7 +18,7 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:CollectionSingleCard
+        <ucon:CollectionSingleCardGrouped
             FsctSource="{Binding MediaSource, Mode=OneWay}"
             FsctTemplate="{StaticResource MediaCardSmallDT}"
             VerticalOptions="StartAndExpand" />

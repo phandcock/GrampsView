@@ -33,7 +33,7 @@
         {
             get
             {
-                return DV.FamilyDV.GetAllAsGroupedFamilyNameCardGroup();
+                return DV.FamilyDV.GetAllAsGroupedCardGroup();
             }
         }
     }

@@ -45,7 +45,5 @@
                 return _iocDataLog.DataLoadLog;
             }
         }
-
-
     }
 }

@@ -56,6 +56,10 @@
 
         public async Task<ItemGlyph> GetThumbImageFromVideo(MediaModel argMediaModel)
         {
+            if (argMediaModel.Id == "O0615")
+            {
+            }
+
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
             MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagevideo", ".jpg");

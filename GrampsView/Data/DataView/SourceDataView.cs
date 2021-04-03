@@ -13,8 +13,6 @@ namespace GrampsView.Data.DataView
     using System.Linq;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    // Event repository </summary>
     public class SourceDataView : DataViewBase<SourceModel, HLinkSourceModel, HLinkSourceModelCollection>, ISourceDataView
     {
         /// <summary>
@@ -100,6 +98,8 @@ namespace GrampsView.Data.DataView
 
             return t;
         }
+
+        public override CardGroup GetAllAsGroupedCardGroup() => throw new NotImplementedException();
 
         /// <summary>
         /// Gets all as hlink.

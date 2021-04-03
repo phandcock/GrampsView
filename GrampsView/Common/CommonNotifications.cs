@@ -142,6 +142,11 @@
             return;
         }
 
+        public async Task DataLogEntryClear()
+        {
+            await _DataLog.Clear().ConfigureAwait(false);
+        }
+
         /// <summary>
         /// Majors the status delete.
         /// </summary>

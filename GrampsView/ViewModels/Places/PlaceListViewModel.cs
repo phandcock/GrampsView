@@ -30,7 +30,7 @@
         {
             get
             {
-                return DV.PlaceDV.GetAllAsGroupedAlphabeticCardGroup();
+                return DV.PlaceDV.GetAllAsGroupedCardGroup();
             }
         }
     }

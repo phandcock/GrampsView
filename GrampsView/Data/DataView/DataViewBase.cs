@@ -62,19 +62,19 @@
             get;
         }
 
-        /// <summary>
-        /// Gets the get groups by letter. Default to empty list.
-        /// </summary>
-        /// <value>
-        /// The get groups by letter.
-        /// </value>
-        public virtual List<CommonGroupInfoCollection<TB>> GetGroupsByLetter
-        {
-            get
-            {
-                return new List<CommonGroupInfoCollection<TB>>();
-            }
-        }
+        ///// <summary>
+        ///// Gets the get groups by letter. Default to empty list.
+        ///// </summary>
+        ///// <value>
+        ///// The get groups by letter.
+        ///// </value>
+        //public virtual List<CommonGroupInfoCollection<TB>> GetGroupsByLetter
+        //{
+        //    get
+        //    {
+        //        return new List<CommonGroupInfoCollection<TB>>();
+        //    }
+        //}
 
         public virtual CardGroupBase<TU> GetLatestChanges
         {
@@ -103,10 +103,7 @@
             throw new NotImplementedException();
         }
 
-        public virtual CardGroup GetAllAsGroupedCardGroup()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract CardGroup GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.

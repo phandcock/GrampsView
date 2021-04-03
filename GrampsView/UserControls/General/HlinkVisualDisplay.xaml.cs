@@ -122,6 +122,12 @@
 
         private void NewMediaControl_Error(object sender, CachedImageEvents.ErrorEventArgs e)
         {
+            if (e.Exception.HResult == -2003292336)
+            {
+                // Component not found exception
+                return;
+            }
+
             ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
             {
                 {

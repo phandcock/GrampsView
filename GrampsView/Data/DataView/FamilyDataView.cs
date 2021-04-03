@@ -95,7 +95,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public CardGroup GetAllAsGroupedFamilyNameCardGroup()
+        public override CardGroup GetAllAsGroupedCardGroup()
         {
             CardGroup t = new CardGroup();
 
@@ -121,7 +121,11 @@ namespace GrampsView.Data.DataView
                     from x in queryBase
                     orderby x.key
                     group x by (x.key) into g
-                    select new { GroupName = g.Key, Items = g };
+                    select new
+                    {
+                        GroupName = g.Key,
+                        Items = g
+                    };
 
             foreach (var g in query)
             {

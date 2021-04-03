@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Common routines for the CommonProgressRoutines
-//
-// <copyright file="CommonNotifications.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using System;
     using System.Collections.ObjectModel;
@@ -64,6 +55,13 @@ namespace GrampsView.Common
                   DataLoadLog.Add(BuildDataLogEntry(argEntry));
               }
           }).ConfigureAwait(false);
+
+            return true;
+        }
+
+        public async Task<bool> Clear()
+        {
+            DataLoadLog.Clear();
 
             return true;
         }

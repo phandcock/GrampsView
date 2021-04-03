@@ -10,22 +10,22 @@
 
 namespace GrampsView.Common
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
 
-
     public interface IDataLog
     {
-        ObservableCollection<DataLogEntry> DataLoadLog { get; }
+        ObservableCollection<DataLogEntry> DataLoadLog
+        {
+            get;
+        }
 
         Task<bool> Add(string entry);
 
+        Task<bool> Clear();
 
         Task<bool> Remove();
 
         Task<bool> Replace(string entry);
-
     }
 }

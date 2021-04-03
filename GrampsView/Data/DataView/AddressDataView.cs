@@ -56,46 +56,27 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override List<CommonGroupInfoCollection<AddressModel>> GetGroupsByLetter
-        {
-            get
-            {
-                List<CommonGroupInfoCollection<AddressModel>> groups = new List<CommonGroupInfoCollection<AddressModel>>();
+        //public override List<CommonGroupInfoCollection<AddressModel>> GetGroupsByLetter
+        //{
+        //    get
+        //    {
+        //        List<CommonGroupInfoCollection<AddressModel>> groups = new List<CommonGroupInfoCollection<AddressModel>>();
 
-                var query = from item in DataViewData
-                            orderby item.GetDefaultText
-                            group item by item.GetDefaultText into g
-                            select new
-                            {
-                                GroupName = g.Key,
-                                Items = g
-                            };
+        // var query = from item in DataViewData orderby item.GetDefaultText group item by
+        // item.GetDefaultText into g select new { GroupName = g.Key, Items = g };
 
-                foreach (var g in query)
-                {
-                    CommonGroupInfoCollection<AddressModel> info = new CommonGroupInfoCollection<AddressModel>();
+        // foreach (var g in query) { CommonGroupInfoCollection<AddressModel> info = new CommonGroupInfoCollection<AddressModel>();
 
-                    // Handle 0's
-                    if (string.IsNullOrEmpty(g.GroupName))
-                    {
-                        info.Key = "Unknown Date";
-                    }
-                    else
-                    {
-                        info.Key = g.GroupName + "'s";
-                    }
+        // // Handle 0's if (string.IsNullOrEmpty(g.GroupName)) { info.Key = "Unknown Date"; } else
+        // { info.Key = g.GroupName + "'s"; }
 
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
+        // foreach (var item in g.Items) { info.Add(item); }
 
-                    groups.Add(info);
-                }
+        // groups.Add(info); }
 
-                return groups;
-            }
-        }
+        //        return groups;
+        //    }
+        //}
 
         public override CardGroupBase<HLinkAdressModel> GetAllAsCardGroupBase()
         {
@@ -107,6 +88,37 @@ namespace GrampsView.Data.DataView
             }
 
             // Sort TODO Sort t = HLinkCollectionSort(t);
+
+            return t;
+        }
+
+        public override CardGroup GetAllAsGroupedCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GetDefaultText
+                        group item by (item.GetDefaultText) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
+            {
+                CardGroupBase<IHLinkAddressModel> info = new CardGroupBase<IHLinkAddressModel>
+                {
+                    Title = g.GroupName,
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
 
             return t;
         }
