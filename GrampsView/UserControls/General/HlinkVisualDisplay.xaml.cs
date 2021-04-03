@@ -122,11 +122,12 @@
 
         private void NewMediaControl_Error(object sender, CachedImageEvents.ErrorEventArgs e)
         {
-            if (e.Exception.HResult == -2003292336)
-            {
-                // Component not found exception
-                return;
-            }
+            //if (e.Exception.HResult == -2003292336)
+            //{
+            //    // Component not found exception
+            //      ??? SHowing bad file, perhaps an internalmediafile?
+            //    return;
+            //}
 
             ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
             {
