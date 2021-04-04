@@ -60,7 +60,7 @@
         {
             get
             {
-                return Common.CommonLocalSettings.SortHLinkCollections;
+                return CommonLocalSettings.SortHLinkCollections;
             }
             set
             {
@@ -149,6 +149,18 @@
         public IAsyncCommand UCNavigateCommand
         {
             get; private set;
+        }
+
+        public bool UseFirstImageFlag
+        {
+            get
+            {
+                return CommonLocalSettings.UseFirstImageFlag;
+            }
+            set
+            {
+                CommonLocalSettings.UseFirstImageFlag = value;
+            }
         }
 
         public override void BaseHandleAppearingEvent()

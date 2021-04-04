@@ -88,8 +88,8 @@ namespace GrampsView.Data.Model
 
         public void SetFirstImage()
         {
-            // Set the first image link. Assumes main image is manually set to the first image in
-            // Gramps if we need it to be, e.g. Citations.
+            // Set the first or last image link. FOr first, assumes main image is manually set to
+            // the first image in Gramps if we need it to be, e.g. Citations.
 
             FirstHLinkHomeImage = new ItemGlyph();
 
@@ -105,7 +105,11 @@ namespace GrampsView.Data.Model
                                 FirstHLinkHomeImage = this[i].HLinkGlyphItem;
 
                                 // Stop after the first match
-                                return;
+                                if (CommonLocalSettings.UseFirstImageFlag)
+                                {
+                                    return;
+                                }
+                                break;
                             }
                         case CommonEnums.HLinkGlyphType.Media:
                             {
@@ -113,7 +117,11 @@ namespace GrampsView.Data.Model
                                 FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Image;
 
                                 // Stop after the first match
-                                return;
+                                if (CommonLocalSettings.UseFirstImageFlag)
+                                {
+                                    return;
+                                }
+                                break;
                             }
 
                         case CommonEnums.HLinkGlyphType.Symbol:

@@ -187,6 +187,19 @@
             }
         }
 
+        public static bool UseFirstImageFlag
+        {
+            get
+            {
+                return Preferences.Get("UseFirstImageFlag", false);
+            }
+
+            set
+            {
+                Preferences.Set("UseFirstImageFlag", value);
+            }
+        }
+
         public static bool WhatsNewDisplayed
         {
             get

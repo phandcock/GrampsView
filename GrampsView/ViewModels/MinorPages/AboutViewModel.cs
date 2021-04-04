@@ -35,6 +35,8 @@
             get;
         }
 
+        = new CardListLineCollection();
+
         public string AppName
         {
             get
