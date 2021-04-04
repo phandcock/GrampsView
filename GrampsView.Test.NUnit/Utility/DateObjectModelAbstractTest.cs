@@ -11,7 +11,7 @@
             Valid = true;
         }
 
-        public override int GetAge => throw new NotImplementedException();
+        public override Nullable<int> GetAge => throw new NotImplementedException();
 
         public override string GetYear => throw new NotImplementedException();
 
@@ -19,9 +19,21 @@
 
         public override string ShortDate => throw new NotImplementedException();
 
-        public override DateTime SingleDate { get { return new DateTime(); } }
+        public override DateTime SingleDate
+        {
+            get
+            {
+                return new DateTime();
+            }
+        }
 
-        public override DateTime SortDate { get { return new DateTime(); } }
+        public override DateTime SortDate
+        {
+            get
+            {
+                return new DateTime();
+            }
+        }
 
         public override CardListLineCollection AsCardListLine(string argTitle = null)
         {

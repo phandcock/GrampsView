@@ -65,7 +65,7 @@
             {
                 DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
-                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotClipped => NotClipped.IsInternalMediaFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
                 CardGroupBase<HLinkMediaModel> returnCardGroup = new CardGroupBase<HLinkMediaModel>();
 
@@ -260,7 +260,7 @@
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
 
             foreach (IMediaModel tempMO in temp)
             {
