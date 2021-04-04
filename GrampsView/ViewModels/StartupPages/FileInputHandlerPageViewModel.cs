@@ -66,7 +66,7 @@
         /// </summary>
         public override void BaseHandleAppearingEvent()
         {
-            base.BaseCurrentLayoutState = LayoutState.None;
+            BaseCurrentLayoutState = LayoutState.None;
         }
 
         /// <summary>
@@ -93,7 +93,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            await AppShell.Current.Navigation.PopAsync();
+            await Xamarin.Forms.Shell.Current.Navigation.PopAsync();
         }
 
         /// <summary>
@@ -121,7 +121,7 @@
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
 
-                    Common.CommonRoutines.NavigateHub();
+                    CommonRoutines.NavigateHub();
                 }
                 else
                 {
@@ -131,7 +131,7 @@
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
 
-                    base.BaseCurrentLayoutState = LayoutState.None;
+                    BaseCurrentLayoutState = LayoutState.None;
                 }
             }
             catch (Exception ex)
