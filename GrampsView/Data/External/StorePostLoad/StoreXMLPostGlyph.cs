@@ -27,13 +27,13 @@
                     throw new ArgumentNullException(nameof(argModel));
                 }
 
-                if (argModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
-                {
-                }
+                //if (argModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
+                //{
+                //}
 
                 ItemGlyph hlink = argModel.ModelItemGlyph;
 
-                if (argModel.Id == "C0682")
+                if (argModel.Id == "C0772")
                 {
                 }
 

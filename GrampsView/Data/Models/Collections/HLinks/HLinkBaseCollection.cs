@@ -90,7 +90,6 @@ namespace GrampsView.Data.Model
         {
             // Set the first image link. Assumes main image is manually set to the first image in
             // Gramps if we need it to be, e.g. Citations.
-            //ItemGlyph tempMediaModel = new ItemGlyph();
 
             FirstHLinkHomeImage = new ItemGlyph();
 
@@ -99,12 +98,32 @@ namespace GrampsView.Data.Model
                 // Step through each mediamodel hlink in the collection
                 for (int i = 0; i < Count; i++)
                 {
-                    if (this[i].HLinkGlyphItem.ImageType == CommonEnums.HLinkGlyphType.Image)
+                    switch (this[i].HLinkGlyphItem.ImageType)
                     {
-                        FirstHLinkHomeImage = this[i].HLinkGlyphItem;       // DataStore.Instance.DS.MediaData.GetModelFromHLink(this[i]);
+                        case CommonEnums.HLinkGlyphType.Image:
+                            {
+                                FirstHLinkHomeImage = this[i].HLinkGlyphItem;
 
-                        // Stop after the first match
-                        return;
+                                // Stop after the first match
+                                return;
+                            }
+                        case CommonEnums.HLinkGlyphType.Media:
+                            {
+                                FirstHLinkHomeImage = this[i].HLinkGlyphItem;
+                                FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Image;
+
+                                // Stop after the first match
+                                return;
+                            }
+
+                        case CommonEnums.HLinkGlyphType.Symbol:
+                            break;
+
+                        case CommonEnums.HLinkGlyphType.Unknown:
+                            break;
+
+                        default:
+                            break;
                     }
                 }
             }

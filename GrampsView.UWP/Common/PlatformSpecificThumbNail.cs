@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.UWP
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -122,10 +121,14 @@
 
             Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
             IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
-            using (var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                await strm.WriteAsync(iBuf);
-            }
+
+            var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite);
+
+            await strm.WriteAsync(iBuf);
+
+            await strm.FlushAsync();
+
+            strm.Dispose();
 
             // check size
             BasicProperties outProperties = await outfile.GetBasicPropertiesAsync();
