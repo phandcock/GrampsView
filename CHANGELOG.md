@@ -1,3 +1,12 @@
+## [16.17.14](https://github.com/phandcock/GrampsView/compare/v16.17.13...v16.17.14) (2021-04-04)
+
+
+### Bug Fixes
+
+* downgrade newtonsoft to fix conflict with adativecards ([7feb70f](https://github.com/phandcock/GrampsView/commit/7feb70f062a4a6810e7750365922389f499dd44c))
+
+
+
 ## [16.17.13](https://github.com/phandcock/GrampsView/compare/v16.17.12...v16.17.13) (2021-04-04)
 
 
@@ -37,16 +46,6 @@
 ### Bug Fixes
 
 * work on pixel density to get better android card sizes ([985cef2](https://github.com/phandcock/GrampsView/commit/985cef2a1f913cfb90308430bc4c425cc18fb280))
-
-
-
-## [16.17.9](https://github.com/phandcock/GrampsView/compare/v16.17.8...v16.17.9) (2021-03-29)
-
-
-### Bug Fixes
-
-* group and speedup eventlist and cleanup personname display ([d70d15c](https://github.com/phandcock/GrampsView/commit/d70d15c38cb3d62ab05d6a72c759c0738db219ba))
-* **another try at android screen rotation:** work on ([eb4d92e](https://github.com/phandcock/GrampsView/commit/eb4d92e2a23453511be4e17cfad7bb15fb7de073))
 
 
 
