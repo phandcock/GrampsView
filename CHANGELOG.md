@@ -1,3 +1,17 @@
+## [16.17.13](https://github.com/phandcock/GrampsView/compare/v16.17.12...v16.17.13) (2021-04-04)
+
+
+### Bug Fixes
+
+* change medialist to grouped so faster ([84926d8](https://github.com/phandcock/GrampsView/commit/84926d87e2d65ab4a1f1bccf5721ebaec37199c0))
+* cleanup searchpagecode and collectionsinglecard group headers ([03bfd04](https://github.com/phandcock/GrampsView/commit/03bfd04b5d97db8a65dd44d39473ea81534749c5))
+* fix display of date getage when not valid.  change to null ([0257281](https://github.com/phandcock/GrampsView/commit/02572812f1a6a4897c9f17db887e7c71592a1a06))
+* fix medialist display error ([622884b](https://github.com/phandcock/GrampsView/commit/622884b0218e6903790aaa856ccddea4d24b571b))
+* fix notelist sort ([8803c25](https://github.com/phandcock/GrampsView/commit/8803c25aeb13c5a2f213972d8389642836b72190))
+* remove remainign own behavious ([bf36eb2](https://github.com/phandcock/GrampsView/commit/bf36eb216c8a9b28b0496a6bc770a19f030c70e1))
+
+
+
 ## [16.17.12](https://github.com/phandcock/GrampsView/compare/v16.17.11...v16.17.12) (2021-04-02)
 
 
@@ -33,16 +47,6 @@
 
 * group and speedup eventlist and cleanup personname display ([d70d15c](https://github.com/phandcock/GrampsView/commit/d70d15c38cb3d62ab05d6a72c759c0738db219ba))
 * **another try at android screen rotation:** work on ([eb4d92e](https://github.com/phandcock/GrampsView/commit/eb4d92e2a23453511be4e17cfad7bb15fb7de073))
-
-
-
-## [16.17.8](https://github.com/phandcock/GrampsView/compare/v16.17.7...v16.17.8) (2021-03-28)
-
-
-### Bug Fixes
-
-* furst cut at speeding up tagdetailview ([66fcd2e](https://github.com/phandcock/GrampsView/commit/66fcd2eb8be35d4ecba74f6a62462a37b5f66ed7))
-* speed up citation list display ([1e54e93](https://github.com/phandcock/GrampsView/commit/1e54e93fbcabcdbc9305ad01c7b6cf5eecc63d9b))
 
 
 
