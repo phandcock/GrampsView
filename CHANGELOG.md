@@ -1,3 +1,15 @@
+## [16.17.15](https://github.com/phandcock/GrampsView/compare/v16.17.14...v16.17.15) (2021-04-05)
+
+
+### Bug Fixes
+
+* add switch for choosing if colleciton uses first or last image ([b6de70b](https://github.com/phandcock/GrampsView/commit/b6de70b4fca68801dd17b77b9c283eb9fc00866c))
+* cleanup firstimage in basecollection ([c2a0996](https://github.com/phandcock/GrampsView/commit/c2a0996490435bb4d8de7d0c5b9fb045894a6891))
+* deselect menu items when another is selected ([97b3876](https://github.com/phandcock/GrampsView/commit/97b3876c3b2782b4155f075eae23a3d0953b65c7))
+* move to using new xamarin toolkit popups ([1936c6f](https://github.com/phandcock/GrampsView/commit/1936c6f1c52e722a5bba070a5f368f3305df0219))
+
+
+
 ## [16.17.14](https://github.com/phandcock/GrampsView/compare/v16.17.13...v16.17.14) (2021-04-04)
 
 
@@ -37,15 +49,6 @@
 ### Bug Fixes
 
 * cleanup Place Card layout ([0c3a946](https://github.com/phandcock/GrampsView/commit/0c3a9465b45174417889389c16e19655338e2571))
-
-
-
-## [16.17.10](https://github.com/phandcock/GrampsView/compare/v16.17.9...v16.17.10) (2021-03-29)
-
-
-### Bug Fixes
-
-* work on pixel density to get better android card sizes ([985cef2](https://github.com/phandcock/GrampsView/commit/985cef2a1f913cfb90308430bc4c425cc18fb280))
 
 
 
