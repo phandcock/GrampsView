@@ -3,7 +3,6 @@ using Android.Graphics.Pdf;
 using Android.Media;
 using Android.OS;
 
-using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
@@ -56,7 +55,7 @@ namespace GrampsView.Droid.Common
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -69,7 +68,7 @@ namespace GrampsView.Droid.Common
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -81,7 +80,7 @@ namespace GrampsView.Droid.Common
 
             MediaMetadataRetriever retriever = new MediaMetadataRetriever();
             retriever.SetDataSource(argExistingMediaModel.MediaStorageFilePath);
-            Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(0);
+            Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(1000);  // try at 1 second as this is often a more flattering image
 
             if (bitmap != null)
             {

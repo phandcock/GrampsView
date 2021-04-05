@@ -48,7 +48,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                await DataStore.Instance.CN.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -80,7 +80,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from video file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                await DataStore.Instance.CN.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -115,7 +115,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image form PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                await DataStore.Instance.CN.NotifyError(t);
             }
 
             return returnItemGlyph;

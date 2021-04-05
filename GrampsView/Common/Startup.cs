@@ -10,7 +10,6 @@
     using Prism.Services.Dialogs;
 
     using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     public sealed partial class App
     {
@@ -22,7 +21,7 @@
 
         private async void ServiceLoadData()
         {
-            var t = Shell.Current.Navigation.NavigationStack;
+            //var t = Shell.Current.Navigation.NavigationStack;
 
             if (CommonLocalSettings.DataSerialised)
             {

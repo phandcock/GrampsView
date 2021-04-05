@@ -123,32 +123,32 @@
         {
             //await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
 
-            await Shell.Current.GoToAsync(argPageName, animate: true);
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Shell.Current.GoToAsync(argPageName, animate: false);
+                });
+            }
+            else
+            {
+                await Shell.Current.GoToAsync(argPageName, animate: false);
+            };
         }
 
         public static void NavigateHub()
         {
-            ShellNavigationState t = Shell.Current.CurrentState;
-
-            // Shell.Current.Navigation.PopAsync();
-
-            //DataStore.Instance.CN.MinorMessageAdd("Navigating to Root");
-
-            //if (Device.RuntimePlatform == Device.UWP)
-            //{
-            //    foreach (var item in Shell.Current.Navigation.NavigationStack)
-            //    {
-            //        Shell.Current.Navigation.PopAsync();
-            //    }
-            //}
-            //else
-            //{
-            MainThread.BeginInvokeOnMainThread(() =>
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Shell.Current.Navigation.PopToRootAsync();
+                });
+            }
+            else
             {
                 Shell.Current.Navigation.PopToRootAsync();
-            });
-
-            //}
+            };
         }
 
         public static string ReplaceLineSeperators(string argString)

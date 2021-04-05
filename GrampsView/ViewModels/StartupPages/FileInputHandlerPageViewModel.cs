@@ -93,7 +93,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            await Xamarin.Forms.Shell.Current.Navigation.PopAsync();
+            // await Xamarin.Forms.Shell.Current.Navigation.PopAsync();
         }
 
         /// <summary>
@@ -121,12 +121,12 @@
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
 
-                    CommonRoutines.NavigateHub();
+                    //CommonRoutines.NavigateHub();
                 }
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    DataStore.Instance.CN.NotifyAlert("No input file was selected");
+                    await DataStore.Instance.CN.NotifyAlert("No input file was selected");
 
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
@@ -136,7 +136,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
+                await DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
 
                 throw;
             }

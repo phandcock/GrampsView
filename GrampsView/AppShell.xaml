@@ -4,8 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:views="clr-namespace:GrampsView.Views"
-    Navigating="Shell_Navigating">
+    xmlns:views="clr-namespace:GrampsView.Views">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.

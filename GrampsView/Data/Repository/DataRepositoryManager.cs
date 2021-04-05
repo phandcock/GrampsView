@@ -20,8 +20,6 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    using Xamarin.Essentials;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -191,11 +189,9 @@
                 return true;
             }
 
-            await MainThread.InvokeOnMainThreadAsync(async () =>
-                {
-                    await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
-                }
-            );
+            CommonRoutines.NavigateHub();
+
+            await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();

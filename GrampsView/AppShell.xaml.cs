@@ -93,9 +93,5 @@
 
             Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
         }
-
-        private void Shell_Navigating(object sender, ShellNavigatingEventArgs e)
-        {
-        }
     }
 }

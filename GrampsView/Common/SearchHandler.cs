@@ -19,7 +19,7 @@
 
             ShellNavigationState state = (App.Current.MainPage as Shell).CurrentState;
 
-            await Shell.Current.GoToAsync("PersonDetailPage?BaseParamsHLink=" + JsonConvert.SerializeObject(item));
+            await CommonRoutines.NavigateAsync("PersonDetailPage?BaseParamsHLink=" + JsonConvert.SerializeObject(item));
         }
 
         protected override void OnQueryChanged(string oldValue, string newValue)

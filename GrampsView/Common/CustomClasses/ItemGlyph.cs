@@ -212,7 +212,7 @@
             {
                 string ser = JsonConvert.SerializeObject(this.ImageHLinkMedia);
 
-                await AppShell.Current.GoToAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+                await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
             }
 
             return;

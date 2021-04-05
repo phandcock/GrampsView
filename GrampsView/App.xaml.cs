@@ -100,7 +100,7 @@ namespace GrampsView
 
             StartAtDetailPage();
 
-            CommonRoutines.Navigate("///HubPage");
+            Shell.Current.GoToAsync("///HubPage");
         }
 
         protected override void OnResume()
@@ -131,7 +131,8 @@ namespace GrampsView
         {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                Shell.Current.Navigation.PopToRootAsync(animated: true);
+                Common.CommonRoutines.NavigateHub();
+                //Shell.Current.Navigation.PopToRootAsync(animated: true);
                 return;
             }
 
