@@ -10,6 +10,11 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
+        ErrorInfo DialogArgs
+        {
+            get; set;
+        }
+
         string MinorMessage
         {
             get; set;
@@ -64,7 +69,7 @@ namespace GrampsView.Common
 
         Task MinorMessageAdd(string argMessage);
 
-        void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null);
+        Task NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null);
 
         /// <summary>
         /// Helper to Notify Error.
@@ -72,7 +77,7 @@ namespace GrampsView.Common
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        void NotifyError(ErrorInfo argErrorDetail = null);
+        Task NotifyError(ErrorInfo argErrorDetail = null);
 
         /// <summary>
         /// Notify the user about an Exception.
@@ -86,6 +91,6 @@ namespace GrampsView.Common
         /// <param name="argExtraItems">
         /// Extra information
         /// </param>
-        void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
+        Task NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
     }
 }

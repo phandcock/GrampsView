@@ -1,13 +1,17 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Events;
+    using GrampsView.Data.Repository;
+    using GrampsView.Views;
 
     using Prism.Events;
 
     using System;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.Extensions;
+    using Xamarin.Forms;
 
     /// <summary>
     /// Common Notification routines.
@@ -54,6 +58,13 @@
 
             _DataLog = iocDataLog;
         }
+
+        public ErrorInfo DialogArgs
+        {
+            get; set;
+        }
+
+        = new ErrorInfo();
 
         public string MinorMessage
         {
@@ -187,7 +198,7 @@
             return;
         }
 
-        public void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null)
+        public async Task NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null)
         {
             if (argErrorDetail == null)
             {
@@ -197,11 +208,12 @@
             argErrorDetail.DialogBoxTitle = "Alert";
             argErrorDetail.Text = argMessage;
 
-            // TODO not very clean but what to do when displaying messages before hub page is loaded
-            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
+            DataStore.Instance.CN.DialogArgs = argErrorDetail;
+
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
         }
 
-        public void NotifyError(ErrorInfo argErrorDetail)
+        public async Task NotifyError(ErrorInfo argErrorDetail)
         {
             if (argErrorDetail is null)
             {
@@ -212,8 +224,9 @@
 
             _iocCommonLogging.Error(argErrorDetail);
 
-            // TODO not very clean but what to do when displaying messages before hub page is loaded
-            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argErrorDetail);
+            DataStore.Instance.CN.DialogArgs = argErrorDetail;
+
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
         }
 
         /// <summary>
@@ -225,7 +238,7 @@
         /// <param name="ex">
         /// Exception object.
         /// </param>
-        public void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null)
+        public async Task NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null)
         {
             if (argException is null)
             {
@@ -250,7 +263,9 @@
 
             argExtraItems.Add("Stack Trace", argException.StackTrace);
 
-            _iocEventAggregator.GetEvent<DialogBoxEvent>().Publish(argExtraItems);
+            DataStore.Instance.CN.DialogArgs = argExtraItems;
+
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 

@@ -201,7 +201,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<NavigationPage>();
 
-            container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
+            //container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
 
             container.RegisterSingleton<ICommonLogging, CommonLogging>();
             container.RegisterSingleton<IDataLog, CommonDataLog>();

@@ -1,17 +1,10 @@
-﻿//-----------------------------------------------------------------------
-//
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
+    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.Repository;
 
-    using Prism.Commands;
-    using Prism.Mvvm;
-    using Prism.Services.Dialogs;
-
-    using System;
-    using System.Diagnostics.Contracts;
-
-    public class ErrorDialogViewModel : BindableBase, IDialogAware
+    public class ErrorDialogViewModel : CommonBindableBase
     {
         private ErrorInfo _ADArgs = new ErrorInfo();
 
@@ -19,20 +12,15 @@ namespace GrampsView.ViewModels
 
         public ErrorDialogViewModel()
         {
-            CloseCommand = new DelegateCommand(() => RequestClose(null));
-        }
+            Title = DataStore.Instance.CN.DialogArgs.DialogBoxTitle;
 
-        public event Action<IDialogParameters> RequestClose;
+            AdaArgs = DataStore.Instance.CN.DialogArgs;
+        }
 
         public ErrorInfo AdaArgs
         {
             get => _ADArgs;
             set => SetProperty(ref _ADArgs, value);
-        }
-
-        public DelegateCommand CloseCommand
-        {
-            get;
         }
 
         public string Title
@@ -46,30 +34,6 @@ namespace GrampsView.ViewModels
             {
                 SetProperty(ref _Title, value);
             }
-        }
-
-        public bool CanCloseDialog() => true;
-
-        public void OnDialogClosed()
-        {
-        }
-
-        public void OnDialogOpened(IDialogParameters parameters)
-        {
-            Contract.Requires(parameters != null);
-            Contract.Requires(parameters.Count == 1);
-
-            // AdaArgs.Name = parameters.GetValue<string>("Name"); AdaArgs.Text = parameters.GetValue<string>("Text");
-
-            ErrorInfo tempArgs = parameters["argADA"] as ErrorInfo;
-
-            Title = tempArgs.DialogBoxTitle;
-
-            AdaArgs = tempArgs;
-        }
-
-        protected virtual void CloseDialog(string parameter)
-        {
         }
     }
 }

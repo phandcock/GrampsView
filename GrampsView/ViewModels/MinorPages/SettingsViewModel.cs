@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Views;
 
@@ -18,9 +17,9 @@
 
     public class SettingsViewModel : ViewModelBase
     {
-        private bool _LocalCanForceUpdate = true;
+        //private bool _LocalCanForceUpdate = true;
 
-        private bool _TestButton = true;
+        //private bool _TestButton = true;
 
         private bool _ThemeButtonDarkChecked;
 
@@ -46,6 +45,8 @@
             get; set;
         }
 
+        = true;
+
         public DelegateCommand ForceUpdateCheckCommand
         {
             get; private set;
@@ -55,6 +56,8 @@
         {
             get; set;
         }
+
+        = true;
 
         public bool SortCollectionsFlag
         {
@@ -73,15 +76,15 @@
             get; private set;
         }
 
-        public IHLinkMediaModel TestMedia
-        {
-            get
-            {
-                var t = DataStore.Instance.DS.MediaData.GetRandomItem().HLink;
+        //public IHLinkMediaModel TestMedia
+        //{
+        //    get
+        //    {
+        //        var t = DataStore.Instance.DS.MediaData.GetRandomItem().HLink;
 
-                return t;
-            }
-        }
+        //        return t;
+        //    }
+        //}
 
         public bool ThemeButtonDarkChecked
         {
@@ -170,17 +173,23 @@
                 case OSAppTheme.Light:
                     {
                         ThemeButtonLightChecked = true;
+                        ThemeButtonDarkChecked = false;
+                        ThemeButtonSystemChecked = false;
                         break;
                     }
 
                 case OSAppTheme.Dark:
                     {
                         ThemeButtonDarkChecked = true;
+                        ThemeButtonLightChecked = false;
+                        ThemeButtonSystemChecked = false;
                         break;
                     }
 
                 default:
                     {
+                        ThemeButtonDarkChecked = false;
+                        ThemeButtonLightChecked = false;
                         ThemeButtonSystemChecked = true;
                         break;
                     }

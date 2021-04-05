@@ -1,15 +1,12 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Events;
 
     using Prism.Events;
     using Prism.Services.Dialogs;
-
-    using System.Diagnostics.Contracts;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -36,7 +33,7 @@
 
             BaseDialogService = iocDialogService;
 
-            BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
+            //BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
             BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(HandledDataLoadedEvent, ThreadOption.UIThread);
         }
 
@@ -154,19 +151,6 @@
         /// </summary>
         public override void BaseHandleAppearingEvent()
         {
-        }
-
-        public void ErrorActionDialog(ErrorInfo argADA)
-        {
-            Contract.Assert(argADA != null);
-
-            IDialogParameters t = new DialogParameters()
-            {
-                { "argADA", argADA },
-            };
-
-            //Using the dialog service as-is
-            BaseDialogService.ShowDialog("ErrorDialog", t);
         }
 
         public void HandledDataLoadedEvent()

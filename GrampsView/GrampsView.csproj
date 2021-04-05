@@ -33,6 +33,7 @@
     <Compile Remove="Events\AppStartFirstRunEvent.cs" />
     <Compile Remove="Events\AppStartSaveSerial.cs" />
     <Compile Remove="Events\DataLoadUnzipped.cs" />
+    <Compile Remove="Events\DialogBoxEvent.cs" />
     <Compile Remove="Events\LoadImageBitMapEvent.cs" />
     <Compile Remove="Events\LoadMediaBitmapEvent.cs" />
     <Compile Remove="Events\OrientationChanged.cs" />

@@ -1,121 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Grid
+<xct:Popup
     x:Class="GrampsView.Views.ErrorDialog"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:i18n="clr-namespace:GrampsView.Common.CustomClasses"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:i18n="clr-namespace:GrampsView.Common.CustomClasses">
+    <Grid>
 
-    <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-
-    <Frame
-        Grid.Row="0"
-        Grid.Column="0"
-        Padding="0"
-        BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                          Light={StaticResource SurfaceColorLight}}"
-        CornerRadius="3">
-
-        <Label
-            Margin="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
-                                              Light={StaticResource ErrorColorLight}}"
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Center"
-            Style="{DynamicResource GVHeaderStyleLarge}"
-            Text="{Binding Title, Mode=OneWay}"
-            TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                        Light={StaticResource OnErrorColorLight}}" />
-    </Frame>
-
-    <ScrollView Grid.Row="1" Grid.Column="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Frame
+            Grid.Row="0"
+            Grid.Column="0"
             Padding="0"
             BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                               Light={StaticResource SurfaceColorLight}}"
             CornerRadius="3">
-            <Grid Padding="0">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
-                                                      Light={StaticResource ErrorColorLight}}"
-                    HorizontalOptions="FillAndExpand"
-                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                    Text="{Binding AdaArgs.Text, Mode=OneWay}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                                Light={StaticResource OnErrorColorLight}}" />
-
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
-                                                      Light={StaticResource ErrorColorLight}}"
-                    HorizontalOptions="FillAndExpand"
-                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                    Text="{Binding AdaArgs.Name, Mode=OneWay}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
-                                                Light={StaticResource OnErrorColorLight}}" />
-
-                <StackLayout
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Margin="5"
-                    BindableLayout.ItemsSource="{Binding AdaArgs, Mode=OneWay}">
-                    <BindableLayout.ItemTemplate>
-
-                        <DataTemplate>
-                            <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark}, Light={StaticResource ErrorColorLight}}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                                    Text="{Binding Key}" />
-
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    LineBreakMode="WordWrap"
-                                    Style="{DynamicResource GVCardLabelStyleSmall}"
-                                    Text="{Binding Value}" />
-                            </Grid>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-                </StackLayout>
-
-                <Button
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Command="{Binding CloseCommand}"
-                    Style="{DynamicResource GVButtonStyle}"
-                    Text="{i18n:Translate ErrorDialog_Ok}" />
-            </Grid>
+            <Label
+                Margin="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
+                                                  Light={StaticResource ErrorColorLight}}"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource GVHeaderStyleLarge}"
+                Text="{Binding Title, Mode=OneWay}"
+                TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
+                                            Light={StaticResource OnErrorColorLight}}" />
         </Frame>
-    </ScrollView>
-</Grid>
+
+        <ScrollView Grid.Row="1" Grid.Column="0">
+
+            <Frame
+                Padding="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                                  Light={StaticResource SurfaceColorLight}}"
+                CornerRadius="3">
+                <Grid Padding="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
+                                                          Light={StaticResource ErrorColorLight}}"
+                        HorizontalOptions="FillAndExpand"
+                        Style="{DynamicResource GVCardLabelStyleSmall}"
+                        Text="{Binding AdaArgs.Text, Mode=OneWay}"
+                        TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
+                                                    Light={StaticResource OnErrorColorLight}}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark},
+                                                          Light={StaticResource ErrorColorLight}}"
+                        HorizontalOptions="FillAndExpand"
+                        Style="{DynamicResource GVCardLabelStyleSmall}"
+                        Text="{Binding AdaArgs.Name, Mode=OneWay}"
+                        TextColor="{AppThemeBinding Dark={StaticResource OnErrorColorDark},
+                                                    Light={StaticResource OnErrorColorLight}}" />
+
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="5"
+                        BindableLayout.ItemsSource="{Binding AdaArgs, Mode=OneWay}">
+                        <BindableLayout.ItemTemplate>
+
+                            <DataTemplate>
+                                <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource ErrorColorDark}, Light={StaticResource ErrorColorLight}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource GVCardLabelStyleSmall}"
+                                        Text="{Binding Key}" />
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        LineBreakMode="WordWrap"
+                                        Style="{DynamicResource GVCardLabelStyleSmall}"
+                                        Text="{Binding Value}" />
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <Button
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Clicked="Button_Clicked"
+                        Style="{DynamicResource GVButtonStyle}"
+                        Text="{i18n:Translate ErrorDialog_Ok}" />
+                </Grid>
+            </Frame>
+        </ScrollView>
+    </Grid>
+</xct:Popup>
