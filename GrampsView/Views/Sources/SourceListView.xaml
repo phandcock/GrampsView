@@ -2,12 +2,14 @@
 <views:ViewBase
     x:Class="GrampsView.Views.SourceListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewmodels:SourceListViewModel"
     Style="{DynamicResource GVBaseContentPage}">
 
     <Shell.TitleView>
@@ -16,6 +18,6 @@
 
     <!--  Content  -->
     <ScrollView>
-        <ucon:CollectionSingleCard FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
+        <ucon:CollectionSingleCardGrouped FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
     </ScrollView>
 </views:ViewBase>

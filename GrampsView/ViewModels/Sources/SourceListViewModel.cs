@@ -11,7 +11,6 @@ namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -36,18 +35,12 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
-        public CardGroupBase<HLinkSourceModel> SourceSource
+        public CardGroup SourceSource
         {
             get
             {
-                return DV.SourceDV.GetAllAsCardGroupBase();
+                return DV.SourceDV.GetAllAsGroupedCardGroup();
             }
-        }
-
-        public override void BaseHandleAppearingEvent()
-        {
-            BaseTitle = "Source List";
-            BaseTitleIcon = CommonConstants.IconSource;
         }
     }
 }

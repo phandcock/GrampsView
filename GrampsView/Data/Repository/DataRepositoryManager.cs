@@ -8,7 +8,6 @@
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
-    using GrampsView.Views;
 
     using Microsoft.AppCenter.Analytics;
 
@@ -189,9 +188,9 @@
                 return true;
             }
 
-            CommonRoutines.NavigateHub();
+            //CommonRoutines.NavigateHub();
 
-            await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+            await DataStore.Instance.CN.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
@@ -236,6 +235,8 @@
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
+                        await DataStore.Instance.CN.DataLogHide();
+
                         return true;
                     }
                 }
@@ -244,13 +245,15 @@
                 {
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
+
+                    await DataStore.Instance.CN.DataLogHide();
                 }
 
                 return true;
             }
             else
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
+                await DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
 
                 CommonLocalSettings.SetReloadDatabase();
             }

@@ -44,6 +44,7 @@
     <Compile Remove="Events\StatusUpdated.cs" />
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
     <Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
+    <Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -125,6 +126,12 @@
     </Compile>
     <Compile Update="UserControls\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Popups\ErrorPopup.xaml.cs">
+      <DependentUpon>ErrorPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Popups\MessageLog.xaml.cs">
+      <DependentUpon>MessageLog.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

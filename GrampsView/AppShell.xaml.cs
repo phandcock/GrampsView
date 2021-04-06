@@ -82,7 +82,7 @@
 
             // Routing.RegisterRoute(nameof(HubPage), typeof(HubPage));
 
-            Routing.RegisterRoute(nameof(MessageLogPage), typeof(MessageLogPage));
+            //Routing.RegisterRoute(nameof(MessageLogPage), typeof(MessageLogPage));
 
             Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
 

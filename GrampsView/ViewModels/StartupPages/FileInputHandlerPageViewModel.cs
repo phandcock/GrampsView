@@ -107,7 +107,7 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                await DataStore.Instance.CN.DataLogEntryClear();
+                await DataStore.Instance.CN.DataLog.Clear();
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -121,7 +121,7 @@
 
                     await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
 
-                    //CommonRoutines.NavigateHub();
+                    await CommonRoutines.NavigateBack();
                 }
                 else
                 {

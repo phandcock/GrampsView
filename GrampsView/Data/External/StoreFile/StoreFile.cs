@@ -117,12 +117,12 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
+                    await DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryDelete().ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLog.Remove().ConfigureAwait(false);
 
             return true;
         }

@@ -7,15 +7,16 @@
     using GrampsView.Views;
 
     using Prism.Events;
-    using Prism.Services.Dialogs;
 
     using Xamarin.Essentials;
 
     public sealed partial class App
     {
         private IDatabaseReloadDisplayService _DatabaseReloadDisplayService = new DatabaseReloadDisplayService();
-        private IDialogService _dialogService;
+
+        //private IDialogService _dialogService;
         private IFirstRunDisplayService _FirstRunDisplayService = new FirstRunDisplayService();
+
         private IEventAggregator _iocEventAggregator;
         private IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
@@ -56,11 +57,11 @@
             }
         }
 
-        private void StartEvents(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService, IDialogService dialogService)
+        private void StartEvents(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
             _iocEventAggregator = iocEventAggregator;
-            _dialogService = dialogService;
+            //_dialogService = dialogService;
 
             _WhatsNewDisplayService = iocWhatsNewDisplayService;
 
@@ -80,7 +81,7 @@
 
             _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Subscribe(ServiceWhatsNew, ThreadOption.UIThread);
 
-            _iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.NavigateHub, ThreadOption.UIThread);
+            //_iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.NavigateHub, ThreadOption.UIThread);
 
             StartProcessing();
         }

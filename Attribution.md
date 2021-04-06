@@ -8,9 +8,8 @@
     - Microsoft AppCenter
     - NewtonSoft.json
     - Microsoft.toolkit.uwp
-    - Xamaerin.Essentials
-    - Xamarin.Plugin.FilePicker
-    - Xamarin.Toolkit
+    - Xamarin.Essentials
+    - Xamarin.Community.Toolkit
     - Wonderful Font to Code website - https://andreinitescu.github.io/CommonFontNamesFAS2Code/
     
 

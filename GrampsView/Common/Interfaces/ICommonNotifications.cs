@@ -10,6 +10,11 @@ namespace GrampsView.Common
     /// </summary>
     public interface ICommonNotifications
     {
+        IDataLog DataLog
+        {
+            get;
+        }
+
         ErrorInfo DialogArgs
         {
             get; set;
@@ -43,29 +48,11 @@ namespace GrampsView.Common
         /// </param>
         Task DataLogEntryAdd(string argMessage);
 
-        /// <summary>
-        /// Majors the status add.
-        /// </summary>
-        /// <param name="argMessage">
-        /// The string message.
-        /// </param>
-        /// <param name="showProgressRing">
-        /// if set to <c>true</c> [show progress ring].
-        /// </param>
-        /// <returns>
-        /// </returns>
-        Task DataLogEntryAdd(string argMessage, bool argShowProgressRing);
-
-        Task DataLogEntryClear();
-
-        /// <summary>
-        /// Majors the status delete.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        Task DataLogEntryDelete();
-
         Task DataLogEntryReplace(string argMessage);
+
+        Task DataLogHide();
+
+        Task DataLogShow();
 
         Task MinorMessageAdd(string argMessage);
 

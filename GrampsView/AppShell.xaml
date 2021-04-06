@@ -215,9 +215,9 @@
     </FlyoutItem>
 
     <!--  Hidden pages  -->
-    <FlyoutItem Title="MessageLog" IsVisible="False">
+    <!--<FlyoutItem Title="MessageLog" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:MessageLogPage}" Route="MessageLogPage" />
-    </FlyoutItem>
+    </FlyoutItem>-->
 
     <FlyoutItem Title="FirstRun" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:FirstRunPage}" Route="FirstRunPage" />

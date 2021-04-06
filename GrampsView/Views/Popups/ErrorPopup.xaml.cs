@@ -4,9 +4,9 @@
 
     using Xamarin.CommunityToolkit.UI.Views;
 
-    public sealed partial class ErrorDialog : Popup
+    public sealed partial class ErrorPopup : Popup
     {
-        public ErrorDialog()
+        public ErrorPopup()
         {
             InitializeComponent();
 

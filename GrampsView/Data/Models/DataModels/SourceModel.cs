@@ -33,6 +33,19 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
+        public string GetDefaultRepository
+        {
+            get
+            {
+                if (GRepositoryRefCollection.Count > 0)
+                {
+                    return GRepositoryRefCollection[0].DeRef.GetDefaultText;
+                }
+
+                return string.Empty;
+            }
+        }
+
         /// <summary>
         /// Gets the get default text for this ViewModel.
         /// </summary>
@@ -93,6 +106,8 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
+
+        = new HLinkRepositoryModelCollection();
 
         /// <summary>
         /// Gets or sets the sabbrev.

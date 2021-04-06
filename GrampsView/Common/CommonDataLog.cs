@@ -35,6 +35,13 @@
         /// </value>
         public ObservableCollection<DataLogEntry> DataLoadLog { get; } = new ObservableCollection<DataLogEntry>();
 
+        public bool DismissFlag
+        {
+            get; set;
+        }
+
+      = false;
+
         /// <summary>
         /// Adds the specified entry argument .
         /// </summary>

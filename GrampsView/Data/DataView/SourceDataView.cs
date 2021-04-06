@@ -99,7 +99,36 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup() => throw new NotImplementedException();
+        public override CardGroup GetAllAsGroupedCardGroup()
+        {
+            CardGroup t = new CardGroup();
+
+            var query = from item in DataViewData
+                        orderby item.GetDefaultRepository
+                        group item by (item.GetDefaultRepository) into g
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+            foreach (var g in query)
+            {
+                CardGroupBase<HLinkSourceModel> info = new CardGroupBase<HLinkSourceModel>
+                {
+                    Title = g.GroupName.ToString(),
+                };
+
+                foreach (var item in g.Items)
+                {
+                    info.Add(item.HLink);
+                }
+
+                t.Add(info);
+            }
+
+            return t;
+        }
 
         /// <summary>
         /// Gets all as hlink.

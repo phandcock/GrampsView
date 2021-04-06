@@ -4,13 +4,12 @@
     using GrampsView.Data.Repository;
     using GrampsView.Views;
 
-    using Prism.Events;
-
     using System;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.Extensions;
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     /// <summary>
@@ -19,17 +18,10 @@
     [DataContract]
     public class CommonNotifications : CommonBindableBase, ICommonNotifications
     {
-        private readonly IDataLog _DataLog;
-
         /// <summary>
         /// Common logging routines.
         /// </summary>
         private readonly ICommonLogging _iocCommonLogging;
-
-        /// <summary>
-        /// Injected Event Aggregator.
-        /// </summary>
-        private readonly IEventAggregator _iocEventAggregator;
 
         private string _MinorMessage;
 
@@ -44,20 +36,17 @@
         /// </param>
         /// <param name="iocDataLog">
         /// </param>
-        public CommonNotifications(ICommonLogging iocCommonLogging,
-                                   IEventAggregator iocEventAggregator, IDataLog iocDataLog)
+        public CommonNotifications(ICommonLogging iocCommonLogging)
         {
-            if (iocEventAggregator is null)
-            {
-                throw new ArgumentNullException(nameof(iocEventAggregator));
-            }
-
-            _iocEventAggregator = iocEventAggregator;
-
             _iocCommonLogging = iocCommonLogging;
-
-            _DataLog = iocDataLog;
         }
+
+        public IDataLog DataLog
+        {
+            get;
+        }
+
+        = new CommonDataLog();
 
         public ErrorInfo DialogArgs
         {
@@ -116,34 +105,17 @@
         }
 
         /// <summary>
-        /// Notifies the general status.
-        /// </summary>
-        /// <param name="strMessage">
-        /// The string message.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public async Task DataLogEntryAdd(string strMessage)
-        {
-            await DataLogEntryAdd(strMessage, false).ConfigureAwait(false);
-        }
-
-        /// <summary>
         /// Majors the status add.
         /// </summary>
         /// <param name="argMessage">
         /// The string message.
         /// </param>
-        /// <param name="argShowProgressRing">
-        /// if set to <c>true</c> [show progress ring].
-        /// </param>
         /// <returns>
+        /// <br/>
         /// </returns>
-        public async Task DataLogEntryAdd(string argMessage, bool argShowProgressRing)
+        public async Task DataLogEntryAdd(string argMessage)
         {
-            // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
-
-            await _DataLog.Add(argMessage).ConfigureAwait(false);
+            await DataLog.Add(argMessage).ConfigureAwait(false);
 
             _iocCommonLogging.Progress("DataLogEntryAdd: " + argMessage);
 
@@ -153,32 +125,37 @@
             return;
         }
 
-        public async Task DataLogEntryClear()
-        {
-            await _DataLog.Clear().ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Majors the status delete.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public async Task DataLogEntryDelete()
-        {
-            await _DataLog.Remove().ConfigureAwait(false);
-        }
-
         public async Task DataLogEntryReplace(string argMessage)
         {
             // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
-            await _DataLog.Replace(argMessage).ConfigureAwait(false);
+            await DataLog.Replace(argMessage).ConfigureAwait(false);
 
             _iocCommonLogging.Progress("DataLogEntryReplace: " + argMessage);
 
             MinorMessage = argMessage;
 
             return;
+        }
+
+        public async Task DataLogHide()
+        {
+            DataLog.DismissFlag = true;
+        }
+
+        public async Task DataLogShow()
+        {
+            //if (Device.RuntimePlatform == Device.UWP)
+            //{
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
+            });
+            //}
+            //else
+            //{
+            //    await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLogPopup());
+            //};
         }
 
         public async Task MinorMessageAdd(string argMessage)
@@ -210,7 +187,7 @@
 
             DataStore.Instance.CN.DialogArgs = argErrorDetail;
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
         }
 
         public async Task NotifyError(ErrorInfo argErrorDetail)
@@ -226,7 +203,7 @@
 
             DataStore.Instance.CN.DialogArgs = argErrorDetail;
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
         }
 
         /// <summary>
@@ -265,7 +242,7 @@
 
             DataStore.Instance.CN.DialogArgs = argExtraItems;
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorDialog());
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cc:MessageLogPopup
+    x:Class="GrampsView.Views.MessageLog"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
+    x:DataType="common:CommonDataLog"
+    DismissFlag="{Binding DismissFlag}">
+
+    <CollectionView
+        x:Name="MajorStatusList"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemTemplate="{StaticResource DataLogEntryLarge}"
+        ItemsSource="{Binding DataLoadLog, Mode=OneWay}"
+        ItemsUpdatingScrollMode="KeepLastItemInView">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+    </CollectionView>
+</cc:MessageLogPopup>

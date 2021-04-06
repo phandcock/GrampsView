@@ -136,6 +136,21 @@
             };
         }
 
+        public static async Task NavigateBack()
+        {
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    AppShell.Current.Navigation.PopAsync();               // Go back
+                });
+            }
+            else
+            {
+                await AppShell.Current.Navigation.PopAsync();               // Go back
+            };
+        }
+
         public static void NavigateHub()
         {
             if (Device.RuntimePlatform == Device.UWP)

@@ -12,6 +12,7 @@
 
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.Extensions;
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
@@ -239,7 +240,7 @@
 
         private async Task UCNavigate()
         {
-            await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLogPopup());
             return;
         }
     }
