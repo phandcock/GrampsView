@@ -1,3 +1,13 @@
+## [16.17.16](https://github.com/phandcock/GrampsView/compare/v16.17.15...v16.17.16) (2021-04-07)
+
+
+### Bug Fixes
+
+* navigation tweaks ([2b8863c](https://github.com/phandcock/GrampsView/commit/2b8863c3b607f0d4ed0d14e5cfdf18bdfbecebf1))
+* tweak errordialog ([f0fbbe7](https://github.com/phandcock/GrampsView/commit/f0fbbe7dd65d646ee293cbfd478cf21122af0780))
+
+
+
 ## [16.17.15](https://github.com/phandcock/GrampsView/compare/v16.17.14...v16.17.15) (2021-04-05)
 
 
@@ -40,15 +50,6 @@
 
 * more work on screen rotation in views ([16fcfc8](https://github.com/phandcock/GrampsView/commit/16fcfc89aa37f9b689efe13bfd9c7bdd9c30ad51))
 * speed up note list display ([c35101a](https://github.com/phandcock/GrampsView/commit/c35101ae3752148e438d1f64bd34e86db188e500))
-
-
-
-## [16.17.11](https://github.com/phandcock/GrampsView/compare/v16.17.10...v16.17.11) (2021-03-31)
-
-
-### Bug Fixes
-
-* cleanup Place Card layout ([0c3a946](https://github.com/phandcock/GrampsView/commit/0c3a9465b45174417889389c16e19655338e2571))
 
 
 
