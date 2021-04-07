@@ -13,7 +13,7 @@
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="viewmodels:NeedDatabaseReloadViewModel"
-    Shell.PresentationMode="ModalAnimated"
+    Shell.PresentationMode="ModalNotAnimated"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 

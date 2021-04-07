@@ -14,7 +14,6 @@
     {
         private IDatabaseReloadDisplayService _DatabaseReloadDisplayService = new DatabaseReloadDisplayService();
 
-        //private IDialogService _dialogService;
         private IFirstRunDisplayService _FirstRunDisplayService = new FirstRunDisplayService();
 
         private IEventAggregator _iocEventAggregator;

@@ -6,7 +6,6 @@
     using GrampsView.Events;
 
     using Prism.Events;
-    using Prism.Services.Dialogs;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -22,16 +21,11 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        /// <param name="iocDialogService">
-        /// Prism DIalog service
-        /// </param>
-        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IDialogService iocDialogService)
+        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
        : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
-
-            BaseDialogService = iocDialogService;
 
             //BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
             BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(HandledDataLoadedEvent, ThreadOption.UIThread);

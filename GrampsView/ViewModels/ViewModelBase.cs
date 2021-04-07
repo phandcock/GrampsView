@@ -101,17 +101,6 @@
         = new CardGroup();
 
         /// <summary>
-        /// Gets or sets the base dialog service.
-        /// </summary>
-        /// <value>
-        /// The base dialog service.
-        /// </value>
-        public IDialogService BaseDialogService
-        {
-            get; set;
-        }
-
-        /// <summary>
         /// Gets or sets the base event aggregator.
         /// </summary>
         /// <value>
