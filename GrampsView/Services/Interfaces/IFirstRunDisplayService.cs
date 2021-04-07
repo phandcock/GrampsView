@@ -1,12 +1,9 @@
-﻿
-
-
-namespace GrampsView.Services
+﻿namespace GrampsView.Services
 {
-    using Prism.Events;
+    using System.Threading.Tasks;
 
     public interface IFirstRunDisplayService
     {
-        bool ShowIfAppropriate();
+        Task<bool> ShowIfAppropriate();
     }
 }

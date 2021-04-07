@@ -18,7 +18,6 @@ using Prism;
 using Prism.Events;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Services.Dialogs;
 
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -202,10 +201,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<NavigationPage>();
 
-            //container.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
-
             container.RegisterSingleton<ICommonLogging, CommonLogging>();
-            //container.RegisterSingleton<IDataLog, CommonDataLog>();
             container.RegisterSingleton<ICommonNotifications, CommonNotifications>();
             container.RegisterSingleton<IDataRepositoryManager, DataRepositoryManager>();
             container.RegisterSingleton<IEventAggregator, EventAggregator>();

@@ -37,6 +37,8 @@
 
         public async void LoadDataAction()
         {
+            await AppShell.Current.Navigation.PopModalAsync();
+
             await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
         }
     }

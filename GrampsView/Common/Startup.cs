@@ -8,7 +8,7 @@
 
     using Prism.Events;
 
-    using Xamarin.Essentials;
+    using System.Threading.Tasks;
 
     public sealed partial class App
     {
@@ -40,22 +40,6 @@
             //await CommonRoutines.NavigateAsync(nameof(HubPage) + "///" + nameof(FileInputHandlerPage));
         }
 
-        private void ServiceReloadDatabase()
-        {
-            if (!_DatabaseReloadDisplayService.ShowIfAppropriate(_iocEventAggregator))
-            {
-                _iocEventAggregator.GetEvent<AppStartLoadDataEvent>().Publish();
-            }
-        }
-
-        private void ServiceWhatsNew()
-        {
-            if (!_WhatsNewDisplayService.ShowIfAppropriate(_iocEventAggregator))
-            {
-                _iocEventAggregator.GetEvent<AppStartReloadDatabaseEvent>().Publish();
-            }
-        }
-
         private void StartEvents(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
@@ -74,34 +58,39 @@
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
 
-            _iocEventAggregator.GetEvent<AppStartLoadDataEvent>().Subscribe(ServiceLoadData, ThreadOption.UIThread);
-
-            _iocEventAggregator.GetEvent<AppStartReloadDatabaseEvent>().Subscribe(ServiceReloadDatabase, ThreadOption.UIThread);
-
-            _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Subscribe(ServiceWhatsNew, ThreadOption.UIThread);
-
-            //_iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(CommonRoutines.NavigateHub, ThreadOption.UIThread);
+            //_iocEventAggregator.GetEvent<AppStartLoadDataEvent>().Subscribe(ServiceLoadData, ThreadOption.UIThread);
 
             StartProcessing();
         }
 
-        private void StartProcessing()
+        private async Task StartProcessing()
         {
-            MainThread.BeginInvokeOnMainThread(() =>
-           {
-               // TODO check if fix for bug https://github.com/xamarin/Xamarin.Forms/issues/6681
+            if (DataStore.Instance.DS.IsDataLoaded)
+            {
+                // CommonRoutines.NavigateHub();
+                return;
+            }
 
-               if (DataStore.Instance.DS.IsDataLoaded)
-               {
-                   // CommonRoutines.NavigateHub();
-                   return;
-               }
+            if (await _FirstRunDisplayService.ShowIfAppropriate())
+            {
+                await CommonRoutines.NavigateAsync(nameof(FirstRunPage));
+                return;
+            }
 
-               if (!_FirstRunDisplayService.ShowIfAppropriate())
-               {
-                   _iocEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
-               }
-           });
+            if (await _WhatsNewDisplayService.ShowIfAppropriate())
+            {
+                await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
+                return;
+            }
+
+            if (await _DatabaseReloadDisplayService.ShowIfAppropriate())
+            {
+                await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
+
+                return;
+            }
+
+            ServiceLoadData();
         }
     }
 }

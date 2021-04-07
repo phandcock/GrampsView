@@ -1,7 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Events;
+    using GrampsView.Views;
 
     using Prism.Commands;
     using Prism.Events;
@@ -57,33 +57,11 @@
         /// <param name="parameter">
         /// The parameter.
         /// </param>
-        public void FirstRunLoadAFileButton()
+        public async void FirstRunLoadAFileButton()
         {
-            BaseEventAggregator.GetEvent<AppStartWhatsNewEvent>().Publish();
-        }
+            await AppShell.Current.Navigation.PopModalAsync();
 
-        /// <summary>
-        /// Gramps export XML plus media.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="parameter">
-        /// The parameter.
-        /// </param>
-        public void LoadSampleFileButton()
-        {
-            // TODO add the sample button back
-
-            //var uri = new Uri("ms-appx:///AnythingElse/SampleData/EnglishTudorHouse.gpkg");
-            //StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-
-            //CommonLocalSettings.FileDataInput = file;
-
-            //BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish(true);
-
-            ////// Navigate to the Hubpage
-            //// localNavigationService.NavigateAsync(nameof(Views.MessageLogPage));
+            await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
         }
     }
 }

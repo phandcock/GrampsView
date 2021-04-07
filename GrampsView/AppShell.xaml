@@ -219,7 +219,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:MessageLogPage}" Route="MessageLogPage" />
     </FlyoutItem>-->
 
-    <FlyoutItem Title="FirstRun" IsVisible="False">
+    <!--<FlyoutItem Title="FirstRun" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:FirstRunPage}" Route="FirstRunPage" />
     </FlyoutItem>
 
@@ -229,5 +229,5 @@
 
     <FlyoutItem Title="WhatsNew" IsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:WhatsNewPage}" Route="WhatsNewPage" />
-    </FlyoutItem>
+    </FlyoutItem>-->
 </Shell>

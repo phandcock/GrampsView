@@ -112,12 +112,12 @@
             return string.Empty;
         }
 
-        public static void Navigate(string argPageName)
-        {
-            //DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+        //public static void Navigate(string argPageName)
+        //{
+        //    //DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
 
-            Shell.Current.GoToAsync(argPageName, animate: true);
-        }
+        //    Shell.Current.GoToAsync(argPageName, animate: true);
+        //}
 
         public static async Task NavigateAsync(string argPageName)
         {

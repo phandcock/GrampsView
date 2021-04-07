@@ -1,13 +1,6 @@
-﻿// <copyright file="WhatsNewDisplayService.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Services
+﻿namespace GrampsView.Services
 {
-    using GrampsView.Common;
-    using GrampsView.Views;
-
-    using Prism.Events;
+    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
 
@@ -17,19 +10,12 @@ namespace GrampsView.Services
         {
         }
 
-        public bool ShowIfAppropriate(IEventAggregator iocEventAggregator)
+        public async Task<bool> ShowIfAppropriate()
         {
-            if (iocEventAggregator is null)
-            {
-                return false;
-            }
-
             // VersionTracking.IsFirstLaunchForCurrentBuild returns true every time called when
             // first run. If this service is called multiple times then it will need the flag.
             if ((VersionTracking.IsFirstLaunchForCurrentBuild)) // && (!Common.CommonLocalSettings.WhatsNewDisplayed))
             {
-                CommonRoutines.Navigate(nameof(WhatsNewPage));
-
                 return true;
             }
 

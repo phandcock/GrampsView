@@ -5,9 +5,8 @@
 namespace GrampsView.Services
 {
     using GrampsView.Common;
-    using GrampsView.Views;
 
-    using Prism.Events;
+    using System.Threading.Tasks;
 
     // For instructions on testing this service see https://github.com/Microsoft/WindowsTemplateStudio/tree/master/docs/features/whats-new-prompt.md
     public class DatabaseReloadDisplayService : IDatabaseReloadDisplayService
@@ -22,16 +21,10 @@ namespace GrampsView.Services
         /// <returns>
         /// if the view is displayed.
         /// </returns>
-        public bool ShowIfAppropriate(IEventAggregator iocEventAggregator)
+        public async Task<bool> ShowIfAppropriate()
         {
-            if (iocEventAggregator is null)
-            {
-                return false;
-            }
             if (CommonLocalSettings.DatabaseReloadNeeded)
             {
-                CommonRoutines.Navigate(nameof(NeedDatabaseReloadPage));
-
                 return true;
             }
 

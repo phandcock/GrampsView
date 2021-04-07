@@ -13,12 +13,14 @@
 
         private double width = 0;
 
-        private double windowHeight = 0;
-        private double windowWidth = 0;
-
         protected override void OnAppearing()
         {
             (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
+        }
+
+        protected override void OnDisappearing()
+        {
+            (this.BindingContext as ViewModelBase).BaseHandleDisAppearingEventInternal();
         }
 
         /// <summary>

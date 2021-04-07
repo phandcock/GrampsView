@@ -1,7 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Events;
+    using GrampsView.Views;
 
     using Prism.Commands;
     using Prism.Events;
@@ -56,9 +56,11 @@
             }
         }
 
-        public void LoadDataAction()
+        public async void LoadDataAction()
         {
-            BaseEventAggregator.GetEvent<AppStartReloadDatabaseEvent>().Publish();
+            await AppShell.Current.Navigation.PopModalAsync();
+
+            await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
         }
     }
 }

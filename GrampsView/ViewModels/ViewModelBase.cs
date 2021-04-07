@@ -3,7 +3,6 @@
     using GrampsView.Common;
 
     using Prism.Events;
-    using Prism.Services.Dialogs;
 
     using System.ComponentModel;
     using System.Diagnostics;
@@ -163,27 +162,10 @@
             return;
         }
 
-        ///// <summary>
-        ///// Sets the state of the data loaded view.
-        ///// </summary>
-        ///// <param name="value">
-        ///// The value.
-        ///// </param>
-        //public async void BaseHandleDataLoadedEventInternal()
-        //{
-        //    DetailDataLoadedFlag = false;
-
-        // this.BaseCurrentLayoutState = LayoutState.None;
-
-        // // Trigger refresh of View fields via INotifyPropertyChanged OnPropertyChanged(string.Empty);
-
-        //    await BaseHandledDataLoadedEvent();
-        //}
-
-        //public virtual async Task<bool> BaseHandledDataLoadedEvent()
-        //{
-        //    return true;
-        //}
+        public virtual void BaseHandleDisAppearingEvent()
+        {
+            return;
+        }
 
         internal void BaseHandleAppearingEventInternal()
         {
@@ -209,6 +191,11 @@
             //{
             //    BaseCurrentState = LayoutState.Loading;
             //}
+        }
+
+        internal void BaseHandleDisAppearingEventInternal()
+        {
+            BaseHandleDisAppearingEvent();
         }
 
         private void OnBaseCLChanged()

@@ -1,7 +1,9 @@
-﻿namespace GrampsView.Services
+﻿using System.Threading.Tasks;
+
+namespace GrampsView.Services
 {
     public interface IInputFileDisplayService
     {
-        void ShowIfAppropriate();
+        Task ShowIfAppropriate();
     }
 }

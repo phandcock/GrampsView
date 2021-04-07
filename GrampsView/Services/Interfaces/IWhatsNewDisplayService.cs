@@ -1,9 +1,9 @@
 ﻿namespace GrampsView.Services
 {
-    using Prism.Events;
+    using System.Threading.Tasks;
 
     public interface IWhatsNewDisplayService
     {
-        bool ShowIfAppropriate(IEventAggregator iocEventAggregator);
+        Task<bool> ShowIfAppropriate();
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Services
 {
-    using GrampsView.Common;
-    using GrampsView.Views;
+    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
 
@@ -18,12 +17,11 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public bool ShowIfAppropriate()
+        public async Task<bool> ShowIfAppropriate()
         {
             if (VersionTracking.IsFirstLaunchEver) //  && !Common.CommonLocalSettings.FirstRunDisplay)
             {
                 Common.CommonLocalSettings.FirstRunDisplay = true;
-                CommonRoutines.Navigate(nameof(FirstRunPage));
 
                 return true;
             }
