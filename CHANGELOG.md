@@ -1,3 +1,14 @@
+## [16.17.17](https://github.com/phandcock/GrampsView/compare/v16.17.16...v16.17.17) (2021-04-07)
+
+
+### Bug Fixes
+
+* cleanup startup code and page display ([6bb49b7](https://github.com/phandcock/GrampsView/commit/6bb49b7c569f1baa048ad4730a870b7752e32ca7))
+* remove idialogservice ([5a10fc9](https://github.com/phandcock/GrampsView/commit/5a10fc9c4d3f62be37aedd6ae5541bf6ddecb5c8))
+* tweaks, source lsit and popups ([5524558](https://github.com/phandcock/GrampsView/commit/552455884cb449a7b6e7e01e7846b62d41c44b3f))
+
+
+
 ## [16.17.16](https://github.com/phandcock/GrampsView/compare/v16.17.15...v16.17.16) (2021-04-07)
 
 
@@ -40,16 +51,6 @@
 * fix medialist display error ([622884b](https://github.com/phandcock/GrampsView/commit/622884b0218e6903790aaa856ccddea4d24b571b))
 * fix notelist sort ([8803c25](https://github.com/phandcock/GrampsView/commit/8803c25aeb13c5a2f213972d8389642836b72190))
 * remove remainign own behavious ([bf36eb2](https://github.com/phandcock/GrampsView/commit/bf36eb216c8a9b28b0496a6bc770a19f030c70e1))
-
-
-
-## [16.17.12](https://github.com/phandcock/GrampsView/compare/v16.17.11...v16.17.12) (2021-04-02)
-
-
-### Bug Fixes
-
-* more work on screen rotation in views ([16fcfc8](https://github.com/phandcock/GrampsView/commit/16fcfc89aa37f9b689efe13bfd9c7bdd9c30ad51))
-* speed up note list display ([c35101a](https://github.com/phandcock/GrampsView/commit/c35101ae3752148e438d1f64bd34e86db188e500))
 
 
 
