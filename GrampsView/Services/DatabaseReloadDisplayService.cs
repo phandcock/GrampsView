@@ -1,14 +1,9 @@
-﻿// <copyright file="DatabaseReloadDisplayService.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Services
+﻿namespace GrampsView.Services
 {
     using GrampsView.Common;
 
     using System.Threading.Tasks;
 
-    // For instructions on testing this service see https://github.com/Microsoft/WindowsTemplateStudio/tree/master/docs/features/whats-new-prompt.md
     public class DatabaseReloadDisplayService : IDatabaseReloadDisplayService
     {
         public DatabaseReloadDisplayService()

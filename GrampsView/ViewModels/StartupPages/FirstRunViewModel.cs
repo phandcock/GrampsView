@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Views;
 
     using Prism.Commands;
     using Prism.Events;
@@ -61,7 +60,7 @@
         {
             await AppShell.Current.Navigation.PopModalAsync();
 
-            await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
+            Common.StartAppLoad.StartProcessing();
         }
     }
 }

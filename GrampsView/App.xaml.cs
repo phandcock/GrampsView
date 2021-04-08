@@ -148,8 +148,8 @@ namespace GrampsView
 
             Container.Resolve<IDataRepositoryManager>();
 
-            StartEvents(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
-                Container.Resolve<DatabaseReloadDisplayService>());
+            Common.StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
+                     Container.Resolve<DatabaseReloadDisplayService>());
         }
 
         protected override void RegisterTypes(IContainerRegistry container)
@@ -174,7 +174,6 @@ namespace GrampsView
 
             container.RegisterForNavigation<MediaDetailPage, MediaDetailViewModel>();
             container.RegisterForNavigation<MediaListPage, MediaListViewModel>();
-            //container.RegisterForNavigation<MessageLogPage, MessageLogViewModel>();
 
             container.RegisterForNavigation<NeedDatabaseReloadPage, NeedDatabaseReloadViewModel>();
             container.RegisterForNavigation<NoteDetailPage, NoteDetailViewModel>();
