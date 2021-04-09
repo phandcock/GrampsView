@@ -1,3 +1,13 @@
+## [16.17.18](https://github.com/phandcock/GrampsView/compare/v16.17.17...v16.17.18) (2021-04-09)
+
+
+### Bug Fixes
+
+* make messagelog popup the whole screen ([e7b885c](https://github.com/phandcock/GrampsView/commit/e7b885c9cff68ed4e8e734f7793e8a42ca01cc71))
+* tweak start up event loading ([5c15af5](https://github.com/phandcock/GrampsView/commit/5c15af5eb936be462e4e1d9139a9c7c0c67ba11c))
+
+
+
 ## [16.17.17](https://github.com/phandcock/GrampsView/compare/v16.17.16...v16.17.17) (2021-04-07)
 
 
@@ -37,20 +47,6 @@
 ### Bug Fixes
 
 * downgrade newtonsoft to fix conflict with adativecards ([7feb70f](https://github.com/phandcock/GrampsView/commit/7feb70f062a4a6810e7750365922389f499dd44c))
-
-
-
-## [16.17.13](https://github.com/phandcock/GrampsView/compare/v16.17.12...v16.17.13) (2021-04-04)
-
-
-### Bug Fixes
-
-* change medialist to grouped so faster ([84926d8](https://github.com/phandcock/GrampsView/commit/84926d87e2d65ab4a1f1bccf5721ebaec37199c0))
-* cleanup searchpagecode and collectionsinglecard group headers ([03bfd04](https://github.com/phandcock/GrampsView/commit/03bfd04b5d97db8a65dd44d39473ea81534749c5))
-* fix display of date getage when not valid.  change to null ([0257281](https://github.com/phandcock/GrampsView/commit/02572812f1a6a4897c9f17db887e7c71592a1a06))
-* fix medialist display error ([622884b](https://github.com/phandcock/GrampsView/commit/622884b0218e6903790aaa856ccddea4d24b571b))
-* fix notelist sort ([8803c25](https://github.com/phandcock/GrampsView/commit/8803c25aeb13c5a2f213972d8389642836b72190))
-* remove remainign own behavious ([bf36eb2](https://github.com/phandcock/GrampsView/commit/bf36eb216c8a9b28b0496a6bc770a19f030c70e1))
 
 
 
