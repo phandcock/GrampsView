@@ -72,7 +72,7 @@
             {
                 if (DatabaseVersion < CommonConstants.GrampsViewDatabaseVersion)
                 {
-                    ClearPreferences();
+                    // ClearPreferences();
                     return true;
                 }
                 else

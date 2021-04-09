@@ -160,7 +160,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goto What&apos;s New page.
+        ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string FirstRun_WhatsNewButton {
             get {
@@ -232,7 +232,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goto Load Data page.
+        ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string LoadDataBase_GotoLoadData {
             get {
@@ -313,7 +313,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goto Load Data page.
+        ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string WhatsNew_LoadDataButton {
             get {

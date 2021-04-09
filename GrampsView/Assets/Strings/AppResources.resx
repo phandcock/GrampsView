@@ -160,16 +160,16 @@
     <value>Search records</value>
   </data>
   <data name="FirstRun_WhatsNewButton" xml:space="preserve">
-    <value>Goto What's New page</value>
+    <value>Next</value>
   </data>
   <data name="FirstRun_WhatsNext" xml:space="preserve">
     <value>You will need to load a Gramps (https://gramps-project.org/) data file.  These contain genealogy information.  Press the button below to see what has recently changed.</value>
   </data>
   <data name="LoadDataBase_GotoLoadData" xml:space="preserve">
-    <value>Goto Load Data page</value>
+    <value>Next</value>
   </data>
   <data name="WhatsNew_LoadDataButton" xml:space="preserve">
-    <value>Goto Load Data page</value>
+    <value>Next</value>
   </data>
   <data name="ErrorDialog_Ok" xml:space="preserve">
     <value>Ok</value>

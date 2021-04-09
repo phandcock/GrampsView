@@ -58,9 +58,9 @@
         /// </param>
         public async void FirstRunLoadAFileButton()
         {
-            await AppShell.Current.Navigation.PopModalAsync();
+            await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            Common.StartAppLoad.StartProcessing();
+            await StartAppLoad.StartProcessing();
         }
     }
 }

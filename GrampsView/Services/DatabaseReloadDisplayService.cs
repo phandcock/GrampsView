@@ -18,7 +18,7 @@
         /// </returns>
         public async Task<bool> ShowIfAppropriate()
         {
-            if (CommonLocalSettings.DatabaseReloadNeeded)
+            if ((CommonLocalSettings.DatabaseReloadNeeded) && (CommonLocalSettings.DataSerialised == true))
             {
                 return true;
             }

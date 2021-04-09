@@ -67,7 +67,7 @@
                  }
 
                  // Check for too large a bitmap
-                 Debug.WriteLine("Image ResourceBitmap size: " + resourceBitmap.ByteCount);
+                 //Debug.WriteLine("Image ResourceBitmap size: " + resourceBitmap.ByteCount);
                  if (resourceBitmap.ByteCount > int.MaxValue - 1000)
                  {
                      // TODO Handle this better. Perhaps resize? Delete for now

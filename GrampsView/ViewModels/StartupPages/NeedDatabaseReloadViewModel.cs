@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Views;
 
     using Prism.Commands;
     using Prism.Events;
@@ -37,9 +36,9 @@
 
         public async void LoadDataAction()
         {
-            await AppShell.Current.Navigation.PopModalAsync();
+            await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
+            await StartAppLoad.StartProcessing();
         }
     }
 }

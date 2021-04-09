@@ -57,6 +57,8 @@
             {
                 await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
 
+                CommonLocalSettings.DataSerialised = false;
+
                 return;
             }
 
