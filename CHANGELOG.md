@@ -1,3 +1,12 @@
+## [16.17.19](https://github.com/phandcock/GrampsView/compare/v16.17.18...v16.17.19) (2021-04-09)
+
+
+### Bug Fixes
+
+* cleanup startup code (again) ([a80ad29](https://github.com/phandcock/GrampsView/commit/a80ad29271279c67ea766052e40177ddfba417c5))
+
+
+
 ## [16.17.18](https://github.com/phandcock/GrampsView/compare/v16.17.17...v16.17.18) (2021-04-09)
 
 
@@ -38,15 +47,6 @@
 * cleanup firstimage in basecollection ([c2a0996](https://github.com/phandcock/GrampsView/commit/c2a0996490435bb4d8de7d0c5b9fb045894a6891))
 * deselect menu items when another is selected ([97b3876](https://github.com/phandcock/GrampsView/commit/97b3876c3b2782b4155f075eae23a3d0953b65c7))
 * move to using new xamarin toolkit popups ([1936c6f](https://github.com/phandcock/GrampsView/commit/1936c6f1c52e722a5bba070a5f368f3305df0219))
-
-
-
-## [16.17.14](https://github.com/phandcock/GrampsView/compare/v16.17.13...v16.17.14) (2021-04-04)
-
-
-### Bug Fixes
-
-* downgrade newtonsoft to fix conflict with adativecards ([7feb70f](https://github.com/phandcock/GrampsView/commit/7feb70f062a4a6810e7750365922389f499dd44c))
 
 
 
