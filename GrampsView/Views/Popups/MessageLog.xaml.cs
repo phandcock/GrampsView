@@ -3,8 +3,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
-    using Xamarin.Essentials;
-
     public sealed partial class MessageLog : MessageLogPopup
     {
         public MessageLog()
@@ -13,7 +11,7 @@
 
             BindingContext = DataStore.Instance.CN.DataLog;
 
-            Size = new Xamarin.Forms.Size(DeviceDisplay.MainDisplayInfo.Width, DeviceDisplay.MainDisplayInfo.Height);
+            Size = Common.CardSizes.Current.ScreenSize;
         }
     }
 }

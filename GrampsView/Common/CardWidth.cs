@@ -178,6 +178,14 @@
             }
         }
 
+        public Size ScreenSize
+        {
+            get
+            {
+                return new Size(ScaledWidth - 100, ScaledHeight - 100); // Window Size does not include headings
+            }
+        }
+
         private double CardBaseWidth
         {
             get; set;
