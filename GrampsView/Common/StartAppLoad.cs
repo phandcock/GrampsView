@@ -19,6 +19,10 @@
 
         private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
+        private static bool databaseReloadShownFlag = false;
+        private static bool firstRunShownFlag = false;
+        private static bool whatNewShownFlag = false;
+
         public static void Init(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
@@ -29,6 +33,10 @@
             _FirstRunDisplayService = iocFirstRunDisplayService;
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
+
+            firstRunShownFlag = false;
+            databaseReloadShownFlag = false;
+            whatNewShownFlag = false;
 
             StartProcessing();
         }
@@ -43,22 +51,18 @@
 
             if (await _FirstRunDisplayService.ShowIfAppropriate())
             {
-                await CommonRoutines.NavigateAsync(nameof(FirstRunPage));
-                return;
-            }
-
-            if (await _WhatsNewDisplayService.ShowIfAppropriate())
-            {
-                await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
                 return;
             }
 
             if (await _DatabaseReloadDisplayService.ShowIfAppropriate())
             {
-                await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
-
                 CommonLocalSettings.DataSerialised = false;
 
+                return;
+            }
+
+            if (await _WhatsNewDisplayService.ShowIfAppropriate())
+            {
                 return;
             }
 

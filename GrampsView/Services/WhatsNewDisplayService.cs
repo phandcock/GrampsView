@@ -1,5 +1,8 @@
 ﻿namespace GrampsView.Services
 {
+    using GrampsView.Common;
+    using GrampsView.Views;
+
     using System.Threading.Tasks;
 
     using Xamarin.Essentials;
@@ -17,6 +20,8 @@
             if (VersionTracking.IsFirstLaunchForCurrentBuild && !Common.CommonLocalSettings.WhatsNewDisplayed)
             {
                 Common.CommonLocalSettings.WhatsNewDisplayed = true;
+
+                await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
 
                 return true;
             }

@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Services
 {
     using GrampsView.Common;
+    using GrampsView.Views;
 
     using System.Threading.Tasks;
 
@@ -20,6 +21,8 @@
         {
             if ((CommonLocalSettings.DatabaseReloadNeeded) && (CommonLocalSettings.DataSerialised == true))
             {
+                await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
+
                 return true;
             }
 
