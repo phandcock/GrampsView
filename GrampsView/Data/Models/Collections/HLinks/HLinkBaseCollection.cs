@@ -95,50 +95,52 @@ namespace GrampsView.Data.Model
 
             if (Count > 0)
             {
-                // Step through each mediamodel hlink in the collection
-                for (int i = 0; i < Count; i++)
+                if (CommonLocalSettings.UseFirstImageFlag)
                 {
-                    switch (this[i].HLinkGlyphItem.ImageType)
-                    {
-                        case CommonEnums.HLinkGlyphType.Image:
-                            {
-                                FirstHLinkHomeImage = this[i].HLinkGlyphItem;
-
-                                // Stop after the first match
-                                if (CommonLocalSettings.UseFirstImageFlag)
-                                {
-                                    return;
-                                }
-                                break;
-                            }
-                        case CommonEnums.HLinkGlyphType.Media:
-                            {
-                                FirstHLinkHomeImage = this[i].HLinkGlyphItem;
-                                FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Image;
-
-                                // Stop after the first match
-                                if (CommonLocalSettings.UseFirstImageFlag)
-                                {
-                                    return;
-                                }
-                                break;
-                            }
-
-                        case CommonEnums.HLinkGlyphType.Symbol:
-                            break;
-
-                        case CommonEnums.HLinkGlyphType.Unknown:
-                            break;
-
-                        default:
-                            break;
-                    }
+                    FirstHLinkHomeImage = GetImage(0);
+                }
+                else
+                {
+                    FirstHLinkHomeImage = GetImage(Count - 1);
                 }
             }
         }
 
         public virtual void SetGlyph()
         {
+        }
+
+        private ItemGlyph GetImage(int argIndex)
+        {
+            FirstHLinkHomeImage = new ItemGlyph();
+
+            switch (this[argIndex].HLinkGlyphItem.ImageType)
+            {
+                case CommonEnums.HLinkGlyphType.Image:
+                    {
+                        FirstHLinkHomeImage = this[argIndex].HLinkGlyphItem;
+
+                        break;
+                    }
+                case CommonEnums.HLinkGlyphType.Media:
+                    {
+                        FirstHLinkHomeImage = this[argIndex].HLinkGlyphItem;
+                        FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Image;
+
+                        break;
+                    }
+
+                case CommonEnums.HLinkGlyphType.Symbol:
+                    break;
+
+                case CommonEnums.HLinkGlyphType.Unknown:
+                    break;
+
+                default:
+                    break;
+            }
+
+            return FirstHLinkHomeImage;
         }
     }
 }

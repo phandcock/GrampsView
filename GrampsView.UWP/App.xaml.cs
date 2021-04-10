@@ -162,6 +162,7 @@
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
+                    // Need to remember current location first but is this worth the effort?
                 }
 
                 // Place the frame in the current Window

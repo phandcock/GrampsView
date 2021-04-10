@@ -3,6 +3,7 @@
     using AdaptiveCards;
 
     using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
 
     using System;
     using System.Threading.Tasks;
@@ -20,32 +21,39 @@
         {
             UserActivitySession returnedFromUIThread = await MainThread.InvokeOnMainThreadAsync(async () =>
             {
-                // Record in the TimeLine
-                UserActivityChannel channel = UserActivityChannel.GetDefault();
-
-                UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
-
                 UserActivitySession activitySession = null;
 
-                if (theModel.Valid)
+                try
                 {
-                    _ModelUserActivity.VisualElements.DisplayText = area.ToUpper();
-                    _ModelUserActivity.VisualElements.Description = bodyText;
-                    _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.SymbolColour);
+                    // Record in the TimeLine
+                    UserActivityChannel channel = UserActivityChannel.GetDefault();
 
-                    // _ModelUserActivity.VisualElements.Content =
-                    // AdaptiveCardBuilder.CreateAdaptiveCardFromJson(CreateAdaptiveCardForTimeline(area,
-                    // theModel, bodyText).ToJson());
+                    UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
 
-                    _ModelUserActivity.ActivationUri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
-
-                    //Save
-                    await _ModelUserActivity.SaveAsync();
-
-                    if (_ModelUserActivity != null)
+                    if (theModel.Valid)
                     {
-                        activitySession = _ModelUserActivity.CreateSession();
+                        _ModelUserActivity.VisualElements.DisplayText = area.ToUpper();
+                        _ModelUserActivity.VisualElements.Description = bodyText;
+                        _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.SymbolColour);
+
+                        // _ModelUserActivity.VisualElements.Content =
+                        // AdaptiveCardBuilder.CreateAdaptiveCardFromJson(CreateAdaptiveCardForTimeline(area,
+                        // theModel, bodyText).ToJson());
+
+                        _ModelUserActivity.ActivationUri = new Uri("gramps://" + area + @"/handle/" + theModel.HLinkKey);
+
+                        //Save
+                        await _ModelUserActivity.SaveAsync();
+
+                        if (_ModelUserActivity != null)
+                        {
+                            activitySession = _ModelUserActivity.CreateSession();
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    DataStore.Instance.CN.NotifyException("Timeline Add", ex);
                 }
 
                 return activitySession;
