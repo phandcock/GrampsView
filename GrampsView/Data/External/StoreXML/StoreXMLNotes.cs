@@ -53,7 +53,7 @@
                         loadNote.GType = (string)pname.Attribute("type");
 
                         // Load Styled Text
-                        if (loadNote.Id == "N0384")
+                        if (loadNote.Id == "N0098")
                         {
                         }
 

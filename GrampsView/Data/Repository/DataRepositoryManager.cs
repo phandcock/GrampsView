@@ -235,7 +235,7 @@
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        await DataStore.Instance.CN.DataLogHide();
+                        DataStore.Instance.CN.DataLogHide();
 
                         return true;
                     }
@@ -246,7 +246,7 @@
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
 
-                    await DataStore.Instance.CN.DataLogHide();
+                    DataStore.Instance.CN.DataLogHide();
                 }
 
                 return true;

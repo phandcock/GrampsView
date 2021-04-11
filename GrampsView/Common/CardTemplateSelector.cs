@@ -236,7 +236,19 @@ namespace GrampsView.Common
         /// <value>
         /// The source template.
         /// </value>
-        public DataTemplate SourceTemplate
+        public DataTemplate SourceLargeTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the source template.
+        /// </summary>
+        /// <value>
+        /// The source template.
+        /// </value>
+        public DataTemplate SourceSmallTemplate
         {
             get;
             set;
@@ -308,6 +320,27 @@ namespace GrampsView.Common
                         return CitationTemplate;
                     }
 
+                case HLinkNoteModel i:
+                    {
+                        switch ((item as HLinkNoteModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return NoteTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.FullCard:
+                                {
+                                    return NoteCardFullTemplate;
+                                }
+
+                            default:
+                                {
+                                    return NoteTemplate;
+                                }
+                        }
+                    }
+
                 case HLinkPersonNameModel i:
                     {
                         switch ((item as HLinkPersonNameModel).DisplayAs)
@@ -325,6 +358,27 @@ namespace GrampsView.Common
                             default:
                                 {
                                     return PersonNameSingleTemplate;
+                                }
+                        }
+                    }
+
+                case HLinkSourceModel i:
+                    {
+                        switch ((item as HLinkSourceModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return SourceSmallTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.LargeCard:
+                                {
+                                    return SourceLargeTemplate;
+                                }
+
+                            default:
+                                {
+                                    return SourceSmallTemplate;
                                 }
                         }
                     }
@@ -382,29 +436,6 @@ namespace GrampsView.Common
                 return NameMapTemplate;
             }
 
-            // Note related
-
-            if (item is HLinkNoteModel)
-            {
-                switch ((item as HLinkNoteModel).DisplayAs)
-                {
-                    case CommonEnums.DisplayFormat.NoteCardSmall:
-                        {
-                            return NoteTemplate;
-                        }
-
-                    case CommonEnums.DisplayFormat.NoteCardFull:
-                        {
-                            return NoteCardFullTemplate;
-                        }
-
-                    default:
-                        {
-                            return NoteTemplate;
-                        }
-                }
-            }
-
             if (item is NoteModel)
             {
                 return NoteTemplate;
@@ -440,11 +471,6 @@ namespace GrampsView.Common
             if (item is HLinkRepositoryModel)
             {
                 return RepositoryTemplate;
-            }
-
-            if (item is HLinkSourceModel)
-            {
-                return SourceTemplate;
             }
 
             if (item is HLinkTagModel)
@@ -494,7 +520,7 @@ namespace GrampsView.Common
 
             if (item is SourceModel)
             {
-                return SourceTemplate;
+                return SourceSmallTemplate;
             }
 
             if (item is TagModel)

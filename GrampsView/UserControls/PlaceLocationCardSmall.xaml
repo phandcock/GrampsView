@@ -11,7 +11,7 @@
 
         <!--  - TODO fix display.  See Naso  -->
 
-        <Grid x:Name="controlRoot">
+        <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

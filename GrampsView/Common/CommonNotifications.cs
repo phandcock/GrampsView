@@ -138,30 +138,21 @@
             return;
         }
 
-        public async Task DataLogHide()
+        public void DataLogHide()
         {
             DataLog.DismissFlag = true;
         }
 
         public async Task DataLogShow()
         {
-            //if (Device.RuntimePlatform == Device.UWP)
-            //{
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 var t = Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
             });
-            //}
-            //else
-            //{
-            //    await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLogPopup());
-            //};
         }
 
         public async Task MinorMessageAdd(string argMessage)
         {
-            // _iocEventAggregator.GetEvent<ProgressLoading>().Publish(argMessage);
-
             if (!string.IsNullOrEmpty(argMessage))
             {
                 _iocCommonLogging.LogVariable("MinorMessageAdd", argMessage);

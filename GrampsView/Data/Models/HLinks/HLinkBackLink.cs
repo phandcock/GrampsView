@@ -104,7 +104,7 @@ namespace GrampsView.Data.Model
         public HLinkBackLink(HLinkNoteModel ArgHLinkLink)
         {
             _HLinkNoteModel = ArgHLinkLink;
-            _HLinkNoteModel.DisplayAs = CommonEnums.DisplayFormat.NoteCardSmall;
+            _HLinkNoteModel.DisplayAs = CommonEnums.DisplayFormat.SmallCard;
 
             HLinkType = HLinkBackLinkEnum.HLinkNoteModel;
         }

@@ -8,7 +8,7 @@
     Style="{DynamicResource GridSmallFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid>
+        <Grid Style="{DynamicResource GridSmallFixedCardStyle}">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />

@@ -10,7 +10,7 @@
     Style="{DynamicResource GridSmallFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid x:Name="controlRoot">
+        <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
@@ -59,6 +59,7 @@
                     <DragGestureRecognizer CanDrag="True" />
                 </Label.GestureRecognizers>
             </Label>
+
             <Image
                 Grid.Row="1"
                 Grid.Column="2"

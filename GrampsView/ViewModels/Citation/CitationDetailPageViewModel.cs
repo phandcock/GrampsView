@@ -74,8 +74,6 @@
 
                 BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                //BaseDetail.Add(t);
-
                 // If only one note (the most common case) just display it in a large format,
                 // otherwise setup a list of them.
                 if (CitationObject.GNoteRefCollection.Count > 0)
@@ -83,9 +81,8 @@
                     // TODO Fix this NoteObject = CitationObject.GNoteRefCollection[0].DeRef;
                 }
 
-                // TODO BaseDetail.Add(CitationObject.GSourceAttributeCollection);
-
-                //OnPropertyChanged(nameof(BaseDetail));
+                CitationObject.GSourceRef.DisplayAs = CommonEnums.DisplayFormat.LargeCard;
+                BaseDetail.Add(CitationObject.GSourceRef);
             }
         }
     }

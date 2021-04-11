@@ -1,14 +1,10 @@
-﻿/// <summary>
-/// </summary>
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Model;
 
     using System;
     using System.Diagnostics.Contracts;
 
-    /// <summary>
-    /// </summary>
     public class CardGroup : CardGroupBase<object>
     {
         public CardGroup()
@@ -31,15 +27,6 @@ namespace GrampsView.Common
 
             base.Add(t);
         }
-
-        //public void Add(HLinkBase argCard, DisplayFormat argDisplayFormat = DisplayFormat.Default)
-        //{
-        //    Contract.Assert(argCard != null);
-
-        // argCard.CardType = argDisplayFormat;
-
-        //    base.Add(argCard);
-        //}
 
         public void Add(CardGroup argCardGroup)
         {

@@ -11,7 +11,10 @@
 
     <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
 
-        <Grid x:Name="controlRoot" RowSpacing="3">
+        <Grid
+            x:Name="controlRoot"
+            RowSpacing="3"
+            Style="{DynamicResource GridSmallFixedCardStyle}">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />

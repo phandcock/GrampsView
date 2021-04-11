@@ -688,7 +688,7 @@
 
                 foreach (SourceModel theSourceModel in DV.SourceDV.DataViewData)
                 {
-                    if (theSourceModel.Id == "S0010")
+                    if (theSourceModel.Id == "S0381")
                     {
                     }
 
@@ -702,7 +702,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
+                await DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
 
                 throw;
             }

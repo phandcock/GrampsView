@@ -29,10 +29,8 @@ namespace GrampsView.Common
         public enum DisplayFormat
         {
             Default,
-            HeaderCardLarge,
-            NoteCardFull,
-            NoteCardSmall,
-            SourceCardSmall,
+            FullCard,
+            LargeCard,
             SingleCard,
             SmallCard
         }

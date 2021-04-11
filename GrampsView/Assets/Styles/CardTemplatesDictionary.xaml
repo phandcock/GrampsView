@@ -85,6 +85,10 @@
         <usercontrols:TagCardSingle />
     </DataTemplate>
 
+    <DataTemplate x:Key="SourceCardLargeDT">
+        <usercontrols:SourceCardLarge />
+    </DataTemplate>
+
     <DataTemplate x:Key="SourceCardSmallDT">
         <usercontrols:SourceCardSmall />
     </DataTemplate>
@@ -114,7 +118,8 @@
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"
         RepositoryTemplate="{StaticResource RepositoryCardSmallDT}"
-        SourceTemplate="{StaticResource SourceCardSmallDT}"
+        SourceLargeTemplate="{StaticResource SourceCardLargeDT}"
+        SourceSmallTemplate="{StaticResource SourceCardSmallDT}"
         TagTemplate="{StaticResource TagCardSingleDT}"
         URLTemplate="{StaticResource URLCardSmallDT}" />
 </ResourceDictionary>

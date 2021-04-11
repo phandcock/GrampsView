@@ -8,7 +8,7 @@
     Style="{DynamicResource GridSingleFixedCardStyle}">
     <Frame Style="{DynamicResource FrameSingleFixedCardStyleNS}">
 
-        <Grid x:Name="controlRoot">
+        <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
