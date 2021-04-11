@@ -220,9 +220,26 @@
 
     <Style
         x:Key="FrameMediumFixedCardStyleNS"
-        BasedOn="{StaticResource FrameMediumFixedCardStyle}"
+        BasedOn="{StaticResource FrameCardMediumStyle}"
         TargetType="Frame">
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+    </Style>
+
+    <!--  Create a Variable Height Medium Card Style  -->
+    <Style
+        x:Key="FrameMediumVariableCardStyle"
+        BasedOn="{StaticResource FrameCardMediumStyle}"
+        TargetType="Frame">
+        <Setter Property="MinimumHeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+    </Style>
+
+    <!--  Create a Variable Height Medium Card Style - Not Selectable  -->
+    <Style
+        x:Key="FrameMediumVariableCardStyleNS"
+        BasedOn="{StaticResource FrameMediumVariableCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--

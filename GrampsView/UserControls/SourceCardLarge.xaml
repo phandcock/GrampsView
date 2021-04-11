@@ -17,8 +17,8 @@
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
             </Grid.ColumnDefinitions>
 
@@ -43,21 +43,14 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GetDefaultText, Mode=OneWay}">
-                <Label.GestureRecognizers>
-                    <DragGestureRecognizer CanDrag="True" />
-                </Label.GestureRecognizers>
-            </Label>
+                Text="{Binding DeRef.GetDefaultText, Mode=OneWay}" />
 
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GSPubInfo, Mode=OneWay}">
-                <Label.GestureRecognizers>
-                    <DragGestureRecognizer CanDrag="True" />
-                </Label.GestureRecognizers>
-            </Label>
+                Text="{Binding DeRef.GSPubInfo, Mode=OneWay}" />
 
             <Label
                 Grid.Row="2"

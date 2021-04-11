@@ -45,7 +45,7 @@
         <usercontrols:NoteCardSmall />
     </DataTemplate>
 
-    <DataTemplate x:Key="ParentLinkCardSmallDT">
+    <DataTemplate x:Key="ParentLinkCardLargeDT">
         <usercontrols:ParentLinkCardLarge />
     </DataTemplate>
 
@@ -109,7 +109,7 @@
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
-        ParentLinkTemplate="{StaticResource ParentLinkCardSmallDT}"
+        ParentLinkTemplate="{StaticResource ParentLinkCardLargeDT}"
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
