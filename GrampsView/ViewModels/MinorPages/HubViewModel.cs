@@ -95,6 +95,14 @@
             }
         }
 
+        public CardGroupBase<HLinkRepositoryModel> LatestRepositoryChanges
+        {
+            get
+            {
+                return DV.RepositoryDV.GetLatestChanges;
+            }
+        }
+
         public CardGroupBase<HLinkSourceModel> LatestSourceChanges
         {
             get
