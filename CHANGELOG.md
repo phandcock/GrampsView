@@ -1,3 +1,14 @@
+## [16.17.20](https://github.com/phandcock/GrampsView/compare/v16.17.19...v16.17.20) (2021-04-11)
+
+
+### Bug Fixes
+
+* adjust popup window size ([7558bb3](https://github.com/phandcock/GrampsView/commit/7558bb314c8a8202a215411310d8a095a539ecf0))
+* more startup tweaks ([4e57748](https://github.com/phandcock/GrampsView/commit/4e57748c2c0851e1162ef5cc91be86c33bfbe3aa))
+* tweak firstimage code to be faster ([32a135d](https://github.com/phandcock/GrampsView/commit/32a135d18c556929e3dcc2852cbcf1ca57762bd0))
+
+
+
 ## [16.17.19](https://github.com/phandcock/GrampsView/compare/v16.17.18...v16.17.19) (2021-04-09)
 
 
@@ -35,18 +46,6 @@
 
 * navigation tweaks ([2b8863c](https://github.com/phandcock/GrampsView/commit/2b8863c3b607f0d4ed0d14e5cfdf18bdfbecebf1))
 * tweak errordialog ([f0fbbe7](https://github.com/phandcock/GrampsView/commit/f0fbbe7dd65d646ee293cbfd478cf21122af0780))
-
-
-
-## [16.17.15](https://github.com/phandcock/GrampsView/compare/v16.17.14...v16.17.15) (2021-04-05)
-
-
-### Bug Fixes
-
-* add switch for choosing if colleciton uses first or last image ([b6de70b](https://github.com/phandcock/GrampsView/commit/b6de70b4fca68801dd17b77b9c283eb9fc00866c))
-* cleanup firstimage in basecollection ([c2a0996](https://github.com/phandcock/GrampsView/commit/c2a0996490435bb4d8de7d0c5b9fb045894a6891))
-* deselect menu items when another is selected ([97b3876](https://github.com/phandcock/GrampsView/commit/97b3876c3b2782b4155f075eae23a3d0953b65c7))
-* move to using new xamarin toolkit popups ([1936c6f](https://github.com/phandcock/GrampsView/commit/1936c6f1c52e722a5bba070a5f368f3305df0219))
 
 
 
