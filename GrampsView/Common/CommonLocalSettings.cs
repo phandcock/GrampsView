@@ -2,8 +2,6 @@
 {
     using GrampsView.Data.Repository;
 
-    using System;
-
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
@@ -142,37 +140,37 @@
             }
         }
 
-        public static DateTime LatestDatabaseChange
-        {
-            get
-            {
-                return Preferences.Get("LatestDatabaseChange", new DateTime());
-            }
+        //public static DateTime LatestDatabaseChange
+        //{
+        //    get
+        //    {
+        //        return Preferences.Get("LatestDatabaseChange", new DateTime());
+        //    }
 
-            set
-            {
-                Preferences.Set("LatestDatabaseChange", value);
-            }
-        }
+        //    set
+        //    {
+        //        Preferences.Set("LatestDatabaseChange", value);
+        //    }
+        //}
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [logging enabled].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [logging enabled]; otherwise, <c>false</c>.
-        /// </value>
-        public static bool LoggingEnabled
-        {
-            get
-            {
-                return Preferences.Get("LoggingEnabled", false);
-            }
+        ///// <summary>
+        ///// Gets or sets a value indicating whether [logging enabled].
+        ///// </summary>
+        ///// <value>
+        ///// <c>true</c> if [logging enabled]; otherwise, <c>false</c>.
+        ///// </value>
+        //public static bool LoggingEnabled
+        //{
+        //    get
+        //    {
+        //        return Preferences.Get("LoggingEnabled", false);
+        //    }
 
-            set
-            {
-                Preferences.Set("LoggingEnabled", value);
-            }
-        }
+        //    set
+        //    {
+        //        Preferences.Set("LoggingEnabled", value);
+        //    }
+        //}
 
         public static bool SortHLinkCollections
         {
@@ -200,29 +198,29 @@
             }
         }
 
-        public static bool WhatsNewDisplayed
-        {
-            get
-            {
-                return Preferences.Get("WhatsNewDisplayed", false);
-            }
+        //public static bool WhatsNewDisplayed
+        //{
+        //    get
+        //    {
+        //        return Preferences.Get("WhatsNewDisplayed", false);
+        //    }
 
-            set
-            {
-                Preferences.Set("WhatsNewDisplayed", value);
-            }
-        }
+        //    set
+        //    {
+        //        Preferences.Set("WhatsNewDisplayed", value);
+        //    }
+        //}
 
-        public static void ClearPreferences()
-        {
-            Preferences.Remove("ApplicationTheme");
-            Preferences.Remove("GrampsViewDatabaseVersion");
-            Preferences.Remove("SerialisedData");
-            Preferences.Remove("FirstRunDisplay");
-            Preferences.Remove("LatestDatabaseChange");
-            Preferences.Remove("LoggingEnabled");
-            Preferences.Remove("WhatsNewDisplayed");
-        }
+        //public static void ClearPreferences()
+        //{
+        //    Preferences.Remove("ApplicationTheme");
+        //    Preferences.Remove("GrampsViewDatabaseVersion");
+        //    Preferences.Remove("SerialisedData");
+        //    Preferences.Remove("FirstRunDisplay");
+        //    Preferences.Remove("LatestDatabaseChange");
+        //    Preferences.Remove("LoggingEnabled");
+        //    Preferences.Remove("WhatsNewDisplayed");
+        //}
 
         public static void SetReloadDatabase()
         {

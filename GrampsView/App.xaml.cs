@@ -209,13 +209,13 @@ namespace GrampsView
             container.RegisterSingleton<IStoreXML, StoreXML>();
             container.RegisterSingleton<IStoreFile, StoreFile>();
 
-            container.RegisterSingleton<WhatsNewDisplayService>();
+            //container.RegisterSingleton<WhatsNewDisplayService>();
             container.RegisterForNavigation<WhatsNewPage, WhatsNewViewModel>();
 
-            container.RegisterSingleton<FirstRunDisplayService>();
+            //container.RegisterSingleton<FirstRunDisplayService>();
             container.RegisterForNavigation<FirstRunPage>();
 
-            container.RegisterSingleton<DatabaseReloadDisplayService>();
+            //container.RegisterSingleton<DatabaseReloadDisplayService>();
             container.RegisterForNavigation<NeedDatabaseReloadPage>();
         }
 
