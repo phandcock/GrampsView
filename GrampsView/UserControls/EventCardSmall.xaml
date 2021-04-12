@@ -65,7 +65,6 @@
                 x:Name="descriptionTextBlock"
                 Grid.Row="1"
                 Grid.Column="1"
-                HorizontalOptions="EndAndExpand"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GDescription, Mode=OneWay}" />
 

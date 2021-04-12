@@ -9,7 +9,7 @@
 
     public class WhatsNewDisplayService : IWhatsNewDisplayService
     {
-        private bool whatsNewDisplayed = false;
+        private bool displayWhatsNew = true;
 
         public WhatsNewDisplayService()
         {
@@ -19,11 +19,9 @@
         {
             // VersionTracking.IsFirstLaunchForCurrentBuild returns true every time called when
             // first run. If this service is called multiple times then it will need the flag.
-            if (VersionTracking.IsFirstLaunchForCurrentBuild && !whatsNewDisplayed) // && !CommonLocalSettings.WhatsNewDisplayed)
+            if (VersionTracking.IsFirstLaunchForCurrentBuild && displayWhatsNew)
             {
-                // CommonLocalSettings.WhatsNewDisplayed = true;
-
-                whatsNewDisplayed = true;
+                displayWhatsNew = false;
 
                 await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
 
