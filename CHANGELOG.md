@@ -1,3 +1,14 @@
+## [16.17.21](https://github.com/phandcock/GrampsView/compare/v16.17.20...v16.17.21) (2021-04-12)
+
+
+### Bug Fixes
+
+* add latest repository changes ot hubpage ([8018302](https://github.com/phandcock/GrampsView/commit/80183028ebff768455f9fbc4ab60bec2bb5b725d))
+* display sourcecardlarge and personlink better ([2ea0c67](https://github.com/phandcock/GrampsView/commit/2ea0c6766f07a74bd7c24d6db2dc8ccd119226f9))
+* minor tweaks ([00cb012](https://github.com/phandcock/GrampsView/commit/00cb012a14a9be430d41e0fc9ef0386700bc5567))
+
+
+
 ## [16.17.20](https://github.com/phandcock/GrampsView/compare/v16.17.19...v16.17.20) (2021-04-11)
 
 
@@ -36,16 +47,6 @@
 * cleanup startup code and page display ([6bb49b7](https://github.com/phandcock/GrampsView/commit/6bb49b7c569f1baa048ad4730a870b7752e32ca7))
 * remove idialogservice ([5a10fc9](https://github.com/phandcock/GrampsView/commit/5a10fc9c4d3f62be37aedd6ae5541bf6ddecb5c8))
 * tweaks, source lsit and popups ([5524558](https://github.com/phandcock/GrampsView/commit/552455884cb449a7b6e7e01e7846b62d41c44b3f))
-
-
-
-## [16.17.16](https://github.com/phandcock/GrampsView/compare/v16.17.15...v16.17.16) (2021-04-07)
-
-
-### Bug Fixes
-
-* navigation tweaks ([2b8863c](https://github.com/phandcock/GrampsView/commit/2b8863c3b607f0d4ed0d14e5cfdf18bdfbecebf1))
-* tweak errordialog ([f0fbbe7](https://github.com/phandcock/GrampsView/commit/f0fbbe7dd65d646ee293cbfd478cf21122af0780))
 
 
 
