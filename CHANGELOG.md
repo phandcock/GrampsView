@@ -1,3 +1,14 @@
+## [16.17.22](https://github.com/phandcock/GrampsView/compare/v16.17.21...v16.17.22) (2021-04-14)
+
+
+### Bug Fixes
+
+* fix whatsnewpage not being displayed ([7097d55](https://github.com/phandcock/GrampsView/commit/7097d55dcdf398acfa8049702e3e8d0089174c27))
+* tweak layout of eventsmallcard description ([7d7c3b8](https://github.com/phandcock/GrampsView/commit/7d7c3b88e747ed4bf4b5f36657dbc297e6e107d0))
+* tweak supporting files ([0aea04d](https://github.com/phandcock/GrampsView/commit/0aea04d0c84280cb3fa1c3a76ca9e66f3fc93600))
+
+
+
 ## [16.17.21](https://github.com/phandcock/GrampsView/compare/v16.17.20...v16.17.21) (2021-04-12)
 
 
@@ -36,17 +47,6 @@
 
 * make messagelog popup the whole screen ([e7b885c](https://github.com/phandcock/GrampsView/commit/e7b885c9cff68ed4e8e734f7793e8a42ca01cc71))
 * tweak start up event loading ([5c15af5](https://github.com/phandcock/GrampsView/commit/5c15af5eb936be462e4e1d9139a9c7c0c67ba11c))
-
-
-
-## [16.17.17](https://github.com/phandcock/GrampsView/compare/v16.17.16...v16.17.17) (2021-04-07)
-
-
-### Bug Fixes
-
-* cleanup startup code and page display ([6bb49b7](https://github.com/phandcock/GrampsView/commit/6bb49b7c569f1baa048ad4730a870b7752e32ca7))
-* remove idialogservice ([5a10fc9](https://github.com/phandcock/GrampsView/commit/5a10fc9c4d3f62be37aedd6ae5541bf6ddecb5c8))
-* tweaks, source lsit and popups ([5524558](https://github.com/phandcock/GrampsView/commit/552455884cb449a7b6e7e01e7846b62d41c44b3f))
 
 
 
