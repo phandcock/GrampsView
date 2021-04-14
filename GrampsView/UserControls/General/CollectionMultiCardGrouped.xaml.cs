@@ -32,7 +32,7 @@
         {
             get
             {
-                return Common.CardSizes.Current.CollectionViewNumColumns;
+                return Common.CardSizes.Current.CardsAcrossColumns;
             }
         }
     }

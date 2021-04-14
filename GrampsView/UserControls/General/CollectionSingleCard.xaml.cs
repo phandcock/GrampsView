@@ -143,7 +143,7 @@
 
         public void SetUcHeight()
         {
-            int t = (Convert.ToInt32(NumItems / Common.CardSizes.Current.CollectionViewNumColumns) + 1);
+            int t = (Convert.ToInt32(NumItems / Common.CardSizes.Current.CardsAcrossColumns) + 1);
             int ucHeight = Convert.ToInt32(t * CardSizes.Current.CardSmallHeight);
 
             if (ucHeight < 1)

@@ -20,7 +20,7 @@
             <GridItemsLayout
                 HorizontalItemSpacing="2"
                 Orientation="Vertical"
-                Span="{Binding CollectionViewNumColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                Span="{Binding CardsAcrossColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
                 VerticalItemSpacing="2" />
         </CollectionView.ItemsLayout>
 
