@@ -60,7 +60,7 @@
                 BaseTitle = AddressObject.GetDefaultText;
 
                 // Get media image
-                MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMedia;
+                MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;
 
                 // Get the Name Details
                 BaseDetail.Add(new CardListLineCollection("Address Detail")

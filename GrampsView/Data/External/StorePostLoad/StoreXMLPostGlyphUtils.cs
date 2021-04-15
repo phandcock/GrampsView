@@ -145,7 +145,7 @@
                 addLater.Add(argNewMediaModel);
 
                 argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                argNewGlyph.ImageHLinkMediHLink = argNewMediaModel.HLinkKey;
+                argNewGlyph.ImageHLink = argNewMediaModel.HLinkKey;
 
                 return argNewGlyph;
             }

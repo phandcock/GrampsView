@@ -15,38 +15,28 @@
     [DataContract]
     public class ItemGlyph : CommonBindableBase
     {
-        private string _ImageHLinkMedia = string.Empty;
-        private string _ImageSymbol = CommonConstants.IconDDefault;
-        private Color _ImageSymbolColour = Color.White;
-        private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
-        private string _MediaHLinkMedia = string.Empty;
-        private string _Symbol = CommonConstants.IconDDefault;
-        private Color _SymbolColour = Color.White;
-
         public ItemGlyph()
         {
             UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
-        public HLinkMediaModel ImageHLinkMedia
-        {
-            get
-            {
-                return DataStore.Instance.DS.MediaData.Find(_ImageHLinkMedia).HLink;
-            }
-        }
-
         [DataMember]
-        public string ImageHLinkMediHLink
+        public string ImageHLink
+        {
+            get; set;
+        } = string.Empty;
+
+        public HLinkMediaModel ImageHLinkMediaModel
         {
             get
             {
-                return _ImageHLinkMedia;
-            }
+                if (ImageHLink == null)
+                {
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
+                    return new HLinkMediaModel();
+                }
 
-            set
-            {
-                SetProperty(ref _ImageHLinkMedia, value);
+                return DataStore.Instance.DS.MediaData.Find(ImageHLink).HLink;
             }
         }
 
@@ -59,16 +49,8 @@
         [DataMember]
         public string ImageSymbol
         {
-            get
-            {
-                return _ImageSymbol;
-            }
-
-            set
-            {
-                SetProperty(ref _ImageSymbol, value);
-            }
-        }
+            get; set;
+        } = CommonConstants.IconDDefault;
 
         /// <summary>
         /// Gets or sets the Home Symbol background colour.
@@ -79,50 +61,32 @@
         [DataMember]
         public Color ImageSymbolColour
         {
-            get
-            {
-                return _ImageSymbolColour;
-            }
-
-            set
-            {
-                SetProperty(ref _ImageSymbolColour, value);
-            }
-        }
+            get; set;
+        } = Color.White;
 
         [DataMember]
         public CommonEnums.HLinkGlyphType ImageType
         {
-            get
-            {
-                return _ImageType;
-            }
-
-            set
-            {
-                SetProperty(ref _ImageType, value);
-            }
-        }
-
-        public HLinkMediaModel MediaHLinkMedia
-        {
-            get
-            {
-                return DataStore.Instance.DS.MediaData.Find(_MediaHLinkMedia).HLink;
-            }
-        }
+            get; set;
+        } = CommonEnums.HLinkGlyphType.Symbol;
 
         [DataMember]
-        public string MediaHLinkMediHLink
+        public string MediaHLink
+        {
+            get; set;
+        } = string.Empty;
+
+        public HLinkMediaModel MediaHLinkMediaModel
         {
             get
             {
-                return _MediaHLinkMedia;
-            }
+                if (MediaHLink == null)
+                {
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
+                    return new HLinkMediaModel();
+                }
 
-            set
-            {
-                SetProperty(ref _MediaHLinkMedia, value);
+                return DataStore.Instance.DS.MediaData.Find(MediaHLink).HLink;
             }
         }
 
@@ -135,16 +99,8 @@
         [DataMember]
         public string Symbol
         {
-            get
-            {
-                return _Symbol;
-            }
-
-            set
-            {
-                SetProperty(ref _Symbol, value);
-            }
-        }
+            get; set;
+        } = CommonConstants.IconDDefault;
 
         /// <summary>
         /// Gets or sets the Home Symbol background colour.
@@ -155,16 +111,8 @@
         [DataMember]
         public Color SymbolColour
         {
-            get
-            {
-                return _SymbolColour;
-            }
-
-            set
-            {
-                SetProperty(ref _SymbolColour, value);
-            }
-        }
+            get; set;
+        } = Color.White;
 
         public IAsyncCommand UCNavigateCommand
         {
@@ -183,11 +131,11 @@
                         }
                     case CommonEnums.HLinkGlyphType.Image:
                         {
-                            return ImageHLinkMedia.Valid;
+                            return ImageHLinkMediaModel.Valid;
                         }
                     case CommonEnums.HLinkGlyphType.Media:
                         {
-                            return ImageHLinkMedia.Valid;
+                            return MediaHLinkMediaModel.Valid;
                         }
                     default:
                         {
@@ -208,11 +156,31 @@
 
         public async Task UCNavigate()
         {
-            if ((this.ImageType == CommonEnums.HLinkGlyphType.Image) || (this.ImageType == CommonEnums.HLinkGlyphType.Media))
-            {
-                string ser = JsonConvert.SerializeObject(this.ImageHLinkMedia);
+            string ser;
 
-                await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+            switch (ImageType)
+            {
+                case CommonEnums.HLinkGlyphType.Image:
+                    {
+                        ser = JsonConvert.SerializeObject(this.ImageHLinkMediaModel);
+
+                        await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+
+                        break;
+                    }
+                case CommonEnums.HLinkGlyphType.Media:
+                    {
+                        ser = JsonConvert.SerializeObject(this.MediaHLinkMediaModel);
+
+                        await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+
+                        break;
+                    }
+                default:
+                    {
+                        // TODO What to do for symbol if anything)
+                        break;
+                    }
             }
 
             return;

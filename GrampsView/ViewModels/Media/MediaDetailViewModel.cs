@@ -69,7 +69,7 @@
                     BaseTitle = CurrentMediaObject.GetDefaultText;
                     BaseTitleIcon = CommonConstants.IconMedia;
 
-                    MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMedia;
+                    MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
 
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Media Detail")

@@ -106,7 +106,7 @@
                     return;
                 }
 
-                if (newItemGlyph.ImageHLinkMedia.HLinkKey == "_c4c5aaa038602727de3~zipimage")
+                if (newItemGlyph.ImageHLink == "_c4c5aaa038602727de3~zipimage")
                 {
                 }
 
@@ -269,7 +269,7 @@
                     {
                         case CommonEnums.HLinkGlyphType.Image:
                             {
-                                ShowImage(argItemGlyph.ImageHLinkMedia.DeRef);
+                                ShowImage(argItemGlyph.ImageHLinkMediaModel.DeRef);
                                 break;
                             }
 
@@ -277,11 +277,11 @@
                             {
                                 if (FsctShowMedia)
                                 {
-                                    ShowMedia(argItemGlyph.MediaHLinkMedia.DeRef);
+                                    ShowMedia(argItemGlyph.MediaHLinkMediaModel.DeRef);
                                 }
                                 else
                                 {
-                                    ShowImage(argItemGlyph.ImageHLinkMedia.DeRef);
+                                    ShowImage(argItemGlyph.ImageHLinkMediaModel.DeRef);
                                 }
                                 break;
                             }
@@ -351,7 +351,7 @@
                 {
                     ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
                         {
-                            { "HLinkKey", argItemGlyph.ImageHLinkMediHLink }
+                            { "HLinkKey", argItemGlyph.ImageHLink }
                         };
 
                     DataStore.Instance.CN.NotifyError(t);
@@ -367,7 +367,7 @@
                 ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Symbol" },
-                    { "Media Model Hlink Key", argItemGlyph.ImageHLinkMediHLink },
+                    { "Media Model Hlink Key", argItemGlyph.ImageHLink },
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 

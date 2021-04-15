@@ -41,7 +41,7 @@ namespace GrampsView.Data.Collections
                 ItemGlyph t = DV.PlaceDV.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
-                argHLink.HLinkGlyphItem.ImageHLinkMediHLink = t.ImageHLinkMediHLink;
+                argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
                 argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
