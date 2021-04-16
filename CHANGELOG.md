@@ -1,3 +1,13 @@
+## [16.17.23](https://github.com/phandcock/GrampsView/compare/v16.17.22...v16.17.23) (2021-04-16)
+
+
+### Bug Fixes
+
+* rework cardsizes code ([f6727d9](https://github.com/phandcock/GrampsView/commit/f6727d9b6e3d9e485831ab4055265a965dfce2a4))
+* tweak itemglyph ([fcf9ac9](https://github.com/phandcock/GrampsView/commit/fcf9ac971bef2d811f86695c564da3fd06d76ece))
+
+
+
 ## [16.17.22](https://github.com/phandcock/GrampsView/compare/v16.17.21...v16.17.22) (2021-04-14)
 
 
@@ -37,16 +47,6 @@
 ### Bug Fixes
 
 * cleanup startup code (again) ([a80ad29](https://github.com/phandcock/GrampsView/commit/a80ad29271279c67ea766052e40177ddfba417c5))
-
-
-
-## [16.17.18](https://github.com/phandcock/GrampsView/compare/v16.17.17...v16.17.18) (2021-04-09)
-
-
-### Bug Fixes
-
-* make messagelog popup the whole screen ([e7b885c](https://github.com/phandcock/GrampsView/commit/e7b885c9cff68ed4e8e734f7793e8a42ca01cc71))
-* tweak start up event loading ([5c15af5](https://github.com/phandcock/GrampsView/commit/5c15af5eb936be462e4e1d9139a9c7c0c67ba11c))
 
 
 
