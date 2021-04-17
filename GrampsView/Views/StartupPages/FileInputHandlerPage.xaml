@@ -7,6 +7,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -31,6 +32,8 @@
 
         <ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand">
+
+                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
 
                 <ucon:InstructionCardLarge
                     Grid.Row="0"
