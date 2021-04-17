@@ -11,13 +11,6 @@
     {
         // Ratio of Height to width is 3 times
 
-        //private const double CardLargeHeightDefault = 420;
-        //private const double CardLargeWidthDefault = 420;
-        //private const double CardMediumHeightDefault = 300;
-        //private const double CardMediumWidthDefault = 300;
-        //private const double CardSingleHeightDefault = 20;
-        //private const double CardSingleWidthDefault = 270;
-        //private const double CardSmallHeightDefault = 270;
         private const double CardSmallWidthDefault = 270;
 
         // Singleton
@@ -243,7 +236,7 @@
 
         private void SetCardLargeDoubleWidth()
         {
-            double outVal = CardLargeDoubleWidth * 2;
+            double outVal = CardLargeWidth * 2;
 
             // Check size
             if (outVal > ScreenSize.Width)
@@ -256,11 +249,7 @@
 
         private void SetCardLargeHeight()
         {
-            double outVal;
-
-            outVal = CardMediumWidth / 3;
-
-            CardLargeHeight = outVal;
+            CardLargeHeight = CardLargeWidth / 3;
         }
 
         private void SetCardLargeWidth()
@@ -280,11 +269,7 @@
 
         private void SetCardMediumHeight()
         {
-            double outVal;
-
-            outVal = CardMediumWidth / 3;
-
-            CardMediumHeight = outVal;
+            CardMediumHeight = CardMediumWidth / 3;
         }
 
         private void SetCardMediumWidth()
@@ -304,11 +289,7 @@
 
         private void SetCardSingleHeight()
         {
-            double outVal;
-
-            outVal = CardSingleWidth / 6;
-
-            CardSingleHeight = outVal;
+            CardSingleHeight = CardSingleWidth / 6;
         }
 
         private void SetCardSingleWidth()
@@ -321,9 +302,7 @@
 
         private void SetCardSmallHeight()
         {
-            double outVal = CardBaseWidth / 3;
-
-            CardSmallHeight = outVal;
+            CardSmallHeight = CardSmallWidth / 3;
         }
 
         private void SetCardSmallWidth()
