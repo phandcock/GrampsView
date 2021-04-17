@@ -1,43 +1,17 @@
-﻿// TODO Needs XML 1.71 check
-
-////<define name = "attribute-content" >
-////  < optional >
-////    < attribute name="priv">
-////      <ref name="priv-content" />
-////    </attribute>
-////  </optional>
-////  <attribute name = "type" >
-////    < text />
-////  </ attribute >
-////  < attribute name="value">
-////    <text />
-////  </attribute>
-////  <zeroOrMore>
-////    <element name = "citationref" >
-////      <ref name="citationref-content" />
-////    </element>
-////  </zeroOrMore>
-////  <zeroOrMore>
-////    <element name = "noteref" >
-////      <ref name="noteref-content" />
-////    </element>
-////  </zeroOrMore>
-////</define>
-///TODO Update fields as per Schema
+﻿// XML 1.71 check complete
 
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
+    using GrampsView.Views;
 
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
-    /// <summary>
-    /// GRAMPS Alt element class.
-    /// </summary>
     [DataContract]
     public class AttributeModel : ModelBase, IAttributeModel, IComparable, IComparer<AttributeModel>
     {
@@ -107,6 +81,14 @@ namespace GrampsView.Data.Model
 
             = null;
 
+        public override bool Valid
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(GType);
+            }
+        }
+
         /// <summary>
         /// Compares the specified x.
         /// </summary>
@@ -144,6 +126,12 @@ namespace GrampsView.Data.Model
 
             // compare on Page first TODO compare on Page?
             return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        public override async Task UCNavigate()
+        {
+            await UCNavigateBase(this, nameof(AttributeDetailPage));
+            return;
         }
     }
 }

@@ -4,11 +4,16 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
 
+    using Newtonsoft.Json;
+
     using System;
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// Base for Models.
@@ -70,6 +75,8 @@
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
             ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
             ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
         /// <summary>
@@ -264,6 +271,11 @@
             }
         }
 
+        public IAsyncCommand UCNavigateCommand
+        {
+            get;
+        }
+
         /// <summary>
         /// Gets a value indicating whether returns true if the modelbase is valid.
         /// </summary>
@@ -431,6 +443,15 @@
             {
                 Handle = argBasics.Handle;
             }
+        }
+
+        public virtual Task UCNavigate() => throw new NotImplementedException();
+
+        public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
+        {
+            string ser = JsonConvert.SerializeObject(dataIn);
+
+            await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsModel={1}", argPage, ser));
         }
     }
 }

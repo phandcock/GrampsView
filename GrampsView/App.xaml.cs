@@ -156,6 +156,7 @@ namespace GrampsView
         {
             container.RegisterForNavigation<AboutPage, AboutViewModel>();
             container.RegisterForNavigation<AddressDetailPage, AddressDetailViewModel>();
+            container.RegisterForNavigation<AttributeDetailPage, AttributeDetailViewModel>();
 
             container.RegisterForNavigation<BookMarkListPage, BookMarkListViewModel>();
 

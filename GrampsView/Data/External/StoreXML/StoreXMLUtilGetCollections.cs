@@ -115,8 +115,6 @@
                 {
                     AttributeModel newAttributeModel = new AttributeModel
                     {
-                        Handle = "AttributeCollection",
-
                         GCitationReferenceCollection = GetCitationCollection(theLoadORElement),
 
                         GNoteModelReferenceCollection = GetNoteCollection(theLoadORElement),

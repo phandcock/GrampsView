@@ -1,10 +1,12 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using Newtonsoft.Json;
 
+    using System;
     using System.Diagnostics;
     using System.Reflection;
     using System.Text.RegularExpressions;
@@ -24,6 +26,43 @@
         {
             var ser = JsonConvert.DeserializeObject<T>(dataIn);
             return ser;
+        }
+
+        public static Data.Model.CardListLineCollection GetHLinkInfoFormatted(HLinkBase argHLink)
+        {
+            if (argHLink is null)
+            {
+                throw new ArgumentNullException(nameof(argHLink));
+            }
+
+            CardListLineCollection hlinkInfoList = new CardListLineCollection
+               {
+                 new CardListLine("Private Object:", argHLink.PrivAsString),
+               };
+
+            hlinkInfoList.Title = "Admin Details";
+
+            return hlinkInfoList;
+        }
+
+        public static CardListLineCollection GetModelInfoFormatted(ModelBase argModel)
+        {
+            if (argModel is null)
+            {
+                throw new ArgumentNullException(nameof(argModel));
+            }
+
+            CardListLineCollection modelInfoList = new CardListLineCollection
+               {
+                 new CardListLine("Handle:", argModel.Handle),
+                 new CardListLine("Id:", argModel.Id),
+                 new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
+                 new CardListLine("Private Object:", argModel.PrivAsString),
+               };
+
+            modelInfoList.Title = "Admin Details";
+
+            return modelInfoList;
         }
 
         public static Color GetResourceColour(string argColourResourceName)

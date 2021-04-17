@@ -6,9 +6,13 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:AttributeModel"
     Style="{DynamicResource GridSingleFixedCardStyle}">
-    <Frame Style="{DynamicResource FrameSingleFixedCardStyleNS}">
+    <Frame Style="{DynamicResource FrameSingleFixedCardStyle}">
 
         <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding .}" />
+            </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />

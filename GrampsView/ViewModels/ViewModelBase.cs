@@ -11,6 +11,7 @@
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
+    [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : CommonBindableBase, INotifyPropertyChanged
     {
         /// <summary>
@@ -111,6 +112,11 @@
         }
 
         public string BaseParamsHLink
+        {
+            get; set;
+        }
+
+        public string BaseParamsModel
         {
             get; set;
         }
