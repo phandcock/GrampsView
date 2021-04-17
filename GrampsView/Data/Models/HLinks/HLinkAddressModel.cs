@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-// TODO fix Deref caching
+﻿// TODO fix Deref caching
 
 namespace GrampsView.Data.Model
 {
@@ -18,6 +16,8 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
+        private AddressModel _Deref = new AddressModel();
+
         public HLinkAdressModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconAddress;
@@ -25,23 +25,21 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the de reference.
+        /// Gets the address model.
         /// </summary>
         /// <value>
-        /// The de reference.
+        /// The address model.
         /// </value>
         public AddressModel DeRef
         {
             get
             {
-                if (Valid)
+                if (Valid & (!_Deref.Valid))
                 {
-                    return DV.AddressDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.AddressDV.GetModelFromHLinkString(HLinkKey);
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 
