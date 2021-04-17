@@ -1,21 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Storage routines for the IMediaObjectModel
-//
-// <copyright file="IMediaModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
 
-    /// <summary>
-    /// Interfaces for IMediaObjectViewModel.
-    /// </summary>
     public interface IMediaModel : IModelBase
     {
         string FileContentType
@@ -90,6 +78,12 @@ namespace GrampsView.Data.Model
         HLinkMediaModel HLink
         {
             get;
+        }
+
+        string InternalMediaFileOriginalHLink
+        {
+            get;
+            set;
         }
 
         bool IsImage

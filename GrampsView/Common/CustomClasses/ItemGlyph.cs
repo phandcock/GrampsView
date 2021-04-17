@@ -36,7 +36,7 @@
                     return new HLinkMediaModel();
                 }
 
-                return DataStore.Instance.DS.MediaData.Find(ImageHLink).HLink;
+                return GetHLinkMediaModelKey(ImageHLink);
             }
         }
 
@@ -86,7 +86,7 @@
                     return new HLinkMediaModel();
                 }
 
-                return DataStore.Instance.DS.MediaData.Find(MediaHLink).HLink;
+                return GetHLinkMediaModelKey(MediaHLink);
             }
         }
 
@@ -184,6 +184,17 @@
             }
 
             return;
+        }
+
+        private HLinkMediaModel GetHLinkMediaModelKey(string argHLinkKey)
+        {
+            if (MediaHLink == null)
+            {
+                DataStore.Instance.CN.NotifyError(new ErrorInfo(string.Format("{0} is null", argHLinkKey)));
+                return new HLinkMediaModel();
+            }
+
+            return DataStore.Instance.DS.MediaData.Find(argHLinkKey).HLink;
         }
     }
 }

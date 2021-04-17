@@ -60,6 +60,13 @@
 
             CurrentHLinkMedia = CommonRoutines.DeserialiseObject<HLinkMediaModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
+            // For cropped or internal media then show the original image
+            IMediaModel tt = CurrentHLinkMedia.DeRef;
+            if (tt.IsInternalMediaFile)
+            {
+                CurrentHLinkMedia = DV.MediaDV.GetModelFromHLinkString(tt.InternalMediaFileOriginalHLink).HLink;
+            }
+
             if (!(CurrentHLinkMedia is null))
             {
                 CurrentMediaObject = CurrentHLinkMedia.DeRef;

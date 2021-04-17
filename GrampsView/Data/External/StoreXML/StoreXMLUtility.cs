@@ -127,6 +127,7 @@
                  newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
 
                  newMediaModel.IsInternalMediaFile = true;
+                 newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;
 
                  newMediaModel.MetaDataHeight = cropRect.Height;
                  newMediaModel.MetaDataWidth = cropRect.Width;

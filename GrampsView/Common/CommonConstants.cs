@@ -30,7 +30,7 @@
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 58;
+        public const int GrampsViewDatabaseVersion = 59;
 
         /// <summary>
         /// The Gramps XML name space.

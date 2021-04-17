@@ -30,11 +30,6 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class MediaModel : ModelBase, IMediaModel, IComparable, IComparer
     {
-        /// <summary>
-        /// The local date value.
-        /// </summary>
-        private IDateObjectModel _DateValue = new DateObjectModelVal();
-
         private string _FileContentType;
 
         /// <summary>
@@ -137,16 +132,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public IDateObjectModel GDateValue
         {
-            get
-            {
-                return _DateValue;
-            }
-
-            set
-            {
-                SetProperty(ref _DateValue, value);
-            }
-        }
+            get;
+            set;
+        } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the file description.
@@ -230,6 +218,12 @@ namespace GrampsView.Data.Model
             }
         }
 
+        [DataMember]
+        public string InternalMediaFileOriginalHLink
+        {
+            get; set;
+        } = string.Empty;
+
         public bool IsImage
         {
             get
@@ -241,15 +235,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         public bool IsInternalMediaFile
         {
-            get
-            {
-                return _IsInternalMediaFile;
-            }
-
-            set
-            {
-                SetProperty(ref _IsInternalMediaFile, value);
-            }
+            get;
+            set;
         }
 
         /// <summary>
