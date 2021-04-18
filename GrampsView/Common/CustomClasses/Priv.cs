@@ -1,7 +1,9 @@
-﻿using System.Globalization;
-
-namespace GrampsView.Common.CustomClasses
+﻿namespace GrampsView.Common.CustomClasses
 {
+    using System.Globalization;
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public class Priv : CommonBindableBase
     {
         public Priv(bool argValue)
@@ -9,6 +11,7 @@ namespace GrampsView.Common.CustomClasses
             Value = argValue;
         }
 
+        [DataMember]
         public bool Value
         {
             get; set;

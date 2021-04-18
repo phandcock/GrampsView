@@ -59,11 +59,6 @@
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
 
-        /// <summary>
-        /// The local priv.
-        /// </summary>
-        private bool _Priv;
-
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;

@@ -1,5 +1,8 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public class HLinkKey : CommonBindableBase
     {
         public HLinkKey(string argHlinkKeyValue)
@@ -19,6 +22,7 @@
             }
         }
 
+        [DataMember]
         public string Value
         {
             get; set;

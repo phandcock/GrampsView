@@ -127,6 +127,9 @@
             DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
 
             MediaModel newMediaModel = argSourceMediaModel.Copy();
+
+            newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
+
             newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
             newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 

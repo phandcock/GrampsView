@@ -29,11 +29,6 @@
         /// </summary>
         private string _HLinkKey = string.Empty;
 
-        /// <summary>
-        /// The local priv.
-        /// </summary>
-        private bool _Priv;
-
         public HLinkBase()
         {
             UCNavigateCommand = new AsyncCommand(() => UCNavigate());
@@ -82,20 +77,6 @@
 
             set;
         } = new Priv(false);
-
-        /// <summary>
-        /// Gets the priv as string.
-        /// </summary>
-        /// <value>
-        /// The priv as string.
-        /// </value>
-        public string PrivAsString
-        {
-            get
-            {
-                return _Priv.ToString(CultureInfo.CurrentCulture);
-            }
-        }
 
         public IAsyncCommand UCNavigateCommand
         {
