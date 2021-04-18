@@ -1,3 +1,17 @@
+## [16.17.24](https://github.com/phandcock/GrampsView/compare/v16.17.23...v16.17.24) (2021-04-18)
+
+
+### Bug Fixes
+
+* address hlink deref ([248e641](https://github.com/phandcock/GrampsView/commit/248e64112a4a74776855bafc48a33cd62fa128ab))
+* cleanup display of cropped images ([777c6d2](https://github.com/phandcock/GrampsView/commit/777c6d22a89ec97db3089690d8af86ab5b8bb9e0))
+* fix carlargedoublewidth ([0920453](https://github.com/phandcock/GrampsView/commit/09204538e20026ae647b5ba4918459eb31fd9c8e))
+* fix layout of startup pages ([917c7a1](https://github.com/phandcock/GrampsView/commit/917c7a10149fedc8fb999860d1e4520bf3e3a6b4))
+* show full attributeModel attributes ([0ad2c80](https://github.com/phandcock/GrampsView/commit/0ad2c80f04ccb1804a0e0614581f116159554245))
+* tweak layouts ([5615fbf](https://github.com/phandcock/GrampsView/commit/5615fbf1e8e624b8300a3167fba39f8de95ebf7f))
+
+
+
 ## [16.17.23](https://github.com/phandcock/GrampsView/compare/v16.17.22...v16.17.23) (2021-04-16)
 
 
@@ -38,15 +52,6 @@
 * adjust popup window size ([7558bb3](https://github.com/phandcock/GrampsView/commit/7558bb314c8a8202a215411310d8a095a539ecf0))
 * more startup tweaks ([4e57748](https://github.com/phandcock/GrampsView/commit/4e57748c2c0851e1162ef5cc91be86c33bfbe3aa))
 * tweak firstimage code to be faster ([32a135d](https://github.com/phandcock/GrampsView/commit/32a135d18c556929e3dcc2852cbcf1ca57762bd0))
-
-
-
-## [16.17.19](https://github.com/phandcock/GrampsView/compare/v16.17.18...v16.17.19) (2021-04-09)
-
-
-### Bug Fixes
-
-* cleanup startup code (again) ([a80ad29](https://github.com/phandcock/GrampsView/commit/a80ad29271279c67ea766052e40177ddfba417c5))
 
 
 
