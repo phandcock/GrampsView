@@ -106,7 +106,7 @@
                     return;
                 }
 
-                if (newItemGlyph.ImageHLink == "_c4c5aaa038602727de3~zipimage")
+                if (newItemGlyph.ImageHLink.Value == "_c4c5aaa038602727de3~zipimage")
                 {
                 }
 
@@ -351,7 +351,7 @@
                 {
                     ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
                         {
-                            { "HLinkKey", argItemGlyph.ImageHLink }
+                            { "HLinkKey", argItemGlyph.ImageHLink.Value }
                         };
 
                     DataStore.Instance.CN.NotifyError(t);
@@ -367,7 +367,7 @@
                 ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Symbol" },
-                    { "Media Model Hlink Key", argItemGlyph.ImageHLink },
+                    { "Media Model HLinkKey", argItemGlyph.ImageHLink.Value  },
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 

@@ -50,7 +50,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 if (Valid)
                 {
-                    return DV.MediaDV.GetModelFromHLinkString(HLinkKey);
+                    return DV.MediaDV.GetModelFromHLinkKey(HLinkKey);
                 }
                 else
                 {
@@ -192,7 +192,7 @@ namespace GrampsView.Common.CustomClasses
                         }
                     case CommonEnums.HLinkGlyphType.Image:
                         {
-                            return !string.IsNullOrEmpty(HLinkKey);
+                            return HLinkKey.Valid;
                         }
                     default:
                         {

@@ -69,7 +69,7 @@ namespace GrampsView.Data.DataView
         /// </returns>
         List<T> GetAllAsModel();
 
-        ItemGlyph GetGlyph(string argHLinkKey);
+        ItemGlyph GetGlyph(HLinkKey argHLinkKey);
 
         /// <summary>
         /// Gets the model from the hlink. Helper method.
@@ -90,7 +90,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        T GetModelFromHLinkString(string HLinkString);
+        T GetModelFromHLinkKey(HLinkKey argHLinkKey);
 
         /// <summary>
         /// Gets the model information formatted.

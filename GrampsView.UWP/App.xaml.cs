@@ -73,7 +73,7 @@
                             {
                                 HLinkFamilyModel targetFamily = new HLinkFamilyModel
                                 {
-                                    HLinkKey = uriSegments[2]
+                                    HLinkKey = new HLinkKey(uriSegments[2])
                                 };
 
                                 targetFamily.UCNavigate();
@@ -85,7 +85,7 @@
                             {
                                 HLinkPersonModel targetPerson = new HLinkPersonModel
                                 {
-                                    HLinkKey = uriSegments[2]
+                                    HLinkKey = new HLinkKey(uriSegments[2])
                                 };
 
                                 targetPerson.UCNavigate();

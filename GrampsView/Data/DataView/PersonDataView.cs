@@ -1,6 +1,7 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -20,7 +21,7 @@ namespace GrampsView.Data.DataView
         /// <summary>
         /// The local current person h link key.
         /// </summary>
-        private string localCurrentPersonHLinkKey = string.Empty;
+        private HLinkKey localCurrentPersonHLinkKey = new HLinkKey();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonDataView"/> class.
@@ -31,7 +32,7 @@ namespace GrampsView.Data.DataView
         public PersonDataView()
         {
             // TODO fix this force to gilbert handcock for now
-            localCurrentPersonHLinkKey = "_c47a1a91aec0a6220a5";
+            localCurrentPersonHLinkKey.Value = "_c47a1a91aec0a6220a5";
         }
 
         /// <summary>
@@ -256,9 +257,9 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public override PersonModel GetModelFromHLinkString(string HLinkString)
+        public override PersonModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return PersonData[HLinkString];
+            return PersonData[argHLinkKey.Value];
         }
 
         //    return groups;

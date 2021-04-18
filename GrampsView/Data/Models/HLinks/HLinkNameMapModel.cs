@@ -32,7 +32,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid)
                 {
-                    return new NameMapDataView().GetModelFromHLinkString(HLinkKey);
+                    return new NameMapDataView().GetModelFromHLinkKey(HLinkKey);
                 }
                 else
                 {

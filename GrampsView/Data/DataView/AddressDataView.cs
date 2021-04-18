@@ -1,6 +1,7 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -55,28 +56,6 @@ namespace GrampsView.Data.DataView
                 return AddressData.Values.ToList();
             }
         }
-
-        //public override List<CommonGroupInfoCollection<AddressModel>> GetGroupsByLetter
-        //{
-        //    get
-        //    {
-        //        List<CommonGroupInfoCollection<AddressModel>> groups = new List<CommonGroupInfoCollection<AddressModel>>();
-
-        // var query = from item in DataViewData orderby item.GetDefaultText group item by
-        // item.GetDefaultText into g select new { GroupName = g.Key, Items = g };
-
-        // foreach (var g in query) { CommonGroupInfoCollection<AddressModel> info = new CommonGroupInfoCollection<AddressModel>();
-
-        // // Handle 0's if (string.IsNullOrEmpty(g.GroupName)) { info.Key = "Unknown Date"; } else
-        // { info.Key = g.GroupName + "'s"; }
-
-        // foreach (var item in g.Items) { info.Add(item); }
-
-        // groups.Add(info); }
-
-        //        return groups;
-        //    }
-        //}
 
         public override CardGroupBase<HLinkAdressModel> GetAllAsCardGroupBase()
         {
@@ -140,42 +119,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        ///// <summary>
-        ///// Gets the first image from collection.
-        ///// </summary>
-        ///// <param name="theCollection">
-        ///// The collection.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //public new HLinkMediaModel GetFirstImageFromCollection(HLinkOCAddressModelCollection theCollection)
-        //{
-        //    if (theCollection == null)
-        //    {
-        //        return null;
-        //    }
-
-        // HLinkMediaModel returnMediaModel = new HLinkMediaModel();
-
-        // if (theCollection.Count > 0) { // step through each mediamodel hlink in the collection
-        // Accept either a direct // mediamodel reference or a hlink to a Source media reference.
-
-        // for (int i = 0; i < theCollection.Count; i++) { HLinkAdressModel currentHLink = theCollection[i];
-
-        // returnMediaModel.HLinkGlyphItem = currentHLink.DeRef.GCitationRefCollection.FirstHLinkHomeImage;
-
-        // //// Still needed Handle Source Links //if (currentHLink.DeRef.so.LinkToImage) //{ //
-        // returnMediaModel = currentHLink.DeRef.HLinkGlyphItem; //}
-
-        // if (returnMediaModel.Valid) { break; } } }
-
-        //    // return the image
-        //    return returnMediaModel;
-        //}
-
-        public override AddressModel GetModelFromHLinkString(string HLinkString)
+        public override AddressModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return AddressData[HLinkString];
+            return AddressData[argHLinkKey.Value];
         }
 
         /// <summary>

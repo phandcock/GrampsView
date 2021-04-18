@@ -17,7 +17,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid)
                 {
-                    return DV.PersonDV.GetModelFromHLinkString(HLinkKey);
+                    return DV.PersonDV.GetModelFromHLinkKey(HLinkKey);
                 }
                 else
                 {
@@ -46,6 +46,9 @@ namespace GrampsView.Data.Model
 
             = new HLinkNoteModelCollection();
 
-        public string GRelationship { get; set; }
+        public string GRelationship
+        {
+            get; set;
+        }
     }
 }

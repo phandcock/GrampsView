@@ -130,9 +130,9 @@
         //    throw new NotImplementedException();
         //}
 
-        public virtual ItemGlyph GetGlyph(string argHLinkKey)
+        public virtual ItemGlyph GetGlyph(HLinkKey argHLinkKey)
         {
-            return GetModelFromHLinkString(argHLinkKey).ModelItemGlyph;
+            return GetModelFromHLinkKey(argHLinkKey).ModelItemGlyph;
         }
 
         /// <summary>
@@ -151,7 +151,7 @@
                 throw new ArgumentNullException(nameof(argHLink));
             }
 
-            return this.GetModelFromHLinkString(argHLink.HLinkKey);
+            return this.GetModelFromHLinkKey(argHLink.HLinkKey);
         }
 
         /// <summary>
@@ -163,7 +163,7 @@
         /// <returns>
         /// ModelBase.
         /// </returns>
-        public abstract TB GetModelFromHLinkString(string HLinkString);
+        public abstract TB GetModelFromHLinkKey(HLinkKey argHLinkKey);
 
         /// <summary>
         /// Gets the model information formatted.

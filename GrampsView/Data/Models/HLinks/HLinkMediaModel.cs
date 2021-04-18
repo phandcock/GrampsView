@@ -39,7 +39,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid && (!_Deref.Valid))
                 {
-                    _Deref = DV.MediaDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.MediaDV.GetModelFromHLinkKey(HLinkKey);
                 }
 
                 return _Deref;
@@ -85,7 +85,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return !string.IsNullOrEmpty(HLinkKey);
+                return HLinkKey.Valid;
             }
         }
 

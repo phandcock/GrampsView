@@ -1,6 +1,7 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -122,9 +123,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CitationModel GetModelFromHLinkString(string HLinkString)
+        public override CitationModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return DataStore.Instance.DS.CitationData[HLinkString];
+            return DataStore.Instance.DS.CitationData[argHLinkKey.Value];
         }
 
         /// <summary>

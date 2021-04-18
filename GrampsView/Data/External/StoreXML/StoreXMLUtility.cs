@@ -48,7 +48,7 @@
 
              IMediaModel newMediaModel = new MediaModel();
 
-             string newHLinkKey = argHLinkLoadImageModel.HLinkKey + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y;
+             HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
              string outFileName = Path.Combine("Cropped", newHLinkKey + ".png");
 
              string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
@@ -56,7 +56,7 @@
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 
              // Check if already exists
-             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newHLinkKey);
+             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
 
              if ((!fileExists.Valid) && (theMediaModel.IsMediaStorageFileValid))
              {
@@ -304,6 +304,18 @@
             }
         }
 
+        private static HLinkKey GetHLinkKey(XAttribute a)
+        {
+            if (a == null)
+            {
+                return new HLinkKey();
+            }
+            else
+            {
+                return new HLinkKey(((string)a).Trim());
+            }
+        }
+
         /// <summary>
         /// Converts a string into a uri (if it can).
         /// </summary>
@@ -516,7 +528,7 @@
 
             if (xmlData != null)
             {
-                t.HLinkKey = GetAttribute(xmlData.Attribute("hlink"));
+                t.HLinkKey = GetHLinkKey(xmlData.Attribute("hlink"));
             }
 
             return t;

@@ -63,7 +63,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The h link key.
         /// </value>
-        string HLinkKey
+        HLinkKey HLinkKey
         {
             get; set;
         }

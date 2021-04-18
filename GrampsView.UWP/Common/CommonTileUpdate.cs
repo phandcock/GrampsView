@@ -76,7 +76,7 @@
                     },
                 },
 
-                ContentId = media.HLinkKey,
+                ContentId = media.HLinkKey.Value,
 
                 DisplayName = Package.Current.DisplayName,
             };
@@ -116,7 +116,7 @@
                     },
                 },
 
-                ContentId = media.HLinkKey,
+                ContentId = media.HLinkKey.Value,
 
                 DisplayName = Package.Current.DisplayName,
             };
@@ -136,7 +136,7 @@
             {
                 Branding = TileBranding.NameAndLogo,
 
-                ContentId = media.HLinkKey,
+                ContentId = media.HLinkKey.Value,
 
                 DisplayName = Package.Current.DisplayName,
 

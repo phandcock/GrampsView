@@ -55,11 +55,6 @@
         /// </summary>
         private string _Handle = string.Empty;
 
-        /// <summary>
-        /// The local h link key.
-        /// </summary>
-        private string _HLinkKey = string.Empty;
-
         private string _Id = string.Empty;
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
@@ -142,7 +137,7 @@
         {
             get
             {
-                return HLinkKey;
+                return HLinkKey.Value;
             }
         }
 
@@ -164,7 +159,7 @@
             {
                 SetProperty(ref _Handle, value);
 
-                HLinkKey = value;
+                HLinkKey.Value = value;
             }
         }
 
@@ -175,18 +170,12 @@
         /// The h link key.
         /// </value>
         [DataMember]
-        public string HLinkKey
+        public HLinkKey HLinkKey
         {
-            get
-            {
-                return _HLinkKey;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _HLinkKey, value);
-            }
-        }
+            set;
+        } = new HLinkKey();
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -232,7 +221,7 @@
         {
             get
             {
-                return !string.IsNullOrEmpty(_HLinkKey);
+                return HLinkKey.Valid;
             }
         }
 
@@ -265,7 +254,7 @@
         {
             get
             {
-                return !string.IsNullOrEmpty(HLinkKey);
+                return HLinkKey.Valid;
             }
         }
 

@@ -28,7 +28,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid & (!_Deref.Valid))
                 {
-                    _Deref = DV.PersonNameDV.GetModelFromHLinkString(HLinkKey);
+                    _Deref = DV.PersonNameDV.GetModelFromHLinkKey(HLinkKey);
                 }
 
                 return _Deref;

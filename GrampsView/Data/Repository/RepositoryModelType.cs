@@ -108,16 +108,16 @@ namespace GrampsView.Data.Repositories
         {
             get
             {
-                if (string.IsNullOrEmpty(hLink.HLinkKey))
+                if (hLink.HLinkKey.Valid)
                 {
                     DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
-                if (hLink.HLinkKey == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey == "_e5bfa72904e68ce059252b501df")
+                if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
                 {
                 }
 
-                return Find(hLink.HLinkKey);
+                return Find(hLink.HLinkKey.Value);
             }
         }
 
@@ -129,7 +129,7 @@ namespace GrampsView.Data.Repositories
         /// </param>
         public void Add(T1 arg)
         {
-            if (string.IsNullOrEmpty(arg.HLinkKey))
+            if (!arg.HLinkKey.Valid)
             {
                 DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
             }
@@ -146,7 +146,7 @@ namespace GrampsView.Data.Repositories
                 throw new DuplicateKeyException(key);
             }
 
-            base.Add(arg.HLinkKey, arg);
+            base.Add(arg.HLinkKey.Value, arg);
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace GrampsView.Data.Repositories
                 throw new ArgumentNullException(nameof(argHLink));
             }
 
-            return GetModelFromHLink(argHLink.HLinkKey);
+            return GetModelFromHLink(argHLink);
         }
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace GrampsView.Data.Repositories
         /// </returns>
         public T1 GetModelFromHLink(string argHLink)
         {
-            T1 tempMO = this.Values.FirstOrDefault(x => x.HLinkKey == argHLink);
+            T1 tempMO = this.Values.FirstOrDefault(x => x.HLinkKey.Value == argHLink);
 
             if (tempMO == null)
             {
@@ -234,7 +234,7 @@ namespace GrampsView.Data.Repositories
         /// </returns>
         private string KeySelector(T1 argModel)
         {
-            return argModel.HLinkKey;
+            return argModel.HLinkKey.Value;
         }
     }
 }

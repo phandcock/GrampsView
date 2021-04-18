@@ -66,7 +66,7 @@
 
                     // Set model hlinkkey etc
                     string newGuid = Guid.NewGuid().ToString();
-                    newAddressModel.HLinkKey = newGuid;
+                    newAddressModel.HLinkKey = new HLinkKey(newGuid);
                     newAddressModel.Id = newGuid;
                     newAddressModel.Handle = newGuid;
                     DataStore.Instance.DS.AddressData.Add(newAddressModel);
@@ -165,7 +165,7 @@
                 {
                     HLinkCitationModel t2 = new HLinkCitationModel
                     {
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
                     };
                     t.Add(t2);
 
@@ -206,7 +206,7 @@
                 {
                     HLinkEventModel t2 = new HLinkEventModel
                     {
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
                         GRole = GetAttribute(theLoadORElement.Attribute("role")),
                         GAttributeRefCollection = GetAttributeCollection(theLoadORElement),
                         GNoteRefCollection = GetNoteCollection(theLoadORElement),
@@ -252,7 +252,7 @@
                     HLinkNoteModel noteHLink = new HLinkNoteModel
                     {
                         // object details
-                        HLinkKey = GetAttribute(loadNoteElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(loadNoteElement.Attribute("hlink")),
                     };
 
                     // save the object
@@ -291,7 +291,7 @@
                     // save the MediaObject reference
                     HLinkMediaModel outHLMediaModel = new HLinkMediaModel
                     {
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
                     };
 
                     // Get region
@@ -382,7 +382,7 @@
                     newPersonNameModel.GAlt.SetAlt(GetAttribute(theLoadORElement, "alt"));
 
                     // Set model hlinkkey
-                    newPersonNameModel.HLinkKey = Guid.NewGuid().ToString();
+                    newPersonNameModel.HLinkKey = new HLinkKey(Guid.NewGuid().ToString());
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
@@ -429,7 +429,7 @@
                         GRelationship = GetAttribute(theLoadORElement, "rel"),
                     };
 
-                    t2.HLinkKey = GetAttribute(theLoadORElement, "hlink");
+                    t2.HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink"));
 
                     t.Add(t2);
                 }
@@ -584,7 +584,7 @@
                     HLinkPlaceModel noteHLink = new HLinkPlaceModel
                     {
                         // object details
-                        HLinkKey = GetAttribute(loadPlaceElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(loadPlaceElement.Attribute("hlink")),
                     };
 
                     // save the object
@@ -624,7 +624,7 @@
                     HLinkRepositoryModel t2 = new HLinkRepositoryModel
                     {
                         // "callno" Done "medium" Done; "noteref" Done
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
 
                         Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
@@ -779,7 +779,7 @@
                 {
                     HLinkTagModel t2 = new HLinkTagModel
                     {
-                        HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
                     };
 
                     t.Add(t2);

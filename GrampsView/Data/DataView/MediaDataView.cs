@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -170,9 +171,9 @@
             return t;
         }
 
-        public override MediaModel GetModelFromHLinkString(string HLinkString)
+        public override MediaModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return DataStore.Instance.DS.MediaData[HLinkString];
+            return DataStore.Instance.DS.MediaData[argHLinkKey.Value];
         }
 
         /// <summary>

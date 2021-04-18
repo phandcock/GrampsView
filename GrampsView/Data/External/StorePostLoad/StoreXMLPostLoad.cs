@@ -41,7 +41,7 @@
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in theAddressModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theAddressModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theAddressModel.HLink));
                 }
             }
 
@@ -56,7 +56,7 @@
                 // tagref Citation Collection
                 foreach (HLinkCitationModel citationRef in theEventModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
                 }
             }
 
@@ -66,7 +66,7 @@
 
                 foreach (HLinkCitationModel citationRef in theFamilyModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
             }
 
@@ -76,7 +76,7 @@
 
                 foreach (HLinkCitationModel citationRef in theMediaObject.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
                 }
             }
 
@@ -88,7 +88,7 @@
                 {
                     citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
 
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonNameModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonNameModel.HLink));
                 }
             }
 
@@ -102,7 +102,7 @@
 
                 foreach (HLinkCitationModel citationRef in thePersonModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -112,7 +112,7 @@
 
                 foreach (HLinkCitationModel citationRef in thePlaceModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                 }
             }
 
@@ -136,7 +136,7 @@
 
                 foreach (HLinkEventModel eventRef in theFamilyModel.GEventRefCollection)
                 {
-                    DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.EventData[eventRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
             }
 
@@ -150,7 +150,7 @@
 
                 foreach (HLinkEventModel eventRef in thePersonModel.GEventRefCollection)
                 {
-                    DataStore.Instance.DS.EventData[eventRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.EventData[eventRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -213,7 +213,7 @@
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theCitationModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
                 }
             }
 
@@ -224,7 +224,7 @@
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theEventModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
                 }
             }
 
@@ -235,7 +235,7 @@
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in theFamilyModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
             }
 
@@ -246,7 +246,7 @@
                 // Back Reference Note HLinks
                 foreach (HLinkNoteModel noteRef in theMediaObject.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
                 }
             }
 
@@ -257,7 +257,7 @@
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in thePersonNameModel.GNoteReferenceCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonNameModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonNameModel.HLink));
                 }
             }
 
@@ -271,7 +271,7 @@
 
                 foreach (HLinkNoteModel noteRef in thePersonModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -282,7 +282,7 @@
 
                 foreach (HLinkNoteModel noteRef in thePlaceModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                 }
             }
 
@@ -292,7 +292,7 @@
 
                 foreach (HLinkNoteModel noteRef in theRepositoryModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
                 }
             }
 
@@ -302,7 +302,7 @@
 
                 foreach (IHLinkNoteModel noteRef in theSourceModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                 }
             }
 
@@ -322,7 +322,7 @@
                 // PersonName Collection
                 foreach (HLinkPersonNameModel personNameRef in thePersonModel.GPersonNamesCollection)
                 {
-                    DataStore.Instance.DS.PersonNameData[personNameRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.PersonNameData[personNameRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -345,7 +345,7 @@
                 // Child Collection
                 foreach (HLinkPersonModel personRef in theFamilyModel.GChildRefCollection)
                 {
-                    DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
 
                 // Parents
@@ -360,7 +360,7 @@
                 // Sibling Collection
                 foreach (HLinkPersonModel personRef in thePersonModel.SiblingRefCollection)
                 {
-                    DataStore.Instance.DS.PersonData[personRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -375,7 +375,7 @@
                 // --
                 if (thePersonModel.GChildOf.Valid)
                 {
-                    thePersonModel.GChildOf = DataStore.Instance.DS.FamilyData[thePersonModel.GChildOf.HLinkKey].HLink;
+                    thePersonModel.GChildOf = DataStore.Instance.DS.FamilyData[thePersonModel.GChildOf.HLinkKey.Value].HLink;
                 }
 
                 // set Birthdate
@@ -400,13 +400,13 @@
                 {
                     thePersonModel.SiblingRefCollection.Clear();
 
-                    foreach (HLinkPersonModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey].GChildRefCollection)
+                    foreach (HLinkPersonModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey.Value].GChildRefCollection)
                     {
                         thePersonModel.SiblingRefCollection.Add(item);
                     }
                 }
 
-                DataStore.Instance.DS.PersonData[thePersonModel.HLinkKey] = thePersonModel;
+                DataStore.Instance.DS.PersonData[thePersonModel.HLinkKey.Value] = thePersonModel;
             }
 
             return true;
@@ -425,7 +425,7 @@
             {
                 if (theEventModel.GPlace.Valid)
                 {
-                    DataStore.Instance.DS.PlaceData[theEventModel.GPlace.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                    DataStore.Instance.DS.PlaceData[theEventModel.GPlace.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
                 }
             }
 
@@ -435,7 +435,7 @@
 
                 foreach (HLinkPlaceModel placeRef in thePlaceModel.GPlaceRefCollection)
                 {
-                    DataStore.Instance.DS.PlaceData[placeRef.HLinkKey].PlaceChildCollection.Add(thePlaceModel.HLink);
+                    DataStore.Instance.DS.PlaceData[placeRef.HLinkKey.Value].PlaceChildCollection.Add(thePlaceModel.HLink);
                 }
             }
 
@@ -472,7 +472,7 @@
 
                 foreach (HLinkRepositoryModel repositoryRef in theSourceModel.GRepositoryRefCollection)
                 {
-                    DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                    DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                 }
             }
 
@@ -496,7 +496,7 @@
             {
                 theCitationModel.GSourceRef.HLinkGlyphItem = DV.SourceDV.GetGlyph(theCitationModel.GSourceRef.HLinkKey);
 
-                DataStore.Instance.DS.SourceData[theCitationModel.GSourceRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
+                DataStore.Instance.DS.SourceData[theCitationModel.GSourceRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
             }
 
             return true;
@@ -517,7 +517,7 @@
 
                 foreach (HLinkTagModel tagRef in theCitationModel.GTagRef)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
                 }
             }
 
@@ -527,7 +527,7 @@
 
                 foreach (HLinkTagModel tagRef in theEventModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
                 }
             }
 
@@ -537,7 +537,7 @@
 
                 foreach (HLinkTagModel tagRef in theFamilyModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
             }
 
@@ -547,7 +547,7 @@
 
                 foreach (HLinkTagModel tagRef in theMediaObject.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theMediaObject.HLink));
                 }
             }
 
@@ -557,7 +557,7 @@
 
                 foreach (HLinkTagModel tagRef in theNoteModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theNoteModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theNoteModel.HLink));
                 }
             }
 
@@ -572,7 +572,7 @@
                 foreach (HLinkTagModel tagRef in thePersonModel.GTagRefCollection)
                 {
                     // Set the backlinks
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
             }
 
@@ -582,7 +582,7 @@
 
                 foreach (HLinkTagModel tagRef in thePlaceModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                 }
             }
 
@@ -592,7 +592,7 @@
 
                 foreach (HLinkTagModel tagRef in theSourceModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                 }
             }
 
@@ -603,7 +603,7 @@
 
                 foreach (HLinkTagModel tagRef in theRepositoryModel.GTagRefCollection)
                 {
-                    DataStore.Instance.DS.TagData[tagRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
+                    DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theRepositoryModel.HLink));
                 }
             }
 
@@ -630,7 +630,7 @@
                     {
                         //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
 
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theCitationModel.HLink));
                     }
                 }
 
@@ -643,7 +643,7 @@
                     {
                         //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
 
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theEventModel.HLink));
                     }
                 }
 
@@ -656,7 +656,7 @@
                     {
                         //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
 
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                     }
                 }
 
@@ -672,7 +672,7 @@
                     {
                         //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
 
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                     }
                 }
 
@@ -682,7 +682,7 @@
 
                     foreach (HLinkMediaModel mediaRef in thePlaceModel.GMediaRefCollection)
                     {
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePlaceModel.HLink));
                     }
                 }
 
@@ -696,7 +696,7 @@
 
                     foreach (HLinkMediaModel mediaRef in theSourceModel.GMediaRefCollection)
                     {
-                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
+                        DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theSourceModel.HLink));
                     }
                 }
             }

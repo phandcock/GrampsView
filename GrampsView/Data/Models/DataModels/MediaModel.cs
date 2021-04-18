@@ -219,10 +219,10 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public string InternalMediaFileOriginalHLink
+        public HLinkKey InternalMediaFileOriginalHLink
         {
             get; set;
-        } = string.Empty;
+        } = new HLinkKey();
 
         public bool IsImage
         {

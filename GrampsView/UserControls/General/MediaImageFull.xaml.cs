@@ -24,7 +24,7 @@
 
             if (CurrentHLinkMediaModel.Valid)
             {
-                extraInfo.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey);
+                extraInfo.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey.Value);
                 extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
             }
 

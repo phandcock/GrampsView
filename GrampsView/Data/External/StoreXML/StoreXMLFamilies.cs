@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -65,14 +66,14 @@
                         XElement tempFather = familyElement.Element(ns + "father");
                         if (tempFather != null)
                         {
-                            loadFamily.GFather.HLinkKey = (string)tempFather.Attribute("hlink");
+                            loadFamily.GFather.HLinkKey = new HLinkKey((string)tempFather.Attribute("hlink"));
                         }
 
                         // mother element
                         XElement tempMother = familyElement.Element(ns + "mother");
                         if (tempMother != null)
                         {
-                            loadFamily.GMother.HLinkKey = (string)tempMother.Attribute("hlink");
+                            loadFamily.GMother.HLinkKey = new HLinkKey((string)tempMother.Attribute("hlink"));
                         }
 
                         // ChildRef loading
@@ -88,7 +89,7 @@
                                 HLinkPersonModel t = new HLinkPersonModel
                                 {
                                     // load the hlink
-                                    HLinkKey = (string)thisLoadORElement.Attribute("hlink"),
+                                    HLinkKey = new HLinkKey((string)thisLoadORElement.Attribute("hlink")),
                                 };
                                 loadFamily.GChildRefCollection.Add(t);
                             }

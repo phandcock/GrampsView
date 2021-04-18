@@ -21,10 +21,10 @@
         }
 
         [DataMember]
-        public string ImageHLink
+        public HLinkKey ImageHLink
         {
             get; set;
-        } = string.Empty;
+        } = new HLinkKey();
 
         public HLinkMediaModel ImageHLinkMediaModel
         {
@@ -71,10 +71,10 @@
         } = CommonEnums.HLinkGlyphType.Symbol;
 
         [DataMember]
-        public string MediaHLink
+        public HLinkKey MediaHLink
         {
             get; set;
-        } = string.Empty;
+        } = new HLinkKey();
 
         public HLinkMediaModel MediaHLinkMediaModel
         {
@@ -186,7 +186,7 @@
             return;
         }
 
-        private HLinkMediaModel GetHLinkMediaModelKey(string argHLinkKey)
+        private HLinkMediaModel GetHLinkMediaModelKey(HLinkKey argHLinkKey)
         {
             if (MediaHLink == null)
             {
@@ -194,7 +194,7 @@
                 return new HLinkMediaModel();
             }
 
-            return DataStore.Instance.DS.MediaData.Find(argHLinkKey).HLink;
+            return DataStore.Instance.DS.MediaData.Find(argHLinkKey.Value).HLink;
         }
     }
 }

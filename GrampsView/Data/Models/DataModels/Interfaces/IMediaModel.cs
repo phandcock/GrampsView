@@ -80,7 +80,7 @@
             get;
         }
 
-        string InternalMediaFileOriginalHLink
+        HLinkKey InternalMediaFileOriginalHLink
         {
             get;
             set;

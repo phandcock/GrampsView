@@ -50,7 +50,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid)
                 {
-                    return DV.RepositoryDV.GetModelFromHLinkString(HLinkKey);
+                    return DV.RepositoryDV.GetModelFromHLinkKey(HLinkKey);
                 }
                 else
                 {

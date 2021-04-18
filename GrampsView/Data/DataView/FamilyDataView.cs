@@ -1,6 +1,7 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -243,7 +244,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public IPersonModel GetFather(string arg)
+        public IPersonModel GetFather(HLinkKey argHLinkKey)
         {
             // Handle the case where there is no data.
             if (FamilyData.Count == 0)
@@ -251,12 +252,12 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            return GetModelFromHLinkString(arg).GFather.DeRef;
+            return GetModelFromHLinkKey(argHLinkKey).GFather.DeRef;
         }
 
-        public override FamilyModel GetModelFromHLinkString(string HLinkString)
+        public override FamilyModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return FamilyData[HLinkString];
+            return FamilyData[argHLinkKey.Value];
         }
 
         /// <summary>
@@ -267,7 +268,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public IPersonModel GetMother(string arg)
+        public IPersonModel GetMother(HLinkKey argHLinkKey)
         {
             // Handle the case where there is no data.
             if (FamilyData.Count == 0)
@@ -275,7 +276,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            return GetModelFromHLinkString(arg).GMother.DeRef;
+            return GetModelFromHLinkKey(argHLinkKey).GMother.DeRef;
         }
 
         /// <summary>

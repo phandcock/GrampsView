@@ -68,18 +68,12 @@
         /// The h link key.
         /// </value>
         [DataMember]
-        public string HLinkKey
+        public HLinkKey HLinkKey
         {
-            get
-            {
-                return _HLinkKey;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _HLinkKey, value);
-            }
-        }
+            set;
+        } = new HLinkKey();
 
         [DataMember]
         public Priv Priv
@@ -118,7 +112,7 @@
         {
             get
             {
-                return (!string.IsNullOrEmpty(HLinkKey));
+                return HLinkKey.Valid;
             }
         }
 
@@ -188,7 +182,7 @@
                 return 1;
             }
 
-            return string.Compare(HLinkKey, (obj as HLinkBase).HLinkKey, true, System.Globalization.CultureInfo.CurrentCulture);
+            return string.Compare(HLinkKey.Value, (obj as HLinkBase).HLinkKey.Value, true, CultureInfo.CurrentCulture);
         }
 
         public override bool Equals(object obj)
@@ -254,7 +248,7 @@
             Contract.Assert(!(x is null));
             Contract.Assert(!(y is null));
 
-            return string.Compare((x as HLinkBase).HLinkKey, (y as HLinkBase).HLinkKey, StringComparison.CurrentCulture);
+            return string.Compare((x as HLinkBase).HLinkKey.Value, (y as HLinkBase).HLinkKey.Value, StringComparison.CurrentCulture);
         }
     }
 }

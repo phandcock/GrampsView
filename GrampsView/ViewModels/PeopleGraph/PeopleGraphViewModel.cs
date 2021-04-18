@@ -25,7 +25,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Gets or sets from.
         /// </summary>
-        public string From
+        public HLinkKey From
         {
             get; set;
         }
@@ -41,7 +41,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Gets or sets to.
         /// </summary>
-        public string To
+        public HLinkKey To
         {
             get; set;
         }
@@ -65,7 +65,7 @@ namespace GrampsView.ViewModels
 
         public override int GetHashCode()
         {
-            return (From + To).GetHashCode();
+            return (From.Value + To.Value).GetHashCode();
         }
     }
 
@@ -98,7 +98,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// The visited.
         /// </summary>
-        private readonly Dictionary<string, bool> nodeVisited = new Dictionary<string, bool>();
+        private readonly Dictionary<HLinkKey, bool> nodeVisited = new Dictionary<HLinkKey, bool>();
 
         /// <summary>
         /// The graph collection.
@@ -359,10 +359,10 @@ namespace GrampsView.ViewModels
         {
             BaseCL.RoutineEntry("PeopleGraphViewModel");
 
-            string startPoint = "_c47a6bd11500b4b0cc8";
+            HLinkKey startPoint = new HLinkKey("_c47a6bd11500b4b0cc8");
 
             // Assume person
-            PersonModel t = DV.PersonDV.GetModelFromHLinkString(startPoint);
+            PersonModel t = DV.PersonDV.GetModelFromHLinkKey(startPoint);
 
             if (t.HLink.Valid == true)
             {
@@ -370,7 +370,7 @@ namespace GrampsView.ViewModels
             }
             else
             {
-                FamilyModel tf = DV.FamilyDV.GetModelFromHLinkString(startPoint);
+                FamilyModel tf = DV.FamilyDV.GetModelFromHLinkKey(startPoint);
 
                 StartHLink = tf.HLink;
             }
@@ -657,7 +657,7 @@ namespace GrampsView.ViewModels
         /// <param name="argBool">
         /// if set to <c>true</c> [argument bool].
         /// </param>
-        private void AddVisited(string argHLink, bool argBool)
+        private void AddVisited(HLinkKey argHLink, bool argBool)
         {
             if (!nodeVisited.ContainsKey(argHLink))
             {

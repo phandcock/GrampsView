@@ -64,7 +64,7 @@
             IMediaModel tt = CurrentHLinkMedia.DeRef;
             if (tt.IsInternalMediaFile)
             {
-                CurrentHLinkMedia = DV.MediaDV.GetModelFromHLinkString(tt.InternalMediaFileOriginalHLink).HLink;
+                CurrentHLinkMedia = DV.MediaDV.GetModelFromHLinkKey(tt.InternalMediaFileOriginalHLink).HLink;
             }
 
             if (!(CurrentHLinkMedia is null))

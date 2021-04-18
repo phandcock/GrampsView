@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -40,7 +41,7 @@
                     {
                         headerData = new HeaderModel
                         {
-                            HLinkKey = "~HeaderData"
+                            HLinkKey = new HLinkKey("~HeaderData")
                         };
 
                         // header element

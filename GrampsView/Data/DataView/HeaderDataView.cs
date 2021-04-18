@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -95,7 +96,7 @@
 
         public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
 
-        public override HeaderModel GetModelFromHLinkString(string HLinkString)
+        public override HeaderModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             return HeaderData.Values.First();
         }

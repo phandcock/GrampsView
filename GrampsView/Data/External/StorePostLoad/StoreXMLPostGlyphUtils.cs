@@ -35,7 +35,7 @@
             MediaModel pdfimage;
 
             // Check if new pdf image file already exists
-            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newMediaModel.HLinkKey);
+            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
@@ -67,7 +67,7 @@
             MediaModel videoImage;
 
             // Check if new image file already exists
-            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newMediaModel.HLinkKey);
+            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
@@ -101,7 +101,7 @@
             MediaModel zipimage;
 
             // Check if new zip image file already exists
-            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkString(newMediaModel.HLinkKey);
+            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
@@ -127,8 +127,8 @@
             DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
 
             MediaModel newMediaModel = argSourceMediaModel.Copy();
-            newMediaModel.HLinkKey = argSourceMediaModel.HLinkKey + argNewMediaHLPrefix;
-            newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey + argNewMediaFileExtension);
+            newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
+            newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 
             return newMediaModel;
         }

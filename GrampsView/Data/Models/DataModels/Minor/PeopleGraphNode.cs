@@ -36,12 +36,18 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The x start.
         /// </summary>
-        public int XStart { get; set; }
+        public int XStart
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The y start.
         /// </summary>
-        public int YStart { get; set; }
+        public int YStart
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Sorts the by y start.
@@ -87,7 +93,7 @@ namespace GrampsView.Data.Model
             PeopleGraphNode secondEvent = (PeopleGraphNode)b;
 
             // compare on Priority first
-            int testFlag = string.Compare(firstEvent.NodeHLink.HLinkKey, secondEvent.NodeHLink.HLinkKey, StringComparison.CurrentCulture);
+            int testFlag = Compare(firstEvent.NodeHLink.HLinkKey, secondEvent.NodeHLink.HLinkKey);
 
             return testFlag;
         }
@@ -106,7 +112,7 @@ namespace GrampsView.Data.Model
             PeopleGraphNode secondEvent = (PeopleGraphNode)obj;
 
             // compare on Target first
-            int testFlag = string.Compare(NodeHLink.HLinkKey, secondEvent.NodeHLink.HLinkKey, StringComparison.CurrentCulture);
+            int testFlag = Compare(NodeHLink.HLinkKey, secondEvent.NodeHLink.HLinkKey);
 
             return testFlag;
         }

@@ -42,7 +42,7 @@
 
                         // BookMark fields
                         string GTarget = GetAttribute(argBookMark.Attribute("target"));
-                        string GHLink = GetAttribute(argBookMark.Attribute("hlink"));
+                        HLinkKey GHLink = new HLinkKey(GetAttribute(argBookMark.Attribute("hlink")));
                         HLinkBackLink newHlinkBackLink = SetBookMarkTarget(GTarget, GHLink);
 
                         if (newHlinkBackLink.Valid)
@@ -56,7 +56,7 @@
                                     { "HLink",  argBookMark.ToString()}
                                 };
 
-                            DataStore.Instance.CN.NotifyError(t);
+                            await DataStore.Instance.CN.NotifyError(t);
                         }
 
                         await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading bookmark: {0}", newHlinkBackLink.HLinkType));
@@ -78,7 +78,7 @@
             return;
         }
 
-        public HLinkBackLink SetBookMarkTarget(string argGTarget, string argGHlink)
+        public HLinkBackLink SetBookMarkTarget(string argGTarget, HLinkKey argHLinkKey)
         {
             switch (argGTarget)
             {
@@ -86,7 +86,7 @@
                     {
                         HLinkPersonModel p1 = new HLinkPersonModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -96,7 +96,7 @@
                     {
                         HLinkFamilyModel p1 = new HLinkFamilyModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -106,7 +106,7 @@
                     {
                         HLinkEventModel p1 = new HLinkEventModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -116,7 +116,7 @@
                     {
                         HLinkSourceModel p1 = new HLinkSourceModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -126,7 +126,7 @@
                     {
                         HLinkCitationModel p1 = new HLinkCitationModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -136,7 +136,7 @@
                     {
                         HLinkPlaceModel p1 = new HLinkPlaceModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -146,7 +146,7 @@
                     {
                         HLinkMediaModel p1 = new HLinkMediaModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -156,7 +156,7 @@
                     {
                         HLinkRepositoryModel p1 = new HLinkRepositoryModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);
@@ -166,7 +166,7 @@
                     {
                         HLinkNoteModel p1 = new HLinkNoteModel
                         {
-                            HLinkKey = argGHlink
+                            HLinkKey = argHLinkKey
                         };
 
                         return new HLinkBackLink(p1);

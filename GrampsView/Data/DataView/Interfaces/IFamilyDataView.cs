@@ -9,6 +9,7 @@
 
 namespace GrampsView.Data.DataView
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -81,7 +82,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        IPersonModel GetFather(string arg);
+        IPersonModel GetFather(HLinkKey argHLinkKey);
 
         /// <summary>
         /// Gets the mother.
@@ -91,7 +92,7 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        IPersonModel GetMother(string arg);
+        IPersonModel GetMother(HLinkKey argHLinkKey);
 
         /// <summary>
         /// hes the link collection sort.

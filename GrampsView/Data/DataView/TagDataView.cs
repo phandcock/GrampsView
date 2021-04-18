@@ -1,6 +1,7 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -159,9 +160,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override TagModel GetModelFromHLinkString(string HLinkString)
+        public override TagModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return TagData[HLinkString];
+            return TagData[argHLinkKey.Value];
         }
 
         /// <summary>

@@ -28,7 +28,7 @@
                     // Record in the TimeLine
                     UserActivityChannel channel = UserActivityChannel.GetDefault();
 
-                    UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey);
+                    UserActivity _ModelUserActivity = await channel.GetOrCreateUserActivityAsync(theModel.HLinkKey.Value);
 
                     if (theModel.Valid)
                     {

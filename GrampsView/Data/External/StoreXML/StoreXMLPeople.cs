@@ -57,7 +57,7 @@
                         XElement tempChildOf = pname.Element(ns + "childof");
                         if (tempChildOf != null)
                         {
-                            loadPerson.GChildOf.HLinkKey = (string)tempChildOf.Attribute("hlink");
+                            loadPerson.GChildOf.HLinkKey = GetHLinkKey(tempChildOf.Attribute("hlink"));
                         }
 
                         // CitationRef collection
@@ -111,7 +111,7 @@
                             {
                                 HLinkFamilyModel t = new HLinkFamilyModel
                                 {
-                                    HLinkKey = (string)loadPIElement.Attribute("hlink"),
+                                    HLinkKey = GetHLinkKey(loadPIElement.Attribute("hlink")),
                                 };
                                 loadPerson.GParentInRefCollection.Add(t);
                             }
