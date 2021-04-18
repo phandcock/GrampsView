@@ -11,11 +11,6 @@
     /// </summary>
     public interface IHLinkBase : IComparer, IComparable
     {
-        bool GPriv
-        {
-            get; set;
-        }
-
         ItemGlyph HLinkGlyphItem
         {
             get; set;
@@ -33,15 +28,9 @@
             set;
         }
 
-        /// <summary>
-        /// Gets the priv as string.
-        /// </summary>
-        /// <value>
-        /// The priv as string.
-        /// </value>
-        string PrivAsString
+        Priv Priv
         {
-            get;
+            get; set;
         }
 
         /// <summary>

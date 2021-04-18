@@ -9,7 +9,6 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
-    using System.Globalization;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -244,32 +243,12 @@
         /// <c>true</c> if priv; otherwise, <c>false</c>.
         /// </value>
         [DataMember]
-        public bool Priv
+        public Priv Priv
         {
-            get
-            {
-                return _Priv;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _Priv, value);
-            }
-        }
-
-        /// <summary>
-        /// Gets the priv as string.
-        /// </summary>
-        /// <value>
-        /// The priv as string.
-        /// </value>
-        public string PrivAsString
-        {
-            get
-            {
-                return _Priv.ToString(CultureInfo.CurrentCulture);
-            }
-        }
+            set;
+        } = new Priv(false);
 
         public IAsyncCommand UCNavigateCommand
         {
@@ -434,7 +413,7 @@
                 Change = argBasics.Change;
             }
 
-            if (argBasics.Priv)
+            if (argBasics.Priv.Value)
             {
                 Priv = argBasics.Priv;
             }

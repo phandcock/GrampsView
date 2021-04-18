@@ -88,14 +88,9 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        bool Priv
+        Priv Priv
         {
             get; set;
-        }
-
-        string PrivAsString
-        {
-            get;
         }
 
         bool Valid

@@ -66,7 +66,7 @@
                 {
                         new CardListLine("Name:", TagObject.GName),
                         new CardListLine("Priority:", TagObject.GPriority.ToString(System.Globalization.CultureInfo.CurrentCulture)),
-                        new CardListLine("Private:", TagObject.PrivAsString),
+                        new CardListLine("Private:", TagObject.Priv.ToString()),
                 });
 
                 BaseDetail.Add(DV.TagDV.GetModelInfoFormatted(TagObject));

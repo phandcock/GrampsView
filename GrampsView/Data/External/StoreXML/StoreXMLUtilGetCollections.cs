@@ -364,7 +364,7 @@
 
                         GNick = GetElement(theLoadORElement, "nick"),
 
-                        GPriv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
                         GSort = GetElement(theLoadORElement, "sort"),
 
@@ -626,7 +626,7 @@
                         // "callno" Done "medium" Done; "noteref" Done
                         HLinkKey = GetAttribute(theLoadORElement.Attribute("hlink")),
 
-                        GPriv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
                         GCallNo = GetAttribute(theLoadORElement.Attribute("callno")),
 
@@ -669,7 +669,7 @@
                 {
                     SrcAttributeModel tt = new SrcAttributeModel
                     {
-                        GPriv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),

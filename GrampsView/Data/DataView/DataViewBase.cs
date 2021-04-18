@@ -186,7 +186,7 @@
                  new CardListLine("Handle:", argModel.Handle),
                  new CardListLine("Id:", argModel.Id),
                  new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
-                 new CardListLine("Private Object:", argModel.PrivAsString),
+                 new CardListLine("Private Object:", argModel.Priv.ToString()),
                };
 
             modelInfoList.Title = "Admin Details";

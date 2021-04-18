@@ -41,20 +41,6 @@
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
 
-        [DataMember]
-        public bool GPriv
-        {
-            get
-            {
-                return _Priv;
-            }
-
-            set
-            {
-                SetProperty(ref _Priv, value);
-            }
-        }
-
         /// <summary>
         /// Gets or sets a value indicating whether [home use image].
         /// </summary>
@@ -94,6 +80,14 @@
                 SetProperty(ref _HLinkKey, value);
             }
         }
+
+        [DataMember]
+        public Priv Priv
+        {
+            get;
+
+            set;
+        } = new Priv(false);
 
         /// <summary>
         /// Gets the priv as string.

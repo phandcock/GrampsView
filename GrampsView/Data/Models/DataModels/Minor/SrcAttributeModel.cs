@@ -13,18 +13,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether [g priv].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [g priv]; otherwise, <c>false</c>.
-        /// </value>
-        public bool GPriv
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Gets or sets the g text.
         /// </summary>
         /// <value>

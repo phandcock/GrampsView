@@ -166,19 +166,19 @@
         /// <returns>
         /// True or False depending on if the object is private.
         /// </returns>
-        public static bool SetPrivateObject(string thePriv)
+        public static Priv SetPrivateObject(string thePriv)
         {
             switch (thePriv)
             {
                 case "1":
                     {
-                        return true;
+                        return new Priv(true);
                     }
 
                 case "0":
                 default:
                     {
-                        return false;
+                        return new Priv(false);
                     }
             }
         }
