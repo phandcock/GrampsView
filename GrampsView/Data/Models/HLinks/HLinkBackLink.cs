@@ -63,12 +63,16 @@ namespace GrampsView.Data.Model
         {
             _HLinkAddressModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkAddressModel;
         }
 
         public HLinkBackLink(HLinkCitationModel ArgHLinkLink)
         {
             _HLinkCitationModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkCitationModel;
         }
@@ -77,12 +81,16 @@ namespace GrampsView.Data.Model
         {
             _HLinkMediaModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkMediaModel;
         }
 
         public HLinkBackLink(HLinkEventModel ArgHLinkLink)
         {
             _HLinkEventModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkEventModel;
         }
@@ -91,12 +99,16 @@ namespace GrampsView.Data.Model
         {
             _HLinkFamilyModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkFamilyModel;
         }
 
         public HLinkBackLink(HLinkNameMapModel ArgHLinkLink)
         {
             _HLinkNameMapModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkNameMapModel;
         }
@@ -106,12 +118,16 @@ namespace GrampsView.Data.Model
             _HLinkNoteModel = ArgHLinkLink;
             _HLinkNoteModel.DisplayAs = CommonEnums.DisplayFormat.SmallCard;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkNoteModel;
         }
 
         public HLinkBackLink(HLinkPersonModel ArgHLinkLink)
         {
             _HLinkPersonModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkPersonModel;
         }
@@ -120,12 +136,16 @@ namespace GrampsView.Data.Model
         {
             _HLinkPersonNameModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkPersonNameModel;
         }
 
         public HLinkBackLink(HLinkPlaceModel ArgHLinkLink)
         {
             _HLinkPlaceModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkPlaceModel;
         }
@@ -134,6 +154,8 @@ namespace GrampsView.Data.Model
         {
             _HLinkRepositoryModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkRepositoryModel;
         }
 
@@ -141,12 +163,16 @@ namespace GrampsView.Data.Model
         {
             _HLinkSourceModel = ArgHLinkLink;
 
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
             HLinkType = HLinkBackLinkEnum.HLinkSourceModel;
         }
 
         public HLinkBackLink(HLinkTagModel ArgHLinkLink)
         {
             _HLinkTagModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkTagModel;
         }

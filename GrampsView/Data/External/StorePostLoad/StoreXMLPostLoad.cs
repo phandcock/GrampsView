@@ -25,6 +25,15 @@
             return true;
         }
 
+        private static async Task<bool> OrganiseBookMarkRepository()
+        {
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising BookMark data").ConfigureAwait(false);
+
+            DV.BookMarkCollection.SetGlyph();
+
+            return true;
+        }
+
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>

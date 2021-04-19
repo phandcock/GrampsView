@@ -36,7 +36,7 @@
         }
 
         /// <summary>
-        /// Handles navigation in wards and sets up the place model parameter.
+        /// Handles navigation inwards and sets up the place model parameter.
         /// </summary>
         public override void BaseHandleAppearingEvent()
         {
@@ -48,12 +48,6 @@
             {
                 BaseTitle = PlaceObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconPlace;
-
-                // Trigger refresh of View fields via INotifyPropertyChanged
-                //RaisePropertyChanged(string.Empty);
-
-                // Get Header details
-                //CardGroup t = new CardGroup { Title = "Header Details" };
 
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
@@ -73,8 +67,6 @@
                 });
 
                 BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
-
-                //BaseDetail.Add(t);
 
                 // Get Place Name details
                 if (PlaceObject.GPlaceNames.Count > 1)

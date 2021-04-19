@@ -5,11 +5,15 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
+
+    using static GrampsView.Data.Model.HLinkBackLink;
 
     /// <summary>
     /// </summary>
@@ -72,6 +76,112 @@ namespace GrampsView.Data.Collections
 
                 return t;
             }
+        }
+
+        public override void SetGlyph()
+        {
+            // Back Reference HLinks
+            foreach (HLinkBackLink argHLink in this)
+            {
+                ItemGlyph t = new ItemGlyph();
+
+                switch (argHLink.HLinkType)
+                {
+                    case HLinkBackLinkEnum.HLinkAddressModel:
+                        {
+                            t = DV.AddressDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkCitationModel:
+                        {
+                            t = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkEventModel:
+                        {
+                            t = DV.EventDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkFamilyModel:
+                        {
+                            t = DV.FamilyDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkMediaModel:
+                        {
+                            t = DV.MediaDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkNameMapModel:
+                        {
+                            t = DV.NameMapDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkNoteModel:
+                        {
+                            t = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkPersonModel:
+                        {
+                            t = DV.PersonDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkPersonNameModel:
+                        {
+                            t = DV.PersonNameDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkPlaceModel:
+                        {
+                            t = DV.PlaceDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkRepositoryModel:
+                        {
+                            t = DV.RepositoryDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkSourceModel:
+                        {
+                            t = DV.SourceDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.HLinkTagModel:
+                        {
+                            t = DV.TagDV.GetGlyph(argHLink.HLinkKey);
+                            break;
+                        }
+
+                    case HLinkBackLinkEnum.Unknown:
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
+                argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
+            }
+
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
         }
     }
 }

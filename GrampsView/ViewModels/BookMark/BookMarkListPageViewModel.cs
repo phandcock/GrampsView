@@ -5,9 +5,6 @@
 
     using Prism.Events;
 
-    /// <summary>
-    /// View Model for the Event Section Page.
-    /// </summary>
     public class BookMarkListViewModel : ViewModelBase
     {
         public BookMarkListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)

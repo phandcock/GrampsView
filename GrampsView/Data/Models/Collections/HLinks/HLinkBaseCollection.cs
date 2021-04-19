@@ -88,7 +88,7 @@ namespace GrampsView.Data.Model
 
         public void SetFirstImage()
         {
-            // Set the first or last image link. FOr first, assumes main image is manually set to
+            // Set the first or last image link. For first, assumes main image is manually set to
             // the first image in Gramps if we need it to be, e.g. Citations.
 
             FirstHLinkHomeImage = new ItemGlyph();

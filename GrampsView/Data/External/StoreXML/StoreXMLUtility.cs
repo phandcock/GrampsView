@@ -49,7 +49,7 @@
              IMediaModel newMediaModel = new MediaModel();
 
              HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
-             string outFileName = Path.Combine("Cropped", newHLinkKey + ".png");
+             string outFileName = Path.Combine("Cropped", newHLinkKey.Value + ".png");
 
              string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
 

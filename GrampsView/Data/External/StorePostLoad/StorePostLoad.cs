@@ -87,7 +87,8 @@
                     // People last as they pretty much depend on everything else
                     await OrganisePersonRepository().ConfigureAwait(false);
 
-                    //await SetHomeImages();
+                    // Apart from BookMarks
+                    await OrganiseBookMarkRepository().ConfigureAwait(false);
                 }
             }
 

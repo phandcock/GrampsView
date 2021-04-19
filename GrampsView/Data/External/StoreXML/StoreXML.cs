@@ -128,7 +128,6 @@
             // load the rest of the data in dependency order
             await LoadSourcesAsync().ConfigureAwait(false);
 
-            await LoadBookMarksAsync().ConfigureAwait(false);
             await LoadCitationsAsync().ConfigureAwait(false);
             await LoadEventsAsync().ConfigureAwait(false);
 
@@ -145,6 +144,9 @@
 
             // People last because they rely on pretty much everything else
             await LoadPeopleDataAsync().ConfigureAwait(false);
+
+            // Apart from BooMarks
+            await LoadBookMarksAsync().ConfigureAwait(false);
 
             return true;
         }

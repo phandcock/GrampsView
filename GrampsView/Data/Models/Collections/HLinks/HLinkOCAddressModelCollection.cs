@@ -49,8 +49,6 @@ namespace GrampsView.Data.Collections
             //// Set the first image link. Assumes main image is manually set to the first image in
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
-
-            // TODO Sort();
         }
     }
 }
