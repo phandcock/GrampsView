@@ -1,3 +1,14 @@
+## [16.17.25](https://github.com/phandcock/GrampsView/compare/v16.17.24...v16.17.25) (2021-04-19)
+
+
+### Bug Fixes
+
+* add HLinkKey class ([17051ad](https://github.com/phandcock/GrampsView/commit/17051ad027012d48fd22934fcf940dea00d3a270))
+* move Priv to its own class ([39ceca7](https://github.com/phandcock/GrampsView/commit/39ceca779e1941b368dbdd158a2600b8f9688343))
+* save Hlinks both old and serialised ([8291fb6](https://github.com/phandcock/GrampsView/commit/8291fb67132ed409b0f4725f989d837b0101185e))
+
+
+
 ## [16.17.24](https://github.com/phandcock/GrampsView/compare/v16.17.23...v16.17.24) (2021-04-18)
 
 
@@ -41,17 +52,6 @@
 * add latest repository changes ot hubpage ([8018302](https://github.com/phandcock/GrampsView/commit/80183028ebff768455f9fbc4ab60bec2bb5b725d))
 * display sourcecardlarge and personlink better ([2ea0c67](https://github.com/phandcock/GrampsView/commit/2ea0c6766f07a74bd7c24d6db2dc8ccd119226f9))
 * minor tweaks ([00cb012](https://github.com/phandcock/GrampsView/commit/00cb012a14a9be430d41e0fc9ef0386700bc5567))
-
-
-
-## [16.17.20](https://github.com/phandcock/GrampsView/compare/v16.17.19...v16.17.20) (2021-04-11)
-
-
-### Bug Fixes
-
-* adjust popup window size ([7558bb3](https://github.com/phandcock/GrampsView/commit/7558bb314c8a8202a215411310d8a095a539ecf0))
-* more startup tweaks ([4e57748](https://github.com/phandcock/GrampsView/commit/4e57748c2c0851e1162ef5cc91be86c33bfbe3aa))
-* tweak firstimage code to be faster ([32a135d](https://github.com/phandcock/GrampsView/commit/32a135d18c556929e3dcc2852cbcf1ca57762bd0))
 
 
 
