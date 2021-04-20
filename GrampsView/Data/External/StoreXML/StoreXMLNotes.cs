@@ -78,7 +78,7 @@
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    DataStore.Instance.CN.NotifyException("Exception loading Notes from the Gramps file", ex);
+                    await DataStore.Instance.CN.NotifyException("Exception loading Notes from the Gramps file", ex);
 
                     throw;
                 }

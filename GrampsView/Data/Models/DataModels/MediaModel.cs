@@ -37,7 +37,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _FileDescription = string.Empty;
 
-        private bool _IsInternalMediaFile;
+        //private bool _IsInternalMediaFile;
 
         /// <summary>
         /// Local Storage File for media object.

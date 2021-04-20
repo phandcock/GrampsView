@@ -53,7 +53,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Timeline Add", ex);
+                    await DataStore.Instance.CN.NotifyException("Timeline Add", ex);
                 }
 
                 return activitySession;

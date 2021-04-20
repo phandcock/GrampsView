@@ -6,7 +6,7 @@
     public class MessageLogPopup : Popup
     {
         public static readonly BindableProperty DismissFlagProperty
-       = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(MessageLogPopup), defaultValue: false, propertyName: nameof(DismissFlag), propertyChanged: onDismissFlagChanged);
+       = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(MessageLogPopup), defaultValue: false, propertyName: nameof(DismissFlag), propertyChanged: OnDismissFlagChanged);
 
         public MessageLogPopup()
         {
@@ -29,7 +29,7 @@
             }
         }
 
-        private static void onDismissFlagChanged(BindableObject bindable, object oldValue, object newValue)
+        private static void OnDismissFlagChanged(BindableObject bindable, object oldValue, object newValue)
         {
             MessageLogPopup sender = bindable as MessageLogPopup;
 

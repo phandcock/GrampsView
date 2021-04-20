@@ -65,17 +65,6 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            //Debug.WriteLine("====== resource debug info =========");
-
-            //var assembly = typeof(App).GetTypeInfo().Assembly;
-
-            //foreach (var res in assembly.GetManifestResourceNames())
-            //{
-            //    Debug.WriteLine("found resource: " + res);
-            //}
-
-            //Debug.WriteLine("====================================");
-
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {
@@ -97,7 +86,7 @@ namespace GrampsView
 
             MainPage = new AppShell();
 
-            StartAtDetailPage();
+            StartAtDetailPage().GetAwaiter().GetResult();
 
             Shell.Current.GoToAsync("///HubPage");
         }
@@ -108,7 +97,7 @@ namespace GrampsView
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                //Shell.Current.Navigation.PopToRootAsync(animated: true);
+                //Shell.Current.Navigation.PopToRootAsync(animated: true); // TODO
                 //return;
             }
 
@@ -130,8 +119,8 @@ namespace GrampsView
         {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                Common.CommonRoutines.NavigateHub();
-                //Shell.Current.Navigation.PopToRootAsync(animated: true);
+                CommonRoutines.NavigateHub();
+
                 return;
             }
 
@@ -148,7 +137,7 @@ namespace GrampsView
 
             Container.Resolve<IDataRepositoryManager>();
 
-            Common.StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
+            StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
                      Container.Resolve<DatabaseReloadDisplayService>());
         }
 
@@ -210,13 +199,8 @@ namespace GrampsView
             container.RegisterSingleton<IStoreXML, StoreXML>();
             container.RegisterSingleton<IStoreFile, StoreFile>();
 
-            //container.RegisterSingleton<WhatsNewDisplayService>();
             container.RegisterForNavigation<WhatsNewPage, WhatsNewViewModel>();
-
-            //container.RegisterSingleton<FirstRunDisplayService>();
             container.RegisterForNavigation<FirstRunPage>();
-
-            //container.RegisterSingleton<DatabaseReloadDisplayService>();
             container.RegisterForNavigation<NeedDatabaseReloadPage>();
         }
 

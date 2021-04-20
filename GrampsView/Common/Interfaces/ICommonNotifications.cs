@@ -52,7 +52,7 @@ namespace GrampsView.Common
 
         void DataLogHide();
 
-        Task DataLogShow();
+        void DataLogShow();
 
         Task MinorMessageAdd(string argMessage);
 

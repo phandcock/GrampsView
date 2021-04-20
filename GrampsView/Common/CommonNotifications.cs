@@ -143,7 +143,7 @@
             DataLog.DismissFlag = true;
         }
 
-        public async Task DataLogShow()
+        public void DataLogShow()
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {

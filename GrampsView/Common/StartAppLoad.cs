@@ -19,9 +19,9 @@
 
         private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
-        private static bool databaseReloadShownFlag = false;
-        private static bool firstRunShownFlag = false;
-        private static bool whatNewShownFlag = false;
+        //private static bool databaseReloadShownFlag = false;
+        //private static bool firstRunShownFlag = false;
+        //private static bool whatNewShownFlag = false;
 
         public static void Init(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
@@ -34,11 +34,11 @@
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
 
-            firstRunShownFlag = false;
-            databaseReloadShownFlag = false;
-            whatNewShownFlag = false;
+            //firstRunShownFlag = false;
+            //databaseReloadShownFlag = false;
+            //whatNewShownFlag = false;
 
-            StartProcessing();
+            StartProcessing().GetAwaiter().GetResult();
         }
 
         public static async Task StartProcessing()

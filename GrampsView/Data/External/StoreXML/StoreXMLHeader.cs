@@ -71,7 +71,7 @@
                 }
                 catch (System.Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
+                    await DataStore.Instance.CN.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
 
                     throw;
                 }

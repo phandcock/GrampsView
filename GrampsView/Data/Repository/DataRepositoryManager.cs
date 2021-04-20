@@ -190,7 +190,7 @@
 
             //CommonRoutines.NavigateHub();
 
-            await DataStore.Instance.CN.DataLogShow();
+            DataStore.Instance.CN.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
@@ -422,7 +422,7 @@
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                DataStore.Instance.CN.NotifyException("Trying to load existing serialised data", ex);
+                await DataStore.Instance.CN.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
 

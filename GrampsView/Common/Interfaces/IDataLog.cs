@@ -17,7 +17,7 @@ namespace GrampsView.Common
 
         Task<bool> Add(string entry);
 
-        Task<bool> Clear();
+        void Clear();
 
         Task<bool> Remove();
 

@@ -94,7 +94,7 @@
 
                             if (mediaFileName.Length == 0)
                             {
-                                DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
+                                await DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
 
                                 loadObject.MediaStorageFile = null;
                             }
@@ -122,7 +122,7 @@
                                 }
                                 catch (Exception ex)
                                 {
-                                    DataStore.Instance.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
+                                    await DataStore.Instance.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                     throw;
                                 }
                             }
@@ -164,7 +164,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    DataStore.Instance.CN.NotifyException("Loading Media Objects", e);
+                    await DataStore.Instance.CN.NotifyException("Loading Media Objects", e);
 
                     throw;
                 }

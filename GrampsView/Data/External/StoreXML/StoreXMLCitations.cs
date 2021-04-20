@@ -61,7 +61,7 @@
                 }
                 catch (Exception e)
                 {
-                    DataStore.Instance.CN.NotifyException("Exception loading Citations form XML", e);
+                    await DataStore.Instance.CN.NotifyException("Exception loading Citations form XML", e);
                     throw;
                 }
 

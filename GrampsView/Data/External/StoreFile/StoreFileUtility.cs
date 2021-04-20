@@ -133,7 +133,7 @@
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in PickCurrentInputFile", ex);
+                await DataStore.Instance.CN.NotifyException("Exception in PickCurrentInputFile", ex);
 
                 throw;
             }

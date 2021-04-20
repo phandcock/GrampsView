@@ -66,11 +66,11 @@
             return true;
         }
 
-        public async Task<bool> Clear()
+        public void Clear()
         {
             DataLoadLog.Clear();
 
-            return true;
+            return;
         }
 
         /// <summary>

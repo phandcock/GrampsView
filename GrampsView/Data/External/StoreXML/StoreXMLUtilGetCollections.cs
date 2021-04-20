@@ -79,10 +79,6 @@
 
                     t.Add(newHlink);
                 }
-
-                // TODO Do we need to sort
-                //// Sort by date
-                //t.Sort(x => x.DeRef.GDate);
             }
 
             return t;

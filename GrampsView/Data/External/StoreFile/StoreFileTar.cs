@@ -303,7 +303,7 @@
 
                         // string.Format(System.Globalization.CultureInfo.CurrentCulture
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        await DataStore.Instance.CN.NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }
@@ -318,18 +318,18 @@
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    await DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    await DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
+                    await DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }

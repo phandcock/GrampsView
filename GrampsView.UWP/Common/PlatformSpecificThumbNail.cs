@@ -65,7 +65,7 @@
 
                 return argNewMediaModel;
             }
-            catch (System.IO.DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException ex)
             {
                 ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
                                  {
@@ -75,11 +75,11 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ErrorInfo t = new ErrorInfo("Exception when trying to create image from PDF file")
                                  {
@@ -88,7 +88,7 @@
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
