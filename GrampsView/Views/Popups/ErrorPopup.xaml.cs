@@ -17,6 +17,8 @@
 
         private void Button_Clicked(object sender, System.EventArgs e)
         {
+            //TODO finish adding ability to display multiple errorpops in a row using the notification queue
+
             Dismiss(null);
         }
     }

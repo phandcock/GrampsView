@@ -14,15 +14,15 @@
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : CommonBindableBase, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private ICommonLogging _CL = new CommonLogging();
+        ///// <summary>
+        ///// Backing store for the base current state
+        ///// </summary>
+        //private ICommonLogging _CL = new CommonLogging();
 
-        /// <summary>
-        /// Backing store for the base current state
-        /// </summary>
-        private IEventAggregator _EventAggregator = new EventAggregator();
+        ///// <summary>
+        ///// Backing store for the base current state
+        ///// </summary>
+        //private IEventAggregator _EventAggregator = new EventAggregator();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -206,12 +206,12 @@
 
         private void OnBaseCLChanged()
         {
-            Debug.Assert(_CL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
+            Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
         }
 
         private void OnBaseEventAggregatorChanged()
         {
-            Debug.Assert(_EventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
+            Debug.Assert(BaseEventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
         }
 
         private void OnBaseTitleChanged()

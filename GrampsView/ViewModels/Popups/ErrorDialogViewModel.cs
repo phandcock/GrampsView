@@ -12,9 +12,13 @@
 
         public ErrorDialogViewModel()
         {
-            Title = DataStore.Instance.CN.DialogArgs.DialogBoxTitle;
+            DataStore.Instance.CN.DialogShown = true;
 
-            AdaArgs = DataStore.Instance.CN.DialogArgs;
+            ErrorInfo t = DataStore.Instance.CN.PopupQueue.Dequeue();
+
+            Title = t.DialogBoxTitle;
+
+            AdaArgs = t;
         }
 
         public ErrorInfo AdaArgs

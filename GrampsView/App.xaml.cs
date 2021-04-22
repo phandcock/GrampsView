@@ -5,6 +5,7 @@ using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Events;
 using GrampsView.Services;
 using GrampsView.ViewModels;
 using GrampsView.Views;
@@ -24,6 +25,7 @@ using System.Threading.Tasks;
 
 using Unity;
 
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -50,6 +52,11 @@ namespace GrampsView
         public App(IPlatformInitializer initializer, bool setFormsDependencyResolver)
                             : base(initializer, setFormsDependencyResolver)
         {
+        }
+
+        public void ShowPopUp()
+        {
+            Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -136,6 +143,8 @@ namespace GrampsView
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
             Container.Resolve<IDataRepositoryManager>();
+
+            Container.Resolve<IEventAggregator>().GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
 
             StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
                      Container.Resolve<DatabaseReloadDisplayService>());

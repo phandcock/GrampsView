@@ -3,6 +3,7 @@ namespace GrampsView.Common
     using GrampsView.Common.CustomClasses;
 
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -15,7 +16,7 @@ namespace GrampsView.Common
             get;
         }
 
-        ErrorInfo DialogArgs
+        bool DialogShown
         {
             get; set;
         }
@@ -25,6 +26,15 @@ namespace GrampsView.Common
             get; set;
         }
 
+        Queue<ErrorInfo> PopupQueue
+        {
+            get;
+        }
+
+        //ErrorInfo DialogArgs
+        //{
+        //    get; set;
+        //}
         /// <summary>
         /// Changes the loading message.
         /// </summary>

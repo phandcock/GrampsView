@@ -1,10 +1,13 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
+    using GrampsView.Events;
     using GrampsView.Views;
 
+    using Prism.Events;
+
     using System;
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -23,6 +26,7 @@
         /// </summary>
         private readonly ICommonLogging _iocCommonLogging;
 
+        private readonly IEventAggregator _iocEventAggregator;
         private string _MinorMessage;
 
         /// <summary>
@@ -36,9 +40,10 @@
         /// </param>
         /// <param name="iocDataLog">
         /// </param>
-        public CommonNotifications(ICommonLogging iocCommonLogging)
+        public CommonNotifications(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
         {
             _iocCommonLogging = iocCommonLogging;
+            _iocEventAggregator = iocEventAggregator;
         }
 
         public IDataLog DataLog
@@ -48,13 +53,12 @@
 
         = new CommonDataLog();
 
-        public ErrorInfo DialogArgs
+        public bool DialogShown
         {
             get; set;
-        }
+        } = false;
 
-        = new ErrorInfo();
-
+        //= new ErrorInfo();
         public string MinorMessage
         {
             get
@@ -68,6 +72,9 @@
             }
         }
 
+        public Queue<ErrorInfo> PopupQueue { get; } = new Queue<ErrorInfo>();
+
+        // public ErrorInfo DialogArgs { get; set; }
         /// <summary>
         /// Changes the bottom message.
         /// </summary>
@@ -176,9 +183,11 @@
             argErrorDetail.DialogBoxTitle = "Alert";
             argErrorDetail.Text = argMessage;
 
-            DataStore.Instance.CN.DialogArgs = argErrorDetail;
+            PopupQueue.Enqueue(argErrorDetail);
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+            _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
+
+            // await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
         }
 
         public async Task NotifyError(ErrorInfo argErrorDetail)
@@ -192,13 +201,17 @@
 
             _iocCommonLogging.Error(argErrorDetail);
 
-            DataStore.Instance.CN.DialogArgs = argErrorDetail;
+            PopupQueue.Enqueue(argErrorDetail);
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+            _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
+
+            //ErrorPopup t = new ErrorPopup();
+
+            //await Application.Current.MainPage.Navigation.ShowPopupAsync(t);
         }
 
         /// <summary>
-        /// notify the user about an Exception.
+        /// Notify the user about an Exception.
         /// </summary>
         /// <param name="argMessage">
         /// general description of where the Exception occurred.
@@ -231,14 +244,15 @@
 
             argExtraItems.Add("Stack Trace", argException.StackTrace);
 
-            DataStore.Instance.CN.DialogArgs = argExtraItems;
+            PopupQueue.Enqueue(argExtraItems);
 
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+            _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
+
+            //await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 
-            // Remove serialised data in case it is the issue
-            CommonLocalSettings.DataSerialised = false;
+            // Remove serialised data in case it is the issue CommonLocalSettings.DataSerialised = false;
         }
     }
 }
