@@ -10,6 +10,7 @@
 
     <CollectionView
         x:Name="MajorStatusList"
+        BackgroundColor="Transparent"
         ItemSizingStrategy="MeasureAllItems"
         ItemTemplate="{StaticResource DataLogEntryLarge}"
         ItemsSource="{Binding DataLoadLog, Mode=OneWay}"

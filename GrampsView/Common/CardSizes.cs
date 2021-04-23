@@ -59,7 +59,7 @@
         {
             get
             {
-                int numCols = (int)Math.Floor(ScreenSize.Width / CardSmallWidthDefault);
+                int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidthDefault);
 
                 if (numCols < 1)
                 {
@@ -190,7 +190,7 @@
                         return new Size(ScaledWidth - 100, ScaledHeight - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(ScaledWidth - 5, ScaledHeight - 100); // Window Size does not include headings
+                        return new Size(ScaledWidth - 50, ScaledHeight - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -236,7 +236,7 @@
 
             // Set width so that a whole number of cards fit across the screen
 
-            outVal = ScreenSize.Width / CardsAcrossColumns;
+            outVal = WindowSize.Width / CardsAcrossColumns;
 
             Debug.WriteLine("Card Base Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
             CardBaseWidth = outVal;
@@ -247,9 +247,9 @@
             double outVal = CardLargeWidth * 2;
 
             // Check size
-            if (outVal > ScreenSize.Width)
+            if (outVal > WindowSize.Width)
             {
-                outVal = ScreenSize.Width;
+                outVal = WindowSize.Width;
             }
 
             CardLargeDoubleWidth = outVal;
@@ -267,9 +267,9 @@
             outVal = CardBaseWidth * 2;
 
             // Check size
-            if (outVal > ScreenSize.Width)
+            if (outVal > WindowSize.Width)
             {
-                outVal = ScreenSize.Width;
+                outVal = WindowSize.Width;
             }
 
             CardLargeWidth = outVal;
@@ -287,9 +287,9 @@
             outVal = CardBaseWidth * 1.5;
 
             // Check size
-            if (outVal > ScreenSize.Width)
+            if (outVal > WindowSize.Width)
             {
-                outVal = ScreenSize.Width;
+                outVal = WindowSize.Width;
             }
 
             CardMediumWidth = outVal;
