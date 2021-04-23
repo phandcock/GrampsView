@@ -7,9 +7,10 @@
 
     using System.Diagnostics.Contracts;
     using System.Globalization;
+    using System.Threading.Tasks;
     using System.Windows.Input;
 
-    using Xamarin.Forms;
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// Search ViewModel class.
@@ -17,17 +18,12 @@
     /// <seealso cref="GrampsView.ViewModels.ViewModelBase"/>
     public class SearchPageViewModel : ViewModelBase
     {
+        private bool _isBusy;
+
         /// <summary>
         /// The search command backing store.
         /// </summary>
         private ICommand _searchCommand;
-
-        private bool _SearchItemsFound = true;
-
-        /// <summary>
-        /// The local search text.
-        /// </summary>
-        private string _SearchText = string.Empty;
 
         private string lastArg = string.Empty;
 
@@ -50,7 +46,20 @@
 
             BaseTitleIcon = CommonConstants.IconSearch;
 
-            SearchButtonCommand = new Command<string>(SearchProcessQuery);
+            SearchButtonCommand = new AsyncCommand<string>(buttonClickText => SearchProcessQuery(buttonClickText), _ => !IsBusy);
+        }
+
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set
+            {
+                if (_isBusy != value)
+                {
+                    _isBusy = value;
+                    SearchButtonCommand.RaiseCanExecuteChanged();
+                }
+            }
         }
 
         public CardGroup ItemsFoundList
@@ -66,27 +75,9 @@
         /// <value>
         /// The search button command.
         /// </value>
-        public ICommand SearchButtonCommand
+        public IAsyncCommand<string> SearchButtonCommand
         {
-            get; private set;
-        }
-
-        /// <summary>
-        /// Handles the search command.
-        /// </summary>
-        /// <value>
-        /// The search command.
-        /// </value>
-        public ICommand SearchCommand
-        {
-            get
-            {
-                return _searchCommand ?? (_searchCommand = new Command<string>((text) =>
-                {
-                    // TODO Fix search display as you go
-                    //ProcessQuery(text, 10);
-                }));
-            }
+            get;
         }
 
         /// <summary>
@@ -97,15 +88,9 @@
         /// </value>
         public bool SearchItemsFound
         {
-            get
-            {
-                return _SearchItemsFound;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _SearchItemsFound, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -116,23 +101,9 @@
         /// </value>
         public string SearchText
         {
-            get
-            {
-                return _SearchText;
-            }
+            get;
 
-            set
-            {
-                if (!(value is null))
-                {
-                    SetProperty(ref _SearchText, value);
-                }
-            }
-        }
-
-        public override void BaseHandleAppearingEvent()
-        {
-            // TODO Do we need this?
+            set;
         }
 
         /// <summary>
@@ -144,7 +115,7 @@
         /// <param name="argLimit">
         /// Search Limit for search terms found while typing.
         /// </param>
-        public void ProcessQuery(string argSearch)
+        public async Task ProcessQuery(string argSearch)
         {
             Contract.Assert(argSearch != null);
 
@@ -182,12 +153,12 @@
         /// </summary>
         /// <param name="argSearch">
         /// </param>
-        public void SearchProcessQuery(string argSearch)
+        public async Task SearchProcessQuery(string argSearch)
         {
             // Handle issues with bounce onf EventToCommand
             if (lastArg != argSearch)
             {
-                ProcessQuery(argSearch);
+                await ProcessQuery(argSearch);
             }
 
             lastArg = argSearch;

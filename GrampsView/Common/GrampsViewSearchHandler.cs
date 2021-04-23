@@ -3,9 +3,6 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Newtonsoft.Json;
-
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Xamarin.Forms;
@@ -17,9 +14,7 @@
             base.OnItemSelected(item);
             await Task.Delay(1000);
 
-            ShellNavigationState state = (App.Current.MainPage as Shell).CurrentState;
-
-            await CommonRoutines.NavigateAsync("PersonDetailPage?BaseParamsHLink=" + JsonConvert.SerializeObject(item));
+            await (item as HLinkPersonModel).UCNavigate();
         }
 
         protected override void OnQueryChanged(string oldValue, string newValue)
@@ -32,7 +27,7 @@
             }
             else
             {
-                ItemsSource = DV.PersonDV.SearchShell(newValue).ToList<HLinkPersonModel>();
+                ItemsSource = DV.PersonDV.SearchShell(newValue);
             }
         }
     }

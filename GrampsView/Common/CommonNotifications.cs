@@ -186,8 +186,6 @@
             PopupQueue.Enqueue(argErrorDetail);
 
             _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
-
-            // await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
         }
 
         public async Task NotifyError(ErrorInfo argErrorDetail)
@@ -243,8 +241,6 @@
             PopupQueue.Enqueue(argExtraItems);
 
             _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
-
-            //await Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 

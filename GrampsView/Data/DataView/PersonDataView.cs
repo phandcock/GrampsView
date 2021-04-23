@@ -345,15 +345,24 @@ namespace GrampsView.Data.DataView
             // Get list of peoples names
             CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQuery);
 
-            foreach (HLinkPersonNameModel item in tt)
+            // Convert to HLinkPersonModels
+            List<HLinkPersonModel> ttt = new List<HLinkPersonModel>();
+
+            foreach (var item in tt)
             {
-                foreach (HLinkBackLink item_backlink in item.DeRef.BackHLinkReferenceCollection)
+                foreach (HLinkBackLink item1 in item.DeRef.BackHLinkReferenceCollection)
                 {
-                    if (item_backlink.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
+                    if (item1.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
                     {
-                        itemsFound.Add(item_backlink.HLink() as HLinkPersonModel);
+                        ttt.Add(item1.HLink() as HLinkPersonModel);
                     }
                 }
+            }
+
+            // Get Distinct
+            foreach (var item2 in ttt.Distinct())
+            {
+                itemsFound.Add(item2);
             }
 
             return itemsFound;
@@ -361,28 +370,7 @@ namespace GrampsView.Data.DataView
 
         public List<HLinkPersonModel> SearchShell(string argQuery)
         {
-            List<HLinkPersonModel> itemsFound = new List<HLinkPersonModel>();
-
-            if (string.IsNullOrEmpty(argQuery))
-            {
-                return itemsFound;
-            }
-
-            // Get list of peoples names
-            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQuery);
-
-            foreach (HLinkPersonNameModel item in tt)
-            {
-                foreach (HLinkBackLink item_backlink in item.DeRef.BackHLinkReferenceCollection)
-                {
-                    if (item_backlink.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
-                    {
-                        itemsFound.Add(item_backlink.HLink() as HLinkPersonModel);
-                    }
-                }
-            }
-
-            return itemsFound;
+            return Search(argQuery).ToList();
         }
     }
 }
