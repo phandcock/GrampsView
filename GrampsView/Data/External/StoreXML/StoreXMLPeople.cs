@@ -148,12 +148,12 @@
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        await DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
+                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
                         throw;
                     }
                     else
                     {
-                        await DataStore.Instance.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
+                        DataStore.Instance.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
                         throw;
                     }
                 }

@@ -80,7 +80,7 @@
                 }
                 catch (Exception ex)
                 {
-                    await DataStore.Instance.CN.NotifyException(ex.Message + relativeFilePath, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + relativeFilePath, ex);
                     throw;
                 }
             }
@@ -117,7 +117,7 @@
                 }
                 catch (Exception ex)
                 {
-                    await DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
+                    DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
                     throw;
                 }
             }
@@ -144,7 +144,7 @@
             // Check arguments
             if (inputFile == null)
             {
-                await DataStore.Instance.CN.NotifyError(new ErrorInfo("The input file is null"));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("The input file is null"));
                 return false;
             }
 
@@ -162,7 +162,7 @@
                         { "Exception Message ", ex.Message },
                     };
 
-                await DataStore.Instance.CN.NotifyError(t);
+                DataStore.Instance.CN.NotifyError(t);
                 return false;
             }
         }
@@ -181,7 +181,7 @@
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                await DataStore.Instance.CN.NotifyAlert("The input file is invalid");
+                DataStore.Instance.CN.NotifyAlert("The input file is invalid");
                 return false;
             }
 

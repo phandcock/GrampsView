@@ -711,7 +711,7 @@
             }
             catch (Exception ex)
             {
-                await DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
+                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
 
                 throw;
             }

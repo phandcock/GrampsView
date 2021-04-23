@@ -126,7 +126,7 @@
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    await DataStore.Instance.CN.NotifyAlert("No input file was selected");
+                    DataStore.Instance.CN.NotifyAlert("No input file was selected");
 
                     // Allow another pick if required
                     LocalCanHandleDataFolderChosen = true;
@@ -136,7 +136,7 @@
             }
             catch (Exception ex)
             {
-                await DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
+                DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
 
                 throw;
             }

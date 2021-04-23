@@ -47,7 +47,7 @@
                 }
                 catch (Exception ex)
                 {
-                    await DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }
@@ -98,7 +98,7 @@
                 }
                 catch (Exception ex)
                 {
-                    await DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

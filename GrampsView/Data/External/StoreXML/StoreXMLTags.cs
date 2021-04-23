@@ -62,7 +62,7 @@
                 }
                 catch (Exception ex)
                 {
-                    await DataStore.Instance.CN.NotifyException("Error in LoadTagsAsync", ex);
+                    DataStore.Instance.CN.NotifyException("Error in LoadTagsAsync", ex);
                     throw;
                 }
             }

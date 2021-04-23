@@ -253,7 +253,7 @@
             }
             else
             {
-                await DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
 
                 CommonLocalSettings.SetReloadDatabase();
             }
@@ -422,7 +422,7 @@
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                await DataStore.Instance.CN.NotifyException("Trying to load existing serialised data", ex);
+                DataStore.Instance.CN.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
 

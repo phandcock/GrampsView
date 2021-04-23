@@ -172,8 +172,7 @@
                     ErrorPlaceholder = "ic_launcher.png",
                     LoadingPlaceholder = "ic_launcher.png",
                     RetryCount = 3,
-                    RetryDelay = 1000,
-                    VerticalOptions = LayoutOptions.FillAndExpand,
+                    RetryDelay = 1000
                 };
 
                 newMediaControl.Error += NewMediaControl_Error;

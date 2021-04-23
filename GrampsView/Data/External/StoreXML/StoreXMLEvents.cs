@@ -69,7 +69,7 @@
                     // TODO handle this
                     await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
-                    await DataStore.Instance.CN.NotifyException("LoadEventsAsync", e);
+                    DataStore.Instance.CN.NotifyException("LoadEventsAsync", e);
 
                     throw;
                 }

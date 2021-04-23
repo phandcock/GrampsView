@@ -8,7 +8,6 @@
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Threading.Tasks;
-    using System.Windows.Input;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -20,11 +19,6 @@
     {
         private bool _isBusy;
 
-        /// <summary>
-        /// The search command backing store.
-        /// </summary>
-        private ICommand _searchCommand;
-
         private string lastArg = string.Empty;
 
         /// <summary>
@@ -35,9 +29,6 @@
         /// </param>
         /// <param name="iocEventAggregator">
         /// Event Aggregator.
-        /// </param>
-        /// <param name="iocNavigationService">
-        /// NavigationService
         /// </param>
         public SearchPageViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
@@ -107,13 +98,10 @@
         }
 
         /// <summary>
-        /// Processes the query.
+        /// Processes the search query.
         /// </summary>
         /// <param name="argSearch">
         /// Search Text.
-        /// </param>
-        /// <param name="argLimit">
-        /// Search Limit for search terms found while typing.
         /// </param>
         public async Task ProcessQuery(string argSearch)
         {

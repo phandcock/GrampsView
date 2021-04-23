@@ -56,7 +56,7 @@
                                     { "HLink",  argBookMark.ToString()}
                                 };
 
-                            await DataStore.Instance.CN.NotifyError(t);
+                            DataStore.Instance.CN.NotifyError(t);
                         }
 
                         await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading bookmark: {0}", newHlinkBackLink.HLinkType));

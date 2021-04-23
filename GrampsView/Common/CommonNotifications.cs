@@ -173,7 +173,7 @@
             return;
         }
 
-        public async Task NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null)
+        public void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null)
         {
             if (argErrorDetail == null)
             {
@@ -188,7 +188,7 @@
             _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
         }
 
-        public async Task NotifyError(ErrorInfo argErrorDetail)
+        public void NotifyError(ErrorInfo argErrorDetail)
         {
             if (argErrorDetail is null)
             {
@@ -213,7 +213,7 @@
         /// <param name="ex">
         /// Exception object.
         /// </param>
-        public async Task NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null)
+        public void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null)
         {
             if (argException is null)
             {

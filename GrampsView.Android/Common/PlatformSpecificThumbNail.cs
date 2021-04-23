@@ -55,7 +55,7 @@ namespace GrampsView.Droid.Common
                                      { "New path", "pdfimage" }
                                  };
 
-                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -68,7 +68,7 @@ namespace GrampsView.Droid.Common
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                await DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

@@ -75,7 +75,7 @@
                     }
                     catch (Exception ex)
                     {
-                        await DataStore.Instance.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        DataStore.Instance.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
                         throw;
                     }
@@ -89,7 +89,7 @@
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 
-                        await DataStore.Instance.CN.NotifyError(t);
+                        DataStore.Instance.CN.NotifyError(t);
                         return false;
                     }
 
@@ -107,7 +107,7 @@
             }
             catch (Exception ex)
             {
-                await DataStore.Instance.CN.NotifyException("Trying to load Gramps data only", ex);
+                DataStore.Instance.CN.NotifyException("Trying to load Gramps data only", ex);
                 throw;
             }
 
