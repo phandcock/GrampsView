@@ -1,3 +1,13 @@
+## [16.17.27](https://github.com/phandcock/GrampsView/compare/v16.17.26...v16.17.27) (2021-04-23)
+
+
+### Bug Fixes
+
+* allow multiple popups in a row ([f1d3af8](https://github.com/phandcock/GrampsView/commit/f1d3af8700dd31e652ad2256d5f795d5f3950ba1))
+* start work on errorpopup queue ([987e268](https://github.com/phandcock/GrampsView/commit/987e268056d75ecf99072c6958ad168dc83c3201))
+
+
+
 ## [16.17.26](https://github.com/phandcock/GrampsView/compare/v16.17.25...v16.17.26) (2021-04-21)
 
 
@@ -41,17 +51,6 @@
 
 * rework cardsizes code ([f6727d9](https://github.com/phandcock/GrampsView/commit/f6727d9b6e3d9e485831ab4055265a965dfce2a4))
 * tweak itemglyph ([fcf9ac9](https://github.com/phandcock/GrampsView/commit/fcf9ac971bef2d811f86695c564da3fd06d76ece))
-
-
-
-## [16.17.22](https://github.com/phandcock/GrampsView/compare/v16.17.21...v16.17.22) (2021-04-14)
-
-
-### Bug Fixes
-
-* fix whatsnewpage not being displayed ([7097d55](https://github.com/phandcock/GrampsView/commit/7097d55dcdf398acfa8049702e3e8d0089174c27))
-* tweak layout of eventsmallcard description ([7d7c3b8](https://github.com/phandcock/GrampsView/commit/7d7c3b88e747ed4bf4b5f36657dbc297e6e107d0))
-* tweak supporting files ([0aea04d](https://github.com/phandcock/GrampsView/commit/0aea04d0c84280cb3fa1c3a76ca9e66f3fc93600))
 
 
 
