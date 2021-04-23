@@ -25,7 +25,6 @@ using System.Threading.Tasks;
 
 using Unity;
 
-using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -56,7 +55,7 @@ namespace GrampsView
 
         public void ShowPopUp()
         {
-            Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+            DataStore.Instance.CN.PopUpShow();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

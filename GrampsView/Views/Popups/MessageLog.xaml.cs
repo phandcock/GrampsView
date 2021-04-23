@@ -11,7 +11,7 @@
 
             BindingContext = DataStore.Instance.CN.DataLog;
 
-            Size = Common.CardSizes.Current.ScreenSize;
+            Size = Common.CardSizes.Current.WindowSize;
         }
     }
 }

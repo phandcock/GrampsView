@@ -31,10 +31,6 @@ namespace GrampsView.Common
             get;
         }
 
-        //ErrorInfo DialogArgs
-        //{
-        //    get; set;
-        //}
         /// <summary>
         /// Changes the loading message.
         /// </summary>
@@ -89,5 +85,7 @@ namespace GrampsView.Common
         /// Extra information
         /// </param>
         Task NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
+
+        void PopUpShow();
     }
 }

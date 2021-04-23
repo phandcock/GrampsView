@@ -173,6 +173,14 @@
         {
             get
             {
+                return new Size(ScaledWidth, ScaledHeight);
+            }
+        }
+
+        public Size WindowSize
+        {
+            get
+            {
                 switch (Device.Idiom)
                 {
                     case TargetIdiom.Unsupported:
@@ -182,7 +190,7 @@
                         return new Size(ScaledWidth - 100, ScaledHeight - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(ScaledWidth - 5, ScaledHeight); // Window Size does not include headings
+                        return new Size(ScaledWidth - 5, ScaledHeight - 100); // Window Size does not include headings
 
                     default:
                         {

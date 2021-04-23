@@ -204,10 +204,6 @@
             PopupQueue.Enqueue(argErrorDetail);
 
             _iocEventAggregator.GetEvent<ShowPopUpEvent>().Publish();
-
-            //ErrorPopup t = new ErrorPopup();
-
-            //await Application.Current.MainPage.Navigation.ShowPopupAsync(t);
         }
 
         /// <summary>
@@ -253,6 +249,14 @@
             _iocCommonLogging.Exception(argException, argExtraItems);
 
             // Remove serialised data in case it is the issue CommonLocalSettings.DataSerialised = false;
+        }
+
+        public void PopUpShow()
+        {
+            if (!DialogShown && PopupQueue.Count > 0)
+            {
+                Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+            }
         }
     }
 }
