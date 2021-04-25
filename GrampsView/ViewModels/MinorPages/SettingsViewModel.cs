@@ -7,7 +7,6 @@
 
     using Microsoft.AppCenter.Distribute;
 
-    using Prism.Commands;
     using Prism.Events;
 
     using System.Threading.Tasks;
@@ -18,10 +17,6 @@
 
     public class SettingsViewModel : ViewModelBase
     {
-        //private bool _LocalCanForceUpdate = true;
-
-        //private bool _TestButton = true;
-
         private bool _ThemeButtonDarkChecked;
 
         private bool _ThemeButtonLightChecked;
@@ -34,9 +29,11 @@
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            TestCommand = new DelegateCommand(TestButtonHandler).ObservesCanExecute(() => CanHandleTestButton);
+            ForceUpdateCheckCommand = new AsyncCommand(() => ForceUpdate());
 
-            ForceUpdateCheckCommand = new DelegateCommand(ForceUpdate).ObservesCanExecute(() => LocalCanForceUpdate);
+            ShowMessageLogCommand = new AsyncCommand(() => ShowMessageLog());
+
+            TestCommand = new AsyncCommand(() => TestButtonHandler());
 
             BaseHandleAppearingEvent();
         }
@@ -48,17 +45,15 @@
 
         = true;
 
-        public DelegateCommand ForceUpdateCheckCommand
+        public IAsyncCommand ForceUpdateCheckCommand
         {
-            get; private set;
+            get;
         }
 
-        public bool LocalCanForceUpdate
+        public IAsyncCommand ShowMessageLogCommand
         {
-            get; set;
+            get;
         }
-
-        = true;
 
         public bool SortCollectionsFlag
         {
@@ -72,20 +67,10 @@
             }
         }
 
-        public DelegateCommand TestCommand
+        public IAsyncCommand TestCommand
         {
-            get; private set;
+            get;
         }
-
-        //public IHLinkMediaModel TestMedia
-        //{
-        //    get
-        //    {
-        //        var t = DataStore.Instance.DS.MediaData.GetRandomItem().HLink;
-
-        //        return t;
-        //    }
-        //}
 
         public bool ThemeButtonDarkChecked
         {
@@ -197,12 +182,12 @@
             }
         }
 
-        public void ForceUpdate()
+        public async Task ForceUpdate()
         {
             Distribute.CheckForUpdate();
         }
 
-        public void TestButtonHandler()
+        public async Task TestButtonHandler()
         {
             ErrorInfo t = new ErrorInfo
             {
@@ -238,9 +223,9 @@
             DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
         }
 
-        private async Task UCNavigate()
+        private async Task ShowMessageLog()
         {
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLogPopup());
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
             return;
         }
     }

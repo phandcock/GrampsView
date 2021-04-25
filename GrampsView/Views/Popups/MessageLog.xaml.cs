@@ -13,5 +13,10 @@
 
             Size = Common.CardSizes.Current.WindowSize;
         }
+
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
+            Dismiss(null);
+        }
     }
 }
