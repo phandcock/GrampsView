@@ -24,7 +24,6 @@
 
     <Shell.SearchHandler>
         <common:GrampsViewSearchHandler
-            DisplayMemberName="Name"
             Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
             ShowsResults="true">

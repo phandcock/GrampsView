@@ -303,7 +303,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
-                                        argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
+                                        argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
                                     }
 
@@ -311,7 +311,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
-                                        argModel.ModelItemGlyph = await GetThumbImageFromZip(argModel);
+                                        argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
                                     }
                             }

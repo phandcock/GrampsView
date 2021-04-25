@@ -10,7 +10,7 @@ namespace GrampsView.Data.ExternalStorage
     /// </summary>
     public interface IStorePostLoad
     {
-        Task<ItemGlyph> GetThumbImageFromZip(MediaModel argMediaModel);
+        ItemGlyph GetThumbImageFromZip(MediaModel argMediaModel);
 
         Task LoadSerialUiItems();
     }

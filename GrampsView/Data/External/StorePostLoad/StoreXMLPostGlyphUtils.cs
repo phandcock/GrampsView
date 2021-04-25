@@ -42,7 +42,7 @@
                 // check if we can get an image for the first page of the PDF
                 pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
-                returnItemGlyph = await UtilSaveNewMediaObject(returnItemGlyph, pdfimage, CommonFontNamesFAS.FilePdf);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, CommonFontNamesFAS.FilePdf);
             }
             else
             {
@@ -74,7 +74,7 @@
                 // check if we can get an image for the video
                 videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
-                returnItemGlyph = await UtilSaveNewMediaObject(returnItemGlyph, videoImage, CommonFontNamesFAS.FileArchive);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, CommonFontNamesFAS.FileArchive);
             }
             else
             {
@@ -86,7 +86,7 @@
             return returnItemGlyph;
         }
 
-        public async Task<ItemGlyph> GetThumbImageFromZip(MediaModel argMediaModel)
+        public ItemGlyph GetThumbImageFromZip(MediaModel argMediaModel)
         {
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
@@ -109,7 +109,7 @@
 
                 zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
-                returnItemGlyph = await UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
             }
             else
             {
@@ -136,7 +136,7 @@
             return newMediaModel;
         }
 
-        private async Task<ItemGlyph> UtilSaveNewMediaObject(ItemGlyph argNewGlyph, MediaModel argNewMediaModel, string argDefaultSymbol)
+        private ItemGlyph UtilSaveNewMediaObject(ItemGlyph argNewGlyph, MediaModel argNewMediaModel, string argDefaultSymbol)
         {
             // Save new MediaObject
             if (argNewMediaModel.Valid)
