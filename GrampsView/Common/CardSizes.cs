@@ -4,7 +4,6 @@
     using System.ComponentModel;
     using System.Diagnostics;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public class CardSizes : CommonBindableBase, INotifyPropertyChanged
@@ -16,8 +15,8 @@
         // Singleton
         private static CardSizes _current;
 
-        private double ScaledHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density;
-        private double ScaledWidth = DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density;
+        private double ScaledHeight = 100;
+        private double ScaledWidth = 100;
         public static CardSizes Current => _current ?? (_current = new CardSizes());
 
         public double CardLargeDoubleWidth
@@ -59,7 +58,7 @@
         {
             get
             {
-                int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidthDefault);
+                int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidth);
 
                 if (numCols < 1)
                 {
@@ -190,7 +189,7 @@
                         return new Size(ScaledWidth - 100, ScaledHeight - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(ScaledWidth - 50, ScaledHeight - 100); // Window Size does not include headings
+                        return new Size(ScaledWidth, ScaledHeight - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -209,10 +208,10 @@
 
         = CardSmallWidthDefault;
 
-        public void ReCalculateCardWidths()
+        public void ReCalculateCardWidths(double width, double height)
         {
-            ScaledHeight = (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
-            ScaledWidth = (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
+            ScaledHeight = Math.Floor(height);               // (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
+            ScaledWidth = Math.Floor(width);               //   (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
 
             SetCardBaseWidth();
 
@@ -232,14 +231,18 @@
 
         private void SetCardBaseWidth()
         {
-            double outVal;
-
             // Set width so that a whole number of cards fit across the screen
 
-            outVal = WindowSize.Width / CardsAcrossColumns;
+            int numCols = (int)Math.Floor(WindowSize.Width / CardBaseWidth);
 
-            Debug.WriteLine("Card Base Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
-            CardBaseWidth = outVal;
+            if (numCols < 1)
+            {
+                numCols = 1;
+            }
+
+            CardBaseWidth = Math.Floor((WindowSize.Width - (numCols * 20)) / numCols);     //adjust for margin and padding for each card
+
+            Debug.WriteLine("Card Base Width changed to " + CardBaseWidth.ToString(System.Globalization.CultureInfo.CurrentCulture));
         }
 
         private void SetCardLargeDoubleWidth()

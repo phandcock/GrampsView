@@ -132,7 +132,7 @@ namespace GrampsView
 
             AppCenterInit();
 
-            CardSizes.Current.ReCalculateCardWidths();
+            CardSizes.Current.ReCalculateCardWidths((DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density), (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
 
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data

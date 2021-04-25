@@ -53,7 +53,7 @@
                     DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
                 }
 
-                CardSizes.Current.ReCalculateCardWidths();
+                CardSizes.Current.ReCalculateCardWidths(width, height);
             }
 
             // Handle UWP windows resize
