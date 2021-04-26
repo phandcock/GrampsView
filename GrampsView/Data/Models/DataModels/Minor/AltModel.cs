@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// GRAMPS Alt element class.
@@ -8,25 +6,8 @@ namespace GrampsView.Data.Model
     /// TODO Update fields as per Schema
     public class AltModel : ModelBase, IAltModel
     {
-        /// <summary>
-        /// Alt field.
-        /// </summary>
-        private bool localAlt;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether Alt is set.
-        /// </summary>
-        public bool GAlt
+        public AltModel()
         {
-            get
-            {
-                return localAlt;
-            }
-
-            set
-            {
-                SetProperty(ref localAlt, value);
-            }
         }
 
         /// <summary>
@@ -35,7 +16,7 @@ namespace GrampsView.Data.Model
         /// <param name="altString">
         /// returns the string version of the Alt value.
         /// </param>
-        public void SetAlt(string altString)
+        public AltModel(string altString)
         {
             switch (altString)
             {
@@ -57,6 +38,16 @@ namespace GrampsView.Data.Model
                         break;
                     }
             }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether Alt is set.
+        /// </summary>
+        public bool GAlt
+        {
+            get;
+
+            set;
         }
     }
 }

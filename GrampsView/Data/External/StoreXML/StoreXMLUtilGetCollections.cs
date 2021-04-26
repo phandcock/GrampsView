@@ -375,7 +375,7 @@
                         GNoteReferenceCollection = GetNoteCollection(theLoadORElement),
                     };
 
-                    newPersonNameModel.GAlt.SetAlt(GetAttribute(theLoadORElement, "alt"));
+                    newPersonNameModel.GAlt = new AltModel(GetAttribute(theLoadORElement, "alt"));
 
                     // Set model hlinkkey
                     newPersonNameModel.HLinkKey = new HLinkKey(Guid.NewGuid().ToString());
