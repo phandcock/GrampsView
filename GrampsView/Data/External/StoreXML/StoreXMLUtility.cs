@@ -26,7 +26,7 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        public static async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
+        private static async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
         {
             if (argHLinkLoadImageModel is null)
             {
@@ -158,32 +158,6 @@
         }
 
         /// <summary>
-        /// Sets the private object.
-        /// </summary>
-        /// <param name="thePriv">
-        /// The priv.
-        /// </param>
-        /// <returns>
-        /// True or False depending on if the object is private.
-        /// </returns>
-        public static Priv SetPrivateObject(string thePriv)
-        {
-            switch (thePriv)
-            {
-                case "1":
-                    {
-                        return new Priv(true);
-                    }
-
-                case "0":
-                default:
-                    {
-                        return new Priv(false);
-                    }
-            }
-        }
-
-        /// <summary>
         /// Gets the attribute.
         /// </summary>
         /// <param name="a">
@@ -218,6 +192,19 @@
         private static string GetAttribute(XElement a, string b)
         {
             return GetAttribute(a.Attribute(b));
+        }
+
+        private static ModelBase GetBasics(XElement argElement)
+        {
+            ModelBase returnVal = new ModelBase
+            {
+                Id = GetAttribute(argElement.Attribute("id")),
+                Change = GetDateTime(argElement, "change"),
+                Priv = SetPrivateObject(GetAttribute(argElement.Attribute("priv"))),
+                Handle = GetAttribute(argElement, "handle")
+            };
+
+            return returnVal;
         }
 
         /// <summary>
@@ -257,6 +244,91 @@
                         return false;
                     }
             }
+        }
+
+        /// <summary>
+        /// Gets the colour.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <param name="b">
+        /// The b.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static Color GetColour(XElement a, string b)
+        {
+            try
+            {
+                const string ColorNotSet = "#000000000000";
+
+                var regexColorCode = new Regex("^#[a-fA-F0-9]{6}$");
+
+                string hexColour = GetAttribute(a.Attribute(b));
+
+                // Validate
+                if ((!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet))
+                {
+                    ErrorInfo argErrorDetail = new ErrorInfo("Bad colour in GetColour")
+                    {
+                        { "Color element is", a.ToString() },
+                        { "Attribute is", b }
+                    };
+
+                    DataStore.Instance.CN.NotifyError(argErrorDetail);
+
+                    hexColour = "#000000";
+                }
+
+                if (hexColour == ColorNotSet)
+                {
+                    hexColour = "#000000";
+                }
+
+                ColorTypeConverter colConverter = new ColorTypeConverter();
+
+                return (Color)(colConverter.ConvertFromInvariantString(hexColour));
+            }
+            catch (Exception ex)
+            {
+                DataStore.Instance.CN.NotifyException("Error in XML Utils GetColour", ex);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        /// <param name="xmlData">
+        /// The XML data.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static DateObjectModel GetDate(XElement xmlData)
+        {
+            return SetDate(xmlData);
+        }
+
+        private static DateTime GetDateTime(XElement a, string b)
+        {
+            string argUnixSecs = GetAttribute(a.Attribute(b));
+
+            return GetDateTime(argUnixSecs);
+        }
+
+        private static DateTime GetDateTime(string argUnixSecs)
+        {
+            if (!long.TryParse(argUnixSecs, out long ls))
+            {
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
+            };
+
+            DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
+
+            // TODO This is in UTC and needs to be converted to local time
+
+            return t.DateTime;
         }
 
         /// <summary>
@@ -316,153 +388,7 @@
             }
         }
 
-        /// <summary>
-        /// Converts a string into a uri (if it can).
-        /// </summary>
-        /// <param name="xmlData">
-        /// string from XML.
-        /// </param>
-        private static Uri GetUri(string xmlData)
-        {
-            try
-            {
-                xmlData = xmlData.Trim();
-
-                Uri uri = new UriBuilder(xmlData).Uri;
-
-                return uri;
-            }
-            catch (UriFormatException ex)
-            {
-                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not well formed")
-                    {
-                        { "Exception Message ", ex.Message },
-                        { "xmlData", xmlData }
-                    };
-
-                DataStore.Instance.CN.NotifyError(t);
-
-                return null;
-            }
-            catch (FormatException ex)
-            {
-                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not in the correct format")
-                    {
-                        { "Exception Message ", ex.Message },
-                        { "xmlData", xmlData }
-                    };
-
-                DataStore.Instance.CN.NotifyError(t);
-
-                return null;
-            }
-            catch (Exception ex)
-            {
-                DataStore.Instance.CN.NotifyException("Exception in GetUri", ex);
-
-                throw;
-            }
-        }
-
-        private ModelBase GetBasics(XElement argElement)
-        {
-            ModelBase returnVal = new ModelBase
-            {
-                Id = GetAttribute(argElement.Attribute("id")),
-                Change = GetDateTime(argElement, "change"),
-                Priv = SetPrivateObject(GetAttribute(argElement.Attribute("priv"))),
-                Handle = GetAttribute(argElement, "handle")
-            };
-
-            return returnVal;
-        }
-
-        /// <summary>
-        /// Gets the colour.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <param name="b">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private Color GetColour(XElement a, string b)
-        {
-            try
-            {
-                const string ColorNotSet = "#000000000000";
-
-                var regexColorCode = new Regex("^#[a-fA-F0-9]{6}$");
-
-                string hexColour = GetAttribute(a.Attribute(b));
-
-                // Validate
-                if ((!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet))
-                {
-                    ErrorInfo argErrorDetail = new ErrorInfo("Bad colour in GetColour")
-                    {
-                        { "Color element is", a.ToString() },
-                        { "Attribute is", b }
-                    };
-
-                    DataStore.Instance.CN.NotifyError(argErrorDetail);
-
-                    hexColour = "#000000";
-                }
-
-                if (hexColour == ColorNotSet)
-                {
-                    hexColour = "#000000";
-                }
-
-                ColorTypeConverter colConverter = new ColorTypeConverter();
-
-                return (Color)(colConverter.ConvertFromInvariantString(hexColour));
-            }
-            catch (Exception ex)
-            {
-                DataStore.Instance.CN.NotifyException("Error in XML Utils GetColour", ex);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets the date.
-        /// </summary>
-        /// <param name="xmlData">
-        /// The XML data.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private DateObjectModel GetDate(XElement xmlData)
-        {
-            return SetDate(xmlData);
-        }
-
-        private DateTime GetDateTime(XElement a, string b)
-        {
-            string argUnixSecs = GetAttribute(a.Attribute(b));
-
-            return GetDateTime(argUnixSecs);
-        }
-
-        private DateTime GetDateTime(string argUnixSecs)
-        {
-            if (!long.TryParse(argUnixSecs, out long ls))
-            {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
-            };
-
-            DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
-
-            // TODO This is in UTC and needs to be converted to local time
-
-            return t.DateTime;
-        }
-
-        private TextStyle GetTextStyle(XElement a)
+        private static TextStyle GetTextStyle(XElement a)
         {
             XAttribute t = a.Attribute("name");
 
@@ -515,6 +441,54 @@
         }
 
         /// <summary>
+        /// Converts a string into a uri (if it can).
+        /// </summary>
+        /// <param name="xmlData">
+        /// string from XML.
+        /// </param>
+        private static Uri GetUri(string xmlData)
+        {
+            try
+            {
+                xmlData = xmlData.Trim();
+
+                Uri uri = new UriBuilder(xmlData).Uri;
+
+                return uri;
+            }
+            catch (UriFormatException ex)
+            {
+                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not well formed")
+                    {
+                        { "Exception Message ", ex.Message },
+                        { "xmlData", xmlData }
+                    };
+
+                DataStore.Instance.CN.NotifyError(t);
+
+                return null;
+            }
+            catch (FormatException ex)
+            {
+                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not in the correct format")
+                    {
+                        { "Exception Message ", ex.Message },
+                        { "xmlData", xmlData }
+                    };
+
+                DataStore.Instance.CN.NotifyError(t);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                DataStore.Instance.CN.NotifyException("Exception in GetUri", ex);
+
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Gets the h link.
         /// </summary>
         /// <param name="xmlData">
@@ -522,7 +496,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private HLinkBase HLink(XElement xmlData)
+        private static HLinkBase HLink(XElement xmlData)
         {
             HLinkBase t = new HLinkBase();
 
@@ -532,6 +506,32 @@
             }
 
             return t;
+        }
+
+        /// <summary>
+        /// Sets the private object.
+        /// </summary>
+        /// <param name="thePriv">
+        /// The priv.
+        /// </param>
+        /// <returns>
+        /// True or False depending on if the object is private.
+        /// </returns>
+        private static Priv SetPrivateObject(string thePriv)
+        {
+            switch (thePriv)
+            {
+                case "1":
+                    {
+                        return new Priv(true);
+                    }
+
+                case "0":
+                default:
+                    {
+                        return new Priv(false);
+                    }
+            }
         }
     }
 }

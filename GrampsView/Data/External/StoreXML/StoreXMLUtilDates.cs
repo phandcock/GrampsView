@@ -36,46 +36,6 @@
     public partial class StoreXML : CommonBindableBase, IStoreXML
     {
         /// <summary>
-        /// Sets the date string.
-        /// </summary>
-        /// <param name="currentElement">
-        /// The current element.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public static DateObjectModelStr SetDateStr(XElement currentElement)
-        {
-            Contract.Assert(currentElement != null);
-
-            string aCFormat = string.Empty;
-            string aNewYear = string.Empty;
-            string aQuality = string.Empty;
-            string aStart = string.Empty;
-            string aStop = string.Empty;
-            string aVal = string.Empty;
-            string aValType = string.Empty;
-
-            // check for date range
-            try
-            {
-                // val CDATA #REQUIRED
-                string stringFound = (string)currentElement.Attribute("val");
-                if (!string.IsNullOrEmpty(stringFound))
-                {
-                    aVal = stringFound;
-                }
-            }
-            catch (Exception e)
-            {
-                // TODO
-                DataStore.Instance.CN.NotifyException("Error", e);
-                throw;
-            }
-
-            return new DateObjectModelStr(aVal);
-        }
-
-        /// <summary>
         /// Sets the date.
         /// </summary>
         /// <param name="currentElement">
@@ -84,7 +44,7 @@
         /// <returns>
         /// Date object ViewModel.
         /// </returns>
-        public DateObjectModel SetDate(XElement currentElement)
+        public static DateObjectModel SetDate(XElement currentElement)
         {
             XElement tempElement;
 
@@ -141,7 +101,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public DateObjectModel SetDateSpan(XElement argCurrentElement)
+        public static DateObjectModel SetDateSpan(XElement argCurrentElement)
         {
             if (argCurrentElement is null)
             {
@@ -216,6 +176,46 @@
         }
 
         /// <summary>
+        /// Sets the date string.
+        /// </summary>
+        /// <param name="currentElement">
+        /// The current element.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public static DateObjectModelStr SetDateStr(XElement currentElement)
+        {
+            Contract.Assert(currentElement != null);
+
+            string aCFormat = string.Empty;
+            string aNewYear = string.Empty;
+            string aQuality = string.Empty;
+            string aStart = string.Empty;
+            string aStop = string.Empty;
+            string aVal = string.Empty;
+            string aValType = string.Empty;
+
+            // check for date range
+            try
+            {
+                // val CDATA #REQUIRED
+                string stringFound = (string)currentElement.Attribute("val");
+                if (!string.IsNullOrEmpty(stringFound))
+                {
+                    aVal = stringFound;
+                }
+            }
+            catch (Exception e)
+            {
+                // TODO
+                DataStore.Instance.CN.NotifyException("Error", e);
+                throw;
+            }
+
+            return new DateObjectModelStr(aVal);
+        }
+
+        /// <summary>
         /// Sets the date value.
         /// </summary>
         /// <param name="currentElement">
@@ -223,7 +223,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public DateObjectModel SetDateVal(XElement currentElement)
+        public static DateObjectModel SetDateVal(XElement currentElement)
         {
             Contract.Requires(currentElement != null);
 
@@ -315,7 +315,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private DateObjectModel SetDateRange(XElement currentElement)
+        private static DateObjectModel SetDateRange(XElement currentElement)
         {
             string stringFound;
 
