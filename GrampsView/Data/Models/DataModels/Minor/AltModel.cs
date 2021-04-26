@@ -1,9 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    /// <summary>
-    /// GRAMPS Alt element class.
-    /// </summary>
-    /// TODO Update fields as per Schema
     public class AltModel : ModelBase, IAltModel
     {
         public AltModel()
@@ -14,7 +10,6 @@
         /// turn the string 0 or 1 into true or false.
         /// </summary>
         /// <param name="altString">
-        /// returns the string version of the Alt value.
         /// </param>
         public AltModel(string altString)
         {

@@ -231,28 +231,26 @@ namespace GrampsView
             Distribute.CheckForUpdate();
         }
 
-        private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-        {
-            // Process changes
-            EventAggregator ea = this.Container.Resolve<EventAggregator>();
+        // This code currently runs one rotation behind and doe snto set the window size properly on UWP.
+        // See CardSizxes for the current hack fix.
+        //
+        //private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+        //{
+        //    // Process changes
+        //    EventAggregator ea = this.Container.Resolve<EventAggregator>();
 
-            if (!(ea is null))
-            {
-                //var t = DeviceDisplay.MainDisplayInfo;
+        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo;
 
-                // TODO Is this needed? TODO Has hack in ViewBase to set orientation properly on
-                // Android until I work out what is wrong
-                //
-                // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
+        // // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
-                // TODO fu because seems to be one rotation behind on emulator. Try the old school
-                // way until fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) {
-                // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else {
-                // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
+        // // because seems to be one rotation behind on emulator. Try the old school // way until
+        // fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
+        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
+        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
 
-                // // Card width reset CardSizes.Current.ReCalculateCardWidths();
-            }
-        }
+        //        // // Card width reset CardSizes.Current.ReCalculateCardWidths();
+        //    }
+        //}
 
         private async Task StartAtDetailPage()
         {
