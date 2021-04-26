@@ -11,7 +11,7 @@
 
             BindingContext = DataStore.Instance.CN.DataLog;
 
-            Size = Common.CardSizes.Current.WindowSize;
+            Size = Common.CardSizes.Current.ScreenSize;
         }
 
         private void Button_Clicked(object sender, System.EventArgs e)

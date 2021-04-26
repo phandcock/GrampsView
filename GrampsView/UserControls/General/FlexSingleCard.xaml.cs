@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.UserControls
 {
+    using GrampsView.Common;
+
     using System.Collections;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
@@ -82,6 +84,16 @@
             else
             {
                 thisCard.IsVisible = false;
+            }
+
+            // Set Justification to Center if only one column
+            if (CardSizes.Current.CardsAcrossColumns == 1)
+            {
+                thisCard.theCollectionView.JustifyContent = FlexJustify.Center;
+            }
+            else
+            {
+                thisCard.theCollectionView.JustifyContent = FlexJustify.Start;
             }
         }
     }

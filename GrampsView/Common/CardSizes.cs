@@ -4,6 +4,7 @@
     using System.ComponentModel;
     using System.Diagnostics;
 
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public class CardSizes : CommonBindableBase, INotifyPropertyChanged
@@ -15,8 +16,8 @@
         // Singleton
         private static CardSizes _current;
 
-        private double ScaledHeight = 100;
-        private double ScaledWidth = 100;
+        private double WindowHeight = 100;
+        private double WindowWidth = 100;
         public static CardSizes Current => _current ?? (_current = new CardSizes());
 
         public double CardLargeDoubleWidth
@@ -159,9 +160,9 @@
                 };
 
                 // Check size
-                if (outVal > ScaledWidth)
+                if (outVal > WindowWidth)
                 {
-                    outVal = ScaledWidth;
+                    outVal = WindowWidth;
                 }
 
                 return outVal;
@@ -172,7 +173,7 @@
         {
             get
             {
-                return new Size(ScaledWidth, ScaledHeight);
+                return new Size(((DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 100), ((DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density) - 100));
             }
         }
 
@@ -186,10 +187,10 @@
 
                     case TargetIdiom.Desktop:
                     case TargetIdiom.Tablet:
-                        return new Size(ScaledWidth - 100, ScaledHeight - 100); // Window Size does not include headings
+                        return new Size(WindowWidth - 100, WindowHeight - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(ScaledWidth, ScaledHeight - 100); // Window Size does not include headings
+                        return new Size(WindowWidth, WindowHeight - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -197,7 +198,7 @@
                         }
                 };
 
-                return new Size(ScaledWidth, ScaledHeight); // Window Size does not include headings
+                return new Size(WindowWidth, WindowHeight); // Window Size does not include headings
             }
         }
 
@@ -210,8 +211,8 @@
 
         public void ReCalculateCardWidths(double width, double height)
         {
-            ScaledHeight = Math.Floor(height);               // (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
-            ScaledWidth = Math.Floor(width);               //   (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
+            WindowHeight = Math.Floor(height);               // (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
+            WindowWidth = Math.Floor(width);               //   (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
 
             SetCardBaseWidth();
 
@@ -231,9 +232,12 @@
 
         private void SetCardBaseWidth()
         {
+            // Set base width
+            CardBaseWidth = CardSmallWidthDefault;
+
             // Set width so that a whole number of cards fit across the screen
 
-            int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidthDefault);
+            int numCols = (int)Math.Floor(WindowSize.Width / CardBaseWidth);
 
             if (numCols < 1)
             {
@@ -247,7 +251,7 @@
 
         private void SetCardLargeDoubleWidth()
         {
-            double outVal = CardLargeWidth * 2;
+            double outVal = CardLargeWidth * 4;
 
             // Check size
             if (outVal > WindowSize.Width)
@@ -260,7 +264,7 @@
 
         private void SetCardLargeHeight()
         {
-            CardLargeHeight = CardLargeWidth / 3;
+            CardLargeHeight = Math.Floor(CardLargeWidth / 3);
         }
 
         private void SetCardLargeWidth()
@@ -280,7 +284,7 @@
 
         private void SetCardMediumHeight()
         {
-            CardMediumHeight = CardMediumWidth / 3;
+            CardMediumHeight = Math.Floor(CardMediumWidth / 3);
         }
 
         private void SetCardMediumWidth()
@@ -300,7 +304,7 @@
 
         private void SetCardSingleHeight()
         {
-            CardSingleHeight = CardSingleWidth / 6;
+            CardSingleHeight = Math.Floor(CardSingleWidth / 6);
         }
 
         private void SetCardSingleWidth()
@@ -313,7 +317,7 @@
 
         private void SetCardSmallHeight()
         {
-            CardSmallHeight = CardSmallWidth / 3;
+            CardSmallHeight = Math.Floor(CardSmallWidth / 3);
         }
 
         private void SetCardSmallWidth()
