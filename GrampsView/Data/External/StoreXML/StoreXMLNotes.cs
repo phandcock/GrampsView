@@ -57,6 +57,10 @@
                         {
                         }
 
+                        if (loadNote.GIsFormated)
+                        {
+                        }
+
                         StyledTextModel tempStyledText = GetStyledTextCollection(pname);
                         loadNote.GStyledText.GText = tempStyledText.GText;
 

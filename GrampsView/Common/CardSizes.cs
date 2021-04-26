@@ -233,7 +233,7 @@
         {
             // Set width so that a whole number of cards fit across the screen
 
-            int numCols = (int)Math.Floor(WindowSize.Width / CardBaseWidth);
+            int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidthDefault);
 
             if (numCols < 1)
             {

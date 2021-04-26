@@ -21,14 +21,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--<Grid toolkit:StateLayout.CurrentState="{Binding BaseCurrentState}">-->
     <Grid>
-
-        <!--<toolkit:StateLayout.StateViews>
-            <toolkit:StateView StateKey="Loading">
-                <ucon:ActivityDisplay BindingContext="{x:Static i18n:AppResources.FileInputHandlerPage_Loading}" />
-            </toolkit:StateView>
-        </toolkit:StateLayout.StateViews>-->
 
         <ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand">
