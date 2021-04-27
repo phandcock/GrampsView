@@ -9,10 +9,6 @@
     DismissFlag="{Binding DismissFlag}">
 
     <StackLayout>
-        <Button
-            Clicked="Button_Clicked"
-            Style="{DynamicResource GVButtonStyle}"
-            Text="Close" />
 
         <CollectionView
             x:Name="MajorStatusList"
@@ -25,5 +21,10 @@
                 <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
             </CollectionView.ItemsLayout>
         </CollectionView>
+
+        <Button
+            Clicked="Button_Clicked"
+            Style="{DynamicResource GVButtonStyle}"
+            Text="Close" />
     </StackLayout>
 </cc:MessageLogPopup>

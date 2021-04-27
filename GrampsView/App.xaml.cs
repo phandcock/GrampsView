@@ -83,8 +83,8 @@ namespace GrampsView
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
-            // Subscribe to changes of screen metrics
-            DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
+            //// Subscribe to changes of screen metrics
+            //DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
 
             VersionTracking.Track();
 
@@ -239,9 +239,7 @@ namespace GrampsView
         //    // Process changes
         //    EventAggregator ea = this.Container.Resolve<EventAggregator>();
 
-        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo;
-
-        // // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
+        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo; // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
 
         // // because seems to be one rotation behind on emulator. Try the old school // way until
         // fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
