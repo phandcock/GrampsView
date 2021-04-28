@@ -64,21 +64,21 @@
 
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 
-            //// Init things
-            //Xamarin.Forms.Forms.SetFlags(new string[] {
-            //    "DragAndDrop_Experimental"
-            //    });
-
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
-            // App Center Distribute Distribute.SetEnabledForDebuggableBuild(true);
-
             // FFImageLoading Init
             CachedImageRenderer.Init(enableFastRenderer: false);
 
             CachedImageRenderer.InitImageViewHandler();
 
             Platform.Init(this, savedInstanceState);
+
+            //// Init things
+            Xamarin.Forms.Forms.SetFlags(new string[] {
+                "DragAndDrop_Experimental"
+                });
+
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            // App Center Distribute Distribute.SetEnabledForDebuggableBuild(true);
 
             // Set Status Bar background to Light or Dark as required
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);

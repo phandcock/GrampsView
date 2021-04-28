@@ -2,8 +2,11 @@
 {
     using GrampsView.Common;
 
-    using Prism.Commands;
     using Prism.Events;
+
+    using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// <c>First Run View Model</c>
@@ -22,29 +25,16 @@
         public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
-            LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);
+            LoadDataCommand = new AsyncCommand(() => FirstRunLoadAFileButton());
 
             BaseTitle = "First Run";
 
             BaseTitleIcon = CommonConstants.IconSettings;
         }
 
-        public DelegateCommand LoadDataCommand
+        public IAsyncCommand LoadDataCommand
         {
-            get; private set;
-        }
-
-        /// <summary>
-        /// Raises the <see cref="avigatedTo"/> event.
-        /// </summary>
-        /// <param name="e">
-        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
-        /// </param>
-        /// <param name="viewModelState">
-        /// State of the view ViewModel.
-        /// </param>
-        public override void BaseHandleAppearingEvent()
-        {
+            get;
         }
 
         /// <summary>
@@ -56,7 +46,7 @@
         /// <param name="parameter">
         /// The parameter.
         /// </param>
-        public async void FirstRunLoadAFileButton()
+        public async Task FirstRunLoadAFileButton()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 

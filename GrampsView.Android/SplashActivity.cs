@@ -38,9 +38,9 @@
         {
         }
 
-        public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState, persistentState);
+            base.OnCreate(savedInstanceState);
 
             Log.Debug(TAG, "SplashActivity.OnCreate");
 
