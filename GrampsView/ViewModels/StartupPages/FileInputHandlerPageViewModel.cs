@@ -35,25 +35,15 @@
 
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            LoadSampleCommand = new AsyncCommand(() => LoadSample(), _ => LocalCanHandleSample);
+            LoadSampleCommand = new AsyncCommand(LoadSample);
 
-            PickFileCommand = new AsyncCommand(() => PickFile(), _ => LocalCanHandleDataFolderChosen);
+            PickFileCommand = new AsyncCommand(PickFile);
         }
 
         public IAsyncCommand LoadSampleCommand
         {
             get; private set;
         }
-
-        public bool LocalCanHandleDataFolderChosen
-        {
-            get; set;
-        } = true;
-
-        public bool LocalCanHandleSample
-        {
-            get; set;
-        } = true;
 
         public IAsyncCommand PickFileCommand
         {
@@ -92,8 +82,6 @@
             CommonLocalSettings.SetReloadDatabase();
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
-
-            // await Xamarin.Forms.Shell.Current.Navigation.PopAsync();
         }
 
         /// <summary>
@@ -127,9 +115,6 @@
                 {
                     BaseCL.Progress("File picker error");
                     DataStore.Instance.CN.NotifyAlert("No input file was selected");
-
-                    // Allow another pick if required
-                    LocalCanHandleDataFolderChosen = true;
 
                     BaseCurrentLayoutState = LayoutState.None;
                 }

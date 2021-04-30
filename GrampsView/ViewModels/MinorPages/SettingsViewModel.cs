@@ -29,11 +29,11 @@
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            ForceUpdateCheckCommand = new AsyncCommand(() => ForceUpdate());
+            ForceUpdateCheckCommand = new AsyncCommand(ForceUpdate);
 
-            ShowMessageLogCommand = new AsyncCommand(() => ShowMessageLog());
+            ShowMessageLogCommand = new AsyncCommand(ShowMessageLog);
 
-            TestCommand = new AsyncCommand(() => TestButtonHandler());
+            TestCommand = new AsyncCommand(TestButtonHandler);
 
             BaseHandleAppearingEvent();
         }

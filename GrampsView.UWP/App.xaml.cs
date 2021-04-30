@@ -41,6 +41,12 @@
             Current.UnhandledException += new Windows.UI.Xaml.UnhandledExceptionEventHandler(UnhandledExceptionHandler);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Activated"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// The <see cref="IActivatedEventArgs"/> instance containing the event data.
+        /// </param>
         protected override void OnActivated(IActivatedEventArgs e)
         {
             // Handle Protocol Activation

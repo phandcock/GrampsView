@@ -17,7 +17,7 @@
     {
         public ItemGlyph()
         {
-            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
+            UCNavigateCommand = new AsyncCommand(UCNavigate);
         }
 
         [DataMember]

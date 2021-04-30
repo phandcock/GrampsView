@@ -25,7 +25,7 @@
         public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
-            LoadDataCommand = new AsyncCommand(() => FirstRunLoadAFileButton());
+            LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);
 
             BaseTitle = "First Run";
 

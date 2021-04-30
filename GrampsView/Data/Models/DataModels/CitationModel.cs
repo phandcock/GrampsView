@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// XML 171 - All fields defined
+﻿/// XML 171 - All fields defined
 ///
 /// SecondaryColor-object date-content page confidence noteref objref srcattribute sourceref tagref
 
@@ -223,7 +221,6 @@ namespace GrampsView.Data.Model
             return testFlag;
         }
 
-        // TODO tagref*
         /// <summary>
         /// Implement IComparable CompareTo method.
         /// </summary>
