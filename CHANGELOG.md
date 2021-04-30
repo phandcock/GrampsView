@@ -1,3 +1,12 @@
+## [16.17.32](https://github.com/phandcock/GrampsView/compare/v16.17.31...v16.17.32) (2021-04-30)
+
+
+### Bug Fixes
+
+* another try iat android initial startup black screen bug ([88dea4a](https://github.com/phandcock/GrampsView/commit/88dea4af0f17e142d24e5aca766c59604d26c04d))
+
+
+
 ## [16.17.31](https://github.com/phandcock/GrampsView/compare/v16.17.30...v16.17.31) (2021-04-30)
 
 
@@ -39,16 +48,6 @@
 * change error, alert and exception notifications to sync ([8500265](https://github.com/phandcock/GrampsView/commit/8500265a5235de739c36989fd4c61c07a96c39f4))
 * cleanup search handlers ([8e80dc3](https://github.com/phandcock/GrampsView/commit/8e80dc36b19193355b5833db23f90731074533b1))
 * tweak card sizes for phone landscape mode ([0518ebb](https://github.com/phandcock/GrampsView/commit/0518ebb2ca9a6d0cb921b71bf3303ec6112034fa))
-
-
-
-## [16.17.27](https://github.com/phandcock/GrampsView/compare/v16.17.26...v16.17.27) (2021-04-23)
-
-
-### Bug Fixes
-
-* allow multiple popups in a row ([f1d3af8](https://github.com/phandcock/GrampsView/commit/f1d3af8700dd31e652ad2256d5f795d5f3950ba1))
-* start work on errorpopup queue ([987e268](https://github.com/phandcock/GrampsView/commit/987e268056d75ecf99072c6958ad168dc83c3201))
 
 
 
