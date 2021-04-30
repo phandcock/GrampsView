@@ -1,3 +1,12 @@
+## [16.17.31](https://github.com/phandcock/GrampsView/compare/v16.17.30...v16.17.31) (2021-04-30)
+
+
+### Bug Fixes
+
+* fix for android blank screen on first run ([e812f49](https://github.com/phandcock/GrampsView/commit/e812f49f621c950112972e6affe8ec092ba356ba))
+
+
+
 ## [16.17.30](https://github.com/phandcock/GrampsView/compare/v16.17.29...v16.17.30) (2021-04-28)
 
 
@@ -40,17 +49,6 @@
 
 * allow multiple popups in a row ([f1d3af8](https://github.com/phandcock/GrampsView/commit/f1d3af8700dd31e652ad2256d5f795d5f3950ba1))
 * start work on errorpopup queue ([987e268](https://github.com/phandcock/GrampsView/commit/987e268056d75ecf99072c6958ad168dc83c3201))
-
-
-
-## [16.17.26](https://github.com/phandcock/GrampsView/compare/v16.17.25...v16.17.26) (2021-04-21)
-
-
-### Bug Fixes
-
-* clipped media image filename wrong ([8be8d4e](https://github.com/phandcock/GrampsView/commit/8be8d4ed702ce1cf0f36c04d7124bb447abd0f97))
-* tweak adndroid card width ([cbcd717](https://github.com/phandcock/GrampsView/commit/cbcd717bc38d6eda98258ff32222cf16b5f25a93))
-* tweaks ([329a21c](https://github.com/phandcock/GrampsView/commit/329a21c314d5797fbe62c9b565cbec799d496259))
 
 
 
