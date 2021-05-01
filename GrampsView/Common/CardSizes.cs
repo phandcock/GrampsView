@@ -2,7 +2,6 @@
 {
     using System;
     using System.ComponentModel;
-    using System.Diagnostics;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -246,7 +245,7 @@
 
             CardBaseWidth = Math.Floor((WindowSize.Width - (numCols * 20)) / numCols);     //adjust for margin and padding for each card
 
-            Debug.WriteLine("Card Base Width changed to " + CardBaseWidth.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            //Debug.WriteLine("Card Base Width changed to " + CardBaseWidth.ToString(System.Globalization.CultureInfo.CurrentCulture));
         }
 
         private void SetCardLargeDoubleWidth()
@@ -311,7 +310,7 @@
         {
             double outVal = CardBaseWidth;
 
-            Debug.WriteLine("Card Single Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            //Debug.WriteLine("Card Single Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
             CardSingleWidth = outVal;
         }
 
@@ -324,7 +323,7 @@
         {
             double outVal = CardBaseWidth;
 
-            Debug.WriteLine("Card Small Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            //Debug.WriteLine("Card Small Width changed to " + outVal.ToString(System.Globalization.CultureInfo.CurrentCulture));
             CardSmallWidth = outVal;
         }
     }
