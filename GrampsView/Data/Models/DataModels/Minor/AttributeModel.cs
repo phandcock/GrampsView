@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the g citation reference collection.
+        /// Gets or sets the citation reference collection.
         /// </summary>
         /// <value>
         /// The g citation reference collection.
@@ -36,8 +36,23 @@ namespace GrampsView.Data.Model
 
             = new HLinkCitationModelCollection();
 
+        public override string GetDefaultText
+        {
+            get
+            {
+                string returnString = this.GType;
+
+                if (!string.IsNullOrEmpty(GValue))
+                {
+                    returnString += string.Format(" {0}", GValue);
+                }
+
+                return returnString;
+            }
+        }
+
         /// <summary>
-        /// Gets or sets the g note model reference collection.
+        /// Gets or sets the note model reference collection.
         /// </summary>
         /// <value>
         /// The g note model reference collection.
