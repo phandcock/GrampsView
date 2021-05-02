@@ -34,11 +34,7 @@
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
 
-            //firstRunShownFlag = false;
-            //databaseReloadShownFlag = false;
-            //whatNewShownFlag = false;
-
-            StartProcessing().GetAwaiter().GetResult();
+            //iocEventAggregator.GetEvent<AppStartEvent>().Subscribe(StartProcessing);
         }
 
         public static async Task StartProcessing()

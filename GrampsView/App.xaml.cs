@@ -83,6 +83,14 @@ namespace GrampsView
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
+            Container.Resolve<IPlatformSpecific>();
+
+            DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
+
+            Container.Resolve<IDataRepositoryManager>();
+
+            Container.Resolve<IEventAggregator>().GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
+
             //// Subscribe to changes of screen metrics
             //DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
 
@@ -93,6 +101,9 @@ namespace GrampsView
             MainPage = new AppShell();
 
             Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
+
+            StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
+               Container.Resolve<DatabaseReloadDisplayService>());
 
             StartAtDetailPage().GetAwaiter().GetResult();
         }
@@ -137,16 +148,7 @@ namespace GrampsView
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
 
-            Container.Resolve<IPlatformSpecific>();
-
-            DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
-
-            Container.Resolve<IDataRepositoryManager>();
-
-            Container.Resolve<IEventAggregator>().GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
-
-            StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
-                     Container.Resolve<DatabaseReloadDisplayService>());
+            StartAppLoad.StartProcessing();
         }
 
         protected override void RegisterTypes(IContainerRegistry container)
