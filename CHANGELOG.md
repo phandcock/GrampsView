@@ -1,3 +1,12 @@
+## [16.17.34](https://github.com/phandcock/GrampsView/compare/v16.17.33...v16.17.34) (2021-05-02)
+
+
+### Bug Fixes
+
+* change to use childref and more andoird start fixes ([ede35bf](https://github.com/phandcock/GrampsView/commit/ede35bfc88cd6a3da2410c53e8c1778b52d32cfc))
+
+
+
 ## [16.17.33](https://github.com/phandcock/GrampsView/compare/v16.17.32...v16.17.33) (2021-05-02)
 
 
@@ -36,17 +45,6 @@
 * fix missing orientation function ([20e8a2f](https://github.com/phandcock/GrampsView/commit/20e8a2fecba84c7f15dcbe685ddd15a90595c28c))
 * tweak card sizes again ([32ef732](https://github.com/phandcock/GrampsView/commit/32ef732dff05562b605b825e987a9312ad8ccab5))
 * tweak cradsizes again ([6dc5e14](https://github.com/phandcock/GrampsView/commit/6dc5e1433c6cd703db70278dbda6f84cca2db2e5))
-
-
-
-## [16.17.29](https://github.com/phandcock/GrampsView/compare/v16.17.28...v16.17.29) (2021-04-26)
-
-
-### Bug Fixes
-
-* code cleanup ([5d4e96b](https://github.com/phandcock/GrampsView/commit/5d4e96b6913a1a8007f575e4d8d2c6ae6c35d40d))
-* settingspage tweaks ([963883b](https://github.com/phandcock/GrampsView/commit/963883b8e232093b3c5d6ba1bd4df3fb77a60e19))
-* tweak card sizes ([2058753](https://github.com/phandcock/GrampsView/commit/2058753ee8fcdf8a39194aa9c208a762f039b028))
 
 
 
