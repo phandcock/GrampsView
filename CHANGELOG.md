@@ -1,3 +1,13 @@
+## [16.17.33](https://github.com/phandcock/GrampsView/compare/v16.17.32...v16.17.33) (2021-05-02)
+
+
+### Bug Fixes
+
+* attributes tweaks ([4b353ba](https://github.com/phandcock/GrampsView/commit/4b353ba6e32a93753d845035258679b75212302f))
+* comment out cardsize debug code ([a531372](https://github.com/phandcock/GrampsView/commit/a5313725d7f1f8fab4144956f4cd4f8697c11235))
+
+
+
 ## [16.17.32](https://github.com/phandcock/GrampsView/compare/v16.17.31...v16.17.32) (2021-04-30)
 
 
@@ -37,17 +47,6 @@
 * code cleanup ([5d4e96b](https://github.com/phandcock/GrampsView/commit/5d4e96b6913a1a8007f575e4d8d2c6ae6c35d40d))
 * settingspage tweaks ([963883b](https://github.com/phandcock/GrampsView/commit/963883b8e232093b3c5d6ba1bd4df3fb77a60e19))
 * tweak card sizes ([2058753](https://github.com/phandcock/GrampsView/commit/2058753ee8fcdf8a39194aa9c208a762f039b028))
-
-
-
-## [16.17.28](https://github.com/phandcock/GrampsView/compare/v16.17.27...v16.17.28) (2021-04-25)
-
-
-### Bug Fixes
-
-* change error, alert and exception notifications to sync ([8500265](https://github.com/phandcock/GrampsView/commit/8500265a5235de739c36989fd4c61c07a96c39f4))
-* cleanup search handlers ([8e80dc3](https://github.com/phandcock/GrampsView/commit/8e80dc36b19193355b5833db23f90731074533b1))
-* tweak card sizes for phone landscape mode ([0518ebb](https://github.com/phandcock/GrampsView/commit/0518ebb2ca9a6d0cb921b71bf3303ec6112034fa))
 
 
 
