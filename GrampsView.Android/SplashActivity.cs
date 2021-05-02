@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Droid
 {
-    using Android;
     using Android.App;
     using Android.Content;
     using Android.Content.PM;
@@ -9,8 +8,6 @@
     using Android.Util;
 
     using AndroidX.AppCompat.App;
-    using AndroidX.Core.App;
-    using AndroidX.Core.Content;
 
     using System.Threading.Tasks;
 
@@ -44,16 +41,16 @@
 
             Log.Debug(TAG, "SplashActivity.OnCreate");
 
-            // Get read/write permisions
-            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int)Permission.Granted)
-            {
-                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.WriteExternalStorage }, 0);
-            }
+            //// Get read/write permisions
+            //if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int)Permission.Granted)
+            //{
+            //    ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.WriteExternalStorage }, 0);
+            //}
 
-            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int)Permission.Granted)
-            {
-                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage }, 0);
-            }
+            //if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int)Permission.Granted)
+            //{
+            //    ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage }, 0);
+            //}
         }
 
         // Launches the startup task

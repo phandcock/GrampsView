@@ -352,9 +352,9 @@
                 theFamilyModel.GChildRefCollection.SetGlyph();
 
                 // Child Collection
-                foreach (HLinkPersonModel personRef in theFamilyModel.GChildRefCollection)
+                foreach (HLinkChildRefModel childRef in theFamilyModel.GChildRefCollection)
                 {
-                    DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    DataStore.Instance.DS.PersonData[childRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
                 }
 
                 // Parents
@@ -409,9 +409,9 @@
                 {
                     thePersonModel.SiblingRefCollection.Clear();
 
-                    foreach (HLinkPersonModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey.Value].GChildRefCollection)
+                    foreach (HLinkChildRefModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey.Value].GChildRefCollection)
                     {
-                        thePersonModel.SiblingRefCollection.Add(item);
+                        thePersonModel.SiblingRefCollection.Add(item.GetHLinkPerson);
                     }
                 }
 

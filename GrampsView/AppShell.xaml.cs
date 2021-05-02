@@ -26,6 +26,7 @@
             Routing.RegisterRoute(nameof(AddressDetailPage), typeof(AddressDetailPage));
             Routing.RegisterRoute(nameof(AttributeDetailPage), typeof(AttributeDetailPage));
 
+            Routing.RegisterRoute(nameof(ChildRefDetailPage), typeof(ChildRefDetailPage));
             Routing.RegisterRoute(nameof(CitationDetailPage), typeof(CitationDetailPage));
 
             Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));

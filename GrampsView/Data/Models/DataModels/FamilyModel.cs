@@ -1,58 +1,21 @@
 ﻿// TODO Needs XML 1.71 check
 
 /// <summary>
-///
-///  -- Completed
-///  - SecondaryColor-object
-///  - rel
-///  - father
-///  - mother
-///  - eventref
-///  - objref
-///  -
-///  - attribute
-///  -
-///  - noteref
-///  - citationref
-///  - tagref
-///
+/// -- Completed
+/// - SecondaryColor-object
+/// - rel
+/// - father
+/// - mother
+/// - eventref
+/// - objref
+/// - childref
+/// - attribute -
+/// - noteref
+/// - citationref
+/// - tagref
 /// </summary>
-///
 /// TODO Finish adding these
-///// <code>
-////
-////    <zeroOrMore>
-////      <element name = "childref" >
-////        < attribute name="hlink">
-////          <data type = "IDREF" />
-////        </ attribute >
-////        < optional >
-////          < attribute name="priv">
-////            <ref name="priv-content" />
-////          </attribute>
-////        </optional>
-////        <optional>
-////          <attribute name = "mrel" >
-////            <ref name="child-rel" />
-////          </attribute>
-////        </optional>
-////        <optional>
-////          <attribute name = "frel" >
-////            <ref name="child-rel" />
-////          </attribute>
-////        </optional>
-////        <zeroOrMore>
-////          <element name = "citationref" >
-////            <ref name="citationref-content" />
-////          </element>
-////        </zeroOrMore>
-////        <zeroOrMore>
-////          <element name = "noteref" >
-////            <ref name="noteref-content" />
-////          </element>
-////        </zeroOrMore>
-////      </element>
-////    </zeroOrMore>
+
 ////
 ////    <optional>
 ////      <ref name="date-content" />
@@ -241,18 +204,14 @@ namespace GrampsView.Data.Model
         /// The g child reference collection.
         /// </value>
         [DataMember]
-        public HLinkPersonModelCollection GChildRefCollection
+        public ChildRefCollectionCollection GChildRefCollection
         {
-            get
-            {
-                return childRefCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref childRefCollection, value);
-            }
+            set;
         }
+
+        = new ChildRefCollectionCollection();
 
         /// <summary>
         /// Gets or sets the g citation reference collection.

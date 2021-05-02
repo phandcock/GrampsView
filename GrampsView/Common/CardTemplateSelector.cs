@@ -50,6 +50,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate ChildRefTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the citation template.
         /// </summary>
@@ -309,9 +315,24 @@ namespace GrampsView.Common
                         return AttributeTemplate;
                     }
 
+                case CardListLineCollection i:
+                    {
+                        return CardListLineTemplate;
+                    }
+
+                case FamilyModel i:
+                    {
+                        return FamilyTemplate;
+                    }
+
                 case HLinkBackLink i:
                     {
                         return OnSelectTemplate(i.HLink(), container);
+                    }
+
+                case HLinkChildRefModel i:
+                    {
+                        return ChildRefTemplate;
                     }
 
                 case HLinkCitationModel i:
@@ -386,35 +407,6 @@ namespace GrampsView.Common
                 default:
                     break;
             }
-
-            //if ((item is AddressModel) || (item is IHLinkAddressModel))
-            //{
-            //    return AddressTemplate;
-            //}
-
-            //if (item is AttributeModel)
-            //{
-            //    return AttributeTemplate;
-            //}
-
-            //if (item is ICitationModel)
-            //{
-            //    return CitationTemplate;
-            //}
-
-            if (item is CardListLineCollection)
-            {
-                return CardListLineTemplate;
-            }
-            if (item is FamilyModel)
-            {
-                return FamilyTemplate;
-            }
-
-            //if (item is HLinkCitationModel)
-            //{
-            //    return CitationTemplate;
-            //}
 
             if (item is HLinkEventModel)
             {

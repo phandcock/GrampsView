@@ -92,9 +92,9 @@ namespace GrampsView
 
             MainPage = new AppShell();
 
-            StartAtDetailPage().GetAwaiter().GetResult();
+            Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
 
-            Shell.Current.GoToAsync("///HubPage");
+            StartAtDetailPage().GetAwaiter().GetResult();
         }
 
         protected override void OnResume()
@@ -157,6 +157,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<BookMarkListPage, BookMarkListViewModel>();
 
+            container.RegisterForNavigation<ChildRefDetailPage, ChildRefDetailViewModel>();
             container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
             container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
 
@@ -239,10 +240,10 @@ namespace GrampsView
         //    // Process changes
         //    EventAggregator ea = this.Container.Resolve<EventAggregator>();
 
-        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo; // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation);
-
-        // // because seems to be one rotation behind on emulator. Try the old school // way until
-        // fixed if (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
+        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo; //
+        // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); // because seems to
+        // be one rotation behind on emulator. Try the old school // way until fixed if
+        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
         // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
         // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
 

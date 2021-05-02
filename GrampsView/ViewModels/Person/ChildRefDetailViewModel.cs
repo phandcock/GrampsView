@@ -14,7 +14,7 @@
     /// <summary>
     /// ViewModel for the Person Detail page.
     /// </summary>
-    public class PersonDetailViewModel : ViewModelBase, INotifyPropertyChanged
+    public class ChildRefDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
@@ -27,17 +27,24 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public PersonDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+        public ChildRefDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Person Detail";
+            BaseTitle = "Child of Person Detail";
             BaseTitleIcon = CommonConstants.IconPeople;
 
             _PlatformSpecific = iocPlatformSpecific;
         }
 
+        public HLinkChildRefModel ChildRefHLink
+        {
+            get; set;
+        }
+
+             = new HLinkChildRefModel();
+
         /// <summary>
-        /// Gets the person's events and those of any families they were in.
+        /// Gets the persons events and those of any families they were in.
         /// </summary>
         /// <returns>
         /// CardGroup
@@ -107,15 +114,15 @@
         /// </returns>
         public override void BaseHandleAppearingEvent()
         {
-            BaseCL.RoutineEntry("PersonDetailViewModel");
+            BaseCL.RoutineEntry("ChildRefDetailViewModel");
 
             // TODO try again to set this up when the toolkit is a little more mature or I have an
             // idea where the bug is coming from
             BaseCurrentLayoutState = LayoutState.Loading;
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            ChildRefHLink = CommonRoutines.DeserialiseObject<HLinkChildRefModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
-            PersonObject = HLinkPerson.DeRef;
+            PersonObject = ChildRefHLink.DeRef;
 
             if (!(PersonObject is null))
             {
@@ -129,7 +136,9 @@
 
                 // Get the Person Details
                 CardListLineCollection nameDetails = GetExtraPersonDetails();
-                nameDetails.Title = "Person Detail";
+                nameDetails.Title = "Child Reference Person Detail";
+                nameDetails.Add(new CardListLine("Mother Relationship", ChildRefHLink.GGMRel));
+                nameDetails.Add(new CardListLine("Father Relationship", ChildRefHLink.GGMRel));
                 BaseDetail.Add(nameDetails);
 
                 // Get date card

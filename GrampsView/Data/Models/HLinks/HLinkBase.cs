@@ -24,11 +24,6 @@
     {
         private ItemGlyph _HLinkGlyphItem = new ItemGlyph();
 
-        /// <summary>
-        /// The local h link key.
-        /// </summary>
-        private string _HLinkKey = string.Empty;
-
         public HLinkBase()
         {
             UCNavigateCommand = new AsyncCommand(UCNavigate);

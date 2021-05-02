@@ -2,11 +2,8 @@
 {
     using GrampsView.Common;
 
+    using Prism.Commands;
     using Prism.Events;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// <c>First Run View Model</c>
@@ -25,14 +22,14 @@
         public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
-            LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);
+            LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);
 
             BaseTitle = "First Run";
 
             BaseTitleIcon = CommonConstants.IconSettings;
         }
 
-        public IAsyncCommand LoadDataCommand
+        public DelegateCommand LoadDataCommand
         {
             get;
         }
@@ -46,7 +43,7 @@
         /// <param name="parameter">
         /// The parameter.
         /// </param>
-        public async Task FirstRunLoadAFileButton()
+        public async void FirstRunLoadAFileButton()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 

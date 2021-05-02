@@ -2,6 +2,5 @@
 {
     public interface IHLinkGlyph : IHLinkBase
     {
-        //bool IsImageType { get; }
     }
 }

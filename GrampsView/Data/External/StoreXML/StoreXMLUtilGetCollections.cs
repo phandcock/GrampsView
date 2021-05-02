@@ -131,6 +131,46 @@
             return t;
         }
 
+        private ChildRefCollectionCollection GetChildRefCollection(XElement xmlData)
+        {
+            ChildRefCollectionCollection t = new ChildRefCollectionCollection
+            {
+                Title = "Child Reference Collection"
+            };
+
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "childref")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    HLinkChildRefModel newChildRefModel = new HLinkChildRefModel
+                    {
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+
+                        GGFRel = GetAttribute(theLoadORElement.Attribute("frel")),
+
+                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+
+                        GGMRel = GetAttribute(theLoadORElement.Attribute("mrel")),
+
+                        GCitationCollectionReference = GetCitationCollection(theLoadORElement),
+
+                        GNoteCollectionReference = GetNoteCollection(theLoadORElement),
+                    };
+
+                    t.Add(newChildRefModel);
+                }
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// Gets the citation collection.
         /// </summary>

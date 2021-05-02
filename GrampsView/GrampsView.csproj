@@ -124,11 +124,17 @@
     <Compile Update="UserControls\MediaGlyphCardLarge.xaml.cs">
       <DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\ChildRefCardSmall.xaml.cs">
+      <DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
       <DependentUpon>AttributeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
+      <DependentUpon>ChildRefDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Popups\ErrorPopup.xaml.cs">
       <DependentUpon>ErrorPopup.xaml</DependentUpon>

@@ -77,23 +77,25 @@
                         }
 
                         // ChildRef loading
-                        var thisORElement =
-                            from thisORElementEl in familyElement.Descendants(ns + "childref")
-                            select thisORElementEl;
+                        //var thisORElement =
+                        //    from thisORElementEl in familyElement.Descendants(ns + "childref")
+                        //    select thisORElementEl;
 
-                        if (thisORElement.Any())
-                        {
-                            // load child object references
-                            foreach (XElement thisLoadORElement in thisORElement)
-                            {
-                                HLinkPersonModel t = new HLinkPersonModel
-                                {
-                                    // load the hlink
-                                    HLinkKey = new HLinkKey((string)thisLoadORElement.Attribute("hlink")),
-                                };
-                                loadFamily.GChildRefCollection.Add(t);
-                            }
-                        }
+                        //if (thisORElement.Any())
+                        //{
+                        loadFamily.GChildRefCollection = GetChildRefCollection(familyElement);
+
+                        //// load child object references
+                        //foreach (XElement thisLoadORElement in thisORElement)
+                        //{
+                        //    HLinkPersonModel t = new HLinkPersonModel
+                        //    {
+                        //        // load the hlink
+                        //        HLinkKey = new HLinkKey((string)thisLoadORElement.Attribute("hlink")),
+                        //    };
+                        //    loadFamily.GChildRefCollection.Add(t);
+                        //}
+                        //}
 
                         // Citation References
                         loadFamily.GCitationRefCollection = GetCitationCollection(familyElement);

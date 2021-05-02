@@ -17,6 +17,10 @@
         <usercontrols:ListLineCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="ChildRefCardSmallDT">
+        <usercontrols:ChildRefCardSmall />
+    </DataTemplate>
+
     <DataTemplate x:Key="CitationCardSmallDT">
         <usercontrols:CitationCardSmall />
     </DataTemplate>
@@ -102,6 +106,7 @@
         AddressTemplate="{StaticResource AddressCardSmallDT}"
         AttributeTemplate="{StaticResource AttributeCardSingleDT}"
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
+        ChildRefTemplate="{StaticResource ChildRefCardSmallDT}"
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"

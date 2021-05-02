@@ -6,9 +6,6 @@
     using System.Collections;
     using System.Threading.Tasks;
 
-    /// <summary>
-    /// Public interfaces for the Event elements.
-    /// </summary>
     public interface IHLinkBase : IComparer, IComparable
     {
         ItemGlyph HLinkGlyphItem
