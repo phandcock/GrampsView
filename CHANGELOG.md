@@ -1,3 +1,12 @@
+## [16.17.35](https://github.com/phandcock/GrampsView/compare/v16.17.34...v16.17.35) (2021-05-02)
+
+
+### Bug Fixes
+
+* tweak startup ([9ef2aac](https://github.com/phandcock/GrampsView/commit/9ef2aac6bc8fa8609d4f4ceecd258a5fa944421e))
+
+
+
 ## [16.17.34](https://github.com/phandcock/GrampsView/compare/v16.17.33...v16.17.34) (2021-05-02)
 
 
@@ -32,19 +41,6 @@
 ### Bug Fixes
 
 * fix for android blank screen on first run ([e812f49](https://github.com/phandcock/GrampsView/commit/e812f49f621c950112972e6affe8ec092ba356ba))
-
-
-
-## [16.17.30](https://github.com/phandcock/GrampsView/compare/v16.17.29...v16.17.30) (2021-04-28)
-
-
-### Bug Fixes
-
-* change xmlutils to mostly static ([34f68e3](https://github.com/phandcock/GrampsView/commit/34f68e3e2fcd4ef84181cf71aa1b38b44527ceec))
-* cleanup altModel ([4350a7d](https://github.com/phandcock/GrampsView/commit/4350a7d4de38de818b7cfb97720b1e9cd8fef511))
-* fix missing orientation function ([20e8a2f](https://github.com/phandcock/GrampsView/commit/20e8a2fecba84c7f15dcbe685ddd15a90595c28c))
-* tweak card sizes again ([32ef732](https://github.com/phandcock/GrampsView/commit/32ef732dff05562b605b825e987a9312ad8ccab5))
-* tweak cradsizes again ([6dc5e14](https://github.com/phandcock/GrampsView/commit/6dc5e1433c6cd703db70278dbda6f84cca2db2e5))
 
 
 
