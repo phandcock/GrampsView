@@ -10,6 +10,7 @@
     /// </summary>
     public partial class WhatsNewViewModel : ViewModelBase
     {
+        private IStartAppLoad _StartAppLoad;
         private string _WhatsNewText = string.Empty;
 
         /// <summary>
@@ -21,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(LoadDataAction);
@@ -29,6 +30,8 @@
             BaseTitle = "What's new";
 
             BaseTitleIcon = CommonConstants.IconSettings;
+
+            _StartAppLoad = iocStartAppLoad;
         }
 
         public DelegateCommand LoadDataCommand
@@ -59,7 +62,7 @@
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            StartAppLoad.StartProcessing();
+            _StartAppLoad.StartProcessing();
         }
     }
 }

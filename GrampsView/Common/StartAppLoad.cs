@@ -9,7 +9,7 @@
 
     using System.Threading.Tasks;
 
-    public static class StartAppLoad
+    public class StartAppLoad : IStartAppLoad
     {
         private static IDatabaseReloadDisplayService _DatabaseReloadDisplayService = new DatabaseReloadDisplayService();
 
@@ -19,11 +19,7 @@
 
         private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
-        //private static bool databaseReloadShownFlag = false;
-        //private static bool firstRunShownFlag = false;
-        //private static bool whatNewShownFlag = false;
-
-        public static void Init(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
+        public StartAppLoad(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
             _iocEventAggregator = iocEventAggregator;
@@ -33,11 +29,9 @@
             _FirstRunDisplayService = iocFirstRunDisplayService;
 
             _DatabaseReloadDisplayService = iocDatabaseReloadDisplayService;
-
-            //iocEventAggregator.GetEvent<AppStartEvent>().Subscribe(StartProcessing);
         }
 
-        public static async Task StartProcessing()
+        public async Task StartProcessing()
         {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
@@ -62,19 +56,8 @@
                 return;
             }
 
-            ServiceLoadData();
-        }
-
-        private static async void ServiceLoadData()
-        {
-            //var t = Shell.Current.Navigation.NavigationStack;
-
             if (CommonLocalSettings.DataSerialised)
             {
-                // Start data load
-
-                // await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
-
                 _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
                 return;
             }
@@ -82,8 +65,6 @@
             // No Serialised Data and made it this far so some problem has occurred. Load everything
             // from the beginning.
             await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
-
-            //await CommonRoutines.NavigateAsync(nameof(HubPage) + "///" + nameof(FileInputHandlerPage));
         }
     }
 }

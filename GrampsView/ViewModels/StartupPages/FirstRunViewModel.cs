@@ -10,6 +10,8 @@
     /// </summary>
     public class FirstRunViewModel : ViewModelBase
     {
+        private IStartAppLoad _StartAppLoad;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstRunViewModel"/> class.
         /// </summary>
@@ -19,7 +21,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);
@@ -27,6 +29,8 @@
             BaseTitle = "First Run";
 
             BaseTitleIcon = CommonConstants.IconSettings;
+
+            _StartAppLoad = iocStartAppLoad;
         }
 
         public DelegateCommand LoadDataCommand
@@ -47,7 +51,7 @@
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            StartAppLoad.StartProcessing();
+            _StartAppLoad.StartProcessing();
         }
     }
 }

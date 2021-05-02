@@ -43,15 +43,10 @@
 
                         // Family attributes
                         loadFamily.LoadBasics(GetBasics(familyElement));
-                        //loadFamily.Id = (string)familyElement.Attribute("id");
 
-                        ////if (loadFamily.Id == "F0152")
-                        ////{
-                        ////}
-
-                        //loadFamily.Handle = (string)familyElement.Attribute("handle");
-                        //loadFamily.Change = GetDateTime((string)familyElement.Attribute("change"));
-                        //loadFamily.Priv = SetPrivateObject((string)familyElement.Attribute("priv"));
+                        if (loadFamily.Id == "F0151")
+                        {
+                        }
 
                         // Family fields
 
@@ -76,26 +71,7 @@
                             loadFamily.GMother.HLinkKey = new HLinkKey((string)tempMother.Attribute("hlink"));
                         }
 
-                        // ChildRef loading
-                        //var thisORElement =
-                        //    from thisORElementEl in familyElement.Descendants(ns + "childref")
-                        //    select thisORElementEl;
-
-                        //if (thisORElement.Any())
-                        //{
                         loadFamily.GChildRefCollection = GetChildRefCollection(familyElement);
-
-                        //// load child object references
-                        //foreach (XElement thisLoadORElement in thisORElement)
-                        //{
-                        //    HLinkPersonModel t = new HLinkPersonModel
-                        //    {
-                        //        // load the hlink
-                        //        HLinkKey = new HLinkKey((string)thisLoadORElement.Attribute("hlink")),
-                        //    };
-                        //    loadFamily.GChildRefCollection.Add(t);
-                        //}
-                        //}
 
                         // Citation References
                         loadFamily.GCitationRefCollection = GetCitationCollection(familyElement);

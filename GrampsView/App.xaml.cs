@@ -6,7 +6,6 @@ using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Events;
-using GrampsView.Services;
 using GrampsView.ViewModels;
 using GrampsView.Views;
 
@@ -83,6 +82,8 @@ namespace GrampsView
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
+            AppCenterInit();
+
             Container.Resolve<IPlatformSpecific>();
 
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
@@ -90,6 +91,8 @@ namespace GrampsView
             Container.Resolve<IDataRepositoryManager>();
 
             Container.Resolve<IEventAggregator>().GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
+
+            Container.Resolve<IStartAppLoad>();
 
             //// Subscribe to changes of screen metrics
             //DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
@@ -101,9 +104,6 @@ namespace GrampsView
             MainPage = new AppShell();
 
             Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
-
-            StartAppLoad.Init(Container.Resolve<IEventAggregator>(), Container.Resolve<FirstRunDisplayService>(), Container.Resolve<WhatsNewDisplayService>(),
-               Container.Resolve<DatabaseReloadDisplayService>());
 
             StartAtDetailPage().GetAwaiter().GetResult();
         }
@@ -141,14 +141,12 @@ namespace GrampsView
                 return;
             }
 
-            AppCenterInit();
-
             CardSizes.Current.ReCalculateCardWidths((DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density), (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
 
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
 
-            StartAppLoad.StartProcessing();
+            Container.Resolve<IStartAppLoad>().StartProcessing();
         }
 
         protected override void RegisterTypes(IContainerRegistry container)
@@ -201,6 +199,7 @@ namespace GrampsView
 
             container.RegisterForNavigation<NavigationPage>();
 
+            container.RegisterSingleton<IStartAppLoad, StartAppLoad>();
             container.RegisterSingleton<ICommonLogging, CommonLogging>();
             container.RegisterSingleton<ICommonNotifications, CommonNotifications>();
             container.RegisterSingleton<IDataRepositoryManager, DataRepositoryManager>();
