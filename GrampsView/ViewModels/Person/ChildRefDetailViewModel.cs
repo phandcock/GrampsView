@@ -137,8 +137,20 @@
                 // Get the Person Details
                 CardListLineCollection nameDetails = GetExtraPersonDetails();
                 nameDetails.Title = "Child Reference Person Detail";
-                nameDetails.Add(new CardListLine("Mother Relationship", ChildRefHLink.GGMRel));
-                nameDetails.Add(new CardListLine("Father Relationship", ChildRefHLink.GGMRel));
+
+                // handle frel and mrel defaults (according to the gramps source code)
+                nameDetails.Add(new CardListLine("Father Relationship", ChildRefHLink.GFatherRel));
+                if (string.IsNullOrEmpty(ChildRefHLink.GFatherRel))
+                {
+                    nameDetails.Add(new CardListLine("Father Relationship", "Birth"));
+                }
+
+                nameDetails.Add(new CardListLine("Mother Relationship", ChildRefHLink.GMotherRel));
+                if (string.IsNullOrEmpty(ChildRefHLink.GMotherRel))
+                {
+                    nameDetails.Add(new CardListLine("Mother Relationship", "Birth"));
+                }
+
                 BaseDetail.Add(nameDetails);
 
                 // Get date card

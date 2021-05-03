@@ -5,11 +5,13 @@
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
+    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// Child Reference model
     /// </summary>
+    [DataContract]
     public class HLinkChildRefModel : HLinkBase, IHLinkChildRefModel
     {
         private PersonModel _Deref = new PersonModel();
@@ -39,6 +41,7 @@
         /// <value>
         /// The citation collection reference.
         /// </value>
+        [DataMember]
         public HLinkCitationModelCollection GCitationCollectionReference
         {
             get; set;
@@ -59,7 +62,8 @@
             }
         }
 
-        public string GGFRel
+        [DataMember]
+        public string GFatherRel
         {
             get;
             set;
@@ -67,7 +71,8 @@
 
         = string.Empty;
 
-        public string GGMRel
+        [DataMember]
+        public string GMotherRel
         {
             get;
             set;
@@ -81,6 +86,7 @@
         /// <value>
         /// The note collection reference.
         /// </value>
+        [DataMember]
         public HLinkNoteModelCollection GNoteCollectionReference
         {
             get; set;
@@ -92,9 +98,9 @@
         {
             get
             {
-                if (!string.IsNullOrEmpty(GGFRel) & !string.IsNullOrEmpty(GGMRel))
+                if (!string.IsNullOrEmpty(GFatherRel) & !string.IsNullOrEmpty(GMotherRel))
                 {
-                    return string.Format("{0}-{1}", GGFRel, GGMRel);
+                    return string.Format("{0}-{1}", GFatherRel, GMotherRel);
                 }
 
                 return string.Empty;

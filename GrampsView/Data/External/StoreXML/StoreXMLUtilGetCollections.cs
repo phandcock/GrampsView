@@ -153,11 +153,11 @@
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
 
-                        GGFRel = GetAttribute(theLoadORElement.Attribute("frel")),
+                        GFatherRel = GetAttribute(theLoadORElement.Attribute("frel")),
 
                         Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
 
-                        GGMRel = GetAttribute(theLoadORElement.Attribute("mrel")),
+                        GMotherRel = GetAttribute(theLoadORElement.Attribute("mrel")),
 
                         GCitationCollectionReference = GetCitationCollection(theLoadORElement),
 
