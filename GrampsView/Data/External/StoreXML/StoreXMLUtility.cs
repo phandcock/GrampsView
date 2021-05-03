@@ -48,8 +48,12 @@
 
              IMediaModel newMediaModel = new MediaModel();
 
-             HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
+             HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey.Value + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
              string outFileName = Path.Combine("Cropped", newHLinkKey.Value + ".png");
+
+             //if ((newHLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0-56686279") || (newHLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0-55676380"))
+             //{
+             //}
 
              string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
 
