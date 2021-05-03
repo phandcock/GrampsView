@@ -1,3 +1,12 @@
+## [16.17.36](https://github.com/phandcock/GrampsView/compare/v16.17.35...v16.17.36) (2021-05-03)
+
+
+### Bug Fixes
+
+* cleanup appStart code to use proper MVVM ([3a10f04](https://github.com/phandcock/GrampsView/commit/3a10f04f81d23dc4825a7c4074740d54ec105240))
+
+
+
 ## [16.17.35](https://github.com/phandcock/GrampsView/compare/v16.17.34...v16.17.35) (2021-05-02)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * another try iat android initial startup black screen bug ([88dea4a](https://github.com/phandcock/GrampsView/commit/88dea4af0f17e142d24e5aca766c59604d26c04d))
-
-
-
-## [16.17.31](https://github.com/phandcock/GrampsView/compare/v16.17.30...v16.17.31) (2021-04-30)
-
-
-### Bug Fixes
-
-* fix for android blank screen on first run ([e812f49](https://github.com/phandcock/GrampsView/commit/e812f49f621c950112972e6affe8ec092ba356ba))
 
 
 
