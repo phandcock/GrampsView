@@ -1,3 +1,14 @@
+## [16.17.37](https://github.com/phandcock/GrampsView/compare/v16.17.36...v16.17.37) (2021-05-05)
+
+
+### Bug Fixes
+
+* cleanup childrefhlink code ([3844fd8](https://github.com/phandcock/GrampsView/commit/3844fd88952cb78419f19116bace5abb5b6f5b7f))
+* cropped file naming ([aafed6c](https://github.com/phandcock/GrampsView/commit/aafed6ccdd0d0327601391b8ec3e0f2534089010))
+* whatsnewpage layout ([681b53e](https://github.com/phandcock/GrampsView/commit/681b53ebeccd6cbae79ab9b9661acdb48447184b))
+
+
+
 ## [16.17.36](https://github.com/phandcock/GrampsView/compare/v16.17.35...v16.17.36) (2021-05-03)
 
 
@@ -32,15 +43,6 @@
 
 * attributes tweaks ([4b353ba](https://github.com/phandcock/GrampsView/commit/4b353ba6e32a93753d845035258679b75212302f))
 * comment out cardsize debug code ([a531372](https://github.com/phandcock/GrampsView/commit/a5313725d7f1f8fab4144956f4cd4f8697c11235))
-
-
-
-## [16.17.32](https://github.com/phandcock/GrampsView/compare/v16.17.31...v16.17.32) (2021-04-30)
-
-
-### Bug Fixes
-
-* another try iat android initial startup black screen bug ([88dea4a](https://github.com/phandcock/GrampsView/commit/88dea4af0f17e142d24e5aca766c59604d26c04d))
 
 
 
