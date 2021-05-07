@@ -74,7 +74,6 @@
 
         public Queue<ErrorInfo> PopupQueue { get; } = new Queue<ErrorInfo>();
 
-        // public ErrorInfo DialogArgs { get; set; }
         /// <summary>
         /// Changes the bottom message.
         /// </summary>
@@ -154,7 +153,10 @@
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
+                // TODO Create first as UWP in Windows Store seems to need it for now.
+                var popup = new MessageLog();
+
+                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
             });
         }
 
@@ -251,7 +253,10 @@
         {
             if (!DialogShown && PopupQueue.Count > 0)
             {
-                Application.Current.MainPage.Navigation.ShowPopupAsync(new ErrorPopup());
+                // TODO Create first as UWP in Windows Store seems to need it for now.
+                var popup = new ErrorPopup();
+
+                Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
             }
         }
     }

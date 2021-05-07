@@ -175,18 +175,7 @@
 
         internal void BaseHandleAppearingEventInternal()
         {
-            if (!DetailDataLoadedFlag)
-            {
-                BaseCurrentLayoutState = LayoutState.Loading;
-
-                BaseHandleAppearingEvent();
-
-                DetailDataLoadedFlag = true;
-            }
-            else
-            {
-                BaseCurrentLayoutState = LayoutState.None;
-            }
+            BaseHandleAppearingEvent();
 
             //// Setup for loading if no data is loaded
             //if (!DataStore.Instance.DS.IsDataLoaded)
