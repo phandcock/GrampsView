@@ -153,10 +153,17 @@
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                // TODO Create first as UWP in Windows Store seems to need it for now.
-                var popup = new MessageLog();
+                try
+                {
+                    // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
+                    var popup = new MessageLog();
 
-                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                    var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                }
+                catch (InvalidCastException Ex)
+                {
+                    // TODO fix UWP Release issue until fixed
+                }
             });
         }
 
@@ -253,10 +260,17 @@
         {
             if (!DialogShown && PopupQueue.Count > 0)
             {
-                // TODO Create first as UWP in Windows Store seems to need it for now.
+                // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
                 var popup = new ErrorPopup();
 
-                Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                try
+                {
+                    Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                }
+                catch (InvalidCastException Ex)
+                {
+                    // TODO fix UWP Release issue until fixed
+                }
             }
         }
     }
