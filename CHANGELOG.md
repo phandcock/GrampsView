@@ -1,3 +1,12 @@
+## [16.17.38](https://github.com/phandcock/GrampsView/compare/v16.17.37...v16.17.38) (2021-05-08)
+
+
+### Bug Fixes
+
+* fix crash on stratup for Windows Store ([11bb292](https://github.com/phandcock/GrampsView/commit/11bb292e37f55e51e9d1b30d857002788da49524))
+
+
+
 ## [16.17.37](https://github.com/phandcock/GrampsView/compare/v16.17.36...v16.17.37) (2021-05-05)
 
 
@@ -33,16 +42,6 @@
 ### Bug Fixes
 
 * change to use childref and more andoird start fixes ([ede35bf](https://github.com/phandcock/GrampsView/commit/ede35bfc88cd6a3da2410c53e8c1778b52d32cfc))
-
-
-
-## [16.17.33](https://github.com/phandcock/GrampsView/compare/v16.17.32...v16.17.33) (2021-05-02)
-
-
-### Bug Fixes
-
-* attributes tweaks ([4b353ba](https://github.com/phandcock/GrampsView/commit/4b353ba6e32a93753d845035258679b75212302f))
-* comment out cardsize debug code ([a531372](https://github.com/phandcock/GrampsView/commit/a5313725d7f1f8fab4144956f4cd4f8697c11235))
 
 
 
