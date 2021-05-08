@@ -253,7 +253,7 @@
 
             _iocCommonLogging.Exception(argException, argExtraItems);
 
-            // Remove serialised data in case it is the issue CommonLocalSettings.DataSerialised = false;
+            CommonLocalSettings.DataSerialised = false;
         }
 
         public void PopUpShow()
