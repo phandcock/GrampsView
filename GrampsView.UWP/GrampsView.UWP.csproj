@@ -125,6 +125,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\appmetadata\en-us\baselisting\description.txt" />
+    <Content Include="Assets\appmetadata\en-us\baselisting\images\Screenshot\description.mainScreenshot.txt" />
+    <Content Include="Assets\appmetadata\en-us\baselisting\images\Screenshot\mainScreenshot.png" />
     <Content Include="Assets\Icons\ic_launcher.png" />
     <Content Include="Assets\Icons\LargeTile.scale-100.png" />
     <Content Include="Assets\Icons\LargeTile.scale-125.png" />

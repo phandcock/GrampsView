@@ -1,0 +1,3 @@
+﻿This program displays Genealogical data from a GRAMPS export file.
+
+GRAMPS is an open source database for tracking family history and other genealogy data.
