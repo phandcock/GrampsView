@@ -1,3 +1,13 @@
+## [16.17.39](https://github.com/phandcock/GrampsView/compare/v16.17.38...v16.17.39) (2021-05-09)
+
+
+### Bug Fixes
+
+* force reload if exception ([db0c827](https://github.com/phandcock/GrampsView/commit/db0c827a5461c359f6062716914af672e752ccef))
+* workaround for UWP Release Popup exception for cast ([47bb350](https://github.com/phandcock/GrampsView/commit/47bb35056d2b3c8a0d56c7810354b664af895991))
+
+
+
 ## [16.17.38](https://github.com/phandcock/GrampsView/compare/v16.17.37...v16.17.38) (2021-05-08)
 
 
@@ -33,15 +43,6 @@
 ### Bug Fixes
 
 * tweak startup ([9ef2aac](https://github.com/phandcock/GrampsView/commit/9ef2aac6bc8fa8609d4f4ceecd258a5fa944421e))
-
-
-
-## [16.17.34](https://github.com/phandcock/GrampsView/compare/v16.17.33...v16.17.34) (2021-05-02)
-
-
-### Bug Fixes
-
-* change to use childref and more andoird start fixes ([ede35bf](https://github.com/phandcock/GrampsView/commit/ede35bfc88cd6a3da2410c53e8c1778b52d32cfc))
 
 
 
