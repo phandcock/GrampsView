@@ -4,6 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <UserSecretsId>886841ad-558a-446c-bd12-4f8281b1b465</UserSecretsId>
+    <Version>16</Version>
+    <Copyright>2014 - 2021</Copyright>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +23,6 @@
     <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
     <Compile Remove="Common\CustomClasses\FlexPlus.cs" />
-    <Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
     <Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
     <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />

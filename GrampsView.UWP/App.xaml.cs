@@ -54,9 +54,7 @@
             // Handles URIs of the format used by Gramps internally gramps://person/handle/12345
             if (e.Kind == ActivationKind.Protocol)
             {
-                ProtocolActivatedEventArgs uriArgs = e as ProtocolActivatedEventArgs;
-
-                if (uriArgs != null)
+                if (e is ProtocolActivatedEventArgs uriArgs)
                 {
                     string[] uriSegments = uriArgs.Uri.Segments;
 

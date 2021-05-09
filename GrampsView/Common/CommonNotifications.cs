@@ -160,7 +160,7 @@
 
                     var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
                 }
-                catch (InvalidCastException Ex)
+                catch (InvalidCastException)
                 {
                     // TODO fix UWP Release issue until fixed
                 }
@@ -267,7 +267,7 @@
                 {
                     Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
                 }
-                catch (InvalidCastException Ex)
+                catch (InvalidCastException)
                 {
                     // TODO fix UWP Release issue until fixed
                 }
