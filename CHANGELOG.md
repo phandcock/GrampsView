@@ -1,3 +1,13 @@
+## [16.17.40](https://github.com/phandcock/GrampsView/compare/v16.17.39...v16.17.40) (2021-05-10)
+
+
+### Bug Fixes
+
+* add windows store metadata update files ([d7a52ff](https://github.com/phandcock/GrampsView/commit/d7a52fffc706f0afcbb883cd085fc3636737d747))
+* restore popup dismiss code ([135fc5b](https://github.com/phandcock/GrampsView/commit/135fc5b61e9487b7d1c7d315844a0fa4a3bdfe2e))
+
+
+
 ## [16.17.39](https://github.com/phandcock/GrampsView/compare/v16.17.38...v16.17.39) (2021-05-09)
 
 
@@ -34,15 +44,6 @@
 ### Bug Fixes
 
 * cleanup appStart code to use proper MVVM ([3a10f04](https://github.com/phandcock/GrampsView/commit/3a10f04f81d23dc4825a7c4074740d54ec105240))
-
-
-
-## [16.17.35](https://github.com/phandcock/GrampsView/compare/v16.17.34...v16.17.35) (2021-05-02)
-
-
-### Bug Fixes
-
-* tweak startup ([9ef2aac](https://github.com/phandcock/GrampsView/commit/9ef2aac6bc8fa8609d4f4ceecd258a5fa944421e))
 
 
 
