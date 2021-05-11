@@ -76,12 +76,7 @@
 
             DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 
-            BaseCL.Progress("Tell someone to load the file");
-
-            // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
-            CommonLocalSettings.SetReloadDatabase();
-
-            BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
+            await StartLoad();
         }
 
         /// <summary>
@@ -99,17 +94,7 @@
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
-                    BaseCL.Progress("Tell someone to load the file");
-
-                    // Remove the old dateTime stamps so the files get reloaded even if they have
-                    // been seen before
-                    CommonLocalSettings.SetReloadDatabase();
-
-                    BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
-
-                    await DataStore.Instance.CN.DataLogEntryAdd("File picked").ConfigureAwait(false);
-
-                    await CommonRoutines.NavigateBack();
+                    await StartLoad();
                 }
                 else
                 {
@@ -125,6 +110,18 @@
 
                 throw;
             }
+        }
+
+        private async Task StartLoad()
+        {
+            BaseCL.Progress("Tell someone to load the file");
+
+            // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
+            CommonLocalSettings.SetReloadDatabase();
+
+            BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
+
+            await CommonRoutines.NavigateBack();
         }
     }
 }

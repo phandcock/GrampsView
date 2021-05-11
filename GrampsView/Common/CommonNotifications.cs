@@ -146,7 +146,7 @@
 
         public void DataLogHide()
         {
-            DataLog.DismissFlag = true;
+            DataLog.PopupDismissFlag = true;
         }
 
         public void DataLogShow()
@@ -155,6 +155,8 @@
             {
                 try
                 {
+                    DataLog.PopupDismissFlag = false;
+
                     // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
                     var popup = new MessageLog();
 

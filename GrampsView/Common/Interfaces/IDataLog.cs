@@ -10,7 +10,7 @@ namespace GrampsView.Common
             get;
         }
 
-        bool DismissFlag
+        bool PopupDismissFlag
         {
             get; set;
         }

@@ -35,7 +35,7 @@
         /// </value>
         public ObservableCollection<DataLogEntry> DataLoadLog { get; } = new ObservableCollection<DataLogEntry>();
 
-        public bool DismissFlag
+        public bool PopupDismissFlag
         {
             get; set;
         }
