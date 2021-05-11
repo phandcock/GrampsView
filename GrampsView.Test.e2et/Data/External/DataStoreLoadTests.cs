@@ -31,11 +31,11 @@
 
             // Load Resource
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = DataStoreUtility.BasePath + ".Test_Data.Basic.gpkg";
+            var resourceName = DataStoreUtility.BasePath + ".Test_Data.e2e test default.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
-            DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Basic.gpkg";
+            DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Test_Data.e2e test default.gpkg";
 
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen
             // before TODO CommonLocalSettings.SetReloadDatabase();

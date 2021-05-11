@@ -224,6 +224,12 @@
 
         public static object ResourceValueGet(string keyName)
         {
+            // Test if running in NUnit test mode
+            if (Application.Current is null)
+            {
+                return null;
+            }
+
             // Search all dictionaries
             if (Application.Current.Resources.TryGetValue(keyName, out var retVal))
             {

@@ -10,19 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Basic Test Data\**" />
+    <EmbeddedResource Remove="Data\Basic Test Data\**" />
+    <None Remove="Data\Basic Test Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
     <Compile Remove="Utility\DataStoreClean.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Test Data\Basic.gpkg" />
-    <None Remove="Test Data\GrampsView Test Basic.gpkg" />
+    <None Remove="Test Data\e2e test default.gpkg" />
     <None Remove="Test Data\grampsxml.171.rng" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Test Data\Basic.gpkg" />
-    <EmbeddedResource Include="Test Data\GrampsView Test Basic.gpkg" />
+    <EmbeddedResource Include="Test Data\e2e test default.gpkg" />
     <EmbeddedResource Include="Test Data\grampsxml.171.rng" />
   </ItemGroup>
 

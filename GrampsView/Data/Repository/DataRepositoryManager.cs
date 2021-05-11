@@ -294,7 +294,14 @@
                 // TODO create data folder await localStoreFile.SetDataFolderLocalStorage();
 
                 // Clear image cache
-                await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
+                try
+                {
+                    await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
+                }
+                catch (NotImplementedException ex)
+                {
+                    // TODO Ignore as part of Unit Tests
+                }
 
                 // TODO work out how to delete excess files based on keeping the ones in the GPKG file
                 //// Delete directories of files. Assume files in root are ok
