@@ -1,3 +1,12 @@
+## [16.17.41](https://github.com/phandcock/GrampsView/compare/v16.17.40...v16.17.41) (2021-05-12)
+
+
+### Bug Fixes
+
+* work on messagelogpopup dismass flag ([169387c](https://github.com/phandcock/GrampsView/commit/169387c2fe4c06b6da0df2ccf633681ba4500186))
+
+
+
 ## [16.17.40](https://github.com/phandcock/GrampsView/compare/v16.17.39...v16.17.40) (2021-05-10)
 
 
@@ -35,15 +44,6 @@
 * cleanup childrefhlink code ([3844fd8](https://github.com/phandcock/GrampsView/commit/3844fd88952cb78419f19116bace5abb5b6f5b7f))
 * cropped file naming ([aafed6c](https://github.com/phandcock/GrampsView/commit/aafed6ccdd0d0327601391b8ec3e0f2534089010))
 * whatsnewpage layout ([681b53e](https://github.com/phandcock/GrampsView/commit/681b53ebeccd6cbae79ab9b9661acdb48447184b))
-
-
-
-## [16.17.36](https://github.com/phandcock/GrampsView/compare/v16.17.35...v16.17.36) (2021-05-03)
-
-
-### Bug Fixes
-
-* cleanup appStart code to use proper MVVM ([3a10f04](https://github.com/phandcock/GrampsView/commit/3a10f04f81d23dc4825a7c4074740d54ec105240))
 
 
 
