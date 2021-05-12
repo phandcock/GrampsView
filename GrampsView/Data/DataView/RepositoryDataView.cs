@@ -128,6 +128,11 @@ namespace GrampsView.Data.DataView
             return RepositoryData[argHLinkKey.Value];
         }
 
+        public override RepositoryModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

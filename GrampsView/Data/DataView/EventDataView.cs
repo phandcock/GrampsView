@@ -241,6 +241,11 @@ namespace GrampsView.Data.DataView
             return EventData[argHLinkKey.Value];
         }
 
+        public override EventModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

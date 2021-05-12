@@ -262,6 +262,11 @@ namespace GrampsView.Data.DataView
             return PersonData[argHLinkKey.Value];
         }
 
+        public override PersonModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         //    return groups;
         //}
         /// <summary>

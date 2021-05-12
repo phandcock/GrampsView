@@ -92,6 +92,8 @@ namespace GrampsView.Data.DataView
         /// </returns>
         T GetModelFromHLinkKey(HLinkKey argHLinkKey);
 
+        T GetModelFromId(string argId);
+
         /// <summary>
         /// Gets the model information formatted.
         /// </summary>

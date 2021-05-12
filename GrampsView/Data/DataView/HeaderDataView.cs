@@ -30,13 +30,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the header data.
-        /// </summary>
-        /// <value>
-        /// The header data.
-        /// </value>
-
         public override IReadOnlyList<HeaderModel> DataViewData
         {
             get
@@ -45,6 +38,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the header data.
+        /// </summary>
+        /// <value>
+        /// The header data.
+        /// </value>
         public RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> HeaderData
         {
             get
@@ -99,6 +98,11 @@
         public override HeaderModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             return HeaderData.Values.First();
+        }
+
+        public override HeaderModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
         }
 
         /// <summary>

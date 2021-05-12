@@ -6,8 +6,6 @@
     using GrampsView.Data.Model;
     using GrampsView.e2e.Test.Utility;
 
-    using System.Collections.Generic;
-
     [TestFixture()]
     public class ModelPersonTests
     {
@@ -28,9 +26,7 @@
 
             DataStoreUtility.LoadTestFile();
 
-            List<PersonModel> t = DV.PersonDV.GetAllAsModel();
-
-            PersonModel tt = t[0];
+            PersonModel tt = DV.PersonDV.GetModelFromId("I0000");
 
             if (tt.Valid)
             {

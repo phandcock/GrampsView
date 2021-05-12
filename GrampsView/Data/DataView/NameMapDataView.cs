@@ -101,6 +101,11 @@ namespace GrampsView.Data.DataView
             return NameMapData[argHLinkKey.Value];
         }
 
+        public override NameMapModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

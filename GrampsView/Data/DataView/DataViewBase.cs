@@ -62,20 +62,6 @@
             get;
         }
 
-        ///// <summary>
-        ///// Gets the get groups by letter. Default to empty list.
-        ///// </summary>
-        ///// <value>
-        ///// The get groups by letter.
-        ///// </value>
-        //public virtual List<CommonGroupInfoCollection<TB>> GetGroupsByLetter
-        //{
-        //    get
-        //    {
-        //        return new List<CommonGroupInfoCollection<TB>>();
-        //    }
-        //}
-
         public virtual CardGroupBase<TU> GetLatestChanges
         {
             get
@@ -150,6 +136,8 @@
         /// ModelBase.
         /// </returns>
         public abstract TB GetModelFromHLinkKey(HLinkKey argHLinkKey);
+
+        public abstract TB GetModelFromId(string argId);
 
         /// <summary>
         /// Gets the model information formatted.

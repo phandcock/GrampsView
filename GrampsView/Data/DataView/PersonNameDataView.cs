@@ -95,6 +95,11 @@ namespace GrampsView.Data.DataView
             return PersonNameData[argHLinkKey.Value];
         }
 
+        public override PersonNameModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// Sorts hlink address collection.
         /// </summary>

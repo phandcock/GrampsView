@@ -124,6 +124,11 @@ namespace GrampsView.Data.DataView
             return AddressData[argHLinkKey.Value];
         }
 
+        public override AddressModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// Sorts hlink address collection.
         /// </summary>

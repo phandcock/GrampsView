@@ -128,6 +128,11 @@ namespace GrampsView.Data.DataView
             return DataStore.Instance.DS.CitationData[argHLinkKey.Value];
         }
 
+        public override CitationModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

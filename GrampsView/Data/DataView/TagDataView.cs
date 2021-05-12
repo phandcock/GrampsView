@@ -165,6 +165,11 @@ namespace GrampsView.Data.DataView
             return TagData[argHLinkKey.Value];
         }
 
+        public override TagModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

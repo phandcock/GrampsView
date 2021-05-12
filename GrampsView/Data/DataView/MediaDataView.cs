@@ -176,6 +176,11 @@
             return DataStore.Instance.DS.MediaData[argHLinkKey.Value];
         }
 
+        public override MediaModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// Gets the random from collection.
         /// </summary>

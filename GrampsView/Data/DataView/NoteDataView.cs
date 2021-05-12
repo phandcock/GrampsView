@@ -163,6 +163,11 @@ namespace GrampsView.Data.DataView
             return NoteData[argHLinkKey.Value];
         }
 
+        public override NoteModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// hes the link collection sort.
         /// </summary>

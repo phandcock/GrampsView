@@ -260,6 +260,11 @@ namespace GrampsView.Data.DataView
             return FamilyData[argHLinkKey.Value];
         }
 
+        public override FamilyModel GetModelFromId(string argId)
+        {
+            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+        }
+
         /// <summary>
         /// Gets the mother.
         /// </summary>
