@@ -1,10 +1,9 @@
 ﻿namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
-    public class ErrorDialogViewModel : CommonBindableBase
+    public class ErrorDialogViewModel : ViewModelBase
     {
         private ErrorInfo _ADArgs = new ErrorInfo();
 
@@ -38,6 +37,10 @@
             {
                 SetProperty(ref _Title, value);
             }
+        }
+
+        public override void BaseHandleDisAppearingEvent()
+        {
         }
     }
 }

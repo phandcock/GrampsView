@@ -1,11 +1,14 @@
 ﻿using GrampsView.Common;
 using GrampsView.UWP.Common;
+
 using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+
 using Windows.Storage;
 using Windows.Storage.FileProperties;
+
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ImageResource))]
@@ -43,6 +46,10 @@ namespace GrampsView.UWP.Common
 
                     // TODO For example, handle a file not found error
                     return new Size(0, 0);
+                }
+                catch (Exception)
+                {
+                    throw;
                 }
 
                 return new Size(0, 0);

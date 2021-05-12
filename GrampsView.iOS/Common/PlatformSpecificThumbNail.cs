@@ -64,7 +64,7 @@
             return new MediaModel();
         }
 
-        public async Task<HLinkMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel filePath, long millisecond)
+        public async Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
         {
             //var asset = AVAsset.FromUrl(NSUrl.FromFilename(filePath));
             //var imageGenerator = AVAssetImageGenerator.FromAsset(asset);
@@ -79,7 +79,7 @@
             //var cgImage = imageGenerator.CopyCGImageAtTime(cmTime, out actualTime, out error);
             //return new UIImage(cgImage).AsJPEG().AsStream();
 
-            return new HLinkMediaModel();
+            return new MediaModel();
         }
     }
 }

@@ -8,7 +8,6 @@
     using Prism.Events;
 
     using System;
-    using System.Linq;
 
     /// <summary>
     /// Family detail page view ViewModel.
@@ -77,9 +76,6 @@
                 BaseTitle = FamilyObject.FamilyDisplayName;
                 BaseTitleIcon = CommonConstants.IconFamilies;
 
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
-
                 // Get basic details
 
                 BaseDetail.Add(new CardListLineCollection("Family Detail")
@@ -98,13 +94,6 @@
                 {
                     Parents = localFamilyModel,
                 });
-
-                string outFamEvent;
-                if (FamilyObject.GEventRefCollection.Count > 0)
-                {
-                    // TODO Handle this
-                    outFamEvent = FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GType + ": " + FamilyObject.GEventRefCollection.FirstOrDefault().DeRef.GDate.ShortDate;
-                }
 
                 _PlatformSpecific.ActivityTimeLineAdd(FamilyObject);
             }

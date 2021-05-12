@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Common
 {
-    using AdaptiveCards;
-
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -54,6 +52,8 @@
                 catch (Exception ex)
                 {
                     DataStore.Instance.CN.NotifyException("Timeline Add", ex);
+
+                    throw;
                 }
 
                 return activitySession;
@@ -76,66 +76,45 @@
             }
         }
 
-        internal static AdaptiveCard CreateAdaptiveCardForTimeline(string argArea, ModelBase argTheModel, string argBodyText)
-        {
-            // _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.Symbol);
+        //internal static AdaptiveCard CreateAdaptiveCardForTimeline(string argArea, ModelBase argTheModel, string argBodyText)
+        //{
+        //    // _ModelUserActivity.VisualElements.BackgroundColor = ColorExtensions.ToPlatformColor(theModel.ModelItemGlyph.Symbol);
 
-            // Create an adaptive card specifically to reference this app in Windows 10 Timeline.
-            AdaptiveCard apodTimelineCard = new AdaptiveCard("1.0");
+        // // Create an adaptive card specifically to reference this app in Windows 10 Timeline.
+        // AdaptiveCard apodTimelineCard = new AdaptiveCard("1.0");
 
-            // Add a heading to the card, which allows the heading to wrap to the next line if necessary.
-            var apodHeading = new AdaptiveTextBlock
-            {
-                Text = argArea,
-                Size = AdaptiveTextSize.Large,
-                Weight = AdaptiveTextWeight.Bolder,
-                Wrap = true,
-                MaxLines = 2
-            };
-            apodTimelineCard.Body.Add(apodHeading);
+        // // Add a heading to the card, which allows the heading to wrap to the next line if
+        // necessary. var apodHeading = new AdaptiveTextBlock { Text = argArea, Size =
+        // AdaptiveTextSize.Large, Weight = AdaptiveTextWeight.Bolder, Wrap = true, MaxLines = 2 }; apodTimelineCard.Body.Add(apodHeading);
 
-            //// Add Column set
-            //var apodColumnSet = new AdaptiveColumnSet();
+        // //// Add Column set //var apodColumnSet = new AdaptiveColumnSet();
 
-            //// Column 1
-            //var apodColumn1 = new AdaptiveColumn();
+        // //// Column 1 //var apodColumn1 = new AdaptiveColumn();
 
-            // Add a description to the card, and note that it can wrap for several lines.
-            var apodDesc = new AdaptiveTextBlock
-            {
-                Text = argBodyText,
-                Size = AdaptiveTextSize.Default,
-                Weight = AdaptiveTextWeight.Lighter,
-                Wrap = true,
-                MaxLines = 3,
-                Separator = true
-            };
+        // // Add a description to the card, and note that it can wrap for several lines. var
+        // apodDesc = new AdaptiveTextBlock { Text = argBodyText, Size = AdaptiveTextSize.Default,
+        // Weight = AdaptiveTextWeight.Lighter, Wrap = true, MaxLines = 3, Separator = true };
 
-            apodTimelineCard.Body.Add(apodDesc);
+        // apodTimelineCard.Body.Add(apodDesc);
 
-            // Add column1
-            //apodColumn1.Items.Add(apodDesc);
-            //apodColumnSet.Columns.Add(apodColumn1);
+        // // Add column1 //apodColumn1.Items.Add(apodDesc); //apodColumnSet.Columns.Add(apodColumn1);
 
-            // Column 2
+        // // Column 2
 
-            //// Add a background image to the card.
-            //if (argTheModel.HLinkGlyph.IsImageType)
-            //{
-            //    var apodColumn2 = new AdaptiveColumn();
+        // //// Add a background image to the card. //if (argTheModel.HLinkGlyph.IsImageType) //{ //
+        // var apodColumn2 = new AdaptiveColumn();
 
-            // var apodImage = new AdaptiveImage { Url = new
-            // Uri(argTheModel.HLinkGlyph.ConvertToHLinkMediaModel.DeRef.MediaStorageFilePath), };
+        // // var apodImage = new AdaptiveImage { Url = new //
+        // Uri(argTheModel.HLinkGlyph.ConvertToHLinkMediaModel.DeRef.MediaStorageFilePath), };
 
-            // // Add column1 apodColumn2.Items.Add(apodImage);
+        // // // Add column1 apodColumn2.Items.Add(apodImage);
 
-            //    apodColumnSet.Columns.Add(apodColumn2);
-            //}
+        // // apodColumnSet.Columns.Add(apodColumn2); //}
 
-            //apodTimelineCard.Body.Add(apodColumnSet);
+        // //apodTimelineCard.Body.Add(apodColumnSet);
 
-            return apodTimelineCard;
-        }
+        //    return apodTimelineCard;
+        //}
 
         /// <summary>
         /// Generates the activity asynchronous.

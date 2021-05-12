@@ -11,11 +11,9 @@
     {
         private DateObjectModelVal testValBasic;
 
-        private DateObjectModelVal testValYearOnly;
-
         private DateObjectModelVal testValYearMonthDayOnly;
-
         private DateObjectModelVal testValYearMonthOnly;
+        private DateObjectModelVal testValYearOnly;
 
         [Test()]
         public void AsCardListLineTest_After()
@@ -31,7 +29,11 @@
 
             CardListLineCollection AsCardListLineTest_After = testValBasic.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_After.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939");
@@ -45,7 +47,11 @@
         {
             CardListLineCollection AsCardListLineTest_Basic = testValBasic.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_Basic.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");
@@ -56,11 +62,13 @@
         [Test()]
         public void AsCardListLineTest_YearMonthDayOnly()
         {
-         
-
             CardListLineCollection AsCardListLineTest_After = testValYearMonthDayOnly.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_After.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after Wednesday, 3 May 1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05-03");
@@ -74,7 +82,11 @@
         {
             CardListLineCollection AsCardListLineTest_After = testValYearMonthOnly.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_After.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after May 1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05");
@@ -88,7 +100,11 @@
         {
             CardListLineCollection AsCardListLineTest_After = testValYearOnly.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_After.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_After.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939");
@@ -122,7 +138,7 @@
         {
             string aCFormat;
             bool aDualDated;
-            string aNewYear = null;
+            string aNewYear;
             CommonEnums.DateQuality aQuality;
             string aVal;
             CommonEnums.DateValType aValType;
@@ -138,12 +154,12 @@
             testValBasic = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
 
             // Year Month Day Only
-             aCFormat = null;
-             aDualDated = false;
-             aNewYear = null;
-             aQuality = CommonEnums.DateQuality.unknown;
-             aVal = "1939-05-03";
-             aValType = CommonEnums.DateValType.after;
+            aCFormat = null;
+            aDualDated = false;
+            aNewYear = null;
+            aQuality = CommonEnums.DateQuality.unknown;
+            aVal = "1939-05-03";
+            aValType = CommonEnums.DateValType.after;
 
             testValYearMonthDayOnly = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
 

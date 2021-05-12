@@ -28,10 +28,7 @@
 
             PersonModel tt = DV.PersonDV.GetModelFromId("I0000");
 
-            if (tt.Valid)
-            {
-                Assert.True(tt.Valid, "Invalid person");
-            }
+            Assert.True(tt.Valid, "Invalid person");
         }
     }
 }
