@@ -27,36 +27,28 @@
         {
         }
 
+        public CitationModel CitationObject
+        {
+            get; set;
+        }
+
+        public HLinkNoteModel HLinkNote
+        {
+            get; set;
+        } = new HLinkNoteModel();
+
         /// <summary>
         /// Gets or sets the citation object.
         /// </summary>
         /// <value>
         /// The citation object.
         /// </value>
-
-        public CitationModel CitationObject
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Handles navigation in wards and sets up the event model parameter.
-        /// </summary>
-        /// <param name="e">
-        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
-        /// </param>
-        /// <param name="viewModelState">
-        /// The parameter is not used.
-        /// </param>
         public override void BaseHandleAppearingEvent()
         {
             // Handle HLinkKeys
             HLinkCitationModel HLinkCitation = CommonRoutines.DeserialiseObject<HLinkCitationModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
             CitationObject = HLinkCitation.DeRef;
-
-            //// Trigger refresh of View fields via INotifyPropertyChanged
-            //RaisePropertyChanged(string.Empty);
 
             if (CitationObject != null)
             {
@@ -74,11 +66,10 @@
 
                 BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                // If only one note (the most common case) just display it in a large format,
-                // otherwise setup a list of them.
+                // If at least one note, display it while showing the full list further below.
                 if (CitationObject.GNoteRefCollection.Count > 0)
                 {
-                    // TODO Fix this NoteObject = CitationObject.GNoteRefCollection[0].DeRef;
+                    HLinkNote = CitationObject.GNoteRefCollection[0];
                 }
 
                 CitationObject.GSourceRef.DisplayAs = CommonEnums.DisplayFormat.LargeCard;

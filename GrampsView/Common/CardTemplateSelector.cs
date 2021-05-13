@@ -341,6 +341,16 @@ namespace GrampsView.Common
                         return CitationTemplate;
                     }
 
+                case HLinkEventModel i:
+                    {
+                        return EventTemplate;
+                    }
+
+                case HLinkFamilyModel i:
+                    {
+                        return FamilyTemplate;
+                    }
+
                 case HLinkNoteModel i:
                     {
                         switch ((item as HLinkNoteModel).DisplayAs)
@@ -406,16 +416,6 @@ namespace GrampsView.Common
 
                 default:
                     break;
-            }
-
-            if (item is HLinkEventModel)
-            {
-                return EventTemplate;
-            }
-
-            if (item is HLinkFamilyModel)
-            {
-                return FamilyTemplate;
             }
 
             if ((item is HLinkMediaModel) || (item is IHLinkMediaModel))
