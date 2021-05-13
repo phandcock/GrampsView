@@ -3,6 +3,7 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Views;
 
     using Newtonsoft.Json;
 
@@ -151,13 +152,6 @@
             return string.Empty;
         }
 
-        //public static void Navigate(string argPageName)
-        //{
-        //    //DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
-
-        //    Shell.Current.GoToAsync(argPageName, animate: true);
-        //}
-
         public static async Task NavigateAsync(string argPageName)
         {
             //await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
@@ -196,12 +190,12 @@
             {
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    Shell.Current.Navigation.PopToRootAsync();
+                    Shell.Current.GoToAsync(string.Format("//{0}", nameof(HubPage)));
                 });
             }
             else
             {
-                Shell.Current.Navigation.PopToRootAsync();
+                Shell.Current.GoToAsync(string.Format("//{0}", nameof(HubPage)));
             };
         }
 

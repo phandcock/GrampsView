@@ -121,7 +121,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            await CommonRoutines.NavigateBack();
+            CommonRoutines.NavigateHub();
         }
     }
 }
