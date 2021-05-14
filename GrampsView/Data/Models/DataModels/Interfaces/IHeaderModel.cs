@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Public interfaces for the external storage metadata elements
-//
-// <copyright file="IHeaderModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// Public interfaces for the external storage metadata elements.
@@ -15,18 +6,11 @@ namespace GrampsView.Data.Model
     public interface IHeaderModel
     {
         /// <summary>
-        /// Gets the database version.
-        /// </summary>
-        /// <value>The database version.</value>
-        int DatabaseVersion
-        {
-            get;
-        }
-
-        /// <summary>
         /// Gets or sets the created date.
         /// </summary>
-        /// <value>The created date.</value>
+        /// <value>
+        /// The created date.
+        /// </value>
         string GCreatedDate
         {
             get;
@@ -36,7 +20,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the created version.
         /// </summary>
-        /// <value>The created version.</value>
+        /// <value>
+        /// The created version.
+        /// </value>
         string GCreatedVersion
         {
             get;
@@ -46,7 +32,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the absolute path to the start of the media file file structure.
         /// </summary>
-        /// <value>The media path.</value>
+        /// <value>
+        /// The media path.
+        /// </value>
         string GMediaPath
         {
             get;
@@ -56,7 +44,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher address.
         /// </summary>
-        /// <value>The researcher address.</value>
+        /// <value>
+        /// The researcher address.
+        /// </value>
         string GResearcherAddress
         {
             get;
@@ -66,7 +56,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher city.
         /// </summary>
-        /// <value>The researcher city.</value>
+        /// <value>
+        /// The researcher city.
+        /// </value>
         string GResearcherCity
         {
             get;
@@ -76,7 +68,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher country.
         /// </summary>
-        /// <value>The researcher country.</value>
+        /// <value>
+        /// The researcher country.
+        /// </value>
         string GResearcherCountry
         {
             get;
@@ -86,7 +80,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher email.
         /// </summary>
-        /// <value>The researcher email.</value>
+        /// <value>
+        /// The researcher email.
+        /// </value>
         string GResearcherEmail
         {
             get;
@@ -96,7 +92,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher locality.
         /// </summary>
-        /// <value>The researcher locality.</value>
+        /// <value>
+        /// The researcher locality.
+        /// </value>
         string GResearcherLocality
         {
             get;
@@ -106,7 +104,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the name of the researcher.
         /// </summary>
-        /// <value>The name of the researcher.</value>
+        /// <value>
+        /// The name of the researcher.
+        /// </value>
         string GResearcherName
         {
             get;
@@ -116,7 +116,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher phone.
         /// </summary>
-        /// <value>The researcher phone.</value>
+        /// <value>
+        /// The researcher phone.
+        /// </value>
         string GResearcherPhone
         {
             get;
@@ -126,7 +128,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the researcher postal.
         /// </summary>
-        /// <value>The researcher postal.</value>
+        /// <value>
+        /// The researcher postal.
+        /// </value>
         string GResearcherPostal
         {
             get;
@@ -136,7 +140,9 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the state of the researcher.
         /// </summary>
-        /// <value>The state of the researcher.</value>
+        /// <value>
+        /// The state of the researcher.
+        /// </value>
         string GResearcherState
         {
             get;

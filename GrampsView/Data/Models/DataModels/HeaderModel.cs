@@ -1,74 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-////<code>
-////  <element name = "header" >
-////    < element name="created">
-////      <attribute name = "date" >
-////        < data type="date" />
-////      </attribute>
-////      <attribute name = "version" >
-////        < text />
-////      </ attribute >
-////    </ element >
-////    < element name="researcher">
-////      <optional>
-////        <ref name="researcher-content" />
-////      </optional>
-////    </element>
-////    <optional>
-////      <element name = "mediapath" >
-////        < text />
-////      </ element >
-////    </ optional >
-////  </ element >
-
-////      <define name = "researcher-content" >
-////  < element name="resname">
-////    <text />
-////  </element>
-////  <optional>
-////    <element name = "resaddr" >
-////      < text />
-////    </ element >
-////  </ optional >
-////  < optional >
-////    < element name="reslocality">
-////      <text />
-////    </element>
-////  </optional>
-////  <optional>
-////    <element name = "rescity" >
-////      < text />
-////    </ element >
-////  </ optional >
-////  < optional >
-////    < element name="resstate">
-////      <text />
-////    </element>
-////  </optional>
-////  <optional>
-////    <element name = "rescountry" >
-////      < text />
-////    </ element >
-////  </ optional >
-////  < optional >
-////    < element name="respostal">
-////      <text />
-////    </element>
-////  </optional>
-////  <optional>
-////    <element name = "resphone" >
-////      < text />
-////    </ element >
-////  </ optional >
-////  < optional >
-////    < element name="resemail">
-////      <text />
-////    </element>
-////  </optional>
-////</define>
-
-/// TODO Update fields as per Schema
+﻿/// TODO XML 1.71 fields updatded as per Schema
 
 namespace GrampsView.Data.Model
 {
@@ -78,75 +8,9 @@ namespace GrampsView.Data.Model
 
     using Xamarin.Essentials;
 
-    //// </code>
     [DataContract]
     public class HeaderModel : ModelBase, IHeaderModel
     {
-        /// <summary>
-        /// The local database version.
-        /// </summary>
-        private int _DatabaseVersion;
-
-        /// <summary>
-        /// created date.
-        /// </summary>
-        private string _GCreatedDate = string.Empty;
-
-        /// <summary>
-        /// crated version.
-        /// </summary>
-        private string _GCreatedVersion = string.Empty;
-
-        /// <summary>
-        /// Media Path.
-        /// </summary>
-        private string _GMediaPath = string.Empty;
-
-        /// <summary>
-        /// Researcher Address.
-        /// </summary>
-        private string _GResearcherAddress = string.Empty;
-
-        /// <summary>
-        /// Researcher City.
-        /// </summary>
-        private string _GResearcherCity = string.Empty;
-
-        /// <summary>
-        /// Researcher Country.
-        /// </summary>
-        private string _GResearcherCountry = string.Empty;
-
-        /// <summary>
-        /// Researcher Email.
-        /// </summary>
-        private string _GResearcherEmail = string.Empty;
-
-        /// <summary>
-        /// Researcher Locality.
-        /// </summary>
-        private string _GResearcherLocality = string.Empty;
-
-        /// <summary>
-        /// Researcher Name.
-        /// </summary>
-        private string _GResearcherName = string.Empty;
-
-        /// <summary>
-        /// Researcher Phone.
-        /// </summary>
-        private string _GResearcherPhone = string.Empty;
-
-        /// <summary>
-        /// Researcher Postal Address.
-        /// </summary>
-        private string _GResearcherPostal = string.Empty;
-
-        /// <summary>
-        /// Researcher State.
-        /// </summary>
-        private string _GResearcherState = string.Empty;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderModel"/> class.
         /// </summary>
@@ -163,10 +27,16 @@ namespace GrampsView.Data.Model
                     {
                         new CardListLine("Created using version:", GCreatedVersion),
                         new CardListLine("Created on:", GCreatedDate),
+
                         new CardListLine("Researcher Name:", GResearcherName),
+                        new CardListLine("Researcher Address:", GResearcherAddress),
+                        new CardListLine("Researcher City:", GResearcherCity),
+                        new CardListLine("Researcher Locality:", GResearcherLocality),
                         new CardListLine("Researcher State:", GResearcherState),
                         new CardListLine("Researcher Country:", GResearcherCountry),
                         new CardListLine("Researcher Email:", GResearcherEmail),
+                        new CardListLine("Researcher Phone:", GResearcherPhone),
+                        new CardListLine("Researcher Postal:", GResearcherPostal),
                         new CardListLine("MediaPath:", GMediaPath),
                         new CardListLine("Application Version:", VersionTracking.CurrentVersion),
             };
@@ -174,26 +44,6 @@ namespace GrampsView.Data.Model
                 HeaderCard.Title = "Header Details";
 
                 return HeaderCard;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the database version.
-        /// </summary>
-        /// <value>
-        /// The database version.
-        /// </value>
-        [DataMember]
-        public int DatabaseVersion
-        {
-            get
-            {
-                return _DatabaseVersion;
-            }
-
-            set
-            {
-                SetProperty(ref _DatabaseVersion, value);
             }
         }
 
@@ -238,15 +88,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GCreatedDate
         {
-            get
-            {
-                return _GCreatedDate;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GCreatedDate, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -255,15 +99,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GCreatedVersion
         {
-            get
-            {
-                return _GCreatedVersion;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GCreatedVersion, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -272,15 +110,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GMediaPath
         {
-            get
-            {
-                return _GMediaPath;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GMediaPath, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -289,15 +121,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherAddress
         {
-            get
-            {
-                return _GResearcherAddress;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherAddress, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -306,15 +132,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherCity
         {
-            get
-            {
-                return _GResearcherCity;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherCity, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -323,15 +143,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherCountry
         {
-            get
-            {
-                return _GResearcherCountry;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherCountry, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -340,15 +154,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherEmail
         {
-            get
-            {
-                return _GResearcherEmail;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherEmail, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -357,15 +165,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherLocality
         {
-            get
-            {
-                return _GResearcherLocality;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherLocality, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -374,15 +176,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherName
         {
-            get
-            {
-                return _GResearcherName;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherName, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -391,15 +187,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherPhone
         {
-            get
-            {
-                return _GResearcherPhone;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherPhone, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -408,15 +198,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherPostal
         {
-            get
-            {
-                return _GResearcherPostal;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherPostal, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -425,15 +209,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GResearcherState
         {
-            get
-            {
-                return _GResearcherState;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GResearcherState, value);
-            }
+            set;
         }
 
         public HLinkHeaderModel HLink

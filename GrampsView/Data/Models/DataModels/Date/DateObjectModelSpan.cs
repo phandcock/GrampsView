@@ -274,20 +274,29 @@
             }
         }
 
+        /// <summary>
+        /// Gets returns a single dateversion of the date field Because the field can have one or
+        /// two dates etc this is trickier than it sounds. We use the start date as a default.
+        /// </summary>
+        /// <value>
+        /// The single date.
+        /// </value>
         public override DateTime SingleDate
         {
             get
             {
-                // TODO Is this right?
                 return NotionalDate;
             }
         }
 
+        /// <summary>
+        /// Gets returns a sortable version of the date field Because the field can have one or two
+        /// dates etc this is trickier than it sounds. We use the start date.
+        /// </summary>
         public override DateTime SortDate
         {
             get
             {
-                // TODO Is this right?
                 return NotionalDate;
             }
         }

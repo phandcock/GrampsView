@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Diagnostics.Contracts;
@@ -16,10 +14,16 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public int End { get; set; }
+        public int End
+        {
+            get; set;
+        }
 
         [DataMember]
-        public int Start { get; set; }
+        public int Start
+        {
+            get; set;
+        }
 
         public int CompareTo(GrampsStyleRangeModel other)
         {
