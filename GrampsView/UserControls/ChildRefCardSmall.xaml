@@ -64,17 +64,13 @@
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.BirthDate.ShortDateWithPrefix, Mode=OneWay}" />
 
-            <Image
+            <Label
                 Grid.Row="1"
                 Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding HLinkGlyphItem.Symbol}"
-                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
-                </Image.Source>
-            </Image>
+                FontFamily="FA-Solid"
+                Style="{DynamicResource GVSymbolIconSmallCardType}"
+                Text="{Binding HLinkGlyphItem.Symbol}"
+                TextColor="{Binding HLinkGlyphItem.SymbolColour}" />
         </Grid>
     </Frame>
 </Grid>

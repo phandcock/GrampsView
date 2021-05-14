@@ -27,9 +27,6 @@ using Unity;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-// Needs to be here to fix UWP font issue - TODO https://github.com/xamarin/Xamarin.Forms/issues/12404
-[assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-Solid")]
-
 namespace GrampsView
 {
     public sealed partial class App

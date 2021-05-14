@@ -41,7 +41,7 @@
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>
                                         <Image.Source>
-                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeLight}" />
+                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeLight}" />
                                         </Image.Source>
                                     </Image>
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="Light" />
@@ -54,7 +54,7 @@
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>
                                         <Image.Source>
-                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeDark}" />
+                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeDark}" />
                                         </Image.Source>
                                     </Image>
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="Dark" />
@@ -67,7 +67,7 @@
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>
                                         <Image.Source>
-                                            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconThemeSystem}" />
+                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeSystem}" />
                                         </Image.Source>
                                     </Image>
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="System" />

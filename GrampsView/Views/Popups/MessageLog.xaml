@@ -8,23 +8,23 @@
     x:DataType="common:CommonDataLog"
     DismissFlag="{Binding PopupDismissFlag}">
 
-    <StackLayout>
+    <!--<StackLayout>-->
 
-        <CollectionView
-            x:Name="MajorStatusList"
-            BackgroundColor="Transparent"
-            ItemSizingStrategy="MeasureAllItems"
-            ItemTemplate="{StaticResource DataLogEntryLarge}"
-            ItemsSource="{Binding DataLoadLog, Mode=OneWay}"
-            ItemsUpdatingScrollMode="KeepLastItemInView">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-        </CollectionView>
+    <CollectionView
+        x:Name="MajorStatusList"
+        BackgroundColor="Transparent"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemTemplate="{StaticResource DataLogEntryLarge}"
+        ItemsSource="{Binding DataLoadLog, Mode=OneWay}"
+        ItemsUpdatingScrollMode="KeepLastItemInView">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+    </CollectionView>
 
-        <Button
+    <!--<Button
             Clicked="Button_Clicked"
             Style="{DynamicResource GVButtonStyle}"
             Text="Close" />
-    </StackLayout>
+    </StackLayout>-->
 </cc:MessageLogPopup>

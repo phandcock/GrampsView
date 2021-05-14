@@ -38,17 +38,13 @@
                     BindingContext="{Binding ., Mode=OneWay}"
                     Style="{DynamicResource MediaImageStyle}" />
 
-                <Image
+                <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Style="{DynamicResource GVSymbolIconSmallCardType}">
-                    <Image.Source>
-                        <FontImageSource
-                            FontFamily="{StaticResource GlyphFontFamily}"
-                            Glyph="{Binding Symbol}"
-                            Color="{Binding SymbolColour}" />
-                    </Image.Source>
-                </Image>
+                    FontFamily="FA-Solid"
+                    Style="{DynamicResource GVSymbolIconSmallCardType}"
+                    Text="{Binding Symbol}"
+                    TextColor="{Binding SymbolColour}" />
             </Grid>
         </Frame.Content>
     </Frame>

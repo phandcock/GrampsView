@@ -49,17 +49,13 @@
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding GPlaceLocation, Mode=OneWay}" />
 
-            <Image
+            <Label
                 Grid.Row="2"
                 Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding ModelItemGlyph.Symbol}"
-                        Color="{Binding ModelItemGlyph.SymbolColour}" />
-                </Image.Source>
-            </Image>
+                FontFamily="FA-Solid"
+                Style="{DynamicResource GVSymbolIconSmallCardType}"
+                Text="{Binding ModelItemGlyph.Symbol}"
+                TextColor="{Binding ModelItemGlyph.SymbolColour}" />
         </Grid>
     </Frame>
 </Grid>

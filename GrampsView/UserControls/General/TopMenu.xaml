@@ -27,7 +27,7 @@
         Style="{DynamicResource GVSymbolconPageHeaderType}">
         <Image.Source>
             <FontImageSource
-                FontFamily="{StaticResource GlyphFontFamily}"
+                FontFamily="FA-Solid"
                 Glyph="{Binding BaseTitleIcon}"
                 Size="44"
                 Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
@@ -49,7 +49,7 @@
         Style="{DynamicResource GVSymbolIconLargeCardType}"
         VerticalOptions="Center">
         <ImageButton.Source>
-            <FontImageSource FontFamily="{StaticResource GlyphFontFamily}" Glyph="{x:Static common:CommonConstants.IconHub}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconHub}" />
         </ImageButton.Source>
     </ImageButton>-->
 </Grid>

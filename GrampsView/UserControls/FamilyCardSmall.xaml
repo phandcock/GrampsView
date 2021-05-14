@@ -61,17 +61,13 @@
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding DeRef.GEventRefCollection.GetFirst.DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
 
-            <Image
+            <Label
                 Grid.Row="2"
                 Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="{StaticResource GlyphFontFamily}"
-                        Glyph="{Binding HLinkGlyphItem.Symbol}"
-                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
-                </Image.Source>
-            </Image>
+                FontFamily="FA-Solid"
+                Style="{DynamicResource GVSymbolIconSmallCardType}"
+                Text="{Binding HLinkGlyphItem.Symbol}"
+                TextColor="{Binding HLinkGlyphItem.SymbolColour}" />
         </Grid>
     </Frame>
 </Grid>

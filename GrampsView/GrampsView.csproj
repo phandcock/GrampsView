@@ -58,13 +58,12 @@
   <ItemGroup>
     <None Remove="AnythingElse\DeploymentTools\ReleaseNotesTemplate.txt" />
     <None Remove="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-    <None Remove="Assets\Fonts\fa-solid-900.ttf" />
     <None Remove="Assets\Icons\ApplicationIcon.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-    <EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
+    <EmbeddedResource Include="fa-solid-900.ttf" />
   </ItemGroup>
 
   <ItemGroup>
