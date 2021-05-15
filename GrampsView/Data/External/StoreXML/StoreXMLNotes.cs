@@ -28,7 +28,7 @@
         /// </returns>
         public async Task LoadNotesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Note data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading Note data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -82,13 +82,13 @@
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    DataStore.Instance.CN.NotifyException("Exception loading Notes from the Gramps file", ex);
+                    DataStore.CN.NotifyException("Exception loading Notes from the Gramps file", ex);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Note load complete");
+            await DataStore.CN.DataLogEntryReplace("Note load complete");
             return;
         }
 

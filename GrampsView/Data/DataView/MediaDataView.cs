@@ -48,7 +48,7 @@
         {
             get
             {
-                return DataStore.Instance.DS.MediaData.Values.ToList();
+                return DataStore.DS.MediaData.Values.ToList();
             }
         }
 
@@ -56,7 +56,7 @@
         {
             get
             {
-                return DataStore.Instance.DS.MediaData.Values.Where(MediaModel => MediaModel.IsInternalMediaFile == false).ToList();
+                return DataStore.DS.MediaData.Values.Where(MediaModel => MediaModel.IsInternalMediaFile == false).ToList();
             }
         }
 
@@ -173,7 +173,7 @@
 
         public override MediaModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return DataStore.Instance.DS.MediaData[argHLinkKey.Value];
+            return DataStore.DS.MediaData[argHLinkKey.Value];
         }
 
         public override MediaModel GetModelFromId(string argId)

@@ -69,7 +69,7 @@
                     newAddressModel.HLinkKey = new HLinkKey(newGuid);
                     newAddressModel.Id = newGuid;
                     newAddressModel.Handle = newGuid;
-                    DataStore.Instance.DS.AddressData.Add(newAddressModel);
+                    DataStore.DS.AddressData.Add(newAddressModel);
 
                     // Create a HLink to the model
                     HLinkAdressModel newHlink = new HLinkAdressModel
@@ -424,9 +424,9 @@
                     // Set model hlinkkey
                     newPersonNameModel.HLinkKey = new HLinkKey(Guid.NewGuid().ToString());
 
-                    DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
+                    DataStore.DS.PersonNameData.Add(newPersonNameModel);
 
-                    //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+                    //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
                     //if (tt.Count() > 0)
                     //{
                     //}

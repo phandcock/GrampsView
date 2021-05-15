@@ -55,7 +55,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.Instance.DS.PersonNameData;
+                return DataStore.DS.PersonNameData;
             }
         }
 

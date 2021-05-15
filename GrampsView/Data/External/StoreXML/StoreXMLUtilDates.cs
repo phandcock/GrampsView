@@ -83,7 +83,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error in SetDate", e);
+                DataStore.CN.NotifyException("Error in SetDate", e);
 
                 throw;
             }
@@ -147,7 +147,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        DataStore.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -168,7 +168,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error in SetDate", e);
+                DataStore.CN.NotifyException("Error in SetDate", e);
                 throw;
             }
 
@@ -208,7 +208,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error", e);
+                DataStore.CN.NotifyException("Error", e);
                 throw;
             }
 
@@ -271,7 +271,7 @@
                             { "Current Element",  currentElement.ToString()}
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        DataStore.CN.NotifyError(t);
                     }
                 }
 
@@ -286,7 +286,7 @@
                             { "Current Element",  currentElement.ToString()}
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        DataStore.CN.NotifyError(t);
                     }
                 }
 
@@ -300,7 +300,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException(e.Message, e);
+                DataStore.CN.NotifyException(e.Message, e);
                 throw;
             }
 
@@ -358,7 +358,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", currentElement.ToString() }, });
+                        DataStore.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", currentElement.ToString() }, });
                     }
                 }
 
@@ -379,7 +379,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Exception in SetDateRange", e);
+                DataStore.CN.NotifyException("Exception in SetDateRange", e);
                 throw;
             }
 

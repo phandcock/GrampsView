@@ -74,7 +74,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.Instance.DS.NoteData;
+                return DataStore.DS.NoteData;
             }
         }
 

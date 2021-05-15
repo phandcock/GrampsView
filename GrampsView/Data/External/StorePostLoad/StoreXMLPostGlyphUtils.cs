@@ -40,7 +40,7 @@
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
                 // check if we can get an image for the first page of the PDF
-                pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, CommonFontNamesFAS.FilePdf);
             }
@@ -48,7 +48,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                DataStore.CN.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -72,7 +72,7 @@
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
                 // check if we can get an image for the video
-                videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, CommonFontNamesFAS.FileArchive);
             }
@@ -80,7 +80,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from video file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                DataStore.CN.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -107,7 +107,7 @@
             {
                 // check if we can get an image for the first page of the PDF
 
-                zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.AD.CurrentDataFolder, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
             }
@@ -115,7 +115,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image form PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                DataStore.CN.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -124,7 +124,7 @@
         private MediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
             // create folder if required
-            DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
+            DataStore.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
 
             MediaModel newMediaModel = argSourceMediaModel.Copy();
 
@@ -143,7 +143,7 @@
             {
                 argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                 argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
-                argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder, argNewMediaModel.OriginalFilePath);
+                argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.AD.CurrentDataFolder, argNewMediaModel.OriginalFilePath);
 
                 addLater.Add(argNewMediaModel);
 

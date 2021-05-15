@@ -37,13 +37,13 @@
                         }
                         else
                         {
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to open resource") { { "Resource Name", resourceName }, });
+                            DataStore.CN.NotifyError(new ErrorInfo("Error trying to open resource") { { "Resource Name", resourceName }, });
                         }
                     }
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyException("File not Found Exception trying to open " + resourceName, ex);
+                    DataStore.CN.NotifyException("File not Found Exception trying to open " + resourceName, ex);
                 }
             }
         }

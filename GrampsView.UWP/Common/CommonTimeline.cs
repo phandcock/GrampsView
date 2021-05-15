@@ -51,7 +51,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Timeline Add", ex);
+                    DataStore.CN.NotifyException("Timeline Add", ex);
 
                     throw;
                 }

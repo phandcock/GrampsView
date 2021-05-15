@@ -42,7 +42,7 @@ namespace GrampsView.UWP.Common
                 // Handle errors with catch blocks
                 catch (FileNotFoundException)
                 {
-                    //DataStore.Instance.CN.MajorStatusMessage( "UWP Size GetSize(string fileName)");
+                    //DataStore.CN.MajorStatusMessage( "UWP Size GetSize(string fileName)");
 
                     // TODO For example, handle a file not found error
                     return new Size(0, 0);

@@ -85,7 +85,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.Instance.DS.RepositoryData;
+                return DataStore.DS.RepositoryData;
             }
         }
 

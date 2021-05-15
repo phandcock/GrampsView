@@ -52,13 +52,13 @@ namespace GrampsView.iOS
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
             var newExc = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
-            DataStore.Instance.CN.NotifyException("CurrentDomainOnUnhandledException", newExc);
+            DataStore.CN.NotifyException("CurrentDomainOnUnhandledException", newExc);
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
-            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            DataStore.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }
 

@@ -229,7 +229,7 @@
             Preferences.Remove(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
             Preferences.Remove(CommonConstants.SettingsXMLFileLastDateTimeModified);
 
-            DataStore.Instance.DS.IsDataLoaded = false;
+            DataStore.DS.IsDataLoaded = false;
 
             DataSerialised = false;
         }

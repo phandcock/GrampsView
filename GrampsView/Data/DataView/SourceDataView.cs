@@ -80,10 +80,10 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.Instance.DS.SourceData;
+                return DataStore.DS.SourceData;
             }
 
-            // set { this.SetProperty(ref DataStore.Instance.DS.SourceData, value); }
+            // set { this.SetProperty(ref DataStore.DS.SourceData, value); }
         }
 
         public override CardGroupBase<HLinkSourceModel> GetAllAsCardGroupBase()

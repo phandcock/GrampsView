@@ -63,7 +63,7 @@
 
             if (aFail)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
+                DataStore.CN.NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
                 returnValue = false;
             }
 
@@ -75,15 +75,14 @@
         //{
         //    Contract.Assert(argPath != null);
 
-        // if (DataStore.Instance.AD.CurrentDataFolder.FullName == argPath) { return string.Empty; }
+        // if (DataStore.AD.CurrentDataFolder.FullName == argPath) { return string.Empty; }
 
-        // if (argPath.Length < DataStore.Instance.AD.CurrentDataFolder.FullName.Length) { return
-        // argPath; }
+        // if (argPath.Length < DataStore.AD.CurrentDataFolder.FullName.Length) { return argPath; }
 
-        // if (argPath.Substring(0, DataStore.Instance.AD.CurrentDataFolder.FullName.Length) ==
-        // DataStore.Instance.AD.CurrentDataFolder.FullName) { return
-        // argPath.Substring(DataStore.Instance.AD.CurrentDataFolder.FullName.Length, argPath.Length
-        // - DataStore.Instance.AD.CurrentDataFolder.FullName.Length); }
+        // if (argPath.Substring(0, DataStore.AD.CurrentDataFolder.FullName.Length) ==
+        // DataStore.AD.CurrentDataFolder.FullName) { return
+        // argPath.Substring(DataStore.AD.CurrentDataFolder.FullName.Length, argPath.Length
+        // - DataStore.AD.CurrentDataFolder.FullName.Length); }
 
         //    return argPath;
         //}
@@ -125,15 +124,15 @@
 
                 Debug.WriteLine("Picked file name is: " + result.FileName);
 
-                DataStore.Instance.AD.CurrentInputStream = await result.OpenReadAsync();
+                DataStore.AD.CurrentInputStream = await result.OpenReadAsync();
 
-                DataStore.Instance.AD.CurrentInputStreamPath = result.FullPath;
+                DataStore.AD.CurrentInputStreamPath = result.FullPath;
             }
 
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in PickCurrentInputFile", ex);
+                DataStore.CN.NotifyException("Exception in PickCurrentInputFile", ex);
 
                 throw;
             }

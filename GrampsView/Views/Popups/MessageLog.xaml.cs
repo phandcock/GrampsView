@@ -9,7 +9,7 @@
         {
             InitializeComponent();
 
-            BindingContext = DataStore.Instance.CN.DataLog;
+            BindingContext = DataStore.CN.DataLog;
 
             Size = Common.CardSizes.Current.ScreenSize;
         }

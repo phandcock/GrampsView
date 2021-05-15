@@ -69,7 +69,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.Instance.DS.EventData;
+                return DataStore.DS.EventData;
             }
         }
 

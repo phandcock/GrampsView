@@ -11,9 +11,9 @@
 
         public ErrorDialogViewModel()
         {
-            DataStore.Instance.CN.DialogShown = true;
+            DataStore.CN.DialogShown = true;
 
-            ErrorInfo t = DataStore.Instance.CN.PopupQueue.Dequeue();
+            ErrorInfo t = DataStore.CN.PopupQueue.Dequeue();
 
             Title = t.DialogBoxTitle;
 

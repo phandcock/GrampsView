@@ -48,7 +48,7 @@
         {
             get
             {
-                return DataStore.Instance.DS.HeaderData;
+                return DataStore.DS.HeaderData;
             }
         }
 

@@ -32,7 +32,7 @@
             {
                 if (ImageHLink == null)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
+                    DataStore.CN.NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -82,7 +82,7 @@
             {
                 if (MediaHLink == null)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
+                    DataStore.CN.NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -190,11 +190,11 @@
         {
             if (MediaHLink == null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo(string.Format("{0} is null", argHLinkKey)));
+                DataStore.CN.NotifyError(new ErrorInfo(string.Format("{0} is null", argHLinkKey)));
                 return new HLinkMediaModel();
             }
 
-            return DataStore.Instance.DS.MediaData.Find(argHLinkKey.Value).HLink;
+            return DataStore.DS.MediaData.Find(argHLinkKey.Value).HLink;
         }
     }
 }

@@ -18,9 +18,9 @@
 
         private void Button_Clicked(object sender, System.EventArgs e)
         {
-            DataStore.Instance.CN.DialogShown = false;
+            DataStore.CN.DialogShown = false;
 
-            DataStore.Instance.CN.PopUpShow();
+            DataStore.CN.PopUpShow();
 
             Dismiss(null);
         }

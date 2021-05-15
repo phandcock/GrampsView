@@ -40,7 +40,7 @@
 
             GZipInputStream gzipStream = new GZipInputStream(originalFileStream);
 
-            FileInfo fsOut = new FileInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, "data.xml"));
+            FileInfo fsOut = new FileInfo(Path.Combine(DataStore.AD.CurrentDataFolder.FullName, "data.xml"));
 
             FileStream fsOut1 = fsOut.Create();
 
@@ -121,7 +121,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -134,7 +134,7 @@
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

@@ -29,7 +29,7 @@
 
             argDetail.Text = "Error displaying Media Element";
 
-            DataStore.Instance.CN.NotifyError(argDetail);
+            DataStore.CN.NotifyError(argDetail);
 
             // TODO Handle when can not play video better
         }

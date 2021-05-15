@@ -22,22 +22,22 @@
                 if (argMediaModel.IsOriginalFilePathValid)
                 {
                     //_CL.LogVariable("tt.OriginalFilePath", argMediaModel.OriginalFilePath); //
-                    //_CL.LogVariable("localMediaFolder.path", DataStore.Instance.AD.CurrentDataFolder.FullName); //
-                    //_CL.LogVariable("path", DataStore.Instance.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
+                    //_CL.LogVariable("localMediaFolder.path", DataStore.AD.CurrentDataFolder.FullName); //
+                    //_CL.LogVariable("path", DataStore.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
 
-                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, argMediaModel.OriginalFilePath);
+                    DataStore.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, argMediaModel.OriginalFilePath);
                 }
             }
             catch (FileNotFoundException ex)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
+                DataStore.CN.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
-                DataStore.Instance.CN.NotifyException("Trying to  add media file pointer", ex);
+                DataStore.CN.NotifyException("Trying to  add media file pointer", ex);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                DataStore.Instance.CN.NotifyException("Trying to add media file pointer", ex);
+                DataStore.CN.NotifyException("Trying to add media file pointer", ex);
 
                 throw;
             }
@@ -55,11 +55,11 @@
         {
             _CommonLogging.RoutineEntry("FixMediaFiles");
 
-            DirectoryInfo localMediaFolder = DataStore.Instance.AD.CurrentDataFolder;
+            DirectoryInfo localMediaFolder = DataStore.AD.CurrentDataFolder;
 
             if (localMediaFolder != null)
             {
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
+                await DataStore.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {

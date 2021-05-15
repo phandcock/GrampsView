@@ -61,7 +61,7 @@
                                     { "File", DataInstanceFileName },
                                 };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        DataStore.CN.NotifyError(t);
                         CommonLocalSettings.DataSerialised = false;
                         return;
                     }
@@ -78,113 +78,113 @@
                         // Check for nulls
                         if (t.AddressData != null)
                         {
-                            DataStore.Instance.DS.AddressData = t.AddressData;
+                            DataStore.DS.AddressData = t.AddressData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.BookMarkCollection != null)
                         {
-                            DataStore.Instance.DS.BookMarkCollection = t.BookMarkCollection;
+                            DataStore.DS.BookMarkCollection = t.BookMarkCollection;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.CitationData != null)
                         {
-                            DataStore.Instance.DS.CitationData = t.CitationData;
+                            DataStore.DS.CitationData = t.CitationData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.EventData != null)
                         {
-                            DataStore.Instance.DS.EventData = t.EventData;
+                            DataStore.DS.EventData = t.EventData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.FamilyData != null)
                         {
-                            DataStore.Instance.DS.FamilyData = t.FamilyData;
+                            DataStore.DS.FamilyData = t.FamilyData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.MediaData != null)
                         {
-                            DataStore.Instance.DS.MediaData = t.MediaData;
+                            DataStore.DS.MediaData = t.MediaData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.PersonData != null)
                         {
-                            DataStore.Instance.DS.PersonData = t.PersonData;
+                            DataStore.DS.PersonData = t.PersonData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         if (t.PersonNameData != null)
                         {
-                            DataStore.Instance.DS.PersonNameData = t.PersonNameData;
+                            DataStore.DS.PersonNameData = t.PersonNameData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // Check for nulls
                         if (t.SourceData != null)
                         {
-                            DataStore.Instance.DS.SourceData = t.SourceData;
+                            DataStore.DS.SourceData = t.SourceData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // Check for nulls
                         if (t.TagData != null)
                         {
-                            DataStore.Instance.DS.TagData = t.TagData;
+                            DataStore.DS.TagData = t.TagData;
                         }
                         else
                         {
                             CommonLocalSettings.DataSerialised = false;
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                            DataStore.CN.NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                         }
 
                         // TODO Finish setting the checks up on these
-                        DataStore.Instance.DS.HeaderData = t.HeaderData;
-                        DataStore.Instance.DS.NameMapData = t.NameMapData;
-                        DataStore.Instance.DS.NoteData = t.NoteData;
+                        DataStore.DS.HeaderData = t.HeaderData;
+                        DataStore.DS.NameMapData = t.NameMapData;
+                        DataStore.DS.NoteData = t.NoteData;
 
-                        DataStore.Instance.DS.PlaceData = t.PlaceData;
-                        DataStore.Instance.DS.RepositoryData = t.RepositoryData;
+                        DataStore.DS.PlaceData = t.PlaceData;
+                        DataStore.DS.RepositoryData = t.RepositoryData;
                     }
                 }
 
@@ -194,7 +194,7 @@
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
-                DataStore.Instance.CN.NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
+                DataStore.CN.NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
                 throw;
             }
 
@@ -235,7 +235,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Trying to serialise object ", ex);
+                DataStore.CN.NotifyException("Trying to serialise object ", ex);
                 CommonLocalSettings.DataSerialised = false;
                 throw;
             }

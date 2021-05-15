@@ -2,12 +2,12 @@
 <views:ViewBase
     x:Class="GrampsView.Views.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -39,11 +39,8 @@
                         <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeLight}" />
-                                        </Image.Source>
-                                    </Image>
+                                    <Label FontFamily="FA-Solid" Text="{x:Static common:CommonConstants.IconThemeLight}" />
+
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="Light" />
                                 </StackLayout>
                             </RadioButton.Content>
@@ -52,11 +49,8 @@
                         <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeDark}" />
-                                        </Image.Source>
-                                    </Image>
+                                    <Label FontFamily="FA-Solid" Text="{x:Static common:CommonConstants.IconThemeDark}" />
+
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="Dark" />
                                 </StackLayout>
                             </RadioButton.Content>
@@ -65,11 +59,8 @@
                         <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeSystem}" />
-                                        </Image.Source>
-                                    </Image>
+                                    <Label FontFamily="FA-Solid" Text="{x:Static common:CommonConstants.IconThemeSystem}" />
+
                                     <Label Style="{DynamicResource GVCardLabelStyle}" Text="System" />
                                 </StackLayout>
                             </RadioButton.Content>

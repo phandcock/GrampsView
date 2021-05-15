@@ -42,7 +42,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception when trying to add PersonDetailView to Windows Timneline", ex);
+                DataStore.CN.NotifyException("Exception when trying to add PersonDetailView to Windows Timneline", ex);
 
                 throw;
             }
@@ -62,7 +62,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception when trying to add FamilyDetailView to Windows Timneline", ex);
+                DataStore.CN.NotifyException("Exception when trying to add FamilyDetailView to Windows Timneline", ex);
 
                 throw;
             }

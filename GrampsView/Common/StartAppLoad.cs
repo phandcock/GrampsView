@@ -33,7 +33,7 @@
 
         public async Task StartProcessing()
         {
-            if (DataStore.Instance.DS.IsDataLoaded)
+            if (DataStore.DS.IsDataLoaded)
             {
                 // CommonRoutines.NavigateHub();
                 return;

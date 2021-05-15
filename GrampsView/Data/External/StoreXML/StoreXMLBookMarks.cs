@@ -22,7 +22,7 @@
         /// </returns>
         public async Task LoadBookMarksAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
             {
                 try
                 {
@@ -47,7 +47,7 @@
 
                         if (newHlinkBackLink.Valid)
                         {
-                            DataStore.Instance.DS.BookMarkCollection.Add(newHlinkBackLink);
+                            DataStore.DS.BookMarkCollection.Add(newHlinkBackLink);
                         }
                         else
                         {
@@ -56,24 +56,24 @@
                                     { "HLink",  argBookMark.ToString()}
                                 };
 
-                            DataStore.Instance.CN.NotifyError(t);
+                            DataStore.CN.NotifyError(t);
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading bookmark: {0}", newHlinkBackLink.HLinkType));
+                        await DataStore.CN.DataLogEntryReplace(string.Format("Loading bookmark: {0}", newHlinkBackLink.HLinkType));
                     }
 
-                    DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
+                    DataStore.DS.BookMarkCollection.Title = string.Empty;
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
+            await DataStore.CN.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
 
             return;
         }

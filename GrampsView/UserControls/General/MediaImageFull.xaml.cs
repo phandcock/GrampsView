@@ -28,7 +28,7 @@
                 extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
             }
 
-            DataStore.Instance.CN.NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
+            DataStore.CN.NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
 
             if (!(sender is null))
             {
@@ -71,7 +71,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Exception in MediaImageFull control", ex);
+                    DataStore.CN.NotifyException("Exception in MediaImageFull control", ex);
                     throw;
                 }
             }

@@ -73,7 +73,7 @@
             {
                 Preferences.Remove(settingsKey);
 
-                DataStore.Instance.CN.NotifyException("FileModifiedSinceLastSaveAsync", ex);
+                DataStore.CN.NotifyException("FileModifiedSinceLastSaveAsync", ex);
                 throw;
             }
         }
@@ -112,7 +112,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception while checking FileGetDateTimeModified for =" + fileToCheck.FInfo.FullName, ex);
+                DataStore.CN.NotifyException("Exception while checking FileGetDateTimeModified for =" + fileToCheck.FInfo.FullName, ex);
 
                 throw;
             }
