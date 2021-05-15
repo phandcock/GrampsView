@@ -66,7 +66,7 @@
                             { "Data", uriArgs.Data.ToString() }
                         };
 
-                        DataStore.CN.NotifyError(badUriAdditionalInfo);
+                        DataStore.Instance.CN.NotifyError(badUriAdditionalInfo);
                     }
 
                     // TODO Handle if GrampsView not running
@@ -188,14 +188,14 @@
         {
             var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
 
-            DataStore.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
 
         private static void UnhandledExceptionHandler(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs args)
         {
             Exception e = args.Exception;
 
-            DataStore.CN.NotifyException(string.Format("UnhandledExceptionHandler-{0}", args.Message), e);
+            DataStore.Instance.CN.NotifyException(string.Format("UnhandledExceptionHandler-{0}", args.Message), e);
         }
 
         /// <summary>
@@ -209,7 +209,7 @@
         /// </param>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            DataStore.CN.NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
+            DataStore.Instance.CN.NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
         }
 
         /// <summary>

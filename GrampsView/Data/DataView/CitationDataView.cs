@@ -45,7 +45,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.CitationData.Values.ToList();
+                return DataStore.Instance.DS.CitationData.Values.ToList();
             }
         }
 
@@ -125,7 +125,7 @@ namespace GrampsView.Data.DataView
 
         public override CitationModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return DataStore.DS.CitationData[argHLinkKey.Value];
+            return DataStore.Instance.DS.CitationData[argHLinkKey.Value];
         }
 
         public override CitationModel GetModelFromId(string argId)

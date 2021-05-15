@@ -25,7 +25,7 @@
         {
             localGrampsCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
-            await DataStore.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
                 string defaultImage = string.Empty;
 
@@ -131,14 +131,14 @@
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);
 
-                        // await DataStore.CN.DataLogEntryReplace(string.Format("Loading
+                        // await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
                         // Person: {0}", loadPerson.GetDefaultText)).ConfigureAwait(false);
                     }
 
                     // let everybody know
                     localGrampsCommonLogging.RoutineExit("loadPeopleData");
 
-                    //foreach (var item in DataStore.DS.PersonNameData.Values)
+                    //foreach (var item in DataStore.Instance.DS.PersonNameData.Values)
                     //{
                     //    Debug.WriteLine(item.FullName);
                     //}
@@ -148,23 +148,23 @@
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        DataStore.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
+                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
                         throw;
                     }
                     else
                     {
-                        DataStore.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
+                        DataStore.Instance.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
                         throw;
                     }
                 }
             }
 
-            //var tt = (DataStore.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
+            //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
             //if (tt.Count() > 0)
             //{
             //}
 
-            await DataStore.CN.DataLogEntryReplace("People load complete").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryReplace("People load complete").ConfigureAwait(false);
 
             return;
         }

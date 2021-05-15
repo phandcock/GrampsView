@@ -25,7 +25,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.AddressData;
+                return DataStore.Instance.DS.AddressData;
             }
         }
 

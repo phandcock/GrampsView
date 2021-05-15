@@ -121,7 +121,7 @@
                 { "argContentType", argContentType }
             };
 
-            DataStore.CN.NotifyError(errorDetails);
+            DataStore.Instance.CN.NotifyError(errorDetails);
 
             return string.Empty;
         }
@@ -147,14 +147,14 @@
                 { "argContentType", argContentType }
             };
 
-            DataStore.CN.NotifyError(errorDetails);
+            DataStore.Instance.CN.NotifyError(errorDetails);
 
             return string.Empty;
         }
 
         public static async Task NavigateAsync(string argPageName)
         {
-            //await DataStore.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
+            //await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
 
             if (Device.RuntimePlatform == Device.UWP)
             {

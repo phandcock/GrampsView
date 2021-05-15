@@ -13,7 +13,7 @@
     {
         public async Task LoadCitationsAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
             {
                 try
                 {
@@ -50,22 +50,22 @@
 
                         loadCitation.GSourceRef.HLinkKey = GetHLinkKey(pcitation.Element(ns + "sourceref").Attribute("hlink"));
 
-                        // await DataStore.CN.DataLogEntryReplace(String.Format("Loading Citation
-                        // for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
+                        // await DataStore.Instance.CN.DataLogEntryReplace(String.Format("Loading
+                        // Citation for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
                         // save the citation
-                        DataStore.DS.CitationData.Add(loadCitation);
+                        DataStore.Instance.DS.CitationData.Add(loadCitation);
                     }
                 }
                 catch (Exception e)
                 {
-                    DataStore.CN.NotifyException("Exception loading Citations form XML", e);
+                    DataStore.Instance.CN.NotifyException("Exception loading Citations form XML", e);
                     throw;
                 }
 
-                await DataStore.CN.DataLogEntryReplace("Citation load complete");
+                await DataStore.Instance.CN.DataLogEntryReplace("Citation load complete");
 
                 return;
             }

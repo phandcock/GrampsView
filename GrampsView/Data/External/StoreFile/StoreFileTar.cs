@@ -151,7 +151,7 @@
                     // Apply further name transformations here as necessary
                     string filename = Path.GetFileName(tarName);
 
-                    string outName = Path.Combine(DataStore.AD.CurrentDataFolder.FullName, tarName);
+                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, tarName);
 
                     string relativePath = Path.GetDirectoryName(tarEntry.Name);
 
@@ -161,11 +161,11 @@
 
                     if (relativePath.Length > 0)
                     {
-                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.AD.CurrentDataFolder.FullName, relativePath));
+                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, relativePath));
                     }
                     else
                     {
-                        newFolder = DataStore.AD.CurrentDataFolder;
+                        newFolder = DataStore.Instance.AD.CurrentDataFolder;
                     }
 
                     // Check if the folder was created successfully.
@@ -218,7 +218,7 @@
                         {
                         }
 
-                        await DataStore.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "UnTaring file {0}", tarEntry.Name));
+                        await DataStore.Instance.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "UnTaring file {0}", tarEntry.Name));
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -284,7 +284,8 @@
                     }
                     else
                     {
-                        // TODO write to the output log // await DataStore.CN.DataLogEntryAdd("File "
+                        // TODO write to the output log // await
+                        // DataStore.Instance.CN.DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }
@@ -302,7 +303,7 @@
 
                         // string.Format(System.Globalization.CultureInfo.CurrentCulture
 
-                        DataStore.CN.NotifyError(t);
+                        DataStore.Instance.CN.NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }
@@ -317,18 +318,18 @@
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    DataStore.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    DataStore.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    DataStore.CN.NotifyException("UnTar tarEntry null Exception ", ex);
+                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }

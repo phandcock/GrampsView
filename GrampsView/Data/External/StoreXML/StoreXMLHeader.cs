@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadHeaderDataAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
             {
                 try
                 {
@@ -67,17 +67,17 @@
                         headerData.GMediaPath = (string)pname.Element(ns + "mediapath");
                     }
 
-                    DataStore.DS.HeaderData.Add(headerData);
+                    DataStore.Instance.DS.HeaderData.Add(headerData);
                 }
                 catch (System.Exception ex)
                 {
-                    DataStore.CN.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
+                    DataStore.Instance.CN.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.DataLogEntryReplace("Header load complete");
+            await DataStore.Instance.CN.DataLogEntryReplace("Header load complete");
 
             return;
         }

@@ -198,7 +198,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.CN.NotifyAlert("Test Alert", t);
+            DataStore.Instance.CN.NotifyAlert("Test Alert", t);
 
             t = new ErrorInfo
             {
@@ -209,7 +209,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.CN.NotifyError(t);
+            DataStore.Instance.CN.NotifyError(t);
 
             t = new ErrorInfo
             {
@@ -220,7 +220,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.CN.NotifyException("Test Exception", new System.Exception(), t);
+            DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
         }
 
         private async Task ShowMessageLog()

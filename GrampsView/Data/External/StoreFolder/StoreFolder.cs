@@ -41,13 +41,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException(ex.Message + argFileName, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }
@@ -92,13 +92,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException(ex.Message + argFileName, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }
@@ -149,19 +149,19 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.CN.NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
 
                     // default to a standard file marker
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    DataStore.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when deserialising the data.  Perahps the GPKG filenames are too long?") { { "Message", ex.Message }, });
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when deserialising the data.  Perahps the GPKG filenames are too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.CN.NotifyException(ex.Message + argFileName, ex);
+                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

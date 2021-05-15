@@ -10,14 +10,14 @@
         {
             _CommonLogging.RoutineEntry("LoadSerialUiItems");
 
-            await DataStore.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
                 _CommonLogging.RoutineExit(string.Empty);
 
                 await FixMediaFiles().ConfigureAwait(false);
             }
 
-            await DataStore.CN.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
 
             _CommonLogging.RoutineExit(nameof(LoadSerialUiItems));
         }

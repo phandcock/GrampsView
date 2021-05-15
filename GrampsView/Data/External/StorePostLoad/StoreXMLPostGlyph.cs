@@ -20,7 +20,7 @@
 
         public static void SetCitationImages()
         {
-            foreach (CitationModel argModel in DataStore.DS.CitationData.Values)
+            foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
             {
                 if (argModel is null)
                 {
@@ -64,7 +64,7 @@
 
         public static void SetEventImages()
         {
-            foreach (EventModel argModel in DataStore.DS.EventData.Values)
+            foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
             {
                 if (argModel.Id == "E0203")
                 {
@@ -105,7 +105,7 @@
 
         public static void SetFamilyImages()
         {
-            foreach (FamilyModel argModel in DataStore.DS.FamilyData.Values)
+            foreach (FamilyModel argModel in DataStore.Instance.DS.FamilyData.Values)
             {
                 if (argModel.Id == "F0144")
                 {
@@ -166,7 +166,7 @@
         // People last as they pretty much depend on everything else
         public static void SetPersonImages()
         {
-            foreach (PersonModel argModel in DataStore.DS.PersonData.Values)
+            foreach (PersonModel argModel in DataStore.Instance.DS.PersonData.Values)
             {
                 if (argModel.Id == "I0704")
                 {
@@ -225,7 +225,7 @@
 
         public static void SetSourceImages()
         {
-            foreach (SourceModel argModel in DataStore.DS.SourceData.Values)
+            foreach (SourceModel argModel in DataStore.Instance.DS.SourceData.Values)
             {
                 if (argModel.Id == "S0010")
                 {
@@ -262,7 +262,7 @@
 
         public static void SetTagImages()
         {
-            //foreach (TagModel argModel in DataStore.DS.TagData.Values)
+            //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
             //{
             //}
         }
@@ -272,7 +272,7 @@
             // Save new mediaModels for later as we can not modify a list in the middle of a foreach loop
             addLater = new List<MediaModel>();
 
-            foreach (MediaModel argModel in DataStore.DS.MediaData.Values)
+            foreach (MediaModel argModel in DataStore.Instance.DS.MediaData.Values)
             {
                 Contract.Requires(argModel != null);
 
@@ -351,7 +351,7 @@
 
             foreach (MediaModel item in addLater)
             {
-                DataStore.DS.MediaData.Add(item);
+                DataStore.Instance.DS.MediaData.Add(item);
             }
 
             return true;

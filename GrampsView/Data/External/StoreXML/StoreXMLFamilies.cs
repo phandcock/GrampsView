@@ -24,7 +24,7 @@
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            await DataStore.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -96,12 +96,12 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
                     throw;
                 }
             }
 
-            await DataStore.CN.DataLogEntryReplace("Family load complete");
+            await DataStore.Instance.CN.DataLogEntryReplace("Family load complete");
 
             return true;
         }

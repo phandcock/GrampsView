@@ -72,9 +72,9 @@
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
-            DataStore.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
-            DataStore.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
+            DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
 
             await StartLoad();
         }
@@ -90,7 +90,7 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                DataStore.CN.DataLog.Clear();
+                DataStore.Instance.CN.DataLog.Clear();
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -99,14 +99,14 @@
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    DataStore.CN.NotifyAlert("No input file was selected");
+                    DataStore.Instance.CN.NotifyAlert("No input file was selected");
 
                     BaseCurrentLayoutState = LayoutState.None;
                 }
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception when using File Picker", ex);
+                DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
 
                 throw;
             }

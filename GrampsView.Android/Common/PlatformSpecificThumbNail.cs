@@ -55,7 +55,7 @@ namespace GrampsView.Droid.Common
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -68,7 +68,7 @@ namespace GrampsView.Droid.Common
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                DataStore.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -117,7 +117,7 @@ namespace GrampsView.Droid.Common
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                DataStore.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
+                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             catch (Exception ex)
             {
@@ -129,7 +129,7 @@ namespace GrampsView.Droid.Common
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                DataStore.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
+                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             return fileDescriptor;
         }

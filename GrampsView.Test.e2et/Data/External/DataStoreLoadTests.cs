@@ -33,9 +33,9 @@
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = DataStoreUtility.BasePath + ".Test_Data.e2e test default.gpkg";
 
-            DataStore.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
-            DataStore.AD.CurrentInputStreamPath = "Test Data/Test_Data.e2e test default.gpkg";
+            DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Test_Data.e2e test default.gpkg";
 
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen
             // before TODO CommonLocalSettings.SetReloadDatabase();
@@ -46,7 +46,7 @@
             Mock<ICommonNotifications> mockCommonNotifications = new Mock<ICommonNotifications>();
 
             ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
-            DataStore.CN = iocCommonNotifications;
+            DataStore.Instance.CN = iocCommonNotifications;
 
             //////////////////
             Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
@@ -93,14 +93,14 @@
 
             iocStoreFile.DecompressTAR();
 
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
 
             if (GrampsFile.Valid)
             {
                 iocStoreFile.DecompressGZIP(GrampsFile);
             }
 
-            Assert.True(DataStore.AD.CurrentInputStream != null);
+            Assert.True(DataStore.Instance.AD.CurrentInputStream != null);
         }
 
         [SetUp]

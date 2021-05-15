@@ -178,7 +178,7 @@
             BaseHandleAppearingEvent();
 
             //// Setup for loading if no data is loaded
-            //if (!DataStore.DS.IsDataLoaded)
+            //if (!DataStore.Instance.DS.IsDataLoaded)
             //{
             //    BaseCurrentState = LayoutState.None;
             //}

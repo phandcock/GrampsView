@@ -75,7 +75,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -88,7 +88,7 @@
                                      { "Clipped Id", argExistingMediaModel.DeRef.Id }
                                  };
 
-                DataStore.CN.NotifyException("PDF to Image", ex, t);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

@@ -125,7 +125,7 @@ namespace GrampsView.Data.Model
                         }
                         catch (Exception ex)
                         {
-                            DataStore.CN.NotifyException("No map application available to open", ex);
+                            DataStore.Instance.CN.NotifyException("No map application available to open", ex);
 
                             throw;
                         }
@@ -136,7 +136,7 @@ namespace GrampsView.Data.Model
                     {
                         if (GHRef is null)
                         {
-                            DataStore.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
                             break;
                         }
 

@@ -26,6 +26,8 @@
 
         public static string DataStorePath = Path.Combine(Path.GetTempPath(), "UnitTestDataStore");
 
+        public static DataStore testDataStore;
+
         public static void createResources()
         {
         }
@@ -34,7 +36,7 @@
         {
             // AD
 
-            if (!DataStore.AD.CurrentDataFolderValid)
+            if (!DataStore.Instance.AD.CurrentDataFolderValid)
             {
                 // Delete if it exists
                 if (Directory.Exists(DataStorePath))
@@ -44,7 +46,7 @@
 
                 Directory.CreateDirectory(DataStorePath);
 
-                DataStore.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
+                DataStore.Instance.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
             }
         }
 
@@ -66,9 +68,9 @@
             var assemblyExec = Assembly.GetExecutingAssembly();
             var resourceName = DataStoreUtility.BasePath + ".Test_Data.e2e test default.gpkg";
 
-            DataStore.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
-            DataStore.AD.CurrentInputStreamPath = "Test Data/Test_Data.e2e test default.gpkg";
+            DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Test_Data.e2e test default.gpkg";
 
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen
             // before TODO CommonLocalSettings.SetReloadDatabase();
@@ -82,7 +84,7 @@
                .Returns(new Mock<IDataLog>().Object);
 
             ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
-            DataStore.CN = iocCommonNotifications;
+            DataStore.Instance.CN = iocCommonNotifications;
 
             //////////////////
             Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
@@ -126,13 +128,13 @@
             DataRepositoryManager newManager = new DataRepositoryManager(iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
 
             // Clear the repositories in case we had to restart after being interupted. TODO have
-            // better mock DataStore.AD.LoadDataStore();
-            DataStore.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
-            if (DataStore.AD.CurrentDataFolder.Exists)
+            // better mock DataStore.Instance.AD.LoadDataStore();
+            DataStore.Instance.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
+            if (DataStore.Instance.AD.CurrentDataFolder.Exists)
             {
-                DataStore.AD.CurrentDataFolder.Delete(true);
+                DataStore.Instance.AD.CurrentDataFolder.Delete(true);
             }
-            DataStore.AD.CurrentDataFolder.Create();
+            DataStore.Instance.AD.CurrentDataFolder.Create();
 
             DataRepositoryManager.ClearRepositories();
 
@@ -143,23 +145,23 @@
             newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
 
             // 2) UnZip new data.GRAMPS file
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
 
-            DataStore.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
+            DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
             newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
 
             // 3) Load new data.XML file
-            FileInfoEx dataXML = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+            FileInfoEx dataXML = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
 
-            DataStore.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
+            DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
             // Load the new data
             newManager.TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-            DataStore.CN.DataLogHide();
+            DataStore.Instance.CN.DataLogHide();
 
-            Assert.True(DataStore.AD.CurrentInputStream != null);
+            Assert.True(DataStore.Instance.AD.CurrentInputStream != null);
         }
     }
 }

@@ -46,11 +46,11 @@
                 //reconfigure layout
                 if (width > height)
                 {
-                    DataStore.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
                 }
                 else
                 {
-                    DataStore.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
                 }
 
                 CardSizes.Current.ReCalculateCardWidths(width, height);

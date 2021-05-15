@@ -92,7 +92,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataStore.DS.TagData;
+                return DataStore.Instance.DS.TagData;
             }
         }
 

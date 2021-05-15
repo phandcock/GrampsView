@@ -57,9 +57,9 @@
         {
             try
             {
-                FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+                FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
 
-                await DataStore.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {
                     // TODO Handle no network connection
                     Stream xmlReader = inputFile.FInfo.OpenRead();
@@ -75,7 +75,7 @@
                     }
                     catch (Exception ex)
                     {
-                        DataStore.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        DataStore.Instance.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
                         throw;
                     }
@@ -89,7 +89,7 @@
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 
-                        DataStore.CN.NotifyError(t);
+                        DataStore.Instance.CN.NotifyError(t);
                         return false;
                     }
 
@@ -107,7 +107,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Trying to load Gramps data only", ex);
+                DataStore.Instance.CN.NotifyException("Trying to load Gramps data only", ex);
                 throw;
             }
 

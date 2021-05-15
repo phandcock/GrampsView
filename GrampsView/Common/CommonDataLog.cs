@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Common
 {
     using System;
-    using System.Collections;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -26,8 +25,6 @@
         /// </param>
         public CommonDataLog()
         {
-            // Make Threadesafe. See https://codetraveler.io/2019/09/11/using-observablecollection-in-a-multi-threaded-xamarin-forms-application/
-            Xamarin.Forms.BindingBase.EnableCollectionSynchronization(DataLoadLog, null, ObservableCollectionCallback);
         }
 
         /// <summary>
@@ -73,7 +70,6 @@
         {
             DataLoadLog.Clear();
 
-            DataLoadLog.Add(new DataLogEntry { Label = "Start", Text = string.Empty });
             return;
         }
 
@@ -139,15 +135,6 @@
             };
 
             return t;
-        }
-
-        private void ObservableCollectionCallback(IEnumerable collection, object context, Action accessMethod, bool writeAccess)
-        {
-            // `lock` ensures that only one thread access the collection at a time
-            lock (collection)
-            {
-                accessMethod?.Invoke();
-            }
         }
     }
 }

@@ -15,7 +15,7 @@
     {
         public async Task LoadEventsAsync()
         {
-            await DataStore.CN.DataLogEntryAdd("Loading Event data").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Loading Event data").ConfigureAwait(false);
             {
                 try
                 {
@@ -67,15 +67,15 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
-                    DataStore.CN.NotifyException("LoadEventsAsync", e);
+                    DataStore.Instance.CN.NotifyException("LoadEventsAsync", e);
 
                     throw;
                 }
             }
 
-            await DataStore.CN.DataLogEntryReplace("Event load complete");
+            await DataStore.Instance.CN.DataLogEntryReplace("Event load complete");
             return;
         }
     }

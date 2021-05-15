@@ -69,7 +69,7 @@ namespace GrampsView.Data.Repositories
             {
                 if (string.IsNullOrEmpty(key))
                 {
-                    DataStore.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 //if (key == "_e5bfa72904e68ce059252b501df" || key == "_e5bfa72904e68ce059252b501df")
@@ -110,7 +110,7 @@ namespace GrampsView.Data.Repositories
             {
                 if (hLink.HLinkKey.Valid)
                 {
-                    DataStore.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
@@ -131,7 +131,7 @@ namespace GrampsView.Data.Repositories
         {
             if (!arg.HLinkKey.Valid)
             {
-                DataStore.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
             }
 
             //Update(localItems.Count, arg);

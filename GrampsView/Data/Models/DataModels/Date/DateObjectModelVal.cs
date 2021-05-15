@@ -64,7 +64,7 @@
                 catch (Exception e)
                 {
                     // TODO
-                    DataStore.CN.NotifyException("Error in SetDate", e);
+                    DataStore.Instance.CN.NotifyException("Error in SetDate", e);
                     throw;
                 }
             }

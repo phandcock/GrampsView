@@ -410,7 +410,7 @@
         ******************************************************
     -->
 
-    <Style x:Key="GVSymbolIconBaseType" TargetType="Label">
+    <Style x:Key="GVSymbolIconBaseType" TargetType="Image">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="IsEnabled" Value="False" />
     </Style>
@@ -418,7 +418,7 @@
     <Style
         x:Key="GVSymbolIconSmallCardType"
         BasedOn="{StaticResource GVSymbolIconBaseType}"
-        TargetType="Label">
+        TargetType="Image">
         <Setter Property="HeightRequest" Value="20" />
         <Setter Property="WidthRequest" Value="20" />
         <Setter Property="VerticalOptions" Value="End" />
@@ -429,7 +429,7 @@
     <Style
         x:Key="GVSymbolIconLargeCardType"
         BasedOn="{StaticResource GVSymbolIconBaseType}"
-        TargetType="Label">
+        TargetType="Image">
         <Setter Property="HeightRequest" Value="30" />
         <Setter Property="WidthRequest" Value="30" />
         <Setter Property="VerticalOptions" Value="End" />
@@ -440,7 +440,7 @@
     <Style
         x:Key="GVSymbolconPageHeaderType"
         BasedOn="{StaticResource GVSymbolIconBaseType}"
-        TargetType="Label">
+        TargetType="Image">
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="Margin" Value="3" />
     </Style>
@@ -448,7 +448,7 @@
     <Style
         x:Key="GVSymbolcon"
         BasedOn="{StaticResource GVSymbolIconBaseType}"
-        TargetType="Label">
+        TargetType="Image">
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
     </Style>
 

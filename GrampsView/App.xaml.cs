@@ -51,7 +51,7 @@ namespace GrampsView
 
         public void ShowPopUp()
         {
-            DataStore.CN.PopUpShow();
+            DataStore.Instance.CN.PopUpShow();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -83,7 +83,7 @@ namespace GrampsView
 
             Container.Resolve<IPlatformSpecific>();
 
-            DataStore.CN = Container.Resolve<ICommonNotifications>();
+            DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
             Container.Resolve<IDataRepositoryManager>();
 
@@ -109,7 +109,7 @@ namespace GrampsView
         {
             // Support IApplicationLifecycleAware
 
-            if (DataStore.DS.IsDataLoaded)
+            if (DataStore.Instance.DS.IsDataLoaded)
             {
                 //Shell.Current.Navigation.PopToRootAsync(animated: true); // TODO
                 //return;
@@ -131,7 +131,7 @@ namespace GrampsView
 
         protected override void OnStart()
         {
-            if (DataStore.DS.IsDataLoaded)
+            if (DataStore.Instance.DS.IsDataLoaded)
             {
                 CommonRoutines.NavigateHub();
 
@@ -241,9 +241,9 @@ namespace GrampsView
         // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo; //
         // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); // because seems to
         // be one rotation behind on emulator. Try the old school // way until fixed if
-        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { // DataStore.AD.CurrentOrientation =
-        // DisplayOrientation.Landscape; } else { // DataStore.AD.CurrentOrientation =
-        // DisplayOrientation.Portrait; }
+        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
+        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
+        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
 
         //        // // Card width reset CardSizes.Current.ReCalculateCardWidths();
         //    }

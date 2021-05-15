@@ -53,7 +53,7 @@
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
-            await DataStore.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
                 {
                     // Called in order of media linkages from Media outwards
@@ -92,9 +92,9 @@
                 }
             }
 
-            await DataStore.CN.DataLogEntryAdd(null).ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd(null).ConfigureAwait(false);
 
-            await DataStore.CN.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
+            await DataStore.Instance.CN.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
 
             // save the data in a serial format for next time
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);

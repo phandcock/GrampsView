@@ -20,16 +20,20 @@
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
-    <Label
+    <Image
         Grid.Row="0"
         Grid.Column="0"
         Margin="10"
-        FontFamily="FA-Solid"
-        Style="{DynamicResource GVSymbolconPageHeaderType}"
-        Text="{Binding BaseTitleIcon}"
-        TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                    Light={StaticResource OnPrimaryColorDark}}" />
-    <!--  text="44"  -->
+        Style="{DynamicResource GVSymbolconPageHeaderType}">
+        <Image.Source>
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{Binding BaseTitleIcon}"
+                Size="44"
+                Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                        Light={StaticResource OnPrimaryColorDark}}" />
+        </Image.Source>
+    </Image>
 
     <Label
         Grid.Row="0"

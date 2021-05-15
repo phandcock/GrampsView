@@ -55,7 +55,7 @@
              //{
              //}
 
-             string outFilePath = Path.Combine(DataStore.AD.CurrentDataFolder.FullName, outFileName);
+             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
 
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 
@@ -128,7 +128,7 @@
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFileName;
-                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.AD.CurrentDataFolder, outFileName);
+                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
 
                  newMediaModel.IsInternalMediaFile = true;
                  newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;
@@ -138,7 +138,7 @@
 
                  // newMediaModel = SetHomeImage(newMediaModel);
 
-                 DataStore.DS.MediaData.Add((MediaModel)newMediaModel);
+                 DataStore.Instance.DS.MediaData.Add((MediaModel)newMediaModel);
              }
              else
              {
@@ -150,7 +150,7 @@
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 
-                 DataStore.CN.NotifyError(t);
+                 DataStore.Instance.CN.NotifyError(t);
              }
 
              resourceBitmap.Dispose();
@@ -280,7 +280,7 @@
                         { "Attribute is", b }
                     };
 
-                    DataStore.CN.NotifyError(argErrorDetail);
+                    DataStore.Instance.CN.NotifyError(argErrorDetail);
 
                     hexColour = "#000000";
                 }
@@ -296,7 +296,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Error in XML Utils GetColour", ex);
+                DataStore.Instance.CN.NotifyException("Error in XML Utils GetColour", ex);
                 throw;
             }
         }
@@ -325,7 +325,7 @@
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                DataStore.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
@@ -468,7 +468,7 @@
                         { "xmlData", xmlData }
                     };
 
-                DataStore.CN.NotifyError(t);
+                DataStore.Instance.CN.NotifyError(t);
 
                 return null;
             }
@@ -480,13 +480,13 @@
                         { "xmlData", xmlData }
                     };
 
-                DataStore.CN.NotifyError(t);
+                DataStore.Instance.CN.NotifyError(t);
 
                 return null;
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("Exception in GetUri", ex);
+                DataStore.Instance.CN.NotifyException("Exception in GetUri", ex);
 
                 throw;
             }

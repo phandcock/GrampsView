@@ -96,7 +96,7 @@
 
                     default:
                         {
-                            DataStore.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay is not ItemGlyph but " + this.BindingContext.GetType().ToString()));
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay is not ItemGlyph but " + this.BindingContext.GetType().ToString()));
                             return;
                         }
                 }
@@ -114,7 +114,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("HLinkVisualDisplay", ex);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -135,7 +135,7 @@
 
             t.Add("File", (sender as CachedImage).Source.ToString());
 
-            DataStore.CN.NotifyError(t);
+            DataStore.Instance.CN.NotifyError(t);
 
             (sender as CachedImage).Cancel();
             (sender as CachedImage).Source = null;
@@ -152,7 +152,7 @@
                             { "Id", argMediaModel.Id }
                         };
 
-                    DataStore.CN.NotifyError(t);
+                    DataStore.Instance.CN.NotifyError(t);
                     return;
                 }
                 // Input valid so start work
@@ -189,7 +189,7 @@
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                DataStore.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }
@@ -205,7 +205,7 @@
                             { "Id", argMediaModel.Id }
                         };
 
-                    DataStore.CN.NotifyError(t);
+                    DataStore.Instance.CN.NotifyError(t);
                     return;
                 }
                 // Input valid so start work
@@ -233,7 +233,7 @@
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                DataStore.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }
@@ -244,7 +244,7 @@
             {
                 if (!argItemGlyph.Valid)
                 {
-                    //DataStore.CN.NotifyError("Invalid HlinkMediaModel (" + HLinkMedia.HLinkKey + ") passed to MediaImage");
+                    //DataStore.Instance.CN.NotifyError("Invalid HlinkMediaModel (" + HLinkMedia.HLinkKey + ") passed to MediaImage");
                     return;
                 }
 
@@ -300,7 +300,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.CN.NotifyException("HLinkVisualDisplay", ex);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -312,38 +312,49 @@
             {
                 // create symbol control
 
-                Label newImageControl = new Label
+                Image newImageControl = new Image
                 {
+                    Aspect = Aspect.AspectFit,
                     BackgroundColor = Color.Transparent,
                     IsVisible = true,
                     Margin = 5,
+                    Source = new FontImageSource
+                    {
+                    },
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    Text = argItemGlyph.Symbol,
-                    TextColor = argItemGlyph.SymbolColour,
-                    FontFamily = "FA-Solid"
                 };
 
                 // Input valid so start work
 
-                if (string.IsNullOrEmpty(newImageControl.Text))
+                // Set symbol
+                FontImageSource fontGlyph = new FontImageSource
+                {
+                    Glyph = argItemGlyph.Symbol,
+                    Color = argItemGlyph.SymbolColour,
+                    FontFamily = "FA-Solid"
+                };
+
+                if (fontGlyph.Glyph == null)
                 {
                     ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph")
                         {
                             { "HLinkKey", argItemGlyph.ToString() }
                         };
 
-                    DataStore.CN.NotifyError(t);
+                    DataStore.Instance.CN.NotifyError(t);
                 }
 
-                //if (newImageControl.TextColor is null)
-                //{
-                //    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
-                //        {
-                //            { "HLinkKey", argItemGlyph.ImageHLink.Value }
-                //        };
+                if (fontGlyph.Color == null)
+                {
+                    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
+                        {
+                            { "HLinkKey", argItemGlyph.ImageHLink.Value }
+                        };
 
-                //    DataStore.CN.NotifyError(t);
-                //}
+                    DataStore.Instance.CN.NotifyError(t);
+                }
+
+                newImageControl.Source = fontGlyph;
 
                 this.HLinkVisualDisplayRoot.Children.Clear();
                 this.HLinkVisualDisplayRoot.Children.Add(newImageControl);
@@ -357,7 +368,7 @@
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                DataStore.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }
