@@ -20,8 +20,6 @@
         /// </param>
         /// <param name="iocEventAggregator">
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         public SourceDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
@@ -45,7 +43,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             HLinkSourceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkSourceModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

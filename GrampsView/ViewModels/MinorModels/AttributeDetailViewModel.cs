@@ -33,7 +33,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             BaseCL.RoutineEntry("AttributeDetailViewModel");
 

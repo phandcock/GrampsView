@@ -43,7 +43,7 @@
         /// <value>
         /// The citation object.
         /// </value>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             // Handle HLinkKeys
             HLinkCitationModel HLinkCitation = CommonRoutines.DeserialiseObject<HLinkCitationModel>(Uri.UnescapeDataString(BaseParamsHLink));

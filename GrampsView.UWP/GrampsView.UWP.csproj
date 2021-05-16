@@ -125,6 +125,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\appmetadata\en-au\baselisting\description.txt" />
+    <Content Include="Assets\appmetadata\en-au\baselisting\images\Screenshot\description.mainScreenshot.txt" />
+    <Content Include="Assets\appmetadata\en-au\baselisting\images\Screenshot\description.personScreenshot.txt" />
+    <Content Include="Assets\appmetadata\en-au\baselisting\images\Screenshot\mainScreenshot.png" />
+    <Content Include="Assets\appmetadata\en-au\baselisting\images\Screenshot\personscreenshot.png" />
     <Content Include="Assets\appmetadata\en-us\baselisting\description.txt" />
     <Content Include="Assets\appmetadata\en-us\baselisting\images\Screenshot\description.personScreenshot.txt" />
     <Content Include="Assets\appmetadata\en-us\baselisting\images\Screenshot\description.mainScreenshot.txt" />

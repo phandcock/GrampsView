@@ -49,7 +49,7 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             HLinkObject = CommonRoutines.DeserialiseObject<HLinkEventModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

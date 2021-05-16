@@ -355,7 +355,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Override for the OnNavigatedTo Prism method.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             BaseCL.RoutineEntry("PeopleGraphViewModel");
 

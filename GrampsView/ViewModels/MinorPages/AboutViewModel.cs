@@ -56,7 +56,7 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             // Assembly level stuff
             var assembly = GetType().GetTypeInfo().Assembly;

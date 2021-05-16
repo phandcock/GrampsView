@@ -48,7 +48,7 @@
         /// <param name="viewModelState">
         /// The parameter is not used.
         /// </param>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             HLinkTagModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkTagModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

@@ -14,16 +14,6 @@
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : CommonBindableBase, INotifyPropertyChanged
     {
-        ///// <summary>
-        ///// Backing store for the base current state
-        ///// </summary>
-        //private ICommonLogging _CL = new CommonLogging();
-
-        ///// <summary>
-        ///// Backing store for the base current state
-        ///// </summary>
-        //private IEventAggregator _EventAggregator = new EventAggregator();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -41,15 +31,10 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// The ioc navigation service.
-        /// </param>
         public ViewModelBase(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
         {
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
-
-            //_EventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(BaseHandleDataLoadedEventInternal, ThreadOption.UIThread);
         }
 
         /// <summary>
@@ -143,6 +128,11 @@
             get; set;
         }
 
+        private bool BaseHandleLoadTriggered
+        {
+            get; set;
+        } = false;
+
         /// <summary>
         /// Gets or sets a value indicating whether [detail data loaded flag].
         /// </summary>
@@ -173,8 +163,20 @@
             return;
         }
 
+        public virtual void BaseHandleLoadEvent()
+        {
+            return;
+        }
+
         internal void BaseHandleAppearingEventInternal()
         {
+            if (BaseHandleLoadTriggered == false)
+            {
+                BaseHandleLoadTriggered = true;
+
+                BaseHandleLoadEvent();
+            }
+
             BaseHandleAppearingEvent();
 
             //// Setup for loading if no data is loaded
@@ -193,6 +195,7 @@
             BaseHandleDisAppearingEvent();
         }
 
+        // TODO work out how to add these to Frody
         private void OnBaseCLChanged()
         {
             Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");

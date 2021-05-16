@@ -38,7 +38,7 @@
         /// <summary>
         /// Handles navigation inwards and sets up the place model parameter.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             HLinkPlaceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPlaceModel>(Uri.UnescapeDataString(BaseParamsHLink));
 

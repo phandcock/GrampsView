@@ -27,7 +27,6 @@
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
 
-            //BaseEventAggregator.GetEvent<DialogBoxEvent>().Subscribe(ErrorActionDialog, ThreadOption.UIThread);
             BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(HandledDataLoadedEvent, ThreadOption.UIThread);
         }
 
@@ -151,7 +150,7 @@
         /// <summary>
         /// Populate the Hub View.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
         }
 

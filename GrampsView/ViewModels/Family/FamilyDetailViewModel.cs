@@ -65,7 +65,7 @@
         /// <returns>
         /// Task.
         /// </returns>
-        public override void BaseHandleAppearingEvent()
+        public override void BaseHandleLoadEvent()
         {
             HLinkFamilyModel HLinkFamily = CommonRoutines.DeserialiseObject<HLinkFamilyModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
