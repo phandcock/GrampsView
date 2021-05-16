@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Common
 {
     using System;
+    using System.Collections;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -17,14 +18,9 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonNotifications"/> class.
         /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging routines
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
         public CommonDataLog()
         {
+            Xamarin.Forms.BindingBase.EnableCollectionSynchronization(DataLoadLog, null, ObservableCollectionCallback);
         }
 
         /// <summary>
@@ -135,6 +131,15 @@
             };
 
             return t;
+        }
+
+        private void ObservableCollectionCallback(IEnumerable collection, object context, Action accessMethod, bool writeAccess)
+        {
+            // `lock` ensures that only one thread access the collection at a time
+            lock (collection)
+            {
+                accessMethod?.Invoke();
+            }
         }
     }
 }
