@@ -1,3 +1,17 @@
+## [16.17.43](https://github.com/phandcock/GrampsView/compare/v16.17.42...v16.17.43) (2021-05-16)
+
+
+### Bug Fixes
+
+* another go at the store metadata load ([67c4cb7](https://github.com/phandcock/GrampsView/commit/67c4cb7f8a7a4d8966318f684043659c0c69617e))
+* change imagesource to labels ([4f9f7de](https://github.com/phandcock/GrampsView/commit/4f9f7de9af8fab482e7fba213992037e5e05622a))
+* cleanup header model and display ([6f99e54](https://github.com/phandcock/GrampsView/commit/6f99e54a9b16aae05d87f2a794bc7bf7b3e24a73))
+* nuget updates ([4ed3bb7](https://github.com/phandcock/GrampsView/commit/4ed3bb700316c1e80810d83466187cf478b1442d))
+* update UWP store build ([a27d272](https://github.com/phandcock/GrampsView/commit/a27d2722cccca0e76f712e90884cc856075ebf86))
+* work on data load page navigation to hub ([b4d2698](https://github.com/phandcock/GrampsView/commit/b4d269849e713648e28055bc01bd2af275e1a70f))
+
+
+
 ## [16.17.42](https://github.com/phandcock/GrampsView/compare/v16.17.41...v16.17.42) (2021-05-14)
 
 
@@ -35,15 +49,6 @@
 
 * force reload if exception ([db0c827](https://github.com/phandcock/GrampsView/commit/db0c827a5461c359f6062716914af672e752ccef))
 * workaround for UWP Release Popup exception for cast ([47bb350](https://github.com/phandcock/GrampsView/commit/47bb35056d2b3c8a0d56c7810354b664af895991))
-
-
-
-## [16.17.38](https://github.com/phandcock/GrampsView/compare/v16.17.37...v16.17.38) (2021-05-08)
-
-
-### Bug Fixes
-
-* fix crash on stratup for Windows Store ([11bb292](https://github.com/phandcock/GrampsView/commit/11bb292e37f55e51e9d1b30d857002788da49524))
 
 
 
