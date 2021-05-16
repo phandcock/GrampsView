@@ -1,3 +1,3 @@
-﻿This program displays Genealogical data from a GRAMPS export file.
+﻿This program displays Genealogical data from a GRAMPS GPKG (thats the one that include media) export file.
 
-GRAMPS is an open source database for tracking family history and other genealogy data.
+GRAMPS is an open source database for tracking family history and other genealogy data.  The project webiste is here https://gramps-project.org/
