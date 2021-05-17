@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Common
+﻿using GrampsView.Assets.Fonts;
+
+namespace GrampsView.Common
 {
     /// <summary>
     /// Common Constants.

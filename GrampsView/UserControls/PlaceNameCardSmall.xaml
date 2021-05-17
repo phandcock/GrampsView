@@ -56,13 +56,17 @@
                 Style="{DynamicResource GVCardLabelStyleSmall}"
                 Text="{Binding GDate.ShortDateOrEmpty, Mode=OneWay}" />
 
-            <Label
+            <Image
                 Grid.Row="2"
                 Grid.Column="2"
-                FontFamily="FA-Solid"
-                Style="{DynamicResource GVSymbolIconSmallCardType}"
-                Text="{Binding ModelItemGlyph.Symbol}"
-                TextColor="{Binding ModelItemGlyph.SymbolColour}" />
+                Style="{DynamicResource GVSymbolIconSmallCardType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="FA-Solid"
+                        Glyph="{Binding ModelItemGlyph.Symbol}"
+                        Color="{Binding ModelItemGlyph.SymbolColour}" />
+                </Image.Source>
+            </Image>
         </Grid>
     </Frame>
 </Grid>

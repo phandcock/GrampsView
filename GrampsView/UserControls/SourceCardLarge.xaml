@@ -62,13 +62,17 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <Label
+            <Image
                 Grid.Row="2"
                 Grid.Column="2"
-                FontFamily="FA-Solid"
-                Style="{DynamicResource GVSymbolIconSmallCardType}"
-                Text="{Binding HLinkGlyphItem.Symbol}"
-                TextColor="{Binding HLinkGlyphItem.SymbolColour}" />
+                Style="{DynamicResource GVSymbolIconSmallCardType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="FA-Solid"
+                        Glyph="{Binding HLinkGlyphItem.Symbol}"
+                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
+                </Image.Source>
+            </Image>
         </Grid>
     </Frame>
 </Grid>

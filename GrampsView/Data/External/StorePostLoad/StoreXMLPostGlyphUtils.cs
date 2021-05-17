@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Assets.Fonts;
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
