@@ -1,3 +1,13 @@
+## [16.17.44](https://github.com/phandcock/GrampsView/compare/v16.17.43...v16.17.44) (2021-05-17)
+
+
+### Bug Fixes
+
+* stop dataload happeing twice by creating viewloaded event ([3f49851](https://github.com/phandcock/GrampsView/commit/3f49851d0d5791aa3a377a3980679526677ad37e))
+* tweak type glyphs back to images ([a4064b8](https://github.com/phandcock/GrampsView/commit/a4064b87c93592decc2d27bc0defcb0d73b8b0fe))
+
+
+
 ## [16.17.43](https://github.com/phandcock/GrampsView/compare/v16.17.42...v16.17.43) (2021-05-16)
 
 
@@ -39,16 +49,6 @@
 
 * add windows store metadata update files ([d7a52ff](https://github.com/phandcock/GrampsView/commit/d7a52fffc706f0afcbb883cd085fc3636737d747))
 * restore popup dismiss code ([135fc5b](https://github.com/phandcock/GrampsView/commit/135fc5b61e9487b7d1c7d315844a0fa4a3bdfe2e))
-
-
-
-## [16.17.39](https://github.com/phandcock/GrampsView/compare/v16.17.38...v16.17.39) (2021-05-09)
-
-
-### Bug Fixes
-
-* force reload if exception ([db0c827](https://github.com/phandcock/GrampsView/commit/db0c827a5461c359f6062716914af672e752ccef))
-* workaround for UWP Release Popup exception for cast ([47bb350](https://github.com/phandcock/GrampsView/commit/47bb35056d2b3c8a0d56c7810354b664af895991))
 
 
 
