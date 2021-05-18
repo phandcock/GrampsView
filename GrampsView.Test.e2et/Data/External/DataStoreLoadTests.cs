@@ -93,7 +93,7 @@
 
             iocStoreFile.DecompressTAR();
 
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
 
             if (GrampsFile.Valid)
             {

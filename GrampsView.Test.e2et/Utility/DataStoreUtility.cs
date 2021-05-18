@@ -36,7 +36,7 @@
         {
             // AD
 
-            if (!DataStore.Instance.AD.CurrentDataFolderValid)
+            if (!DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
                 // Delete if it exists
                 if (Directory.Exists(DataStorePath))
@@ -46,7 +46,7 @@
 
                 Directory.CreateDirectory(DataStorePath);
 
-                DataStore.Instance.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
+                DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
             }
         }
 
@@ -129,12 +129,12 @@
 
             // Clear the repositories in case we had to restart after being interupted. TODO have
             // better mock DataStore.Instance.AD.LoadDataStore();
-            DataStore.Instance.AD.CurrentDataFolder = new DirectoryInfo(DataStorePath);
-            if (DataStore.Instance.AD.CurrentDataFolder.Exists)
+            DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
+            if (DataStore.Instance.AD.CurrentDataFolder.Value.Exists)
             {
-                DataStore.Instance.AD.CurrentDataFolder.Delete(true);
+                DataStore.Instance.AD.CurrentDataFolder.Value.Delete(true);
             }
-            DataStore.Instance.AD.CurrentDataFolder.Create();
+            DataStore.Instance.AD.CurrentDataFolder.Value.Create();
 
             DataRepositoryManager.ClearRepositories();
 
@@ -145,14 +145,14 @@
             newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
 
             // 2) UnZip new data.GRAMPS file
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
 
             DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
             newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
 
             // 3) Load new data.XML file
-            FileInfoEx dataXML = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+            FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
             DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 

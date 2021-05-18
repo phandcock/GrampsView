@@ -49,13 +49,13 @@
              IMediaModel newMediaModel = new MediaModel();
 
              HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey.Value + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
-             string outFileName = Path.Combine("Cropped", newHLinkKey.Value + ".png");
+             string outFileName = string.Format("{0}{1}.png", newHLinkKey.Value, "~crop");
 
              //if ((newHLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0-56686279") || (newHLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0-55676380"))
              //{
              //}
 
-             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, outFileName);
+             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolderPath, outFileName);
 
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 
@@ -128,7 +128,7 @@
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFileName;
-                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, outFileName);
+                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(outFileName);
 
                  newMediaModel.IsInternalMediaFile = true;
                  newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;

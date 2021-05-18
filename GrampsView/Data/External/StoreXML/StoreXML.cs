@@ -57,7 +57,7 @@
         {
             try
             {
-                FileInfoEx inputFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+                FileInfoEx inputFile = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {

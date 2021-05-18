@@ -41,7 +41,7 @@
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
                 // check if we can get an image for the first page of the PDF
-                pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, CommonFontNamesFAS.FilePdf);
             }
@@ -73,7 +73,7 @@
             if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
             {
                 // check if we can get an image for the video
-                videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, CommonFontNamesFAS.FileArchive);
             }
@@ -108,7 +108,7 @@
             {
                 // check if we can get an image for the first page of the PDF
 
-                zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder, argMediaModel, newMediaModel);
+                zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
             }
@@ -124,9 +124,6 @@
 
         private MediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
-            // create folder if required
-            DataStore.Instance.AD.CurrentDataFolder.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
-
             MediaModel newMediaModel = argSourceMediaModel.Copy();
 
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
@@ -144,7 +141,7 @@
             {
                 argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                 argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
-                argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder, argNewMediaModel.OriginalFilePath);
+                argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder.Value, argNewMediaModel.OriginalFilePath);
 
                 addLater.Add(argNewMediaModel);
 

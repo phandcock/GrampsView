@@ -188,30 +188,26 @@
                 return true;
             }
 
-            //CommonRoutines.NavigateHub();
-
             DataStore.Instance.CN.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
 
-            DataStore.Instance.AD.LoadDataStore();
-
-            if (DataStore.Instance.AD.CurrentDataFolderValid)
+            if (DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
                 // 1) UnTar *.GPKG
                 if (DataStore.Instance.AD.CurrentInputStreamValid)
                 {
-                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
-
                     // Clear the file system
                     await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+
+                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
 
                     await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
                 }
 
                 // 2) UnZip new data.GRAMPS file
-                FileInfoEx GrampsFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+                FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
 
                 if (GrampsFile.Valid)
                 {
@@ -224,7 +220,7 @@
                 }
 
                 // 3) Load new data.XML file
-                FileInfoEx dataXML = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+                FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
                 if (dataXML.Valid)
                 {
@@ -326,7 +322,7 @@
         /// </returns>
         public async Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
-            FileInfoEx fileGrampsDataInput = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageGRAMPSFileName);
+            FileInfoEx fileGrampsDataInput = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
 
             if (fileGrampsDataInput != null)
             {
@@ -365,7 +361,7 @@
 
                     await DataStore.Instance.CN.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
 
-                    FileInfoEx t = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, CommonConstants.StorageXMLFileName);
+                    FileInfoEx t = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
                     if (t.Valid)
                     {

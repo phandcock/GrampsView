@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Repository
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
 
     using System.IO;
 
@@ -8,12 +9,6 @@
 
     public class ApplicationWideData : CommonBindableBase
     {
-        private DirectoryInfo _CurrentDataFolder;
-
-        private Stream _CurrentInputStream;
-
-        private string _CurrentInputStreamPath;
-
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
@@ -22,51 +17,33 @@
         /// <value>
         /// The get current data folder.
         /// </value>
-        public DirectoryInfo CurrentDataFolder
+        public CurrentDataFolder CurrentDataFolder
+        {
+            get;
+
+            set;
+        } = new CurrentDataFolder();
+
+        public string CurrentImageAssetsFolderPath
         {
             get
             {
-                return _CurrentDataFolder;
-            }
-
-            set
-            {
-                SetProperty(ref _CurrentDataFolder, value);
-            }
-        }
-
-        public bool CurrentDataFolderValid
-        {
-            get
-            {
-                return (!(CurrentDataFolder == null) && (CurrentDataFolder.Exists));
+                return Path.Combine(CurrentDataFolder.Path, CommonConstants.fileToImageSubDirectory);
             }
         }
 
         public Stream CurrentInputStream
         {
-            get
-            {
-                return _CurrentInputStream;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _CurrentInputStream, value);
-            }
+            set;
         }
 
         public string CurrentInputStreamPath
         {
-            get
-            {
-                return _CurrentInputStreamPath;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _CurrentInputStreamPath, value);
-            }
+            set;
         }
 
         public bool CurrentInputStreamValid
@@ -88,14 +65,6 @@
             {
                 SetProperty(ref _CurrentOrientation, value);
             }
-        }
-
-        /// <summary>
-        /// Loads the data store from existing known details
-        /// </summary>
-        public void LoadDataStore()
-        {
-            CurrentDataFolder = new DirectoryInfo(FileSystem.CacheDirectory);
         }
     }
 }

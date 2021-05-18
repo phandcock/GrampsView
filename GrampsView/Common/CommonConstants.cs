@@ -27,7 +27,7 @@ namespace GrampsView.Common
         /// </summary>
         public const string EventTypeMarriage = "Marriage";
 
-        public const string fileToImageSubDirectory = "~imageAssets";
+        public const string fileToImageSubDirectory = "~worka";
 
         /// <summary>
         /// The gramps view database version.

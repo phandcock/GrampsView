@@ -25,7 +25,7 @@
                     //_CL.LogVariable("localMediaFolder.path", DataStore.Instance.AD.CurrentDataFolder.FullName); //
                     //_CL.LogVariable("path", DataStore.Instance.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
 
-                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = StoreFolder.FolderGetFile(DataStore.Instance.AD.CurrentDataFolder, argMediaModel.OriginalFilePath);
+                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = StoreFolder.FolderGetFile(argMediaModel.OriginalFilePath, DataStore.Instance.AD.CurrentDataFolder.Value);
                 }
             }
             catch (FileNotFoundException ex)
@@ -55,9 +55,7 @@
         {
             _CommonLogging.RoutineEntry("FixMediaFiles");
 
-            DirectoryInfo localMediaFolder = DataStore.Instance.AD.CurrentDataFolder;
-
-            if (localMediaFolder != null)
+            if (DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 

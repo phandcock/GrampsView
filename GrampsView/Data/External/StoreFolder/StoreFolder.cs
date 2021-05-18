@@ -5,7 +5,6 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Diagnostics.Contracts;
     using System.IO;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
@@ -108,7 +107,7 @@
 
         public static FileInfoEx FolderGetCreateFile(DirectoryInfo argBaseFolder, string argFileName)
         {
-            FileInfoEx t = FolderGetFile(argBaseFolder, argFileName);
+            FileInfoEx t = FolderGetFile(argFileName, argBaseFolder);
 
             if (t.FInfo == null)
             {
@@ -118,9 +117,12 @@
             return t;
         }
 
-        public static FileInfoEx FolderGetFile(DirectoryInfo argBaseFolder, string argFileName)
+        public static FileInfoEx FolderGetFile(string argFileName, DirectoryInfo argBaseFolder = null)
         {
-            Contract.Requires(argBaseFolder != null);
+            if (argBaseFolder is null)
+            {
+                argBaseFolder = DataStore.Instance.AD.CurrentDataFolder.Value;
+            }
 
             // TODO Handle relative paths
 

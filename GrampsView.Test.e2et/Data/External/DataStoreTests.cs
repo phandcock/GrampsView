@@ -18,7 +18,7 @@
         {
             DataStoreUtility.DataStoreSetup();
 
-            Assert.True(DataStore.Instance.AD.CurrentDataFolder.FullName == DataStoreUtility.DataStorePath);
+            Assert.True(DataStore.Instance.AD.CurrentDataFolder.Path == DataStoreUtility.DataStorePath);
         }
 
         [SetUp]

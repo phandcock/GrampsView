@@ -151,7 +151,7 @@
                     // Apply further name transformations here as necessary
                     string filename = Path.GetFileName(tarName);
 
-                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, tarName);
+                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, tarName);
 
                     string relativePath = Path.GetDirectoryName(tarEntry.Name);
 
@@ -161,11 +161,11 @@
 
                     if (relativePath.Length > 0)
                     {
-                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FullName, relativePath));
+                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, relativePath));
                     }
                     else
                     {
-                        newFolder = DataStore.Instance.AD.CurrentDataFolder;
+                        newFolder = DataStore.Instance.AD.CurrentDataFolder.Value;
                     }
 
                     // Check if the folder was created successfully.
@@ -190,7 +190,7 @@
                     // modified then it should be later than any UnTared file date
                     if (await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false))
                     {
-                        FileInfoEx newFileName = StoreFolder.FolderGetFile(newFolder, filename);
+                        FileInfoEx newFileName = StoreFolder.FolderGetFile(filename, newFolder);
 
                         //if (filename == "1024x768.png")
                         //{

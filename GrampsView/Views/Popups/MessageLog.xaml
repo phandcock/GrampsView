@@ -6,7 +6,8 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
     x:DataType="common:CommonDataLog"
-    DismissFlag="{Binding PopupDismissFlag}">
+    DismissFlag="{Binding PopupDismissFlag}"
+    Style="{DynamicResource GVBaseContentPage}">
 
     <!--<StackLayout>-->
 

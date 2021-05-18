@@ -36,10 +36,6 @@
         /// </returns>
         public async static Task<FileInfoEx> GetStorageFileAsync(string relativeFilePath)
         {
-            if (relativeFilePath == "handcocks\\cemetaries\\Grave - Ethel handcock.jpg")
-            {
-            }
-
             FileInfoEx resultFile = new FileInfoEx();
 
             // Validate the input
@@ -54,15 +50,14 @@
                 return resultFile;
             }
 
-            // load the real file
-            DirectoryInfo tt = DataStore.Instance.AD.CurrentDataFolder;
-            if (tt != null)
+            // Load the real file
+            if (DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
                 try
                 {
-                    if (Directory.Exists(Path.Combine(tt.FullName, Path.GetDirectoryName(relativeFilePath))))
+                    if (Directory.Exists(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Path.GetDirectoryName(relativeFilePath))))
                     {
-                        FileInfo[] t = tt.GetFiles(relativeFilePath);
+                        FileInfo[] t = DataStore.Instance.AD.CurrentDataFolder.Value.GetFiles(relativeFilePath);
 
                         if (t.Length > 0)
                         {
@@ -100,20 +95,18 @@
             {
                 try
                 {
-                    DirectoryInfo t = DataStore.Instance.AD.CurrentDataFolder;
-
-                    foreach (FileInfo item in t.GetFiles())
+                    foreach (FileInfo item in DataStore.Instance.AD.CurrentDataFolder.Value.GetFiles())
                     {
                         item.Delete();
                     }
 
-                    foreach (var item in t.GetDirectories())
+                    foreach (var item in DataStore.Instance.AD.CurrentDataFolder.Value.GetDirectories())
                     {
                         item.Delete(true);
                     }
 
                     // Create standard directories
-                    t.CreateSubdirectory("Cropped");
+                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
                 }
                 catch (Exception ex)
                 {
