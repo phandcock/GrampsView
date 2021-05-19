@@ -1,3 +1,14 @@
+## [16.17.45](https://github.com/phandcock/GrampsView/compare/v16.17.44...v16.17.45) (2021-05-19)
+
+
+### Bug Fixes
+
+* change cards back to images ([1b19c8f](https://github.com/phandcock/GrampsView/commit/1b19c8fc8b44efe1d999dce7c5a2d1054c602841))
+* cleanup applicationwidedata ([de50d01](https://github.com/phandcock/GrampsView/commit/de50d01fa1e7d751ccc8b39c44cb778a67dfea2d))
+* temp nuget to fix UWP release popup issue ([69d9e00](https://github.com/phandcock/GrampsView/commit/69d9e000a067e1846e003d6ffec67cfda1e26574))
+
+
+
 ## [16.17.44](https://github.com/phandcock/GrampsView/compare/v16.17.43...v16.17.44) (2021-05-17)
 
 
@@ -39,16 +50,6 @@
 ### Bug Fixes
 
 * work on messagelogpopup dismass flag ([169387c](https://github.com/phandcock/GrampsView/commit/169387c2fe4c06b6da0df2ccf633681ba4500186))
-
-
-
-## [16.17.40](https://github.com/phandcock/GrampsView/compare/v16.17.39...v16.17.40) (2021-05-10)
-
-
-### Bug Fixes
-
-* add windows store metadata update files ([d7a52ff](https://github.com/phandcock/GrampsView/commit/d7a52fffc706f0afcbb883cd085fc3636737d747))
-* restore popup dismiss code ([135fc5b](https://github.com/phandcock/GrampsView/commit/135fc5b61e9487b7d1c7d315844a0fa4a3bdfe2e))
 
 
 
