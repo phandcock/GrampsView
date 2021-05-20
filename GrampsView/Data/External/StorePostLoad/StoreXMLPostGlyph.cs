@@ -9,6 +9,7 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
@@ -277,8 +278,21 @@
             {
                 Contract.Requires(argModel != null);
 
-                if (argModel.Id == "O0318")
+                var t = from item in DataStore.Instance.DS.MediaData.Values
+
+                        group item by (item.Id) into g
+
+                        select new
+                        {
+                            GroupName = g.Key,
+                            Items = g
+                        };
+
+                foreach (var item in t)
                 {
+                    if (item.Items.Count() > 1)
+                    {
+                    }
                 }
 
                 // Setup HomeImage

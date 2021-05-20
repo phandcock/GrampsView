@@ -153,8 +153,6 @@
                             loadObject.GTagRefCollection.Add(item);
                         }
 
-                        // loadObject = SetHomeImage(loadObject);
-
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
