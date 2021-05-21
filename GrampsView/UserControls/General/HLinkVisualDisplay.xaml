@@ -6,7 +6,7 @@
     x:Name="HLinkVisualDisplayRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent"
+    BackgroundColor="Cornsilk"
     BindingContextChanged="HLinkVisualDisplay_BindingContextChanged">
 
     <Grid.RowDefinitions>

@@ -105,7 +105,7 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GetDefaultRepository
+                        orderby item.GetDefaultRepository, item.GSTitle
                         group item by (item.GetDefaultRepository) into g
                         select new
                         {

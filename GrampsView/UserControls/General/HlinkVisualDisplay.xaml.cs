@@ -248,10 +248,10 @@
                     return;
                 }
 
-                if (argItemGlyph == WorkHLMediaModel)
-                {
-                    return;
-                }
+                //if (argItemGlyph == WorkHLMediaModel)
+                //{
+                //    return;
+                //}
 
                 // Save the HLink so can check for duplicate changes later
                 WorkHLMediaModel = argItemGlyph;
