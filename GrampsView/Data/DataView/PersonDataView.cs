@@ -148,7 +148,7 @@ namespace GrampsView.Data.DataView
             }
 
             // sort the list
-            IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel => PersonModel.BirthDate);
+            IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef.SortName);
 
             return new ObservableCollection<PersonModel>(sortedList);
         }

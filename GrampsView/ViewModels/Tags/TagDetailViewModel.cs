@@ -59,9 +59,6 @@
                 BaseTitle = "Tag Detail";
                 BaseTitleIcon = CommonConstants.IconTag;
 
-                // Get Headers
-                //CardGroup t = new CardGroup { Title = "Header Details" };
-
                 BaseDetail.Add(new CardListLineCollection("Tag Detail")
                 {
                         new CardListLine("Name:", TagObject.GName),
@@ -74,29 +71,5 @@
 
             return;
         }
-
-        //private int numColumns = 3;
-
-        //public GridItemsLayout GL
-        //{
-        //    get
-
-        // { GridItemsLayout t = new GridItemsLayout(orientation: ItemsLayoutOrientation.Vertical) {
-        // HorizontalItemSpacing = 2, VerticalItemSpacing = 2, Span = numColumns, };
-
-        //        return t;
-        //    }
-        //}
-
-        //private void TagDetailPageRoot_SizeChanged(object sender, EventArgs e)
-        //{
-        //    Contract.Requires(sender != null);
-
-        // TagDetailPage tt = sender as TagDetailPage;
-
-        // this.numColumns = (Int32)(tt.Width / CardSizes.Current.CardSmallWidth + 1); // +1 for padding
-
-        //    tt.theCollectionView.ItemsLayout = GL;
-        //}
     }
 }

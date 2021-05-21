@@ -80,7 +80,7 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GetDefaultText
+                        orderby item.GetDefaultText, item.GDateContent, item.GPage
                         group item by (item.GetDefaultText) into g
                         select new
                         {

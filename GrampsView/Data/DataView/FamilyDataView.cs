@@ -120,7 +120,7 @@ namespace GrampsView.Data.DataView
 
             var query =
                     from x in queryBase
-                    orderby x.key
+                    orderby x.key, x.item.FamilyDisplayNameSort
                     group x by (x.key) into g
                     select new
                     {
