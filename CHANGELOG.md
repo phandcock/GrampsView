@@ -1,3 +1,12 @@
+## [16.17.46](https://github.com/phandcock/GrampsView/compare/v16.17.45...v16.17.46) (2021-05-21)
+
+
+### Bug Fixes
+
+* fix wierd cropped image new path bug ([f8de589](https://github.com/phandcock/GrampsView/commit/f8de5897aa1dd4cc30279c82a435f81b62ea961d))
+
+
+
 ## [16.17.45](https://github.com/phandcock/GrampsView/compare/v16.17.44...v16.17.45) (2021-05-19)
 
 
@@ -41,15 +50,6 @@
 * add getmodelbyid to dataview for use in testing ([a5dc38d](https://github.com/phandcock/GrampsView/commit/a5dc38d964934de57344d563817754cae24878e5))
 * display fullnote in citationdetailview if at least one exists ([3419b3a](https://github.com/phandcock/GrampsView/commit/3419b3a2053865b4de11e7261626a98028c66aa4))
 * show error dialogs in UWP ([21fc28b](https://github.com/phandcock/GrampsView/commit/21fc28b395dae6910b837cd4a112e5216ba82e49))
-
-
-
-## [16.17.41](https://github.com/phandcock/GrampsView/compare/v16.17.40...v16.17.41) (2021-05-12)
-
-
-### Bug Fixes
-
-* work on messagelogpopup dismass flag ([169387c](https://github.com/phandcock/GrampsView/commit/169387c2fe4c06b6da0df2ccf633681ba4500186))
 
 
 
