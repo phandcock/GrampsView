@@ -20,7 +20,6 @@
     </Shell.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
-    </ScrollView>
+
+    <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
 </views:ViewBase>

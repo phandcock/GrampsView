@@ -20,8 +20,6 @@
     </Shell.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
 
-        <ucon:CollectionSingleCardGrouped FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-    </ScrollView>
+    <ucon:CollectionSingleCardGrouped FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 </views:ViewBase>

@@ -17,7 +17,6 @@
     </Shell.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <ucon:CollectionSingleCardGrouped FsctSource="{Binding MediaSource, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-    </ScrollView>
+
+    <ucon:CollectionSingleCardGrouped FsctSource="{Binding MediaSource, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
 </views:ViewBase>

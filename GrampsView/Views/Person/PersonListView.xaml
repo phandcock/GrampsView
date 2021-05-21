@@ -17,6 +17,6 @@
     </Shell.TitleView>
 
     <!--  Content  -->
-    <!--  TODO why have a scrollview here  -->
+
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding PersonSource, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 </views:ViewBase>
