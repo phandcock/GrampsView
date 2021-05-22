@@ -173,10 +173,11 @@ namespace GrampsView.Data.Collections
                         break;
                 }
 
-                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
-                argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
-                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
-                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
+                argHLink.HLinkGlyphItem = t;
+                //argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
+                //argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
+                //argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
+                //argHLink.HLinkGlyphItem
             }
 
             //// Set the first image link. Assumes main image is manually set to the first image in

@@ -228,42 +228,55 @@ namespace GrampsView.Data.Model
             switch (HLinkType)
             {
                 case HLinkBackLinkEnum.HLinkAddressModel:
+                    _HLinkAddressModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkAddressModel;
 
                 case HLinkBackLinkEnum.HLinkCitationModel:
+                    _HLinkCitationModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkCitationModel;
 
                 case HLinkBackLinkEnum.HLinkEventModel:
+                    _HLinkEventModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkEventModel;
 
                 case HLinkBackLinkEnum.HLinkFamilyModel:
+                    _HLinkFamilyModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkFamilyModel;
 
                 case HLinkBackLinkEnum.HLinkMediaModel:
+                    _HLinkMediaModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkMediaModel;
 
                 case HLinkBackLinkEnum.HLinkNameMapModel:
+                    _HLinkNameMapModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkNameMapModel;
 
                 case HLinkBackLinkEnum.HLinkNoteModel:
+                    _HLinkNoteModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkNoteModel;
 
                 case HLinkBackLinkEnum.HLinkPersonModel:
+                    _HLinkPersonModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkPersonModel;
 
                 case HLinkBackLinkEnum.HLinkPersonNameModel:
+                    _HLinkPersonNameModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkPersonNameModel;
 
                 case HLinkBackLinkEnum.HLinkPlaceModel:
+                    _HLinkPlaceModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkPlaceModel;
 
                 case HLinkBackLinkEnum.HLinkRepositoryModel:
+                    _HLinkRepositoryModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkRepositoryModel;
 
                 case HLinkBackLinkEnum.HLinkSourceModel:
+                    _HLinkSourceModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkSourceModel;
 
                 case HLinkBackLinkEnum.HLinkTagModel:
+                    _HLinkTagModel.HLinkGlyphItem = this.HLinkGlyphItem;
                     return _HLinkTagModel;
 
                 case HLinkBackLinkEnum.Unknown:
