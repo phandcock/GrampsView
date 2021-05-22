@@ -154,6 +154,14 @@
             }
         }
 
+        public bool ValidMedia
+        {
+            get
+            {
+                return (Valid && (ImageType == CommonEnums.HLinkGlyphType.Media));
+            }
+        }
+
         public async Task UCNavigate()
         {
             string ser;

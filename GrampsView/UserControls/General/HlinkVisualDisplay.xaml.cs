@@ -213,6 +213,7 @@
                 {
                     Aspect = Aspect.AspectFit,
                     AutoPlay = false,
+                    ShowsPlaybackControls = true,
                     BackgroundColor = Color.Transparent,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     IsVisible = true,
