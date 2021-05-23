@@ -1,3 +1,17 @@
+## [16.17.47](https://github.com/phandcock/GrampsView/compare/v16.17.46...v16.17.47) (2021-05-23)
+
+
+### Bug Fixes
+
+* always display media element controls ([792026f](https://github.com/phandcock/GrampsView/commit/792026febc7f937bf70e0fb08043ec03c4fb3ccd))
+* fix glyphs for backlinks ([e2cb2ee](https://github.com/phandcock/GrampsView/commit/e2cb2eeb8c2c687cf922c47d0ed6126f92f8e10d))
+* fix source group sort ([18c31f2](https://github.com/phandcock/GrampsView/commit/18c31f2f991a9e39f7b6d04e9c9217be6bdaa24a))
+* remove list page scrollviews again ([bd3ed81](https://github.com/phandcock/GrampsView/commit/bd3ed8110a941ee3e1565202201232702dd47fa7))
+* sort grouped collection lists ([5996b80](https://github.com/phandcock/GrampsView/commit/5996b804e7c373e58f67c105712981abe30c5da7))
+* work on media display bug ([bf2d79a](https://github.com/phandcock/GrampsView/commit/bf2d79aba6c8f930359f8f3faca5ccd54efdf682))
+
+
+
 ## [16.17.46](https://github.com/phandcock/GrampsView/compare/v16.17.45...v16.17.46) (2021-05-21)
 
 
@@ -39,17 +53,6 @@
 * nuget updates ([4ed3bb7](https://github.com/phandcock/GrampsView/commit/4ed3bb700316c1e80810d83466187cf478b1442d))
 * update UWP store build ([a27d272](https://github.com/phandcock/GrampsView/commit/a27d2722cccca0e76f712e90884cc856075ebf86))
 * work on data load page navigation to hub ([b4d2698](https://github.com/phandcock/GrampsView/commit/b4d269849e713648e28055bc01bd2af275e1a70f))
-
-
-
-## [16.17.42](https://github.com/phandcock/GrampsView/compare/v16.17.41...v16.17.42) (2021-05-14)
-
-
-### Bug Fixes
-
-* add getmodelbyid to dataview for use in testing ([a5dc38d](https://github.com/phandcock/GrampsView/commit/a5dc38d964934de57344d563817754cae24878e5))
-* display fullnote in citationdetailview if at least one exists ([3419b3a](https://github.com/phandcock/GrampsView/commit/3419b3a2053865b4de11e7261626a98028c66aa4))
-* show error dialogs in UWP ([21fc28b](https://github.com/phandcock/GrampsView/commit/21fc28b395dae6910b837cd4a112e5216ba82e49))
 
 
 
