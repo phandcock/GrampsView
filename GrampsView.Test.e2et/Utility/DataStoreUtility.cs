@@ -28,10 +28,6 @@
 
         public static DataStore testDataStore;
 
-        public static void createResources()
-        {
-        }
-
         public static void DataStoreSetup()
         {
             // AD

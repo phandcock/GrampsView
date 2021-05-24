@@ -21,6 +21,16 @@
             return base.OnBackButtonPressed();
         }
 
+        private static void RegisterMiscRoutes()
+        {
+            Routing.RegisterRoute(nameof(FileInputHandlerPage), typeof(FileInputHandlerPage));
+            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
+
+            Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
+
+            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
+        }
+
         private void RegisterDetailRoutes()
         {
             Routing.RegisterRoute(nameof(AddressDetailPage), typeof(AddressDetailPage));
@@ -46,16 +56,6 @@
             Routing.RegisterRoute(nameof(SourceDetailPage), typeof(SourceDetailPage));
 
             Routing.RegisterRoute(nameof(TagDetailPage), typeof(TagDetailPage));
-        }
-
-        private void RegisterMiscRoutes()
-        {
-            Routing.RegisterRoute(nameof(FileInputHandlerPage), typeof(FileInputHandlerPage));
-            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
-
-            Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
-
-            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
         }
     }
 }

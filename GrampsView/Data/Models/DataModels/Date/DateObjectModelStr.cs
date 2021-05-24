@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Repository;
-
     using System;
     using System.Runtime.Serialization;
 
@@ -17,7 +15,7 @@
         private string _GVal = string.Empty;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but
+        /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but is
         /// stored as a string so can not be converted to a DateTime.
         /// </summary>
         /// <param name="aVal">
@@ -25,21 +23,20 @@
         /// </param>
         public DateObjectModelStr(string aVal)
         {
-            try
-            {
-                GVal = aVal;
+            //try
+            //{
+            GVal = aVal;
 
-                // Set NotionalDate
-                NotionalDate = DateTime.MinValue;
+            // Set NotionalDate
+            NotionalDate = DateTime.MinValue;
 
-                Valid = true;
-            }
-            catch (Exception e)
-            {
-                // TODO
-                DataStore.Instance.CN.NotifyException("Error in SetDate", e);
-                throw;
-            }
+            Valid = true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    DataStore.Instance.CN.NotifyException("Error in SetDate", ex);
+            //    throw;
+            //}
         }
 
         /// <summary>

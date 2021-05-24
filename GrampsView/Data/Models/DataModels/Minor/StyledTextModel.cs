@@ -5,7 +5,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Model;
+
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
@@ -17,23 +17,14 @@ namespace GrampsView.Data.Model
     [KnownType(typeof(StyledTextModel))]
     public class StyledTextModel : CommonBindableBase, IStyledTextModel
     {
-        private string _GText = string.Empty;
-
-        private ObservableCollection<GrampsStyle> _Styles
+        private readonly ObservableCollection<GrampsStyle> _Styles
 
             = new ObservableCollection<GrampsStyle>();
 
+        private string _GText = string.Empty;
+
         public StyledTextModel()
         {
-        }
-
-        [DataMember]
-        public ObservableCollection<GrampsStyle> Styles
-        {
-            get
-            {
-                return _Styles;
-            }
         }
 
         /// <summary>
@@ -53,6 +44,15 @@ namespace GrampsView.Data.Model
             set
             {
                 SetProperty(ref _GText, value);
+            }
+        }
+
+        [DataMember]
+        public ObservableCollection<GrampsStyle> Styles
+        {
+            get
+            {
+                return _Styles;
             }
         }
     }

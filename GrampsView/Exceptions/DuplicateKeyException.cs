@@ -1,7 +1,5 @@
 ﻿//-----------------------------------------------------------------------
 //
-// ObservableCollection with Index to increase the speed
-//
 // <copyright file="DuplicateKeyException.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>

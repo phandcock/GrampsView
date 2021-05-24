@@ -26,7 +26,7 @@ namespace GrampsView.Data.Model
         public const string GTypeLink = "Link";
         public const string GTypeToDo = "To Do";
 
-        private FormattedString _FormattedText = new FormattedString();
+        private readonly FormattedString _FormattedText = new FormattedString();
 
         /// <summary>
         /// The local IsFormated.
