@@ -53,7 +53,7 @@
                         loadNote.GType = (string)pname.Attribute("type");
 
                         // Load Styled Text
-                        if (loadNote.Id == "N0098")
+                        if (loadNote.Id == "N0482")
                         {
                         }
 
@@ -61,15 +61,17 @@
                         {
                         }
 
+                        // Get Text Styles
                         StyledTextModel tempStyledText = GetStyledTextCollection(pname);
                         loadNote.GStyledText.GText = tempStyledText.GText;
 
-                        tempStyledText.Styles.Clear();
+                        loadNote.GStyledText.Styles.Clear();
                         foreach (GrampsStyle item in tempStyledText.Styles)
                         {
                             loadNote.GStyledText.Styles.Add(item);
                         }
 
+                        // Get Tags
                         loadNote.GTagRefCollection.Clear();
                         foreach (HLinkTagModel item in GetTagCollection(pname))
                         {

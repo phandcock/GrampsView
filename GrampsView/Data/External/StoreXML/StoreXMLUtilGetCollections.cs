@@ -726,9 +726,10 @@
 
         private StyledTextModel GetStyledTextCollection(XElement xmlData)
         {
-            StyledTextModel t = new StyledTextModel();
-
-            t.GText = (string)xmlData.Element(ns + "text");
+            StyledTextModel t = new StyledTextModel
+            {
+                GText = (string)xmlData.Element(ns + "text")
+            };
 
             // Run query
             var theERElement =
@@ -745,17 +746,9 @@
                     {
                         GStyle = GetTextStyle(theLoadORElement),
 
-                        // TODO cleanup
+                        GValue = GetAttribute(theLoadORElement, "Value"),
 
-                        //GCitationReferenceCollection = GetCitationCollection(theLoadORElement),
-
-                        //GNoteModelReferenceCollection = GetNoteCollection(theLoadORElement),
-
-                        //Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
-
-                        //GType = GetAttribute(theLoadORElement.Attribute("type")),
-
-                        //GValue = GetAttribute(theLoadORElement.Attribute("value")),
+                        GRange = GetStyledTextRangeCollection(theLoadORElement),
                     };
 
                     t.Styles.Add(newStyleModel);
@@ -763,6 +756,52 @@
             }
 
             return t;
+        }
+
+        private List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
+        {
+            List<GrampsStyleRangeModel> returnValue = new List<GrampsStyleRangeModel>();
+
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "range")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    GrampsStyleRangeModel newStyleModel = new GrampsStyleRangeModel();
+
+                    if (!int.TryParse(GetAttribute(theLoadORElement, "start"), out int Start))
+                    {
+                        ErrorInfo t = new ErrorInfo("Bad Style Range Start")
+                        {
+                            { "XML data", xmlData.ToString() }
+                        };
+
+                        DataStore.Instance.CN.NotifyError(t);
+                    };
+                    newStyleModel.Start = Start;
+
+                    if (!int.TryParse(GetAttribute(theLoadORElement, "end"), out int End))
+                    {
+                        ErrorInfo t = new ErrorInfo("Bad Style Range End")
+                        {
+                            { "XML data", xmlData.ToString() }
+                        };
+
+                        DataStore.Instance.CN.NotifyError(t);
+                    };
+                    newStyleModel.End = End;
+
+                    returnValue.Add(newStyleModel);
+                }
+            }
+
+            return returnValue;
         }
 
         private SurnameModelCollection GetSurnameCollection(XElement xmlData)
