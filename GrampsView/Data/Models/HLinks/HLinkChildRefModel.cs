@@ -9,7 +9,7 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Child Reference model
+    /// TODO xml 1.71 needed Child Reference model
     /// </summary>
     [DataContract]
     public class HLinkChildRefModel : HLinkBase, IHLinkChildRefModel

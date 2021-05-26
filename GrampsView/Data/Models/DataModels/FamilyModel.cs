@@ -1,4 +1,4 @@
-﻿// TODO Needs XML 1.71 check
+﻿// TODO Needs XML 1.71 check for view and load
 
 /// <summary>
 /// -- Completed
@@ -6,7 +6,9 @@
 /// - rel
 /// - father
 /// - mother
+/// - date
 /// - eventref
+/// - ldsorf
 /// - objref
 /// - childref
 /// - attribute
@@ -14,14 +16,7 @@
 /// - citationref
 /// - tagref
 /// </summary>
-/// TODO Finish adding these
 
-////
-////    <optional>
-////      <ref name="date-content" />
-////    </optional>
-///// </code>
-/// TODO Update fields as per Schema
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
@@ -46,51 +41,6 @@ namespace GrampsView.Data.Model
     [KnownType(typeof(HLinkPersonModel))]
     public sealed class FamilyModel : ModelBase, IFamilyModel, IComparable, IComparer
     {
-        /// <summary>
-        /// The local attribute reference.
-        /// </summary>
-        private OCAttributeModelCollection _AttributeReference = new OCAttributeModelCollection();
-
-        // citationref*
-        private HLinkCitationModelCollection _CitationReferenceCollection = new HLinkCitationModelCollection();
-
-        /// <summary>
-        /// The local event collection.
-        /// </summary>
-        private HLinkEventModelCollection _EventReferenceCollection = new HLinkEventModelCollection();
-
-        /// <summary>
-        /// Backing store for the HLink Note collection.
-        /// </summary>
-        private HLinkNoteModelCollection _GNoteRefCollection = new HLinkNoteModelCollection();
-
-        /// <summary>
-        /// The local media collection.
-        /// </summary>
-        private HLinkMediaModelCollection _MediaReferenceCollection = new HLinkMediaModelCollection();
-
-        /// <summary>
-        /// Collection of Child References $$(childref)$$.
-        /// </summary>
-        private HLinkPersonModelCollection childRefCollection = new HLinkPersonModelCollection("Children");
-
-        /// <summary>
-        /// relationship $$(rel)$$.
-        /// </summary>
-        private string familyRelationshipField = string.Empty;
-
-        /// <summary>
-        /// Family Father Handle father?.
-        /// </summary>
-        private HLinkPersonModel fatherHLink = new HLinkPersonModel();
-
-        /// <summary>
-        /// Family Father Handle mother?.
-        /// </summary>
-        private HLinkPersonModel motherHLink = new HLinkPersonModel();
-
-        //// TODO lds_ord*
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FamilyModel"/> class.
         /// </summary>
@@ -125,7 +75,7 @@ namespace GrampsView.Data.Model
                     familyName.Append("Unknown");
                 }
 
-                if (motherHLink.Valid)
+                if (GMother.Valid)
                 {
                     familyName.Append(" - ");
                     familyName.Append(motherName);
@@ -161,7 +111,7 @@ namespace GrampsView.Data.Model
                     familyName = "Unknown";
                 }
 
-                if (motherHLink.Valid)
+                if (GMother.Valid)
                 {
                     StringBuilder t = new StringBuilder();
                     t.Append(familyName);
@@ -186,16 +136,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public OCAttributeModelCollection GAttributeCollection
         {
-            get
-            {
-                return _AttributeReference;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _AttributeReference, value);
-            }
-        }
+            set;
+        } = new OCAttributeModelCollection();
 
         /// <summary>
         /// Gets or sets Child Reference collection.
@@ -222,16 +166,16 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkCitationModelCollection GCitationRefCollection
         {
-            get
-            {
-                return _CitationReferenceCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _CitationReferenceCollection, value);
-            }
-        }
+            set;
+        } = new HLinkCitationModelCollection();
+
+        [DataMember]
+        public DateObjectModel GDate
+        {
+            get; set;
+        } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the event collection. This is the [eventref*] attribute.
@@ -242,16 +186,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkEventModelCollection GEventRefCollection
         {
-            get
-            {
-                return _EventReferenceCollection;
-            }
-
-            set
-            {
-                SetProperty(ref _EventReferenceCollection, value);
-            }
-        }
+            get; set;
+        } = new HLinkEventModelCollection();
 
         /// <summary>
         /// Gets or sets Family Relationship.
@@ -262,15 +198,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GFamilyRelationship
         {
-            get
-            {
-                return familyRelationshipField;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref familyRelationshipField, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -282,16 +212,18 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPersonModel GFather
         {
-            get
-            {
-                return fatherHLink;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref fatherHLink, value);
-            }
-        }
+            set;
+        } = new HLinkPersonModel();
+
+        [DataMember]
+        public OCLdsOrdModelCollection GLDSOrdCollection
+        {
+            get;
+
+            set;
+        } = new OCLdsOrdModelCollection();
 
         /// <summary>
         /// Gets or sets the g media reference collection. This is the [objref*] attribute.
@@ -302,16 +234,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get
-            {
-                return _MediaReferenceCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _MediaReferenceCollection, value);
-            }
-        }
+            set;
+        } = new HLinkMediaModelCollection();
 
         /// <summary>
         /// Gets or sets Mothers $$(hLink)$$.
@@ -322,16 +248,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPersonModel GMother
         {
-            get
-            {
-                return motherHLink;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref motherHLink, value);
-            }
-        }
+            set;
+        } = new HLinkPersonModel();
 
         /// <summary>
         /// Gets or sets the HLink Note reference collection.
@@ -342,16 +262,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get
-            {
-                return _GNoteRefCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GNoteRefCollection, value);
-            }
-        }
+            set;
+        } = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Gets or sets the g tag reference collection. This is the [tagref*] attribute.
@@ -363,7 +277,7 @@ namespace GrampsView.Data.Model
         public HLinkTagModelCollection GTagRefCollection
         {
             get; set;
-        }
+        } = new HLinkTagModelCollection();
 
         /// <summary>
         /// Gets the get h link.
