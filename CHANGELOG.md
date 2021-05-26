@@ -1,3 +1,13 @@
+## [16.17.48](https://github.com/phandcock/GrampsView/compare/v16.17.47...v16.17.48) (2021-05-26)
+
+
+### Bug Fixes
+
+* fix styled text load bugs ([ab6c169](https://github.com/phandcock/GrampsView/commit/ab6c1692365a47ecd74b1060d76d16f2233d3b3c))
+* tweaks ([ac3b193](https://github.com/phandcock/GrampsView/commit/ac3b19317a81cc6678b3fcabef581f05bf91c45f))
+
+
+
 ## [16.17.47](https://github.com/phandcock/GrampsView/compare/v16.17.46...v16.17.47) (2021-05-23)
 
 
@@ -39,20 +49,6 @@
 
 * stop dataload happeing twice by creating viewloaded event ([3f49851](https://github.com/phandcock/GrampsView/commit/3f49851d0d5791aa3a377a3980679526677ad37e))
 * tweak type glyphs back to images ([a4064b8](https://github.com/phandcock/GrampsView/commit/a4064b87c93592decc2d27bc0defcb0d73b8b0fe))
-
-
-
-## [16.17.43](https://github.com/phandcock/GrampsView/compare/v16.17.42...v16.17.43) (2021-05-16)
-
-
-### Bug Fixes
-
-* another go at the store metadata load ([67c4cb7](https://github.com/phandcock/GrampsView/commit/67c4cb7f8a7a4d8966318f684043659c0c69617e))
-* change imagesource to labels ([4f9f7de](https://github.com/phandcock/GrampsView/commit/4f9f7de9af8fab482e7fba213992037e5e05622a))
-* cleanup header model and display ([6f99e54](https://github.com/phandcock/GrampsView/commit/6f99e54a9b16aae05d87f2a794bc7bf7b3e24a73))
-* nuget updates ([4ed3bb7](https://github.com/phandcock/GrampsView/commit/4ed3bb700316c1e80810d83466187cf478b1442d))
-* update UWP store build ([a27d272](https://github.com/phandcock/GrampsView/commit/a27d2722cccca0e76f712e90884cc856075ebf86))
-* work on data load page navigation to hub ([b4d2698](https://github.com/phandcock/GrampsView/commit/b4d269849e713648e28055bc01bd2af275e1a70f))
 
 
 
