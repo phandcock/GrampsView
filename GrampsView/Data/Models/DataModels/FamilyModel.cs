@@ -9,7 +9,7 @@
 /// - eventref
 /// - objref
 /// - childref
-/// - attribute -
+/// - attribute
 /// - noteref
 /// - citationref
 /// - tagref

@@ -58,11 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MimeTypeMapOfficial">
-      <Version>1.0.15</Version>
-    </PackageReference>
     <PackageReference Include="Prism.Unity.Forms">
-      <Version>8.0.0.1909</Version>
+      <Version>8.1.97</Version>
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
