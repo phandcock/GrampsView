@@ -48,6 +48,12 @@
         {
             XElement tempElement;
 
+            if (currentElement is null)
+            {
+                // TODO fix this to return invalid date
+                return new DateObjectModelStr(string.Empty);
+            }
+
             // check for date range
             try
             {

@@ -260,6 +260,36 @@
             return t;
         }
 
+        private OCLdsOrdModelCollection GetLDSOrdCollection(XElement xmlData)
+        {
+            //TODO Fix
+
+            OCLdsOrdModelCollection t = new OCLdsOrdModelCollection
+            {
+                Title = "LDS Ordination Collection"
+            };
+
+            var theERElement =
+                    from _ORElementEl in xmlData.Elements(ns + "ldsord")
+                    select _ORElementEl;
+
+            if (theERElement.Any())
+            {
+                // load event object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    LdsOrdModel t2 = new LdsOrdModel
+                    {
+                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                    };
+
+                    t.Add(t2);
+                }
+            }
+
+            return t;
+        }
+
         /// <summary>
         /// Gets the note collection.
         /// </summary>

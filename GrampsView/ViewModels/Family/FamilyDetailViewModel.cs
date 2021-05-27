@@ -30,9 +30,8 @@
         /// <param name="iocEventAggregator">
         /// Prism event aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// </param>
         /// <param name="iocPlatformSpecific">
+        /// Platform specific calls for Windows Timeline
         /// </param>
         public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
                                     : base(iocCommonLogging, iocEventAggregator)
@@ -84,6 +83,7 @@
                     new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
                     new CardListLine("Father Name:", FamilyObject.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
                     new CardListLine("Mother Name:", FamilyObject.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName),
+                    new CardListLine("Date:",FamilyObject.GDate.LongDate),
                 });
 
                 // Add Model details

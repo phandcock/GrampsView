@@ -71,6 +71,10 @@
                             loadFamily.GMother.HLinkKey = new HLinkKey((string)tempMother.Attribute("hlink"));
                         }
 
+                        loadFamily.GDate = GetDate(familyElement.Element(ns + "date"));
+
+                        loadFamily.GAttributeCollection = GetAttributeCollection(familyElement);
+
                         loadFamily.GChildRefCollection = GetChildRefCollection(familyElement);
 
                         // Citation References
@@ -78,6 +82,8 @@
 
                         // Event References
                         loadFamily.GEventRefCollection = GetEventCollection(familyElement);
+
+                        loadFamily.GLDSOrdCollection = GetLDSOrdCollection(familyElement);
 
                         // ObjectRef loading
                         loadFamily.GMediaRefCollection = await GetObjectCollection(familyElement).ConfigureAwait(false);

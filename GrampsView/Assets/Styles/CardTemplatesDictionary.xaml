@@ -33,6 +33,10 @@
         <usercontrols:FamilyCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="LDSOrdCardSmallDT">
+        <usercontrols:MediaCardSmall />
+    </DataTemplate>
+
     <DataTemplate x:Key="MediaCardSmallDT">
         <usercontrols:MediaCardSmall />
     </DataTemplate>
@@ -110,6 +114,7 @@
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
+        LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
         MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"

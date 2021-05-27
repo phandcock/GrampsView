@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check for view and load
-
-/// <summary>
+﻿/// <summary>
 /// -- Completed
 /// - SecondaryColor-object
 /// - rel

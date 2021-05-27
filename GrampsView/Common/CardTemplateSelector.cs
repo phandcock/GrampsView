@@ -92,6 +92,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate LDSOrdTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the media card large template.
         /// </summary>
@@ -412,6 +418,11 @@ namespace GrampsView.Common
                                     return SourceSmallTemplate;
                                 }
                         }
+                    }
+
+                case LdsOrdModel i:
+                    {
+                        return LDSOrdTemplate;
                     }
 
                 default:
