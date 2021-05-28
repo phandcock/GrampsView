@@ -175,7 +175,7 @@
 
             SetFamilyImages();
 
-            // Person models already contain a link tot he family model (if they in in one)
+            // Person models already contain a link to the family model (if they are in one)
 
             // The family model already contains a reference to the person
 
@@ -632,6 +632,10 @@
             {
                 foreach (ICitationModel theCitationModel in DV.CitationDV.DataViewData)
                 {
+                    if (theCitationModel.Id == "C0776")
+                    {
+                    }
+
                     theCitationModel.GMediaRefCollection.SetGlyph();
 
                     // Media Collection - Create backlinks in media models to citation models

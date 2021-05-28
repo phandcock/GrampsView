@@ -88,7 +88,7 @@
         {
             get
             {
-                return HLinkKey.Valid;
+                return HLinkKey.Valid && HLinkGlyphItem.Valid;
             }
         }
 

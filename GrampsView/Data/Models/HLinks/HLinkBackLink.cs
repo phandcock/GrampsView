@@ -77,15 +77,6 @@ namespace GrampsView.Data.Model
             HLinkType = HLinkBackLinkEnum.HLinkCitationModel;
         }
 
-        public HLinkBackLink(HLinkMediaModel ArgHLinkLink)
-        {
-            _HLinkMediaModel = ArgHLinkLink;
-
-            HLinkKey = ArgHLinkLink.HLinkKey;
-
-            HLinkType = HLinkBackLinkEnum.HLinkMediaModel;
-        }
-
         public HLinkBackLink(HLinkEventModel ArgHLinkLink)
         {
             _HLinkEventModel = ArgHLinkLink;
@@ -102,6 +93,15 @@ namespace GrampsView.Data.Model
             HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkFamilyModel;
+        }
+
+        public HLinkBackLink(HLinkMediaModel ArgHLinkLink)
+        {
+            _HLinkMediaModel = ArgHLinkLink;
+
+            HLinkKey = ArgHLinkLink.HLinkKey;
+
+            HLinkType = HLinkBackLinkEnum.HLinkMediaModel;
         }
 
         public HLinkBackLink(HLinkNameMapModel ArgHLinkLink)

@@ -249,7 +249,7 @@
         {
             get
             {
-                return HLinkKey.Valid;
+                return HLinkKey.Valid && ModelItemGlyph.Valid;
             }
         }
 

@@ -68,7 +68,7 @@
         public CommonEnums.HLinkGlyphType ImageType
         {
             get; set;
-        } = CommonEnums.HLinkGlyphType.Symbol;
+        } = CommonEnums.HLinkGlyphType.Unknown;
 
         [DataMember]
         public HLinkKey MediaHLink
@@ -127,7 +127,12 @@
                 {
                     case CommonEnums.HLinkGlyphType.Symbol:
                         {
-                            return true;
+                            if ((SymbolColour != Color.White) && (Symbol != CommonConstants.IconDDefault))
+                            {
+                                return true;
+                            }
+
+                            break;
                         }
                     case CommonEnums.HLinkGlyphType.Image:
                         {
@@ -140,9 +145,11 @@
                     default:
                         {
                             // TODO Unknown type
-                            return false;
+                            break;
                         }
                 }
+
+                return false;
             }
         }
 

@@ -8,10 +8,6 @@
     x:DataType="models:HLinkNoteModel"
     IsVisible="{Binding Valid}">
 
-    <!--<Grid.GestureRecognizers>
-        <DragGestureRecognizer CanDrag="True" DragStarting="OnDragStarting" />
-    </Grid.GestureRecognizers>-->
-
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
 

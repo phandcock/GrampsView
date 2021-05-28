@@ -34,7 +34,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GLDSOrdCollection, Mode=OneWay}" FsctTemplate="{StaticResource LDSOrdSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GLDSOrdCollection, Mode=OneWay}" FsctTemplate="{StaticResource LDSOrdCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>

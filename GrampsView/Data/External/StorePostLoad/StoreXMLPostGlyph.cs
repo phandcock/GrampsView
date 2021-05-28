@@ -61,6 +61,15 @@
                     argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
+                else
+                {
+                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    {
+                        { "Citation Model Image", argModel.Id }
+                    };
+
+                    DataStore.Instance.CN.NotifyError(NotifyError);
+                }
             }
         }
 
