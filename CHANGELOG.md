@@ -1,3 +1,13 @@
+## [16.17.49](https://github.com/phandcock/GrampsView/compare/v16.17.48...v16.17.49) (2021-05-28)
+
+
+### Bug Fixes
+
+* cleanup familymodel ([57b1b02](https://github.com/phandcock/GrampsView/commit/57b1b02e30e510ee9f4a69386da5c7fa9a29a019))
+* load and use all family model fields ([f394f23](https://github.com/phandcock/GrampsView/commit/f394f232b7ae0e461fd97b04dbcfee9aeb988fc5))
+
+
+
 ## [16.17.48](https://github.com/phandcock/GrampsView/compare/v16.17.47...v16.17.48) (2021-05-26)
 
 
@@ -28,27 +38,6 @@
 ### Bug Fixes
 
 * fix wierd cropped image new path bug ([f8de589](https://github.com/phandcock/GrampsView/commit/f8de5897aa1dd4cc30279c82a435f81b62ea961d))
-
-
-
-## [16.17.45](https://github.com/phandcock/GrampsView/compare/v16.17.44...v16.17.45) (2021-05-19)
-
-
-### Bug Fixes
-
-* change cards back to images ([1b19c8f](https://github.com/phandcock/GrampsView/commit/1b19c8fc8b44efe1d999dce7c5a2d1054c602841))
-* cleanup applicationwidedata ([de50d01](https://github.com/phandcock/GrampsView/commit/de50d01fa1e7d751ccc8b39c44cb778a67dfea2d))
-* temp nuget to fix UWP release popup issue ([69d9e00](https://github.com/phandcock/GrampsView/commit/69d9e000a067e1846e003d6ffec67cfda1e26574))
-
-
-
-## [16.17.44](https://github.com/phandcock/GrampsView/compare/v16.17.43...v16.17.44) (2021-05-17)
-
-
-### Bug Fixes
-
-* stop dataload happeing twice by creating viewloaded event ([3f49851](https://github.com/phandcock/GrampsView/commit/3f49851d0d5791aa3a377a3980679526677ad37e))
-* tweak type glyphs back to images ([a4064b8](https://github.com/phandcock/GrampsView/commit/a4064b87c93592decc2d27bc0defcb0d73b8b0fe))
 
 
 
