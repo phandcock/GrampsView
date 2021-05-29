@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -84,90 +85,63 @@
             {
                 case "person":
                     {
-                        HLinkPersonModel p1 = new HLinkPersonModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkPersonModel p1 = DV.PersonDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "family":
                     {
-                        HLinkFamilyModel p1 = new HLinkFamilyModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkFamilyModel p1 = DV.FamilyDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "event":
                     {
-                        HLinkEventModel p1 = new HLinkEventModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkEventModel p1 = DV.EventDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "source":
                     {
-                        HLinkSourceModel p1 = new HLinkSourceModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkSourceModel p1 = DV.SourceDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "citation":
                     {
-                        HLinkCitationModel p1 = new HLinkCitationModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkCitationModel p1 = DV.CitationDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "place":
                     {
-                        HLinkPlaceModel p1 = new HLinkPlaceModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkPlaceModel p1 = DV.PlaceDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "media":
                     {
-                        HLinkMediaModel p1 = new HLinkMediaModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkMediaModel p1 = DV.MediaDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "repository":
                     {
-                        HLinkRepositoryModel p1 = new HLinkRepositoryModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkRepositoryModel p1 = DV.RepositoryDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "note":
                     {
-                        HLinkNoteModel p1 = new HLinkNoteModel
-                        {
-                            HLinkKey = argHLinkKey
-                        };
+                        HLinkNoteModel p1 = DV.NoteDV.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
