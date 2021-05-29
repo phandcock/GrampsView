@@ -14,6 +14,8 @@ namespace GrampsView.Data.Model
     {
         private NoteModel _Deref = new NoteModel();
 
+        private bool DeRefCached = false;
+
         public HLinkNoteModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconNotes;
@@ -24,9 +26,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid && (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.NoteDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

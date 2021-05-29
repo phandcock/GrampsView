@@ -53,7 +53,7 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                FormattedText="{Binding DeRef.GFormattedTextSmall, Mode=OneWay}"
+                FormattedText="{Binding DeRef.GStyledText.GText, Mode=OneWay}"
                 Style="{DynamicResource GVCardLabelStyleSmall}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer CanDrag="True" />

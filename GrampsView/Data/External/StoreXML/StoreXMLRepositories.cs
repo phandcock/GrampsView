@@ -24,7 +24,7 @@
 
                     foreach (XElement pRepositoryElement in de)
                     {
-                        RepositoryModel loadRepository = DV.RepositoryDV.NewModel();
+                        RepositoryModel loadRepository = new RepositoryModel();
 
                         // SecondaryColor attributes
                         loadRepository.LoadBasics(GetBasics(pRepositoryElement));

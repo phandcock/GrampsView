@@ -29,7 +29,7 @@
                     // Loop through results to get the Persons Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pname in de)
                     {
-                        EventModel loadEvent = DV.EventDV.NewModel();
+                        EventModel loadEvent = new EventModel();
 
                         // Event attributes
                         loadEvent.LoadBasics(GetBasics(pname));

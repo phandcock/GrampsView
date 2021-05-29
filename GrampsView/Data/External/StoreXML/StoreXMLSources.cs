@@ -35,7 +35,7 @@
                     // Loop through results to get the Source
                     foreach (XElement pSourceElement in de)
                     {
-                        SourceModel loadSource = DV.SourceDV.NewModel();
+                        SourceModel loadSource = new SourceModel();
 
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));

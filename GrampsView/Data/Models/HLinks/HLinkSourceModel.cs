@@ -13,6 +13,8 @@ namespace GrampsView.Data.Model
     {
         private SourceModel _Deref = new SourceModel();
 
+        private bool DeRefCached = false;
+
         public HLinkSourceModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconSource;
@@ -29,9 +31,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.SourceDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

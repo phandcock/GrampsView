@@ -17,6 +17,8 @@ namespace GrampsView.Data.Model
     {
         private MediaModel _Deref = new MediaModel();
 
+        private bool DeRefCached = false;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkMediaModel"/> class.
         /// </summary>
@@ -37,9 +39,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid && (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.MediaDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

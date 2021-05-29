@@ -31,7 +31,7 @@
                         // Loop through results to get the Place data;
                         foreach (XElement pPlaceElement in de)
                         {
-                            PlaceModel loadPlace = DV.PlaceDV.NewModel();
+                            PlaceModel loadPlace = new PlaceModel();
 
                             // Place attributes
                             loadPlace.LoadBasics(GetBasics(pPlaceElement));

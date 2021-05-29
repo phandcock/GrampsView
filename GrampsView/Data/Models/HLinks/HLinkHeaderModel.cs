@@ -16,6 +16,10 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {
+        private HeaderModel _Deref = new HeaderModel();
+
+        private bool DeRefCached = false;
+
         public HLinkHeaderModel()
         {
             HLinkGlyphItem.Symbol = Common.CommonConstants.IconHeader;
@@ -31,14 +35,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!DeRefCached))
                 {
-                    return new HeaderDataView().GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DV.HeaderDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
     }

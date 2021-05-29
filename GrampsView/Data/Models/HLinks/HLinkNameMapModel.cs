@@ -14,6 +14,10 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkNameMapModel : HLinkBase, IHLinkNameMapModel
     {
+        private NameMapModel _Deref = new NameMapModel();
+
+        private bool DeRefCached = false;
+
         public HLinkNameMapModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconNameMaps;
@@ -30,14 +34,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!DeRefCached))
                 {
-                    return new NameMapDataView().GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DV.NameMapDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 

@@ -1,7 +1,5 @@
 ﻿// XML 171 - Not in definition so created this for use with BackLink functionality
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
@@ -16,6 +14,8 @@ namespace GrampsView.Data.Model
     {
         private PersonNameModel _Deref = new PersonNameModel();
 
+        private bool DeRefCached = false;
+
         public HLinkPersonNameModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconPersonName;
@@ -26,9 +26,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.PersonNameDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

@@ -101,7 +101,8 @@
                         }
                 }
 
-                if (!(newItemGlyph.Valid))
+                // Don't display anything if the glyph is invalid
+                if (!newItemGlyph.Valid)
                 {
                     return;
                 }

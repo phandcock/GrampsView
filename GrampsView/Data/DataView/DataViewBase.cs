@@ -182,18 +182,18 @@
             return collectionArg;
         }
 
-        /// <summary>
-        /// New instance of ViewModel.
-        /// </summary>
-        /// <returns>
-        /// New model instance.
-        /// </returns>
-        public virtual TB NewModel()
-        {
-            TB t = new TB();
+        ///// <summary>
+        ///// New instance of ViewModel.
+        ///// </summary>
+        ///// <returns>
+        ///// New model instance.
+        ///// </returns>
+        //public virtual TB NewModel()
+        //{
+        //    TB t = new TB();
 
-            return t;
-        }
+        //    return t;
+        //}
 
         /// <summary>
         /// Searches the items.

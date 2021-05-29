@@ -1,7 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-// TODO fix Deref caching
-
 ////<define name = "personref-content" >
 ////  < attribute name="hlink">
 ////    <data type = "IDREF" />

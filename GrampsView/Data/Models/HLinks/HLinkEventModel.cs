@@ -20,6 +20,8 @@ namespace GrampsView.Data.Model
         [DataMember]
         private string _GRole;
 
+        private bool DeRefCached = false;
+
         public HLinkEventModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconEvents;
@@ -36,9 +38,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.EventDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

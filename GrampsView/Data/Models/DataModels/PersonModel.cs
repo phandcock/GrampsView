@@ -36,66 +36,6 @@ namespace GrampsView.Data.Model
     public sealed class PersonModel : ModelBase, IPersonModel, IComparable, IComparer
     {
         /// <summary>
-        /// The local attribute reference.
-        /// </summary>
-        private OCAttributeModelCollection _AttributeReference = new OCAttributeModelCollection();
-
-        /// <summary>
-        /// Reference to the parent family object.
-        /// </summary>
-        private HLinkFamilyModel _ChildOf = new HLinkFamilyModel();
-
-        /// <summary>
-        /// The local citation reference.
-        /// </summary>
-        private HLinkCitationModelCollection _CitationReference = new HLinkCitationModelCollection();
-
-        /// <summary>
-        /// Person Element - Event References.
-        /// </summary>
-        private HLinkEventModelCollection _EventReference = new HLinkEventModelCollection();
-
-        /// <summary>
-        /// Person Element - Gender.
-        /// </summary>
-        private Gender _Gender = Gender.Unknown;
-
-        /// <summary>
-        /// The local LDS collection.
-        /// </summary>
-        private OCLdsOrdModelCollection _GLDSCollection = new OCLdsOrdModelCollection();
-
-        /// <summary>
-        /// Person Element - Name.
-        /// </summary>
-        private HLinkPersonNameModelCollection _GPersonNamesCollection = new HLinkPersonNameModelCollection();
-
-        /// <summary>
-        /// The local is living.
-        /// </summary>
-        private bool _IsLiving;
-
-        /// <summary>
-        /// Collection of Media References $$(mediaRef)$$.
-        /// </summary>
-        private HLinkMediaModelCollection _MediaCollection = new HLinkMediaModelCollection();
-
-        /// <summary>
-        /// Person Element - Note References.
-        /// </summary>
-        private HLinkNoteModelCollection _NoteReference = new HLinkNoteModelCollection();
-
-        /// <summary>
-        /// Collection of Family References $$(parentin)$$.
-        /// </summary>
-        private HLinkFamilyModelCollection _ParentInCollection = new HLinkFamilyModelCollection();
-
-        /// <summary>
-        /// The local sibling reference collection.
-        /// </summary>
-        private HLinkPersonModelCollection _SiblingRefCollection = new HLinkPersonModelCollection();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="PersonModel"/> class.
         /// </summary>
         public PersonModel()
@@ -138,16 +78,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public OCAttributeModelCollection GAttributeCollection
         {
-            get
-            {
-                return _AttributeReference;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _AttributeReference, value);
-            }
-        }
+            set;
+        } = new OCAttributeModelCollection();
 
         /// <summary>
         /// Gets or sets the child of.
@@ -158,16 +92,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkFamilyModel GChildOf
         {
-            get
-            {
-                return _ChildOf;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _ChildOf, value);
-            }
-        }
+            set;
+        } = new HLinkFamilyModel();
 
         /// <summary>
         /// Gets or sets the citation reference collection.
@@ -178,16 +106,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkCitationModelCollection GCitationRefCollection
         {
-            get
-            {
-                return _CitationReference;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _CitationReference, value);
-            }
-        }
+            set;
+        } = new HLinkCitationModelCollection();
 
         /// <summary>
         /// Gets the get default text for this ViewModel.
@@ -208,16 +130,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkEventModelCollection GEventRefCollection
         {
-            get
-            {
-                return _EventReference;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _EventReference, value);
-            }
-        }
+            set;
+        } = new HLinkEventModelCollection();
 
         /// <summary>
         /// Gets or sets the gender.
@@ -228,16 +144,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public Gender GGender
         {
-            get
-            {
-                return _Gender;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _Gender, value);
-            }
-        }
+            set;
+        } = Gender.Unknown;
 
         /// <summary>
         /// Gets the gender decode.
@@ -262,32 +172,20 @@ namespace GrampsView.Data.Model
         [DataMember]
         public OCLdsOrdModelCollection GLDSCollection
         {
-            get
-            {
-                return _GLDSCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GLDSCollection, value);
-            }
-        }
+            set;
+        } = new OCLdsOrdModelCollection();
 
         /// <summary> Gets or sets Media In $$(hLink)$$.
         // </summary>
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get
-            {
-                return _MediaCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _MediaCollection, value);
-            }
-        }
+            set;
+        } = new HLinkMediaModelCollection();
 
         /// <summary>
         /// Gets or sets the Note reference collection.
@@ -298,16 +196,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get
-            {
-                return _NoteReference;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _NoteReference, value);
-            }
-        }
+            set;
+        } = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Gets or sets the parent relationship collection.
@@ -315,16 +207,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkFamilyModelCollection GParentInRefCollection
         {
-            get
-            {
-                return _ParentInCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _ParentInCollection, value);
-            }
-        }
+            set;
+        } = new HLinkFamilyModelCollection();
 
         /// <summary>
         /// Gets or sets the Persons Birthname.
@@ -332,16 +218,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPersonNameModelCollection GPersonNamesCollection
         {
-            get
-            {
-                return _GPersonNamesCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GPersonNamesCollection, value);
-            }
-        }
+            set;
+        } = new HLinkPersonNameModelCollection();
 
         /// <summary>
         /// Gets or sets the g person reference collection.
@@ -399,16 +279,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public bool IsLiving
         {
-            get
-            {
-                return _IsLiving;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _IsLiving, value);
-            }
-        }
+            set;
+        } = false;
 
         /// <summary>
         /// Gets the is living as string.
@@ -420,7 +294,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return _IsLiving.ToString(System.Globalization.CultureInfo.CurrentCulture);
+                return IsLiving.ToString(System.Globalization.CultureInfo.CurrentCulture);
             }
         }
 
@@ -432,16 +306,8 @@ namespace GrampsView.Data.Model
         /// </value>
         public HLinkPersonModelCollection SiblingRefCollection
         {
-            get
-            {
-                return _SiblingRefCollection;
-            }
-
-            //set
-            //{
-            //    SetProperty(ref _SiblingRefCollection, value);
-            //}
-        }
+            get;
+        } = new HLinkPersonModelCollection();
 
         /// <summary>
         /// Compare two PersonModels.

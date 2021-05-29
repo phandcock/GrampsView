@@ -38,7 +38,7 @@
                 {
                     foreach (XElement pname in de)
                     {
-                        PersonModel loadPerson = DV.PersonDV.NewModel();
+                        PersonModel loadPerson = new PersonModel();
 
                         // Person attributes
                         loadPerson.LoadBasics(GetBasics(pname));

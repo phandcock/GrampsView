@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -25,7 +24,7 @@
                     // Loop through results to get the Citation
                     foreach (XElement pcitation in de)
                     {
-                        CitationModel loadCitation = DV.CitationDV.NewModel();
+                        CitationModel loadCitation = new CitationModel();
 
                         // Citation attributes
                         loadCitation.LoadBasics(GetBasics(pcitation));

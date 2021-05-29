@@ -23,22 +23,6 @@ namespace GrampsView.Data.Model
             get;
         }
 
-        FormattedString GFormattedTextMedium
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets or sets the text.
-        /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
-        FormattedString GFormattedTextSmall
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="NoteModel"/> is format (0|1) #IMPLIED.
         /// </summary>
@@ -88,6 +72,11 @@ namespace GrampsView.Data.Model
         /// The get h link.
         /// </value>
         HLinkNoteModel HLink
+        {
+            get;
+        }
+
+        FormattedString TextFormatted
         {
             get;
         }

@@ -16,6 +16,8 @@
     {
         private PersonModel _Deref = new PersonModel();
 
+        private bool DeRefCached = false;
+
         public HLinkChildRefModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconPeople;
@@ -26,9 +28,10 @@
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.PersonDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;

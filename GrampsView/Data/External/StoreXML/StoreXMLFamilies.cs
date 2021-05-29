@@ -39,7 +39,7 @@
                     // Loop through results to get the Families
                     foreach (XElement familyElement in de)
                     {
-                        FamilyModel loadFamily = DV.FamilyDV.NewModel();
+                        FamilyModel loadFamily = new FamilyModel();
 
                         // Family attributes
                         loadFamily.LoadBasics(GetBasics(familyElement));

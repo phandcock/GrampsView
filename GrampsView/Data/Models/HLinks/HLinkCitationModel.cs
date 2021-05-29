@@ -16,6 +16,8 @@ namespace GrampsView.Data.Model
     {
         private CitationModel _Deref = new CitationModel();
 
+        private bool DeRefCached = false;
+
         public HLinkCitationModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconCitation;
@@ -32,9 +34,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.CitationDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;
@@ -42,7 +45,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Compares to. Bases it on the HLInkKey for want of anything else that makes sense.
+        /// CompareTo. Bases it on the HLinkKey for want of anything else that makes sense.
         /// </summary>
         /// <param name="obj">
         /// The object.

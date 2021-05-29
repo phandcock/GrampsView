@@ -13,7 +13,10 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
     {
-        private PersonModel _Deref = new PersonModel();
+        // NOTE: This cannot default to a PersonModel as there is a recursive relationship with FamilyModel
+        private PersonModel _Deref = null;
+
+        private bool DeRefCached = false;
 
         public HLinkPersonModel()
         {
@@ -31,9 +34,15 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.PersonDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
+                }
+
+                if (_Deref is null)
+                {
+                    _Deref = new PersonModel();
                 }
 
                 return _Deref;

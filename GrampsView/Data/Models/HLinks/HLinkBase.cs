@@ -14,16 +14,10 @@
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
-    /// <summary>
-    /// GRAMPS $$(Hlink)$$ element class.
-    /// </summary>
-
     /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkBase : CommonBindableBase, IHLinkBase
     {
-        private ItemGlyph _HLinkGlyphItem = new ItemGlyph();
-
         public HLinkBase()
         {
             UCNavigateCommand = new AsyncCommand(UCNavigate);
@@ -31,28 +25,16 @@
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [home use image].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [home use image]; otherwise, <c>false</c>.
-        /// </value>
         [DataMember]
         public ItemGlyph HLinkGlyphItem
         {
-            get
-            {
-                return _HLinkGlyphItem;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _HLinkGlyphItem, value);
-            }
-        }
+            set;
+        } = new ItemGlyph();
 
         /// <summary>
-        /// Gets or sets the h link key.
+        /// Gets or sets the hlink key.
         /// </summary>
         /// <value>
         /// The h link key.
@@ -88,6 +70,10 @@
         {
             get
             {
+                if (!(HLinkKey.Valid && HLinkGlyphItem.Valid))
+                {
+                }
+
                 return HLinkKey.Valid && HLinkGlyphItem.Valid;
             }
         }

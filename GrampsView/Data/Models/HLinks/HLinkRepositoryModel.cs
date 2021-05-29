@@ -1,7 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-// TODO fix Deref caching
-
 /// <summary>
 /// </summary>
 /// "hlink" Done "priv" Done "callno" Done "medium" Done; "noteref" Done
@@ -14,19 +12,12 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkRepositoryModel : HLinkBase, IHLinkRepositoryModel
     {
-        /// <summary>
-        /// The local call no.
-        /// </summary>
-        private string _CallNo;
+        private RepositoryModel _Deref = new RepositoryModel();
 
-        /// <summary>
-        /// The local medium.
-        /// </summary>
-        private string _Medium;
+        private bool DeRefCached = false;
 
         public HLinkRepositoryModel()
         {
@@ -48,14 +39,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!DeRefCached))
                 {
-                    return DV.RepositoryDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DV.RepositoryDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 
@@ -68,15 +58,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GCallNo
         {
-            get
-            {
-                return _CallNo;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _CallNo, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -88,22 +72,16 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GMedium
         {
-            get
-            {
-                return _Medium;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _Medium, value);
-            }
+            set;
         }
 
         /// <summary>
-        /// Gets or sets the g note reference.
+        /// Gets or sets the note reference.
         /// </summary>
         /// <value>
-        /// The g note reference.
+        /// The note reference.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRef

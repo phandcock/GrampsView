@@ -43,7 +43,7 @@
                     // Loop through results to get the Notes Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pname in de)
                     {
-                        INoteModel loadNote = DV.NoteDV.NewModel();
+                        INoteModel loadNote = new NoteModel();
 
                         // Note attributes
                         loadNote.LoadBasics(GetBasics(pname));

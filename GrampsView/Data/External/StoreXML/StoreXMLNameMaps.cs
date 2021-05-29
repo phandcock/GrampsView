@@ -29,7 +29,7 @@
                     // Loop through results to get the Citation Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pcitation in de)
                     {
-                        NameMapModel loadNameMap = DV.NameMapDV.NewModel();
+                        NameMapModel loadNameMap = new NameMapModel();
 
                         // Citation attributes
                         loadNameMap.LoadBasics(GetBasics(pcitation));

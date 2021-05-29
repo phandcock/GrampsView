@@ -26,17 +26,7 @@ namespace GrampsView.Data.Model
         public const string GTypeLink = "Link";
         public const string GTypeToDo = "To Do";
 
-        private readonly FormattedString _FormattedText = new FormattedString();
-
-        /// <summary>
-        /// The local IsFormated.
-        /// </summary>
-        private bool _IsFormated;
-
-        /// <summary>
-        /// The local type.
-        /// </summary>
-        private string _Type = string.Empty;
+        private FormattedString _TextFormatted = new FormattedString();
 
         public NoteModel()
         {
@@ -59,36 +49,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the formatted text in a medium size.
-        /// </summary>
-        /// <value>
-        /// The formatted text in a medium sizemedium.
-        /// </value>
-        /// TODO Add styled text
-        public FormattedString GFormattedTextMedium
-        {
-            get
-            {
-                return GetFormatted(CommonFontSize.FontMedium);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the text.
-        /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
-        /// TODO Add styled text
-        public FormattedString GFormattedTextSmall
-        {
-            get
-            {
-                return GetFormatted(CommonFontSize.FontSmall);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="NoteModel"/> is format (0|1) #IMPLIED.
         /// </summary>
         /// <value>
@@ -97,15 +57,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public bool GIsFormated
         {
-            get
-            {
-                return _IsFormated;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _IsFormated, value);
-            }
+            set;
         }
 
         [DataMember]
@@ -135,15 +89,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GType
         {
-            get
-            {
-                return _Type;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _Type, value);
-            }
+            set;
         }
 
         /// <summary>
@@ -162,6 +110,19 @@ namespace GrampsView.Data.Model
                     HLinkGlyphItem = ModelItemGlyph,
                 };
                 return t;
+            }
+        }
+
+        public FormattedString TextFormatted
+        {
+            get
+            {
+                if (_TextFormatted.Spans.Count == 0)
+                {
+                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, CommonFontSize.FontSmall);
+                }
+
+                return _TextFormatted;
             }
         }
 
@@ -250,23 +211,6 @@ namespace GrampsView.Data.Model
             int testFlag = string.Compare(GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.CurrentCulture);
 
             return testFlag;
-        }
-
-        // TODO Handle Styled Text
-        private FormattedString GetFormatted(double argFontSize)
-        {
-            // Cache the formatted string. Xamarin/NewtonSoft has problems serialising the string on
-            // the UI thread
-            if (_FormattedText.Spans.Count == 0)
-            {
-                FormattedString loadString = new FormattedString();
-
-                loadString.Spans.Add(new Span { Text = GStyledText.GText, FontSize = argFontSize });
-
-                return loadString;
-            }
-
-            return _FormattedText;
         }
     }
 }

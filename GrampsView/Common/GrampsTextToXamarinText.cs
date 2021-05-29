@@ -2,24 +2,29 @@
 {
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
-
     using Xamarin.Forms;
 
     public static class GrampsTextToXamarinText
     {
-        public static List<Span> GetFormattedString(StyledTextModel argTextModel, double argFontSize)
+        public static FormattedString GetFormattedString(StyledTextModel argTextModel, double argFontSize)
         {
-            List<Span> returnString = new List<Span>
+            FormattedString returnString = new FormattedString();
+
+            // Add default font
+            returnString.Spans.Add(new Span { FontSize = argFontSize });
+
+            // Handle the normal case with no formatting
+            if (argTextModel.Styles.Count == 0)
             {
-                // Add default font
-                new Span { FontSize = argFontSize }
-            };
+                returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = Common.CommonFontSize.FontSmall });
+
+                return returnString;
+            }
 
             //Setup spans
             for (int i = 0; i < argTextModel.GText.Length; i++)
             {
-                returnString.Add(new Span { Text = argTextModel.GText.Substring(i, 1) });
+                returnString.Spans.Add(new Span { Text = argTextModel.GText.Substring(i, 1) });
             }
 
             // Setup Styles
@@ -34,7 +39,7 @@
                             // TODO Handle multiple styles
 
                             case CommonEnums.TextStyle.bold:
-                                returnString[i].FontAttributes = FontAttributes.Bold;
+                                returnString.Spans[i].FontAttributes = FontAttributes.Bold;
                                 break;
 
                             case CommonEnums.TextStyle.fontcolor:
@@ -50,7 +55,7 @@
                                 break;
 
                             case CommonEnums.TextStyle.italic:
-                                returnString[i].FontAttributes = FontAttributes.Italic;
+                                returnString.Spans[i].FontAttributes = FontAttributes.Italic;
                                 break;
 
                             case CommonEnums.TextStyle.link:

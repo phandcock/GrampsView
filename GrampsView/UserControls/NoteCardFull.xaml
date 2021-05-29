@@ -12,7 +12,7 @@
         <Frame.Content>
 
             <Label
-                FormattedText="{Binding DeRef.GFormattedTextSmall}"
+                FormattedText="{Binding DeRef.TextFormatted}"
                 Style="{DynamicResource GVLabelStyleNoteFull}"
                 Text="{Binding DeRef}" />
         </Frame.Content>

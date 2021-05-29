@@ -364,20 +364,20 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                thePersonModel.SiblingRefCollection.SetGlyph();
+                if (thePersonModel.Id == "I0693")
+                {
+                }
 
                 // Sibling Collection
+                thePersonModel.SiblingRefCollection.SetGlyph();
+
                 foreach (HLinkPersonModel personRef in thePersonModel.SiblingRefCollection)
                 {
                     DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
-            }
 
-            foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
-            {
-                if (thePersonModel.Id == "I0693")
-                {
-                }
+                // Parent In Collection
+                thePersonModel.GParentInRefCollection.SetGlyph();
 
                 // -- Setup some extra values ------------------------------
 

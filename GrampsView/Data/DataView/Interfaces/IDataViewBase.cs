@@ -114,12 +114,12 @@ namespace GrampsView.Data.DataView
         /// </returns>
         TH HLinkCollectionSort(TH collectionArg);
 
-        /// <summary>
-        /// News this instance.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        T NewModel();
+        ///// <summary>
+        ///// News this instance.
+        ///// </summary>
+        ///// <returns>
+        ///// </returns>
+        //T NewModel();
 
         /// <summary>
         /// Searches the specified query string.

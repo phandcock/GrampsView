@@ -1,8 +1,4 @@
-﻿// XML 1.71 All done
-
-// TODO fix Deref caching
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -12,16 +8,16 @@ namespace GrampsView.Data.Model
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
+    ///
+    /// XML 1.71 All done
     /// </summary>
 
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkTagModel : HLinkBase, IHLinkTagModel
     {
-        ///// <summary>
-        ///// The local image h link.
-        ///// </summary>
-        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
+        private TagModel _Deref = new TagModel();
+
+        private bool DeRefCached = false;
 
         public HLinkTagModel()
         {
@@ -39,14 +35,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!DeRefCached))
                 {
-                    return DV.TagDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DV.TagDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 

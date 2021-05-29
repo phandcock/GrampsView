@@ -1,7 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
@@ -10,10 +8,13 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkPlaceModel : HLinkBase, IHLinkPlaceModel
     {
+        private PlaceModel _Deref = new PlaceModel();
+
+        private bool DeRefCached = false;
+
         public HLinkPlaceModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconPlace;
@@ -24,14 +25,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid)
+                if (Valid && (!DeRefCached))
                 {
-                    return DV.PlaceDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DV.PlaceDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return _Deref;
             }
         }
 

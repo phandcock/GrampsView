@@ -18,6 +18,8 @@ namespace GrampsView.Data.Model
     {
         private AddressModel _Deref = new AddressModel();
 
+        private bool DeRefCached = false;
+
         public HLinkAdressModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconAddress;
@@ -34,9 +36,10 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                if (Valid & (!_Deref.Valid))
+                if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.AddressDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
                 }
 
                 return _Deref;
