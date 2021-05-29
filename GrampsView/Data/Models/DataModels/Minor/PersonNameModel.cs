@@ -308,6 +308,7 @@ namespace GrampsView.Data.Model
                 HLinkPersonNameModel t = new HLinkPersonNameModel
                 {
                     HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
                 };
 
                 return t;
