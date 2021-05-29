@@ -164,6 +164,9 @@
                         GNoteCollectionReference = GetNoteCollection(theLoadORElement),
                     };
 
+                    // Force glyph valid while loading
+                    newChildRefModel.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.TempLoading;
+
                     t.Add(newChildRefModel);
                 }
             }

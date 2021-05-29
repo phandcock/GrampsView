@@ -57,6 +57,8 @@
                         XElement tempChildOf = pname.Element(ns + "childof");
                         if (tempChildOf != null)
                         {
+                            // Force glyph valid while loading
+                            loadPerson.GChildOf.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.TempLoading;
                             loadPerson.GChildOf.HLinkKey = GetHLinkKey(tempChildOf.Attribute("hlink"));
                         }
 

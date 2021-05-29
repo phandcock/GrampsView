@@ -249,10 +249,6 @@
         {
             get
             {
-                if (!(HLinkKey.Valid && ModelItemGlyph.Valid))
-                {
-                }
-
                 return HLinkKey.Valid && ModelItemGlyph.Valid;
             }
         }

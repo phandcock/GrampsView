@@ -4,10 +4,7 @@ namespace GrampsView.Data.Model
 {
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// GRAMPS Alt element class.
-    /// </summary>
-    /// TODO Update fields as per Schema
+    /// TODO Update fields as per Schema XML 1.71
     [DataContract]
     public class ParentLinkModel : ModelBase, IParentLinkModel
     {
@@ -28,8 +25,9 @@ namespace GrampsView.Data.Model
             {
                 SetProperty(ref _Parents, value);
 
-                // Set HlinkKey to the family model so Valid is true;
+                // Set HLinkKey to the family model so Valid is true. TODO Why?
                 this.HLinkKey = Parents.HLinkKey;
+                this.ModelItemGlyph = Parents.ModelItemGlyph;
             }
         }
     }

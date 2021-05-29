@@ -175,7 +175,18 @@
 
             SetFamilyImages();
 
-            // Person models already contain a link to the family model (if they are in one)
+            foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
+            {
+                // Refresh the glyphs
+                if (theFamilyModel.GFather.Valid)
+                {
+                    theFamilyModel.GFather = DataStore.Instance.DS.PersonData[theFamilyModel.GFather.HLinkKey.Value].HLink;
+                }
+                if (theFamilyModel.GMother.Valid)
+                {
+                    theFamilyModel.GMother = DataStore.Instance.DS.PersonData[theFamilyModel.GMother.HLinkKey.Value].HLink;
+                }
+            }
 
             // The family model already contains a reference to the person
 

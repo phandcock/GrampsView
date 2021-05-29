@@ -188,16 +188,9 @@ namespace GrampsView.Common
             Image,
             Media,
             Symbol,
+            TempLoading,
             Unknown,
         }
-
-        //public enum ModelDisplayType
-        //{
-        //    Image,
-        //    Media,
-        //    Symbol,
-        //    Unknown,
-        //}
 
         public enum PlaceLocation
         {

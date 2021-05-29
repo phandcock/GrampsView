@@ -125,6 +125,14 @@
             {
                 switch (ImageType)
                 {
+                    case CommonEnums.HLinkGlyphType.Image:
+                        {
+                            return ImageHLinkMediaModel.Valid;
+                        }
+                    case CommonEnums.HLinkGlyphType.Media:
+                        {
+                            return MediaHLinkMediaModel.Valid;
+                        }
                     case CommonEnums.HLinkGlyphType.Symbol:
                         {
                             if ((SymbolColour != Color.White) && (Symbol != CommonConstants.IconDDefault))
@@ -134,13 +142,11 @@
 
                             break;
                         }
-                    case CommonEnums.HLinkGlyphType.Image:
+                    case CommonEnums.HLinkGlyphType.TempLoading:
                         {
-                            return ImageHLinkMediaModel.Valid;
-                        }
-                    case CommonEnums.HLinkGlyphType.Media:
-                        {
-                            return MediaHLinkMediaModel.Valid;
+                            // Used to force valid while data is loading. Only used for odd models
+                            // and hlinks
+                            return true;
                         }
                     default:
                         {

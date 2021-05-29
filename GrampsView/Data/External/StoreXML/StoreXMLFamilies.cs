@@ -61,6 +61,7 @@
                         XElement tempFather = familyElement.Element(ns + "father");
                         if (tempFather != null)
                         {
+                            loadFamily.GFather.HLinkGlyphItem.ImageType = Common.CommonEnums.HLinkGlyphType.TempLoading;
                             loadFamily.GFather.HLinkKey = new HLinkKey((string)tempFather.Attribute("hlink"));
                         }
 
@@ -68,6 +69,7 @@
                         XElement tempMother = familyElement.Element(ns + "mother");
                         if (tempMother != null)
                         {
+                            loadFamily.GMother.HLinkGlyphItem.ImageType = Common.CommonEnums.HLinkGlyphType.TempLoading;
                             loadFamily.GMother.HLinkKey = new HLinkKey((string)tempMother.Attribute("hlink"));
                         }
 
