@@ -52,19 +52,6 @@
 
         = new HLinkCitationModelCollection();
 
-        public HLinkPersonModel GetHLinkPerson
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return DV.PersonDV.GetModelFromHLinkKey(HLinkKey).HLink;
-                }
-
-                return new HLinkPersonModel();
-            }
-        }
-
         [DataMember]
         public string GFatherRel
         {

@@ -189,7 +189,7 @@ namespace GrampsView.Data.DataView
             // TODO fix this
             if (FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection.Count > 0)
             {
-                t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0].GetHLinkPerson);
+                t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0].DeRef.HLink);
                 return t;
             }
             else

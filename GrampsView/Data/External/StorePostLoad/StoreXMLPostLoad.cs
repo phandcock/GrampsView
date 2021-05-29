@@ -349,6 +349,10 @@
 
             foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
             {
+                if (theFamilyModel.Id == "F0151")
+                {
+                }
+
                 theFamilyModel.GChildRefCollection.SetGlyph();
 
                 // Child Collection
@@ -411,7 +415,7 @@
 
                     foreach (HLinkChildRefModel item in DV.FamilyDV.FamilyData[thePersonModel.GChildOf.HLinkKey.Value].GChildRefCollection)
                     {
-                        thePersonModel.SiblingRefCollection.Add(item.GetHLinkPerson);
+                        thePersonModel.SiblingRefCollection.Add(item.DeRef.HLink);
                     }
                 }
 

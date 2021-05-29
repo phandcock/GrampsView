@@ -24,12 +24,17 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkChildRefModel argHLink in this)
             {
-                HLinkPersonModel t = argHLink.GetHLinkPerson;
+                // This is required ot get Glyph valid so we can load the Person HLink
+                argHLink.HLinkGlyphItem.ImageType = Common.CommonEnums.HLinkGlyphType.Symbol;
 
-                if (t.Valid)
-                {
-                    argHLink.HLinkGlyphItem = t.HLinkGlyphItem;
-                }
+                HLinkPersonModel t = argHLink.DeRef.HLink;
+
+                argHLink.HLinkGlyphItem.ImageType = t.DeRef.ModelItemGlyph.ImageType;
+                argHLink.HLinkGlyphItem.ImageHLink = t.DeRef.ModelItemGlyph.ImageHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = t.DeRef.ModelItemGlyph.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = t.DeRef.ModelItemGlyph.ImageSymbolColour;
+
+                argHLink.HLinkGlyphItem.MediaHLink = t.DeRef.ModelItemGlyph.MediaHLink;
             }
         }
     }

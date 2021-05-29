@@ -477,7 +477,7 @@ namespace GrampsView.ViewModels
                         // Add children at next level
                         foreach (HLinkChildRefModel item in (t.HLink as HLinkFamilyModel).DeRef.GChildRefCollection)
                         {
-                            AddHLink(t.HLink, item.GetHLinkPerson, t.JumpsFromStartNode, t.Level + 1);
+                            AddHLink(t.HLink, item.DeRef.HLink, t.JumpsFromStartNode, t.Level + 1);
                         }
                     }
                 }
