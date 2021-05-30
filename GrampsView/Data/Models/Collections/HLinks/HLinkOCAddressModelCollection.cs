@@ -10,7 +10,9 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -38,7 +40,7 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkAdressModel argHLink in this)
             {
-                ItemGlyph t = DV.PlaceDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DV.AddressDV.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
@@ -49,6 +51,27 @@ namespace GrampsView.Data.Collections
             //// Set the first image link. Assumes main image is manually set to the first image in
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
+
+            if (Common.CommonLocalSettings.SortHLinkCollections)
+            {
+                Sort();
+            }
+        }
+
+        /// <summary>
+        /// Helper method to sort
+        /// </summary>
+        public void Sort()
+        {
+            // Sort the collection
+            List<HLinkAdressModel> t = this.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GetDefaultText).ToList();
+
+            Items.Clear();
+
+            foreach (HLinkAdressModel item in t)
+            {
+                Items.Add(item);
+            }
         }
     }
 }

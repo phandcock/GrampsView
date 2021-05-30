@@ -320,9 +320,9 @@
                 }
 
                 // Address Collection
-                argModel.GAddress.SetGlyph();
+                argModel.GAddressCollection.SetGlyph();
 
-                foreach (HLinkAdressModel addressRef in argModel.GAddress)
+                foreach (HLinkAdressModel addressRef in argModel.GAddressCollection)
                 {
                     DataStore.Instance.DS.AddressData[addressRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }

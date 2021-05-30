@@ -59,10 +59,10 @@ namespace GrampsView.Data.Model
             = new DateObjectModelVal();
 
         /// <summary>
-        /// Gets or sets address collection.
+        /// Gets or sets gaddress collection.
         /// </summary>
         [DataMember]
-        public HLinkOCAddressModelCollection GAddress
+        public HLinkOCAddressModelCollection GAddressCollection
         {
             get; set;
         }
@@ -70,10 +70,10 @@ namespace GrampsView.Data.Model
         = new HLinkOCAddressModelCollection();
 
         /// <summary>
-        /// Gets or sets the g attribute collection.
+        /// Gets or sets the gattribute collection.
         /// </summary>
         /// <value>
-        /// The g attribute collection.
+        /// The gattribute collection.
         /// </value>
         [DataMember]
         public OCAttributeModelCollection GAttributeCollection

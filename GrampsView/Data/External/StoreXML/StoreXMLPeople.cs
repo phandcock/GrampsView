@@ -48,7 +48,7 @@
                         }
 
                         // Address
-                        loadPerson.GAddress = GetAddressCollection(pname);
+                        loadPerson.GAddressCollection = GetAddressCollection(pname);
 
                         // Get attribute collection
                         loadPerson.GAttributeCollection = GetAttributeCollection(pname);

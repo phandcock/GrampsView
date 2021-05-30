@@ -80,7 +80,7 @@ namespace GrampsView.Data.Collections
         }
 
         /// <summary>
-        /// Helper method to sort and set the firt image link.
+        /// Helper method to sort
         /// </summary>
         public void Sort()
         {
