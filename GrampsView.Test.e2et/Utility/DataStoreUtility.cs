@@ -135,7 +135,6 @@
             DataRepositoryManager.ClearRepositories();
 
             // 1) UnTar *.GPKG
-
             iocStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
 
             newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
@@ -154,6 +153,10 @@
 
             // Load the new data
             newManager.TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
+
+            // Fixup the models and hlinks
+            StorePostLoad myStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            // myStorePostLoad.LoadXMLUIItems(null);
 
             DataStore.Instance.CN.DataLogHide();
 

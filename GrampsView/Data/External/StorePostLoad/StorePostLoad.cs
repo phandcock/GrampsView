@@ -49,7 +49,7 @@
         /// <param name="notUsed">
         /// The not used.
         /// </param>
-        private async void LoadXMLUIItems(object notUsed)
+        public async void LoadXMLUIItems(object notUsed)
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 

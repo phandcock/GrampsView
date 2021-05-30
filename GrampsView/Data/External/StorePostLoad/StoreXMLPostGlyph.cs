@@ -18,6 +18,40 @@
 
         public static void SetAddressImages()
         {
+            foreach (AddressModel argModel in DataStore.Instance.DS.AddressData.Values)
+            {
+                if (argModel is null)
+                {
+                    throw new ArgumentNullException(nameof(argModel));
+                }
+
+                ItemGlyph hlink = argModel.ModelItemGlyph;
+
+                // Try citation reference collection first
+                ItemGlyph t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+                if ((!hlink.ValidImage) && (t.ValidImage))
+                {
+                    hlink = t;
+                }
+
+                // Handle the link if we can
+                if (hlink.Valid)
+                {
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.ImageHLink = hlink.ImageHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
+                }
+                else
+                {
+                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    {
+                        { "Address Model Image", argModel.Id }
+                    };
+
+                    DataStore.Instance.CN.NotifyError(NotifyError);
+                }
+            }
         }
 
         public static void SetCitationImages()

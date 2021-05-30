@@ -22,6 +22,17 @@
 
             SetAddressImages();
 
+            foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
+            {
+                thePersonModel.GAddress.SetGlyph();
+
+                // Address Collection
+                foreach (HLinkAdressModel addressRef in thePersonModel.GAddress)
+                {
+                    DataStore.Instance.DS.AddressData[addressRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
+                }
+            }
+
             return true;
         }
 
@@ -337,8 +348,6 @@
 
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
-                thePersonModel.GPersonNamesCollection.SetGlyph();
-
                 // PersonName Collection
                 foreach (HLinkPersonNameModel personNameRef in thePersonModel.GPersonNamesCollection)
                 {
@@ -356,32 +365,38 @@
         {
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
-            SetPersonImages();
-
-            foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
-            {
-                if (theFamilyModel.Id == "F0151")
-                {
-                }
-
-                theFamilyModel.GChildRefCollection.SetGlyph();
-
-                // Child Collection
-                foreach (HLinkChildRefModel childRef in theFamilyModel.GChildRefCollection)
-                {
-                    DataStore.Instance.DS.PersonData[childRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
-                }
-
-                // Parents
-                theFamilyModel.GFather.HLinkGlyphItem = theFamilyModel.GFather.DeRef.ModelItemGlyph;
-                theFamilyModel.GMother.HLinkGlyphItem = theFamilyModel.GMother.DeRef.ModelItemGlyph;
-            }
-
             foreach (PersonModel thePersonModel in DV.PersonDV.DataViewData)
             {
                 if (thePersonModel.Id == "I0693")
                 {
                 }
+
+                SetPersonImages();
+
+                // Set addresses
+                thePersonModel.GAddress.SetGlyph();
+
+                foreach (FamilyModel theFamilyModel in DV.FamilyDV.DataViewData)
+                {
+                    if (theFamilyModel.Id == "F0151")
+                    {
+                    }
+
+                    theFamilyModel.GChildRefCollection.SetGlyph();
+
+                    // Child Collection
+                    foreach (HLinkChildRefModel childRef in theFamilyModel.GChildRefCollection)
+                    {
+                        DataStore.Instance.DS.PersonData[childRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(theFamilyModel.HLink));
+                    }
+
+                    // Parents
+                    theFamilyModel.GFather.HLinkGlyphItem = theFamilyModel.GFather.DeRef.ModelItemGlyph;
+                    theFamilyModel.GMother.HLinkGlyphItem = theFamilyModel.GMother.DeRef.ModelItemGlyph;
+                }
+
+                // Parent In Collection
+                thePersonModel.GParentInRefCollection.SetGlyph();
 
                 // Sibling Collection
                 thePersonModel.SiblingRefCollection.SetGlyph();
@@ -390,11 +405,6 @@
                 {
                     DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(thePersonModel.HLink));
                 }
-
-                // Parent In Collection
-                thePersonModel.GParentInRefCollection.SetGlyph();
-
-                // -- Setup some extra values ------------------------------
 
                 // --
                 if (thePersonModel.GChildOf.Valid)
@@ -432,7 +442,6 @@
 
                 DataStore.Instance.DS.PersonData[thePersonModel.HLinkKey.Value] = thePersonModel;
             }
-
             return true;
         }
 
