@@ -1,3 +1,17 @@
+## [16.17.50](https://github.com/phandcock/GrampsView/compare/v16.17.49...v16.17.50) (2021-05-30)
+
+
+### Bug Fixes
+
+* cleanup glyphs ([3536841](https://github.com/phandcock/GrampsView/commit/35368419dbf4da7045130e685ee842dc7991b00d))
+* familymodel mother/father glyphs ([426fa8f](https://github.com/phandcock/GrampsView/commit/426fa8f7cc1ce88c5f78e75b7ffeadf089e7b7da))
+* fix bookmark glyphs ([821fa2b](https://github.com/phandcock/GrampsView/commit/821fa2b108caaa790ab183a260aa6d36b9dd751b))
+* fix familymodel childrenref glyphs ([a62a377](https://github.com/phandcock/GrampsView/commit/a62a3778fc838bd40a6d9ab28f6a26f8526a6df7))
+* fix shell search ([da115a6](https://github.com/phandcock/GrampsView/commit/da115a68a76086288922dd1c07f4d97c4498d7f4))
+* validate HLink and Glyphs better.  Cache HLink Models. ([ab6f51d](https://github.com/phandcock/GrampsView/commit/ab6f51d8eb96c13b91e566009bd74ddfa22bc6ef))
+
+
+
 ## [16.17.49](https://github.com/phandcock/GrampsView/compare/v16.17.48...v16.17.49) (2021-05-28)
 
 
@@ -29,15 +43,6 @@
 * remove list page scrollviews again ([bd3ed81](https://github.com/phandcock/GrampsView/commit/bd3ed8110a941ee3e1565202201232702dd47fa7))
 * sort grouped collection lists ([5996b80](https://github.com/phandcock/GrampsView/commit/5996b804e7c373e58f67c105712981abe30c5da7))
 * work on media display bug ([bf2d79a](https://github.com/phandcock/GrampsView/commit/bf2d79aba6c8f930359f8f3faca5ccd54efdf682))
-
-
-
-## [16.17.46](https://github.com/phandcock/GrampsView/compare/v16.17.45...v16.17.46) (2021-05-21)
-
-
-### Bug Fixes
-
-* fix wierd cropped image new path bug ([f8de589](https://github.com/phandcock/GrampsView/commit/f8de5897aa1dd4cc30279c82a435f81b62ea961d))
 
 
 
