@@ -73,7 +73,7 @@ namespace GrampsView.Data.Collections
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
-            if (Common.CommonLocalSettings.SortHLinkCollections)
+            if (CommonLocalSettings.SortHLinkCollections)
             {
                 Sort();
             }

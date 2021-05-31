@@ -1,7 +1,7 @@
-﻿using GrampsView.Common.CustomClasses;
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common.CustomClasses;
+
     public interface IHLinkCollectionBase<T>
     {
         int Count

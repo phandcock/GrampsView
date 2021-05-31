@@ -7,7 +7,9 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -38,7 +40,26 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            // TODO SortAndSetFirst();
+            if (CommonLocalSettings.SortHLinkCollections)
+            {
+                Sort();
+            }
+        }
+
+        /// <summary>
+        /// Helper method to sort and set the firt image link.
+        /// </summary>
+        public void Sort()
+        {
+            // Sort the collection
+            List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.GetDefaultText).ToList();
+
+            Items.Clear();
+
+            foreach (HLinkHeaderModel item in t)
+            {
+                Items.Add(item);
+            }
         }
     }
 }

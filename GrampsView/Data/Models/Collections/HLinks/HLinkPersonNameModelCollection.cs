@@ -9,6 +9,7 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -93,7 +94,26 @@ namespace GrampsView.Data.Collections
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
-            // TODO Need this Sort();
+            if (CommonLocalSettings.SortHLinkCollections)
+            {
+                Sort();
+            }
+        }
+
+        /// <summary>
+        /// Helper method to sort and set the firt image link.
+        /// </summary>
+        public void Sort()
+        {
+            // Sort the collection
+            List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.GetDefaultText).ToList();
+
+            Items.Clear();
+
+            foreach (HLinkPersonNameModel item in t)
+            {
+                Items.Add(item);
+            }
         }
     }
 }

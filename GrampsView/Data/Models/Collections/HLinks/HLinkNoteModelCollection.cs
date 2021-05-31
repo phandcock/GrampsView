@@ -136,7 +136,7 @@ namespace GrampsView.Data.Collections
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
-            if (Common.CommonLocalSettings.SortHLinkCollections)
+            if (CommonLocalSettings.SortHLinkCollections)
             {
                 Sort();
             }
@@ -147,16 +147,6 @@ namespace GrampsView.Data.Collections
         /// </summary>
         public void Sort()
         {
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-
-            //FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-
-            //if (Count > 0)
-            //{
-            //    // For Note collections just grab the first one
-            //    FirstHLinkHomeImage = this[0].DeRef.ModelItemGlyph;
-
             // Sort the collection
             List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GStyledText.GText).ToList();
 

@@ -50,7 +50,7 @@ namespace GrampsView.Data.Collections
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
-            if (Common.CommonLocalSettings.SortHLinkCollections)
+            if (CommonLocalSettings.SortHLinkCollections)
             {
                 Sort();
             }
@@ -61,22 +61,6 @@ namespace GrampsView.Data.Collections
         /// </summary>
         public void Sort()
         {
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-            //PlaceModel tempModel = new PlaceModel();
-
-            //FirstHLinkHomeImage.ImageType = CommonEnums.HLinkGlyphType.Unknown;
-
-            //if (Count > 0)
-            //{
-            //    // Step through each citationmodel hlink in the collection
-            //    for (int i = 0; i < Count; i++)
-            //    {
-            //        tempModel = DV.PlaceDV.PlaceData.GetModelFromHLink(this[i]);
-
-            // if (tempModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image) {
-            // FirstHLinkHomeImage = tempModel.ModelItemGlyph; break; } }
-
             // Sort the collection
             List<HLinkPlaceModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GetDefaultText).ToList();
 
