@@ -1,3 +1,14 @@
+## [16.17.51](https://github.com/phandcock/GrampsView/compare/v16.17.50...v16.17.51) (2021-05-31)
+
+
+### Bug Fixes
+
+* cleanup addressmodel glyphs ([4fa7745](https://github.com/phandcock/GrampsView/commit/4fa774502d9e216df60fe5c10e873745e5af4330))
+* more address cleanups of glyph code ([c848d6f](https://github.com/phandcock/GrampsView/commit/c848d6f5aec08053a5e0f1fca20c31d4963324e3))
+* rework model collection sorts and backlinks ([f889f70](https://github.com/phandcock/GrampsView/commit/f889f707472f7f8163e2828a7bd4530bb1741302))
+
+
+
 ## [16.17.50](https://github.com/phandcock/GrampsView/compare/v16.17.49...v16.17.50) (2021-05-30)
 
 
@@ -29,20 +40,6 @@
 
 * fix styled text load bugs ([ab6c169](https://github.com/phandcock/GrampsView/commit/ab6c1692365a47ecd74b1060d76d16f2233d3b3c))
 * tweaks ([ac3b193](https://github.com/phandcock/GrampsView/commit/ac3b19317a81cc6678b3fcabef581f05bf91c45f))
-
-
-
-## [16.17.47](https://github.com/phandcock/GrampsView/compare/v16.17.46...v16.17.47) (2021-05-23)
-
-
-### Bug Fixes
-
-* always display media element controls ([792026f](https://github.com/phandcock/GrampsView/commit/792026febc7f937bf70e0fb08043ec03c4fb3ccd))
-* fix glyphs for backlinks ([e2cb2ee](https://github.com/phandcock/GrampsView/commit/e2cb2eeb8c2c687cf922c47d0ed6126f92f8e10d))
-* fix source group sort ([18c31f2](https://github.com/phandcock/GrampsView/commit/18c31f2f991a9e39f7b6d04e9c9217be6bdaa24a))
-* remove list page scrollviews again ([bd3ed81](https://github.com/phandcock/GrampsView/commit/bd3ed8110a941ee3e1565202201232702dd47fa7))
-* sort grouped collection lists ([5996b80](https://github.com/phandcock/GrampsView/commit/5996b804e7c373e58f67c105712981abe30c5da7))
-* work on media display bug ([bf2d79a](https://github.com/phandcock/GrampsView/commit/bf2d79aba6c8f930359f8f3faca5ccd54efdf682))
 
 
 
