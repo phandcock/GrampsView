@@ -67,7 +67,7 @@
                     {
                         new CardListLine("Type:", EventObject.GType),
                         new CardListLine("Role",HLinkObject.GRole),
-                        new CardListLine("Event Age:", EventObject.GDate.GetAge),
+                        new CardListLine("Years ago", EventObject.GDate.GetAge),
                     });
 
                     // Get date card
