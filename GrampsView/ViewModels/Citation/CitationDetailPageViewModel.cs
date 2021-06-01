@@ -7,7 +7,6 @@
     using Prism.Events;
 
     using System;
-    using System.Globalization;
 
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
@@ -58,7 +57,7 @@
                 BaseDetail.Add(new CardListLineCollection("Citation Detail")
                 {
                     new CardListLine("Page:", CitationObject.GPage),
-                    new CardListLine("Confidence:", CitationObject.GConfidence.ToString(CultureInfo.CurrentCulture))
+                    new CardListLine("Confidence:", CitationObject.GConfidence.ToString())
                 });
 
                 // Get date card

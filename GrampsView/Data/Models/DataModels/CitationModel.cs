@@ -37,13 +37,13 @@ namespace GrampsView.Data.Model
         /// The Confidence.
         /// </value>
         [DataMember]
-        public string GConfidence
+        public CommonEnums.DataConfidence GConfidence
         {
             get;
             set;
         }
 
-            = string.Empty;
+            = CommonEnums.DataConfidence.Unknown;
 
         /// <summary>
         /// Gets or sets the content of the DateContent field.

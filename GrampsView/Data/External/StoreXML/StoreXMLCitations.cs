@@ -38,7 +38,7 @@
 
                         loadCitation.GPage = GetElement(pcitation.Element(ns + "page"));
 
-                        loadCitation.GConfidence = GetElement(pcitation.Element(ns + "confidence"));
+                        loadCitation.GConfidence = GetDataConfidence(pcitation);
 
                         loadCitation.GNoteRefCollection = GetNoteCollection(pcitation);
 

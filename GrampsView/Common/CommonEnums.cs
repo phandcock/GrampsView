@@ -4,6 +4,27 @@ namespace GrampsView.Common
 {
     public static class CommonEnums
     {
+        public enum DataConfidence
+        {
+            [Description("Very High")]
+            VeryHigh,
+
+            [Description("High")]
+            High,
+
+            [Description("Normal")]
+            Normal,
+
+            [Description("Low")]
+            Low,
+
+            [Description("Very Low")]
+            VeryLow,
+
+            [Description("Unknown")]
+            Unknown
+        }
+
         public enum DateQuality
         {
             calculated,

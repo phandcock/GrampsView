@@ -7,6 +7,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using GrampsView.Common;
 using GrampsView.Data.Collections;
 
 namespace GrampsView.Data.Model
@@ -16,7 +17,7 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface ICitationModel : IModelBase
     {
-        string GConfidence
+        CommonEnums.DataConfidence GConfidence
         {
             get;
             set;
@@ -40,7 +41,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get default text.
         /// </value>
-        new string GetDefaultText { get; }
+        new string GetDefaultText
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets or sets the media reference collection.
@@ -86,6 +90,9 @@ namespace GrampsView.Data.Model
             get;
         }
 
-        HLinkCitationModel HLink { get; }
+        HLinkCitationModel HLink
+        {
+            get;
+        }
     }
 }

@@ -301,6 +301,42 @@
             }
         }
 
+        private static DataConfidence GetDataConfidence(XElement a)
+        {
+            string t = ((string)a.Element(ns + "confidence")).Trim();
+
+            switch (t)
+            {
+                case "4":
+                    {
+                        return DataConfidence.VeryHigh;
+                    }
+                case "3":
+                    {
+                        return DataConfidence.High;
+                    }
+                case "2":
+                    {
+                        return DataConfidence.Normal;
+                    }
+                case "1":
+                    {
+                        return DataConfidence.Low;
+                    }
+                case "0":
+                    {
+                        return DataConfidence.VeryLow;
+                    }
+
+                default:
+                    {
+                        break;
+                    }
+            }
+
+            return DataConfidence.Normal;
+        }
+
         /// <summary>
         /// Gets the date.
         /// </summary>
