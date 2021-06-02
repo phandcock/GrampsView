@@ -1,3 +1,14 @@
+## [16.17.52](https://github.com/phandcock/GrampsView/compare/v16.17.51...v16.17.52) (2021-06-02)
+
+
+### Bug Fixes
+
+* decode citation confidence ([e360b6f](https://github.com/phandcock/GrampsView/commit/e360b6f7b7161403ab77daf24850251cc171d71e))
+* update hlinkcollection sorting ([743c1e6](https://github.com/phandcock/GrampsView/commit/743c1e67358e598aec2a18be9b04a1f9d91e1dc0))
+* UWP store scheduling ([6e65f24](https://github.com/phandcock/GrampsView/commit/6e65f248c938dbb41c48e957329a3b012e027e78))
+
+
+
 ## [16.17.51](https://github.com/phandcock/GrampsView/compare/v16.17.50...v16.17.51) (2021-05-31)
 
 
@@ -30,16 +41,6 @@
 
 * cleanup familymodel ([57b1b02](https://github.com/phandcock/GrampsView/commit/57b1b02e30e510ee9f4a69386da5c7fa9a29a019))
 * load and use all family model fields ([f394f23](https://github.com/phandcock/GrampsView/commit/f394f232b7ae0e461fd97b04dbcfee9aeb988fc5))
-
-
-
-## [16.17.48](https://github.com/phandcock/GrampsView/compare/v16.17.47...v16.17.48) (2021-05-26)
-
-
-### Bug Fixes
-
-* fix styled text load bugs ([ab6c169](https://github.com/phandcock/GrampsView/commit/ab6c1692365a47ecd74b1060d76d16f2233d3b3c))
-* tweaks ([ac3b193](https://github.com/phandcock/GrampsView/commit/ac3b19317a81cc6678b3fcabef581f05bf91c45f))
 
 
 
