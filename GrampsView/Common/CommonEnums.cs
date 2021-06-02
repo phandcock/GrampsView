@@ -27,8 +27,13 @@ namespace GrampsView.Common
 
         public enum DateQuality
         {
+            [Description("Calculated")]
             calculated,
+
+            [Description("Estimated")]
             estimated,
+
+            [Description("Unknown")]
             unknown
         }
 
@@ -224,6 +229,24 @@ namespace GrampsView.Common
             postal,
             state,
             street,
+        }
+
+        public enum RelationshipType
+        {
+            [Description("Civil Union")]
+            civilunion,
+
+            [Description("Custom")]
+            custom,
+
+            [Description("Married")]
+            married,
+
+            [Description("Unmarried")]
+            unmarried,
+
+            [Description("Unknown")]
+            unknown
         }
 
         public enum TextStyle

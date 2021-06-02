@@ -178,18 +178,18 @@
             }
         }
 
-        public string GQualityDecoded
-        {
-            get
-            {
-                if (GQuality == DateQuality.unknown)
-                {
-                    return string.Empty;
-                }
+        //public string GQualityDecoded
+        //{
+        //    get
+        //    {
+        //        if (GQuality == DateQuality.unknown)
+        //        {
+        //            return string.Empty;
+        //        }
 
-                return " ( " + nameof(GQuality) + ")";
-            }
-        }
+        //        return " ( " + nameof(GQuality) + ")";
+        //    }
+        //}
 
         /// <summary>
         /// Gets the $$(val)$$ field.
@@ -252,7 +252,7 @@
                     dateString = Enum.GetName(typeof(DateValType), GValType) + " " + dateString;
                 }
 
-                dateString += GQualityDecoded;
+                dateString += GQuality.ToString();
 
                 if (GDualdated)
                 {
@@ -337,7 +337,7 @@
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Type:", this.GValTypeDecoded),
-                                new CardListLine("Quality:", this.GQualityDecoded),
+                                new CardListLine("Quality:", this.GQuality.ToString()),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),
                             };
