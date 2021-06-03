@@ -38,7 +38,7 @@
 
             CardListLineCollection hlinkInfoList = new CardListLineCollection
                {
-                 new CardListLine("Private Object:", argHLink.Priv.Value),
+                 new CardListLine("Private Object:", argHLink.Priv.ToString()),
                };
 
             hlinkInfoList.Title = "Admin Details";

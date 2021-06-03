@@ -206,19 +206,19 @@
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether [h link key valid].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [h link key valid]; otherwise, <c>false</c>.
-        /// </value>
-        public bool ModelPopulated
-        {
-            get
-            {
-                return HLinkKey.Valid;
-            }
-        }
+        ///// <summary>
+        ///// Gets a value indicating whether [h link key valid].
+        ///// </summary>
+        ///// <value>
+        ///// <c>true</c> if [h link key valid]; otherwise, <c>false</c>.
+        ///// </value>
+        //public bool ModelPopulated
+        //{
+        //    get
+        //    {
+        //        return HLinkKey.Valid;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
@@ -227,12 +227,12 @@
         /// <c>true</c> if priv; otherwise, <c>false</c>.
         /// </value>
         [DataMember]
-        public Priv Priv
+        public bool Priv
         {
             get;
 
             set;
-        } = new Priv(false);
+        } = false;
 
         public IAsyncCommand UCNavigateCommand
         {
@@ -397,10 +397,7 @@
                 Change = argBasics.Change;
             }
 
-            if (argBasics.Priv.Value)
-            {
-                Priv = argBasics.Priv;
-            }
+            Priv = argBasics.Priv;
 
             if (!(String.IsNullOrEmpty(argBasics.Handle)))
             {

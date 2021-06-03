@@ -204,7 +204,7 @@
             {
                 Id = GetAttribute(argElement.Attribute("id")),
                 Change = GetDateTime(argElement, "change"),
-                Priv = SetPrivateObject(GetAttribute(argElement.Attribute("priv"))),
+                Priv = bool.Parse(GetAttribute(argElement.Attribute("priv"))),
                 Handle = GetAttribute(argElement, "handle")
             };
 
@@ -428,6 +428,29 @@
             }
         }
 
+        /// <summary>
+        /// Sets the private object.
+        /// </summary>
+        /// <param name="thePriv">
+        /// The priv.
+        /// </param>
+        /// <returns>
+        /// True or False depending on if the object is private.
+        /// </returns>
+        private static bool GetPrivateObject(XElement xmlData)
+        {
+            bool returnValue = false;
+
+            bool t = bool.TryParse(GetAttribute(xmlData.Attribute("priv")), out returnValue);
+
+            if (!t)
+            {
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Priv field") { { "XML", xmlData.ToString() } });
+            }
+
+            return returnValue;
+        }
+
         private static TextStyle GetTextStyle(XElement a)
         {
             XAttribute t = a.Attribute("name");
@@ -546,32 +569,6 @@
             }
 
             return t;
-        }
-
-        /// <summary>
-        /// Sets the private object.
-        /// </summary>
-        /// <param name="thePriv">
-        /// The priv.
-        /// </param>
-        /// <returns>
-        /// True or False depending on if the object is private.
-        /// </returns>
-        private static Priv SetPrivateObject(string thePriv)
-        {
-            switch (thePriv)
-            {
-                case "1":
-                    {
-                        return new Priv(true);
-                    }
-
-                case "0":
-                default:
-                    {
-                        return new Priv(false);
-                    }
-            }
         }
     }
 }

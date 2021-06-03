@@ -149,19 +149,19 @@ namespace GrampsView.Data.Model
             set;
         } = Gender.Unknown;
 
-        /// <summary>
-        /// Gets the gender decode.
-        /// </summary>
-        /// <value>
-        /// The gender decode.
-        /// </value>
-        public string GGenderAsString
-        {
-            get
-            {
-                return Enum.GetName(typeof(Gender), GGender);
-            }
-        }
+        ///// <summary>
+        ///// Gets the gender decode.
+        ///// </summary>
+        ///// <value>
+        ///// The gender decode.
+        ///// </value>
+        //public string GGenderAsString
+        //{
+        //    get
+        //    {
+        //        return Enum.GetName(typeof(Gender), GGender);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the LDS collection.

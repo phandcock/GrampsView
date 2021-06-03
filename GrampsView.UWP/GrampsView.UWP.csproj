@@ -20,7 +20,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>80717055E8638BCAEE944C23BD713EFBE19781F4</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>03BDFEC5D0A511504290DBCC8EEB81DC65B7AF0E</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>

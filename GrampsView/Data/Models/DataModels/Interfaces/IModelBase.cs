@@ -88,7 +88,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        Priv Priv
+        bool Priv
         {
             get; set;
         }

@@ -84,7 +84,7 @@
 
                     new CardListLine("Group:", PersonNameObject.GGroup),
                     new CardListLine("Nick:", PersonNameObject.GNick),
-                    new CardListLine("Priv:", PersonNameObject.Priv.Value,true),
+                    new CardListLine("Priv:", PersonNameObject.Priv,true),
                     new CardListLine("Sort:", PersonNameObject.GSort)
                 };
 

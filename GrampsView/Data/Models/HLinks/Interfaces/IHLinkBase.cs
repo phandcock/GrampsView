@@ -25,7 +25,7 @@
             set;
         }
 
-        Priv Priv
+        bool Priv
         {
             get; set;
         }

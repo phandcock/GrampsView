@@ -26,6 +26,7 @@
     <Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
     <Compile Remove="Common\CustomClasses\NavCmd.cs" />
     <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
+    <Compile Remove="Common\CustomClasses\Priv.cs" />
     <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />

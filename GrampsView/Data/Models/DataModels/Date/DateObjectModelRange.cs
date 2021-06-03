@@ -168,18 +168,18 @@
             }
         }
 
-        public string GQualityDecoded
-        {
-            get
-            {
-                if (GQuality == CommonEnums.DateQuality.unknown)
-                {
-                    return string.Empty;
-                }
+        //public string GQualityDecoded
+        //{
+        //    get
+        //    {
+        //        if (GQuality == CommonEnums.DateQuality.unknown)
+        //        {
+        //            return string.Empty;
+        //        }
 
-                return nameof(GQuality);
-            }
-        }
+        //        return nameof(GQuality);
+        //    }
+        //}
 
         /// <summary>
         /// Gets the Date Start.
@@ -295,7 +295,7 @@
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),
-                                new CardListLine("Quality:", this.GQualityDecoded),
+                                new CardListLine("Quality:", this.GQuality.ToString()),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),

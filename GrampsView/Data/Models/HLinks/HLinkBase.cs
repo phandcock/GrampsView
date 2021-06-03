@@ -48,12 +48,12 @@
         } = new HLinkKey();
 
         [DataMember]
-        public Priv Priv
+        public bool Priv
         {
             get;
 
             set;
-        } = new Priv(false);
+        } = false;
 
         public IAsyncCommand UCNavigateCommand
         {

@@ -172,7 +172,7 @@
             // Get extra details
             CardListLineCollection extraDetailsCard = new CardListLineCollection
                 {
-                        new CardListLine("Gender:", PersonObject.GGenderAsString),
+                        new CardListLine("Gender:", PersonObject.GGender.ToString()),
                 };
 
             if (PersonObject.BirthDate != null)

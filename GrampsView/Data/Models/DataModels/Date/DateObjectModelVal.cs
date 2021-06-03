@@ -312,18 +312,18 @@
             }
         }
 
-        private string GValTypeDecoded
-        {
-            get
-            {
-                if (GValType != DateValType.unknown)
-                {
-                    return Enum.GetName(typeof(DateValType), GValType);
-                }
+        //private string GValTypeDecoded
+        //{
+        //    get
+        //    {
+        //        if (GValType != DateValType.unknown)
+        //        {
+        //            return Enum.GetName(typeof(DateValType), GValType);
+        //        }
 
-                return string.Empty;
-            }
-        }
+        //        return string.Empty;
+        //    }
+        //}
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
@@ -336,7 +336,7 @@
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Type:", this.GValTypeDecoded),
+                                new CardListLine("Type:", this.GValType.ToString()),
                                 new CardListLine("Quality:", this.GQuality.ToString()),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),

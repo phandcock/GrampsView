@@ -59,7 +59,7 @@
 
                         GStreet = GetElement(theLoadORElement, "street"),
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GNoteRefCollection = GetNoteCollection(theLoadORElement),
                     };
@@ -115,7 +115,7 @@
 
                         GNoteModelReferenceCollection = GetNoteCollection(theLoadORElement),
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
 
@@ -155,7 +155,7 @@
 
                         GFatherRel = GetAttribute(theLoadORElement.Attribute("frel")),
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GMotherRel = GetAttribute(theLoadORElement.Attribute("mrel")),
 
@@ -437,7 +437,7 @@
 
                         GNick = GetElement(theLoadORElement, "nick"),
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GSort = GetElement(theLoadORElement, "sort"),
 
@@ -699,7 +699,7 @@
                         // "callno" Done "medium" Done; "noteref" Done
                         HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GCallNo = GetAttribute(theLoadORElement.Attribute("callno")),
 
@@ -742,7 +742,7 @@
                 {
                     SrcAttributeModel tt = new SrcAttributeModel
                     {
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),
@@ -931,7 +931,7 @@
                     {
                         Handle = "URL Collection",
 
-                        Priv = SetPrivateObject(GetAttribute(theLoadORElement.Attribute("priv"))),
+                        Priv = GetPrivateObject(theLoadORElement),
 
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
 
