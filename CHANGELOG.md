@@ -1,3 +1,12 @@
+## [16.17.53](https://github.com/phandcock/GrampsView/compare/v16.17.52...v16.17.53) (2021-06-03)
+
+
+### Bug Fixes
+
+* tweaks and priv load bug fix ([7d45d12](https://github.com/phandcock/GrampsView/commit/7d45d12c8aa8af7a1c8e798ce5d2416f5b30f5eb))
+
+
+
 ## [16.17.52](https://github.com/phandcock/GrampsView/compare/v16.17.51...v16.17.52) (2021-06-02)
 
 
@@ -31,16 +40,6 @@
 * fix familymodel childrenref glyphs ([a62a377](https://github.com/phandcock/GrampsView/commit/a62a3778fc838bd40a6d9ab28f6a26f8526a6df7))
 * fix shell search ([da115a6](https://github.com/phandcock/GrampsView/commit/da115a68a76086288922dd1c07f4d97c4498d7f4))
 * validate HLink and Glyphs better.  Cache HLink Models. ([ab6f51d](https://github.com/phandcock/GrampsView/commit/ab6f51d8eb96c13b91e566009bd74ddfa22bc6ef))
-
-
-
-## [16.17.49](https://github.com/phandcock/GrampsView/compare/v16.17.48...v16.17.49) (2021-05-28)
-
-
-### Bug Fixes
-
-* cleanup familymodel ([57b1b02](https://github.com/phandcock/GrampsView/commit/57b1b02e30e510ee9f4a69386da5c7fa9a29a019))
-* load and use all family model fields ([f394f23](https://github.com/phandcock/GrampsView/commit/f394f232b7ae0e461fd97b04dbcfee9aeb988fc5))
 
 
 
