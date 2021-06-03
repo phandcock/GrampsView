@@ -204,7 +204,7 @@
             {
                 Id = GetAttribute(argElement.Attribute("id")),
                 Change = GetDateTime(argElement, "change"),
-                Priv = bool.Parse(GetAttribute(argElement.Attribute("priv"))),
+                Priv = GetPrivateObject(argElement),
                 Handle = GetAttribute(argElement, "handle")
             };
 
@@ -439,13 +439,11 @@
         /// </returns>
         private static bool GetPrivateObject(XElement xmlData)
         {
-            bool returnValue = false;
-
+            bool returnValue;
             bool t = bool.TryParse(GetAttribute(xmlData.Attribute("priv")), out returnValue);
 
-            if (!t)
+            if (t)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Priv field") { { "XML", xmlData.ToString() } });
             }
 
             return returnValue;

@@ -6,6 +6,7 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
     x:DataType="common:CommonDataLog"
+    BackgroundColor="Transparent"
     DismissFlag="{Binding PopupDismissFlag}"
     Style="{DynamicResource GVBaseContentPage}">
 
@@ -22,10 +23,4 @@
             <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
     </CollectionView>
-
-    <!--<Button
-            Clicked="Button_Clicked"
-            Style="{DynamicResource GVButtonStyle}"
-            Text="Close" />
-    </StackLayout>-->
 </cc:MessageLogPopup>
