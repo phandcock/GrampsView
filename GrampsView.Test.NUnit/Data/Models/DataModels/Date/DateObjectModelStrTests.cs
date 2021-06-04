@@ -14,7 +14,11 @@
         {
             CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_Basic.Title != "Test Title")
+            {
+                Assert.Fail();
+                return;
+            }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");

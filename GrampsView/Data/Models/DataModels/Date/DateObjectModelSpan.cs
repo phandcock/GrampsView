@@ -6,6 +6,8 @@
     using System;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Create Span version of DateObjectModel.
     /// </summary>
@@ -179,19 +181,6 @@
             }
         }
 
-        //public string GQualityDecoded
-        //{
-        //    get
-        //    {
-        //        if (GQuality == CommonEnums.DateQuality.unknown)
-        //        {
-        //            return string.Empty;
-        //        }
-
-        //        return nameof(GQuality);
-        //    }
-        //}
-
         /// <summary>
         /// Gets the Date Start.
         /// </summary>
@@ -236,13 +225,18 @@
         {
             get
             {
-                string dateString = GStart + " to " + GStop;
+                string dateString = String.Format("{0} to {1}", GStart, GStop);
 
-                dateString += GQuality.ToString();
+                // Do not display a messgae if thw quality is unknown
+                if (GQuality != DateQuality.unknown)
+                {
+                    dateString += " " + GQuality.ToString();
+                }
 
                 if (!string.IsNullOrEmpty(GCformat))
                 {
-                    dateString += " Format: " + GCformat;
+                    dateString = string.Format("{0} Format: {1}", dateString, GCformat);
+                    ;
                 }
 
                 if (GDualdated)
@@ -312,7 +306,7 @@
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),
-                                new CardListLine("Quality:", this.GQuality.ToString()),
+                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),

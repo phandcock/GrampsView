@@ -178,19 +178,6 @@
             }
         }
 
-        //public string GQualityDecoded
-        //{
-        //    get
-        //    {
-        //        if (GQuality == DateQuality.unknown)
-        //        {
-        //            return string.Empty;
-        //        }
-
-        //        return " ( " + nameof(GQuality) + ")";
-        //    }
-        //}
-
         /// <summary>
         /// Gets the $$(val)$$ field.
         /// </summary>
@@ -252,7 +239,11 @@
                     dateString = Enum.GetName(typeof(DateValType), GValType) + " " + dateString;
                 }
 
-                dateString += GQuality.ToString();
+                // Do not display a messgae if thw quality is unknown
+                if (GQuality != DateQuality.unknown)
+                {
+                    dateString += " " + GQuality.ToString();
+                }
 
                 if (GDualdated)
                 {
@@ -312,19 +303,6 @@
             }
         }
 
-        //private string GValTypeDecoded
-        //{
-        //    get
-        //    {
-        //        if (GValType != DateValType.unknown)
-        //        {
-        //            return Enum.GetName(typeof(DateValType), GValType);
-        //        }
-
-        //        return string.Empty;
-        //    }
-        //}
-
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
@@ -336,8 +314,8 @@
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Val:", this.GVal),
                                 new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Type:", this.GValType.ToString()),
-                                new CardListLine("Quality:", this.GQuality.ToString()),
+                                new CardListLine("Type:", this.GValType.ToString(),this.GValType != DateValType.unknown),
+                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),
                             };

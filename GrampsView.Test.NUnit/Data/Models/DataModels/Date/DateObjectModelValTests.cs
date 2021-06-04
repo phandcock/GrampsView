@@ -45,6 +45,15 @@
         [Test()]
         public void AsCardListLineTest_Basic()
         {
+            string aCFormat = null;
+            bool aDualDated = false;
+            string aNewYear = null;
+            CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
+            string aVal = "1939";
+            CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
+
+            testValBasic = new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
+
             CardListLineCollection AsCardListLineTest_Basic = testValBasic.AsCardListLine("Test Title");
 
             if (AsCardListLineTest_Basic.Title != "Test Title")

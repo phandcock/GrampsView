@@ -15,18 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Test Data\Basic.gpkg" />
-    <None Remove="Test Data\GrampsView Test Basic.gpkg" />
-    <None Remove="Test Data\grampsxml.171.rng" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Test Data\Basic.gpkg" />
-    <EmbeddedResource Include="Test Data\GrampsView Test Basic.gpkg" />
-    <EmbeddedResource Include="Test Data\grampsxml.171.rng" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.2.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="nunit" Version="3.13.2" />
@@ -37,5 +25,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Test Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
   </ItemGroup>
 </Project>

@@ -74,6 +74,17 @@
             }
         }
 
+        public CardListLine(string argLabel, string argValue, bool argShowIf)
+        {
+            Contract.Assert(argLabel != null);
+
+            if (argShowIf)
+            {
+                Label = argLabel.Trim();
+                Value = argValue.Trim();
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CardListLine"/> class.
         /// </summary>

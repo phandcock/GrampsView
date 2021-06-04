@@ -5,6 +5,8 @@
     using System;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Create Range version of DateObjectModel. TODO Update fields as per Schema
     /// </summary>
@@ -295,7 +297,7 @@
                                 new CardListLine("Date:", this.LongDate),
                                 new CardListLine("Start:", this.GStart),
                                 new CardListLine("Stop:", this.GStop),
-                                new CardListLine("Quality:", this.GQuality.ToString()),
+                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),
                                 new CardListLine("New Year:", this.GNewYear),
