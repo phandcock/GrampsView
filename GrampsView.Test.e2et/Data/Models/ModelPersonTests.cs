@@ -26,7 +26,41 @@
 
             PersonModel tt = DV.PersonDV.GetModelFromId("I0000");
 
-            Assert.False(tt.Valid, "Invalid person");
+            Assert.True(tt.Valid, "Invalid person");
+        }
+
+        /// <summary>
+        /// Basic person model test - check Priv default
+        /// </summary>
+        [Test()]
+        public void CreateModelPerson_Basic_Priv_Default()
+        {
+            DataStoreUtility.DataStoreSetup();
+
+            DataStoreUtility.LoadTestFile();
+
+            PersonModel tt = DV.PersonDV.GetModelFromId("I0000");
+
+            Assert.True(tt.Valid, "Invalid person");
+
+            Assert.False(tt.Priv, "Invalid Priv");
+        }
+
+        /// <summary>
+        /// Basic person model test - check Priv true
+        /// </summary>
+        [Test()]
+        public void CreateModelPerson_Basic_Priv_True()
+        {
+            DataStoreUtility.DataStoreSetup();
+
+            DataStoreUtility.LoadTestFile();
+
+            PersonModel tt = DV.PersonDV.GetModelFromId("I0002");
+
+            Assert.True(tt.Valid, "Invalid person");
+
+            Assert.True(tt.Priv, "Invalid Priv");
         }
 
         /// <summary>
@@ -41,7 +75,7 @@
 
             PersonModel tt = DV.PersonDV.GetModelFromId("I0000");
 
-            Assert.False(tt.Valid, "Invalid person");
+            Assert.True(tt.Valid, "Invalid person");
         }
 
         [SetUp]
