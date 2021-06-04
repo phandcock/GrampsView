@@ -41,8 +41,9 @@
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
+                Grid.ColumnSpan="2"
                 Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GetDefaultText, Mode=OneWay}"
+                Text="{Binding DeRef.GetDefaultTextShort, Mode=OneWay}"
                 VerticalTextAlignment="Center" />
 
             <Label
