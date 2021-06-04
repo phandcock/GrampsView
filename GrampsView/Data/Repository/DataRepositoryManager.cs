@@ -369,7 +369,7 @@
                         StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsXMLFileLastDateTimeModified, t);
                     }
 
-                    UpdateSettings();
+                    UpdateSavedLocalSettings();
 
                     // save the data in a serial format for next time localEventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
@@ -404,7 +404,7 @@
 
                         _StoreSerial.DeSerializeRepository();
 
-                        UpdateSettings();
+                        UpdateSavedLocalSettings();
 
                         await localPostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
@@ -437,7 +437,7 @@
             return false;
         }
 
-        private void UpdateSettings()
+        private static void UpdateSavedLocalSettings()
         {
             // save the database version
             CommonLocalSettings.DatabaseVersion = CommonConstants.GrampsViewDatabaseVersion;

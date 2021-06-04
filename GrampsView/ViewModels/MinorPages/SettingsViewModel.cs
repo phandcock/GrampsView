@@ -5,8 +5,6 @@
     using GrampsView.Data.Repository;
     using GrampsView.Views;
 
-    using Microsoft.AppCenter.Distribute;
-
     using Prism.Events;
 
     using System.Threading.Tasks;
@@ -28,8 +26,6 @@
         {
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
-
-            ForceUpdateCheckCommand = new AsyncCommand(ForceUpdate);
 
             ShowMessageLogCommand = new AsyncCommand(ShowMessageLog);
 
@@ -180,11 +176,6 @@
                         break;
                     }
             }
-        }
-
-        public async Task ForceUpdate()
-        {
-            Distribute.CheckForUpdate();
         }
 
         public async Task TestButtonHandler()

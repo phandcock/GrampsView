@@ -439,8 +439,7 @@
         /// </returns>
         private static bool GetPrivateObject(XElement xmlData)
         {
-            bool returnValue;
-            bool t = bool.TryParse(GetAttribute(xmlData.Attribute("priv")), out returnValue);
+            bool t = bool.TryParse(GetAttribute(xmlData.Attribute("priv")), out bool returnValue);
 
             if (t)
             {

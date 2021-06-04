@@ -122,10 +122,10 @@ namespace GrampsView.Data.Repositories
         }
 
         /// <summary>
-        /// Adds the specified argument tot he end of the list and update sthe Indexes.
+        /// Adds the specified argument to the end of the list and updates the Indexes.
         /// </summary>
         /// <param name="arg">
-        /// The argument.
+        /// The model to add.
         /// </param>
         public void Add(T1 arg)
         {
