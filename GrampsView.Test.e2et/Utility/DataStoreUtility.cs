@@ -22,7 +22,7 @@
 
     public static class DataStoreUtility
     {
-        public const string BasePath = "GrampsView.Test.Basic";
+        public const string BasePath = "GrampsView.Test.e2e";
 
         public static string DataStorePath = Path.Combine(Path.GetTempPath(), "UnitTestDataStore");
 
