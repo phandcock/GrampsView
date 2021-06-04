@@ -89,6 +89,9 @@
 
                     // Apart from BookMarks
                     await OrganiseBookMarkRepository().ConfigureAwait(false);
+
+                    // Final cleanup pending use of some sort of dependency graph on the whole thing
+                    await OrganiseMisc().ConfigureAwait(false);
                 }
             }
 

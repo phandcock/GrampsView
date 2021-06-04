@@ -158,9 +158,9 @@
 
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
             {
+                // Child Collection
                 argModel.GChildRefCollection.SetGlyph();
 
-                // Child Collection
                 foreach (HLinkChildRefModel childRef in argModel.GChildRefCollection)
                 {
                     DataStore.Instance.DS.PersonData[childRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
@@ -237,6 +237,25 @@
             await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
             SetHeaderImages();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Organises misc items pending use of a dependency graph.
+        /// </summary>
+        private static async Task<bool> OrganiseMisc()
+        {
+            await DataStore.Instance.CN.DataLogEntryAdd("Organising Misc data").ConfigureAwait(false);
+
+            // Family children
+            foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
+            {
+                // Children Collection
+                argModel.GChildRefCollection.SetGlyph();
+            }
+
+            SetAddressImages();
 
             return true;
         }
