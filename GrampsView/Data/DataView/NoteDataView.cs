@@ -165,7 +165,14 @@ namespace GrampsView.Data.DataView
 
         public override NoteModel GetModelFromId(string argId)
         {
-            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+            NoteModel t = DataViewData.FirstOrDefault(X => X.Id == argId);
+
+            if (t is null)
+            {
+                return new NoteModel();
+            }
+
+            return t;
         }
 
         /// <summary>
