@@ -209,6 +209,10 @@ namespace GrampsView.Common
 
         public const string NameTypeMarried = "Married Name";
 
+        public const string NoteTypeBiography = "Biography";
+
+        public const string NoteTypePersonNote = "Person Note";
+
         //public const string NavigationParameterHLink = "hlink";
 
         //public const string NavigationParameterModel = "model";

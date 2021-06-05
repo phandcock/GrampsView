@@ -42,6 +42,7 @@
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.SiblingRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 
                 <ucon:FlexSingleCard FsctSource="{Binding ChildRefHLink.GCitationCollectionReference, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding ChildRefHLink.GNoteCollectionReference, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />

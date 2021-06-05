@@ -29,17 +29,17 @@ namespace GrampsView.Data.Collections
 
         /// <summary>
         /// <para>Gets the get persons biography.</para>
-        /// <para>Assumes that it is the first Note with a type of "Person Note".</para>
+        /// <para>Assumes that it is the first Note with a type of "Person Note" or "Biography".</para>
         /// </summary>
         /// <value>
-        /// HLink to the first person note. Returns an HLink with the Valis flag set to false if
-        /// none found.
+        /// HLink to the first Type with a biography or person note. Returns an HLink with the Valid
+        /// flag set to false if none found.
         /// </value>
         public HLinkNoteModel GetBio
         {
             get
             {
-                HLinkNoteModel temp = this.Where(x => x.DeRef.GType == "Person Note").FirstOrDefault();
+                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType == CommonConstants.NoteTypeBiography || x.DeRef.GType == CommonConstants.NoteTypePersonNote);
 
                 if (temp is null)
                 {
