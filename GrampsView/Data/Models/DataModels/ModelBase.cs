@@ -206,20 +206,6 @@
             }
         }
 
-        ///// <summary>
-        ///// Gets a value indicating whether [h link key valid].
-        ///// </summary>
-        ///// <value>
-        ///// <c>true</c> if [h link key valid]; otherwise, <c>false</c>.
-        ///// </value>
-        //public bool ModelPopulated
-        //{
-        //    get
-        //    {
-        //        return HLinkKey.Valid;
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
         /// </summary>

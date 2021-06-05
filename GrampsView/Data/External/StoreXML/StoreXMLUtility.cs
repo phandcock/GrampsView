@@ -439,13 +439,14 @@
         /// </returns>
         private static bool GetPrivateObject(XElement xmlData)
         {
-            bool t = bool.TryParse(GetAttribute(xmlData.Attribute("priv")), out bool returnValue);
+            string t = GetAttribute(xmlData.Attribute("priv"));
 
-            if (t)
+            if (t == "1")
             {
+                return true;
             }
 
-            return returnValue;
+            return false;
         }
 
         private static TextStyle GetTextStyle(XElement a)
