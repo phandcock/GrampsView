@@ -14,11 +14,16 @@
         {
         }
 
+        [SetUp]
+        public void Init()
+        {
+        }
+
         /// <summary>
         /// Basic person model test - Models are invalid to start
         /// </summary>
         [Test()]
-        public void CreateModelPerson_Basic()
+        public void ModelPerson_Basic()
         {
             DataStoreUtility.DataStoreSetup();
 
@@ -33,7 +38,7 @@
         /// Basic person model test - check Priv default
         /// </summary>
         [Test()]
-        public void CreateModelPerson_Basic_Priv_Default()
+        public void ModelPerson_Basic_Priv_Default()
         {
             DataStoreUtility.DataStoreSetup();
 
@@ -50,7 +55,7 @@
         /// Basic person model test - check Priv true
         /// </summary>
         [Test()]
-        public void CreateModelPerson_Basic_Priv_True()
+        public void ModelPerson_Basic_Priv_True()
         {
             DataStoreUtility.DataStoreSetup();
 
@@ -67,7 +72,7 @@
         /// Basic person model test - Make model valid first
         /// </summary>
         [Test()]
-        public void CreateModelPerson_Basic_Valid()
+        public void ModelPerson_Basic_Valid()
         {
             DataStoreUtility.DataStoreSetup();
 
@@ -78,9 +83,29 @@
             Assert.True(tt.Valid, "Invalid person");
         }
 
-        [SetUp]
-        public void Init()
+        /// <summary>
+        /// Person model test
+        /// </summary>
+        [Test()]
+        public void ModelPerson_Notes()
         {
+            DataStoreUtility.DataStoreSetup();
+
+            DataStoreUtility.LoadTestFile();
+
+            PersonModel tt = DV.PersonDV.GetModelFromId("I0003");
+
+            Assert.True(tt.Valid, "Invalid person");
+
+            Assert.True(tt.GNoteRefCollection.Count == 2, "Wrong notes count");
+
+            HLinkNoteModel noteModel = tt.GNoteRefCollection.GetBio;
+
+            Assert.True(noteModel.DeRef.Id == "N0000", "Wrong Person Model Notes Bio found");
+
+            Assert.True(noteModel.DeRef.GType == Common.CommonConstants.NoteTypeBiography, "Wrong Person Model Notes Type found");
+
+            Assert.True(noteModel.DeRef.GStyledText.GText == "Biography Note.\n", "Wrong Person Model Notes Text found");
         }
     }
 }
