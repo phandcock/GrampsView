@@ -51,5 +51,10 @@ namespace GrampsView.Data.Repository
         /// The DataStore.Instance.
         /// </value>
         public DataInstance DS { get; } = new DataInstance();
+
+        public IXamarinEssentials ES
+        {
+            get; set;
+        } = new XamarinEssentials();
     }
 }

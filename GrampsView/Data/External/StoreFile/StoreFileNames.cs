@@ -6,8 +6,6 @@
     using System;
     using System.Diagnostics.Contracts;
 
-    using Xamarin.Essentials;
-
     /// <summary>
     /// Common file handling routines.
     /// </summary>
@@ -46,11 +44,11 @@
                 fileDateTime = DateTime.Parse(fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture), System.Globalization.CultureInfo.CurrentCulture);
 
                 // Save a fresh copy if null so we can load next time
-                string oldDateTime = Preferences.Get(settingsKey, string.Empty);
+                string oldDateTime = DataStore.Instance.ES.PreferencesGet(settingsKey, string.Empty);
 
                 if (string.IsNullOrEmpty(oldDateTime))
                 {
-                    Preferences.Set(settingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
+                    DataStore.Instance.ES.PreferencesSet(settingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
 
                     // No previous settings entry so do the load (it might be the FirstRun)
                     return true;
@@ -71,7 +69,7 @@
             }
             catch (Exception ex)
             {
-                Preferences.Remove(settingsKey);
+                DataStore.Instance.ES.PreferencesRemove(settingsKey);
 
                 DataStore.Instance.CN.NotifyException("FileModifiedSinceLastSaveAsync", ex);
                 throw;
@@ -91,7 +89,7 @@
         {
             Contract.Assert(filename != null);
 
-            Preferences.Set(settingsKey, filename.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            DataStore.Instance.ES.PreferencesSet(settingsKey, filename.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
         }
 
         /// <summary>

@@ -1,9 +1,10 @@
 ﻿namespace GrampsView.Common
 {
+    using GrampsView.Data.Repository;
+
     using System;
     using System.ComponentModel;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public class CardSizes : CommonBindableBase, INotifyPropertyChanged
@@ -172,7 +173,7 @@
         {
             get
             {
-                return new Size(((DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 100), ((DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density) - 100));
+                return new Size(((DataStore.Instance.ES.DisplayInfo.Width / DataStore.Instance.ES.DisplayInfo.Density) - 100), ((DataStore.Instance.ES.DisplayInfo.Height / DataStore.Instance.ES.DisplayInfo.Density) - 100));
             }
         }
 

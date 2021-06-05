@@ -1,7 +1,7 @@
-﻿using Xamarin.Forms;
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
+    using Xamarin.Forms;
+
     public interface IImageResource
     {
         Size GetSize(string fileName);

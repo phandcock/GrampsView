@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.Repository;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     public static class CommonLocalSettings
@@ -13,7 +12,7 @@
         {
             get
             {
-                int _settingsAppTheme = Preferences.Get(SettingsAppTheme, 0);
+                int _settingsAppTheme = DataStore.Instance.ES.PreferencesGet(SettingsAppTheme, 0);
 
                 switch (_settingsAppTheme)
                 {
@@ -40,19 +39,19 @@
                 {
                     case OSAppTheme.Dark:
                         {
-                            Preferences.Set(SettingsAppTheme, 1);
+                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 1);
                             break;
                         }
 
                     case OSAppTheme.Light:
                         {
-                            Preferences.Set(SettingsAppTheme, 2);
+                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 2);
                             break;
                         }
 
                     default:
                         {
-                            Preferences.Set(SettingsAppTheme, 3);
+                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 3);
                             break;
                         }
                 }
@@ -90,7 +89,7 @@
         {
             get
             {
-                int localGrampsViewDatabaseVersion = Preferences.Get(CommonConstants.SettingsGrampsViewDatabaseVersion, int.MinValue);
+                int localGrampsViewDatabaseVersion = DataStore.Instance.ES.PreferencesGet(CommonConstants.SettingsGrampsViewDatabaseVersion, int.MinValue);
 
                 if (localGrampsViewDatabaseVersion == int.MinValue)
                 {
@@ -104,7 +103,7 @@
 
             set
             {
-                Preferences.Set("GrampsViewDatabaseVersion", value);
+                DataStore.Instance.ES.PreferencesSet("GrampsViewDatabaseVersion", value);
             }
         }
 
@@ -118,12 +117,12 @@
         {
             get
             {
-                return Preferences.Get("SerialisedData", false);
+                return DataStore.Instance.ES.PreferencesGet("SerialisedData", false);
             }
 
             set
             {
-                Preferences.Set("SerialisedData", value);
+                DataStore.Instance.ES.PreferencesSet("SerialisedData", value);
             }
         }
 
@@ -131,57 +130,25 @@
         {
             get
             {
-                return Preferences.Get("FirstRunDisplay", false);
+                return DataStore.Instance.ES.PreferencesGet("FirstRunDisplay", false);
             }
 
             set
             {
-                Preferences.Set("FirstRunDisplay", value);
+                DataStore.Instance.ES.PreferencesSet("FirstRunDisplay", value);
             }
         }
-
-        //public static DateTime LatestDatabaseChange
-        //{
-        //    get
-        //    {
-        //        return Preferences.Get("LatestDatabaseChange", new DateTime());
-        //    }
-
-        //    set
-        //    {
-        //        Preferences.Set("LatestDatabaseChange", value);
-        //    }
-        //}
-
-        ///// <summary>
-        ///// Gets or sets a value indicating whether [logging enabled].
-        ///// </summary>
-        ///// <value>
-        ///// <c>true</c> if [logging enabled]; otherwise, <c>false</c>.
-        ///// </value>
-        //public static bool LoggingEnabled
-        //{
-        //    get
-        //    {
-        //        return Preferences.Get("LoggingEnabled", false);
-        //    }
-
-        //    set
-        //    {
-        //        Preferences.Set("LoggingEnabled", value);
-        //    }
-        //}
 
         public static bool SortHLinkCollections
         {
             get
             {
-                return Preferences.Get("SortHLinkCollections", false);
+                return DataStore.Instance.ES.PreferencesGet("SortHLinkCollections", false);
             }
 
             set
             {
-                Preferences.Set("SortHLinkCollections", value);
+                DataStore.Instance.ES.PreferencesSet("SortHLinkCollections", value);
             }
         }
 
@@ -189,45 +156,21 @@
         {
             get
             {
-                return Preferences.Get("UseFirstImageFlag", false);
+                return DataStore.Instance.ES.PreferencesGet("UseFirstImageFlag", false);
             }
 
             set
             {
-                Preferences.Set("UseFirstImageFlag", value);
+                DataStore.Instance.ES.PreferencesSet("UseFirstImageFlag", value);
             }
         }
-
-        //public static bool WhatsNewDisplayed
-        //{
-        //    get
-        //    {
-        //        return Preferences.Get("WhatsNewDisplayed", false);
-        //    }
-
-        //    set
-        //    {
-        //        Preferences.Set("WhatsNewDisplayed", value);
-        //    }
-        //}
-
-        //public static void ClearPreferences()
-        //{
-        //    Preferences.Remove("ApplicationTheme");
-        //    Preferences.Remove("GrampsViewDatabaseVersion");
-        //    Preferences.Remove("SerialisedData");
-        //    Preferences.Remove("FirstRunDisplay");
-        //    Preferences.Remove("LatestDatabaseChange");
-        //    Preferences.Remove("LoggingEnabled");
-        //    Preferences.Remove("WhatsNewDisplayed");
-        //}
 
         public static void SetReloadDatabase()
         {
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
-            Preferences.Remove(CommonConstants.SettingsGPKGFileLastDateTimeModified);
-            Preferences.Remove(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
-            Preferences.Remove(CommonConstants.SettingsXMLFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsGPKGFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsXMLFileLastDateTimeModified);
 
             DataStore.Instance.DS.IsDataLoaded = false;
 

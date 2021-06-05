@@ -80,7 +80,12 @@
                .Returns(new Mock<IDataLog>().Object);
 
             ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
+
+            Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
+            IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
+
             DataStore.Instance.CN = iocCommonNotifications;
+            DataStore.Instance.ES = iocXamarinEssentials;
 
             //////////////////
             Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
@@ -123,6 +128,8 @@
 
             DataRepositoryManager newManager = new DataRepositoryManager(iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
 
+            StorePostLoad newPostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+
             // Clear the repositories in case we had to restart after being interupted. TODO have
             // better mock DataStore.Instance.AD.LoadDataStore();
             DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
@@ -134,31 +141,35 @@
 
             DataRepositoryManager.ClearRepositories();
 
-            // 1) UnTar *.GPKG
-            iocStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+            newManager.StartDataLoad();
 
-            newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
+            newPostLoad.LoadXMLUIItems(null);
 
-            // 2) UnZip new data.GRAMPS file
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
+            //// 1) UnTar *.GPKG
+            //iocStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
 
-            DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
+            //newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
 
-            newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
+            //// 2) UnZip new data.GRAMPS file
+            //FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
 
-            // 3) Load new data.XML file
-            FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
+            //DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
-            DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
+            //newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
 
-            // Load the new data
-            newManager.TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
+            //// 3) Load new data.XML file
+            //FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
-            // Fixup the models and hlinks
-            StorePostLoad myStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
-            // myStorePostLoad.LoadXMLUIItems(null);
+            //DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
-            DataStore.Instance.CN.DataLogHide();
+            //// Load the new data
+            //newManager.TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
+
+            //// Fixup the models and hlinks
+            //StorePostLoad myStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            //myStorePostLoad.LoadXMLUIItems(null);
+
+            //DataStore.Instance.CN.DataLogHide();
 
             Assert.True(DataStore.Instance.AD.CurrentInputStream != null);
         }
