@@ -17,8 +17,8 @@
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
             </Grid.ColumnDefinitions>
 

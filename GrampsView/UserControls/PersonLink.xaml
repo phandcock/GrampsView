@@ -8,9 +8,10 @@
     x:DataType="models:HLinkPersonModel"
     BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                       Light={StaticResource SecondaryColorLight}}"
+    HeightRequest="100"
     IsEnabled="{Binding Valid}"
-    MinimumHeightRequest="100"
-    Style="{DynamicResource FrameCardStyle}">
+    Style="{DynamicResource FrameCardStyle}"
+    VerticalOptions="Center">
 
     <Frame.Content>
 
