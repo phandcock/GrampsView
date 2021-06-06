@@ -1,7 +1,5 @@
 ﻿// XML 171 - All fields defined
 
-// TODO fix Deref caching
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;

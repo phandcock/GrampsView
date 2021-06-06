@@ -285,17 +285,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the sibling reference collection.
-        /// </summary>
-        /// <value>
-        /// The sibling reference collection.
-        /// </value>
-        public HLinkPersonModelCollection SiblingRefCollection
-        {
-            get;
-        } = new HLinkPersonModelCollection();
-
-        /// <summary>
         /// Compare two PersonModels.
         /// </summary>
         /// <param name="a">

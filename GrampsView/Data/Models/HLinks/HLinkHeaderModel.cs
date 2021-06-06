@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-// TODO fix Deref caching
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
 
@@ -10,9 +6,10 @@ namespace GrampsView.Data.Model
 
     /// <summary>
     /// HLink to the Header model.
+    ///
+    /// XML 1.71 check done
     /// </summary>
 
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {

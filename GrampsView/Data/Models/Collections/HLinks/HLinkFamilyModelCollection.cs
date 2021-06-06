@@ -1,6 +1,5 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
+﻿/// <summary>
+/// XML 1.71 check done
 /// </summary>
 namespace GrampsView.Data.Collections
 {
@@ -15,7 +14,7 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Colelction of Family hLinks.
+    /// Collection of Family hLinks.
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkFamilyModel}"/>
     [CollectionDataContract]

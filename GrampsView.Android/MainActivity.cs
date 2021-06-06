@@ -89,13 +89,13 @@
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
-            var newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unhandledExceptionEventArgs.ExceptionObject as Exception);
+            Exception newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unhandledExceptionEventArgs.ExceptionObject as Exception);
             DataStore.Instance.CN.NotifyException("CurrentDomainOnUnhandledException", newExc);
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
-            var newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unobservedTaskExceptionEventArgs.Exception);
+            Exception newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unobservedTaskExceptionEventArgs.Exception);
             DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }

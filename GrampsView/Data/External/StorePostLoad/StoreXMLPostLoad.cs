@@ -415,25 +415,6 @@
                     argModel.IsLiving = true;
                 }
 
-                // set Sibling Collection
-                if (argModel.GChildOf.Valid)
-                {
-                    argModel.SiblingRefCollection.Clear();
-
-                    foreach (HLinkChildRefModel item in DV.FamilyDV.FamilyData[argModel.GChildOf.HLinkKey.Value].GChildRefCollection)
-                    {
-                        argModel.SiblingRefCollection.Add(item.DeRef.HLink);
-                    }
-                }
-
-                // Sibling Collection
-                //argModel.SiblingRefCollection.SetGlyph();
-
-                //foreach (HLinkPersonModel personRef in argModel.SiblingRefCollection)
-                //{
-                //    DataStore.Instance.DS.PersonData[personRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                //}
-
                 // Tag Collection
                 argModel.GTagRefCollection.SetGlyph();
 
