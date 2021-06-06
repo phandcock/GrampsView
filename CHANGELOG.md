@@ -1,3 +1,17 @@
+## [16.17.54](https://github.com/phandcock/GrampsView/compare/v16.17.53...v16.17.54) (2021-06-06)
+
+
+### Bug Fixes
+
+* correctly add glyphs for family children ([0059ed5](https://github.com/phandcock/GrampsView/commit/0059ed5233c9b2797ee9e548da125ad348cefec0))
+* error and warning cleanup ([b0a0da7](https://github.com/phandcock/GrampsView/commit/b0a0da711cc1d2904f702a30e2595724960e063d))
+* fix Priv set bug ([6a381a4](https://github.com/phandcock/GrampsView/commit/6a381a412a1235896f5da8c9282465a8d48737c7))
+* fix truncation of long name sin personnamesingle usercontrol ([241cea6](https://github.com/phandcock/GrampsView/commit/241cea61814d651354cdbecd01040ea30b76d985))
+* show biography person note ([bb796f6](https://github.com/phandcock/GrampsView/commit/bb796f63d5503116a3be823db6212912fa562da1))
+* use IXamarinEssentials class so we can mock it in Unit Testing ([650421c](https://github.com/phandcock/GrampsView/commit/650421cc0417592db7464bf9eb2220d5005be2ad))
+
+
+
 ## [16.17.53](https://github.com/phandcock/GrampsView/compare/v16.17.52...v16.17.53) (2021-06-03)
 
 
@@ -26,20 +40,6 @@
 * cleanup addressmodel glyphs ([4fa7745](https://github.com/phandcock/GrampsView/commit/4fa774502d9e216df60fe5c10e873745e5af4330))
 * more address cleanups of glyph code ([c848d6f](https://github.com/phandcock/GrampsView/commit/c848d6f5aec08053a5e0f1fca20c31d4963324e3))
 * rework model collection sorts and backlinks ([f889f70](https://github.com/phandcock/GrampsView/commit/f889f707472f7f8163e2828a7bd4530bb1741302))
-
-
-
-## [16.17.50](https://github.com/phandcock/GrampsView/compare/v16.17.49...v16.17.50) (2021-05-30)
-
-
-### Bug Fixes
-
-* cleanup glyphs ([3536841](https://github.com/phandcock/GrampsView/commit/35368419dbf4da7045130e685ee842dc7991b00d))
-* familymodel mother/father glyphs ([426fa8f](https://github.com/phandcock/GrampsView/commit/426fa8f7cc1ce88c5f78e75b7ffeadf089e7b7da))
-* fix bookmark glyphs ([821fa2b](https://github.com/phandcock/GrampsView/commit/821fa2b108caaa790ab183a260aa6d36b9dd751b))
-* fix familymodel childrenref glyphs ([a62a377](https://github.com/phandcock/GrampsView/commit/a62a3778fc838bd40a6d9ab28f6a26f8526a6df7))
-* fix shell search ([da115a6](https://github.com/phandcock/GrampsView/commit/da115a68a76086288922dd1c07f4d97c4498d7f4))
-* validate HLink and Glyphs better.  Cache HLink Models. ([ab6f51d](https://github.com/phandcock/GrampsView/commit/ab6f51d8eb96c13b91e566009bd74ddfa22bc6ef))
 
 
 
