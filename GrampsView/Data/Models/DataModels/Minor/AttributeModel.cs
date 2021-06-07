@@ -44,7 +44,7 @@ namespace GrampsView.Data.Model
 
                 if (!string.IsNullOrEmpty(GValue))
                 {
-                    returnString += string.Format(" {0}", GValue);
+                    returnString += $" {GValue}";
                 }
 
                 return returnString;

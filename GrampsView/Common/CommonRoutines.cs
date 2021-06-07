@@ -154,8 +154,6 @@
 
         public static async Task NavigateAsync(string argPageName)
         {
-            //await DataStore.Instance.CN.MinorMessageAdd(string.Format("Navigating to: {0}", argPageName));
-
             if (Device.RuntimePlatform == Device.UWP)
             {
                 MainThread.BeginInvokeOnMainThread(() =>
@@ -190,12 +188,12 @@
             {
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    Shell.Current.GoToAsync(string.Format("//{0}", nameof(HubPage)));
+                    Shell.Current.GoToAsync($"//{nameof(HubPage)}");
                 });
             }
             else
             {
-                Shell.Current.GoToAsync(string.Format("//{0}", nameof(HubPage)));
+                Shell.Current.GoToAsync($"//{nameof(HubPage)}");
             };
         }
 

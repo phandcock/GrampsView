@@ -11,14 +11,14 @@
 
 namespace GrampsView.Common
 {
+    using Prism.Mvvm;
+
     using System;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Linq.Expressions;
     using System.Runtime.CompilerServices;
     using System.Runtime.Serialization;
-
-    using Prism.Mvvm;
 
     /// <summary>
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.
@@ -106,9 +106,7 @@ namespace GrampsView.Common
                 Debug.Fail(
                     string.Format(
                         System.Globalization.CultureInfo.CurrentCulture,
-                            "Invalid property name. Type: {0}, Name: {1}",
-                            GetType(),
-                            propertyName));
+                            $"Invalid property name. Type: {  GetType()}, Name: {propertyName}"));
             }
         }
     }

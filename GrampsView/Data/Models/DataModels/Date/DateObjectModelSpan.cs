@@ -225,7 +225,7 @@
         {
             get
             {
-                string dateString = String.Format("{0} to {1}", GStart, GStop);
+                string dateString = $"{GStart} to {GStop}";
 
                 // Do not display a messgae if thw quality is unknown
                 if (GQuality != DateQuality.unknown)
@@ -235,7 +235,7 @@
 
                 if (!string.IsNullOrEmpty(GCformat))
                 {
-                    dateString = string.Format("{0} Format: {1}", dateString, GCformat);
+                    dateString = $"{dateString} Format: {GCformat}";
                     ;
                 }
 

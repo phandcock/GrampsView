@@ -10,12 +10,12 @@
         {
             if (argCardListLine.Label != argLabel)
             {
-                Assert.Fail(string.Format("The CardListLine string was '{0}' when it should have been '{1}'", argCardListLine.Label, argLabel));
+                Assert.Fail($"The CardListLine string was '{argCardListLine.Label}' when it should have been '{ argLabel}'");
             }
 
             if (argCardListLine.Value != argValue)
             {
-                Assert.Fail(string.Format("The CardListLine string was '{0}' when it should have been '{1}'", argCardListLine.Value, argValue));
+                Assert.Fail($"The CardListLine string was '{argCardListLine.Value}' when it should have been '{argValue}'");
             }
         }
     }

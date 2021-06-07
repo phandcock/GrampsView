@@ -186,16 +186,28 @@
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
-            var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
+            unobservedTaskExceptionEventArgs.SetObserved();
 
-            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            ((AggregateException)unobservedTaskExceptionEventArgs.Exception).Handle(ex =>
+            {
+                var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
+
+                DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+
+                return true;
+            });
         }
 
-        private static void UnhandledExceptionHandler(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs args)
+        private static void UnhandledExceptionHandler(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs argsUnhandledExceptionEventArgs)
         {
-            Exception e = args.Exception;
+            ((AggregateException)argsUnhandledExceptionEventArgs.Exception).Handle(ex =>
+            {
+                Exception e = argsUnhandledExceptionEventArgs.Exception;
 
-            DataStore.Instance.CN.NotifyException(string.Format("UnhandledExceptionHandler-{0}", args.Message), e);
+                DataStore.Instance.CN.NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
+
+                return true;
+            });
         }
 
         /// <summary>
