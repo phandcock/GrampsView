@@ -1,3 +1,13 @@
+## [16.17.55](https://github.com/phandcock/GrampsView/compare/v16.17.54...v16.17.55) (2021-06-07)
+
+
+### Bug Fixes
+
+* tweaks ([07e7bfc](https://github.com/phandcock/GrampsView/commit/07e7bfcee540cd597aa24d3c95011ff1e6699600))
+* tweaks ([210feae](https://github.com/phandcock/GrampsView/commit/210feaeb8b8256ddfa7e77137b00f9c1be1fb105))
+
+
+
 ## [16.17.54](https://github.com/phandcock/GrampsView/compare/v16.17.53...v16.17.54) (2021-06-06)
 
 
@@ -29,17 +39,6 @@
 * decode citation confidence ([e360b6f](https://github.com/phandcock/GrampsView/commit/e360b6f7b7161403ab77daf24850251cc171d71e))
 * update hlinkcollection sorting ([743c1e6](https://github.com/phandcock/GrampsView/commit/743c1e67358e598aec2a18be9b04a1f9d91e1dc0))
 * UWP store scheduling ([6e65f24](https://github.com/phandcock/GrampsView/commit/6e65f248c938dbb41c48e957329a3b012e027e78))
-
-
-
-## [16.17.51](https://github.com/phandcock/GrampsView/compare/v16.17.50...v16.17.51) (2021-05-31)
-
-
-### Bug Fixes
-
-* cleanup addressmodel glyphs ([4fa7745](https://github.com/phandcock/GrampsView/commit/4fa774502d9e216df60fe5c10e873745e5af4330))
-* more address cleanups of glyph code ([c848d6f](https://github.com/phandcock/GrampsView/commit/c848d6f5aec08053a5e0f1fca20c31d4963324e3))
-* rework model collection sorts and backlinks ([f889f70](https://github.com/phandcock/GrampsView/commit/f889f707472f7f8163e2828a7bd4530bb1741302))
 
 
 
