@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using FFImageLoading;
     using FFImageLoading.Cache;
 
     using GrampsView.Common;
@@ -289,15 +288,7 @@
             {
                 // TODO create data folder await localStoreFile.SetDataFolderLocalStorage();
 
-                // Clear image cache
-                try
-                {
-                    await ImageService.Instance.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
-                }
-                catch (NotImplementedException ex)
-                {
-                    // TODO Ignore as part of Unit Tests
-                }
+                await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
 
                 // TODO work out how to delete excess files based on keeping the ones in the GPKG file
                 //// Delete directories of files. Assume files in root are ok

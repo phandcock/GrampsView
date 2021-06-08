@@ -84,8 +84,12 @@
             Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
             IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
 
+            Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
+            IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
+
             DataStore.Instance.CN = iocCommonNotifications;
             DataStore.Instance.ES = iocXamarinEssentials;
+            DataStore.Instance.FFIL = iocFFImageLoading;
 
             //////////////////
             Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();

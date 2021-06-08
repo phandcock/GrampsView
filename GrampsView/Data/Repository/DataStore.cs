@@ -56,5 +56,10 @@ namespace GrampsView.Data.Repository
         {
             get; set;
         } = new XamarinEssentials();
+
+        public IFFImageLoading FFIL
+        {
+            get; set;
+        } = new XamarinIFFImageLoading();
     }
 }

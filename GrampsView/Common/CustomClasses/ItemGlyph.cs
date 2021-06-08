@@ -135,12 +135,7 @@
                         }
                     case CommonEnums.HLinkGlyphType.Symbol:
                         {
-                            //if ((SymbolColour != Color.White) && (Symbol != CommonConstants.IconDDefault))
-                            //{
                             return true;
-                            //}
-
-                            break;
                         }
                     case CommonEnums.HLinkGlyphType.TempLoading:
                         {

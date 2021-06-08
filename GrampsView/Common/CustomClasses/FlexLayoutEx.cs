@@ -130,8 +130,8 @@
 
             int visibleChildCount = 0;
             Size maxChildSize = new Size();
-            int rows = 0;
-            int columns = 0;
+            int rows;
+            int columns;
             LayoutData layoutData = new LayoutData();
 
             // Enumerate through all the children.
