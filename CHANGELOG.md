@@ -1,3 +1,13 @@
+## [16.17.56](https://github.com/phandcock/GrampsView/compare/v16.17.55...v16.17.56) (2021-06-09)
+
+
+### Bug Fixes
+
+* moc ffimageloading to allow use during unit testing ([5e9151d](https://github.com/phandcock/GrampsView/commit/5e9151df14e22a3759d7c7f6a620a0ce08db4e55))
+* tweaks ([b8ccc88](https://github.com/phandcock/GrampsView/commit/b8ccc8822a610b758f586ac65f5786098fdfd783))
+
+
+
 ## [16.17.55](https://github.com/phandcock/GrampsView/compare/v16.17.54...v16.17.55) (2021-06-07)
 
 
@@ -28,17 +38,6 @@
 ### Bug Fixes
 
 * tweaks and priv load bug fix ([7d45d12](https://github.com/phandcock/GrampsView/commit/7d45d12c8aa8af7a1c8e798ce5d2416f5b30f5eb))
-
-
-
-## [16.17.52](https://github.com/phandcock/GrampsView/compare/v16.17.51...v16.17.52) (2021-06-02)
-
-
-### Bug Fixes
-
-* decode citation confidence ([e360b6f](https://github.com/phandcock/GrampsView/commit/e360b6f7b7161403ab77daf24850251cc171d71e))
-* update hlinkcollection sorting ([743c1e6](https://github.com/phandcock/GrampsView/commit/743c1e67358e598aec2a18be9b04a1f9d91e1dc0))
-* UWP store scheduling ([6e65f24](https://github.com/phandcock/GrampsView/commit/6e65f248c938dbb41c48e957329a3b012e027e78))
 
 
 
