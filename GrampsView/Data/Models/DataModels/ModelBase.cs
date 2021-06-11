@@ -17,7 +17,7 @@
     /// <summary>
     /// Base for Models.
     /// </summary>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
+    /// <seealso cref="GrampsView.Common.ObservableObject"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// /// ///
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
@@ -38,7 +38,7 @@
     [KnownType(typeof(HLinkSourceModel))]
     [KnownType(typeof(HLinkTagModel))]
     [KnownType(typeof(ItemGlyph))]
-    public class ModelBase : CommonBindableBase, IModelBase
+    public class ModelBase : ObservableObject, IModelBase
     {
         /// <summary>
         /// The local h link reference collection.

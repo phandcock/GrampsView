@@ -7,10 +7,12 @@
 
     using Prism.Events;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
+    public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         /// <summary>
         /// The local common logging.

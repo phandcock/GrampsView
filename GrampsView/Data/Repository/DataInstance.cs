@@ -3,7 +3,6 @@
 /// </summary>
 namespace GrampsView.Data.Repository
 {
-    using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -11,12 +10,14 @@ namespace GrampsView.Data.Repository
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Static Data Store.
     /// </summary>
     [DataContract]
     [KnownType(typeof(ObservableCollection<object>))]
-    public class DataInstance : CommonBindableBase
+    public class DataInstance : ObservableObject
     {
         /// <summary>
         /// The address data

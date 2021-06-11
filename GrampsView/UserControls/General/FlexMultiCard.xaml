@@ -1,0 +1,19 @@
+﻿<Frame
+    x:Class="GrampsView.UserControls.FlexMultiCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    x:Name="FlexSingleCardRoot"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent"
+    IsVisible="{Binding FsctSource.Visible, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}">
+
+    <common:FlexLayoutEx
+        x:Name="theCollectionView"
+        AlignItems="Stretch"
+        BackgroundColor="Transparent"
+        BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
+        Style="{StaticResource FlexSingleCollection}"
+        Wrap="Wrap" />
+</Frame>

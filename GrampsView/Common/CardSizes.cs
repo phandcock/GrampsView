@@ -5,9 +5,10 @@
     using System;
     using System.ComponentModel;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
-    public class CardSizes : CommonBindableBase, INotifyPropertyChanged
+    public class CardSizes : ObservableObject, INotifyPropertyChanged
     {
         // Ratio of Height to width is 3 times
 

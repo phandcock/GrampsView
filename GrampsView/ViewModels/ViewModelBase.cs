@@ -7,12 +7,13 @@
     using System.ComponentModel;
     using System.Diagnostics;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
-    public class ViewModelBase : CommonBindableBase, INotifyPropertyChanged
+    public class ViewModelBase : ObservableObject, INotifyPropertyChanged
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.

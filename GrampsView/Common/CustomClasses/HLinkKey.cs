@@ -2,8 +2,10 @@
 {
     using System.Runtime.Serialization;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     [DataContract]
-    public class HLinkKey : CommonBindableBase
+    public class HLinkKey : ObservableObject
     {
         public HLinkKey(string argHlinkKeyValue)
         {

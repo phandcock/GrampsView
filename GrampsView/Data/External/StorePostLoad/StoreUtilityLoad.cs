@@ -10,10 +10,12 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
+    public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         public static bool FixSingleMediaFile(IMediaModel argMediaModel)
         {

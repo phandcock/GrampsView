@@ -12,7 +12,9 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
+    using Xamarin.CommunityToolkit.ObjectModel;
+
+    public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         private List<MediaModel> addLater = new List<MediaModel>();
 

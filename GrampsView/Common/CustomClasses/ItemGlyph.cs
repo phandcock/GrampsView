@@ -13,7 +13,7 @@
     using Xamarin.Forms;
 
     [DataContract]
-    public class ItemGlyph : CommonBindableBase
+    public class ItemGlyph : ObservableObject
     {
         public ItemGlyph()
         {

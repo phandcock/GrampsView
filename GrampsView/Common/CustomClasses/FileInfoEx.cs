@@ -2,7 +2,9 @@
 {
     using System.IO;
 
-    public class FileInfoEx : CommonBindableBase
+    using Xamarin.CommunityToolkit.ObjectModel;
+
+    public class FileInfoEx : ObservableObject
     {
         private FileInfo _FInfo;
 

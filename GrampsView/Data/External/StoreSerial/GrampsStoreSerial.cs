@@ -11,10 +11,12 @@
     using System.IO.IsolatedStorage;
     using System.Runtime.Serialization;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    public class GrampsStoreSerial : CommonBindableBase, IGrampsStoreSerial
+    public class GrampsStoreSerial : ObservableObject, IGrampsStoreSerial
     {
         /// <summary>
         /// The local common logging.

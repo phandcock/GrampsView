@@ -5,9 +5,10 @@
 
     using System.IO;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
 
-    public class ApplicationWideData : CommonBindableBase
+    public class ApplicationWideData : ObservableObject
     {
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 

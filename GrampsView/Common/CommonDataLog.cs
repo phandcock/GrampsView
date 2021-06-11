@@ -7,13 +7,14 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
 
     /// <summary>
     /// Common Progress routines.
     /// </summary>
     [DataContract]
-    public class CommonDataLog : CommonBindableBase, IDataLog
+    public class CommonDataLog : ObservableObject, IDataLog
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonNotifications"/> class.

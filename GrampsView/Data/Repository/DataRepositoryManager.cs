@@ -18,11 +18,13 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
     [DataContract]
-    public sealed class DataRepositoryManager : CommonBindableBase, IDataRepositoryManager
+    public sealed class DataRepositoryManager : ObservableObject, IDataRepositoryManager
     {
         /// <summary>
         /// The local common logging.

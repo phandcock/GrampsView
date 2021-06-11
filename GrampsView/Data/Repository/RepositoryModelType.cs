@@ -22,7 +22,7 @@ namespace GrampsView.Data.Repositories
     /// <typeparam name="T2">
     /// HLink Base.
     /// </typeparam>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
+    /// <seealso cref="GrampsView.Common.ObservableObject"/>
     /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.Repositories.IRepositoryModelDictionary{T, U}"/>
     /// /// /// /// /// /// /// ///

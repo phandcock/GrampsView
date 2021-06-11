@@ -11,7 +11,9 @@
     using System.Xml;
     using System.Xml.Linq;
 
-    public partial class StoreXML : CommonBindableBase, IStoreXML
+    using Xamarin.CommunityToolkit.ObjectModel;
+
+    public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>
         /// The default XML namespace.

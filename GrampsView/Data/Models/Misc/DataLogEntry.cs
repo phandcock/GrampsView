@@ -1,9 +1,11 @@
-﻿namespace GrampsView.Common
+﻿using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Common
 {
     /// <summary>
     /// Defines format of Data Log Entries.
     /// </summary>
-    public class DataLogEntry : CommonBindableBase, System.IEquatable<DataLogEntry>
+    public class DataLogEntry : ObservableObject, System.IEquatable<DataLogEntry>
     {
         private string _Label;
 

@@ -2,13 +2,15 @@
 
 using System;
 
+using Xamarin.CommunityToolkit.ObjectModel;
+
 namespace GrampsView.Data.Repository
 {
     /// <summary>
     /// Static Data Store.
     /// </summary>
 
-    public sealed class DataStore : CommonBindableBase
+    public sealed class DataStore : ObservableObject
 
     {
         private static readonly Lazy<DataStore> lazy = new Lazy<DataStore>(() => new DataStore());

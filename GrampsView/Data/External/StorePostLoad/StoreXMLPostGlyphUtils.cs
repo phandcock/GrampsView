@@ -9,7 +9,9 @@
 
     using System.Threading.Tasks;
 
-    public partial class StorePostLoad : CommonBindableBase, IStorePostLoad
+    using Xamarin.CommunityToolkit.ObjectModel;
+
+    public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         public static ErrorInfo UtilGetPostGlyphErrorInfo(string argErrorText, MediaModel argMediaModel)
         {

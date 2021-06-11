@@ -26,7 +26,7 @@
             <StackLayout>
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+                <ucon:FlexMultiCard FsctSource="{Binding BaseDetail, Mode=OneWay}" />
 
                 <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
 

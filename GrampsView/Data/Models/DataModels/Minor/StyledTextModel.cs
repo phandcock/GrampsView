@@ -4,10 +4,10 @@
 /// </summary>
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// Styled Text model collection.
@@ -15,7 +15,7 @@ namespace GrampsView.Data.Model
 
     [DataContract]
     [KnownType(typeof(StyledTextModel))]
-    public class StyledTextModel : CommonBindableBase, IStyledTextModel
+    public class StyledTextModel : ObservableObject, IStyledTextModel
     {
         private readonly ObservableCollection<GrampsStyle> _Styles
 

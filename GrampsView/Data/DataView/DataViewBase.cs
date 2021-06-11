@@ -10,6 +10,8 @@
     using System.Diagnostics.Contracts;
     using System.Linq;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Partially based on http://stackoverflow.com/questions/8157140/net-4-0-indexer-with-observablecollection.
     /// </summary>
@@ -22,12 +24,12 @@
     /// <typeparam name="TH">
     /// Hlink.
     /// </typeparam>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
+    /// <seealso cref="GrampsView.Common.ObservableObject"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.DataView.IDataViewBase{T, U, H}"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.ComponentViewModel.INotifyPropertyChanged"/>
-    public abstract class DataViewBase<TB, TU, TH> : CommonBindableBase, IDataViewBase<TB, TU, TH>, INotifyPropertyChanged
+    public abstract class DataViewBase<TB, TU, TH> : ObservableObject, IDataViewBase<TB, TU, TH>, INotifyPropertyChanged
         where TH : HLinkBaseCollection<TU>, new()
         where TB : ModelBase, new()
         where TU : HLinkBase, new()

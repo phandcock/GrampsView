@@ -10,7 +10,7 @@
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
+    /// <seealso cref="GrampsView.Common.ObservableObject"/>
     /// /// ///
     /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
     public partial class StoreXML : IStoreXML

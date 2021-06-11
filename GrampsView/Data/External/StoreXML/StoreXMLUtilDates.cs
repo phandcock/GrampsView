@@ -9,6 +9,8 @@
     using System.Diagnostics.Contracts;
     using System.Xml.Linq;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary> Private Storage Routines. </summary> <code> <define name="date-content">
     // <choice> <element name = "daterange" > < attribute name="start"><text/></attribute>
     // <attribute name = "stop" >< text /></ attribute > < optional >< attribute
@@ -33,7 +35,7 @@
     // <optional><attribute name = "newyear" >< text /></ attribute ></ optional > </ element > <
     // element name="datestr"> <attribute name = "val" >< text /></ attribute > </ element > </
     // choice > </ define > </ code >
-    public partial class StoreXML : CommonBindableBase, IStoreXML
+    public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>
         /// Sets the date.

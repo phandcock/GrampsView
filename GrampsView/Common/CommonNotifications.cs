@@ -12,6 +12,7 @@
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.Extensions;
+    using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
@@ -19,7 +20,7 @@
     /// Common Notification routines.
     /// </summary>
     [DataContract]
-    public class CommonNotifications : CommonBindableBase, ICommonNotifications
+    public class CommonNotifications : ObservableObject, ICommonNotifications
     {
         /// <summary>
         /// Common logging routines.

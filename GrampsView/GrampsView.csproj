@@ -18,6 +18,7 @@
   <ItemGroup>
     <Compile Remove="Common\ActionDialogArgs.cs" />
     <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
+    <Compile Remove="Common\ObservableObject.cs" />
     <Compile Remove="Common\CommonFontNamesFAB.cs" />
     <Compile Remove="Common\CommonFontNamesFAR.cs" />
     <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
@@ -121,6 +122,9 @@
     </Compile>
     <Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
       <DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\General\FlexMultiCard.xaml.cs">
+      <DependentUpon>FlexMultiCard.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>

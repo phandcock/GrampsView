@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
@@ -9,8 +8,10 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     [DataContract]
-    public partial class StoreFolder : CommonBindableBase
+    public partial class StoreFolder : ObservableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreFolder"/> class.

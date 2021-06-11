@@ -10,14 +10,16 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Common.CommonBindableBase"/>
+    /// <seealso cref="GrampsView.Common.ObservableObject"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.IStoreFile"/>
-    public partial class StoreFile : CommonBindableBase, IStoreFile
+    public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>
         /// Extracts the tar by entry.

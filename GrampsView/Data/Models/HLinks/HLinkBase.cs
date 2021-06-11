@@ -16,7 +16,7 @@
 
     /// TODO Update fields as per Schema
     [DataContract]
-    public class HLinkBase : CommonBindableBase, IHLinkBase
+    public class HLinkBase : ObservableObject, IHLinkBase
     {
         public HLinkBase()
         {
