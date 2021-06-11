@@ -49,7 +49,7 @@
              IMediaModel newMediaModel = new MediaModel();
 
              HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey.Value + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
-             string outFileName = string.Format("{0}{1}.png", newHLinkKey.Value, "~crop");
+             string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
 
              if (newHLinkKey.Value == "_c47ecf788120563f2b2-52148135")
              {

@@ -104,10 +104,6 @@
                                 {
                                     string temp = StoreFileUtility.CleanFilePath(mediaFileName);
 
-                                    // await
-                                    // DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
-                                    // media file: {0}", temp));
-
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata

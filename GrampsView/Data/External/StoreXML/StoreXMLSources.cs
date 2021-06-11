@@ -63,9 +63,6 @@
 
                         loadSource.GSTitle = GetElement(pSourceElement, "stitle");
 
-                        // await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
-                        // Source entry: {0}", loadSource.GSTitle));
-
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 

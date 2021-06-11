@@ -180,7 +180,7 @@
                     {
                         ser = JsonConvert.SerializeObject(this.ImageHLinkMediaModel);
 
-                        await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+                        await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }
@@ -188,7 +188,7 @@
                     {
                         ser = JsonConvert.SerializeObject(this.MediaHLinkMediaModel);
 
-                        await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsHLink={1}", "MediaDetailPage", ser));
+                        await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }
@@ -206,7 +206,7 @@
         {
             if (MediaHLink == null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo(string.Format("{0} is null", argHLinkKey)));
+                DataStore.Instance.CN.NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
                 return new HLinkMediaModel();
             }
 

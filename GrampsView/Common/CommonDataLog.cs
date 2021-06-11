@@ -126,7 +126,7 @@
         {
             DataLogEntry t = new DataLogEntry
             {
-                Label = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:HH: mm:ss}", DateTime.Now).Trim(),
+                Label = $"{ DateTime.Now:0:HH: mm:ss}",
                 Text = argEntryText.Trim()
             };
 

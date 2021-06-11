@@ -206,7 +206,7 @@
             {
                 if (Valid)
                 {
-                    return string.Format((AppResources.FieldPrefixShortDate as string), ShortDate);
+                    return $"{AppResources.FieldPrefixShortDate as string},{ShortDate}";
                 }
 
                 return string.Empty;

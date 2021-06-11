@@ -132,18 +132,10 @@
 
                         // load the person
                         DV.PersonDV.PersonData.Add(loadPerson);
-
-                        // await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading
-                        // Person: {0}", loadPerson.GetDefaultText)).ConfigureAwait(false);
                     }
 
                     // let everybody know
                     localGrampsCommonLogging.RoutineExit("loadPeopleData");
-
-                    //foreach (var item in DataStore.Instance.DS.PersonNameData.Values)
-                    //{
-                    //    Debug.WriteLine(item.FullName);
-                    //}
                 }
                 catch (Exception ex)
                 {

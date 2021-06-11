@@ -90,7 +90,7 @@
             {
                 if (!string.IsNullOrEmpty(GFatherRel) & !string.IsNullOrEmpty(GMotherRel))
                 {
-                    return string.Format("{0}-{1}", GFatherRel, GMotherRel);
+                    return $"{GFatherRel}-{GMotherRel}";
                 }
 
                 return string.Empty;

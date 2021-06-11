@@ -397,7 +397,7 @@
         {
             string ser = JsonConvert.SerializeObject(dataIn);
 
-            await CommonRoutines.NavigateAsync(string.Format("{0}?BaseParamsModel={1}", argPage, ser));
+            await CommonRoutines.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }
     }
 }

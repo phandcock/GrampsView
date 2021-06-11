@@ -218,7 +218,7 @@
                         {
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace(String.Format(System.Globalization.CultureInfo.CurrentCulture, "UnTaring file {0}", tarEntry.Name));
+                        await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -300,8 +300,6 @@
                                     { "New Folder",  newFolder.FullName },
                                     { "Filename",  filename },
                                 };
-
-                        // string.Format(System.Globalization.CultureInfo.CurrentCulture
 
                         DataStore.Instance.CN.NotifyError(t);
 

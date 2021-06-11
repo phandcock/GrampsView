@@ -49,9 +49,6 @@
 
                         loadCitation.GSourceRef.HLinkKey = GetHLinkKey(pcitation.Element(ns + "sourceref").Attribute("hlink"));
 
-                        // await DataStore.Instance.CN.DataLogEntryReplace(String.Format("Loading
-                        // Citation for: {0}", loadCitation.GSourceRef.DeRef.GetDefaultText));
-
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
                         // save the citation

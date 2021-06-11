@@ -42,10 +42,7 @@
             if (translation == null)
             {
 #if DEBUG
-                throw new ArgumentException(
-                        string.Format(
-                        CultureInfo.CurrentCulture,
-                        "Key '{0}' was not found in resources '{1}' for culture '{2}'.", nameof(Text), ResourceId, ci.Name),
+                throw new ArgumentException($"Key '{ nameof(Text)}' was not found in resources '{ResourceId}' for culture '{ci.Name}'.",
                         nameof(serviceProvider));
 #else
 				translation = Text; // HACK: returns the key, which GETS DISPLAYED TO THE USER

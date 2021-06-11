@@ -60,7 +60,7 @@
                             DataStore.Instance.CN.NotifyError(t);
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace(string.Format("Loading bookmark type: {0}", newHlinkBackLink.HLinkType));
+                        await DataStore.Instance.CN.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
                     }
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;

@@ -103,10 +103,7 @@ namespace GrampsView.Common
         {
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
             {
-                Debug.Fail(
-                    string.Format(
-                        System.Globalization.CultureInfo.CurrentCulture,
-                            $"Invalid property name. Type: {  GetType()}, Name: {propertyName}"));
+                Debug.Fail($"Invalid property name. Type: {  GetType()}, Name: {propertyName}");
             }
         }
     }

@@ -41,17 +41,17 @@ namespace GrampsView.Data.Model
             {
                 if (!string.IsNullOrEmpty(GCall))
                 {
-                    return string.Format("Called: {0}", GCall);
+                    return $"Called: {GCall}";
                 }
 
                 if (!string.IsNullOrEmpty(GNick))
                 {
-                    return string.Format("Nickname: {0}", GNick);
+                    return $"Nickname: {GNick}";
                 }
 
                 if (!string.IsNullOrEmpty(GFamilyNick))
                 {
-                    return string.Format("Family Nickname: {0}", GFamilyNick);
+                    return $"Family Nickname: {GFamilyNick}";
                 }
 
                 return string.Empty;
