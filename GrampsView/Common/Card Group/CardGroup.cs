@@ -3,9 +3,11 @@
     using GrampsView.Data.Model;
 
     using System;
+    using System.Collections.Specialized;
+    using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
-    public class CardGroup : CardGroupBase<object>
+    public class CardGroup : CardGroupBase<object>, INotifyCollectionChanged, INotifyPropertyChanged
     {
         public CardGroup()
         {

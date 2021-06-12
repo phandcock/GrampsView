@@ -84,6 +84,14 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
 
+    <Style x:Key="FlexMulti" TargetType="FlexLayout">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
+        <Setter Property="AlignItems" Value="Stretch" />
+        <Setter Property="Wrap" Value="Wrap" />
+    </Style>
+
     <!--
         ******************************************************
         Frame Styles
