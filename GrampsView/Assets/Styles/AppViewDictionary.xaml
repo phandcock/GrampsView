@@ -195,7 +195,7 @@
         x:Key="FrameSmallVariableCardStyle"
         BasedOn="{StaticResource FrameCardSmallStyle}"
         TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <!--<Setter Property="MinimumHeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
         <Setter Property="HasShadow" Value="True" />
     </Style>
 

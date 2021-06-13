@@ -1,17 +1,16 @@
-﻿<common:FlexLayoutEx
+﻿<Frame
     x:Class="GrampsView.UserControls.FlexMultiCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    x:Name="FlexSingleCardRoot"
+    x:Name="FlexMultiCardRoot"
     Margin="0"
     Padding="0"
-    AlignItems="Stretch"
     BackgroundColor="Transparent"
-    BindableLayout.ItemsSource="{Binding ., Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
-    BindingContextChanged="FlexSingleCardRoot_BindingContextChanged"
-    Style="{StaticResource FlexSingleCollection}"
-    Wrap="Wrap">
+    IsVisible="{Binding FsctSource.Visible, Source={x:Reference FlexMultiCardRoot}, Mode=OneWay}">
 
-    <!--  TODO IsVisible="{Binding   .Visible, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}">  -->
-</common:FlexLayoutEx>
+    <common:FlexLayoutEx
+        x:Name="theFlex"
+        BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexMultiCardRoot}, Mode=OneWay}"
+        Style="{StaticResource FlexMulti}" />
+</Frame>

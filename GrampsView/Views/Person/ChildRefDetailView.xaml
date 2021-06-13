@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -27,10 +27,7 @@
             <StackLayout>
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <common:FlexLayoutEx
-                    BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-                    BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}"
-                    Style="{StaticResource FlexMulti}" />
+                <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
 
                 <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
 
