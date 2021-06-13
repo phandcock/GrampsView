@@ -1,3 +1,14 @@
+## [16.17.57](https://github.com/phandcock/GrampsView/compare/v16.17.56...v16.17.57) (2021-06-13)
+
+
+### Bug Fixes
+
+* change commonbindablebase to XCT observableobject ([1169a28](https://github.com/phandcock/GrampsView/commit/1169a28aa83bb7b5d5f646f8dfb7e2b1d7c3dfb4))
+* try workaround for BaseDetail for PesonDetail and related views ([ace1180](https://github.com/phandcock/GrampsView/commit/ace1180ef85ec49efb6d7c577f13e5426d712abd))
+* use c# string interpolation ([168dc8e](https://github.com/phandcock/GrampsView/commit/168dc8e9205bbcd9efe74c7bbcaf424838cf6f67))
+
+
+
 ## [16.17.56](https://github.com/phandcock/GrampsView/compare/v16.17.55...v16.17.56) (2021-06-09)
 
 
@@ -29,15 +40,6 @@
 * fix truncation of long name sin personnamesingle usercontrol ([241cea6](https://github.com/phandcock/GrampsView/commit/241cea61814d651354cdbecd01040ea30b76d985))
 * show biography person note ([bb796f6](https://github.com/phandcock/GrampsView/commit/bb796f63d5503116a3be823db6212912fa562da1))
 * use IXamarinEssentials class so we can mock it in Unit Testing ([650421c](https://github.com/phandcock/GrampsView/commit/650421cc0417592db7464bf9eb2220d5005be2ad))
-
-
-
-## [16.17.53](https://github.com/phandcock/GrampsView/compare/v16.17.52...v16.17.53) (2021-06-03)
-
-
-### Bug Fixes
-
-* tweaks and priv load bug fix ([7d45d12](https://github.com/phandcock/GrampsView/commit/7d45d12c8aa8af7a1c8e798ce5d2416f5b30f5eb))
 
 
 
