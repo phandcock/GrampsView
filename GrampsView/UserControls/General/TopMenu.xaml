@@ -2,11 +2,15 @@
     x:Class="GrampsView.UserControls.TopMenu"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     x:Name="TopMenuRoot"
     Margin="0"
     Padding="0"
     x:DataType="viewmodels:ViewModelBase"
+    BackgroundColor="PeachPuff"
+    MinimumHeightRequest="50"
+    MinimumWidthRequest="100"
     Style="{DynamicResource GVPageTitleStyle}"
     VerticalOptions="Center">
 
@@ -19,6 +23,8 @@
     <Grid.RowDefinitions>
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
+
+    <breadcrumb:Breadcrumb BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
 
     <Image
         Grid.Row="0"
@@ -39,17 +45,7 @@
         Grid.Row="0"
         Grid.Column="1"
         Margin="0"
+        BackgroundColor="MediumOrchid"
         Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
         Text="{Binding BaseTitle, Mode=OneWay}" />
-
-    <!--<ImageButton
-        Grid.Row="0"
-        Grid.Column="2"
-        Clicked="ImageButton_Clicked"
-        Style="{DynamicResource GVSymbolIconLargeCardType}"
-        VerticalOptions="Center">
-        <ImageButton.Source>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconHub}" />
-        </ImageButton.Source>
-    </ImageButton>-->
 </Grid>

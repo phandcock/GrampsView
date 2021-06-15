@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <Compile Remove="Common\ActionDialogArgs.cs" />
+    <Compile Remove="Common\Card Group\CardGroupBaseEx.cs" />
+    <Compile Remove="Common\Card Group\CardGroupCollection.cs" />
     <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
     <Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
     <Compile Remove="Common\ObservableObject.cs" />
@@ -107,7 +109,8 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2508" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
+    <PackageReference Include="Xamarin.Forms.Breadcrumb" Version="2.6.0" />
   </ItemGroup>
 
   <ItemGroup>
