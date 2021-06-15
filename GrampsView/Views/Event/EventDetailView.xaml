@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -25,7 +26,7 @@
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding HLinkObject.HLinkGlyphItem, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GAttributeRefCollection, Mode=OneWay}" />
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />

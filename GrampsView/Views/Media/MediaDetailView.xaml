@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -45,7 +46,7 @@
                 </StackLayout>
             </Frame>
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" HorizontalOptions="CenterAndExpand" />
+            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

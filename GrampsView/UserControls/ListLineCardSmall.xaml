@@ -3,9 +3,9 @@
     x:Class="GrampsView.UserControls.ListLineCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="models:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
     MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
@@ -22,7 +22,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -51,17 +51,11 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label
-                                Grid.Column="0"
-                                HorizontalOptions="StartAndExpand"
-                                Style="{DynamicResource GVCardLabelStyle}"
-                                Text="{Binding Label}" />
+                            <Label Grid.Column="0" Text="{Binding Label}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="EndAndExpand"
-                                Style="{DynamicResource GVCardLabelStyle}"
-                                Text="{Binding Value}"
-                                VerticalTextAlignment="Start" />
+                                Text="{Binding Value}" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
