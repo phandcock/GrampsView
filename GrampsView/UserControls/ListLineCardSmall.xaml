@@ -51,10 +51,14 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="0" Text="{Binding Label}" />
+                            <Label
+                                Grid.Column="0"
+                                Style="{DynamicResource GVCardLabelStyle}"
+                                Text="{Binding Label}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="EndAndExpand"
+                                Style="{DynamicResource GVCardLabelStyle}"
                                 Text="{Binding Value}" />
                         </Grid>
                     </DataTemplate>

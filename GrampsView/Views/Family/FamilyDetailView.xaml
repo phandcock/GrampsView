@@ -6,14 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="viewmodels:FamilyDetailViewModel"
+    ControlTemplate="{StaticResource ViewBaseC}"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -22,24 +21,21 @@
     </Shell.TitleView>
 
     <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
-            <breadcrumb:Breadcrumb BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+    <StackLayout>
 
-            <ucon:MediaGlyphCardLarge BindingContext="{Binding FamilyObject.ModelItemGlyph, Mode=OneWay}" />
+        <ucon:MediaGlyphCardLarge BindingContext="{Binding FamilyObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
+        <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource ChildRefCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GLDSOrdCollection, Mode=OneWay}" FsctTemplate="{StaticResource LDSOrdCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource ChildRefCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+        <ucon:FlexSingleCard FsctSource="{Binding FamilyObject.GLDSOrdCollection, Mode=OneWay}" FsctTemplate="{StaticResource LDSOrdCardSmallDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </StackLayout>
-    </ScrollView>
+        <ucon:CardGroupHeader BindingContext="{Binding FamilyObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+    </StackLayout>
 </views:ViewBase>
