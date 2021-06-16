@@ -1,3 +1,13 @@
+## [16.17.59](https://github.com/phandcock/GrampsView/compare/v16.17.58...v16.17.59) (2021-06-16)
+
+
+### Bug Fixes
+
+* change to uniformgrid for detailviews plus tweaks ([ec46e01](https://github.com/phandcock/GrampsView/commit/ec46e01fd64ec05529bae24521d1011f9cb934ff))
+* work on breadcrumbs and titleview ([9c2af5f](https://github.com/phandcock/GrampsView/commit/9c2af5f23c49ecb5ce77138f6f6e97fb9d5f4094))
+
+
+
 ## [16.17.58](https://github.com/phandcock/GrampsView/compare/v16.17.57...v16.17.58) (2021-06-14)
 
 
@@ -25,16 +35,6 @@
 
 * moc ffimageloading to allow use during unit testing ([5e9151d](https://github.com/phandcock/GrampsView/commit/5e9151df14e22a3759d7c7f6a620a0ce08db4e55))
 * tweaks ([b8ccc88](https://github.com/phandcock/GrampsView/commit/b8ccc8822a610b758f586ac65f5786098fdfd783))
-
-
-
-## [16.17.55](https://github.com/phandcock/GrampsView/compare/v16.17.54...v16.17.55) (2021-06-07)
-
-
-### Bug Fixes
-
-* tweaks ([07e7bfc](https://github.com/phandcock/GrampsView/commit/07e7bfcee540cd597aa24d3c95011ff1e6699600))
-* tweaks ([210feae](https://github.com/phandcock/GrampsView/commit/210feaeb8b8256ddfa7e77137b00f9c1be1fb105))
 
 
 
