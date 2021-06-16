@@ -1,5 +1,4 @@
-﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ControlTemplate x:Key="GVRadioButtonTemplate">
         <Frame
@@ -56,28 +55,5 @@
                 </VisualStateGroupList>
             </VisualStateManager.VisualStateGroups>
         </Frame>
-    </ControlTemplate>
-
-    <ControlTemplate xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb" x:Key="ViewBaseC">
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <breadcrumb:Breadcrumb
-                Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                                  Light={StaticResource SurfaceColorLight}}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                            Light={StaticResource OnPrimaryColorLight}}" />
-
-            <!--  Content  -->
-            <ScrollView Grid.Row="1" Orientation="Vertical">
-
-                <ContentPresenter />
-            </ScrollView>
-        </Grid>
     </ControlTemplate>
 </ResourceDictionary>

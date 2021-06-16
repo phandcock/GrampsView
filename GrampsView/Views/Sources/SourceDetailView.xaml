@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -20,20 +20,34 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
-            <ucon:MediaGlyphCardLarge BindingContext="{Binding SourceObject.ModelItemGlyph, Mode=OneWay}" MinimumHeightRequest="100" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
+        <breadcrumb:Breadcrumb
+            Grid.Row="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                              Light={StaticResource SurfaceColorLight}}"
+            TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                        Light={StaticResource OnPrimaryColorLight}}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+        <!--  Content  -->
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <StackLayout>
+                <ucon:MediaGlyphCardLarge BindingContext="{Binding SourceObject.ModelItemGlyph, Mode=OneWay}" MinimumHeightRequest="100" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </StackLayout>
-    </ScrollView>
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+                <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+
+                <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </views:ViewBase>

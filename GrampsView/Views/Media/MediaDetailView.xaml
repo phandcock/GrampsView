@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -23,45 +23,59 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
-            <Frame
-                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                              Light={StaticResource SecondaryDarkColorLight}}"
-                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-                </Frame.GestureRecognizers>
-                <StackLayout>
-                    <ucon:HLinkVisualDisplay
-                        x:Name="daImage"
-                        BindingContext="{Binding CurrentHLinkMedia.HLinkGlyphItem, Mode=OneWay}"
-                        FsctShowMedia="True"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
-                </StackLayout>
-            </Frame>
+        <breadcrumb:Breadcrumb
+            Grid.Row="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                              Light={StaticResource SurfaceColorLight}}"
+            TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                        Light={StaticResource OnPrimaryColorLight}}" />
 
-            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
+        <!--  Content  -->
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <StackLayout>
+                <Frame
+                    BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
+                                                  Light={StaticResource SecondaryDarkColorLight}}"
+                    HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                    WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
+                        <ucon:HLinkVisualDisplay
+                            x:Name="daImage"
+                            BindingContext="{Binding CurrentHLinkMedia.HLinkGlyphItem, Mode=OneWay}"
+                            FsctShowMedia="True"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <!--  TODO Add HLINK to Titles of above  -->
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                        <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
 
-            <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </StackLayout>
-    </ScrollView>
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-    <!--<Button // TODO finish this
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <!--  TODO Add HLINK to Titles of above  -->
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+
+                <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            </StackLayout>
+        </ScrollView>
+
+        <!--<Button // TODO finish this
                 x:Name="graphbutton"
                 Background="{StaticResource GVThemeDominantBackground}"
                 ToolTipService.ToolTip="Show Graph">-->
+    </Grid>
 </views:ViewBase>

@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -20,24 +20,38 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
-    <ScrollView>
-        <StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <ucon:MediaGlyphCardLarge BindingContext="{Binding HLinkObject.HLinkGlyphItem, Mode=OneWay}" />
+        <breadcrumb:Breadcrumb
+            Grid.Row="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
+                                              Light={StaticResource SurfaceColorLight}}"
+            TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
+                                        Light={StaticResource OnPrimaryColorLight}}" />
 
-            <xct:UniformGrid BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" />
+        <!--  Content  -->
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <StackLayout>
 
-            <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GAttributeRefCollection, Mode=OneWay}" />
-            <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:MediaGlyphCardLarge BindingContext="{Binding HLinkObject.HLinkGlyphItem, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GAttribute, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding EventObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-        </StackLayout>
-    </ScrollView>
+                <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GAttributeRefCollection, Mode=OneWay}" />
+                <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+
+                <ucon:FlexSingleCard FsctSource="{Binding EventObject.GAttribute, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding EventObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding EventObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding EventObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding EventObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+
+                <ucon:CardGroupHeader BindingContext="{Binding EventObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </views:ViewBase>

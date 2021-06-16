@@ -9,9 +9,9 @@
 
     public class ViewBase : ContentPage
     {
-        private double height = 0;
+        private double height;
 
-        private double width = 0;
+        private double width;
 
         protected override void OnAppearing()
         {
