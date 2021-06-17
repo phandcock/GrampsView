@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the default text for notes which is the first twenty characters.
+        /// Gets the default text for notes which is the first twenty characters minus returns.
         /// </summary>
         /// <value>
         /// Get the default text.
@@ -44,7 +44,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return TextShort;
+                return GStyledText.GText.Replace('\r', ',').Substring(0, Math.Min(GStyledText.GText.Length, 20));
             }
         }
 
@@ -144,7 +144,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return (GType == GTypeLink);
+                return GType == GTypeLink;
             }
         }
 

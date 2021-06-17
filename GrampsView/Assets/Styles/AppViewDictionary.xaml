@@ -2,6 +2,7 @@
     x:Class="GrampsView.Assets.Styles.AppViewDictionary"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:common="clr-namespace:GrampsView.Common">
 
     <ResourceDictionary.MergedDictionaries>
@@ -14,6 +15,16 @@
 
         <ResourceDictionary Source="_Sizes.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <!--
+        ******************************************************
+        BreadCrumb Styles
+        ******************************************************
+    -->
+    <Style x:Key="GVBreadcrumb" TargetType="breadcrumb:Breadcrumb">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+    </Style>
 
     <!--
         ******************************************************

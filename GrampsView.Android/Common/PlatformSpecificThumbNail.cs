@@ -1,20 +1,20 @@
-﻿using Android.Graphics;
-using Android.Graphics.Pdf;
-using Android.Media;
-using Android.OS;
-
-using GrampsView.Common.CustomClasses;
-using GrampsView.Data.Model;
-using GrampsView.Data.Repository;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-using static Android.Graphics.Pdf.PdfRenderer;
-
-namespace GrampsView.Droid.Common
+﻿namespace GrampsView.Droid.Common
 {
+    using Android.Graphics;
+    using Android.Graphics.Pdf;
+    using Android.Media;
+    using Android.OS;
+
+    using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+
+    using static Android.Graphics.Pdf.PdfRenderer;
+
     internal partial class PlatformSpecific : IPlatformSpecific
     {
         public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)

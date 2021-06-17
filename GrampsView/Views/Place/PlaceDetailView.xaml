@@ -26,12 +26,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <breadcrumb:Breadcrumb
-            Grid.Row="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                              Light={StaticResource SurfaceColorLight}}"
-            TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                        Light={StaticResource OnPrimaryColorLight}}" />
+        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
 
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">

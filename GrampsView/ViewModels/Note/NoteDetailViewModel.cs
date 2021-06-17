@@ -39,12 +39,9 @@
         {
             HLinkNoteModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkNoteModel>(Uri.UnescapeDataString(BaseParamsHLink));
 
-            if (!(HLinkObject is null) && (HLinkObject.Valid))
+            if (!(HLinkObject is null) && HLinkObject.Valid)
             {
                 NoteObject = HLinkObject.DeRef;
-
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
 
                 BaseTitle = NoteObject.GetDefaultText;
 
