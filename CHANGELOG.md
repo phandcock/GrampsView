@@ -1,3 +1,18 @@
+# [16.18.0](https://github.com/phandcock/GrampsView/compare/v16.17.59...v16.18.0) (2021-06-18)
+
+
+### Bug Fixes
+
+* breadcrumb tweaks ([ddcc620](https://github.com/phandcock/GrampsView/commit/ddcc62073ac04e47f4b70bfb0266372b63401e3c))
+* revert uniformgrid chnage and add breadcrumb control to all ([f8ab9cc](https://github.com/phandcock/GrampsView/commit/f8ab9cce9e2721b3a6ea37fac1f05b5c7c479087))
+
+
+### Features
+
+* add view breadcrumb plus tweaks ([81d03af](https://github.com/phandcock/GrampsView/commit/81d03af9fd2cd50e917ecc1473ae0d44abda8b9b))
+
+
+
 ## [16.17.59](https://github.com/phandcock/GrampsView/compare/v16.17.58...v16.17.59) (2021-06-16)
 
 
@@ -25,16 +40,6 @@
 * change commonbindablebase to XCT observableobject ([1169a28](https://github.com/phandcock/GrampsView/commit/1169a28aa83bb7b5d5f646f8dfb7e2b1d7c3dfb4))
 * try workaround for BaseDetail for PesonDetail and related views ([ace1180](https://github.com/phandcock/GrampsView/commit/ace1180ef85ec49efb6d7c577f13e5426d712abd))
 * use c# string interpolation ([168dc8e](https://github.com/phandcock/GrampsView/commit/168dc8e9205bbcd9efe74c7bbcaf424838cf6f67))
-
-
-
-## [16.17.56](https://github.com/phandcock/GrampsView/compare/v16.17.55...v16.17.56) (2021-06-09)
-
-
-### Bug Fixes
-
-* moc ffimageloading to allow use during unit testing ([5e9151d](https://github.com/phandcock/GrampsView/commit/5e9151df14e22a3759d7c7f6a620a0ce08db4e55))
-* tweaks ([b8ccc88](https://github.com/phandcock/GrampsView/commit/b8ccc8822a610b758f586ac65f5786098fdfd783))
 
 
 
