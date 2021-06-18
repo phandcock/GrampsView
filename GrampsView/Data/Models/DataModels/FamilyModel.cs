@@ -17,6 +17,7 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Assets.Strings;
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
@@ -122,6 +123,19 @@ namespace GrampsView.Data.Model
                 }
 
                 return familyName;
+            }
+        }
+
+        public string FamilyRelationshipWithPrefix
+        {
+            get
+            {
+                if (Valid & (!string.IsNullOrWhiteSpace(GFamilyRelationship)))
+                {
+                    return $"{AppResources.FieldPrefixFamilyRelationship} {GFamilyRelationship}";
+                }
+
+                return string.Empty;
             }
         }
 

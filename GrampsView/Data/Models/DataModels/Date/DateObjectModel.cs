@@ -193,7 +193,7 @@
             {
                 if (!Valid)
                 {
-                    return String.Empty;
+                    return string.Empty;
                 }
 
                 return ShortDate;
@@ -204,9 +204,9 @@
         {
             get
             {
-                if (Valid)
+                if (Valid & (!string.IsNullOrWhiteSpace(ShortDate)))
                 {
-                    return $"{AppResources.FieldPrefixShortDate as string},{ShortDate}";
+                    return $"{AppResources.FieldPrefixShortDate} {ShortDate}";
                 }
 
                 return string.Empty;

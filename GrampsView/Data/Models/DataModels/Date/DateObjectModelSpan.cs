@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System;
@@ -32,7 +31,7 @@
         /// <summary>
         /// Quality field.
         /// </summary>
-        private CommonEnums.DateQuality _GQuality = CommonEnums.DateQuality.unknown;
+        private DateQuality _GQuality = DateQuality.unknown;
 
         /// <summary>
         /// Start field.
@@ -44,7 +43,7 @@
         /// </summary>
         private string _GStop = string.Empty;
 
-        public DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, CommonEnums.DateQuality aQuality, string aStart, string aStop)
+        public DateObjectModelSpan(string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, string aStart, string aStop)
         {
             // check for date range
             try
@@ -114,7 +113,7 @@
             }
         }
 
-        public override Nullable<int> GetAge
+        public override int? GetAge
         {
             get
             {
@@ -168,7 +167,7 @@
         /// Get the Date Quality.
         /// </summary>
         [DataMember]
-        public CommonEnums.DateQuality GQuality
+        public DateQuality GQuality
         {
             get
             {

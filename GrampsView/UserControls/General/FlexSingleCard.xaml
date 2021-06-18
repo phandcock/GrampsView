@@ -27,11 +27,10 @@
 
         <FlexLayout
             x:Name="theCollectionView"
-            AlignItems="Stretch"
-            BackgroundColor="Transparent"
+            Margin="0"
+            Padding="0"
             BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
-            Style="{StaticResource FlexSingleCollection}"
-            Wrap="Wrap" />
+            Style="{StaticResource FlexSingleCollection}" />
     </StackLayout>
 </Frame>

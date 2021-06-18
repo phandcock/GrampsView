@@ -92,6 +92,10 @@
     <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="AlignItems" Value="Stretch" />
+        <Setter Property="Wrap" Value="Wrap" />
+        <Setter Property="JustifyContent" Value="SpaceAround" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
 

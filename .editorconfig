@@ -5,3 +5,6 @@ dotnet_diagnostic.CA1822.severity = suggestion
 
 # IDE0065: Misplaced using directive
 csharp_using_directive_placement = inside_namespace:warning
+
+# IDE0027: Use expression body for accessors
+csharp_style_expression_bodied_accessors = when_on_single_line
