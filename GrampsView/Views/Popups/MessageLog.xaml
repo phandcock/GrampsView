@@ -7,10 +7,7 @@
     xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
     x:DataType="common:CommonDataLog"
     BackgroundColor="Transparent"
-    DismissFlag="{Binding PopupDismissFlag}"
-    Style="{DynamicResource GVBaseContentPage}">
-
-    <!--<StackLayout>-->
+    DismissFlag="{Binding PopupDismissFlag}">
 
     <CollectionView
         x:Name="MajorStatusList"

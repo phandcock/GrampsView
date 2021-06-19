@@ -128,7 +128,6 @@
 
             MinorMessage = argMessage;
 
-            // majorStatusQueue.Enqueue(new QueueItem { Text = strMessage, showProgressRing = false });
             return;
         }
 
@@ -154,19 +153,21 @@
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                try
-                {
-                    DataLog.PopupDismissFlag = false;
+                //try
+                //{
+                DataLog.PopupDismissFlag = false;
 
-                    // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
-                    var popup = new MessageLog();
+                // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
+                var popup = new MessageLog();
 
-                    var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
-                }
-                catch (InvalidCastException)
-                {
-                    // TODO fix UWP Release issue until fixed
-                }
+                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                //}
+                //catch (InvalidCastException ex)
+                //{
+                //    var t = ex;
+
+                //    // TODO fix UWP Release issue until fixed
+                //}
             });
         }
 
@@ -266,14 +267,15 @@
                 // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
                 var popup = new ErrorPopup();
 
-                try
-                {
-                    Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
-                }
-                catch (InvalidCastException)
-                {
-                    // TODO fix UWP Release issue until fixed
-                }
+                //try
+                //{
+                Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+                //}
+                //catch (InvalidCastException ex)
+                //{
+                //    var t = ex;
+                //    // TODO fix UWP Release issue until fixed
+                //}
             }
         }
     }

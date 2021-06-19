@@ -5,6 +5,9 @@
 
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Shows the New File Handler page of appropriate.
+    /// </summary>
     public class InputFileDisplayService : IInputFileDisplayService
     {
         private static bool shown;

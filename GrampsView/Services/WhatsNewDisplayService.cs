@@ -7,6 +7,9 @@
 
     using Xamarin.Essentials;
 
+    /// <summary>
+    /// Displays the WhatsNew page if appropriate
+    /// </summary>
     public class WhatsNewDisplayService : IWhatsNewDisplayService
     {
         private bool displayWhatsNew = true;

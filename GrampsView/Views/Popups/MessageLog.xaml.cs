@@ -13,10 +13,5 @@
 
             Size = Common.CardSizes.Current.ScreenSize;
         }
-
-        //private void Button_Clicked(object sender, System.EventArgs e)
-        //{
-        //    Dismiss(null);
-        //}
     }
 }

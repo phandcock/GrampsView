@@ -14,7 +14,7 @@
         }
 
         /// <summary>
-        /// Shows FirstRun pageif appropriate asynchronous.
+        /// Shows FirstRun page if appropriate.
         /// </summary>
         /// <returns>
         /// </returns>
