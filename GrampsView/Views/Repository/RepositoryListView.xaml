@@ -5,9 +5,11 @@
     xmlns:prism="http://prismlibrary.com"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewmodels:RepositoryListViewModel"
     Style="{DynamicResource GVBaseContentPage}">
 
     <Shell.TitleView>

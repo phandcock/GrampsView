@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:vviewmodel="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -20,16 +19,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <!--  Content  -->
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
-
-        <!--  Content  -->
-
-        <ucon:CardGroupHeader Grid.Row="1" BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
-    </Grid>
+    <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
 </views:ViewBase>
