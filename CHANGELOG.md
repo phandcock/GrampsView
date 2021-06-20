@@ -1,3 +1,14 @@
+## [16.18.1](https://github.com/phandcock/GrampsView/compare/v16.18.0...v16.18.1) (2021-06-20)
+
+
+### Bug Fixes
+
+* center flexsingle cards and fix date and relationship prefixes ([e270b85](https://github.com/phandcock/GrampsView/commit/e270b85924e9e2562bcc38a6e68cec5f77bb6d73))
+* tweak page list views ([d240049](https://github.com/phandcock/GrampsView/commit/d240049bf301435a171b73225f395418f12072b2))
+* work on uwp release popup issue ([928af90](https://github.com/phandcock/GrampsView/commit/928af9003fda1488f810e788aefac31a1cdcabb3))
+
+
+
 # [16.18.0](https://github.com/phandcock/GrampsView/compare/v16.17.59...v16.18.0) (2021-06-18)
 
 
@@ -29,17 +40,6 @@
 ### Bug Fixes
 
 * tweak BaseDetails to use UniformGrid ([13777a5](https://github.com/phandcock/GrampsView/commit/13777a5e730a97c2f3fbc7e13170198db2be7a23))
-
-
-
-## [16.17.57](https://github.com/phandcock/GrampsView/compare/v16.17.56...v16.17.57) (2021-06-13)
-
-
-### Bug Fixes
-
-* change commonbindablebase to XCT observableobject ([1169a28](https://github.com/phandcock/GrampsView/commit/1169a28aa83bb7b5d5f646f8dfb7e2b1d7c3dfb4))
-* try workaround for BaseDetail for PesonDetail and related views ([ace1180](https://github.com/phandcock/GrampsView/commit/ace1180ef85ec49efb6d7c577f13e5426d712abd))
-* use c# string interpolation ([168dc8e](https://github.com/phandcock/GrampsView/commit/168dc8e9205bbcd9efe74c7bbcaf424838cf6f67))
 
 
 
