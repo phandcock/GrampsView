@@ -8,7 +8,7 @@
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             //MemoryStream stream = new MemoryStream();
             //// Create memory stream from file stream.

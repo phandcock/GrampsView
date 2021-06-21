@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
-    xmlns:common="clr-namespace:GrampsView.Common">
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:customclass="clr-namespace:GrampsView.Common.CustomClasses">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -70,6 +71,10 @@
 
     <!--  Create a ContentPage style  -->
     <Style x:Key="GVBaseContentPage" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
+    </Style>
+
+    <Style x:Key="GVMessageLog" TargetType="customclass:MessageLogPopup">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
 

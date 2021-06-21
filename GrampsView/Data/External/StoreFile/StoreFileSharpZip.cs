@@ -64,7 +64,7 @@
         /// <param name="outFolder">
         /// The out folder.
         /// </param>
-        public static MediaModel ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public static IMediaModel ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             ZipFile zf = null;
             try

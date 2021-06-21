@@ -18,7 +18,7 @@
     /// </summary>
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             try
             {
@@ -94,7 +94,7 @@
             }
         }
 
-        public async Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public async Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
 

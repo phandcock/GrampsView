@@ -12,6 +12,10 @@ namespace GrampsView.Common
         /// </summary>
         public const int DataLogSize = 11;
 
+        public const string DirectoryCacheBase = "~GV";
+
+        public const string DirectoryImageCache = "~worka";
+
         /// <summary>
         /// The event type birth.
         /// </summary>
@@ -27,12 +31,10 @@ namespace GrampsView.Common
         /// </summary>
         public const string EventTypeMarriage = "Marriage";
 
-        public const string fileToImageSubDirectory = "~worka";
-
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 62;
+        public const int GrampsViewDatabaseVersion = 63;
 
         /// <summary>
         /// The Gramps XML name space.

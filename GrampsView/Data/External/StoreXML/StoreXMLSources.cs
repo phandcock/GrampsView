@@ -1,10 +1,10 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -40,9 +40,11 @@
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
-                        if (loadSource.Id == "S0289")
+                        if (loadSource.Id == "S0275")
                         {
                         }
+
+                        Debug.WriteLine(loadSource.Id);
 
                         // Media refs
                         loadSource.GMediaRefCollection = await GetObjectCollection(pSourceElement).ConfigureAwait(false);
@@ -69,7 +71,7 @@
                         // set the Home image or symbol now that everything is loaded loadSource = SetHomeImage(loadSource);
 
                         // save the event
-                        DV.SourceDV.SourceData.Add(loadSource);
+                        DataStore.Instance.DS.SourceData.Add(loadSource);
                     }
                 }
                 catch (Exception e)

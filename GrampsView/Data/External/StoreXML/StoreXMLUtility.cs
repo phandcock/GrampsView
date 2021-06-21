@@ -124,7 +124,7 @@
                  croppedBitmap.Dispose();
 
                  // ------------ Save new MediaObject
-                 newMediaModel = theMediaModel.Copy();
+                 newMediaModel = theMediaModel.Clone();
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFilePath;

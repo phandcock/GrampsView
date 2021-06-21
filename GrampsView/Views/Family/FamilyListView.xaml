@@ -2,8 +2,8 @@
 <views:ViewBase
     x:Class="GrampsView.Views.FamilyListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"

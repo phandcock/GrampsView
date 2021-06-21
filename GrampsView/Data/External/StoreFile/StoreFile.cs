@@ -8,6 +8,7 @@
     using ICSharpCode.SharpZipLib.Tar;
 
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
@@ -92,13 +93,16 @@
                         item.Delete();
                     }
 
-                    foreach (var item in DataStore.Instance.AD.CurrentDataFolder.Value.GetDirectories())
+                    foreach (DirectoryInfo item in DataStore.Instance.AD.CurrentDataFolder.Value.GetDirectories())
                     {
+                        System.Threading.Thread.Sleep(100);
+                        Debug.WriteLine($"About to delete  directory: {item.FullName}");
                         item.Delete(true);
+                        Debug.WriteLine($"Deleted  directory: {item.FullName}");
                     }
 
                     // Create standard directories
-                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(CommonConstants.fileToImageSubDirectory);
+                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(CommonConstants.DirectoryImageCache);
                 }
                 catch (Exception ex)
                 {

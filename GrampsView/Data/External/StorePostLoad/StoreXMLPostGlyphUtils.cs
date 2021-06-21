@@ -27,7 +27,7 @@
         {
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
-            MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagepdf", ".jpg");
+            IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagepdf", ".jpg");
 
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
@@ -35,7 +35,7 @@
                 return new ItemGlyph();
             }
 
-            MediaModel pdfimage;
+            IMediaModel pdfimage;
 
             // Check if new pdf image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
@@ -65,9 +65,9 @@
 
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
-            MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagevideo", ".jpg");
+            IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagevideo", ".jpg");
 
-            MediaModel videoImage;
+            IMediaModel videoImage;
 
             // Check if new image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
@@ -93,7 +93,7 @@
         {
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
-            MediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
+            IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
 
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
@@ -101,7 +101,7 @@
                 return new ItemGlyph();
             }
 
-            MediaModel zipimage;
+            IMediaModel zipimage;
 
             // Check if new zip image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
@@ -124,19 +124,19 @@
             return returnItemGlyph;
         }
 
-        private MediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
+        private IMediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
-            MediaModel newMediaModel = argSourceMediaModel.Copy();
+            IMediaModel newMediaModel = argSourceMediaModel.Clone();
 
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
 
             newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
-            newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.fileToImageSubDirectory, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
+            newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 
             return newMediaModel;
         }
 
-        private ItemGlyph UtilSaveNewMediaObject(ItemGlyph argNewGlyph, MediaModel argNewMediaModel, string argDefaultSymbol)
+        private ItemGlyph UtilSaveNewMediaObject(ItemGlyph argNewGlyph, IMediaModel argNewMediaModel, string argDefaultSymbol)
         {
             // Save new MediaObject
             if (argNewMediaModel.Valid)

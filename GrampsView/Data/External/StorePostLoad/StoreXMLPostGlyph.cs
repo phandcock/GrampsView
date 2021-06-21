@@ -16,7 +16,7 @@
 
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
-        private List<MediaModel> addLater = new List<MediaModel>();
+        private List<IMediaModel> addLater = new List<IMediaModel>();
 
         public static void SetAddressImages()
         {
@@ -317,7 +317,7 @@
         public async Task<bool> SetMediaImages()
         {
             // Save new mediaModels for later as we can not modify a list in the middle of a foreach loop
-            addLater = new List<MediaModel>();
+            addLater = new List<IMediaModel>();
 
             foreach (MediaModel argModel in DataStore.Instance.DS.MediaData.Values)
             {

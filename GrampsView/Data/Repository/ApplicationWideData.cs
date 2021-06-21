@@ -29,7 +29,7 @@
         {
             get
             {
-                return Path.Combine(CurrentDataFolder.Path, CommonConstants.fileToImageSubDirectory);
+                return Path.Combine(CurrentDataFolder.Path, CommonConstants.DirectoryImageCache);
             }
         }
 

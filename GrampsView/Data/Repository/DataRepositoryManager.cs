@@ -202,7 +202,7 @@
                     // Clear the file system
                     await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
 
-                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media  compressed file found. Loading it into the program").ConfigureAwait(false);
+                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program").ConfigureAwait(false);
 
                     await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
                 }
