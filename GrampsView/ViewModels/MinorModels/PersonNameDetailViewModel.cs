@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
     using System;
@@ -19,11 +18,6 @@
         {
             BaseTitle = "Name Detail";
             BaseTitleIcon = CommonConstants.IconPersonName;
-        }
-
-        public ItemGlyph MediaCard
-        {
-            get; set;
         }
 
         /// <summary>
@@ -56,19 +50,13 @@
             {
                 BaseTitle = PersonNameObject.GetDefaultText;
 
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
-
-                // Get media image
-                MediaCard = PersonNameObject.ModelItemGlyph;
-
                 // Get Header Details
                 CardListLineCollection headerCardGroup = new CardListLineCollection { Title = "Person Name Details" };
                 headerCardGroup.Add(new CardListLine("Full Name:", PersonNameObject.FullName));
                 BaseDetail.Add(headerCardGroup);
 
                 // TODO Show All Surnames
-                CardListLineCollection PersonNameCards = new CardListLineCollection
+                CardListLineCollection PersonNameCards = new CardListLineCollection("Name")
                 {
                     new CardListLine("Type:", PersonNameObject.GType),
                     new CardListLine("Full Name:", PersonNameObject.FullName),
