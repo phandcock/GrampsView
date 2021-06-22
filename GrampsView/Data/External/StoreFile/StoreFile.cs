@@ -139,9 +139,9 @@
 
             try
             {
-                ExtractGZip(inputFile);
+                ExtractGZip(inputFile, "data.xml");
 
-                await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GSZIP file decompress complete").ConfigureAwait(false);
+                await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GZIP file decompress complete").ConfigureAwait(false);
                 return true;
             }
             catch (UnauthorizedAccessException ex)

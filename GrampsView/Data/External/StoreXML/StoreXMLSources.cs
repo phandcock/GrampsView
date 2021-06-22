@@ -4,7 +4,6 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -40,11 +39,11 @@
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
-                        if (loadSource.Id == "S0275")
-                        {
-                        }
+                        //if (loadSource.Id == "S0275")
+                        //{
+                        //}
 
-                        Debug.WriteLine(loadSource.Id);
+                        //Debug.WriteLine(loadSource.Id);
 
                         // Media refs
                         loadSource.GMediaRefCollection = await GetObjectCollection(pSourceElement).ConfigureAwait(false);

@@ -12,16 +12,17 @@
 
     <CollectionView
         x:Name="theCollectionView"
+        EmptyView="No data available"
         IsGrouped="True"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout
-                HorizontalItemSpacing="2"
+                HorizontalItemSpacing="1"
                 Orientation="Vertical"
                 Span="{Binding CardsAcrossColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                VerticalItemSpacing="2" />
+                VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 
         <CollectionView.GroupHeaderTemplate>
