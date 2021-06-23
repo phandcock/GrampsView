@@ -1,3 +1,14 @@
+## [16.18.2](https://github.com/phandcock/GrampsView/compare/v16.18.1...v16.18.2) (2021-06-23)
+
+
+### Bug Fixes
+
+* cleanup personname detailview ([4f530c2](https://github.com/phandcock/GrampsView/commit/4f530c2362a546fb00721cc4b81d7fe529802eda))
+* remov emedia deepcopy code and repalce with clone and use IMediaModel more ([8a7aa1f](https://github.com/phandcock/GrampsView/commit/8a7aa1ffe041bebc4471ceef3a400bbf86dbab28))
+* unzip file using system.io.compression ([9a65132](https://github.com/phandcock/GrampsView/commit/9a651322350a44b7d9f5e41aff950f346e06555f))
+
+
+
 ## [16.18.1](https://github.com/phandcock/GrampsView/compare/v16.18.0...v16.18.1) (2021-06-20)
 
 
@@ -31,15 +42,6 @@
 
 * change to uniformgrid for detailviews plus tweaks ([ec46e01](https://github.com/phandcock/GrampsView/commit/ec46e01fd64ec05529bae24521d1011f9cb934ff))
 * work on breadcrumbs and titleview ([9c2af5f](https://github.com/phandcock/GrampsView/commit/9c2af5f23c49ecb5ce77138f6f6e97fb9d5f4094))
-
-
-
-## [16.17.58](https://github.com/phandcock/GrampsView/compare/v16.17.57...v16.17.58) (2021-06-14)
-
-
-### Bug Fixes
-
-* tweak BaseDetails to use UniformGrid ([13777a5](https://github.com/phandcock/GrampsView/commit/13777a5e730a97c2f3fbc7e13170198db2be7a23))
 
 
 
