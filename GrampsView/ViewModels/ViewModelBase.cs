@@ -6,6 +6,7 @@
 
     using System.ComponentModel;
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.CommunityToolkit.UI.Views;
@@ -13,15 +14,17 @@
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
-    public class ViewModelBase : ObservableObject, INotifyPropertyChanged
+    public abstract class ViewModelBase : ObservableObject, INotifyPropertyChanged
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
         public ViewModelBase()
         {
-            BaseDetail.Title = "Unknown Details";
+            ViewSetup();
         }
+
+        // TODO Checkout Xamarin.Forms.Mocks
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -36,6 +39,8 @@
         {
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
+
+            ViewSetup();
         }
 
         /// <summary>
@@ -47,6 +52,8 @@
         public ViewModelBase(ICommonLogging iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
+
+            ViewSetup();
         }
 
         /// <summary>
@@ -129,6 +136,11 @@
             get; set;
         }
 
+        public IAsyncCommand TopMenuHubCommand
+        {
+            get; private set;
+        }
+
         private bool BaseHandleLoadTriggered
         {
             get; set;
@@ -167,6 +179,11 @@
         public virtual void BaseHandleLoadEvent()
         {
             return;
+        }
+
+        public async Task TopMenuHubCommandHandler()
+        {
+            CommonRoutines.NavigateHub();
         }
 
         internal void BaseHandleAppearingEventInternal()
@@ -215,6 +232,13 @@
 
                 BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
             }
+        }
+
+        private void ViewSetup()
+        {
+          
+
+            TopMenuHubCommand = new AsyncCommand(TopMenuHubCommandHandler);
         }
     }
 }

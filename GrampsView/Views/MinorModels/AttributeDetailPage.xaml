@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewModels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -20,23 +19,13 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+        <StackLayout>
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-        <!--  Content  -->
-        <ScrollView Grid.Row="1" Orientation="Vertical">
-            <StackLayout>
-
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
-
-                <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GCitationReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GNoteModelReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+            <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GCitationReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GNoteModelReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+        </StackLayout>
+    </ContentView>
 </views:ViewBase>

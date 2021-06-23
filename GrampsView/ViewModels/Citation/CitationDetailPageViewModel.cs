@@ -51,7 +51,7 @@
 
             if (CitationObject != null)
             {
-                BaseTitle = CitationObject.GetDefaultText;
+                BaseTitle = CitationObject.GetDefaultTextShort;
                 BaseTitleIcon = CommonConstants.IconCitation;
 
                 BaseDetail.Add(new CardListLineCollection("Citation Detail")

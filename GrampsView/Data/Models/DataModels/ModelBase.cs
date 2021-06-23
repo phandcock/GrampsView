@@ -136,6 +136,14 @@
             }
         }
 
+        public virtual string GetDefaultTextShort
+        {
+            get
+            {
+                return GetDefaultText.Substring(0, Math.Min(GetDefaultText.Length, 40));
+            }
+        }
+
         /// <summary>
         /// Gets or sets the handle ID #REQUIRED.
         /// </summary>

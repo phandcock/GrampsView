@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -20,26 +19,16 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+        <StackLayout>
+            <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonNameObject.ModelItemGlyph, Mode=OneWay}" />
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-        <!--  Content  -->
-        <ScrollView Grid.Row="1" Orientation="Vertical">
-            <StackLayout>
-                <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonNameObject.ModelItemGlyph, Mode=OneWay}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
-
-                <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-                <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-
-                <ucon:CardGroupHeader BindingContext="{Binding PersonNameObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+            <ucon:CardGroupHeader BindingContext="{Binding PersonNameObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+        </StackLayout>
+    </ContentView>
 </views:ViewBase>

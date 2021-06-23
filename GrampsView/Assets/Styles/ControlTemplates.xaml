@@ -57,4 +57,54 @@
             </VisualStateManager.VisualStateGroups>
         </Frame>
     </ControlTemplate>
+
+    <ControlTemplate
+        xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
+        xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
+        x:Key="GVDetailViewTemplate">
+
+        <Grid Margin="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  TODO Add to TitleView when fixed in UWP.  See https://github.com/xamarin/Xamarin.Forms/issues/9808  -->
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Command="{TemplateBinding TopMenuHubCommand}"
+                Style="{DynamicResource GVButtonMenu}"
+                Text="Hub"
+                WidthRequest="40" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{DynamicResource GVButtonMenu}"
+                Text="Note"
+                WidthRequest="40" />
+
+            <breadcrumb:Breadcrumb
+                Grid.Row="0"
+                Grid.Column="2"
+                Style="{DynamicResource GVBreadcrumb}" />
+
+            <!--  Content  -->
+            <ScrollView
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Orientation="Vertical">
+
+                <ContentPresenter />
+            </ScrollView>
+        </Grid>
+    </ControlTemplate>
 </ResourceDictionary>

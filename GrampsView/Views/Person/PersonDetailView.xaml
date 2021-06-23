@@ -2,11 +2,10 @@
 <views:ViewBase
     x:Class="GrampsView.Views.PersonDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -21,40 +20,30 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
+        <StackLayout>
 
-        <!--  Content  -->
-        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <StackLayout>
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-                <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
+            <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
-                <ucon:NoteCardFull BindingContext="{Binding PersonObject.GNoteRefCollection.GetBio}" />
-
-                <ucon:FlexSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
-
-                <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+            <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+        </StackLayout>
+    </ContentView>
 </views:ViewBase>

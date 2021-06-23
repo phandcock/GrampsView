@@ -24,7 +24,8 @@
     -->
     <Style x:Key="GVBreadcrumb" TargetType="breadcrumb:Breadcrumb">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+        <Setter Property="LastBreadcrumbTextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
     <!--
@@ -118,17 +119,15 @@
         ******************************************************
     -->
 
-    <!--  Create a FrameBottomMenu Style  -->
-    <Style x:Key="FrameBottomMenu" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+    <!--  Create a TopMenu Style  -->
+    <Style x:Key="TopMenu" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="MinimumHeightRequest" Value="40" />
-        <Setter Property="HeightRequest" Value="40" />
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-        <Setter Property="CornerRadius" Value="1" />
+        <Setter Property="MinimumWidthRequest" Value="40" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+        <Setter Property="CornerRadius" Value="0" />
     </Style>
 
     <!--  Create a MediaImage Style  -->
