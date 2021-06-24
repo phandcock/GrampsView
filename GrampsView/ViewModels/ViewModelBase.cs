@@ -14,7 +14,7 @@
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
-    public abstract class ViewModelBase : ObservableObject, INotifyPropertyChanged
+    public class ViewModelBase : ObservableObject, INotifyPropertyChanged
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -23,8 +23,6 @@
         {
             ViewSetup();
         }
-
-        // TODO Checkout Xamarin.Forms.Mocks
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -43,6 +41,7 @@
             ViewSetup();
         }
 
+        // TODO Checkout Xamarin.Forms.Mocks
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -135,6 +134,11 @@
         {
             get; set;
         }
+
+        public bool TopMenuHubButtonVisible
+        {
+            get; private set;
+        } = false;
 
         public IAsyncCommand TopMenuHubCommand
         {
@@ -236,9 +240,13 @@
 
         private void ViewSetup()
         {
-          
-
             TopMenuHubCommand = new AsyncCommand(TopMenuHubCommandHandler);
+
+            // As UWP does not support shell swipes. TODO Fix this when we can
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                TopMenuHubButtonVisible = true;
+            }
         }
     }
 }

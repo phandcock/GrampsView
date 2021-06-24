@@ -20,7 +20,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+    <ucon:DetailPageControlTemplate>
 
         <StackLayout>
 
@@ -48,5 +48,5 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
-    </ContentView>
+    </ucon:DetailPageControlTemplate>
 </views:ViewBase>

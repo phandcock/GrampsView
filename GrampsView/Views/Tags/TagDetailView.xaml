@@ -20,11 +20,11 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+    <ucon:DetailPageControlTemplate>
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
             <ucon:CollectionMultiCardGrouped FsctSource="{Binding Path=TagObject.BackHLinkReferenceCollection.AsGroupedCardGroup, Source={RelativeSource AncestorType={x:Type viewmodels:TagDetailViewModel}}, Mode=OneWay}" />
         </StackLayout>
-    </ContentView>
+    </ucon:DetailPageControlTemplate>
 </views:ViewBase>

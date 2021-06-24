@@ -13,6 +13,10 @@
 
         private double width;
 
+        public ViewBase()
+        {
+        }
+
         protected override void OnAppearing()
         {
             (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();

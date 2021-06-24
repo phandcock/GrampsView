@@ -22,7 +22,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+    <ucon:DetailPageControlTemplate>
         <StackLayout>
             <Frame
                 BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
@@ -56,7 +56,7 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
-    </ContentView>
+    </ucon:DetailPageControlTemplate>
     <!--<Button // TODO finish this
                 x:Name="graphbutton"
                 Background="{StaticResource GVThemeDominantBackground}"

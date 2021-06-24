@@ -19,7 +19,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+    <ucon:DetailPageControlTemplate>
         <StackLayout>
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
@@ -27,5 +27,5 @@
             <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GCitationReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding AttributeObject.GNoteModelReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
         </StackLayout>
-    </ContentView>
+    </ucon:DetailPageControlTemplate>
 </views:ViewBase>

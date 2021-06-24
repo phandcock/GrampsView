@@ -19,7 +19,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <ContentView ControlTemplate="{StaticResource GVDetailViewTemplate}">
+    <ucon:DetailPageControlTemplate>
         <StackLayout>
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding PlaceObject.ModelItemGlyph, Mode=OneWay}" />
@@ -38,5 +38,5 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding PlaceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
-    </ContentView>
+    </ucon:DetailPageControlTemplate>
 </views:ViewBase>

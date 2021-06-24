@@ -40,6 +40,7 @@
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="2" />
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
