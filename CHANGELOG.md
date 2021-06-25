@@ -1,3 +1,13 @@
+## [16.18.3](https://github.com/phandcock/GrampsView/compare/v16.18.2...v16.18.3) (2021-06-25)
+
+
+### Bug Fixes
+
+* setup topmenu better ([cc441ff](https://github.com/phandcock/GrampsView/commit/cc441ff87b3655aab53fe38242eea066ce289602))
+* USE DETAILVIEW CONTENT CONTROL AND TWEAKS ([f2af148](https://github.com/phandcock/GrampsView/commit/f2af148bcb9b818ab0ac76da407b0d59284cc667))
+
+
+
 ## [16.18.2](https://github.com/phandcock/GrampsView/compare/v16.18.1...v16.18.2) (2021-06-23)
 
 
@@ -32,16 +42,6 @@
 ### Features
 
 * add view breadcrumb plus tweaks ([81d03af](https://github.com/phandcock/GrampsView/commit/81d03af9fd2cd50e917ecc1473ae0d44abda8b9b))
-
-
-
-## [16.17.59](https://github.com/phandcock/GrampsView/compare/v16.17.58...v16.17.59) (2021-06-16)
-
-
-### Bug Fixes
-
-* change to uniformgrid for detailviews plus tweaks ([ec46e01](https://github.com/phandcock/GrampsView/commit/ec46e01fd64ec05529bae24521d1011f9cb934ff))
-* work on breadcrumbs and titleview ([9c2af5f](https://github.com/phandcock/GrampsView/commit/9c2af5f23c49ecb5ce77138f6f6e97fb9d5f4094))
 
 
 
