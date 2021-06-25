@@ -40,6 +40,14 @@
             set;
         }
 
+        public string CurrentInputStreamFileType
+        {
+            get
+            {
+                return Path.GetExtension(CurrentInputStreamPath);
+            }
+        }
+
         public string CurrentInputStreamPath
         {
             get;

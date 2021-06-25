@@ -15,6 +15,7 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
+    using System.IO;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -182,6 +183,8 @@
         /// </returns>
         public async Task<bool> StartDataLoadAsync()
         {
+            FileInfoEx GrampsFile = new FileInfoEx();
+
             await DataStore.Instance.CN.DataLogEntryAdd("Loading Data...").ConfigureAwait(false);
 
             if (DataStore.Instance.DS.IsDataLoaded)
@@ -196,20 +199,30 @@
 
             if (DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
-                // 1) UnTar *.GPKG
+                // 1) Init Data Storage
                 if (DataStore.Instance.AD.CurrentInputStreamValid)
                 {
                     // Clear the file system
                     await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+                }
 
-                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program").ConfigureAwait(false);
+                // 1a) UnTar *.GPKG
+                if (DataStore.Instance.AD.CurrentInputStreamFileType == ".gpkg")
+                {
+                    GrampsFile = await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
+                }
 
-                    await TriggerLoadGPKGFileAsync().ConfigureAwait(false);
+                // 1b) UnTar *.GRAMPS
+                if (DataStore.Instance.AD.CurrentInputStreamFileType == ".gramps")
+                {
+                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program").ConfigureAwait(false);
+
+                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
+
+                    GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
                 }
 
                 // 2) UnZip new data.GRAMPS file
-                FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
-
                 if (GrampsFile.Valid)
                 {
                     if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, GrampsFile))
@@ -272,7 +285,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task<bool> TriggerLoadGPKGFileAsync()
+        public async Task<FileInfoEx> TriggerLoadGPKGFileAsync()
         {
             Analytics.TrackEvent("TriggerLoadGPKGFileAsync",
                 new Dictionary<string, string> {
@@ -281,8 +294,12 @@
 
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                return false;
+                return new FileInfoEx();
             }
+
+            await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program").ConfigureAwait(false);
+
+            // Only unZip gzip files
 
             await DataStore.Instance.CN.DataLogEntryAdd("Loading GPKG data").ConfigureAwait(false);
 
@@ -304,7 +321,7 @@
                 // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
             }
 
-            return false;
+            return StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
         }
 
         /// <summary>

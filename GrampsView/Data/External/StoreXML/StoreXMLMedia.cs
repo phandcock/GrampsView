@@ -109,12 +109,19 @@
                                     // Load FileInfoEx and metadata
                                     loadObject.MediaStorageFile = await StoreFile.GetStorageFileAsync(loadObject.OriginalFilePath).ConfigureAwait(false);
 
-                                    var imageSize = DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
+                                    if (loadObject.MediaStorageFile.Valid)
+                                    {
+                                        var imageSize = DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
 
-                                    loadObject.MetaDataHeight = imageSize.Height;
-                                    loadObject.MetaDataWidth = imageSize.Width;
+                                        loadObject.MetaDataHeight = imageSize.Height;
+                                        loadObject.MetaDataWidth = imageSize.Width;
 
-                                    // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
+                                        // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
+                                    }
+                                    else
+                                    {
+                                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
+                                    }
                                 }
                                 catch (Exception ex)
                                 {

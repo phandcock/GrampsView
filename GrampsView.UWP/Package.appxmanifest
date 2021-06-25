@@ -33,6 +33,7 @@
           <uap:FileOpenPicker>
             <uap:SupportedFileTypes>
               <uap:FileType>.gpkg</uap:FileType>
+              <uap:FileType>.gramps</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileOpenPicker>
         </uap:Extension>

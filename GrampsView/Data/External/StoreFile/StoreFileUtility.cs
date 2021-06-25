@@ -70,24 +70,6 @@
             return returnValue;
         }
 
-        //// TODO WHen NetStandard 2.3 out then Path.MakeRelative
-        //public static string MakeRelativePath(string argPath)
-        //{
-        //    Contract.Assert(argPath != null);
-
-        // if (DataStore.Instance.AD.CurrentDataFolder.FullName == argPath) { return string.Empty; }
-
-        // if (argPath.Length < DataStore.Instance.AD.CurrentDataFolder.FullName.Length) { return
-        // argPath; }
-
-        // if (argPath.Substring(0, DataStore.Instance.AD.CurrentDataFolder.FullName.Length) ==
-        // DataStore.Instance.AD.CurrentDataFolder.FullName) { return
-        // argPath.Substring(DataStore.Instance.AD.CurrentDataFolder.FullName.Length, argPath.Length
-        // - DataStore.Instance.AD.CurrentDataFolder.FullName.Length); }
-
-        //    return argPath;
-        //}
-
         /// <summary>
         /// Gets the CurrentDataFolder folder
         /// </summary>
@@ -98,21 +80,21 @@
         {
             try
             {
-                var customFileType =
+                FilePickerFileType customFileType =
                         new FilePickerFileType(
                             new Dictionary<DevicePlatform,
                             IEnumerable<string>>
                                 {
                                     //{ DevicePlatform.iOS, new[] { "public.my.comic.extension" } }, // TODO add these or general UTType values
                                     { DevicePlatform.Android, new[] { "application/octet-stream" } },
-                                    { DevicePlatform.UWP, new[] { ".gpkg"} },
+                                    { DevicePlatform.UWP, new[] { ".gpkg",".gramps" } },
                                     //{ DevicePlatform.macOS, new[] { "cbr" } }, // TODO add these or general UTType values
                                 }
                             );
 
                 var options = new PickOptions
                 {
-                    PickerTitle = "Please select a Gramps file",
+                    PickerTitle = "Please select a Gramps input file",
                     FileTypes = customFileType,
                 };
 

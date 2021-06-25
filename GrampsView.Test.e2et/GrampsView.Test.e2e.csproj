@@ -36,5 +36,6 @@
   <ItemGroup>
     <EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
     <EmbeddedResource Include="..\.test data\grampsxml.171.rng" Link="Test Data\grampsxml.171.rng" />
+    <EmbeddedResource Include="..\.test data\example.gramps" Link="Test Data\example.gramps" />
   </ItemGroup>
 </Project>
