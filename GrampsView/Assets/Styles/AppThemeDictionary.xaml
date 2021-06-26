@@ -13,15 +13,24 @@
         #391E16
     </Color>
 
+    <Color x:Key="PrimaryLightColorDark">
+        #8bf6ff
+    </Color>
+
     <Color x:Key="SecondaryColorDark">
         #ffd600
     </Color>
 
-    <Color x:Key="OnSecondaryColorDark">
-        #000000
-    </Color>
     <Color x:Key="SecondaryDarkColorDark">
         #c7a500
+    </Color>
+
+    <Color x:Key="SecondaryLightColorDark">
+        #fffd61
+    </Color>
+
+    <Color x:Key="OnSecondaryColorDark">
+        #000000
     </Color>
 
     <Color x:Key="BackgroundColorDark">
@@ -51,11 +60,15 @@
     <!--  Light colour  -->
 
     <Color x:Key="PrimaryColorLight">
-        #4169E1
+        #4fc3f7
     </Color>
 
     <Color x:Key="PrimaryDarkColorLight">
-        #0000CD
+        #0093c4
+    </Color>
+
+    <Color x:Key="PrimaryLightColorLight">
+        #8bf6ff
     </Color>
 
     <Color x:Key="OnPrimaryColorLight">
@@ -63,15 +76,19 @@
     </Color>
 
     <Color x:Key="SecondaryColorLight">
-        #03C6DA
+        #ffca28
+    </Color>
+
+    <Color x:Key="SecondaryDarkColorLight">
+        #c79a00
+    </Color>
+
+    <Color x:Key="SecondaryLightColorLight">
+        #fffd61
     </Color>
 
     <Color x:Key="OnSecondaryColorLight">
         #000000
-    </Color>
-
-    <Color x:Key="SecondaryDarkColorLight">
-        #018786
     </Color>
 
     <Color x:Key="BackgroundColorLight">
