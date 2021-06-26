@@ -4,12 +4,14 @@
 
     using Prism.Events;
 
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.CommunityToolkit.UI.Views;
+    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
@@ -145,6 +147,11 @@
             get; private set;
         }
 
+        public IAsyncCommand TopMenuNoteCommand
+        {
+            get; private set;
+        }
+
         private bool BaseHandleLoadTriggered
         {
             get; set;
@@ -188,6 +195,22 @@
         public async Task TopMenuHubCommandHandler()
         {
             CommonRoutines.NavigateHub();
+        }
+
+        public async Task TopMenuNoteCommandHandler()
+        {
+            string body = string.Empty;
+            List<string> recipients = new List<string>();
+
+            EmailMessage message = new EmailMessage
+            {
+                Subject = "GrampsView: " + Shell.Current.Navigation.NavigationStack[Shell.Current.Navigation.NavigationStack.Count - 1].Title,
+                Body = body,
+                To = recipients,
+                //Cc = ccRecipients,
+                //Bcc = bccRecipients
+            };
+            await Email.ComposeAsync(message);
         }
 
         internal void BaseHandleAppearingEventInternal()
@@ -247,6 +270,8 @@
             {
                 TopMenuHubButtonVisible = true;
             }
+
+            TopMenuNoteCommand = new AsyncCommand(TopMenuNoteCommandHandler);
         }
     }
 }

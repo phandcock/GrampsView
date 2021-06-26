@@ -144,99 +144,105 @@
 
         private void ShowImage(IMediaModel argMediaModel)
         {
-            try
+            if (argMediaModel.IsMediaStorageFileValid)
             {
-                if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                try
                 {
-                    ErrorInfo t = new ErrorInfo("The media file path is null")
+                    if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                    {
+                        ErrorInfo t = new ErrorInfo("The image file path is null")
                         {
                             { "Id", argMediaModel.Id }
                         };
 
-                    DataStore.Instance.CN.NotifyError(t);
-                    return;
+                        DataStore.Instance.CN.NotifyError(t);
+                        return;
+                    }
+                    // Input valid so start work
+                    CachedImage newMediaControl = new CachedImage
+                    {
+                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                        Margin = 3,
+                        Aspect = Aspect.AspectFit,
+                        BackgroundColor = Color.Transparent,
+                        CacheType = FFImageLoading.Cache.CacheType.All,
+                        DownsampleToViewSize = true,
+
+                        // HeightRequest = 100, // "{Binding MediaDetailImageHeight,
+                        // Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        IsVisible = true,
+                        ErrorPlaceholder = "ic_launcher.png",
+                        LoadingPlaceholder = "ic_launcher.png",
+                        RetryCount = 3,
+                        RetryDelay = 1000
+                    };
+
+                    newMediaControl.Error += NewMediaControl_Error;
+
+                    this.HLinkVisualDisplayRoot.Children.Clear();
+                    this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
-                // Input valid so start work
-                CachedImage newMediaControl = new CachedImage
+                catch (Exception ex)
                 {
-                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                    Margin = 3,
-                    Aspect = Aspect.AspectFit,
-                    BackgroundColor = Color.Transparent,
-                    CacheType = FFImageLoading.Cache.CacheType.All,
-                    DownsampleToViewSize = true,
-
-                    // HeightRequest = 100, // "{Binding MediaDetailImageHeight, Source={x:Static
-                    // common:CardSizes.Current}, Mode=OneWay}"
-                    HorizontalOptions = LayoutOptions.FillAndExpand,
-                    IsVisible = true,
-                    ErrorPlaceholder = "ic_launcher.png",
-                    LoadingPlaceholder = "ic_launcher.png",
-                    RetryCount = 3,
-                    RetryDelay = 1000
-                };
-
-                newMediaControl.Error += NewMediaControl_Error;
-
-                this.HLinkVisualDisplayRoot.Children.Clear();
-                this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
-            }
-            catch (Exception ex)
-            {
-                ErrorInfo argDetail = new ErrorInfo
+                    ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
-                throw;
+                    DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    throw;
+                }
             }
         }
 
         private void ShowMedia(IMediaModel argMediaModel)
         {
-            try
+            if (argMediaModel.IsMediaStorageFileValid)
             {
-                if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                try
                 {
-                    ErrorInfo t = new ErrorInfo("The media file path is null")
+                    if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                    {
+                        ErrorInfo t = new ErrorInfo("The media file path is null")
                         {
                             { "Id", argMediaModel.Id }
                         };
 
-                    DataStore.Instance.CN.NotifyError(t);
-                    return;
-                }
-                // Input valid so start work
-                MediaElement newMediaControl = new MediaElement
-                {
-                    Aspect = Aspect.AspectFit,
-                    AutoPlay = false,
-                    ShowsPlaybackControls = true,
-                    BackgroundColor = Color.Transparent,
-                    HorizontalOptions = LayoutOptions.FillAndExpand,
-                    IsVisible = true,
-                    Margin = 3,
-                    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                    VerticalOptions = LayoutOptions.FillAndExpand,
-                };
+                        DataStore.Instance.CN.NotifyError(t);
+                        return;
+                    }
+                    // Input valid so start work
+                    MediaElement newMediaControl = new MediaElement
+                    {
+                        Aspect = Aspect.AspectFit,
+                        AutoPlay = false,
+                        ShowsPlaybackControls = true,
+                        BackgroundColor = Color.Transparent,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        IsVisible = true,
+                        Margin = 3,
+                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                        VerticalOptions = LayoutOptions.FillAndExpand,
+                    };
 
-                this.HLinkVisualDisplayRoot.Children.Clear();
-                this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
-            }
-            catch (Exception ex)
-            {
-                ErrorInfo argDetail = new ErrorInfo
+                    this.HLinkVisualDisplayRoot.Children.Clear();
+                    this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                }
+                catch (Exception ex)
+                {
+                    ErrorInfo argDetail = new ErrorInfo
                 {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
-                throw;
+                    DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    throw;
+                }
             }
         }
 

@@ -33,6 +33,7 @@
                 <Button
                     Grid.Row="0"
                     Grid.Column="1"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuNoteCommand}"
                     Style="{DynamicResource GVButtonMenu}"
                     Text="Note"
                     WidthRequest="40" />
