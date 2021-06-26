@@ -202,9 +202,11 @@
             string body = string.Empty;
             List<string> recipients = new List<string>();
 
+            recipients.Add(CommonLocalSettings.NoteEmailAddress);
+
             EmailMessage message = new EmailMessage
             {
-                Subject = "GrampsView: " + Shell.Current.Navigation.NavigationStack[Shell.Current.Navigation.NavigationStack.Count - 1].Title,
+                Subject = "GrampsView: " + BaseTitle,
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,

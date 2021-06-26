@@ -82,6 +82,21 @@
 
     <!--
         ******************************************************
+        Entry Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Entry style  -->
+    <Style x:Key="GVEntryBase" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+    </Style>
+
+    <Style x:Key="GVEntryInvalid" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ErrorColorDark}, Light={StaticResource ErrorColorLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
         FlexLayout Styles
         ******************************************************
     -->

@@ -139,6 +139,19 @@
             }
         }
 
+        public static string NoteEmailAddress
+        {
+            get
+            {
+                return DataStore.Instance.ES.PreferencesGet("NoteEmailAddress", string.Empty);
+            }
+
+            set
+            {
+                DataStore.Instance.ES.PreferencesSet("NoteEmailAddress", value);
+            }
+        }
+
         public static bool SortHLinkCollections
         {
             get

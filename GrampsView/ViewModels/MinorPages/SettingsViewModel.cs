@@ -27,23 +27,13 @@
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            ShowMessageLogCommand = new AsyncCommand(ShowMessageLog);
+            ShowMessageLogCommand = new AsyncCommand(ShowMessageLogHandler);
 
-            TestCommand = new AsyncCommand(TestButtonHandler);
+            TestButtonCommand = new AsyncCommand(TestButtonHandler);
+
+            UpdateNoteEmailCommand = new AsyncCommand<string>(UpdateNoteEmailHandler);
 
             BaseHandleAppearingEvent();
-        }
-
-        public bool CanHandleTestButton
-        {
-            get; set;
-        }
-
-        = true;
-
-        public IAsyncCommand ForceUpdateCheckCommand
-        {
-            get;
         }
 
         public IAsyncCommand ShowMessageLogCommand
@@ -63,7 +53,14 @@
             }
         }
 
-        public IAsyncCommand TestCommand
+        //public bool TestButtonCanHandle
+        //{
+        //    get; set;
+        //}
+
+        //= true;
+
+        public IAsyncCommand TestButtonCommand
         {
             get;
         }
@@ -136,6 +133,32 @@
             get; private set;
         }
 
+        public string UpdateNoteEmailAddress
+        {
+            get
+            {
+                return CommonLocalSettings.NoteEmailAddress;
+            }
+
+            set
+            {
+                if (UpdateNoteEmailValidValue)
+                {
+                    CommonLocalSettings.NoteEmailAddress = value;
+                }
+            }
+        }
+
+        public IAsyncCommand<string> UpdateNoteEmailCommand
+        {
+            get;
+        }
+
+        public bool UpdateNoteEmailValidValue
+        {
+            get; set;
+        }
+
         public bool UseFirstImageFlag
         {
             get
@@ -178,7 +201,13 @@
             }
         }
 
-        public async Task TestButtonHandler()
+        private async Task ShowMessageLogHandler()
+        {
+            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
+            return;
+        }
+
+        private async Task TestButtonHandler()
         {
             ErrorInfo t = new ErrorInfo
             {
@@ -214,9 +243,8 @@
             DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
         }
 
-        private async Task ShowMessageLog()
+        private async Task UpdateNoteEmailHandler(string argEmailAddress)
         {
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
             return;
         }
     }
