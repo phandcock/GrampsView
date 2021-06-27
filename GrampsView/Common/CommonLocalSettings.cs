@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Common
 {
+    using GrampsView.Data.DataView;
     using GrampsView.Data.Repository;
 
     using Xamarin.Forms;
@@ -143,7 +144,7 @@
         {
             get
             {
-                return DataStore.Instance.ES.PreferencesGet("NoteEmailAddress", string.Empty);
+                return DataStore.Instance.ES.PreferencesGet("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
             }
 
             set

@@ -50,7 +50,7 @@
         BasedOn="{StaticResource GVButtonStyle}"
         TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
@@ -163,7 +163,7 @@
     -->
     <Style x:Key="FrameCardStyle" TargetType="Frame">
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Padding" Value="5" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
@@ -207,7 +207,7 @@
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="3" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
     </Style>
@@ -302,6 +302,7 @@
         x:Key="FrameCardLargeFixedStyle"
         BasedOn="{StaticResource FrameCardLargeStyle}"
         TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 

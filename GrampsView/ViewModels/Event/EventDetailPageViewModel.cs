@@ -68,16 +68,11 @@
                         new CardListLine("Type:", EventObject.GType),
                         new CardListLine("Role",HLinkObject.GRole),
                         new CardListLine("Years ago", EventObject.GDate.GetAge),
+                        new CardListLine("Description", EventObject.GDescription),
                     });
 
                     // Get date card
                     BaseDetail.Add(EventObject.GDate.AsCardListLine());
-
-                    // Add the description and event place card
-                    BaseDetail.Add(new CardListLineCollection("Description")
-                        {
-                            new CardListLine(string.Empty, EventObject.GDescription)
-                        });
 
                     BaseDetail.Add(EventObject.GPlace);
 
