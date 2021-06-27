@@ -1,3 +1,18 @@
+# [16.19.0](https://github.com/phandcock/GrampsView/compare/v16.18.3...v16.19.0) (2021-06-27)
+
+
+### Bug Fixes
+
+* start work on ,gramps load ([0233ae5](https://github.com/phandcock/GrampsView/commit/0233ae51203c1d715cfa939a71b27eab0e023c8f))
+* tweak email address storage for notes ([f628735](https://github.com/phandcock/GrampsView/commit/f62873585576d22aba02b6be894a7c17d4e79125))
+
+
+### Features
+
+* initial cut at Notes email functionality ([35f2a55](https://github.com/phandcock/GrampsView/commit/35f2a5584edcacc68a0c66cf3d3334d40d1a8e97))
+
+
+
 ## [16.18.3](https://github.com/phandcock/GrampsView/compare/v16.18.2...v16.18.3) (2021-06-25)
 
 
@@ -27,21 +42,6 @@
 * center flexsingle cards and fix date and relationship prefixes ([e270b85](https://github.com/phandcock/GrampsView/commit/e270b85924e9e2562bcc38a6e68cec5f77bb6d73))
 * tweak page list views ([d240049](https://github.com/phandcock/GrampsView/commit/d240049bf301435a171b73225f395418f12072b2))
 * work on uwp release popup issue ([928af90](https://github.com/phandcock/GrampsView/commit/928af9003fda1488f810e788aefac31a1cdcabb3))
-
-
-
-# [16.18.0](https://github.com/phandcock/GrampsView/compare/v16.17.59...v16.18.0) (2021-06-18)
-
-
-### Bug Fixes
-
-* breadcrumb tweaks ([ddcc620](https://github.com/phandcock/GrampsView/commit/ddcc62073ac04e47f4b70bfb0266372b63401e3c))
-* revert uniformgrid chnage and add breadcrumb control to all ([f8ab9cc](https://github.com/phandcock/GrampsView/commit/f8ab9cce9e2721b3a6ea37fac1f05b5c7c479087))
-
-
-### Features
-
-* add view breadcrumb plus tweaks ([81d03af](https://github.com/phandcock/GrampsView/commit/81d03af9fd2cd50e917ecc1473ae0d44abda8b9b))
 
 
 
