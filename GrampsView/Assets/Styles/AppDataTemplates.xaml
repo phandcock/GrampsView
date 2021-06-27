@@ -13,7 +13,7 @@
                                               Light={StaticResource SurfaceColorDark}}"
             BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
                                           Light={StaticResource SecondaryLightColorLight}}"
-            CornerRadius="{StaticResource GVCornerRadius}">
+            CornerRadius="3">
 
             <Grid
                 Margin="0"

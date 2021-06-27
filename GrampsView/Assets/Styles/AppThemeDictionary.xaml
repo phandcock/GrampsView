@@ -7,11 +7,11 @@
     </Color>
 
     <Color x:Key="PrimaryDarkColorDark">
-        #391E16
+        #341c13
     </Color>
 
     <Color x:Key="PrimaryLightColorDark">
-        #8bf6ff
+        #8d6e63
     </Color>
 
     <Color x:Key="OnPrimaryColorDark">
@@ -19,7 +19,7 @@
     </Color>
 
     <Color x:Key="SecondaryColorDark">
-        #ffd600
+        #c79a00
     </Color>
 
     <Color x:Key="SecondaryDarkColorDark">

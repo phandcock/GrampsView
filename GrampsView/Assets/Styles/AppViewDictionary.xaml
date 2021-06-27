@@ -37,7 +37,7 @@
     <!--  Create a Base Style for a Button Style  -->
     <Style x:Key="GVButtonStyle" TargetType="Button">
         <Setter Property="BorderWidth" Value="2" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
@@ -51,8 +51,6 @@
         TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
-        <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
     <!--
@@ -114,9 +112,7 @@
     <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="AlignItems" Value="Stretch" />
         <Setter Property="Wrap" Value="Wrap" />
-        <Setter Property="JustifyContent" Value="SpaceAround" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
@@ -166,7 +162,7 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
         <Setter Property="Margin" Value="10" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>
 
@@ -177,10 +173,9 @@
         x:Key="FrameCardSingleStyle"
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
-
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="2" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style
@@ -209,7 +204,7 @@
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="2" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style
@@ -226,6 +221,7 @@
         TargetType="Frame">
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
+
     <Style
         x:Key="FrameSmallVariableCardStyle"
         BasedOn="{StaticResource FrameCardSmallStyle}"
@@ -338,7 +334,7 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style x:Key="FlexMultiCollection" TargetType="Frame">
@@ -346,7 +342,7 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="{StaticResource GVCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style
@@ -376,8 +372,8 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark}, Light={StaticResource PrimaryLightColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark}, Light={StaticResource PrimaryLightColorLight}}" />
     </Style>
 
     <!--
@@ -413,13 +409,12 @@
     </Style>
 
     <!--  Grid Small  -->
-
     <Style
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="RowSpacing" Value="0" />
-        <Setter Property="ColumnSpacing" Value="0" />
+        <!--<Setter Property="RowSpacing" Value="0" />
+        <Setter Property="ColumnSpacing" Value="0" />-->
         <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
