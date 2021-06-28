@@ -3,10 +3,9 @@
     x:Class="GrampsView.UserControls.ListLineCardLarge"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
-    Padding="0"
     x:DataType="models:CardListLineCollection"
     MinimumHeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
@@ -18,10 +17,10 @@
     </Grid.Resources>
 
     <Frame Style="{DynamicResource FrameLargeVariableCardStyleNS}">
-        <Grid Padding="0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -31,10 +30,8 @@
             <Frame
                 Grid.Row="0"
                 Grid.Column="0"
-                Margin="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
                 Style="{DynamicResource GVFrameHeaderStyle}">
-
                 <Label Style="{StaticResource GVHeaderStyleMedium}" Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 

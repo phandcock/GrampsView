@@ -102,21 +102,27 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
+                            Style="{DynamicResource GVCardLabelStyle}"
                             Text="Sort Item collections on load" />
 
                         <Switch
                             Grid.Row="0"
                             Grid.Column="1"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                              Light={StaticResource SecondaryColorLight}}"
                             IsToggled="{Binding SortCollectionsFlag}" />
 
                         <Label
                             Grid.Row="1"
                             Grid.Column="0"
+                            Style="{DynamicResource GVCardLabelStyle}"
                             Text="Use first image from collections.  Defaults to last" />
 
                         <Switch
                             Grid.Row="1"
                             Grid.Column="1"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                              Light={StaticResource SecondaryColorLight}}"
                             IsToggled="{Binding UseFirstImageFlag}" />
                     </Grid>
                 </StackLayout>
@@ -145,11 +151,14 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
+                            Style="{DynamicResource GVCardLabelStyle}"
                             Text="Default email address for Notes" />
 
                         <Entry
                             Grid.Row="0"
                             Grid.Column="1"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                              Light={StaticResource SecondaryColorLight}}"
                             ClearButtonVisibility="WhileEditing"
                             Keyboard="Email"
                             Placeholder="Email"

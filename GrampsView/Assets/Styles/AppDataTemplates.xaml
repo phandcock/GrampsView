@@ -7,8 +7,8 @@
     <DataTemplate x:Key="DataLogEntryLarge" x:Name="DataLogEntryLarge">
 
         <Frame
-            Margin="0"
-            Padding="0"
+            Margin="3"
+            Padding="3"
             BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
                                               Light={StaticResource SurfaceColorDark}}"
             BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},

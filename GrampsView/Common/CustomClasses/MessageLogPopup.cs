@@ -10,11 +10,13 @@
 
         public MessageLogPopup()
         {
-            this.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            HorizontalOptions = LayoutOptions.CenterAndExpand;
 
-            this.IsLightDismissEnabled = false;
+            IsLightDismissEnabled = false;
 
-            this.VerticalOptions = LayoutOptions.CenterAndExpand;
+            VerticalOptions = LayoutOptions.CenterAndExpand;
+
+            BackgroundColor = Color.Transparent;
         }
 
         public bool DismissFlag

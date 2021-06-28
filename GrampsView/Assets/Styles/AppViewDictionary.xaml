@@ -49,7 +49,7 @@
         x:Key="GVButtonMenu"
         BasedOn="{StaticResource GVButtonStyle}"
         TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark}, Light={StaticResource PrimaryLightColorLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>
 
@@ -164,6 +164,7 @@
         <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
+        <Setter Property="HasShadow" Value="True" />
     </Style>
 
     <!--
@@ -212,7 +213,6 @@
         BasedOn="{StaticResource FrameCardSmallStyle}"
         TargetType="Frame">
         <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style
@@ -225,10 +225,7 @@
     <Style
         x:Key="FrameSmallVariableCardStyle"
         BasedOn="{StaticResource FrameCardSmallStyle}"
-        TargetType="Frame">
-        <!--<Setter Property="MinimumHeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
-        <Setter Property="HasShadow" Value="True" />
-    </Style>
+        TargetType="Frame" />
 
     <Style
         x:Key="FrameSmallVariableCardStyleNS"
@@ -393,6 +390,7 @@
         x:Key="CardImageBackground"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
+        <Setter Property="Margin" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>
 
@@ -413,8 +411,6 @@
         x:Key="GridSmallFixedCardStyle"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <!--<Setter Property="RowSpacing" Value="0" />
-        <Setter Property="ColumnSpacing" Value="0" />-->
         <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -548,7 +544,7 @@
         x:Key="GVHeaderStyleSmall"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="Margin" Value="5,3,3,3" />
+        <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
@@ -558,7 +554,7 @@
         x:Key="GVHeaderStyleMedium"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="Margin" Value="5,3,3,3" />
+        <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
@@ -568,6 +564,7 @@
         x:Key="GVLabelStyleLarge"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
+
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="MaxLines" Value="4" />
     </Style>

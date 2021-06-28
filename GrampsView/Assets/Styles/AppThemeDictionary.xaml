@@ -109,11 +109,11 @@
     </Color>
 
     <Color x:Key="SurfaceColorLight">
-        #000000
+        #FFFFFF
     </Color>
 
     <Color x:Key="OnSurfaceColorLight">
-        #FFFFFF
+        #000000
     </Color>
 
     <!--  - Card Backgrounds  -->
