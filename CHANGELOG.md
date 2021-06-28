@@ -1,3 +1,13 @@
+## [16.19.1](https://github.com/phandcock/GrampsView/compare/v16.19.0...v16.19.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* cornerradius on uwp and android and tweak colours ([4d382de](https://github.com/phandcock/GrampsView/commit/4d382defcc8001ec48b45e5cebb53ebbdf6368e6))
+* tweaks ([43a2f48](https://github.com/phandcock/GrampsView/commit/43a2f484427c0d4f9f696144a431718d1e663be2))
+
+
+
 # [16.19.0](https://github.com/phandcock/GrampsView/compare/v16.18.3...v16.19.0) (2021-06-27)
 
 
@@ -31,17 +41,6 @@
 * cleanup personname detailview ([4f530c2](https://github.com/phandcock/GrampsView/commit/4f530c2362a546fb00721cc4b81d7fe529802eda))
 * remov emedia deepcopy code and repalce with clone and use IMediaModel more ([8a7aa1f](https://github.com/phandcock/GrampsView/commit/8a7aa1ffe041bebc4471ceef3a400bbf86dbab28))
 * unzip file using system.io.compression ([9a65132](https://github.com/phandcock/GrampsView/commit/9a651322350a44b7d9f5e41aff950f346e06555f))
-
-
-
-## [16.18.1](https://github.com/phandcock/GrampsView/compare/v16.18.0...v16.18.1) (2021-06-20)
-
-
-### Bug Fixes
-
-* center flexsingle cards and fix date and relationship prefixes ([e270b85](https://github.com/phandcock/GrampsView/commit/e270b85924e9e2562bcc38a6e68cec5f77bb6d73))
-* tweak page list views ([d240049](https://github.com/phandcock/GrampsView/commit/d240049bf301435a171b73225f395418f12072b2))
-* work on uwp release popup issue ([928af90](https://github.com/phandcock/GrampsView/commit/928af9003fda1488f810e788aefac31a1cdcabb3))
 
 
 
