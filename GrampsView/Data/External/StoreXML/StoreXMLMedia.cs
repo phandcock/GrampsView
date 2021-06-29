@@ -6,6 +6,7 @@
     using GrampsView.Data.Repository;
 
     using System;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -88,8 +89,7 @@
                         XElement filedetails = pname.Element(ns + "file");
                         if (filedetails != null)
                         {
-                            loadObject.FileContentType = (string)filedetails.Attribute("mime");
-
+                            // load filename
                             string mediaFileName = (string)filedetails.Attribute("src");
 
                             if (mediaFileName.Length == 0)
@@ -111,7 +111,7 @@
 
                                     if (loadObject.MediaStorageFile.Valid)
                                     {
-                                        var imageSize = DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
+                                        Size imageSize = DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
 
                                         loadObject.MetaDataHeight = imageSize.Height;
                                         loadObject.MetaDataWidth = imageSize.Width;
@@ -128,6 +128,14 @@
                                     DataStore.Instance.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                     throw;
                                 }
+                            }
+
+                            // Load mime types
+                            loadObject.FileContentType = (string)filedetails.Attribute("mime");
+
+                            if (loadObject.FileMimeType == "unknown")
+                            {
+                                loadObject.FileContentType = CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(loadObject.OriginalFilePath));
                             }
                         }
 

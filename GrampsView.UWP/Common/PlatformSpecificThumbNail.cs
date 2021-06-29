@@ -108,21 +108,10 @@
 
             StorageItemThumbnail thumbnail = await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem);
 
-            //if (thumbnail.Type == ThumbnailType.Image)
-            //{
-            //BitmapImage bitmap = new BitmapImage();
-            //bitmap.SetSource(await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem));
-
-            //Stream stream = thumbnail.AsStream();
-            //byte[] bytes = new byte[Convert.ToUInt32(thumbnail.Size)];
-            //stream.Position = 0;
-
-            //await stream.ReadAsync(bytes, 0, bytes.Length);
-
             Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
             IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
 
-            var strm = await outfile.OpenAsync(FileAccessMode.ReadWrite);
+            IRandomAccessStream strm = await outfile.OpenAsync(FileAccessMode.ReadWrite);
 
             await strm.WriteAsync(iBuf);
 

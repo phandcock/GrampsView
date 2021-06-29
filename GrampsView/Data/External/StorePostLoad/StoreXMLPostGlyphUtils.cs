@@ -72,7 +72,7 @@
             // Check if new image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-            if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
+            if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
             {
                 // check if we can get an image for the video
                 videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);

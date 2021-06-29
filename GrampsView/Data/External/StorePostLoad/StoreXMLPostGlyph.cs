@@ -343,6 +343,10 @@
                 // Setup HomeImage
                 argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
 
+                if (argModel.Id == "O0235")
+                {
+                }
+
                 switch (argModel.FileMimeType)
                 {
                     case "application":
@@ -351,11 +355,27 @@
 
                             switch (argModel.FileMimeSubType)
                             {
+                                case "msword":
+                                case "rtf":
+                                    {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileWord;
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileWord;
+                                        argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
+                                        break;
+                                    }
+
                                 case "pdf":
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
+                                        break;
+                                    }
+
+                                case "vnd.ms-outlook":
+                                    {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.MailBulk;
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.MailBulk;
                                         break;
                                     }
 
@@ -374,6 +394,9 @@
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
                                     }
+
+                                default:
+                                    break;
                             }
 
                             break;
