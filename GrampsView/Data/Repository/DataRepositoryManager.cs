@@ -118,6 +118,7 @@
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
+            DataStore.Instance.DS.AddressData.Clear();
             DataStore.Instance.DS.CitationData.Clear();
             DataStore.Instance.DS.EventData.Clear();
             DataStore.Instance.DS.FamilyData.Clear();
@@ -126,6 +127,7 @@
             DataStore.Instance.DS.NameMapData.Clear();
             DataStore.Instance.DS.NoteData.Clear();
             DataStore.Instance.DS.PersonData.Clear();
+            DataStore.Instance.DS.PersonNameData.Clear();
             DataStore.Instance.DS.PlaceData.Clear();
             DataStore.Instance.DS.RepositoryData.Clear();
             DataStore.Instance.DS.SourceData.Clear();

@@ -31,7 +31,7 @@
 
                 // Try citation reference collection first
                 ItemGlyph t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
-                if ((!hlink.ValidImage) && (t.ValidImage))
+                if ((!hlink.ValidImage) && t.ValidImage)
                 {
                     hlink = t;
                 }

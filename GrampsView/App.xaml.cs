@@ -1,34 +1,34 @@
-﻿using GrampsView.Common;
-using GrampsView.Common.CustomClasses;
-using GrampsView.Data;
-using GrampsView.Data.External.StoreSerial;
-using GrampsView.Data.ExternalStorage;
-using GrampsView.Data.Model;
-using GrampsView.Data.Repository;
-using GrampsView.Events;
-using GrampsView.ViewModels;
-using GrampsView.Views;
-
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Distribute;
-
-using Prism;
-using Prism.Events;
-using Prism.Ioc;
-using Prism.Modularity;
-
-using System.Diagnostics;
-using System.Threading.Tasks;
-
-using Unity;
-
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
-namespace GrampsView
+﻿namespace GrampsView
 {
+    using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
+    using GrampsView.Data;
+    using GrampsView.Data.External.StoreSerial;
+    using GrampsView.Data.ExternalStorage;
+    using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
+    using GrampsView.Events;
+    using GrampsView.ViewModels;
+    using GrampsView.Views;
+
+    using Microsoft.AppCenter;
+    using Microsoft.AppCenter.Analytics;
+    using Microsoft.AppCenter.Crashes;
+    using Microsoft.AppCenter.Distribute;
+
+    using Prism;
+    using Prism.Events;
+    using Prism.Ioc;
+    using Prism.Modularity;
+
+    using System.Diagnostics;
+    using System.Threading.Tasks;
+
+    using Unity;
+
+    using Xamarin.Essentials;
+    using Xamarin.Forms;
+
     public sealed partial class App
     {
         private static HLinkFamilyModel FamilyStartModel = null;
@@ -107,13 +107,7 @@ namespace GrampsView
 
         protected override void OnResume()
         {
-            // Support IApplicationLifecycleAware
-
-            if (DataStore.Instance.DS.IsDataLoaded)
-            {
-                //Shell.Current.Navigation.PopToRootAsync(animated: true); // TODO
-                //return;
-            }
+            Debug.WriteLine("Resuming");
 
             base.OnResume();
 
@@ -122,7 +116,7 @@ namespace GrampsView
 
         protected override void OnSleep()
         {
-            // Support IApplicationLifecycleAware
+            Debug.WriteLine("Sleeping");
 
             base.OnSleep();
 
