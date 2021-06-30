@@ -1,3 +1,14 @@
+## [16.19.2](https://github.com/phandcock/GrampsView/compare/v16.19.1...v16.19.2) (2021-06-30)
+
+
+### Bug Fixes
+
+* add more mimetype to symbol decoding ([45aff18](https://github.com/phandcock/GrampsView/commit/45aff18d80236d15dce672478daded3123e11873))
+* tweak colours ([d045fcf](https://github.com/phandcock/GrampsView/commit/d045fcf637923543b5f5499d9377f369477b98f2))
+* tweak fontdisappearing and properly clear datastore on load ([048cf5f](https://github.com/phandcock/GrampsView/commit/048cf5f0090c44e07a2190b74a73a85ee19f4f3a))
+
+
+
 ## [16.19.1](https://github.com/phandcock/GrampsView/compare/v16.19.0...v16.19.1) (2021-06-28)
 
 
@@ -30,17 +41,6 @@
 
 * setup topmenu better ([cc441ff](https://github.com/phandcock/GrampsView/commit/cc441ff87b3655aab53fe38242eea066ce289602))
 * USE DETAILVIEW CONTENT CONTROL AND TWEAKS ([f2af148](https://github.com/phandcock/GrampsView/commit/f2af148bcb9b818ab0ac76da407b0d59284cc667))
-
-
-
-## [16.18.2](https://github.com/phandcock/GrampsView/compare/v16.18.1...v16.18.2) (2021-06-23)
-
-
-### Bug Fixes
-
-* cleanup personname detailview ([4f530c2](https://github.com/phandcock/GrampsView/commit/4f530c2362a546fb00721cc4b81d7fe529802eda))
-* remov emedia deepcopy code and repalce with clone and use IMediaModel more ([8a7aa1f](https://github.com/phandcock/GrampsView/commit/8a7aa1ffe041bebc4471ceef3a400bbf86dbab28))
-* unzip file using system.io.compression ([9a65132](https://github.com/phandcock/GrampsView/commit/9a651322350a44b7d9f5e41aff950f346e06555f))
 
 
 
