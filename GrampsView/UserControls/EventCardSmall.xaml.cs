@@ -1,8 +1,6 @@
-﻿using Xamarin.Forms;
-
-namespace GrampsView.UserControls
+﻿namespace GrampsView.UserControls
 {
-    public partial class EventCardSmall : Grid
+    public partial class EventCardSmall : SmallCardControlTemplate
     {
         public EventCardSmall()
         {

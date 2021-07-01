@@ -1,70 +1,35 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Grid
+<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.PersonCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="PersonCardSmallRoot"
-    x:DataType="models:HLinkPersonModel"
-    Style="{DynamicResource GridSmallFixedCardStyle}">
+    x:DataType="models:HLinkPersonModel">
 
-    <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
+    <Grid>
 
-        <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
-            </Grid.GestureRecognizers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
-            </Grid.ColumnDefinitions>
+        <Label
+            x:Name="PersonSummaryNameTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-
-            <Grid
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="0"
-                Style="{DynamicResource CardImageBackground}">
-
-                <ucon:HLinkVisualDisplay
-                    x:Name="AnchorImage"
-                    BindingContext="{Binding HLinkGlyphItem, Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}" />
-            </Grid>
-
-            <Label
-                x:Name="PersonSummaryNameTextBlock"
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
-
-            <Label
-                x:Name="PersonSummaryDOBTextBlock"
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.BirthDate.ShortDateWithPrefix, Mode=OneWay}" />
-
-            <Image
-                Grid.Row="1"
-                Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="FA-Solid"
-                        Glyph="{Binding HLinkGlyphItem.Symbol}"
-                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
-                </Image.Source>
-            </Image>
-        </Grid>
-    </Frame>
-</Grid>
+        <Label
+            x:Name="PersonSummaryDOBTextBlock"
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.BirthDate.ShortDateWithPrefix, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

@@ -127,6 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
+      <DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\General\CollectionMultiCard.xaml.cs">
       <DependentUpon>CollectionMultiCard.xaml</DependentUpon>
     </Compile>
@@ -167,7 +170,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="UserControls\General\DetailPageControlTemplate.xaml">
+    <EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

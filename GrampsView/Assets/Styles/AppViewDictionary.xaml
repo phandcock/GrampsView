@@ -357,6 +357,7 @@
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="CornerRadius" Value="0" />
     </Style>
 
     <!--  Create a Style for a Text Block Header  -->
@@ -390,6 +391,12 @@
         x:Key="CardImageBackground"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+    </Style>
+
+    <Style x:Key="CardImageBackgroundFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>

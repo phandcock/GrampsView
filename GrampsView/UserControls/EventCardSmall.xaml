@@ -1,84 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Grid
+<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.EventCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:HLinkEventModel"
-    Style="{DynamicResource GridSmallFixedCardStyle}">
+    x:DataType="models:HLinkEventModel">
 
-    <Frame Style="{DynamicResource FrameSmallFixedCardStyle}">
+    <Grid>
 
-        <Grid
-            x:Name="controlRoot"
-            RowSpacing="3"
-            Style="{DynamicResource GridSmallFixedCardStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
-            </Grid.GestureRecognizers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
-            </Grid.ColumnDefinitions>
+        <Label
+            x:Name="dateTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            LineBreakMode="WordWrap"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDate.ShortDateWithPrefix, Mode=OneWay}" />
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-            </Grid.RowDefinitions>
+        <Label
+            x:Name="typeTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
 
-            <Grid
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="0"
-                Style="{DynamicResource CardImageBackground}">
-
-                <ucon:HLinkVisualDisplay
-                    x:Name="AnchorImage"
-                    BindingContext="{Binding HLinkGlyphItem, Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}" />
-            </Grid>
-
-            <Label
-                x:Name="dateTextBlock"
-                Grid.Row="0"
-                Grid.Column="1"
-                LineBreakMode="WordWrap"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDate.ShortDateWithPrefix, Mode=OneWay}" />
-
-            <Label
-                x:Name="typeTextBlock"
-                Grid.Row="0"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
-                HorizontalOptions="EndAndExpand"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GType, Mode=OneWay}" />
-
-            <Label
-                x:Name="descriptionTextBlock"
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding DeRef.GDescription, Mode=OneWay}" />
-
-            <Image
-                Grid.Row="1"
-                Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="FA-Solid"
-                        Glyph="{Binding HLinkGlyphItem.Symbol}"
-                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
-                </Image.Source>
-            </Image>
-        </Grid>
-    </Frame>
-</Grid>
+        <Label
+            x:Name="descriptionTextBlock"
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDescription, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

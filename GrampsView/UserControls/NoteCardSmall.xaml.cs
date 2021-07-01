@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using Xamarin.Forms;
-
-    public partial class NoteCardSmall : Grid
+    public partial class NoteCardSmall : SmallCardControlTemplate
     {
         public NoteCardSmall()
         {

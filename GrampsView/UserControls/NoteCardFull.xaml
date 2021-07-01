@@ -11,10 +11,7 @@
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
 
-            <Label
-                FormattedText="{Binding DeRef.TextFormatted}"
-                Style="{DynamicResource GVLabelStyleNoteFull}"
-                Text="{Binding DeRef}" />
+            <Label FormattedText="{Binding DeRef.TextFormatted}" Style="{DynamicResource GVLabelStyleNoteFull}" />
         </Frame.Content>
     </Frame>
 </Grid>

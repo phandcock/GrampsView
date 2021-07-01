@@ -16,6 +16,4 @@
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
-
-    <ContentPresenter Grid.Row="0" Grid.Column="0" />
 </Grid>
