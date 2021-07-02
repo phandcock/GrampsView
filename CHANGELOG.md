@@ -1,3 +1,12 @@
+## [16.19.3](https://github.com/phandcock/GrampsView/compare/v16.19.2...v16.19.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* start use of controltemplate for smallcards ([cea559b](https://github.com/phandcock/GrampsView/commit/cea559bbaed2d95941e3e771a9c4e6d8ccede510))
+
+
+
 ## [16.19.2](https://github.com/phandcock/GrampsView/compare/v16.19.1...v16.19.2) (2021-06-30)
 
 
@@ -31,16 +40,6 @@
 ### Features
 
 * initial cut at Notes email functionality ([35f2a55](https://github.com/phandcock/GrampsView/commit/35f2a5584edcacc68a0c66cf3d3334d40d1a8e97))
-
-
-
-## [16.18.3](https://github.com/phandcock/GrampsView/compare/v16.18.2...v16.18.3) (2021-06-25)
-
-
-### Bug Fixes
-
-* setup topmenu better ([cc441ff](https://github.com/phandcock/GrampsView/commit/cc441ff87b3655aab53fe38242eea066ce289602))
-* USE DETAILVIEW CONTENT CONTROL AND TWEAKS ([f2af148](https://github.com/phandcock/GrampsView/commit/f2af148bcb9b818ab0ac76da407b0d59284cc667))
 
 
 
