@@ -1,0 +1,46 @@
+﻿<ucon:SmallCardControlTemplate
+    x:Class="GrampsView.UserControls.EventCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="models:HLinkEventModel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+          
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="dateTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            LineBreakMode="WordWrap"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDate.ShortDateWithPrefix, Mode=OneWay}" />
+
+        <Label
+            x:Name="typeTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
+
+        <Label
+            x:Name="descriptionTextBlock"
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDescription, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

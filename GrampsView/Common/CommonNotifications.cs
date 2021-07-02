@@ -155,19 +155,16 @@
             {
                 //try
                 //{
+                //    if (Device.RuntimePlatform != Device.UWP || !CommonRoutines.ReleaseMode())
+                //    {
                 DataLog.PopupDismissFlag = false;
+                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
+                // } else { // TODO Ignore exception. See //
+                // https://github.com/xamarin/XamarinCommunityToolkit/issues/1251 And
+                // https://github.com/xamarin/XamarinCommunityToolkit/issues/1434 } } catch
+                // (Exception ex) { NotifyException("MessageLog Exception", ex, null);
 
-                // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
-                var popup = new MessageLog();
-
-                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
-                //}
-                //catch (InvalidCastException ex)
-                //{
-                //    var t = ex;
-
-                //    // TODO fix UWP Release issue until fixed
-                //}
+                // // TODO fix UWP Release issue until fixed }
             });
         }
 
@@ -262,21 +259,28 @@
 
         public void PopUpShow()
         {
-            if (!DialogShown && PopupQueue.Count > 0)
-            {
-                // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
-                var popup = new ErrorPopup();
+            //if (!DialogShown && PopupQueue.Count > 0)
+            //{
+            var popup = new ErrorPopup();
 
-                //try
-                //{
-                Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
-                //}
-                //catch (InvalidCastException ex)
-                //{
-                //    var t = ex;
-                //    // TODO fix UWP Release issue until fixed
-                //}
-            }
+            //if (Device.RuntimePlatform != Device.UWP || !CommonRoutines.ReleaseMode())
+            //{
+            //    try
+            //    {
+            Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        var t = ex;
+            //    }
+            //}
+            //else
+            //{
+            //    // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
+
+            //    // TODO fix UWP Release issue until fixed
+            //}
+            // }
         }
     }
 }

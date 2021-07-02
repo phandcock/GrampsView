@@ -57,7 +57,7 @@
         {
             _CommonLogging.RoutineEntry("FixMediaFiles");
 
-            if (DataStore.Instance.AD.CurrentDataFolder.Valid)
+            if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
             {
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 

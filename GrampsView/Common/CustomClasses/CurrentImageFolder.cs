@@ -6,30 +6,26 @@
 
     using Xamarin.Essentials;
 
-    public class CurrentDataFolder
+    public class CurrentImageFolder
     {
-        public CurrentDataFolder()
+        public CurrentImageFolder()
         {
             try
             {
-                // Help with Unit Testing
-                if (DeviceInfo.Platform == DevicePlatform.Unknown)
-                    return;
-
-                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase, CommonConstants.DirectoryImageCache);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(FileSystem.CacheDirectory);
+                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase));
 
                 if (!Value.Exists)
                 {
-                    t.CreateSubdirectory(CommonConstants.DirectoryCacheBase);
+                    t.CreateSubdirectory(CommonConstants.DirectoryImageCache);
                 }
             }
             catch (System.Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception creating application cache", ex, null);
+                DataStore.Instance.CN.NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
         }

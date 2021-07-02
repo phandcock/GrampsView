@@ -1,0 +1,35 @@
+﻿<ucon:SmallCardControlTemplate
+    x:Class="GrampsView.UserControls.LDSOrdCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="LDSOrdCardSmallCardSmallRoot"
+    x:DataType="models:LdsOrdModel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="MediaObjectTitle"
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding GType, Mode=OneWay}" />
+
+        <Label
+            x:Name="GDateValueBTextBlock"
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding GValue, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

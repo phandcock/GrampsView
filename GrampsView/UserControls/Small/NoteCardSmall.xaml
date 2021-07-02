@@ -1,0 +1,36 @@
+﻿<ucon:SmallCardControlTemplate
+    x:Class="GrampsView.UserControls.NoteCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="models:HLinkNoteModel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FormattedText="{Binding DeRef.GStyledText.GText, Mode=OneWay}"
+            Style="{DynamicResource GVCardLabelStyleSmall}" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            FormattedText="{Binding DeRef.GType, Mode=OneWay}"
+            HorizontalOptions="End"
+            Style="{DynamicResource GVCardLabelStyleSmall}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

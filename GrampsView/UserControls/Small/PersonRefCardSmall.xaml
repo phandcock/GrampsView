@@ -1,0 +1,35 @@
+﻿<ucon:SmallCardControlTemplate
+    x:Class="GrampsView.UserControls.PersonRefCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:Name="PersonRefardSmallRoot"
+    x:DataType="models:HLinkPersonRefModel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="PersonRefNameTextBlock"
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
+
+        <Label
+            x:Name="PersonRefRelTextBlock"
+            Grid.Row="1"
+            Grid.Column="10"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding GRelationship, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate> 

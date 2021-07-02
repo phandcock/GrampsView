@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="GrampsView.UserControls.ListLineCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    x:DataType="models:CardListLineCollection"
+    IsVisible="{Binding Visible, Mode=OneWay}"
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+    Style="{DynamicResource GridSmallVariableCardStyle}">
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <toolkit:IsNotNullOrEmptyConverter x:Key="stringToBool" />
+        </ResourceDictionary>
+    </Grid.Resources>
+
+    <Frame Style="{DynamicResource FrameSmallVariableCardStyleNS}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Row="0"
+                Grid.Column="0"
+                IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
+                Style="{DynamicResource GVFrameHeaderStyle}">
+                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
+            </Frame>
+
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="3"
+                BindableLayout.ItemsSource="{Binding .}">
+                <BindableLayout.ItemTemplate>
+
+                    <DataTemplate x:DataType="models:CardListLine">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.Column="0"
+                                Style="{DynamicResource GVCardLabelStyle}"
+                                Text="{Binding Label}" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{DynamicResource GVCardLabelStyle}"
+                                Text="{Binding Value}" />
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </Grid>
+    </Frame>
+</Grid>

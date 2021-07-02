@@ -1,0 +1,42 @@
+﻿<ucon:SmallCardControlTemplate
+    x:Class="GrampsView.UserControls.PlaceCardSmall"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="models:HLinkPlaceModel"
+    IsVisible="{Binding Valid, Mode=OneWay}">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GPlaceNames.GetDefaultText, Mode=OneWay}" />
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GPTitle, Mode=OneWay}" />
+    </Grid>
+</ucon:SmallCardControlTemplate>

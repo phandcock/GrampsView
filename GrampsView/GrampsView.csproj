@@ -55,6 +55,7 @@
     <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
     <Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
     <Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
+    <Compile Remove="UserControls\UserControlBase.cs" />
     <Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
   </ItemGroup>
 
@@ -90,7 +91,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fody" Version="6.5.1">
+    <PackageReference Include="Fody" Version="6.5.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -139,16 +140,16 @@
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\LDSOrdCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\LDSOrdCardSmall.xaml.cs">
       <DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\MediaGlyphCardLarge.xaml.cs">
+    <Compile Update="UserControls\Large\MediaGlyphCardLarge.xaml.cs">
       <DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\ChildRefCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\ChildRefCardSmall.xaml.cs">
       <DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\PersonNameCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">

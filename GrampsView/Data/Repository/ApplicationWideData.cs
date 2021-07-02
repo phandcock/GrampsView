@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
 
     using System.IO;
@@ -25,13 +24,12 @@
             set;
         } = new CurrentDataFolder();
 
-        public string CurrentImageAssetsFolderPath
+        public CurrentImageFolder CurrentImageAssetsFolder
         {
-            get
-            {
-                return Path.Combine(CurrentDataFolder.Path, CommonConstants.DirectoryImageCache);
-            }
-        }
+            get;
+
+            set;
+        } = new CurrentImageFolder();
 
         public Stream CurrentInputStream
         {

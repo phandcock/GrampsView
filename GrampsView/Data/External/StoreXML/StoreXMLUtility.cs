@@ -55,7 +55,7 @@
              {
              }
 
-             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolderPath, outFileName);
+             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.Path, outFileName);
 
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 
