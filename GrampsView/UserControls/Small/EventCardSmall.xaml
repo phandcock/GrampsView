@@ -16,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="3*" />
-          
+
         </Grid.RowDefinitions>
 
         <Label

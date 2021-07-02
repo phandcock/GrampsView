@@ -73,6 +73,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include=".privatenuget\SignList.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
     <EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
     <EmbeddedResource Include="fa-solid-900.ttf" />
@@ -88,6 +92,13 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".privatenuget\Xamarin.CommunityToolkit.1.1.0-preview2508.nupkg" />
+    <None Include=".privatenuget\Xamarin.CommunityToolkit.1.1.0-preview2508.snupkg" />
+    <None Include=".privatenuget\Xamarin.CommunityToolkit.Markup.1.1.0-preview2508.nupkg" />
+    <None Include=".privatenuget\Xamarin.CommunityToolkit.Markup.1.1.0-preview2508.snupkg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -110,7 +121,7 @@
     <PackageReference Include="SharpZipLib" Version="1.3.2" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2508" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2508" GeneratePathProperty="true" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
@@ -127,6 +138,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
+      <DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
       <DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>

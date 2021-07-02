@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using Xamarin.Forms;
-
-    public partial class SourceCardLarge : Grid
+    public partial class SourceCardLarge : LargeCardControlTemplate
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceCardLarge"/> class.
