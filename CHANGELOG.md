@@ -1,3 +1,15 @@
+## [16.19.4](https://github.com/phandcock/GrampsView/compare/v16.19.3...v16.19.4) (2021-07-03)
+
+
+### Bug Fixes
+
+* create artifact for xct preview and use in nuget ([fda42f9](https://github.com/phandcock/GrampsView/commit/fda42f9fdb5986c2831d71f9cea526e62ca5ab30))
+* fix nuget.config location ([b898d8f](https://github.com/phandcock/GrampsView/commit/b898d8f6fdd5cd3d334779f3834a87327dc61fca))
+* rollback to xct 1.1.0-preview2508 ([603721a](https://github.com/phandcock/GrampsView/commit/603721a3daedb7b086ab119eff5761b2f7f96288))
+* tweak xct package and create large card controltemplate ([476f685](https://github.com/phandcock/GrampsView/commit/476f6851b30549b7faddb51d5891b9a708f0aef6))
+
+
+
 ## [16.19.3](https://github.com/phandcock/GrampsView/compare/v16.19.2...v16.19.3) (2021-07-02)
 
 
@@ -25,21 +37,6 @@
 
 * cornerradius on uwp and android and tweak colours ([4d382de](https://github.com/phandcock/GrampsView/commit/4d382defcc8001ec48b45e5cebb53ebbdf6368e6))
 * tweaks ([43a2f48](https://github.com/phandcock/GrampsView/commit/43a2f484427c0d4f9f696144a431718d1e663be2))
-
-
-
-# [16.19.0](https://github.com/phandcock/GrampsView/compare/v16.18.3...v16.19.0) (2021-06-27)
-
-
-### Bug Fixes
-
-* start work on ,gramps load ([0233ae5](https://github.com/phandcock/GrampsView/commit/0233ae51203c1d715cfa939a71b27eab0e023c8f))
-* tweak email address storage for notes ([f628735](https://github.com/phandcock/GrampsView/commit/f62873585576d22aba02b6be894a7c17d4e79125))
-
-
-### Features
-
-* initial cut at Notes email functionality ([35f2a55](https://github.com/phandcock/GrampsView/commit/35f2a5584edcacc68a0c66cf3d3334d40d1a8e97))
 
 
 
