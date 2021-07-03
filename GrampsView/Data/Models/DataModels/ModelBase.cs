@@ -77,15 +77,9 @@
         [DataMember]
         public HLinkBackLinkModelCollection BackHLinkReferenceCollection
         {
-            get
-            {
-                return _BackHLinkReferenceCollection;
-            }
+            get => _BackHLinkReferenceCollection;
 
-            set
-            {
-                SetProperty(ref _BackHLinkReferenceCollection, value);
-            }
+            set => SetProperty(ref _BackHLinkReferenceCollection, value);
         }
 
         /// <summary>
@@ -97,15 +91,9 @@
         [DataMember]
         public DateTime Change
         {
-            get
-            {
-                return _Change;
-            }
+            get => _Change;
 
-            set
-            {
-                SetProperty(ref _Change, value);
-            }
+            set => SetProperty(ref _Change, value);
         }
 
         /// <summary>
@@ -153,10 +141,7 @@
         [DataMember]
         public string Handle
         {
-            get
-            {
-                return _Handle;
-            }
+            get => _Handle;
 
             set
             {
@@ -165,11 +150,6 @@
                 HLinkKey.Value = value;
             }
         }
-
-        //public HLinkBase HLink
-        //{
-        //    get;
-        //}
 
         /// <summary>
         /// Gets or sets the h link key.
@@ -194,29 +174,17 @@
         [DataMember]
         public string Id
         {
-            get
-            {
-                return _Id;
-            }
+            get => _Id;
 
-            set
-            {
-                SetProperty(ref _Id, value);
-            }
+            set => SetProperty(ref _Id, value);
         }
 
         [DataMember]
         public ItemGlyph ModelItemGlyph
         {
-            get
-            {
-                return _ModelItemGlyph;
-            }
+            get => _ModelItemGlyph;
 
-            set
-            {
-                SetProperty(ref _ModelItemGlyph, value);
-            }
+            set => SetProperty(ref _ModelItemGlyph, value);
         }
 
         /// <summary>

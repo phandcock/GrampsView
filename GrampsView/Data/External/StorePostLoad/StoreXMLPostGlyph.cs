@@ -360,7 +360,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileWord;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileWord;
-                                        argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
+                                        //argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
                                     }
 
@@ -368,6 +368,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
+
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
                                     }
@@ -383,6 +384,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
                                     }
@@ -391,6 +393,7 @@
                                     {
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
                                     }
@@ -412,9 +415,11 @@
                     case "image":
                         {
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
+                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
+
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                             argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
-                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
+
                             break;
                         }
 
@@ -422,6 +427,7 @@
                         {
                             argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
                             argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
+
                             argModel.ModelItemGlyph = await GetThumbImageFromVideo(argModel);
 
                             // Override Glyph type to be media

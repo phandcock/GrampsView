@@ -158,14 +158,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string GetDefaultTextShort
-        {
-            get
-            {
-                return FullName.Substring(0, Math.Min(FullName.Length, 40));
-            }
-        }
-
         /// <summary>
         /// Gets or sets the family nick.
         /// </summary>

@@ -392,13 +392,13 @@
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
         <Setter Property="Margin" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>
 
     <Style x:Key="CardImageBackgroundFrame" TargetType="Frame">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>
 
     <Style x:Key="GVPageTitleStyle" TargetType="Grid">

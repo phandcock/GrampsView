@@ -116,15 +116,9 @@ namespace GrampsView.Common.CustomClasses
         [DataMember]
         public CommonEnums.HLinkGlyphType ImageType
         {
-            get
-            {
-                return _ImageType;
-            }
+            get => _ImageType;
 
-            set
-            {
-                SetProperty(ref _ImageType, value);
-            }
+            set => SetProperty(ref _ImageType, value);
         }
 
         // TODO Change to use GV static styles
@@ -137,15 +131,9 @@ namespace GrampsView.Common.CustomClasses
         [DataMember]
         public string Symbol
         {
-            get
-            {
-                return _IDefaultSymbol;
-            }
+            get => _IDefaultSymbol;
 
-            set
-            {
-                SetProperty(ref _IDefaultSymbol, value);
-            }
+            set => SetProperty(ref _IDefaultSymbol, value);
         }
 
         /// <summary>
@@ -157,10 +145,7 @@ namespace GrampsView.Common.CustomClasses
         [DataMember]
         public Color SymbolColour
         {
-            get
-            {
-                return _SymbolColour;
-            }
+            get => _SymbolColour;
 
             set
             {
