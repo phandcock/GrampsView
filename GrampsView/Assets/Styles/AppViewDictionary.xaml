@@ -292,7 +292,7 @@
     </Style>
 
     <Style
-        x:Key="FrameLargeFixedCardStyle" 
+        x:Key="FrameLargeFixedCardStyle"
         BasedOn="{StaticResource FrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="Padding" Value="0" />
@@ -301,7 +301,7 @@
 
     <Style
         x:Key="FrameCardLargeFixedNSStyle"
-        BasedOn="{StaticResource FrameCardLargeFixedStyle}"
+        BasedOn="{StaticResource FrameLargeFixedCardStyle}"
         TargetType="Frame">
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
     </Style>

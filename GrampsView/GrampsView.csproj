@@ -73,10 +73,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include=".privatenuget\SignList.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
     <EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
     <EmbeddedResource Include="fa-solid-900.ttf" />
@@ -92,13 +88,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include=".privatenuget\Xamarin.CommunityToolkit.1.1.0-preview2508.nupkg" />
-    <None Include=".privatenuget\Xamarin.CommunityToolkit.1.1.0-preview2508.snupkg" />
-    <None Include=".privatenuget\Xamarin.CommunityToolkit.Markup.1.1.0-preview2508.nupkg" />
-    <None Include=".privatenuget\Xamarin.CommunityToolkit.Markup.1.1.0-preview2508.snupkg" />
   </ItemGroup>
 
   <ItemGroup>

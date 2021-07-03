@@ -222,6 +222,11 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
       <Version>7.0.2</Version>
     </PackageReference>
+    <PackageReference Include="NuGet.CommandLine">
+      <Version>4.4.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Prism.Unity.Forms">
       <Version>8.1.97</Version>
     </PackageReference>
