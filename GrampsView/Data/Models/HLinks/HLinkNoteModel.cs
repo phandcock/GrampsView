@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
-        public INoteModel DeRef
+        public new INoteModel DeRef
         {
             get
             {

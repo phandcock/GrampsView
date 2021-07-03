@@ -30,7 +30,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The de reference.
         /// </value>
-        public CitationModel DeRef
+        public new CitationModel DeRef
         {
             get
             {

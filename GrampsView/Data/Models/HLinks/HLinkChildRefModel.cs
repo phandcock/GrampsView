@@ -24,7 +24,7 @@
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
-        public PersonModel DeRef
+        public new PersonModel DeRef
         {
             get
             {

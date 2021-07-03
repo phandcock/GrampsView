@@ -31,7 +31,7 @@
         /// <value>
         /// The de reference.
         /// </value>
-        public TagModel DeRef
+        public new TagModel DeRef
         {
             get
             {

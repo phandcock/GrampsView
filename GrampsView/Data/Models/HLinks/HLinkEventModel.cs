@@ -34,7 +34,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The Event Model.
         /// </value>
-        public EventModel DeRef
+        public new EventModel DeRef
         {
             get
             {

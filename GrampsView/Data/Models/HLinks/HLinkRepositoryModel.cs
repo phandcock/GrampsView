@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The de reference.
         /// </value>
-        public RepositoryModel DeRef
+        public new RepositoryModel DeRef
         {
             get
             {

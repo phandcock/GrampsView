@@ -201,7 +201,7 @@
         {
             // From https://dave-black.blogspot.com/2011/12/how-to-tell-if-assembly-is-debug-or.html
 
-            var HasDebuggableAttribute = false;
+            bool HasDebuggableAttribute = false;
             var IsJITOptimized = false;
             var IsJITTrackingEnabled = false;
             var BuildType = "";
@@ -240,6 +240,12 @@
                 IsJITOptimized = true;
                 BuildType = "Release";
             }
+
+            // Output
+            Debug.WriteLine("HasDebuggableAttribute", HasDebuggableAttribute);
+            Debug.WriteLine("IsJITOptimized", IsJITOptimized);
+            Debug.WriteLine("IsJITTrackingEnabled", IsJITTrackingEnabled);
+            Debug.WriteLine("DebugOutput", DebugOutput);
 
             if (BuildType == "Release")
             {

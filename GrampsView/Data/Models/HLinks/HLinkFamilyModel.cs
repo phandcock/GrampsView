@@ -29,7 +29,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets.
         /// </summary>
-        public FamilyModel DeRef
+        public new FamilyModel DeRef
         {
             get
             {

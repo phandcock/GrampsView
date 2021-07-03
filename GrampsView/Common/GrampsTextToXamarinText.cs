@@ -1,33 +1,38 @@
 ﻿namespace GrampsView.Common
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
+
+    using System.Collections.Generic;
 
     using Xamarin.Forms;
 
     public static class GrampsTextToXamarinText
     {
+        // TODO Cleanup up the code
         public static FormattedString GetFormattedString(StyledTextModel argTextModel, double argFontSize)
         {
             FormattedString returnString = new FormattedString();
 
-            // Add default font
-            returnString.Spans.Add(new Span { FontSize = argFontSize });
+            List<FormattedChar> workingString = new List<FormattedChar>();
 
             // Handle the normal case with no formatting
-            if (argTextModel.Styles.Count == 0)
+            if ((argTextModel.GText.Length == 0) || (argTextModel.Styles.Count == 0))
             {
                 returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = Common.CommonFontSize.FontSmall });
 
                 return returnString;
             }
 
-            //Setup spans
+            // Setup working list
             for (int i = 0; i < argTextModel.GText.Length; i++)
             {
-                returnString.Spans.Add(new Span { Text = argTextModel.GText.Substring(i, 1) });
+                workingString.Add(new FormattedChar { Character = argTextModel.GText[i] });
             }
 
-            // Setup Styles
+            // Initialise Working String
+            FormattedChar t;
+
             foreach (GrampsStyle item in argTextModel.Styles)
             {
                 foreach (GrampsStyleRangeModel item1 in item.GRange)
@@ -39,7 +44,9 @@
                             // TODO Handle multiple styles
 
                             case CommonEnums.TextStyle.bold:
-                                returnString.Spans[i].FontAttributes = FontAttributes.Bold;
+                                t = workingString[i];
+                                t.StyleBold = true;
+                                workingString[i] = t;
                                 break;
 
                             case CommonEnums.TextStyle.fontcolor:
@@ -55,7 +62,9 @@
                                 break;
 
                             case CommonEnums.TextStyle.italic:
-                                returnString.Spans[i].FontAttributes = FontAttributes.Italic;
+                                t = workingString[i];
+                                t.StyleItalics = true;
+                                workingString[i] = t;
                                 break;
 
                             case CommonEnums.TextStyle.link:
@@ -77,7 +86,57 @@
                 }
             }
 
+            // Setup Styles
+            Span OutSpan = new Span();
+            FormattedChar currentStyle = new FormattedChar();
+            string outString = string.Empty;
+
+            // Add default font
+            returnString.Spans.Add(new Span { FontSize = argFontSize });
+
+            currentStyle = workingString[0];
+
+            foreach (FormattedChar item in workingString)
+            {
+                if (currentStyle == item)
+                {
+                    outString += item.Character;
+                }
+                else
+                {
+                    returnString.Spans.Add(MakeSpan(outString, currentStyle));
+
+                    // Reset
+                    outString = string.Empty;
+                    outString += item.Character;
+                    currentStyle = item;
+                }
+            }
+
+            // Add the last one
+            returnString.Spans.Add(MakeSpan(outString, currentStyle));
+
             return returnString;
+        }
+
+        private static Span MakeSpan(string argOutString, FormattedChar argStyle)
+        {
+            Span OutSpan = new Span();
+
+            // Output the string
+            OutSpan.Text = argOutString;
+
+            if (argStyle.StyleBold)
+            {
+                OutSpan.FontAttributes = FontAttributes.Bold;
+            }
+
+            if (argStyle.StyleItalics)
+            {
+                OutSpan.FontAttributes = OutSpan.FontAttributes | FontAttributes.Italic;
+            }
+
+            return OutSpan;
         }
     }
 }

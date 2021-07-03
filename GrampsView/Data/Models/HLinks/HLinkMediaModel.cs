@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
         /// The media model. <note type="caution">This can not hold a local copy of the media model
         /// as the Model Base has a hlinkmediamodel in it and this will cause a referene loop</note>
         /// </value>
-        public IMediaModel DeRef
+        public new IMediaModel DeRef
         {
             get
             {

@@ -36,15 +36,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GText
         {
-            get
-            {
-                return _GText;
-            }
+            get => _GText;
 
-            set
-            {
-                SetProperty(ref _GText, value);
-            }
+            set => SetProperty(ref _GText, value);
         }
 
         [DataMember]

@@ -16,9 +16,9 @@
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
+    /// <seealso cref="Common.ObservableObject"/>
     /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.IStoreFile"/>
+    /// <seealso cref="IStoreFile"/>
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>
@@ -113,7 +113,7 @@
                 // Exit
                 return new MediaModel();
             }
-            catch (System.IO.DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException ex)
             {
                 ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
                                  {
@@ -127,7 +127,7 @@
 
                 return new MediaModel();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ErrorInfo t = new ErrorInfo("Exception when trying to create image form PDF file")
                                  {

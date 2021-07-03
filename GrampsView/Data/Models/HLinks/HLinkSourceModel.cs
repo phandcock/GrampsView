@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The HLink reference.
         /// </value>
-        public SourceModel DeRef
+        public new SourceModel DeRef
         {
             get
             {

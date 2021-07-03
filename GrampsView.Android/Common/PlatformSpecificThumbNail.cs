@@ -19,33 +19,38 @@
     {
         public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
+            IMediaModel returnValue = new MediaModel();
+
             try
             {
-                string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
+                await Task.Run(() =>
+                {
+                    string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
 
-                // Initialize PDFRenderer by passing PDF file from location.
-                PdfRenderer renderer = new PdfRenderer(GetSeekableFileDescriptor(argCurrentDataFolder, argExistingMediaModel));
-                int pageCount = renderer.PageCount;
+                    // Initialize PDFRenderer by passing PDF file from location.
+                    PdfRenderer renderer = new PdfRenderer(GetSeekableFileDescriptor(argCurrentDataFolder, argExistingMediaModel));
+                    int pageCount = renderer.PageCount;
 
-                // Use `openPage` to open a specific page in PDF.
-                Page page = renderer.OpenPage(0);
+                    // Use `openPage` to open a specific page in PDF.
+                    Page page = renderer.OpenPage(0);
 
-                //Creates bitmap
-                Bitmap bmp = Bitmap.CreateBitmap(page.Width, page.Height, Bitmap.Config.Argb8888);
+                    //Creates bitmap
+                    Bitmap bmp = Bitmap.CreateBitmap(page.Width, page.Height, Bitmap.Config.Argb8888);
 
-                //renderes page as bitmap, to use portion of the page use second and third parameter
-                page.Render(bmp, null, null, PdfRenderMode.ForDisplay);
+                    //renderes page as bitmap, to use portion of the page use second and third parameter
+                    page.Render(bmp, null, null, PdfRenderMode.ForDisplay);
 
-                //Save the bitmap
-                var stream = new FileStream(outFilePath, FileMode.Create);
-                bmp.Compress(Bitmap.CompressFormat.Png, 100, stream);
-                stream.Close();
+                    //Save the bitmap
+                    var stream = new FileStream(outFilePath, FileMode.Create);
+                    bmp.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    stream.Close();
 
-                page.Close();
+                    page.Close();
 
-                return argNewMediaModel;
+                    returnValue = argNewMediaModel;
+                });
             }
-            catch (System.IO.DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException ex)
             {
                 ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
                                  {
@@ -57,9 +62,9 @@
 
                 DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
-                return new MediaModel();
+                return returnValue;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ErrorInfo t = new ErrorInfo("Exception when trying to create image from PDF file")
                                  {
@@ -70,41 +75,55 @@
 
                 DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
-                return new MediaModel();
+                return returnValue;
             }
+
+            return returnValue;
         }
 
         public async Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
-            string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
+            IMediaModel returnValue = new MediaModel();
 
-            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-            retriever.SetDataSource(argExistingMediaModel.MediaStorageFilePath);
-            Android.Graphics.Bitmap bitmap = retriever.GetFrameAtTime(1000);  // try at 1 second as this is often a more flattering image
-
-            if (bitmap != null)
+            await Task.Run(() =>
             {
-                // MemoryStream stream = new MemoryStream();
-                // bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 80, stream);
+                string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
 
-                //Save the bitmap
-                var outStream = new FileStream(outFilePath, FileMode.Create);
-                bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, outStream);
-                outStream.Close();
+                MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+                retriever.SetDataSource(argExistingMediaModel.MediaStorageFilePath);
+                Bitmap bitmap = retriever.GetFrameAtTime(1000);  // try at 1 second as this is often a more flattering image
 
-                return argNewMediaModel;
-            }
+                if (bitmap != null)
+                {
+                    //Save the bitmap
+                    var outStream = new FileStream(outFilePath, FileMode.Create);
+                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, outStream);
+                    outStream.Close();
 
-            return new MediaModel();
+                    returnValue = argNewMediaModel;
+                }
+            });
+
+            return returnValue;
         }
 
-        //Method to retrieve PDF file from the location
+        /// <summary>
+        /// Method to retrieve PDF file from the location. Gets the seekable file descriptor.
+        /// </summary>
+        /// <param name="argCurrentDataFolder">
+        /// The argument current data folder.
+        /// </param>
+        /// <param name="argFile">
+        /// The argument file.
+        /// </param>
+        /// <returns>
+        /// ParcelFileDescriptor
+        /// </returns>
         private ParcelFileDescriptor GetSeekableFileDescriptor(DirectoryInfo argCurrentDataFolder, MediaModel argFile)
         {
             ParcelFileDescriptor fileDescriptor = null;
             try
             {
-                // string root = System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath);
                 fileDescriptor = ParcelFileDescriptor.Open(new Java.IO.File(argFile.MediaStorageFilePath), ParcelFileMode.ReadOnly);
             }
             catch (FileNotFoundException ex)

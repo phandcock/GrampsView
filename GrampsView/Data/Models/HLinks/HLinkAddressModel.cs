@@ -32,7 +32,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The address model.
         /// </value>
-        public AddressModel DeRef
+        public new AddressModel DeRef
         {
             get
             {

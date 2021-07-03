@@ -30,7 +30,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The de reference.
         /// </value>
-        public NameMapModel DeRef
+        public new NameMapModel DeRef
         {
             get
             {

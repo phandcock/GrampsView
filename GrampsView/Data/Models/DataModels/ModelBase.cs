@@ -166,10 +166,10 @@
             }
         }
 
-        public HLinkBase HLink
-        {
-            get;
-        }
+        //public HLinkBase HLink
+        //{
+        //    get;
+        //}
 
         /// <summary>
         /// Gets or sets the h link key.

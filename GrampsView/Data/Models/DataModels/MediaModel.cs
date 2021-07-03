@@ -69,10 +69,7 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string FileContentType
         {
-            get
-            {
-                return _FileContentType;
-            }
+            get => _FileContentType;
 
             set
             {
@@ -145,15 +142,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GDescription
         {
-            get
-            {
-                return _FileDescription;
-            }
+            get => _FileDescription;
 
-            set
-            {
-                SetProperty(ref _FileDescription, value);
-            }
+            set => SetProperty(ref _FileDescription, value);
         }
 
         /// <summary>
@@ -179,15 +170,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get
-            {
-                return _NoteReferenceCollection;
-            }
+            get => _NoteReferenceCollection;
 
-            set
-            {
-                SetProperty(ref _NoteReferenceCollection, value);
-            }
+            set => SetProperty(ref _NoteReferenceCollection, value);
         }
 
         /// <summary>
@@ -328,15 +313,9 @@ namespace GrampsView.Data.Model
         /// </value>
         public FileInfoEx MediaStorageFile
         {
-            get
-            {
-                return _MediaStorageFile;
-            }
+            get => _MediaStorageFile;
 
-            set
-            {
-                SetProperty(ref _MediaStorageFile, value);
-            }
+            set => SetProperty(ref _MediaStorageFile, value);
         }
 
         /// <summary>
@@ -412,10 +391,7 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string OriginalFilePath
         {
-            get
-            {
-                return _OriginalFilePath;
-            }
+            get => _OriginalFilePath;
 
             set
             {

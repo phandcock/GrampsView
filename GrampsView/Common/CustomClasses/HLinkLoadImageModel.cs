@@ -44,7 +44,7 @@ namespace GrampsView.Common.CustomClasses
         /// <value>
         /// The media model.
         /// </value>
-        public IMediaModel DeRef
+        public new IMediaModel DeRef
         {
             get
             {
