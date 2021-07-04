@@ -12,6 +12,12 @@
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
+    /// <summary>
+    /// Holds details on how to display the HLink or DataModel <note type="note">Can be one of three
+    /// states: <br/><br/> a) Symbol = Dsiplay only symbol for card <br/> b) Image = Display Symbol
+    /// for card and Image, e.g. photo <br/> c) Media = Display Symbol for card and image with media
+    /// if selected to play or display <br/></note>
+    /// </summary>
     [DataContract]
     public class ItemGlyph : ObservableObject
     {
@@ -131,7 +137,7 @@
                         }
                     case CommonEnums.HLinkGlyphType.Media:
                         {
-                            return MediaHLinkMediaModel.Valid;
+                            return ImageHLinkMediaModel.Valid && MediaHLinkMediaModel.Valid;
                         }
                     case CommonEnums.HLinkGlyphType.Symbol:
                         {
@@ -154,21 +160,9 @@
             }
         }
 
-        public bool ValidImage
-        {
-            get
-            {
-                return (Valid && (ImageType == CommonEnums.HLinkGlyphType.Image));
-            }
-        }
+        public bool ValidImage => Valid && (ImageType == CommonEnums.HLinkGlyphType.Image);
 
-        public bool ValidMedia
-        {
-            get
-            {
-                return (Valid && (ImageType == CommonEnums.HLinkGlyphType.Media));
-            }
-        }
+        public bool ValidMedia => Valid && (ImageType == CommonEnums.HLinkGlyphType.Media);
 
         public async Task UCNavigate()
         {
@@ -192,6 +186,16 @@
 
                         break;
                     }
+
+                case CommonEnums.HLinkGlyphType.Symbol:
+                    break;
+
+                case CommonEnums.HLinkGlyphType.TempLoading:
+                    break;
+
+                case CommonEnums.HLinkGlyphType.Unknown:
+                    break;
+
                 default:
                     {
                         // TODO What to do for symbol if anything)

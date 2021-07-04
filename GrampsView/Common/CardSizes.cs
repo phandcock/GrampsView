@@ -174,7 +174,7 @@
         {
             get
             {
-                return new Size(((DataStore.Instance.ES.DisplayInfo.Width / DataStore.Instance.ES.DisplayInfo.Density) - 100), ((DataStore.Instance.ES.DisplayInfo.Height / DataStore.Instance.ES.DisplayInfo.Density) - 100));
+                return new Size((DataStore.Instance.ES.DisplayInfo.Width / DataStore.Instance.ES.DisplayInfo.Density) - 100, ((DataStore.Instance.ES.DisplayInfo.Height / DataStore.Instance.ES.DisplayInfo.Density) - 100));
             }
         }
 
