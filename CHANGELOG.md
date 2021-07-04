@@ -1,3 +1,12 @@
+## [16.19.5](https://github.com/phandcock/GrampsView/compare/v16.19.4...v16.19.5) (2021-07-04)
+
+
+### Bug Fixes
+
+* fix nuget.config address ([a9ec33b](https://github.com/phandcock/GrampsView/commit/a9ec33b6fb8b6e0cba30a4ca09108fa9abf7823c))
+
+
+
 ## [16.19.4](https://github.com/phandcock/GrampsView/compare/v16.19.3...v16.19.4) (2021-07-03)
 
 
@@ -27,16 +36,6 @@
 * add more mimetype to symbol decoding ([45aff18](https://github.com/phandcock/GrampsView/commit/45aff18d80236d15dce672478daded3123e11873))
 * tweak colours ([d045fcf](https://github.com/phandcock/GrampsView/commit/d045fcf637923543b5f5499d9377f369477b98f2))
 * tweak fontdisappearing and properly clear datastore on load ([048cf5f](https://github.com/phandcock/GrampsView/commit/048cf5f0090c44e07a2190b74a73a85ee19f4f3a))
-
-
-
-## [16.19.1](https://github.com/phandcock/GrampsView/compare/v16.19.0...v16.19.1) (2021-06-28)
-
-
-### Bug Fixes
-
-* cornerradius on uwp and android and tweak colours ([4d382de](https://github.com/phandcock/GrampsView/commit/4d382defcc8001ec48b45e5cebb53ebbdf6368e6))
-* tweaks ([43a2f48](https://github.com/phandcock/GrampsView/commit/43a2f484427c0d4f9f696144a431718d1e663be2))
 
 
 
