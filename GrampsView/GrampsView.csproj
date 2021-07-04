@@ -131,6 +131,9 @@
     <Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
       <DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
+      <DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
       <DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>
     </Compile>

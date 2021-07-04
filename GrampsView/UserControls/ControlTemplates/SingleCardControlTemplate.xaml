@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="GrampsView.UserControls.SingleCardControlTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hlinks="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="hlinks:HLinkBase">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+
+            <Frame Style="{DynamicResource FrameSingleFixedCardStyle}">
+
+                <Grid x:Name="controlRoot" Style="{DynamicResource GridSingleFixedCardStyle}">
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                    </Grid.GestureRecognizers>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{DynamicResource CardImageBackgroundFrame}">
+
+                        <ucon:HLinkVisualDisplay
+                            x:Name="AnchorImage"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                            Style="{DynamicResource MediaImageStyle}" />
+                    </Frame>
+
+                    <ContentPresenter Grid.Row="0" Grid.Column="1" />
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="FA-Solid"
+                                Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                                Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

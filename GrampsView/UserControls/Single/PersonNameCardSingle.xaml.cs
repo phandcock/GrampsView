@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using Xamarin.Forms;
-
-    public partial class PersonNameCardSingle : Grid
+    public partial class PersonNameCardSingle : SingleCardControlTemplate
     {
         public PersonNameCardSingle()
         {
