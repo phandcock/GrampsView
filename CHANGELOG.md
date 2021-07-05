@@ -1,3 +1,14 @@
+## [16.19.6](https://github.com/phandcock/GrampsView/compare/v16.19.5...v16.19.6) (2021-07-05)
+
+
+### Bug Fixes
+
+* cleanup formattedText routines trial plus tweaks ([7d9b2cf](https://github.com/phandcock/GrampsView/commit/7d9b2cf819c667bae0c8a578f6ec3f41b5b90786))
+* move to singlecontroltemplate for personname and tags ([a80f049](https://github.com/phandcock/GrampsView/commit/a80f049beb67b72ea487bc25379c2d82c5092320))
+* tweaks ([a32e9dd](https://github.com/phandcock/GrampsView/commit/a32e9ddeeb88d8e290c216ecb0b1641cb2855ddc))
+
+
+
 ## [16.19.5](https://github.com/phandcock/GrampsView/compare/v16.19.4...v16.19.5) (2021-07-04)
 
 
@@ -25,17 +36,6 @@
 ### Bug Fixes
 
 * start use of controltemplate for smallcards ([cea559b](https://github.com/phandcock/GrampsView/commit/cea559bbaed2d95941e3e771a9c4e6d8ccede510))
-
-
-
-## [16.19.2](https://github.com/phandcock/GrampsView/compare/v16.19.1...v16.19.2) (2021-06-30)
-
-
-### Bug Fixes
-
-* add more mimetype to symbol decoding ([45aff18](https://github.com/phandcock/GrampsView/commit/45aff18d80236d15dce672478daded3123e11873))
-* tweak colours ([d045fcf](https://github.com/phandcock/GrampsView/commit/d045fcf637923543b5f5499d9377f369477b98f2))
-* tweak fontdisappearing and properly clear datastore on load ([048cf5f](https://github.com/phandcock/GrampsView/commit/048cf5f0090c44e07a2190b74a73a85ee19f4f3a))
 
 
 
