@@ -9,6 +9,7 @@
 
     public class ApplicationWideData : ObservableObject
     {
+        private CurrentImageFolder _CurrentImageFolder = null;
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
@@ -26,10 +27,16 @@
 
         public CurrentImageFolder CurrentImageAssetsFolder
         {
-            get;
+            get
+            {
+                if (_CurrentImageFolder == null)
+                {
+                    _CurrentImageFolder = new CurrentImageFolder();
+                }
 
-            set;
-        } = new CurrentImageFolder();
+                return _CurrentImageFolder;
+            }
+        }
 
         public Stream CurrentInputStream
         {

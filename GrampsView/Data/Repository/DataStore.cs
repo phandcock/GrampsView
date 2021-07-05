@@ -1,11 +1,11 @@
-﻿using GrampsView.Common;
-
-using System;
-
-using Xamarin.CommunityToolkit.ObjectModel;
-
-namespace GrampsView.Data.Repository
+﻿namespace GrampsView.Data.Repository
 {
+    using GrampsView.Common;
+
+    using System;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// Static Data Store.
     /// </summary>

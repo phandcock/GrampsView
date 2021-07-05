@@ -12,6 +12,14 @@
             }
         }
 
+        public string FileSystemCacheDirectory
+        {
+            get
+            {
+                return FileSystem.CacheDirectory;
+            }
+        }
+
         public bool PreferencesGet(string argPrefrence, bool argDefault)
         {
             return Preferences.Get(argPrefrence, argDefault);

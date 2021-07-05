@@ -9,6 +9,7 @@
 
     using System;
     using System.Diagnostics;
+    using System.IO;
     using System.Reflection;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -71,6 +72,28 @@
             // Get colour
             Application.Current.Resources.TryGetValue(argColourResourceName, out var varCardColour);
             return (Color)varCardColour;
+        }
+
+        public static void ImageCacheFolderInit()
+        {
+            try
+            {
+                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase, CommonConstants.DirectoryImageCache);
+
+                DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
+
+                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase));
+
+                if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
+                {
+                    t.CreateSubdirectory(CommonConstants.DirectoryImageCache);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                DataStore.Instance.CN.NotifyException("Exception creating application image cache", ex, null);
+                throw;
+            }
         }
 
         public static bool IsEmulator()

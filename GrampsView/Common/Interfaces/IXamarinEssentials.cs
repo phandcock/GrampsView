@@ -12,6 +12,11 @@
             get;
         }
 
+        string FileSystemCacheDirectory
+        {
+            get;
+        }
+
         string PreferencesGet(string argPrefrence, string argDefault);
 
         bool PreferencesGet(string argPrefrence, bool argDefault);
