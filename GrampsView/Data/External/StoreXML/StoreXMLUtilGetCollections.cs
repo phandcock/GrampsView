@@ -719,7 +719,7 @@
             };
 
             // Load NoteRefs
-            var localPlaceElement =
+            IEnumerable<XElement> localPlaceElement =
                              from ElementEl in xmlData.Elements(ns + "placeref")
                              select ElementEl;
 
@@ -738,8 +738,6 @@
                     t.Add(noteHLink);
                 }
             }
-
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
 
             return t;
         }

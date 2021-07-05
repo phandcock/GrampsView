@@ -79,11 +79,20 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Relationship:.
+        ///   Looks up a localized string similar to Relationship: {0}.
         /// </summary>
         public static string FieldPrefixFamilyRelationship {
             get {
                 return ResourceManager.GetString("FieldPrefixFamilyRelationship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In: {0}.
+        /// </summary>
+        public static string FieldPrefixPlaceParent {
+            get {
+                return ResourceManager.GetString("FieldPrefixPlaceParent", resourceCulture);
             }
         }
         

@@ -83,7 +83,7 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
 
             PlaceChildCollection.Title = "Enclosed Places";
-            GPlaceRefCollection.Title = "Enclosing Place";
+            GPlaceParentCollection.Title = "Enclosing Place";
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace GrampsView.Data.Model
         /// The g place reference collection.
         /// </value>
         [DataMember]
-        public HLinkPlaceModelCollection GPlaceRefCollection
+        public HLinkPlaceModelCollection GPlaceParentCollection
         {
             get
             {

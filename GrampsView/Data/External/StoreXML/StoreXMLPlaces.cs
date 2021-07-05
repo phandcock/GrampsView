@@ -64,7 +64,8 @@
 
                             loadPlace.GNoteRefCollection = GetNoteCollection(pPlaceElement);
 
-                            loadPlace.GPlaceRefCollection = GetPlaceRefCollection(pPlaceElement);
+                            loadPlace.GPlaceParentCollection = GetPlaceRefCollection(pPlaceElement);
+                            loadPlace.GPlaceParentCollection.Title = "Parent Places";
 
                             loadPlace.GTagRefCollection = GetTagCollection(pPlaceElement);
 

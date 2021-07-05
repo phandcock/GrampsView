@@ -443,9 +443,9 @@
 
             foreach (PlaceModel argModel in DV.PlaceDV.DataViewData)
             {
-                argModel.GPlaceRefCollection.SetGlyph();
+                argModel.GPlaceParentCollection.SetGlyph();
 
-                foreach (HLinkPlaceModel placeRef in argModel.GPlaceRefCollection)
+                foreach (HLinkPlaceModel placeRef in argModel.GPlaceParentCollection)
                 {
                     DataStore.Instance.DS.PlaceData[placeRef.HLinkKey.Value].PlaceChildCollection.Add(argModel.HLink);
                 }
