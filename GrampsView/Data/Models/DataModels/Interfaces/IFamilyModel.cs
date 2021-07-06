@@ -25,10 +25,10 @@ namespace GrampsView.Data.Model
             get;
         }
 
-        string FamilyRelationshipWithPrefix
-        {
-            get;
-        }
+        //string FamilyRelationshipWithPrefix
+        //{
+        //    get;
+        //}
 
         /// <summary>
         /// Gets the get h link Family Model that points to this ViewModel.

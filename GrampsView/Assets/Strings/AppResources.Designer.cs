@@ -97,7 +97,7 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When:.
+        ///   Looks up a localized string similar to When: {0}.
         /// </summary>
         public static string FieldPrefixShortDate {
             get {

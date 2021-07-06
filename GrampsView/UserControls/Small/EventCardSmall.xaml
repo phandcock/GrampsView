@@ -2,6 +2,7 @@
     x:Class="GrampsView.UserControls.EventCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -16,7 +17,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="3*" />
-
         </Grid.RowDefinitions>
 
         <Label
@@ -25,7 +25,7 @@
             Grid.Column="0"
             LineBreakMode="WordWrap"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.GDate.ShortDateWithPrefix, Mode=OneWay}" />
+            Text="{Binding DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
 
         <Label
             x:Name="typeTextBlock"

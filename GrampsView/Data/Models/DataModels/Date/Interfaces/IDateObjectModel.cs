@@ -43,10 +43,10 @@
             get;
         }
 
-        string ShortDateWithPrefix
-        {
-            get;
-        }
+        //string ShortDateWithPrefix
+        //{
+        //    get;
+        //}
 
         DateTime SingleDate
         {

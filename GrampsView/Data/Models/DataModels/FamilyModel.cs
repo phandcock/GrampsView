@@ -17,7 +17,6 @@
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Assets.Strings;
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
@@ -126,18 +125,18 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string FamilyRelationshipWithPrefix
-        {
-            get
-            {
-                if (Valid & (!string.IsNullOrWhiteSpace(GFamilyRelationship)))
-                {
-                    return $"{AppResources.FieldPrefixFamilyRelationship} {GFamilyRelationship}";
-                }
+        //public string FamilyRelationshipWithPrefix
+        //{
+        //    get
+        //    {
+        //        if (Valid & (!string.IsNullOrWhiteSpace(GFamilyRelationship)))
+        //        {
+        //            return $"{AppResources.FieldPrefixFamilyRelationship} {GFamilyRelationship}";
+        //        }
 
-                return string.Empty;
-            }
-        }
+        //        return string.Empty;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the g attribute collection. This is the [attribute*] attribute.

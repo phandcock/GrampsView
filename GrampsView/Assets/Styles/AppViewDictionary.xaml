@@ -528,7 +528,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
-    <!--  Create a Very Small Style for a TextBlock  -->
+    <!--  Create Very Small Styles for a Label  -->
     <Style
         x:Key="GVCardLabelStyleVerySmall"
         BasedOn="{StaticResource GVCardLabelStyle}"
@@ -537,8 +537,7 @@
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontVerySmall}" />
     </Style>
 
-    <!--  Create a Small Style for a TextBlock  -->
-
+    <!--  Create Small Styles for a Label  -->
     <Style
         x:Key="GVCardLabelStyleSmall"
         BasedOn="{StaticResource GVCardLabelStyle}"
@@ -556,7 +555,15 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
-    <!--  Create a Medium Style for a Text Block Header  -->
+    <!--  Create Medium Styles for a Label  -->
+    <Style
+        x:Key="GVCardLabelStyleMedium"
+        BasedOn="{StaticResource GVCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,3,3" />
+        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+    </Style>
+
     <Style
         x:Key="GVHeaderStyleMedium"
         BasedOn="{StaticResource GVCardLabelStyle}"
@@ -566,17 +573,15 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
-    <!--  Create a Large Style for a TextBlock  -->
+    <!--  Create Large Styles for a Label  -->
     <Style
         x:Key="GVLabelStyleLarge"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="MaxLines" Value="4" />
     </Style>
 
-    <!--  Create a Large Style for a Text Block Header  -->
     <Style
         x:Key="GVHeaderStyleLarge"
         BasedOn="{StaticResource GVLabelStyleLarge}"
@@ -586,7 +591,6 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
-    <!--  Create a Large Style for a Full Text Note  -->
     <Style
         x:Key="GVLabelStyleNoteFull"
         BasedOn="{StaticResource GVCardLabelStyle}"

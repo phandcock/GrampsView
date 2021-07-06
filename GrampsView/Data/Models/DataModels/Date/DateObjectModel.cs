@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Assets.Strings;
-
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -200,18 +198,18 @@
             }
         }
 
-        public string ShortDateWithPrefix
-        {
-            get
-            {
-                if (Valid & (!string.IsNullOrWhiteSpace(ShortDate)))
-                {
-                    return $"{AppResources.FieldPrefixShortDate} {ShortDate}";
-                }
+        //public string ShortDateWithPrefix
+        //{
+        //    get
+        //    {
+        //        if (Valid & (!string.IsNullOrWhiteSpace(ShortDate)))
+        //        {
+        //            return $"{AppResources.FieldPrefixShortDate} {ShortDate}";
+        //        }
 
-                return string.Empty;
-            }
-        }
+        //        return string.Empty;
+        //    }
+        //}
 
         /// <summary>
         /// Gets returns a single dateversion of the date field Because the field can have one or

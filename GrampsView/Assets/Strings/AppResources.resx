@@ -199,7 +199,7 @@
     <value>Loading details.  If there are a lot then this will take a while...</value>
   </data>
   <data name="FieldPrefixShortDate" xml:space="preserve">
-    <value>When:</value>
+    <value>When: {0}</value>
   </data>
   <data name="FieldPrefixFamilyRelationship" xml:space="preserve">
     <value>Relationship: {0}</value>
