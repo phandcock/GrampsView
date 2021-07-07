@@ -14,7 +14,10 @@
             {
                 // Help with Unit Testing
                 if (DeviceInfo.Platform == DevicePlatform.Unknown)
+                {
+
                     return;
+                }
 
                 string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase);
 
@@ -46,7 +49,7 @@
         {
             get
             {
-                return (!(Value == null) && (Value.Exists));
+                return !(Value == null) && (Value.Exists);
             }
         }
 

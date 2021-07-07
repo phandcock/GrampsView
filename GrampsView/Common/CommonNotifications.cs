@@ -259,28 +259,13 @@
 
         public void PopUpShow()
         {
-            //if (!DialogShown && PopupQueue.Count > 0)
-            //{
             var popup = new ErrorPopup();
 
-            //if (Device.RuntimePlatform != Device.UWP || !CommonRoutines.ReleaseMode())
-            //{
-            //    try
-            //    {
             Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        var t = ex;
-            //    }
-            //}
-            //else
-            //{
-            //    // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
 
-            //    // TODO fix UWP Release issue until fixed
-            //}
-            // }
+            // // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
+
+            // // TODO fix UWP Release issue until fixed
         }
     }
 }

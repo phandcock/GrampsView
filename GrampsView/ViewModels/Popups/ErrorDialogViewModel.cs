@@ -13,7 +13,12 @@
         {
             DataStore.Instance.CN.DialogShown = true;
 
-            ErrorInfo t = DataStore.Instance.CN.PopupQueue.Dequeue();
+            ErrorInfo t = new ErrorInfo();
+
+            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            {
+                t = DataStore.Instance.CN.PopupQueue.Dequeue();
+            }
 
             Title = t.DialogBoxTitle;
 

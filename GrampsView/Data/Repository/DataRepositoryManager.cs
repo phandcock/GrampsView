@@ -199,6 +199,9 @@
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
 
+            // Create the DataStorage Folder
+            DataStore.Instance.AD.CurrentDataFolder = new CurrentDataFolder();
+
             if (DataStore.Instance.AD.CurrentDataFolder.Valid)
             {
                 // 1) Init Data Storage
@@ -247,7 +250,7 @@
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        DataStore.Instance.CN.DataLogHide();
+                        //DataStore.Instance.CN.DataLogHide();
 
                         return true;
                     }

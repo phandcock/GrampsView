@@ -20,7 +20,10 @@
         {
             DataStore.Instance.CN.DialogShown = false;
 
-            DataStore.Instance.CN.PopUpShow();
+            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            {
+                DataStore.Instance.CN.PopUpShow();
+            }
 
             Dismiss(null);
         }

@@ -51,7 +51,10 @@
 
         public void ShowPopUp()
         {
-            DataStore.Instance.CN.PopUpShow();
+            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            {
+                DataStore.Instance.CN.PopUpShow();
+            }
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

@@ -43,7 +43,7 @@
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            FontSize="{x:Static common:CommonFontSize.FontMedium}"
             Style="{DynamicResource GVCardLabelStyleSmall}"
             Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef.GetDefaultText, StringFormat={x:Static i18n:AppResources.FieldPrefixPlaceParent}, Mode=OneWay}" />
     </Grid>
