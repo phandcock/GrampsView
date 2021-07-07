@@ -67,7 +67,7 @@
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
 
-                        // set the Home image or symbol now that everything is loaded loadSource = SetHomeImage(loadSource);
+                     
 
                         // save the event
                         DataStore.Instance.DS.SourceData.Add(loadSource);

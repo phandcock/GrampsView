@@ -19,7 +19,6 @@
                                  {
                                      { "Original ID", argMediaModel.Id },
                                      { "Original File", argMediaModel.MediaStorageFilePath },
-                                     { "Clipped Id", argMediaModel.DeRef.Id }
                                  };
         }
 

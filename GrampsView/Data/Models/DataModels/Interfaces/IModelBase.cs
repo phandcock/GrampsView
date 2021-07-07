@@ -30,11 +30,6 @@ namespace GrampsView.Data.Model
             get; set;
         }
 
-        ModelBase DeRef
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets the default text.
         /// </summary>

@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-
+            <RowDefinition Height="3*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
@@ -22,5 +22,12 @@
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
             Text="{Binding DeRef.GRName, Mode=OneWay}" />
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
+        
     </Grid>
 </ucon:SmallCardControlTemplate>

@@ -1,8 +1,4 @@
-﻿/// <summary>
-/// Gramps XML 1.71 all configured
-/// </summary>
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -12,13 +8,11 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// <br/>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.ViewModel.IRepositoryModel"/>
-    /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.IComparable"/>
-    /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
     public sealed class RepositoryModel : ModelBase, IRepositoryModel, IComparable, IComparer
@@ -54,7 +48,7 @@ namespace GrampsView.Data.Model
         = new HLinkOCAddressModelCollection();
 
         /// <summary>
-        /// Gets the get default text for this Model.
+        /// Gets the default text for this Model.
         /// </summary>
         /// <value>
         /// The default text.
@@ -68,10 +62,10 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the g note reference collection.
+        /// Gets or sets the note reference collection.
         /// </summary>
         /// <value>
-        /// The g note reference collection.
+        /// The note reference collection.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
@@ -89,22 +83,16 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GRName
         {
-            get
-            {
-                return _RName;
-            }
+            get => _RName;
 
-            set
-            {
-                SetProperty(ref _RName, value);
-            }
+            set => SetProperty(ref _RName, value);
         }
 
         /// <summary>
-        /// Gets or sets the g tag reference collection.
+        /// Gets or sets the tag reference collection.
         /// </summary>
         /// <value>
-        /// The g tag reference collection.
+        /// The tag reference collection.
         /// </value>
         [DataMember]
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
@@ -118,19 +106,13 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GType
         {
-            get
-            {
-                return _Type;
-            }
+            get => _Type;
 
-            set
-            {
-                SetProperty(ref _Type, value);
-            }
+            set => SetProperty(ref _Type, value);
         }
 
         /// <summary>
-        /// Gets or sets uRL collection.
+        /// Gets or sets URL collection.
         /// </summary>
         [DataMember]
         public OCURLModelCollection GURL
@@ -141,10 +123,10 @@ namespace GrampsView.Data.Model
         = new OCURLModelCollection();
 
         /// <summary>
-        /// Gets the get h link.
+        /// Gets the hlink.
         /// </summary>
         /// <value>
-        /// The get h link.
+        /// The hlink.
         /// </value>
         public HLinkRepositoryModel HLink
         {
@@ -174,13 +156,18 @@ namespace GrampsView.Data.Model
         /// </returns>
         int IComparer.Compare(object a, object b)
         {
-            // TODO Add compare TagModel firstEvent = (TagModel)a; TagModel secondEvent = (TagModel)b;
+            if ((a is null) || (b is null))
+            {
+                return 0;   // equal
+            }
 
-            //// compare on Priority first
-            // int testFlag = string.Compare(firstEvent.Name, secondEvent.Name, StringComparison.CurrentCulture);
+            RepositoryModel firstPersonModel = (RepositoryModel)a;
+            RepositoryModel secondPersonModel = (RepositoryModel)b;
 
-            // return testFlag;
-            return 0;
+            // compare on Name first
+            int testFlag = string.Compare(firstPersonModel.GRName, secondPersonModel.GRName, StringComparison.CurrentCulture);
+
+            return testFlag;
         }
 
         /// <summary>
@@ -194,13 +181,12 @@ namespace GrampsView.Data.Model
         /// </returns>
         int IComparable.CompareTo(object obj)
         {
-            // TODO Add compare to TagModel secondEvent = (TagModel)obj;
+            RepositoryModel secondPersonModel = (RepositoryModel)obj;
 
-            //// compare on Name first
-            // int testFlag = string.Compare(Name, secondEvent.Name, StringComparison.CurrentCulture);
+            // compare on Name first
+            int testFlag = string.Compare(GRName, secondPersonModel.GRName, StringComparison.CurrentCulture);
 
-            // return testFlag;
-            return 0;
+            return testFlag;
         }
     }
 }

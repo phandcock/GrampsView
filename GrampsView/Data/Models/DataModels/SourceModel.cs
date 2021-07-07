@@ -1,6 +1,4 @@
-﻿/// - XML 1.71 Completed
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -10,14 +8,21 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Source ViewModel.
+    /// <para>Source ViewModel.</para>
+    /// <list type="table">
+    /// <item>
+    /// <description>Area</description>
+    /// <description>Status</description>
+    /// </item>
+    /// <item>
+    /// <description>XML 1.71 Checked</description>
+    /// <description>Yes</description>
+    /// </item>
+    /// </list>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.ViewModel.ISourceModel"/>
-    /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.IComparable"/>
-    /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
     public sealed class SourceModel : ModelBase, ISourceModel, IComparable, IComparer<SourceModel>
@@ -69,15 +74,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get
-            {
-                return _MediaCollection;
-            }
+            get => _MediaCollection;
 
-            set
-            {
-                SetProperty(ref _MediaCollection, value);
-            }
+            set => SetProperty(ref _MediaCollection, value);
         }
 
         /// <summary>

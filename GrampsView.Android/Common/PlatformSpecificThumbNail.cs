@@ -56,7 +56,7 @@
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
-                                     { "Clipped Id", argExistingMediaModel.DeRef.Id },
+                                     { "Clipped Id", argNewMediaModel.Id },
                                      { "New path", "pdfimage" }
                                  };
 
@@ -70,7 +70,7 @@
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
-                                     { "Clipped Id", argExistingMediaModel.DeRef.Id }
+                                     { "Clipped Id", argNewMediaModel.Id }
                                  };
 
                 DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);

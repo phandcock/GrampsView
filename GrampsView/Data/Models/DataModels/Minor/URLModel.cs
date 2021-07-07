@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -17,7 +15,7 @@ namespace GrampsView.Data.Model
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
-    /// GRAMPS URL element class. TODO Update fields as per Schema
+    /// GRAMPS URL element class. TODO Needs XML 1.71 check
     /// </summary>
     public class URLModel : ModelBase, IURLModel
     {

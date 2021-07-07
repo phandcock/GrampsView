@@ -2,8 +2,8 @@
     x:Class="GrampsView.UserControls.PlaceCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPlaceModel"
@@ -43,7 +43,7 @@
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            FontSize="{x:Static common:CommonFontSize.FontMedium}"
+            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
             Style="{DynamicResource GVCardLabelStyleSmall}"
             Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef.GetDefaultText, StringFormat={x:Static i18n:AppResources.FieldPrefixPlaceParent}, Mode=OneWay}" />
     </Grid>
