@@ -31,7 +31,8 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
-                return new ItemGlyph();
+                await DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType})");
+                return argMediaModel.ModelItemGlyph;
             }
 
             IMediaModel pdfimage;
@@ -58,10 +59,6 @@
 
         public async Task<ItemGlyph> GetThumbImageFromVideo(MediaModel argMediaModel)
         {
-            if (argMediaModel.Id == "O0354")
-            {
-            }
-
             ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
 
             IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagevideo", ".jpg");
@@ -97,7 +94,8 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
             {
-                return new ItemGlyph();
+                DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType})");
+                return argMediaModel.ModelItemGlyph;
             }
 
             IMediaModel zipimage;
@@ -115,7 +113,7 @@
             }
             else
             {
-                ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image form PDF file", argMediaModel);
+                ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
 
                 DataStore.Instance.CN.NotifyError(t);
             }

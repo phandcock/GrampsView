@@ -366,6 +366,10 @@
 
                                 case "pdf":
                                     {
+                                        if (argModel.Id == "O0193")
+                                        {
+                                        }
+
                                         argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
                                         argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
 

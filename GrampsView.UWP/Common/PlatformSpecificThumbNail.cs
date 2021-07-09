@@ -100,9 +100,9 @@
 
             StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
 
-            if (outfile.Name == "_e9e27fbe8ed34e9b554a0ba93aa~imagevideo.jpg")
-            {
-            }
+            //if (outfile.Name == "_e9e27fbe8ed34e9b554a0ba93aa~imagevideo.jpg")
+            //{
+            //}
 
             StorageFile videoFile = await currentFolder.GetFileAsync(argExistingMediaModel.OriginalFilePath);
 
