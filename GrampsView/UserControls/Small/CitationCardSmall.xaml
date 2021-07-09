@@ -12,6 +12,9 @@
 
         <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.GPage, Mode=OneWay}" />
 
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.GDateContent.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
+        <Label
+            IsVisible="{Binding DeRef.GDateContent.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GDateContent.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </StackLayout>
 </ucon:SmallCardControlTemplate>

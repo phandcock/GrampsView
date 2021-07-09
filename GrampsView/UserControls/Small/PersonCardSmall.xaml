@@ -29,6 +29,7 @@
             x:Name="PersonSummaryDOBTextBlock"
             Grid.Row="1"
             Grid.Column="0"
+            IsVisible="{Binding DeRef.BirthDate.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
             Style="{DynamicResource GVCardLabelStyleSmall}"
             Text="{Binding DeRef.BirthDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
