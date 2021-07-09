@@ -4,26 +4,23 @@
 
     using System.IO;
 
-    using Xamarin.Essentials;
-
     public class CurrentDataFolder
     {
         public CurrentDataFolder()
         {
             try
             {
-                // Help with Unit Testing
-                if (DeviceInfo.Platform == DevicePlatform.Unknown)
-                {
+                //// Help with Unit Testing
+                //if (DeviceInfo.Platform == DevicePlatform.Unknown)
+                //{
+                //    return;
+                //}
 
-                    return;
-                }
-
-                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(FileSystem.CacheDirectory);
+                DirectoryInfo t = new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory);
 
                 if (!Value.Exists)
                 {

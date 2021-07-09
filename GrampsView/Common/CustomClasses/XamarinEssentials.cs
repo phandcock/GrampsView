@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common
 {
+    using System;
+
     using Xamarin.Essentials;
 
     public class XamarinEssentials : IXamarinEssentials
@@ -18,6 +20,11 @@
             {
                 return FileSystem.CacheDirectory;
             }
+        }
+
+        public void MainThreadInvokeOnMainThreadAsync(Action argAction)
+        {
+            MainThread.InvokeOnMainThreadAsync(argAction);
         }
 
         public bool PreferencesGet(string argPrefrence, bool argDefault)

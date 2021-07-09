@@ -4,6 +4,7 @@
 
     using GrampsView.Data.Repository;
     using GrampsView.e2e.Test.Utility;
+    using GrampsView.Test.e2e.Utility;
 
     [TestFixture()]
     public class DataStoreTests
@@ -16,14 +17,15 @@
         [Test()]
         public void DataStoreCreate_Basic()
         {
-            DataStoreUtility.DataStoreSetup();
-
-            Assert.True(DataStore.Instance.AD.CurrentDataFolder.Path == DataStoreUtility.DataStorePath);
+            Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
         }
 
         [SetUp]
         public void Init()
         {
+            GeneralData.setupMocks();
+
+            DataStoreUtility.DataStoreSetup();
         }
     }
 }

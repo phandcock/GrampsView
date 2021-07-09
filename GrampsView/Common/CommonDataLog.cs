@@ -50,15 +50,15 @@
         /// </returns>
         public async Task<bool> Add(string argEntry)
         {
-            await MainThread.InvokeOnMainThreadAsync(() =>
-          {
-              //DataLogEntry t = default(DataLogEntry);
+            //  await MainThread.InvokeOnMainThreadAsync(() =>
+            //{
+            //    //DataLogEntry t = default(DataLogEntry);
 
-              if (!string.IsNullOrEmpty(argEntry))
-              {
-                  DataLoadLog.Add(BuildDataLogEntry(argEntry));
-              }
-          }).ConfigureAwait(false);
+            if (!string.IsNullOrEmpty(argEntry))
+            {
+                DataLoadLog.Add(BuildDataLogEntry(argEntry));
+            }
+            //}).ConfigureAwait(false);
 
             return true;
         }
@@ -78,13 +78,13 @@
         /// </returns>
         public async Task<bool> Remove()
         {
-            await MainThread.InvokeOnMainThreadAsync(() =>
+            //await MainThread.InvokeOnMainThreadAsync(() =>
+            //{
+            if (DataLoadLog.Count > 0)
             {
-                if (DataLoadLog.Count > 0)
-                {
-                    DataLoadLog.Remove(DataLoadLog.Last());
-                }
-            }).ConfigureAwait(false);
+                DataLoadLog.Remove(DataLoadLog.Last());
+            }
+            //}).ConfigureAwait(false);
 
             return true;
         }

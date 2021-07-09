@@ -9,6 +9,7 @@
 
     public class ApplicationWideData : ObservableObject
     {
+        private CurrentDataFolder _CurrentDataFolder = null;
         private CurrentImageFolder _CurrentImageFolder = null;
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
@@ -20,10 +21,18 @@
         /// </value>
         public CurrentDataFolder CurrentDataFolder
         {
-            get;
+            get
+            {
+                if (_CurrentDataFolder == null)
+                {
+                    _CurrentDataFolder = new CurrentDataFolder();
+                }
 
-            set;
-        } = new CurrentDataFolder();
+                return _CurrentDataFolder;
+            }
+
+            set => SetProperty(ref _CurrentDataFolder, value);
+        }
 
         public CurrentImageFolder CurrentImageAssetsFolder
         {
@@ -70,15 +79,9 @@
 
         public DisplayOrientation CurrentOrientation
         {
-            get
-            {
-                return _CurrentOrientation;
-            }
+            get => _CurrentOrientation;
 
-            set
-            {
-                SetProperty(ref _CurrentOrientation, value);
-            }
+            set => SetProperty(ref _CurrentOrientation, value);
         }
     }
 }

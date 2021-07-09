@@ -51,6 +51,8 @@
         [SetUp]
         public void Init()
         {
+            GeneralData.setupMocks();
+
             DataStoreUtility.DataStoreSetup();
         }
     }

@@ -22,8 +22,6 @@
         [Test()]
         public void ModelNote_Biography()
         {
-            DataStoreUtility.DataStoreSetup();
-
             DataStoreUtility.LoadTestFile();
 
             NoteModel tt = DV.NoteDV.GetModelFromId("N0000");

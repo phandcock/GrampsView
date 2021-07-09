@@ -1,21 +1,17 @@
 ﻿namespace GrampsView.e2e.Test.Utility
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Data.Repository;
-    using GrampsView.Events;
-
-    using Moq;
+    using GrampsView.Test.e2e.Utility;
 
     using NUnit.Framework;
 
     using Prism.Events;
 
     using System.Diagnostics;
-    using System.IO;
     using System.Reflection;
 
     using Xamarin.Forms;
@@ -24,26 +20,22 @@
     {
         public const string BasePath = "GrampsView.Test.e2e";
 
-        public static string DataStorePath = Path.Combine(Path.GetTempPath(), "UnitTestDataStore");
-
-        public static DataStore testDataStore;
-
         public static void DataStoreSetup()
         {
-            // AD
+            //// AD
 
-            if (!DataStore.Instance.AD.CurrentDataFolder.Valid)
-            {
-                // Delete if it exists
-                if (Directory.Exists(DataStorePath))
-                {
-                    Directory.Delete(DataStorePath, true);
-                }
+            //if (!DataStore.Instance.AD.CurrentDataFolder.Valid)
+            //{
+            //    // Delete if it exists
+            //    if (Directory.Exists(GeneralData.DataStorePath))
+            //    {
+            //        Directory.Delete(GeneralData.DataStorePath, true);
+            //    }
 
-                Directory.CreateDirectory(DataStorePath);
+            // Directory.CreateDirectory(GeneralData.DataStorePath);
 
-                DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
-            }
+            //    DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(GeneralData.DataStorePath);
+            //}
         }
 
         [Conditional("DEBUG")]
@@ -73,58 +65,63 @@
 
             ICommonLogging iocCommonLogging = new CommonLogging();
 
-            ////////////////
-            Mock<ICommonNotifications> mockCommonNotifications = new Mock<ICommonNotifications>();
-            mockCommonNotifications
-               .Setup(x => x.DataLog)
-               .Returns(new Mock<IDataLog>().Object);
-
-            ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
-
-            Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
-            IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
-
-            Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
-            IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
-
-            DataStore.Instance.CN = iocCommonNotifications;
-            DataStore.Instance.ES = iocXamarinEssentials;
-            DataStore.Instance.FFIL = iocFFImageLoading;
+            GeneralData.setupMocks();
 
             //////////////////
-            Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
+            //Mock<ICommonNotifications> mockCommonNotifications = new Mock<ICommonNotifications>();
+            //mockCommonNotifications
+            //   .Setup(x => x.DataLog)
+            //   .Returns(new Mock<IDataLog>().Object);
 
-            var mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
-            mocEventAggregator
-                  .Setup(x => x.GetEvent<DataLoadXMLEvent>())
-                  .Returns(mockedEventDataLoadXMLEvent.Object);
+            //ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
 
-            var mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
-            mocEventAggregator
-                  .Setup(x => x.GetEvent<DataLoadStartEvent>())
-                  .Returns(mockedEventDataLoadStartEvent.Object);
+            //Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
+            //mocXamarinEssentials
+            //    .Setup(x => x.FileSystemCacheDirectory)
+            //    .Returns(Path.GetDirectoryName(typeof(DataStoreUtility).Assembly.Location));
+            //IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
 
-            var mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
-            mocEventAggregator
-                .Setup(x => x.GetEvent<DataSaveSerialEvent>())
-                .Returns(mockedEventDataSaveSerialEvent.Object);
+            //Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
+            //IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
 
-            var mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
-            mocEventAggregator
-                .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
-                .Returns(mockedEventDataLoadCompleteEvent.Object);
+            //DataStore.Instance.CN = iocCommonNotifications;
+            //DataStore.Instance.ES = iocXamarinEssentials;
+            //DataStore.Instance.FFIL = iocFFImageLoading;
 
-            // Mock Platform specific
-            Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
+            ////////////////////
+            //Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
 
-            IPlatformSpecific iocPlatformSpecific = mocPlatformSpecific.Object;
+            //var mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
+            //mocEventAggregator
+            //      .Setup(x => x.GetEvent<DataLoadXMLEvent>())
+            //      .Returns(mockedEventDataLoadXMLEvent.Object);
+
+            //var mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
+            //mocEventAggregator
+            //      .Setup(x => x.GetEvent<DataLoadStartEvent>())
+            //      .Returns(mockedEventDataLoadStartEvent.Object);
+
+            //var mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
+            //mocEventAggregator
+            //    .Setup(x => x.GetEvent<DataSaveSerialEvent>())
+            //    .Returns(mockedEventDataSaveSerialEvent.Object);
+
+            //var mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
+            //mocEventAggregator
+            //    .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
+            //    .Returns(mockedEventDataLoadCompleteEvent.Object);
+
+            //// Mock Platform specific
+            //Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
+
+            //IPlatformSpecific iocPlatformSpecific = mocPlatformSpecific.Object;
 
             // Other setup
-            IEventAggregator iocEventAggregator = mocEventAggregator.Object;
+            IEventAggregator iocEventAggregator = GeneralData.mocEventAggregator.Object;
 
             IStoreXML iocExternalStorage = new StoreXML(iocCommonLogging);
 
-            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
             IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
 
@@ -132,16 +129,19 @@
 
             DataRepositoryManager newManager = new DataRepositoryManager(iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
 
-            StorePostLoad newPostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            StorePostLoad newPostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
-            // Clear the repositories in case we had to restart after being interupted. TODO have
-            // better mock DataStore.Instance.AD.LoadDataStore();
-            DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
-            if (DataStore.Instance.AD.CurrentDataFolder.Value.Exists)
-            {
-                DataStore.Instance.AD.CurrentDataFolder.Value.Delete(true);
-            }
-            DataStore.Instance.AD.CurrentDataFolder.Value.Create();
+            //// Clear the repositories in case we had to restart after being interupted. TODO have
+            //// better mock DataStore.Instance.AD.LoadDataStore();
+            //DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
+            //if (DataStore.Instance.AD.CurrentDataFolder.Value.Exists)
+            //{
+            //    DataStore.Instance.AD.CurrentDataFolder.Value.Delete(true);
+            //}
+            //DataStore.Instance.AD.CurrentDataFolder.Value.Create();
+
+            // Time to start loading the data
+            DataStoreUtility.DataStoreSetup();
 
             DataRepositoryManager.ClearRepositories();
 
