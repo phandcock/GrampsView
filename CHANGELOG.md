@@ -1,3 +1,13 @@
+## [16.19.8](https://github.com/phandcock/GrampsView/compare/v16.19.7...v16.19.8) (2021-07-09)
+
+
+### Bug Fixes
+
+* card layouts and formatting tweaks ([943a406](https://github.com/phandcock/GrampsView/commit/943a4068d0aedb39663a595d985871fa13cde172))
+* fix datafolder init bug when first loading plus hidign messagelog too early ([8cb47ff](https://github.com/phandcock/GrampsView/commit/8cb47ffb127cd21a083a8b682eb0a5bfe89455e2))
+
+
+
 ## [16.19.7](https://github.com/phandcock/GrampsView/compare/v16.19.6...v16.19.7) (2021-07-07)
 
 
@@ -26,18 +36,6 @@
 ### Bug Fixes
 
 * fix nuget.config address ([a9ec33b](https://github.com/phandcock/GrampsView/commit/a9ec33b6fb8b6e0cba30a4ca09108fa9abf7823c))
-
-
-
-## [16.19.4](https://github.com/phandcock/GrampsView/compare/v16.19.3...v16.19.4) (2021-07-03)
-
-
-### Bug Fixes
-
-* create artifact for xct preview and use in nuget ([fda42f9](https://github.com/phandcock/GrampsView/commit/fda42f9fdb5986c2831d71f9cea526e62ca5ab30))
-* fix nuget.config location ([b898d8f](https://github.com/phandcock/GrampsView/commit/b898d8f6fdd5cd3d334779f3834a87327dc61fca))
-* rollback to xct 1.1.0-preview2508 ([603721a](https://github.com/phandcock/GrampsView/commit/603721a3daedb7b086ab119eff5761b2f7f96288))
-* tweak xct package and create large card controltemplate ([476f685](https://github.com/phandcock/GrampsView/commit/476f6851b30549b7faddb51d5891b9a708f0aef6))
 
 
 
