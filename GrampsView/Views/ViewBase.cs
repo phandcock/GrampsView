@@ -42,6 +42,9 @@
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height); //must be called
+
+            var t = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+
             if (this.width != width || this.height != height)
             {
                 this.width = width;
@@ -51,16 +54,16 @@
                 if (width > height)
                 {
                     DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                    CardSizes.Current.ReCalculateCardWidths(width, height);
                 }
                 else
                 {
                     DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                    CardSizes.Current.ReCalculateCardWidths(height, width);
                 }
-
-                CardSizes.Current.ReCalculateCardWidths(width, height);
             }
 
-            // Handle UWP windows resize
+            // TODO Handle UWP windows resize
         }
     }
 }

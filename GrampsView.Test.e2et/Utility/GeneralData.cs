@@ -20,6 +20,12 @@
 
     public static class GeneralData
     {
+        public static IStoreXML iocExternalStorage;
+
+        public static IStorePostLoad iocGrampsStorePostLoad;
+
+        public static IGrampsStoreSerial iocGrampsStoreSerial;
+
         //public static string DataStorePath = Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, "UnitTestDataStore");
         public static IPlatformSpecific iocPlatformSpecific;
 
@@ -31,20 +37,6 @@
 
         public static void DataStoreSetup()
         {
-            // AD
-
-            //if (!DataStore.Instance.AD.CurrentDataFolder.Valid)
-            //{
-            //    // Delete if it exists
-            //    if (Directory.Exists(DataStorePath))
-            //    {
-            //        Directory.Delete(DataStorePath, true);
-            //    }
-
-            // Directory.CreateDirectory(DataStorePath);
-
-            //    DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(DataStorePath);
-            //}
         }
 
         [Conditional("DEBUG")]
@@ -52,8 +44,8 @@
         public static void ListEmbeddedResources()
         {
             // ... // NOTE: use for debugging, not in released app code!
-            var assembly = Assembly.GetExecutingAssembly();
-            foreach (var res in assembly.GetManifestResourceNames())
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            foreach (string res in assembly.GetManifestResourceNames())
             {
                 Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
             }
@@ -97,23 +89,23 @@
             /*
             * Mock Event Aggregator
             */
-            var mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
+            Mock<DataLoadXMLEvent> mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
 
             mocEventAggregator
                   .Setup(x => x.GetEvent<DataLoadXMLEvent>())
                       .Returns(mockedEventDataLoadXMLEvent.Object);
 
-            var mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
+            Mock<DataLoadStartEvent> mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
             mocEventAggregator
                   .Setup(x => x.GetEvent<DataLoadStartEvent>())
                       .Returns(mockedEventDataLoadStartEvent.Object);
 
-            var mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
+            Mock<DataSaveSerialEvent> mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
             mocEventAggregator
                 .Setup(x => x.GetEvent<DataSaveSerialEvent>())
                     .Returns(mockedEventDataSaveSerialEvent.Object);
 
-            var mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
+            Mock<DataLoadCompleteEvent> mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
             mocEventAggregator
                 .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
                     .Returns(mockedEventDataLoadCompleteEvent.Object);
@@ -135,11 +127,11 @@
             /*
             * Other setup
             */
-            IStoreXML iocExternalStorage = new StoreXML(iocCommonLogging);
+            iocExternalStorage = new StoreXML(iocCommonLogging);
 
-            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
 
-            IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
+            iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
 
             iocStoreFile = new StoreFile();
 

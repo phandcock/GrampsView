@@ -43,7 +43,6 @@
             ViewSetup();
         }
 
-        // TODO Checkout Xamarin.Forms.Mocks
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -155,17 +154,6 @@
         private bool BaseHandleLoadTriggered
         {
             get; set;
-        } = false;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [detail data loaded flag].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [detail data loaded flag]; otherwise, <c>false</c>.
-        /// </value>
-        private bool DetailDataLoadedFlag
-        {
-            get; set;
         }
 
         /// <summary>
@@ -200,13 +188,14 @@
         public async Task TopMenuNoteCommandHandler()
         {
             string body = string.Empty;
-            List<string> recipients = new List<string>();
-
-            recipients.Add(CommonLocalSettings.NoteEmailAddress);
+            List<string> recipients = new List<string>
+            {
+                CommonLocalSettings.NoteEmailAddress
+            };
 
             EmailMessage message = new EmailMessage
             {
-                Subject = "GrampsView: " + BaseTitle,
+                Subject = $"GrampsView Note: {BaseTitle}",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,
@@ -225,16 +214,6 @@
             }
 
             BaseHandleAppearingEvent();
-
-            //// Setup for loading if no data is loaded
-            //if (!DataStore.Instance.DS.IsDataLoaded)
-            //{
-            //    BaseCurrentState = LayoutState.None;
-            //}
-            //else
-            //{
-            //    BaseCurrentState = LayoutState.Loading;
-            //}
         }
 
         internal void BaseHandleDisAppearingEventInternal()
