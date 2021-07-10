@@ -22,7 +22,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            FormattedText="{Binding DeRef.GStyledText.GText, Mode=OneWay}"
+            FormattedText="{Binding DeRef.GetDefaultText, Mode=OneWay}"
             Style="{DynamicResource GVCardLabelStyleSmall}" />
 
         <Label

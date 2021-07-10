@@ -14,6 +14,7 @@ namespace GrampsView.Data.Model
     using System;
     using System.Collections;
     using System.Runtime.Serialization;
+    using System.Text.RegularExpressions;
 
     using Xamarin.Forms;
 
@@ -23,9 +24,6 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
-        public const string GTypeLink = "Link";
-        public const string GTypeToDo = "To Do";
-
         private FormattedString _TextFormatted = new FormattedString();
 
         public NoteModel()
@@ -35,7 +33,8 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the default text for notes which is the first fourty characters minus returns.
+        /// Gets the default text for notes which is the first fourty characters minus returns,
+        /// spaces and tabs.
         /// </summary>
         /// <value>
         /// Get the default text.
@@ -44,7 +43,31 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return GStyledText.GText.Replace('\r', ',').Substring(0, Math.Min(GStyledText.GText.Length, 40));
+                string removableChars = @"\n\r\s\t";
+
+                string pattern = "[" + removableChars + "]";
+
+                string cleanString = Regex.Replace(GStyledText.GText, pattern, " ");
+
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.iOS:
+                        break;
+
+                    case Device.Android:
+                        break;
+
+                    case Device.UWP:
+                        return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
+
+                    case Device.macOS:
+                        break;
+
+                    default:
+                        break;
+                }
+
+                return cleanString.Substring(0, Math.Min(cleanString.Length, 40));
             }
         }
 
@@ -140,21 +163,9 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public bool TypeIsList
-        {
-            get
-            {
-                return GType == GTypeLink;
-            }
-        }
+        public bool TypeIsList => GType == CommonConstants.NoteTypeLink;
 
-        public bool TypeIsToDo
-        {
-            get
-            {
-                return (GType == GTypeToDo);
-            }
-        }
+        public bool TypeIsToDo => GType == CommonConstants.NoteTypeToDo;
 
         /// <summary>
         /// Compares two objects.
@@ -168,23 +179,22 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// One, two or three.
         /// </returns>
-        public new int Compare(object a, object b)
+        public new int Compare(object x, object y)
         {
-            if (a is null)
+            if (x is null)
             {
-                throw new ArgumentNullException(nameof(a));
+                throw new ArgumentNullException(nameof(x));
             }
 
-            if (b is null)
+            if (y is null)
             {
-                throw new ArgumentNullException(nameof(b));
+                throw new ArgumentNullException(nameof(y));
             }
 
-            NoteModel firstEvent = (NoteModel)a;
-            NoteModel secondEvent = (NoteModel)b;
+            NoteModel firstEvent = (NoteModel)x;
+            NoteModel secondEvent = (NoteModel)y;
 
-            // compare on Date first
-            int testFlag = string.Compare(firstEvent.GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(firstEvent.GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.Ordinal);
 
             return testFlag;
         }

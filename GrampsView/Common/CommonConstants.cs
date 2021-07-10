@@ -180,7 +180,9 @@ namespace GrampsView.Common
         public const string IconTag = CommonFontNamesFAS.Tag;
 
         public const string IconThemeDark = CommonFontNamesFAS.Moon;
+
         public const string IconThemeLight = CommonFontNamesFAS.Sun;
+
         public const string IconThemeSystem = CommonFontNamesFAS.Globe;
 
         public const string IconURL = CommonFontNamesFAS.Link;
@@ -211,15 +213,16 @@ namespace GrampsView.Common
 
         public const string NameTypeMarried = "Married Name";
 
+        /*
+         * Note Types
+         */
         public const string NoteTypeBiography = "Biography";
+
+        public const string NoteTypeLink = "Link";
 
         public const string NoteTypePersonNote = "Person Note";
 
-        //public const string NavigationParameterHLink = "hlink";
-
-        //public const string NavigationParameterModel = "model";
-
-        //public const string NavigationParameterTargetView = "targetview";
+        public const string NoteTypeToDo = "To Do";
 
         /// <summary>
         /// The search no results.

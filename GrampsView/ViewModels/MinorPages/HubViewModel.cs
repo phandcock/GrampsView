@@ -131,7 +131,7 @@
             get
             {
                 // Setup ToDo list
-                CardGroupBase<INoteModel> t = DV.NoteDV.GetAllOfType(NoteModel.GTypeToDo);
+                CardGroupBase<INoteModel> t = DV.NoteDV.GetAllOfType(CommonConstants.NoteTypeToDo);
 
                 CardGroupBase<HLinkNoteModel> toDoCardGroup = new CardGroupBase<HLinkNoteModel>()
                 {
