@@ -4,8 +4,6 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System;
-
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
@@ -51,7 +49,7 @@
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            HLinkAdressModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkAdressModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>((BaseParamsHLink));
 
             AddressObject = HLinkObject.DeRef;
 

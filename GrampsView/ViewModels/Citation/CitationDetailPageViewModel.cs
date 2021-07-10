@@ -6,8 +6,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
     /// </summary>
@@ -45,7 +43,7 @@
         public override void BaseHandleLoadEvent()
         {
             // Handle HLinkKeys
-            HLinkCitationModel HLinkCitation = CommonRoutines.DeserialiseObject<HLinkCitationModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(BaseParamsHLink);
 
             CitationObject = HLinkCitation.DeRef;
 

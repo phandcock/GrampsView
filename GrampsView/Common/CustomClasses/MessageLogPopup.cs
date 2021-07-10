@@ -15,20 +15,12 @@
             IsLightDismissEnabled = false;
 
             VerticalOptions = LayoutOptions.CenterAndExpand;
-
-            BackgroundColor = Color.Transparent;
         }
 
         public bool DismissFlag
         {
-            get
-            {
-                return (bool)GetValue(DismissFlagProperty);
-            }
-            set
-            {
-                SetValue(DismissFlagProperty, value);
-            }
+            get => (bool)GetValue(DismissFlagProperty);
+            set => SetValue(DismissFlagProperty, value);
         }
 
         private static void OnDismissFlagChanged(BindableObject bindable, object oldValue, object newValue)

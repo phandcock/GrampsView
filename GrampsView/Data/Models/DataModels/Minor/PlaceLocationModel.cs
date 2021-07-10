@@ -4,7 +4,6 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
-    using System;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -18,62 +17,12 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public String GLocationName
+        public string GLocationName
         {
             get; set;
         }
 
         [DataMember]
         public CommonEnums.PlaceLocation GPlaceLocation { get; set; } = CommonEnums.PlaceLocation.country;
-
-        //public string GPlaceLocationDecoded
-        //{
-        //    get
-        //    {
-        //        switch (GPlaceLocation)
-        //        {
-        //            case CommonEnums.PlaceLocation.city:
-        //                {
-        //                    return "city";
-        //                }
-        //            case CommonEnums.PlaceLocation.country:
-        //                {
-        //                    return "country";
-        //                }
-        //            case CommonEnums.PlaceLocation.county:
-        //                {
-        //                    return "county";
-        //                }
-        //            case CommonEnums.PlaceLocation.locality:
-        //                {
-        //                    return "locality";
-        //                }
-        //            case CommonEnums.PlaceLocation.parish:
-        //                {
-        //                    return "parish";
-        //                }
-        //            case CommonEnums.PlaceLocation.phone:
-        //                {
-        //                    return "phone";
-        //                }
-        //            case CommonEnums.PlaceLocation.postal:
-        //                {
-        //                    return "postal";
-        //                }
-        //            case CommonEnums.PlaceLocation.state:
-        //                {
-        //                    return "state";
-        //                }
-        //            case CommonEnums.PlaceLocation.street:
-        //                {
-        //                    return "street";
-        //                }
-        //            default:
-        //                {
-        //                    return "unknown place location? " + GPlaceLocation;
-        //                }
-        //        }
-        //    }
-        //}
     }
 }

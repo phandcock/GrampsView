@@ -23,14 +23,7 @@
 
     public static class CommonRoutines
     {
-        // deserialise object
-        public static T DeserialiseObject<T>(string dataIn) where T : new()
-        {
-            var ser = JsonConvert.DeserializeObject<T>(dataIn);
-            return ser;
-        }
-
-        public static Data.Model.CardListLineCollection GetHLinkInfoFormatted(HLinkBase argHLink)
+        public static CardListLineCollection GetHLinkInfoFormatted(HLinkBase argHLink)
         {
             if (argHLink is null)
             {
@@ -45,6 +38,14 @@
             hlinkInfoList.Title = "Admin Details";
 
             return hlinkInfoList;
+        }
+
+        // Deserialise object
+        public static T GetHLinkParameter<T>(string dataIn) where T : new()
+        {
+            T ser = JsonConvert.DeserializeObject<T>(Uri.UnescapeDataString(dataIn));
+
+            return ser;
         }
 
         public static CardListLineCollection GetModelInfoFormatted(ModelBase argModel)
@@ -89,7 +90,7 @@
                     t.CreateSubdirectory(CommonConstants.DirectoryImageCache);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 DataStore.Instance.CN.NotifyException("Exception creating application image cache", ex, null);
                 throw;

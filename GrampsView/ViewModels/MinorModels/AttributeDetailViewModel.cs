@@ -3,8 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using System;
-
     /// <summary>
     /// ViewModel for the Attribute Detail page.
     /// </summary>
@@ -37,7 +35,7 @@
         {
             BaseCL.RoutineEntry("AttributeDetailViewModel");
 
-            AttributeObject = CommonRoutines.DeserialiseObject<AttributeModel>(Uri.UnescapeDataString(BaseParamsModel));
+            AttributeObject = CommonRoutines.GetHLinkParameter<AttributeModel>((BaseParamsModel));
 
             if (AttributeObject.Valid)
             {

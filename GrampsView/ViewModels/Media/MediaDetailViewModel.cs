@@ -6,8 +6,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Media Detail ViewModel
     /// </summary>
@@ -58,7 +56,7 @@
         {
             BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
-            CurrentHLinkMedia = CommonRoutines.DeserialiseObject<HLinkMediaModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>((BaseParamsHLink));
 
             // For cropped or internal media then show the original image
             IMediaModel tt = CurrentHLinkMedia.DeRef;

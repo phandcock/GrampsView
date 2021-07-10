@@ -1,21 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-////<define name = "tag-content" >
-////  <ref name="table-object" />
-////  <attribute name = "name" >
-////    < text />
-////  </ attribute >
-////  < attribute name="color">
-////    <text />
-////  </attribute>
-////  <attribute name = "priority" >
-////    < data type="integer" />
-////  </attribute>
-////</define>
-
-/// TODO Update fields as per Schema
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
@@ -26,7 +9,7 @@ namespace GrampsView.Data.Model
     using Xamarin.Forms;
 
     /// <summary>
-    /// data model for an event.
+    /// Data model for a Tag item. XML 1.71 check complete
     /// </summary>
     [DataContract]
     public sealed class TagModel : ModelBase, ITagModel, IComparable, IComparer
@@ -64,15 +47,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public Color GColor
         {
-            get
-            {
-                return _GColor;
-            }
+            get => _GColor;
 
-            set
-            {
-                SetProperty(ref _GColor, value);
-            }
+            set => SetProperty(ref _GColor, value);
         }
 
         /// <summary>
@@ -84,15 +61,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GName
         {
-            get
-            {
-                return _GName;
-            }
+            get => _GName;
 
-            set
-            {
-                SetProperty(ref _GName, value);
-            }
+            set => SetProperty(ref _GName, value);
         }
 
         /// <summary>
@@ -104,15 +75,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public int GPriority
         {
-            get
-            {
-                return _GPriority;
-            }
+            get => _GPriority;
 
-            set
-            {
-                SetProperty(ref _GPriority, value);
-            }
+            set => SetProperty(ref _GPriority, value);
         }
 
         /// <summary>

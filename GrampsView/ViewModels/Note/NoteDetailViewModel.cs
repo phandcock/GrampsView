@@ -37,7 +37,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkNoteModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkNoteModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>((BaseParamsHLink));
 
             if (!(HLinkObject is null) && HLinkObject.Valid)
             {

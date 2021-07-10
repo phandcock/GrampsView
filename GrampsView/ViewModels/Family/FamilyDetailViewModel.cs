@@ -7,8 +7,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Family detail page view ViewModel.
     /// </summary>
@@ -66,7 +64,7 @@
         /// </returns>
         public override void BaseHandleLoadEvent()
         {
-            HLinkFamilyModel HLinkFamily = CommonRoutines.DeserialiseObject<HLinkFamilyModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>((BaseParamsHLink));
 
             FamilyObject = HLinkFamily.DeRef;
 

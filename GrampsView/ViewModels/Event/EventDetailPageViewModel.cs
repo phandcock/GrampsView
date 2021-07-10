@@ -6,7 +6,6 @@
 
     using Prism.Events;
 
-    using System;
     using System.ComponentModel;
 
     /// <summary>
@@ -51,7 +50,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkObject = CommonRoutines.DeserialiseObject<HLinkEventModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BaseParamsHLink);
 
             if (!(HLinkObject is null) && (HLinkObject.Valid))
             {

@@ -1,6 +1,4 @@
-﻿// XML 1.71 check complete
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -12,6 +10,9 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Holds item specific attributes. XML 1.71 check complete
+    /// </summary>
     [DataContract]
     public class AttributeModel : ModelBase, IAttributeModel, IComparable, IComparer<AttributeModel>
     {
@@ -25,7 +26,7 @@ namespace GrampsView.Data.Model
         /// Gets or sets the citation reference collection.
         /// </summary>
         /// <value>
-        /// The g citation reference collection.
+        /// The citation reference collection.
         /// </value>
         [DataMember]
         public HLinkCitationModelCollection GCitationReferenceCollection
@@ -36,6 +37,12 @@ namespace GrampsView.Data.Model
 
             = new HLinkCitationModelCollection();
 
+        /// <summary>
+        /// Gets the default text for this Model.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
         public override string GetDefaultText
         {
             get
@@ -55,7 +62,7 @@ namespace GrampsView.Data.Model
         /// Gets or sets the note model reference collection.
         /// </summary>
         /// <value>
-        /// The g note model reference collection.
+        /// The note model reference collection.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteModelReferenceCollection
@@ -67,10 +74,10 @@ namespace GrampsView.Data.Model
             = new HLinkNoteModelCollection();
 
         /// <summary>
-        /// Gets or sets the g text.
+        /// Gets or sets the attribute type.
         /// </summary>
         /// <value>
-        /// The g text.
+        /// The attribute text.
         /// </value>
         [DataMember]
         public string GType
@@ -82,10 +89,10 @@ namespace GrampsView.Data.Model
             = null;
 
         /// <summary>
-        /// Gets or sets the g value.
+        /// Gets or sets the attribute value.
         /// </summary>
         /// <value>
-        /// The g value.
+        /// The value text.
         /// </value>
         [DataMember]
         public string GValue
@@ -96,6 +103,12 @@ namespace GrampsView.Data.Model
 
             = null;
 
+        /// <summary>
+        /// Gets a value indicating whether the modelbase is valid.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+        /// </value>
         public override bool Valid
         {
             get
@@ -105,7 +118,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Compares the specified x.
+        /// Compares the specified two attribute models.
         /// </summary>
         /// <param name="x">
         /// The x.
@@ -137,12 +150,15 @@ namespace GrampsView.Data.Model
                 return 1;
             }
 
-            AttributeModel secondSource = (AttributeModel)obj;
+            AttributeModel secondSource = obj as AttributeModel;
 
-            // compare on Page first TODO compare on Page?
+            // compare on GType first
             return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
+        /// <summary>
+        /// Navigates to the detail page for the attribute.
+        /// </summary>
         public override async Task UCNavigate()
         {
             await UCNavigateBase(this, nameof(AttributeDetailPage));

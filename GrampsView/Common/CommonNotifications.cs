@@ -28,6 +28,7 @@
         private readonly ICommonLogging _iocCommonLogging;
 
         private readonly IEventAggregator _iocEventAggregator;
+
         private string _MinorMessage;
 
         /// <summary>

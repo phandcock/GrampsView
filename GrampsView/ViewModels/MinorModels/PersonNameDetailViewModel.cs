@@ -3,8 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using System;
-
     public class PersonNameDetailViewModel : ViewModelBase
     {
         /// <summary>
@@ -42,7 +40,7 @@
         {
             BaseCL.RoutineEntry("NameDetailViewModel");
 
-            HLinkPersonNameModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPersonNameModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>((BaseParamsHLink));
 
             PersonNameObject = HLinkObject.DeRef;
 

@@ -6,8 +6,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
     /// </summary>
@@ -50,7 +48,7 @@
         /// </param>
         public override void BaseHandleLoadEvent()
         {
-            HLinkTagModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkTagModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>((BaseParamsHLink));
 
             TagObject = HLinkObject.DeRef;
 

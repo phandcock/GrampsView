@@ -6,8 +6,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -43,7 +41,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkRepositoryModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkRepositoryModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkRepositoryModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>((BaseParamsHLink));
 
             RepositoryObject = HLinkObject.DeRef;
 

@@ -6,8 +6,6 @@
 
     using Prism.Events;
 
-    using System;
-
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
@@ -40,7 +38,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkPlaceModel HLinkObject = CommonRoutines.DeserialiseObject<HLinkPlaceModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>((BaseParamsHLink));
 
             PlaceObject = HLinkObject.DeRef;
 

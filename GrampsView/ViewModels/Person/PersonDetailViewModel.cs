@@ -6,7 +6,6 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System;
     using System.ComponentModel;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -113,7 +112,7 @@
             // idea where the bug is coming from
             BaseCurrentLayoutState = LayoutState.Loading;
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.DeserialiseObject<HLinkPersonModel>(Uri.UnescapeDataString(BaseParamsHLink));
+            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>((BaseParamsHLink));
 
             PersonObject = HLinkPerson.DeRef;
 

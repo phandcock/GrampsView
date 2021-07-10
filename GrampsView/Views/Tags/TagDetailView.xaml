@@ -22,7 +22,10 @@
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
+
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+
+            <Label BackgroundColor="{Binding TagObject.GColor}" Text="Tag Color" />
 
             <ucon:CollectionMultiCardGrouped FsctSource="{Binding Path=TagObject.BackHLinkReferenceCollection.AsGroupedCardGroup, Source={RelativeSource AncestorType={x:Type viewmodels:TagDetailViewModel}}, Mode=OneWay}" />
         </StackLayout>
