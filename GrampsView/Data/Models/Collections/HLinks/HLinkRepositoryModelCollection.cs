@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -15,6 +11,8 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// <para>Store a collection of Repository HLinks.</para>
+    /// <para>XML 1.71 check done</para>
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
@@ -46,8 +44,6 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
             if (CommonLocalSettings.SortHLinkCollections)

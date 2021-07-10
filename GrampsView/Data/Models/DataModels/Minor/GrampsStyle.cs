@@ -9,7 +9,6 @@ namespace GrampsView.Data.Model
     using static GrampsView.Common.CommonEnums;
 
     //// Gramps XML 1.71
-    //// TODO Update fields as per Schema
     //// style
     //// name
     //// value
@@ -24,15 +23,24 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public List<GrampsStyleRangeModel> GRange { get; set; }
+        public List<GrampsStyleRangeModel> GRange
+        {
+            get; set;
+        }
                                                 = new List<GrampsStyleRangeModel>();
 
         [DataMember]
-        public TextStyle GStyle { get; set; }
+        public TextStyle GStyle
+        {
+            get; set;
+        }
                                 = TextStyle.unknown;
 
         [DataMember]
-        public string GValue { get; set; }
+        public string GValue
+        {
+            get; set;
+        }
 
         public int CompareTo(GrampsStyle other)
         {

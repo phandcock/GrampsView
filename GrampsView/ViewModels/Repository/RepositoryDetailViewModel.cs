@@ -25,6 +25,11 @@
         {
         }
 
+        public HLinkRepositoryModel RepositoryHLink
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Gets or sets the repository object.
         /// </summary>
@@ -41,20 +46,20 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkRepositoryModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>((BaseParamsHLink));
+            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>((BaseParamsHLink));
 
-            RepositoryObject = HLinkObject.DeRef;
+            RepositoryObject = RepositoryHLink.DeRef;
 
             if (!(RepositoryObject == null))
             {
                 BaseTitle = RepositoryObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
-
-                // Get basic details
-                //CardGroup t = new CardGroup { Title = "Header Details" };
+                BaseDetail.Add(new CardListLineCollection("Repository Reference Detail")
+                    {
+                        new CardListLine("Call No:", RepositoryHLink.GCallNo),
+                        new CardListLine("Medium:", RepositoryHLink.GMedium),
+                    });
 
                 BaseDetail.Add(new CardListLineCollection("Repository Detail")
                     {
@@ -63,14 +68,6 @@
                     });
 
                 BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
-
-                //BaseDetail.Add(t);
-
-                //// Add details
-                //BaseDetail.Add(RepositoryObject.GNoteRefCollection.GetCardGroup());
-                //BaseDetail.Add(RepositoryObject.GTagRefCollection.GetCardGroup());
-                //BaseDetail.Add(RepositoryObject.GAddress.GetCardGroup());
-                //BaseDetail.Add(RepositoryObject.GURL);
             }
         }
     }

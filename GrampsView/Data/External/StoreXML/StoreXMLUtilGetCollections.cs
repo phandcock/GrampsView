@@ -779,6 +779,7 @@
 
                         GNoteRef = GetNoteCollection(theLoadORElement),
                     };
+
                     t.Add(t2);
                 }
             }

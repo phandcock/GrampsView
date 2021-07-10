@@ -1,9 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
-/// </summary>
-/// "hlink" Done "priv" Done "callno" Done "medium" Done; "noteref" Done
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -12,6 +7,10 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// <para>Repository HLink.</para>
+    /// <para>XML 1.71 check done</para>
+    /// </summary>
     [DataContract]
     public class HLinkRepositoryModel : HLinkBase, IHLinkRepositoryModel
     {
@@ -26,11 +25,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// The local image h link.
-        /// </summary>
-        //private HLinkMediaModel localImageHLink = new HLinkMediaModel();
-        /// <summary>
-        /// Gets the de reference.
+        /// Gets the dereference.
         /// </summary>
         /// <value>
         /// The de reference.
@@ -92,6 +87,9 @@ namespace GrampsView.Data.Model
 
         = new HLinkNoteModelCollection();
 
+        /// <summary>
+        /// Navigates to a Repository detail page.
+        /// </summary>
         public override async Task UCNavigate()
         {
             await UCNavigateBase(this, "RepositoryDetailPage");

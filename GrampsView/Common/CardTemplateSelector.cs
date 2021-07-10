@@ -378,6 +378,12 @@ namespace GrampsView.Common
                         }
                     }
 
+                case HLinkMediaModel i:
+                case IHLinkMediaModel i2:
+                    {
+                        return MediaTemplate;
+                    }
+
                 case HLinkPersonNameModel i:
                     {
                         switch ((item as HLinkPersonNameModel).DisplayAs)
@@ -427,11 +433,6 @@ namespace GrampsView.Common
 
                 default:
                     break;
-            }
-
-            if ((item is HLinkMediaModel) || (item is IHLinkMediaModel))
-            {
-                return MediaTemplate;
             }
 
             if (item is HLinkNameMapModel)
@@ -515,11 +516,6 @@ namespace GrampsView.Common
             {
                 return RepositoryTemplate;
             }
-
-            //if (item is SourceCardSmall)
-            //{
-            //    return SourceTemplate;
-            //}
 
             if (item is SourceModel)
             {

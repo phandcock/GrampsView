@@ -44,7 +44,14 @@
             {
                 if (GRepositoryRefCollection.Count > 0)
                 {
-                    return GRepositoryRefCollection[0].DeRef.GetDefaultText;
+                    HLinkRepositoryModel t = GRepositoryRefCollection[0];
+
+                    if (t.Valid)
+                    {
+                        return t.DeRef.GetDefaultText;
+                    }
+
+                    var tt = 1;
                 }
 
                 return string.Empty;

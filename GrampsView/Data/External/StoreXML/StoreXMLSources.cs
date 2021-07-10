@@ -39,9 +39,9 @@
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
-                        //if (loadSource.Id == "S0275")
-                        //{
-                        //}
+                        if (loadSource.Id == "S0008")
+                        {
+                        }
 
                         //Debug.WriteLine(loadSource.Id);
 
@@ -66,8 +66,6 @@
 
                         // Tag refs
                         loadSource.GTagRefCollection = GetTagCollection(pSourceElement);
-
-                     
 
                         // save the event
                         DataStore.Instance.DS.SourceData.Add(loadSource);

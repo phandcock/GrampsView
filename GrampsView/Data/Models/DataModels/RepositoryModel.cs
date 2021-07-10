@@ -20,12 +20,12 @@
         /// <summary>
         /// The local r name.
         /// </summary>
-        private string _RName;
+        private string _RName = string.Empty;
 
         /// <summary>
         /// The local type.
         /// </summary>
-        private string _Type;
+        private string _Type = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryModel"/> class.

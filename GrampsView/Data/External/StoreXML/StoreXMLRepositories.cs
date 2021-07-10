@@ -26,12 +26,7 @@
                     {
                         RepositoryModel loadRepository = new RepositoryModel();
 
-                        // SecondaryColor attributes
                         loadRepository.LoadBasics(GetBasics(pRepositoryElement));
-                        //loadRepository.Id = (string)pRepositoryElement.Attribute("id");
-                        //loadRepository.Change = GetDateTime(pRepositoryElement, "change");
-                        //loadRepository.Priv = SetPrivateObject((string)pRepositoryElement.Attribute("priv"));
-                        //loadRepository.Handle = (string)pRepositoryElement.Attribute("handle");
 
                         if (loadRepository.Id == "R0000")
                         {
