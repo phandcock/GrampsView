@@ -146,16 +146,16 @@
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\Small\LDSOrdCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\Model\LDSOrdCardSmall.xaml.cs">
       <DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
     </Compile>
     <Compile Update="UserControls\Large\MediaGlyphCardLarge.xaml.cs">
       <DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\Small\ChildRefCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\HLink\ChildRefCardSmall.xaml.cs">
       <DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\Small\PersonNameCardSmall.xaml.cs">
+    <Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">

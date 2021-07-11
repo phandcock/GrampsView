@@ -6,6 +6,8 @@
     using GrampsView.e2e.Test.Utility;
     using GrampsView.Test.e2e.Utility;
 
+    using System.Diagnostics;
+
     [TestFixture()]
     public class DataStoreTests
     {
@@ -17,6 +19,8 @@
         [Test()]
         public void DataStoreCreate_Basic()
         {
+            Debug.WriteLine(DataStore.Instance.AD.CurrentDataFolder.Path);
+
             Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
         }
 

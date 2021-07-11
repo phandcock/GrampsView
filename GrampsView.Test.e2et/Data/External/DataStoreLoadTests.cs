@@ -22,8 +22,8 @@
             DataStoreUtility.ListEmbeddedResources();
 
             // Load Resource
-            var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = DataStoreUtility.BasePath + ".Test_Data.GrampsView Test Basic.gpkg";
+            Assembly assemblyExec = Assembly.GetExecutingAssembly();
+            string resourceName = DataStoreUtility.BasePath + ".Test_Data.GrampsView Test Basic.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
@@ -38,8 +38,8 @@
             DataStoreUtility.ListEmbeddedResources();
 
             // Load Resource
-            var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = DataStoreUtility.BasePath + ".Test_Data.example.gramps";
+            Assembly assemblyExec = Assembly.GetExecutingAssembly();
+            string resourceName = DataStoreUtility.BasePath + ".Test_Data.example.gramps";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
