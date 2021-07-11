@@ -8,7 +8,7 @@
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
-        
+
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
@@ -28,20 +28,17 @@
                 ApplyToDerivedTypes="True"
                 Class="FlyoutItemLayoutStyle"
                 TargetType="Layout">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

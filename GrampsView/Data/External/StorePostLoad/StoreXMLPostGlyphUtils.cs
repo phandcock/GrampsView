@@ -31,7 +31,7 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
-                await DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType})");
+                await DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -94,7 +94,7 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
             {
-                DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType})");
+                DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
