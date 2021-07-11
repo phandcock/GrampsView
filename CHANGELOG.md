@@ -1,3 +1,17 @@
+## [16.19.9](https://github.com/phandcock/GrampsView/compare/v16.19.8...v16.19.9) (2021-07-11)
+
+
+### Bug Fixes
+
+* cleanup attribute and tag code ([d1d341f](https://github.com/phandcock/GrampsView/commit/d1d341fdebe4d7b1142c0085e69b728a0b6d4344))
+* hide blank dates in citation and person cards ([010fc4a](https://github.com/phandcock/GrampsView/commit/010fc4ab6287f824f74c397b12bd654e3292e056))
+* Produce better error message when file extension and MIME type are different ([4a5d282](https://github.com/phandcock/GrampsView/commit/4a5d282180e37a447ef451a0be2e332a6cf2f365))
+* track source repository reference bug ([bfdca36](https://github.com/phandcock/GrampsView/commit/bfdca36faf2832d52b397941c46534eb36c5c550))
+* trial new screen size and rotation code ([cd15045](https://github.com/phandcock/GrampsView/commit/cd1504569a604300b390d4bb05f90561fa25a12b))
+* tweak layouts and notes default text ([855b227](https://github.com/phandcock/GrampsView/commit/855b227bed88771d10478fc93790b5071e2b2618))
+
+
+
 ## [16.19.8](https://github.com/phandcock/GrampsView/compare/v16.19.7...v16.19.8) (2021-07-09)
 
 
@@ -27,15 +41,6 @@
 * cleanup formattedText routines trial plus tweaks ([7d9b2cf](https://github.com/phandcock/GrampsView/commit/7d9b2cf819c667bae0c8a578f6ec3f41b5b90786))
 * move to singlecontroltemplate for personname and tags ([a80f049](https://github.com/phandcock/GrampsView/commit/a80f049beb67b72ea487bc25379c2d82c5092320))
 * tweaks ([a32e9dd](https://github.com/phandcock/GrampsView/commit/a32e9ddeeb88d8e290c216ecb0b1641cb2855ddc))
-
-
-
-## [16.19.5](https://github.com/phandcock/GrampsView/compare/v16.19.4...v16.19.5) (2021-07-04)
-
-
-### Bug Fixes
-
-* fix nuget.config address ([a9ec33b](https://github.com/phandcock/GrampsView/commit/a9ec33b6fb8b6e0cba30a4ca09108fa9abf7823c))
 
 
 
