@@ -95,7 +95,11 @@
             Container.Resolve<IStartAppLoad>();
 
             //// Subscribe to changes of screen metrics
-            //DeviceDisplay.MainDisplayInfoChanged += async (s, a) => { await OnMainDisplayInfoChanged(s, a); };
+            DeviceDisplay.MainDisplayInfoChanged += async (s, a) =>
+            {
+                await OnMainDisplayInfoChanged(s, a);
+            };
+            DataStore.Instance.AD.ScreenSizeInit();
 
             VersionTracking.Track();
 
@@ -135,7 +139,8 @@
                 return;
             }
 
-            CardSizes.Current.ReCalculateCardWidths((DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density), (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
+            // CardSizes.Current.ReCalculateCardWidths((DeviceDisplay.MainDisplayInfo.Width /
+            // DeviceDisplay.MainDisplayInfo.Density), (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
 
             // TODO create platform specific check for allowed rotations until xamarin.essentials
             // gives me the data
@@ -227,24 +232,25 @@
             Distribute.CheckForUpdate();
         }
 
-        // This code currently runs one rotation behind and doe snto set the window size properly on UWP.
-        // See CardSizxes for the current hack fix.
-        //
-        //private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-        //{
-        //    // Process changes
-        //    EventAggregator ea = this.Container.Resolve<EventAggregator>();
+        //This code currently runs one rotation behind and doe snto set the window size properly on UWP.
+        //See CardSizxes for the current hack fix.
 
-        // if (!(ea is null)) { //var t = DeviceDisplay.MainDisplayInfo; //
-        // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); // because seems to
-        // be one rotation behind on emulator. Try the old school // way until fixed if
-        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { //
-        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
-        // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
+        private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+        {
+            DataStore.Instance.AD.ScreenSizeInit();
 
-        //        // // Card width reset CardSizes.Current.ReCalculateCardWidths();
-        //    }
-        //}
+            // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
+
+            // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
+            // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems
+            // // to be one rotation behind on emulator. Try the old school way until fixed if
+            // (e.DisplayInfo.Width > e.DisplayInfo.Height) {
+            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
+            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
+
+            // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
+            ////     }
+        }
 
         private async Task StartAtDetailPage()
         {

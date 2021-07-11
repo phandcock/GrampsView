@@ -17,8 +17,6 @@
         // Singleton
         private static CardSizes _current;
 
-        private double WindowHeight = 100;
-        private double WindowWidth = 100;
         public static CardSizes Current => _current ?? (_current = new CardSizes());
 
         public double CardLargeDoubleWidth
@@ -161,23 +159,23 @@
                 };
 
                 // Check size
-                if (outVal > WindowWidth)
+                if (outVal > DataStore.Instance.AD.ScreenSize.Width)
                 {
-                    outVal = WindowWidth;
+                    outVal = DataStore.Instance.AD.ScreenSize.Width;
                 }
 
                 return outVal;
             }
         }
 
-        public Size ScreenSize
-        {
-            get
-            {
-                return new Size((DataStore.Instance.ES.DisplayInfo.Width / DataStore.Instance.ES.DisplayInfo.Density) - 100, ((DataStore.Instance.ES.DisplayInfo.Height / DataStore.Instance.ES.DisplayInfo.Density) - 100));
-            }
-        }
-
+        /// <summary>
+        /// <para>Gets the size of the window.</para>
+        /// <para>Adjusted for Heading sizes.</para>
+        /// <para>Hack TODO</para>
+        /// </summary>
+        /// <value>
+        /// The size of the window.
+        /// </value>
         public Size WindowSize
         {
             get
@@ -188,10 +186,10 @@
 
                     case TargetIdiom.Desktop:
                     case TargetIdiom.Tablet:
-                        return new Size(WindowWidth - 100, WindowHeight - 100); // Window Size does not include headings
+                        return new Size(DataStore.Instance.AD.ScreenSize.Width - 100, DataStore.Instance.AD.ScreenSize.Height - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(WindowWidth, WindowHeight - 100); // Window Size does not include headings
+                        return new Size(DataStore.Instance.AD.ScreenSize.Width, DataStore.Instance.AD.ScreenSize.Height - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -199,7 +197,7 @@
                         }
                 };
 
-                return new Size(WindowWidth, WindowHeight); // Window Size does not include headings
+                return DataStore.Instance.AD.ScreenSize; // Window Size does not include headings
             }
         }
 
@@ -210,11 +208,8 @@
 
         = CardSmallWidthDefault;
 
-        public void ReCalculateCardWidths(double width, double height)
+        public void ReCalculateCardWidths()
         {
-            WindowHeight = Math.Floor(height);               // (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
-            WindowWidth = Math.Floor(width);               //   (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
-
             SetCardBaseWidth();
 
             SetCardSingleWidth();

@@ -1,8 +1,10 @@
 ﻿namespace GrampsView.Data.Repository
 {
+    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
 
     using System.IO;
+    using System.Threading;
 
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
@@ -82,6 +84,103 @@
             get => _CurrentOrientation;
 
             set => SetProperty(ref _CurrentOrientation, value);
+        }
+
+        public Xamarin.Forms.Size ScreenSize
+        {
+            get; set;
+        } = new Xamarin.Forms.Size(100, 100);
+
+        public void ScreenSizeInit()
+        {
+            int screenWidth = (int)(DataStore.Instance.ES.DisplayInfo.Width / DataStore.Instance.ES.DisplayInfo.Density);
+
+            int screenHeight = (int)(DataStore.Instance.ES.DisplayInfo.Height / DataStore.Instance.ES.DisplayInfo.Density);
+
+            Thread.Sleep(500);
+
+            switch (DataStore.Instance.ES.DisplayInfo.Orientation)
+            {
+                case DisplayOrientation.Portrait:
+                    {
+                        switch (DataStore.Instance.ES.DisplayInfo.Rotation)
+                        {
+                            case DisplayRotation.Rotation0:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation90:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation180:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation270:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                                    ScreenSize = new Xamarin.Forms.Size(screenHeight, screenWidth);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+
+                case DisplayOrientation.Landscape:
+                    {
+                        switch (DataStore.Instance.ES.DisplayInfo.Rotation)
+                        {
+                            case DisplayRotation.Rotation0:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation90:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation180:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait;
+                                    ScreenSize = new Xamarin.Forms.Size(screenHeight, screenWidth);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+
+                            case DisplayRotation.Rotation270:
+                                {
+                                    DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape;
+                                    ScreenSize = new Xamarin.Forms.Size(screenWidth, screenHeight);
+                                    CardSizes.Current.ReCalculateCardWidths();
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+
+            // TODO Handle UWP windows resize
         }
     }
 }
