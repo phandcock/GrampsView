@@ -1,3 +1,12 @@
+## [16.19.11](https://github.com/phandcock/GrampsView/compare/v16.19.10...v16.19.11) (2021-07-12)
+
+
+### Bug Fixes
+
+* shell flyout menu item colours ([f6c1dc5](https://github.com/phandcock/GrampsView/commit/f6c1dc55f68e7b1787fc353e75674b6eb6a83b82))
+
+
+
 ## [16.19.10](https://github.com/phandcock/GrampsView/compare/v16.19.9...v16.19.10) (2021-07-11)
 
 
@@ -29,17 +38,6 @@
 
 * card layouts and formatting tweaks ([943a406](https://github.com/phandcock/GrampsView/commit/943a4068d0aedb39663a595d985871fa13cde172))
 * fix datafolder init bug when first loading plus hidign messagelog too early ([8cb47ff](https://github.com/phandcock/GrampsView/commit/8cb47ffb127cd21a083a8b682eb0a5bfe89455e2))
-
-
-
-## [16.19.7](https://github.com/phandcock/GrampsView/compare/v16.19.6...v16.19.7) (2021-07-07)
-
-
-### Bug Fixes
-
-* add display of place parent to smallpalcecard ([506165a](https://github.com/phandcock/GrampsView/commit/506165abdbac9a41f92d05d3ff5d5d9fdfdacb3f))
-* cleanup card stringformatting ([be96087](https://github.com/phandcock/GrampsView/commit/be960877425f46af5d48c98cb5b0c66d946f3629))
-* tweak currentImageFolder to aid unit and e2e testing ([6105708](https://github.com/phandcock/GrampsView/commit/61057088bd3b52fdb79c6d1441dd26f874bfde77))
 
 
 
