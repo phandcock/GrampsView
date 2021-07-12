@@ -101,15 +101,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GCode
         {
-            get
-            {
-                return _GCodeField;
-            }
+            get => _GCodeField;
 
-            set
-            {
-                SetProperty(ref _GCodeField, value);
-            }
+            set => SetProperty(ref _GCodeField, value);
         }
 
         [DataMember]
@@ -155,15 +149,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get
-            {
-                return _GMediaCollection;
-            }
+            get => _GMediaCollection;
 
-            set
-            {
-                SetProperty(ref _GMediaCollection, value);
-            }
+            set => SetProperty(ref _GMediaCollection, value);
         }
 
         /// <summary>
@@ -175,29 +163,17 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get
-            {
-                return _GNoteReference;
-            }
+            get => _GNoteReference;
 
-            set
-            {
-                SetProperty(ref _GNoteReference, value);
-            }
+            set => SetProperty(ref _GNoteReference, value);
         }
 
         [DataMember]
         public PlaceNameModelCollection GPlaceNames
         {
-            get
-            {
-                return _GPlaceNames;
-            }
+            get => _GPlaceNames;
 
-            set
-            {
-                SetProperty(ref _GPlaceNames, value);
-            }
+            set => SetProperty(ref _GPlaceNames, value);
         }
 
         /// <summary>
@@ -209,15 +185,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPlaceModelCollection GPlaceParentCollection
         {
-            get
-            {
-                return _GPlaceReference;
-            }
+            get => _GPlaceReference;
 
-            set
-            {
-                SetProperty(ref _GPlaceReference, value);
-            }
+            set => SetProperty(ref _GPlaceReference, value);
         }
 
         ///// <summary>
@@ -229,15 +199,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GPTitle
         {
-            get
-            {
-                return _GPTitle;
-            }
+            get => _GPTitle;
 
-            set
-            {
-                SetProperty(ref _GPTitle, value);
-            }
+            set => SetProperty(ref _GPTitle, value);
         }
 
         /// <summary>
@@ -259,27 +223,21 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GType
         {
-            get
-            {
-                return _GTypeField;
-            }
+            get => _GTypeField;
 
-            set
-            {
-                SetProperty(ref _GTypeField, value);
-            }
+            set => SetProperty(ref _GTypeField, value);
         }
 
         /// <summary>
         /// Gets or sets uRL model collection.
         /// </summary>
         [DataMember]
-        public OCURLModelCollection GURLCollection
+        public HLinkURLModelCollection GURLCollection
         {
             get; set;
         }
 
-        = new OCURLModelCollection();
+        = new HLinkURLModelCollection();
 
         /// <summary>
         /// Gets the get h link.
@@ -303,15 +261,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPlaceModelCollection PlaceChildCollection
         {
-            get
-            {
-                return _PlaceChildCollection;
-            }
+            get => _PlaceChildCollection;
 
-            set
-            {
-                SetProperty(ref _PlaceChildCollection, value);
-            }
+            set => SetProperty(ref _PlaceChildCollection, value);
         }
 
         /// <summary>

@@ -33,14 +33,8 @@
         /// </value>
         public IEnumerable FsctSource
         {
-            get
-            {
-                return (IEnumerable)GetValue(FsctSourceProperty);
-            }
-            set
-            {
-                SetValue(FsctSourceProperty, value);
-            }
+            get => (IEnumerable)GetValue(FsctSourceProperty);
+            set => SetValue(FsctSourceProperty, value);
         }
 
         /// <summary>
@@ -51,14 +45,8 @@
         /// </value>
         public DataTemplate FsctTemplate
         {
-            get
-            {
-                return (DataTemplate)GetValue(FsctTemplateProperty);
-            }
-            set
-            {
-                SetValue(FsctTemplateProperty, value);
-            }
+            get => (DataTemplate)GetValue(FsctTemplateProperty);
+            set => SetValue(FsctTemplateProperty, value);
         }
 
         public static void OnItemsSourceChanged(BindableObject argSource, object oldValue, object newValue)

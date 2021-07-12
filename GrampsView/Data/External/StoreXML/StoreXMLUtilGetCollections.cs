@@ -908,22 +908,18 @@
         /// <param name="xmlData">
         /// the xElement containing the url references.
         /// </param>
-        private OCURLModelCollection GetURLCollection(XElement xmlData)
+        private HLinkURLModelCollection GetURLCollection(XElement xmlData)
         {
-            OCURLModelCollection t = new OCURLModelCollection
-            {
-                Title = "URL Collection"
-            };
+            HLinkURLModelCollection t = new HLinkURLModelCollection();
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "url")
                     select orElementEl;
 
             if (theERElement.Any())
             {
-                // load event object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
                     URLModel tt = new URLModel
@@ -943,11 +939,14 @@
 
                     tt.ModelItemGlyph.Symbol = CommonConstants.IconURL;
 
-                    t.Add(tt);
+                    HLinkURLModel ttt = new HLinkURLModel
+                    {
+                        DeRef = tt
+                    };
+
+                    t.Add(ttt);
                 }
             }
-
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
 
             return t;
         }

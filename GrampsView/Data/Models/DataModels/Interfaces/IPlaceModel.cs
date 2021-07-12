@@ -63,7 +63,7 @@
             get;
         }
 
-        OCURLModelCollection GURLCollection
+        HLinkURLModelCollection GURLCollection
         {
             get;
         }

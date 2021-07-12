@@ -2,7 +2,6 @@
 
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
@@ -12,10 +11,10 @@ namespace GrampsView.Data.Collections
     /// URL model collection.
     /// </summary>
     [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<URLModel>))]
-    public class OCURLModelCollection : CardGroupBase<URLModel>
+    [KnownType(typeof(ObservableCollection<HLinkURLModel>))]
+    public class HLinkURLModelCollection : HLinkBaseCollection<HLinkURLModel>
     {
-        public OCURLModelCollection()
+        public HLinkURLModelCollection()
         {
             Title = "URL Model Collection";
         }

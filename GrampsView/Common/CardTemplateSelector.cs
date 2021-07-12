@@ -426,6 +426,11 @@ namespace GrampsView.Common
                         }
                     }
 
+                case HLinkURLModel i:
+                    {
+                        return URLTemplate;
+                    }
+
                 case LdsOrdModel i:
                     {
                         return LDSOrdTemplate;
@@ -525,11 +530,6 @@ namespace GrampsView.Common
             if (item is TagModel)
             {
                 return TagTemplate;
-            }
-
-            if (item is URLModel)
-            {
-                return URLTemplate;
             }
 
             // Error

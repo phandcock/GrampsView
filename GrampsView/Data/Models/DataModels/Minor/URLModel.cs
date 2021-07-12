@@ -33,6 +33,7 @@
             OpenURLCommand = new AsyncCommand(OpenURL);
 
             ModelItemGlyph.Symbol = CommonConstants.IconURL;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>
@@ -106,7 +107,7 @@
         /// <summary>
         /// Opens the URL.
         /// </summary>
-        private async Task OpenURL()
+        public async Task OpenURL()
         {
             switch (URLType)
             {

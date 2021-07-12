@@ -20,17 +20,12 @@
 
     public static class GeneralData
     {
+        public static ICommonLogging iocCommonLogging = new CommonLogging();
         public static IStoreXML iocExternalStorage;
-
         public static IStorePostLoad iocGrampsStorePostLoad;
-
         public static IGrampsStoreSerial iocGrampsStoreSerial;
-
-        //public static string DataStorePath = Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, "UnitTestDataStore");
         public static IPlatformSpecific iocPlatformSpecific;
-
         public static IStoreFile iocStoreFile;
-
         public static Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
         public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
         public static DataRepositoryManager newManager;

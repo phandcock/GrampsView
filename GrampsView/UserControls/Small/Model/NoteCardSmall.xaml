@@ -11,7 +11,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -21,7 +21,6 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
             FormattedText="{Binding DeRef.GetDefaultText, Mode=OneWay}"
             Style="{DynamicResource GVCardLabelStyleSmall}" />
 

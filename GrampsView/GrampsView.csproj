@@ -187,8 +187,4 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Models\HLinks\Minor\" />
-  </ItemGroup>
 </Project>

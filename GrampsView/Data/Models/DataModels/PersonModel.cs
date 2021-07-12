@@ -234,7 +234,7 @@ namespace GrampsView.Data.Model
         /// The URL collection.
         /// </value>
         [DataMember]
-        public OCURLModelCollection GURLCollection { get; set; } = new OCURLModelCollection();
+        public HLinkURLModelCollection GURLCollection { get; set; } = new HLinkURLModelCollection();
 
         /// <summary>
         /// Gets the get h link.

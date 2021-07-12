@@ -33,15 +33,9 @@
 
         public string Title
         {
-            get
-            {
-                return _Title;
-            }
+            get => _Title;
 
-            set
-            {
-                SetProperty(ref _Title, value);
-            }
+            set => SetProperty(ref _Title, value);
         }
 
         public override void BaseHandleDisAppearingEvent()

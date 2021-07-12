@@ -115,12 +115,12 @@
         /// Gets or sets URL collection.
         /// </summary>
         [DataMember]
-        public OCURLModelCollection GURL
+        public HLinkURLModelCollection GURL
         {
             get; set;
         }
 
-        = new OCURLModelCollection();
+        = new HLinkURLModelCollection();
 
         /// <summary>
         /// Gets the hlink.

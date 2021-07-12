@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
+    using GrampsView.Data.Repository;
+
     using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
 
@@ -15,6 +17,8 @@
             IsLightDismissEnabled = false;
 
             VerticalOptions = LayoutOptions.CenterAndExpand;
+
+            Size = new Size(DataStore.Instance.AD.ScreenSize.Width - 100, DataStore.Instance.AD.ScreenSize.Height - 100);
         }
 
         public bool DismissFlag

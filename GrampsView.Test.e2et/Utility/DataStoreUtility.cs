@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.e2e.Test.Utility
 {
-    using GrampsView.Common;
     using GrampsView.Data;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
@@ -22,20 +21,6 @@
 
         public static void DataStoreSetup()
         {
-            //// AD
-
-            //if (!DataStore.Instance.AD.CurrentDataFolder.Valid)
-            //{
-            //    // Delete if it exists
-            //    if (Directory.Exists(GeneralData.DataStorePath))
-            //    {
-            //        Directory.Delete(GeneralData.DataStorePath, true);
-            //    }
-
-            // Directory.CreateDirectory(GeneralData.DataStorePath);
-
-            //    DataStore.Instance.AD.CurrentDataFolder.Value = new DirectoryInfo(GeneralData.DataStorePath);
-            //}
         }
 
         [Conditional("DEBUG")]
@@ -54,7 +39,7 @@
         {
             // Load Resource
             var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = DataStoreUtility.BasePath + ".Test_Data.GrampsView Test Basic.gpkg";
+            var resourceName = BasePath + ".Test_Data.GrampsView Test Basic.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
@@ -63,73 +48,22 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen
             // before TODO CommonLocalSettings.SetReloadDatabase();
 
-            ICommonLogging iocCommonLogging = new CommonLogging();
-
             GeneralData.setupMocks();
-
-            //////////////////
-            //Mock<ICommonNotifications> mockCommonNotifications = new Mock<ICommonNotifications>();
-            //mockCommonNotifications
-            //   .Setup(x => x.DataLog)
-            //   .Returns(new Mock<IDataLog>().Object);
-
-            //ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
-
-            //Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
-            //mocXamarinEssentials
-            //    .Setup(x => x.FileSystemCacheDirectory)
-            //    .Returns(Path.GetDirectoryName(typeof(DataStoreUtility).Assembly.Location));
-            //IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
-
-            //Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
-            //IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
-
-            //DataStore.Instance.CN = iocCommonNotifications;
-            //DataStore.Instance.ES = iocXamarinEssentials;
-            //DataStore.Instance.FFIL = iocFFImageLoading;
-
-            ////////////////////
-            //Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
-
-            //var mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
-            //mocEventAggregator
-            //      .Setup(x => x.GetEvent<DataLoadXMLEvent>())
-            //      .Returns(mockedEventDataLoadXMLEvent.Object);
-
-            //var mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
-            //mocEventAggregator
-            //      .Setup(x => x.GetEvent<DataLoadStartEvent>())
-            //      .Returns(mockedEventDataLoadStartEvent.Object);
-
-            //var mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
-            //mocEventAggregator
-            //    .Setup(x => x.GetEvent<DataSaveSerialEvent>())
-            //    .Returns(mockedEventDataSaveSerialEvent.Object);
-
-            //var mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
-            //mocEventAggregator
-            //    .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
-            //    .Returns(mockedEventDataLoadCompleteEvent.Object);
-
-            //// Mock Platform specific
-            //Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
-
-            //IPlatformSpecific iocPlatformSpecific = mocPlatformSpecific.Object;
 
             // Other setup
             IEventAggregator iocEventAggregator = GeneralData.mocEventAggregator.Object;
 
-            IStoreXML iocExternalStorage = new StoreXML(iocCommonLogging);
+            IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging);
 
-            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
+            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(GeneralData.iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
-            IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
+            IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(GeneralData.iocCommonLogging);
 
             IStoreFile iocStoreFile = new StoreFile();
 
-            DataRepositoryManager newManager = new DataRepositoryManager(iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
+            DataRepositoryManager newManager = new DataRepositoryManager(GeneralData.iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
 
-            StorePostLoad newPostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
+            StorePostLoad newPostLoad = new StorePostLoad(GeneralData.iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
             //// Clear the repositories in case we had to restart after being interupted. TODO have
             //// better mock DataStore.Instance.AD.LoadDataStore();
@@ -141,7 +75,7 @@
             //DataStore.Instance.AD.CurrentDataFolder.Value.Create();
 
             // Time to start loading the data
-            DataStoreUtility.DataStoreSetup();
+            DataStoreSetup();
 
             DataRepositoryManager.ClearRepositories();
 

@@ -67,7 +67,7 @@ namespace GrampsView.Data.Model
                         break;
                 }
 
-                return cleanString.Substring(0, Math.Min(cleanString.Length, 40));
+                return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
             }
         }
 
