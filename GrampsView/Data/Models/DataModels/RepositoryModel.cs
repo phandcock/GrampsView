@@ -40,12 +40,12 @@
         /// Gets or sets address collection.
         /// </summary>
         [DataMember]
-        public HLinkOCAddressModelCollection GAddress
+        public HLinkAddressModelCollection GAddress
         {
             get; set;
         }
 
-        = new HLinkOCAddressModelCollection();
+        = new HLinkAddressModelCollection();
 
         /// <summary>
         /// Gets the default text for this Model.

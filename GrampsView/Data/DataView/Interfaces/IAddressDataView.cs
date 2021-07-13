@@ -14,7 +14,7 @@ namespace GrampsView.Data.DataView
     /// <summary>
     /// Interface for the Address Repository.
     /// </summary>
-    public interface IAddressDataView : IDataViewBase<AddressModel, HLinkAdressModel, HLinkOCAddressModelCollection>
+    public interface IAddressDataView : IDataViewBase<AddressModel, HLinkAdressModel, HLinkAddressModelCollection>
     {
         /// <summary>
         /// Gets or sets the specified address hlink string.
@@ -41,7 +41,7 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Hlink of Address model collection.
         /// </returns>
-        HLinkOCAddressModelCollection GetAllAsHLink();
+        HLinkAddressModelCollection GetAllAsHLink();
 
         /// <summary>
         /// HLink collection sort.
@@ -51,6 +51,6 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        new HLinkOCAddressModelCollection HLinkCollectionSort(HLinkOCAddressModelCollection collectionArg);
+        new HLinkAddressModelCollection HLinkCollectionSort(HLinkAddressModelCollection collectionArg);
     }
 }

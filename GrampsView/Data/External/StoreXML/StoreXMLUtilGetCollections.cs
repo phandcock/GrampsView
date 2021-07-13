@@ -93,9 +93,9 @@
             return t;
         }
 
-        private HLinkOCAddressModelCollection GetAddressCollection(XElement xmlData)
+        private HLinkAddressModelCollection GetAddressCollection(XElement xmlData)
         {
-            HLinkOCAddressModelCollection t = new HLinkOCAddressModelCollection
+            HLinkAddressModelCollection t = new HLinkAddressModelCollection
             {
                 Title = "Address Collection"
             };

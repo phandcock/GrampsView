@@ -62,12 +62,12 @@ namespace GrampsView.Data.Model
         /// Gets or sets gaddress collection.
         /// </summary>
         [DataMember]
-        public HLinkOCAddressModelCollection GAddressCollection
+        public HLinkAddressModelCollection GAddressCollection
         {
             get; set;
         }
 
-        = new HLinkOCAddressModelCollection();
+        = new HLinkAddressModelCollection();
 
         /// <summary>
         /// Gets or sets the gattribute collection.

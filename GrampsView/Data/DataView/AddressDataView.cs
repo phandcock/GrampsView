@@ -12,7 +12,7 @@ namespace GrampsView.Data.DataView
 
     /// <summary>
     // Event repository </summary>
-    public class AddressDataView : DataViewBase<AddressModel, HLinkAdressModel, HLinkOCAddressModelCollection>, IAddressDataView
+    public class AddressDataView : DataViewBase<AddressModel, HLinkAdressModel, HLinkAddressModelCollection>, IAddressDataView
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CitationDataView"/> class.
@@ -107,9 +107,9 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public HLinkOCAddressModelCollection GetAllAsHLink()
+        public HLinkAddressModelCollection GetAllAsHLink()
         {
-            HLinkOCAddressModelCollection t = new HLinkOCAddressModelCollection();
+            HLinkAddressModelCollection t = new HLinkAddressModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -138,7 +138,7 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Sorted hlink collection.
         /// </returns>
-        public override HLinkOCAddressModelCollection HLinkCollectionSort(HLinkOCAddressModelCollection collectionArg)
+        public override HLinkAddressModelCollection HLinkCollectionSort(HLinkAddressModelCollection collectionArg)
         {
             if (collectionArg == null)
             {
@@ -147,7 +147,7 @@ namespace GrampsView.Data.DataView
 
             IOrderedEnumerable<HLinkAdressModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GetDefaultText);
 
-            HLinkOCAddressModelCollection tt = new HLinkOCAddressModelCollection();
+            HLinkAddressModelCollection tt = new HLinkAddressModelCollection();
 
             foreach (HLinkAdressModel item in t)
             {
