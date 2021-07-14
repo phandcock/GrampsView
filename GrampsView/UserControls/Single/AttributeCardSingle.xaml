@@ -1,58 +1,32 @@
-﻿<Grid
+﻿<ucon:SingleCardControlTemplate
     x:Class="GrampsView.UserControls.AttributeCardSingle"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:AttributeModel"
-    Style="{DynamicResource GridSingleFixedCardStyle}">
-    <Frame Style="{DynamicResource FrameSingleFixedCardStyle}">
+    x:DataType="models:HLinkAttributeModel">
 
-        <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
+    <Grid>
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding .}" />
-            </Grid.GestureRecognizers>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
-            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GType, Mode=OneWay}" />
 
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-
-            <Grid
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{DynamicResource CardImageBackground}">
-
-                <ucon:HLinkVisualDisplay
-                    x:Name="AnchorImage"
-                    BindingContext="{Binding ModelItemGlyph, Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}" />
-            </Grid>
-
-            <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Style="{DynamicResource GVCardLabelStyleSmall}"
-                Text="{Binding GType, Mode=OneWay}" />
-
-            <Image
-                Grid.Row="0"
-                Grid.Column="2"
-                Style="{DynamicResource GVSymbolIconSmallCardType}">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="FA-Solid"
-                        Glyph="{Binding ModelItemGlyph.Symbol}"
-                        Color="{Binding ModelItemGlyph.SymbolColour}" />
-                </Image.Source>
-            </Image>
-        </Grid>
-    </Frame>
-</Grid>
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GValue, Mode=OneWay}" />
+    </Grid>
+</ucon:SingleCardControlTemplate>

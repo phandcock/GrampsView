@@ -34,7 +34,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g attribute collection.
         /// </value>
-        OCAttributeModelCollection GAttributeCollection
+        HLinkAttributeModelCollection GAttributeCollection
         {
             get;
         }

@@ -76,12 +76,12 @@ namespace GrampsView.Data.Model
         /// The gattribute collection.
         /// </value>
         [DataMember]
-        public OCAttributeModelCollection GAttributeCollection
+        public HLinkAttributeModelCollection GAttributeCollection
         {
             get;
 
             set;
-        } = new OCAttributeModelCollection();
+        } = new HLinkAttributeModelCollection();
 
         /// <summary>
         /// Gets or sets the child of.

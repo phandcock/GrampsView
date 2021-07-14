@@ -146,7 +146,7 @@
         /// The source attribute collection.
         /// </value>
         [DataMember]
-        public OCAttributeModelCollection GSourceAttributeCollection
+        public HLinkAttributeModelCollection GSourceAttributeCollection
         {
             get; set;
         }

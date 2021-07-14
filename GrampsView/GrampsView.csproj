@@ -34,6 +34,7 @@
     <Compile Remove="Common\CustomClasses\Priv.cs" />
     <Compile Remove="Common\MainMenuItem.cs" />
     <Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
+    <Compile Remove="Data\Models\Collections\Models\HLinkAttributeModelCollection.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkHomeImageModel.cs" />
     <Compile Remove="Data\Models\HLinks\HLinkPrimaryObjectModel.cs" />

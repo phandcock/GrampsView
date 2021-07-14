@@ -166,9 +166,9 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private OCAttributeModelCollection GetAttributeCollection(XElement xmlData)
+        private HLinkAttributeModelCollection GetAttributeCollection(XElement xmlData)
         {
-            OCAttributeModelCollection t = new OCAttributeModelCollection
+            HLinkAttributeModelCollection t = new HLinkAttributeModelCollection
             {
                 Title = "Attribute Collection"
             };
@@ -196,7 +196,12 @@
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),
                     };
 
-                    t.Add(newAttributeModel);
+                    HLinkAttributeModel tt = new HLinkAttributeModel
+                    {
+                        DeRef = newAttributeModel
+                    };
+
+                    t.Add(tt);
                 }
             }
 

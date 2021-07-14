@@ -100,13 +100,13 @@ namespace GrampsView.Data.Model
         /// The attribute.
         /// </value>
         [DataMember]
-        public OCAttributeModelCollection GAttribute
+        public HLinkAttributeModelCollection GAttribute
         {
             get;
             set;
         }
 
-            = new OCAttributeModelCollection();
+            = new HLinkAttributeModelCollection();
 
         /// <summary>
         /// Gets or sets the g citation reference collection.

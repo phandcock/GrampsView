@@ -145,12 +145,12 @@ namespace GrampsView.Data.Model
         /// The g attribute collection.
         /// </value>
         [DataMember]
-        public OCAttributeModelCollection GAttributeCollection
+        public HLinkAttributeModelCollection GAttributeCollection
         {
             get;
 
             set;
-        } = new OCAttributeModelCollection();
+        } = new HLinkAttributeModelCollection();
 
         /// <summary>
         /// Gets or sets Child Reference collection.
