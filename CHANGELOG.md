@@ -1,3 +1,13 @@
+## [16.19.12](https://github.com/phandcock/GrampsView/compare/v16.19.11...v16.19.12) (2021-07-14)
+
+
+### Bug Fixes
+
+* start new hlinkurl code plus tweaks ([fc75459](https://github.com/phandcock/GrampsView/commit/fc75459f784439d304cd327bc97fe238ccb63d2b))
+* tweaks ([8a8b6f0](https://github.com/phandcock/GrampsView/commit/8a8b6f0ee3499f58c14b8c99a62132ad0c493fa7))
+
+
+
 ## [16.19.11](https://github.com/phandcock/GrampsView/compare/v16.19.10...v16.19.11) (2021-07-12)
 
 
@@ -28,16 +38,6 @@
 * track source repository reference bug ([bfdca36](https://github.com/phandcock/GrampsView/commit/bfdca36faf2832d52b397941c46534eb36c5c550))
 * trial new screen size and rotation code ([cd15045](https://github.com/phandcock/GrampsView/commit/cd1504569a604300b390d4bb05f90561fa25a12b))
 * tweak layouts and notes default text ([855b227](https://github.com/phandcock/GrampsView/commit/855b227bed88771d10478fc93790b5071e2b2618))
-
-
-
-## [16.19.8](https://github.com/phandcock/GrampsView/compare/v16.19.7...v16.19.8) (2021-07-09)
-
-
-### Bug Fixes
-
-* card layouts and formatting tweaks ([943a406](https://github.com/phandcock/GrampsView/commit/943a4068d0aedb39663a595d985871fa13cde172))
-* fix datafolder init bug when first loading plus hidign messagelog too early ([8cb47ff](https://github.com/phandcock/GrampsView/commit/8cb47ffb127cd21a083a8b682eb0a5bfe89455e2))
 
 
 
