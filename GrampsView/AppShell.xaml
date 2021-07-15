@@ -16,10 +16,10 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
                 <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="Red" />
             </Style>
 
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
@@ -38,7 +38,8 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
+                                    <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />-->
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

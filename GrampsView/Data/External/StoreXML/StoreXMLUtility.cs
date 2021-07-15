@@ -51,9 +51,11 @@
              HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey.Value + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
              string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
 
-             if (newHLinkKey.Value == "_c47ecf788120563f2b2-52148135")
+             if (newHLinkKey.Value == "_c5132553a185c9c51d8-35415065")
              {
              }
+
+             Debug.WriteLine(newHLinkKey.Value);
 
              string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.Path, outFileName);
 
@@ -62,12 +64,16 @@
              // Check if already exists
              IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
 
-             if ((!fileExists.Valid) && (theMediaModel.IsMediaStorageFileValid))
+             if ((!fileExists.Valid) && theMediaModel.IsMediaStorageFileValid)
              {
                  // Needs clipping
                  using (StreamReader stream = new StreamReader(theMediaModel.MediaStorageFilePath))
                  {
-                     resourceBitmap = SKBitmap.Decode(stream.BaseStream);
+                     //resourceBitmap = SKBitmap.Decode(stream.BaseStream);
+                     // TODO See https://github.com/mono/SkiaSharp/issues/1621
+
+                     SKImage img = SKImage.FromEncodedData(stream.BaseStream);
+                     resourceBitmap = SKBitmap.FromImage(img);
                  }
 
                  // Check for too large a bitmap

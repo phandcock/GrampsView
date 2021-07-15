@@ -4,6 +4,7 @@
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -17,7 +18,7 @@
                 try
                 {
                     // Run query
-                    var de =
+                    IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "citation")
                         select el;
 
