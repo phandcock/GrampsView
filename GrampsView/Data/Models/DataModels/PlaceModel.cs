@@ -41,40 +41,6 @@ namespace GrampsView.Data.Model
     public sealed class PlaceModel : ModelBase, IPlaceModel, IComparable, IComparer
     {
         /// <summary>
-        /// The local g code field.
-        /// </summary>
-        private string _GCodeField;
-
-        /// <summary>
-        /// The local media collection.
-        /// </summary>
-        private HLinkMediaModelCollection _GMediaCollection = new HLinkMediaModelCollection();
-
-        /// <summary>
-        /// The local note reference.
-        /// </summary>
-        private HLinkNoteModelCollection _GNoteReference = new HLinkNoteModelCollection();
-
-        private PlaceNameModelCollection _GPlaceNames = new PlaceNameModelCollection();
-
-        /// <summary>
-        /// The local place reference.
-        /// </summary>
-        private HLinkPlaceModelCollection _GPlaceReference = new HLinkPlaceModelCollection();
-
-        /// <summary>
-        /// The local ptitle field.
-        /// </summary>
-        private string _GPTitle;
-
-        /// <summary>
-        /// The local place type field.
-        /// </summary>
-        private string _GTypeField;
-
-        private HLinkPlaceModelCollection _PlaceChildCollection = new HLinkPlaceModelCollection();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="PlaceModel"/> class.
         /// </summary>
         public PlaceModel()
@@ -101,9 +67,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GCode
         {
-            get => _GCodeField;
+            get;
 
-            set => SetProperty(ref _GCodeField, value);
+            set;
         }
 
         [DataMember]
@@ -149,10 +115,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get => _GMediaCollection;
+            get;
 
-            set => SetProperty(ref _GMediaCollection, value);
-        }
+            set;
+        } = new HLinkMediaModelCollection();
 
         /// <summary>
         /// Gets or sets the g note reference collection.
@@ -163,18 +129,18 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get => _GNoteReference;
+            get;
 
-            set => SetProperty(ref _GNoteReference, value);
-        }
+            set;
+        } = new HLinkNoteModelCollection();
 
         [DataMember]
-        public PlaceNameModelCollection GPlaceNames
+        public HLinkPlaceNameModelCollection GPlaceNames
         {
-            get => _GPlaceNames;
+            get;
 
-            set => SetProperty(ref _GPlaceNames, value);
-        }
+            set;
+        } = new HLinkPlaceNameModelCollection();
 
         /// <summary>
         /// Gets or sets the g place reference collection.
@@ -185,10 +151,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPlaceModelCollection GPlaceParentCollection
         {
-            get => _GPlaceReference;
+            get;
 
-            set => SetProperty(ref _GPlaceReference, value);
-        }
+            set;
+        } = new HLinkPlaceModelCollection();
 
         ///// <summary>
         ///// Gets or sets the place title.
@@ -199,9 +165,9 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GPTitle
         {
-            get => _GPTitle;
+            get;
 
-            set => SetProperty(ref _GPTitle, value);
+            set;
         }
 
         /// <summary>
@@ -216,16 +182,15 @@ namespace GrampsView.Data.Model
             get
             ;
 
-            set
-          ;
-        }
+            set;
+        } = new HLinkTagModelCollection();
 
         [DataMember]
         public string GType
         {
-            get => _GTypeField;
+            get;
 
-            set => SetProperty(ref _GTypeField, value);
+            set;
         }
 
         /// <summary>
@@ -261,10 +226,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPlaceModelCollection PlaceChildCollection
         {
-            get => _PlaceChildCollection;
+            get;
 
-            set => SetProperty(ref _PlaceChildCollection, value);
-        }
+            set;
+        } = new HLinkPlaceModelCollection();
 
         /// <summary>
         /// Compares two objects.

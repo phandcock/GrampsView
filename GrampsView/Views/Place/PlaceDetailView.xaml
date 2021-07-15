@@ -26,8 +26,8 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GPlaceNames, Mode=OneWay}" FsctTemplate="{StaticResource PlaceNameCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GLocation, Mode=OneWay}" FsctTemplate="{StaticResource PlaceLocationCardSmallDT}" />
-            <!--  // TODO Why displayed if empty  -->
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GPlaceParentCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.PlaceChildCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PlaceObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

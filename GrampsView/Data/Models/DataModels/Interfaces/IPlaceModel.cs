@@ -42,7 +42,7 @@
             get;
         }
 
-        PlaceNameModelCollection GPlaceNames
+        HLinkPlaceNameModelCollection GPlaceNames
         {
             get;
         }

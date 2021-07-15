@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:PlaceNameModel"
+    x:DataType="models:HLinkPlaceNameModel"
     IsVisible="{Binding Valid, Mode=OneWay}">
 
     <Grid>
@@ -24,20 +24,20 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding GValue, Mode=OneWay}" />
+            Text="{Binding DeRef.GValue, Mode=OneWay}" />
 
         <Label
             x:Name="NameTextBlock"
             Grid.Row="1"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding GLang, Mode=OneWay}" />
+            Text="{Binding DeRef.GLang, Mode=OneWay}" />
 
         <Label
             x:Name="TypeTextBlock"
             Grid.Row="2"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding GDate.ShortDateOrEmpty, Mode=OneWay}" />
+            Text="{Binding DeRef.GDate.ShortDateOrEmpty, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

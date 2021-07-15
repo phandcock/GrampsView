@@ -55,37 +55,13 @@
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
 
-                // Get Coordinates TODO Setup Map link card button thing t = new CardGroup { Title =
-                // "Coordinates" };
-
-                BaseDetail.Add(new CardListLineCollection
+                BaseDetail.Add(new CardListLineCollection("Coordinates")
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),
                         new CardListLine("Long:", PlaceObject.GCoordLong),
                 });
 
                 BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
-
-                // Get Place Name details
-                if (PlaceObject.GPlaceNames.Count > 1)
-                {
-                    //t = new CardGroup { Title = "Place Names" };
-
-                    //foreach (PlaceNameModel item in PlaceObject.GPlaceNames)
-                    //{
-                    //    t.Add(new CardListLineCollection
-                    //    {
-                    //        new CardListLine("Card Type:", "Place Name"),
-                    //        new CardListLine("Name:", item.GValue),
-                    //        new CardListLine("Language:", item.GLang),
-                    //        new CardListLine("Date:", item.GDate.ShortDate),
-                    //    });
-                    //}
-
-                    // TODO ? above
-
-                    BaseDetail.Add(PlaceObject.GPlaceNames);
-                }
             }
         }
     }

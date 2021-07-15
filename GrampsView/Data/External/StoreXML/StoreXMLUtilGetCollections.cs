@@ -205,8 +205,6 @@
                 }
             }
 
-            // TODO Need to sort Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
-
             return t;
         }
 
@@ -285,6 +283,7 @@
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
                     };
+
                     t.Add(t2);
 
                     if (t2.DeRef.Id == "C0525")
@@ -676,15 +675,15 @@
             return t;
         }
 
-        private PlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
+        private HLinkPlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
         {
-            PlaceNameModelCollection t = new PlaceNameModelCollection
+            HLinkPlaceNameModelCollection t = new HLinkPlaceNameModelCollection
             {
                 Title = "Place Name Collection"
             };
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "pname")
                     select orElementEl;
@@ -694,7 +693,7 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    PlaceNameModel newAttributeModel = new PlaceNameModel
+                    PlaceNameModel newPlaceNameModel = new PlaceNameModel
                     {
                         Handle = "PlaceNameModel",
 
@@ -705,13 +704,16 @@
                         GDate = GetDate(theLoadORElement),
                     };
 
-                    newAttributeModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+                    newPlaceNameModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
 
-                    t.Add(newAttributeModel);
+                    HLinkPlaceNameModel tt = new HLinkPlaceNameModel
+                    {
+                        DeRef = newPlaceNameModel
+                    };
+
+                    t.Add(tt);
                 }
             }
-
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
 
             return t;
         }
