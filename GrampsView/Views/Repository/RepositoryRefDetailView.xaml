@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBase
-    x:Class="GrampsView.Views.RepositoryDetailPage"
+    x:Class="GrampsView.Views.RepositoryRefDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:prism="http://prismlibrary.com"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,7 +11,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     prism:ViewModelLocator.AutowireViewModel="True"
-    x:DataType="viewmodels:RepositoryDetailViewModel"
+    x:DataType="viewmodels:RepositoryRefDetailViewModel"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -23,12 +23,7 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
-
-            <ucon:CardGroupHeader BindingContext="{Binding RepositoryObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:FlexSingleCard FsctSource="{Binding RepositoryHLink.GNoteRef, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBase>

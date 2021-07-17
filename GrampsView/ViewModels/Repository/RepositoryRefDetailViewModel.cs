@@ -9,7 +9,7 @@
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
-    public class RepositoryDetailViewModel : ViewModelBase
+    public class RepositoryRefDetailViewModel : ViewModelBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
@@ -20,12 +20,12 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public RepositoryDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public RepositoryRefDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
         }
 
-        public HLinkRepositoryModel RepositoryHLink
+        public HLinkRepositoryRefModel RepositoryHLink
         {
             get; set;
         }
@@ -46,7 +46,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(BaseParamsHLink);
+            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryRefModel>(BaseParamsHLink);
 
             RepositoryObject = RepositoryHLink.DeRef;
 
@@ -55,11 +55,13 @@
                 BaseTitle = RepositoryObject.GetDefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
-                BaseDetail.Add(new CardListLineCollection("Repository Detail")
+                BaseDetail.Add(new CardListLineCollection("Call Details")
                     {
-                        new CardListLine("Name:", RepositoryObject.GRName),
-                        new CardListLine("Type:", RepositoryObject.GType),
+                        new CardListLine("Call No:", RepositoryHLink.GCallNo),
+                        new CardListLine("Medium:", RepositoryHLink.GMedium),
                     });
+
+                BaseDetail.Add(RepositoryHLink.DeRef.HLink);
 
                 BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
             }

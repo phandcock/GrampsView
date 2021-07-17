@@ -186,6 +186,7 @@
             container.RegisterForNavigation<PlaceListPage, PlaceListViewModel>();
 
             container.RegisterForNavigation<RepositoryDetailPage, RepositoryDetailViewModel>();
+            container.RegisterForNavigation<RepositoryRefDetailPage, RepositoryRefDetailViewModel>();
             container.RegisterForNavigation<RepositoryListPage, RepositoryListViewModel>();
 
             container.RegisterForNavigation<SearchPage, SearchPageViewModel>();

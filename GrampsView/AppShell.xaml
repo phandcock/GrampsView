@@ -33,12 +33,13 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />-->
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>

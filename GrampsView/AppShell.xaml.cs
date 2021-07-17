@@ -52,6 +52,7 @@
             Routing.RegisterRoute(nameof(PlaceDetailPage), typeof(PlaceDetailPage));
 
             Routing.RegisterRoute(nameof(RepositoryDetailPage), typeof(RepositoryDetailPage));
+            Routing.RegisterRoute(nameof(RepositoryRefDetailPage), typeof(RepositoryRefDetailPage));
 
             Routing.RegisterRoute(nameof(SourceDetailPage), typeof(SourceDetailPage));
 

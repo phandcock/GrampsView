@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
@@ -43,49 +42,6 @@
                 return _Deref;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the call no.
-        /// </summary>
-        /// <value>
-        /// The call no.
-        /// </value>
-        [DataMember]
-        public string GCallNo
-        {
-            get;
-
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the medium.
-        /// </summary>
-        /// <value>
-        /// The medium.
-        /// </value>
-        [DataMember]
-        public string GMedium
-        {
-            get;
-
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the note reference.
-        /// </summary>
-        /// <value>
-        /// The note reference.
-        /// </value>
-        [DataMember]
-        public HLinkNoteModelCollection GNoteRef
-        {
-            get;
-            set;
-        }
-
-        = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Navigates to a Repository detail page.

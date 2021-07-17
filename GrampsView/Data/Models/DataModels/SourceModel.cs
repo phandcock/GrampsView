@@ -44,7 +44,7 @@
             {
                 if (GRepositoryRefCollection.Count > 0)
                 {
-                    HLinkRepositoryModel t = GRepositoryRefCollection[0];
+                    HLinkRepositoryRefModel t = GRepositoryRefCollection[0];
 
                     if (t.Valid)
                     {
@@ -108,12 +108,12 @@
         /// The repository reference collection.
         /// </value>
         [DataMember]
-        public HLinkRepositoryModelCollection GRepositoryRefCollection
+        public HLinkRepositoryRefCollection GRepositoryRefCollection
         {
             get; set;
         }
 
-        = new HLinkRepositoryModelCollection();
+        = new HLinkRepositoryRefCollection();
 
         /// <summary>
         /// Gets or sets the sabbrev.

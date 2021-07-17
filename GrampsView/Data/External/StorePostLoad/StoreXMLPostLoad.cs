@@ -559,10 +559,10 @@
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
 
-                // Repository Collection
+                // Repository Ref Collection
                 argModel.GRepositoryRefCollection.SetGlyph();
 
-                foreach (HLinkRepositoryModel repositoryRef in argModel.GRepositoryRefCollection)
+                foreach (HLinkRepositoryRefModel repositoryRef in argModel.GRepositoryRefCollection)
                 {
                     DataStore.Instance.DS.RepositoryData[repositoryRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }

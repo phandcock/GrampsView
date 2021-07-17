@@ -6,22 +6,24 @@
 
     public class ViewBase : ContentPage
     {
-        private double height;
-
-        private double width;
-
         public ViewBase()
         {
         }
 
         protected override void OnAppearing()
         {
-            (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
+            if (!(this.BindingContext is null))
+            {
+                (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
+            }
         }
 
         protected override void OnDisappearing()
         {
-            (this.BindingContext as ViewModelBase).BaseHandleDisAppearingEventInternal();
+            if (!(this.BindingContext is null))
+            {
+                (this.BindingContext as ViewModelBase).BaseHandleDisAppearingEventInternal();
+            }
         }
     }
 }

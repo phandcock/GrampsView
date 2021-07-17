@@ -758,11 +758,11 @@
         /// <returns>
         /// HLink Repository Model Collection.
         /// </returns>
-        private HLinkRepositoryModelCollection GetRepositoryCollection(XElement xmlData)
+        private HLinkRepositoryRefCollection GetRepositoryCollection(XElement xmlData)
         {
-            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection
+            HLinkRepositoryRefCollection t = new HLinkRepositoryRefCollection
             {
-                Title = "Repository Collection"
+                Title = "Repository Reference Collection"
             };
 
             var theERElement = from _ORElementEl in xmlData.Elements(ns + "reporef")
@@ -773,7 +773,7 @@
                 // load repository references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkRepositoryModel t2 = new HLinkRepositoryModel
+                    HLinkRepositoryRefModel t2 = new HLinkRepositoryRefModel
                     {
                         // "callno" Done "medium" Done; "noteref" Done
                         HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),

@@ -149,6 +149,9 @@
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
+      <DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\Small\Model\LDSOrdCardSmall.xaml.cs">
       <DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,9 @@
     </Compile>
     <Compile Update="Views\Popups\MessageLog.xaml.cs">
       <DependentUpon>MessageLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
+      <DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

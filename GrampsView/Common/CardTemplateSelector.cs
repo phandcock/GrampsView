@@ -231,6 +231,18 @@ namespace GrampsView.Common
         }
 
         /// <summary>
+        /// Gets or sets the repository ref template.
+        /// </summary>
+        /// <value>
+        /// The repository template.
+        /// </value>
+        public DataTemplate RepositoryRefTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the repository template.
         /// </summary>
         /// <value>
@@ -436,6 +448,16 @@ namespace GrampsView.Common
                         return LDSOrdTemplate;
                     }
 
+                case HLinkRepositoryModel i:
+                    {
+                        return RepositoryTemplate;
+                    }
+
+                case HLinkRepositoryRefModel i:
+                    {
+                        return RepositoryRefTemplate;
+                    }
+
                 default:
                     break;
             }
@@ -475,11 +497,6 @@ namespace GrampsView.Common
             if (item is HLinkPlaceModel)
             {
                 return PlaceTemplate;
-            }
-
-            if (item is HLinkRepositoryModel)
-            {
-                return RepositoryTemplate;
             }
 
             if (item is HLinkTagModel)
