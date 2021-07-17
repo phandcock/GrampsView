@@ -50,6 +50,6 @@ namespace GrampsView.Common
         /// <param name="message">
         /// The message.
         /// </param>
-        void RoutineExit(string message);
+        void RoutineExit(string argMessage);
     }
 }

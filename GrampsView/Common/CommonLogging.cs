@@ -9,7 +9,7 @@
     using System;
 
     /// <summary>
-    /// Provides default logging services usign microsoft.extensions.logger
+    /// Provides default logging services using microsoft.extensions.logger
     /// </summary>
     public class CommonLogging : ICommonLogging
     {

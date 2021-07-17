@@ -17,7 +17,7 @@
         [Test()]
         public void DataStoreCreate_Basic()
         {
-            GeneralData.iocCommonLogging.RoutineEntry(DataStore.Instance.AD.CurrentDataFolder.Path);
+            GeneralData.iocCommonLogging.LogVariable("DataStoreCreate_Basic", DataStore.Instance.AD.CurrentDataFolder.Path);
 
             Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
         }

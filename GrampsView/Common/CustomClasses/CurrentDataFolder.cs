@@ -2,6 +2,7 @@
 {
     using GrampsView.Data.Repository;
 
+    using System.Diagnostics;
     using System.IO;
 
     public class CurrentDataFolder
@@ -10,12 +11,6 @@
         {
             try
             {
-                //// Help with Unit Testing
-                //if (DeviceInfo.Platform == DevicePlatform.Unknown)
-                //{
-                //    return;
-                //}
-
                 string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
@@ -26,6 +21,8 @@
                 {
                     Value = t.CreateSubdirectory(CommonConstants.DirectoryCacheBase);
                 }
+
+                Debug.WriteLine("CurrentDataFolder Path:" + Value.FullName);
             }
             catch (System.Exception ex)
             {
