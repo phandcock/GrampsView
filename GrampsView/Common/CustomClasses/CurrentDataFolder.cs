@@ -24,7 +24,7 @@
 
                 if (!Value.Exists)
                 {
-                    t.CreateSubdirectory(CommonConstants.DirectoryCacheBase);
+                    Value = t.CreateSubdirectory(CommonConstants.DirectoryCacheBase);
                 }
             }
             catch (System.Exception ex)

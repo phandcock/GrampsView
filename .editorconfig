@@ -8,3 +8,6 @@ csharp_using_directive_placement = inside_namespace:warning
 
 # IDE0027: Use expression body for accessors
 csharp_style_expression_bodied_accessors = when_on_single_line:warning
+
+# Default severity for analyzer diagnostics with category 'Style'
+dotnet_analyzer_diagnostic.category-Style.severity = silent
