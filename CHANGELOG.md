@@ -1,3 +1,15 @@
+## [16.19.14](https://github.com/phandcock/GrampsView/compare/v16.19.13...v16.19.14) (2021-07-18)
+
+
+### Bug Fixes
+
+* add logging for data folder new value ([9779938](https://github.com/phandcock/GrampsView/commit/9779938e9f5690f6781f7b5f1c19a9d60a8b3b27))
+* fix datafolderinit bug for first load scenario ([04b66d0](https://github.com/phandcock/GrampsView/commit/04b66d03c6212583a4afc9f02cbff6322c88c5bc))
+* fix up RepositoryRef model ([ce92b6e](https://github.com/phandcock/GrampsView/commit/ce92b6eb6bf833045186c8ee3744b952ebca57e8))
+* tweaks ([5738b82](https://github.com/phandcock/GrampsView/commit/5738b8204da93d4c74a3fb135104b8666b86a8f1))
+
+
+
 ## [16.19.13](https://github.com/phandcock/GrampsView/compare/v16.19.12...v16.19.13) (2021-07-16)
 
 
@@ -25,16 +37,6 @@
 ### Bug Fixes
 
 * shell flyout menu item colours ([f6c1dc5](https://github.com/phandcock/GrampsView/commit/f6c1dc55f68e7b1787fc353e75674b6eb6a83b82))
-
-
-
-## [16.19.10](https://github.com/phandcock/GrampsView/compare/v16.19.9...v16.19.10) (2021-07-11)
-
-
-### Bug Fixes
-
-* better test logging ([474c70c](https://github.com/phandcock/GrampsView/commit/474c70c717d42b96cf4d35fbc45b1aec8a4b3a61))
-* YAG at the rotation and cardsize code ([265efb4](https://github.com/phandcock/GrampsView/commit/265efb4319c74803216f2a028ba23f87fb051e91))
 
 
 
