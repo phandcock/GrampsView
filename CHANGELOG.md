@@ -1,3 +1,12 @@
+## [16.19.15](https://github.com/phandcock/GrampsView/compare/v16.19.14...v16.19.15) (2021-07-18)
+
+
+### Bug Fixes
+
+* fix errorinfo xaml issues ([1ea27b0](https://github.com/phandcock/GrampsView/commit/1ea27b0d099e56b2b532170501d0152b6c592ab0))
+
+
+
 ## [16.19.14](https://github.com/phandcock/GrampsView/compare/v16.19.13...v16.19.14) (2021-07-18)
 
 
@@ -28,15 +37,6 @@
 
 * start new hlinkurl code plus tweaks ([fc75459](https://github.com/phandcock/GrampsView/commit/fc75459f784439d304cd327bc97fe238ccb63d2b))
 * tweaks ([8a8b6f0](https://github.com/phandcock/GrampsView/commit/8a8b6f0ee3499f58c14b8c99a62132ad0c493fa7))
-
-
-
-## [16.19.11](https://github.com/phandcock/GrampsView/compare/v16.19.10...v16.19.11) (2021-07-12)
-
-
-### Bug Fixes
-
-* shell flyout menu item colours ([f6c1dc5](https://github.com/phandcock/GrampsView/commit/f6c1dc55f68e7b1787fc353e75674b6eb6a83b82))
 
 
 
