@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using System;
     using System.Collections.Generic;
@@ -27,14 +25,14 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
-                                                = new List<GrampsStyleRangeModel>();
+        = new List<GrampsStyleRangeModel>();
 
         [DataMember]
         public TextStyle GStyle
         {
             get; set;
         }
-                                = TextStyle.unknown;
+        = TextStyle.unknown;
 
         [DataMember]
         public string GValue

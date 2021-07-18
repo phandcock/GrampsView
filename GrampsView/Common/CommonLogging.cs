@@ -29,7 +29,7 @@
             // Only Start App Center if there
             if (!CommonRoutines.IsEmulator())
             {
-                Analytics.TrackEvent("Error", argErrorDetail);
+                Analytics.TrackEvent("Error", argErrorDetail.ToDictionary);
             }
 
             Log.LogError(argErrorDetail.ToString());
@@ -61,7 +61,7 @@
 
             if (!CommonRoutines.IsEmulator())
             {
-                Crashes.TrackError(argEx, argExtraItems);
+                Crashes.TrackError(argEx, argExtraItems.ToDictionary);
             }
         }
 
@@ -70,7 +70,6 @@
             if (argCategory is null)
             {
                 return LogFactory.CreateLogger("GrampsView");
-                ;
             }
 
             return LogFactory.CreateLogger(argCategory);

@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -19,13 +20,31 @@
             Title = argTitle;
         }
 
-        public string Title { get; set; }
+        public string Title
+        {
+            get; set;
+        }
+
+        public IDictionary<string, string> ToDictionary
+        {
+            get
+            {
+                IDictionary<string, string> returnValue = new Dictionary<string, string>();
+
+                foreach (CardListLine item in this)
+                {
+                    returnValue.Add(item.Label, item.Value);
+                }
+
+                return returnValue;
+            }
+        }
 
         public bool Visible
         {
             get
             {
-                return (Items.Count > 0);
+                return Items.Count > 0;
             }
         }
 
@@ -39,6 +58,14 @@
             if (!string.IsNullOrEmpty(newLine.Value))
             {
                 Items.Add(newLine);
+            }
+        }
+
+        public void Add(string argLabel, string argValue)
+        {
+            if (!string.IsNullOrEmpty(argValue))
+            {
+                Items.Add(new CardListLine(argLabel, argValue));
             }
         }
 

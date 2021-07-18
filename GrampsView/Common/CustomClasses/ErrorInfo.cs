@@ -1,8 +1,8 @@
-﻿namespace GrampsView.Common.CustomClasses
-{
-    using System.Collections.Generic;
+﻿using GrampsView.Data.Model;
 
-    public class ErrorInfo : Dictionary<string, string>
+namespace GrampsView.Common.CustomClasses
+{
+    public class ErrorInfo : CardListLineCollection
     {
         public ErrorInfo(string argName, string argText)
         {
@@ -28,13 +28,13 @@
         {
             get; set;
         }
-                         = string.Empty;
+        = string.Empty;
 
         public string Text
         {
             get; set;
         }
-                    = string.Empty;
+        = string.Empty;
 
         public override string ToString()
         {
@@ -42,9 +42,9 @@
 
             outString = outString + ", Text: " + Text;
 
-            foreach (var item in this)
+            foreach (CardListLine item in this)
             {
-                outString = outString + ", " + item.Key + " = " + item.Value;
+                outString = outString + ", " + item.Label + " = " + item.Value;
             }
 
             return outString;
