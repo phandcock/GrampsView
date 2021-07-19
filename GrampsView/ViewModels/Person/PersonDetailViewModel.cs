@@ -132,7 +132,7 @@
                 BaseDetail.Add(nameDetails);
 
                 // Get date card
-                BaseDetail.Add(PersonObject.BirthDate.AsCardListLine("Birth Date"));
+                BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
 
                 // Get parent details
                 BaseDetail.Add(

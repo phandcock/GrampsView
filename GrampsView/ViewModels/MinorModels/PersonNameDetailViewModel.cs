@@ -77,7 +77,7 @@
                 BaseDetail.Add(PersonNameCards);
 
                 // Get date card
-                BaseDetail.Add(PersonNameObject.GDate.AsCardListLine());
+                BaseDetail.Add(PersonNameObject.GDate.AsHLink("Name Date"));
 
                 foreach (SurnameModel item in PersonNameObject.GSurName)
                 {

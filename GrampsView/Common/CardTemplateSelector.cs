@@ -68,6 +68,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate DateObjectTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the event template.
         /// </summary>
@@ -357,6 +363,11 @@ namespace GrampsView.Common
                 case ICitationModel i2:
                     {
                         return CitationTemplate;
+                    }
+
+                case HLinkDateModel i:
+                    {
+                        return DateObjectTemplate;
                     }
 
                 case HLinkEventModel i:

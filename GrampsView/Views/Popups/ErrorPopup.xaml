@@ -3,10 +3,10 @@
     x:Class="GrampsView.Views.ErrorPopup"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:views="clr-namespace:GrampsView.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="views:ErrorDialogViewModel">
 
     <Frame Style="{DynamicResource FrameCardStyle}">
@@ -115,7 +115,7 @@
                             Grid.Row="3"
                             Grid.Column="0"
                             Clicked="Button_Clicked"
-                            Style="{DynamicResource GVButtonStyle}"
+                            Style="{DynamicResource GVButtonMenu}"
                             Text="{cc:Translate ErrorDialog_Ok}" />
                     </Grid>
                 </Frame>

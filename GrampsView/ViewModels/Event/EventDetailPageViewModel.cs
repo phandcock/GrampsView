@@ -52,11 +52,11 @@
         {
             HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BaseParamsHLink);
 
-            if (!(HLinkObject is null) && (HLinkObject.Valid))
+            if (!(HLinkObject is null) && HLinkObject.Valid)
             {
                 EventObject = HLinkObject.DeRef;
 
-                if (!(EventObject is null) && (EventObject.Valid))
+                if (!(EventObject is null) && EventObject.Valid)
                 {
                     BaseTitle = EventObject.GetDefaultText;
                     BaseTitleIcon = CommonConstants.IconEvents;
@@ -71,7 +71,7 @@
                     });
 
                     // Get date card
-                    BaseDetail.Add(EventObject.GDate.AsCardListLine());
+                    BaseDetail.Add(EventObject.GDate.AsHLink("Event Date"));
 
                     BaseDetail.Add(EventObject.GPlace);
 

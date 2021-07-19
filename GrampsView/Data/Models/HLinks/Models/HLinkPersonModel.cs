@@ -14,9 +14,9 @@ namespace GrampsView.Data.Model
     public class HLinkPersonModel : HLinkBase, IHLinkPersonModel
     {
         // NOTE: This cannot default to a PersonModel as there is a recursive relationship with FamilyModel
-        private PersonModel _Deref = null;
+        private PersonModel _Deref;
 
-        private bool DeRefCached = false;
+        private bool DeRefCached;
 
         public HLinkPersonModel()
         {

@@ -126,6 +126,14 @@
             }
         }
 
+        public override string GetDefaultTextShort
+        {
+            get
+            {
+                return ShortDate.ToString();
+            }
+        }
+
         public override string GetYear
         {
             get

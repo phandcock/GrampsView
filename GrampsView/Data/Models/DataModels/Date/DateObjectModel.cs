@@ -198,19 +198,6 @@
             }
         }
 
-        //public string ShortDateWithPrefix
-        //{
-        //    get
-        //    {
-        //        if (Valid & (!string.IsNullOrWhiteSpace(ShortDate)))
-        //        {
-        //            return $"{AppResources.FieldPrefixShortDate} {ShortDate}";
-        //        }
-
-        //        return string.Empty;
-        //    }
-        //}
-
         /// <summary>
         /// Gets returns a single dateversion of the date field Because the field can have one or
         /// two dates etc this is trickier than it sounds. Overridden by more specific date types.
@@ -361,6 +348,27 @@
         }
 
         public abstract CardListLineCollection AsCardListLine(string argTitle = null);
+
+        public virtual HLinkDateModel AsHLink()
+        {
+            return new HLinkDateModel
+            {
+                DeRef = this,
+                HLinkGlyphItem = this.ModelItemGlyph,
+                HLinkKey = this.HLinkKey,
+            };
+        }
+
+        public HLinkDateModel AsHLink(string argTitle)
+        {
+            return new HLinkDateModel
+            {
+                DeRef = this,
+                HLinkGlyphItem = this.ModelItemGlyph,
+                HLinkKey = this.HLinkKey,
+                Title = argTitle,
+            };
+        }
 
         /// <summary>
         /// Compares two objects and returns a value indicating whether one is less than, equal to,

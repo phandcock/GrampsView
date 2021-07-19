@@ -1,0 +1,34 @@
+﻿<ucon:SingleCardControlTemplate
+    x:Class="GrampsView.UserControls.DateCardSingle"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    x:DataType="models:HLinkDateModel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding Title}"
+            VerticalOptions="CenterAndExpand" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GetDefaultTextShort, Mode=OneWay}"
+            VerticalOptions="Center" />
+    </Grid>
+</ucon:SingleCardControlTemplate>

@@ -7,9 +7,9 @@
     [DataContract]
     public class HLinkKey : ObservableObject
     {
-        public HLinkKey(string argHlinkKeyValue)
+        public HLinkKey(string argHLinkKeyValue)
         {
-            Value = argHlinkKeyValue;
+            Value = argHLinkKeyValue;
         }
 
         public HLinkKey()

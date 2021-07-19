@@ -43,11 +43,6 @@
             get;
         }
 
-        //string ShortDateWithPrefix
-        //{
-        //    get;
-        //}
-
         DateTime SingleDate
         {
             get;
@@ -79,6 +74,10 @@
         }
 
         CardListLineCollection AsCardListLine(string argTitle = null);
+
+        HLinkDateModel AsHLink();
+
+        HLinkDateModel AsHLink(string argTitle);
 
         TimeSpan DateDifference(IDateObjectModel otherDate);
 

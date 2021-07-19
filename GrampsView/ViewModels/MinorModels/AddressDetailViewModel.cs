@@ -76,7 +76,7 @@
                 });
 
                 // Get date card
-                BaseDetail.Add(AddressObject.GDate.AsCardListLine());
+                BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
                 // Add Standard details
                 BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));

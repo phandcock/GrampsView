@@ -63,6 +63,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
     <EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
@@ -149,6 +150,9 @@
     <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
       <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
+      <DependentUpon>DateCardSingle.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
       <DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
     </Compile>
@@ -163,6 +167,9 @@
     </Compile>
     <Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\DateDetailPage.xaml.cs">
+      <DependentUpon>DateDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
       <DependentUpon>AttributeDetailPage.xaml</DependentUpon>

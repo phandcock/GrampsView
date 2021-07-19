@@ -13,7 +13,7 @@ namespace GrampsView.Data.Model
     {
         private SourceModel _Deref = new SourceModel();
 
-        private bool DeRefCached = false;
+        private bool DeRefCached;
 
         public HLinkSourceModel()
         {
@@ -59,21 +59,21 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public new int CompareTo(object argObj)
+        public new int CompareTo(object obj)
         {
             // Null objects go first
-            if (argObj is null)
+            if (obj is null)
             {
                 return 1;
             }
 
             // Can only compare if they are the same type so assume equal
-            if (argObj.GetType() != typeof(HLinkSourceModel))
+            if (obj.GetType() != typeof(HLinkSourceModel))
             {
                 return 0;
             }
 
-            return DeRef.CompareTo((argObj as HLinkSourceModel).DeRef);
+            return DeRef.CompareTo((obj as HLinkSourceModel).DeRef);
         }
 
         public override async Task UCNavigate()

@@ -87,7 +87,7 @@
                     });
 
                     // Get date card
-                    BaseDetail.Add(CurrentMediaObject.GDateValue.AsCardListLine());
+                    BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
 
                     // Add standard details
                     MediaModel t = CurrentMediaObject as MediaModel;

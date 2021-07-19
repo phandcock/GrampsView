@@ -25,6 +25,10 @@
         <usercontrols:CitationCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="DateCardSingleDT">
+        <usercontrols:DateCardSingle />
+    </DataTemplate>
+
     <DataTemplate x:Key="EventCardSmallDT">
         <usercontrols:EventCardSmall />
     </DataTemplate>
@@ -116,6 +120,7 @@
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
         ChildRefTemplate="{StaticResource ChildRefCardSmallDT}"
         CitationTemplate="{StaticResource CitationCardSmallDT}"
+        DateObjectTemplate="{StaticResource DateCardSingleDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"

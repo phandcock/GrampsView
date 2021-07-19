@@ -160,6 +160,8 @@
             container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
             container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
 
+            container.RegisterForNavigation<DateDetailPage, DateDetailViewModel>();
+
             container.RegisterForNavigation<EventDetailPage, EventDetailViewModel>();
             container.RegisterForNavigation<EventListPage, EventListViewModel>();
 

@@ -59,7 +59,7 @@
                 });
 
                 // Get date card
-                BaseDetail.Add(CitationObject.GDateContent.AsCardListLine());
+                BaseDetail.Add(CitationObject.GDateContent.AsHLink("Event Date"));
 
                 BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
