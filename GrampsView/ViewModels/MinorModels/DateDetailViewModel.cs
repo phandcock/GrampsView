@@ -45,6 +45,10 @@
             {
                 BaseTitle = DateObject.GetDefaultText;
 
+                /*
+                 * General Details
+                 */
+
                 // Get the Date Details
                 BaseDetail.Add(new CardListLineCollection("Date")
                 {
@@ -57,7 +61,7 @@
                 BaseDetail.Add(new CardListLineCollection("Date Detail")
                 {
                     new CardListLine("Decade:", DateObject.GetDecade),
-                    new CardListLine("Month Day:", DateObject.GetMonthDay.ToString()),
+                    new CardListLine("Month Day:", $"{DateObject.GetMonthDay:MM dd}"),
                     new CardListLine("Year:", DateObject.GetYear),
                 });
 
@@ -68,6 +72,51 @@
                     new CardListLine("Single Date:", DateObject.SingleDate.ToString()),
                     new CardListLine("Sort Date:", DateObject.SortDate.ToString()),
                 });
+
+                /*
+                 * Date Model specific details
+                 */
+
+                switch (DateObject)
+                {
+                    case DateObjectModelRange i:
+                        {
+                            // TODO Finish this
+                            break;
+                        }
+
+                    case DateObjectModelSpan i:
+                        {
+                            // TODO Finish this
+                            break;
+                        }
+
+                    case DateObjectModelStr i:
+                        {
+                            // TODO Finish this
+                            break;
+                        }
+
+                    case DateObjectModelVal i:
+                        {
+                            BaseDetail.Add(new CardListLineCollection("Date Val Type")
+                            {
+                                new CardListLine("CFormat:", (DateObject as IDateObjectModelVal).GCformat),
+                                new CardListLine("Dual Dated:", (DateObject as IDateObjectModelVal).GDualdated),
+                                new CardListLine("New Year:",  (DateObject as IDateObjectModelVal).GNewYear),
+                                new CardListLine("Quality:",  (DateObject as IDateObjectModelVal).GQuality.ToString()),
+                                new CardListLine("Val:",  (DateObject as IDateObjectModelVal).GVal),
+                            });
+
+                            break;
+                        }
+
+                    default:
+                        {
+                            // TODO Finish this
+                            break;
+                        }
+                }
             }
 
             return;

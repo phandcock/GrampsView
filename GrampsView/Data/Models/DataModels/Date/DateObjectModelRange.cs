@@ -11,7 +11,7 @@
     /// Create Range version of DateObjectModel. TODO Update fields as per Schema
     /// </summary>
 
-    public partial class DateObjectModelRange : DateObjectModel, IDateObjectModelRange
+    public class DateObjectModelRange : DateObjectModel, IDateObjectModelRange
     {
         /// <summary>
         /// $$(cformat)$$ field.
