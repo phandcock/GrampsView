@@ -488,10 +488,9 @@
             foreach (PlaceModel thePlaceModel in DV.PlaceDV.DataViewData)
             {
                 thePlaceModel.PlaceChildCollection.SetGlyph();
-                //{
-                //    thePlaceModel.PlaceChildCollection.SetFirstImage();
-                //    thePlaceModel.PlaceChildCollection.Sort();
-                //}
+
+                // Sort anyway into alphabetic order
+                thePlaceModel.PlaceChildCollection.Sort();
             }
 
             SetPlaceImages();
