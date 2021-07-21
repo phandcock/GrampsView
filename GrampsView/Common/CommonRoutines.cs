@@ -305,10 +305,11 @@
             }
 
             // Search all dictionaries
-            if (Application.Current.Resources.TryGetValue(keyName, out var retVal))
+            if (!Application.Current.Resources.TryGetValue(keyName, out var retVal))
             {
-                //TODO cleanup
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Resource Key", keyName));
             }
+
             return retVal;
         }
     }
