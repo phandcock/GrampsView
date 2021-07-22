@@ -60,8 +60,8 @@
 
                 BaseDetail.Add(new CardListLineCollection("Date Detail")
                 {
-                    new CardListLine("Decade:", DateObject.GetDecade),
                     new CardListLine("Month Day:", $"{DateObject.GetMonthDay:MM dd}"),
+                    new CardListLine("Decade:", DateObject.GetDecade),
                     new CardListLine("Year:", DateObject.GetYear),
                 });
 
@@ -81,39 +81,38 @@
                 {
                     case DateObjectModelRange i:
                         {
-                            // TODO Finish this
+                            BaseDetail.Add((DateObject as IDateObjectModelRange).AsCardListLine());
+
                             break;
                         }
 
                     case DateObjectModelSpan i:
                         {
-                            // TODO Finish this
+                            BaseDetail.Add((DateObject as IDateObjectModelSpan).AsCardListLine());
+
                             break;
                         }
 
                     case DateObjectModelStr i:
                         {
-                            // TODO Finish this
+                            BaseDetail.Add((DateObject as IDateObjectModelStr).AsCardListLine());
+
                             break;
                         }
 
                     case DateObjectModelVal i:
                         {
-                            BaseDetail.Add(new CardListLineCollection("Date Val Type")
-                            {
-                                new CardListLine("CFormat:", (DateObject as IDateObjectModelVal).GCformat),
-                                new CardListLine("Dual Dated:", (DateObject as IDateObjectModelVal).GDualdated),
-                                new CardListLine("New Year:",  (DateObject as IDateObjectModelVal).GNewYear),
-                                new CardListLine("Quality:",  (DateObject as IDateObjectModelVal).GQuality.ToString()),
-                                new CardListLine("Val:",  (DateObject as IDateObjectModelVal).GVal),
-                            });
+                            BaseDetail.Add((DateObject as IDateObjectModelVal).AsCardListLine());
 
                             break;
                         }
 
                     default:
                         {
-                            // TODO Finish this
+                            BaseDetail.Add(new CardListLineCollection("Date Val Type")
+                            {
+                                new CardListLine("Uknown:", DateObject.ToString()),
+                            });
                             break;
                         }
                 }

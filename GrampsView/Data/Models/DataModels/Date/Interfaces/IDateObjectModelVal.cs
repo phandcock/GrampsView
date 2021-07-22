@@ -2,19 +2,41 @@
 {
     using GrampsView.Common;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Date Object Val type Interface
     /// </summary>
     public interface IDateObjectModelVal : IDateObjectModel
     {
-        string GCformat { get; }
+        string GCformat
+        {
+            get;
+        }
 
-        bool GDualdated { get; }
+        bool GDualdated
+        {
+            get;
+        }
 
-        string GNewYear { get; }
+        string GNewYear
+        {
+            get;
+        }
 
-        CommonEnums.DateQuality GQuality { get; }
+        CommonEnums.DateQuality GQuality
+        {
+            get;
+        }
 
-        string GVal { get; }
+        string GVal
+        {
+            get;
+        }
+
+        DateValType GValType
+        {
+            get;
+        }
     }
 }
