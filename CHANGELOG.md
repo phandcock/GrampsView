@@ -1,3 +1,15 @@
+## [16.19.17](https://github.com/phandcock/GrampsView/compare/v16.19.16...v16.19.17) (2021-07-23)
+
+
+### Bug Fixes
+
+* add better error messaging to resource lookup common routine ([51c01fc](https://github.com/phandcock/GrampsView/commit/51c01fc67a8335422e28ca1bdc6427ce30bc0ccc))
+* sort place enclosed places ([b027973](https://github.com/phandcock/GrampsView/commit/b027973d7689e030db806de25d1653b56394e555))
+* tweak datedetailview ([9adf034](https://github.com/phandcock/GrampsView/commit/9adf03469bc014a22cbd81b1759f0e20711e2544))
+* tweak shell menu colours ([fb9ddae](https://github.com/phandcock/GrampsView/commit/fb9ddae274d10b6ab526d92df1b651e04ef3b71a))
+
+
+
 ## [16.19.16](https://github.com/phandcock/GrampsView/compare/v16.19.15...v16.19.16) (2021-07-21)
 
 
@@ -26,17 +38,6 @@
 * fix datafolderinit bug for first load scenario ([04b66d0](https://github.com/phandcock/GrampsView/commit/04b66d03c6212583a4afc9f02cbff6322c88c5bc))
 * fix up RepositoryRef model ([ce92b6e](https://github.com/phandcock/GrampsView/commit/ce92b6eb6bf833045186c8ee3744b952ebca57e8))
 * tweaks ([5738b82](https://github.com/phandcock/GrampsView/commit/5738b8204da93d4c74a3fb135104b8666b86a8f1))
-
-
-
-## [16.19.13](https://github.com/phandcock/GrampsView/compare/v16.19.12...v16.19.13) (2021-07-16)
-
-
-### Bug Fixes
-
-* fix mediaclipped null buffer bug in skia ([3351f1f](https://github.com/phandcock/GrampsView/commit/3351f1fda0269e27829e68d4e504aacbc8d5d5e7))
-* move attributemodel to the new hlink scheme ([1cee7b1](https://github.com/phandcock/GrampsView/commit/1cee7b182006fe8e472d533fafffca73dbc060fd))
-* move placenames to new hlink format ([9dc1dc5](https://github.com/phandcock/GrampsView/commit/9dc1dc5fccc61841581fa2c6ce71cc15533df778))
 
 
 
