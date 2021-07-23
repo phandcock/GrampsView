@@ -596,6 +596,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
     </Style>
 

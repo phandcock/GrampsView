@@ -1,10 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-// XML 171 - All fields defined
-//
-// primary-object date-content place description attribute noteref citationref objref tagref
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -16,6 +10,8 @@ namespace GrampsView.Data.Model
 
     /// <summary>
     /// Event ViewModel.
+    ///
+    /// XML 171 - All fields defined
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
     /// /// /// /// /// /// /// /// /// /// /// /// ///
@@ -27,48 +23,6 @@ namespace GrampsView.Data.Model
     [DataContract]
     public sealed class EventModel : ModelBase, IEventModel
     {
-        public EventModelType _EventType = EventModelType.CUSTOM;
-
-        /// <summary>
-        /// The local g citation reference collection.
-        /// </summary>
-        private HLinkCitationModelCollection _GCitationRefCollection = new HLinkCitationModelCollection();
-
-        /// <summary>
-        /// Date object for the event.
-        /// </summary>
-        private IDateObjectModel _GDate = new DateObjectModelVal();
-
-        /// <summary>
-        /// Gets or sets the Event Description.
-        /// </summary>
-        private string _GDescription = "No event description";
-
-        /// <summary>
-        /// Media Reference Collection.
-        /// </summary>
-        private HLinkMediaModelCollection _GMediaCollection = new HLinkMediaModelCollection();
-
-        /// <summary>
-        /// The local note collection.
-        /// </summary>
-        private HLinkNoteModelCollection _GNoteCollection = new HLinkNoteModelCollection();
-
-        /// <summary>
-        /// The local g place.
-        /// </summary>
-        private HLinkPlaceModel _GPlace = new HLinkPlaceModel();
-
-        /// <summary>
-        /// The local g tag reference collection.
-        /// </summary>
-        private HLinkTagModelCollection _GTagReferenceCollection = new HLinkTagModelCollection();
-
-        /// <summary>
-        /// The type of the event date.
-        /// </summary>
-        private string _GType = "Unknown";
-
         /// <summary>
         /// Initializes a new instance of the <see cref="EventModel"/> class.
         /// </summary>
@@ -82,16 +36,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public EventModelType EventType
         {
-            get
-            {
-                return _EventType;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _EventType, value);
-            }
-        }
+            set;
+        } = EventModelType.CUSTOM;
 
         /// <summary>
         /// Gets or sets the g attribute. [ref name="attribute-content"].
@@ -117,20 +65,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkCitationModelCollection GCitationRefCollection
         {
-            get
-            {
-                return _GCitationRefCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GCitationRefCollection, value);
-
-                //if (Id == "E0059" || value is null)
-                //{
-                //}
-            }
-        }
+            set;
+        } = new HLinkCitationModelCollection();
 
         /// <summary>
         /// Gets or sets the Event Date. [ref name="date-content"].
@@ -141,16 +79,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public IDateObjectModel GDate
         {
-            get
-            {
-                return _GDate;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GDate, value);
-            }
-        }
+            set;
+        } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the Event Description. [element name="description"].
@@ -161,16 +93,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GDescription
         {
-            get
-            {
-                return _GDescription;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GDescription, value);
-            }
-        }
+            set;
+        } = "No event description";
 
         public override string GetDefaultText
         {
@@ -194,36 +120,24 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkMediaModelCollection GMediaRefCollection
         {
-            get
-            {
-                return _GMediaCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GMediaCollection, value);
-            }
-        }
+            set;
+        } = new HLinkMediaModelCollection();
 
         /// <summary>
-        /// Gets or sets the g note reference collection. [element name = "noteref"].
+        /// Gets or sets the note reference collection. [element name = "noteref"].
         /// </summary>
         /// <value>
-        /// The g note reference collection.
+        /// The note reference collection.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection
         {
-            get
-            {
-                return _GNoteCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GNoteCollection, value);
-            }
-        }
+            set;
+        } = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Gets or sets the g place.
@@ -234,16 +148,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkPlaceModel GPlace
         {
-            get
-            {
-                return _GPlace;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GPlace, value);
-            }
-        }
+            set;
+        } = new HLinkPlaceModel();
 
         /// <summary>
         /// Gets or sets the g tag reference collection.
@@ -254,16 +162,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkTagModelCollection GTagRefCollection
         {
-            get
-            {
-                return _GTagReferenceCollection;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GTagReferenceCollection, value);
-            }
-        }
+            set;
+        } = new HLinkTagModelCollection();
 
         /// <summary>
         /// Gets or sets the Event Type. [element name = "type"].
@@ -274,16 +176,10 @@ namespace GrampsView.Data.Model
         [DataMember]
         public string GType
         {
-            get
-            {
-                return _GType;
-            }
+            get;
 
-            set
-            {
-                SetProperty(ref _GType, value);
-            }
-        }
+            set;
+        } = "Unknown";
 
         /// <summary>
         /// Gets the get h link.
@@ -300,6 +196,7 @@ namespace GrampsView.Data.Model
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
+
                 return t;
             }
         }
