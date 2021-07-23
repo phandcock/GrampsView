@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -50,6 +52,12 @@
         /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
         /// </summary>
         private DateTime _NotionalDate;
+
+        public DateObjectModel()
+        {
+            this.ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        }
 
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is

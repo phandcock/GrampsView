@@ -79,6 +79,11 @@ namespace GrampsView.Common
         public const string IconCitation = CommonFontNamesFAS.Receipt;
 
         /// <summary>
+        /// The icon for a date symbol.
+        /// </summary>
+        public const string IconDate = CommonFontNamesFAS.UserTimes;
+
+        /// <summary>
         /// The icon for a default symbol.
         /// </summary>
         public const string IconDDefault = CommonFontNamesFAS.FileAlt;

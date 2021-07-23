@@ -20,14 +20,6 @@
         /// </summary>
         private string _GCformat = string.Empty;
 
-        /// <summary>
-        /// Dual dated field.
-        /// </summary>
-        private bool _GDualdated;
-
-        /// <summary>
-        /// New year field.
-        /// </summary>
         private string _GNewYear = string.Empty;
 
         /// <summary>
@@ -42,7 +34,7 @@
 
         private DateValType _GValType = DateValType.unknown;
 
-        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, CommonEnums.DateQuality aQuality, CommonEnums.DateValType aValType)
+        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, DateValType aValType)
         {
             {
                 try
@@ -100,15 +92,9 @@
         [DataMember]
         public bool GDualdated
         {
-            get
-            {
-                return _GDualdated;
-            }
+            get;
 
-            internal set
-            {
-                SetProperty(ref _GDualdated, value);
-            }
+            internal set;
         }
 
         public override Nullable<int> GetAge
