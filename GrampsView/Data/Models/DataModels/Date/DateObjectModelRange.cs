@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
     using System;
     using System.Runtime.Serialization;
 
@@ -31,7 +29,7 @@
         /// <summary>
         /// Quality field.
         /// </summary>
-        private CommonEnums.DateQuality _GQuality = CommonEnums.DateQuality.unknown;
+        private DateQuality _GQuality = DateQuality.unknown;
 
         /// <summary>
         /// Start field.
@@ -43,7 +41,7 @@
         /// </summary>
         private string _GStop = string.Empty;
 
-        public DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, CommonEnums.DateQuality aQuality, string aStart, string aStop)
+        public DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, string aStart, string aStop)
         {
             GCformat = aCFormat;
 
@@ -72,10 +70,7 @@
         [DataMember]
         public string GCformat
         {
-            get
-            {
-                return _GCformat;
-            }
+            get => _GCformat;
 
             internal set
             {
@@ -103,7 +98,7 @@
             }
         }
 
-        public override Nullable<int> GetAge
+        public override int? GetAge
         {
             get
             {
@@ -157,7 +152,7 @@
         /// Get the Date Quality.
         /// </summary>
         [DataMember]
-        public CommonEnums.DateQuality GQuality
+        public DateQuality GQuality
         {
             get
             {
@@ -169,19 +164,6 @@
                 SetProperty(ref _GQuality, value);
             }
         }
-
-        //public string GQualityDecoded
-        //{
-        //    get
-        //    {
-        //        if (GQuality == CommonEnums.DateQuality.unknown)
-        //        {
-        //            return string.Empty;
-        //        }
-
-        //        return nameof(GQuality);
-        //    }
-        //}
 
         /// <summary>
         /// Gets the Date Start.
@@ -229,7 +211,7 @@
             {
                 string dateString = "From " + GStart + " to " + GStop;
 
-                if (GQuality != CommonEnums.DateQuality.unknown)
+                if (GQuality != DateQuality.unknown)
                 {
                     dateString += " ( " + GQuality + " )";
                 }
@@ -304,7 +286,7 @@
                             };
             }
 
-            if (!(string.IsNullOrEmpty(argTitle)))
+            if (!string.IsNullOrEmpty(argTitle))
             {
                 DateModelCard.Title = argTitle;
             }
@@ -331,7 +313,7 @@
 
             DateObjectModel tempObj = obj as DateObjectModel;
 
-            return (this.NotionalDate == tempObj.NotionalDate);
+            return this.NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

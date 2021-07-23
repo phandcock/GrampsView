@@ -16,12 +16,7 @@
         /// <summary>
         /// $$(cformat)$$ field.
         /// </summary>
-        private string _GCformat = string.Empty;
-
-        /// <summary>
-        /// Dual dated field.
-        /// </summary>
-        private bool _GDualdated;
+        private string _GCformat;
 
         /// <summary>
         /// New year field.
@@ -102,15 +97,9 @@
         [DataMember]
         public bool GDualdated
         {
-            get
-            {
-                return _GDualdated;
-            }
+            get;
 
-            internal set
-            {
-                SetProperty(ref _GDualdated, value);
-            }
+            internal set;
         }
 
         public override int? GetAge
@@ -235,7 +224,6 @@
                 if (!string.IsNullOrEmpty(GCformat))
                 {
                     dateString = $"{dateString} Format: {GCformat}";
-                    ;
                 }
 
                 if (GDualdated)

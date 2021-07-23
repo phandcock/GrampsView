@@ -5,6 +5,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Views;
 
+    using System;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -18,6 +19,8 @@ namespace GrampsView.Data.Model
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconDate;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            HLinkKey.Value = new Guid().ToString();
         }
 
         [DataMember]
@@ -32,6 +35,8 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
+
+        public override bool Valid => DeRef.Valid;
 
         public override async Task UCNavigate()
         {
