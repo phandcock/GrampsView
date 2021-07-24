@@ -40,6 +40,11 @@
             get; set;
         }
 
+        public HLinkNoteModel HLinkNote
+        {
+            get; set;
+        } = new HLinkNoteModel();
+
         public HLinkEventModel HLinkObject
         {
             get; set;
@@ -77,6 +82,9 @@
 
                     // Add Model details
                     BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
+
+                    // If event note, display it while showing the full list further below.
+                    HLinkNote = EventObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeEvent);
                 }
             }
         }

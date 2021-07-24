@@ -89,7 +89,7 @@
         public Xamarin.Forms.Size ScreenSize
         {
             get; set;
-        } = new Xamarin.Forms.Size(300, 500);
+        } = new Xamarin.Forms.Size(1000, 1000);
 
         public void ScreenSizeInit()
         {

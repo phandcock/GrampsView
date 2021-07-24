@@ -14,9 +14,6 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
 
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-
     /// <summary>
     /// Interface for the Note Repository.
     /// </summary>
@@ -41,12 +38,13 @@ namespace GrampsView.Data.DataView
         HLinkNoteModelCollection GetAllAsHLink();
 
         /// <summary>
-        /// Gets all t of aype.
+        /// Gets all notes of type.
         /// </summary>
         /// <param name="argType">
-        /// Type of the argument.
+        /// Note type of the argument.
         /// </param>
         /// <returns>
+        /// HLinkNoteModel
         /// </returns>
         CardGroupBase<INoteModel> GetAllOfType(string argType);
 

@@ -56,7 +56,7 @@
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
 
                 // Handle Link Note types
-                if (NoteObject.TypeIsList)
+                if (NoteObject.GType == CommonConstants.NoteTypeLink)
                 {
                     URLModel newLinkURL = new URLModel
                     {

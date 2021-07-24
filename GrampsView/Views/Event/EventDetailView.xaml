@@ -26,6 +26,8 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
+            <ucon:NoteCardFull BindingContext="{Binding HLinkNote}" />
+
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GAttributeRefCollection, Mode=OneWay}" />
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 

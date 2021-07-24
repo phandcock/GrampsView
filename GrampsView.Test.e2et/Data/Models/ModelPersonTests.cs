@@ -99,7 +99,7 @@
 
             Assert.True(tt.GNoteRefCollection.Count == 2, "Wrong notes count");
 
-            HLinkNoteModel noteModel = tt.GNoteRefCollection.GetBio;
+            HLinkNoteModel noteModel = tt.GNoteRefCollection.GetFirstOfType(Common.CommonConstants.NoteTypeBiography);
 
             Assert.True(noteModel.DeRef.Id == "N0000", "Wrong Person Model Notes Bio found");
 

@@ -28,8 +28,8 @@ namespace GrampsView.Data.Collections
         }
 
         /// <summary>
-        /// <para>Gets the get persons biography.</para>
-        /// <para>Assumes that it is the first Note with a type of "Person Note" or "Biography".</para>
+        /// <para> Gets the get persons biography. </para>
+        /// <para> Assumes that it is the first Note with a type of "Person Note" or "Biography". </para>
         /// </summary>
         /// <value>
         /// HLink to the first Type with a biography or person note. Returns an HLink with the Valid
@@ -105,7 +105,7 @@ namespace GrampsView.Data.Collections
         {
             CardGroup t = new CardGroup();
 
-            HLinkNoteModel bio = GetBio;
+            HLinkNoteModel bio = GetFirstOfType(CommonConstants.NoteTypeBiography);
 
             foreach (HLinkNoteModel item in Items)
             {
@@ -118,6 +118,18 @@ namespace GrampsView.Data.Collections
             t.Title = Title;
 
             return t;
+        }
+
+        public HLinkNoteModel GetFirstOfType(string argType)
+        {
+            IEnumerable<HLinkNoteModel> q = Items.Where(HLinkNote => HLinkNote.DeRef.GType == argType);
+
+            if (q.Any())
+            {
+                return q.First();
+            }
+
+            return new HLinkNoteModel();
         }
 
         public override void SetGlyph()

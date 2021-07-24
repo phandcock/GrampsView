@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
         /// Gets or sets a value indicating whether this <see cref="NoteModel"/> is format (0|1) #IMPLIED.
         /// </summary>
         /// <value>
-        /// <c>true</c> if format; otherwise, <c>false</c>.
+        /// <c> true </c> if format; otherwise, <c> false </c>.
         /// </value>
         bool GIsFormated
         {
@@ -88,16 +88,6 @@ namespace GrampsView.Data.Model
         /// The text short.
         /// </value>
         string TextShort
-        {
-            get;
-        }
-
-        bool TypeIsList
-        {
-            get;
-        }
-
-        bool TypeIsToDo
         {
             get;
         }
