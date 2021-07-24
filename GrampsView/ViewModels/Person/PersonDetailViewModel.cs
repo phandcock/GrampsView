@@ -35,6 +35,11 @@
             _PlatformSpecific = iocPlatformSpecific;
         }
 
+        public HLinkNoteModel BioNote
+        {
+            get; set;
+        } = new HLinkNoteModel();
+
         /// <summary>
         /// Gets the person's events and those of any families they were in.
         /// </summary>
@@ -71,6 +76,11 @@
         }
 
         = new ItemGlyph();
+
+        public HLinkNoteModelCollection NotesWithoutHighlight
+        {
+            get; set;
+        } = new HLinkNoteModelCollection();
 
         public HLinkPersonNameModelCollection PersonNameMultipleDetails
         {
@@ -144,6 +154,11 @@
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
+                // If event note, display it while showing the full list further below.
+                BioNote = PersonObject.GNoteRefCollection.GetBio;
+
+                NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
+
                 // Add PersonRefDetails - TODO
                 //if (BaseNavParamsHLink is HLinkPersonRefModel)
                 //{
@@ -156,9 +171,6 @@
                 //}
 
                 _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
-
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
             }
 
             // TODO fix this

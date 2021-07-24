@@ -17,7 +17,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Collection of HLinks to Notes.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{Data.ViewModel.HLinkNoteModel}"/>
+    /// <seealso cref="Data.ViewModel.HLinkBaseCollection{Data.ViewModel.HLinkNoteModel}"/>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkNoteModel>))]
     public class HLinkNoteModelCollection : HLinkBaseCollection<HLinkNoteModel>
@@ -101,15 +101,13 @@ namespace GrampsView.Data.Collections
             return t;
         }
 
-        public CardGroup GetCardGroupWithoutBio()
+        public HLinkNoteModelCollection GetCollectionWithoutOne(HLinkNoteModel argExcludedNoteModel)
         {
-            CardGroup t = new CardGroup();
-
-            HLinkNoteModel bio = GetFirstOfType(CommonConstants.NoteTypeBiography);
+            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
 
             foreach (HLinkNoteModel item in Items)
             {
-                if (item.HLinkKey != bio.HLinkKey)
+                if (item.HLinkKey != argExcludedNoteModel.HLinkKey)
                 {
                     t.Add(item);
                 }

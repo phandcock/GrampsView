@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -40,7 +41,7 @@
             get; set;
         }
 
-        public HLinkNoteModel HLinkNote
+        public HLinkNoteModel HighlightedNote
         {
             get; set;
         } = new HLinkNoteModel();
@@ -49,6 +50,11 @@
         {
             get; set;
         }
+
+        public HLinkNoteModelCollection NotesWithoutHighlight
+        {
+            get; set;
+        } = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -84,7 +90,9 @@
                     BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
 
                     // If event note, display it while showing the full list further below.
-                    HLinkNote = EventObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeEvent);
+                    HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeEvent);
+
+                    NotesWithoutHighlight = EventObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
                 }
             }
         }

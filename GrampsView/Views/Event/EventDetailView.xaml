@@ -26,7 +26,7 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:NoteCardFull BindingContext="{Binding HLinkNote}" />
+            <ucon:NoteCardFull BindingContext="{Binding HighlightedNote}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GAttributeRefCollection, Mode=OneWay}" />
             <ucon:FlexSingleCard FsctSource="{Binding HLinkObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
@@ -34,7 +34,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding EventObject.GAttribute, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding EventObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding EventObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding EventObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding EventObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding EventObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
