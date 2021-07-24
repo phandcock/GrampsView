@@ -35,6 +35,11 @@
             _PlatformSpecific = iocPlatformSpecific;
         }
 
+        public HLinkNoteModel BioNote
+        {
+            get; set;
+        } = new HLinkNoteModel();
+
         public HLinkChildRefModel ChildRefHLink
         {
             get; set;
@@ -78,6 +83,11 @@
         }
 
         = new ItemGlyph();
+
+        public HLinkNoteModelCollection NotesWithoutHighlight
+        {
+            get; set;
+        } = new HLinkNoteModelCollection();
 
         public HLinkPersonNameModelCollection PersonNameMultipleDetails
         {
@@ -164,6 +174,11 @@
 
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
+
+                // If Bio note, display it while showing the full list further below.
+                BioNote = PersonObject.GNoteRefCollection.GetBio;
+
+                NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
 
                 // Add PersonRefDetails - TODO
                 //if (BaseNavParamsHLink is HLinkPersonRefModel)

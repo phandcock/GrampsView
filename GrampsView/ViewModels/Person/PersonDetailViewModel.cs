@@ -154,7 +154,7 @@
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                // If event note, display it while showing the full list further below.
+                // If Bio note, display it while showing the full list further below.
                 BioNote = PersonObject.GNoteRefCollection.GetBio;
 
                 NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
