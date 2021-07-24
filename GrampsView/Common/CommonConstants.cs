@@ -223,6 +223,8 @@ namespace GrampsView.Common
          */
         public const string NoteTypeBiography = "Biography";
 
+        public const string NoteTypeCitation = "Citation";
+
         public const string NoteTypeEvent = "Event Note";
 
         public const string NoteTypeLink = "Link";

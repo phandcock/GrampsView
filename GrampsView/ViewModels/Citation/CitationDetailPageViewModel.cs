@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -29,10 +30,20 @@
             get; set;
         }
 
-        public HLinkNoteModel HLinkNote
+        public HLinkNoteModel HighlightedNote
         {
             get; set;
         } = new HLinkNoteModel();
+
+        public HLinkEventModel HLinkObject
+        {
+            get; set;
+        }
+
+        public HLinkNoteModelCollection NotesWithoutHighlight
+        {
+            get; set;
+        } = new HLinkNoteModelCollection();
 
         /// <summary>
         /// Gets or sets the citation object.
@@ -63,11 +74,10 @@
 
                 BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                // If at least one note, display it while showing the full list further below.
-                if (CitationObject.GNoteRefCollection.Count > 0)
-                {
-                    HLinkNote = CitationObject.GNoteRefCollection[0];
-                }
+                // If event note, display it while showing the full list further below.
+                HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeCitation);
+
+                NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
                 CitationObject.GSourceRef.DisplayAs = CommonEnums.DisplayFormat.LargeCard;
                 BaseDetail.Add(CitationObject.GSourceRef);
