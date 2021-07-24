@@ -50,6 +50,17 @@
     {
         /// <summary>
         /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
+        /// <list type="table">
+        /// <listheader>
+        /// <term> Item </term>
+        /// <term> Status </term>
+        /// </listheader>
+        /// <item>
+        /// <description> XML 1.71 check </description>
+        /// <description> Not Done </description>
+        /// </item>
+        /// </list>
+        /// <para> <br/> </para>
         /// </summary>
         private DateTime _NotionalDate;
 
@@ -112,6 +123,20 @@
         public abstract string GetYear
         {
             get;
+        }
+
+        public HLinkDateModel HLink
+        {
+            get
+            {
+                HLinkDateModel t = new HLinkDateModel
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
         }
 
         /// <summary>
@@ -234,7 +259,7 @@
         /// Gets or sets a value indicating whether the date is valid.
         /// </summary>
         /// <value>
-        /// <c>true</c> if [date valid]; otherwise, <c>false</c>.
+        /// <c> true </c> if [date valid]; otherwise, <c> false </c>.
         /// </value>
         [DataMember]
         public new bool Valid { get; set; } = false;

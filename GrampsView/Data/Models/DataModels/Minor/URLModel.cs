@@ -16,6 +16,17 @@
 
     /// <summary>
     /// GRAMPS URL element class. TODO Needs XML 1.71 check
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Not Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
     public class URLModel : ModelBase, IURLModel
     {
@@ -88,6 +99,20 @@
         {
             get;
             set;
+        }
+
+        public HLinkURLModel HLink
+        {
+            get
+            {
+                HLinkURLModel t = new HLinkURLModel
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
         }
 
         public Placemark MapLocation { get; set; } = new Placemark();

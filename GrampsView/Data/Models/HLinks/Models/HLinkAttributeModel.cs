@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Views;
@@ -8,7 +6,19 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// TODO Update fields as per Schema
+    /// <summary>
+    /// <para> HLink to an Attribute model. </para>
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Not in XML 1.71 so use the base HLink. </description>
+    /// </item>
+    /// </list>
+    /// </summary>
     [DataContract]
     public class HLinkAttributeModel : HLinkBase, IHLinkAttributeModel
     {

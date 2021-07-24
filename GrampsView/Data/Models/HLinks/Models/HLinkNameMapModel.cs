@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-// TODO fix Deref caching
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -10,7 +6,11 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// TODO Update fields as per Schema
+    /// <summary>
+    /// <para> HLink to namemap model. </para>
+    /// <para> TODO Needs XML 1.71 check </para>
+    /// </summary>
+
     [DataContract]
     public class HLinkNameMapModel : HLinkBase, IHLinkNameMapModel
     {
@@ -25,7 +25,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the de reference.
+        /// Gets the NameMap model.
         /// </summary>
         /// <value>
         /// The de reference.

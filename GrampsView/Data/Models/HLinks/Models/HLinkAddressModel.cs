@@ -1,6 +1,4 @@
-﻿// TODO fix Deref caching
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
@@ -8,10 +6,8 @@ namespace GrampsView.Data.Model
     using System.Threading.Tasks;
 
     /// <summary>
-    /// HLink to an Address model.
+    /// HLink to an Address model. Not in XML Schema so use the standard hlink
     /// </summary>
-
-    /// TODO Update fields as per Schema
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
@@ -22,7 +18,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the address model.
+        /// Gets and sets the address model.
         /// </summary>
         /// <value>
         /// The address model.

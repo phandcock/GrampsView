@@ -11,7 +11,18 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Holds item specific attributes. XML 1.71 check complete
+    /// <para> Holds details of Attributes. </para>
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
     [DataContract]
     public class AttributeModel : ModelBase, IAttributeModel, IComparable, IComparer<AttributeModel>
@@ -103,11 +114,25 @@
 
             = null;
 
+        public HLinkAttributeModel HLink
+        {
+            get
+            {
+                HLinkAttributeModel t = new HLinkAttributeModel
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
+        }
+
         /// <summary>
         /// Gets a value indicating whether the modelbase is valid.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is valid; otherwise, <c> false </c>.
         /// </value>
         public override bool Valid
         {

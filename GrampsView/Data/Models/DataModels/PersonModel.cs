@@ -1,23 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-////    -- All Completed (Version 1.71)
-////    - address
-////    - attribute
-////    - childof
-////    - citationref
-////    - eventref
-////    - gender
-////    - lds_ord
-////    - name
-////    - noteref
-////    - parentin
-////    - personref
-////    - primary-object
-////    - tagref
-////    - url
-////
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -30,6 +11,16 @@ namespace GrampsView.Data.Model
 
     /// <summary>
     /// Data model for a person.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [DataContract]
     [KnownType(typeof(HLinkFamilyModel))]
@@ -260,7 +251,7 @@ namespace GrampsView.Data.Model
         /// Gets or sets a value indicating whether this instance is living.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is living; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is living; otherwise, <c> false </c>.
         /// </value>
         [DataMember]
         public bool IsLiving

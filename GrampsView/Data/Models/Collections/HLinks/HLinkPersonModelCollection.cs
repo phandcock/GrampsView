@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -15,9 +11,23 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Contains pointers to family models.
+    /// Collection of Person HLinks
+    /// <list type="table">
+    /// <listheader>
+    /// <term> </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Not Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}"/>
+    /// <seealso cref="Data.ViewModel.HLinkBaseCollection%7BGrampsView.Data.ViewModel.HLinkPersonModel%7D">
+    /// GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}
+    /// </seealso>
+    /// TODO XML 1.71 check needed
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkPersonModel>))]
     public class HLinkPersonModelCollection : HLinkBaseCollection<HLinkPersonModel>
@@ -78,7 +88,7 @@ namespace GrampsView.Data.Collections
             //// Gramps if we need it to be, e.g. Citations.
             SetFirstImage();
 
-            if (Common.CommonLocalSettings.SortHLinkCollections)
+            if (CommonLocalSettings.SortHLinkCollections)
             {
                 Sort();
             }

@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
+﻿/// <summary>
 /// Collection of HLinks to Address models.
 /// </summary>
 namespace GrampsView.Data.Collections
@@ -16,7 +14,7 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Collection of Address models.
+    /// Collection of HLinks to Address models.
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkAdressModel>))]
