@@ -26,7 +26,7 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        private static async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
+        private  async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
         {
             if (argHLinkLoadImageModel is null)
             {
@@ -156,7 +156,7 @@
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 
-                 DataStore.Instance.CN.NotifyError(t);
+                 _iocCommonNotifications.NotifyError(t);
              }
 
              resourceBitmap.Dispose();
@@ -204,7 +204,7 @@
             return GetAttribute(a.Attribute(b));
         }
 
-        private static ModelBase GetBasics(XElement argElement)
+        private  ModelBase GetBasics(XElement argElement)
         {
             ModelBase returnVal = new ModelBase
             {
@@ -267,7 +267,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private static Color GetColour(XElement a, string b)
+        private  Color GetColour(XElement a, string b)
         {
             try
             {
@@ -286,7 +286,7 @@
                         { "Attribute is", b }
                     };
 
-                    DataStore.Instance.CN.NotifyError(argErrorDetail);
+                    _iocCommonNotifications.NotifyError(argErrorDetail);
 
                     hexColour = "#000000";
                 }
@@ -302,7 +302,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Error in XML Utils GetColour", ex);
+                _iocCommonNotifications.NotifyException("Error in XML Utils GetColour", ex);
                 throw;
             }
         }
@@ -356,18 +356,18 @@
             return SetDate(xmlData);
         }
 
-        private static DateTime GetDateTime(XElement a, string b)
+        private  DateTime GetDateTime(XElement a, string b)
         {
             string argUnixSecs = GetAttribute(a.Attribute(b));
 
             return GetDateTime(argUnixSecs);
         }
 
-        private static DateTime GetDateTime(string argUnixSecs)
+        private  DateTime GetDateTime(string argUnixSecs)
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
+                _iocCommonNotifications.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
@@ -513,7 +513,7 @@
         /// <param name="xmlData">
         /// string from XML.
         /// </param>
-        private static Uri GetUri(string xmlData)
+        private  Uri GetUri(string xmlData)
         {
             try
             {
@@ -531,7 +531,7 @@
                         { "xmlData", xmlData }
                     };
 
-                DataStore.Instance.CN.NotifyError(t);
+                _iocCommonNotifications.NotifyError(t);
 
                 return null;
             }
@@ -543,13 +543,13 @@
                         { "xmlData", xmlData }
                     };
 
-                DataStore.Instance.CN.NotifyError(t);
+                _iocCommonNotifications.NotifyError(t);
 
                 return null;
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in GetUri", ex);
+                _iocCommonNotifications.NotifyException("Exception in GetUri", ex);
 
                 throw;
             }

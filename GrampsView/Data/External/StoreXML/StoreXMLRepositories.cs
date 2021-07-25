@@ -13,7 +13,7 @@
     {
         public async Task LoadRepositoriesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Repository data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Repository data").ConfigureAwait(false);
             {
                 try
                 {
@@ -47,12 +47,12 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
 
-                await DataStore.Instance.CN.DataLogEntryReplace("Repository load complete");
+                await _iocCommonNotifications.DataLogEntryReplace("Repository load complete");
 
                 return;
             }

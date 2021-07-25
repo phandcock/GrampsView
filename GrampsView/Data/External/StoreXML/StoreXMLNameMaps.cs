@@ -13,7 +13,7 @@
     {
         public async Task LoadNameMapsAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading NameMap data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading NameMap data").ConfigureAwait(false);
 
             {
                 // XNamespace ns = grampsXMLNameSpace;
@@ -54,13 +54,13 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("NameMap load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("NameMap load complete");
 
             return;
         }

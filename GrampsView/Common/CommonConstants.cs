@@ -81,7 +81,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The icon for a date symbol.
         /// </summary>
-        public const string IconDate = CommonFontNamesFAS.UserTimes;
+        public const string IconDate = CommonFontNamesFAS.Clock;
 
         /// <summary>
         /// The icon for a default symbol.

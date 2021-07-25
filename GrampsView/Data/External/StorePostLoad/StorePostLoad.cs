@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
@@ -18,6 +17,8 @@
         /// The local common logging.
         /// </summary>
         private readonly ICommonLogging _CommonLogging;
+
+        private readonly ICommonNotifications _commonNotifications;
 
         /// <summary>
         /// Gets or sets injected Event Aggregator.
@@ -35,10 +36,11 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public StorePostLoad(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;
+            _commonNotifications = iocCommonNotifications;
             _iocPlatformSpecific = iocPlatformSpecific;
 
             _EventAggregator.GetEvent<DataLoadXMLEvent>().Subscribe(LoadXMLUIItems, ThreadOption.UIThread);
@@ -55,7 +57,7 @@
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
                 {
                     // Called in order of media linkages from Media outwards
@@ -95,13 +97,13 @@
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     await OrganiseMisc().ConfigureAwait(false);
 
-                    DataStore.Instance.CN.DataLogHide();
+                    _commonNotifications.DataLogHide();
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryAdd(null).ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd(null).ConfigureAwait(false);
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
 
             // save the data in a serial format for next time
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);

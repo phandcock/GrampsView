@@ -16,14 +16,16 @@
     public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>
+        /// IOC local copy of GramsView Logging routines.
+        /// </summary>
+        internal readonly ICommonLogging _iocCommonLogging;
+
+        internal readonly ICommonNotifications _iocCommonNotifications;
+
+        /// <summary>
         /// The default XML namespace.
         /// </summary>
         private static XNamespace ns;
-
-        /// <summary>
-        /// IOC local copy of GramsView Logging routines.
-        /// </summary>
-        private readonly ICommonLogging localGrampsCommonLogging;
 
         /// <summary>
         /// The Gramps XML document.
@@ -39,9 +41,11 @@
         /// <param name="iocGrampsStorePostLoad">
         /// The ioc gramps store post load.
         /// </param>
-        public StoreXML(ICommonLogging iocCommonLogging)
+        public StoreXML(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications)
         {
-            localGrampsCommonLogging = iocCommonLogging;
+            _iocCommonLogging = iocCommonLogging;
+
+            _iocCommonNotifications = iocCommonNotifications;
 
             ns = CommonConstants.GrampsXMLNameSpace;
         }

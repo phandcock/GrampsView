@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadHeaderDataAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
             {
                 try
                 {
@@ -71,13 +71,13 @@
                 }
                 catch (System.Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
+                    _iocCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Header load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Header load complete");
 
             return;
         }

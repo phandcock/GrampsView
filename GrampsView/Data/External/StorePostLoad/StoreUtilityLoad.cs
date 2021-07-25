@@ -17,7 +17,7 @@
     /// </summary>
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
-        public static bool FixSingleMediaFile(IMediaModel argMediaModel)
+        public  bool FixSingleMediaFile(IMediaModel argMediaModel)
         {
             try
             {
@@ -32,14 +32,14 @@
             }
             catch (FileNotFoundException ex)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
+                _commonNotifications.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
-                DataStore.Instance.CN.NotifyException("Trying to  add media file pointer", ex);
+                _commonNotifications.NotifyException("Trying to  add media file pointer", ex);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                DataStore.Instance.CN.NotifyException("Trying to add media file pointer", ex);
+                _commonNotifications.NotifyException("Trying to add media file pointer", ex);
 
                 throw;
             }
@@ -59,7 +59,7 @@
 
             if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
             {
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
+                await _commonNotifications.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {

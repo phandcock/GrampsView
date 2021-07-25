@@ -24,7 +24,7 @@
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
             {
                 // Load notes
                 try
@@ -98,18 +98,18 @@
 
                         // save the family
                         DV.FamilyDV.FamilyData.Add(loadFamily);
-                        localGrampsCommonLogging.LogVariable("Family Name", loadFamily.Handle);
+                        _iocCommonLogging.LogVariable("Family Name", loadFamily.Handle);
                     }
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Family load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Family load complete");
 
             return true;
         }

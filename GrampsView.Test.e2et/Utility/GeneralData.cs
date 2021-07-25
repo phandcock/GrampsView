@@ -29,6 +29,7 @@
         public static Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
         public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
         public static DataRepositoryManager newManager;
+        public static ICommonNotifications iocCommonNotifications;
 
         public static void DataStoreSetup()
         {
@@ -62,7 +63,7 @@
                 .Setup(x => x.DataLog)
                 .Returns(new CommonDataLog());
 
-            ICommonNotifications iocCommonNotifications = mockCommonNotifications.Object;
+            iocCommonNotifications = mockCommonNotifications.Object;
 
             /*
             * Mock Image Loading
@@ -122,7 +123,7 @@
             /*
             * Other setup
             */
-            iocExternalStorage = new StoreXML(iocCommonLogging);
+            iocExternalStorage = new StoreXML(iocCommonLogging,iocCommonNotifications);
 
             iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
 

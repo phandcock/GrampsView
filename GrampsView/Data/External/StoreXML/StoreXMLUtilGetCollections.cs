@@ -19,7 +19,7 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        private static List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
+        private  List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
         {
             List<GrampsStyleRangeModel> returnValue = new List<GrampsStyleRangeModel>();
 
@@ -43,7 +43,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        _iocCommonNotifications.NotifyError(t);
                     };
                     newStyleModel.Start = Start;
 
@@ -54,7 +54,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        _iocCommonNotifications.NotifyError(t);
                     };
                     newStyleModel.End = End;
 
@@ -65,7 +65,7 @@
             return returnValue;
         }
 
-        private static SurnameModelCollection GetSurnameCollection(XElement xmlData)
+        private  SurnameModelCollection GetSurnameCollection(XElement xmlData)
         {
             SurnameModelCollection t = new SurnameModelCollection
             {

@@ -53,7 +53,7 @@
             // Other setup
             IEventAggregator iocEventAggregator = GeneralData.mocEventAggregator.Object;
 
-            IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging);
+            IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging,GeneralData.iocCommonNotifications);
 
             IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(GeneralData.iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
 

@@ -18,7 +18,7 @@
     {
         private List<IMediaModel> addLater = new List<IMediaModel>();
 
-        public static void SetAddressImages()
+        public  void SetAddressImages()
         {
             foreach (AddressModel argModel in DataStore.Instance.DS.AddressData.Values)
             {
@@ -51,12 +51,12 @@
                         { "Address Model Image", argModel.Id }
                     };
 
-                    DataStore.Instance.CN.NotifyError(NotifyError);
+                    _commonNotifications.NotifyError(NotifyError);
                 }
             }
         }
 
-        public static void SetCitationImages()
+        public  void SetCitationImages()
         {
             foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
             {
@@ -104,7 +104,7 @@
                         { "Citation Model Image", argModel.Id }
                     };
 
-                    DataStore.Instance.CN.NotifyError(NotifyError);
+                    _commonNotifications.NotifyError(NotifyError);
                 }
             }
         }

@@ -26,12 +26,12 @@
         /// </returns>
         public async Task<bool> LoadMediaObjectsAsync()
         {
-            localGrampsCommonLogging.RoutineEntry("loadMediaObjects");
+            _iocCommonLogging.RoutineEntry("loadMediaObjects");
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
             {
                 //// start file load
-                //await DataStore.Instance.CN.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
+                //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 // Load notes Run query
                 var de =
@@ -94,7 +94,7 @@
 
                             if (mediaFileName.Length == 0)
                             {
-                                DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
+                                _iocCommonNotifications.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
 
                                 loadObject.MediaStorageFile = null;
                             }
@@ -120,12 +120,12 @@
                                     }
                                     else
                                     {
-                                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
+                                        _iocCommonNotifications.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    DataStore.Instance.CN.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
+                                    _iocCommonNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                     throw;
                                 }
                             }
@@ -167,21 +167,21 @@
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
-                        localGrampsCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
+                        _iocCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
                     }
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    DataStore.Instance.CN.NotifyException("Loading Media Objects", e);
+                    _iocCommonNotifications.NotifyException("Loading Media Objects", e);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Media load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Media load complete");
 
-            localGrampsCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
+            _iocCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
 
             return true;
         }

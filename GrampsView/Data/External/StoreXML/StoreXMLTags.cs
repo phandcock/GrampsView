@@ -22,7 +22,7 @@
         /// </returns>
         public async Task LoadTagsAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
             {
                 try
                 {
@@ -62,12 +62,12 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Error in LoadTagsAsync", ex);
+                    _iocCommonNotifications.NotifyException("Error in LoadTagsAsync", ex);
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Tag load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Tag load complete");
 
             return;
         }

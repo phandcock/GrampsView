@@ -37,6 +37,8 @@
         /// </summary>
         private readonly IEventAggregator _EventAggregator;
 
+        private readonly ICommonNotifications _commonNotifications;
+
         /// <summary>
         /// The local gramps store serial.
         /// </summary>
@@ -45,17 +47,17 @@
         /// <summary>
         /// Injected External Storage.
         /// </summary>
-        private readonly IStoreXML localExternalStorage;
+        private readonly IStoreXML _ExternalStorage;
 
         /// <summary>
         /// The local post load.
         /// </summary>
-        private readonly IStorePostLoad localPostLoad;
+        private readonly IStorePostLoad _PostLoad;
 
         /// <summary>
         /// The local store file.
         /// </summary>
-        private readonly IStoreFile localStoreFile;
+        private readonly IStoreFile _StoreFile;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -78,16 +80,17 @@
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IEventAggregator iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 
-            localExternalStorage = iocExternalStorage ?? throw new ArgumentNullException(nameof(iocExternalStorage));
+            _ExternalStorage = iocExternalStorage ?? throw new ArgumentNullException(nameof(iocExternalStorage));
 
-            localPostLoad = iocGrampsStorePostLoad;
+            _PostLoad = iocGrampsStorePostLoad;
             _StoreSerial = iocGrampsStoreSerial;
-            localStoreFile = iocStoreFile;
+            _StoreFile = iocStoreFile;
             _EventAggregator = iocEventAggregator;
+            _commonNotifications = iocCommonNotifications;
 
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
@@ -106,7 +109,7 @@
         {
             get
             {
-                return localStoreFile;
+                return _StoreFile;
             }
         }
 
@@ -153,7 +156,7 @@
         /// </param>
         public async void SerializeRepositoriesAsync(object value)
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Serialising Data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Serialising Data").ConfigureAwait(false);
 
             _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
@@ -169,7 +172,7 @@
 
             if (!t.Result)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Failed to load existing data..."));
+                _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
             }
         }
 
@@ -187,14 +190,14 @@
         {
             FileInfoEx GrampsFile = new FileInfoEx();
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Data...").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Loading Data...").ConfigureAwait(false);
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
                 return true;
             }
 
-            DataStore.Instance.CN.DataLogShow();
+            _commonNotifications.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
@@ -208,7 +211,7 @@
                 if (DataStore.Instance.AD.CurrentInputStreamValid)
                 {
                     // Clear the file system
-                    await localStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+                    await _StoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
                 }
 
                 // 1a) UnTar *.GPKG
@@ -220,7 +223,7 @@
                 // 1b) UnTar *.GRAMPS
                 if (DataStore.Instance.AD.CurrentInputStreamFileType == ".gramps")
                 {
-                    await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program").ConfigureAwait(false);
+                    await _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program").ConfigureAwait(false);
 
                     File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
 
@@ -232,7 +235,7 @@
                 {
                     if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, GrampsFile))
                     {
-                        await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
+                        await _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
                         await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
                     }
@@ -245,12 +248,12 @@
                 {
                     if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsXMLFileLastDateTimeModified, dataXML))
                     {
-                        await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
+                        await _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        //DataStore.Instance.CN.DataLogHide();
+                        //_commonNotifications.DataLogHide();
 
                         return true;
                     }
@@ -261,21 +264,21 @@
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
 
-                    DataStore.Instance.CN.DataLogHide();
+                    _commonNotifications.DataLogHide();
                 }
 
                 return true;
             }
             else
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
+                _commonNotifications.NotifyError(new ErrorInfo("DataStorageFolder not valid.  It will need to be reloaded..."));
 
                 CommonLocalSettings.SetReloadDatabase();
             }
 
             // TODO Handle special messages if there is a problem
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Unable to load Datafolder").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Unable to load Datafolder").ConfigureAwait(false);
             return false;
         }
 
@@ -302,11 +305,11 @@
                 return new FileInfoEx();
             }
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program").ConfigureAwait(false);
 
             // Only unZip gzip files
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading GPKG data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Loading GPKG data").ConfigureAwait(false);
 
             if (DataStore.Instance.AD.CurrentInputStreamValid)
             {
@@ -319,7 +322,7 @@
                 // IReadOnlyList<StorageFolder> t = await DataStore.Instance.AD.CurrentDataFolder.GetFoldersAsync();
 
                 // foreach (StorageFolder item in t) { await item.DeleteAsync(); }
-                await localStoreFile.DecompressTAR().ConfigureAwait(false);
+                await _StoreFile.DecompressTAR().ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking TODO How doe sthis
                 // work if only loading picked file?
@@ -347,7 +350,7 @@
                     //await localStoreFile.DataStorageInitialiseAsync(DataStore.Instance.AD.CurrentDataFolder).ConfigureAwait(false);
                 }
 
-                await localStoreFile.DecompressGZIP(fileGrampsDataInput).ConfigureAwait(false);
+                await _StoreFile.DecompressGZIP(fileGrampsDataInput).ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking
                 StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, fileGrampsDataInput);
@@ -364,17 +367,17 @@
         /// </returns>
         public async Task<bool> TriggerLoadGrampsUnZippedFolderAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading GRAMPS XML unzipped data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Loading GRAMPS XML unzipped data").ConfigureAwait(false);
             {
                 ClearRepositories();
 
-                bool tt = await localExternalStorage.DataStorageLoadXML().ConfigureAwait(false);
+                bool tt = await _ExternalStorage.DataStorageLoadXML().ConfigureAwait(false);
 
                 if (tt)
                 {
-                    await localExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
+                    await _ExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
 
-                    await DataStore.Instance.CN.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
+                    await _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
 
                     FileInfoEx t = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
 
@@ -410,27 +413,27 @@
             {
                 _CL.RoutineEntry("TriggerLoadSerialDataAsync");
 
-                await DataStore.Instance.CN.DataLogEntryAdd("Checking for Serialised GRAMPS data").ConfigureAwait(false);
+                await _commonNotifications.DataLogEntryAdd("Checking for Serialised GRAMPS data").ConfigureAwait(false);
                 if (DataStore.Instance.DS.IsDataLoaded == false)
                 {
                     if (CommonLocalSettings.DataSerialised)
                     {
-                        await DataStore.Instance.CN.DataLogEntryAdd("Loading GRAMPS Serial data").ConfigureAwait(false);
+                        await _commonNotifications.DataLogEntryAdd("Loading GRAMPS Serial data").ConfigureAwait(false);
 
                         _StoreSerial.DeSerializeRepository();
 
                         UpdateSavedLocalSettings();
 
-                        await localPostLoad.LoadSerialUiItems().ConfigureAwait(false);
+                        await _PostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
-                        await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS Serial data load complete").ConfigureAwait(false);
+                        await _commonNotifications.DataLogEntryReplace("GRAMPS Serial data load complete").ConfigureAwait(false);
 
                         // let everybody know we have finished loading data
                         _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish();
                     }
                     else
                     {
-                        await DataStore.Instance.CN.DataLogEntryAdd("GRAMPS Serial data load failed.").ConfigureAwait(false);
+                        await _commonNotifications.DataLogEntryAdd("GRAMPS Serial data load failed.").ConfigureAwait(false);
 
                         CommonLocalSettings.SetReloadDatabase();
                     }
@@ -440,7 +443,7 @@
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                DataStore.Instance.CN.NotifyException("Trying to load existing serialised data", ex);
+                _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
 

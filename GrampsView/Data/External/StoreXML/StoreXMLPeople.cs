@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadPeopleDataAsync()
         {
-            localGrampsCommonLogging.RoutineEntry("LoadPeopleDataAsync");
+            _iocCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
             await DataStore.Instance.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
@@ -135,7 +135,7 @@
                     }
 
                     // let everybody know
-                    localGrampsCommonLogging.RoutineExit("loadPeopleData");
+                    _iocCommonLogging.RoutineExit("loadPeopleData");
                 }
                 catch (Exception ex)
                 {

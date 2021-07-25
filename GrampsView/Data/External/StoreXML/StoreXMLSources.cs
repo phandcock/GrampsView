@@ -22,7 +22,7 @@
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd(argMessage: "Loading Source data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd(argMessage: "Loading Source data").ConfigureAwait(false);
             {
                 try
                 {
@@ -74,13 +74,13 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Source load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Source load complete");
 
             return;
         }

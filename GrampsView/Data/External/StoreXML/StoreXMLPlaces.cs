@@ -13,7 +13,7 @@
     {
         public async Task LoadPlacesAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Place data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Place data").ConfigureAwait(false);
 
             {
                 try
@@ -78,13 +78,13 @@
                 }
                 catch (Exception e)
                 {
-                    DataStore.Instance.CN.NotifyException("Exception loading Place data from the file", e);
+                    _iocCommonNotifications.NotifyException("Exception loading Place data from the file", e);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Place load complete");
+            await _iocCommonNotifications.DataLogEntryReplace("Place load complete");
 
             return;
         }

@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.Repository;
-
     using System.Threading.Tasks;
 
     public partial class StorePostLoad
@@ -10,14 +8,14 @@
         {
             _CommonLogging.RoutineEntry("LoadSerialUiItems");
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
             {
                 _CommonLogging.RoutineExit(string.Empty);
 
                 await FixMediaFiles().ConfigureAwait(false);
             }
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
 
             _CommonLogging.RoutineExit(nameof(LoadSerialUiItems));
         }

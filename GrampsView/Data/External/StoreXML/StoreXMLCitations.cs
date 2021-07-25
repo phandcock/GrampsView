@@ -13,7 +13,7 @@
     {
         public async Task LoadCitationsAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
             {
                 try
                 {
@@ -58,11 +58,11 @@
                 }
                 catch (Exception e)
                 {
-                    DataStore.Instance.CN.NotifyException("Exception loading Citations form XML", e);
+                    _iocCommonNotifications.NotifyException("Exception loading Citations form XML", e);
                     throw;
                 }
 
-                await DataStore.Instance.CN.DataLogEntryReplace("Citation load complete");
+                await _iocCommonNotifications.DataLogEntryReplace("Citation load complete");
 
                 return;
             }

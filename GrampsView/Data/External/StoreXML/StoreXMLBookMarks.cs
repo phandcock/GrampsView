@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadBookMarksAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
             {
                 try
                 {
@@ -57,10 +57,10 @@
                                     { "HLink",  argBookMark.ToString()}
                                 };
 
-                            DataStore.Instance.CN.NotifyError(t);
+                            _iocCommonNotifications.NotifyError(t);
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
+                        await _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
                     }
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
@@ -68,13 +68,13 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await DataStore.Instance.CN.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
 
                     throw;
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
+            await _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
 
             return;
         }

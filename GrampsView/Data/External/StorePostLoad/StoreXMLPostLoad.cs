@@ -18,9 +18,9 @@
         /// <summary>
         /// Organises the address repository.
         /// </summary>
-        private static async Task<bool> OrganiseAddressRepository()
+        private  async Task<bool> OrganiseAddressRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
 
             foreach (AddressModel argModel in DV.AddressDV.DataViewData)
             {
@@ -38,9 +38,9 @@
             return true;
         }
 
-        private static async Task<bool> OrganiseBookMarkRepository()
+        private  async Task<bool> OrganiseBookMarkRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising BookMark data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising BookMark data").ConfigureAwait(false);
 
             DV.BookMarkCollection.SetGlyph();
 
@@ -50,9 +50,9 @@
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>
-        private static async Task<bool> OrganiseCitationRepository()
+        private  async Task<bool> OrganiseCitationRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
 
             foreach (CitationModel argModel in DV.CitationDV.DataViewData)
             {
@@ -98,9 +98,9 @@
         /// <summary>
         /// Organises the event repository.
         /// </summary>
-        private static async Task<bool> OrganiseEventRepository()
+        private  async Task<bool> OrganiseEventRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
 
             foreach (EventModel argModel in DV.EventDV.DataViewData)
             {
@@ -154,9 +154,9 @@
         /// <summary>
         /// Organises the family repository.
         /// </summary>
-        private static async Task<bool> OrganiseFamilyRepository()
+        private  async Task<bool> OrganiseFamilyRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
 
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
             {
@@ -234,9 +234,9 @@
         /// <summary>
         /// Organises the header repository.
         /// </summary>
-        private static async Task<bool> OrganiseHeaderRepository()
+        private  async Task<bool> OrganiseHeaderRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
             SetHeaderImages();
 
@@ -246,9 +246,9 @@
         /// <summary>
         /// Organises misc items pending use of a dependency graph.
         /// </summary>
-        private static async Task<bool> OrganiseMisc()
+        private  async Task<bool> OrganiseMisc()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Misc data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Misc data").ConfigureAwait(false);
 
             // Family children
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
@@ -265,9 +265,9 @@
         /// <summary>
         /// Organises the namemap repository.
         /// </summary>
-        private static async Task<bool> OrganiseNameMapRepository()
+        private  async Task<bool> OrganiseNameMapRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
             SetNameMapImages();
 
@@ -277,9 +277,9 @@
         /// <summary>
         /// Organises the note repository.
         /// </summary>
-        private static async Task<bool> OrganiseNoteRepository()
+        private  async Task<bool> OrganiseNoteRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
 
             foreach (NoteModel argModel in DV.NoteDV.DataViewData)
             {
@@ -297,9 +297,9 @@
             return true;
         }
 
-        private static async Task<bool> OrganisePersonNameRepository()
+        private  async Task<bool> OrganisePersonNameRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
             foreach (PersonNameModel argModel in DV.PersonNameDV.DataViewData)
             {
@@ -330,9 +330,9 @@
         /// <summary>
         /// Organises the person repository.
         /// </summary>
-        private static async Task<bool> OrganisePersonRepository()
+        private  async Task<bool> OrganisePersonRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
             foreach (PersonModel argModel in DV.PersonDV.DataViewData)
             {
@@ -437,9 +437,9 @@
         /// <summary>
         /// Organises the place repository.
         /// </summary>
-        private static async Task<bool> OrganisePlaceRepository()
+        private  async Task<bool> OrganisePlaceRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
             foreach (PlaceModel argModel in DV.PlaceDV.DataViewData)
             {
@@ -501,9 +501,9 @@
         /// <summary>
         /// Organises the repository repository.
         /// </summary>
-        private static async Task<bool> OrganiseRepositoryRepository()
+        private  async Task<bool> OrganiseRepositoryRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
             foreach (RepositoryModel argModel in DV.RepositoryDV.DataViewData)
             {
@@ -536,9 +536,9 @@
         /// <returns>
         /// true if the organisation worked.
         /// </returns>
-        private static async Task<bool> OrganiseSourceRepository()
+        private  async Task<bool> OrganiseSourceRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
             foreach (SourceModel argModel in DV.SourceDV.DataViewData)
             {
@@ -583,9 +583,9 @@
         /// <summary>
         /// Organises the tag repository.
         /// </summary>
-        private static async Task<bool> OrganiseTagRepository()
+        private  async Task<bool> OrganiseTagRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
 
             SetTagImages();
 
@@ -597,7 +597,7 @@
         /// </summary>
         private async Task<bool> OrganiseMediaRepository()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
 
             try
             {
@@ -631,7 +631,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in OrganiseMediaRepository", ex);
+                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
 
                 throw;
             }

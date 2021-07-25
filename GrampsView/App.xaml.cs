@@ -86,6 +86,7 @@
 
             Container.Resolve<IPlatformSpecific>();
 
+            // Resove it here.  TODO Have each class resolve its own copy using the service locator pattern from prism.
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
             Container.Resolve<IDataRepositoryManager>();

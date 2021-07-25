@@ -31,7 +31,7 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
-                await DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                await _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -51,7 +51,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                _commonNotifications.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -79,7 +79,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from video file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                _commonNotifications.NotifyError(t);
             }
 
             return returnItemGlyph;
@@ -94,7 +94,7 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
             {
-                DataStore.Instance.CN.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -115,7 +115,7 @@
             {
                 ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
 
-                DataStore.Instance.CN.NotifyError(t);
+                _commonNotifications.NotifyError(t);
             }
 
             return returnItemGlyph;
