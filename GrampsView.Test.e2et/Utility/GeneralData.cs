@@ -125,13 +125,13 @@
             */
             iocExternalStorage = new StoreXML(iocCommonLogging,iocCommonNotifications);
 
-            iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocEventAggregator, iocPlatformSpecific);
+            iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocCommonNotifications, iocEventAggregator, iocPlatformSpecific);
 
             iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
 
             iocStoreFile = new StoreFile();
 
-            newManager = new DataRepositoryManager(iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
+            newManager = new DataRepositoryManager(iocCommonLogging, iocCommonNotifications, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
         }
     }
 }

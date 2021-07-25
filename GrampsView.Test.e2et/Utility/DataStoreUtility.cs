@@ -53,17 +53,17 @@
             // Other setup
             IEventAggregator iocEventAggregator = GeneralData.mocEventAggregator.Object;
 
-            IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging,GeneralData.iocCommonNotifications);
+            IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging, GeneralData.iocCommonNotifications);
 
-            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(GeneralData.iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
+            IStorePostLoad iocGrampsStorePostLoad = new StorePostLoad(GeneralData.iocCommonLogging, GeneralData.iocCommonNotifications, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
             IGrampsStoreSerial iocGrampsStoreSerial = new GrampsStoreSerial(GeneralData.iocCommonLogging);
 
             IStoreFile iocStoreFile = new StoreFile();
 
-            DataRepositoryManager newManager = new DataRepositoryManager(GeneralData.iocCommonLogging, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
+            DataRepositoryManager newManager = new DataRepositoryManager(GeneralData.iocCommonLogging, GeneralData.iocCommonNotifications, iocEventAggregator, iocExternalStorage, iocGrampsStorePostLoad, iocGrampsStoreSerial, iocStoreFile);
 
-            StorePostLoad newPostLoad = new StorePostLoad(GeneralData.iocCommonLogging, iocEventAggregator, GeneralData.iocPlatformSpecific);
+            StorePostLoad newPostLoad = new StorePostLoad(GeneralData.iocCommonLogging, GeneralData.iocCommonNotifications, iocEventAggregator, GeneralData.iocPlatformSpecific);
 
             //// Clear the repositories in case we had to restart after being interupted. TODO have
             //// better mock DataStore.Instance.AD.LoadDataStore();

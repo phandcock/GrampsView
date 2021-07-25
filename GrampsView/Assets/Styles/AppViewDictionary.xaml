@@ -2,7 +2,7 @@
     x:Class="GrampsView.Assets.Styles.AppViewDictionary"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Xamarin.Forms.Breadcrumb"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:customclass="clr-namespace:GrampsView.Common.CustomClasses">
 
