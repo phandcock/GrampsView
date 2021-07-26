@@ -1,3 +1,13 @@
+## [16.19.19](https://github.com/phandcock/GrampsView/compare/v16.19.18...v16.19.19) (2021-07-26)
+
+
+### Bug Fixes
+
+* start move of commonnotificatiosn away from applicationdata static ([5f0bbff](https://github.com/phandcock/GrampsView/commit/5f0bbff614b3c03394d2ee1fe2037640d8df8821))
+* update to Breadcrumb 2.7.0 ([710c8e0](https://github.com/phandcock/GrampsView/commit/710c8e01e04c9e9e2740d426d1f9038697fa38c8))
+
+
+
 ## [16.19.18](https://github.com/phandcock/GrampsView/compare/v16.19.17...v16.19.18) (2021-07-25)
 
 
@@ -34,15 +44,6 @@
 
 * add datecard ([eccbc03](https://github.com/phandcock/GrampsView/commit/eccbc03d346e0f2e04423c267ff982ab1053f884))
 * expand new dateSingle card and detailpage ([ab0c3a9](https://github.com/phandcock/GrampsView/commit/ab0c3a918d6866853cba77e58b1904edf2a4b000))
-
-
-
-## [16.19.15](https://github.com/phandcock/GrampsView/compare/v16.19.14...v16.19.15) (2021-07-18)
-
-
-### Bug Fixes
-
-* fix errorinfo xaml issues ([1ea27b0](https://github.com/phandcock/GrampsView/commit/1ea27b0d099e56b2b532170501d0152b6c592ab0))
 
 
 
