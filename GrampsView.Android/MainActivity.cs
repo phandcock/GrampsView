@@ -71,10 +71,10 @@
 
             Platform.Init(this, savedInstanceState);
 
-            //// Init things
-            Xamarin.Forms.Forms.SetFlags(new string[] {
-                "DragAndDrop_Experimental"
-                });
+            ////// Init things
+            //Xamarin.Forms.Forms.SetFlags(new string[] {
+            //    "DragAndDrop_Experimental"
+            //    });
 
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
 

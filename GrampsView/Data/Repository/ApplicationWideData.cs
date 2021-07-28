@@ -16,11 +16,12 @@
         private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
-        /// Gets or sets the get current data folder.
+        /// Gets or sets the current data folder.
         /// </summary>
         /// <value>
-        /// The get current data folder.
+        /// The current data folder.
         /// </value>
+        
         public CurrentDataFolder CurrentDataFolder
         {
             get

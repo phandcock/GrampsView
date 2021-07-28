@@ -36,10 +36,11 @@
 
     <!--  Create a Base Style for a Button Style  -->
     <Style x:Key="GVButtonStyle" TargetType="Button">
-        <Setter Property="BorderWidth" Value="2" />
+        <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Padding" Value="2" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
@@ -203,9 +204,7 @@
         BasedOn="{StaticResource FrameCardStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="2" />
-        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style
@@ -323,7 +322,18 @@
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
-    <!--  Card Group and Flex Cards  -->
+    <!--  Card Special Cards  -->
+
+    <Style
+        x:Key="CardImageBackgroundFrame"
+        BasedOn="{StaticResource FrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HasShadow" Value="false" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
+    </Style>
 
     <Style x:Key="CardGroupStyle" TargetType="Frame">
         <Setter Property="HasShadow" Value="False" />
@@ -391,12 +401,6 @@
         x:Key="CardImageBackground"
         BasedOn="{StaticResource GridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
-    </Style>
-
-    <Style x:Key="CardImageBackgroundFrame" TargetType="Frame">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>

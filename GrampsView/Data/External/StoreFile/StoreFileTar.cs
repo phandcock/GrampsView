@@ -21,85 +21,85 @@
     /// <seealso cref="GrampsView.Data.IStoreFile"/>
     public partial class StoreFile : ObservableObject, IStoreFile
     {
-        /// <summary>
-        /// Extracts the tar by entry.
-        /// </summary>
-        /// <param name="tarFileName">
-        /// Name of the tar file.
-        /// </param>
-        /// <param name="targetDir">
-        /// The target dir.
-        /// </param>
-        /// <param name="asciiTranslate">
-        /// if set to <c>true</c> [ASCII translate].
-        /// </param>
-        public static void ExtractTarByEntry(string tarFileName, string targetDir, bool asciiTranslate)
-        {
-            using (FileStream fsIn = new FileStream(tarFileName, FileMode.Open, FileAccess.Read))
-            {
-                using (TarInputStream tarIn = new TarInputStream(fsIn, System.Text.Encoding.ASCII))
-                {
-                    TarEntry tarEntry;
-                    while ((tarEntry = tarIn.GetNextEntry()) != null)
-                    {
-                        if (tarEntry.IsDirectory)
-                        {
-                            continue;
-                        }
+        ///// <summary>
+        ///// Extracts the tar by entry.
+        ///// </summary>
+        ///// <param name="tarFileName">
+        ///// Name of the tar file.
+        ///// </param>
+        ///// <param name="targetDir">
+        ///// The target dir.
+        ///// </param>
+        ///// <param name="asciiTranslate">
+        ///// if set to <c> true </c> [ASCII translate].
+        ///// </param>
+        //public static void ExtractTarByEntry(string tarFileName, string targetDir, bool asciiTranslate)
+        //{
+        //    using (FileStream fsIn = new FileStream(tarFileName, FileMode.Open, FileAccess.Read))
+        //    {
+        //        using (TarInputStream tarIn = new TarInputStream(fsIn, System.Text.Encoding.ASCII))
+        //        {
+        //            TarEntry tarEntry;
+        //            while ((tarEntry = tarIn.GetNextEntry()) != null)
+        //            {
+        //                if (tarEntry.IsDirectory)
+        //                {
+        //                    continue;
+        //                }
 
-                        // Converts the unix forward slashes in the filenames to windows backslashes
-                        string name = tarEntry.Name.Replace('/', Path.DirectorySeparatorChar);
+        //                // Converts the unix forward slashes in the filenames to windows backslashes
+        //                string name = tarEntry.Name.Replace('/', Path.DirectorySeparatorChar);
 
-                        // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine
-                        if (Path.IsPathRooted(name))
-                        {
-                            name = name.Substring(Path.GetPathRoot(name).Length);
-                        }
+        //                // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine
+        //                if (Path.IsPathRooted(name))
+        //                {
+        //                    name = name.Substring(Path.GetPathRoot(name).Length);
+        //                }
 
-                        // Apply further name transformations here as necessary
-                        string outName = Path.Combine(targetDir, name);
+        //                // Apply further name transformations here as necessary
+        //                string outName = Path.Combine(targetDir, name);
 
-                        string directoryName = Path.GetDirectoryName(outName);
-                        Directory.CreateDirectory(directoryName);       // Does nothing if directory exists
+        //                string directoryName = Path.GetDirectoryName(outName);
+        //                Directory.CreateDirectory(directoryName);       // Does nothing if directory exists
 
-                        using (FileStream outStr = new FileStream(outName, FileMode.Create))
-                        {
-                            if (asciiTranslate)
-                            {
-                                CopyWithAsciiTranslate(tarIn, outStr);
-                            }
-                            else
-                            {
-                                tarIn.CopyEntryContents(outStr);
-                            }
-                        }
+        //                using (FileStream outStr = new FileStream(outName, FileMode.Create))
+        //                {
+        //                    if (asciiTranslate)
+        //                    {
+        //                        CopyWithAsciiTranslate(tarIn, outStr);
+        //                    }
+        //                    else
+        //                    {
+        //                        tarIn.CopyEntryContents(outStr);
+        //                    }
+        //                }
 
-                        // outStr.Close(); Set the modification date/time. This approach seems to
-                        // solve timezone issues.
-                        DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime, DateTimeKind.Utc);
-                        File.SetLastWriteTime(outName, myDt);
-                    }
+        //                // outStr.Close(); Set the modification date/time. This approach seems to
+        //                // solve timezone issues.
+        //                DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime, DateTimeKind.Utc);
+        //                File.SetLastWriteTime(outName, myDt);
+        //            }
 
-                    // tarIn.Close();
-                }
-            }
-        }
+        //            // tarIn.Close();
+        //        }
+        //    }
+        //}
 
-        /// <summary>
-        /// Extracts the tar archive.
-        /// </summary>
-        /// <param name="dataFolder">
-        /// The data folder.
-        /// </param>
-        /// <param name="tarIn">
-        /// The tar in.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public async Task ExtractTarArchive(TarInputStream tarIn)
-        {
-            await ExtractTarIfNotModified(tarIn, false).ConfigureAwait(false);
-        }
+        ///// <summary>
+        ///// Extracts the tar archive.
+        ///// </summary>
+        ///// <param name="dataFolder">
+        ///// The data folder.
+        ///// </param>
+        ///// <param name="tarIn">
+        ///// The tar in.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public async Task ExtractTarArchive(TarInputStream tarIn)
+        //{
+        //    await ExtractTarIfNotModified(tarIn, false).ConfigureAwait(false);
+        //}
 
         /// <summary>
         /// Extracts the tared files from the archive.
@@ -113,12 +113,12 @@
         /// The tar in.
         /// </param>
         /// <param name="asciiTranslate">
-        /// if set to <c>true</c> [ASCII translate].
+        /// if set to <c> true </c> [ASCII translate].
         /// </param>
         /// <returns>
         /// True if the file is UnTARed correctly.
         /// </returns>
-        public async Task ExtractTarIfNotModified(TarInputStream tarIn, bool asciiTranslate)
+        public async Task ExtractTar(TarInputStream tarIn)
         {
             if (tarIn is null)
             {
@@ -224,14 +224,21 @@
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
-                        if (asciiTranslate)
-                        {
-                            CopyWithAsciiTranslate(tarIn, outStr);
-                        }
-                        else
-                        {
-                            tarIn.CopyEntryContents(outStr);
-                        }
+                        //if (asciiTranslate)
+                        //{
+                        //    CopyWithAsciiTranslate(tarIn, outStr);
+                        //}
+                        //else
+                        //{
+                            try
+                            {
+                                tarIn.CopyEntryContents(outStr);
+                            }
+                            catch (Exception ex)
+                            {
+                                DataStore.Instance.CN.NotifyException("UnTar issue", ex);
+                            }
+                        //}
 
                         outStr.Flush();
                         outStr.Dispose();
@@ -335,58 +342,58 @@
             }
         }
 
-        /// <summary>
-        /// Copies the with ASCII translate.
-        /// </summary>
-        /// <param name="tarIn">
-        /// The tar in.
-        /// </param>
-        /// <param name="outStream">
-        /// The out stream.
-        /// </param>
-        private static void CopyWithAsciiTranslate(TarInputStream tarIn, Stream outStream)
-        {
-            byte[] buffer = new byte[4096];
-            bool isAscii = true;
-            bool cr = false;
+        ///// <summary>
+        ///// Copies the with ASCII translate.
+        ///// </summary>
+        ///// <param name="tarIn">
+        ///// The tar in.
+        ///// </param>
+        ///// <param name="outStream">
+        ///// The out stream.
+        ///// </param>
+        //private static void CopyWithAsciiTranslate(TarInputStream tarIn, Stream outStream)
+        //{
+        //    byte[] buffer = new byte[4096];
+        //    bool isAscii = true;
+        //    bool cr = false;
 
-            int numRead = tarIn.Read(buffer, 0, buffer.Length);
-            int maxCheck = Math.Min(200, numRead);
-            for (int i = 0; i < maxCheck; i++)
-            {
-                byte b = buffer[i];
-                if (b < 8 || (b > 13 && b < 32) || b == 255)
-                {
-                    isAscii = false;
-                    break;
-                }
-            }
+        //    int numRead = tarIn.Read(buffer, 0, buffer.Length);
+        //    int maxCheck = Math.Min(200, numRead);
+        //    for (int i = 0; i < maxCheck; i++)
+        //    {
+        //        byte b = buffer[i];
+        //        if (b < 8 || (b > 13 && b < 32) || b == 255)
+        //        {
+        //            isAscii = false;
+        //            break;
+        //        }
+        //    }
 
-            while (numRead > 0)
-            {
-                if (isAscii)
-                {
-                    // Convert LF without CR to CRLF. Handle CRLF split over buffers.
-                    for (int i = 0; i < numRead; i++)
-                    {
-                        byte b = buffer[i]; // assuming plain Ascii and not UTF-16
-                        if (b == 10 && !cr) // LF without CR
-                        {
-                            outStream.WriteByte(13);
-                        }
+        //    while (numRead > 0)
+        //    {
+        //        if (isAscii)
+        //        {
+        //            // Convert LF without CR to CRLF. Handle CRLF split over buffers.
+        //            for (int i = 0; i < numRead; i++)
+        //            {
+        //                byte b = buffer[i]; // assuming plain Ascii and not UTF-16
+        //                if (b == 10 && !cr) // LF without CR
+        //                {
+        //                    outStream.WriteByte(13);
+        //                }
 
-                        cr = b == 13;
+        //                cr = b == 13;
 
-                        outStream.WriteByte(b);
-                    }
-                }
-                else
-                {
-                    outStream.Write(buffer, 0, numRead);
-                }
+        //                outStream.WriteByte(b);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            outStream.Write(buffer, 0, numRead);
+        //        }
 
-                numRead = tarIn.Read(buffer, 0, buffer.Length);
-            }
-        }
+        //        numRead = tarIn.Read(buffer, 0, buffer.Length);
+        //    }
+        //}
     }
 }

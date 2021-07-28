@@ -111,6 +111,9 @@
                 }
             }
 
+            // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
+            await Task.Delay(2000);
+
             await DataStore.Instance.CN.DataLog.Remove().ConfigureAwait(false);
 
             return true;
@@ -187,7 +190,7 @@
                 using (TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII))
                 {
                     // DO NOT AWAIT as causes thread blocking await
-                    await ExtractTarArchive(tarIn).ConfigureAwait(false);
+                    await ExtractTar(tarIn).ConfigureAwait(false);
                 }
             }
 
