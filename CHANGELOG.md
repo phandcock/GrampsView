@@ -1,3 +1,12 @@
+## [16.19.20](https://github.com/phandcock/GrampsView/compare/v16.19.19...v16.19.20) (2021-07-30)
+
+
+### Bug Fixes
+
+* tweaks ([5a53bd3](https://github.com/phandcock/GrampsView/commit/5a53bd3fd824e7c83d88ffb994616cb9af91e659))
+
+
+
 ## [16.19.19](https://github.com/phandcock/GrampsView/compare/v16.19.18...v16.19.19) (2021-07-26)
 
 
@@ -34,16 +43,6 @@
 * sort place enclosed places ([b027973](https://github.com/phandcock/GrampsView/commit/b027973d7689e030db806de25d1653b56394e555))
 * tweak datedetailview ([9adf034](https://github.com/phandcock/GrampsView/commit/9adf03469bc014a22cbd81b1759f0e20711e2544))
 * tweak shell menu colours ([fb9ddae](https://github.com/phandcock/GrampsView/commit/fb9ddae274d10b6ab526d92df1b651e04ef3b71a))
-
-
-
-## [16.19.16](https://github.com/phandcock/GrampsView/compare/v16.19.15...v16.19.16) (2021-07-21)
-
-
-### Bug Fixes
-
-* add datecard ([eccbc03](https://github.com/phandcock/GrampsView/commit/eccbc03d346e0f2e04423c267ff982ab1053f884))
-* expand new dateSingle card and detailpage ([ab0c3a9](https://github.com/phandcock/GrampsView/commit/ab0c3a918d6866853cba77e58b1904edf2a4b000))
 
 
 
