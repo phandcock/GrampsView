@@ -47,38 +47,25 @@
         //                    continue;
         //                }
 
-        //                // Converts the unix forward slashes in the filenames to windows backslashes
-        //                string name = tarEntry.Name.Replace('/', Path.DirectorySeparatorChar);
+        // // Converts the unix forward slashes in the filenames to windows backslashes string name
+        // = tarEntry.Name.Replace('/', Path.DirectorySeparatorChar);
 
-        //                // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine
-        //                if (Path.IsPathRooted(name))
-        //                {
-        //                    name = name.Substring(Path.GetPathRoot(name).Length);
-        //                }
+        // // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine if
+        // (Path.IsPathRooted(name)) { name = name.Substring(Path.GetPathRoot(name).Length); }
 
-        //                // Apply further name transformations here as necessary
-        //                string outName = Path.Combine(targetDir, name);
+        // // Apply further name transformations here as necessary string outName =
+        // Path.Combine(targetDir, name);
 
-        //                string directoryName = Path.GetDirectoryName(outName);
-        //                Directory.CreateDirectory(directoryName);       // Does nothing if directory exists
+        // string directoryName = Path.GetDirectoryName(outName);
+        // Directory.CreateDirectory(directoryName); // Does nothing if directory exists
 
-        //                using (FileStream outStr = new FileStream(outName, FileMode.Create))
-        //                {
-        //                    if (asciiTranslate)
-        //                    {
-        //                        CopyWithAsciiTranslate(tarIn, outStr);
-        //                    }
-        //                    else
-        //                    {
-        //                        tarIn.CopyEntryContents(outStr);
-        //                    }
-        //                }
+        // using (FileStream outStr = new FileStream(outName, FileMode.Create)) { if
+        // (asciiTranslate) { CopyWithAsciiTranslate(tarIn, outStr); } else {
+        // tarIn.CopyEntryContents(outStr); } }
 
-        //                // outStr.Close(); Set the modification date/time. This approach seems to
-        //                // solve timezone issues.
-        //                DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime, DateTimeKind.Utc);
-        //                File.SetLastWriteTime(outName, myDt);
-        //            }
+        // // outStr.Close(); Set the modification date/time. This approach seems to // solve
+        // timezone issues. DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime,
+        // DateTimeKind.Utc); File.SetLastWriteTime(outName, myDt); }
 
         //            // tarIn.Close();
         //        }
@@ -125,13 +112,11 @@
                 throw new ArgumentNullException(nameof(tarIn));
             }
 
-            TarEntry tarEntry = null;
-
-            //FileInfo outFile = null;
+            TarEntry tarEntry = tarIn.GetNextEntry();
 
             try
             {
-                while ((tarEntry = tarIn.GetNextEntry()) != null)
+                while (tarEntry != null)
                 {
                     if (tarEntry.IsDirectory)
                     {
@@ -220,7 +205,7 @@
                         {
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        //await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
@@ -230,14 +215,14 @@
                         //}
                         //else
                         //{
-                            try
-                            {
-                                tarIn.CopyEntryContents(outStr);
-                            }
-                            catch (Exception ex)
-                            {
-                                DataStore.Instance.CN.NotifyException("UnTar issue", ex);
-                            }
+                        try
+                        {
+                            tarIn.CopyEntryContents(outStr);
+                        }
+                        catch (Exception ex)
+                        {
+                            DataStore.Instance.CN.NotifyException("UnTar issue", ex);
+                        }
                         //}
 
                         outStr.Flush();
@@ -314,6 +299,9 @@
 
                         // TODO copy dummy file in its place
                     }
+
+                    // Get the next
+                    tarEntry = tarIn.GetNextEntry();
                 }
             }
             catch (Exception ex)
@@ -357,40 +345,17 @@
         //    bool isAscii = true;
         //    bool cr = false;
 
-        //    int numRead = tarIn.Read(buffer, 0, buffer.Length);
-        //    int maxCheck = Math.Min(200, numRead);
-        //    for (int i = 0; i < maxCheck; i++)
-        //    {
-        //        byte b = buffer[i];
-        //        if (b < 8 || (b > 13 && b < 32) || b == 255)
-        //        {
-        //            isAscii = false;
-        //            break;
-        //        }
-        //    }
+        // int numRead = tarIn.Read(buffer, 0, buffer.Length); int maxCheck = Math.Min(200,
+        // numRead); for (int i = 0; i < maxCheck; i++) { byte b = buffer[i]; if (b < 8 || (b > 13
+        // && b < 32) || b == 255) { isAscii = false; break; } }
 
-        //    while (numRead > 0)
-        //    {
-        //        if (isAscii)
-        //        {
-        //            // Convert LF without CR to CRLF. Handle CRLF split over buffers.
-        //            for (int i = 0; i < numRead; i++)
-        //            {
-        //                byte b = buffer[i]; // assuming plain Ascii and not UTF-16
-        //                if (b == 10 && !cr) // LF without CR
-        //                {
-        //                    outStream.WriteByte(13);
-        //                }
+        // while (numRead > 0) { if (isAscii) { // Convert LF without CR to CRLF. Handle CRLF split
+        // over buffers. for (int i = 0; i < numRead; i++) { byte b = buffer[i]; // assuming plain
+        // Ascii and not UTF-16 if (b == 10 && !cr) // LF without CR { outStream.WriteByte(13); }
 
-        //                cr = b == 13;
+        // cr = b == 13;
 
-        //                outStream.WriteByte(b);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            outStream.Write(buffer, 0, numRead);
-        //        }
+        // outStream.WriteByte(b); } } else { outStream.Write(buffer, 0, numRead); }
 
         //        numRead = tarIn.Read(buffer, 0, buffer.Length);
         //    }

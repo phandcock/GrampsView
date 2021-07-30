@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using FFImageLoading.Cache;
-
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.External.StoreSerial;
@@ -32,17 +30,12 @@
         /// </summary>
         private readonly ICommonLogging _CL;
 
+        private readonly ICommonNotifications _commonNotifications;
+
         /// <summary>
         /// Injected Event Aggregator.
         /// </summary>
         private readonly IEventAggregator _EventAggregator;
-
-        private readonly ICommonNotifications _commonNotifications;
-
-        /// <summary>
-        /// The local gramps store serial.
-        /// </summary>
-        private readonly IGrampsStoreSerial _StoreSerial;
 
         /// <summary>
         /// Injected External Storage.
@@ -58,6 +51,11 @@
         /// The local store file.
         /// </summary>
         private readonly IStoreFile _StoreFile;
+
+        /// <summary>
+        /// The local gramps store serial.
+        /// </summary>
+        private readonly IGrampsStoreSerial _StoreSerial;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -286,7 +284,7 @@
         /// Triggers the load GPKG file asynchronous.
         /// </summary>
         /// <param name="deleteOld">
-        /// if set to <c>true</c> [delete old].
+        /// if set to <c> true </c> [delete old].
         /// </param>
         /// <param name="gpkgFileName">
         /// Name of the GPKG file.
@@ -315,7 +313,7 @@
             {
                 // TODO create data folder await localStoreFile.SetDataFolderLocalStorage();
 
-                await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
+                //await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
 
                 // TODO work out how to delete excess files based on keeping the ones in the GPKG file
                 //// Delete directories of files. Assume files in root are ok

@@ -78,8 +78,6 @@
 
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            // App Center Distribute Distribute.SetEnabledForDebuggableBuild(true);
-
             // Set Status Bar background to Light or Dark as required
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 

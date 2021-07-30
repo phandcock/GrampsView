@@ -32,12 +32,12 @@
                 if (pdfDocument != null && pdfDocument.PageCount > 0)
                 {
                     // Get page from a PDF file.
-                    var pdfPage = pdfDocument.GetPage((uint)0);
+                    var pdfPage = pdfDocument.GetPage(0);
 
                     if (pdfPage != null)
                     {
                         // Create image file.
-                        StorageFile destinationFile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
+                        StorageFile destinationFile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath, CreationCollisionOption.ReplaceExisting);
 
                         if (destinationFile != null)
                         {
@@ -46,7 +46,7 @@
                             //Crerate PDF rendering options
                             PdfPageRenderOptions pdfPageRenderOptions = new PdfPageRenderOptions
                             {
-                                DestinationWidth = (uint)(300)
+                                DestinationWidth = 300
                             };
 
                             // Render the PDF's page as stream.
@@ -98,7 +98,7 @@
         {
             StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
 
-            StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath);
+            StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath,CreationCollisionOption.ReplaceExisting);
 
             //if (outfile.Name == "_e9e27fbe8ed34e9b554a0ba93aa~imagevideo.jpg")
             //{

@@ -87,38 +87,55 @@
 
         public ItemGlyph GetThumbImageFromZip(MediaModel argMediaModel)
         {
-            ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
-
-            IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
-
-            // TODO Having an issue where Gramps XML content type is not always correct
-            if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
+            try
             {
-                _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
-                return argMediaModel.ModelItemGlyph;
+                ItemGlyph returnItemGlyph = argMediaModel.ModelItemGlyph;
+
+                IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
+
+                // TODO Having an issue where Gramps XML content type is not always correct
+                if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
+                {
+                    _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                    return argMediaModel.ModelItemGlyph;
+                }
+
+                IMediaModel zipimage;
+
+                // Check if new zip image file already exists
+                IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
+
+                if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
+                {
+                    // check if we can get an image for the first page of the PDF
+
+                    zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+
+                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
+                }
+                else
+                {
+                    ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
+
+                    _commonNotifications.NotifyError(t);
+                }
+
+                return returnItemGlyph;
             }
-
-            IMediaModel zipimage;
-
-            // Check if new zip image file already exists
-            IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
-
-            if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
+            catch (System.Exception ex)
             {
-                // check if we can get an image for the first page of the PDF
+                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                  {
+                      { "Original ID", argMediaModel.Id },
+                      { "Original File", argMediaModel.MediaStorageFilePath },
+                      { "Clipped Id", argMediaModel.Id },
+                      { "New path", "pdfimage" }
+                  };
 
-                zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
+                return new ItemGlyph();
             }
-            else
-            {
-                ErrorInfo t = UtilGetPostGlyphErrorInfo("File not found when trying to create image from PDF file", argMediaModel);
-
-                _commonNotifications.NotifyError(t);
-            }
-
-            return returnItemGlyph;
         }
 
         private IMediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
@@ -135,27 +152,44 @@
 
         private ItemGlyph UtilSaveNewMediaObject(ItemGlyph argNewGlyph, IMediaModel argNewMediaModel, string argDefaultSymbol)
         {
-            // Save new MediaObject
-            if (argNewMediaModel.Valid)
+            try
             {
-                argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
-                argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder.Value, argNewMediaModel.OriginalFilePath);
+                // Save new MediaObject
+                if (argNewMediaModel.Valid)
+                {
+                    argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                    argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
+                    argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder.Value, argNewMediaModel.OriginalFilePath);
 
-                addLater.Add(argNewMediaModel);
+                    addLater.Add(argNewMediaModel);
 
-                argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
-                argNewGlyph.ImageHLink = argNewMediaModel.HLinkKey;
+                    argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
+                    argNewGlyph.ImageHLink = argNewMediaModel.HLinkKey;
+
+                    return argNewGlyph;
+                }
+
+                // Else
+
+                argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+                argNewGlyph.ImageSymbol = argDefaultSymbol;
 
                 return argNewGlyph;
             }
+            catch (System.Exception ex)
+            {
+                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                  {
+                      { "Original ID", argNewMediaModel.Id },
+                      { "Original File", argNewMediaModel.MediaStorageFilePath },
+                      { "Clipped Id", argNewMediaModel.Id },
+                      { "New path", "pdfimage" }
+                  };
 
-            // Else
+                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
 
-            argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-            argNewGlyph.ImageSymbol = argDefaultSymbol;
-
-            return argNewGlyph;
+                return new ItemGlyph();
+            }
         }
     }
 }

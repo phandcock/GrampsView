@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data
 {
+    using FFImageLoading.Cache;
+
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
@@ -98,11 +100,12 @@
                         System.Threading.Thread.Sleep(100);
                         Debug.WriteLine($"About to delete  directory: {item.FullName}");
                         item.Delete(true);
-                        Debug.WriteLine($"Deleted  directory: {item.FullName}");
                     }
 
                     // Create standard directories
                     DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(CommonConstants.DirectoryImageCache);
+
+                    await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {

@@ -8,7 +8,6 @@
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials;
 
     /// <summary>
     /// Common Progress routines.
@@ -100,16 +99,16 @@
         /// </returns>
         public async Task<bool> Replace(string argEntry)
         {
-            await MainThread.InvokeOnMainThreadAsync(() =>
+            //await MainThread.InvokeOnMainThreadAsync(() =>
+            //{
+            if (!string.IsNullOrEmpty(argEntry))
             {
-                if (!string.IsNullOrEmpty(argEntry))
+                if (DataLoadLog.Count > 0)
                 {
-                    if (DataLoadLog.Count > 0)
-                    {
-                        DataLoadLog[DataLoadLog.Count - 1] = BuildDataLogEntry(argEntry);
-                    }
+                    DataLoadLog[DataLoadLog.Count - 1] = BuildDataLogEntry(argEntry);
                 }
-            }).ConfigureAwait(false);
+            }
+            //}).ConfigureAwait(false);
 
             return true;
         }
