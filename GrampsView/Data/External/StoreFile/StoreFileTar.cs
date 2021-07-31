@@ -177,7 +177,7 @@
                     // modified then it should be later than any UnTared file date
                     if (await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false))
                     {
-                        FileInfoEx newFileName = StoreFolder.FolderGetFile(filename, newFolder);
+                        IFileInfoEx newFileName = new FileInfoEx(argFileName: filename,argRelativeFolder: newFolder);
 
                         //if (filename == "1024x768.png")
                         //{
@@ -205,16 +205,11 @@
                         {
                         }
 
-                        //await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
-                        //if (asciiTranslate)
-                        //{
-                        //    CopyWithAsciiTranslate(tarIn, outStr);
-                        //}
-                        //else
-                        //{
+                      
                         try
                         {
                             tarIn.CopyEntryContents(outStr);
@@ -313,52 +308,23 @@
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    _commonNotifications.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    _commonNotifications.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
+                    _commonNotifications.NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }
         }
 
-        ///// <summary>
-        ///// Copies the with ASCII translate.
-        ///// </summary>
-        ///// <param name="tarIn">
-        ///// The tar in.
-        ///// </param>
-        ///// <param name="outStream">
-        ///// The out stream.
-        ///// </param>
-        //private static void CopyWithAsciiTranslate(TarInputStream tarIn, Stream outStream)
-        //{
-        //    byte[] buffer = new byte[4096];
-        //    bool isAscii = true;
-        //    bool cr = false;
-
-        // int numRead = tarIn.Read(buffer, 0, buffer.Length); int maxCheck = Math.Min(200,
-        // numRead); for (int i = 0; i < maxCheck; i++) { byte b = buffer[i]; if (b < 8 || (b > 13
-        // && b < 32) || b == 255) { isAscii = false; break; } }
-
-        // while (numRead > 0) { if (isAscii) { // Convert LF without CR to CRLF. Handle CRLF split
-        // over buffers. for (int i = 0; i < numRead; i++) { byte b = buffer[i]; // assuming plain
-        // Ascii and not UTF-16 if (b == 10 && !cr) // LF without CR { outStream.WriteByte(13); }
-
-        // cr = b == 13;
-
-        // outStream.WriteByte(b); } } else { outStream.Write(buffer, 0, numRead); }
-
-        //        numRead = tarIn.Read(buffer, 0, buffer.Length);
-        //    }
-        //}
+       
     }
 }

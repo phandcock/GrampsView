@@ -27,7 +27,7 @@
                     //_CL.LogVariable("localMediaFolder.path", DataStore.Instance.AD.CurrentDataFolder.FullName); //
                     //_CL.LogVariable("path", DataStore.Instance.AD.CurrentDataFolder.FullName + "\\" + argMediaModel.OriginalFilePath);
 
-                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = StoreFolder.FolderGetFile(argMediaModel.OriginalFilePath, DataStore.Instance.AD.CurrentDataFolder.Value);
+                    DataStore.Instance.DS.MediaData[argMediaModel.HLinkKey.Value].MediaStorageFile = new FileInfoEx(argFileName: argMediaModel.OriginalFilePath, argRelativeFolder: DataStore.Instance.AD.CurrentDataFolder.Value);
                 }
             }
             catch (FileNotFoundException ex)

@@ -186,7 +186,7 @@
         /// </returns>
         public async Task<bool> StartDataLoadAsync()
         {
-            FileInfoEx GrampsFile = new FileInfoEx();
+            IFileInfoEx GrampsFile = new FileInfoEx();
 
             await _commonNotifications.DataLogEntryAdd("Loading Data...").ConfigureAwait(false);
 
@@ -225,13 +225,13 @@
 
                     File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
 
-                    GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
+                    GrampsFile = new FileInfoEx(argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);  // Mark as invalid as do not need to unzip
                 }
 
                 // 2) UnZip new data.GRAMPS file
                 if (GrampsFile.Valid)
                 {
-                    if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, GrampsFile))
+                    if (GrampsFile.ModifiedComparedToSettings())
                     {
                         await _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
@@ -240,11 +240,11 @@
                 }
 
                 // 3) Load new data.XML file
-                FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
+                IFileInfoEx dataXML = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName, argSystemSettingsKey: CommonConstants.SettingsXMLFileLastDateTimeModified);
 
                 if (dataXML.Valid)
                 {
-                    if (StoreFileNames.FileModifiedSinceLastSaveAsync(CommonConstants.SettingsXMLFileLastDateTimeModified, dataXML))
+                    if (dataXML.ModifiedComparedToSettings())
                     {
                         await _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
@@ -327,7 +327,7 @@
                 // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
             }
 
-            return StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
+            return new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName, argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@
         /// </returns>
         public async Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
-            FileInfoEx fileGrampsDataInput = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
+            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName, argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
 
             if (fileGrampsDataInput != null)
             {
@@ -351,7 +351,8 @@
                 await _StoreFile.DecompressGZIP(fileGrampsDataInput).ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking
-                StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified, fileGrampsDataInput);
+
+                fileGrampsDataInput.SaveLastWriteToSettings();
             }
 
             return false;
@@ -377,12 +378,12 @@
 
                     await _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
 
-                    FileInfoEx t = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
+                    IFileInfoEx t = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName, argSystemSettingsKey: CommonConstants.SettingsXMLFileLastDateTimeModified);
 
                     if (t.Valid)
                     {
                         // Save the current Index File modified date for later checking
-                        StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsXMLFileLastDateTimeModified, t);
+                        t.SaveLastWriteToSettings();
                     }
 
                     UpdateSavedLocalSettings();

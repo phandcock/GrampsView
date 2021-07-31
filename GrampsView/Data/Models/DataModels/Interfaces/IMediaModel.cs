@@ -111,7 +111,7 @@
             get;
         }
 
-        FileInfoEx MediaStorageFile
+        IFileInfoEx MediaStorageFile
         {
             get;
 

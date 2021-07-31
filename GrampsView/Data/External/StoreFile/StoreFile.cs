@@ -9,6 +9,8 @@
     using ICSharpCode.SharpZipLib.GZip;
     using ICSharpCode.SharpZipLib.Tar;
 
+    using Prism.Ioc;
+
     using System;
     using System.Diagnostics;
     using System.IO;
@@ -20,6 +22,13 @@
     [DataContract]
     public partial class StoreFile : ObservableObject, IStoreFile
     {
+        internal ICommonNotifications _commonNotifications;
+
+        public StoreFile()
+        {
+            _commonNotifications = ContainerLocator.Container.Resolve<ICommonNotifications>();
+        }
+
         /// <summary>
         /// get the StorageFile of the file.
         /// </summary>
@@ -29,9 +38,9 @@
         /// <returns>
         /// StorageFile for the chosen file.
         /// </returns>
-        public async static Task<FileInfoEx> GetStorageFileAsync(string relativeFilePath)
+        public async static Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
         {
-            FileInfoEx resultFile = new FileInfoEx();
+            IFileInfoEx resultFile = new FileInfoEx();
 
             // Validate the input
             if ((relativeFilePath is null) || (string.IsNullOrEmpty(relativeFilePath)))
@@ -86,7 +95,7 @@
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
             {
                 try
                 {
@@ -109,7 +118,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
+                    _commonNotifications.NotifyException("DataStorageInitialiseAsync", ex);
                     throw;
                 }
             }
@@ -117,7 +126,7 @@
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            await DataStore.Instance.CN.DataLog.Remove().ConfigureAwait(false);
+            await _commonNotifications.DataLog.Remove().ConfigureAwait(false);
 
             return true;
         }
@@ -132,14 +141,14 @@
         /// <returns>
         /// Flag indicating success or not.
         /// </returns>
-        public async Task<bool> DecompressGZIP(FileInfoEx inputFile)
+        public async Task<bool> DecompressGZIP(IFileInfoEx inputFile)
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
 
             // Check arguments
             if (inputFile == null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("The input file is null"));
+                _commonNotifications.NotifyError(new ErrorInfo("The input file is null"));
                 return false;
             }
 
@@ -147,7 +156,7 @@
             {
                 ExtractGZip(inputFile, "data.xml");
 
-                await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GZIP file decompress complete").ConfigureAwait(false);
+                await _commonNotifications.DataLogEntryReplace("GRAMPS GZIP file decompress complete").ConfigureAwait(false);
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -157,7 +166,7 @@
                         { "Exception Message ", ex.Message },
                     };
 
-                DataStore.Instance.CN.NotifyError(t);
+                _commonNotifications.NotifyError(t);
                 return false;
             }
         }
@@ -171,7 +180,7 @@
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
@@ -183,21 +192,16 @@
             Stream originalFileStream = DataStore.Instance.AD.CurrentInputStream;
 
             // open the gzip and extract the tar file
-            //await DataStore.Instance.CN.DataLogEntryAdd("Decompressing individual TAR files").ConfigureAwait(false);
-            //await DataStore.Instance.CN.DataLogEntryAdd("This will take a while...").ConfigureAwait(false);
-
-            //await DataStore.Instance.CN.DataLogEntryAdd("UnTaring file").ConfigureAwait(false);
-
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
                 using (TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII))
                 {
-                    // DO NOT AWAIT as causes thread blocking await
+                    // TODO DO NOT AWAIT as causes thread blocking await
                     await ExtractTar(tarIn).ConfigureAwait(false);
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("UnTaring of files complete").ConfigureAwait(false);
+            await _commonNotifications.DataLogEntryReplace("UnTaring of files complete").ConfigureAwait(false);
             return true;
         }
     }

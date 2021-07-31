@@ -42,7 +42,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Local Storage File for media object.
         /// </summary>
-        private FileInfoEx _MediaStorageFile;
+        private IFileInfoEx _MediaStorageFile;
 
         private HLinkNoteModelCollection _NoteReferenceCollection = new HLinkNoteModelCollection();
 
@@ -311,7 +311,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media storage file.
         /// </value>
-        public FileInfoEx MediaStorageFile
+        public IFileInfoEx MediaStorageFile
         {
             get => _MediaStorageFile;
 

@@ -134,7 +134,7 @@
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFilePath;
-                 newMediaModel.MediaStorageFile = StoreFolder.FolderGetFile(outFilePath);
+                 newMediaModel.MediaStorageFile = new FileInfoEx(argFileName: outFilePath);
 
                  newMediaModel.IsInternalMediaFile = true;
                  newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;

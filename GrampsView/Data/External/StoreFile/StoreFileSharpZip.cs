@@ -29,7 +29,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public static bool ExtractGZip(FileInfoEx argInputFile, string argOutFile)
+        public static bool ExtractGZip(IFileInfoEx argInputFile, string argOutFile)
         {
             if (argInputFile is null)
             {
@@ -115,7 +115,7 @@
             }
             catch (DirectoryNotFoundException ex)
             {
-                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
@@ -129,7 +129,7 @@
             }
             catch (Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Exception when trying to create image form PDF file")
+                ErrorInfo t = new ErrorInfo("Exception when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },

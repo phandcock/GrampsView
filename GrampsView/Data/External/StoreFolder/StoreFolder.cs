@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using System;
@@ -106,9 +105,9 @@
             return false;
         }
 
-        public static FileInfoEx FolderGetCreateFile(DirectoryInfo argBaseFolder, string argFileName)
+        public static IFileInfoEx FolderGetCreateFile(DirectoryInfo argBaseFolder, string argFileName)
         {
-            FileInfoEx t = FolderGetFile(argFileName, argBaseFolder);
+            IFileInfoEx t = new FileInfoEx(argRelativeFolder: argBaseFolder,argFileName: argFileName);
 
             if (t.FInfo == null)
             {
@@ -116,60 +115,6 @@
             }
 
             return t;
-        }
-
-        public static FileInfoEx FolderGetFile(string argFileName, DirectoryInfo argBaseFolder = null)
-        {
-            if (argBaseFolder is null)
-            {
-                argBaseFolder = DataStore.Instance.AD.CurrentDataFolder.Value;
-            }
-
-            // TODO Handle relative paths
-
-            // Check for relative path
-            if (!StoreFileUtility.IsRelativeFilePathValid(argFileName))
-            {
-                return new FileInfoEx();
-            }
-
-            // load the real file
-            DirectoryInfo realPath = new DirectoryInfo(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
-
-            if (realPath != null)
-            {
-                try
-                {
-                    FileInfo[] t = realPath.GetFiles();
-
-                    foreach (FileInfo item in t)
-                    {
-                        if (item.Name == Path.GetFileName(argFileName))
-                        {
-                            return new FileInfoEx(item);
-                        }
-                    }
-                }
-                catch (FileNotFoundException ex)
-                {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
-
-                    // default to a standard file marker
-                }
-                catch (DirectoryNotFoundException ex)
-                {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when deserialising the data.  Perhaps the GPKG filenames are too long?") { { "Message", ex.Message }, });
-
-                    // default to a standard file marker
-                }
-                catch (Exception ex)
-                {
-                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
-                    throw;
-                }
-            }
-
-            return new FileInfoEx();
         }
     }
 }

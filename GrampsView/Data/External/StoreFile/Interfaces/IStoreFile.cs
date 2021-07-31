@@ -1,7 +1,5 @@
 namespace GrampsView.Data
 {
-    using GrampsView.Common.CustomClasses;
-
     using System.Threading.Tasks;
 
     /// <summary>
@@ -24,7 +22,7 @@ namespace GrampsView.Data
         /// </param>
         /// <returns>
         /// </returns>
-        Task<bool> DecompressGZIP(FileInfoEx grampsDataFile);
+        Task<bool> DecompressGZIP(IFileInfoEx grampsDataFile);
 
         Task<bool> DecompressTAR();
     }

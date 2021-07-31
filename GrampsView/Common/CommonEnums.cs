@@ -218,6 +218,13 @@ namespace GrampsView.Common
             Unknown,
         }
 
+        public enum MessageLogEventType
+        {
+            Add,
+            Replace,
+            Delete,
+        }
+
         public enum PlaceLocation
         {
             city,

@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Test.e2e.Utility
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data;
     using GrampsView.Data.Repository;
 
@@ -13,7 +12,7 @@
         {
             GeneralData.iocStoreFile.DecompressTAR();
 
-            FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
+            IFileInfoEx GrampsFile = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
 
             if (GrampsFile.Valid)
             {
