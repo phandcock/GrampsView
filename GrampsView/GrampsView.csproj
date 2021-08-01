@@ -21,6 +21,7 @@
     <Compile Remove="Common\Card Group\CardGroupCollection.cs" />
     <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
     <Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
+    <Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
     <Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
     <Compile Remove="Common\ObservableObject.cs" />
     <Compile Remove="Common\CommonFontNamesFAB.cs" />
@@ -62,6 +63,7 @@
     <Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
     <Compile Remove="UserControls\UserControlBase.cs" />
     <Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
+    <Compile Remove="Views\Popups\MessageLog.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +71,7 @@
     <EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
     <EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
     <EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
+    <EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -176,14 +179,14 @@
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
       <DependentUpon>AttributeDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\MinorPages\MessageLogPage.xaml.cs">
+      <DependentUpon>MessageLogPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
       <DependentUpon>ChildRefDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Popups\ErrorPopup.xaml.cs">
       <DependentUpon>ErrorPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Popups\MessageLog.xaml.cs">
-      <DependentUpon>MessageLog.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
       <DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>

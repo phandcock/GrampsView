@@ -157,6 +157,12 @@
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);
+
+            var t = this;
+
+            var tt = HeaderCard;
+
+            OnPropertyChanged(string.Empty);
         }
     }
 }

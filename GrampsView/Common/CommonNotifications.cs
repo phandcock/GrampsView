@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.Repository;
     using GrampsView.Events;
     using GrampsView.Views;
 
@@ -46,6 +47,8 @@
         {
             _iocCommonLogging = iocCommonLogging;
             _iocEventAggregator = iocEventAggregator;
+
+            _iocEventAggregator.GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
         }
 
         public IDataLog DataLog
@@ -145,28 +148,14 @@
             return;
         }
 
-        public void DataLogHide()
+        public async Task DataLogHide()
         {
-            DataLog.PopupDismissFlag = true;
+            await CommonRoutines.NavigateBack();
         }
 
-        public void DataLogShow()
+        public async Task DataLogShow()
         {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                //try
-                //{
-                //    if (Device.RuntimePlatform != Device.UWP || !CommonRoutines.ReleaseMode())
-                //    {
-                DataLog.PopupDismissFlag = false;
-                var t = Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
-                // } else { // TODO Ignore exception. See //
-                // https://github.com/xamarin/XamarinCommunityToolkit/issues/1251 And
-                // https://github.com/xamarin/XamarinCommunityToolkit/issues/1434 } } catch
-                // (Exception ex) { NotifyException("MessageLog Exception", ex, null);
-
-                // // TODO fix UWP Release issue until fixed }
-            });
+            await CommonRoutines.NavigateAsync(nameof(MessageLogPage));
         }
 
         public async Task MinorMessageAdd(string argMessage)
@@ -260,13 +249,24 @@
 
         public void PopUpShow()
         {
-            var popup = new ErrorPopup();
+            ErrorPopup popup = new ErrorPopup();
 
-            Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Application.Current.MainPage.Navigation.ShowPopupAsync(popup);
+            });
 
             // // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
 
             // // TODO fix UWP Release issue until fixed
+        }
+
+        public void ShowPopUp()
+        {
+            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            {
+                DataStore.Instance.CN.PopUpShow();
+            }
         }
     }
 }

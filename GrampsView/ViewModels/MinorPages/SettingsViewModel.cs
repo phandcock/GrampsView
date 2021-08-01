@@ -27,7 +27,6 @@
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            ShowMessageLogCommand = new AsyncCommand(ShowMessageLogHandler);
 
             TestButtonCommand = new AsyncCommand(TestButtonHandler);
 
@@ -53,12 +52,7 @@
             }
         }
 
-        //public bool TestButtonCanHandle
-        //{
-        //    get; set;
-        //}
-
-        //= true;
+    
 
         public IAsyncCommand TestButtonCommand
         {
@@ -201,11 +195,7 @@
             }
         }
 
-        private async Task ShowMessageLogHandler()
-        {
-            await Application.Current.MainPage.Navigation.ShowPopupAsync(new MessageLog());
-            return;
-        }
+     
 
         private async Task TestButtonHandler()
         {

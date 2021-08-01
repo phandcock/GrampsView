@@ -178,47 +178,26 @@
 
         public static async Task NavigateAsync(string argPageName)
         {
-            if (Device.RuntimePlatform == Device.UWP)
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    Shell.Current.GoToAsync(argPageName, animate: false);
-                });
-            }
-            else
-            {
-                await Shell.Current.GoToAsync(argPageName, animate: false);
-            };
+                Shell.Current.GoToAsync(argPageName, animate: false);
+            });
         }
 
         public static async Task NavigateBack()
         {
-            if (Device.RuntimePlatform == Device.UWP)
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    AppShell.Current.Navigation.PopAsync();               // Go back
+                AppShell.Current.Navigation.PopAsync();               // Go back
                 });
-            }
-            else
-            {
-                await AppShell.Current.Navigation.PopAsync();               // Go back
-            };
         }
 
         public static void NavigateHub()
         {
-            if (Device.RuntimePlatform == Device.UWP)
-            {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    Shell.Current.GoToAsync($"//{nameof(HubPage)}");
-                });
-            }
-            else
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 Shell.Current.GoToAsync($"//{nameof(HubPage)}");
-            };
+            });
         }
 
         public static bool ReleaseMode()

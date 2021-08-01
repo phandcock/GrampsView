@@ -179,4 +179,11 @@
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Message Log" IsVisible="False">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconAbout}" />
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate views:MessageLogPage}" Route="MessageLogPage" />
+    </FlyoutItem>
 </Shell>

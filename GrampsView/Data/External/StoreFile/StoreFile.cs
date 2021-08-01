@@ -29,63 +29,7 @@
             _commonNotifications = ContainerLocator.Container.Resolve<ICommonNotifications>();
         }
 
-        /// <summary>
-        /// get the StorageFile of the file.
-        /// </summary>
-        /// <param name="relativeFilePath">
-        /// file path relative to the provider base folder.
-        /// </param>
-        /// <returns>
-        /// StorageFile for the chosen file.
-        /// </returns>
-        public async static Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
-        {
-            IFileInfoEx resultFile = new FileInfoEx();
-
-            // Validate the input
-            if ((relativeFilePath is null) || (string.IsNullOrEmpty(relativeFilePath)))
-            {
-                return resultFile;
-            }
-
-            // Check for relative path
-            if (!StoreFileUtility.IsRelativeFilePathValid(relativeFilePath))
-            {
-                return resultFile;
-            }
-
-            // Load the real file
-            if (DataStore.Instance.AD.CurrentDataFolder.Valid)
-            {
-                try
-                {
-                    if (Directory.Exists(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Path.GetDirectoryName(relativeFilePath))))
-                    {
-                        FileInfo[] t = DataStore.Instance.AD.CurrentDataFolder.Value.GetFiles(relativeFilePath);
-
-                        if (t.Length > 0)
-                        {
-                            resultFile.FInfo = t[0];
-                        }
-                    }
-
-                    return resultFile;
-                }
-                catch (FileNotFoundException ex)
-                {
-                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
-
-                    // default to a standard file marker
-                }
-                catch (Exception ex)
-                {
-                    DataStore.Instance.CN.NotifyException(ex.Message + relativeFilePath, ex);
-                    throw;
-                }
-            }
-
-            return resultFile;
-        }
+      
 
         /// <summary>
         /// Deletes all local copies of GRAMPS data.

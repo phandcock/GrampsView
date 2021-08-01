@@ -56,9 +56,9 @@ namespace GrampsView.Common
 
         Task DataLogEntryReplace(string argMessage);
 
-        void DataLogHide();
+        Task DataLogHide();
 
-        void DataLogShow();
+        Task DataLogShow();
 
         Task MinorMessageAdd(string argMessage);
 

@@ -22,6 +22,7 @@
     using Prism.Modularity;
 
     using System.Diagnostics;
+    using System.Globalization;
     using System.Threading.Tasks;
 
     using Unity;
@@ -49,13 +50,7 @@
         {
         }
 
-        public void ShowPopUp()
-        {
-            if (DataStore.Instance.CN.PopupQueue.Count > 0)
-            {
-                DataStore.Instance.CN.PopUpShow();
-            }
-        }
+     
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
@@ -76,7 +71,7 @@
                 // determine the correct, supported .NET culture
                 DependencyService.Get<ILocalize>();
 
-                var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
 
                 // Assets.Strings.AppResources.Culture = ci; TODO set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
@@ -86,12 +81,12 @@
 
             Container.Resolve<IPlatformSpecific>();
 
-            // Resove it here.  TODO Have each class resolve its own copy using the service locator pattern from prism.
+            // Resove it here. TODO Have each class resolve its own copy using the service locator
+            // pattern from prism.
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
             Container.Resolve<IDataRepositoryManager>();
 
-            Container.Resolve<IEventAggregator>().GetEvent<ShowPopUpEvent>().Subscribe(ShowPopUp, ThreadOption.UIThread);
 
             Container.Resolve<IStartAppLoad>();
 
@@ -173,6 +168,7 @@
 
             container.RegisterForNavigation<HubPage, HubViewModel>();
 
+            container.RegisterForNavigation<MessageLogPage, MessageLogViewModel>();
             container.RegisterForNavigation<MediaDetailPage, MediaDetailViewModel>();
             container.RegisterForNavigation<MediaListPage, MediaListViewModel>();
 

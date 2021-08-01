@@ -3,8 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:customclass="clr-namespace:GrampsView.Common.CustomClasses">
+    xmlns:common="clr-namespace:GrampsView.Common">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -50,6 +49,9 @@
         x:Key="GVButtonMenu"
         BasedOn="{StaticResource GVButtonStyle}"
         TargetType="Button">
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark}, Light={StaticResource PrimaryLightColorLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
     </Style>
@@ -75,9 +77,9 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
     </Style>
 
-    <Style x:Key="GVMessageLog" TargetType="customclass:MessageLogPopup">
+    <!--<Style x:Key="GVMessageLog" TargetType="customclass:MessageLogPopup">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************

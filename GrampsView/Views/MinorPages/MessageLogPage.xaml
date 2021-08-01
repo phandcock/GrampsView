@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cc:MessageLogPopup
-    x:Class="GrampsView.Views.MessageLog"
+<views:ViewBase
+    x:Class="GrampsView.Views.MessageLogPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    x:DataType="common:CommonDataLog"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:ViewModels="clr-namespace:GrampsView.ViewModels"
+    xmlns:views="clr-namespace:GrampsView.Views"
+    Title="{Binding BaseTitle}"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="ViewModels:MessageLogViewModel"
     BackgroundColor="Transparent"
-    DismissFlag="{Binding PopupDismissFlag}"
-    Style="{DynamicResource GVMessageLog}">
+    Style="{DynamicResource GVBaseContentPage}">
+
+    <Shell.TitleView>
+        <ucon:TopMenu />
+    </Shell.TitleView>
 
     <CollectionView
         x:Name="MajorStatusList"
@@ -22,4 +29,4 @@
             <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
     </CollectionView>
-</cc:MessageLogPopup>
+</views:ViewBase>

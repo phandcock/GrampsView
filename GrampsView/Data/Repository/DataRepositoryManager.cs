@@ -195,7 +195,7 @@
                 return true;
             }
 
-            _commonNotifications.DataLogShow();
+            await _commonNotifications.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();

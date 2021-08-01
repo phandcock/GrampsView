@@ -183,10 +183,7 @@
                         <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Control Buttons" />
                     </Frame>
 
-                    <Button
-                        Command="{Binding ShowMessageLogCommand}"
-                        Style="{DynamicResource GVButtonMenu}"
-                        Text="{x:Static i18n:AppResources.Settings_GotoMessageLog}" />
+                    
 
                     <Button
                         Command="{Binding TestButtonCommand}"
