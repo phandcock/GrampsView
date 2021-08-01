@@ -1,3 +1,13 @@
+## [16.19.21](https://github.com/phandcock/GrampsView/compare/v16.19.20...v16.19.21) (2021-08-01)
+
+
+### Bug Fixes
+
+* cleanup file handling using fileinfoex ([3cb993e](https://github.com/phandcock/GrampsView/commit/3cb993eb0be2d0122e04d1abf22ad7bc88e21046))
+* tweaks ([1f36ab8](https://github.com/phandcock/GrampsView/commit/1f36ab8d4a165402f7779198fbf2f4f456b48bff))
+
+
+
 ## [16.19.20](https://github.com/phandcock/GrampsView/compare/v16.19.19...v16.19.20) (2021-07-30)
 
 
@@ -31,18 +41,6 @@
 * move citationdetailview to the new regime ([b94fdf1](https://github.com/phandcock/GrampsView/commit/b94fdf1cab66ce5b9822df92d444551ae0f8abb9))
 * tweak dateobject cardsingle visible ([edbb927](https://github.com/phandcock/GrampsView/commit/edbb9274fbfae80b4c23e981d74fcac8c1a9afe1))
 * tweak various addon files ([81e9e20](https://github.com/phandcock/GrampsView/commit/81e9e20ae56524fed9ce023ee1cc639f8986299f))
-
-
-
-## [16.19.17](https://github.com/phandcock/GrampsView/compare/v16.19.16...v16.19.17) (2021-07-23)
-
-
-### Bug Fixes
-
-* add better error messaging to resource lookup common routine ([51c01fc](https://github.com/phandcock/GrampsView/commit/51c01fc67a8335422e28ca1bdc6427ce30bc0ccc))
-* sort place enclosed places ([b027973](https://github.com/phandcock/GrampsView/commit/b027973d7689e030db806de25d1653b56394e555))
-* tweak datedetailview ([9adf034](https://github.com/phandcock/GrampsView/commit/9adf03469bc014a22cbd81b1759f0e20711e2544))
-* tweak shell menu colours ([fb9ddae](https://github.com/phandcock/GrampsView/commit/fb9ddae274d10b6ab526d92df1b651e04ef3b71a))
 
 
 
