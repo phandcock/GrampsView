@@ -308,18 +308,18 @@
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    _commonNotifications.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    _commonNotifications.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    _commonNotifications.NotifyException("UnTar tarEntry null Exception ", ex);
+                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }
