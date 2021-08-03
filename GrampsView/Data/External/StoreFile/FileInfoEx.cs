@@ -18,26 +18,23 @@
         {
         }
 
-        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = null, DirectoryInfo argBaseFolder = null, bool argUseCurrentDataFolder = false)
+        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
         {
-            Contract.Requires(argFileName != null);
+            Contract.Requires(argFileName != null, $"argFileName can not be null");
+
+            Contract.Requires(!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder), $"argUseCurrentDataFolder is false and argRelativeFolder is null");
 
             FInfo = argFInfo;
 
-            if (argRelativeFolder != null)
+            // Use cache base if currentdatafolder not allowed
+            if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
             {
-                MakeGetFile(new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)), argFileName);
+                MakeGetFile(new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory), argFileName);
+                return;
             }
 
-            if (argUseCurrentDataFolder)
-            {
-                MakeGetFile(DataStore.Instance.AD.CurrentDataFolder.Value, argFileName);
-            }
-
-            if (argBaseFolder != null)
-            {
-                MakeGetFile(argBaseFolder, argFileName);
-            }
+            // Standard call
+            MakeGetFile(new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)), argFileName);
         }
 
         public bool Exists
@@ -46,7 +43,8 @@
             {
                 if (FInfo != null)
                 {
-                    return FInfo.Exists;
+                    // Use File.Exists as FileInfo.Exists only changed when FileInfo created
+                    return File.Exists(FInfo.FullName);
                 }
 
                 return false;
@@ -177,26 +175,34 @@
             // load the real file
             DirectoryInfo realPath = new DirectoryInfo(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
 
+            FInfo = new FileInfo(Path.Combine(realPath.FullName, argFileName));
+
             if (realPath != null)
             {
                 try
                 {
-                    FileInfo[] t = realPath.GetFiles();
-
-                    this.FInfo = null;
-
-                    foreach (FileInfo item in t)
+                    // Check if exists
+                    if (FInfo.Exists)
                     {
-                        if (item.Name == Path.GetFileName(argFileName))
-                        {
-                            this.FInfo = item;
-                        }
+                        return;
                     }
 
-                    if (FInfo == null)
+                    // Create directory if required
+                    if (!realPath.Exists)
                     {
-                        FInfo = new FileInfo(Path.Combine(argBaseFolder.FullName, argFileName));
+                        realPath.Create();
                     }
+
+                    //// Get file details if it exists
+                    //FileInfo[] t = realPath.GetFiles();
+
+                    //foreach (FileInfo item in t)
+                    //{
+                    //    if (item.Name == Path.GetFileName(argFileName))
+                    //    {
+                    //        this.FInfo = item;
+                    //    }
+                    //}
                 }
                 catch (FileNotFoundException ex)
                 {
@@ -206,7 +212,7 @@
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when deserialising the data.  Perhaps the GPKG filenames are too long?") { { "Message", ex.Message }, });
+                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }
@@ -215,6 +221,10 @@
                     DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
+            }
+            else
+            {
+                // TODO Handle this
             }
         }
     }

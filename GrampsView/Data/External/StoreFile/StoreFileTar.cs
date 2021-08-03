@@ -77,24 +77,6 @@
 
                     string directoryName = Path.GetDirectoryName(outName);
 
-                    DirectoryInfo newFolder = null;
-
-                    if (relativePath.Length > 0)
-                    {
-                        newFolder = Directory.CreateDirectory(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, relativePath));
-                    }
-                    else
-                    {
-                        newFolder = DataStore.Instance.AD.CurrentDataFolder.Value;
-                    }
-
-                    // Check if the folder was created successfully.
-                    if (newFolder == null)
-                    {
-                        // Skip this file.
-                        continue;
-                    }
-
                     // Check file modification date if it exists
                     bool okToCopyFlag = true;
 
@@ -105,13 +87,13 @@
                     //    filename = CommonConstants.StorageGRAMPSFileName;
                     //}
 
+                    IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argUseCurrentDataFolder: true, argRelativeFolder: relativePath);
+
                     // if tarEntry modtime is less than outFile datemodified
                     // NOTE: This is not the file last modified date but if the file has been
                     // modified then it should be later than any UnTared file date
-                    if (await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false))
+                    if (newFileName.Exists)
                     {
-                        IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argBaseFolder: newFolder);
-
                         //if (filename == "1024x768.png")
                         //{
                         //}
@@ -140,7 +122,7 @@
 
                         await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
-                        Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
+                        Stream outStr = await StoreFolder.FolderCreateFileAsync(newFileName.FInfo.Directory, filename).ConfigureAwait(false);
 
                         try
                         {
@@ -212,13 +194,13 @@
                     }
 
                     // Check file ceated successfully
-                    bool checkFileExistsFlag = await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false);
+                    bool checkFileExistsFlag = newFileName.Exists;
 
                     if (!checkFileExistsFlag)
                     {
                         ErrorInfo t = new ErrorInfo("Error UnTaring file. File not created.  Perhaps the path is too long?")
                                 {
-                                    { "New Folder",  newFolder.FullName },
+                                    { "New Folder",  newFileName.FInfo.FullName },
                                     { "Filename",  filename },
                                 };
 

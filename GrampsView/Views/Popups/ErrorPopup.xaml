@@ -3,13 +3,13 @@
     x:Class="GrampsView.Views.ErrorPopup"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:cc="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:views="clr-namespace:GrampsView.ViewModels"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="views:ErrorDialogViewModel">
 
-    <Frame Style="{DynamicResource FrameCardStyle}">
+    <Frame Padding="5" Style="{DynamicResource FrameCardStyle}">
         <Grid>
 
             <Grid.RowDefinitions>
@@ -24,7 +24,6 @@
             <Frame
                 Grid.Row="0"
                 Grid.Column="0"
-                Padding="0"
                 HorizontalOptions="CenterAndExpand">
 
                 <Label
@@ -40,11 +39,7 @@
 
             <ScrollView Grid.Row="1" Grid.Column="0">
 
-                <Frame
-                    Padding="0"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                                      Light={StaticResource SurfaceColorLight}}"
-                    CornerRadius="3">
+                <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" CornerRadius="3">
                     <Grid Padding="0">
 
                         <Grid.RowDefinitions>
