@@ -159,7 +159,7 @@
                 {
                     argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                     argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
-                    argNewMediaModel.MediaStorageFile = StoreFolder.FolderGetCreateFile(DataStore.Instance.AD.CurrentDataFolder.Value, argNewMediaModel.OriginalFilePath);
+                    argNewMediaModel.MediaStorageFile = new FileInfoEx(argUseCurrentDataFolder: true, argFileName: argNewMediaModel.OriginalFilePath);
 
                     addLater.Add(argNewMediaModel);
 

@@ -225,13 +225,13 @@
 
                     File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
 
-                    GrampsFile = new FileInfoEx(argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);  // Mark as invalid as do not need to unzip
+                    GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
                 }
 
                 // 2) UnZip new data.GRAMPS file
                 if (GrampsFile.Valid)
                 {
-                    if (GrampsFile.ModifiedComparedToSettings())
+                    if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified))
                     {
                         await _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
@@ -240,11 +240,11 @@
                 }
 
                 // 3) Load new data.XML file
-                IFileInfoEx dataXML = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName, argSystemSettingsKey: CommonConstants.SettingsXMLFileLastDateTimeModified);
+                IFileInfoEx dataXML = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
 
                 if (dataXML.Valid)
                 {
-                    if (dataXML.ModifiedComparedToSettings())
+                    if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, CommonConstants.SettingsXMLFileLastDateTimeModified))
                     {
                         await _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 
@@ -327,7 +327,7 @@
                 // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
             }
 
-            return new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName, argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
+            return new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@
         /// </returns>
         public async Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
-            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName, argSystemSettingsKey: CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
+            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
 
             if (fileGrampsDataInput != null)
             {
@@ -352,7 +352,7 @@
 
                 // Save the current Index File modified date for later checking
 
-                fileGrampsDataInput.SaveLastWriteToSettings();
+              CommonLocalSettings.  SaveLastWriteToSettings(fileGrampsDataInput, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
             }
 
             return false;
@@ -378,12 +378,12 @@
 
                     await _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data").ConfigureAwait(false);
 
-                    IFileInfoEx t = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName, argSystemSettingsKey: CommonConstants.SettingsXMLFileLastDateTimeModified);
+                    IFileInfoEx t = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
 
                     if (t.Valid)
                     {
                         // Save the current Index File modified date for later checking
-                        t.SaveLastWriteToSettings();
+                        CommonLocalSettings.SaveLastWriteToSettings(t, CommonConstants.SettingsXMLFileLastDateTimeModified);
                     }
 
                     UpdateSavedLocalSettings();

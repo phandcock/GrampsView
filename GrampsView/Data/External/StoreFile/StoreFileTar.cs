@@ -21,73 +21,6 @@
     /// <seealso cref="GrampsView.Data.IStoreFile"/>
     public partial class StoreFile : ObservableObject, IStoreFile
     {
-        ///// <summary>
-        ///// Extracts the tar by entry.
-        ///// </summary>
-        ///// <param name="tarFileName">
-        ///// Name of the tar file.
-        ///// </param>
-        ///// <param name="targetDir">
-        ///// The target dir.
-        ///// </param>
-        ///// <param name="asciiTranslate">
-        ///// if set to <c> true </c> [ASCII translate].
-        ///// </param>
-        //public static void ExtractTarByEntry(string tarFileName, string targetDir, bool asciiTranslate)
-        //{
-        //    using (FileStream fsIn = new FileStream(tarFileName, FileMode.Open, FileAccess.Read))
-        //    {
-        //        using (TarInputStream tarIn = new TarInputStream(fsIn, System.Text.Encoding.ASCII))
-        //        {
-        //            TarEntry tarEntry;
-        //            while ((tarEntry = tarIn.GetNextEntry()) != null)
-        //            {
-        //                if (tarEntry.IsDirectory)
-        //                {
-        //                    continue;
-        //                }
-
-        // // Converts the unix forward slashes in the filenames to windows backslashes string name
-        // = tarEntry.Name.Replace('/', Path.DirectorySeparatorChar);
-
-        // // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine if
-        // (Path.IsPathRooted(name)) { name = name.Substring(Path.GetPathRoot(name).Length); }
-
-        // // Apply further name transformations here as necessary string outName =
-        // Path.Combine(targetDir, name);
-
-        // string directoryName = Path.GetDirectoryName(outName);
-        // Directory.CreateDirectory(directoryName); // Does nothing if directory exists
-
-        // using (FileStream outStr = new FileStream(outName, FileMode.Create)) { if
-        // (asciiTranslate) { CopyWithAsciiTranslate(tarIn, outStr); } else {
-        // tarIn.CopyEntryContents(outStr); } }
-
-        // // outStr.Close(); Set the modification date/time. This approach seems to // solve
-        // timezone issues. DateTime myDt = DateTime.SpecifyKind(tarEntry.ModTime,
-        // DateTimeKind.Utc); File.SetLastWriteTime(outName, myDt); }
-
-        //            // tarIn.Close();
-        //        }
-        //    }
-        //}
-
-        ///// <summary>
-        ///// Extracts the tar archive.
-        ///// </summary>
-        ///// <param name="dataFolder">
-        ///// The data folder.
-        ///// </param>
-        ///// <param name="tarIn">
-        ///// The tar in.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //public async Task ExtractTarArchive(TarInputStream tarIn)
-        //{
-        //    await ExtractTarIfNotModified(tarIn, false).ConfigureAwait(false);
-        //}
-
         /// <summary>
         /// Extracts the tared files from the archive.
         /// NOTE: This is not the file last modified date but if the file has been modified then it
@@ -177,7 +110,7 @@
                     // modified then it should be later than any UnTared file date
                     if (await StoreFolder.FolderFileExistsAsync(newFolder, filename).ConfigureAwait(false))
                     {
-                        IFileInfoEx newFileName = new FileInfoEx(argFileName: filename,argRelativeFolder: newFolder);
+                        IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argBaseFolder: newFolder);
 
                         //if (filename == "1024x768.png")
                         //{
@@ -209,7 +142,6 @@
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFolder, filename).ConfigureAwait(false);
 
-                      
                         try
                         {
                             tarIn.CopyEntryContents(outStr);
@@ -324,7 +256,5 @@
                 }
             }
         }
-
-       
     }
 }

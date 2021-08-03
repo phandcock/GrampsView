@@ -6,7 +6,7 @@
     using System;
     using System.Diagnostics.Contracts;
     using System.IO;
-using System.Threading.Tasks;
+    using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -14,20 +14,62 @@ using System.Threading.Tasks;
     {
         private FileInfo _FInfo;
 
-        public FileInfoEx(FileInfo argFInfo = null, string argSystemSettingsKey = null, DirectoryInfo argRelativeFolder = null, string argFileName = null)
+        public FileInfoEx()
         {
+        }
+
+        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = null, DirectoryInfo argBaseFolder = null, bool argUseCurrentDataFolder = false)
+        {
+            Contract.Requires(argFileName != null);
+
             FInfo = argFInfo;
 
-            if (argSystemSettingsKey != null)
+            if (argRelativeFolder != null)
             {
-                SystemSettingsKey = argSystemSettingsKey;
+                MakeGetFile(new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)), argFileName);
             }
 
-            if ((argRelativeFolder != null) || (argFileName != null))
+            if (argUseCurrentDataFolder)
             {
-             
+                MakeGetFile(DataStore.Instance.AD.CurrentDataFolder.Value, argFileName);
+            }
 
-                MakeGetFile(argRelativeFolder, argFileName);
+            if (argBaseFolder != null)
+            {
+                MakeGetFile(argBaseFolder, argFileName);
+            }
+        }
+
+        public bool Exists
+        {
+            get
+            {
+                if (FInfo != null)
+                {
+                    return FInfo.Exists;
+                }
+
+                return false;
+            }
+        }
+
+        public FileInfo FInfo
+        {
+            get
+            {
+                return _FInfo;
+            }
+            set
+            {
+                SetProperty(ref _FInfo, value);
+            }
+        }
+
+        public bool Valid
+        {
+            get
+            {
+                return (!(FInfo == null) && (FInfo.Exists));
             }
         }
 
@@ -40,9 +82,10 @@ using System.Threading.Tasks;
         /// <returns>
         /// StorageFile for the chosen file.
         /// </returns>
+        /// TODO Check if same as MakeGetFile
         public async static Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
         {
-            IFileInfoEx resultFile = new FileInfoEx();
+            IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 
             // Validate the input
             if ((relativeFilePath is null) || (string.IsNullOrEmpty(relativeFilePath)))
@@ -89,125 +132,12 @@ using System.Threading.Tasks;
             return resultFile;
         }
 
-        public bool Exists
-        {
-            get
-            {
-                if (FInfo != null)
-                {
-                    return FInfo.Exists;
-                }
-
-                return false;
-            }
-        }
-
-        public FileInfo FInfo
-        {
-            get
-            {
-                return _FInfo;
-            }
-            set
-            {
-                SetProperty(ref _FInfo, value);
-            }
-        }
-
-        public string RelativeDirectory
-        {
-            get; set;
-        }
-
-        public bool Valid
-        {
-            get
-            {
-                return (!(FInfo == null) && (FInfo.Exists));
-            }
-        }
-
-        private string SystemSettingsKey
-        {
-            get; set;
-        } = string.Empty;
-
-        /// <summary>
-        /// Was the file modified since the last datetime saved?
-        /// </summary>
-        /// <returns>
-        /// True if the file was modified since last time.
-        /// </returns>
-        public bool ModifiedComparedToSettings()
-        {
-            Contract.Assert(FInfo != null);
-
-            Contract.Assert(SystemSettingsKey != string.Empty);
-
-            // Check for file exists
-            if (!this.Valid)
-            {
-                return false;
-            }
-
-            try
-            {
-                DateTime fileDateTime = FileGetDateTimeModified();
-
-                // Need to reparse it so the ticks are the same
-                fileDateTime = DateTime.Parse(fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture), System.Globalization.CultureInfo.CurrentCulture);
-
-                // Save a fresh copy if null so we can load next time
-                string oldDateTime = DataStore.Instance.ES.PreferencesGet(SystemSettingsKey, string.Empty);
-
-                if (string.IsNullOrEmpty(oldDateTime))
-                {
-                    DataStore.Instance.ES.PreferencesSet(SystemSettingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
-
-                    // No previous settings entry so do the load (it might be the FirstRun)
-                    return true;
-                }
-                else
-                {
-                    DateTime settingsStoredDateTime;
-                    settingsStoredDateTime = DateTime.Parse(oldDateTime, System.Globalization.CultureInfo.CurrentCulture);
-
-                    int t = fileDateTime.CompareTo(settingsStoredDateTime);
-                    if (t > 0)
-                    {
-                        return true;
-                    }
-
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                DataStore.Instance.ES.PreferencesRemove(SystemSettingsKey);
-
-                DataStore.Instance.CN.NotifyException("FileModifiedSinceLastSaveAsync", ex);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Saves the datetime the file was last modified in System Settings.
-        /// </summary>
-        public void SaveLastWriteToSettings()
-        {
-            Contract.Assert(FInfo != null);
-
-            Contract.Assert(SystemSettingsKey != string.Empty);
-
-            DataStore.Instance.ES.PreferencesSet(SystemSettingsKey, FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
-        }
-
         /// <summary>
         /// Indexes the file get date time modified.
         /// </summary>
         /// <returns>
         /// </returns>
-        private DateTime FileGetDateTimeModified()
+        public DateTime FileGetDateTimeModified()
         {
             try
             {
@@ -253,12 +183,19 @@ using System.Threading.Tasks;
                 {
                     FileInfo[] t = realPath.GetFiles();
 
+                    this.FInfo = null;
+
                     foreach (FileInfo item in t)
                     {
                         if (item.Name == Path.GetFileName(argFileName))
                         {
                             this.FInfo = item;
                         }
+                    }
+
+                    if (FInfo == null)
+                    {
+                        FInfo = new FileInfo(Path.Combine(argBaseFolder.FullName, argFileName));
                     }
                 }
                 catch (FileNotFoundException ex)

@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Test Data\**" />
+    <EmbeddedResource Remove="Test Data\**" />
+    <None Remove="Test Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
     <Compile Remove="Utility\DataStoreClean.cs" />
   </ItemGroup>
@@ -25,13 +31,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Test Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
   </ItemGroup>
 </Project>

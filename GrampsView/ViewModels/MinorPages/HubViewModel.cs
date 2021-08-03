@@ -147,13 +147,6 @@
             }
         }
 
-        /// <summary>
-        /// Populate the Hub View.
-        /// </summary>
-        public override void BaseHandleLoadEvent()
-        {
-        }
-
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);

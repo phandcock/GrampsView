@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data
 {
+    using System;
     using System.IO;
 
     public interface IFileInfoEx
@@ -16,18 +17,11 @@
             set;
         }
 
-        string RelativeDirectory
-        {
-            get; set;
-        }
-
         bool Valid
         {
             get;
         }
 
-        bool ModifiedComparedToSettings();
-
-        void SaveLastWriteToSettings();
+        DateTime FileGetDateTimeModified();
     }
 }

@@ -96,19 +96,7 @@
             set => SetProperty(ref _Change, value);
         }
 
-        ///// <summary>
-        ///// Gets the de reference.
-        ///// </summary>
-        ///// <value>
-        ///// The de reference.
-        ///// </value>
-        //public virtual ModelBase DeRef
-        //{
-        //    get
-        //    {
-        //        return new ModelBase();
-        //    }
-        //}
+       
 
         /// <summary>
         /// Gets the get default text for this Model.

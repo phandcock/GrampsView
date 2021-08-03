@@ -20,8 +20,6 @@
     [DataContract]
     public partial class StoreFile : ObservableObject, IStoreFile
     {
-       
-
         /// <summary>
         /// Deletes all local copies of GRAMPS data.
         /// </summary>

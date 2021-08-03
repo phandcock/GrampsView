@@ -188,6 +188,8 @@
         public async Task TopMenuNoteCommandHandler()
         {
             string body = string.Empty;
+
+
             List<string> recipients = new List<string>
             {
                 CommonLocalSettings.NoteEmailAddress
@@ -246,7 +248,7 @@
         {
             TopMenuHubCommand = new AsyncCommand(TopMenuHubCommandHandler);
 
-            // As UWP does not support shell swipes. TODO Fix this when we can
+            // As UWP does not support shell swipes for desktop. TODO Fix this when we can
             if (Device.RuntimePlatform == Device.UWP)
             {
                 TopMenuHubButtonVisible = true;

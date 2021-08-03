@@ -105,16 +105,6 @@
             return false;
         }
 
-        public static IFileInfoEx FolderGetCreateFile(DirectoryInfo argBaseFolder, string argFileName)
-        {
-            IFileInfoEx t = new FileInfoEx(argRelativeFolder: argBaseFolder,argFileName: argFileName);
-
-            if (t.FInfo == null)
-            {
-                t.FInfo = new FileInfo(Path.Combine(argBaseFolder.FullName, argFileName));
-            }
-
-            return t;
-        }
+      
     }
 }
