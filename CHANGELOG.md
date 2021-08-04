@@ -1,3 +1,14 @@
+## [16.19.23](https://github.com/phandcock/GrampsView/compare/v16.19.22...v16.19.23) (2021-08-04)
+
+
+### Bug Fixes
+
+* cleanup fileinfoex ([ec19d43](https://github.com/phandcock/GrampsView/commit/ec19d434f304ebd96c578966c1dbcca2957e86ee))
+* fix Unit Testing failure ([b717661](https://github.com/phandcock/GrampsView/commit/b717661f3468b7f04a94a23e5a4bc25fa3e2ab0b))
+* more fileinfoex cleanup ([0576ce7](https://github.com/phandcock/GrampsView/commit/0576ce7064ea5de17b8125478a2abf05f4afb191))
+
+
+
 ## [16.19.22](https://github.com/phandcock/GrampsView/compare/v16.19.21...v16.19.22) (2021-08-02)
 
 
@@ -23,16 +34,6 @@
 ### Bug Fixes
 
 * tweaks ([5a53bd3](https://github.com/phandcock/GrampsView/commit/5a53bd3fd824e7c83d88ffb994616cb9af91e659))
-
-
-
-## [16.19.19](https://github.com/phandcock/GrampsView/compare/v16.19.18...v16.19.19) (2021-07-26)
-
-
-### Bug Fixes
-
-* start move of commonnotificatiosn away from applicationdata static ([5f0bbff](https://github.com/phandcock/GrampsView/commit/5f0bbff614b3c03394d2ee1fe2037640d8df8821))
-* update to Breadcrumb 2.7.0 ([710c8e0](https://github.com/phandcock/GrampsView/commit/710c8e01e04c9e9e2740d426d1f9038697fa38c8))
 
 
 
