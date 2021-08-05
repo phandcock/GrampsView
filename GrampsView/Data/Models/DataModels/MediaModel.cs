@@ -228,7 +228,7 @@ namespace GrampsView.Data.Model
         /// Gets a value indicating whether [media storage file valid]. Runs various checks on the mediafile.
         /// </summary>
         /// <value>
-        /// <c>true</c> if [media storage file valid]; otherwise, <c>false</c>.
+        /// <c> true </c> if [media storage file valid]; otherwise, <c> false </c>.
         /// </value>
         public bool IsMediaStorageFileValid
         {
@@ -245,11 +245,6 @@ namespace GrampsView.Data.Model
                     return false;
                 };
 
-                if (_MediaStorageFile.FInfo.FullName == null)
-                {
-                    return false;
-                };
-
                 //if (!(Uri.IsWellFormedUriString(MediaStorageFileUri.AbsolutePath, UriKind.Absolute))) { return false; };
 
                 return true;
@@ -260,7 +255,7 @@ namespace GrampsView.Data.Model
         /// Gets a value indicating whether [original file path] is valid.
         /// </summary>
         /// <value>
-        /// <c>true</c> if [original file path valid]; otherwise, <c>false</c>.
+        /// <c> true </c> if [original file path valid]; otherwise, <c> false </c>.
         /// </value>
         public bool IsOriginalFilePathValid
         {
@@ -279,7 +274,7 @@ namespace GrampsView.Data.Model
         /// Gets a value indicating whether this instance is media file.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is media file; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is media file; otherwise, <c> false </c>.
         /// </value>
         public CommonEnums.HLinkGlyphType MediaDisplayType
         {

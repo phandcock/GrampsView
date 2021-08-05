@@ -6,10 +6,12 @@
     using System;
     using System.Diagnostics.Contracts;
     using System.IO;
+    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
+    [DataContract]
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
         private FileInfo _FInfo;
@@ -51,6 +53,7 @@
             }
         }
 
+        [DataMember]
         public FileInfo FInfo
         {
             get
@@ -67,7 +70,7 @@
         {
             get
             {
-                return (!(FInfo == null) && (FInfo.Exists));
+                return ((FInfo != null) && (FInfo.Exists) && (FInfo.FullName != null));
             }
         }
 
@@ -175,7 +178,7 @@
             // load the real file
             DirectoryInfo realPath = new DirectoryInfo(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
 
-            FInfo = new FileInfo(Path.Combine(realPath.FullName, argFileName));
+            FInfo = new FileInfo(Path.Combine(realPath.FullName, Path.GetFileName(argFileName)));
 
             if (realPath != null)
             {

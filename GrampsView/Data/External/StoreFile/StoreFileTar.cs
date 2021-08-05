@@ -87,7 +87,7 @@
                     //    filename = CommonConstants.StorageGRAMPSFileName;
                     //}
 
-                    IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argUseCurrentDataFolder: true, argRelativeFolder: relativePath);
+                    IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argRelativeFolder: relativePath);
 
                     // if tarEntry modtime is less than outFile datemodified
                     // NOTE: This is not the file last modified date but if the file has been
