@@ -35,6 +35,20 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
+        /// <summary>
+        /// Gets the default text for this ViewModel.
+        /// </summary>
+        /// <value>
+        /// The get default text.
+        /// </value>
+        public override string DefaultText
+        {
+            get
+            {
+                return FullName;
+            }
+        }
+
         public string ExtraNames
         {
             get
@@ -142,20 +156,6 @@ namespace GrampsView.Data.Model
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Gets the default text for this ViewModel.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        public override string GetDefaultText
-        {
-            get
-            {
-                return FullName;
-            }
         }
 
         /// <summary>

@@ -27,7 +27,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(addressModel => addressModel.GetDefaultText).ToList();
+                return DataViewData.OrderBy(addressModel => addressModel.DefaultText).ToList();
             }
         }
 
@@ -116,7 +116,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkPersonNameModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GetDefaultText);
+            IOrderedEnumerable<HLinkPersonNameModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.DefaultText);
 
             HLinkPersonNameModelCollection tt = new HLinkPersonNameModelCollection();
 

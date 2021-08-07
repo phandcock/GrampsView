@@ -16,6 +16,14 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
     public interface IAddressModel : IModelBase
     {
+        /// <summary>
+        /// Gets the formatted.
+        /// </summary>
+        /// <value>
+        /// The formatted address.
+        /// </value>
+        new string DefaultText { get; }
+
         HLinkCitationModelCollection GCitationRefCollection { get; }
 
         /// <summary>
@@ -31,15 +39,6 @@ namespace GrampsView.Data.Model
         string GCounty { get; set; }
 
         DateObjectModel GDate { get; set; }
-
-        /// <summary>
-        /// Gets the formatted.
-        /// </summary>
-        /// <value>
-        /// The formatted address.
-        /// </value>
-        new string GetDefaultText { get; }
-
         string GLocality { get; set; }
 
         HLinkNoteModelCollection GNoteRefCollection { get; }

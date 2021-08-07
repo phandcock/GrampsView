@@ -8,15 +8,15 @@
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// <para>Source ViewModel.</para>
+    /// <para> Source ViewModel. </para>
     /// <list type="table">
     /// <item>
-    /// <description>Area</description>
-    /// <description>Status</description>
+    /// <description> Area </description>
+    /// <description> Status </description>
     /// </item>
     /// <item>
-    /// <description>XML 1.71 Checked</description>
-    /// <description>Yes</description>
+    /// <description> XML 1.71 Checked </description>
+    /// <description> Yes </description>
     /// </item>
     /// </list>
     /// </summary>
@@ -38,6 +38,20 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
+        /// <summary>
+        /// Gets the get default text for this ViewModel.
+        /// </summary>
+        /// <value>
+        /// The get default text.
+        /// </value>
+        public override string DefaultText
+        {
+            get
+            {
+                return GSTitle;
+            }
+        }
+
         public string GetDefaultRepository
         {
             get
@@ -48,27 +62,13 @@
 
                     if (t.Valid)
                     {
-                        return t.DeRef.GetDefaultText;
+                        return t.DeRef.DefaultText;
                     }
 
                     var tt = 1;
                 }
 
                 return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the get default text for this ViewModel.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        public override string GetDefaultText
-        {
-            get
-            {
-                return GSTitle;
             }
         }
 

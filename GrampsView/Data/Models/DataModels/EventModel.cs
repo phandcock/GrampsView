@@ -32,6 +32,19 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
         }
 
+        public override string DefaultText
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(GDescription))
+                {
+                    return GDescription;
+                }
+
+                return GType;
+            }
+        }
+
         // TODO display different text according to the model types
         [DataMember]
         public EventModelType EventType
@@ -97,19 +110,6 @@
 
             set;
         } = "No event description";
-
-        public override string GetDefaultText
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(GDescription))
-                {
-                    return GDescription;
-                }
-
-                return GType;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the g media reference collection.

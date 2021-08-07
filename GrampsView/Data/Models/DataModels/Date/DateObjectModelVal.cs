@@ -66,6 +66,14 @@
         {
         }
 
+        public override string DefaultTextShort
+        {
+            get
+            {
+                return ShortDate.ToString();
+            }
+        }
+
         /// <summary>
         /// Gets the $$(cformat)$$ field.
         /// </summary>
@@ -109,14 +117,6 @@
                 }
 
                 return null;
-            }
-        }
-
-        public override string GetDefaultTextShort
-        {
-            get
-            {
-                return ShortDate.ToString();
             }
         }
 

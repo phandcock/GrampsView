@@ -359,7 +359,7 @@ namespace GrampsView.Data.DataView
                 {
                     if (item1.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
                     {
-                        ttt.Add(item1.HLink() as HLinkPersonModel);
+                        ttt.Add(item1.HLink as HLinkPersonModel);
                     }
                 }
             }

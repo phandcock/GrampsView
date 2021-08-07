@@ -80,8 +80,8 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GetDefaultText, item.GDateContent, item.GPage
-                        group item by (item.GetDefaultText) into g
+                        orderby item.DefaultText, item.GDateContent, item.GPage
+                        group item by (item.DefaultText) into g
                         select new
                         {
                             GroupName = g.Key,
@@ -173,7 +173,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GDateContent.ShortDate.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GDateContent.ShortDate.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.DefaultText);
 
             foreach (ICitationModel tempMO in temp)
             {

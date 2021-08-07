@@ -60,7 +60,7 @@
                 {
                     URLModel newLinkURL = new URLModel
                     {
-                        GDescription = NoteObject.GetDefaultText,
+                        GDescription = NoteObject.DefaultText,
                         URLType = URIType.URL,
                         GHRef = new Uri(NoteObject.TextShort)
                     };

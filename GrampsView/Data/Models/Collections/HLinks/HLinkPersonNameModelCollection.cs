@@ -106,7 +106,7 @@ namespace GrampsView.Data.Collections
         public void Sort()
         {
             // Sort the collection
-            List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.GetDefaultText).ToList();
+            List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.DefaultText).ToList();
 
             Items.Clear();
 

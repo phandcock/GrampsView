@@ -50,7 +50,7 @@
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
                         new CardListLine("Title:", PlaceObject.GPTitle),
-                        new CardListLine("Name:", PlaceObject.GPlaceNames.GetDefaultText),
+                        new CardListLine("Name:", PlaceObject.GPlaceNames.DefaultText),
                         new CardListLine("Type:", PlaceObject.GType),
                         new CardListLine("Code:", PlaceObject.GCode),
                 });

@@ -11,8 +11,8 @@
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// <para>Store a collection of Repository HLinks.</para>
-    /// <para>XML 1.71 check done</para>
+    /// <para> Store a collection of Repository HLinks. </para>
+    /// <para> XML 1.71 check done </para>
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkRepositoryRefModel>))]
@@ -58,7 +58,7 @@
         public void Sort()
         {
             // Sort the collection
-            List<HLinkRepositoryRefModel> t = this.OrderBy(HLinkRepositoryRefModel => HLinkRepositoryRefModel.DeRef.GetDefaultText).ToList();
+            List<HLinkRepositoryRefModel> t = this.OrderBy(HLinkRepositoryRefModel => HLinkRepositoryRefModel.DeRef.DefaultText).ToList();
 
             Items.Clear();
 

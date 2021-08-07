@@ -286,7 +286,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            IEnumerable<EventModel> temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
+            IEnumerable<EventModel> temp = DataViewData.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.DefaultText);
 
             foreach (EventModel tempMO in temp)
             {

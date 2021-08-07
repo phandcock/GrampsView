@@ -51,7 +51,7 @@ namespace GrampsView.Data.Collections
 
                     foreach (var item in g.Items)
                     {
-                        info.Add(item.HLink());
+                        info.Add(item.HLink);
                     }
 
                     t.Add(info);
@@ -69,7 +69,7 @@ namespace GrampsView.Data.Collections
 
                 foreach (HLinkBackLink item in Items)
                 {
-                    t.Add(item.HLink());
+                    t.Add(item.HLink);
                 }
 
                 t.Title = Title;

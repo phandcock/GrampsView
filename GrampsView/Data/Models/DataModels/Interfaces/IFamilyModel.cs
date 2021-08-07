@@ -20,15 +20,10 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The family display name sort.
         /// </value>
-        string FamilyDisplayNameSort
+        string DefaultTextSort
         {
             get;
         }
-
-        //string FamilyRelationshipWithPrefix
-        //{
-        //    get;
-        //}
 
         /// <summary>
         /// Gets the get h link Family Model that points to this ViewModel.

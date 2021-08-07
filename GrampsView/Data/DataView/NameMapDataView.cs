@@ -146,7 +146,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.DefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.DefaultText);
 
             foreach (NameMapModel tempMO in temp)
             {

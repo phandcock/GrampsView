@@ -49,6 +49,14 @@
 
             = new DateObjectModelVal();
 
+        public override string DefaultText
+        {
+            get
+            {
+                return GPersonNamesCollection.GetPrimaryName.DeRef.DefaultText;
+            }
+        }
+
         /// <summary>
         /// Gets or sets gaddress collection.
         /// </summary>
@@ -101,14 +109,6 @@
 
             set;
         } = new HLinkCitationModelCollection();
-
-        public override string GetDefaultText
-        {
-            get
-            {
-                return GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
-            }
-        }
 
         /// <summary> Gets or sets the Event Reference Collection.
         // </summary>

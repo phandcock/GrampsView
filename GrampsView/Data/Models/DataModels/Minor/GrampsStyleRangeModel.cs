@@ -29,7 +29,7 @@
         {
             Contract.Assert(other != null);
 
-            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
+            return string.Compare(DefaultText, other.DefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(GrampsStyleRangeModel other)
@@ -39,7 +39,7 @@
                 return false;
             }
 
-            if (GetDefaultText == other.GetDefaultText)
+            if (DefaultText == other.DefaultText)
             {
                 return true;
             }

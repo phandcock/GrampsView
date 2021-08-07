@@ -25,7 +25,7 @@
             Grid.Column="0"
             LineBreakMode="WordWrap"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.FamilyDisplayName, Mode=OneWay}" />
+            Text="{Binding DeRef.DefaultText, Mode=OneWay}" />
 
         <Label
             Grid.Row="1"

@@ -73,7 +73,7 @@ namespace GrampsView.Data.Model
         {
             if (DeRef != null)
             {
-                return DeRef.GetDefaultTextShort;
+                return DeRef.DefaultTextShort;
             }
 
             return base.ToString();

@@ -84,7 +84,7 @@ namespace GrampsView.Data.Collections
         public void Sort()
         {
             // Sort the collection
-            List<HLinkFamilyModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.FamilyDisplayNameSort).ToList();
+            List<HLinkFamilyModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.DefaultTextSort).ToList();
 
             Items.Clear();
 

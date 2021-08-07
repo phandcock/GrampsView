@@ -27,12 +27,17 @@
         /// <value>
         /// The get default text.
         /// </value>
-        string GetDefaultText
+        string DefaultText
         {
             get;
         }
 
-        string GetDefaultTextShort
+        string DefaultTextShort
+        {
+            get;
+        }
+
+        string DefaultTextSort
         {
             get;
         }

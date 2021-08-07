@@ -52,7 +52,7 @@
 
             if (!(RepositoryObject == null))
             {
-                BaseTitle = RepositoryObject.GetDefaultText;
+                BaseTitle = RepositoryObject.DefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
                 BaseDetail.Add(new CardListLineCollection("Call Details")

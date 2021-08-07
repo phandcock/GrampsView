@@ -53,6 +53,25 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
+        /// Gets the default text for this Model.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string DefaultText
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(GPTitle))
+                {
+                    return GPTitle;
+                }
+
+                return GPlaceNames.DefaultText;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the g citation reference collection.
         /// </summary>
         [DataMember]
@@ -82,25 +101,6 @@ namespace GrampsView.Data.Model
         public string GCoordLong
         {
             get; set;
-        }
-
-        /// <summary>
-        /// Gets the default text for this Model.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string GetDefaultText
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(GPTitle))
-                {
-                    return GPTitle;
-                }
-
-                return GPlaceNames.GetDefaultText;
-            }
         }
 
         [DataMember]
@@ -248,7 +248,7 @@ namespace GrampsView.Data.Model
             PlaceModel firstEvent = (PlaceModel)a;
             PlaceModel secondEvent = (PlaceModel)b;
 
-            int testFlag = string.Compare(firstEvent.GetDefaultText, secondEvent.GetDefaultText, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(firstEvent.DefaultText, secondEvent.DefaultText, StringComparison.CurrentCulture);
 
             return testFlag;
         }
@@ -266,7 +266,7 @@ namespace GrampsView.Data.Model
         {
             PlaceModel secondEvent = (PlaceModel)obj;
 
-            int testFlag = string.Compare(GetDefaultText, secondEvent.GetDefaultText, StringComparison.CurrentCulture);
+            int testFlag = string.Compare(DefaultText, secondEvent.DefaultText, StringComparison.CurrentCulture);
 
             return testFlag;
         }

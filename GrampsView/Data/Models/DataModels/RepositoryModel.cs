@@ -37,6 +37,20 @@
         }
 
         /// <summary>
+        /// Gets the default text for this Model.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string DefaultText
+        {
+            get
+            {
+                return GRName;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets address collection.
         /// </summary>
         [DataMember]
@@ -46,20 +60,6 @@
         }
 
         = new HLinkAddressModelCollection();
-
-        /// <summary>
-        /// Gets the default text for this Model.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string GetDefaultText
-        {
-            get
-            {
-                return GRName;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the note reference collection.

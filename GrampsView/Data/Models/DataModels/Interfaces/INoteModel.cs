@@ -18,7 +18,7 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface INoteModel : IModelBase
     {
-        new string GetDefaultText
+        new string DefaultText
         {
             get;
         }

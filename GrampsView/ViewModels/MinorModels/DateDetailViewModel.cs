@@ -66,7 +66,7 @@
 
                 BaseDetail.Add(new CardListLineCollection("Date Internal")
                 {
-                    new CardListLine("Default Date:", DateObject.GetDefaultText),
+                    new CardListLine("Default Date:", DateObject.DefaultText),
                     new CardListLine("Notional Date:", DateObject.NotionalDate.ToString()),
                     new CardListLine("Single Date:", DateObject.SingleDate.ToString()),
                     new CardListLine("Sort Date:", DateObject.SortDate.ToString()),

@@ -8,7 +8,7 @@
     x:DataType="models:HLinkCitationModel">
 
     <StackLayout>
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.GetDefaultText, Mode=OneWay}" />
+        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.DefaultText, Mode=OneWay}" />
 
         <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.GPage, Mode=OneWay}" />
 

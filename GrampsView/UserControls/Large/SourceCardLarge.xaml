@@ -23,7 +23,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleMedium}"
-            Text="{Binding DeRef.GetDefaultText, Mode=OneWay}"
+            Text="{Binding DeRef.DefaultText, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
 
         <Label

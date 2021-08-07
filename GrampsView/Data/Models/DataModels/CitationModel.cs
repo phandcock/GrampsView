@@ -31,6 +31,25 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
+        /// Gets the get default text for this ViewModel.
+        /// </summary>
+        /// <value>
+        /// The get default text.
+        /// </value>
+        public override string DefaultText
+        {
+            get
+            {
+                if (GSourceRef.Valid)
+                {
+                    return GSourceRef.DeRef.GSTitle;
+                }
+
+                return "???Source Reference not found";
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the Confidence level.
         /// </summary>
         /// <value>
@@ -59,25 +78,6 @@ namespace GrampsView.Data.Model
         }
 
             = new DateObjectModelVal();
-
-        /// <summary>
-        /// Gets the get default text for this ViewModel.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        public override string GetDefaultText
-        {
-            get
-            {
-                if (GSourceRef.Valid)
-                {
-                    return GSourceRef.DeRef.GSTitle;
-                }
-
-                return "???Source Reference not found";
-            }
-        }
 
         /// <summary>
         /// Gets or sets the media reference collection.

@@ -54,7 +54,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The display name of the family.
         /// </value>
-        public string FamilyDisplayName
+        public override string DefaultText
         {
             get
             {
@@ -93,7 +93,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The family display name sort.
         /// </value>
-        public string FamilyDisplayNameSort
+        public override string DefaultTextSort
         {
             get
             {
@@ -124,19 +124,6 @@ namespace GrampsView.Data.Model
                 return familyName;
             }
         }
-
-        //public string FamilyRelationshipWithPrefix
-        //{
-        //    get
-        //    {
-        //        if (Valid & (!string.IsNullOrWhiteSpace(GFamilyRelationship)))
-        //        {
-        //            return $"{AppResources.FieldPrefixFamilyRelationship} {GFamilyRelationship}";
-        //        }
-
-        //        return string.Empty;
-        //    }
-        //}
 
         /// <summary>
         /// Gets or sets the g attribute collection. This is the [attribute*] attribute.

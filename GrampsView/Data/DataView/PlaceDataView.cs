@@ -33,7 +33,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(PlaceModel => PlaceModel.GetDefaultText).ToList();
+                return DataViewData.OrderBy(PlaceModel => PlaceModel.DefaultText).ToList();
             }
         }
 
@@ -109,8 +109,8 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GetDefaultText
-                        group item by (item.GetDefaultText.Substring(0, 1).ToUpper()) into g
+                        orderby item.DefaultText
+                        group item by (item.DefaultText.Substring(0, 1).ToUpper()) into g
                         select new
                         {
                             GroupName = g.Key,
@@ -202,7 +202,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GetDefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.DefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.DefaultText);
 
             foreach (PlaceModel tempMO in temp)
             {

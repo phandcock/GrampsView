@@ -97,7 +97,7 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GType, item.GetDefaultText
+                        orderby item.GType, item.DefaultText
                         group item by (item.GType) into g
                         select new
                         {
@@ -212,7 +212,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.GetDefaultText);
+            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.DefaultText);
 
             if (temp.Any())
             {

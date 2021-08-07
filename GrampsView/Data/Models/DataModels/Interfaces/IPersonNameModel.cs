@@ -4,14 +4,12 @@
     /// </summary>
     public interface IPersonNameModel : IModelBase
     {
+        new string DefaultText { get; }
         string FirstFirstName { get; }
 
         DateObjectModel GDate { get; set; }
 
         string GDisplay { get; set; }
-
-        new string GetDefaultText { get; }
-
         string GTitle { get; }
 
         string GType { get; }

@@ -351,7 +351,7 @@ namespace GrampsView.Common
 
                 case HLinkBackLink i:
                     {
-                        return OnSelectTemplate(i.HLink(), container);
+                        return OnSelectTemplate(i.HLink, container);
                     }
 
                 case HLinkChildRefModel i:

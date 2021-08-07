@@ -29,7 +29,7 @@
             Grid.Row="0"
             Grid.Column="1"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.GetDefaultTextShort, Mode=OneWay}"
+            Text="{Binding DeRef.DefaultTextShort, Mode=OneWay}"
             VerticalOptions="Center" />
     </Grid>
 </ucon:SingleCardControlTemplate>

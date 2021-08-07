@@ -91,7 +91,7 @@
         {
             URLModel mapModel = new URLModel
             {
-                GDescription = AddressObject.GetDefaultText,
+                GDescription = AddressObject.DefaultText,
                 URLType = URIType.Map,
             };
 

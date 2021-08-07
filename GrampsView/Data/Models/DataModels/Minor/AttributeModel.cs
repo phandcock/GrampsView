@@ -34,27 +34,12 @@
         }
 
         /// <summary>
-        /// Gets or sets the citation reference collection.
-        /// </summary>
-        /// <value>
-        /// The citation reference collection.
-        /// </value>
-        [DataMember]
-        public HLinkCitationModelCollection GCitationReferenceCollection
-        {
-            get;
-            set;
-        }
-
-            = new HLinkCitationModelCollection();
-
-        /// <summary>
         /// Gets the default text for this Model.
         /// </summary>
         /// <value>
         /// The default text.
         /// </value>
-        public override string GetDefaultText
+        public override string DefaultText
         {
             get
             {
@@ -68,6 +53,21 @@
                 return returnString;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the citation reference collection.
+        /// </summary>
+        /// <value>
+        /// The citation reference collection.
+        /// </value>
+        [DataMember]
+        public HLinkCitationModelCollection GCitationReferenceCollection
+        {
+            get;
+            set;
+        }
+
+            = new HLinkCitationModelCollection();
 
         /// <summary>
         /// Gets or sets the note model reference collection.

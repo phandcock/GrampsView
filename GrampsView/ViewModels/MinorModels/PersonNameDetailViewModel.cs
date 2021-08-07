@@ -62,7 +62,7 @@
                     new CardListLine("Primary SurName:", PersonNameObject.GSurName.GetPrimarySurname),
                     new CardListLine("Suffix:", PersonNameObject.GSuffix),
 
-                    new CardListLine("Alt:", PersonNameObject.GAlt.GetDefaultText),
+                    new CardListLine("Alt:", PersonNameObject.GAlt.DefaultText),
                     new CardListLine("Call:", PersonNameObject.GCall),
                     new CardListLine("Display:", PersonNameObject.GDisplay),
                     new CardListLine("Family Nick:", PersonNameObject.GFamilyNick),

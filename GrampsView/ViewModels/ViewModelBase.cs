@@ -136,7 +136,7 @@
 
                 if (BaseModelBase.Valid)
                 {
-                    return BaseModelBase.GetDefaultTextShort;
+                    return BaseModelBase.DefaultTextShort;
                 }
 
                 return string.Empty;
@@ -218,7 +218,7 @@
 
             EmailMessage message = new EmailMessage
             {
-                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.GetDefaultText}",
+                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.DefaultText}",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,

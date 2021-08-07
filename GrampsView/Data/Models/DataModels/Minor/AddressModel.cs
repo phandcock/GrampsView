@@ -18,39 +18,12 @@
         }
 
         /// <summary>
-        /// Gets or sets the citation reference collection.
-        /// </summary>
-        /// <value>
-        /// The citation reference collection.
-        /// </value>
-        [DataMember]
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
-
-        [DataMember]
-        public string GCity { get; set; } = string.Empty;
-
-        [DataMember]
-        public string GCountry { get; set; } = string.Empty;
-
-        [DataMember]
-        public string GCounty { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Gets or sets the Date recorded for the address.
-        /// </summary>
-        /// <value>
-        /// The date.
-        /// </value>
-        [DataMember]
-        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
-
-        /// <summary>
         /// Gets the formatted.
         /// </summary>
         /// <value>
         /// The formatted address.
         /// </value>
-        public override string GetDefaultText
+        public override string DefaultText
         {
             get
             {
@@ -89,6 +62,33 @@
                 return formattedAddress;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the citation reference collection.
+        /// </summary>
+        /// <value>
+        /// The citation reference collection.
+        /// </value>
+        [DataMember]
+        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
+
+        [DataMember]
+        public string GCity { get; set; } = string.Empty;
+
+        [DataMember]
+        public string GCountry { get; set; } = string.Empty;
+
+        [DataMember]
+        public string GCounty { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the Date recorded for the address.
+        /// </summary>
+        /// <value>
+        /// The date.
+        /// </value>
+        [DataMember]
+        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the locality.
@@ -143,7 +143,7 @@
                 throw new ArgumentNullException(nameof(other));
             }
 
-            return string.Compare(GetDefaultText, other.GetDefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
+            return string.Compare(DefaultText, other.DefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public override bool Equals(object obj)
@@ -165,7 +165,7 @@
 
             AddressModel tempObj = obj as AddressModel;
 
-            return (this.GetDefaultText == tempObj.GetDefaultText);
+            return (this.DefaultText == tempObj.DefaultText);
         }
 
         public bool Equals(AddressModel other)
@@ -175,7 +175,7 @@
                 return false;
             }
 
-            if (GetDefaultText == other.GetDefaultText)
+            if (DefaultText == other.DefaultText)
             {
                 return true;
             }

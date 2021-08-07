@@ -598,7 +598,7 @@
                 }
             }
 
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
             return t;
         }
 
@@ -718,7 +718,7 @@
                 }
             }
 
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
 
             return t;
         }
@@ -759,7 +759,7 @@
                 }
             }
 
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
 
             return t;
         }
@@ -867,7 +867,7 @@
                 }
             }
 
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
 
             return t;
         }
@@ -905,7 +905,7 @@
                 }
             }
 
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
 
             return t;
         }

@@ -19,7 +19,7 @@ namespace GrampsView.Data.Collections
             Title = "Place Name Collection";
         }
 
-        public string GetDefaultText
+        public string DefaultText
         {
             get
             {

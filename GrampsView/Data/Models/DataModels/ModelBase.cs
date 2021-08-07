@@ -102,7 +102,7 @@
         /// <value>
         /// The default text.
         /// </value>
-        public virtual string GetDefaultText
+        public virtual string DefaultText
         {
             get
             {
@@ -110,11 +110,19 @@
             }
         }
 
-        public virtual string GetDefaultTextShort
+        public virtual string DefaultTextShort
         {
             get
             {
-                return GetDefaultText.Substring(0, Math.Min(GetDefaultText.Length, 40));
+                return DefaultText.Substring(0, Math.Min(DefaultText.Length, 40));
+            }
+        }
+
+        public virtual string DefaultTextSort
+        {
+            get
+            {
+                return DefaultText;
             }
         }
 
