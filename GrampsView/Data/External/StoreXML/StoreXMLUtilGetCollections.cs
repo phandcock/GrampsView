@@ -19,80 +19,6 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        private  List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
-        {
-            List<GrampsStyleRangeModel> returnValue = new List<GrampsStyleRangeModel>();
-
-            // Run query
-            var theERElement =
-                    from orElementEl
-                    in xmlData.Elements(ns + "range")
-                    select orElementEl;
-
-            if (theERElement.Any())
-            {
-                // Load attribute object references
-                foreach (XElement theLoadORElement in theERElement)
-                {
-                    GrampsStyleRangeModel newStyleModel = new GrampsStyleRangeModel();
-
-                    if (!int.TryParse(GetAttribute(theLoadORElement, "start"), out int Start))
-                    {
-                        ErrorInfo t = new ErrorInfo("Bad Style Range Start")
-                        {
-                            { "XML data", xmlData.ToString() }
-                        };
-
-                        _iocCommonNotifications.NotifyError(t);
-                    };
-                    newStyleModel.Start = Start;
-
-                    if (!int.TryParse(GetAttribute(theLoadORElement, "end"), out int End))
-                    {
-                        ErrorInfo t = new ErrorInfo("Bad Style Range End")
-                        {
-                            { "XML data", xmlData.ToString() }
-                        };
-
-                        _iocCommonNotifications.NotifyError(t);
-                    };
-                    newStyleModel.End = End;
-
-                    returnValue.Add(newStyleModel);
-                }
-            }
-
-            return returnValue;
-        }
-
-        private  SurnameModelCollection GetSurnameCollection(XElement xmlData)
-        {
-            SurnameModelCollection t = new SurnameModelCollection
-            {
-                Title = "Surname Collection"
-            };
-
-            var theERElement = from _ORElementEl in xmlData.Elements(ns + "surname")
-                               select _ORElementEl;
-
-            if (theERElement.Any())
-            {
-                // load repository references
-                foreach (XElement theLoadORElement in theERElement)
-                {
-                    SurnameModel t2 = new SurnameModel
-                    {
-                        GText = GetElement(theLoadORElement),
-                    };
-                    t.Add(t2);
-                }
-            }
-
-            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
-
-            return t;
-        }
-
         private HLinkAddressModelCollection GetAddressCollection(XElement xmlData)
         {
             HLinkAddressModelCollection t = new HLinkAddressModelCollection
@@ -533,7 +459,8 @@
                     newPersonNameModel.GAlt = new AltModel(GetAttribute(theLoadORElement, "alt"));
 
                     // Set model hlinkkey
-                    newPersonNameModel.HLinkKey = new HLinkKey(Guid.NewGuid().ToString());
+                    newPersonNameModel.Handle = Guid.NewGuid().ToString();
+                    newPersonNameModel.Id = newPersonNameModel.HLinkKey.Value;
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
@@ -867,6 +794,80 @@
                     t.Styles.Add(newStyleModel);
                 }
             }
+
+            return t;
+        }
+
+        private List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
+        {
+            List<GrampsStyleRangeModel> returnValue = new List<GrampsStyleRangeModel>();
+
+            // Run query
+            var theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "range")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    GrampsStyleRangeModel newStyleModel = new GrampsStyleRangeModel();
+
+                    if (!int.TryParse(GetAttribute(theLoadORElement, "start"), out int Start))
+                    {
+                        ErrorInfo t = new ErrorInfo("Bad Style Range Start")
+                        {
+                            { "XML data", xmlData.ToString() }
+                        };
+
+                        _iocCommonNotifications.NotifyError(t);
+                    };
+                    newStyleModel.Start = Start;
+
+                    if (!int.TryParse(GetAttribute(theLoadORElement, "end"), out int End))
+                    {
+                        ErrorInfo t = new ErrorInfo("Bad Style Range End")
+                        {
+                            { "XML data", xmlData.ToString() }
+                        };
+
+                        _iocCommonNotifications.NotifyError(t);
+                    };
+                    newStyleModel.End = End;
+
+                    returnValue.Add(newStyleModel);
+                }
+            }
+
+            return returnValue;
+        }
+
+        private SurnameModelCollection GetSurnameCollection(XElement xmlData)
+        {
+            SurnameModelCollection t = new SurnameModelCollection
+            {
+                Title = "Surname Collection"
+            };
+
+            var theERElement = from _ORElementEl in xmlData.Elements(ns + "surname")
+                               select _ORElementEl;
+
+            if (theERElement.Any())
+            {
+                // load repository references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    SurnameModel t2 = new SurnameModel
+                    {
+                        GText = GetElement(theLoadORElement),
+                    };
+                    t.Add(t2);
+                }
+            }
+
+            // Return sorted by the default text t.Sort(T => T.DeRef.GetDefaultText);
 
             return t;
         }

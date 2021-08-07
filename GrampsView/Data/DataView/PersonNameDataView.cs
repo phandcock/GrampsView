@@ -148,8 +148,9 @@ namespace GrampsView.Data.DataView
                 || (x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
-                ).Distinct()
-                .OrderBy(y => y.GetDefaultText);
+                ).DistinctBy(x => x.Handle)
+
+                .OrderBy(z => z.SortName);
 
             foreach (PersonNameModel tempMO in temp)
             {
