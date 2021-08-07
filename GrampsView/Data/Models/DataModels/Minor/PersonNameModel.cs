@@ -13,12 +13,12 @@ namespace GrampsView.Data.Model
     /// TODO Update fields as per Schema Class for holding a person's name.
     /// <list type="table">
     /// <item>
-    /// <description>Attribute</description>
-    /// <description>Actioned</description>
+    /// <description> Attribute </description>
+    /// <description> Actioned </description>
     /// </item>
     /// <item>
-    /// <description>Gramps XML 1.71 attribute</description>
-    /// <description>Yes</description>
+    /// <description> Gramps XML 1.71 attribute </description>
+    /// <description> Yes </description>
     /// </item>
     /// </list>
     /// </summary>
@@ -150,7 +150,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get default text.
         /// </value>
-        public new string GetDefaultText
+        public override string GetDefaultText
         {
             get
             {

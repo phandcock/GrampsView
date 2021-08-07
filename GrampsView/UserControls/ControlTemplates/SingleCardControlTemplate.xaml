@@ -42,7 +42,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        Style="{DynamicResource GVSymbolIconSingleCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="FA-Solid"

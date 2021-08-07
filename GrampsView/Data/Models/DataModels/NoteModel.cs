@@ -39,7 +39,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// Get the default text.
         /// </value>
-        public new string GetDefaultText
+        public override string GetDefaultText
         {
             get
             {

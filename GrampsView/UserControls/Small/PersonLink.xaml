@@ -6,8 +6,8 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonModel"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                      Light={StaticResource SecondaryColorLight}}"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark},
+                                      Light={StaticResource PrimaryLightColorLight}}"
     HeightRequest="100"
     IsEnabled="{Binding Valid}"
     Style="{DynamicResource FrameCardStyle}"
