@@ -63,6 +63,22 @@ namespace GrampsView.Data.Model
             }
         }
 
+        /// <summary>
+        /// Converts to string. TODO fu. Mainly exists to allow workaround for Xamarin bug https://github.com/xamarin/Xamarin.Forms/issues/11075
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String"/> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            if (DeRef != null)
+            {
+                return DeRef.GetDefaultTextShort;
+            }
+
+            return base.ToString();
+        }
+
         // TODO Why pass HLinkPersonModel to HLinkPersonModel?
         public override async Task UCNavigate()
         {

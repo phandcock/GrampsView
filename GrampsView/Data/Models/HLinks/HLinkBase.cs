@@ -183,7 +183,7 @@
                 return false;
             }
 
-            return (this.HLinkKey == (obj as HLinkBase).HLinkKey);
+            return HLinkKey == (obj as HLinkBase).HLinkKey;
         }
 
         public override int GetHashCode()

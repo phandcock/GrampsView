@@ -96,8 +96,6 @@
             set => SetProperty(ref _Change, value);
         }
 
-       
-
         /// <summary>
         /// Gets the get default text for this Model.
         /// </summary>
@@ -179,7 +177,7 @@
         /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
         /// </summary>
         /// <value>
-        /// <c>true</c> if priv; otherwise, <c>false</c>.
+        /// <c> true </c> if priv; otherwise, <c> false </c>.
         /// </value>
         [DataMember]
         public bool Priv
@@ -198,7 +196,7 @@
         /// Gets a value indicating whether returns true if the modelbase is valid.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is valid; otherwise, <c> false </c>.
         /// </value>
         public virtual bool Valid
         {
