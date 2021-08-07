@@ -17,7 +17,6 @@
         public AttributeDetailViewModel(ICommonLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Attribute Detail";
             BaseTitleIcon = CommonConstants.IconAttribute;
         }
 
@@ -46,7 +45,7 @@
             {
                 AttributeObject = HLinkAttributeObject.DeRef;
 
-                BaseTitle = AttributeObject.GetDefaultText;
+                BaseModelBase = AttributeObject;
 
                 // Get the Attribute Details
                 BaseDetail.Add(new CardListLineCollection("Attribute Detail")

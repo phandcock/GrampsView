@@ -151,11 +151,11 @@
         {
             OnPropertyChanged(string.Empty);
 
-            var t = this;
+            //var t = this;
 
-            var tt = HeaderCard;
+            //var tt = HeaderCard;
 
-            OnPropertyChanged(string.Empty);
+            //OnPropertyChanged(string.Empty);
         }
     }
 }

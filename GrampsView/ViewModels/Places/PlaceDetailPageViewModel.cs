@@ -44,7 +44,7 @@
 
             if (PlaceObject != null)
             {
-                BaseTitle = PlaceObject.GetDefaultText;
+                BaseModelBase = PlaceObject;
                 BaseTitleIcon = CommonConstants.IconPlace;
 
                 BaseDetail.Add(new CardListLineCollection("Place Detail")

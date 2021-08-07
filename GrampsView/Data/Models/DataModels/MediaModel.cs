@@ -153,7 +153,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get default text.
         /// </value>
-        public new string GetDefaultText
+        public override string GetDefaultText
         {
             get
             {

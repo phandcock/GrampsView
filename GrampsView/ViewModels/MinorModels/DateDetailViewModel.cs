@@ -11,7 +11,6 @@
         public DateDetailViewModel(ICommonLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Date Detail";
             BaseTitleIcon = CommonConstants.IconDDefault;
         }
 
@@ -43,7 +42,7 @@
 
             if (DateObject.Valid)
             {
-                BaseTitle = DateObject.GetDefaultText;
+                BaseModelBase = DateObject;
 
                 /*
                  * General Details
@@ -54,7 +53,7 @@
                 {
                     new CardListLine("Short Date:", DateObject.ShortDate),
                     new CardListLine("Long Date:", DateObject.LongDate),
-                    new CardListLine("Age:", DateObject.GetAge),
+                    new CardListLine("Age:", $"{DateObject.GetAge} years ago"),
                     new CardListLine("Valid:", DateObject.Valid),
                 });
 

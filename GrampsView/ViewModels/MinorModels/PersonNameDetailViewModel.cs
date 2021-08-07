@@ -14,7 +14,6 @@
         public PersonNameDetailViewModel(ICommonLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Name Detail";
             BaseTitleIcon = CommonConstants.IconPersonName;
         }
 
@@ -46,7 +45,7 @@
 
             if (PersonNameObject.Valid)
             {
-                BaseTitle = PersonNameObject.GetDefaultText;
+                BaseModelBase = PersonNameObject;
 
                 // Get Header Details
                 CardListLineCollection headerCardGroup = new CardListLineCollection { Title = "Person Name Details" };

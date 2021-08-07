@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Views;
@@ -10,7 +9,6 @@
 
     using System;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
     using System.IO;
     using System.Reflection;
     using System.Text.RegularExpressions;
@@ -293,7 +291,5 @@
 
             return retVal;
         }
-
-      
     }
 }

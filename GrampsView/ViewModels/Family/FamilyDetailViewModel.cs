@@ -70,7 +70,7 @@
 
             if (!(FamilyObject is null))
             {
-                BaseTitle = FamilyObject.FamilyDisplayName;
+                BaseModelBase = FamilyObject;
                 BaseTitleIcon = CommonConstants.IconFamilies;
 
                 // Get basic details

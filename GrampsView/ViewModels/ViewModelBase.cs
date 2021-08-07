@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -18,6 +19,8 @@
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : ObservableObject, INotifyPropertyChanged
     {
+        private string _BaseTitle;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -104,6 +107,8 @@
             get; set;
         }
 
+        public IModelBase BaseModelBase { get; set; } = new ModelBase();
+
         public string BaseParamsHLink
         {
             get; set;
@@ -122,7 +127,24 @@
         /// </value>
         public string BaseTitle
         {
-            get; set;
+            get
+            {
+                if (!string.IsNullOrEmpty(_BaseTitle))
+                {
+                    return _BaseTitle;
+                }
+
+                if (BaseModelBase.Valid)
+                {
+                    return BaseModelBase.GetDefaultTextShort;
+                }
+
+                return string.Empty;
+            }
+            set
+            {
+                SetProperty(ref _BaseTitle, value);
+            }
         }
 
         /// <summary>
@@ -189,7 +211,6 @@
         {
             string body = string.Empty;
 
-
             List<string> recipients = new List<string>
             {
                 CommonLocalSettings.NoteEmailAddress
@@ -197,7 +218,7 @@
 
             EmailMessage message = new EmailMessage
             {
-                Subject = $"GrampsView Note: {BaseTitle}",
+                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.GetDefaultText}",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,

@@ -69,7 +69,7 @@
 
                 if (!(EventObject is null) && EventObject.Valid)
                 {
-                    BaseTitle = EventObject.GetDefaultText;
+                    BaseModelBase = EventObject;
                     BaseTitleIcon = CommonConstants.IconEvents;
 
                     // Get basic details

@@ -29,7 +29,6 @@
         public PersonDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Person Detail";
             BaseTitleIcon = CommonConstants.IconPeople;
 
             _PlatformSpecific = iocPlatformSpecific;
@@ -122,13 +121,13 @@
             // idea where the bug is coming from
             BaseCurrentLayoutState = LayoutState.Loading;
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>((BaseParamsHLink));
+            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(BaseParamsHLink);
 
             PersonObject = HLinkPerson.DeRef;
 
             if (!(PersonObject is null))
             {
-                BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
+                BaseModelBase = PersonObject;
 
                 // Get media image
                 MediaCard = PersonObject.ModelItemGlyph;

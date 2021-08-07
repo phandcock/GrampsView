@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IModelBase.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
@@ -41,6 +32,11 @@ namespace GrampsView.Data.Model
             get;
         }
 
+        string GetDefaultTextShort
+        {
+            get;
+        }
+
         /// <summary>
         /// Gets or sets the model handle.
         /// </summary>
@@ -62,14 +58,6 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
-
-        ///// <summary>
-        ///// Gets or sets the model user activity.
-        ///// </summary>
-        ///// <value>
-        ///// The model user activity.
-        ///// </value>
-        //UserActivity ModelUserActivity { get; set; }
 
         string Id
         {

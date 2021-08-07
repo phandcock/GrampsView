@@ -135,7 +135,7 @@
 
             if (!(PersonObject is null))
             {
-                BaseTitle = PersonObject.GPersonNamesCollection.GetPrimaryName.DeRef.GetDefaultText;
+                BaseModelBase = PersonObject;
 
                 // Get media image
                 MediaCard = PersonObject.ModelItemGlyph;

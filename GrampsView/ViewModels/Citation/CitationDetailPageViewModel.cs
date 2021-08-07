@@ -1,7 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-using GrampsView.Data.Collections;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -60,7 +60,7 @@ using GrampsView.Data.Collections;
 
             if (CitationObject != null)
             {
-                BaseTitle = CitationObject.GetDefaultTextShort;
+                BaseModelBase = CitationObject;
                 BaseTitleIcon = CommonConstants.IconCitation;
 
                 BaseDetail.Add(new CardListLineCollection("Citation Detail")

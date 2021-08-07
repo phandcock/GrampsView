@@ -21,7 +21,6 @@
         public SourceDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
-            BaseTitle = "Source Detail";
             BaseTitleIcon = CommonConstants.IconSource;
         }
 
@@ -51,8 +50,7 @@
             if (!(SourceObject is null))
             {
                 // Get basic details
-                BaseTitle = SourceObject.GetDefaultText;
-                BaseTitleIcon = CommonConstants.IconSource;
+                BaseModelBase = SourceObject;
 
                 // MediaCard = SourceObject.ModelItemGlyph;
 

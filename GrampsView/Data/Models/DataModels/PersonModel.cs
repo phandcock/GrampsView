@@ -102,12 +102,6 @@
             set;
         } = new HLinkCitationModelCollection();
 
-        /// <summary>
-        /// Gets the get default text for this ViewModel.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
         public override string GetDefaultText
         {
             get

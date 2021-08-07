@@ -20,7 +20,6 @@
         public AddressDetailViewModel(ICommonLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitle = "Address Detail";
             BaseTitleIcon = CommonConstants.IconAddress;
         }
 
@@ -55,7 +54,7 @@
 
             if (AddressObject.Valid)
             {
-                BaseTitle = AddressObject.GetDefaultText;
+                BaseModelBase = AddressObject;
 
                 // Get media image
                 MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;

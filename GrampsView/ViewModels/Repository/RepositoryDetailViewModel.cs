@@ -52,7 +52,7 @@
 
             if (!(RepositoryObject == null))
             {
-                BaseTitle = RepositoryObject.GetDefaultText;
+                BaseModelBase = RepositoryObject;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
                 BaseDetail.Add(new CardListLineCollection("Repository Detail")

@@ -43,7 +43,7 @@
             {
                 NoteObject = HLinkObject.DeRef;
 
-                BaseTitle = NoteObject.GetDefaultText;
+                BaseModelBase = NoteObject;
 
                 // Get basic details
                 BaseDetail.Add(new CardListLineCollection("Note Detail")

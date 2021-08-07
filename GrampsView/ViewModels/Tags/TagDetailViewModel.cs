@@ -54,7 +54,7 @@
 
             if (!(TagObject is null))
             {
-                BaseTitle = "Tag Detail";
+                BaseModelBase = TagObject;
                 BaseTitleIcon = CommonConstants.IconTag;
 
                 BaseDetail.Add(new CardListLineCollection("Tag Detail")
