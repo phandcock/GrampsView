@@ -7,7 +7,6 @@
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.Events;
     using GrampsView.ViewModels;
     using GrampsView.Views;
 
@@ -50,8 +49,6 @@
         {
         }
 
-     
-
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
         }
@@ -86,7 +83,6 @@
             DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
 
             Container.Resolve<IDataRepositoryManager>();
-
 
             Container.Resolve<IStartAppLoad>();
 

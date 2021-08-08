@@ -38,6 +38,14 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
+        public override string DefaultText
+        {
+            get
+            {
+                return GName;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the color.
         /// </summary>

@@ -38,17 +38,14 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public virtual CardGroup GetCardGroup(string argTitle = "")
-        {
-            CardGroup t = GetCardGroup();
+        //public virtual CardGroup GetCardGroup(string argTitle = "")
+        //{
+        //    CardGroup t = GetCardGroup();
 
-            if (!string.IsNullOrEmpty(argTitle))
-            {
-                t.Title = argTitle;
-            };
+        // if (!string.IsNullOrEmpty(argTitle)) { t.Title = argTitle; };
 
-            return t;
-        }
+        //    return t;
+        //}
 
         public virtual CardGroup GetCardGroup()
         {
@@ -87,7 +84,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// <para>Sets the first image.</para>
+        /// <para> Sets the first image. </para>
         /// <para>
         /// Set the first or last image link. Chooses the first or last image in the collection
         /// <br/> depending on flag.

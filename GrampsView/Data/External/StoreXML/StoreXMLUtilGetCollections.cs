@@ -460,7 +460,6 @@
 
                     // Set model hlinkkey
                     newPersonNameModel.Handle = Guid.NewGuid().ToString();
-                    newPersonNameModel.Id = newPersonNameModel.HLinkKey.Value;
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
