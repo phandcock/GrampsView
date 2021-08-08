@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.ComponentModel;
 
 namespace GrampsView.Data.Model
 {
     /// <summary>
     /// </summary>
-    public interface IPeopleGraphNode : IModelBase, IComparable<PeopleGraphNode>, INotifyPropertyChanged, IComparable, IComparer
+    public interface IPeopleGraphNode : IModelBase, IComparable<PeopleGraphNode>, IComparable, IComparer
     {
         /// <summary>
         /// Compares the specified a.

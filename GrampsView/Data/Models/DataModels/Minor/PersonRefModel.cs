@@ -11,7 +11,7 @@ namespace GrampsView.Data.Model
     /// TODO Update fields as per Schema
     public class PersonRefModel : ModelBase, IPersonRefModel
     {
-        public new PersonModel DeRef
+        public PersonModel DeRef
         {
             get
             {

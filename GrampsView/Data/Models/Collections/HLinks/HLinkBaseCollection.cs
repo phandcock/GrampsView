@@ -87,7 +87,7 @@ namespace GrampsView.Data.Model
         /// <para> Sets the first image. </para>
         /// <para>
         /// Set the first or last image link. Chooses the first or last image in the collection
-        /// <br/> depending on flag.
+        /// <br/> depending on the user settings.
         /// </para>
         /// </summary>
         public void SetFirstImage()

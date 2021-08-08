@@ -146,7 +146,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        int Compare(object a, object b);
+        new int Compare(object a, object b);
 
         /// <summary>
         /// Compares to.
@@ -156,6 +156,6 @@
         /// </param>
         /// <returns>
         /// </returns>
-        int CompareTo(object argObject);
+        new int CompareTo(object argObject);
     }
 }

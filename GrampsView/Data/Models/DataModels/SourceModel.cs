@@ -64,8 +64,6 @@
                     {
                         return t.DeRef.DefaultText;
                     }
-
-                    var tt = 1;
                 }
 
                 return string.Empty;
@@ -258,7 +256,7 @@
         /// <returns>
         /// One, two or three.
         /// </returns>
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             if (obj == null)
             {

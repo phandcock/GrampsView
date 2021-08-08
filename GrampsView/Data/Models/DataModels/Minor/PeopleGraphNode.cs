@@ -7,7 +7,6 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -27,8 +26,6 @@ namespace GrampsView.Data.Model
         public PeopleGraphNode()
         {
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public HLinkBackLinkModelCollection BackHLinkReferenceCollection => throw new NotImplementedException();
 

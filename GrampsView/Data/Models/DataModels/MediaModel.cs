@@ -482,7 +482,7 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public int CompareTo(object argSecondObject)
+        public override int CompareTo(object argSecondObject)
         {
             if (argSecondObject is null)
             {

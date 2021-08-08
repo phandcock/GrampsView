@@ -249,7 +249,7 @@
         /// <returns>
         /// One, two or three.
         /// </returns>
-        public int CompareTo(object obj)
+        public new int CompareTo(object obj)
         {
             if (obj is null)
             {

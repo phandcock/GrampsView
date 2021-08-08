@@ -1,6 +1,4 @@
-﻿// - XML 1.71 complete
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -8,6 +6,19 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Data model for a source reference.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// </summary>
     [DataContract]
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
     {

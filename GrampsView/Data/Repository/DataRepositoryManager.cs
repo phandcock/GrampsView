@@ -262,7 +262,7 @@
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
 
-                    _commonNotifications.DataLogHide();
+                    await _commonNotifications.DataLogHide();
                 }
 
                 return true;
@@ -352,7 +352,7 @@
 
                 // Save the current Index File modified date for later checking
 
-              CommonLocalSettings.  SaveLastWriteToSettings(fileGrampsDataInput, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
+                CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
             }
 
             return false;

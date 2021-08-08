@@ -16,7 +16,7 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.Symbol = Common.CommonConstants.IconSurname;
         }
 
-        public string DefaultText
+        public override string DefaultText
         {
             get
             {

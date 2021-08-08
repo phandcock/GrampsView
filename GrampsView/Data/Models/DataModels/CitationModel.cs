@@ -230,7 +230,7 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// One, two or three.
         /// </returns>
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             if (obj is null)
             {

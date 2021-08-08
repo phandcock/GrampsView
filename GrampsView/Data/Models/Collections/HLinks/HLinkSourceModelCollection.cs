@@ -15,6 +15,17 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// Data model for a source reference collection.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> NA </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkSourceModel>))]

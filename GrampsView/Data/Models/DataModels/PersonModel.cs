@@ -311,7 +311,7 @@
         /// <returns>
         /// returns 1, 2 or 3.
         /// </returns>
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             PersonModel secondPersonModel = (PersonModel)obj;
 

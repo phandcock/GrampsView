@@ -53,7 +53,7 @@
         /// <value>
         /// The default text.
         /// </value>
-        public string DefaultText
+        public override string DefaultText
         {
             get
             {
