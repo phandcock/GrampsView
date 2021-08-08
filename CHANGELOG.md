@@ -1,3 +1,16 @@
+## [16.19.25](https://github.com/phandcock/GrampsView/compare/v16.19.24...v16.19.25) (2021-08-08)
+
+
+### Bug Fixes
+
+* add Id to Notes emails and change way BaseTitle set ([9bb54db](https://github.com/phandcock/GrampsView/commit/9bb54db32d4d2db16b26fcb0fb3ea6e8283a3139))
+* remove duplicate names from shell searchhanlder ([cf44016](https://github.com/phandcock/GrampsView/commit/cf44016ff02671449a59c080b1bddfe7164b1353))
+* tweak layouts ([3fdefd7](https://github.com/phandcock/GrampsView/commit/3fdefd7afca83531bc02c55745f239fb581ae941))
+* tweaks and code cleanup ([f264cab](https://github.com/phandcock/GrampsView/commit/f264cab01131d289380a337d380df65a74f884f2))
+* workaround ofr shell searchhandler data template bug in UWP ([d713ae3](https://github.com/phandcock/GrampsView/commit/d713ae3ccbe72131fd4fa6bd80629115d6685173))
+
+
+
 ## [16.19.24](https://github.com/phandcock/GrampsView/compare/v16.19.23...v16.19.24) (2021-08-06)
 
 
@@ -24,16 +37,6 @@
 ### Bug Fixes
 
 * move messagelog back to a view page to avoid Android UI issue with Popups ([59c7928](https://github.com/phandcock/GrampsView/commit/59c7928a39ef09acf2e812ac1f6b901bacee7423))
-
-
-
-## [16.19.21](https://github.com/phandcock/GrampsView/compare/v16.19.20...v16.19.21) (2021-08-01)
-
-
-### Bug Fixes
-
-* cleanup file handling using fileinfoex ([3cb993e](https://github.com/phandcock/GrampsView/commit/3cb993eb0be2d0122e04d1abf22ad7bc88e21046))
-* tweaks ([1f36ab8](https://github.com/phandcock/GrampsView/commit/1f36ab8d4a165402f7779198fbf2f4f456b48bff))
 
 
 
