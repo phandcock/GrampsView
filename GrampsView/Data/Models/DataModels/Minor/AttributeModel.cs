@@ -5,7 +5,6 @@
     using GrampsView.Views;
 
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
@@ -25,7 +24,7 @@
     /// <para> <br/> </para>
     /// </summary>
     [DataContract]
-    public class AttributeModel : ModelBase, IAttributeModel, IComparable, IComparer<AttributeModel>
+    public class AttributeModel : ModelBase, IAttributeModel
     {
         public AttributeModel()
         {
@@ -161,6 +160,45 @@
         }
 
         /// <summary>
+        /// Compares two objects.
+        /// </summary>
+        /// <param name="a">
+        /// object A.
+        /// </param>
+        /// <param name="b">
+        /// object B.
+        /// </param>
+        /// <returns>
+        /// One, two or three.
+        /// </returns>
+        public int Compare(object a, object b)
+        {
+            if (a is null)
+            {
+                return CommonConstants.CompareEquals;
+            }
+
+            if (b is null)
+            {
+                return CommonConstants.CompareEquals;
+            }
+
+            AttributeModel firstPersonName = (AttributeModel)a;
+            AttributeModel secondPersonName = (AttributeModel)b;
+
+            // Compare on Surname first
+            int testFlag = string.Compare(firstPersonName.GType, secondPersonName.GType, StringComparison.CurrentCulture);
+
+            if (testFlag == CommonConstants.CompareEquals)
+            {
+                // Compare on first name
+                testFlag = string.Compare(firstPersonName.GType, secondPersonName.GType, StringComparison.CurrentCulture);
+            }
+
+            return testFlag;
+        }
+
+        /// <summary>
         /// Compares to.
         /// </summary>
         /// <param name="obj">
@@ -179,6 +217,17 @@
 
             // compare on GType first
             return string.Compare(GType, secondSource.GType, true, System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        public int CompareTo(AttributeModel other)
+        {
+            if (other is null)
+            {
+                return CommonConstants.CompareGreaterThan;
+            }
+
+            // This is effectively random
+            return CompareTo(other);
         }
 
         /// <summary>

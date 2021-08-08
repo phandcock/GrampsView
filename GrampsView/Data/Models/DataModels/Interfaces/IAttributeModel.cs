@@ -1,18 +1,13 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IAttributeModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
 
 namespace GrampsView.Data.Model
 {
     /// <summary>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
-    public interface IAttributeModel : IModelBase
+    public interface IAttributeModel : IModelBase, IComparable<AttributeModel>, INotifyPropertyChanged, IComparable, IComparer
     {
     }
 }

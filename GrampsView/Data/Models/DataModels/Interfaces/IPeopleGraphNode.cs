@@ -6,19 +6,8 @@ namespace GrampsView.Data.Model
 {
     /// <summary>
     /// </summary>
-    public interface IPersonNameModel : IModelBase, IComparable<PersonNameModel>, INotifyPropertyChanged, IComparable, IComparer
+    public interface IPeopleGraphNode : IModelBase, IComparable<PeopleGraphNode>, INotifyPropertyChanged, IComparable, IComparer
     {
-        string FirstFirstName { get; }
-
-        DateObjectModel GDate { get; set; }
-
-        string GDisplay { get; set; }
-        string GTitle { get; }
-
-        string GType { get; }
-
-        HLinkPersonNameModel HLink { get; }
-
         /// <summary>
         /// Compares the specified a.
         /// </summary>

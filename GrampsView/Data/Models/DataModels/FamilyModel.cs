@@ -21,7 +21,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Collections;
     using System.Runtime.Serialization;
     using System.Text;
 
@@ -37,7 +36,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
     [KnownType(typeof(HLinkPersonModel))]
-    public sealed class FamilyModel : ModelBase, IFamilyModel, IComparable, IComparer
+    public sealed class FamilyModel : ModelBase, IFamilyModel
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FamilyModel"/> class.
@@ -87,43 +86,29 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets the family display name sort.
-        /// </summary>
-        /// <value>
-        /// The family display name sort.
-        /// </value>
-        public override string DefaultTextSort
-        {
-            get
-            {
-                string familyName;
+        ///// <summary>
+        ///// Gets the family display name sort.
+        ///// </summary>
+        ///// <value>
+        ///// The family display name sort.
+        ///// </value>
+        //public override string DefaultTextSort
+        //{
+        //    get
+        //    {
+        //        string familyName;
 
-                // set family display name
-                if (GFather.Valid)
-                {
-                    familyName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
-                }
-                else
-                {
-                    familyName = "Unknown";
-                }
+        // // set family display name if (GFather.Valid) { familyName =
+        // GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname; }
+        // else { familyName = "Unknown"; }
 
-                if (GMother.Valid)
-                {
-                    StringBuilder t = new StringBuilder();
-                    t.Append(familyName);
-                    t.Append(GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname);
-                    familyName = t.ToString();
-                }
-                else
-                {
-                    familyName += "Unknown";
-                }
+        // if (GMother.Valid) { StringBuilder t = new StringBuilder(); t.Append(familyName);
+        // t.Append(GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname);
+        // familyName = t.ToString(); } else { familyName += "Unknown"; }
 
-                return familyName;
-            }
-        }
+        //        return familyName;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the g attribute collection. This is the [attribute*] attribute.
@@ -323,16 +308,8 @@ namespace GrampsView.Data.Model
             FamilyModel c1 = (FamilyModel)x;
             FamilyModel c2 = (FamilyModel)y;
 
-            // compare on surnname first
-            int testFlag = string.Compare(c1.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, c2.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, StringComparison.CurrentCulture);
-
-            if (testFlag.Equals(0))
-            {
-                // equal so check firstname
-                testFlag = string.Compare(c1.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, c2.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, StringComparison.CurrentCulture);
-            }
-
-            return testFlag;
+            // Compare on surnname and then first name
+            return c1.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(c2.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
         }
 
         /// <summary>
@@ -344,7 +321,7 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// returns 1, 2 or 3.
         /// </returns>
-        public int CompareTo(object obj)
+        public new int CompareTo(object obj)
         {
             if (obj is null)
             {
@@ -353,16 +330,8 @@ namespace GrampsView.Data.Model
 
             FamilyModel secondFamilyModel = (FamilyModel)obj;
 
-            // compare on fathers name first TODO use culture related sort
-            int testFlag = string.Compare(GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, secondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, StringComparison.CurrentCulture);
-
-            if (testFlag.Equals(0))
-            {
-                // equal so check firstname
-                testFlag = string.Compare(GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, secondFamilyModel.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName, StringComparison.CurrentCulture);
-            }
-
-            return testFlag;
+            // Compare on surnname and then first name
+            return this.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(secondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
         }
     }
 }

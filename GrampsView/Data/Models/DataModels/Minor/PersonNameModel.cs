@@ -6,7 +6,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Collections;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -27,7 +26,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
-    public class PersonNameModel : ModelBase, IPersonNameModel, IComparable, IComparer, IEquatable<PersonNameModel>
+    public class PersonNameModel : ModelBase, IPersonNameModel
     {
         public PersonNameModel()
         {
@@ -46,6 +45,22 @@ namespace GrampsView.Data.Model
             get
             {
                 return FullName;
+            }
+        }
+
+        public override string DefaultTextShort
+        {
+            get
+            {
+                string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
+                if (fullName.Trim().Length == 0)
+                {
+                    return "Unknown";
+                }
+                else
+                {
+                    return fullName;
+                }
             }
         }
 
@@ -303,36 +318,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public string ShortName
-        {
-            get
-            {
-                string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
-                if (fullName.Trim().Length == 0)
-                {
-                    return "Unknown";
-                }
-                else
-                {
-                    return fullName;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the sort name o.
-        /// </summary>
-        /// <value>
-        /// The name of the sort.
-        /// </value>
-        public string SortName
-        {
-            get
-            {
-                return GSurName.GetPrimarySurname + GFirstName;
-            }
-        }
-
         /// <summary>
         /// Compares two objects.
         /// </summary>
@@ -345,25 +330,42 @@ namespace GrampsView.Data.Model
         /// <returns>
         /// One, two or three.
         /// </returns>
-        public new int Compare(object a, object b)
+        public int Compare(object a, object b)
         {
             if (a is null)
             {
-                return 1;
+                return CommonConstants.CompareEquals;
             }
 
             if (b is null)
             {
-                return 0;
+                return CommonConstants.CompareEquals;
             }
 
-            PersonNameModel firstEvent = (PersonNameModel)a;
-            PersonNameModel secondEvent = (PersonNameModel)b;
+            PersonNameModel firstPersonName = (PersonNameModel)a;
+            PersonNameModel secondPersonName = (PersonNameModel)b;
 
-            // compare on Date first
-            int testFlag = string.Compare(firstEvent.SortName, secondEvent.SortName, StringComparison.CurrentCulture);
+            // Compare on Surname first
+            int testFlag = string.Compare(firstPersonName.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
+
+            if (testFlag == CommonConstants.CompareEquals)
+            {
+                // Compare on first name
+                testFlag = string.Compare(firstPersonName.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
+            }
 
             return testFlag;
+        }
+
+        public int CompareTo(PersonNameModel other)
+        {
+            if (other is null)
+            {
+                return CommonConstants.CompareGreaterThan;
+            }
+
+            // This is effectively random
+            return CompareTo(other);
         }
 
         /// <summary>
@@ -382,17 +384,18 @@ namespace GrampsView.Data.Model
                 return 0;
             }
 
-            PersonNameModel secondEvent = (PersonNameModel)obj;
+            PersonNameModel secondPersonName = (PersonNameModel)obj;
 
-            // compare on String first
-            int testFlag = string.Compare(SortName, secondEvent.SortName, StringComparison.CurrentCulture);
+            // Compare on Surname first
+            int testFlag = string.Compare(this.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
+
+            if (testFlag == CommonConstants.CompareEquals)
+            {
+                // Compare on first name
+                testFlag = string.Compare(this.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
+            }
 
             return testFlag;
-        }
-
-        public bool Equals(PersonNameModel other)
-        {
-            return base.Equals(other);
         }
     }
 }

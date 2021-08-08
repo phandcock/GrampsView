@@ -1,13 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Family model interface
-//
-// <copyright file="IFamilyModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
     /// interface definitions.
@@ -15,18 +6,7 @@ namespace GrampsView.Data.Model
     public interface IFamilyModel : IModelBase
     {
         /// <summary>
-        /// Gets the family display name sort.
-        /// </summary>
-        /// <value>
-        /// The family display name sort.
-        /// </value>
-        string DefaultTextSort
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the get h link Family Model that points to this ViewModel.
+        /// Gets the get hlink Family Model that points to this ViewModel.
         /// </summary>
         /// <value>
         /// The get h link.

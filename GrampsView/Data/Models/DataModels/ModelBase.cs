@@ -118,14 +118,6 @@
             }
         }
 
-        public virtual string DefaultTextSort
-        {
-            get
-            {
-                return DefaultText;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the handle ID #REQUIRED.
         /// </summary>
@@ -214,130 +206,113 @@
             }
         }
 
-        public static bool operator !=(ModelBase left, ModelBase right)
-        {
-            return !(left == right);
-        }
+        //public static bool operator !=(ModelBase left, ModelBase right)
+        //{
+        //    return !(left == right);
+        //}
 
-        public static bool operator <(ModelBase left, ModelBase right)
-        {
-            return left is null ? right is object : left.CompareTo(right) < 0;
-        }
+        //public static bool operator <(ModelBase left, ModelBase right)
+        //{
+        //    return left is null ? right is object : left.CompareTo(right) < CommonConstants.CompareEquals;
+        //}
 
-        public static bool operator <=(ModelBase left, ModelBase right)
-        {
-            return left is null || left.CompareTo(right) <= 0;
-        }
+        //public static bool operator <=(ModelBase left, ModelBase right)
+        //{
+        //    return left is null || left.CompareTo(right) <= CommonConstants.CompareEquals;
+        //}
 
-        public static bool operator ==(ModelBase left, ModelBase right)
-        {
-            if (left is null)
-            {
-                return right is null;
-            }
+        //public static bool operator ==(ModelBase left, ModelBase right)
+        //{
+        //    if (left is null)
+        //    {
+        //        return right is null;
+        //    }
 
-            return left.Equals(right);
-        }
+        //    return left.Equals(right);
+        //}
 
-        public static bool operator >(ModelBase left, ModelBase right)
-        {
-            return left is object && left.CompareTo(right) > 0;
-        }
+        //public static bool operator >(ModelBase left, ModelBase right)
+        //{
+        //    return left is object && left.CompareTo(right) > CommonConstants.CompareEquals;
+        //}
 
-        public static bool operator >=(ModelBase left, ModelBase right)
-        {
-            return left is null ? right is null : left.CompareTo(right) >= 0;
-        }
+        //public static bool operator >=(ModelBase left, ModelBase right)
+        //{
+        //    return left is null ? right is null : left.CompareTo(right) >= CommonConstants.CompareEquals;
+        //}
 
-        /// <summary>
-        /// Compares the specified a.
-        /// </summary>
-        /// <param name="argFirstModelBase">
-        /// a.
-        /// </param>
-        /// <param name="argSecondModelBase">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public int Compare(object argFirstModelBase, object argSecondModelBase)
-        {
-            if (argFirstModelBase is null)
-            {
-                throw new ArgumentNullException(nameof(argFirstModelBase));
-            }
+        ///// <summary>
+        ///// Compares the specified a.
+        ///// </summary>
+        ///// <param name="argFirstModelBase">
+        ///// a.
+        ///// </param>
+        ///// <param name="argSecondModelBase">
+        ///// The b.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public virtual int Compare(object argFirstModelBase, object argSecondModelBase)
+        //{
+        //    if (argFirstModelBase is null)
+        //    {
+        //        throw new ArgumentNullException(nameof(argFirstModelBase));
+        //    }
 
-            if (argSecondModelBase is null)
-            {
-                throw new ArgumentNullException(nameof(argSecondModelBase));
-            }
+        // if (argSecondModelBase is null) { throw new
+        // ArgumentNullException(nameof(argSecondModelBase)); }
 
-            if (!(argFirstModelBase is ModelBase))
-            {
-                return 0;
-            }
+        // ModelBase firstSource = (ModelBase)argFirstModelBase; ModelBase secondSource = (ModelBase)argSecondModelBase;
 
-            if (!(argSecondModelBase is ModelBase))
-            {
-                return 0;
-            }
+        // if (firstSource is null) { return CommonConstants.CompareEquals; }
 
-            ModelBase firstSource = (ModelBase)argFirstModelBase;
-            ModelBase secondSource = (ModelBase)argSecondModelBase;
+        // if (secondSource is null) { return CommonConstants.CompareEquals; }
 
-            // compare on Page first TODO compare on Page?
-            int testFlag = Compare(firstSource.HLinkKey, secondSource.HLinkKey);
+        //    return Compare(firstSource.HLinkKey, secondSource.HLinkKey);
+        //}
 
-            return testFlag;
-        }
+        //public int CompareTo(ModelBase other)
+        //{
+        //    if (other is null)
+        //    {
+        //        return CommonConstants.CompareGreaterThan;
+        //    }
 
-        public int CompareTo(ModelBase other)
-        {
-            if (other is null)
-            {
-                return 1; // this is bigger
-            }
+        //    // This is effectively random
+        //    return HLinkKey.CompareTo(other.HLinkKey);
+        //}
 
-            // compare on Page first TODO compare on Page?
-            int testFlag = Compare(HLinkKey, other.HLinkKey);
+        //public virtual int CompareTo(object obj)
+        //{
+        //    // Only comparable if ModelBase
+        //    if ((ModelBase)obj == null)
+        //    {
+        //        throw new NotImplementedException();
+        //    }
 
-            return testFlag;
-        }
+        //    // This is effectively random
+        //    return Compare(HLinkKey, (obj as ModelBase).HLinkKey);
+        //}
 
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
+        //public override bool Equals(object obj)
+        //{
+        //    if (ReferenceEquals(this, obj))
+        //    {
+        //        return true;
+        //    }
 
-            if (obj is null)
-            {
-                return false;
-            }
+        // if (obj is null) { return false; }
 
-            if (obj.GetType() != this.GetType())
-            {
-                return false;
-            }
+        // if (obj.GetType() != this.GetType()) { return false; }
 
-            if (string.IsNullOrEmpty(this.Id))
-            {
-                return false;
-            }
+        // if (string.IsNullOrEmpty(this.Id)) { return false; }
 
-            if (string.IsNullOrEmpty((obj as ModelBase).Id))
-            {
-                return false;
-            }
+        // if (string.IsNullOrEmpty((obj as ModelBase).Id)) { return false; }
 
-            if (this.Id == (obj as ModelBase).Id)
-            {
-                return true;
-            }
+        // if (this.Id == (obj as ModelBase).Id) { return true; }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         public override int GetHashCode()
         {

@@ -143,16 +143,18 @@ namespace GrampsView.Data.DataView
             }
 
             // Search by Full Name Search by First and Last Name Search by Called By Search by Nick Name
-            var temp = DataViewData.Where(x =>
+            IEnumerable<PersonNameModel> temp = DataViewData
+                .Where(x =>
                    (x.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
-                || (x.ShortName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
+                || (x.DefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
-                ).DistinctBy(x => x.Handle)
+                )
+                .DistinctBy(x => x.Handle);
 
-                .OrderBy(z => z.SortName);
+            IOrderedEnumerable<PersonNameModel> orderTemp = temp.OrderBy(x => x.GSurName.GetPrimarySurname);
 
-            foreach (PersonNameModel tempMO in temp)
+            foreach (PersonNameModel tempMO in orderTemp)
             {
                 itemsFound.Add(tempMO.HLink);
             }

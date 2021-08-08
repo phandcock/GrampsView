@@ -73,7 +73,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(PersonModel => PersonModel.GPersonNamesCollection.GetPrimaryName.DeRef.SortName).ToList();
+                return DataViewData.OrderBy(PersonModel => PersonModel.GPersonNamesCollection.GetPrimaryName.DeRef).ToList();
             }
         }
 
@@ -148,7 +148,7 @@ namespace GrampsView.Data.DataView
             }
 
             // sort the list
-            IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef.SortName);
+            IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef);
 
             return new ObservableCollection<PersonModel>(sortedList);
         }
@@ -172,7 +172,7 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
+                        orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef
                         where ((item.IsLiving == true) && (item.BirthDate.Valid) && (item.BirthDate.ValidMonth == true) && (item.BirthDate.ValidDay == true))
                         group item by (item.BirthDate.GetMonthDay) into g
                         select new
@@ -204,7 +204,7 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.GPersonNamesCollection.GetPrimaryName.DeRef.SortName
+                        orderby item.GPersonNamesCollection.GetPrimaryName.DeRef
                         group item by (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname) into g
                         select new
                         {
@@ -314,7 +314,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkPersonModel> t = collectionArg.OrderBy(HLinkPersonModel => HLinkPersonModel.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.SortName);
+            IOrderedEnumerable<HLinkPersonModel> t = collectionArg.OrderBy(HLinkPersonModel => HLinkPersonModel.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
 
             HLinkPersonModelCollection tt = new HLinkPersonModelCollection();
 

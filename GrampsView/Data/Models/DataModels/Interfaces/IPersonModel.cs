@@ -1,21 +1,16 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IPersonModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
+
+    using System;
+    using System.Collections;
+    using System.ComponentModel;
 
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
     /// </summary>
-    public interface IPersonModel : IModelBase
+    public interface IPersonModel : IModelBase, IComparable<PersonModel>, INotifyPropertyChanged, IComparable, IComparer
     {
         /// <summary>
         /// Gets the birth date.
@@ -133,7 +128,7 @@ namespace GrampsView.Data.Model
         /// Gets a value indicating whether this instance is living.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is living; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is living; otherwise, <c> false </c>.
         /// </value>
         bool IsLiving
         {

@@ -7,6 +7,12 @@ namespace GrampsView.Common
     /// </summary>
     public static class CommonConstants
     {
+        public const int CompareEquals = 0;
+
+        public const int CompareGreaterThan = 1;
+
+        public const int CompareLessThan = -1;
+
         /// <summary>
         /// The data log size.
         /// </summary>

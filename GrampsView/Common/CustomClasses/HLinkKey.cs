@@ -1,11 +1,12 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
+    using System;
     using System.Runtime.Serialization;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
     [DataContract]
-    public class HLinkKey : ObservableObject
+    public class HLinkKey : ObservableObject, IComparable<HLinkKey>, IComparable
     {
         public HLinkKey(string argHLinkKeyValue)
         {
@@ -29,5 +30,25 @@
         {
             get; set;
         } = string.Empty;
+
+        public int CompareTo(HLinkKey argOther)
+        {
+            if (!Valid)
+            {
+                return CommonConstants.CompareLessThan;
+            }
+
+            return Value.CompareTo(argOther.Value);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is HLinkKey)
+            {
+                return CommonConstants.CompareLessThan;
+            }
+
+            return Value.CompareTo((obj as HLinkKey).Value);
+        }
     }
 }

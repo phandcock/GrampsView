@@ -4,7 +4,6 @@
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Collections;
     using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
@@ -24,7 +23,7 @@
     /// </summary>
     [DataContract]
     [KnownType(typeof(HLinkFamilyModel))]
-    public sealed class PersonModel : ModelBase, IPersonModel, IComparable, IComparer
+    public sealed class PersonModel : ModelBase, IPersonModel
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonModel"/> class.
@@ -323,6 +322,20 @@
             {
                 // equal so check firstname
                 testFlag = string.Compare(GPersonNamesCollection.GetPrimaryName.DeRef.GFirstName, secondPersonModel.GPersonNamesCollection.GetPrimaryName.DeRef.GFirstName, StringComparison.CurrentCulture);
+            }
+
+            return testFlag;
+        }
+
+        public int CompareTo(PersonModel argOther)
+        {
+            // compare on surnname first
+            int testFlag = string.Compare(GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname, argOther.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
+
+            if (testFlag.Equals(0))
+            {
+                // equal so check firstname
+                testFlag = string.Compare(GPersonNamesCollection.GetPrimaryName.DeRef.GFirstName, argOther.GPersonNamesCollection.GetPrimaryName.DeRef.GFirstName, StringComparison.CurrentCulture);
             }
 
             return testFlag;

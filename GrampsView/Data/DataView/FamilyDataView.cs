@@ -28,7 +28,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(FamilyModel => FamilyModel.DefaultTextSort).ToList();
+                return DataViewData.OrderBy(FamilyModel => FamilyModel).ToList();
             }
         }
 
@@ -120,7 +120,7 @@ namespace GrampsView.Data.DataView
 
             var query =
                     from x in queryBase
-                    orderby x.key, x.item.DefaultTextSort
+                    orderby x.key, x.item
                     group x by (x.key) into g
                     select new
                     {
@@ -306,7 +306,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkFamilyModel> t = collectionArg.OrderBy(HLinkFamilyModel => HLinkFamilyModel.DeRef.DefaultTextSort);
+            IOrderedEnumerable<HLinkFamilyModel> t = collectionArg.OrderBy(HLinkFamilyModel => HLinkFamilyModel.DeRef);
 
             HLinkFamilyModelCollection tt = new HLinkFamilyModelCollection();
 

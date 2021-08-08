@@ -4,12 +4,11 @@
     using GrampsView.Data.Collections;
 
     using System;
-    using System.ComponentModel;
 
     /// <summary>
     /// Public interfaces for the Event elements.
     /// </summary>
-    public interface IModelBase : IComparable<ModelBase>, INotifyPropertyChanged
+    public interface IModelBase
     {
         HLinkBackLinkModelCollection BackHLinkReferenceCollection
         {
@@ -33,11 +32,6 @@
         }
 
         string DefaultTextShort
-        {
-            get;
-        }
-
-        string DefaultTextSort
         {
             get;
         }

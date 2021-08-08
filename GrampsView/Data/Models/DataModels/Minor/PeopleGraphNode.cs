@@ -2,8 +2,12 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.Collections;
+
     using System;
     using System.Collections;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -15,7 +19,7 @@ namespace GrampsView.Data.Model
     /// ///
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
-    public sealed class PeopleGraphNode : ModelBase, IComparable, IComparer
+    public sealed class PeopleGraphNode : IPeopleGraphNode
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PeopleGraphNode"/> class.
@@ -23,6 +27,24 @@ namespace GrampsView.Data.Model
         public PeopleGraphNode()
         {
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public HLinkBackLinkModelCollection BackHLinkReferenceCollection => throw new NotImplementedException();
+
+        public DateTime Change { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string DefaultText => throw new NotImplementedException();
+
+        public string DefaultTextShort => throw new NotImplementedException();
+
+        public string Handle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public HLinkKey HLinkKey { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public ItemGlyph ModelItemGlyph { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// The node h link.
@@ -32,6 +54,10 @@ namespace GrampsView.Data.Model
             get; set;
         }
             = new HLinkBase();
+
+        public bool Priv { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public bool Valid => throw new NotImplementedException();
 
         /// <summary>
         /// The x start.
@@ -75,6 +101,11 @@ namespace GrampsView.Data.Model
             return a.YStart.CompareTo(b.YStart);
         }
 
+        public int Compare(object a, object b)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Compares two objects.
         /// </summary>
@@ -98,6 +129,16 @@ namespace GrampsView.Data.Model
             return testFlag;
         }
 
+        public int CompareTo(object argObj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CompareTo(PeopleGraphNode other)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Implement IComparable CompareTo method.
         /// </summary>
@@ -115,6 +156,11 @@ namespace GrampsView.Data.Model
             int testFlag = Compare(NodeHLink.HLinkKey, secondEvent.NodeHLink.HLinkKey);
 
             return testFlag;
+        }
+
+        public void LoadBasics(ModelBase argBasics)
+        {
+            throw new NotImplementedException();
         }
     }
 }
