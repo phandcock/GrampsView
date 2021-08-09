@@ -1,3 +1,14 @@
+## [16.19.26](https://github.com/phandcock/GrampsView/compare/v16.19.25...v16.19.26) (2021-08-09)
+
+
+### Bug Fixes
+
+* display proper title in tagdetailview ([d48f127](https://github.com/phandcock/GrampsView/commit/d48f127697094e2c3c1155187df79538fccd5235))
+* fix display of search names on Android ([d24c665](https://github.com/phandcock/GrampsView/commit/d24c665ee018eeb729246c18b594b86fdc4c5991))
+* tweaks ([d408def](https://github.com/phandcock/GrampsView/commit/d408def5e045c4757e176e95b1f02282e56ce8e8))
+
+
+
 ## [16.19.25](https://github.com/phandcock/GrampsView/compare/v16.19.24...v16.19.25) (2021-08-08)
 
 
@@ -28,15 +39,6 @@
 * cleanup fileinfoex ([ec19d43](https://github.com/phandcock/GrampsView/commit/ec19d434f304ebd96c578966c1dbcca2957e86ee))
 * fix Unit Testing failure ([b717661](https://github.com/phandcock/GrampsView/commit/b717661f3468b7f04a94a23e5a4bc25fa3e2ab0b))
 * more fileinfoex cleanup ([0576ce7](https://github.com/phandcock/GrampsView/commit/0576ce7064ea5de17b8125478a2abf05f4afb191))
-
-
-
-## [16.19.22](https://github.com/phandcock/GrampsView/compare/v16.19.21...v16.19.22) (2021-08-02)
-
-
-### Bug Fixes
-
-* move messagelog back to a view page to avoid Android UI issue with Popups ([59c7928](https://github.com/phandcock/GrampsView/commit/59c7928a39ef09acf2e812ac1f6b901bacee7423))
 
 
 
