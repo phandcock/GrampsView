@@ -64,7 +64,7 @@
         /// </returns>
         public override void BaseHandleLoadEvent()
         {
-            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>((BaseParamsHLink));
+            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(BaseParamsHLink);
 
             FamilyObject = HLinkFamily.DeRef;
 
@@ -88,9 +88,9 @@
                 BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
 
                 // Add parent link
-                BaseDetail.Add(new ParentLinkModel
+                BaseDetail.Add(new HLinkParentLinkModel
                 {
-                    Parents = localFamilyModel,
+                    DeRef = localFamilyModel,
                 });
 
                 _PlatformSpecific.ActivityTimeLineAdd(FamilyObject);

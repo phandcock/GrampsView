@@ -2,7 +2,10 @@
 
 namespace GrampsView.Data.Model
 {
+    using GrampsView.Views;
+
     using System.Runtime.Serialization;
+    using System.Threading.Tasks;
 
     /// TODO Update fields as per Schema XML 1.71
     [DataContract]
@@ -29,6 +32,12 @@ namespace GrampsView.Data.Model
                 this.HLinkKey = Parents.HLinkKey;
                 this.ModelItemGlyph = Parents.ModelItemGlyph;
             }
+        }
+
+        public override async Task UCNavigate()
+        {
+            await UCNavigateBase(this, nameof(FamilyDetailPage));
+            return;
         }
     }
 }

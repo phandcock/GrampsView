@@ -167,9 +167,9 @@
 
                 // Get parent details
                 BaseDetail.Add(
-                    new ParentLinkModel
+                    new HLinkParentLinkModel
                     {
-                        Parents = PersonObject.GChildOf.DeRef,
+                        DeRef = PersonObject.GChildOf.DeRef,
                     });
 
                 // Add Standard details

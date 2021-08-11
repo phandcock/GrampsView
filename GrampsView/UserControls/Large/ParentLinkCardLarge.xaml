@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:ParentLinkModel"
+    x:DataType="models:HLinkParentLinkModel"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
     <Frame Style="{DynamicResource FrameMediumVariableCardStyleNS}">
@@ -27,8 +27,34 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Style="{StaticResource GVFrameHeaderStyle}">
-                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="Parents" />
+                Margin="0"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark},
+                                                  Light={StaticResource PrimaryLightColorLight}}"
+                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
+                                              Light={StaticResource SecondaryLightColorLight}}"
+                HorizontalOptions="FillAndExpand"
+                Style="{StaticResource FrameCardStyle}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Horizontal">
+                    <Image
+                         Margin="5"
+                      VerticalOptions="Center"
+                        Style="{DynamicResource GVSymbolIconSingleCardType}">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="FA-Solid"
+                                Glyph="{Binding DeRef.ModelItemGlyph.Symbol}"
+                                Color="{Binding DeRef.ModelItemGlyph.SymbolColour}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Margin="5"
+                        Padding="0"
+                        Style="{StaticResource GVHeaderStyleSmall}"
+                        Text="Family" />
+                </StackLayout>
             </Frame>
 
             <ucon:PersonLink
@@ -36,7 +62,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="5"
-                BindingContext="{Binding Parents.GFather, Mode=OneWay}"
+                BindingContext="{Binding DeRef.GFather, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
@@ -46,7 +72,7 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="5"
-                BindingContext="{Binding Parents.GMother, Mode=OneWay}"
+                BindingContext="{Binding DeRef.GMother, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />

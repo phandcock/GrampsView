@@ -65,7 +65,7 @@
 
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
-            if (this.BindingContext == null)
+            if (BindingContext == null)
             {
                 return;
             }
@@ -74,29 +74,29 @@
             {
                 newItemGlyph = new ItemGlyph();
 
-                switch (this.BindingContext.GetType().Name)
+                switch (BindingContext.GetType().Name)
                 {
                     case nameof(IHLinkMediaModel):
                         {
-                            newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
                             break;
                         }
 
                     case nameof(HLinkMediaModel):
                         {
-                            newItemGlyph = (this.BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
                             break;
                         }
 
                     case nameof(ItemGlyph):
                         {
-                            newItemGlyph = this.BindingContext as ItemGlyph;
+                            newItemGlyph = BindingContext as ItemGlyph;
                             break;
                         }
 
                     default:
                         {
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay is not ItemGlyph but " + this.BindingContext.GetType().ToString()));
+                            DataStore.Instance.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
                             return;
                         }
                 }
@@ -111,7 +111,7 @@
                 {
                 }
 
-                this.ShowSomething(newItemGlyph);
+                ShowSomething(newItemGlyph);
             }
             catch (Exception ex)
             {
@@ -180,8 +180,8 @@
 
                     newMediaControl.Error += NewMediaControl_Error;
 
-                    this.HLinkVisualDisplayRoot.Children.Clear();
-                    this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    HLinkVisualDisplayRoot.Children.Clear();
+                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {
@@ -228,8 +228,8 @@
                         VerticalOptions = LayoutOptions.FillAndExpand,
                     };
 
-                    this.HLinkVisualDisplayRoot.Children.Clear();
-                    this.HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    HLinkVisualDisplayRoot.Children.Clear();
+                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {
@@ -364,8 +364,8 @@
 
                 newImageControl.Source = fontGlyph;
 
-                this.HLinkVisualDisplayRoot.Children.Clear();
-                this.HLinkVisualDisplayRoot.Children.Add(newImageControl);
+                HLinkVisualDisplayRoot.Children.Clear();
+                HLinkVisualDisplayRoot.Children.Add(newImageControl);
             }
             catch (Exception ex)
             {

@@ -515,7 +515,7 @@ namespace GrampsView.Common
                 return TagTemplate;
             }
 
-            if (item is ParentLinkModel)
+            if (item is HLinkParentLinkModel)
             {
                 return ParentLinkTemplate;
             }
