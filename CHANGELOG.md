@@ -1,3 +1,12 @@
+## [16.19.27](https://github.com/phandcock/GrampsView/compare/v16.19.26...v16.19.27) (2021-08-13)
+
+
+### Bug Fixes
+
+* add family button to parentlinklargecard ([b44c612](https://github.com/phandcock/GrampsView/commit/b44c612acf7ade769440d7ad317965c8f388201a))
+
+
+
 ## [16.19.26](https://github.com/phandcock/GrampsView/compare/v16.19.25...v16.19.26) (2021-08-09)
 
 
@@ -28,17 +37,6 @@
 ### Bug Fixes
 
 * fix fileinfoex repeated path bug ([d625dd0](https://github.com/phandcock/GrampsView/commit/d625dd0552ba632d4554896dc92196c273431a1a))
-
-
-
-## [16.19.23](https://github.com/phandcock/GrampsView/compare/v16.19.22...v16.19.23) (2021-08-04)
-
-
-### Bug Fixes
-
-* cleanup fileinfoex ([ec19d43](https://github.com/phandcock/GrampsView/commit/ec19d434f304ebd96c578966c1dbcca2957e86ee))
-* fix Unit Testing failure ([b717661](https://github.com/phandcock/GrampsView/commit/b717661f3468b7f04a94a23e5a4bc25fa3e2ab0b))
-* more fileinfoex cleanup ([0576ce7](https://github.com/phandcock/GrampsView/commit/0576ce7064ea5de17b8125478a2abf05f4afb191))
 
 
 
