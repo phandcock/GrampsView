@@ -3,7 +3,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System;
     using System.Linq;
@@ -109,7 +108,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Family load complete");
+            _iocCommonNotifications.DataLogEntryReplace("Family load complete");
 
             return true;
         }

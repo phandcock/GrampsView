@@ -261,7 +261,7 @@
             {
                 BaseTitle = CommonRoutines.ReplaceLineSeperators(BaseTitle);
 
-                BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
+                BaseTitle = BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
             }
         }
 

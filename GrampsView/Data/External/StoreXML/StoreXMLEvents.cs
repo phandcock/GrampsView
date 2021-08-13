@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System;
     using System.Linq;
@@ -57,8 +56,11 @@
 
                         loadEvent.GType = GetElement(pname.Element(ns + "type"));
 
-                        Enum.TryParse(loadEvent.GType, out EventModelType loadEventType);
-                        loadEvent.EventType = loadEventType;
+                        loadEvent.EventType = EventModelType.UNKNOWN;
+                        if (Enum.TryParse(loadEvent.GType, out EventModelType loadEventType))
+                        {
+                            loadEvent.EventType = loadEventType;
+                        }
 
                         // save the event
                         DV.EventDV.EventData.Add(loadEvent);
@@ -75,7 +77,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Event load complete");
+            _iocCommonNotifications.DataLogEntryReplace("Event load complete");
             return;
         }
     }

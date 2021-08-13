@@ -158,7 +158,7 @@
             //{
             //}
 
-            await DataStore.Instance.CN.DataLogEntryReplace("People load complete").ConfigureAwait(false);
+            DataStore.Instance.CN.DataLogEntryReplace("People load complete");
 
             return;
         }

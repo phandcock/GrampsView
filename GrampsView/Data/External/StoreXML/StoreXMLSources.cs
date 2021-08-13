@@ -80,7 +80,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Source load complete");
+            _iocCommonNotifications.DataLogEntryReplace("Source load complete");
 
             return;
         }

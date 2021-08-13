@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System;
     using System.Linq;
@@ -52,7 +51,7 @@
                     throw;
                 }
 
-                await _iocCommonNotifications.DataLogEntryReplace("Repository load complete");
+                _iocCommonNotifications.DataLogEntryReplace("Repository load complete");
 
                 return;
             }

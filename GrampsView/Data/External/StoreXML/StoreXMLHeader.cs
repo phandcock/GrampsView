@@ -77,7 +77,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Header load complete");
+            _iocCommonNotifications.DataLogEntryReplace("Header load complete");
 
             return;
         }

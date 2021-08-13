@@ -110,7 +110,7 @@
         /// <returns>
         /// <br/>
         /// </returns>
-        private DataLogEntry BuildDataLogEntry(string argEntryText)
+        private static DataLogEntry BuildDataLogEntry(string argEntryText)
         {
             DataLogEntry t = new DataLogEntry
             {

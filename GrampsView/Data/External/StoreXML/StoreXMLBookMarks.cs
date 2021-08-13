@@ -60,7 +60,7 @@
                             _iocCommonNotifications.NotifyError(t);
                         }
 
-                        await _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
+                        _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
                     }
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
@@ -74,7 +74,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete");
 
             return;
         }

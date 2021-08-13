@@ -89,7 +89,7 @@
             {
                 ExtractGZip(inputFile, "data.xml");
 
-                await DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GZIP file decompress complete").ConfigureAwait(false);
+                DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GZIP file decompress complete");
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -134,7 +134,7 @@
                 }
             }
 
-            await DataStore.Instance.CN.DataLogEntryReplace("UnTaring of files complete").ConfigureAwait(false);
+            DataStore.Instance.CN.DataLogEntryReplace("UnTaring of files complete");
             return true;
         }
     }

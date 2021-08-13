@@ -109,7 +109,7 @@
             {
                 _iocCommonLogging.LogVariable("BottomMessageReplace", argMessage);
 
-                await DataLogEntryReplace(argMessage).ConfigureAwait(false);
+                DataLogEntryReplace(argMessage);
             }
 
             return;
@@ -135,7 +135,7 @@
             return;
         }
 
-        public async Task DataLogEntryReplace(string argMessage)
+        public void DataLogEntryReplace(string argMessage)
         {
             // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
@@ -166,8 +166,7 @@
 
                 MinorMessage = argMessage;
 
-                // TODO display in a status bar when we have worked out how
-                await DataLogEntryReplace(argMessage).ConfigureAwait(false);
+                DataLogEntryReplace(argMessage);
             }
 
             return;

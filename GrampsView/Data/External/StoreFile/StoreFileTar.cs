@@ -120,7 +120,7 @@
                         {
                         }
 
-                        await DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFileName.FInfo.Directory, filename).ConfigureAwait(false);
 

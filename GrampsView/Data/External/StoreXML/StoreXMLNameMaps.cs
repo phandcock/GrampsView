@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using System;
     using System.Linq;
@@ -60,7 +59,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("NameMap load complete");
+            _iocCommonNotifications.DataLogEntryReplace("NameMap load complete");
 
             return;
         }

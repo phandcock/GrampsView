@@ -62,7 +62,7 @@
                     throw;
                 }
 
-                await _iocCommonNotifications.DataLogEntryReplace("Citation load complete");
+                _iocCommonNotifications.DataLogEntryReplace("Citation load complete");
 
                 return;
             }

@@ -179,7 +179,7 @@
                 }
             }
 
-            await _iocCommonNotifications.DataLogEntryReplace("Media load complete");
+            _iocCommonNotifications.DataLogEntryReplace("Media load complete");
 
             _iocCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
 

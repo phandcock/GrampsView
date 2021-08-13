@@ -89,7 +89,7 @@
             //// Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += async (s, a) =>
             {
-                await OnMainDisplayInfoChanged(s, a);
+                OnMainDisplayInfoChanged(s, a);
             };
             DataStore.Instance.AD.ScreenSizeInit();
 
@@ -130,12 +130,6 @@
 
                 return;
             }
-
-            // CardSizes.Current.ReCalculateCardWidths((DeviceDisplay.MainDisplayInfo.Width /
-            // DeviceDisplay.MainDisplayInfo.Density), (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
-
-            // TODO create platform specific check for allowed rotations until xamarin.essentials
-            // gives me the data
 
             Container.Resolve<IStartAppLoad>().StartProcessing();
         }
@@ -231,7 +225,7 @@
         //This code currently runs one rotation behind and doe snto set the window size properly on UWP.
         //See CardSizxes for the current hack fix.
 
-        private async Task OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+        private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
             DataStore.Instance.AD.ScreenSizeInit();
 

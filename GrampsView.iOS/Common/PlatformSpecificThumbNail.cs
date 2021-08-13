@@ -8,7 +8,7 @@
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        public async Task<MediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
+        async Task<IMediaModel> IPlatformSpecific.GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             //MemoryStream stream = new MemoryStream();
             //// Create memory stream from file stream.
@@ -64,7 +64,7 @@
             return new MediaModel();
         }
 
-        public async Task<MediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, MediaModel argNewMediaModel)
+        public async Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             //var asset = AVAsset.FromUrl(NSUrl.FromFilename(filePath));
             //var imageGenerator = AVAssetImageGenerator.FromAsset(asset);

@@ -425,7 +425,7 @@
 
                         await _PostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
-                        await _commonNotifications.DataLogEntryReplace("GRAMPS Serial data load complete").ConfigureAwait(false);
+                        _commonNotifications.DataLogEntryReplace("GRAMPS Serial data load complete");
 
                         // let everybody know we have finished loading data
                         _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish();

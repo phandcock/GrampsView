@@ -50,11 +50,11 @@ namespace GrampsView.Common
         /// The string message.
         /// </param>
         /// <param name="showProgressRing">
-        /// if set to <c>true</c> [show progress ring].
+        /// if set to <c> true </c> [show progress ring].
         /// </param>
         Task DataLogEntryAdd(string argMessage);
 
-        Task DataLogEntryReplace(string argMessage);
+        void DataLogEntryReplace(string argMessage);
 
         Task DataLogHide();
 
