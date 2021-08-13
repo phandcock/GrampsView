@@ -5,7 +5,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
 
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
 
     /// TODO Update fields as per Schema
     [DataContract]
@@ -41,12 +40,6 @@ namespace GrampsView.Data.Model
 
                 return HLinkGlyphItem.Valid;
             }
-        }
-
-        public override async Task UCNavigate()
-        {
-            //await DeRef.OpenURL();
-            //return;
         }
     }
 }

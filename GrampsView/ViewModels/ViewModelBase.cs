@@ -163,7 +163,7 @@
             get; private set;
         } = false;
 
-        public IAsyncCommand TopMenuHubCommand
+        public Command TopMenuHubCommand
         {
             get; private set;
         }
@@ -202,7 +202,7 @@
             return;
         }
 
-        public async Task TopMenuHubCommandHandler()
+        public void TopMenuHubCommandHandler()
         {
             CommonRoutines.NavigateHub();
         }
@@ -267,7 +267,7 @@
 
         private void ViewSetup()
         {
-            TopMenuHubCommand = new AsyncCommand(TopMenuHubCommandHandler);
+            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
 
             // As UWP does not support shell swipes for desktop. TODO Fix this when we can
             if (Device.RuntimePlatform == Device.UWP)

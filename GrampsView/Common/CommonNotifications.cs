@@ -126,7 +126,7 @@
         /// </returns>
         public async Task DataLogEntryAdd(string argMessage)
         {
-            await DataLog.Add(argMessage).ConfigureAwait(false);
+            DataLog.Add(argMessage);
 
             _iocCommonLogging.Progress("DataLogEntryAdd: " + argMessage);
 
@@ -139,7 +139,7 @@
         {
             // await Task.Run(() => _iocEventAggregator.GetEvent<StatusUpdated>().Publish(argMessage)).ConfigureAwait(false);
 
-            await DataLog.Replace(argMessage).ConfigureAwait(false);
+            DataLog.Replace(argMessage);
 
             _iocCommonLogging.Progress("DataLogEntryReplace: " + argMessage);
 

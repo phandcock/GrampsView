@@ -1,7 +1,6 @@
 namespace GrampsView.Common
 {
     using System.Collections.ObjectModel;
-    using System.Threading.Tasks;
 
     public interface IDataLog
     {
@@ -15,12 +14,12 @@ namespace GrampsView.Common
             get; set;
         }
 
-        Task<bool> Add(string entry);
+        void Add(string entry);
 
         void Clear();
 
-        Task<bool> Remove();
+        void Remove();
 
-        Task<bool> Replace(string entry);
+        void Replace(string entry);
     }
 }

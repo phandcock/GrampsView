@@ -121,7 +121,7 @@ namespace GrampsView.Data.DataView
             var query =
                     from x in queryBase
                     orderby x.key, x.item
-                    group x by (x.key) into g
+                    group x by x.key into g
                     select new
                     {
                         GroupName = g.Key,

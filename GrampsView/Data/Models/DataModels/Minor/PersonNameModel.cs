@@ -363,9 +363,16 @@ namespace GrampsView.Data.Model
             {
                 return CommonConstants.CompareGreaterThan;
             }
+            // Compare on Surname first
+            int testFlag = string.Compare(GSurName.GetPrimarySurname, other.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            // This is effectively random
-            return CompareTo(other);
+            if (testFlag == CommonConstants.CompareEquals)
+            {
+                // Compare on first name
+                testFlag = string.Compare(GFirstName, other.GFirstName, StringComparison.CurrentCulture);
+            }
+
+            return testFlag;
         }
 
         /// <summary>
@@ -381,21 +388,17 @@ namespace GrampsView.Data.Model
         {
             if (obj is null)
             {
-                return 0;
+                return CommonConstants.CompareEquals;
             }
 
-            PersonNameModel secondPersonName = (PersonNameModel)obj;
+            PersonNameModel secondPersonName = obj as PersonNameModel;
 
-            // Compare on Surname first
-            int testFlag = string.Compare(this.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
-
-            if (testFlag == CommonConstants.CompareEquals)
+            if (secondPersonName is null)
             {
-                // Compare on first name
-                testFlag = string.Compare(this.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
+                return CommonConstants.CompareEquals;
             }
 
-            return testFlag;
+            return CompareTo(secondPersonName);
         }
     }
 }

@@ -39,9 +39,9 @@
                 </Frame.GestureRecognizers>
                 <StackLayout Orientation="Horizontal">
                     <Image
-                         Margin="5"
-                      VerticalOptions="Center"
-                        Style="{DynamicResource GVSymbolIconSingleCardType}">
+                        Margin="5"
+                        Style="{DynamicResource GVSymbolIconSingleCardType}"
+                        VerticalOptions="Center">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="FA-Solid"
@@ -53,7 +53,7 @@
                         Margin="5"
                         Padding="0"
                         Style="{StaticResource GVHeaderStyleSmall}"
-                        Text="Family" />
+                        Text="Parents Family" />
                 </StackLayout>
             </Frame>
 

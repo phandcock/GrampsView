@@ -59,7 +59,7 @@
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            await DataStore.Instance.CN.DataLog.Remove().ConfigureAwait(false);
+            DataStore.Instance.CN.DataLog.Remove();
 
             return true;
         }

@@ -86,30 +86,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        ///// <summary>
-        ///// Gets the family display name sort.
-        ///// </summary>
-        ///// <value>
-        ///// The family display name sort.
-        ///// </value>
-        //public override string DefaultTextSort
-        //{
-        //    get
-        //    {
-        //        string familyName;
-
-        // // set family display name if (GFather.Valid) { familyName =
-        // GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname; }
-        // else { familyName = "Unknown"; }
-
-        // if (GMother.Valid) { StringBuilder t = new StringBuilder(); t.Append(familyName);
-        // t.Append(GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname);
-        // familyName = t.ToString(); } else { familyName += "Unknown"; }
-
-        //        return familyName;
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the g attribute collection. This is the [attribute*] attribute.
         /// </summary>
@@ -310,6 +286,17 @@ namespace GrampsView.Data.Model
 
             // Compare on surnname and then first name
             return c1.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(c2.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
+        }
+
+        public int CompareTo(FamilyModel argSecondFamilyModel)
+        {
+            if (argSecondFamilyModel is null)
+            {
+                throw new ArgumentNullException(nameof(argSecondFamilyModel));
+            }
+
+            // Compare on surnname and then first name
+            return GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(argSecondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
         }
 
         /// <summary>

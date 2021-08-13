@@ -5,7 +5,6 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -47,19 +46,14 @@
         /// <returns>
         /// <br/>
         /// </returns>
-        public async Task<bool> Add(string argEntry)
+        public void Add(string argEntry)
         {
-            //  await MainThread.InvokeOnMainThreadAsync(() =>
-            //{
-            //    //DataLogEntry t = default(DataLogEntry);
-
             if (!string.IsNullOrEmpty(argEntry))
             {
                 DataLoadLog.Add(BuildDataLogEntry(argEntry));
             }
-            //}).ConfigureAwait(false);
 
-            return true;
+            return;
         }
 
         public void Clear()
@@ -75,17 +69,14 @@
         /// <returns>
         /// <br/>
         /// </returns>
-        public async Task<bool> Remove()
+        public void Remove()
         {
-            //await MainThread.InvokeOnMainThreadAsync(() =>
-            //{
             if (DataLoadLog.Count > 0)
             {
                 DataLoadLog.Remove(DataLoadLog.Last());
             }
-            //}).ConfigureAwait(false);
 
-            return true;
+            return;
         }
 
         /// <summary>
@@ -97,10 +88,8 @@
         /// <returns>
         /// <br/>
         /// </returns>
-        public async Task<bool> Replace(string argEntry)
+        public void Replace(string argEntry)
         {
-            //await MainThread.InvokeOnMainThreadAsync(() =>
-            //{
             if (!string.IsNullOrEmpty(argEntry))
             {
                 if (DataLoadLog.Count > 0)
@@ -108,9 +97,8 @@
                     DataLoadLog[DataLoadLog.Count - 1] = BuildDataLogEntry(argEntry);
                 }
             }
-            //}).ConfigureAwait(false);
 
-            return true;
+            return;
         }
 
         /// <summary>

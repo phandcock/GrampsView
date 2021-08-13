@@ -3,13 +3,11 @@
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
-    using GrampsView.Views;
 
     using Prism.Events;
 
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.Extensions;
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
@@ -27,10 +25,9 @@
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
 
-
             TestButtonCommand = new AsyncCommand(TestButtonHandler);
 
-            UpdateNoteEmailCommand = new AsyncCommand<string>(UpdateNoteEmailHandler);
+            UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
             BaseHandleAppearingEvent();
         }
@@ -51,8 +48,6 @@
                 CommonLocalSettings.SortHLinkCollections = value;
             }
         }
-
-    
 
         public IAsyncCommand TestButtonCommand
         {
@@ -143,7 +138,7 @@
             }
         }
 
-        public IAsyncCommand<string> UpdateNoteEmailCommand
+        public Command<string> UpdateNoteEmailCommand
         {
             get;
         }
@@ -195,8 +190,6 @@
             }
         }
 
-     
-
         private async Task TestButtonHandler()
         {
             ErrorInfo t = new ErrorInfo
@@ -233,8 +226,10 @@
             DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
         }
 
-        private async Task UpdateNoteEmailHandler(string argEmailAddress)
+        private void UpdateNoteEmailHandler(string argEmailAddress)
         {
+            CommonLocalSettings.NoteEmailAddress = argEmailAddress;
+
             return;
         }
     }
