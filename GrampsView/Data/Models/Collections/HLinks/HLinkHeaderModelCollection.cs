@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -11,6 +9,9 @@ namespace GrampsView.Data.Collections
     using System.Linq;
     using System.Runtime.Serialization;
 
+    /// <summary> Collection of Header HLinks <list type="table"><listheader><term><th> Status
+    /// </term></listheader><item><description> XML 1.71 check </description><description> Done
+    /// </description></item></list><para><br /></para> </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkHeaderModel>))]
     public class HLinkHeaderModelCollection : HLinkBaseCollection<HLinkHeaderModel>
@@ -33,7 +34,7 @@ namespace GrampsView.Data.Collections
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.DefaultText).ToList();

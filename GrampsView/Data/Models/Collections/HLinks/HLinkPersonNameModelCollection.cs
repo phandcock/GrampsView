@@ -69,15 +69,6 @@ namespace GrampsView.Data.Collections
             }
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkPersonNameModel argHLink in this)
@@ -96,7 +87,7 @@ namespace GrampsView.Data.Collections
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.DefaultText).ToList();

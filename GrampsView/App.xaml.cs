@@ -87,10 +87,10 @@
             Container.Resolve<IStartAppLoad>();
 
             //// Subscribe to changes of screen metrics
-            DeviceDisplay.MainDisplayInfoChanged += async (s, a) =>
-            {
-                OnMainDisplayInfoChanged(s, a);
-            };
+            DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
+           {
+               OnMainDisplayInfoChanged(s, a);
+           };
             DataStore.Instance.AD.ScreenSizeInit();
 
             VersionTracking.Track();

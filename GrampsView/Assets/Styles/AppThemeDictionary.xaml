@@ -93,7 +93,7 @@
     </Color>
 
     <Color x:Key="BackgroundColorLight">
-        #FFFFFF
+        #F5F5F5
     </Color>
 
     <Color x:Key="OnBackgroundColorLight">
@@ -109,7 +109,7 @@
     </Color>
 
     <Color x:Key="SurfaceColorLight">
-        #F5F5F5
+        #E0E0E0
     </Color>
 
     <Color x:Key="OnSurfaceColorLight">
