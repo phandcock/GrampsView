@@ -118,7 +118,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// The current family or person.
         /// </summary>
-        private HLinkBase localStartHLink = new HLinkBase();
+        private HLinkBackLink localStartHLink = new HLinkBackLink();
 
         /// <summary>
         /// Gets or sets the maximum level.
@@ -235,7 +235,7 @@ namespace GrampsView.ViewModels
         /// The current person ViewModel.
         /// </value>
         // [RestorableState]
-        public HLinkBase StartHLink
+        public HLinkBackLink StartHLink
         {
             get
             {
@@ -364,16 +364,17 @@ namespace GrampsView.ViewModels
             // Assume person
             PersonModel t = DV.PersonDV.GetModelFromHLinkKey(startPoint);
 
-            if (t.HLink.Valid == true)
-            {
-                StartHLink = t.HLink;
-            }
-            else
-            {
-                FamilyModel tf = DV.FamilyDV.GetModelFromHLinkKey(startPoint);
+            // TODO add back in
+            //if (t.HLink.Valid == true)
+            //{
+            //    StartHLink = t.HLink;
+            //}
+            //else
+            //{
+            //    FamilyModel tf = DV.FamilyDV.GetModelFromHLinkKey(startPoint);
 
-                StartHLink = tf.HLink;
-            }
+            //    StartHLink = tf.HLink;
+            //}
 
             if (!StartHLink.Valid)
             {
@@ -416,7 +417,7 @@ namespace GrampsView.ViewModels
                     // Add person to graph
                     theNode = new PeopleGraphNode
                     {
-                        NodeHLink = (t.HLink as HLinkPersonModel).DeRef.HLink,
+                        // TODO NodeHLink = t.HLink.DeRef.HLinkKey,
                         YStart = t.Level,
                     };
                     TreeGraph.Add(theNode);
@@ -451,7 +452,7 @@ namespace GrampsView.ViewModels
                     // Add Family
                     theNode = new PeopleGraphNode
                     {
-                        NodeHLink = (t.HLink as HLinkFamilyModel).DeRef.HLink,
+                        // TODO NodeHLink = (t.HLink as HLinkFamilyModel).DeRef.HLink,
                         YStart = t.Level,
                     };
                     TreeGraph.Add(theNode);
@@ -655,7 +656,7 @@ namespace GrampsView.ViewModels
         /// The argument h link.
         /// </param>
         /// <param name="argBool">
-        /// if set to <c>true</c> [argument bool].
+        /// if set to <c> true </c> [argument bool].
         /// </param>
         private void AddVisited(HLinkKey argHLink, bool argBool)
         {

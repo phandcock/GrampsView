@@ -76,5 +76,10 @@
 
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

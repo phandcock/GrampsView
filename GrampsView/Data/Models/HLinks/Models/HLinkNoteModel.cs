@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
-        public new INoteModel DeRef
+        public new NoteModel DeRef
         {
             get
             {
@@ -40,6 +40,11 @@ namespace GrampsView.Data.Model
         {
             await UCNavigateBase(this, nameof(NoteDetailPage));
             return;
+        }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
         }
     }
 }

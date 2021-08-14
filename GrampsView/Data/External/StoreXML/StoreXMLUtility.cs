@@ -26,7 +26,260 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        private  async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
+        /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <returns>
+        /// Text of the XML Attribute.
+        /// </returns>
+        private static string GetAttribute(XAttribute a)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return ((string)a).Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <param name="b">
+        /// The b.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static string GetAttribute(XElement a, string b)
+        {
+            return GetAttribute(a.Attribute(b));
+        }
+
+        /// <summary>
+        /// Gets the bool.
+        /// </summary>
+        /// <param name="xmlData">
+        /// The XML data.
+        /// </param>
+        /// <param name="argName">
+        /// Name of the argument.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static bool GetBool(XElement xmlData, string argName)
+        {
+            string boolString = GetAttribute(xmlData.Attribute(argName));
+
+            if (boolString == null)
+            {
+                return false;
+            }
+
+            switch (boolString)
+            {
+                case "0":
+                    {
+                        return true;
+                    }
+
+                case "1":
+                    {
+                        return false;
+                    }
+
+                default:
+                    {
+                        return false;
+                    }
+            }
+        }
+
+        private static DataConfidence GetDataConfidence(XElement a)
+        {
+            string t = ((string)a.Element(ns + "confidence")).Trim();
+
+            switch (t)
+            {
+                case "4":
+                    {
+                        return DataConfidence.VeryHigh;
+                    }
+                case "3":
+                    {
+                        return DataConfidence.High;
+                    }
+                case "2":
+                    {
+                        return DataConfidence.Normal;
+                    }
+                case "1":
+                    {
+                        return DataConfidence.Low;
+                    }
+                case "0":
+                    {
+                        return DataConfidence.VeryLow;
+                    }
+
+                default:
+                    {
+                        break;
+                    }
+            }
+
+            return DataConfidence.Normal;
+        }
+
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        /// <param name="xmlData">
+        /// The XML data.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static DateObjectModel GetDate(XElement xmlData)
+        {
+            return SetDate(xmlData);
+        }
+
+        /// <summary>
+        /// Gets the element.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <returns>
+        /// Text of the XML Element.
+        /// </returns>
+        private static string GetElement(XElement a)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return ((string)a).Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the element.
+        /// </summary>
+        /// <param name="a">
+        /// a.
+        /// </param>
+        /// <param name="b">
+        /// The b.
+        /// </param>
+        /// <returns>
+        /// Text of the XML element int he provided namespace.
+        /// </returns>
+        private static string GetElement(XElement a, string b)
+        {
+            if (a == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return GetElement(a.Element(ns + b));
+            }
+        }
+
+        private static HLinkKey GetHLinkKey(XElement argElement)
+        {
+            if (argElement == null)
+            {
+                return new HLinkKey();
+            }
+
+            return new HLinkKey(GetAttribute(argElement, "hlink"));
+        }
+
+        /// <summary>
+        /// Sets the private object.
+        /// </summary>
+        /// <param name="thePriv">
+        /// The priv.
+        /// </param>
+        /// <returns>
+        /// True or False depending on if the object is private.
+        /// </returns>
+        private static bool GetPrivateObject(XElement xmlData)
+        {
+            string t = GetAttribute(xmlData.Attribute("priv"));
+
+            if (t == "1")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static TextStyle GetTextStyle(XElement a)
+        {
+            XAttribute t = a.Attribute("name");
+
+            switch (t.Value)
+            {
+                case "bold":
+                    {
+                        return TextStyle.bold;
+                    }
+                case "italic":
+                    {
+                        return TextStyle.italic;
+                    }
+                case "underline":
+                    {
+                        return TextStyle.underline;
+                    }
+                case "fontface":
+                    {
+                        return TextStyle.fontface;
+                    }
+                case "fontsize":
+                    {
+                        return TextStyle.fontsize;
+                    }
+                case "fontcolor":
+                    {
+                        return TextStyle.fontcolor;
+                    }
+                case "highlight":
+                    {
+                        return TextStyle.highlight;
+                    }
+                case "superscript":
+                    {
+                        return TextStyle.superscript;
+                    }
+                case "link":
+                    {
+                        return TextStyle.link;
+                    }
+
+                default:
+                    {
+                        break;
+                    }
+            }
+
+            return TextStyle.unknown;
+        }
+
+        private async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
         {
             if (argHLinkLoadImageModel is null)
             {
@@ -167,44 +420,7 @@
             return returnMediaModel.HLink;
         }
 
-        /// <summary>
-        /// Gets the attribute.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <returns>
-        /// Text of the XML Attribute.
-        /// </returns>
-        private static string GetAttribute(XAttribute a)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gets the attribute.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <param name="b">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private static string GetAttribute(XElement a, string b)
-        {
-            return GetAttribute(a.Attribute(b));
-        }
-
-        private  ModelBase GetBasics(XElement argElement)
+        private ModelBase GetBasics(XElement argElement)
         {
             ModelBase returnVal = new ModelBase
             {
@@ -218,45 +434,6 @@
         }
 
         /// <summary>
-        /// Gets the bool.
-        /// </summary>
-        /// <param name="xmlData">
-        /// The XML data.
-        /// </param>
-        /// <param name="argName">
-        /// Name of the argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private static bool GetBool(XElement xmlData, string argName)
-        {
-            string boolString = GetAttribute(xmlData.Attribute(argName));
-
-            if (boolString == null)
-            {
-                return false;
-            }
-
-            switch (boolString)
-            {
-                case "0":
-                    {
-                        return true;
-                    }
-
-                case "1":
-                    {
-                        return false;
-                    }
-
-                default:
-                    {
-                        return false;
-                    }
-            }
-        }
-
-        /// <summary>
         /// Gets the colour.
         /// </summary>
         /// <param name="a">
@@ -267,7 +444,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private  Color GetColour(XElement a, string b)
+        private Color GetColour(XElement a, string b)
         {
             try
             {
@@ -307,63 +484,14 @@
             }
         }
 
-        private static DataConfidence GetDataConfidence(XElement a)
-        {
-            string t = ((string)a.Element(ns + "confidence")).Trim();
-
-            switch (t)
-            {
-                case "4":
-                    {
-                        return DataConfidence.VeryHigh;
-                    }
-                case "3":
-                    {
-                        return DataConfidence.High;
-                    }
-                case "2":
-                    {
-                        return DataConfidence.Normal;
-                    }
-                case "1":
-                    {
-                        return DataConfidence.Low;
-                    }
-                case "0":
-                    {
-                        return DataConfidence.VeryLow;
-                    }
-
-                default:
-                    {
-                        break;
-                    }
-            }
-
-            return DataConfidence.Normal;
-        }
-
-        /// <summary>
-        /// Gets the date.
-        /// </summary>
-        /// <param name="xmlData">
-        /// The XML data.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private static DateObjectModel GetDate(XElement xmlData)
-        {
-            return SetDate(xmlData);
-        }
-
-        private  DateTime GetDateTime(XElement a, string b)
+        private DateTime GetDateTime(XElement a, string b)
         {
             string argUnixSecs = GetAttribute(a.Attribute(b));
 
             return GetDateTime(argUnixSecs);
         }
 
-        private  DateTime GetDateTime(string argUnixSecs)
+        private DateTime GetDateTime(string argUnixSecs)
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
@@ -378,142 +506,12 @@
         }
 
         /// <summary>
-        /// Gets the element.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <returns>
-        /// Text of the XML Element.
-        /// </returns>
-        private static string GetElement(XElement a)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gets the element.
-        /// </summary>
-        /// <param name="a">
-        /// a.
-        /// </param>
-        /// <param name="b">
-        /// The b.
-        /// </param>
-        /// <returns>
-        /// Text of the XML element int he provided namespace.
-        /// </returns>
-        private static string GetElement(XElement a, string b)
-        {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return GetElement(a.Element(ns + b));
-            }
-        }
-
-        private static HLinkKey GetHLinkKey(XAttribute a)
-        {
-            if (a == null)
-            {
-                return new HLinkKey();
-            }
-            else
-            {
-                return new HLinkKey(((string)a).Trim());
-            }
-        }
-
-        /// <summary>
-        /// Sets the private object.
-        /// </summary>
-        /// <param name="thePriv">
-        /// The priv.
-        /// </param>
-        /// <returns>
-        /// True or False depending on if the object is private.
-        /// </returns>
-        private static bool GetPrivateObject(XElement xmlData)
-        {
-            string t = GetAttribute(xmlData.Attribute("priv"));
-
-            if (t == "1")
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private static TextStyle GetTextStyle(XElement a)
-        {
-            XAttribute t = a.Attribute("name");
-
-            switch (t.Value)
-            {
-                case "bold":
-                    {
-                        return TextStyle.bold;
-                    }
-                case "italic":
-                    {
-                        return TextStyle.italic;
-                    }
-                case "underline":
-                    {
-                        return TextStyle.underline;
-                    }
-                case "fontface":
-                    {
-                        return TextStyle.fontface;
-                    }
-                case "fontsize":
-                    {
-                        return TextStyle.fontsize;
-                    }
-                case "fontcolor":
-                    {
-                        return TextStyle.fontcolor;
-                    }
-                case "highlight":
-                    {
-                        return TextStyle.highlight;
-                    }
-                case "superscript":
-                    {
-                        return TextStyle.superscript;
-                    }
-                case "link":
-                    {
-                        return TextStyle.link;
-                    }
-
-                default:
-                    {
-                        break;
-                    }
-            }
-
-            return TextStyle.unknown;
-        }
-
-        /// <summary>
         /// Converts a string into a uri (if it can).
         /// </summary>
         /// <param name="xmlData">
         /// string from XML.
         /// </param>
-        private  Uri GetUri(string xmlData)
+        private Uri GetUri(string xmlData)
         {
             try
             {
@@ -555,24 +553,21 @@
             }
         }
 
-        /// <summary>
-        /// Gets the h link.
-        /// </summary>
-        /// <param name="xmlData">
-        /// The XML data.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private static HLinkBase HLink(XElement xmlData)
-        {
-            HLinkBase t = new HLinkBase();
+        ///// <summary>
+        ///// Gets the h link.
+        ///// </summary>
+        ///// <param name="xmlData">
+        ///// The XML data.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //private static HLinkBase HLink(XElement xmlData)
+        //{
+        //    HLinkBase t = new HLinkBase();
 
-            if (xmlData != null)
-            {
-                t.HLinkKey = GetHLinkKey(xmlData.Attribute("hlink"));
-            }
+        // if (xmlData != null) { t.HLinkKey = GetHLinkKey(xmlData.Attribute("hlink")); }
 
-            return t;
-        }
+        //    return t;
+        //}
     }
 }

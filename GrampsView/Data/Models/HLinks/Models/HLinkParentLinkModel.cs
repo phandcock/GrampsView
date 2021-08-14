@@ -58,5 +58,10 @@
             await UCNavigateBase(this.DeRef.HLink, nameof(FamilyDetailPage));
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

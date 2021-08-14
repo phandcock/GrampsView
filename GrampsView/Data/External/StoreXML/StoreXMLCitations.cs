@@ -48,7 +48,7 @@
 
                         loadCitation.GSourceAttributeCollection = GetSrcAttributeCollection(pcitation);
 
-                        loadCitation.GSourceRef.HLinkKey = GetHLinkKey(pcitation.Element(ns + "sourceref").Attribute("hlink"));
+                        loadCitation.GSourceRef.HLinkKey = GetHLinkKey(pcitation.Element(ns + "sourceref"));
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 

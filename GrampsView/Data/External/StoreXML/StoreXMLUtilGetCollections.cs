@@ -154,7 +154,7 @@
                 {
                     HLinkChildRefModel newChildRefModel = new HLinkChildRefModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
 
                         GFatherRel = GetAttribute(theLoadORElement.Attribute("frel")),
 
@@ -207,7 +207,7 @@
                 {
                     HLinkCitationModel t2 = new HLinkCitationModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
                     t.Add(t2);
@@ -249,7 +249,7 @@
                 {
                     HLinkEventModel t2 = new HLinkEventModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
                         GRole = GetAttribute(theLoadORElement.Attribute("role")),
                         GAttributeRefCollection = GetAttributeCollection(theLoadORElement),
                         GNoteRefCollection = GetNoteCollection(theLoadORElement),
@@ -287,7 +287,7 @@
                 {
                     LdsOrdModel t2 = new LdsOrdModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
                     t.Add(t2);
@@ -325,7 +325,7 @@
                     HLinkNoteModel noteHLink = new HLinkNoteModel
                     {
                         // object details
-                        HLinkKey = GetHLinkKey(loadNoteElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(loadNoteElement),
                     };
 
                     // save the object
@@ -364,7 +364,7 @@
                     // save the MediaObject reference
                     HLinkMediaModel outHLMediaModel = new HLinkMediaModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
                     if (outHLMediaModel.HLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0")
@@ -506,7 +506,7 @@
                         GRelationship = GetAttribute(theLoadORElement, "rel"),
                     };
 
-                    t2.HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink"));
+                    t2.HLinkKey = GetHLinkKey(theLoadORElement);
 
                     t.Add(t2);
                 }
@@ -664,7 +664,7 @@
                     HLinkPlaceModel noteHLink = new HLinkPlaceModel
                     {
                         // object details
-                        HLinkKey = GetHLinkKey(loadPlaceElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(loadPlaceElement),
                     };
 
                     // save the object
@@ -702,7 +702,7 @@
                     HLinkRepositoryRefModel t2 = new HLinkRepositoryRefModel
                     {
                         // "callno" Done "medium" Done; "noteref" Done
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
 
                         Priv = GetPrivateObject(theLoadORElement),
 
@@ -897,7 +897,7 @@
                 {
                     HLinkTagModel t2 = new HLinkTagModel
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement.Attribute("hlink")),
+                        HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
                     t.Add(t2);

@@ -59,5 +59,10 @@
             await UCNavigateBase(this, nameof(AttributeDetailPage));
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

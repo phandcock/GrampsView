@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -23,15 +22,6 @@
             Title = "Repository Reference Collection";
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkRepositoryRefModel argHLink in this)
@@ -44,12 +34,7 @@
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            SetFirstImage();
-
-            if (CommonLocalSettings.SortHLinkCollections)
-            {
-                Sort();
-            }
+            base.SetGlyph();
         }
 
         /// <summary>

@@ -4,14 +4,11 @@
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -46,30 +43,7 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-            SetFirstImage();
-
-            if (CommonLocalSettings.SortHLinkCollections)
-            {
-                Sort();
-            }
-        }
-
-        /// <summary>
-        /// Helper method to sort.
-        /// </summary>
-        public void Sort()
-        {
-            // Sort the collection
-            List<HLinkPlaceModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.DefaultText).ToList();
-
-            Items.Clear();
-
-            foreach (HLinkPlaceModel item in t)
-            {
-                Items.Add(item);
-            }
+            base.SetGlyph();
         }
     }
 }

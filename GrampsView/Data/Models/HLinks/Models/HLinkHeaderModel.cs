@@ -41,5 +41,10 @@
                 return _Deref;
             }
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

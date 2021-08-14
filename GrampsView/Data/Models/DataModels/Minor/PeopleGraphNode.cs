@@ -46,11 +46,11 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The node h link.
         /// </summary>
-        public HLinkBase NodeHLink
+        public HLinkBackLink NodeHLink
         {
             get; set;
         }
-            = new HLinkBase();
+            = new HLinkBackLink();
 
         public bool Priv { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

@@ -3,7 +3,6 @@
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -47,14 +46,7 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-            SetFirstImage();
-
-            if (CommonLocalSettings.SortHLinkCollections)
-            {
-                Sort();
-            }
+            base.SetGlyph();
         }
 
         /// <summary>

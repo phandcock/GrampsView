@@ -41,5 +41,10 @@ namespace GrampsView.Data.Model
                 return HLinkGlyphItem.Valid;
             }
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

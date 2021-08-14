@@ -10,5 +10,9 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class HLinkSourceAttrModel : HLinkBase, IHLinkSourceAttrModel
     {
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

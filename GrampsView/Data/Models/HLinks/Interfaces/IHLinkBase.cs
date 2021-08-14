@@ -2,11 +2,9 @@
 {
     using GrampsView.Common.CustomClasses;
 
-    using System;
-    using System.Collections;
     using System.Threading.Tasks;
 
-    public interface IHLinkBase : IComparer, IComparable
+    public interface IHLinkBase
     {
         ItemGlyph HLinkGlyphItem
         {

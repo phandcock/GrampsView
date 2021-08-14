@@ -6,9 +6,7 @@
     using Newtonsoft.Json;
 
     using System;
-    using System.Collections;
     using System.Diagnostics.Contracts;
-    using System.Globalization;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -30,16 +28,19 @@
     /// </summary>
     /// TODO Update fields as per Schema
     [DataContract]
-    public class HLinkBase : ObservableObject, IHLinkBase
+    public abstract class HLinkBase : ObservableObject, IHLinkBase
     {
         public HLinkBase()
         {
             UCNavigateCommand = new AsyncCommand(UCNavigate);
         }
 
-        public virtual ModelBase DeRef
+        public IModelBase DeRef
         {
-            get;
+            get
+            {
+                return this.GetDeRef();
+            }
         }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
@@ -97,95 +98,6 @@
             }
         }
 
-        public static bool operator !=(HLinkBase left, HLinkBase right)
-        {
-            return !(left == right);
-        }
-
-        public static bool operator <(HLinkBase left, HLinkBase right)
-        {
-            return left is null ? right is object : left.CompareTo(right) < 0;
-        }
-
-        public static bool operator <=(HLinkBase left, HLinkBase right)
-        {
-            return left is null || left.CompareTo(right) <= 0;
-        }
-
-        public static bool operator ==(HLinkBase left, HLinkBase right)
-        {
-            if (left is null)
-            {
-                return right is null;
-            }
-
-            return left.Equals(right);
-        }
-
-        public static bool operator >(HLinkBase left, HLinkBase right)
-        {
-            return left is object && left.CompareTo(right) > 0;
-        }
-
-        public static bool operator >=(HLinkBase left, HLinkBase right)
-        {
-            return left is null ? right is null : left.CompareTo(right) >= 0;
-        }
-
-        /// <summary>
-        /// Compares the specified x.
-        /// </summary>
-        /// <param name="x">
-        /// The x.
-        /// </param>
-        /// <param name="y">
-        /// The y.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        int IComparer.Compare(object x, object y)
-        {
-            return Compare(x, y);
-        }
-
-        /// <summary>
-        /// Compares to. Bases it on the HLInkKey for want of anything else that makes sense.
-        /// </summary>
-        /// <param name="obj">
-        /// The object.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public int CompareTo(object obj)
-        {
-            if (obj == null)
-            {
-                return 1;
-            }
-
-            return string.Compare(HLinkKey.Value, (obj as HLinkBase).HLinkKey.Value, true, CultureInfo.CurrentCulture);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj is null)
-            {
-                return false;
-            }
-
-            if (this.GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            return HLinkKey == (obj as HLinkBase).HLinkKey;
-        }
-
         public override int GetHashCode()
         {
             return HLinkKey.GetHashCode();
@@ -204,8 +116,10 @@
             HLinkKey = arg.HLinkKey;
         }
 
+        // if (this.GetType() != obj.GetType()) { return false; }
         public virtual Task UCNavigate() => throw new NotImplementedException();
 
+        // if (obj is null) { return false; }
         public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
         {
             string ser = JsonConvert.SerializeObject(dataIn);
@@ -231,5 +145,77 @@
 
             return string.Compare((x as HLinkBase).HLinkKey.Value, (y as HLinkBase).HLinkKey.Value, StringComparison.CurrentCulture);
         }
+
+        // TODO fix when using c# and covariant classes
+        protected abstract IModelBase GetDeRef();
+
+        //public static bool operator !=(HLinkBase left, HLinkBase right)
+        //{
+        //    return !(left == right);
+        //}
+
+        //public static bool operator <(HLinkBase left, HLinkBase right)
+        //{
+        //    return left is null ? right is object : left.CompareTo(right) < 0;
+        //}
+
+        //public static bool operator <=(HLinkBase left, HLinkBase right)
+        //{
+        //    return left is null || left.CompareTo(right) <= 0;
+        //}
+
+        //public static bool operator ==(HLinkBase left, HLinkBase right)
+        //{
+        //    if (left is null)
+        //    {
+        //        return right is null;
+        //    }
+
+        //    return left.Equals(right);
+        //}
+
+        //public static bool operator >(HLinkBase left, HLinkBase right)
+        //{
+        //    return left is object && left.CompareTo(right) > 0;
+        //}
+
+        //public static bool operator >=(HLinkBase left, HLinkBase right)
+        //{
+        //    return left is null ? right is null : left.CompareTo(right) >= 0;
+        //}
+
+        ///// <summary>
+        ///// Compares the specified x.
+        ///// </summary>
+        ///// <param name="x">
+        ///// The x.
+        ///// </param>
+        ///// <param name="y">
+        ///// The y.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //int IComparer.Compare(object x, object y)
+        //{
+        //    return Compare(x, y);
+        //}
+
+        ///// <summary>
+        ///// Compares to. Bases it on the HLInkKey for want of anything else that makes sense.
+        ///// </summary>
+        ///// <param name="obj">
+        ///// The object.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public int CompareTo(object obj)
+        //{
+        //    if (obj == null)
+        //    {
+        //        return 1;
+        //    }
+
+        //    return string.Compare(HLinkKey.Value, (obj as HLinkBase).HLinkKey.Value, true, CultureInfo.CurrentCulture);
+        //}
     }
 }

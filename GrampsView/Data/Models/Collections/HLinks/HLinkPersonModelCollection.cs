@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -63,15 +62,6 @@
             }
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkPersonModel argHLink in this)
@@ -84,20 +74,13 @@
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            //// Set the first image link. Assumes main image is manually set to the first image in
-            //// Gramps if we need it to be, e.g. Citations.
-            SetFirstImage();
-
-            if (CommonLocalSettings.SortHLinkCollections)
-            {
-                Sort();
-            }
+            base.SetGlyph();
         }
 
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkPersonModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef).ToList();

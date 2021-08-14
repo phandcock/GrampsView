@@ -62,5 +62,10 @@ namespace GrampsView.Data.Model
             await DeRef.OpenURL();
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

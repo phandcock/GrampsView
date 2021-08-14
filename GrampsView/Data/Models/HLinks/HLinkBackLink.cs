@@ -291,5 +291,10 @@ namespace GrampsView.Data.Model
         {
             return HLinkKey.GetHashCode();
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

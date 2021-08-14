@@ -33,9 +33,9 @@
                         // Event attributes
                         loadEvent.LoadBasics(GetBasics(pname));
 
-                        //if (loadEvent.Id == "E0715")
-                        //{
-                        //}
+                        if (loadEvent.Id == "E0001")
+                        {
+                        }
 
                         // Event fields
                         loadEvent.GAttribute = GetAttributeCollection(pname);
@@ -50,7 +50,13 @@
 
                         loadEvent.GNoteRefCollection = GetNoteCollection(pname);
 
-                        loadEvent.GPlace.SetBase(HLink(pname.Element(ns + "place")));
+                        XElement tt = pname.Element(ns + "place");
+                        if (!(tt is null))
+                        {
+                            HLinkPlaceModel t = new HLinkPlaceModel();
+                            t.HLinkKey = GetHLinkKey(tt);
+                            loadEvent.GPlace = t;
+                        }
 
                         loadEvent.GTagRefCollection = GetTagCollection(pname);
 

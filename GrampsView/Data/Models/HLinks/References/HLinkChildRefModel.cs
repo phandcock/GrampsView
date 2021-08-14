@@ -102,5 +102,10 @@
             await UCNavigateBase(this, nameof(ChildRefDetailPage));
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

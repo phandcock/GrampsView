@@ -7,8 +7,8 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// <para>Repository HLink.</para>
-    /// <para>XML 1.71 check done</para>
+    /// <para> Repository HLink. </para>
+    /// <para> XML 1.71 check done </para>
     /// </summary>
     [DataContract]
     public class HLinkRepositoryModel : HLinkBase, IHLinkRepositoryModel
@@ -50,6 +50,11 @@
         {
             await UCNavigateBase(this, "RepositoryDetailPage");
             return;
+        }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
         }
     }
 }

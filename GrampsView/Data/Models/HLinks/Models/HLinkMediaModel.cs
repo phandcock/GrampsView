@@ -32,8 +32,8 @@ namespace GrampsView.Data.Model
         /// Gets the associated media model
         /// </summary>
         /// <value>
-        /// The media model. <note type="caution">This can not hold a local copy of the media model
-        /// as the Model Base has a hlinkmediamodel in it and this will cause a referene loop</note>
+        /// The media model. <note type="caution"> This can not hold a local copy of the media model
+        /// as the Model Base has a hlinkmediamodel in it and this will cause a referene loop </note>
         /// </value>
         public new IMediaModel DeRef
         {
@@ -78,7 +78,7 @@ namespace GrampsView.Data.Model
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
-        /// type="note">Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid
+        /// type="note"> Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid
         /// for both types and MUST be invalid for a default new instance. <br/></note>
         /// </summary>
         /// <value>
@@ -96,6 +96,11 @@ namespace GrampsView.Data.Model
         {
             await UCNavigateBase(this, "MediaDetailPage");
             return;
+        }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
         }
     }
 }

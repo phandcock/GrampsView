@@ -59,7 +59,7 @@
                         {
                             // Force glyph valid while loading
                             loadPerson.GChildOf.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.TempLoading;
-                            loadPerson.GChildOf.HLinkKey = GetHLinkKey(tempChildOf.Attribute("hlink"));
+                            loadPerson.GChildOf.HLinkKey = GetHLinkKey(tempChildOf);
                         }
 
                         // CitationRef collection
@@ -113,7 +113,7 @@
                             {
                                 HLinkFamilyModel t = new HLinkFamilyModel
                                 {
-                                    HLinkKey = GetHLinkKey(loadPIElement.Attribute("hlink")),
+                                    HLinkKey = GetHLinkKey(loadPIElement),
                                 };
                                 loadPerson.GParentInRefCollection.Add(t);
                             }

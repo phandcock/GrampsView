@@ -49,5 +49,10 @@
             await UCNavigateBase(this, "NameMapDetailPage");
             return;
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

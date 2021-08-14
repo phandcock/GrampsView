@@ -5,6 +5,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
 
+    using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
 
@@ -37,15 +38,6 @@ namespace GrampsView.Data.Model
                 return this.FirstOrDefault();
             }
         }
-
-        //public virtual CardGroup GetCardGroup(string argTitle = "")
-        //{
-        //    CardGroup t = GetCardGroup();
-
-        // if (!string.IsNullOrEmpty(argTitle)) { t.Title = argTitle; };
-
-        //    return t;
-        //}
 
         public virtual CardGroup GetCardGroup()
         {
@@ -111,6 +103,27 @@ namespace GrampsView.Data.Model
 
         public virtual void SetGlyph()
         {
+            //// Set the first image link. Assumes main image is manually set to the first image in
+            //// Gramps if we need it to be, e.g. Citations.
+            SetFirstImage();
+
+            if (CommonLocalSettings.SortHLinkCollections)
+            {
+                Sort();
+            }
+        }
+
+        public virtual void Sort()
+        {
+            // Sort the collection
+            List<T> t = this.OrderBy(x => x.DeRef.DefaultText).ToList();
+
+            Items.Clear();
+
+            foreach (T item in t)
+            {
+                Items.Add(item);
+            }
         }
 
         private ItemGlyph GetImage(int argIndex)

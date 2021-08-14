@@ -91,5 +91,10 @@
         {
             await UCNavigateBase(this, "SourceDetailPage");
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

@@ -67,5 +67,10 @@ namespace GrampsView.Data.Model
         {
             await UCNavigateBase(this, nameof(PersonNameDetailPage));
         }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
+        }
     }
 }

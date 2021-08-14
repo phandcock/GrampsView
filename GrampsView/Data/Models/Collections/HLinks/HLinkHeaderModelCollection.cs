@@ -2,7 +2,6 @@
 
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -12,22 +11,10 @@ namespace GrampsView.Data.Collections
     using System.Linq;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// Collection of EVent $$(HLinks)$$.
-    /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkHeaderModel>))]
     public class HLinkHeaderModelCollection : HLinkBaseCollection<HLinkHeaderModel>
     {
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkHeaderModel argHLink in this)
@@ -40,10 +27,7 @@ namespace GrampsView.Data.Collections
                 argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
             }
 
-            if (CommonLocalSettings.SortHLinkCollections)
-            {
-                Sort();
-            }
+            base.SetGlyph();
         }
 
         /// <summary>

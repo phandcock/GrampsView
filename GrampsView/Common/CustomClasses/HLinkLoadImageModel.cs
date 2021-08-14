@@ -59,48 +59,20 @@ namespace GrampsView.Common.CustomClasses
             }
         }
 
-        /// <summary>
-        /// Gets or sets the g corner1 x.
-        /// </summary>
-        /// <value>
-        /// The g corner1 x.
-        /// </value>
-
         public int GCorner1X
         {
             get; set;
         }
-
-        /// <summary>
-        /// Gets or sets the g corner1 y.
-        /// </summary>
-        /// <value>
-        /// The g corner1 y.
-        /// </value>
 
         public int GCorner1Y
         {
             get; set;
         }
 
-        /// <summary>
-        /// Gets or sets the g corner2 x.
-        /// </summary>
-        /// <value>
-        /// The g corner2 x.
-        /// </value>
-
         public int GCorner2X
         {
             get; set;
         }
-
-        /// <summary>
-        /// Gets or sets the g corner2 y.
-        /// </summary>
-        /// <value>
-        /// The g corner2 y.
-        /// </value>
 
         public int GCorner2Y
         {
@@ -108,10 +80,34 @@ namespace GrampsView.Common.CustomClasses
         }
 
         /// <summary>
+        /// Gets or sets the g corner1 x.
+        /// </summary>
+        /// <value>
+        /// The g corner1 x.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the g corner1 y.
+        /// </summary>
+        /// <value>
+        /// The g corner1 y.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the g corner2 x.
+        /// </summary>
+        /// <value>
+        /// The g corner2 x.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the g corner2 y.
+        /// </summary>
+        /// <value>
+        /// The g corner2 y.
+        /// </value>
+        /// <summary>
         /// Gets or sets a value indicating whether [home use image].
         /// </summary>
         /// <value>
-        /// <c>true</c> if [home use image]; otherwise, <c>false</c>.
+        /// <c> true </c> if [home use image]; otherwise, <c> false </c>.
         /// </value>
         [DataMember]
         public CommonEnums.HLinkGlyphType ImageType
@@ -159,7 +155,7 @@ namespace GrampsView.Common.CustomClasses
 
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
-        /// type="note">Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid
+        /// type="note"> Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid
         /// for both types and MUST be invalid for a default new instance. <br/></note>
         /// </summary>
         /// <value>
@@ -186,6 +182,11 @@ namespace GrampsView.Common.CustomClasses
                         }
                 }
             }
+        }
+
+        protected override IModelBase GetDeRef()
+        {
+            return this.DeRef;
         }
     }
 }
