@@ -19,14 +19,14 @@ namespace GrampsView.Data.Collections
     [KnownType(typeof(ObservableCollection<HLinkHeaderModel>))]
     public class HLinkHeaderModelCollection : HLinkBaseCollection<HLinkHeaderModel>
     {
-        public override CardGroup GetCardGroup()
-        {
-            CardGroup t = base.GetCardGroup();
+        //public override CardGroup GetCardGroup()
+        //{
+        //    CardGroup t = base.GetCardGroup();
 
-            t.Title = Title;
+        // t.Title = Title;
 
-            return t;
-        }
+        //    return t;
+        //}
 
         public override void SetGlyph()
         {

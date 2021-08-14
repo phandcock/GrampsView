@@ -47,14 +47,14 @@ namespace GrampsView.Data.Collections
             }
         }
 
-        public override CardGroup GetCardGroup()
-        {
-            CardGroup t = base.GetCardGroup();
+        //public override CardGroup GetCardGroup()
+        //{
+        //    CardGroup t = base.GetCardGroup();
 
-            t.Title = Title;
+        // t.Title = Title;
 
-            return t;
-        }
+        //    return t;
+        //}
 
         public override void SetGlyph()
         {

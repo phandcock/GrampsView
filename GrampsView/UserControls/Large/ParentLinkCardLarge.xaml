@@ -53,7 +53,7 @@
                         Margin="5"
                         Padding="0"
                         Style="{StaticResource GVHeaderStyleSmall}"
-                        Text="Parents Family" />
+                        Text="Parents and Family" />
                 </StackLayout>
             </Frame>
 

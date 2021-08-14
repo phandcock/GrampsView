@@ -56,6 +56,8 @@ namespace GrampsView.Data.Model
                 t.Add(item);
             }
 
+            t.Title = Title;
+
             return t;
         }
 
