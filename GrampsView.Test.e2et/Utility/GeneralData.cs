@@ -20,7 +20,9 @@
 
     public static class GeneralData
     {
+        public static IFileInfoEx GrampsFile = new FileInfoEx();
         public static ICommonLogging iocCommonLogging = new CommonLogging();
+        public static ICommonNotifications iocCommonNotifications;
         public static IStoreXML iocExternalStorage;
         public static IStorePostLoad iocGrampsStorePostLoad;
         public static IGrampsStoreSerial iocGrampsStoreSerial;
@@ -29,7 +31,6 @@
         public static Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
         public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
         public static DataRepositoryManager newManager;
-        public static ICommonNotifications iocCommonNotifications;
 
         public static void DataStoreSetup()
         {
@@ -123,7 +124,7 @@
             /*
             * Other setup
             */
-            iocExternalStorage = new StoreXML(iocCommonLogging,iocCommonNotifications);
+            iocExternalStorage = new StoreXML(iocCommonLogging, iocCommonNotifications);
 
             iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocCommonNotifications, iocEventAggregator, iocPlatformSpecific);
 

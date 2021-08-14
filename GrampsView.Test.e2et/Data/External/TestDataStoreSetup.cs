@@ -14,20 +14,20 @@
         {
         }
 
-        [Test()]
-        public void DataStoreCreate_Basic()
-        {
-            GeneralData.iocCommonLogging.LogVariable("DataStoreCreate_Basic", DataStore.Instance.AD.CurrentDataFolder.Path);
-
-            Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
-        }
-
         [SetUp]
         public void Init()
         {
             GeneralData.setupMocks();
 
             DataStoreUtility.DataStoreSetup();
+        }
+
+        [Test()]
+        public void TestDataStoreSetup_Basic()
+        {
+            GeneralData.iocCommonLogging.LogVariable("DataStoreCreate_Basic", DataStore.Instance.AD.CurrentDataFolder.Path);
+
+            Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
         }
     }
 }

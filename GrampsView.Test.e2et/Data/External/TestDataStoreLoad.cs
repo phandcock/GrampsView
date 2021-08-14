@@ -7,6 +7,7 @@
     using GrampsView.Test.e2e.Utility;
 
     using System.Reflection;
+    using System.Threading.Tasks;
 
     [TestFixture()]
     public class DataStoreLoadTests
@@ -16,8 +17,16 @@
         {
         }
 
+        [SetUp]
+        public void Init()
+        {
+            GeneralData.setupMocks();
+
+            DataStoreUtility.DataStoreSetup();
+        }
+
         [Test()]
-        public void DataStoreLoad_Basic()
+        public async Task TestDataStoreLoad_Gpkg()
         {
             DataStoreUtility.ListEmbeddedResources();
 
@@ -29,11 +38,15 @@
 
             DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Test_Data.GrampsView Test Basic.gpkg";
 
-            e2e_test.doTest();
+            e2e_test.TestDecompressTar();
+
+            e2e_test.TestDecompressGzip();
+
+            await e2e_test.TestGrampsUnzip();
         }
 
         [Test()]
-        public void DataStoreLoad_Gramps()
+        public async Task TestDataStoreLoad_Gramps()
         {
             DataStoreUtility.ListEmbeddedResources();
 
@@ -45,15 +58,9 @@
 
             DataStore.Instance.AD.CurrentInputStreamPath = "Test Data/Test_Data.example.gramps";
 
-            e2e_test.doTest();
-        }
+            GeneralData.GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
 
-        [SetUp]
-        public void Init()
-        {
-            GeneralData.setupMocks();
-
-            DataStoreUtility.DataStoreSetup();
+            await e2e_test.TestGrampsUnzip();
         }
     }
 }

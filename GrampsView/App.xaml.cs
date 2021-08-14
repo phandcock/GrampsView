@@ -222,7 +222,7 @@
             Distribute.CheckForUpdate();
         }
 
-        //This code currently runs one rotation behind and doe snto set the window size properly on UWP.
+        // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
         //See CardSizxes for the current hack fix.
 
         private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
