@@ -15,71 +15,7 @@
     /// </summary>
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// Loads the BookMark data asynchronous.
-        /// </summary>
-        /// <returns>
-        /// True if loaded ok.
-        /// </returns>
-        public async Task LoadBookMarksAsync()
-        {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
-            {
-                try
-                {
-                    // Run query
-                    var de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "bookmark")
-                        select el;
-
-                    // set BookMark count field
-                    int bookMarkCount = 0;
-
-                    // Loop through results
-                    foreach (XElement argBookMark in de)
-                    {
-                        // BookMark Handle
-                        bookMarkCount++;
-
-                        // BookMark fields
-                        string GTarget = GetAttribute(argBookMark.Attribute("target"));
-                        HLinkKey GHLink = new HLinkKey(GetAttribute(argBookMark.Attribute("hlink")));
-                        HLinkBackLink newHlinkBackLink = SetBookMarkTarget(GTarget, GHLink);
-
-                        if (newHlinkBackLink.Valid)
-                        {
-                            DataStore.Instance.DS.BookMarkCollection.Add(newHlinkBackLink);
-                        }
-                        else
-                        {
-                            ErrorInfo t = new ErrorInfo("Bad BookMark")
-                                {
-                                    { "HLink",  argBookMark.ToString()}
-                                };
-
-                            _iocCommonNotifications.NotifyError(t);
-                        }
-
-                        _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
-                    }
-
-                    DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
-                }
-                catch (Exception e)
-                {
-                    // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
-
-                    throw;
-                }
-            }
-
-            _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete");
-
-            return;
-        }
-
-        public HLinkBackLink SetBookMarkTarget(string argGTarget, HLinkKey argHLinkKey)
+        public static HLinkBackLink SetBookMarkTarget(string argGTarget, HLinkKey argHLinkKey)
         {
             switch (argGTarget)
             {
@@ -148,6 +84,70 @@
             }
 
             return new HLinkBackLink();
+        }
+
+        /// <summary>
+        /// Loads the BookMark data asynchronous.
+        /// </summary>
+        /// <returns>
+        /// True if loaded ok.
+        /// </returns>
+        public async Task LoadBookMarksAsync()
+        {
+            await _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
+            {
+                try
+                {
+                    // Run query
+                    var de =
+                        from el in localGrampsXMLdoc.Descendants(ns + "bookmark")
+                        select el;
+
+                    // set BookMark count field
+                    int bookMarkCount = 0;
+
+                    // Loop through results
+                    foreach (XElement argBookMark in de)
+                    {
+                        // BookMark Handle
+                        bookMarkCount++;
+
+                        // BookMark fields
+                        string GTarget = GetAttribute(argBookMark.Attribute("target"));
+                        HLinkKey GHLink = new HLinkKey(GetAttribute(argBookMark.Attribute("hlink")));
+                        HLinkBackLink newHlinkBackLink = SetBookMarkTarget(GTarget, GHLink);
+
+                        if (newHlinkBackLink.Valid)
+                        {
+                            DataStore.Instance.DS.BookMarkCollection.Add(newHlinkBackLink);
+                        }
+                        else
+                        {
+                            ErrorInfo t = new ErrorInfo("Bad BookMark")
+                                {
+                                    { "HLink",  argBookMark.ToString()}
+                                };
+
+                            _iocCommonNotifications.NotifyError(t);
+                        }
+
+                        _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
+                    }
+
+                    DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
+                }
+                catch (Exception e)
+                {
+                    // TODO handle this
+                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+
+                    throw;
+                }
+            }
+
+            _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete");
+
+            return;
         }
     }
 }

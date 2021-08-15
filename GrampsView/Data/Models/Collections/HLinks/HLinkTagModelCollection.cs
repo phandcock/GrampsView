@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -10,7 +8,18 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// HLink Tag Model Collection.
+    /// Collection of HLinks to Tags
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkTagModel>))]
@@ -25,15 +34,15 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkTagModel argHLink in this)
             {
-                ItemGlyph t = DV.TagDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph modelGylph = DV.TagDV.GetGlyph(argHLink.HLinkKey);
 
-                argHLink.HLinkGlyphItem.ImageType = t.ImageType;
-                argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;
-                argHLink.HLinkGlyphItem.ImageSymbol = t.ImageSymbol;
-                argHLink.HLinkGlyphItem.ImageSymbolColour = t.ImageSymbolColour;
+                argHLink.HLinkGlyphItem.ImageType = modelGylph.ImageType;
+                argHLink.HLinkGlyphItem.ImageHLink = modelGylph.ImageHLink;
+                argHLink.HLinkGlyphItem.ImageSymbol = modelGylph.ImageSymbol;
+                argHLink.HLinkGlyphItem.ImageSymbolColour = modelGylph.ImageSymbolColour;
 
                 // Tags are special in that the colour of the icon is the colour of the tag
-                argHLink.HLinkGlyphItem.SymbolColour = t.SymbolColour;
+                argHLink.HLinkGlyphItem.SymbolColour = modelGylph.SymbolColour;
             }
 
             base.SetGlyph();

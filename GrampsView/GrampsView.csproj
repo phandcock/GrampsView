@@ -46,6 +46,7 @@
     <Compile Remove="Data\Models\HLinks\HLinkTableObjectModel.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
     <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
+    <Compile Remove="Data\Models\HLinks\Models\HLinkSourceAttrModel.cs" />
     <Compile Remove="Data\Models\Misc\MenuItemModel.cs" />
     <Compile Remove="Events\AppStartFirstRunEvent.cs" />
     <Compile Remove="Events\AppStartSaveSerial.cs" />

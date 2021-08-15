@@ -7,9 +7,18 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
-    ///
-    /// XML 1.71 All done
+    /// HLink to a Tag Model
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
 
     [DataContract]

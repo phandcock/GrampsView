@@ -10,7 +10,8 @@ namespace GrampsView.Data.Model
     using System.Threading.Tasks;
 
     /// <summary>
-    /// duh
+    /// <para> HLink to a Person Model </para>
+    /// <para> <font color="#333333"> Duh Core Model </font> </para>
     /// <list type="table">
     /// <listheader>
     /// <term> Item </term>

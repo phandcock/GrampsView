@@ -19,15 +19,9 @@ namespace GrampsView.Common
         /// </value>
         public string Label
         {
-            get
-            {
-                return _Label;
-            }
+            get => _Label;
 
-            set
-            {
-                SetProperty(ref _Label, value);
-            }
+            set => SetProperty(ref _Label, value);
         }
 
         /// <summary>
@@ -38,15 +32,9 @@ namespace GrampsView.Common
         /// </value>
         public string Text
         {
-            get
-            {
-                return _Text;
-            }
+            get => _Text;
 
-            set
-            {
-                SetProperty(ref _Text, value);
-            }
+            set => SetProperty(ref _Text, value);
         }
 
         public static bool operator !=(DataLogEntry left, DataLogEntry right)

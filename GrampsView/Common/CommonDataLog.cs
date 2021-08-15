@@ -114,7 +114,7 @@
         {
             DataLogEntry t = new DataLogEntry
             {
-                Label = $"{ DateTime.Now:0:HH: mm:ss}",
+                Label = $"{ DateTime.Now:HH:mm:ss}",
                 Text = argEntryText.Trim()
             };
 
