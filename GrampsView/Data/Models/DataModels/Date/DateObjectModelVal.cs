@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System;
@@ -25,7 +24,7 @@
         /// <summary>
         /// Quality field.
         /// </summary>
-        private CommonEnums.DateQuality _GQuality = DateQuality.unknown;
+        private DateQuality _GQuality = DateQuality.unknown;
 
         /// <summary>
         /// $$(val)$$ field.
@@ -105,7 +104,7 @@
             internal set;
         }
 
-        public override Nullable<int> GetAge
+        public override int? GetAge
         {
             get
             {
@@ -113,7 +112,7 @@
                 {
                     // Calculate the age - ROUGHLY
                     DateTime today = DateTime.Today;
-                    return ((today - NotionalDate).Days) / 365;
+                    return (today - NotionalDate).Days / 365;
                 }
 
                 return null;
@@ -159,7 +158,7 @@
         /// Get the Date Quality.
         /// </summary>
         [DataMember]
-        public CommonEnums.DateQuality GQuality
+        public DateQuality GQuality
         {
             get
             {

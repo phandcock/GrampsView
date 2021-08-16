@@ -8,9 +8,17 @@
     x:DataType="models:HLinkCitationModel">
 
     <StackLayout>
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.DefaultText, Mode=OneWay}" />
+        <Label
+            LineBreakMode="TailTruncation"
+            MaxLines="2"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.DefaultText, Mode=OneWay}" />
 
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding DeRef.GPage, Mode=OneWay}" />
+        <Label
+            LineBreakMode="TailTruncation"
+            MaxLines="1"
+            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Text="{Binding DeRef.GPage, Mode=OneWay}" />
 
         <Label
             IsVisible="{Binding DeRef.GDateContent.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"

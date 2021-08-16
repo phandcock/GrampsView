@@ -66,8 +66,16 @@
 
         public DateObjectModel()
         {
-            this.ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        }
+
+        public override string DefaultText
+        {
+            get
+            {
+                return ShortDate;
+            }
         }
 
         /// <summary>
@@ -77,7 +85,7 @@
         /// <returns>
         /// age.
         /// </returns>
-        public abstract Nullable<int> GetAge
+        public abstract int? GetAge
         {
             get;
         }
@@ -387,18 +395,18 @@
             return new HLinkDateModel
             {
                 DeRef = this,
-                HLinkGlyphItem = this.ModelItemGlyph,
-                HLinkKey = this.HLinkKey,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
             };
         }
 
-        public HLinkDateModel AsHLink(string argTitle)
+        public virtual HLinkDateModel AsHLink(string argTitle)
         {
             return new HLinkDateModel
             {
                 DeRef = this,
-                HLinkGlyphItem = this.ModelItemGlyph,
-                HLinkKey = this.HLinkKey,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
                 Title = argTitle,
             };
         }
@@ -532,19 +540,19 @@
                 return false;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
             DateObjectModel tempObj = obj as DateObjectModel;
 
-            return (this.NotionalDate == tempObj.NotionalDate);
+            return (NotionalDate == tempObj.NotionalDate);
         }
 
         public override int GetHashCode()
         {
-            return this.NotionalDate.GetHashCode();
+            return NotionalDate.GetHashCode();
         }
 
         /// <summary>

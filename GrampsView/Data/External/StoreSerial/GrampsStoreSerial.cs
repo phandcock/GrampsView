@@ -68,12 +68,11 @@
                         return;
                     }
 
-                    var stream = new IsolatedStorageFileStream(DataInstanceFileName, FileMode.Open, isoStore);
+                    IsolatedStorageFileStream stream = new IsolatedStorageFileStream(DataInstanceFileName, FileMode.Open, isoStore);
 
                     using (StreamReader file = new StreamReader(stream))
                     {
-                        JsonSerializer serializer = new JsonSerializer();
-                        serializer.Converters.Add(new GrampsView.Converters.NewtonSoftColorConverter());
+                        JsonSerializer serializer = GetSerializer();
 
                         DataInstance t = (DataInstance)serializer.Deserialize(file, typeof(DataInstance));
 
@@ -215,9 +214,7 @@
         {
             try
             {
-                JsonSerializer serializer = new JsonSerializer();
-
-                serializer.Converters.Add(new GrampsView.Converters.NewtonSoftColorConverter());
+                JsonSerializer serializer = GetSerializer();
 
                 using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetUserStoreForApplication())
                 {
@@ -241,6 +238,19 @@
                 CommonLocalSettings.DataSerialised = false;
                 throw;
             }
+        }
+
+        private static JsonSerializer GetSerializer()
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            // Special converter for colours
+            serializer.Converters.Add(new Converters.NewtonSoftColorConverter());
+
+            // Handle derived classes (e.g. DateObjectModel) at the cost of possible security
+            // issues. TODO Mitigate the security risk.
+            serializer.TypeNameHandling = TypeNameHandling.Auto;
+
+            return serializer;
         }
     }
 }

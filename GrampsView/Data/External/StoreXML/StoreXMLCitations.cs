@@ -30,7 +30,7 @@
                         // Citation attributes
                         loadCitation.LoadBasics(GetBasics(pcitation));
 
-                        if (loadCitation.Id == "C0656")
+                        if (loadCitation.Id == "C0115")
                         {
                         }
 
@@ -52,7 +52,7 @@
 
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
-                        // save the citation
+                        // Save the citation
                         DataStore.Instance.DS.CitationData.Add(loadCitation);
                     }
                 }

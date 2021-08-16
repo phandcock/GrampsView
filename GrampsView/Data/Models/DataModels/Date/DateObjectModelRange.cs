@@ -87,15 +87,9 @@
         [DataMember]
         public bool GDualdated
         {
-            get
-            {
-                return _GDualdated;
-            }
+            get => _GDualdated;
 
-            internal set
-            {
-                SetProperty(ref _GDualdated, value);
-            }
+            internal set => SetProperty(ref _GDualdated, value);
         }
 
         public override int? GetAge
@@ -134,10 +128,7 @@
         [DataMember]
         public string GNewYear
         {
-            get
-            {
-                return _GNewYear;
-            }
+            get => _GNewYear;
 
             internal set
             {
@@ -154,15 +145,9 @@
         [DataMember]
         public DateQuality GQuality
         {
-            get
-            {
-                return _GQuality;
-            }
+            get => _GQuality;
 
-            internal set
-            {
-                SetProperty(ref _GQuality, value);
-            }
+            internal set => SetProperty(ref _GQuality, value);
         }
 
         /// <summary>
@@ -171,10 +156,7 @@
         [DataMember]
         public string GStart
         {
-            get
-            {
-                return _GStart;
-            }
+            get => _GStart;
 
             internal set
             {
@@ -191,10 +173,7 @@
         [DataMember]
         public string GStop
         {
-            get
-            {
-                return _GStop;
-            }
+            get => _GStop;
 
             set
             {

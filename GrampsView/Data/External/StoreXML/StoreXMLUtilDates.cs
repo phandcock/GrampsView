@@ -46,11 +46,11 @@
         /// <returns>
         /// Date object ViewModel.
         /// </returns>
-        public static DateObjectModel SetDate(XElement currentElement)
+        public static DateObjectModel SetDate(XElement argCurrentElement)
         {
             XElement tempElement;
 
-            if (currentElement is null)
+            if (argCurrentElement is null)
             {
                 // TODO fix this to return invalid date
                 return new DateObjectModelStr(string.Empty);
@@ -59,28 +59,28 @@
             // check for date range
             try
             {
-                tempElement = currentElement.Element(ns + "daterange");
+                tempElement = argCurrentElement.Element(ns + "daterange");
                 if (tempElement != null)
                 {
                     return SetDateRange(tempElement);
                 }
 
                 // check for date span
-                tempElement = currentElement.Element(ns + "datespan");
+                tempElement = argCurrentElement.Element(ns + "datespan");
                 if (tempElement != null)
                 {
                     return SetDateSpan(tempElement);
                 }
 
                 // check for date val
-                tempElement = currentElement.Element(ns + "dateval");
+                tempElement = argCurrentElement.Element(ns + "dateval");
                 if (tempElement != null)
                 {
                     return SetDateVal(tempElement);
                 }
 
                 // check for datestr
-                tempElement = currentElement.Element(ns + "datestr");
+                tempElement = argCurrentElement.Element(ns + "datestr");
                 if (tempElement != null)
                 {
                     DateObjectModelStr t = SetDateStr(tempElement);
@@ -129,7 +129,7 @@
                 bool boolFound = false;
 
                 // cformat CDATA #REQUIRED
-                string stringFound = (string)argCurrentElement.Attribute("cformat");
+                string stringFound = GetAttribute(argCurrentElement, "cformat");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aCFormat = stringFound;
@@ -143,14 +143,14 @@
                 }
 
                 // newyear CDATA #IMPLIED
-                stringFound = (string)argCurrentElement.Attribute("newyear");
+                stringFound = GetAttribute(argCurrentElement, "newyear");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aNewYear = stringFound;
                 }
 
                 // type CDATA #REQUIRED
-                stringFound = (string)argCurrentElement.Attribute("quality");
+                stringFound = GetAttribute(argCurrentElement, "quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
@@ -160,14 +160,14 @@
                 }
 
                 // start CDATA #REQUIRED
-                stringFound = (string)argCurrentElement.Attribute("start");
+                stringFound = GetAttribute(argCurrentElement, "start");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aStart = stringFound;
                 }
 
                 // stop CDATA #REQUIRED
-                stringFound = (string)argCurrentElement.Attribute("stop");
+                stringFound = GetAttribute(argCurrentElement, "stop");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aStop = stringFound;
@@ -186,14 +186,14 @@
         /// <summary>
         /// Sets the date string.
         /// </summary>
-        /// <param name="currentElement">
+        /// <param name="argCurrentElement">
         /// The current element.
         /// </param>
         /// <returns>
         /// </returns>
-        public static DateObjectModelStr SetDateStr(XElement currentElement)
+        public static DateObjectModelStr SetDateStr(XElement argCurrentElement)
         {
-            Contract.Assert(currentElement != null);
+            Contract.Assert(argCurrentElement != null);
 
             string aCFormat = string.Empty;
             string aNewYear = string.Empty;
@@ -207,7 +207,7 @@
             try
             {
                 // val CDATA #REQUIRED
-                string stringFound = (string)currentElement.Attribute("val");
+                string stringFound = GetAttribute(argCurrentElement, "val");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aVal = stringFound;
@@ -226,14 +226,14 @@
         /// <summary>
         /// Sets the date value.
         /// </summary>
-        /// <param name="currentElement">
+        /// <param name="argCurrentElement">
         /// The current element.
         /// </param>
         /// <returns>
         /// </returns>
-        public static DateObjectModel SetDateVal(XElement currentElement)
+        public static DateObjectModel SetDateVal(XElement argCurrentElement)
         {
-            Contract.Requires(currentElement != null);
+            Contract.Requires(argCurrentElement != null);
 
             string aCFormat = string.Empty;
             bool aDualDated = false;
@@ -248,35 +248,35 @@
                 bool boolFound = false;
 
                 // cformat CDATA #REQUIRED
-                string stringFound = (string)currentElement.Attribute("cformat");
+                string stringFound = GetAttribute(argCurrentElement, "cformat");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aCFormat = stringFound;
                 }
 
                 // dualdated value #REQUIRED
-                boolFound = GetBool(currentElement, "dualdated");
+                boolFound = GetBool(argCurrentElement, "dualdated");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aDualDated = boolFound;
                 }
 
                 // newyear CDATA #IMPLIED
-                stringFound = (string)currentElement.Attribute("newyear");
+                stringFound = GetAttribute(argCurrentElement, "newyear");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aNewYear = stringFound;
                 }
 
                 // type CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("quality");
+                stringFound = GetAttribute(argCurrentElement, "quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
                         ErrorInfo t = new ErrorInfo("Bad Date Quality")
                         {
-                            { "Current Element",  currentElement.ToString()}
+                            { "Current Element",  argCurrentElement.ToString()}
                         };
 
                         DataStore.Instance.CN.NotifyError(t);
@@ -284,14 +284,14 @@
                 }
 
                 // type CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("type");
+                stringFound = GetAttribute(argCurrentElement, "type");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     if (!Enum.TryParse(stringFound, out aValType))
                     {
                         ErrorInfo t = new ErrorInfo("Bad Date Value")
                         {
-                            { "Current Element",  currentElement.ToString()}
+                            { "Current Element",  argCurrentElement.ToString()}
                         };
 
                         DataStore.Instance.CN.NotifyError(t);
@@ -299,7 +299,7 @@
                 }
 
                 // val CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("val");
+                stringFound = GetAttribute(argCurrentElement, "val");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aVal = stringFound;
@@ -318,12 +318,12 @@
         /// <summary>
         /// Sets the date range.
         /// </summary>
-        /// <param name="currentElement">
+        /// <param name="argCurrentElement">
         /// The current element.
         /// </param>
         /// <returns>
         /// </returns>
-        private static DateObjectModel SetDateRange(XElement currentElement)
+        private static DateObjectModel SetDateRange(XElement argCurrentElement)
         {
             string stringFound;
 
@@ -340,45 +340,45 @@
                 bool boolFound = false;
 
                 // cformat CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("cformat");
+                stringFound = GetAttribute(argCurrentElement, "cformat");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aCFormat = stringFound;
                 }
 
                 // dualdated value #REQUIRED
-                boolFound = GetBool(currentElement, "dualdated");
+                boolFound = GetBool(argCurrentElement, "dualdated");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aDualDated = boolFound;
                 }
 
                 // newyear CDATA #IMPLIED
-                stringFound = (string)currentElement.Attribute("newyear");
+                stringFound = GetAttribute(argCurrentElement, "newyear");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aNewYear = stringFound;
                 }
 
                 // type CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("quality");
+                stringFound = GetAttribute(argCurrentElement, "quality");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", currentElement.ToString() }, });
+                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
                 // start CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("start");
+                stringFound = GetAttribute(argCurrentElement, "start");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aStart = stringFound;
                 }
 
                 // stop CDATA #REQUIRED
-                stringFound = (string)currentElement.Attribute("stop");
+                stringFound = GetAttribute(argCurrentElement, "stop");
                 if (!string.IsNullOrEmpty(stringFound))
                 {
                     aStop = stringFound;

@@ -4,13 +4,16 @@
 
     using System;
 
-    /// <summary>Convert Xamarin.Forms.Color to Hex string and back.  The normal converter seems to reset eveythign to the 0 values.<note type="note">TODO Remove when serial convertor fixed.</note></summary>
-    /// <seealso cref="Newtonsoft.Json.JsonConverter" />
+    /// <summary>
+    /// Convert Xamarin.Forms.Color to Hex string and back. The normal converter seems to reset
+    /// eveything to the 0 value. <note type="note"> TODO Remove when serial convertor fixed. </note>
+    /// </summary>
+    /// <seealso cref="Newtonsoft.Json.JsonConverter"/>
     internal class NewtonSoftColorConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(Xamarin.Forms.Color));
+            return objectType == typeof(Xamarin.Forms.Color);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

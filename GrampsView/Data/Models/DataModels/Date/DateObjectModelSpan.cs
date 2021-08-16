@@ -77,10 +77,7 @@
         [DataMember]
         public string GCformat
         {
-            get
-            {
-                return _GCformat;
-            }
+            get => _GCformat;
 
             internal set
             {
@@ -108,7 +105,7 @@
             {
                 if (Valid)
                 {
-                    // calculate the age
+                    // Calculate the age
                     DateTime today = DateTime.Today;
                     return today.Year - NotionalDate.Year;
                 }
@@ -138,10 +135,7 @@
         [DataMember]
         public string GNewYear
         {
-            get
-            {
-                return _GNewYear;
-            }
+            get => _GNewYear;
 
             internal set
             {
@@ -158,15 +152,9 @@
         [DataMember]
         public DateQuality GQuality
         {
-            get
-            {
-                return _GQuality;
-            }
+            get => _GQuality;
 
-            internal set
-            {
-                SetProperty(ref _GQuality, value);
-            }
+            internal set => SetProperty(ref _GQuality, value);
         }
 
         /// <summary>
@@ -175,10 +163,7 @@
         [DataMember]
         public string GStart
         {
-            get
-            {
-                return _GStart;
-            }
+            get => _GStart;
 
             internal set
             {
@@ -195,10 +180,7 @@
         [DataMember]
         public string GStop
         {
-            get
-            {
-                return _GStop;
-            }
+            get => _GStop;
 
             set
             {
