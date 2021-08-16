@@ -50,7 +50,6 @@
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
                         new CardListLine("Title:", PlaceObject.GPTitle),
-                        new CardListLine("Name:", PlaceObject.GPlaceNames.DefaultText),
                         new CardListLine("Type:", PlaceObject.GType),
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
@@ -59,6 +58,11 @@
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),
                         new CardListLine("Long:", PlaceObject.GCoordLong),
+                  });
+
+                BaseDetail.Add(new CardListLineCollection("Place Date Ref")
+                    {
+                        new CardListLine("Date:", HLinkObject.Date.ShortDate),
                 });
 
                 BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));

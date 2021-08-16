@@ -5,7 +5,7 @@
 
     using System.Threading.Tasks;
 
-    public class XamarinIFFImageLoading : IFFImageLoading
+    public class XamarinFFImageLoading : IFFImageLoading
     {
         public async Task InvalidateCacheAsync(CacheType argCacheType)
         {

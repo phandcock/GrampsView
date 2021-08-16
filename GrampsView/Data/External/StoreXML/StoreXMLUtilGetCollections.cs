@@ -623,9 +623,9 @@
                     {
                         Handle = "PlaceNameModel",
 
-                        GValue = (string)theLoadORElement.Attribute("value"),
+                        GValue = GetAttribute(theLoadORElement, "value"),
 
-                        GLang = (string)theLoadORElement.Attribute("lang"),
+                        GLang = GetAttribute(theLoadORElement, "lang"),
 
                         GDate = GetDate(theLoadORElement),
                     };

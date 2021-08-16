@@ -195,7 +195,7 @@
         x:Key="FrameSingleFixedCardStyleNS"
         BasedOn="{StaticResource FrameSingleFixedCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
     </Style>
 
     <!--
@@ -220,7 +220,7 @@
         x:Key="FrameSmallFixedCardStyleNS"
         BasedOn="{StaticResource FrameSmallFixedCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
     </Style>
 
     <Style
@@ -232,7 +232,7 @@
         x:Key="FrameSmallVariableCardStyleNS"
         BasedOn="{StaticResource FrameSmallVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
     </Style>
 
     <!--
@@ -259,7 +259,7 @@
         x:Key="FrameMediumFixedCardStyleNS"
         BasedOn="{StaticResource FrameCardMediumStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
     </Style>
 
     <!--  Create a Variable Height Medium Card Style  -->
@@ -275,7 +275,7 @@
         x:Key="FrameMediumVariableCardStyleNS"
         BasedOn="{StaticResource FrameMediumVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -320,7 +320,7 @@
         x:Key="FrameLargeVariableCardStyleNS"
         BasedOn="{StaticResource FrameLargeVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 

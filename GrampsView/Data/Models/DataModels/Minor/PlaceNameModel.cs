@@ -19,10 +19,24 @@ namespace GrampsView.Data.Model
         public IDateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         [DataMember]
-        public string GLang { get; set; }
+        public string GLang { get; set; } = string.Empty;
 
         [DataMember]
-        public string GValue { get; set; }
+        public string GValue { get; set; } = string.Empty;
+
+        public HLinkPlaceNameModel HLink
+        {
+            get
+            {
+                HLinkPlaceNameModel t = new HLinkPlaceNameModel
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
+        }
 
         public int CompareTo(PlaceNameModel other)
         {

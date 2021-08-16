@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -8,6 +6,20 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// <para> HLink to a Place Model <font color="#333333"> </font> </para>
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
+    /// </summary>
     [DataContract]
     public class HLinkPlaceModel : HLinkBase, IHLinkPlaceModel
     {
@@ -20,6 +32,14 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.Symbol = CommonConstants.IconPlace;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
         }
+
+        /// <summary>
+        /// Gets or sets the optional place date.
+        /// </summary>
+        /// <value>
+        /// The date.
+        /// </value>
+        public DateObjectModel Date { get; set; } = new DateObjectModelVal();
 
         public new PlaceModel DeRef
         {
@@ -43,7 +63,7 @@ namespace GrampsView.Data.Model
 
         protected override IModelBase GetDeRef()
         {
-            return this.DeRef;
+            return DeRef;
         }
     }
 }

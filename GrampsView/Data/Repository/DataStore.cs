@@ -62,6 +62,6 @@
         public IFFImageLoading FFIL
         {
             get; set;
-        } = new XamarinIFFImageLoading();
+        } = new XamarinFFImageLoading();
     }
 }
