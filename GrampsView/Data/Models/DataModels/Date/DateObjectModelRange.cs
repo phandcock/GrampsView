@@ -31,15 +31,9 @@
         /// </summary>
         private DateQuality _GQuality = DateQuality.unknown;
 
-        /// <summary>
-        /// Start field.
-        /// </summary>
-        private string _GStart = string.Empty;
+        private DateObjectModelVal _GStart = new DateObjectModelVal();
 
-        /// <summary>
-        /// Stop field.
-        /// </summary>
-        private string _GStop = string.Empty;
+        private DateObjectModelVal _GStop = new DateObjectModelVal();
 
         public DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, string aStart, string aStop)
         {
@@ -55,13 +49,15 @@
             GQuality = aQuality;
 
             // start CDATA #REQUIRED
-            GStart = aStart;
+            GStart = new DateObjectModelVal(aStart, aCFormat, aDualDated, aNewYear, aQuality, DateValType.unknown);
 
             // stop CDATA #REQUIRED
-            GStop = aStop;
+            GStop = new DateObjectModelVal(aStop, aCFormat, aDualDated, aNewYear, aQuality, DateValType.unknown); ;
 
             // Set NotionalDate
-            NotionalDate = ConvertRFC1123StringToDateTime(GStart);
+            NotionalDate = ConvertRFC1123StringToDateTime(aStart);
+
+            HLinkKey.Value = Guid.NewGuid().ToString();
         }
 
         /// <summary>
@@ -154,13 +150,16 @@
         /// Gets the Date Start.
         /// </summary>
         [DataMember]
-        public string GStart
+        public DateObjectModelVal GStart
         {
-            get => _GStart;
+            get
+            {
+                return _GStart;
+            }
 
             internal set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (value.Valid)
                 {
                     SetProperty(ref _GStart, value);
                 }
@@ -171,13 +170,16 @@
         /// Gets or sets the Stop field.
         /// </summary>
         [DataMember]
-        public string GStop
+        public DateObjectModelVal GStop
         {
-            get => _GStop;
-
-            set
+            get
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                return _GStop;
+            }
+
+            internal set
+            {
+                if (value.Valid)
                 {
                     SetProperty(ref _GStop, value);
                 }
@@ -188,7 +190,7 @@
         {
             get
             {
-                string dateString = "From " + GStart + " to " + GStop;
+                string dateString = $"From {GStart.ShortDate} to {GStop.ShortDate}";
 
                 if (GQuality != DateQuality.unknown)
                 {
@@ -224,7 +226,7 @@
         {
             get
             {
-                string dateString = "Range " + GStart + "-" + GStop;
+                string dateString = $"Range {GStart.ShortDate}-{GStop.ShortDate}";
                 return dateString.Trim();
             }
         }
@@ -256,8 +258,8 @@
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Start:", this.GStart),
-                                new CardListLine("Stop:", this.GStop),
+                                new CardListLine("Start:", this.GStart.ShortDate),
+                                new CardListLine("Stop:", this.GStop.ShortDate),
                                 new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
                                 new CardListLine("C Format:", this.GCformat),
                                 new CardListLine("Dual Dated:", this.GDualdated,true),

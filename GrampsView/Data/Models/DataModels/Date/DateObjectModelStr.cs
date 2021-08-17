@@ -31,6 +31,9 @@
             NotionalDate = DateTime.MinValue;
 
             Valid = true;
+
+            HLinkKey.Value = Guid.NewGuid().ToString();
+
             //}
             //catch (Exception ex)
             //{

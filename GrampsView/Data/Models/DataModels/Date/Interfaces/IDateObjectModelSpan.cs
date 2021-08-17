@@ -1,10 +1,6 @@
-﻿
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
-
     using GrampsView.Common;
-
 
     /// <summary>
     /// Public interfaces for the DateObject elements.
@@ -19,8 +15,8 @@ namespace GrampsView.Data.Model
 
         CommonEnums.DateQuality GQuality { get; }
 
-        string GStart { get; }
+        DateObjectModelVal GStart { get; }
 
-        string GStop { get; }
+        DateObjectModelVal GStop { get; }
     }
 }

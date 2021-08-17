@@ -35,6 +35,8 @@
     // <optional><attribute name = "newyear" >< text /></ attribute ></ optional > </ element > <
     // element name="datestr"> <attribute name = "val" >< text /></ attribute > </ element > </
     // choice > </ define > </ code >
+    //
+    // TODO XML 1.71 check
     public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>

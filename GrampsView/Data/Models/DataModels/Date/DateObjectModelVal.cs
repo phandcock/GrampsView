@@ -51,6 +51,8 @@
                     GValType = aValType;
 
                     NotionalDate = ConvertRFC1123StringToDateTime(aVal);
+
+                    HLinkKey.Value = Guid.NewGuid().ToString();
                 }
                 catch (Exception e)
                 {
