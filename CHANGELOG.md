@@ -1,3 +1,14 @@
+## [16.19.30](https://github.com/phandcock/GrampsView/compare/v16.19.29...v16.19.30) (2021-08-18)
+
+
+### Bug Fixes
+
+* fix display of NS smallcards ([0df4f1c](https://github.com/phandcock/GrampsView/commit/0df4f1c8c83e17c6c3a604040a820b6955c857e7))
+* Serialize derived types properly ([a17fe68](https://github.com/phandcock/GrampsView/commit/a17fe683ca45922c20a4e33ee92f5d657d03207b))
+* start work on cleaningup dateobjectmodel code ([bf73d79](https://github.com/phandcock/GrampsView/commit/bf73d79226bc8721a8535013d9c2a99290ea7b63))
+
+
+
 ## [16.19.29](https://github.com/phandcock/GrampsView/compare/v16.19.28...v16.19.29) (2021-08-16)
 
 
@@ -26,17 +37,6 @@
 ### Bug Fixes
 
 * add family button to parentlinklargecard ([b44c612](https://github.com/phandcock/GrampsView/commit/b44c612acf7ade769440d7ad317965c8f388201a))
-
-
-
-## [16.19.26](https://github.com/phandcock/GrampsView/compare/v16.19.25...v16.19.26) (2021-08-09)
-
-
-### Bug Fixes
-
-* display proper title in tagdetailview ([d48f127](https://github.com/phandcock/GrampsView/commit/d48f127697094e2c3c1155187df79538fccd5235))
-* fix display of search names on Android ([d24c665](https://github.com/phandcock/GrampsView/commit/d24c665ee018eeb729246c18b594b86fdc4c5991))
-* tweaks ([d408def](https://github.com/phandcock/GrampsView/commit/d408def5e045c4757e176e95b1f02282e56ce8e8))
 
 
 
