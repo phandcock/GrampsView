@@ -40,7 +40,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The content of the g date.
         /// </value>
-        IDateObjectModel GDateContent
+        DateObjectModel GDateContent
         {
             get;
             set;

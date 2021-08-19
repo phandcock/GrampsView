@@ -41,7 +41,7 @@
         /// The birth date.
         /// </value>
         [DataMember]
-        public IDateObjectModel BirthDate
+        public DateObjectModel BirthDate
         {
             get; set;
         }

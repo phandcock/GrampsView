@@ -182,8 +182,17 @@
     <Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\MinorModels\DateDetailPage.xaml.cs">
-      <DependentUpon>DateDetailPage.xaml</DependentUpon>
+    <Compile Update="Views\MinorModels\DateStrDetailPage.xaml.cs">
+      <DependentUpon>DateStrDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\DateSpanDetailPage.xaml.cs">
+      <DependentUpon>DateSpanDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\DateRangeDetailPage.xaml.cs">
+      <DependentUpon>DateRangeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MinorModels\DateValDetailPage.xaml.cs">
+      <DependentUpon>DateValDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
       <DependentUpon>AttributeDetailPage.xaml</DependentUpon>

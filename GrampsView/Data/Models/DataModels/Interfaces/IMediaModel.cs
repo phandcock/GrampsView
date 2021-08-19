@@ -41,7 +41,7 @@
         /// <value>
         /// The date value.
         /// </value>
-        IDateObjectModel GDateValue
+        DateObjectModel GDateValue
         {
             get;
             set;

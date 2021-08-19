@@ -60,6 +60,10 @@
             HLinkKey.Value = Guid.NewGuid().ToString();
         }
 
+        public DateObjectModelRange()
+        {
+        }
+
         /// <summary>
         /// Gets the $$(cformat)$$ field.
         /// </summary>
@@ -186,6 +190,20 @@
             }
         }
 
+        public HLinkDateModelRange HLink
+        {
+            get
+            {
+                HLinkDateModelRange t = new HLinkDateModelRange
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
+        }
+
         public override string LongDate
         {
             get
@@ -273,6 +291,17 @@
             }
 
             return DateModelCard;
+        }
+
+        public override HLinkBase AsHLink(string argTitle)
+        {
+            return new HLinkDateModelRange
+            {
+                DeRef = this,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
+                Title = argTitle,
+            };
         }
 
         public override bool Equals(object obj)

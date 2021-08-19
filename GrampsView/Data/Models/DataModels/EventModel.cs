@@ -90,7 +90,7 @@
         /// The event date.
         /// </value>
         [DataMember]
-        public IDateObjectModel GDate
+        public DateObjectModel GDate
         {
             get;
 

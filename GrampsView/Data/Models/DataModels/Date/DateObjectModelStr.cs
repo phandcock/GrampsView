@@ -42,6 +42,10 @@
             //}
         }
 
+        public DateObjectModelStr()
+        {
+        }
+
         /// <summary>
         /// Not a properly formatted date so return 0;
         /// </summary>
@@ -85,6 +89,20 @@
                 {
                     SetProperty(ref _GVal, value);
                 }
+            }
+        }
+
+        public HLinkDateModelStr HLink
+        {
+            get
+            {
+                HLinkDateModelStr t = new HLinkDateModelStr
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
             }
         }
 
@@ -153,6 +171,27 @@
             }
 
             return DateModelCard;
+        }
+
+        public virtual HLinkDateModelStr AsHLink()
+        {
+            return new HLinkDateModelStr
+            {
+                DeRef = this,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
+            };
+        }
+
+        public override HLinkBase AsHLink(string argTitle)
+        {
+            return new HLinkDateModelStr
+            {
+                DeRef = this,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
+                Title = argTitle,
+            };
         }
 
         public override bool Equals(object obj)

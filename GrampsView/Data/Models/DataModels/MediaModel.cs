@@ -141,7 +141,7 @@ namespace GrampsView.Data.Model
         /// The date value.
         /// </value>
         [DataMember]
-        public IDateObjectModel GDateValue
+        public DateObjectModel GDateValue
         {
             get;
             set;

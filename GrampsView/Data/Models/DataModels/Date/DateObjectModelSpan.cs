@@ -67,6 +67,10 @@
             }
         }
 
+        public DateObjectModelSpan()
+        {
+        }
+
         /// <summary>
         /// Gets the $$(cformat)$$ field.
         /// </summary>
@@ -193,6 +197,20 @@
             }
         }
 
+        public HLinkDateModelSpan HLink
+        {
+            get
+            {
+                HLinkDateModelSpan t = new HLinkDateModelSpan
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
+        }
+
         public override string LongDate
         {
             get
@@ -290,6 +308,17 @@
             }
 
             return DateModelCard;
+        }
+
+        public override HLinkBase AsHLink(string argTitle)
+        {
+            return new HLinkDateModelSpan
+            {
+                DeRef = this,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
+                Title = argTitle,
+            };
         }
 
         public override bool Equals(object obj)

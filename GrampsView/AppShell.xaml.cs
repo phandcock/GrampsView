@@ -41,7 +41,10 @@
             Routing.RegisterRoute(nameof(ChildRefDetailPage), typeof(ChildRefDetailPage));
             Routing.RegisterRoute(nameof(CitationDetailPage), typeof(CitationDetailPage));
 
-            Routing.RegisterRoute(nameof(DateDetailPage), typeof(DateDetailPage));
+            Routing.RegisterRoute(nameof(DateSpanDetailPage), typeof(DateSpanDetailPage));
+            Routing.RegisterRoute(nameof(DateRangeDetailPage), typeof(DateRangeDetailPage));
+            Routing.RegisterRoute(nameof(DateStrDetailPage), typeof(DateStrDetailPage));
+            Routing.RegisterRoute(nameof(DateValDetailPage), typeof(DateValDetailPage));
 
             Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));
 

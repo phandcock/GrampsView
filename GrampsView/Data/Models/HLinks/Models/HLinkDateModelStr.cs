@@ -13,9 +13,9 @@ namespace GrampsView.Data.Model
     /// HLink to a Date Model.
     /// </summary>
     [DataContract]
-    public class HLinkDateModel : HLinkBase, IHLinkDateModel
+    public class HLinkDateModelStr : HLinkBase, IHLinkDateModel
     {
-        public HLinkDateModel()
+        public HLinkDateModelStr()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconDate;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
@@ -24,11 +24,11 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public new DateObjectModel DeRef
+        public new DateObjectModelStr DeRef
         {
             get;
             set;
-        } = new DateObjectModelVal();
+        } = new DateObjectModelStr();
 
         [DataMember]
         public string Title
@@ -40,7 +40,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(DateDetailPage));
+            await UCNavigateBase(this, nameof(DateStrDetailPage));
             return;
         }
 

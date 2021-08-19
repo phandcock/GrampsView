@@ -71,7 +71,7 @@ namespace GrampsView.Data.Model
         /// The content of the g date.
         /// </value>
         [DataMember]
-        public IDateObjectModel GDateContent
+        public DateObjectModel GDateContent
         {
             get;
             set;

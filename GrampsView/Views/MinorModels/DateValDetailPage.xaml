@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ViewBase
+    x:Class="GrampsView.Views.DateValDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:viewModels="clr-namespace:GrampsView.ViewModels"
+    xmlns:views="clr-namespace:GrampsView.Views"
+    Title="{Binding BaseTitle}"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewModels:DateValDetailViewModel"
+    Style="{DynamicResource GVBaseContentPage}"
+    mc:Ignorable="d">
+
+    <Shell.TitleView>
+        <ucon:TopMenu />
+    </Shell.TitleView>
+
+    <ucon:DetailPageControlTemplate>
+        <StackLayout>
+
+            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+        </StackLayout>
+    </ucon:DetailPageControlTemplate>
+</views:ViewBase>

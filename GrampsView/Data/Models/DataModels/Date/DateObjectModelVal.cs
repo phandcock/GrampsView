@@ -213,6 +213,20 @@
             }
         }
 
+        public HLinkDateModelVal HLink
+        {
+            get
+            {
+                HLinkDateModelVal t = new HLinkDateModelVal
+                {
+                    HLinkKey = HLinkKey,
+                    HLinkGlyphItem = ModelItemGlyph,
+                };
+
+                return t;
+            }
+        }
+
         public override string LongDate
         {
             get
@@ -322,6 +336,17 @@
             }
 
             return DateModelCard;
+        }
+
+        public override HLinkBase AsHLink(string argTitle)
+        {
+            return new HLinkDateModelVal
+            {
+                DeRef = this,
+                HLinkGlyphItem = ModelItemGlyph,
+                HLinkKey = HLinkKey,
+                Title = argTitle,
+            };
         }
 
         public override bool Equals(object obj)

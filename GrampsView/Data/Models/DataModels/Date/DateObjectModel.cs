@@ -133,20 +133,6 @@
             get;
         }
 
-        public HLinkDateModel HLink
-        {
-            get
-            {
-                HLinkDateModel t = new HLinkDateModel
-                {
-                    HLinkKey = HLinkKey,
-                    HLinkGlyphItem = ModelItemGlyph,
-                };
-
-                return t;
-            }
-        }
-
         /// <summary>
         /// Gets the get long date as string. Default so it can be overridden.
         /// </summary>
@@ -390,26 +376,7 @@
 
         public abstract CardListLineCollection AsCardListLine(string argTitle = null);
 
-        public virtual HLinkDateModel AsHLink()
-        {
-            return new HLinkDateModel
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-            };
-        }
-
-        public virtual HLinkDateModel AsHLink(string argTitle)
-        {
-            return new HLinkDateModel
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-                Title = argTitle,
-            };
-        }
+        public abstract HLinkBase AsHLink(string v);
 
         /// <summary>
         /// Compares two objects and returns a value indicating whether one is less than, equal to,

@@ -365,7 +365,10 @@ namespace GrampsView.Common
                         return CitationTemplate;
                     }
 
-                case HLinkDateModel i:
+                case HLinkDateModelRange i1:
+                case HLinkDateModelSpan i2:
+                case HLinkDateModelStr i3:
+                case HLinkDateModelVal i4:
                     {
                         return DateObjectTemplate;
                     }

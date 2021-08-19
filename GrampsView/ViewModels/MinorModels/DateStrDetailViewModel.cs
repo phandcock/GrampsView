@@ -6,9 +6,9 @@
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
-    public class DateDetailViewModel : ViewModelBase
+    public class DateStrDetailViewModel : ViewModelBase
     {
-        public DateDetailViewModel(ICommonLogging iocCommonLogging)
+        public DateStrDetailViewModel(ICommonLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconDDefault;
@@ -34,7 +34,7 @@
         {
             BaseCL.RoutineEntry("DateDetailViewModel");
 
-            HLinkDateModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModel>(BaseParamsHLink);
+            HLinkDateModelStr HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelStr>(BaseParamsHLink);
 
             BaseTitle = HLinkObject.Title;
 
@@ -72,52 +72,8 @@
                     new CardListLine("Sort Date:", DateObject.SortDate.ToString()),
                 });
 
-                /*
-                 * Date Model specific details
-                 */
-
-                switch (DateObject)
-                {
-                    case DateObjectModelRange i:
-                        {
-                            BaseDetail.Add((DateObject as IDateObjectModelRange).AsCardListLine());
-
-                            break;
-                        }
-
-                    case DateObjectModelSpan i:
-                        {
-                            BaseDetail.Add((DateObject as IDateObjectModelSpan).AsCardListLine());
-
-                            break;
-                        }
-
-                    case DateObjectModelStr i:
-                        {
-                            BaseDetail.Add((DateObject as IDateObjectModelStr).AsCardListLine());
-
-                            break;
-                        }
-
-                    case DateObjectModelVal i:
-                        {
-                            BaseDetail.Add((DateObject as IDateObjectModelVal).AsCardListLine());
-
-                            break;
-                        }
-
-                    default:
-                        {
-                            BaseDetail.Add(new CardListLineCollection("Date Val Type")
-                            {
-                                new CardListLine("Uknown:", DateObject.ToString()),
-                            });
-                            break;
-                        }
-                }
+                BaseDetail.Add((DateObject as IDateObjectModelStr).AsCardListLine());
             }
-
-            return;
         }
     }
 }

@@ -75,10 +75,6 @@
 
         CardListLineCollection AsCardListLine(string argTitle = null);
 
-        HLinkDateModel AsHLink();
-
-        HLinkDateModel AsHLink(string argTitle);
-
         TimeSpan DateDifference(IDateObjectModel otherDate);
 
         string DateDifferenceDecoded(IDateObjectModel otherDate);

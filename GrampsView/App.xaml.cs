@@ -146,7 +146,10 @@
             container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
             container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
 
-            container.RegisterForNavigation<DateDetailPage, DateDetailViewModel>();
+            container.RegisterForNavigation<DateRangeDetailPage, DateRangeDetailViewModel>();
+            container.RegisterForNavigation<DateSpanDetailPage, DateSpanDetailViewModel>();
+            container.RegisterForNavigation<DateStrDetailPage, DateStrDetailViewModel>();
+            container.RegisterForNavigation<DateValDetailPage, DateValDetailViewModel>();
 
             container.RegisterForNavigation<EventDetailPage, EventDetailViewModel>();
             container.RegisterForNavigation<EventListPage, EventListViewModel>();

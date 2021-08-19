@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.Views
 {
-    public partial class DateDetailPage : ViewBase
+    public partial class DateValDetailPage : ViewBase
     {
-        public DateDetailPage()
+        public DateValDetailPage()
         {
             InitializeComponent();
         }
