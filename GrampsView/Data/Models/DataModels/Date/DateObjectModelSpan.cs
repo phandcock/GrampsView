@@ -197,7 +197,7 @@
         {
             get
             {
-                string dateString = $"{GStart} to {GStop}";
+                string dateString = $"{GStart.ShortDate} to {GStop.ShortDate}";
 
                 // Do not display a messgae if thw quality is unknown
                 if (GQuality != DateQuality.unknown)
