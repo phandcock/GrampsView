@@ -1,3 +1,12 @@
+## [16.19.31](https://github.com/phandcock/GrampsView/compare/v16.19.30...v16.19.31) (2021-08-20)
+
+
+### Bug Fixes
+
+* dusokay proper detail viewmodel for date ([5a711e9](https://github.com/phandcock/GrampsView/commit/5a711e962edcbe297c60e53b197222520f267540))
+
+
+
 ## [16.19.30](https://github.com/phandcock/GrampsView/compare/v16.19.29...v16.19.30) (2021-08-18)
 
 
@@ -28,15 +37,6 @@
 * tweak light theme ([7cdb222](https://github.com/phandcock/GrampsView/commit/7cdb2221072f8e6d8ff46f046a4074ecfe711616))
 * tweak light theme surface and background ([4866ad1](https://github.com/phandcock/GrampsView/commit/4866ad197a025279490a4cca19933565bf83b6b4))
 * tweaks ([6252428](https://github.com/phandcock/GrampsView/commit/6252428051d289259024fd67df14cff703667df0))
-
-
-
-## [16.19.27](https://github.com/phandcock/GrampsView/compare/v16.19.26...v16.19.27) (2021-08-13)
-
-
-### Bug Fixes
-
-* add family button to parentlinklargecard ([b44c612](https://github.com/phandcock/GrampsView/commit/b44c612acf7ade769440d7ad317965c8f388201a))
 
 
 
