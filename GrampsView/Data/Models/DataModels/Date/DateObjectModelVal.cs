@@ -71,7 +71,7 @@
         {
             get
             {
-                return ShortDate.ToString();
+                return ShortDate;
             }
         }
 

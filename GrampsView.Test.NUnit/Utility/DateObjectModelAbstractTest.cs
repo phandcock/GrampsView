@@ -39,5 +39,10 @@
         {
             return new CardListLineCollection();
         }
+
+        public override HLinkBase AsHLink(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

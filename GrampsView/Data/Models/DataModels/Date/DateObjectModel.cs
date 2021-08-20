@@ -193,14 +193,14 @@
             {
                 if (ValidYear && ValidMonth & ValidDay)
                 {
-                    return NotionalDate.ToShortDateString();
+                    return NotionalDate.ToString("ddMMMyyyy", CultureInfo.CurrentCulture);
                 }
 
                 // TODO Handle international date formats
 
                 if (ValidYear && ValidMonth)
                 {
-                    return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
+                    return NotionalDate.ToString("MMMyyyy", CultureInfo.CurrentCulture);
                 }
 
                 if (ValidYear)
