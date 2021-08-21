@@ -59,8 +59,8 @@ namespace GrampsView.Data.Model
             {
                 StringBuilder familyName = new StringBuilder();
 
-                string fatherName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.DefaultTextShort;
-                string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.DefaultTextShort;
+                string fatherName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
+                string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
 
                 // set family display name
                 if (GFather.Valid)

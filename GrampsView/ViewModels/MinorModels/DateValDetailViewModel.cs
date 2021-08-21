@@ -60,7 +60,7 @@
                 BaseDetail.Add(new CardListLineCollection("Date Detail")
                 {
                     new CardListLine("Month Day:", $"{DateObject.GetMonthDay:MM dd}"),
-                    new CardListLine("Decade:", $"{DateObject.GetDecade}'s"),
+                    new CardListLine("Decade:", DateObject.GetDecade),
                     new CardListLine("Year:", DateObject.GetYear),
                 });
 
