@@ -259,7 +259,7 @@
 
                 if (GDualdated)
                 {
-                    dateString += " Dual dated";
+                    dateString += " (Dual dated)";
                 }
 
                 if (!string.IsNullOrEmpty(GNewYear))

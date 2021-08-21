@@ -117,7 +117,7 @@
             {
                 if (Valid)
                 {
-                    return GStart + " to " + GStop;
+                    return $"Between {GStart.GetYear} and {GStop.GetYear}";
                 }
                 else
                 {
