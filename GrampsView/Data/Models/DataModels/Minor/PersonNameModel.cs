@@ -91,7 +91,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return GFirstName.Split()[0];
+                return GFirstName == null ? string.Empty : GFirstName.Split()[0];
             }
         }
 
