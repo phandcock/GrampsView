@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -66,8 +64,6 @@
 
         public DateObjectModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconDate;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         public override string DefaultText
@@ -225,28 +221,22 @@
             }
         }
 
-        /// <summary>
-        /// Gets returns a single dateversion of the date field Because the field can have one or
-        /// two dates etc this is trickier than it sounds. Overridden by more specific date types.
-        /// </summary>
-        /// <value>
-        /// The single date.
-        /// </value>
-        public abstract DateTime SingleDate
+        public virtual DateTime SingleDate
         {
-            get;
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate.Date;
+            }
         }
 
-        /// <summary>
-        /// Gets returns a sortable version of the date field Because the field can have one or two
-        /// dates etc this is trickier than it sounds. Overridden by more specific date types.
-        /// </summary>
-        /// <returns>
-        /// A DateTime field that can be sorted.
-        /// </returns>
-        public abstract DateTime SortDate
+        public virtual DateTime SortDate
         {
-            get;
+            get
+            {
+                // TODO Is this right?
+                return NotionalDate.Date;
+            }
         }
 
         /// <summary>
@@ -375,6 +365,38 @@
         }
 
         public abstract CardListLineCollection AsCardListLine(string argTitle = null);
+
+        public CardListLineCollection AsCardListLineBaseDate(string argTitle = "Date Detail")
+        {
+            return new CardListLineCollection(argTitle)
+            {
+                new CardListLine("Short Date:", ShortDate),
+                new CardListLine("Long Date:", LongDate),
+                new CardListLine("Age:", $"{GetAge} years ago"),
+                new CardListLine("Valid:", Valid),
+                };
+        }
+
+        public CardListLineCollection AsCardListLineBaseDateDetail(string argTitle = "Date Detail")
+        {
+            return new CardListLineCollection(argTitle)
+            {
+                new CardListLine("Month Day:", $"{GetMonthDay:MM dd}"),
+                new CardListLine("Decade:", $"{GetDecade}'s"),
+                new CardListLine("Year:", GetYear),
+                };
+        }
+
+        public CardListLineCollection AsCardListLineBaseDateInternal(string argTitle = "Date Internal")
+        {
+            return new CardListLineCollection(argTitle)
+            {
+                new CardListLine("Default Date:", DefaultText),
+                new CardListLine("Notional Date:", $"{NotionalDate:dd MM yyyy}"),
+                new CardListLine("Single Date:", $"{SingleDate:dd MM yyyy}"),
+                new CardListLine("Sort Date:", $"{SortDate:dd MM yyyy}"),
+                };
+        }
 
         public abstract HLinkBase AsHLink(string v);
 

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
@@ -26,21 +28,18 @@
         {
             Contract.Requires(!String.IsNullOrEmpty(aVal));
 
+            // Setup basics
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            HLinkKey.Value = Guid.NewGuid().ToString();
+
             GVal = aVal;
 
             // Set NotionalDate
             NotionalDate = DateTime.MinValue;
 
             Valid = true;
-
-            HLinkKey.Value = Guid.NewGuid().ToString();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    DataStore.Instance.CN.NotifyException("Error in SetDate", ex);
-            //    throw;
-            //}
         }
 
         public DateObjectModelStr()
@@ -99,6 +98,7 @@
             {
                 HLinkDateModelStr t = new HLinkDateModelStr
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
@@ -135,24 +135,6 @@
             }
         }
 
-        public override DateTime SingleDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-        }
-
-        public override DateTime SortDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-        }
-
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
@@ -162,7 +144,7 @@
                 DateModelCard = new CardListLineCollection
                             {
                                 new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Val:", this.GVal),
+                                new CardListLine("Str:", this.GVal),
                             };
             }
 
@@ -174,25 +156,12 @@
             return DateModelCard;
         }
 
-        public virtual HLinkDateModelStr AsHLink()
-        {
-            return new HLinkDateModelStr
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-            };
-        }
-
         public override HLinkBase AsHLink(string argTitle)
         {
-            return new HLinkDateModelStr
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-                Title = argTitle,
-            };
+            HLinkDateModelStr t = this.HLink;
+            t.Title = argTitle;
+
+            return t;
         }
 
         public override bool Equals(object obj)

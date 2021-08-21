@@ -48,29 +48,10 @@
                  * General Details
                  */
 
-                // Get the Date Details
-                BaseDetail.Add(new CardListLineCollection("Date")
-                {
-                    new CardListLine("Short Date:", DateObject.ShortDate),
-                    new CardListLine("Long Date:", DateObject.LongDate),
-                    new CardListLine("Age:", $"{DateObject.GetAge} years ago"),
-                    new CardListLine("Valid:", DateObject.Valid),
-                });
-
-                BaseDetail.Add(new CardListLineCollection("Date Detail")
-                {
-                    new CardListLine("Month Day:", $"{DateObject.GetMonthDay:MM dd}"),
-                    new CardListLine("Decade:", DateObject.GetDecade),
-                    new CardListLine("Year:", DateObject.GetYear),
-                });
-
-                BaseDetail.Add(new CardListLineCollection("Date Internal")
-                {
-                    new CardListLine("Default Date:", DateObject.DefaultText),
-                    new CardListLine("Notional Date:", DateObject.NotionalDate.ToString()),
-                    new CardListLine("Single Date:", DateObject.SingleDate.ToString()),
-                    new CardListLine("Sort Date:", DateObject.SortDate.ToString()),
-                });
+                // Get the Base Date Details
+                BaseDetail.Add(DateObject.AsCardListLineBaseDate());
+                BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());
+                BaseDetail.Add(DateObject.AsCardListLineBaseDateInternal());
 
                 BaseDetail.Add((DateObject as IDateObjectModelVal).AsCardListLine());
             }

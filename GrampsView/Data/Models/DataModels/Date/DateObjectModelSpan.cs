@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System;
@@ -37,6 +38,12 @@
         {
             Contract.Requires(!String.IsNullOrEmpty(aStart));
             Contract.Requires(!String.IsNullOrEmpty(aStop));
+
+            // Setup basics
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            HLinkKey.Value = Guid.NewGuid().ToString();
 
             // check for date range
             try
@@ -207,6 +214,7 @@
             {
                 HLinkDateModelSpan t = new HLinkDateModelSpan
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
@@ -316,13 +324,10 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            return new HLinkDateModelSpan
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-                Title = argTitle,
-            };
+            HLinkDateModelSpan t = this.HLink;
+            t.Title = argTitle;
+
+            return t;
         }
 
         public override bool Equals(object obj)

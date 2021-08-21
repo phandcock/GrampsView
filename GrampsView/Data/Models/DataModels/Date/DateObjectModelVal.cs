@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using System;
@@ -39,6 +40,12 @@
             {
                 Contract.Requires(!String.IsNullOrEmpty(aVal));
 
+                // Setup basics
+                ModelItemGlyph.Symbol = CommonConstants.IconDate;
+                ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+                HLinkKey.Value = Guid.NewGuid().ToString();
+
                 try
                 {
                     GCformat = aCFormat;
@@ -54,8 +61,6 @@
                     GValType = aValType;
 
                     NotionalDate = ConvertRFC1123StringToDateTime(aVal);
-
-                    HLinkKey.Value = Guid.NewGuid().ToString();
                 }
                 catch (Exception e)
                 {
@@ -222,6 +227,7 @@
             {
                 HLinkDateModelVal t = new HLinkDateModelVal
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
@@ -297,24 +303,6 @@
             }
         }
 
-        public override DateTime SingleDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-        }
-
-        public override DateTime SortDate
-        {
-            get
-            {
-                // TODO Is this right?
-                return NotionalDate;
-            }
-        }
-
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
@@ -343,13 +331,10 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            return new HLinkDateModelVal
-            {
-                DeRef = this,
-                HLinkGlyphItem = ModelItemGlyph,
-                HLinkKey = HLinkKey,
-                Title = argTitle,
-            };
+            HLinkDateModelVal t = this.HLink;
+            t.Title = argTitle;
+
+            return t;
         }
 
         public override bool Equals(object obj)
