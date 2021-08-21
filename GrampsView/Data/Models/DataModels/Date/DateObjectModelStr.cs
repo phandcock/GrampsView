@@ -48,7 +48,7 @@
         }
 
         /// <summary>
-        /// Not a properly formatted date so return 0;
+        /// Not a properly formatted date so return null;
         /// </summary>
         public override Nullable<int> GetAge
         {
