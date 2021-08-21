@@ -79,7 +79,7 @@
                 return;
             }
 
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after Wednesday, 3 May 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[0], "Date:", "after 3 May 1939");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[1], "Val:", "1939-05-03");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_After[2], "Type:", "after");
 

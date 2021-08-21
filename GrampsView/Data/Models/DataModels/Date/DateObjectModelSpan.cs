@@ -215,7 +215,7 @@
         {
             get
             {
-                string dateString = $"{GStart.ShortDate} to {GStop.ShortDate}";
+                string dateString = $"From {GStart.LongDate} to {GStop.LongDate}";
 
                 // Do not display a messgae if thw quality is unknown
                 if (GQuality != DateQuality.unknown)
