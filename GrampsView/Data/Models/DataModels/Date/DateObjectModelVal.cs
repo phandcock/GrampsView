@@ -3,6 +3,7 @@
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
@@ -33,9 +34,11 @@
 
         private DateValType _GValType = DateValType.unknown;
 
-        public DateObjectModelVal(string aVal, string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, DateValType aValType)
+        public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
         {
             {
+                Contract.Requires(!String.IsNullOrEmpty(aVal));
+
                 try
                 {
                     GCformat = aCFormat;

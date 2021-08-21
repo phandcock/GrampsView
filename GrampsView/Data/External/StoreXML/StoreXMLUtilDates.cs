@@ -182,7 +182,7 @@
                 throw;
             }
 
-            return new DateObjectModelSpan(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop);
+            return new DateObjectModelSpan(aStart, aStop, aCFormat, aDualDated, aNewYear, aQuality);
         }
 
         /// <summary>
@@ -393,7 +393,7 @@
                 throw;
             }
 
-            return new DateObjectModelRange(aCFormat, aDualDated, aNewYear, aQuality, aStart, aStop);
+            return new DateObjectModelRange(aStart, aStop, aCFormat, aDualDated, aNewYear, aQuality);
         }
     }
 }

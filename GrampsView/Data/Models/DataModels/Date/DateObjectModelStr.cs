@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using System;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -23,8 +24,8 @@
         /// </param>
         public DateObjectModelStr(string aVal)
         {
-            //try
-            //{
+            Contract.Requires(!String.IsNullOrEmpty(aVal));
+
             GVal = aVal;
 
             // Set NotionalDate

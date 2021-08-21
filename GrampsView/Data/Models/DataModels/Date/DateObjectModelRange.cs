@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using System;
+    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
@@ -35,8 +36,11 @@
 
         private DateObjectModelVal _GStop = new DateObjectModelVal();
 
-        public DateObjectModelRange(string aCFormat, bool aDualDated, string aNewYear, DateQuality aQuality, string aStart, string aStop)
+        public DateObjectModelRange(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
         {
+            Contract.Requires(!String.IsNullOrEmpty(aStart));
+            Contract.Requires(!String.IsNullOrEmpty(aStop));
+
             GCformat = aCFormat;
 
             // dualdated value #REQUIRED
@@ -49,10 +53,10 @@
             GQuality = aQuality;
 
             // start CDATA #REQUIRED
-            GStart = new DateObjectModelVal(aStart, aCFormat, aDualDated, aNewYear, aQuality, DateValType.unknown);
+            GStart = new DateObjectModelVal(aStart);
 
             // stop CDATA #REQUIRED
-            GStop = new DateObjectModelVal(aStop, aCFormat, aDualDated, aNewYear, aQuality, DateValType.unknown); ;
+            GStop = new DateObjectModelVal(aStop);
 
             // Set NotionalDate
             NotionalDate = ConvertRFC1123StringToDateTime(aStart);
@@ -208,7 +212,7 @@
         {
             get
             {
-                string dateString = $"From {GStart.ShortDate} to {GStop.ShortDate}";
+                string dateString = $"Between {GStart.LongDate} and {GStop.LongDate}";
 
                 if (GQuality != DateQuality.unknown)
                 {
@@ -244,7 +248,7 @@
         {
             get
             {
-                string dateString = $"{GStart.ShortDate} -{GStop.ShortDate} Range";
+                string dateString = $"Range {GStart.ShortDate} -{GStop.ShortDate}";
                 return dateString.Trim();
             }
         }
