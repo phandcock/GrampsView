@@ -21,7 +21,7 @@
             }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Str:", "1939");
 
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
@@ -40,7 +40,7 @@
             }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939-01");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939-01");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Str:", "1939-01");
 
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
@@ -59,7 +59,7 @@
             }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939-01-01");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939-01-01");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Str:", "1939-01-01");
 
             Assert.True(AsCardListLineTest_Basic.Count == 2);
         }
