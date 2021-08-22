@@ -57,7 +57,8 @@
                                 Text="{Binding Label}" />
                             <Label
                                 Grid.Column="1"
-                                HorizontalOptions="EndAndExpand"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
                                 Style="{DynamicResource GVCardLabelStyle}"
                                 Text="{Binding Value}" />
                         </Grid>
