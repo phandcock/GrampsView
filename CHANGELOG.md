@@ -1,3 +1,12 @@
+## [16.19.32](https://github.com/phandcock/GrampsView/compare/v16.19.31...v16.19.32) (2021-08-22)
+
+
+### Bug Fixes
+
+* restructure and cleanup date display ([76b72a8](https://github.com/phandcock/GrampsView/commit/76b72a8e66356bf020dd6dc753b940edb1ce9295))
+
+
+
 ## [16.19.31](https://github.com/phandcock/GrampsView/compare/v16.19.30...v16.19.31) (2021-08-20)
 
 
@@ -24,19 +33,6 @@
 ### Bug Fixes
 
 * cleanup display of messagelog entry times ([d16c0ef](https://github.com/phandcock/GrampsView/commit/d16c0ef3667d5052dad48da8673dad34b3922952))
-
-
-
-## [16.19.28](https://github.com/phandcock/GrampsView/compare/v16.19.27...v16.19.28) (2021-08-15)
-
-
-### Bug Fixes
-
-* cleanup hlinkbase code.  Move to abstract ([5daa22a](https://github.com/phandcock/GrampsView/commit/5daa22aa2d4490c106f27054730c4acba6871d7f))
-* fix person and event list pages ([4c75450](https://github.com/phandcock/GrampsView/commit/4c7545010859745c68c14ec10e37c36a93cc78d8))
-* tweak light theme ([7cdb222](https://github.com/phandcock/GrampsView/commit/7cdb2221072f8e6d8ff46f046a4074ecfe711616))
-* tweak light theme surface and background ([4866ad1](https://github.com/phandcock/GrampsView/commit/4866ad197a025279490a4cca19933565bf83b6b4))
-* tweaks ([6252428](https://github.com/phandcock/GrampsView/commit/6252428051d289259024fd67df14cff703667df0))
 
 
 
