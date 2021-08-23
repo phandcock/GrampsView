@@ -1,3 +1,12 @@
+## [16.19.33](https://github.com/phandcock/GrampsView/compare/v16.19.32...v16.19.33) (2021-08-23)
+
+
+### Bug Fixes
+
+* tweak cardlistline value layout ([83bae9b](https://github.com/phandcock/GrampsView/commit/83bae9bcaae14af33eb8e81dc6bc9376a381cbb8))
+
+
+
 ## [16.19.32](https://github.com/phandcock/GrampsView/compare/v16.19.31...v16.19.32) (2021-08-22)
 
 
@@ -24,15 +33,6 @@
 * fix display of NS smallcards ([0df4f1c](https://github.com/phandcock/GrampsView/commit/0df4f1c8c83e17c6c3a604040a820b6955c857e7))
 * Serialize derived types properly ([a17fe68](https://github.com/phandcock/GrampsView/commit/a17fe683ca45922c20a4e33ee92f5d657d03207b))
 * start work on cleaningup dateobjectmodel code ([bf73d79](https://github.com/phandcock/GrampsView/commit/bf73d79226bc8721a8535013d9c2a99290ea7b63))
-
-
-
-## [16.19.29](https://github.com/phandcock/GrampsView/compare/v16.19.28...v16.19.29) (2021-08-16)
-
-
-### Bug Fixes
-
-* cleanup display of messagelog entry times ([d16c0ef](https://github.com/phandcock/GrampsView/commit/d16c0ef3667d5052dad48da8673dad34b3922952))
 
 
 
