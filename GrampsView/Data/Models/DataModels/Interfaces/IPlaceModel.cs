@@ -3,7 +3,7 @@
     using GrampsView.Data.Collections;
 
     /// <summary>
-    /// Public interfaces for the Tag elements.
+    /// Public interfaces for the Place elements.
     /// </summary>
     public interface IPlaceModel : IModelBase
     {
@@ -17,12 +17,12 @@
             get; set;
         }
 
-        string GCoordLat
+        double GCoordLat
         {
             get; set;
         }
 
-        string GCoordLong
+        double GCoordLong
         {
             get; set;
         }

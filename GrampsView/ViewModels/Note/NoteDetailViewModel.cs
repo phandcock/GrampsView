@@ -8,8 +8,6 @@
 
     using System;
 
-    using static GrampsView.Common.CommonEnums;
-
     public class NoteDetailViewModel : ViewModelBase
     {
         /// <summary>
@@ -61,7 +59,6 @@
                     URLModel newLinkURL = new URLModel
                     {
                         GDescription = NoteObject.DefaultText,
-                        URLType = URIType.URL,
                         GHRef = new Uri(NoteObject.TextShort)
                     };
 

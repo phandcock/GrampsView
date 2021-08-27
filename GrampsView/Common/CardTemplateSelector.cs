@@ -105,6 +105,18 @@ namespace GrampsView.Common
         }
 
         /// <summary>
+        /// Gets or sets the map template.
+        /// </summary>
+        /// <value>
+        /// The family template.
+        /// </value>
+        public DataTemplate MapTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the media card large template.
         /// </summary>
         /// <value>
@@ -383,6 +395,17 @@ namespace GrampsView.Common
                         return FamilyTemplate;
                     }
 
+                case HLinkMapModel i:
+                    {
+                        return MapTemplate;
+                    }
+
+                case HLinkMediaModel i:
+                case IHLinkMediaModel i2:
+                    {
+                        return MediaTemplate;
+                    }
+
                 case HLinkNoteModel i:
                     {
                         switch ((item as HLinkNoteModel).DisplayAs)
@@ -402,12 +425,6 @@ namespace GrampsView.Common
                                     return NoteTemplate;
                                 }
                         }
-                    }
-
-                case HLinkMediaModel i:
-                case IHLinkMediaModel i2:
-                    {
-                        return MediaTemplate;
                     }
 
                 case HLinkPersonNameModel i:

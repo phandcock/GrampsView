@@ -182,6 +182,9 @@
     <Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
       <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\Small\Model\MapCardSmall.xaml.cs">
+      <DependentUpon>MapCardSmall.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MinorModels\DateStrDetailPage.xaml.cs">
       <DependentUpon>DateStrDetailPage.xaml</DependentUpon>
     </Compile>

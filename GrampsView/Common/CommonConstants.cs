@@ -40,7 +40,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 67;
+        public const int GrampsViewDatabaseVersion = 68;
 
         /// <summary>
         /// The Gramps XML name space.
@@ -117,6 +117,11 @@ namespace GrampsView.Common
         public const string IconHub = CommonFontNamesFAS.HouseUser;
 
         public const string IconLog = CommonFontNamesFAS.List;
+
+        /// <summary>
+        /// The map icon.
+        /// </summary>
+        public const string IconMap = CommonFontNamesFAS.Map;
 
         /// <summary>
         /// The icon media.

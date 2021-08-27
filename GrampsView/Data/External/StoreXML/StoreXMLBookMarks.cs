@@ -123,12 +123,10 @@
                         }
                         else
                         {
-                            ErrorInfo t = new ErrorInfo("Bad BookMark")
+                            _iocCommonNotifications.NotifyError(new ErrorInfo("Bad BookMark")
                                 {
-                                    { "HLink",  argBookMark.ToString()}
-                                };
-
-                            _iocCommonNotifications.NotifyError(t);
+                                    { "HLink",  argBookMark.ToString() }
+                                });
                         }
 
                         _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");

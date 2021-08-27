@@ -79,6 +79,14 @@
 
         public Queue<ErrorInfo> PopupQueue { get; } = new Queue<ErrorInfo>();
 
+        public static void ShowPopUp()
+        {
+            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            {
+                DataStore.Instance.CN.PopUpShow();
+            }
+        }
+
         /// <summary>
         /// Changes the bottom message.
         /// </summary>
@@ -258,14 +266,6 @@
             // // TODO Ignore exception. See https://github.com/xamarin/XamarinCommunityToolkit/issues/1251
 
             // // TODO fix UWP Release issue until fixed
-        }
-
-        public void ShowPopUp()
-        {
-            if (DataStore.Instance.CN.PopupQueue.Count > 0)
-            {
-                DataStore.Instance.CN.PopUpShow();
-            }
         }
     }
 }

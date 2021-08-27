@@ -41,7 +41,7 @@
         /// The label argument.
         /// </param>
         /// <param name="ValueArg">
-        /// if set to <c>true</c> [value argument].
+        /// if set to <c> true </c> [value argument].
         /// </param>
         public CardListLine(string argLabel, bool argValue)
         {
@@ -58,7 +58,7 @@
         /// The argument label.
         /// </param>
         /// <param name="argValue">
-        /// if set to <c>true</c> [argument value].
+        /// if set to <c> true </c> [argument value].
         /// </param>
         /// <param name="argShowIf">
         /// Show if the value equals this vlaue.
@@ -92,9 +92,17 @@
         /// The label argument.
         /// </param>
         /// <param name="ValueArg">
-        /// if set to <c>true</c> [value argument].
+        /// if set to <c> true </c> [value argument].
         /// </param>
         public CardListLine(string argLabel, int ValueArg)
+        {
+            Contract.Assert(argLabel != null);
+
+            Label = argLabel.Trim();
+            Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+        public CardListLine(string argLabel, double ValueArg)
         {
             Contract.Assert(argLabel != null);
 

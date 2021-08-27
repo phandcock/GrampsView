@@ -5,27 +5,16 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// <summary>
-    /// HLink to a URL
-    /// <list type="table">
-    /// <listheader>
-    /// <term> Item </term>
-    /// <term> Status </term>
-    /// </listheader>
-    /// <item>
-    /// <description> XML 1.71 check </description>
-    /// <description> Done </description>
-    /// </item>
-    /// </list>
-    /// <para> <br/> </para>
-    /// </summary>
+    /// <summary> HLink to a Map
+
+    /// <para> <br/> </para> </summary>
 
     [DataContract]
-    public class HLinkURLModel : HLinkBase, IHLinkURLModel
+    public class HLinkMapModel : HLinkBase, IHLinkMapModel
     {
-        public HLinkURLModel()
+        public HLinkMapModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconURL;
+            HLinkGlyphItem.Symbol = CommonConstants.IconMap;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
@@ -36,12 +25,12 @@
         /// The de reference.
         /// </value>
         [DataMember]
-        public new URLModel DeRef
+        public new MapModel DeRef
         {
             get;
 
             set;
-        } = new URLModel();
+        } = new MapModel();
 
         public override bool Valid
         {
@@ -60,7 +49,7 @@
         /// </summary>
         public override async Task UCNavigate()
         {
-            await DeRef.OpenURL();
+            await DeRef.OpenMap();
             return;
         }
 

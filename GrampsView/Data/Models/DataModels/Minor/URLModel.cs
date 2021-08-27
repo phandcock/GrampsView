@@ -5,14 +5,11 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Diagnostics.Contracts;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Essentials;
-
-    using static GrampsView.Common.CommonEnums;
 
     /// <summary>
     /// GRAMPS URL element class. TODO Needs XML 1.71 check
@@ -122,59 +119,20 @@
             get; private set;
         }
 
-        [DataMember]
-        public URIType URLType
-        {
-            get;
-            set;
-        } = URIType.URL;
-
         /// <summary>
         /// Opens the URL.
         /// </summary>
         public async Task OpenURL()
         {
-            switch (URLType)
+            if (GHRef is null)
             {
-                case URIType.Map:
-                    {
-                        try
-                        {
-                            MapLaunchOptions mapOptions = new MapLaunchOptions
-                            {
-                                Name = DefaultText,
-                            };
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
+                return;
+            }
 
-                            await MapLocation.OpenMapsAsync(mapOptions);
-                        }
-                        catch (Exception ex)
-                        {
-                            DataStore.Instance.CN.NotifyException("No map application available to open", ex);
-
-                            throw;
-                        }
-
-                        break;
-                    }
-                case URIType.URL:
-                    {
-                        if (GHRef is null)
-                        {
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
-                            break;
-                        }
-
-                        if (GHRef.IsWellFormedOriginalString())
-                        {
-                            await Launcher.OpenAsync(GHRef);
-                        }
-                        break;
-                    }
-                default:
-                    {
-                        Contract.Assert(false, "Bad URI Type");
-                        break;
-                    }
+            if (GHRef.IsWellFormedOriginalString())
+            {
+                await Launcher.OpenAsync(GHRef);
             }
         }
     }

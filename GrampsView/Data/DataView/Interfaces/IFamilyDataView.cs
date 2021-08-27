@@ -9,7 +9,6 @@
 
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
@@ -44,55 +43,55 @@ namespace GrampsView.Data.DataView
         /// </returns>
         HLinkFamilyModelCollection GetAllAsHLink();
 
-        /// <summary>
-        /// Gets the children.
-        /// </summary>
-        /// <param name="hlinkFamily">
-        /// The hlink family.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        HLinkPersonModelCollection GetChildren(HLinkFamilyModel hlinkFamily);
+        ///// <summary>
+        ///// Gets the children.
+        ///// </summary>
+        ///// <param name="hlinkFamily">
+        ///// The hlink family.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //HLinkPersonModelCollection GetChildren(HLinkFamilyModel hlinkFamily);
 
-        /// <summary>
-        /// Gets the current partner.
-        /// </summary>
-        /// <param name="hlinkFamily">
-        /// The hlink family.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        HLinkPersonModel GetCurrentPartner(HLinkFamilyModel hlinkFamily);
+        ///// <summary>
+        ///// Gets the current partner.
+        ///// </summary>
+        ///// <param name="hlinkFamily">
+        ///// The hlink family.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //HLinkPersonModel GetCurrentPartner(HLinkFamilyModel hlinkFamily);
 
-        /// <summary>
-        /// Gets the current spouses.
-        /// </summary>
-        /// <param name="hlinkFamily">
-        /// The hlink family.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        HLinkPersonModelCollection GetCurrentSpouses(HLinkFamilyModel hlinkFamily);
+        ///// <summary>
+        ///// Gets the current spouses.
+        ///// </summary>
+        ///// <param name="hlinkFamily">
+        ///// The hlink family.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //HLinkPersonModelCollection GetCurrentSpouses(HLinkFamilyModel hlinkFamily);
 
-        /// <summary>
-        /// Gets the father.
-        /// </summary>
-        /// <param name="arg">
-        /// The argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        IPersonModel GetFather(HLinkKey argHLinkKey);
+        ///// <summary>
+        ///// Gets the father.
+        ///// </summary>
+        ///// <param name="arg">
+        ///// The argument.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //IPersonModel GetFather(HLinkKey argHLinkKey);
 
-        /// <summary>
-        /// Gets the mother.
-        /// </summary>
-        /// <param name="arg">
-        /// The argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        IPersonModel GetMother(HLinkKey argHLinkKey);
+        ///// <summary>
+        ///// Gets the mother.
+        ///// </summary>
+        ///// <param name="arg">
+        ///// The argument.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //IPersonModel GetMother(HLinkKey argHLinkKey);
 
         /// <summary>
         /// hes the link collection sort.

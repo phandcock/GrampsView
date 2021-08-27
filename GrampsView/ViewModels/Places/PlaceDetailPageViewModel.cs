@@ -6,6 +6,8 @@
 
     using Prism.Events;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
@@ -47,6 +49,8 @@
                 BaseModelBase = PlaceObject;
                 BaseTitleIcon = CommonConstants.IconPlace;
 
+                // TODO Dispaly all details
+
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
                         new CardListLine("Title:", PlaceObject.GPTitle),
@@ -65,8 +69,33 @@
                         new CardListLine("Date:", HLinkObject.Date.ShortDate),
                 });
 
+                // Add Map card
+                MapModel t = TurnPlaceToMapModel();
+                BaseDetail.Add(t.HLink);
+
                 BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
             }
+        }
+
+        private MapModel TurnPlaceToMapModel()
+        {
+            MapModel newMapModel = new MapModel
+            {
+                Description = PlaceObject.DefaultText,
+            };
+
+            // Try Lat-Long first
+            if (PlaceObject.GCoordLat != 0.0 && PlaceObject.GCoordLong != 0.0)
+            {
+                newMapModel.MapType = MapType.LatLong;
+
+                newMapModel.myLocation.Latitude = PlaceObject.GCoordLat;
+                newMapModel.myLocation.Longitude = PlaceObject.GCoordLong;
+
+                return newMapModel;
+            }
+
+            return newMapModel;
         }
     }
 }

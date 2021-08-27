@@ -19,6 +19,49 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
+        private static HLinkPlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
+        {
+            HLinkPlaceNameModelCollection t = new HLinkPlaceNameModelCollection
+            {
+                Title = "Place Name Collection"
+            };
+
+            // Run query
+            IEnumerable<XElement> theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "pname")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load attribute object references
+                foreach (XElement theLoadORElement in theERElement)
+                {
+                    PlaceNameModel newPlaceNameModel = new PlaceNameModel
+                    {
+                        Handle = "PlaceNameModel",
+
+                        GValue = GetAttribute(theLoadORElement, "value"),
+
+                        GLang = GetAttribute(theLoadORElement, "lang"),
+
+                        GDate = GetDate(theLoadORElement),
+                    };
+
+                    newPlaceNameModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+
+                    HLinkPlaceNameModel tt = new HLinkPlaceNameModel
+                    {
+                        DeRef = newPlaceNameModel
+                    };
+
+                    t.Add(tt);
+                }
+            }
+
+            return t;
+        }
+
         private HLinkAddressModelCollection GetAddressCollection(XElement xmlData)
         {
             HLinkAddressModelCollection t = new HLinkAddressModelCollection
@@ -598,49 +641,6 @@
             }
 
             // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
-            return t;
-        }
-
-        private HLinkPlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
-        {
-            HLinkPlaceNameModelCollection t = new HLinkPlaceNameModelCollection
-            {
-                Title = "Place Name Collection"
-            };
-
-            // Run query
-            IEnumerable<XElement> theERElement =
-                    from orElementEl
-                    in xmlData.Elements(ns + "pname")
-                    select orElementEl;
-
-            if (theERElement.Any())
-            {
-                // Load attribute object references
-                foreach (XElement theLoadORElement in theERElement)
-                {
-                    PlaceNameModel newPlaceNameModel = new PlaceNameModel
-                    {
-                        Handle = "PlaceNameModel",
-
-                        GValue = GetAttribute(theLoadORElement, "value"),
-
-                        GLang = GetAttribute(theLoadORElement, "lang"),
-
-                        GDate = GetDate(theLoadORElement),
-                    };
-
-                    newPlaceNameModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
-
-                    HLinkPlaceNameModel tt = new HLinkPlaceNameModel
-                    {
-                        DeRef = newPlaceNameModel
-                    };
-
-                    t.Add(tt);
-                }
-            }
-
             return t;
         }
 

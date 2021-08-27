@@ -245,7 +245,7 @@
             ////     }
         }
 
-        private async Task StartAtDetailPage()
+        private static async Task StartAtDetailPage()
         {
             if (PersonStartPage != null)
             {

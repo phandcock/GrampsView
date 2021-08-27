@@ -39,36 +39,47 @@
                             //{
                             //}
 
-                            //if (loadPlace.Id == "P0018")
-                            //{
-                            //}
-
-                            loadPlace.GCode = GetElement(pPlaceElement, "code");
-
-                            loadPlace.GType = (string)pPlaceElement.Attribute("type");
+                            if (loadPlace.Id == "P0018")
+                            {
+                            }
 
                             // Load other Place fields
+                            loadPlace.GType = (string)pPlaceElement.Attribute("type");
+
                             loadPlace.GPTitle = GetElement(pPlaceElement, "ptitle");
-
-                            XElement pName = pPlaceElement.Element(ns + "pname");
-
-                            loadPlace.GLocation = GetPlaceLocationModelCollection(pPlaceElement);
 
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
 
-                            loadPlace.GCitationRefCollection.Clear();
-                            loadPlace.GCitationRefCollection.AddRange(GetCitationCollection(pPlaceElement));
+                            loadPlace.GCode = GetElement(pPlaceElement, "code");
 
-                            loadPlace.GMediaRefCollection = await GetObjectCollection(pPlaceElement).ConfigureAwait(false);
+                            XElement coord = pPlaceElement.Element(ns + "coord");
+                            if (!(coord is null))
+                            {
+                                double latDouble = 0.0;
+                                double longDouble = 0.0;
 
-                            loadPlace.GNoteRefCollection = GetNoteCollection(pPlaceElement);
+                                double.TryParse(GetAttribute(coord, "lat"), out latDouble);
+                                double.TryParse(GetAttribute(coord, "long"), out longDouble);
+
+                                loadPlace.GCoordLat = latDouble;
+                                loadPlace.GCoordLong = longDouble;
+                            }
 
                             loadPlace.GPlaceParentCollection = GetPlaceRefCollection(pPlaceElement);
                             loadPlace.GPlaceParentCollection.Title = "Parent Places";
 
-                            loadPlace.GTagRefCollection = GetTagCollection(pPlaceElement);
+                            loadPlace.GLocation = GetPlaceLocationModelCollection(pPlaceElement);
+
+                            loadPlace.GMediaRefCollection = await GetObjectCollection(pPlaceElement).ConfigureAwait(false);
 
                             loadPlace.GURLCollection = GetURLCollection(pPlaceElement);
+
+                            loadPlace.GNoteRefCollection = GetNoteCollection(pPlaceElement);
+
+                            loadPlace.GCitationRefCollection.Clear();
+                            loadPlace.GCitationRefCollection.AddRange(GetCitationCollection(pPlaceElement));
+
+                            loadPlace.GTagRefCollection = GetTagCollection(pPlaceElement);
 
                             // save the event
                             DV.PlaceDV.PlaceData.Add(loadPlace);

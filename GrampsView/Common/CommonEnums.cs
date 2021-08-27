@@ -218,6 +218,13 @@ namespace GrampsView.Common
             Unknown,
         }
 
+        public enum MapType
+        {
+            LatLong,
+            Place,
+            Unknown
+        }
+
         public enum MessageLogEventType
         {
             Add,
@@ -268,12 +275,6 @@ namespace GrampsView.Common
             superscript,
             underline,
             unknown,
-        }
-
-        public enum URIType
-        {
-            Map,
-            URL
         }
     }
 }

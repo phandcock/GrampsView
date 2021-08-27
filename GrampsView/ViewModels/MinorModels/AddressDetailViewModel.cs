@@ -77,28 +77,32 @@
                 // Get date card
                 BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
+                // Add Map card
+                MapModel t = TurnAddressToMapModel();
+                BaseDetail.Add(t.HLink);
+
                 // Add Standard details
                 BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
 
                 // Add map card
-                BaseDetail.Add(TurnAddressToURLModel());
+                BaseDetail.Add(TurnAddressToMapModel());
             }
 
             return;
         }
 
-        private URLModel TurnAddressToURLModel()
+        private MapModel TurnAddressToMapModel()
         {
-            URLModel mapModel = new URLModel
+            MapModel mapModel = new MapModel
             {
-                GDescription = AddressObject.DefaultText,
-                URLType = URIType.Map,
+                Description = AddressObject.DefaultText,
+                MapType = MapType.Place,
             };
 
-            mapModel.MapLocation.Thoroughfare = AddressObject.GStreet;
-            mapModel.MapLocation.Locality = AddressObject.GCity;
-            mapModel.MapLocation.AdminArea = AddressObject.GState;
-            mapModel.MapLocation.CountryName = AddressObject.GCountry;
+            mapModel.myPlaceMark.Thoroughfare = AddressObject.GStreet;
+            mapModel.myPlaceMark.Locality = AddressObject.GCity;
+            mapModel.myPlaceMark.AdminArea = AddressObject.GState;
+            mapModel.myPlaceMark.CountryName = AddressObject.GCountry;
 
             return mapModel;
         }

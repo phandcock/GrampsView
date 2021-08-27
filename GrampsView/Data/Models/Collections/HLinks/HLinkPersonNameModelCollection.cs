@@ -4,7 +4,6 @@
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
@@ -27,27 +26,24 @@ namespace GrampsView.Data.Collections
             Title = "Person Names";
         }
 
-        /// <summary>
-        /// Gets the married name if recorded otherwise just the primary name.
-        /// </summary>
-        /// <value>
-        /// The married name.
-        /// </value>
-        public HLinkPersonNameModel GetMarriedName
-        {
-            get
-            {
-                HLinkPersonNameModel t = this.FirstOrDefault(x => x.DeRef.GType == CommonConstants.NameTypeMarried);
+        ///// <summary>
+        ///// Gets the married name if recorded otherwise just the primary name.
+        ///// </summary>
+        ///// <value>
+        ///// The married name.
+        ///// </value>
+        //public HLinkPersonNameModel GetMarriedName
+        //{
+        //    get
+        //    {
+        //        HLinkPersonNameModel t = this.FirstOrDefault(x => x.DeRef.GType == CommonConstants.NameTypeMarried);
 
-                // If no married name then return the primary name
-                if (t == default(HLinkPersonNameModel))
-                {
-                    return GetPrimaryName;
-                }
+        // // If no married name then return the primary name if (t ==
+        // default(HLinkPersonNameModel)) { return GetPrimaryName; }
 
-                return t;
-            }
-        }
+        //        return t;
+        //    }
+        //}
 
         public HLinkPersonNameModel GetPrimaryName
         {

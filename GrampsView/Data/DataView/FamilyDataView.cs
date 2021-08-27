@@ -171,89 +171,82 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        /// <summary>
-        /// Gets any children of the family.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public HLinkPersonModelCollection GetChildren(HLinkFamilyModel hlinkFamily)
-        {
-            HLinkPersonModelCollection t = new HLinkPersonModelCollection();
+        ///// <summary>
+        ///// Gets any children of the family.
+        ///// </summary>
+        ///// <returns>
+        ///// </returns>
+        //public HLinkPersonModelCollection GetChildren(HLinkFamilyModel hlinkFamily)
+        //{
+        //    HLinkPersonModelCollection t = new HLinkPersonModelCollection();
 
-            // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
-            {
-                return new HLinkPersonModelCollection();
-            }
+        // // Handle the case where there is no data. if (FamilyData.Count == 0) { return new
+        // HLinkPersonModelCollection(); }
 
-            // TODO fix this
-            if (FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection.Count > 0)
-            {
-                t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0].DeRef.HLink);
-                return t;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //    // TODO fix this
+        //    if (FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection.Count > 0)
+        //    {
+        //        t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GChildRefCollection[0].DeRef.HLink);
+        //        return t;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
-        /// <summary>
-        /// Currents the partner.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public HLinkPersonModel GetCurrentPartner(HLinkFamilyModel hlinkFamily)
-        {
-            // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// Get the currents partner.
+        ///// </summary>
+        ///// <returns>
+        ///// </returns>
+        //public HLinkPersonModel GetCurrentPartner(HLinkFamilyModel hlinkFamily)
+        //{
+        //    // Handle the case where there is no data.
+        //    if (FamilyData.Count == 0)
+        //    {
+        //        return null;
+        //    }
 
-            return FamilyData.GetModelFromHLink(hlinkFamily).GMother;
-        }
+        //    return FamilyData.GetModelFromHLink(hlinkFamily).GMother;
+        //}
 
-        /// <summary>
-        /// Currents the spouses.
-        /// </summary>
-        /// <param name="hlinkFamily">
-        /// The hlink family.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public HLinkPersonModelCollection GetCurrentSpouses(HLinkFamilyModel hlinkFamily)
-        {
-            HLinkPersonModelCollection t = new HLinkPersonModelCollection();
+        ///// <summary>
+        ///// Currents the spouses.
+        ///// </summary>
+        ///// <param name="hlinkFamily">
+        ///// The hlink family.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public HLinkPersonModelCollection GetCurrentSpouses(HLinkFamilyModel hlinkFamily)
+        //{
+        //    HLinkPersonModelCollection t = new HLinkPersonModelCollection();
 
-            // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
-            {
-                return t;
-            }
+        // // Handle the case where there is no data. if (FamilyData.Count == 0) { return t; }
 
-            t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GMother);
-            return t;
-        }
+        //    t.Add(FamilyData.GetModelFromHLink(hlinkFamily).GMother);
+        //    return t;
+        //}
 
-        /// <summary>
-        /// Gets the father.
-        /// </summary>
-        /// <param name="arg">
-        /// The argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public IPersonModel GetFather(HLinkKey argHLinkKey)
-        {
-            // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// Gets the father.
+        ///// </summary>
+        ///// <param name="arg">
+        ///// The argument.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public IPersonModel GetFather(HLinkKey argHLinkKey)
+        //{
+        //    // Handle the case where there is no data.
+        //    if (FamilyData.Count == 0)
+        //    {
+        //        return null;
+        //    }
 
-            return GetModelFromHLinkKey(argHLinkKey).GFather.DeRef;
-        }
+        //    return GetModelFromHLinkKey(argHLinkKey).GFather.DeRef;
+        //}
 
         public override FamilyModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
@@ -265,24 +258,24 @@ namespace GrampsView.Data.DataView
             return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Gets the mother.
-        /// </summary>
-        /// <param name="arg">
-        /// The argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public IPersonModel GetMother(HLinkKey argHLinkKey)
-        {
-            // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// Gets the mother.
+        ///// </summary>
+        ///// <param name="arg">
+        ///// The argument.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public IPersonModel GetMother(HLinkKey argHLinkKey)
+        //{
+        //    // Handle the case where there is no data.
+        //    if (FamilyData.Count == 0)
+        //    {
+        //        return null;
+        //    }
 
-            return GetModelFromHLinkKey(argHLinkKey).GMother.DeRef;
-        }
+        //    return GetModelFromHLinkKey(argHLinkKey).GMother.DeRef;
+        //}
 
         /// <summary>
         /// hes the link collection sort.

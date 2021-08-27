@@ -80,7 +80,6 @@ namespace GrampsView.Data.Model
             return base.ToString();
         }
 
-        // TODO Why pass HLinkPersonModel to HLinkPersonModel?
         public override async Task UCNavigate()
         {
             await UCNavigateBase(this, nameof(PersonDetailPage));

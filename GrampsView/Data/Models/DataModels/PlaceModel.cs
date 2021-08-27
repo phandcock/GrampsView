@@ -1,24 +1,5 @@
 ﻿// TODO Needs XML 1.71 check
 
-//// gramps XML 1.71
-////  primary-object
-////  type
-////  ptitle
-////  placename-content
-////  code
-////  coord
-////     long
-////     lat
-//// placeref
-//// location
-//// objref
-//// url
-//// noteref
-//// noteref-content
-//// citationref
-//// tagref
-////
-
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
@@ -29,13 +10,21 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// Data model for a place.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="GrampsView.Data.ViewModel.IPlaceModel"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.IComparable"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
     [DataContract]
     public sealed class PlaceModel : ModelBase, IPlaceModel, IComparable, IComparer
@@ -92,13 +81,13 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public string GCoordLat
+        public double GCoordLat
         {
             get; set;
         }
 
         [DataMember]
-        public string GCoordLong
+        public double GCoordLong
         {
             get; set;
         }

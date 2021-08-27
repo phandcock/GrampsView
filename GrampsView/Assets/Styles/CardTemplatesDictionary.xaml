@@ -41,6 +41,10 @@
         <usercontrols:MediaCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="MapCardSmallDT">
+        <usercontrols:MapCardSmall />
+    </DataTemplate>
+
     <DataTemplate x:Key="MediaCardSmallDT">
         <usercontrols:MediaCardSmall />
     </DataTemplate>
@@ -124,6 +128,7 @@
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
+        MapTemplate="{StaticResource MapCardSmallDT}"
         MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
