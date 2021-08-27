@@ -6,6 +6,8 @@
     using System;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// XML 1.71 all done
     /// </summary>
@@ -186,6 +188,22 @@
         public override int GetHashCode()
         {
             return HLinkKey.GetHashCode();
+        }
+
+        public MapModel ToMapModel()
+        {
+            MapModel mapModel = new MapModel
+            {
+                Description = DefaultText,
+                MapType = MapType.Place,
+            };
+
+            mapModel.myPlaceMark.Thoroughfare = GStreet;
+            mapModel.myPlaceMark.Locality = GCity;
+            mapModel.myPlaceMark.AdminArea = GState;
+            mapModel.myPlaceMark.CountryName = GCountry;
+
+            return mapModel;
         }
     }
 }

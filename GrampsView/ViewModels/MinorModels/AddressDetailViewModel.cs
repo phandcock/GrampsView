@@ -4,8 +4,6 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
@@ -78,33 +76,14 @@
                 BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
                 // Add Map card
-                MapModel t = TurnAddressToMapModel();
+                MapModel t = AddressObject.ToMapModel();
                 BaseDetail.Add(t.HLink);
 
                 // Add Standard details
                 BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
-
-                // Add map card
-                BaseDetail.Add(TurnAddressToMapModel());
             }
 
             return;
-        }
-
-        private MapModel TurnAddressToMapModel()
-        {
-            MapModel mapModel = new MapModel
-            {
-                Description = AddressObject.DefaultText,
-                MapType = MapType.Place,
-            };
-
-            mapModel.myPlaceMark.Thoroughfare = AddressObject.GStreet;
-            mapModel.myPlaceMark.Locality = AddressObject.GCity;
-            mapModel.myPlaceMark.AdminArea = AddressObject.GState;
-            mapModel.myPlaceMark.CountryName = AddressObject.GCountry;
-
-            return mapModel;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Data.DataView;
 
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
@@ -11,6 +12,10 @@
     [DataContract]
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
+        private AddressModel _Deref = new AddressModel();
+
+        private bool DeRefCached;
+
         public HLinkAdressModel()
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconAddress;
@@ -24,12 +29,23 @@
         /// The address model.
         /// </value>
         public new AddressModel DeRef
-
         {
-            get;
+            get
+            {
+                if (Valid && (!DeRefCached))
+                {
+                    _Deref = DV.AddressDV.GetModelFromHLinkKey(HLinkKey);
+                    DeRefCached = true;
+                }
 
-            set;
-        } = new AddressModel();
+                if (_Deref is null)
+                {
+                    _Deref = new AddressModel();
+                }
+
+                return _Deref;
+            }
+        }
 
         public override bool Valid
         {

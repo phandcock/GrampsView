@@ -9,6 +9,8 @@ namespace GrampsView.Data.Model
     using System.Collections;
     using System.Runtime.Serialization;
 
+    using static GrampsView.Common.CommonEnums;
+
     /// <summary>
     /// Data model for a place.
     /// <list type="table">
@@ -258,6 +260,27 @@ namespace GrampsView.Data.Model
             int testFlag = string.Compare(DefaultText, secondEvent.DefaultText, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        public MapModel ToMapModel()
+        {
+            MapModel newMapModel = new MapModel
+            {
+                Description = DefaultText,
+            };
+
+            // Try Lat-Long first
+            if (GCoordLat != 0.0 && GCoordLong != 0.0)
+            {
+                newMapModel.MapType = MapType.LatLong;
+
+                newMapModel.myLocation.Latitude = GCoordLat;
+                newMapModel.myLocation.Longitude = GCoordLong;
+
+                return newMapModel;
+            }
+
+            return newMapModel;
         }
     }
 }
