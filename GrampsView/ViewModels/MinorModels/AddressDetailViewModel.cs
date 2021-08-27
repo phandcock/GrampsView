@@ -76,7 +76,7 @@
                 BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
                 // Add Map card
-                MapModel t = AddressObject.ToMapModel();
+                IMapModel t = AddressObject.ToMapModel();
                 BaseDetail.Add(t.HLink);
 
                 // Add Standard details

@@ -190,18 +190,18 @@
             return HLinkKey.GetHashCode();
         }
 
-        public MapModel ToMapModel()
+        public IMapModel ToMapModel()
         {
-            MapModel mapModel = new MapModel
+            IMapModel mapModel = new MapModel
             {
                 Description = DefaultText,
                 MapType = MapType.Place,
             };
 
-            mapModel.myPlaceMark.Thoroughfare = GStreet;
-            mapModel.myPlaceMark.Locality = GCity;
-            mapModel.myPlaceMark.AdminArea = GState;
-            mapModel.myPlaceMark.CountryName = GCountry;
+            mapModel.MyPlaceMark.Thoroughfare = GStreet;
+            mapModel.MyPlaceMark.Locality = GCity;
+            mapModel.MyPlaceMark.AdminArea = GState;
+            mapModel.MyPlaceMark.CountryName = GCountry;
 
             return mapModel;
         }

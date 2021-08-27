@@ -13,13 +13,23 @@
 
     using static GrampsView.Common.CommonEnums;
 
-    /// <summary> GRAMPS Map element class.
-
-    /// <para> <br/> </para> </summary>
+    /// <summary>
+    /// Data model for a Map reference.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> NA </description>
+    /// </item>
+    /// </list>
+    /// </summary>
     public class MapModel : ModelBase, IMapModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="URLModel"/> class.
+        /// Initializes a new instance of the <see cref="MapModel"> MapModel </see> class.
         /// </summary>
         public MapModel()
         {
@@ -79,7 +89,7 @@
         /// The xamarin essentials location object.
         /// </value>
         [DataMember]
-        public Location myLocation
+        public Location MyLocation
         {
             get;
             set;
@@ -92,7 +102,7 @@
         /// The xamarin essentials placemark.
         /// </value>
         [DataMember]
-        public Placemark myPlaceMark
+        public Placemark MyPlaceMark
         {
             get;
             set;
@@ -114,7 +124,7 @@
                     {
                         try
                         {
-                            await Map.OpenAsync(myLocation);
+                            await Map.OpenAsync(MyLocation);
                         }
                         catch (Exception ex)
                         {
@@ -135,7 +145,7 @@
                                 Name = DefaultText,
                             };
 
-                            await myPlaceMark.OpenMapsAsync(mapOptions);
+                            await MyPlaceMark.OpenMapsAsync(mapOptions);
                         }
                         catch (Exception ex)
                         {

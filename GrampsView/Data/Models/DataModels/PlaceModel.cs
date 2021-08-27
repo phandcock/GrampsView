@@ -262,9 +262,9 @@ namespace GrampsView.Data.Model
             return testFlag;
         }
 
-        public MapModel ToMapModel()
+        public IMapModel ToMapModel()
         {
-            MapModel newMapModel = new MapModel
+            IMapModel newMapModel = new MapModel
             {
                 Description = DefaultText,
             };
@@ -274,8 +274,8 @@ namespace GrampsView.Data.Model
             {
                 newMapModel.MapType = MapType.LatLong;
 
-                newMapModel.myLocation.Latitude = GCoordLat;
-                newMapModel.myLocation.Longitude = GCoordLong;
+                newMapModel.MyLocation.Latitude = GCoordLat;
+                newMapModel.MyLocation.Longitude = GCoordLong;
 
                 return newMapModel;
             }

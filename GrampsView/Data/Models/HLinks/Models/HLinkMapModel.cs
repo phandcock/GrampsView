@@ -5,9 +5,19 @@
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
-    /// <summary> HLink to a Map
-
-    /// <para> <br/> </para> </summary>
+    /// <summary>
+    /// Data model for a Map Reference.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> NA </description>
+    /// </item>
+    /// </list>
+    /// </summary>
 
     [DataContract]
     public class HLinkMapModel : HLinkBase, IHLinkMapModel
@@ -19,13 +29,13 @@
         }
 
         /// <summary>
-        /// Gets the de reference.
+        /// Gets the Map model.
         /// </summary>
         /// <value>
-        /// The de reference.
+        /// The dereference.
         /// </value>
         [DataMember]
-        public new MapModel DeRef
+        public new IMapModel DeRef
         {
             get;
 
@@ -45,7 +55,7 @@
         }
 
         /// <summary>
-        /// No detail page to navigate to, just open the URL externally.
+        /// No detail page to navigate to, just open the Map externally.
         /// </summary>
         public override async Task UCNavigate()
         {

@@ -38,7 +38,7 @@
         /// </summary>
         public override void BaseHandleLoadEvent()
         {
-            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>((BaseParamsHLink));
+            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(BaseParamsHLink);
 
             PlaceObject = HLinkObject.DeRef;
 
@@ -47,7 +47,7 @@
                 BaseModelBase = PlaceObject;
                 BaseTitleIcon = CommonConstants.IconPlace;
 
-                // TODO Dispaly all details
+                // TODO Display all details
 
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
@@ -68,7 +68,7 @@
                 });
 
                 // Add Map card
-                MapModel t = PlaceObject.ToMapModel();
+                IMapModel t = PlaceObject.ToMapModel();
                 BaseDetail.Add(t.HLink);
 
                 BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
