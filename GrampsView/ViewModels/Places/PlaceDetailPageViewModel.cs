@@ -56,6 +56,22 @@
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
 
+                foreach (PlaceLocationModel thePlaceLocation in PlaceObject.GLocation)
+                {
+                    BaseDetail.Add(new CardListLineCollection("Location")
+                    {
+                        new CardListLine("Street:", thePlaceLocation.GStreet),
+                        new CardListLine("City:", thePlaceLocation.GCity),
+                        new CardListLine("County:", thePlaceLocation.GCounty),
+                        new CardListLine("Locality:", thePlaceLocation.GLocality),
+                        new CardListLine("Parish:", thePlaceLocation.GParish),
+                        new CardListLine("State:", thePlaceLocation.GState),
+                        new CardListLine("Country:", thePlaceLocation.GCountry),
+                        new CardListLine("Phone:", thePlaceLocation.GPhone),
+                        new CardListLine("City:", thePlaceLocation.GPostal),
+                    });
+                }
+
                 BaseDetail.Add(new CardListLineCollection("Coordinates")
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),

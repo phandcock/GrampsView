@@ -1,19 +1,50 @@
-﻿using GrampsView.Common;
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     public interface IPlaceLocationModel : IModelBase
     {
-        string GLocationName
+        string GCity
         {
             get; set;
         }
 
-        CommonEnums.PlaceLocation GPlaceLocation
+        string GCountry
         {
             get; set;
         }
 
-        //string GPlaceLocationDecoded { get; }
+        string GCounty
+        {
+            get; set;
+        }
+
+        string GLocality
+        {
+            get; set;
+        }
+
+        string GParish
+        {
+            get; set;
+        }
+
+        string GPhone
+        {
+            get; set;
+        }
+
+        string GPostal
+        {
+            get; set;
+        }
+
+        string GState
+        {
+            get; set;
+        }
+
+        string GStreet
+        {
+            get; set;
+        }
     }
 }

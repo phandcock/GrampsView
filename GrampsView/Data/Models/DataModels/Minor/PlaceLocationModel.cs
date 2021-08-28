@@ -1,15 +1,20 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Gramps XML 1.71 value lang date-content
+    /// Data model for a place location.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
-    /// TODO Update fields as per Schema
     public class PlaceLocationModel : ModelBase, IPlaceLocationModel
     {
         public PlaceLocationModel()
@@ -17,12 +22,57 @@ namespace GrampsView.Data.Model
         }
 
         [DataMember]
-        public string GLocationName
+        public string GCity
         {
             get; set;
         }
 
         [DataMember]
-        public CommonEnums.PlaceLocation GPlaceLocation { get; set; } = CommonEnums.PlaceLocation.country;
+        public string GCountry
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GCounty
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GLocality
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GParish
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GPhone
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GPostal
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GState
+        {
+            get; set;
+        }
+
+        [DataMember]
+        public string GStreet
+        {
+            get; set;
+        }
     }
 }

@@ -19,6 +19,95 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
+        private static PlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
+        {
+            PlaceLocationCollection t = new PlaceLocationCollection
+            {
+                Title = "Place Location Collection"
+            };
+
+            // Run query
+            IEnumerable<XElement> theERElement =
+                    from orElementEl
+                    in xmlData.Elements(ns + "location")
+                    select orElementEl;
+
+            if (theERElement.Any())
+            {
+                // Load location object references
+                foreach (XElement theLocation in theERElement)
+                {
+                    PlaceLocationModel newLocationModel = new PlaceLocationModel();
+
+                    // Load individual attributes
+                    IEnumerable<XAttribute> attributeElements = theLocation.Attributes();
+
+                    foreach (XAttribute theLoadORElement in attributeElements)
+                    {
+                        switch (theLoadORElement.Name.LocalName)
+                        {
+                            case "city":
+                                {
+                                    newLocationModel.GCity = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "country":
+                                {
+                                    newLocationModel.GCountry = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "county":
+                                {
+                                    newLocationModel.GCounty = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "locality":
+                                {
+                                    newLocationModel.GLocality = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "parish":
+                                {
+                                    newLocationModel.GParish = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "phone":
+                                {
+                                    newLocationModel.GPhone = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "postal":
+                                {
+                                    newLocationModel.GPostal = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "state":
+                                {
+                                    newLocationModel.GState = theLoadORElement.Value;
+                                    break;
+                                }
+                            case "street":
+                                {
+                                    newLocationModel.GStreet = theLoadORElement.Value;
+                                    break;
+                                }
+
+                            default:
+                                {
+                                    break;
+                                }
+                        }
+                    }
+
+                    newLocationModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+                    t.Add(newLocationModel);
+                }
+            }
+
+            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
+            return t;
+        }
+
         private static HLinkPlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
         {
             HLinkPlaceNameModelCollection t = new HLinkPlaceNameModelCollection
@@ -555,92 +644,6 @@
                 }
             }
 
-            return t;
-        }
-
-        private PlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
-        {
-            PlaceLocationCollection t = new PlaceLocationCollection
-            {
-                Title = "Place Location Collection"
-            };
-            // Run query
-            var theERElement =
-                    from orElementEl
-                    in xmlData.Elements(ns + "location")
-                    select orElementEl;
-            if (theERElement.Any())
-            {
-                IEnumerable<XAttribute> attributeElements = theERElement.Attributes();
-
-                // Load attribute object references
-                foreach (XAttribute theLoadORElement in attributeElements)
-                {
-                    PlaceLocationModel newAttributeModel = new PlaceLocationModel();
-
-                    switch (theLoadORElement.Name.LocalName)
-                    {
-                        case "city":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.city;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "country":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.country;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "county":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.county;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "locality":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.locality;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "parish":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.parish;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "phone":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.phone;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "postal":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.postal;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-                        case "street":
-                            {
-                                newAttributeModel.GPlaceLocation = CommonEnums.PlaceLocation.street;
-                                newAttributeModel.GLocationName = theLoadORElement.Value;
-                                break;
-                            }
-
-                        default:
-                            {
-                                break;
-                            }
-                    }
-
-                    newAttributeModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
-                    t.Add(newAttributeModel);
-                }
-            }
-
-            // Return sorted by the default text t.Sort(T => T.DeRef.DefaultText);
             return t;
         }
 

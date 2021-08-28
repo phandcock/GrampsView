@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.UserControls
 {
-    public partial class PersonLocationCardSmall : SmallCardControlTemplate
+    public partial class PlaceLocationCardSmall : SmallCardControlTemplate
     {
-        public PersonLocationCardSmall()
+        public PlaceLocationCardSmall()
         {
             InitializeComponent();
         }

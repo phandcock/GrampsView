@@ -55,11 +55,8 @@
                             XElement coord = pPlaceElement.Element(ns + "coord");
                             if (!(coord is null))
                             {
-                                double latDouble = 0.0;
-                                double longDouble = 0.0;
-
-                                double.TryParse(GetAttribute(coord, "lat"), out latDouble);
-                                double.TryParse(GetAttribute(coord, "long"), out longDouble);
+                                double.TryParse(GetAttribute(coord, "lat"), out double latDouble);
+                                double.TryParse(GetAttribute(coord, "long"), out double longDouble);
 
                                 loadPlace.GCoordLat = latDouble;
                                 loadPlace.GCoordLong = longDouble;

@@ -86,7 +86,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="PlaceLocationCardSmallDT">
-        <usercontrols:PersonLocationCardSmall />
+        <usercontrols:PlaceLocationCardSmall />
     </DataTemplate>
 
     <DataTemplate x:Key="PlaceNameCardSmallDT">

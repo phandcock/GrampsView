@@ -232,18 +232,18 @@ namespace GrampsView.Common
             Delete,
         }
 
-        public enum PlaceLocation
-        {
-            city,
-            country,
-            county,
-            locality,
-            parish,
-            phone,
-            postal,
-            state,
-            street,
-        }
+        //public enum PlaceLocation
+        //{
+        //    city,
+        //    country,
+        //    county,
+        //    locality,
+        //    parish,
+        //    phone,
+        //    postal,
+        //    state,
+        //    street,
+        //}
 
         public enum RelationshipType
         {
