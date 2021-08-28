@@ -55,6 +55,11 @@
                 BaseTitle = RepositoryObject.DefaultText;
                 BaseTitleIcon = CommonConstants.IconRepository;
 
+                BaseDetail.Add(new CardListLineCollection("Repostiory Ref Detail")
+                    {
+                        new CardListLine("Type:", "Repostiory Ref"),
+                    });
+
                 BaseDetail.Add(new CardListLineCollection("Call Details")
                     {
                         new CardListLine("Call No:", RepositoryHLink.GCallNo),
