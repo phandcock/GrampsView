@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:views="clr-namespace:GrampsView.Views">
+    xmlns:views="clr-namespace:GrampsView.Views"
+    FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
+                                            Light={StaticResource PrimaryDarkColorLight}}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -15,7 +17,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
                 <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
                 <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
