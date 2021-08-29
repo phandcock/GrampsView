@@ -1,3 +1,21 @@
+# [16.20.0](https://github.com/phandcock/GrampsView/compare/v16.19.33...v16.20.0) (2021-08-29)
+
+
+### Bug Fixes
+
+* cleanup place location cards ([dc245c5](https://github.com/phandcock/GrampsView/commit/dc245c584370a33f3863378d36830fd7f2ccec8e))
+* fix address details model display and refactor mapmodel conversion code ([c5ced23](https://github.com/phandcock/GrampsView/commit/c5ced23a23b4a882321bcc0d41e63e6296f37419))
+* refactor mapmodel code ([65f98b8](https://github.com/phandcock/GrampsView/commit/65f98b8dea4fbd6f5f46ea8d7ddb1325cbb0467c))
+* shell flyout background colour ([2066a06](https://github.com/phandcock/GrampsView/commit/2066a0676f1a1866af7c54ce768a39cd73f76202))
+* tweaks ([fe78d0c](https://github.com/phandcock/GrampsView/commit/fe78d0cc4a615660e91c3e5c42c696b62ecb002c))
+
+
+### Features
+
+* add start of map card works ([d1a6959](https://github.com/phandcock/GrampsView/commit/d1a69592d2ebd26a78a65596a8d6e619c45fe09e))
+
+
+
 ## [16.19.33](https://github.com/phandcock/GrampsView/compare/v16.19.32...v16.19.33) (2021-08-23)
 
 
@@ -22,17 +40,6 @@
 ### Bug Fixes
 
 * dusokay proper detail viewmodel for date ([5a711e9](https://github.com/phandcock/GrampsView/commit/5a711e962edcbe297c60e53b197222520f267540))
-
-
-
-## [16.19.30](https://github.com/phandcock/GrampsView/compare/v16.19.29...v16.19.30) (2021-08-18)
-
-
-### Bug Fixes
-
-* fix display of NS smallcards ([0df4f1c](https://github.com/phandcock/GrampsView/commit/0df4f1c8c83e17c6c3a604040a820b6955c857e7))
-* Serialize derived types properly ([a17fe68](https://github.com/phandcock/GrampsView/commit/a17fe683ca45922c20a4e33ee92f5d657d03207b))
-* start work on cleaningup dateobjectmodel code ([bf73d79](https://github.com/phandcock/GrampsView/commit/bf73d79226bc8721a8535013d9c2a99290ea7b63))
 
 
 
