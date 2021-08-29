@@ -408,7 +408,7 @@
     </Style>
 
     <Style x:Key="GVPageTitleStyle" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColorDark}, Light={StaticResource PrimaryColorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
     </Style>
 
     <!--  Grid Single  -->
