@@ -43,7 +43,7 @@
             ModelItemGlyph.Symbol = CommonConstants.IconDate;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
-            HLinkKey.Value = Guid.NewGuid().ToString();
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
 
             // check for date range
             try
@@ -67,8 +67,6 @@
 
                 // Set NotionalDate
                 NotionalDate = NotionalDate = ConvertRFC1123StringToDateTime(aStart);
-
-                HLinkKey.Value = Guid.NewGuid().ToString();
             }
             catch (Exception e)
             {

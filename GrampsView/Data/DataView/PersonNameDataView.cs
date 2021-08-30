@@ -150,7 +150,7 @@ namespace GrampsView.Data.DataView
                 || (x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 )
-                .DistinctBy(x => x.Handle);
+                .DistinctBy(x => x.HLinkKey.Value);
 
             IOrderedEnumerable<PersonNameModel> orderTemp = temp.OrderBy(x => x.GSurName.GetPrimarySurname);
 

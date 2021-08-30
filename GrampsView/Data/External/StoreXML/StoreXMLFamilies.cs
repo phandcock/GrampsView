@@ -97,7 +97,7 @@
 
                         // save the family
                         DV.FamilyDV.FamilyData.Add(loadFamily);
-                        _iocCommonLogging.LogVariable("Family Name", loadFamily.Handle);
+                        _iocCommonLogging.LogVariable("Family Name", loadFamily.HLinkKey.Value);
                     }
                 }
                 catch (Exception e)

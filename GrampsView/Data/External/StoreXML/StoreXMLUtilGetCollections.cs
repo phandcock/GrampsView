@@ -6,7 +6,6 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -128,8 +127,6 @@
                 {
                     PlaceNameModel newPlaceNameModel = new PlaceNameModel
                     {
-                        Handle = "PlaceNameModel",
-
                         GValue = GetAttribute(theLoadORElement, "value"),
 
                         GLang = GetAttribute(theLoadORElement, "lang"),
@@ -138,6 +135,7 @@
                     };
 
                     newPlaceNameModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+                    newPlaceNameModel.HLinkKey = HLinkKey.NewAsGUID();
 
                     HLinkPlaceNameModel tt = new HLinkPlaceNameModel
                     {
@@ -197,10 +195,8 @@
                     };
 
                     // Set model hlinkkey etc
-                    string newGuid = Guid.NewGuid().ToString();
-                    newAddressModel.HLinkKey = new HLinkKey(newGuid);
-                    newAddressModel.Id = newGuid;
-                    newAddressModel.Handle = newGuid;
+                    newAddressModel.HLinkKey = HLinkKey.NewAsGUID();
+                    newAddressModel.Id = newAddressModel.HLinkKey.Value;
                     DataStore.Instance.DS.AddressData.Add(newAddressModel);
 
                     // Create a HLink to the model
@@ -557,8 +553,6 @@
                     // TODO is date handling correct
                     PersonNameModel newPersonNameModel = new PersonNameModel
                     {
-                        Handle = "PersonNameCollection",
-
                         GCitationRefCollection = GetCitationCollection(theLoadORElement),
 
                         GDate = SetDate(theLoadORElement),
@@ -590,8 +584,7 @@
 
                     newPersonNameModel.GAlt = new AltModel(GetAttribute(theLoadORElement, "alt"));
 
-                    // Set model hlinkkey
-                    newPersonNameModel.Handle = Guid.NewGuid().ToString();
+                    newPersonNameModel.HLinkKey = HLinkKey.NewAsGUID();
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
@@ -934,8 +927,6 @@
                 {
                     URLModel tt = new URLModel
                     {
-                        Handle = "URL Collection",
-
                         Priv = GetPrivateObject(theLoadORElement),
 
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
@@ -948,6 +939,8 @@
                     tt.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
                     tt.ModelItemGlyph.Symbol = CommonConstants.IconURL;
+
+                    tt.HLinkKey = HLinkKey.NewAsGUID();
 
                     HLinkURLModel ttt = new HLinkURLModel
                     {

@@ -31,6 +31,11 @@
             get; set;
         } = string.Empty;
 
+        public static HLinkKey NewAsGUID()
+        {
+            return new HLinkKey(Guid.NewGuid().ToString());
+        }
+
         public int CompareTo(HLinkKey argOther)
         {
             if (!Valid)

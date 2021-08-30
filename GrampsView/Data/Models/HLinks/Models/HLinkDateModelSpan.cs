@@ -5,7 +5,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Views;
 
-    using System;
     using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
@@ -20,7 +19,7 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.Symbol = CommonConstants.IconDate;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
-            HLinkKey.Value = new Guid().ToString();
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
         }
 
         [DataMember]

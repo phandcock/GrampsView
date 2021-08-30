@@ -159,10 +159,10 @@
 
             CardListLineCollection modelInfoList = new CardListLineCollection
                {
-                 new CardListLine("Handle:", argModel.Handle),
                  new CardListLine("Id:", argModel.Id),
                  new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                  new CardListLine("Private Object:", argModel.Priv.ToString()),
+                new CardListLine("Handle:", argModel.HLinkKey.Value),
                };
 
             modelInfoList.Title = "Admin Details";

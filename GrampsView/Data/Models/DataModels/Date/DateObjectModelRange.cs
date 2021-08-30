@@ -47,7 +47,7 @@
             ModelItemGlyph.Symbol = CommonConstants.IconDate;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
-            HLinkKey.Value = Guid.NewGuid().ToString();
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
 
             GCformat = aCFormat;
 

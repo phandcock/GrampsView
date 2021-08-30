@@ -427,8 +427,9 @@
                 Id = GetAttribute(argElement.Attribute("id")),
                 Change = GetDateTime(argElement, "change"),
                 Priv = GetPrivateObject(argElement),
-                Handle = GetAttribute(argElement, "handle")
             };
+
+            returnVal.HLinkKey.Value = GetAttribute(argElement, "handle");
 
             return returnVal;
         }

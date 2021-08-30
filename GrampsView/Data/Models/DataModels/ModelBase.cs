@@ -50,11 +50,6 @@
         /// </summary>
         private DateTime _Change = DateTime.MinValue;
 
-        /// <summary>
-        /// The local handle.
-        /// </summary>
-        private string _Handle = string.Empty;
-
         private string _Id = string.Empty;
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
@@ -115,25 +110,6 @@
             get
             {
                 return DefaultText.Substring(0, Math.Min(DefaultText.Length, 40));
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the handle ID #REQUIRED.
-        /// </summary>
-        /// <value>
-        /// The handle.
-        /// </value>
-        [DataMember]
-        public string Handle
-        {
-            get => _Handle;
-
-            set
-            {
-                SetProperty(ref _Handle, value);
-
-                HLinkKey.Value = value;
             }
         }
 
@@ -326,7 +302,7 @@ ArgumentNullException(nameof(argSecondModelBase));
         {
             Contract.Requires(!(argBasics is null));
 
-            if (!(String.IsNullOrEmpty(argBasics.Id)))
+            if (!string.IsNullOrEmpty(argBasics.Id))
             {
                 Id = argBasics.Id;
             }
@@ -338,9 +314,9 @@ ArgumentNullException(nameof(argSecondModelBase));
 
             Priv = argBasics.Priv;
 
-            if (!(String.IsNullOrEmpty(argBasics.Handle)))
+            if (argBasics.HLinkKey.Valid)
             {
-                Handle = argBasics.Handle;
+                HLinkKey = argBasics.HLinkKey;
             }
         }
 

@@ -186,7 +186,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkTagModel> t = collectionArg.OrderBy(HLinkTagModel => HLinkTagModel.DeRef.Handle);
+            IOrderedEnumerable<HLinkTagModel> t = collectionArg.OrderBy(HLinkTagModel => HLinkTagModel.DeRef.HLinkKey.Value);
 
             HLinkTagModelCollection tt = new HLinkTagModelCollection();
 
