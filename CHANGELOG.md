@@ -1,3 +1,12 @@
+## [16.20.1](https://github.com/phandcock/GrampsView/compare/v16.20.0...v16.20.1) (2021-08-30)
+
+
+### Bug Fixes
+
+* fix page title background colour ([6d83f0b](https://github.com/phandcock/GrampsView/commit/6d83f0bd2b1724789dfae6892a9342543ac579ba))
+
+
+
 # [16.20.0](https://github.com/phandcock/GrampsView/compare/v16.19.33...v16.20.0) (2021-08-29)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * restructure and cleanup date display ([76b72a8](https://github.com/phandcock/GrampsView/commit/76b72a8e66356bf020dd6dc753b940edb1ce9295))
-
-
-
-## [16.19.31](https://github.com/phandcock/GrampsView/compare/v16.19.30...v16.19.31) (2021-08-20)
-
-
-### Bug Fixes
-
-* dusokay proper detail viewmodel for date ([5a711e9](https://github.com/phandcock/GrampsView/commit/5a711e962edcbe297c60e53b197222520f267540))
 
 
 
