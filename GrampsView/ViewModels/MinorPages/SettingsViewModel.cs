@@ -29,10 +29,15 @@
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
-            BaseHandleAppearingEvent();
+            // BaseHandleAppearingEvent();
         }
 
-        public static bool SortCollectionsFlag
+        public IAsyncCommand ShowMessageLogCommand
+        {
+            get;
+        }
+
+        public bool SortCollectionsFlag
         {
             get
             {
@@ -42,23 +47,6 @@
             {
                 CommonLocalSettings.SortHLinkCollections = value;
             }
-        }
-
-        public static bool UseFirstImageFlag
-        {
-            get
-            {
-                return CommonLocalSettings.UseFirstImageFlag;
-            }
-            set
-            {
-                CommonLocalSettings.UseFirstImageFlag = value;
-            }
-        }
-
-        public IAsyncCommand ShowMessageLogCommand
-        {
-            get;
         }
 
         public IAsyncCommand TestButtonCommand
@@ -158,6 +146,18 @@
         public bool UpdateNoteEmailValidValue
         {
             get; set;
+        }
+
+        public bool UseFirstImageFlag
+        {
+            get
+            {
+                return CommonLocalSettings.UseFirstImageFlag;
+            }
+            set
+            {
+                CommonLocalSettings.UseFirstImageFlag = value;
+            }
         }
 
         public override void BaseHandleAppearingEvent()

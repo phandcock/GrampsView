@@ -189,7 +189,7 @@
   <data name="Settings_GotoMessageLog" xml:space="preserve">
     <value>View Message Log</value>
   </data>
-  <data name="Settings_ViewAlertDIalog" xml:space="preserve">
+  <data name="Settings_ViewAlertDialog" xml:space="preserve">
     <value>Test Alert DIalogs</value>
   </data>
   <data name="FileInputHandlerPage_Loading" xml:space="preserve">

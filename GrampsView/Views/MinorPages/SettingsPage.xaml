@@ -110,6 +110,7 @@
                             Grid.Column="1"
                             BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                                               Light={StaticResource SecondaryColorLight}}"
+                            HorizontalOptions="EndAndExpand"
                             IsToggled="{Binding SortCollectionsFlag}" />
 
                         <Label
@@ -123,6 +124,7 @@
                             Grid.Column="1"
                             BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
                                                               Light={StaticResource SecondaryColorLight}}"
+                            HorizontalOptions="EndAndExpand"
                             IsToggled="{Binding UseFirstImageFlag}" />
                     </Grid>
                 </StackLayout>
@@ -183,12 +185,10 @@
                         <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Control Buttons" />
                     </Frame>
 
-                    
-
                     <Button
                         Command="{Binding TestButtonCommand}"
                         Style="{DynamicResource GVButtonMenu}"
-                        Text="{x:Static i18n:AppResources.Settings_ViewAlertDIalog}" />
+                        Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
                 </StackLayout>
             </Frame>
         </StackLayout>

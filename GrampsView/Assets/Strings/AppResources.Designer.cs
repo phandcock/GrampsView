@@ -315,9 +315,9 @@ namespace GrampsView.Assets.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Test Alert DIalogs.
         /// </summary>
-        public static string Settings_ViewAlertDIalog {
+        public static string Settings_ViewAlertDialog {
             get {
-                return ResourceManager.GetString("Settings_ViewAlertDIalog", resourceCulture);
+                return ResourceManager.GetString("Settings_ViewAlertDialog", resourceCulture);
             }
         }
         

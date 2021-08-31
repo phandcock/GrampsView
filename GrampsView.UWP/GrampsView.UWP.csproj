@@ -199,7 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AdaptiveCards">
-      <Version>2.6.0</Version>
+      <Version>2.7.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.3.0</Version>
