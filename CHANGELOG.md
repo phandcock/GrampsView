@@ -1,3 +1,13 @@
+## [16.20.2](https://github.com/phandcock/GrampsView/compare/v16.20.1...v16.20.2) (2021-09-01)
+
+
+### Bug Fixes
+
+* cleanup Handle handling ([b4088cd](https://github.com/phandcock/GrampsView/commit/b4088cdb96ed34eb4245b0913062a3b508aa0f50))
+* fix jit error from switch static backing property ([9dea206](https://github.com/phandcock/GrampsView/commit/9dea2066816cc6deb5a0ed5da756a674f6123c7b))
+
+
+
 ## [16.20.1](https://github.com/phandcock/GrampsView/compare/v16.20.0...v16.20.1) (2021-08-30)
 
 
@@ -31,15 +41,6 @@
 ### Bug Fixes
 
 * tweak cardlistline value layout ([83bae9b](https://github.com/phandcock/GrampsView/commit/83bae9bcaae14af33eb8e81dc6bc9376a381cbb8))
-
-
-
-## [16.19.32](https://github.com/phandcock/GrampsView/compare/v16.19.31...v16.19.32) (2021-08-22)
-
-
-### Bug Fixes
-
-* restructure and cleanup date display ([76b72a8](https://github.com/phandcock/GrampsView/commit/76b72a8e66356bf020dd6dc753b940edb1ce9295))
 
 
 
