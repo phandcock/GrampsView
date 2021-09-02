@@ -16,16 +16,16 @@
     public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>
-        /// IOC local copy of GramsView Logging routines.
-        /// </summary>
-        internal readonly ICommonLogging _iocCommonLogging;
-
-        internal readonly ICommonNotifications _iocCommonNotifications;
-
-        /// <summary>
         /// The default XML namespace.
         /// </summary>
         private static XNamespace ns;
+
+        /// <summary>
+        /// local copy of GramsView Logging routines.
+        /// </summary>
+        private readonly ICommonLogging _iocCommonLogging;
+
+        private readonly ICommonNotifications _iocCommonNotifications;
 
         /// <summary>
         /// The Gramps XML document.
@@ -36,10 +36,10 @@
         /// Initializes a new instance of the <see cref="StoreXML"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
-        /// The gramps view common logging.
+        /// Common Logging.
         /// </param>
-        /// <param name="iocGrampsStorePostLoad">
-        /// The ioc gramps store post load.
+        /// <param name="iocCommonNotifications">
+        /// Common Notifications
         /// </param>
         public StoreXML(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications)
         {
@@ -63,7 +63,7 @@
         {
             try
             {
-                IFileInfoEx inputFile = new FileInfoEx(argFileName:CommonConstants.StorageXMLFileName);
+                IFileInfoEx inputFile = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
 
                 await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {

@@ -25,6 +25,7 @@
     <Compile Remove="Common\Card Group\CardGroupCollection.cs" />
     <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
     <Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
+    <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
     <Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
     <Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
     <Compile Remove="Common\ObservableObject.cs" />

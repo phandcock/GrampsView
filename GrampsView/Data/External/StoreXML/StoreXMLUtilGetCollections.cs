@@ -481,8 +481,8 @@
                 Title = "Media Collection"
             };
 
-            var theORElement = from _ORElementEl in xmlData.Elements(ns + "objref")
-                               select _ORElementEl;
+            IEnumerable<XElement> theORElement = from _ORElementEl in xmlData.Elements(ns + "objref")
+                                                 select _ORElementEl;
 
             if (theORElement.Any())
             {
@@ -493,6 +493,7 @@
                     HLinkMediaModel outHLMediaModel = new HLinkMediaModel
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
+                        Priv = GetPrivateObject(theLoadORElement),
                     };
 
                     if (outHLMediaModel.HLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0")
@@ -503,18 +504,14 @@
                     XElement regionDetails = theLoadORElement.Element(ns + "region");
                     if (regionDetails != null)
                     {
-                        HLinkLoadImageModel tempHLMediaModel = new HLinkLoadImageModel
-                        {
-                            HLinkKey = outHLMediaModel.HLinkKey,
-                            ImageType = CommonEnums.HLinkGlyphType.Image,
+                        outHLMediaModel.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.Image;
 
-                            GCorner1X = (int)regionDetails.Attribute("corner1_x"),
-                            GCorner1Y = (int)regionDetails.Attribute("corner1_y"),
-                            GCorner2X = (int)regionDetails.Attribute("corner2_x"),
-                            GCorner2Y = (int)regionDetails.Attribute("corner2_y"),
-                        };
+                        outHLMediaModel.GCorner1X = (int)regionDetails.Attribute("corner1_x");
+                        outHLMediaModel.GCorner1Y = (int)regionDetails.Attribute("corner1_y");
+                        outHLMediaModel.GCorner2X = (int)regionDetails.Attribute("corner2_x");
+                        outHLMediaModel.GCorner2Y = (int)regionDetails.Attribute("corner2_y");
 
-                        outHLMediaModel = await CreateClippedMediaModel(tempHLMediaModel).ConfigureAwait(false);
+                        outHLMediaModel = await CreateClippedMediaModel(outHLMediaModel).ConfigureAwait(false);
                     }
 
                     // Get remaining fields
@@ -522,13 +519,9 @@
                     outHLMediaModel.GCitationRefCollection = GetCitationCollection(theLoadORElement);
                     outHLMediaModel.GNoteRefCollection = GetNoteCollection(theLoadORElement);
 
-                    // TODO !ELEMENT objref (region?, attribute*, citationref*, noteref*)&gt;
-                    // !ATTLIST objref hlink IDREF #REQUIRED priv (0|1) #IMPLIED
                     t.Add(outHLMediaModel);
                 }
             }
-
-            // Return sorted by the default text t.SortAndSetFirst();
 
             return t;
         }

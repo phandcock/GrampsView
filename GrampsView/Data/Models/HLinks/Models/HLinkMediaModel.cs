@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -10,7 +8,17 @@ namespace GrampsView.Data.Model
     using System.Threading.Tasks;
 
     /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
+    /// HLink for a media object.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [DataContract]
     public class HLinkMediaModel : HLinkBase, IHLinkMediaModel
@@ -33,7 +41,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         /// <value>
         /// The media model. <note type="caution"> This can not hold a local copy of the media model
-        /// as the Model Base has a hlinkmediamodel in it and this will cause a referene loop </note>
+        /// as the Model Base has a hlinkmediamodel in it and this will cause a reference loop </note>
         /// </value>
         public new IMediaModel DeRef
         {
@@ -50,7 +58,7 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets or sets the Attribute.
+        /// Gets or sets the Attribute collection.
         /// </summary>
         /// <value>
         /// The Attribute.
@@ -67,8 +75,28 @@ namespace GrampsView.Data.Model
         [DataMember]
         public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
 
+        public int GCorner1X
+        {
+            get; set;
+        }
+
+        public int GCorner1Y
+        {
+            get; set;
+        }
+
+        public int GCorner2X
+        {
+            get; set;
+        }
+
+        public int GCorner2Y
+        {
+            get; set;
+        }
+
         /// <summary>
-        /// Gets or sets the g note model collection.
+        /// Gets or sets the note model collection.
         /// </summary>
         /// <value>
         /// The g note model collection.

@@ -29,12 +29,6 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         Task LoadCitationsAsync();
 
-        ///// <summary>
-        ///// Loads the new data asynchronous.
-        ///// </summary>
-        ///// <param name="grampsDataFile"> The gramps data file. </param>
-        ///// <returns></returns>
-        // Task<bool> DataStorageUnZIPFile(StorageFile grampsDataFile);
         /// <summary>
         /// load events from external storage.
         /// </summary>

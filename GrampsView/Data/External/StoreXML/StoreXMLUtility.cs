@@ -279,7 +279,7 @@
             return TextStyle.unknown;
         }
 
-        private async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkLoadImageModel argHLinkLoadImageModel)
+        private async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkMediaModel argHLinkLoadImageModel)
         {
             if (argHLinkLoadImageModel is null)
             {
@@ -301,7 +301,7 @@
 
              IMediaModel newMediaModel = new MediaModel();
 
-             HLinkKey newHLinkKey = new HLinkKey(argHLinkLoadImageModel.HLinkKey.Value + "-" + argHLinkLoadImageModel.GCorner1X + argHLinkLoadImageModel.GCorner1Y + argHLinkLoadImageModel.GCorner2X + argHLinkLoadImageModel.GCorner2Y);
+             HLinkKey newHLinkKey = new HLinkKey($"{argHLinkLoadImageModel.HLinkKey.Value}-{argHLinkLoadImageModel.GCorner1X}{argHLinkLoadImageModel.GCorner1Y}{argHLinkLoadImageModel.GCorner2X}{argHLinkLoadImageModel.GCorner2Y}");
              string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
 
              if (newHLinkKey.Value == "_c5132553a185c9c51d8-35415065")
