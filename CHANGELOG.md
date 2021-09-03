@@ -1,3 +1,13 @@
+## [16.20.3](https://github.com/phandcock/GrampsView/compare/v16.20.2...v16.20.3) (2021-09-03)
+
+
+### Bug Fixes
+
+* chnage the sort override for addresses to be the date ([bc722bf](https://github.com/phandcock/GrampsView/commit/bc722bf831e02cd1a5e5dcea0f7c2a9acdbaa594))
+* cleanup hlinkmedia loading esp clipped ([c67b2e2](https://github.com/phandcock/GrampsView/commit/c67b2e203db62c35d4b58ad452d52b5080bd60c3))
+
+
+
 ## [16.20.2](https://github.com/phandcock/GrampsView/compare/v16.20.1...v16.20.2) (2021-09-01)
 
 
@@ -32,15 +42,6 @@
 ### Features
 
 * add start of map card works ([d1a6959](https://github.com/phandcock/GrampsView/commit/d1a69592d2ebd26a78a65596a8d6e619c45fe09e))
-
-
-
-## [16.19.33](https://github.com/phandcock/GrampsView/compare/v16.19.32...v16.19.33) (2021-08-23)
-
-
-### Bug Fixes
-
-* tweak cardlistline value layout ([83bae9b](https://github.com/phandcock/GrampsView/commit/83bae9bcaae14af33eb8e81dc6bc9376a381cbb8))
 
 
 
