@@ -138,43 +138,30 @@
                         <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Defaults" />
                     </Frame>
 
-                    <Grid>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{DynamicResource GVCardLabelStyle}"
+                        Text="Default email address for Notes" />
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Style="{DynamicResource GVCardLabelStyle}"
-                            Text="Default email address for Notes" />
-
-                        <Entry
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                              Light={StaticResource SecondaryColorLight}}"
-                            ClearButtonVisibility="WhileEditing"
-                            Keyboard="Email"
-                            Placeholder="Email"
-                            ReturnCommand="{Binding UpdateNoteEmailCommand}"
-                            Text="{Binding UpdateNoteEmailAddress}"
-                            TextTransform="Lowercase">
-                            <Entry.Behaviors>
-                                <xct:EmailValidationBehavior
-                                    DecorationFlags="Trim"
-                                    InvalidStyle="{DynamicResource GVEntryInvalid}"
-                                    IsValid="{Binding UpdateNoteEmailValidValue}" />
-                            </Entry.Behaviors>
-                        </Entry>
-                    </Grid>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                          Light={StaticResource SecondaryColorLight}}"
+                        ClearButtonVisibility="WhileEditing"
+                        Keyboard="Email"
+                        Placeholder="Email"
+                        ReturnCommand="{Binding UpdateNoteEmailCommand}"
+                        Text="{Binding UpdateNoteEmailAddress}"
+                        TextTransform="Lowercase">
+                        <Entry.Behaviors>
+                            <xct:EmailValidationBehavior
+                                DecorationFlags="Trim"
+                                InvalidStyle="{DynamicResource GVEntryInvalid}"
+                                IsValid="{Binding UpdateNoteEmailValidValue}" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </StackLayout>
             </Frame>
 
