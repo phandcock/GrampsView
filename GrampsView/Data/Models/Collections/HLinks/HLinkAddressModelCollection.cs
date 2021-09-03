@@ -7,7 +7,9 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -46,20 +48,19 @@ namespace GrampsView.Data.Collections
             base.SetGlyph();
         }
 
-        ///// <summary>
-        ///// Helper method to sort
-        ///// </summary>
-        //public void Sort()
-        //{
-        //    // Sort the collection
-        //    List<HLinkAdressModel> t = this.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.DefaultText).ToList();
+        /// <summary>
+        /// Sort by address date rather than the default text
+        /// </summary>
+        public override void Sort()
+        {
+            List<HLinkAdressModel> t = this.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GDate).ToList();
 
-        // Items.Clear();
+            Items.Clear();
 
-        //    foreach (HLinkAdressModel item in t)
-        //    {
-        //        Items.Add(item);
-        //    }
-        //}
+            foreach (HLinkAdressModel item in t)
+            {
+                Items.Add(item);
+            }
+        }
     }
 }

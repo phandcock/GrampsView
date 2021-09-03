@@ -52,7 +52,7 @@ namespace GrampsView.Data.Collections
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkCitationModel> t = this.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent.SortDate).ToList();

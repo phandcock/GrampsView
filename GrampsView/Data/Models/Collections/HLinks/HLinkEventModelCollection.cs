@@ -52,15 +52,6 @@
             }
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkEventModel argHLink in this)
@@ -79,7 +70,7 @@
         /// <summary>
         /// Helper method to sort and set the firt image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkEventModel> t = this.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate.SortDate).ToList();

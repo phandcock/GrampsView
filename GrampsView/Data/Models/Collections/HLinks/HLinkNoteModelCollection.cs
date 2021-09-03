@@ -92,15 +92,6 @@ namespace GrampsView.Data.Collections
             }
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public HLinkNoteModelCollection GetCollectionWithoutOne(HLinkNoteModel argExcludedNoteModel)
         {
             HLinkNoteModelCollection t = new HLinkNoteModelCollection();
@@ -148,7 +139,7 @@ namespace GrampsView.Data.Collections
         /// <summary>
         /// Helper method to sort and set the first image link.
         /// </summary>
-        public void Sort()
+        public override void Sort()
         {
             // Sort the collection
             List<HLinkNoteModel> t = this.OrderBy(hlinkNoteModel => hlinkNoteModel.DeRef.GStyledText.GText).ToList();

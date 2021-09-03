@@ -22,15 +22,6 @@ namespace GrampsView.Data.Collections
             Title = "Place Collection";
         }
 
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public override void SetGlyph()
         {
             foreach (HLinkPlaceModel argHLink in this)

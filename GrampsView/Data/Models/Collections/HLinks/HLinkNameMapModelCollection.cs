@@ -8,9 +8,7 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -23,15 +21,6 @@ namespace GrampsView.Data.Collections
         {
             Title = "NameMap Collection";
         }
-
-        //public override CardGroup GetCardGroup()
-        //{
-        //    CardGroup t = base.GetCardGroup();
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
 
         public override void SetGlyph()
         {
@@ -48,20 +37,20 @@ namespace GrampsView.Data.Collections
             base.SetGlyph();
         }
 
-        /// <summary>
-        /// Helper method to sort and set the firt image link.
-        /// </summary>
-        public void Sort()
-        {
-            // Sort the collection
-            List<HLinkNameMapModel> t = this.OrderBy(HLinkNameMapModel => HLinkNameMapModel.DeRef.DefaultText).ToList();
+        ///// <summary>
+        ///// Helper method to sort and set the firt image link.
+        ///// </summary>
+        //public void Sort()
+        //{
+        //    // Sort the collection
+        //    List<HLinkNameMapModel> t = this.OrderBy(HLinkNameMapModel => HLinkNameMapModel.DeRef.DefaultText).ToList();
 
-            Items.Clear();
+        // Items.Clear();
 
-            foreach (HLinkNameMapModel item in t)
-            {
-                Items.Add(item);
-            }
-        }
+        //    foreach (HLinkNameMapModel item in t)
+        //    {
+        //        Items.Add(item);
+        //    }
+        //}
     }
 }

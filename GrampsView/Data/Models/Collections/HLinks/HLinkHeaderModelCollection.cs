@@ -4,9 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary> Collection of Header HLinks <list type="table"><listheader><term><th> Status
@@ -31,20 +29,20 @@
             base.SetGlyph();
         }
 
-        /// <summary>
-        /// Helper method to sort and set the firt image link.
-        /// </summary>
-        public override void Sort()
-        {
-            // Sort the collection
-            List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.DefaultText).ToList();
+        ///// <summary>
+        ///// Helper method to sort and set the firt image link.
+        ///// </summary>
+        //public override void Sort()
+        //{
+        //    // Sort the collection
+        //    List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.DefaultText).ToList();
 
-            Items.Clear();
+        // Items.Clear();
 
-            foreach (HLinkHeaderModel item in t)
-            {
-                Items.Add(item);
-            }
-        }
+        //    foreach (HLinkHeaderModel item in t)
+        //    {
+        //        Items.Add(item);
+        //    }
+        //}
     }
 }

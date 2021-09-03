@@ -8,9 +8,7 @@ namespace GrampsView.Data.Collections
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -80,20 +78,20 @@ namespace GrampsView.Data.Collections
             base.SetGlyph();
         }
 
-        /// <summary>
-        /// Helper method to sort and set the firt image link.
-        /// </summary>
-        public override void Sort()
-        {
-            // Sort the collection
-            List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.DefaultText).ToList();
+        ///// <summary>
+        ///// Helper method to sort and set the firt image link.
+        ///// </summary>
+        //public override void Sort()
+        //{
+        //    // Sort the collection
+        //    List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.DefaultText).ToList();
 
-            Items.Clear();
+        // Items.Clear();
 
-            foreach (HLinkPersonNameModel item in t)
-            {
-                Items.Add(item);
-            }
-        }
+        //    foreach (HLinkPersonNameModel item in t)
+        //    {
+        //        Items.Add(item);
+        //    }
+        //}
     }
 }

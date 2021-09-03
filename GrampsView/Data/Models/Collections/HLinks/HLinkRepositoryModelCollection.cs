@@ -4,9 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -37,20 +35,20 @@
             base.SetGlyph();
         }
 
-        /// <summary>
-        /// Helper method to sort and set the firt image link.
-        /// </summary>
-        public void Sort()
-        {
-            // Sort the collection
-            List<HLinkRepositoryModel> t = this.OrderBy(HLinkRepositoryModel => HLinkRepositoryModel.DeRef.DefaultText).ToList();
+        ///// <summary>
+        ///// Helper method to sort and set the firt image link.
+        ///// </summary>
+        //public void Sort()
+        //{
+        //    // Sort the collection
+        //    List<HLinkRepositoryModel> t = this.OrderBy(HLinkRepositoryModel => HLinkRepositoryModel.DeRef.DefaultText).ToList();
 
-            Items.Clear();
+        // Items.Clear();
 
-            foreach (HLinkRepositoryModel item in t)
-            {
-                Items.Add(item);
-            }
-        }
+        //    foreach (HLinkRepositoryModel item in t)
+        //    {
+        //        Items.Add(item);
+        //    }
+        //}
     }
 }
