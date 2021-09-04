@@ -99,7 +99,7 @@
             Contract.Assert(argLabel != null);
 
             Label = argLabel.Trim();
-            Value = ValueArg.ToString(System.Globalization.CultureInfo.CurrentCulture);
+            Value = $"{ValueArg:n}";
         }
 
         public CardListLine(string argLabel, double ValueArg)

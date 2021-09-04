@@ -294,7 +294,7 @@ namespace GrampsView.Data.Model
 
         protected override IModelBase GetDeRef()
         {
-            return this.DeRef;
+            return this.HLink.DeRef;
         }
     }
 }
