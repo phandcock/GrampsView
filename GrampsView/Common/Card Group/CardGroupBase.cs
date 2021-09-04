@@ -46,7 +46,7 @@ namespace GrampsView.Common
         /// Gets a value indicating whether [control visible].
         /// </summary>
         /// <value>
-        /// <c>true</c> if [control visible]; otherwise, <c>false</c>.
+        /// <c> true </c> if [control visible]; otherwise, <c> false </c>.
         /// </value>
         public bool Visible
         {
