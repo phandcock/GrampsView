@@ -32,7 +32,7 @@
                 Glyph="{Binding BaseTitleIcon}"
                 Size="44"
                 Color="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                        Light={StaticResource OnPrimaryColorDark}}" />
+                                        Light={StaticResource OnPrimaryColorLight}}" />
         </Image.Source>
     </Image>
 

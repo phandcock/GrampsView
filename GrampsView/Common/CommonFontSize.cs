@@ -22,7 +22,7 @@
 
                     case Device.UWP:
                         {
-                            return 16.0;
+                            return 24.0;
                         }
 
                     default:

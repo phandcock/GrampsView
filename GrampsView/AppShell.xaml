@@ -10,7 +10,7 @@
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
-        
+
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
@@ -43,6 +43,30 @@
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style
+                ApplyToDerivedTypes="True"
+                Class="MenuItemLayoutStyle"
+                TargetType="Layout">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Orange" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Black" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

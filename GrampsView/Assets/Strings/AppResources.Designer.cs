@@ -61,6 +61,15 @@ namespace GrampsView.Assets.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GrampsView - Gramps GPKG file display.
+        /// </summary>
+        public static string AboutPage_AppHeader {
+            get {
+                return ResourceManager.GetString("AboutPage_AppHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ms-appx:///Assets/SmallLogo.scale-100.png.
         /// </summary>
         public static string defaultImage {

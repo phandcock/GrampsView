@@ -207,4 +207,7 @@
   <data name="FieldPrefixPlaceParent" xml:space="preserve">
     <value>In: {0}</value>
   </data>
+  <data name="AboutPage_AppHeader" xml:space="preserve">
+    <value>GrampsView - Gramps GPKG file display</value>
+  </data>
 </root>

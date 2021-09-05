@@ -1,6 +1,4 @@
-﻿/// TODO XML 1.71 fields updatded as per Schema
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
 
@@ -8,6 +6,19 @@ namespace GrampsView.Data.Model
 
     using Xamarin.Essentials;
 
+    /// <summary>
+    /// Data model for a Gramps file header.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// </summary>
     [DataContract]
     public class HeaderModel : ModelBase, IHeaderModel
     {
@@ -51,17 +62,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                CardListLineCollection HeaderCard = new CardListLineCollection
-                    {
-                        new CardListLine("Created using version:", GCreatedVersion),
-                        new CardListLine("Created on:", GCreatedDate),
-                        new CardListLine("Researcher Name:", GResearcherName),
-                        new CardListLine("Researcher State:", GResearcherState),
-                        new CardListLine("Researcher Country:", GResearcherCountry),
-                        new CardListLine("Researcher Email:", GResearcherEmail),
-                        new CardListLine("MediaPath:", GMediaPath),
-                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
+                CardListLineCollection HeaderCard = this.AsCardListLineCollection;
 
+                HeaderCard.AddRange(
+
+                    new CardListLineCollection()
+                    {
                         new CardListLine("Address Items", DV.AddressDV.DataViewData.Count),
                         new CardListLine("Citation Items", DV.CitationDV.DataViewData.Count),
                         new CardListLine("Event Items", DV.EventDV.DataViewData.Count),
@@ -74,16 +80,14 @@ namespace GrampsView.Data.Model
                         new CardListLine("Repository Items", DV.RepositoryDV.DataViewData.Count),
                         new CardListLine("Source Items", DV.SourceDV.DataViewData.Count),
                         new CardListLine("Tag Items", DV.TagDV.DataViewData.Count),
-            };
-
-                HeaderCard.Title = "Header Details";
+            });
 
                 return HeaderCard;
             }
         }
 
         /// <summary>
-        /// Gets or sets date the metadata was created.
+        /// Gets or sets date the file was created.
         /// </summary>
         [DataMember]
         public string GCreatedDate

@@ -625,7 +625,6 @@
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
-        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />-->
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
@@ -638,6 +637,6 @@
         <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 </ResourceDictionary>

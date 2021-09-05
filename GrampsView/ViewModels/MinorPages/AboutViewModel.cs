@@ -20,7 +20,7 @@
             BaseTitle = "About";
             BaseTitleIcon = CommonConstants.IconAbout;
 
-            BaseHandleAppearingEvent();
+            //BaseHandleAppearingEvent();
         }
 
         /// <summary>
@@ -56,11 +56,11 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void BaseHandleLoadEvent()
+        public override void BaseHandleAppearingEvent()
         {
             // Assembly level stuff
-            var assembly = GetType().GetTypeInfo().Assembly;
-            var assemblyName = new AssemblyName(assembly.FullName);
+            Assembly assembly = GetType().GetTypeInfo().Assembly;
+            AssemblyName assemblyName = new AssemblyName(assembly.FullName);
 
             ApplicationVersionList.Clear();
 
