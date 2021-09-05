@@ -1,3 +1,14 @@
+## [16.20.4](https://github.com/phandcock/GrampsView/compare/v16.20.3...v16.20.4) (2021-09-05)
+
+
+### Bug Fixes
+
+* cleanup padding on android icons ([070f040](https://github.com/phandcock/GrampsView/commit/070f04073204ce980a93eabebc110ad6c10d96ca))
+* fix settings app theme display check boxes ([033d5d2](https://github.com/phandcock/GrampsView/commit/033d5d2cab58c66e083d30400b5b0ff808a42d2d))
+* start workign on automatic sort of backlinks by default text ([b6fcbe1](https://github.com/phandcock/GrampsView/commit/b6fcbe117afc8c3ec42d02ebb31992454b2564fd))
+
+
+
 ## [16.20.3](https://github.com/phandcock/GrampsView/compare/v16.20.2...v16.20.3) (2021-09-03)
 
 
@@ -24,24 +35,6 @@
 ### Bug Fixes
 
 * fix page title background colour ([6d83f0b](https://github.com/phandcock/GrampsView/commit/6d83f0bd2b1724789dfae6892a9342543ac579ba))
-
-
-
-# [16.20.0](https://github.com/phandcock/GrampsView/compare/v16.19.33...v16.20.0) (2021-08-29)
-
-
-### Bug Fixes
-
-* cleanup place location cards ([dc245c5](https://github.com/phandcock/GrampsView/commit/dc245c584370a33f3863378d36830fd7f2ccec8e))
-* fix address details model display and refactor mapmodel conversion code ([c5ced23](https://github.com/phandcock/GrampsView/commit/c5ced23a23b4a882321bcc0d41e63e6296f37419))
-* refactor mapmodel code ([65f98b8](https://github.com/phandcock/GrampsView/commit/65f98b8dea4fbd6f5f46ea8d7ddb1325cbb0467c))
-* shell flyout background colour ([2066a06](https://github.com/phandcock/GrampsView/commit/2066a0676f1a1866af7c54ce768a39cd73f76202))
-* tweaks ([fe78d0c](https://github.com/phandcock/GrampsView/commit/fe78d0cc4a615660e91c3e5c42c696b62ecb002c))
-
-
-### Features
-
-* add start of map card works ([d1a6959](https://github.com/phandcock/GrampsView/commit/d1a69592d2ebd26a78a65596a8d6e619c45fe09e))
 
 
 
