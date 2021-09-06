@@ -1,3 +1,12 @@
+## [16.20.5](https://github.com/phandcock/GrampsView/compare/v16.20.4...v16.20.5) (2021-09-06)
+
+
+### Bug Fixes
+
+* cleanup aboutpage code ([4c7f686](https://github.com/phandcock/GrampsView/commit/4c7f6861ae26133124414686a7b0ae80d62cffd8))
+
+
+
 ## [16.20.4](https://github.com/phandcock/GrampsView/compare/v16.20.3...v16.20.4) (2021-09-05)
 
 
@@ -26,15 +35,6 @@
 
 * cleanup Handle handling ([b4088cd](https://github.com/phandcock/GrampsView/commit/b4088cdb96ed34eb4245b0913062a3b508aa0f50))
 * fix jit error from switch static backing property ([9dea206](https://github.com/phandcock/GrampsView/commit/9dea2066816cc6deb5a0ed5da756a674f6123c7b))
-
-
-
-## [16.20.1](https://github.com/phandcock/GrampsView/compare/v16.20.0...v16.20.1) (2021-08-30)
-
-
-### Bug Fixes
-
-* fix page title background colour ([6d83f0b](https://github.com/phandcock/GrampsView/commit/6d83f0bd2b1724789dfae6892a9342543ac579ba))
 
 
 
