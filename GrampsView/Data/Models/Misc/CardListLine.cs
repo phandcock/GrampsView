@@ -99,7 +99,7 @@
             Contract.Assert(argLabel != null);
 
             Label = argLabel.Trim();
-            Value = $"{ValueArg:n}";
+            Value = $"{ValueArg:n0}";
         }
 
         public CardListLine(string argLabel, double ValueArg)

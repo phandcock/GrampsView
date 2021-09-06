@@ -18,7 +18,7 @@
         /// <summary>
         /// Organises the address repository.
         /// </summary>
-        private  async Task<bool> OrganiseAddressRepository()
+        private async Task<bool> OrganiseAddressRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
 
@@ -38,7 +38,7 @@
             return true;
         }
 
-        private  async Task<bool> OrganiseBookMarkRepository()
+        private async Task<bool> OrganiseBookMarkRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising BookMark data").ConfigureAwait(false);
 
@@ -50,12 +50,16 @@
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>
-        private  async Task<bool> OrganiseCitationRepository()
+        private async Task<bool> OrganiseCitationRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
 
             foreach (CitationModel argModel in DV.CitationDV.DataViewData)
             {
+                if (argModel.HLinkKey.Value == "_e672fba539b3fa55a9523e1d52c")
+                {
+                }
+
                 argModel.GNoteRefCollection.SetGlyph();
 
                 // Media Collection
@@ -98,7 +102,7 @@
         /// <summary>
         /// Organises the event repository.
         /// </summary>
-        private  async Task<bool> OrganiseEventRepository()
+        private async Task<bool> OrganiseEventRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
 
@@ -154,7 +158,7 @@
         /// <summary>
         /// Organises the family repository.
         /// </summary>
-        private  async Task<bool> OrganiseFamilyRepository()
+        private async Task<bool> OrganiseFamilyRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
 
@@ -234,7 +238,7 @@
         /// <summary>
         /// Organises the header repository.
         /// </summary>
-        private  async Task<bool> OrganiseHeaderRepository()
+        private async Task<bool> OrganiseHeaderRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
 
@@ -244,9 +248,58 @@
         }
 
         /// <summary>
+        /// Organises the media repository.
+        /// </summary>
+        private async Task<bool> OrganiseMediaRepository()
+        {
+            await _commonNotifications.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+
+            try
+            {
+                foreach (MediaModel argModel in DV.MediaDV.DataViewData)
+                {
+                    // Citation Collection
+                    argModel.GCitationRefCollection.SetGlyph();
+
+                    foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                    {
+                        DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    }
+
+                    // Note Collection
+                    argModel.GNoteRefCollection.SetGlyph();
+
+                    // Back Reference Note HLinks
+                    foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                    {
+                        DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    }
+
+                    // Tag Collection
+                    argModel.GTagRefCollection.SetGlyph();
+
+                    foreach (HLinkTagModel tagRef in argModel.GTagRefCollection)
+                    {
+                        DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
+
+                throw;
+            }
+
+            await SetMediaImages();
+
+            return true;
+        }
+
+        /// <summary>
         /// Organises misc items pending use of a dependency graph.
         /// </summary>
-        private  async Task<bool> OrganiseMisc()
+        private async Task<bool> OrganiseMisc()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Misc data").ConfigureAwait(false);
 
@@ -265,7 +318,7 @@
         /// <summary>
         /// Organises the namemap repository.
         /// </summary>
-        private  async Task<bool> OrganiseNameMapRepository()
+        private async Task<bool> OrganiseNameMapRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
 
@@ -277,7 +330,7 @@
         /// <summary>
         /// Organises the note repository.
         /// </summary>
-        private  async Task<bool> OrganiseNoteRepository()
+        private async Task<bool> OrganiseNoteRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
 
@@ -297,7 +350,7 @@
             return true;
         }
 
-        private  async Task<bool> OrganisePersonNameRepository()
+        private async Task<bool> OrganisePersonNameRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
 
@@ -330,7 +383,7 @@
         /// <summary>
         /// Organises the person repository.
         /// </summary>
-        private  async Task<bool> OrganisePersonRepository()
+        private async Task<bool> OrganisePersonRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
 
@@ -437,7 +490,7 @@
         /// <summary>
         /// Organises the place repository.
         /// </summary>
-        private  async Task<bool> OrganisePlaceRepository()
+        private async Task<bool> OrganisePlaceRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
 
@@ -501,7 +554,7 @@
         /// <summary>
         /// Organises the repository repository.
         /// </summary>
-        private  async Task<bool> OrganiseRepositoryRepository()
+        private async Task<bool> OrganiseRepositoryRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
 
@@ -536,7 +589,7 @@
         /// <returns>
         /// true if the organisation worked.
         /// </returns>
-        private  async Task<bool> OrganiseSourceRepository()
+        private async Task<bool> OrganiseSourceRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
 
@@ -583,60 +636,11 @@
         /// <summary>
         /// Organises the tag repository.
         /// </summary>
-        private  async Task<bool> OrganiseTagRepository()
+        private async Task<bool> OrganiseTagRepository()
         {
             await _commonNotifications.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
 
             SetTagImages();
-
-            return true;
-        }
-
-        /// <summary>
-        /// Organises the media repository.
-        /// </summary>
-        private async Task<bool> OrganiseMediaRepository()
-        {
-            await _commonNotifications.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
-
-            try
-            {
-                foreach (MediaModel argModel in DV.MediaDV.DataViewData)
-                {
-                    // Citation Collection
-                    argModel.GCitationRefCollection.SetGlyph();
-
-                    foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
-                    {
-                        DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    }
-
-                    // Note Collection
-                    argModel.GNoteRefCollection.SetGlyph();
-
-                    // Back Reference Note HLinks
-                    foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
-                    {
-                        DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    }
-
-                    // Tag Collection
-                    argModel.GTagRefCollection.SetGlyph();
-
-                    foreach (HLinkTagModel tagRef in argModel.GTagRefCollection)
-                    {
-                        DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
-
-                throw;
-            }
-
-            await SetMediaImages();
 
             return true;
         }

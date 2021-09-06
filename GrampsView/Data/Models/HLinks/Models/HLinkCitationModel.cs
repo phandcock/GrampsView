@@ -52,7 +52,7 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public new int CompareTo(object obj)
+        public int CompareTo(object obj)
         {
             // Null objects go first
             if (obj is null)
