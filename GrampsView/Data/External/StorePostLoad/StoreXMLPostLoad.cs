@@ -31,6 +31,8 @@
                 {
                     DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetAddressImages();
@@ -91,6 +93,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             // TODO finish adding the collections to the backlinks
@@ -148,6 +152,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetEventImages();
@@ -228,6 +234,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetFamilyImages();
@@ -282,6 +290,8 @@
                     {
                         DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                     }
+
+                    argModel.BackHLinkReferenceCollection.Sort();
                 }
             }
             catch (Exception ex)
@@ -343,6 +353,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetNotesImages();
@@ -373,6 +385,8 @@
                 {
                     DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetPersonNameImages();
@@ -479,6 +493,8 @@
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
 
+                argModel.BackHLinkReferenceCollection.Sort();
+
                 // DataStore.Instance.DS.PersonData[argModel.HLinkKey.Value] = argModel;
             }
 
@@ -534,6 +550,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             // Now that all of the Enclosed Places have been added
@@ -575,6 +593,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetRepositoryImages();
@@ -626,6 +646,8 @@
                 {
                     DataStore.Instance.DS.TagData[tagRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
+
+                argModel.BackHLinkReferenceCollection.Sort();
             }
 
             SetSourceImages();
