@@ -1,3 +1,13 @@
+## [16.20.6](https://github.com/phandcock/GrampsView/compare/v16.20.5...v16.20.6) (2021-09-08)
+
+
+### Bug Fixes
+
+* fix cardline integer remove trailiing zeros ([1c371d8](https://github.com/phandcock/GrampsView/commit/1c371d8e0c551cab517a2ab01365d280058813bd))
+* work on backlink collection sort after load ([a328131](https://github.com/phandcock/GrampsView/commit/a3281312fd17a340002d57d638609611fc0e190f))
+
+
+
 ## [16.20.5](https://github.com/phandcock/GrampsView/compare/v16.20.4...v16.20.5) (2021-09-06)
 
 
@@ -25,16 +35,6 @@
 
 * chnage the sort override for addresses to be the date ([bc722bf](https://github.com/phandcock/GrampsView/commit/bc722bf831e02cd1a5e5dcea0f7c2a9acdbaa594))
 * cleanup hlinkmedia loading esp clipped ([c67b2e2](https://github.com/phandcock/GrampsView/commit/c67b2e203db62c35d4b58ad452d52b5080bd60c3))
-
-
-
-## [16.20.2](https://github.com/phandcock/GrampsView/compare/v16.20.1...v16.20.2) (2021-09-01)
-
-
-### Bug Fixes
-
-* cleanup Handle handling ([b4088cd](https://github.com/phandcock/GrampsView/commit/b4088cdb96ed34eb4245b0913062a3b508aa0f50))
-* fix jit error from switch static backing property ([9dea206](https://github.com/phandcock/GrampsView/commit/9dea2066816cc6deb5a0ed5da756a674f6123c7b))
 
 
 
