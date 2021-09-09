@@ -601,6 +601,15 @@
             return t;
         }
 
+        /// <summary>
+        /// Gets the person reference collection.
+        /// </summary>
+        /// <param name="xmlData">
+        /// The XML data.
+        /// </param>
+        /// <returns>
+        /// HLinkPersonRefModelCollection <br/>
+        /// </returns>
         private HLinkPersonRefModelCollection GetPersonRefCollection(XElement xmlData)
         {
             HLinkPersonRefModelCollection t = new HLinkPersonRefModelCollection
@@ -619,6 +628,7 @@
                 {
                     HLinkPersonRefModel t2 = new HLinkPersonRefModel
                     {
+                        Priv = GetPrivateObject(theLoadORElement),
                         GCitationCollection = GetCitationCollection(theLoadORElement),
                         GNoteCollection = GetNoteCollection(theLoadORElement),
                         GRelationship = GetAttribute(theLoadORElement, "rel"),

@@ -1,36 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-////<define name = "personref-content" >
-////  < attribute name="hlink">
-////    <data type = "IDREF" />
-////  </ attribute >
-////  < optional >
-////    < attribute name="priv">
-////      <ref name="priv-content" />
-////    </attribute>
-////  </optional>
-////  <attribute name = "rel" >
-////    < text />
-////  </ attribute >
-////  < optional >
-////    < zeroOrMore >
-////      < element name="citationref">
-////        <ref name="citationref-content" />
-////      </element>
-////    </zeroOrMore>
-////  </optional>
-////  <optional>
-////    <zeroOrMore>
-////      <element name = "noteref" >
-////        <ref name="noteref-content" />
-////      </element>
-////    </zeroOrMore>
-////  </optional>
-////</define>
-
-/// TODO Update fields as per Schema
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
@@ -38,7 +6,17 @@ namespace GrampsView.Data.Model
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// GRAMPS $$(hlink)$$ element class.
+    /// Data model for a person reference.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [DataContract]
     public sealed class HLinkPersonRefModel : HLinkPersonModel
@@ -58,10 +36,10 @@ namespace GrampsView.Data.Model
           = new HLinkCitationModelCollection();
 
         /// <summary>
-        /// Gets or sets the g text.
+        /// Gets or sets the text.
         /// </summary>
         /// <value>
-        /// The g text.
+        /// The text.
         /// </value>
         [DataMember]
         public HLinkNoteModelCollection GNoteCollection

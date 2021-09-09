@@ -6,6 +6,7 @@
     using GrampsView.Data.Repository;
 
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -102,7 +103,7 @@
                         loadPerson.GNoteRefCollection = GetNoteCollection(pname);
 
                         // Parentin
-                        var localPIElement =
+                        IEnumerable<XElement> localPIElement =
                             from pIElementEl in pname.Descendants(ns + "parentin")
                             select pIElementEl;
 
@@ -115,6 +116,7 @@
                                 {
                                     HLinkKey = GetHLinkKey(loadPIElement),
                                 };
+
                                 loadPerson.GParentInRefCollection.Add(t);
                             }
 

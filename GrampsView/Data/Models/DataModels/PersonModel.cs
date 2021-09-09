@@ -188,7 +188,7 @@
         } = new HLinkPersonNameModelCollection();
 
         /// <summary>
-        /// Gets or sets the g person reference collection.
+        /// Gets or sets the person reference collection.
         /// </summary>
         /// <value>
         /// The g person reference collection.
@@ -197,7 +197,7 @@
         public HLinkPersonRefModelCollection GPersonRefCollection { get; set; } = new HLinkPersonRefModelCollection();
 
         /// <summary>
-        /// Gets or sets the g tag reference collection.
+        /// Gets or sets the tag reference collection.
         /// </summary>
         /// <value>
         /// The g tag reference collection.

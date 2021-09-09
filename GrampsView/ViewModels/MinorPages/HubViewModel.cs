@@ -8,8 +8,6 @@
 
     using Prism.Events;
 
-    using System;
-
     using Xamarin.Essentials;
 
     /// <summary>
@@ -160,14 +158,6 @@
             if (DataStore.Instance.ES.DevicePlatform == DevicePlatform.UWP)
             {
             }
-        }
-
-        private void LifeCycleEffect_Loaded(object? sender, EventArgs e)
-        {
-        }
-
-        private void LifeCycleEffect_Unloaded(object? sender, EventArgs e)
-        {
         }
     }
 }
