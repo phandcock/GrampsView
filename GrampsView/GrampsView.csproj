@@ -1,233 +1,234 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <UserSecretsId>886841ad-558a-446c-bd12-4f8281b1b465</UserSecretsId>
-    <Version>16</Version>
-    <Copyright>2014 - 2021</Copyright>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<LangVersion>8.0</LangVersion>
+		<UserSecretsId>886841ad-558a-446c-bd12-4f8281b1b465</UserSecretsId>
+		<Version>16</Version>
+		<Copyright>2014 - 2021</Copyright>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>false</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<Optimize>false</Optimize>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Behaviours\**" />
-    <EmbeddedResource Remove="Behaviours\**" />
-    <None Remove="Behaviours\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Behaviours\**" />
+		<EmbeddedResource Remove="Behaviours\**" />
+		<None Remove="Behaviours\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Common\ActionDialogArgs.cs" />
-    <Compile Remove="Common\Card Group\CardGroupBaseEx.cs" />
-    <Compile Remove="Common\Card Group\CardGroupCollection.cs" />
-    <Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
-    <Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
-    <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
-    <Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
-    <Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
-    <Compile Remove="Common\ObservableObject.cs" />
-    <Compile Remove="Common\CommonFontNamesFAB.cs" />
-    <Compile Remove="Common\CommonFontNamesFAR.cs" />
-    <Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
-    <Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
-    <Compile Remove="Common\CustomClasses\FlexPlus.cs" />
-    <Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
-    <Compile Remove="Common\CustomClasses\NavCmd.cs" />
-    <Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
-    <Compile Remove="Common\CustomClasses\Priv.cs" />
-    <Compile Remove="Common\MainMenuItem.cs" />
-    <Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
-    <Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
-    <Compile Remove="Data\Models\Collections\Models\HLinkAttributeModelCollection.cs" />
-    <Compile Remove="Data\Models\Collections\Models\OCAttributeModelCollection.cs" />
-    <Compile Remove="Data\Models\Collections\Models\PlaceNameModelCollection.cs" />
-    <Compile Remove="Data\Models\DataModels\Minor\ParentLinkModel.cs" />
-    <Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />
-    <Compile Remove="Data\Models\HLinks\HLinkHomeImageModel.cs" />
-    <Compile Remove="Data\Models\HLinks\HLinkPrimaryObjectModel.cs" />
-    <Compile Remove="Data\Models\HLinks\HLinkTableObjectModel.cs" />
-    <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
-    <Compile Remove="Data\Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
-    <Compile Remove="Data\Models\HLinks\Models\HLinkSourceAttrModel.cs" />
-    <Compile Remove="Data\Models\Misc\MenuItemModel.cs" />
-    <Compile Remove="Events\AppStartFirstRunEvent.cs" />
-    <Compile Remove="Events\AppStartSaveSerial.cs" />
-    <Compile Remove="Events\DataLoadUnzipped.cs" />
-    <Compile Remove="Events\DialogBoxEvent.cs" />
-    <Compile Remove="Events\LoadImageBitMapEvent.cs" />
-    <Compile Remove="Events\LoadMediaBitmapEvent.cs" />
-    <Compile Remove="Events\OrientationChanged.cs" />
-    <Compile Remove="Events\PageNavigateEvent.cs" />
-    <Compile Remove="Events\PersonCurrentChanged.cs" />
-    <Compile Remove="Events\ProgressLoading.cs" />
-    <Compile Remove="Events\ProgressRingUpdate.cs" />
-    <Compile Remove="Events\StatusUpdated.cs" />
-    <Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
-    <Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
-    <Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
-    <Compile Remove="UserControls\UserControlBase.cs" />
-    <Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
-    <Compile Remove="Views\Popups\MessageLog.xaml.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Common\ActionDialogArgs.cs" />
+		<Compile Remove="Common\Card Group\CardGroupBaseEx.cs" />
+		<Compile Remove="Common\Card Group\CardGroupCollection.cs" />
+		<Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
+		<Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
+		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
+		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
+		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
+		<Compile Remove="Common\ObservableObject.cs" />
+		<Compile Remove="Common\CommonFontNamesFAB.cs" />
+		<Compile Remove="Common\CommonFontNamesFAR.cs" />
+		<Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
+		<Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
+		<Compile Remove="Common\CustomClasses\FlexPlus.cs" />
+		<Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
+		<Compile Remove="Common\CustomClasses\NavCmd.cs" />
+		<Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
+		<Compile Remove="Common\CustomClasses\Priv.cs" />
+		<Compile Remove="Common\MainMenuItem.cs" />
+		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
+		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
+		<Compile Remove="Data\Models\Collections\Models\HLinkAttributeModelCollection.cs" />
+		<Compile Remove="Data\Models\Collections\Models\OCAttributeModelCollection.cs" />
+		<Compile Remove="Data\Models\Collections\Models\PlaceNameModelCollection.cs" />
+		<Compile Remove="Data\Models\DataModels\Minor\ParentLinkModel.cs" />
+		<Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />
+		<Compile Remove="Data\Models\HLinks\HLinkHomeImageModel.cs" />
+		<Compile Remove="Data\Models\HLinks\HLinkPrimaryObjectModel.cs" />
+		<Compile Remove="Data\Models\HLinks\HLinkTableObjectModel.cs" />
+		<Compile Remove="Data\Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
+		<Compile Remove="Data\Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
+		<Compile Remove="Data\Models\HLinks\Models\HLinkSourceAttrModel.cs" />
+		<Compile Remove="Data\Models\Misc\MenuItemModel.cs" />
+		<Compile Remove="Events\AppStartFirstRunEvent.cs" />
+		<Compile Remove="Events\AppStartSaveSerial.cs" />
+		<Compile Remove="Events\DataLoadUnzipped.cs" />
+		<Compile Remove="Events\DialogBoxEvent.cs" />
+		<Compile Remove="Events\LoadImageBitMapEvent.cs" />
+		<Compile Remove="Events\LoadMediaBitmapEvent.cs" />
+		<Compile Remove="Events\OrientationChanged.cs" />
+		<Compile Remove="Events\PageNavigateEvent.cs" />
+		<Compile Remove="Events\PersonCurrentChanged.cs" />
+		<Compile Remove="Events\ProgressLoading.cs" />
+		<Compile Remove="Events\ProgressRingUpdate.cs" />
+		<Compile Remove="Events\StatusUpdated.cs" />
+		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
+		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
+		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
+		<Compile Remove="UserControls\UserControlBase.cs" />
+		<Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
+		<Compile Remove="Views\Popups\MessageLog.xaml.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
-    <EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
-    <EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
-    <EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
-    <EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
+		<EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
+		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
+		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
+		<EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="AnythingElse\DeploymentTools\ReleaseNotesTemplate.txt" />
-    <None Remove="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-    <None Remove="Assets\Fonts\fa-solid-900.ttf" />
-    <None Remove="Assets\Icons\ApplicationIcon.svg" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="AnythingElse\DeploymentTools\ReleaseNotesTemplate.txt" />
+		<None Remove="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
+		<None Remove="Assets\Fonts\fa-solid-900.ttf" />
+		<None Remove="Assets\Icons\ApplicationIcon.svg" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-    <EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
-    <EmbeddedResource Include="fa-solid-900.ttf" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
+		<EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
+		<EmbeddedResource Include="fa-solid-900.ttf" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Fody" Version="6.5.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter" Version="4.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
-    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
-    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
-    <PackageReference Include="SharpZipLib" Version="1.3.2" />
-    <PackageReference Include="SkiaSharp" Version="2.80.3" />
-    <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2508" GeneratePathProperty="true" />
-    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />  
-    <PackageReference Include="Xamarin.Forms.Breadcrumb" Version="2.7.0" />  
-    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Fody" Version="6.5.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AppCenter" Version="4.3.0" />
+		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.3.0" />
+		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.3.0" />
+		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.3.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
+		<PackageReference Include="SharpZipLib" Version="1.3.2" />
+		<PackageReference Include="SkiaSharp" Version="2.80.3" />
+		<PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
+		<PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2508" GeneratePathProperty="true" />
+		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+		<PackageReference Include="Xamarin.Forms.Breadcrumb" Version="2.7.0" />
+		<PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <SharedImage Include="Assets\Icons\ApplicationIcon.svg" BaseSize="40,20" />
-  </ItemGroup>
+	<ItemGroup>
+		<SharedImage Include="Assets\Icons\ApplicationIcon.svg" BaseSize="40,20" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Assets\Strings\AppResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
-      <DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
-      <DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\ControlTemplates\SmallCardControlTemplateNS.xaml.cs">
-      <DependentUpon>SmallCardControlTemplateNS.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
-      <DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\CollectionMultiCard.xaml.cs">
-      <DependentUpon>CollectionMultiCard.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
-      <DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
-      <DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
-      <DependentUpon>DateCardSingle.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
-      <DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Small\Model\LDSOrdCardSmall.xaml.cs">
-      <DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Large\MediaGlyphCardLarge.xaml.cs">
-      <DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Small\HLink\ChildRefCardSmall.xaml.cs">
-      <DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
-      <DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\Small\Model\MapCardSmall.xaml.cs">
-      <DependentUpon>MapCardSmall.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorModels\DateStrDetailPage.xaml.cs">
-      <DependentUpon>DateStrDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorModels\DateSpanDetailPage.xaml.cs">
-      <DependentUpon>DateSpanDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorModels\DateRangeDetailPage.xaml.cs">
-      <DependentUpon>DateRangeDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorModels\DateValDetailPage.xaml.cs">
-      <DependentUpon>DateValDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
-      <DependentUpon>AttributeDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MinorPages\MessageLogPage.xaml.cs">
-      <DependentUpon>MessageLogPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
-      <DependentUpon>ChildRefDetailView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Popups\ErrorPopup.xaml.cs">
-      <DependentUpon>ErrorPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
-      <DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Assets\Strings\AppResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
+			<DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
+			<DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplateNS.xaml.cs">
+			<DependentUpon>SmallCardControlTemplateNS.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
+			<DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\General\CollectionMultiCard.xaml.cs">
+			<DependentUpon>CollectionMultiCard.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\General\CollectionMultiCardGrouped.xaml.cs">
+			<DependentUpon>CollectionMultiCardGrouped.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
+			<DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
+			<DependentUpon>DateCardSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
+			<DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Small\Model\LDSOrdCardSmall.xaml.cs">
+			<DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Large\MediaGlyphCardLarge.xaml.cs">
+			<DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Small\HLink\ChildRefCardSmall.xaml.cs">
+			<DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
+			<DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Small\Model\MapCardSmall.xaml.cs">
+			<DependentUpon>MapCardSmall.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorModels\DateStrDetailPage.xaml.cs">
+			<DependentUpon>DateStrDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorModels\DateSpanDetailPage.xaml.cs">
+			<DependentUpon>DateSpanDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorModels\DateRangeDetailPage.xaml.cs">
+			<DependentUpon>DateRangeDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorModels\DateValDetailPage.xaml.cs">
+			<DependentUpon>DateValDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
+			<DependentUpon>AttributeDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MinorPages\MessageLogPage.xaml.cs">
+			<DependentUpon>MessageLogPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
+			<DependentUpon>ChildRefDetailView.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Popups\ErrorPopup.xaml.cs">
+			<DependentUpon>ErrorPopup.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
+			<DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Assets\Strings\AppResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Assets\Strings\AppResources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="App.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+	</ItemGroup>
 </Project>

@@ -3,9 +3,14 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
+
+    using System;
+
+    using Xamarin.Essentials;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -151,11 +156,18 @@
         {
             OnPropertyChanged(string.Empty);
 
-            //var t = this;
+            // Workaround bug where hub page starts minimised
+            if (DataStore.Instance.ES.DevicePlatform == DevicePlatform.UWP)
+            {
+            }
+        }
 
-            //var tt = HeaderCard;
+        private void LifeCycleEffect_Loaded(object? sender, EventArgs e)
+        {
+        }
 
-            //OnPropertyChanged(string.Empty);
+        private void LifeCycleEffect_Unloaded(object? sender, EventArgs e)
+        {
         }
     }
 }

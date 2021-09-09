@@ -6,6 +6,14 @@
 
     public class XamarinEssentials : IXamarinEssentials
     {
+        public DevicePlatform DevicePlatform
+        {
+            get
+            {
+                return Xamarin.Essentials.DeviceInfo.Platform;
+            }
+        }
+
         public DisplayInfo DisplayInfo
         {
             get

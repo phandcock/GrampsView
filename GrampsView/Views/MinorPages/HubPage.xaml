@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
@@ -46,6 +47,10 @@
 
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">
+            <ScrollView.Effects>
+                <xct:LifecycleEffect Loaded="LifeCycleEffect_Loaded" Unloaded="LifeCycleEffect_Unloaded" />
+            </ScrollView.Effects>
+
             <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
 
                 <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.HubPage_IntroductionText}" />

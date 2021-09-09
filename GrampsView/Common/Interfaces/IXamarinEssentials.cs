@@ -7,6 +7,8 @@
     /// </summary>
     public interface IXamarinEssentials
     {
+        DevicePlatform DevicePlatform { get; }
+
         DisplayInfo DisplayInfo
         {
             get;
