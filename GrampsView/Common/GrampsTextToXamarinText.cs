@@ -53,6 +53,8 @@
                                 break;
 
                             case CommonEnums.TextStyle.fontface:
+                                t = workingString[i];
+
                                 break;
 
                             case CommonEnums.TextStyle.fontsize:
@@ -87,8 +89,7 @@
             }
 
             // Setup Styles
-            Span OutSpan = new Span();
-            FormattedChar currentStyle = new FormattedChar();
+            FormattedChar currentStyle;
             string outString = string.Empty;
 
             // Add default font
@@ -121,10 +122,11 @@
 
         private static Span MakeSpan(string argOutString, FormattedChar argStyle)
         {
-            Span OutSpan = new Span();
-
-            // Output the string
-            OutSpan.Text = argOutString;
+            Span OutSpan = new Span
+            {
+                // Output the string
+                Text = argOutString
+            };
 
             if (argStyle.StyleBold)
             {
@@ -135,6 +137,9 @@
             {
                 OutSpan.FontAttributes = OutSpan.FontAttributes | FontAttributes.Italic;
             }
+
+            //// Default font
+            //OutSpan.FontFamily = "Gill Sans MT";
 
             return OutSpan;
         }

@@ -16,7 +16,11 @@
         {
             CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
 
-            if (!string.IsNullOrEmpty(AsCardListLineTest_Basic.Title)) { Assert.Fail(); return; }
+            if (!string.IsNullOrEmpty(AsCardListLineTest_Basic.Title))
+            {
+                Assert.Fail();
+                return;
+            }
 
             Assert.True(AsCardListLineTest_Basic.Count == 0);
         }

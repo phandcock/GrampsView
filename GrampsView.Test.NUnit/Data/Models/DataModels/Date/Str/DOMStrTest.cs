@@ -5,8 +5,6 @@
     [TestFixture()]
     public partial class DOMStrTests
     {
-        // TODO Add more tests and add the same to other dateobjectmodel types
-
         private DateObjectModelStr testVal;
 
         [TearDown]
