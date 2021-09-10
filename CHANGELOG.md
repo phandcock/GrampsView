@@ -1,3 +1,13 @@
+## [16.20.7](https://github.com/phandcock/GrampsView/compare/v16.20.6...v16.20.7) (2021-09-10)
+
+
+### Bug Fixes
+
+* chnage compiler default to c# 8 ([00b1346](https://github.com/phandcock/GrampsView/commit/00b1346de0224f12ac376ad96da9be512877811f))
+* cleanup personref model loading ([f38e77b](https://github.com/phandcock/GrampsView/commit/f38e77bc66447a94ddbe639cf5dff001ec89e4f5))
+
+
+
 ## [16.20.6](https://github.com/phandcock/GrampsView/compare/v16.20.5...v16.20.6) (2021-09-08)
 
 
@@ -25,16 +35,6 @@
 * cleanup padding on android icons ([070f040](https://github.com/phandcock/GrampsView/commit/070f04073204ce980a93eabebc110ad6c10d96ca))
 * fix settings app theme display check boxes ([033d5d2](https://github.com/phandcock/GrampsView/commit/033d5d2cab58c66e083d30400b5b0ff808a42d2d))
 * start workign on automatic sort of backlinks by default text ([b6fcbe1](https://github.com/phandcock/GrampsView/commit/b6fcbe117afc8c3ec42d02ebb31992454b2564fd))
-
-
-
-## [16.20.3](https://github.com/phandcock/GrampsView/compare/v16.20.2...v16.20.3) (2021-09-03)
-
-
-### Bug Fixes
-
-* chnage the sort override for addresses to be the date ([bc722bf](https://github.com/phandcock/GrampsView/commit/bc722bf831e02cd1a5e5dcea0f7c2a9acdbaa594))
-* cleanup hlinkmedia loading esp clipped ([c67b2e2](https://github.com/phandcock/GrampsView/commit/c67b2e203db62c35d4b58ad452d52b5080bd60c3))
 
 
 
