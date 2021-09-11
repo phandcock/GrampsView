@@ -35,9 +35,12 @@
                         <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Application Theme" />
                     </Frame>
 
-                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="AppTheme">
+                    <StackLayout
+                        Orientation="Horizontal"
+                        RadioButtonGroup.GroupName="AppTheme"
+                        RadioButtonGroup.SelectedValue="{Binding ThemeButtonChecked, Mode=TwoWay}">
 
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonLightChecked, Mode=TwoWay}">
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="Light">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>
@@ -50,7 +53,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonDarkChecked, Mode=TwoWay}">
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="Dark">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>
@@ -63,7 +66,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" IsChecked="{Binding ThemeButtonSystemChecked, Mode=TwoWay}">
+                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="System">
                             <RadioButton.Content>
                                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image>

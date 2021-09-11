@@ -13,11 +13,7 @@
 
     public class SettingsViewModel : ViewModelBase
     {
-        private bool _ThemeButtonDarkChecked;
-
-        private bool _ThemeButtonLightChecked;
-
-        private bool _ThemeButtonSystemChecked;
+        private string _ThemeButtonChecked = string.Empty;
 
         public SettingsViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
                                 : base(iocCommonLogging, iocEventAggregator)
@@ -54,65 +50,48 @@
             get;
         }
 
-        public bool ThemeButtonDarkChecked
+        public string ThemeButtonChecked
         {
             get
             {
-                return _ThemeButtonDarkChecked;
+                return _ThemeButtonChecked;
             }
 
             set
             {
-                if (_ThemeButtonDarkChecked != value)
+                SetProperty(ref _ThemeButtonChecked, value);
+
+                switch (_ThemeButtonChecked)
                 {
-                    _ThemeButtonLightChecked = false;
-                    SetProperty(ref _ThemeButtonDarkChecked, true);
-                    _ThemeButtonSystemChecked = false;
+                    case "Dark":
+                        {
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Dark;
+                            Application.Current.UserAppTheme = OSAppTheme.Dark;
 
-                    CommonLocalSettings.ApplicationTheme = OSAppTheme.Dark;
-                    Application.Current.UserAppTheme = OSAppTheme.Dark;
-                }
-            }
-        }
+                            break;
+                        }
+                    case "Light":
+                        {
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Light;
+                            Application.Current.UserAppTheme = OSAppTheme.Light;
 
-        public bool ThemeButtonLightChecked
-        {
-            get
-            {
-                return _ThemeButtonLightChecked;
-            }
+                            break;
+                        }
+                    case "System":
+                        {
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
-            set
-            {
-                if (_ThemeButtonLightChecked != value)
-                {
-                    SetProperty(ref _ThemeButtonLightChecked, true);
-                    _ThemeButtonDarkChecked = false;
-                    _ThemeButtonSystemChecked = false;
+                            break;
+                        }
 
-                    CommonLocalSettings.ApplicationTheme = OSAppTheme.Light;
-                    Application.Current.UserAppTheme = OSAppTheme.Light;
-                }
-            }
-        }
+                    default:
+                        {
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
-        public bool ThemeButtonSystemChecked
-        {
-            get
-            {
-                return _ThemeButtonSystemChecked;
-            }
-
-            set
-            {
-                if (_ThemeButtonSystemChecked != value)
-                {
-                    _ThemeButtonLightChecked = false;
-                    _ThemeButtonDarkChecked = false;
-                    SetProperty(ref _ThemeButtonSystemChecked, true);
-
-                    CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
-                    Application.Current.UserAppTheme = OSAppTheme.Unspecified;
+                            break;
+                        }
                 }
             }
         }
@@ -166,25 +145,19 @@
             {
                 case OSAppTheme.Light:
                     {
-                        ThemeButtonLightChecked = true;
-                        ThemeButtonDarkChecked = false;
-                        ThemeButtonSystemChecked = false;
+                        ThemeButtonChecked = "Light";
                         break;
                     }
 
                 case OSAppTheme.Dark:
                     {
-                        ThemeButtonDarkChecked = true;
-                        ThemeButtonLightChecked = false;
-                        ThemeButtonSystemChecked = false;
+                        ThemeButtonChecked = "Dark";
                         break;
                     }
 
                 default:
                     {
-                        ThemeButtonDarkChecked = false;
-                        ThemeButtonLightChecked = false;
-                        ThemeButtonSystemChecked = true;
+                        ThemeButtonChecked = "System";
                         break;
                     }
             }
