@@ -16,7 +16,7 @@
             LineBreakMode="TailTruncation"
             MaxLines="2"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.DefaultText, Mode=OneWay}" />
+            Text="{Binding DeRef, Mode=OneWay}" />
 
         <Label
             LineBreakMode="TailTruncation"

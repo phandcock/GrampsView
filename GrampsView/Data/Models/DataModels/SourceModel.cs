@@ -38,20 +38,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
-        /// <summary>
-        /// Gets the get default text for this ViewModel.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                return GSTitle;
-            }
-        }
-
         public string GetDefaultRepository
         {
             get
@@ -62,7 +48,7 @@
 
                     if (t.Valid)
                     {
-                        return t.DeRef.DefaultText;
+                        return t.DeRef.ToString();
                     }
                 }
 
@@ -290,6 +276,17 @@
             int testFlag = string.Compare(GSTitle, secondSource.GSTitle, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        /// <summary>
+        /// Gets the get default text for this ViewModel.
+        /// </summary>
+        /// <value>
+        /// The get default text.
+        /// </value>
+        public override string ToString()
+        {
+            return GSTitle;
         }
     }
 }

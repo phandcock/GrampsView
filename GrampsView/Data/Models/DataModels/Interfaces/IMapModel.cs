@@ -12,11 +12,6 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
     public interface IMapModel : IModelBase
     {
-        new string DefaultText
-        {
-            get;
-        }
-
         string Description
         {
             get;

@@ -39,20 +39,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
-        /// <summary>
-        /// Gets the default text.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                return Description;
-            }
-        }
-
         [DataMember]
         public string Description
         {
@@ -142,7 +128,7 @@
                         {
                             MapLaunchOptions mapOptions = new MapLaunchOptions
                             {
-                                Name = DefaultText,
+                                Name = ToString(),
                             };
 
                             await MyPlaceMark.OpenMapsAsync(mapOptions);
@@ -163,6 +149,17 @@
                         break;
                     }
             }
+        }
+
+        /// <summary>
+        /// Gets the default text.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string ToString()
+        {
+            return Description;
         }
     }
 }

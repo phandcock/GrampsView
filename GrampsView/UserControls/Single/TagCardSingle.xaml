@@ -21,7 +21,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.DefaultText, Mode=OneWay}"
+            Text="{Binding DeRef, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
     </Grid>
 </ucon:SingleCardControlTemplate>

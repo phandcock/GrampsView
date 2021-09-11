@@ -39,7 +39,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(addressModel => addressModel.DefaultText).ToList();
+                return DataViewData.OrderBy(addressModel => addressModel.ToString()).ToList();
             }
         }
 
@@ -76,8 +76,8 @@ namespace GrampsView.Data.DataView
             CardGroup t = new CardGroup();
 
             var query = from item in DataViewData
-                        orderby item.DefaultText
-                        group item by (item.DefaultText) into g
+                        orderby item.ToString()
+                        group item by (item.ToString()) into g
                         select new
                         {
                             GroupName = g.Key,
@@ -145,7 +145,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkAdressModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.DefaultText);
+            IOrderedEnumerable<HLinkAdressModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.ToString());
 
             HLinkAddressModelCollection tt = new HLinkAddressModelCollection();
 
@@ -169,7 +169,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.DefaultText.Contains(argQuery)).OrderBy(y => y.DefaultText);
+            var temp = DataViewData.Where(x => x.ToString().Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (IAddressModel tempMO in temp)
             {

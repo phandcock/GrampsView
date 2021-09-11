@@ -45,27 +45,6 @@
         }
 
         /// <summary>
-        /// Gets the default text.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                string returnVal = string.Empty;
-
-                if (!string.IsNullOrEmpty(GType))
-                {
-                    returnVal = GType + ":";
-                }
-
-                return returnVal + GDescription;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the description.
         /// </summary>
         /// <value>
@@ -134,6 +113,24 @@
             {
                 await Launcher.OpenAsync(GHRef);
             }
+        }
+
+        /// <summary>
+        /// Gets the default text.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string ToString()
+        {
+            string returnVal = string.Empty;
+
+            if (!string.IsNullOrEmpty(GType))
+            {
+                returnVal = GType + ":";
+            }
+
+            return returnVal + GDescription;
         }
     }
 }

@@ -16,14 +16,6 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
     public interface IAddressModel : IModelBase
     {
-        /// <summary>
-        /// Gets the formatted.
-        /// </summary>
-        /// <value>
-        /// The formatted address.
-        /// </value>
-        new string DefaultText { get; }
-
         HLinkCitationModelCollection GCitationRefCollection { get; }
 
         /// <summary>

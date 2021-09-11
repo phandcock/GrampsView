@@ -33,27 +33,6 @@
         }
 
         /// <summary>
-        /// Gets the default text for this Model.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                string returnString = this.GType;
-
-                if (!string.IsNullOrEmpty(GValue))
-                {
-                    returnString += $" {GValue}";
-                }
-
-                return returnString;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the citation reference collection.
         /// </summary>
         /// <value>
@@ -228,6 +207,24 @@
 
             // This is effectively random
             return CompareTo(other);
+        }
+
+        /// <summary>
+        /// Gets the default text for this Model.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string ToString()
+        {
+            string returnString = this.GType;
+
+            if (!string.IsNullOrEmpty(GValue))
+            {
+                returnString += $" {GValue}";
+            }
+
+            return returnString;
         }
 
         /// <summary>

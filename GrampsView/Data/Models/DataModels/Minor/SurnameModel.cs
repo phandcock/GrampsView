@@ -16,14 +16,6 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.Symbol = Common.CommonConstants.IconSurname;
         }
 
-        public override string DefaultText
-        {
-            get
-            {
-                return GText;
-            }
-        }
-
         [DataMember]
         public string GConnector
         {
@@ -63,8 +55,13 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return !string.IsNullOrEmpty(DefaultText);
+                return !string.IsNullOrEmpty(ToString());
             }
+        }
+
+        public override string ToString()
+        {
+            return GText;
         }
     }
 }

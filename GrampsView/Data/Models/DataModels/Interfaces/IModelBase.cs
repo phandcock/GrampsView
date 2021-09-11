@@ -20,17 +20,6 @@
             get; set;
         }
 
-        /// <summary>
-        /// Gets the default text.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        string DefaultText
-        {
-            get;
-        }
-
         string DefaultTextShort
         {
             get;

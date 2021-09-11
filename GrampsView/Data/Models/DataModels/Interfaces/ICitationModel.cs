@@ -17,17 +17,6 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface ICitationModel : IModelBase
     {
-        /// <summary>
-        /// Gets the get default text.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        new string DefaultText
-        {
-            get;
-        }
-
         CommonEnums.DataConfidence GConfidence
         {
             get;

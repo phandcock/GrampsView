@@ -32,19 +32,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
         }
 
-        public override string DefaultText
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(GDescription))
-                {
-                    return GDescription;
-                }
-
-                return GType;
-            }
-        }
-
         // TODO display different text according to the model types
         [DataMember]
         public EventModelType EventType
@@ -269,6 +256,16 @@
             }
 
             return testFlag;
+        }
+
+        public override string ToString()
+        {
+            if (!string.IsNullOrEmpty(GDescription))
+            {
+                return GDescription;
+            }
+
+            return GType;
         }
     }
 }

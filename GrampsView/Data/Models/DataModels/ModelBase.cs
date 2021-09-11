@@ -91,25 +91,11 @@
             set => SetProperty(ref _Change, value);
         }
 
-        /// <summary>
-        /// Gets the get default text for this Model.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public virtual string DefaultText
-        {
-            get
-            {
-                return HLinkKey.Value;
-            }
-        }
-
         public virtual string DefaultTextShort
         {
             get
             {
-                return DefaultText.Substring(0, Math.Min(DefaultText.Length, 40));
+                return ToString().Substring(0, Math.Min(ToString().Length, 40));
             }
         }
 

@@ -38,14 +38,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
-        public override string DefaultText
-        {
-            get
-            {
-                return GName;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the color.
         /// </summary>
@@ -147,6 +139,11 @@
             int testFlag = string.Compare(GName, secondEvent.GName, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        public override string ToString()
+        {
+            return GName;
         }
     }
 }

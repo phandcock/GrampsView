@@ -66,14 +66,6 @@
         {
         }
 
-        public override string DefaultText
-        {
-            get
-            {
-                return ShortDate;
-            }
-        }
-
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is
         /// trickier than it sounds.
@@ -391,7 +383,7 @@
         {
             return new CardListLineCollection(argTitle)
             {
-                new CardListLine("Default Date:", DefaultText),
+                new CardListLine("Default Date:", ToString()),
                 new CardListLine("Notional Date:", $"{NotionalDate:dd MM yyyy}"),
                 new CardListLine("Single Date:", $"{SingleDate:dd MM yyyy}"),
                 new CardListLine("Sort Date:", $"{SortDate:dd MM yyyy}"),
@@ -542,6 +534,11 @@
         public override int GetHashCode()
         {
             return NotionalDate.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return ShortDate;
         }
 
         /// <summary>

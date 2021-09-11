@@ -33,45 +33,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the default text for notes which is the first fourty characters minus returns,
-        /// spaces and tabs.
-        /// </summary>
-        /// <value>
-        /// Get the default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                string removableChars = @"\n\r\s\t";
-
-                string pattern = "[" + removableChars + "]";
-
-                string cleanString = Regex.Replace(GStyledText.GText, pattern, " ");
-
-                switch (Device.RuntimePlatform)
-                {
-                    case Device.iOS:
-                        break;
-
-                    case Device.Android:
-                        break;
-
-                    case Device.UWP:
-                        return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
-
-                    case Device.macOS:
-                        break;
-
-                    default:
-                        break;
-                }
-
-                return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="NoteModel"/> is format (0|1) #IMPLIED.
         /// </summary>
         /// <value>
@@ -217,6 +178,42 @@ namespace GrampsView.Data.Model
             int testFlag = string.Compare(GStyledText.GText, secondEvent.GStyledText.GText, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        /// <summary>
+        /// Gets the default text for notes which is the first fourty characters minus returns,
+        /// spaces and tabs.
+        /// </summary>
+        /// <value>
+        /// Get the default text.
+        /// </value>
+        public override string ToString()
+        {
+            string removableChars = @"\n\r\s\t";
+
+            string pattern = "[" + removableChars + "]";
+
+            string cleanString = Regex.Replace(GStyledText.GText, pattern, " ");
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    break;
+
+                case Device.Android:
+                    break;
+
+                case Device.UWP:
+                    return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
+
+                case Device.macOS:
+                    break;
+
+                default:
+                    break;
+            }
+
+            return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
         }
     }
 }

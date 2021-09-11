@@ -48,45 +48,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the Mother and Father display name.
-        /// </summary>
-        /// <value>
-        /// The display name of the family.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                StringBuilder familyName = new StringBuilder();
-
-                string fatherName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
-                string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
-
-                // set family display name
-                if (GFather.Valid)
-                {
-                    familyName.Append(fatherName);
-                }
-                else
-                {
-                    familyName.Append("Unknown");
-                }
-
-                if (GMother.Valid)
-                {
-                    familyName.Append(" - ");
-                    familyName.Append(motherName);
-                }
-                else
-                {
-                    familyName.Append(" - Unknown");
-                }
-
-                return familyName.ToString();
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the g attribute collection. This is the [attribute*] attribute.
         /// </summary>
         /// <value>
@@ -319,6 +280,42 @@ namespace GrampsView.Data.Model
 
             // Compare on surnname and then first name
             return this.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(secondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
+        }
+
+        /// <summary>
+        /// Gets the Mother and Father display name.
+        /// </summary>
+        /// <value>
+        /// The display name of the family.
+        /// </value>
+        public override string ToString()
+        {
+            StringBuilder familyName = new StringBuilder();
+
+            string fatherName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
+            string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
+
+            // set family display name
+            if (GFather.Valid)
+            {
+                familyName.Append(fatherName);
+            }
+            else
+            {
+                familyName.Append("Unknown");
+            }
+
+            if (GMother.Valid)
+            {
+                familyName.Append(" - ");
+                familyName.Append(motherName);
+            }
+            else
+            {
+                familyName.Append(" - Unknown");
+            }
+
+            return familyName.ToString();
         }
     }
 }

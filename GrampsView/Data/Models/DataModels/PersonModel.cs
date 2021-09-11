@@ -48,8 +48,6 @@
 
             = new DateObjectModelVal();
 
-        public override string DefaultText => GPersonNamesCollection.GetPrimaryName.DeRef.DefaultText;
-
         /// <summary>
         /// Gets or sets gaddress collection.
         /// </summary>
@@ -334,5 +332,7 @@
 
             return testFlag;
         }
+
+        public override string ToString() => GPersonNamesCollection.GetPrimaryName.DeRef.ToString();
     }
 }

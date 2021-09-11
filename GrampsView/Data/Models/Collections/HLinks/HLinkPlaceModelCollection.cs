@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -12,6 +8,17 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// Data model for a citation hlink collection.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [CollectionDataContract]
     [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]

@@ -47,7 +47,7 @@
                 HorizontalTextAlignment="Center"
                 IsEnabled="false"
                 Style="{DynamicResource GVCardLabelStyleVerySmall}"
-                Text="{Binding DeRef.DefaultText}"
+                Text="{Binding DeRef}"
                 TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
                                             Light={StaticResource OnSecondaryColorLight}}" />
         </Grid>

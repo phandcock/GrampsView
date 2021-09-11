@@ -43,7 +43,7 @@ namespace GrampsView.Data.Collections
         //public void Sort()
         //{
         //    // Sort the collection
-        //    List<HLinkNameMapModel> t = this.OrderBy(HLinkNameMapModel => HLinkNameMapModel.DeRef.DefaultText).ToList();
+        //    List<HLinkNameMapModel> t = this.OrderBy(HLinkNameMapModel => HLinkNameMapModel.DeRef.ToString()).ToList();
 
         // Items.Clear();
 

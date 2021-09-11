@@ -84,7 +84,7 @@ namespace GrampsView.Data.Collections
         //public override void Sort()
         //{
         //    // Sort the collection
-        //    List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.DefaultText).ToList();
+        //    List<HLinkPersonNameModel> t = this.OrderBy(HLinkPersonNameModel => HLinkPersonNameModel.DeRef.ToString()).ToList();
 
         // Items.Clear();
 

@@ -38,7 +38,7 @@
         {
             try
             {
-                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNamePerson, argPersonModel, argPersonModel.DefaultText);
+                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNamePerson, argPersonModel, argPersonModel.ToString());
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@
         {
             try
             {
-                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNameFamily, argFamilyModel, argFamilyModel.DefaultText);
+                await CommonTimeline.AddToTimeLine(CommonConstants.ModelNameFamily, argFamilyModel, argFamilyModel.ToString());
             }
             catch (Exception ex)
             {

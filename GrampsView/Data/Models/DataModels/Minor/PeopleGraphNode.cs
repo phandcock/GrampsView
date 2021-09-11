@@ -31,8 +31,6 @@ namespace GrampsView.Data.Model
 
         public DateTime Change { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public string DefaultText => throw new NotImplementedException();
-
         public string DefaultTextShort => throw new NotImplementedException();
 
         public string Handle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -159,5 +157,7 @@ namespace GrampsView.Data.Model
         {
             throw new NotImplementedException();
         }
+
+        public string ToString() => throw new NotImplementedException();
     }
 }

@@ -266,7 +266,7 @@
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.DefaultText);
+            var temp = DataViewData.Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (IMediaModel tempMO in temp)
             {

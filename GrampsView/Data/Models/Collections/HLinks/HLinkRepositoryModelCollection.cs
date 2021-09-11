@@ -41,7 +41,7 @@
         //public void Sort()
         //{
         //    // Sort the collection
-        //    List<HLinkRepositoryModel> t = this.OrderBy(HLinkRepositoryModel => HLinkRepositoryModel.DeRef.DefaultText).ToList();
+        //    List<HLinkRepositoryModel> t = this.OrderBy(HLinkRepositoryModel => HLinkRepositoryModel.DeRef.ToString()).ToList();
 
         // Items.Clear();
 

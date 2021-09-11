@@ -35,7 +35,7 @@
         //public override void Sort()
         //{
         //    // Sort the collection
-        //    List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.DefaultText).ToList();
+        //    List<HLinkHeaderModel> t = this.OrderBy(HLinkHeaderModel => HLinkHeaderModel.DeRef.ToString()).ToList();
 
         // Items.Clear();
 

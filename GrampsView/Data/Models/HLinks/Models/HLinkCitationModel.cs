@@ -1,6 +1,4 @@
-﻿// XML 171 - All fields defined
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
@@ -9,7 +7,17 @@ namespace GrampsView.Data.Model
     using System.Threading.Tasks;
 
     /// <summary>
-    /// HLink to Citation Model.
+    /// Data model for a Citation HLink.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
     [DataContract]
     public class HLinkCitationModel : HLinkBase, IHLinkCitationModel

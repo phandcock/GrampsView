@@ -32,7 +32,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.GPlaceNames.DefaultText, Mode=OneWay}" />
+            Text="{Binding DeRef.GPlaceNames, Mode=OneWay}" />
 
         <Label
             Grid.Row="1"
@@ -45,6 +45,6 @@
             Grid.Column="0"
             FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
             Style="{DynamicResource GVCardLabelStyleSmall}"
-            Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef.DefaultText, StringFormat={x:Static i18n:AppResources.FieldPrefixPlaceParent}, Mode=OneWay}" />
+            Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef, StringFormat={x:Static i18n:AppResources.FieldPrefixPlaceParent}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

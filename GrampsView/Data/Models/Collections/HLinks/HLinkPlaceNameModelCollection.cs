@@ -19,19 +19,16 @@ namespace GrampsView.Data.Collections
             Title = "Place Name Collection";
         }
 
-        public string DefaultText
+        public override string ToString()
         {
-            get
+            // TODO Why first?
+
+            if (this.Count > 0)
             {
-                // TODO Why first?
-
-                if (this.Count > 0)
-                {
-                    return this[0].DeRef.GValue;
-                }
-
-                return "Unknown Place Name";
+                return this[0].DeRef.GValue;
             }
+
+            return "Unknown Place Name";
         }
     }
 }

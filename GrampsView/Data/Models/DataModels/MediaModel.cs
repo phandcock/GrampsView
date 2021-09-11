@@ -61,20 +61,6 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
-        /// Gets the default text for media which is the first fourty characters.
-        /// </summary>
-        /// <value>
-        /// The get default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                return GDescription.Substring(0, Math.Min(40, GDescription.Length));
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the type of the file content.
         /// </summary>
         /// <value>
@@ -511,6 +497,17 @@ namespace GrampsView.Data.Model
             // TODO fix cache
             //IsFullImageLoaded = false;
             //ImageFullBitmap = null;
+        }
+
+        /// <summary>
+        /// Gets the default text for media which is the first fourty characters.
+        /// </summary>
+        /// <value>
+        /// The get default text.
+        /// </value>
+        public override string ToString()
+        {
+            return GDescription.Substring(0, Math.Min(40, GDescription.Length));
         }
     }
 }

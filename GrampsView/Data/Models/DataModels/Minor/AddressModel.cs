@@ -20,52 +20,6 @@
         }
 
         /// <summary>
-        /// Gets the formatted.
-        /// </summary>
-        /// <value>
-        /// The formatted address.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                string formattedAddress = string.Empty;
-
-                if (!string.IsNullOrEmpty(GStreet))
-                {
-                    formattedAddress = formattedAddress + GStreet + ",";
-                }
-
-                if (!string.IsNullOrEmpty(GLocality))
-                {
-                    formattedAddress = formattedAddress + GLocality + ",";
-                }
-
-                if (!string.IsNullOrEmpty(GCity))
-                {
-                    formattedAddress = formattedAddress + GCity + ",";
-                }
-
-                if (!string.IsNullOrEmpty(GCounty))
-                {
-                    formattedAddress = formattedAddress + GCounty + ",";
-                }
-
-                if (!string.IsNullOrEmpty(GState))
-                {
-                    formattedAddress = formattedAddress + GState + ",";
-                }
-
-                if (!string.IsNullOrEmpty(GCountry))
-                {
-                    formattedAddress = formattedAddress + GCountry + ",";
-                }
-
-                return formattedAddress;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the citation reference collection.
         /// </summary>
         /// <value>
@@ -145,7 +99,7 @@
                 throw new ArgumentNullException(nameof(other));
             }
 
-            return string.Compare(DefaultText, other.DefaultText, true, System.Globalization.CultureInfo.CurrentCulture);
+            return string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public override bool Equals(object obj)
@@ -167,7 +121,7 @@
 
             AddressModel tempObj = obj as AddressModel;
 
-            return (this.DefaultText == tempObj.DefaultText);
+            return (this.ToString() == tempObj.ToString());
         }
 
         public bool Equals(AddressModel other)
@@ -177,7 +131,7 @@
                 return false;
             }
 
-            if (DefaultText == other.DefaultText)
+            if (ToString() == other.ToString())
             {
                 return true;
             }
@@ -194,7 +148,7 @@
         {
             IMapModel mapModel = new MapModel
             {
-                Description = DefaultText,
+                Description = ToString(),
                 MapType = MapType.Place,
             };
 
@@ -204,6 +158,49 @@
             mapModel.MyPlaceMark.CountryName = GCountry;
 
             return mapModel;
+        }
+
+        /// <summary>
+        /// Gets the formatted.
+        /// </summary>
+        /// <value>
+        /// The formatted address.
+        /// </value>
+        public override string ToString()
+        {
+            string formattedAddress = string.Empty;
+
+            if (!string.IsNullOrEmpty(GStreet))
+            {
+                formattedAddress = formattedAddress + GStreet + ",";
+            }
+
+            if (!string.IsNullOrEmpty(GLocality))
+            {
+                formattedAddress = formattedAddress + GLocality + ",";
+            }
+
+            if (!string.IsNullOrEmpty(GCity))
+            {
+                formattedAddress = formattedAddress + GCity + ",";
+            }
+
+            if (!string.IsNullOrEmpty(GCounty))
+            {
+                formattedAddress = formattedAddress + GCounty + ",";
+            }
+
+            if (!string.IsNullOrEmpty(GState))
+            {
+                formattedAddress = formattedAddress + GState + ",";
+            }
+
+            if (!string.IsNullOrEmpty(GCountry))
+            {
+                formattedAddress = formattedAddress + GCountry + ",";
+            }
+
+            return formattedAddress;
         }
     }
 }

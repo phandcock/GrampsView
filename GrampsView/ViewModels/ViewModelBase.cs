@@ -218,7 +218,7 @@
 
             EmailMessage message = new EmailMessage
             {
-                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.DefaultText}",
+                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.ToString()}",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,

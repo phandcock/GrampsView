@@ -18,11 +18,6 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface INoteModel : IModelBase
     {
-        new string DefaultText
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="NoteModel"/> is format (0|1) #IMPLIED.
         /// </summary>

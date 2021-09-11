@@ -27,7 +27,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return DataViewData.OrderBy(addressModel => addressModel.DefaultText).ToList();
+                return DataViewData.OrderBy(addressModel => addressModel.ToString()).ToList();
             }
         }
 
@@ -116,7 +116,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkPersonNameModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.DefaultText);
+            IOrderedEnumerable<HLinkPersonNameModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.ToString());
 
             HLinkPersonNameModelCollection tt = new HLinkPersonNameModelCollection();
 
@@ -146,7 +146,7 @@ namespace GrampsView.Data.DataView
             IEnumerable<PersonNameModel> temp = DataViewData
                 .Where(x =>
                    (x.FullName.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
-                || (x.DefaultText.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
+                || (x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GCall.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 || (x.GNick.ToLower(CultureInfo.CurrentCulture).Contains(argQuery))
                 )

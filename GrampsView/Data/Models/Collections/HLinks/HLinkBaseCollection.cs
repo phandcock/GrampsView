@@ -116,7 +116,7 @@ namespace GrampsView.Data.Model
         public virtual void Sort()
         {
             // Sort the collection
-            List<T> t = this.OrderBy(x => x.DeRef.DefaultText).ToList();
+            List<T> t = this.OrderBy(x => x.DeRef.ToString()).ToList();
 
             Items.Clear();
 

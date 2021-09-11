@@ -37,20 +37,6 @@
         }
 
         /// <summary>
-        /// Gets the default text for this Model.
-        /// </summary>
-        /// <value>
-        /// The default text.
-        /// </value>
-        public override string DefaultText
-        {
-            get
-            {
-                return GRName;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets address collection.
         /// </summary>
         [DataMember]
@@ -187,6 +173,17 @@
             int testFlag = string.Compare(GRName, secondPersonModel.GRName, StringComparison.CurrentCulture);
 
             return testFlag;
+        }
+
+        /// <summary>
+        /// Gets the default text for this Model.
+        /// </summary>
+        /// <value>
+        /// The default text.
+        /// </value>
+        public override string ToString()
+        {
+            return GRName;
         }
     }
 }
