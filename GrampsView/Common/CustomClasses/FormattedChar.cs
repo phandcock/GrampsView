@@ -19,6 +19,16 @@
             get; set;
         }
 
+        public bool StyleSuperscript
+        {
+            get; set;
+        }
+
+        public bool StyleUnderline
+        {
+            get; set;
+        }
+
         public static bool operator !=(FormattedChar lhs, FormattedChar rhs)
         {
             return !lhs.Equals(rhs);

@@ -44,10 +44,12 @@
                             // TODO Handle multiple styles
 
                             case CommonEnums.TextStyle.bold:
-                                t = workingString[i];
-                                t.StyleBold = true;
-                                workingString[i] = t;
-                                break;
+                                {
+                                    t = workingString[i];
+                                    t.StyleBold = true;
+                                    workingString[i] = t;
+                                    break;
+                                }
 
                             case CommonEnums.TextStyle.fontcolor:
                                 break;
@@ -64,19 +66,31 @@
                                 break;
 
                             case CommonEnums.TextStyle.italic:
-                                t = workingString[i];
-                                t.StyleItalics = true;
-                                workingString[i] = t;
-                                break;
+                                {
+                                    t = workingString[i];
+                                    t.StyleItalics = true;
+                                    workingString[i] = t;
+                                    break;
+                                }
 
                             case CommonEnums.TextStyle.link:
                                 break;
 
                             case CommonEnums.TextStyle.superscript:
-                                break;
+                                {
+                                    t = workingString[i];
+                                    t.StyleSuperscript = true;
+                                    workingString[i] = t;
+                                    break;
+                                }
 
                             case CommonEnums.TextStyle.underline:
-                                break;
+                                {
+                                    t = workingString[i];
+                                    t.StyleUnderline = true;
+                                    workingString[i] = t;
+                                    break;
+                                }
 
                             case CommonEnums.TextStyle.unknown:
                                 break;
@@ -136,6 +150,16 @@
             if (argStyle.StyleItalics)
             {
                 OutSpan.FontAttributes = OutSpan.FontAttributes | FontAttributes.Italic;
+            }
+
+            if (argStyle.StyleSuperscript)
+            {
+                // TODO WOrk out how to do this. Two spans with different fontsizes?
+            }
+
+            if (argStyle.StyleUnderline)
+            {
+                OutSpan.TextDecorations = TextDecorations.Underline;
             }
 
             //// Default font
