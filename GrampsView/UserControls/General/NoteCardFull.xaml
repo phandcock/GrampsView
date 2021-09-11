@@ -11,7 +11,14 @@
     <Frame Style="{DynamicResource NoteFullTextStyle}">
         <Frame.Content>
 
-            <Label FormattedText="{Binding DeRef.TextFormatted}" Style="{DynamicResource GVLabelStyleNoteFull}" />
+            <Label
+                FormattedText="{Binding DeRef.TextFormatted}"
+                IsEnabled="True"
+                Style="{DynamicResource GVLabelStyleNoteFull}">
+                <Label.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="DragGestureRecognizer_DragStarting" />
+                </Label.GestureRecognizers>
+            </Label>
         </Frame.Content>
     </Frame>
 </Grid>
