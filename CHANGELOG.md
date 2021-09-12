@@ -1,3 +1,15 @@
+## [16.20.8](https://github.com/phandcock/GrampsView/compare/v16.20.7...v16.20.8) (2021-09-12)
+
+
+### Bug Fixes
+
+* add basic drag gesture for notefullcard ([484fb9e](https://github.com/phandcock/GrampsView/commit/484fb9e7d5e67df0977762f8e0500178959a5b88))
+* add note formatted text underline ([fccc476](https://github.com/phandcock/GrampsView/commit/fccc4768f90eb0eb21a83c4faa206c8eec5f9f21))
+* cleanup settings theme selection code ([50a847e](https://github.com/phandcock/GrampsView/commit/50a847ee4947a0444c34c04ed2f310b66f1dea93))
+* migrate defaultText to ToString ([574b2d4](https://github.com/phandcock/GrampsView/commit/574b2d44e38901a972d2e56d6e2cd25c3701941f))
+
+
+
 ## [16.20.7](https://github.com/phandcock/GrampsView/compare/v16.20.6...v16.20.7) (2021-09-10)
 
 
@@ -24,17 +36,6 @@
 ### Bug Fixes
 
 * cleanup aboutpage code ([4c7f686](https://github.com/phandcock/GrampsView/commit/4c7f6861ae26133124414686a7b0ae80d62cffd8))
-
-
-
-## [16.20.4](https://github.com/phandcock/GrampsView/compare/v16.20.3...v16.20.4) (2021-09-05)
-
-
-### Bug Fixes
-
-* cleanup padding on android icons ([070f040](https://github.com/phandcock/GrampsView/commit/070f04073204ce980a93eabebc110ad6c10d96ca))
-* fix settings app theme display check boxes ([033d5d2](https://github.com/phandcock/GrampsView/commit/033d5d2cab58c66e083d30400b5b0ff808a42d2d))
-* start workign on automatic sort of backlinks by default text ([b6fcbe1](https://github.com/phandcock/GrampsView/commit/b6fcbe117afc8c3ec42d02ebb31992454b2564fd))
 
 
 
