@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -11,7 +11,6 @@
     /// <para> TODO Needs XML 1.71 check </para>
     /// </summary>
 
-    [DataContract]
     public class HLinkNameMapModel : HLinkBase, IHLinkNameMapModel
     {
         private NameMapModel _Deref = new NameMapModel();
@@ -30,6 +29,7 @@
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public new NameMapModel DeRef
         {
             get
@@ -50,9 +50,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

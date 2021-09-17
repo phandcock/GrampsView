@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -19,7 +19,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
     {
         private SourceModel _Deref = new SourceModel();
@@ -38,6 +38,7 @@
         /// <value>
         /// The HLink reference.
         /// </value>
+        [JsonIgnore]
         public new SourceModel DeRef
         {
             get
@@ -92,9 +93,9 @@
             await UCNavigateBase(this, "SourceDetailPage");
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

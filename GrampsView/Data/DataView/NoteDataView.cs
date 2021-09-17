@@ -48,7 +48,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkNoteModel> GetLatestChanges
+        public override CardGroupHLink<HLinkNoteModel> GetLatestChanges
 
         {
             get
@@ -92,9 +92,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override CardGroupBase<NoteModel> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupModel<NoteModel> t = new CardGroupModel<NoteModel>();
 
             var query = from item in DataViewData
                         orderby item.GType, item.ToString()

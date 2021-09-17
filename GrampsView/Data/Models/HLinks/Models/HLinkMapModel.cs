@@ -2,7 +2,7 @@
 {
     using GrampsView.Common;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -19,7 +19,6 @@
     /// </list>
     /// </summary>
 
-    [DataContract]
     public class HLinkMapModel : HLinkBase, IHLinkMapModel
     {
         public HLinkMapModel()
@@ -34,7 +33,8 @@
         /// <value>
         /// The dereference.
         /// </value>
-        [DataMember]
+
+        [JsonIgnore]
         public new IMapModel DeRef
         {
             get;
@@ -63,9 +63,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

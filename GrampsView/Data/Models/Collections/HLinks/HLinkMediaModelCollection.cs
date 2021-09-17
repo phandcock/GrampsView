@@ -13,7 +13,7 @@ namespace GrampsView.Data.Collections
 
     /// <summary>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkMediaModel>))]
     public class HLinkMediaModelCollection : HLinkBaseCollection<HLinkMediaModel>
     {

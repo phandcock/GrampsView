@@ -7,7 +7,6 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// TODO Update fields as per Schema
@@ -17,7 +16,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.IComparable"/>
     /// ///
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public sealed class PeopleGraphNode : IPeopleGraphNode
     {
         /// <summary>

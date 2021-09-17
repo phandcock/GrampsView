@@ -6,13 +6,13 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// HLink to the Family Model.
     /// </summary>
-    [DataContract]
+
     public class HLinkFamilyModel : HLinkBase, IHLinkFamilyModel
     {
         // NOTE: This cannot default to a FamilyModel as there is a recursive relationship with PersonModel
@@ -29,6 +29,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets.
         /// </summary>
+        [JsonIgnore]
         public new FamilyModel DeRef
         {
             get
@@ -54,9 +55,9 @@ namespace GrampsView.Data.Model
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

@@ -17,7 +17,7 @@ namespace GrampsView.Data.Collections
     /// Contains pointers to family models.
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}"/>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkPersonRefModel>))]
     public class HLinkPersonRefModelCollection : HLinkBaseCollection<HLinkPersonRefModel>
     {

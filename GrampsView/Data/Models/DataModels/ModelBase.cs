@@ -4,12 +4,10 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
 
-    using Newtonsoft.Json;
-
     using System;
-    using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -21,23 +19,7 @@
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// /// ///
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
-    [DataContract]
-    [KnownType(typeof(ObservableCollection<object>))]
 
-    //[KnownType(typeof(HLinkBookMarkModel))]
-    [KnownType(typeof(HLinkCitationModel))]
-    [KnownType(typeof(HLinkEventModel))]
-    [KnownType(typeof(HLinkFamilyModel))]
-    [KnownType(typeof(HLinkHeaderModel))]
-    [KnownType(typeof(HLinkMediaModel))]
-    [KnownType(typeof(HLinkNameMapModel))]
-    [KnownType(typeof(HLinkPersonModel))]
-    [KnownType(typeof(HLinkNoteModel))]
-    [KnownType(typeof(HLinkPlaceModel))]
-    [KnownType(typeof(HLinkRepositoryModel))]
-    [KnownType(typeof(HLinkSourceModel))]
-    [KnownType(typeof(HLinkTagModel))]
-    [KnownType(typeof(ItemGlyph))]
     public class ModelBase : ObservableObject, IModelBase
     {
         /// <summary>
@@ -69,7 +51,7 @@
         /// <value>
         /// The h link reference collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkBackLinkModelCollection BackHLinkReferenceCollection
         {
             get => _BackHLinkReferenceCollection;
@@ -83,7 +65,7 @@
         /// <value>
         /// The change.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public DateTime Change
         {
             get => _Change;
@@ -105,7 +87,8 @@
         /// <value>
         /// The h link key.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public HLinkKey HLinkKey
         {
             get;
@@ -119,7 +102,8 @@
         /// <value>
         /// The identifier.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public string Id
         {
             get => _Id;
@@ -127,7 +111,7 @@
             set => SetProperty(ref _Id, value);
         }
 
-        [DataMember]
+        [JsonInclude]
         public ItemGlyph ModelItemGlyph
         {
             get => _ModelItemGlyph;
@@ -141,7 +125,8 @@
         /// <value>
         /// <c> true </c> if priv; otherwise, <c> false </c>.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public bool Priv
         {
             get;
@@ -223,8 +208,7 @@
 
             if (argSecondModelBase is null)
             {
-                throw new
-ArgumentNullException(nameof(argSecondModelBase));
+                throw new ArgumentNullException(nameof(argSecondModelBase));
             }
 
             ModelBase firstSource = (ModelBase)argFirstModelBase; ModelBase secondSource = (ModelBase)argSecondModelBase;
@@ -310,7 +294,7 @@ ArgumentNullException(nameof(argSecondModelBase));
 
         public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
         {
-            string ser = JsonConvert.SerializeObject(dataIn);
+            string ser = JsonSerializer.Serialize(dataIn);
 
             await CommonRoutines.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }

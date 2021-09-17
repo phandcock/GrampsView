@@ -5,7 +5,6 @@
     using GrampsView.Data.Repository;
 
     using System;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -50,7 +49,7 @@
         /// <value>
         /// The g description.
         /// </value>
-        [DataMember]
+
         public string GDescription
         {
             get;
@@ -63,14 +62,13 @@
         /// <value>
         /// The gh reference.
         /// </value>
-        [DataMember]
+
         public Uri GHRef
         {
             get;
             set;
         }
 
-        [DataMember]
         public string GType
         {
             get;

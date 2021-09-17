@@ -5,14 +5,14 @@
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// <para> Repository HLink. </para>
     /// <para> XML 1.71 check done </para>
     /// </summary>
-    [DataContract]
+
     public class HLinkRepositoryRefModel : HLinkBase, IHLinkRepositoryRef
     {
         private RepositoryModel _Deref = new RepositoryModel();
@@ -31,6 +31,7 @@
         /// <value>
         /// The reference.
         /// </value>
+        [JsonIgnore]
         public new RepositoryModel DeRef
         {
             get
@@ -51,7 +52,7 @@
         /// <value>
         /// The call no.
         /// </value>
-        [DataMember]
+
         public string GCallNo
         {
             get;
@@ -65,7 +66,7 @@
         /// <value>
         /// The medium.
         /// </value>
-        [DataMember]
+
         public string GMedium
         {
             get;
@@ -79,7 +80,7 @@
         /// <value>
         /// The note reference.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRef
         {
             get;
@@ -97,9 +98,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

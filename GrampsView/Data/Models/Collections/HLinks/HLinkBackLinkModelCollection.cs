@@ -13,7 +13,7 @@
 
     /// <summary>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkBackLink>))]
     public class HLinkBackLinkModelCollection : HLinkBaseCollection<HLinkBackLink>
     {

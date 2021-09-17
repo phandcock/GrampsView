@@ -24,7 +24,7 @@ namespace GrampsView.Data.Collections
     /// </item>
     /// </list>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkSourceModel>))]
     public class HLinkSourceModelCollection : HLinkBaseCollection<HLinkSourceModel>
     {

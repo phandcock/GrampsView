@@ -5,7 +5,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -39,7 +38,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
-        [DataMember]
         public string Description
         {
             get;
@@ -61,7 +59,6 @@
             }
         }
 
-        [DataMember]
         public MapType MapType
         {
             get;
@@ -74,7 +71,7 @@
         /// <value>
         /// The xamarin essentials location object.
         /// </value>
-        [DataMember]
+
         public Location MyLocation
         {
             get;
@@ -87,7 +84,7 @@
         /// <value>
         /// The xamarin essentials placemark.
         /// </value>
-        [DataMember]
+
         public Placemark MyPlaceMark
         {
             get;

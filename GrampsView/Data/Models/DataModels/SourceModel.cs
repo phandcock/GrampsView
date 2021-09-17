@@ -5,7 +5,6 @@
 
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// <para> Source ViewModel. </para>
@@ -24,7 +23,7 @@
     /// <seealso cref="GrampsView.Data.ViewModel.ISourceModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public sealed class SourceModel : ModelBase, ISourceModel, IComparable, IComparer<SourceModel>
     {
         private HLinkMediaModelCollection _MediaCollection = new HLinkMediaModelCollection();
@@ -62,7 +61,7 @@
         /// <value>
         /// The media reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get => _MediaCollection;
@@ -76,7 +75,7 @@
         /// <value>
         /// The note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -91,7 +90,7 @@
         /// <value>
         /// The repository reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkRepositoryRefCollection GRepositoryRefCollection
         {
             get; set;
@@ -105,7 +104,7 @@
         /// <value>
         /// The sabbrev.
         /// </value>
-        [DataMember]
+
         public string GSAbbrev
         {
             get; set;
@@ -117,7 +116,7 @@
         /// <value>
         /// The sauthor.
         /// </value>
-        [DataMember]
+
         public string GSAuthor
         {
             get; set;
@@ -129,7 +128,7 @@
         /// <value>
         /// The source attribute collection.
         /// </value>
-        [DataMember]
+
         public HLinkAttributeModelCollection GSourceAttributeCollection
         {
             get; set;
@@ -141,7 +140,7 @@
         /// <value>
         /// The spub information.
         /// </value>
-        [DataMember]
+
         public string GSPubInfo
         {
             get; set;
@@ -153,7 +152,7 @@
         /// <value>
         /// The stitle.
         /// </value>
-        [DataMember]
+
         public string GSTitle
         {
             get; set;
@@ -165,7 +164,7 @@
         /// <value>
         /// The tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection
         {
             get; set;

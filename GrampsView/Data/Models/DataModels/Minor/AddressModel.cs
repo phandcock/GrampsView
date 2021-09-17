@@ -4,7 +4,6 @@
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -25,16 +24,13 @@
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
 
-        [DataMember]
         public string GCity { get; set; } = string.Empty;
 
-        [DataMember]
         public string GCountry { get; set; } = string.Empty;
 
-        [DataMember]
         public string GCounty { get; set; } = string.Empty;
 
         /// <summary>
@@ -43,7 +39,7 @@
         /// <value>
         /// The date.
         /// </value>
-        [DataMember]
+
         public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         /// <summary>
@@ -52,25 +48,21 @@
         /// <value>
         /// The locality.
         /// </value>
-        [DataMember]
+
         public string GLocality { get; set; } = string.Empty;
 
-        [DataMember]
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
 
-        [DataMember]
         public string GPhone { get; set; } = string.Empty;
 
-        [DataMember]
         public string GPostal { get; set; } = string.Empty;
 
-        [DataMember]
         public string GState { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the Street name and number.
         /// </summary>
-        [DataMember]
+
         public string GStreet { get; set; } = string.Empty;
 
         /// <summary>

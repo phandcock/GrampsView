@@ -15,7 +15,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Collection of HLinks to Address models.
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkAdressModel>))]
     public class HLinkAddressModelCollection : HLinkBaseCollection<HLinkAdressModel>
     {

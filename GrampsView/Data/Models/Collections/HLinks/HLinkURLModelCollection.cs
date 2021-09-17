@@ -10,7 +10,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// URL model collection.
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkURLModel>))]
     public class HLinkURLModelCollection : HLinkBaseCollection<HLinkURLModel>
     {

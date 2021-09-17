@@ -9,12 +9,13 @@ namespace GrampsView.Data.Collections
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// Collection of Family hLinks.
     /// </summary>
     /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkFamilyModel}"/>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkFamilyModel>))]
     public class HLinkFamilyModelCollection : HLinkBaseCollection<HLinkFamilyModel>
     {
@@ -29,6 +30,7 @@ namespace GrampsView.Data.Collections
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public ObservableCollection<FamilyModel> DeRef
         {
             get

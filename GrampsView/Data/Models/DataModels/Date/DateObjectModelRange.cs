@@ -4,7 +4,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -77,7 +76,7 @@
         /// <summary>
         /// Gets the $$(cformat)$$ field.
         /// </summary>
-        [DataMember]
+
         public string GCformat
         {
             get => _GCformat;
@@ -94,7 +93,7 @@
         /// <summary>
         /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
         /// </summary>
-        [DataMember]
+
         public bool GDualdated
         {
             get => _GDualdated;
@@ -135,7 +134,7 @@
         /// <summary>
         /// Gets the New Year field.
         /// </summary>
-        [DataMember]
+
         public string GNewYear
         {
             get => _GNewYear;
@@ -152,7 +151,7 @@
         /// <summary>
         /// Get the Date Quality.
         /// </summary>
-        [DataMember]
+
         public DateQuality GQuality
         {
             get => _GQuality;
@@ -163,7 +162,7 @@
         /// <summary>
         /// Gets the Date Start.
         /// </summary>
-        [DataMember]
+
         public DateObjectModelVal GStart
         {
             get
@@ -183,7 +182,7 @@
         /// <summary>
         /// Gets or sets the Stop field.
         /// </summary>
-        [DataMember]
+
         public DateObjectModelVal GStop
         {
             get
@@ -219,6 +218,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 string dateString = $"Between {GStart.LongDate} and {GStop.LongDate}";
 
                 if (GQuality != DateQuality.unknown)
@@ -255,6 +259,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 string dateString = $"Range {GStart.ShortDate} -{GStop.ShortDate}";
                 return dateString.Trim();
             }

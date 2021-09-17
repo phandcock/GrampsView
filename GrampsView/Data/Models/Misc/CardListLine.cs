@@ -3,11 +3,10 @@
     using System;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// </summary>
-    [DataContract]
+
     public class CardListLine : INotifyPropertyChanged
     {
         private string localLabel = string.Empty;
@@ -129,7 +128,7 @@
         /// <value>
         /// The label.
         /// </value>
-        [DataMember]
+
         public string Label
         {
             get
@@ -150,7 +149,7 @@
         /// <value>
         /// The value.
         /// </value>
-        [DataMember]
+
         public string Value
         {
             get

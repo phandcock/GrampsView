@@ -6,12 +6,10 @@
     using System;
     using System.Diagnostics.Contracts;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
-    [DataContract]
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
         private FileInfo _FInfo;
@@ -53,7 +51,6 @@
             }
         }
 
-        [DataMember]
         public FileInfo FInfo
         {
             get

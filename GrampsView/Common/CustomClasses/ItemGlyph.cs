@@ -4,21 +4,20 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Newtonsoft.Json;
-
-    using System.Runtime.Serialization;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
     using Xamarin.Forms;
 
     /// <summary>
-    /// Holds details on how to display the HLink or DataModel <note type="note">Can be one of three
+    /// Holds details on how to display the HLink or DataModel <note type="note"> Can be one of three
     /// states: <br/><br/> a) Symbol = Dsiplay only symbol for card <br/> b) Image = Display Symbol
     /// for card and Image, e.g. photo <br/> c) Media = Display Symbol for card and image with media
     /// if selected to play or display <br/></note>
     /// </summary>
-    [DataContract]
+
     public class ItemGlyph : ObservableObject
     {
         public ItemGlyph()
@@ -26,12 +25,13 @@
             UCNavigateCommand = new AsyncCommand(UCNavigate);
         }
 
-        [DataMember]
+        [JsonInclude]
         public HLinkKey ImageHLink
         {
             get; set;
         } = new HLinkKey();
 
+        [JsonIgnore]
         public HLinkMediaModel ImageHLinkMediaModel
         {
             get
@@ -52,7 +52,8 @@
         /// <value>
         /// The home symbol.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public string ImageSymbol
         {
             get; set;
@@ -64,24 +65,26 @@
         /// <value>
         /// The background colour.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public Color ImageSymbolColour
         {
             get; set;
         } = Color.White;
 
-        [DataMember]
+        [JsonInclude]
         public CommonEnums.HLinkGlyphType ImageType
         {
             get; set;
         } = CommonEnums.HLinkGlyphType.Symbol;
 
-        [DataMember]
+        [JsonInclude]
         public HLinkKey MediaHLink
         {
             get; set;
         } = new HLinkKey();
 
+        [JsonIgnore]
         public HLinkMediaModel MediaHLinkMediaModel
         {
             get
@@ -102,7 +105,8 @@
         /// <value>
         /// The home symbol.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public string Symbol
         {
             get; set;
@@ -114,7 +118,8 @@
         /// <value>
         /// The background colour.
         /// </value>
-        [DataMember]
+
+        [JsonInclude]
         public Color SymbolColour
         {
             get; set;
@@ -172,7 +177,7 @@
             {
                 case CommonEnums.HLinkGlyphType.Image:
                     {
-                        ser = JsonConvert.SerializeObject(this.ImageHLinkMediaModel);
+                        ser = JsonSerializer.Serialize(this.ImageHLinkMediaModel);
 
                         await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
@@ -180,7 +185,7 @@
                     }
                 case CommonEnums.HLinkGlyphType.Media:
                     {
-                        ser = JsonConvert.SerializeObject(this.MediaHLinkMediaModel);
+                        ser = JsonSerializer.Serialize(this.MediaHLinkMediaModel);
 
                         await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 

@@ -12,12 +12,10 @@
     using System;
     using System.Diagnostics;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
-    [DataContract]
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>

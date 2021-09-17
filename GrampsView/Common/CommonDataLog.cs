@@ -4,14 +4,13 @@
     using System.Collections;
     using System.Collections.ObjectModel;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// Common Progress routines.
     /// </summary>
-    [DataContract]
+
     public class CommonDataLog : ObservableObject, IDataLog
     {
         /// <summary>

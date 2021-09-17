@@ -18,12 +18,11 @@ namespace GrampsView.Common
     using System.Diagnostics;
     using System.Linq.Expressions;
     using System.Runtime.CompilerServices;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.
     /// </summary>
-    [DataContract]
+
     public abstract class CommonBindableBase : INotifyPropertyChanged
     {
         /// <summary>

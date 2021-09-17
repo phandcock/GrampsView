@@ -12,9 +12,7 @@ namespace GrampsView.Data.DataView
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
-    using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     public class PersonDataView : DataViewBase<PersonModel, HLinkPersonModel, HLinkPersonModelCollection>, IPersonDataView
     {
@@ -123,7 +121,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The person data.
         /// </value>
-        [DataMember]
+
         public RepositoryModelDictionary<PersonModel, HLinkPersonModel> PersonData
         {
             get
@@ -132,26 +130,26 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        /// <summary>
-        /// Collections the sort birth date asc.
-        /// </summary>
-        /// <param name="collectionArg">
-        /// The collection argument.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public static ObservableCollection<PersonModel> CollectionSortBirthDateAsc(ObservableCollection<PersonModel> collectionArg)
-        {
-            if (collectionArg == null)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// Collections the sort birth date asc.
+        ///// </summary>
+        ///// <param name="collectionArg">
+        ///// The collection argument.
+        ///// </param>
+        ///// <returns>
+        ///// </returns>
+        //public static ObservableCollection<PersonModel> CollectionSortBirthDateAsc(ObservableCollection<PersonModel> collectionArg)
+        //{
+        //    if (collectionArg == null)
+        //    {
+        //        return null;
+        //    }
 
-            // sort the list
-            IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef);
+        // // sort the list IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel
+        // => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef);
 
-            return new ObservableCollection<PersonModel>(sortedList);
-        }
+        //    return new ObservableCollection<PersonModel>(sortedList);
+        //}
 
         public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroupBase()
         {
@@ -171,24 +169,23 @@ namespace GrampsView.Data.DataView
         {
             CardGroup t = new CardGroup();
 
-            var query = from item in DataViewData
-                        orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef
-                        where ((item.IsLiving == true) && (item.BirthDate.Valid) && (item.BirthDate.ValidMonth == true) && (item.BirthDate.ValidDay == true))
-                        group item by (item.BirthDate.GetMonthDay) into g
-                        select new
-                        {
-                            GroupName = g.Key,
-                            Items = g
-                        };
+            IEnumerable<(string GroupName, IGrouping<string, PersonModel> Items)> query = from item in DataViewData
+                                                                                          orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef
+                                                                                          where item.IsLiving && item.BirthDate.Valid && item.BirthDate.ValidMonth && item.BirthDate.ValidDay
+                                                                                          group item by $"{item.BirthDate.GetMonthDay}" into g
+                                                                                          select (
+                                                                                              GroupName: g.Key,
+                                                                                              Items: g
+                                                                                          );
 
-            foreach (var g in query)
+            foreach ((string GroupName, IGrouping<string, PersonModel> Items) g in query)
             {
                 CardGroupBase<HLinkPersonModel> info = new CardGroupBase<HLinkPersonModel>
                 {
-                    Title = g.GroupName.ToString("MMMM dd", CultureInfo.CurrentCulture.DateTimeFormat),
+                    Title = $"{g.Items.FirstOrDefault().BirthDate.NotionalDate:MMM dd}",
                 };
 
-                foreach (var item in g.Items)
+                foreach (PersonModel item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -205,7 +202,7 @@ namespace GrampsView.Data.DataView
 
             var query = from item in DataViewData
                         orderby item.GPersonNamesCollection.GetPrimaryName.DeRef
-                        group item by (item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname) into g
+                        group item by item.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname into g
                         select new
                         {
                             GroupName = g.Key,

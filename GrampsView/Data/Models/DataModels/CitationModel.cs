@@ -17,7 +17,7 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Data model for a Citation.
     /// </summary>
-    [DataContract]
+
     [KnownType(typeof(HLinkSourceModel))]
     public sealed class CitationModel : ModelBase, ICitationModel, IComparable, IComparer, INotifyPropertyChanged
     {
@@ -36,7 +36,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The Confidence.
         /// </value>
-        [DataMember]
+
         public CommonEnums.DataConfidence GConfidence
         {
             get;
@@ -51,7 +51,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The content of the g date.
         /// </value>
-        [DataMember]
+
         public DateObjectModel GDateContent
         {
             get;
@@ -66,7 +66,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get;
@@ -81,7 +81,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g note reference.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -96,7 +96,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g page.
         /// </value>
-        [DataMember]
+
         public string GPage
         {
             get;
@@ -111,7 +111,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g source attribute.
         /// </value>
-        [DataMember]
+
         public OCSrcAttributeModelCollection GSourceAttributeCollection
         {
             get;
@@ -126,7 +126,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g source reference.
         /// </value>
-        [DataMember]
+
         public HLinkSourceModel GSourceRef
         {
             get;
@@ -141,7 +141,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g tag reference.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRef
         {
             get;

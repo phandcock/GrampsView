@@ -12,7 +12,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Place location model collection
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(CardGroupBase<PlaceLocationModel>))]
     public class PlaceLocationCollection : CardGroupBase<PlaceLocationModel>
     {

@@ -4,14 +4,13 @@
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
 
     using Xamarin.Forms;
 
     /// <summary>
     /// Data model for a Tag item. XML 1.71 check complete
     /// </summary>
-    [DataContract]
+
     public sealed class TagModel : ModelBase, ITagModel, IComparable, IComparer
     {
         /// <summary>
@@ -44,7 +43,7 @@
         /// <value>
         /// The color.
         /// </value>
-        [DataMember]
+
         public Color GColor
         {
             get => _GColor;
@@ -58,7 +57,7 @@
         /// <value>
         /// The name.
         /// </value>
-        [DataMember]
+
         public string GName
         {
             get => _GName;
@@ -72,7 +71,7 @@
         /// <value>
         /// The priority.
         /// </value>
-        [DataMember]
+
         public int GPriority
         {
             get => _GPriority;

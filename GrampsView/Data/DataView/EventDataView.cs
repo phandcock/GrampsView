@@ -13,7 +13,6 @@ namespace GrampsView.Data.DataView
     using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Event data store handy routines.
@@ -64,7 +63,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The event data.
         /// </value>
-        [DataMember]
+
         public RepositoryModelDictionary<EventModel, HLinkEventModel> EventData
         {
             get

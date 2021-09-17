@@ -19,7 +19,7 @@
     /// </list>
     /// <para> <br/> </para>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkAttributeModel>))]
     public class HLinkAttributeModelCollection : HLinkBaseCollection<HLinkAttributeModel>
     {

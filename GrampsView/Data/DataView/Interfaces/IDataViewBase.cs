@@ -51,16 +51,16 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        CardGroupBase<TU> GetLatestChanges
+        CardGroupHLink<TU> GetLatestChanges
         {
             get;
         }
 
-        CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList);
+        CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList);
 
-        CardGroupBase<TU> GetAllAsCardGroupBase();
+        CardGroupHLink<TU> GetAllAsCardGroupBase();
 
-        CardGroup GetAllAsGroupedCardGroup();
+        CardGroupHLink<TU> GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.

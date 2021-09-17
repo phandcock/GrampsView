@@ -5,7 +5,6 @@
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// <br/>
@@ -14,7 +13,7 @@
     /// <seealso cref="GrampsView.Data.ViewModel.IRepositoryModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public sealed class RepositoryModel : ModelBase, IRepositoryModel, IComparable, IComparer
     {
         /// <summary>
@@ -39,7 +38,7 @@
         /// <summary>
         /// Gets or sets address collection.
         /// </summary>
-        [DataMember]
+
         public HLinkAddressModelCollection GAddress
         {
             get; set;
@@ -53,7 +52,7 @@
         /// <value>
         /// The note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get; set;
@@ -66,7 +65,7 @@
         /// <value>
         /// The name of the Repository.
         /// </value>
-        [DataMember]
+
         public string GRName
         {
             get => _RName;
@@ -80,7 +79,7 @@
         /// <value>
         /// The tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
 
         /// <summary>
@@ -89,7 +88,7 @@
         /// <value>
         /// The type of the repository.
         /// </value>
-        [DataMember]
+
         public string GType
         {
             get => _Type;
@@ -100,7 +99,7 @@
         /// <summary>
         /// Gets or sets URL collection.
         /// </summary>
-        [DataMember]
+
         public HLinkURLModelCollection GURL
         {
             get; set;

@@ -2,8 +2,6 @@
 
 namespace GrampsView.Data.Model
 {
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// GRAMPS Surname element class.
     ///
@@ -16,35 +14,30 @@ namespace GrampsView.Data.Model
             ModelItemGlyph.Symbol = Common.CommonConstants.IconSurname;
         }
 
-        [DataMember]
         public string GConnector
         {
             get;
             set;
         }
 
-        [DataMember]
         public string GDerivation
         {
             get;
             set;
         }
 
-        [DataMember]
         public string GPrefix
         {
             get;
             set;
         }
 
-        [DataMember]
         public bool GPrim
         {
             get;
             set;
         }
 
-        [DataMember]
         public string GText
         {
             get;

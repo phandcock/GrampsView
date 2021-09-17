@@ -3,8 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// Data model for a person reference.
     /// <list type="table">
@@ -18,7 +16,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     public sealed class HLinkPersonRefModel : HLinkPersonModel
     {
         public HLinkPersonRefModel()
@@ -27,7 +25,6 @@
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
-        [DataMember]
         public HLinkCitationModelCollection GCitationCollection
         {
             get; set;
@@ -41,7 +38,7 @@
         /// <value>
         /// The text.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteCollection
         {
             get; set;
@@ -49,7 +46,6 @@
 
             = new HLinkNoteModelCollection();
 
-        [DataMember]
         public string GRelationship
         {
             get; set;

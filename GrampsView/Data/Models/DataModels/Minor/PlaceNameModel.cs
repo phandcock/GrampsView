@@ -3,7 +3,6 @@
 namespace GrampsView.Data.Model
 {
     using System;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Gramps XML 1.71 value lang date-content
@@ -15,13 +14,10 @@ namespace GrampsView.Data.Model
         {
         }
 
-        [DataMember]
         public IDateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
-        [DataMember]
         public string GLang { get; set; } = string.Empty;
 
-        [DataMember]
         public string GValue { get; set; } = string.Empty;
 
         public HLinkPlaceNameModel HLink

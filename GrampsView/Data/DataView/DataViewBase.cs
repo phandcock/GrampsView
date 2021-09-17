@@ -64,7 +64,7 @@
             get;
         }
 
-        public virtual CardGroupBase<TU> GetLatestChanges
+        public virtual CardGroupHLink<TU> GetLatestChanges
         {
             get
             {
@@ -72,11 +72,11 @@
             }
         }
 
-        public virtual CardGroup AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
+        public virtual CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
             Contract.Assert(argReadOnlyList != null);
 
-            CardGroup t = new CardGroup();
+            CardGroupHLink<TU> t = new CardGroupHLink<TU>();
 
             foreach (var item in argReadOnlyList)
             {
@@ -86,12 +86,12 @@
             return t;
         }
 
-        public virtual CardGroupBase<TU> GetAllAsCardGroupBase()
+        public virtual CardGroupHLink<TU> GetAllAsCardGroupBase()
         {
             throw new NotImplementedException();
         }
 
-        public abstract CardGroup GetAllAsGroupedCardGroup();
+        public abstract CardGroupHLink<TU> GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.
@@ -205,6 +205,6 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public abstract CardGroupBase<TU> Search(string argQuery);
+        public abstract CardGroupHLink<TU> Search(string argQuery);
     }
 }

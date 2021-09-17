@@ -78,13 +78,19 @@
                 {
                     case nameof(IHLinkMediaModel):
                         {
-                            newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            if ((BindingContext as IHLinkMediaModel).Valid)
+                            {
+                                newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            }
                             break;
                         }
 
                     case nameof(HLinkMediaModel):
                         {
-                            newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            if ((BindingContext as IHLinkMediaModel).Valid)
+                            {
+                                newItemGlyph = (BindingContext as IHLinkMediaModel).DeRef.ModelItemGlyph;
+                            }
                             break;
                         }
 

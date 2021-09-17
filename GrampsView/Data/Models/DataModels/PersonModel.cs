@@ -5,6 +5,7 @@
 
     using System;
     using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -21,7 +22,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     [KnownType(typeof(HLinkFamilyModel))]
     public sealed class PersonModel : ModelBase, IPersonModel
     {
@@ -40,7 +41,7 @@
         /// <value>
         /// The birth date.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public DateObjectModel BirthDate
         {
             get; set;
@@ -51,7 +52,7 @@
         /// <summary>
         /// Gets or sets gaddress collection.
         /// </summary>
-        [DataMember]
+        [JsonInclude]
         public HLinkAddressModelCollection GAddressCollection
         {
             get; set;
@@ -65,7 +66,7 @@
         /// <value>
         /// The gattribute collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkAttributeModelCollection GAttributeCollection
         {
             get;
@@ -79,7 +80,7 @@
         /// <value>
         /// The child of.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkFamilyModel GChildOf
         {
             get;
@@ -93,7 +94,7 @@
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkCitationModelCollection GCitationRefCollection
         {
             get;
@@ -103,7 +104,7 @@
 
         /// <summary> Gets or sets the Event Reference Collection.
         // </summary>
-        [DataMember]
+        [JsonInclude]
         public HLinkEventModelCollection GEventRefCollection
         {
             get;
@@ -117,7 +118,7 @@
         /// <value>
         /// The gender.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public Gender GGender
         {
             get;
@@ -131,7 +132,7 @@
         /// <value>
         /// The GLDS collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public OCLdsOrdModelCollection GLDSCollection
         {
             get;
@@ -141,7 +142,7 @@
 
         /// <summary> Gets or sets Media In $$(hLink)$$.
         // </summary>
-        [DataMember]
+        [JsonInclude]
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get;
@@ -155,7 +156,7 @@
         /// <value>
         /// The Note reference.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -166,7 +167,7 @@
         /// <summary>
         /// Gets or sets the parent relationship collection.
         /// </summary>
-        [DataMember]
+        [JsonInclude]
         public HLinkFamilyModelCollection GParentInRefCollection
         {
             get;
@@ -177,7 +178,7 @@
         /// <summary>
         /// Gets or sets the Persons Birthname.
         /// </summary>
-        [DataMember]
+        [JsonInclude]
         public HLinkPersonNameModelCollection GPersonNamesCollection
         {
             get;
@@ -191,7 +192,7 @@
         /// <value>
         /// The g person reference collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkPersonRefModelCollection GPersonRefCollection { get; set; } = new HLinkPersonRefModelCollection();
 
         /// <summary>
@@ -200,7 +201,7 @@
         /// <value>
         /// The g tag reference collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
 
         /// <summary>
@@ -209,7 +210,7 @@
         /// <value>
         /// The URL collection.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public HLinkURLModelCollection GURLCollection { get; set; } = new HLinkURLModelCollection();
 
         /// <summary>
@@ -238,7 +239,7 @@
         /// <value>
         /// <c> true </c> if this instance is living; otherwise, <c> false </c>.
         /// </value>
-        [DataMember]
+        [JsonInclude]
         public bool IsLiving
         {
             get;

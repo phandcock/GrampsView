@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -20,7 +20,7 @@
     /// </list>
     /// <para> <br/> </para>
     /// </summary>
-    [DataContract]
+
     public class HLinkPlaceModel : HLinkBase, IHLinkPlaceModel
     {
         private PlaceModel _Deref = new PlaceModel();
@@ -41,6 +41,7 @@
         /// </value>
         public DateObjectModel Date { get; set; } = new DateObjectModelVal();
 
+        [JsonIgnore]
         public new PlaceModel DeRef
         {
             get
@@ -61,9 +62,6 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return DeRef;
-        }
+        // protected override IModelBase GetDeRef() { return DeRef; }
     }
 }

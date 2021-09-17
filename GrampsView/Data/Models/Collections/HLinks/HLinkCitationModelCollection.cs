@@ -15,7 +15,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Observable collection of Citation HLinks.
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
     public class HLinkCitationModelCollection : HLinkBaseCollection<HLinkCitationModel>
     {

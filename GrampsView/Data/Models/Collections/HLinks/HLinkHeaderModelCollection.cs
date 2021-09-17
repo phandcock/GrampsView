@@ -10,7 +10,7 @@
     /// <summary> Collection of Header HLinks <list type="table"><listheader><term><th> Status
     /// </term></listheader><item><description> XML 1.71 check </description><description> Done
     /// </description></item></list><para><br /></para> </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkHeaderModel>))]
     public class HLinkHeaderModelCollection : HLinkBaseCollection<HLinkHeaderModel>
     {

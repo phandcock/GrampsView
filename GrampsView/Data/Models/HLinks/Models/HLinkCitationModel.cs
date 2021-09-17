@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -19,7 +19,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     public class HLinkCitationModel : HLinkBase, IHLinkCitationModel
     {
         private CitationModel _Deref = new CitationModel();
@@ -38,6 +38,7 @@
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public new CitationModel DeRef
         {
             get
@@ -83,9 +84,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

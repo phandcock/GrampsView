@@ -6,10 +6,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
-    [DataContract]
     public class HLinkNoteModel : HLinkBase, IHLinkNoteModel
     {
         private NoteModel _Deref = new NoteModel();
@@ -22,6 +21,7 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
+        [JsonIgnore]
         public new NoteModel DeRef
         {
             get
@@ -42,9 +42,9 @@ namespace GrampsView.Data.Model
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

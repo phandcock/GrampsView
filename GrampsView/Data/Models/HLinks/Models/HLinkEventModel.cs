@@ -6,18 +6,17 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// HLink to Event Model but with its own fields as per Gramps
     /// </summary>
-    [DataContract]
+
     public class HLinkEventModel : HLinkBase, IHLinkEventModel
     {
         private EventModel _Deref = new EventModel();
 
-        [DataMember]
         private string _GRole;
 
         private bool DeRefCached = false;
@@ -34,6 +33,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The Event Model.
         /// </value>
+        [JsonIgnore]
         public new EventModel DeRef
         {
             get
@@ -54,7 +54,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The Attribute.
         /// </value>
-        [DataMember]
+
         public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g note model collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
 
         public string GRole
@@ -85,9 +85,9 @@ namespace GrampsView.Data.Model
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

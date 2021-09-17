@@ -5,7 +5,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -13,7 +12,7 @@
     /// Create Val version of DateObjectModel.
     /// </summary>
     /// TODO Update fields as per Schema
-    [DataContract]
+
     public class DateObjectModelVal : DateObjectModel, IDateObjectModelVal
     {
         /// <summary>
@@ -38,7 +37,7 @@
         public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
         {
             {
-                Contract.Requires(!String.IsNullOrEmpty(aVal));
+                Contract.Requires(!string.IsNullOrEmpty(aVal));
 
                 // Setup basics
                 ModelItemGlyph.Symbol = CommonConstants.IconDate;
@@ -85,7 +84,7 @@
         /// <summary>
         /// Gets the $$(cformat)$$ field.
         /// </summary>
-        [DataMember]
+
         public string GCformat
         {
             get
@@ -105,7 +104,7 @@
         /// <summary>
         /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
         /// </summary>
-        [DataMember]
+
         public bool GDualdated
         {
             get;
@@ -146,7 +145,7 @@
         /// <summary>
         /// Gets the New Year field.
         /// </summary>
-        [DataMember]
+
         public string GNewYear
         {
             get
@@ -166,7 +165,7 @@
         /// <summary>
         /// Get the Date Quality.
         /// </summary>
-        [DataMember]
+
         public DateQuality GQuality
         {
             get
@@ -183,7 +182,7 @@
         /// <summary>
         /// Gets the $$(val)$$ field.
         /// </summary>
-        [DataMember]
+
         public string GVal
         {
             get
@@ -206,7 +205,7 @@
         /// <value>
         /// The type of the g value.
         /// </value>
-        [DataMember]
+
         public DateValType GValType
         {
             get
@@ -239,6 +238,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 string dateString = string.Empty;
 
                 if (NotionalDate != DateTime.MinValue)
@@ -286,6 +290,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 string dateString = string.Empty;
 
                 if (NotionalDate != DateTime.MinValue)

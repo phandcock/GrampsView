@@ -6,7 +6,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -23,7 +22,7 @@
     /// </list>
     /// <para> <br/> </para>
     /// </summary>
-    [DataContract]
+
     public class AttributeModel : ModelBase, IAttributeModel
     {
         public AttributeModel()
@@ -38,7 +37,7 @@
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationReferenceCollection
         {
             get;
@@ -53,7 +52,7 @@
         /// <value>
         /// The note model reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteModelReferenceCollection
         {
             get;
@@ -68,7 +67,7 @@
         /// <value>
         /// The attribute text.
         /// </value>
-        [DataMember]
+
         public string GType
         {
             get;
@@ -83,7 +82,7 @@
         /// <value>
         /// The value text.
         /// </value>
-        [DataMember]
+
         public string GValue
         {
             get;

@@ -21,7 +21,7 @@
     /// </list>
     /// <para> <br/> </para>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkTagModel>))]
     public class HLinkTagModelCollection : HLinkBaseCollection<HLinkTagModel>
     {

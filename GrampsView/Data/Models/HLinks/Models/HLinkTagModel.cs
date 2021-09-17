@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -21,7 +21,6 @@
     /// <para> <br/> </para>
     /// </summary>
 
-    [DataContract]
     public class HLinkTagModel : HLinkBase, IHLinkTagModel
     {
         private TagModel _Deref = new TagModel();
@@ -40,6 +39,7 @@
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public new TagModel DeRef
         {
             get
@@ -60,9 +60,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

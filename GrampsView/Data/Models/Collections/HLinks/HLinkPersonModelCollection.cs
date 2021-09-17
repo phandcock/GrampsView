@@ -7,7 +7,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// Collection of Person HLinks
@@ -27,8 +27,7 @@
     /// GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}
     /// </seealso>
     /// TODO XML 1.71 check needed
-    [CollectionDataContract]
-    [KnownType(typeof(ObservableCollection<HLinkPersonModel>))]
+
     public class HLinkPersonModelCollection : HLinkBaseCollection<HLinkPersonModel>
     {
         public HLinkPersonModelCollection()
@@ -47,6 +46,7 @@
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public ObservableCollection<PersonModel> DeRef
         {
             get

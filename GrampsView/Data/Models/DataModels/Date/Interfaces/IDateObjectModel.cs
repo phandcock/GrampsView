@@ -13,12 +13,12 @@
             get;
         }
 
-        Nullable<int> GetDecade
+        string GetDecade
         {
             get;
         }
 
-        DateTime GetMonthDay
+        string GetMonthDay
         {
             get;
         }

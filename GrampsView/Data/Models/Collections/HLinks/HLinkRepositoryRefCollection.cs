@@ -11,7 +11,7 @@
     /// <para> Store a collection of Repository HLinks. </para>
     /// <para> XML 1.71 check done </para>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkRepositoryRefModel>))]
     public class HLinkRepositoryRefCollection : HLinkBaseCollection<HLinkRepositoryRefModel>
     {

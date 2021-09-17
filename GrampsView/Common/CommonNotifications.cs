@@ -9,7 +9,6 @@
 
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.Extensions;
@@ -20,7 +19,7 @@
     /// <summary>
     /// Common Notification routines.
     /// </summary>
-    [DataContract]
+
     public class CommonNotifications : ObservableObject, ICommonNotifications
     {
         /// <summary>
@@ -81,7 +80,8 @@
 
         public static void ShowPopUp()
         {
-            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            // Show only if popup not already shown
+            if (DataStore.Instance.CN.PopupQueue.Count == 1)
             {
                 DataStore.Instance.CN.PopUpShow();
             }

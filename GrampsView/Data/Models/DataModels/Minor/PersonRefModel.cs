@@ -5,12 +5,15 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
+    using System.Text.Json.Serialization;
+
     /// <summary>
     /// GRAMPS Alt element class. TODO Update fields as per Schema
     /// </summary>
     /// TODO Update fields as per Schema
     public class PersonRefModel : ModelBase, IPersonRefModel
     {
+        [JsonIgnore]
         public PersonModel DeRef
         {
             get

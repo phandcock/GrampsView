@@ -14,7 +14,6 @@
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -22,7 +21,7 @@
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
-    [DataContract]
+
     public sealed class DataRepositoryManager : ObservableObject, IDataRepositoryManager
     {
         /// <summary>

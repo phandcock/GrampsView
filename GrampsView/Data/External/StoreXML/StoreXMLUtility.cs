@@ -527,7 +527,7 @@
                 ErrorInfo t = new ErrorInfo("The URI in the Internet address is not well formed")
                     {
                         { "Exception Message ", ex.Message },
-                        { "xmlData", xmlData }
+                        { "URI", xmlData }
                     };
 
                 _iocCommonNotifications.NotifyError(t);
@@ -539,7 +539,7 @@
                 ErrorInfo t = new ErrorInfo("The URI in the Internet address is not in the correct format")
                     {
                         { "Exception Message ", ex.Message },
-                        { "xmlData", xmlData }
+                        { "URI", xmlData }
                     };
 
                 _iocCommonNotifications.NotifyError(t);

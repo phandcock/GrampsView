@@ -15,7 +15,7 @@ namespace GrampsView.Data.Repository
     /// <summary>
     /// Static Data Store.
     /// </summary>
-    [DataContract]
+
     [KnownType(typeof(ObservableCollection<object>))]
     public class DataInstance : ObservableObject
     {
@@ -101,7 +101,6 @@ namespace GrampsView.Data.Repository
         {
         }
 
-        [DataMember]
         public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
         {
             get
@@ -115,7 +114,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        [DataMember]
         public HLinkBackLinkModelCollection BookMarkCollection
         {
             get
@@ -132,7 +130,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local citation data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<CitationModel, HLinkCitationModel> CitationData
         {
             get
@@ -149,7 +147,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Event data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<EventModel, HLinkEventModel> EventData
         {
             get
@@ -166,7 +164,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Family data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> FamilyData
         {
             get
@@ -183,7 +181,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Header data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> HeaderData
         {
             get
@@ -201,7 +199,7 @@ namespace GrampsView.Data.Repository
         /// Gets or sets a value indicating whether this instance is data loaded.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is data loaded; otherwise, <c>false</c>.
+        /// <c> true </c> if this instance is data loaded; otherwise, <c> false </c>.
         /// </value>
 
         public bool IsDataLoaded
@@ -213,7 +211,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Media data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<MediaModel, HLinkMediaModel> MediaData
         {
             get
@@ -230,7 +228,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local NameMap data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData
         {
             get
@@ -247,7 +245,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Note data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
         {
             get
@@ -264,7 +262,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Person data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<PersonModel, HLinkPersonModel> PersonData
         {
             get
@@ -278,7 +276,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        [DataMember]
         public RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel> PersonNameData
         {
             get
@@ -295,7 +292,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Place data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<PlaceModel, HLinkPlaceModel> PlaceData
         {
             get
@@ -312,7 +309,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local Place data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> RepositoryData
         {
             get
@@ -329,7 +326,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// Gets or sets source Data repository.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<SourceModel, HLinkSourceModel> SourceData
         {
             get
@@ -346,7 +343,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local tag data.
         /// </summary>
-        [DataMember]
+
         public RepositoryModelDictionary<TagModel, HLinkTagModel> TagData
         {
             get

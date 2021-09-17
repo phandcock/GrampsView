@@ -4,7 +4,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -20,7 +20,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     public class HLinkMediaModel : HLinkBase, IHLinkMediaModel
     {
         private MediaModel _Deref = new MediaModel();
@@ -43,6 +43,7 @@
         /// The media model. <note type="caution"> This can not hold a local copy of the media model
         /// as the Model Base has a hlinkmediamodel in it and this will cause a reference loop </note>
         /// </value>
+        [JsonIgnore]
         public new IMediaModel DeRef
         {
             get
@@ -63,7 +64,7 @@
         /// <value>
         /// The Attribute.
         /// </value>
-        [DataMember]
+
         public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
 
         /// <summary>
@@ -72,7 +73,7 @@
         /// <value>
         /// The g citation model collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
 
         public int GCorner1X
@@ -101,7 +102,7 @@
         /// <value>
         /// The g note model collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
 
         /// <summary>
@@ -126,9 +127,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

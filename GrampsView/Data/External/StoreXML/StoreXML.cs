@@ -151,7 +151,7 @@
             // People last because they rely on pretty much everything else
             await LoadPeopleDataAsync().ConfigureAwait(false);
 
-            // Apart from BooMarks
+            // Apart from BookMarks
             await LoadBookMarksAsync().ConfigureAwait(false);
 
             return true;

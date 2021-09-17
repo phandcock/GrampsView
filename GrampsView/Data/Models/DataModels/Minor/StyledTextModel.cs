@@ -13,7 +13,6 @@ namespace GrampsView.Data.Model
     /// Styled Text model collection.
     /// </summary>
 
-    [DataContract]
     [KnownType(typeof(StyledTextModel))]
     public class StyledTextModel : ObservableObject, IStyledTextModel
     {
@@ -33,7 +32,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The text.
         /// </value>
-        [DataMember]
+
         public string GText
         {
             get => _GText;
@@ -41,7 +40,6 @@ namespace GrampsView.Data.Model
             set => SetProperty(ref _GText, value);
         }
 
-        [DataMember]
         public ObservableCollection<GrampsStyle> Styles
         {
             get

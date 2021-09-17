@@ -185,7 +185,7 @@
                         new CardListLine("Gender:", PersonObject.GGender.ToString()),
                 };
 
-            if (PersonObject.BirthDate != null)
+            if (PersonObject.BirthDate.Valid)
             {
                 if (PersonObject.IsLiving)
                 {

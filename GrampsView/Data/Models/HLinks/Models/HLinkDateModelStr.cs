@@ -5,13 +5,13 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// HLink to a Date Model.
     /// </summary>
-    [DataContract]
+
     public class HLinkDateModelStr : HLinkBase, IHLinkDateModel
     {
         public HLinkDateModelStr()
@@ -22,14 +22,13 @@ namespace GrampsView.Data.Model
             HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
         }
 
-        [DataMember]
+        [JsonIgnore]
         public new DateObjectModelStr DeRef
         {
             get;
             set;
         } = new DateObjectModelStr();
 
-        [DataMember]
         public string Title
         {
             get; set;
@@ -43,9 +42,9 @@ namespace GrampsView.Data.Model
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

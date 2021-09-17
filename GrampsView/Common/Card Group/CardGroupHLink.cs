@@ -2,6 +2,8 @@
 /// </summary>
 namespace GrampsView.Common
 {
+    using GrampsView.Data.Model;
+
     using System.Collections;
     using System.Collections.Generic;
     using System.Collections.Specialized;
@@ -14,14 +16,15 @@ namespace GrampsView.Common
 
     /// <summary>
     /// </summary>
-    public class CardGroupBase<T> : ObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
+    public class CardGroupHLink<T> : ObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
+          where T : HLinkBase, new()
     {
-        public CardGroupBase()
+        public CardGroupHLink()
         {
             this.CollectionChanged += Cards_CollectionChanged;
         }
 
-        public CardGroupBase(IEnumerable<T> argList)
+        public CardGroupHLink(IEnumerable<T> argList)
         {
             Contract.Assert(argList != null);
 
@@ -58,13 +61,16 @@ namespace GrampsView.Common
 
         public new void Add(T argItem)
         {
-            // Check if a duplicate
-            if (this.Contains(argItem))
+            if (argItem.Valid)
             {
-                return;
-            }
+                // Check if a duplicate
+                if (this.Contains(argItem))
+                {
+                    return;
+                }
 
-            base.Add(argItem);
+                base.Add(argItem);
+            }
         }
 
         public new void Clear()

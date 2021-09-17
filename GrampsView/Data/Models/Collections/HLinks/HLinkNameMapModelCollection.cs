@@ -13,7 +13,7 @@ namespace GrampsView.Data.Collections
 
     /// <summary>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkNameMapModel>))]
     public class HLinkNameMapModelCollection : HLinkBaseCollection<HLinkNameMapModel>
     {

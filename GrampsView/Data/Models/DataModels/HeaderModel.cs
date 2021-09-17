@@ -2,8 +2,6 @@
 {
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
-
     using Xamarin.Essentials;
 
     /// <summary>
@@ -19,7 +17,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [DataContract]
+
     public class HeaderModel : ModelBase, IHeaderModel
     {
         /// <summary>
@@ -89,7 +87,7 @@
         /// <summary>
         /// Gets or sets date the file was created.
         /// </summary>
-        [DataMember]
+
         public string GCreatedDate
         {
             get;
@@ -100,7 +98,7 @@
         /// <summary>
         /// Gets or sets the data version.
         /// </summary>
-        [DataMember]
+
         public string GCreatedVersion
         {
             get;
@@ -111,7 +109,7 @@
         /// <summary>
         /// Gets or sets the absolute path to the start of the media file file structure.
         /// </summary>
-        [DataMember]
+
         public string GMediaPath
         {
             get;
@@ -122,7 +120,7 @@
         /// <summary>
         /// Gets or sets the researchers address.
         /// </summary>
-        [DataMember]
+
         public string GResearcherAddress
         {
             get;
@@ -133,7 +131,7 @@
         /// <summary>
         /// Gets or sets the researchers city.
         /// </summary>
-        [DataMember]
+
         public string GResearcherCity
         {
             get;
@@ -144,7 +142,7 @@
         /// <summary>
         /// Gets or sets the researchers country.
         /// </summary>
-        [DataMember]
+
         public string GResearcherCountry
         {
             get;
@@ -155,7 +153,7 @@
         /// <summary>
         /// Gets or sets the researchers email address.
         /// </summary>
-        [DataMember]
+
         public string GResearcherEmail
         {
             get;
@@ -166,7 +164,7 @@
         /// <summary>
         /// Gets or sets the researchers locality.
         /// </summary>
-        [DataMember]
+
         public string GResearcherLocality
         {
             get;
@@ -177,7 +175,7 @@
         /// <summary>
         /// Gets or sets the researchers name.
         /// </summary>
-        [DataMember]
+
         public string GResearcherName
         {
             get;
@@ -188,7 +186,7 @@
         /// <summary>
         /// Gets or sets the researchers phone.
         /// </summary>
-        [DataMember]
+
         public string GResearcherPhone
         {
             get;
@@ -199,7 +197,7 @@
         /// <summary>
         /// Gets or sets the researchers postal address.
         /// </summary>
-        [DataMember]
+
         public string GResearcherPostal
         {
             get;
@@ -210,7 +208,7 @@
         /// <summary>
         /// Gets or sets the researchers state.
         /// </summary>
-        [DataMember]
+
         public string GResearcherState
         {
             get;

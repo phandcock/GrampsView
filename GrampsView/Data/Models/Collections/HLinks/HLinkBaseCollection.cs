@@ -5,14 +5,12 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
 
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// GRAMPS $$(Hlink)$$ element class.
     /// </summary>
-    [CollectionDataContract]
+
     public class HLinkBaseCollection<T> : CardGroupBase<T>, IHLinkCollectionBase<T>
          where T : HLinkBase, new()
     {
@@ -115,15 +113,16 @@ namespace GrampsView.Data.Model
 
         public virtual void Sort()
         {
+            // TODO Fix this
             // Sort the collection
-            List<T> t = this.OrderBy(x => x.DeRef.ToString()).ToList();
+            //List<T> t = this.OrderBy(x => x.DeRef.ToString()).ToList();
 
-            Items.Clear();
+            //Items.Clear();
 
-            foreach (T item in t)
-            {
-                Items.Add(item);
-            }
+            //foreach (T item in t)
+            //{
+            //    Items.Add(item);
+            //}
         }
 
         private ItemGlyph GetImage(int argIndex)

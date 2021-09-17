@@ -8,7 +8,7 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     //// gramps XML 1.71
     ////
@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Data model for a media object.
     /// </summary>
-    [DataContract]
+
     public sealed class MediaModel : ModelBase, IMediaModel, IComparable, IComparer
     {
         private string _FileContentType;
@@ -66,7 +66,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The type of the file content.
         /// </value>
-        [DataMember]
+
         public string FileContentType
         {
             get => _FileContentType;
@@ -92,14 +92,14 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The type of the file MIME sub.
         /// </value>
-        [DataMember]
+
         public string FileMimeSubType
         {
             get; set;
         }
 
         /// <summary> Gets or sets the file MIME type. </summary> <value> The file MIME type.
-        [DataMember]
+
         public string FileMimeType
         {
             get; set;
@@ -111,7 +111,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection
         {
             get;
@@ -126,7 +126,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The date value.
         /// </value>
-        [DataMember]
+
         public DateObjectModel GDateValue
         {
             get;
@@ -139,7 +139,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The file description.
         /// </value>
-        [DataMember]
+
         public string GDescription
         {
             get => _FileDescription;
@@ -153,7 +153,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get => _NoteReferenceCollection;
@@ -167,7 +167,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
 
         /// <summary>
@@ -189,7 +189,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        [DataMember]
         public HLinkKey InternalMediaFileOriginalHLink
         {
             get; set;
@@ -203,7 +202,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        [DataMember]
         public bool IsInternalMediaFile
         {
             get;
@@ -292,6 +290,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media storage file.
         /// </value>
+        [JsonIgnore]
         public IFileInfoEx MediaStorageFile
         {
             get => _MediaStorageFile;
@@ -345,7 +344,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The height of the meta data.
         /// </value>
-        [DataMember]
+
         public double MetaDataHeight
         {
             get; set;
@@ -357,7 +356,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The width of the meta data.
         /// </value>
-        [DataMember]
+
         public double MetaDataWidth
         {
             get; set;
@@ -369,7 +368,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The original file path.
         /// </value>
-        [DataMember]
+
         public string OriginalFilePath
         {
             get => _OriginalFilePath;

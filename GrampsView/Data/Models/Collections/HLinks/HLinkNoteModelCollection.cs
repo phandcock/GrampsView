@@ -18,7 +18,7 @@ namespace GrampsView.Data.Collections
     /// Collection of HLinks to Notes.
     /// </summary>
     /// <seealso cref="Data.ViewModel.HLinkBaseCollection{Data.ViewModel.HLinkNoteModel}"/>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkNoteModel>))]
     public class HLinkNoteModelCollection : HLinkBaseCollection<HLinkNoteModel>
     {

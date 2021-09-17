@@ -4,7 +4,6 @@
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Create Str version of DateObjectModel.
@@ -75,7 +74,7 @@
         /// <summary>
         /// Gets the $$(val)$$ field.
         /// </summary>
-        [DataMember]
+
         public string GVal
         {
             get
@@ -117,6 +116,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 return GVal;
             }
         }
@@ -131,6 +135,11 @@
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 return GVal;
             }
         }

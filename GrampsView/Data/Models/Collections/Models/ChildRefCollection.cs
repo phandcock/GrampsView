@@ -11,7 +11,6 @@ namespace GrampsView.Data.Collections
     /// ChildRefmodel collection
     /// </summary>
 
-    [CollectionDataContract]
     [KnownType(typeof(HLinkBaseCollection<HLinkChildRefModel>))]
     public class ChildRefCollectionCollection : HLinkBaseCollection<HLinkChildRefModel>
     {

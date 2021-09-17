@@ -2,7 +2,7 @@
 {
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// HLink to the Header model.
@@ -10,7 +10,6 @@
     /// XML 1.71 check done
     /// </summary>
 
-    [DataContract]
     public class HLinkHeaderModel : HLinkBase, IHLinkHeaderModel
     {
         private HeaderModel _Deref = new HeaderModel();
@@ -28,6 +27,7 @@
         /// <value>
         /// The de reference.
         /// </value>
+        [JsonIgnore]
         public new HeaderModel DeRef
         {
             get
@@ -42,9 +42,9 @@
             }
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected  IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

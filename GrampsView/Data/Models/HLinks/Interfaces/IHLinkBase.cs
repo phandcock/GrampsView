@@ -11,6 +11,9 @@
             get; set;
         }
 
+        //[JsonIgnore]
+        //public IModelBase DeRef { get; }
+
         /// <summary>
         /// Gets or sets the h link key.
         /// </summary>

@@ -34,7 +34,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.IComparable"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     [KnownType(typeof(HLinkPersonModel))]
     public sealed class FamilyModel : ModelBase, IFamilyModel
     {
@@ -53,7 +53,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g attribute collection.
         /// </value>
-        [DataMember]
+
         public HLinkAttributeModelCollection GAttributeCollection
         {
             get;
@@ -67,7 +67,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g child reference collection.
         /// </value>
-        [DataMember]
+
         public ChildRefCollectionCollection GChildRefCollection
         {
             get;
@@ -83,7 +83,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection
         {
             get;
@@ -91,7 +91,6 @@ namespace GrampsView.Data.Model
             set;
         } = new HLinkCitationModelCollection();
 
-        [DataMember]
         public DateObjectModel GDate
         {
             get; set;
@@ -103,7 +102,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The event collection.
         /// </value>
-        [DataMember]
+
         public HLinkEventModelCollection GEventRefCollection
         {
             get; set;
@@ -115,7 +114,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The family relationship.
         /// </value>
-        [DataMember]
+
         public string GFamilyRelationship
         {
             get;
@@ -129,7 +128,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The fathers h link.
         /// </value>
-        [DataMember]
+
         public HLinkPersonModel GFather
         {
             get;
@@ -137,7 +136,6 @@ namespace GrampsView.Data.Model
             set;
         } = new HLinkPersonModel();
 
-        [DataMember]
         public OCLdsOrdModelCollection GLDSOrdCollection
         {
             get;
@@ -151,7 +149,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g media reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get;
@@ -165,7 +163,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The mothers h link.
         /// </value>
-        [DataMember]
+
         public HLinkPersonModel GMother
         {
             get;
@@ -179,7 +177,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -193,7 +191,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection
         {
             get; set;

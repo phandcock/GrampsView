@@ -3,7 +3,7 @@
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// data model for an Date object ************************************************************.
@@ -44,7 +44,7 @@
     /// </code>
     /// </summary>
 
-    public abstract class DateObjectModel : ModelBase, IDateObjectModel, IComparable
+    public class DateObjectModel : ModelBase, IDateObjectModel, IComparable
     {
         /// <summary>
         /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
@@ -60,11 +60,8 @@
         /// </list>
         /// <para> <br/> </para>
         /// </summary>
-        private DateTime _NotionalDate;
 
-        public DateObjectModel()
-        {
-        }
+        private DateTime _NotionalDate;
 
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is
@@ -73,7 +70,8 @@
         /// <returns>
         /// age.
         /// </returns>
-        public abstract int? GetAge
+
+        public virtual int? GetAge
         {
             get;
         }
@@ -84,29 +82,30 @@
         /// <value>
         /// The get decade.
         /// </value>
-        public Nullable<int> GetDecade
+
+        public string GetDecade
         {
             get
             {
                 if (!Valid)
                 {
-                    return 0;
+                    return string.Empty;
                 }
 
-                return ((int)Math.Floor(NotionalDate.Year / 10.0)) * 10;
+                return $"{((int)Math.Floor(NotionalDate.Year / 10.0)) * 10:0000}";
             }
         }
 
-        public DateTime GetMonthDay
+        public string GetMonthDay
         {
             get
             {
                 if (!Valid)
                 {
-                    return DateTime.MinValue;
+                    return string.Empty;
                 }
 
-                return new DateTime(DateTime.MinValue.Year, NotionalDate.Month, NotionalDate.Day);
+                return $"{NotionalDate.Month:00}{NotionalDate.Day:00}";
             }
         }
 
@@ -116,9 +115,13 @@
         /// <value>
         /// The date year.
         /// </value>
-        public abstract string GetYear
+
+        public virtual string GetYear
         {
-            get;
+            get
+            {
+                return NotionalDate.Year.ToString();
+            }
         }
 
         /// <summary>
@@ -155,7 +158,8 @@
         /// <summary>
         /// Gets the default Date field.
         /// </summary>
-        [DataMember]
+
+        [JsonInclude]
         public DateTime NotionalDate
         {
             get
@@ -163,7 +167,7 @@
                 return _NotionalDate;
             }
 
-            internal set
+            set
             {
                 SetProperty(ref _NotionalDate, value);
             }
@@ -237,16 +241,13 @@
         /// <value>
         /// <c> true </c> if [date valid]; otherwise, <c> false </c>.
         /// </value>
-        [DataMember]
+
         public new bool Valid { get; set; } = false;
 
-        [DataMember]
         public bool ValidDay { get; set; } = false;
 
-        [DataMember]
         public bool ValidMonth { get; set; } = false;
 
-        [DataMember]
         public bool ValidYear { get; set; } = false;
 
         /// <summary>
@@ -356,7 +357,10 @@
             return left is null ? right is null : left.CompareTo(right) >= 0;
         }
 
-        public abstract CardListLineCollection AsCardListLine(string argTitle = null);
+        public virtual CardListLineCollection AsCardListLine(string argTitle = null)
+        {
+            return new CardListLineCollection();
+        }
 
         public CardListLineCollection AsCardListLineBaseDate(string argTitle = "Date Detail")
         {
@@ -390,7 +394,10 @@
                 };
         }
 
-        public abstract HLinkBase AsHLink(string v);
+        public virtual HLinkBase AsHLink(string v)
+        {
+            return null;
+        }
 
         /// <summary>
         /// Compares two objects and returns a value indicating whether one is less than, equal to,

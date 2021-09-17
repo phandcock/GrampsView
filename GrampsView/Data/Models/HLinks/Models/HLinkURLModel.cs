@@ -2,7 +2,7 @@
 {
     using GrampsView.Common;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -20,7 +20,6 @@
     /// <para> <br/> </para>
     /// </summary>
 
-    [DataContract]
     public class HLinkURLModel : HLinkBase, IHLinkURLModel
     {
         public HLinkURLModel()
@@ -35,7 +34,8 @@
         /// <value>
         /// The de reference.
         /// </value>
-        [DataMember]
+
+        [JsonIgnore]
         public new URLModel DeRef
         {
             get;
@@ -64,9 +64,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected  IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

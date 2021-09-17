@@ -6,7 +6,6 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
 
     /// TODO Update fields as per Schema
     /// <summary>
@@ -16,7 +15,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
     // </code> </summary>
-    [DataContract]
+
     public sealed class NameMapModel : ModelBase, INameMapModel, IComparable, IComparer
     {
         /// <summary>

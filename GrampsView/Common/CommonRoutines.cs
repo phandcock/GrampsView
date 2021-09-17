@@ -5,12 +5,11 @@
     using GrampsView.Data.Repository;
     using GrampsView.Views;
 
-    using Newtonsoft.Json;
-
     using System;
     using System.Diagnostics;
     using System.IO;
     using System.Reflection;
+    using System.Text.Json;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
@@ -43,7 +42,7 @@
         // Deserialise object
         public static T GetHLinkParameter<T>(string dataIn) where T : new()
         {
-            T ser = JsonConvert.DeserializeObject<T>(Uri.UnescapeDataString(dataIn));
+            T ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString(dataIn));
 
             return ser;
         }

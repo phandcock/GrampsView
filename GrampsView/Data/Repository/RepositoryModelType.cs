@@ -12,7 +12,6 @@ namespace GrampsView.Data.Repositories
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// </summary>
@@ -27,7 +26,7 @@ namespace GrampsView.Data.Repositories
     /// <seealso cref="GrampsView.Data.Repositories.IRepositoryModelDictionary{T, U}"/>
     /// /// /// /// /// /// /// ///
     /// <seealso cref="System.ComponentViewModel.INotifyPropertyChanged"/>
-    [DataContract]
+
     public class RepositoryModelDictionary<T1, T2> : Dictionary<string, T1>, IRepositoryModelDictionary<T1, T2>
         where T1 : ModelBase, new()
         where T2 : HLinkBase, new()

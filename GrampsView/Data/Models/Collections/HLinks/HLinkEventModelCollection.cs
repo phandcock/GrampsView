@@ -8,6 +8,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// Collection of Event HLinks
@@ -22,7 +23,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkEventModel>))]
     public class HLinkEventModelCollection : HLinkBaseCollection<HLinkEventModel>
     {
@@ -37,6 +38,7 @@
         /// <value>
         /// The dereference.
         /// </value>
+        [JsonIgnore]
         public ObservableCollection<EventModel> DeRef
         {
             get

@@ -1,14 +1,12 @@
 ﻿namespace GrampsView.Data.Model
 {
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
     /// </summary>
-    [CollectionDataContract]
-    [KnownType(typeof(ObservableRangeCollection<CardListLine>))]
+
     public class CardListLineCollection : ObservableRangeCollection<CardListLine>
     {
         public CardListLineCollection()

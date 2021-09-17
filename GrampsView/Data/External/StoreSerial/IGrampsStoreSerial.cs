@@ -9,6 +9,8 @@
 
 namespace GrampsView.Data.External.StoreSerial
 {
+    using GrampsView.Data.Repository;
+
     using System.Threading.Tasks;
 
     /// <summary>
@@ -19,7 +21,7 @@ namespace GrampsView.Data.External.StoreSerial
         /// <summary>
         /// Des the serialize repository.
         /// </summary>
-        void DeSerializeRepository();
+        Task DeSerializeRepository();
 
         /// <summary>
         /// Serializes the object.
@@ -29,6 +31,6 @@ namespace GrampsView.Data.External.StoreSerial
         /// </param>
         /// <returns>
         /// </returns>
-        bool SerializeObject(object theObject);
+        Task SerializeObject(DataInstance theObject);
     }
 }

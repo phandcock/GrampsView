@@ -2,7 +2,6 @@
 {
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// XML 1.71 not part of
@@ -13,13 +12,11 @@
         {
         }
 
-        [DataMember]
         public int End
         {
             get; set;
         }
 
-        [DataMember]
         public int Start
         {
             get; set;

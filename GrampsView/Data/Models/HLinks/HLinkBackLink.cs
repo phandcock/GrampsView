@@ -5,58 +5,45 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-
-    using System.Runtime.Serialization;
+    using GrampsView.Common.CustomClasses;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
 
     /// TODO Update fields as per Schema
-    [DataContract]
+
     public class HLinkBackLink : HLinkBase
     {
-        [DataMember]
         private HLinkAdressModel _HLinkAddressModel;
 
-        [DataMember]
         private HLinkCitationModel _HLinkCitationModel;
 
-        [DataMember]
         private HLinkEventModel _HLinkEventModel;
 
-        [DataMember]
         private HLinkFamilyModel _HLinkFamilyModel;
 
-        [DataMember]
         private HLinkMediaModel _HLinkMediaModel;
 
-        [DataMember]
         private HLinkNameMapModel _HLinkNameMapModel;
 
-        [DataMember]
         private HLinkNoteModel _HLinkNoteModel;
 
-        [DataMember]
         private HLinkPersonModel _HLinkPersonModel;
 
-        [DataMember]
         private HLinkPersonNameModel _HLinkPersonNameModel;
 
-        [DataMember]
         private HLinkPlaceModel _HLinkPlaceModel;
 
-        [DataMember]
         private HLinkRepositoryModel _HLinkRepositoryModel;
 
-        [DataMember]
         private HLinkSourceModel _HLinkSourceModel;
 
-        [DataMember]
         private HLinkTagModel _HLinkTagModel;
 
         public HLinkBackLink()
         {
+            HLinkKey = HLinkKey.NewAsGUID();
         }
 
         public HLinkBackLink(HLinkAdressModel ArgHLinkLink)
@@ -266,7 +253,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        [DataMember]
         public HLinkBackLinkEnum HLinkType { get; set; } = HLinkBackLinkEnum.Unknown;
 
         public override bool Valid
@@ -292,9 +278,9 @@ namespace GrampsView.Data.Model
             return HLinkKey.GetHashCode();
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.HLink.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.HLink.DeRef;
+        //}
     }
 }

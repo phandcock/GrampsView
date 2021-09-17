@@ -10,7 +10,6 @@ namespace GrampsView.Data.DataView
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     /// <summary>
     // Event repository </summary>
@@ -54,7 +53,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The citation data.
         /// </value>
-        [DataMember]
+
         public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData
         {
             get

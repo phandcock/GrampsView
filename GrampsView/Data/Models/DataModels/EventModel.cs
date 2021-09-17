@@ -4,7 +4,6 @@
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -20,7 +19,7 @@
     /// <seealso cref="System.IComparable"/>
     /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public sealed class EventModel : ModelBase, IEventModel
     {
         /// <summary>
@@ -33,7 +32,7 @@
         }
 
         // TODO display different text according to the model types
-        [DataMember]
+
         public EventModelType EventType
         {
             get;
@@ -47,7 +46,7 @@
         /// <value>
         /// The attribute.
         /// </value>
-        [DataMember]
+
         public HLinkAttributeModelCollection GAttribute
         {
             get;
@@ -62,7 +61,7 @@
         /// <value>
         /// The g citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection
         {
             get;
@@ -76,7 +75,7 @@
         /// <value>
         /// The event date.
         /// </value>
-        [DataMember]
+
         public DateObjectModel GDate
         {
             get;
@@ -90,7 +89,7 @@
         /// <value>
         /// The Event description.
         /// </value>
-        [DataMember]
+
         public string GDescription
         {
             get;
@@ -104,7 +103,7 @@
         /// <value>
         /// The g media reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get;
@@ -118,7 +117,7 @@
         /// <value>
         /// The note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -132,7 +131,7 @@
         /// <value>
         /// The g place.
         /// </value>
-        [DataMember]
+
         public HLinkPlaceModel GPlace
         {
             get;
@@ -146,7 +145,7 @@
         /// <value>
         /// The g tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection
         {
             get;
@@ -160,7 +159,7 @@
         /// <value>
         /// The type of the Event.
         /// </value>
-        [DataMember]
+
         public string GType
         {
             get;

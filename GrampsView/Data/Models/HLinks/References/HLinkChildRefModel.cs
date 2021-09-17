@@ -5,13 +5,13 @@
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// TODO xml 1.71 needed Child Reference model
     /// </summary>
-    [DataContract]
+
     public class HLinkChildRefModel : HLinkBase, IHLinkChildRefModel
     {
         private PersonModel _Deref = new PersonModel();
@@ -24,6 +24,7 @@
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
+        [JsonIgnore]
         public new PersonModel DeRef
         {
             get
@@ -44,7 +45,7 @@
         /// <value>
         /// The citation collection reference.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationCollectionReference
         {
             get; set;
@@ -52,7 +53,6 @@
 
         = new HLinkCitationModelCollection();
 
-        [DataMember]
         public string GFatherRel
         {
             get;
@@ -61,7 +61,6 @@
 
         = string.Empty;
 
-        [DataMember]
         public string GMotherRel
         {
             get;
@@ -76,7 +75,7 @@
         /// <value>
         /// The note collection reference.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteCollectionReference
         {
             get; set;
@@ -103,9 +102,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

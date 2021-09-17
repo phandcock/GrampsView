@@ -11,7 +11,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// Surname model collection.
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<SurnameModel>))]
     public class SurnameModelCollection : CardGroupBase<SurnameModel>
     {

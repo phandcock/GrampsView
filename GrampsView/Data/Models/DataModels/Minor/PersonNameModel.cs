@@ -6,7 +6,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.Collections;
 
     using System;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// TODO Update fields as per Schema Class for holding a person's name.
@@ -25,7 +24,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.Model.IPersonNameModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public class PersonNameModel : ModelBase, IPersonNameModel
     {
         public PersonNameModel()
@@ -106,8 +105,8 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g alt.
         /// </value>
-        [DataMember]
-        public IAltModel GAlt { get; set; } = new AltModel();
+
+        public AltModel GAlt { get; set; } = new AltModel();
 
         /// <summary>
         /// Gets or sets the call details.
@@ -115,7 +114,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g call.
         /// </value>
-        [DataMember]
+
         public string GCall
         {
             get; set;
@@ -129,7 +128,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection
         {
             get; set;
@@ -143,7 +142,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The date.
         /// </value>
-        [DataMember]
+
         public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         /// <summary>
@@ -152,7 +151,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g display.
         /// </value>
-        [DataMember]
+
         public string GDisplay
         {
             get;
@@ -165,7 +164,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g family nick.
         /// </value>
-        [DataMember]
+
         public string GFamilyNick
         {
             get; set;
@@ -177,7 +176,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The first name of the g.
         /// </value>
-        [DataMember]
+
         public string GFirstName
         {
             get;
@@ -191,7 +190,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g group.
         /// </value>
-        [DataMember]
+
         public string GGroup
         {
             get; set;
@@ -203,7 +202,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g nick.
         /// </value>
-        [DataMember]
+
         public string GNick
         {
             get; set;
@@ -215,7 +214,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteReferenceCollection
         {
             get; set;
@@ -229,7 +228,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g sort.
         /// </value>
-        [DataMember]
+
         public string GSort
         {
             get;
@@ -243,7 +242,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g suffix.
         /// </value>
-        [DataMember]
+
         public string GSuffix
         {
             get; set;
@@ -255,7 +254,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The name of the g sur.
         /// </value>
-        [DataMember]
+
         public SurnameModelCollection GSurName
         {
             get;
@@ -271,7 +270,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g title.
         /// </value>
-        [DataMember]
+
         public string GTitle
         {
             get; set;
@@ -283,7 +282,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The type of the g.
         /// </value>
-        [DataMember]
+
         public string GType
         {
             get;

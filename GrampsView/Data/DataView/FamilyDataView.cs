@@ -12,7 +12,6 @@ namespace GrampsView.Data.DataView
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     // The Family Repository </summary>
     public class FamilyDataView : DataViewBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>, IFamilyDataView
@@ -52,7 +51,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The family data.
         /// </value>
-        [DataMember]
+
         public RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> FamilyData
         {
             get

@@ -6,10 +6,9 @@ namespace GrampsView.Data.Model
     using GrampsView.Data.DataView;
     using GrampsView.Views;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
-    [DataContract]
     public class HLinkPersonNameModel : HLinkBase, IHLinkPersonNameModel
     {
         private PersonNameModel _Deref = new PersonNameModel();
@@ -22,6 +21,7 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
+        [JsonIgnore]
         public new PersonNameModel DeRef
         {
             get
@@ -68,9 +68,9 @@ namespace GrampsView.Data.Model
             await UCNavigateBase(this, nameof(PersonNameDetailPage));
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

@@ -4,12 +4,10 @@
 
     using System;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
-    [DataContract]
     public partial class StoreFolder : ObservableObject
     {
         /// <summary>
@@ -104,7 +102,5 @@
 
             return false;
         }
-
-      
     }
 }

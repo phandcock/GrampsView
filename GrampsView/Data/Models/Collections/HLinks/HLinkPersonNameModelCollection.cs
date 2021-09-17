@@ -15,7 +15,7 @@ namespace GrampsView.Data.Collections
     /// Attribute model collection.
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.AttributeModel}"/>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkPersonNameModel>))]
     public class HLinkPersonNameModelCollection : HLinkBaseCollection<HLinkPersonNameModel>
     {

@@ -20,7 +20,7 @@
     /// </item>
     /// </list>
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
     public class HLinkPlaceModelCollection : HLinkBaseCollection<HLinkPlaceModel>
     {

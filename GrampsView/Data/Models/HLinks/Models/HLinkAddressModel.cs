@@ -3,13 +3,13 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
-    using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
     /// HLink to an Address model. Not in XML Schema so use the standard hlink
     /// </summary>
-    [DataContract]
+
     public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
     {
         private AddressModel _Deref = new AddressModel();
@@ -28,6 +28,7 @@
         /// <value>
         /// The address model.
         /// </value>
+        [JsonIgnore]
         public new AddressModel DeRef
         {
             get
@@ -93,9 +94,9 @@
             return;
         }
 
-        protected override IModelBase GetDeRef()
-        {
-            return this.DeRef;
-        }
+        //protected override IModelBase GetDeRef()
+        //{
+        //    return this.DeRef;
+        //}
     }
 }

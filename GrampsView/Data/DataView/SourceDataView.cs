@@ -12,7 +12,6 @@ namespace GrampsView.Data.DataView
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     public class SourceDataView : DataViewBase<SourceModel, HLinkSourceModel, HLinkSourceModelCollection>, ISourceDataView
     {
@@ -75,7 +74,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The person data.
         /// </value>
-        [DataMember]
+
         public RepositoryModelDictionary<SourceModel, HLinkSourceModel> SourceData
         {
             get

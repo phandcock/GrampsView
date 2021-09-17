@@ -3,11 +3,9 @@
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
 
-    using Newtonsoft.Json;
-
     using System;
     using System.Diagnostics.Contracts;
-    using System.Runtime.Serialization;
+    using System.Text.Json;
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -27,7 +25,7 @@
     /// <para> <br/> </para>
     /// </summary>
     /// TODO Update fields as per Schema
-    [DataContract]
+
     public abstract class HLinkBase : ObservableObject, IHLinkBase
     {
         public HLinkBase()
@@ -35,17 +33,11 @@
             UCNavigateCommand = new AsyncCommand(UCNavigate);
         }
 
-        public IModelBase DeRef
-        {
-            get
-            {
-                return this.GetDeRef();
-            }
-        }
+        //[JsonIgnore]
+        //public abstract IModelBase DeRef { get; }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
 
-        [DataMember]
         public ItemGlyph HLinkGlyphItem
         {
             get;
@@ -59,7 +51,7 @@
         /// <value>
         /// The h link key.
         /// </value>
-        [DataMember]
+
         public HLinkKey HLinkKey
         {
             get;
@@ -67,7 +59,6 @@
             set;
         } = new HLinkKey();
 
-        [DataMember]
         public bool Priv
         {
             get;
@@ -122,7 +113,7 @@
         // if (obj is null) { return false; }
         public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
         {
-            string ser = JsonConvert.SerializeObject(dataIn);
+            string ser = JsonSerializer.Serialize(dataIn);
 
             await CommonRoutines.NavigateAsync($"{argPage}?BaseParamsHLink={ser}");
         }
@@ -147,7 +138,7 @@
         }
 
         // TODO fix when using c# and covariant classes
-        protected abstract IModelBase GetDeRef();
+        //protected abstract IModelBase GetDeRef();
 
         //public static bool operator !=(HLinkBase left, HLinkBase right)
         //{

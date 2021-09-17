@@ -13,7 +13,6 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
     using System.Text.RegularExpressions;
 
     using Xamarin.Forms;
@@ -21,7 +20,7 @@ namespace GrampsView.Data.Model
     /// <summary>
     /// Data model for a note.
     /// </summary>
-    [DataContract]
+
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
         private FormattedString _TextFormatted = new FormattedString();
@@ -38,7 +37,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// <c> true </c> if format; otherwise, <c> false </c>.
         /// </value>
-        [DataMember]
+
         public bool GIsFormated
         {
             get;
@@ -46,7 +45,6 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        [DataMember]
         public StyledTextModel GStyledText { get; set; } = new StyledTextModel();
 
         /// <summary>
@@ -55,7 +53,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection
         {
             get; set;
@@ -70,7 +68,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The type.
         /// </value>
-        [DataMember]
+
         public string GType
         {
             get;

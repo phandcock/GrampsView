@@ -1,29 +1,31 @@
 ﻿namespace GrampsView.Converters
 {
-    using Newtonsoft.Json;
-
     using System;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// Convert Xamarin.Forms.Color to Hex string and back. The normal converter seems to reset
     /// eveything to the 0 value. <note type="note"> TODO Remove when serial convertor fixed. </note>
     /// </summary>
-    /// <seealso cref="Newtonsoft.Json.JsonConverter"/>
-    internal class NewtonSoftColorConverter : JsonConverter
+    /// <seealso cref="System.Text.Json.JsonConverter"/>
+    internal class JsonColorConverter : JsonConverter<Color>
     {
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(Xamarin.Forms.Color);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override Color Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            return Xamarin.Forms.Color.FromHex(Convert.ToString(reader.Value, System.Globalization.CultureInfo.CurrentCulture));
+            return Color.FromHex(Convert.ToString(reader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void Write(Utf8JsonWriter writer, Color value, JsonSerializerOptions options)
         {
-            writer.WriteValue(((Xamarin.Forms.Color)value).ToHex());
+            writer.WriteStringValue(value.ToHex());
         }
     }
 }

@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -13,28 +12,24 @@
     //// range
     /// </summary>
 
-    [DataContract]
     public class GrampsStyle : ModelBase, IGrampsStyle, IComparable<GrampsStyle>, IEquatable<GrampsStyle>
     {
         public GrampsStyle()
         {
         }
 
-        [DataMember]
         public List<GrampsStyleRangeModel> GRange
         {
             get; set;
         }
         = new List<GrampsStyleRangeModel>();
 
-        [DataMember]
         public TextStyle GStyle
         {
             get; set;
         }
         = TextStyle.unknown;
 
-        [DataMember]
         public string GValue
         {
             get; set;

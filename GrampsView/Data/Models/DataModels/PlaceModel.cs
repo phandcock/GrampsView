@@ -7,7 +7,6 @@ namespace GrampsView.Data.Model
 
     using System;
     using System.Collections;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -28,7 +27,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.ViewModel.IPlaceModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
-    [DataContract]
+
     public sealed class PlaceModel : ModelBase, IPlaceModel, IComparable, IComparer
     {
         /// <summary>
@@ -46,7 +45,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets the g citation reference collection.
         /// </summary>
-        [DataMember]
+
         public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
 
         /// <summary>
@@ -55,7 +54,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The gp code.
         /// </value>
-        [DataMember]
+
         public string GCode
         {
             get;
@@ -63,19 +62,16 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        [DataMember]
         public double GCoordLat
         {
             get; set;
         }
 
-        [DataMember]
         public double GCoordLong
         {
             get; set;
         }
 
-        [DataMember]
         public PlaceLocationCollection GLocation { get; set; } = new PlaceLocationCollection();
 
         /// <summary>
@@ -84,7 +80,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkMediaModelCollection GMediaRefCollection
         {
             get;
@@ -98,7 +94,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g note reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get;
@@ -106,7 +102,6 @@ namespace GrampsView.Data.Model
             set;
         } = new HLinkNoteModelCollection();
 
-        [DataMember]
         public HLinkPlaceNameModelCollection GPlaceNames
         {
             get;
@@ -120,7 +115,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g place reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkPlaceModelCollection GPlaceParentCollection
         {
             get;
@@ -134,7 +129,7 @@ namespace GrampsView.Data.Model
         ///// <value>
         ///// The gp title.
         ///// </value>
-        [DataMember]
+
         public string GPTitle
         {
             get;
@@ -148,7 +143,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g tag reference collection.
         /// </value>
-        [DataMember]
+
         public HLinkTagModelCollection GTagRefCollection
         {
             get
@@ -157,7 +152,6 @@ namespace GrampsView.Data.Model
             set;
         } = new HLinkTagModelCollection();
 
-        [DataMember]
         public string GType
         {
             get;
@@ -168,7 +162,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Gets or sets uRL model collection.
         /// </summary>
-        [DataMember]
+
         public HLinkURLModelCollection GURLCollection
         {
             get; set;
@@ -195,7 +189,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        [DataMember]
         public HLinkPlaceModelCollection PlaceChildCollection
         {
             get;

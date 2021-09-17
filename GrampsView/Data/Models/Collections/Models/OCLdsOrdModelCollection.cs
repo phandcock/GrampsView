@@ -13,7 +13,7 @@ namespace GrampsView.Data.Collections
     /// <summary>
     /// LDS Ordination model collection
     /// </summary>
-    [CollectionDataContract]
+
     [KnownType(typeof(ObservableCollection<LdsOrdModel>))]
     public class OCLdsOrdModelCollection : CardGroupBase<LdsOrdModel>
     {
