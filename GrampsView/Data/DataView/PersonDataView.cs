@@ -94,7 +94,7 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public override CardGroupBase<HLinkPersonModel> GetLatestChanges
+        public override HLinkPersonModelCollection GetLatestChanges
         {
             get
             {
@@ -102,7 +102,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkPersonModel> returnCardGroup = new CardGroupBase<HLinkPersonModel>();
+                HLinkPersonModelCollection returnCardGroup = new HLinkPersonModelCollection();
 
                 foreach (PersonModel item in tt)
                 {
@@ -130,30 +130,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        ///// <summary>
-        ///// Collections the sort birth date asc.
-        ///// </summary>
-        ///// <param name="collectionArg">
-        ///// The collection argument.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //public static ObservableCollection<PersonModel> CollectionSortBirthDateAsc(ObservableCollection<PersonModel> collectionArg)
-        //{
-        //    if (collectionArg == null)
-        //    {
-        //        return null;
-        //    }
-
-        // // sort the list IEnumerable<PersonModel> sortedList = collectionArg.OrderBy(PersonModel
-        // => PersonModel.BirthDate).OrderBy(x => x.GPersonNamesCollection.GetPrimaryName.DeRef);
-
-        //    return new ObservableCollection<PersonModel>(sortedList);
-        //}
-
-        public override CardGroupBase<HLinkPersonModel> GetAllAsCardGroupBase()
+        public override HLinkPersonModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkPersonModel> t = new CardGroupBase<HLinkPersonModel>();
+            HLinkPersonModelCollection t = new HLinkPersonModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -165,9 +144,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public CardGroup GetAllAsGroupedBirthDayCardGroup()
+        public Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkPersonModelCollection> t = new Group<HLinkPersonModelCollection>();
 
             IEnumerable<(string GroupName, IGrouping<string, PersonModel> Items)> query = from item in DataViewData
                                                                                           orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef
@@ -180,7 +159,7 @@ namespace GrampsView.Data.DataView
 
             foreach ((string GroupName, IGrouping<string, PersonModel> Items) g in query)
             {
-                CardGroupBase<HLinkPersonModel> info = new CardGroupBase<HLinkPersonModel>
+                HLinkPersonModelCollection info = new HLinkPersonModelCollection
                 {
                     Title = $"{g.Items.FirstOrDefault().BirthDate.NotionalDate:MMM dd}",
                 };
@@ -196,9 +175,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkPersonModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkPersonModelCollection> t = new Group<HLinkPersonModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.GPersonNamesCollection.GetPrimaryName.DeRef
@@ -211,7 +190,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroup info = new CardGroup
+                HLinkPersonModelCollection info = new HLinkPersonModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -332,9 +311,9 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// List of Serch HLinks.
         /// </returns>
-        public override CardGroupBase<HLinkPersonModel> Search(string argQuery)
+        public override HLinkPersonModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkPersonModel> itemsFound = new CardGroupBase<HLinkPersonModel>
+            HLinkPersonModelCollection itemsFound = new HLinkPersonModelCollection
             {
                 Title = "People"
             };
@@ -345,7 +324,7 @@ namespace GrampsView.Data.DataView
             }
 
             // Get list of peoples names
-            CardGroupBase<HLinkPersonNameModel> tt = DV.PersonNameDV.Search(argQuery);
+            HLinkPersonNameModelCollection tt = DV.PersonNameDV.Search(argQuery);
 
             // Convert to HLinkPersonModels
             List<HLinkPersonModel> ttt = new List<HLinkPersonModel>();

@@ -89,12 +89,12 @@
         /// <value>
         /// The base detail.
         /// </value>
-        public CardGroup BaseDetail
+        public Group<object> BaseDetail
         {
             get; set;
         }
 
-        = new CardGroup();
+        = new Group<object>();
 
         /// <summary>
         /// Gets or sets the base event aggregator.

@@ -53,7 +53,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkPlaceModel> GetLatestChanges
+        public override HLinkPlaceModelCollection GetLatestChanges
         {
             get
             {
@@ -61,7 +61,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkPlaceModel> returnCardGroup = new CardGroupBase<HLinkPlaceModel>();
+                HLinkPlaceModelCollection returnCardGroup = new HLinkPlaceModelCollection();
 
                 foreach (PlaceModel item in tt)
                 {
@@ -89,9 +89,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkPlaceModel> GetAllAsCardGroupBase()
+        public override HLinkPlaceModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkPlaceModel> t = new CardGroupBase<HLinkPlaceModel>();
+            HLinkPlaceModelCollection t = new HLinkPlaceModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -103,9 +103,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkPlaceModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkPlaceModelCollection> t = new Group<HLinkPlaceModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.ToString()
@@ -118,7 +118,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroup info = new CardGroup
+                HLinkPlaceModelCollection info = new HLinkPlaceModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -189,9 +189,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkPlaceModel> Search(string argQuery)
+        public override HLinkPlaceModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkPlaceModel> itemsFound = new CardGroupBase<HLinkPlaceModel>
+            HLinkPlaceModelCollection itemsFound = new HLinkPlaceModelCollection
             {
                 Title = "Places"
             };

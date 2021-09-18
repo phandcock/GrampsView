@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using Prism.Events;
@@ -17,7 +18,7 @@
             BaseTitleIcon = CommonConstants.IconPeopleBirthday;
         }
 
-        public CardGroup PersonSource
+        public Group<HLinkPersonModelCollection> PersonSource
         {
             get
             {

@@ -48,7 +48,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupHLink<HLinkNoteModel> GetLatestChanges
+        public override HLinkNoteModelCollection GetLatestChanges
 
         {
             get
@@ -57,7 +57,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkNoteModel> returnCardGroup = new CardGroupBase<HLinkNoteModel>();
+                HLinkNoteModelCollection returnCardGroup = new HLinkNoteModelCollection();
 
                 foreach (NoteModel item in tt)
                 {
@@ -78,9 +78,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkNoteModel> GetAllAsCardGroupBase()
+        public override HLinkNoteModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkNoteModel> t = new CardGroupBase<HLinkNoteModel>();
+            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -92,9 +92,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroupBase<NoteModel> GetAllAsGroupedCardGroup()
+        public override Group<HLinkNoteModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroupModel<NoteModel> t = new CardGroupModel<NoteModel>();
+            Group<HLinkNoteModelCollection> t = new Group<HLinkNoteModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.GType, item.ToString()
@@ -107,7 +107,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkNoteModel> info = new CardGroupBase<HLinkNoteModel>
+                HLinkNoteModelCollection info = new HLinkNoteModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -151,11 +151,18 @@ namespace GrampsView.Data.DataView
         /// </param>
         /// <returns>
         /// </returns>
-        public CardGroupBase<INoteModel> GetAllOfType(string argType)
+        public CardGroupModel<NoteModel> GetAllOfType(string argType)
         {
-            IEnumerable<INoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
+            CardGroupModel<NoteModel> t = new CardGroupModel<NoteModel>();
 
-            return new CardGroupBase<INoteModel>(q);
+            IEnumerable<NoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
+
+            foreach (var item in q)
+            {
+                t.Add(item);
+            }
+
+            return new CardGroupModel<NoteModel>(q);
         }
 
         public override NoteModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
@@ -203,9 +210,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkNoteModel> Search(string queryString)
+        public override HLinkNoteModelCollection Search(string queryString)
         {
-            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>();
+            HLinkNoteModelCollection itemsFound = new HLinkNoteModelCollection();
 
             if (string.IsNullOrEmpty(queryString))
             {
@@ -225,9 +232,9 @@ namespace GrampsView.Data.DataView
             return itemsFound;
         }
 
-        public CardGroupBase<HLinkNoteModel> SearchTag(string argQuery)
+        public CardGroupHLink<HLinkNoteModel> SearchTag(string argQuery)
         {
-            CardGroupBase<HLinkNoteModel> itemsFound = new CardGroupBase<HLinkNoteModel>
+            CardGroupHLink<HLinkNoteModel> itemsFound = new CardGroupHLink<HLinkNoteModel>
             {
                 Title = "Notes"
             };

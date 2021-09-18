@@ -72,7 +72,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkEventModel> GetLatestChanges
+        public override HLinkEventModelCollection GetLatestChanges
         {
             get
             {
@@ -80,7 +80,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkEventModel> returnCardGroup = new CardGroupBase<HLinkEventModel>();
+                HLinkEventModelCollection returnCardGroup = new HLinkEventModelCollection();
 
                 foreach (EventModel item in tt)
                 {
@@ -129,9 +129,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkEventModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkEventModelCollection> t = new Group<HLinkEventModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.GDate
@@ -144,7 +144,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkEventModel> info = new CardGroupBase<HLinkEventModel>
+                HLinkEventModelCollection info = new HLinkEventModelCollection
                 {
                     Title = g.GroupName.ToString(),
                 };
@@ -273,9 +273,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkEventModel> Search(string argQuery)
+        public override HLinkEventModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkEventModel> itemsFound = new CardGroupBase<HLinkEventModel>
+            HLinkEventModelCollection itemsFound = new HLinkEventModelCollection
             {
                 Title = "Events"
             };

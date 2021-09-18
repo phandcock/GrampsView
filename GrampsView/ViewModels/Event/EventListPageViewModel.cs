@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     public class EventListViewModel : ViewModelBase
@@ -16,7 +17,7 @@
             BaseTitleIcon = CommonConstants.IconEvents;
         }
 
-        public CardGroup EventSource
+        public Group<HLinkEventModelCollection> EventSource
         {
             get
             {

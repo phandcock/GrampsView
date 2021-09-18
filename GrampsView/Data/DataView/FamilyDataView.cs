@@ -60,7 +60,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkFamilyModel> GetLatestChanges
+        public override HLinkFamilyModelCollection GetLatestChanges
         {
             get
             {
@@ -68,7 +68,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkFamilyModel> returnCardGroup = new CardGroupBase<HLinkFamilyModel>();
+                HLinkFamilyModelCollection returnCardGroup = new HLinkFamilyModelCollection();
 
                 foreach (FamilyModel item in tt)
                 {
@@ -81,9 +81,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkFamilyModel> GetAllAsCardGroupBase()
+        public override HLinkFamilyModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkFamilyModel> t = new CardGroupBase<HLinkFamilyModel>();
+            HLinkFamilyModelCollection t = new HLinkFamilyModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -95,9 +95,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkFamilyModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkFamilyModelCollection> t = new Group<HLinkFamilyModelCollection>();
 
             // Union on the Father and Mother Surnames first
             var queryBase = (
@@ -129,7 +129,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkFamilyModel> info = new CardGroupBase<HLinkFamilyModel>
+                HLinkFamilyModelCollection info = new HLinkFamilyModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -310,9 +310,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkFamilyModel> Search(string argQuery)
+        public override HLinkFamilyModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkFamilyModel> itemsFound = new CardGroupBase<HLinkFamilyModel>
+            HLinkFamilyModelCollection itemsFound = new HLinkFamilyModelCollection
             {
                 Title = "Families"
             };

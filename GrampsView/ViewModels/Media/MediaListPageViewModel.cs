@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using Prism.Events;
@@ -23,7 +24,7 @@
             BaseTitleIcon = CommonConstants.IconMedia;
         }
 
-        public CardGroup MediaSource
+        public Group<HLinkMediaModelCollection> MediaSource
         {
             get
             {

@@ -45,7 +45,7 @@
         /// <returns>
         /// CardGroup
         /// </returns>
-        public CardGroupBase<HLinkEventModel> EventsIncFamily
+        public HLinkEventModelCollection EventsIncFamily
         {
             get
             {

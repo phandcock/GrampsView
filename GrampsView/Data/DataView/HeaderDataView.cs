@@ -82,9 +82,9 @@
         /// <remarks>
         /// Assume sonly one header as per the spec.
         /// </remarks>
-        public override CardGroupBase<HLinkHeaderModel> GetAllAsCardGroupBase()
+        public override HLinkHeaderModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkHeaderModel> t = new CardGroupBase<HLinkHeaderModel>();
+            HLinkHeaderModelCollection t = new HLinkHeaderModelCollection();
 
             t.Add(HeaderDataModel.HLink);
 
@@ -93,7 +93,7 @@
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
+        public override Group<HLinkHeaderModelCollection> GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
 
         public override HeaderModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
@@ -133,9 +133,9 @@
             return tt;
         }
 
-        public override CardGroupBase<HLinkHeaderModel> Search(string argQuery)
+        public override HLinkHeaderModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkHeaderModel> itemsFound = new CardGroupBase<HLinkHeaderModel>();
+            HLinkHeaderModelCollection itemsFound = new HLinkHeaderModelCollection();
 
             return itemsFound;
         }

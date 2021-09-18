@@ -38,7 +38,7 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = CommonConstants.IconRepository;
         }
 
-        public CardGroupBase<HLinkRepositoryModel> RepositorySource
+        public CardGroupHLink<HLinkRepositoryModel> RepositorySource
         {
             get
             {

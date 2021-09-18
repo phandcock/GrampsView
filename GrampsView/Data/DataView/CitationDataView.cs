@@ -54,7 +54,7 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public override CardGroupBase<HLinkCitationModel> GetLatestChanges
+        public override HLinkCitationModelCollection GetLatestChanges
         {
             get
             {
@@ -62,7 +62,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkCitationModel> returnCardGroup = new CardGroupBase<HLinkCitationModel>();
+                HLinkCitationModelCollection returnCardGroup = new HLinkCitationModelCollection();
 
                 foreach (ICitationModel item in tt)
                 {
@@ -75,9 +75,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkCitationModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkCitationModelCollection> t = new Group<HLinkCitationModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.ToString(), item.GDateContent, item.GPage
@@ -90,7 +90,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkCitationModel> info = new CardGroupBase<HLinkCitationModel>
+                HLinkCitationModelCollection info = new HLinkCitationModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -161,9 +161,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkCitationModel> Search(string argQuery)
+        public override HLinkCitationModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkCitationModel> itemsFound = new CardGroupBase<HLinkCitationModel>
+            HLinkCitationModelCollection itemsFound = new HLinkCitationModelCollection
             {
                 Title = "Citations"
             };

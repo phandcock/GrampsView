@@ -52,7 +52,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkRepositoryModel> GetLatestChanges
+        public override HLinkRepositoryModelCollection GetLatestChanges
         {
             get
             {
@@ -60,7 +60,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkRepositoryModel> returnCardGroup = new CardGroupBase<HLinkRepositoryModel>();
+                HLinkRepositoryModelCollection returnCardGroup = new HLinkRepositoryModelCollection();
 
                 foreach (RepositoryModel item in tt)
                 {
@@ -89,9 +89,9 @@ namespace GrampsView.Data.DataView
         }
 
         // TODO cleanup up this code
-        public override CardGroupBase<HLinkRepositoryModel> GetAllAsCardGroupBase()
+        public override HLinkRepositoryModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkRepositoryModel> t = new CardGroupBase<HLinkRepositoryModel>();
+            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -103,7 +103,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup() => throw new NotImplementedException();
+        public override Group<HLinkRepositoryModelCollection> GetAllAsGroupedCardGroup() => throw new NotImplementedException();
 
         /// <summary>
         /// Gets all as hlink.
@@ -160,9 +160,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkRepositoryModel> Search(string argQuery)
+        public override HLinkRepositoryModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkRepositoryModel> itemsFound = new CardGroupBase<HLinkRepositoryModel>
+            HLinkRepositoryModelCollection itemsFound = new HLinkRepositoryModelCollection
             {
                 Title = "Repositories"
             };

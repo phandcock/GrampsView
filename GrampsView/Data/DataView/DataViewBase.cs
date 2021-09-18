@@ -64,7 +64,7 @@
             get;
         }
 
-        public virtual CardGroupHLink<TU> GetLatestChanges
+        public virtual TH GetLatestChanges
         {
             get
             {
@@ -86,12 +86,12 @@
             return t;
         }
 
-        public virtual CardGroupHLink<TU> GetAllAsCardGroupBase()
+        public virtual TH GetAllAsCardGroupBase()
         {
             throw new NotImplementedException();
         }
 
-        public abstract CardGroupHLink<TU> GetAllAsGroupedCardGroup();
+        public abstract Group<TH> GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.
@@ -184,19 +184,6 @@
             return collectionArg;
         }
 
-        ///// <summary>
-        ///// New instance of ViewModel.
-        ///// </summary>
-        ///// <returns>
-        ///// New model instance.
-        ///// </returns>
-        //public virtual TB NewModel()
-        //{
-        //    TB t = new TB();
-
-        //    return t;
-        //}
-
         /// <summary>
         /// Searches the items.
         /// </summary>
@@ -205,6 +192,6 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public abstract CardGroupHLink<TU> Search(string argQuery);
+        public abstract TH Search(string argQuery);
     }
 }

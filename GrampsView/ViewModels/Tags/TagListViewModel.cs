@@ -36,7 +36,7 @@
         /// <value>
         /// The tag source.
         /// </value>
-        public CardGroupBase<HLinkTagModel> TagSource
+        public CardGroupHLink<HLinkTagModel> TagSource
         {
             get
             {

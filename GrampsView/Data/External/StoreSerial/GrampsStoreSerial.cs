@@ -253,10 +253,7 @@
 
             // Special converter for colours
             serialzerOptions.Converters.Add(new Converters.JsonColorConverter());
-
-            //// Handle derived classes (e.g. DateObjectModel) at the cost of possible security
-            //// issues. TODO Mitigate the security risk.
-            //serialzerOptions. = TypeNameHandling.Auto;
+            serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
 
             //// TODO Why does this work Preserve reference data
             //serialzerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;

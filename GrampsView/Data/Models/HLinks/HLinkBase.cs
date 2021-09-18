@@ -26,15 +26,12 @@
     /// </summary>
     /// TODO Update fields as per Schema
 
-    public abstract class HLinkBase : ObservableObject, IHLinkBase
+    public class HLinkBase : ObservableObject, IHLinkBase
     {
         public HLinkBase()
         {
             UCNavigateCommand = new AsyncCommand(UCNavigate);
         }
-
-        //[JsonIgnore]
-        //public abstract IModelBase DeRef { get; }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
 

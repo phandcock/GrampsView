@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
+    using GrampsView.Data.Model;
 
     using Prism.Events;
 
@@ -14,7 +15,7 @@
             BaseTitleIcon = CommonConstants.IconBookMark;
         }
 
-        public CardGroup BookMarkSource
+        public CardGroupHLink<HLinkBackLink> BookMarkSource
         {
             get
             {

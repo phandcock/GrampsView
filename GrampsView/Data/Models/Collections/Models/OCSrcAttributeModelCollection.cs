@@ -10,7 +10,7 @@ namespace GrampsView.Data.Collections
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.SrcAttributeModel}"/>
 
-    public class OCSrcAttributeModelCollection : CardGroupBase<SrcAttributeModel>
+    public class OCSrcAttributeModelCollection : CardGroupModel<SrcAttributeModel>
     {
         public OCSrcAttributeModelCollection()
         {

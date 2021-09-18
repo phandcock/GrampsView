@@ -5,6 +5,7 @@
 
     using Prism.Events;
 
+    using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Threading.Tasks;
@@ -53,12 +54,12 @@
             }
         }
 
-        public CardGroup ItemsFoundList
+        public List<object> ItemsFoundList
         {
             get; set;
         }
 
-        = new CardGroup();
+        = new List<object>();
 
         /// <summary>
         /// Gets the search button command.
@@ -75,7 +76,7 @@
         /// Gets or sets a value indicating whether [search items found].
         /// </summary>
         /// <value>
-        /// <c>true</c> if [search items found]; otherwise, <c>false</c>.
+        /// <c> true </c> if [search items found]; otherwise, <c> false </c>.
         /// </value>
         public bool SearchItemsFound
         {

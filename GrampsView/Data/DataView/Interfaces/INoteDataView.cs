@@ -46,8 +46,8 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// HLinkNoteModel
         /// </returns>
-        CardGroupBase<INoteModel> GetAllOfType(string argType);
+        CardGroupModel<NoteModel> GetAllOfType(string argType);
 
-        CardGroupBase<HLinkNoteModel> SearchTag(string queryString);
+        CardGroupHLink<HLinkNoteModel> SearchTag(string queryString);
     }
 }

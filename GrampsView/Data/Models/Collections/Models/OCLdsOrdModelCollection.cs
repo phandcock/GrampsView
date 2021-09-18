@@ -15,7 +15,7 @@ namespace GrampsView.Data.Collections
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<LdsOrdModel>))]
-    public class OCLdsOrdModelCollection : CardGroupBase<LdsOrdModel>
+    public class OCLdsOrdModelCollection : CardGroupModel<LdsOrdModel>
     {
         public OCLdsOrdModelCollection()
         {

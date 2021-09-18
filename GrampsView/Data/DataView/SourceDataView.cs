@@ -47,7 +47,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkSourceModel> GetLatestChanges
+        public override HLinkSourceModelCollection GetLatestChanges
         {
             get
             {
@@ -55,7 +55,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkSourceModel> returnCardGroup = new CardGroupBase<HLinkSourceModel>();
+                HLinkSourceModelCollection returnCardGroup = new HLinkSourceModelCollection();
 
                 foreach (SourceModel item in tt)
                 {
@@ -85,9 +85,9 @@ namespace GrampsView.Data.DataView
             // set { this.SetProperty(ref DataStore.Instance.DS.SourceData, value); }
         }
 
-        public override CardGroupBase<HLinkSourceModel> GetAllAsCardGroupBase()
+        public override HLinkSourceModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkSourceModel> t = new CardGroupBase<HLinkSourceModel>();
+            HLinkSourceModelCollection t = new HLinkSourceModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -99,9 +99,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkSourceModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkSourceModelCollection> t = new Group<HLinkSourceModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.GetDefaultRepository, item.GSTitle
@@ -114,7 +114,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkSourceModel> info = new CardGroupBase<HLinkSourceModel>
+                HLinkSourceModelCollection info = new HLinkSourceModelCollection
                 {
                     Title = g.GroupName.ToString(),
                 };
@@ -185,9 +185,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkSourceModel> Search(string argQuery)
+        public override HLinkSourceModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkSourceModel> itemsFound = new CardGroupBase<HLinkSourceModel>
+            HLinkSourceModelCollection itemsFound = new HLinkSourceModelCollection
             {
                 Title = "Sources"
             };

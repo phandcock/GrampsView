@@ -42,6 +42,7 @@
                 // Setup basics
                 ModelItemGlyph.Symbol = CommonConstants.IconDate;
                 ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+                //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
 
                 HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
 
@@ -92,7 +93,7 @@
                 return _GCformat;
             }
 
-            internal set
+            set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
@@ -109,7 +110,7 @@
         {
             get;
 
-            internal set;
+            set;
         }
 
         public override int? GetAge
@@ -153,7 +154,7 @@
                 return _GNewYear;
             }
 
-            internal set
+            set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
@@ -173,7 +174,7 @@
                 return _GQuality;
             }
 
-            internal set
+            set
             {
                 SetProperty(ref _GQuality, value);
             }
@@ -190,7 +191,7 @@
                 return _GVal;
             }
 
-            internal set
+            set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
@@ -213,7 +214,7 @@
                 return _GValType;
             }
 
-            internal set
+            set
             {
                 SetProperty(ref _GValType, value);
             }

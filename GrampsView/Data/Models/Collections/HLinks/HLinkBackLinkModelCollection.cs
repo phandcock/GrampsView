@@ -22,11 +22,11 @@
             Title = "BackLink Collection";
         }
 
-        public CardGroup AsGroupedCardGroup
+        public Group<HLinkBackLinkModelCollection> AsGroupedCardGroup
         {
             get
             {
-                CardGroup t = new CardGroup();
+                Group<HLinkBackLinkModelCollection> t = new Group<HLinkBackLinkModelCollection>();
 
                 var query = from item in Items
                             orderby item.HLinkType
@@ -40,14 +40,14 @@
 
                 foreach (var g in query)
                 {
-                    CardGroup info = new CardGroup()
+                    HLinkBackLinkModelCollection info = new HLinkBackLinkModelCollection()
                     {
                         Title = g.GroupName.ToString(),
                     };
 
                     foreach (var item in g.Items)
                     {
-                        info.Add(item.HLink);
+                        info.Add(item);
                     }
 
                     t.Add(info);
@@ -57,15 +57,15 @@
             }
         }
 
-        public override CardGroup CardGroupAsProperty
+        public override CardGroupHLink<HLinkBackLink> CardGroupAsProperty
         {
             get
             {
-                CardGroup t = new CardGroup();
+                CardGroupHLink<HLinkBackLink> t = new CardGroupHLink<HLinkBackLink>();
 
                 foreach (HLinkBackLink item in Items)
                 {
-                    t.Add(item.HLink);
+                    t.Add(item);
                 }
 
                 t.Title = Title;

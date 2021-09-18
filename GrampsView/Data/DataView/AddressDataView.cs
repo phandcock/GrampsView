@@ -57,9 +57,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkAdressModel> GetAllAsCardGroupBase()
+        public override HLinkAddressModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkAdressModel> t = new CardGroupBase<HLinkAdressModel>();
+            HLinkAddressModelCollection t = new HLinkAddressModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -71,9 +71,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkAddressModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkAddressModelCollection> t = new Group<HLinkAddressModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.ToString()
@@ -86,7 +86,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<IHLinkAddressModel> info = new CardGroupBase<IHLinkAddressModel>
+                HLinkAddressModelCollection info = new HLinkAddressModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -157,9 +157,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkAdressModel> Search(string argQuery)
+        public override HLinkAddressModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkAdressModel> itemsFound = new CardGroupBase<HLinkAdressModel>
+            HLinkAddressModelCollection itemsFound = new HLinkAddressModelCollection
             {
                 Title = "Addresses"
             };

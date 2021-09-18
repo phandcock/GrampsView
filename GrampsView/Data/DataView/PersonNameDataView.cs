@@ -59,9 +59,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkPersonNameModel> GetAllAsCardGroupBase()
+        public override HLinkPersonNameModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkPersonNameModel> t = new CardGroupBase<HLinkPersonNameModel>();
+            HLinkPersonNameModelCollection t = new HLinkPersonNameModelCollection();
 
             foreach (PersonNameModel item in DataDefaultSort)
             {
@@ -71,7 +71,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
+        public override Group<HLinkPersonNameModelCollection> GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
 
         /// <summary>
         /// Gets all as hlink.
@@ -128,11 +128,11 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkPersonNameModel> Search(string argQuery)
+        public override HLinkPersonNameModelCollection Search(string argQuery)
         {
             argQuery = argQuery.ToLower();
 
-            CardGroupBase<HLinkPersonNameModel> itemsFound = new CardGroupBase<HLinkPersonNameModel>
+            HLinkPersonNameModelCollection itemsFound = new HLinkPersonNameModelCollection
             {
                 Title = "Person Names"
             };

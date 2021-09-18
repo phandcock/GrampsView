@@ -51,16 +51,16 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        CardGroupHLink<TU> GetLatestChanges
+        TH GetLatestChanges
         {
             get;
         }
 
         CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList);
 
-        CardGroupHLink<TU> GetAllAsCardGroupBase();
+        TH GetAllAsCardGroupBase();
 
-        CardGroupHLink<TU> GetAllAsGroupedCardGroup();
+        Group<TH> GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Gets all as ViewModel.
@@ -114,13 +114,6 @@ namespace GrampsView.Data.DataView
         /// </returns>
         TH HLinkCollectionSort(TH collectionArg);
 
-        ///// <summary>
-        ///// News this instance.
-        ///// </summary>
-        ///// <returns>
-        ///// </returns>
-        //T NewModel();
-
         /// <summary>
         /// Searches the specified query string.
         /// </summary>
@@ -130,6 +123,6 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// CardGroupBase list
         /// </returns>
-        CardGroupBase<TU> Search(string queryString);
+        TH Search(string queryString);
     }
 }

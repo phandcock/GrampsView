@@ -35,7 +35,7 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        CardGroup GetAllAsGroupedBirthDayCardGroup();
+        Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup();
 
         /// <summary>
         /// Gets all as hlink.
@@ -56,15 +56,5 @@ namespace GrampsView.Data.DataView
         ObservableCollection<EventModel> GetPersonPlusFamilyEvents(PersonModel argPerson);
 
         List<HLinkPersonModel> SearchShell(string argQuery);
-
-        ///// <summary>
-        ///// Gets the default image from collection.
-        ///// </summary>
-        ///// <param name="argModel">
-        ///// The argument ViewModel.
-        ///// </param>
-        ///// <returns>
-        ///// </returns>
-        //HLinkGlyph GetDefaultImageFromCollection(PersonModel argModel);
     }
 }

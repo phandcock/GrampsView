@@ -41,6 +41,7 @@
             // Setup basics
             ModelItemGlyph.Symbol = CommonConstants.IconDate;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelSpan;
 
             HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
 

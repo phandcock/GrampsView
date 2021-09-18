@@ -59,7 +59,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkTagModel> GetLatestChanges
+        public override HLinkTagModelCollection GetLatestChanges
         {
             get
             {
@@ -67,7 +67,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkTagModel> returnCardGroup = new CardGroupBase<HLinkTagModel>();
+                HLinkTagModelCollection returnCardGroup = new HLinkTagModelCollection();
 
                 foreach (TagModel item in tt)
                 {
@@ -95,9 +95,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkTagModel> GetAllAsCardGroupBase()
+        public override HLinkTagModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkTagModel> t = new CardGroupBase<HLinkTagModel>();
+            HLinkTagModelCollection t = new HLinkTagModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -109,9 +109,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkTagModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkTagModelCollection> t = new Group<HLinkTagModelCollection>();
 
             var query = from item in DataViewData
                         orderby item.GName
@@ -125,7 +125,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkTagModel> info = new CardGroupBase<HLinkTagModel>
+                HLinkTagModelCollection info = new HLinkTagModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -197,9 +197,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkTagModel> Search(string argQuery)
+        public override HLinkTagModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkTagModel> itemsFound = new CardGroupBase<HLinkTagModel>
+            HLinkTagModelCollection itemsFound = new HLinkTagModelCollection
 
             {
                 Title = "Tags"

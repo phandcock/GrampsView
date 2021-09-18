@@ -62,9 +62,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override CardGroupBase<HLinkNameMapModel> GetAllAsCardGroupBase()
+        public override HLinkNameMapModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkNameMapModel> t = new CardGroupBase<HLinkNameMapModel>();
+            HLinkNameMapModelCollection t = new HLinkNameMapModelCollection();
 
             foreach (var item in DataDefaultSort)
             {
@@ -76,7 +76,7 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
+        public override Group<HLinkNameMapModelCollection> GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
 
         /// <summary>
         /// Gets all as hlink.
@@ -133,9 +133,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override CardGroupBase<HLinkNameMapModel> Search(string argQuery)
+        public override HLinkNameMapModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkNameMapModel> itemsFound = new CardGroupBase<HLinkNameMapModel>
+            HLinkNameMapModelCollection itemsFound = new HLinkNameMapModelCollection
             {
                 Title = "Name Maps"
             };

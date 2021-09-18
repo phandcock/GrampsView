@@ -9,6 +9,7 @@ namespace GrampsView.Data.Repository
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -101,6 +102,7 @@ namespace GrampsView.Data.Repository
         {
         }
 
+        [JsonInclude]
         public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
         {
             get
@@ -114,6 +116,7 @@ namespace GrampsView.Data.Repository
             }
         }
 
+        [JsonInclude]
         public HLinkBackLinkModelCollection BookMarkCollection
         {
             get
@@ -131,6 +134,7 @@ namespace GrampsView.Data.Repository
         /// The local citation data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<CitationModel, HLinkCitationModel> CitationData
         {
             get
@@ -148,6 +152,7 @@ namespace GrampsView.Data.Repository
         /// The local Event data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<EventModel, HLinkEventModel> EventData
         {
             get
@@ -165,6 +170,7 @@ namespace GrampsView.Data.Repository
         /// The local Family data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> FamilyData
         {
             get
@@ -182,6 +188,7 @@ namespace GrampsView.Data.Repository
         /// The local Header data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> HeaderData
         {
             get
@@ -212,6 +219,7 @@ namespace GrampsView.Data.Repository
         /// The local Media data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<MediaModel, HLinkMediaModel> MediaData
         {
             get
@@ -229,6 +237,7 @@ namespace GrampsView.Data.Repository
         /// The local NameMap data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData
         {
             get
@@ -246,6 +255,7 @@ namespace GrampsView.Data.Repository
         /// The local Note data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
         {
             get
@@ -263,6 +273,7 @@ namespace GrampsView.Data.Repository
         /// The local Person data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<PersonModel, HLinkPersonModel> PersonData
         {
             get
@@ -276,6 +287,7 @@ namespace GrampsView.Data.Repository
             }
         }
 
+        [JsonInclude]
         public RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel> PersonNameData
         {
             get
@@ -293,6 +305,7 @@ namespace GrampsView.Data.Repository
         /// The local Place data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<PlaceModel, HLinkPlaceModel> PlaceData
         {
             get
@@ -310,6 +323,7 @@ namespace GrampsView.Data.Repository
         /// The local Place data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> RepositoryData
         {
             get
@@ -327,6 +341,7 @@ namespace GrampsView.Data.Repository
         /// Gets or sets source Data repository.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<SourceModel, HLinkSourceModel> SourceData
         {
             get
@@ -344,6 +359,7 @@ namespace GrampsView.Data.Repository
         /// The local tag data.
         /// </summary>
 
+        [JsonInclude]
         public RepositoryModelDictionary<TagModel, HLinkTagModel> TagData
         {
             get

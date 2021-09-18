@@ -11,7 +11,7 @@
     public partial class CollectionSingleCardGrouped : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(CardGroup), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCardGrouped), propertyChanged: OnItemTemplateChanged);
@@ -30,11 +30,11 @@
         /// <value>
         /// The Control Item Source.
         /// </value>
-        public CardGroup FsctSource
+        public object FsctSource
         {
             get
             {
-                return (CardGroup)GetValue(FsctSourceProperty);
+                return (object)GetValue(FsctSourceProperty);
             }
             set
             {
@@ -94,6 +94,10 @@
             DataTemplate iTemplate = newValue as DataTemplate;
 
             layout.theCollectionView.ItemTemplate = iTemplate;
+        }
+
+        private static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)
+        {
         }
 
         /// <summary>

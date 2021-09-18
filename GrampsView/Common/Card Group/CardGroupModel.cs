@@ -2,7 +2,6 @@
 {
     using GrampsView.Data.Model;
 
-    using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.ComponentModel;
@@ -83,45 +82,40 @@
             }
         }
 
-        public void Add(CardGroupModel argCardGroup)
-        {
-            Contract.Requires(argCardGroup != null);
+        //public void Add(CardGroupModel argCardGroup)
+        //{
+        //    Contract.Requires(argCardGroup != null);
 
-            if (argCardGroup.Count > 0)
-            {
-                base.Add(argCardGroup);
-            }
-        }
+        //    if (argCardGroup.Count > 0)
+        //    {
+        //        base.Add(argCardGroup);
+        //    }
+        //}
 
-        public void Add(CardGroupModel<SrcAttributeModel> argCardGroup)
-        {
-            Contract.Requires(argCardGroup != null);
+        //public void Add(CardGroupModel<SrcAttributeModel> argCardGroup)
+        //{
+        //    Contract.Requires(argCardGroup != null);
 
-            if (argCardGroup.Count > 0)
-            {
-                base.Add(argCardGroup);
-            }
-        }
+        //    if (argCardGroup.Count > 0)
+        //    {
+        //        base.Add(argCardGroup);
+        //    }
+        //}
 
-        public void Add(CardGroupModel<T> argCardGroup, string argTitle)
-        {
-            if (argCardGroup is null)
-            {
-                throw new ArgumentNullException(nameof(argCardGroup));
-            }
+        //public void Add(CardGroupModel<T> argCardGroup, string argTitle)
+        //{
+        //    if (argCardGroup is null)
+        //    {
+        //        throw new ArgumentNullException(nameof(argCardGroup));
+        //    }
 
-            if (argTitle is null)
-            {
-                throw new ArgumentNullException(nameof(argTitle));
-            }
+        // if (argTitle is null) { throw new ArgumentNullException(nameof(argTitle)); }
 
-            if (argCardGroup.Count > 0)
-            {
-                base.Add(argCardGroup);
+        // if (argCardGroup.Count > 0) { base.Add(argCardGroup);
 
-                this.Title = argTitle;
-            }
-        }
+        //        this.Title = argTitle;
+        //    }
+        //}
 
         public new void Clear()
         {

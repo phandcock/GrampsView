@@ -25,6 +25,15 @@ namespace GrampsView.Common
             Unknown
         }
 
+        public enum DateObjectModelDerivedTypeEnum
+        {
+            DateObjectModelRange,
+            DateObjectModelSpan,
+            DateObjectModelStr,
+            DateObjectModelUnknown,
+            DateObjectModelVal,
+        }
+
         public enum DateQuality
         {
             [Description("Calculated")]

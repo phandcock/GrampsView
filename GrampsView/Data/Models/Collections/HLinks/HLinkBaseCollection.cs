@@ -11,12 +11,12 @@ namespace GrampsView.Data.Model
     /// GRAMPS $$(Hlink)$$ element class.
     /// </summary>
 
-    public class HLinkBaseCollection<T> : CardGroupBase<T>, IHLinkCollectionBase<T>
+    public class HLinkBaseCollection<T> : CardGroupHLink<T>, IHLinkCollectionBase<T>
          where T : HLinkBase, new()
     {
         // TODO Handle HLink collections properly by handling all their data
 
-        public virtual CardGroup CardGroupAsProperty
+        public virtual CardGroupHLink<T> CardGroupAsProperty
         {
             get
             {
@@ -37,9 +37,9 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public virtual CardGroup GetCardGroup()
+        public virtual CardGroupHLink<T> GetCardGroup()
         {
-            CardGroup t = new CardGroup();
+            CardGroupHLink<T> t = new CardGroupHLink<T>();
 
             foreach (T item in Items)
             {
@@ -51,9 +51,9 @@ namespace GrampsView.Data.Model
             return t;
         }
 
-        public virtual CardGroupBase<T> GetCardGroupBase(string argTitle = "")
+        public virtual CardGroupHLink<T> GetCardGroupBase(string argTitle = "")
         {
-            CardGroupBase<T> t = GetCardGroupBase();
+            CardGroupHLink<T> t = GetCardGroupBase();
 
             if (!string.IsNullOrEmpty(argTitle))
             {
@@ -63,9 +63,9 @@ namespace GrampsView.Data.Model
             return t;
         }
 
-        public virtual CardGroupBase<T> GetCardGroupBase()
+        public virtual CardGroupHLink<T> GetCardGroupBase()
         {
-            CardGroupBase<T> t = new CardGroupBase<T>();
+            CardGroupHLink<T> t = new CardGroupHLink<T>();
 
             foreach (T item in Items)
             {

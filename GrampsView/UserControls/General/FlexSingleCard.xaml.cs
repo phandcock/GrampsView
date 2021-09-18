@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
 
-    using System.Collections;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
@@ -12,7 +11,7 @@
 
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(FlexSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(FlexSingleCard));
@@ -31,9 +30,9 @@
         /// <value>
         /// The Control Item Source.
         /// </value>
-        public IEnumerable FsctSource
+        public object FsctSource
         {
-            get => (IEnumerable)GetValue(FsctSourceProperty);
+            get => (object)GetValue(FsctSourceProperty);
             set => SetValue(FsctSourceProperty, value);
         }
 
@@ -62,17 +61,17 @@
             }
 
             // TODO cleanup this code when we work out how
-            IEnumerator counter = thisCard.FsctSource.GetEnumerator();
+            //IEnumerator counter = thisCard.FsctSource.GetEnumerator();
 
-            if (counter.MoveNext())
-            {
-                // We have some data
-                thisCard.IsVisible = true;
-            }
-            else
-            {
-                thisCard.IsVisible = false;
-            }
+            //if (counter.MoveNext())
+            //{
+            // We have some data
+            thisCard.IsVisible = true;
+            //}
+            //else
+            //{
+            //    thisCard.IsVisible = false;
+            //}
 
             // Set Justification to Center if only one column
             if (CardSizes.Current.CardsAcrossColumns == 1)

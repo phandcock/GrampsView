@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common;
-
     using System.ComponentModel;
 
     using Xamarin.Forms;
@@ -9,18 +7,18 @@
     public partial class CollectionMultiCardGrouped : Frame, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(CardGroup), declaringType: typeof(CollectionMultiCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionMultiCardGrouped), propertyName: nameof(FsctSource)); //, propertyChanged: OnItemsSourceChanged);
 
         public CollectionMultiCardGrouped()
         {
             InitializeComponent();
         }
 
-        public CardGroup FsctSource
+        public object FsctSource
         {
             get
             {
-                return (CardGroup)GetValue(FsctSourceProperty);
+                return (object)GetValue(FsctSourceProperty);
             }
             set
             {

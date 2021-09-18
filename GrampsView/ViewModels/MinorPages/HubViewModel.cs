@@ -1,14 +1,12 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
     using GrampsView.Events;
 
     using Prism.Events;
-
-    using Xamarin.Essentials;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -41,7 +39,8 @@
             }
         }
 
-        public CardGroupBase<HLinkCitationModel> LatestCitationChanges
+        // TODO cleanup naming. See personcitationchanges
+        public CardGroupHLink<HLinkCitationModel> LatestCitationChanges
         {
             get
             {
@@ -49,7 +48,7 @@
             }
         }
 
-        public CardGroupBase<HLinkEventModel> LatestEventChanges
+        public CardGroupHLink<HLinkEventModel> LatestEventChanges
         {
             get
             {
@@ -57,7 +56,7 @@
             }
         }
 
-        public CardGroupBase<HLinkFamilyModel> LatestFamilyChanges
+        public CardGroupHLink<HLinkFamilyModel> LatestFamilyChanges
         {
             get
             {
@@ -65,7 +64,7 @@
             }
         }
 
-        public CardGroupBase<HLinkMediaModel> LatestMediaChanges
+        public CardGroupHLink<HLinkMediaModel> LatestMediaChanges
         {
             get
             {
@@ -73,7 +72,7 @@
             }
         }
 
-        public CardGroupBase<HLinkNoteModel> LatestNoteChanges
+        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges
         {
             get
             {
@@ -81,7 +80,7 @@
             }
         }
 
-        public CardGroupBase<HLinkPersonModel> LatestPersonChanges
+        public HLinkPersonModelCollection LatestPersonChanges
         {
             get
             {
@@ -89,7 +88,7 @@
             }
         }
 
-        public CardGroupBase<HLinkPlaceModel> LatestPlaceChanges
+        public CardGroupHLink<HLinkPlaceModel> LatestPlaceChanges
         {
             get
             {
@@ -97,7 +96,7 @@
             }
         }
 
-        public CardGroupBase<HLinkRepositoryModel> LatestRepositoryChanges
+        public CardGroupHLink<HLinkRepositoryModel> LatestRepositoryChanges
         {
             get
             {
@@ -105,7 +104,7 @@
             }
         }
 
-        public CardGroupBase<HLinkSourceModel> LatestSourceChanges
+        public CardGroupHLink<HLinkSourceModel> LatestSourceChanges
         {
             get
             {
@@ -113,7 +112,7 @@
             }
         }
 
-        public CardGroupBase<HLinkTagModel> LatestTagChanges
+        public CardGroupHLink<HLinkTagModel> LatestTagChanges
         {
             get
             {
@@ -129,14 +128,14 @@
             }
         }
 
-        public CardGroupBase<HLinkNoteModel> ToDoList
+        public CardGroupHLink<HLinkNoteModel> ToDoList
         {
             get
             {
                 // Setup ToDo list
-                CardGroupBase<INoteModel> t = DV.NoteDV.GetAllOfType(CommonConstants.NoteTypeToDo);
+                CardGroupModel<NoteModel> t = DV.NoteDV.GetAllOfType(CommonConstants.NoteTypeToDo);
 
-                CardGroupBase<HLinkNoteModel> toDoCardGroup = new CardGroupBase<HLinkNoteModel>()
+                CardGroupHLink<HLinkNoteModel> toDoCardGroup = new CardGroupHLink<HLinkNoteModel>()
                 {
                     Title = "ToDo list",
                 };
@@ -153,11 +152,6 @@
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);
-
-            // Workaround bug where hub page starts minimised
-            if (DataStore.Instance.ES.DevicePlatform == DevicePlatform.UWP)
-            {
-            }
         }
     }
 }

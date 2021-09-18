@@ -155,7 +155,7 @@
         {
             await _commonNotifications.DataLogEntryAdd("Serialising Data").ConfigureAwait(false);
 
-            _StoreSerial.SerializeObject(DataStore.Instance.DS);
+            await _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
             CommonLocalSettings.DataSerialised = true;
         }
@@ -418,7 +418,7 @@
                     {
                         await _commonNotifications.DataLogEntryAdd("Loading GRAMPS Serial data").ConfigureAwait(false);
 
-                        _StoreSerial.DeSerializeRepository();
+                        await _StoreSerial.DeSerializeRepository();
 
                         UpdateSavedLocalSettings();
 

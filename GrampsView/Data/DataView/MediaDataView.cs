@@ -60,7 +60,7 @@
             }
         }
 
-        public override CardGroupBase<HLinkMediaModel> GetLatestChanges
+        public override HLinkMediaModelCollection GetLatestChanges
         {
             get
             {
@@ -68,7 +68,7 @@
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                CardGroupBase<HLinkMediaModel> returnCardGroup = new CardGroupBase<HLinkMediaModel>();
+                HLinkMediaModelCollection returnCardGroup = new HLinkMediaModelCollection();
 
                 foreach (IMediaModel item in tt)
                 {
@@ -93,9 +93,9 @@
         /// <remarks>
         /// Only returns the original mediaitems and not the clipped ones added to speed things up.
         /// </remarks>
-        public override CardGroupBase<HLinkMediaModel> GetAllAsCardGroupBase()
+        public override HLinkMediaModelCollection GetAllAsCardGroupBase()
         {
-            CardGroupBase<HLinkMediaModel> t = new CardGroupBase<HLinkMediaModel>();
+            HLinkMediaModelCollection t = new HLinkMediaModelCollection();
 
             foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
@@ -105,9 +105,9 @@
             return t;
         }
 
-        public override CardGroup GetAllAsGroupedCardGroup()
+        public override Group<HLinkMediaModelCollection> GetAllAsGroupedCardGroup()
         {
-            CardGroup t = new CardGroup();
+            Group<HLinkMediaModelCollection> t = new Group<HLinkMediaModelCollection>();
 
             var query = from item in DataViewData.Where(x => x.IsInternalMediaFile == false)
 
@@ -122,7 +122,7 @@
 
             foreach (var g in query)
             {
-                CardGroupBase<HLinkMediaModel> info = new CardGroupBase<HLinkMediaModel>
+                HLinkMediaModelCollection info = new HLinkMediaModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -254,9 +254,9 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public override CardGroupBase<HLinkMediaModel> Search(string argQuery)
+        public override HLinkMediaModelCollection Search(string argQuery)
         {
-            CardGroupBase<HLinkMediaModel> itemsFound = new CardGroupBase<HLinkMediaModel>
+            HLinkMediaModelCollection itemsFound = new HLinkMediaModelCollection
             {
                 Title = "Media"
             };

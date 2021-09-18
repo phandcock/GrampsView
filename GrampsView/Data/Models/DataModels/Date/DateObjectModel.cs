@@ -46,43 +46,37 @@
 
     public class DateObjectModel : ModelBase, IDateObjectModel, IComparable
     {
-        /// <summary>
-        /// Notional Date field - The date used for sorting etc. Defaults to DateTime.MinDate.
-        /// <list type="table">
-        /// <listheader>
-        /// <term> Item </term>
-        /// <term> Status </term>
-        /// </listheader>
-        /// <item>
-        /// <description> XML 1.71 check </description>
-        /// <description> Not Done </description>
-        /// </item>
-        /// </list>
-        /// <para> <br/> </para>
-        /// </summary>
-
-        private DateTime _NotionalDate;
+        /// Notional Date field - The date used for sorting etc.
+        private DateTime _NotionalDate = DateTime.MinValue;
 
         /// <summary>
-        /// Gets the number of years ago. Because the field can have one or two dates etc this is
-        /// trickier than it sounds.
-        /// </summary>
-        /// <returns>
-        /// age.
-        /// </returns>
 
+        private bool _Valid = false;
+
+        private bool _ValidDay = false;
+
+        private bool _ValidMonth = false;
+
+        private bool _ValidYear = false;
+
+        /// <list type="table"> <listheader> <term> Item </term> <term> Status </term> </listheader>
+        /// <item> <description> XML 1.71 check </description> <description> Not Done </description>
+        /// </item> </list> <para> <br/> </para> </summary>
+
+        public DateObjectModel()
+        {
+        }
+
+        //public DateObjectModelDerivedTypeEnum DerivedType
+        //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
+
+        [JsonIgnore]
         public virtual int? GetAge
         {
             get;
         }
 
-        /// <summary>
-        /// Gets the decade of the date.
-        /// </summary>
-        /// <value>
-        /// The get decade.
-        /// </value>
-
+        [JsonIgnore]
         public string GetDecade
         {
             get
@@ -96,6 +90,20 @@
             }
         }
 
+        /// <summary>
+        /// Gets the number of years ago. Because the field can have one or two dates etc this is
+        /// trickier than it sounds.
+        /// </summary>
+        /// <returns>
+        /// age.
+        /// </returns>
+        /// <summary>
+        /// Gets the decade of the date.
+        /// </summary>
+        /// <value>
+        /// The get decade.
+        /// </value>
+        [JsonIgnore]
         public string GetMonthDay
         {
             get
@@ -109,13 +117,7 @@
             }
         }
 
-        /// <summary>
-        /// Gets the year of the date.
-        /// </summary>
-        /// <value>
-        /// The date year.
-        /// </value>
-
+        [JsonIgnore]
         public virtual string GetYear
         {
             get
@@ -125,11 +127,18 @@
         }
 
         /// <summary>
+        /// Gets the year of the date.
+        /// </summary>
+        /// <value>
+        /// The date year.
+        /// </value>
+        /// <summary>
         /// Gets the get long date as string. Default so it can be overridden.
         /// </summary>
         /// <value>
         /// The get long date as string.
         /// </value>
+        [JsonIgnore]
         public virtual string LongDate
         {
             get
@@ -155,10 +164,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the default Date field.
-        /// </summary>
-
         [JsonInclude]
         public DateTime NotionalDate
         {
@@ -174,11 +179,15 @@
         }
 
         /// <summary>
+        /// Gets the default Date field.
+        /// </summary>
+        /// <summary>
         /// Gets the string version of the date field. Default so it can be overridden.
         /// </summary>
         /// <returns>
         /// a string version of the date.
         /// </returns>
+        [JsonIgnore]
         public virtual string ShortDate
         {
             get
@@ -204,6 +213,7 @@
             }
         }
 
+        [JsonIgnore]
         public string ShortDateOrEmpty
         {
             get
@@ -217,6 +227,7 @@
             }
         }
 
+        [JsonIgnore]
         public virtual DateTime SingleDate
         {
             get
@@ -226,6 +237,7 @@
             }
         }
 
+        [JsonIgnore]
         public virtual DateTime SortDate
         {
             get
@@ -235,20 +247,59 @@
             }
         }
 
+        public new bool Valid
+        {
+            get
+            {
+                return _Valid;
+            }
+            set
+            {
+                SetProperty(ref _Valid, value);
+            }
+        }
+
         /// <summary>
         /// Gets or sets a value indicating whether the date is valid.
         /// </summary>
         /// <value>
         /// <c> true </c> if [date valid]; otherwise, <c> false </c>.
         /// </value>
+        public bool ValidDay
+        {
+            get
+            {
+                return _ValidDay;
+            }
+            set
+            {
+                SetProperty(ref _ValidDay, value);
+            }
+        }
 
-        public new bool Valid { get; set; } = false;
+        public bool ValidMonth
+        {
+            get
+            {
+                return _ValidMonth;
+            }
+            set
+            {
+                SetProperty(ref _ValidMonth, value);
+            }
+        }
 
-        public bool ValidDay { get; set; } = false;
-
-        public bool ValidMonth { get; set; } = false;
-
-        public bool ValidYear { get; set; } = false;
+        public bool ValidYear
+        {
+            get
+            {
+                return _ValidYear;
+            }
+            set
+            {
+                SetProperty(ref _ValidYear, value);
+            }
+        }
 
         /// <summary>
         /// Implements the operator !=.
@@ -377,7 +428,7 @@
         {
             return new CardListLineCollection(argTitle)
             {
-                new CardListLine("Month Day:", $"{GetMonthDay:MM dd}"),
+                new CardListLine("Month Day:", $"{GetMonthDay}"),
                 new CardListLine("Decade:", $"{GetDecade}'s"),
                 new CardListLine("Year:", GetYear),
                 };
@@ -388,15 +439,15 @@
             return new CardListLineCollection(argTitle)
             {
                 new CardListLine("Default Date:", ToString()),
-                new CardListLine("Notional Date:", $"{NotionalDate:dd MM yyyy}"),
-                new CardListLine("Single Date:", $"{SingleDate:dd MM yyyy}"),
-                new CardListLine("Sort Date:", $"{SortDate:dd MM yyyy}"),
+                new CardListLine("Notional Date:", $"{NotionalDate}"),
+                new CardListLine("Single Date:", $"{SingleDate}"),
+                new CardListLine("Sort Date:", $"{SortDate}"),
                 };
         }
 
         public virtual HLinkBase AsHLink(string v)
         {
-            return null;
+            return new HLinkBase();
         }
 
         /// <summary>

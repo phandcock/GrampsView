@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using Prism.Events;
@@ -32,7 +33,7 @@
         /// <value>
         /// The person data view.
         /// </value>
-        public CardGroup PersonSource
+        public Group<HLinkPersonModelCollection> PersonSource
         {
             get
             {
