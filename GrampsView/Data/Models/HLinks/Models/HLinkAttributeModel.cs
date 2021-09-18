@@ -3,7 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Views;
 
-    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -33,7 +32,7 @@
         /// <value>
         /// The dereference.
         /// </value>
-        [JsonIgnore]
+
         public new AttributeModel DeRef
         {
             get;

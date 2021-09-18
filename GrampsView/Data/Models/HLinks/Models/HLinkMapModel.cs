@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
 
-    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -34,7 +33,6 @@
         /// The dereference.
         /// </value>
 
-        [JsonIgnore]
         public new IMapModel DeRef
         {
             get;

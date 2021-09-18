@@ -2,8 +2,6 @@
 {
     using GrampsView.Data.DataView;
 
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// HLink to the Header model.
     ///
@@ -27,7 +25,7 @@
         /// <value>
         /// The de reference.
         /// </value>
-        [JsonIgnore]
+
         public new HeaderModel DeRef
         {
             get
@@ -41,10 +39,5 @@
                 return _Deref;
             }
         }
-
-        //protected  IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

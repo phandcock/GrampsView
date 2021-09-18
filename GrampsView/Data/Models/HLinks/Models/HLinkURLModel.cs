@@ -2,7 +2,6 @@
 {
     using GrampsView.Common;
 
-    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -35,7 +34,6 @@
         /// The de reference.
         /// </value>
 
-        [JsonIgnore]
         public new URLModel DeRef
         {
             get;

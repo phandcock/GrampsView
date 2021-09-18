@@ -4,8 +4,6 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
 
-    using System.Text.Json.Serialization;
-
     /// TODO Update fields as per Schema
 
     public class HLinkPlaceNameModel : HLinkBase, IHLinkPlaceNameModel
@@ -23,7 +21,6 @@ namespace GrampsView.Data.Model
         /// The de reference.
         /// </value>
 
-        [JsonIgnore]
         public new PlaceNameModel DeRef
         {
             get;
