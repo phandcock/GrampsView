@@ -13,10 +13,10 @@ namespace GrampsView.Common
 
         public const int CompareLessThan = -1;
 
-        /// <summary>
-        /// The data log size.
-        /// </summary>
-        public const int DataLogSize = 11;
+        ///// <summary>
+        ///// The data log size.
+        ///// </summary>
+        //public const int DataLogSize = 11;
 
         public const string DirectoryCacheBase = "~GV";
 
@@ -40,7 +40,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 69;
+        public const int GrampsViewDatabaseVersion = 70;
 
         /// <summary>
         /// The Gramps XML name space.
@@ -52,10 +52,10 @@ namespace GrampsView.Common
         /// </summary>
         public const string GrampsXMLPublicId = "-//Gramps//DTD Gramps XML 1.5.1//EN";
 
-        /// <summary>
-        /// The header process area display time (in milli-seconds).
-        /// </summary>
-        public const int HeaderProcessAreaDisplayTime = 30000;
+        ///// <summary>
+        ///// The header process area display time (in milli-seconds).
+        ///// </summary>
+        //public const int HeaderProcessAreaDisplayTime = 30000;
 
         public const string IconAbout = CommonFontNamesFAS.Info;
 

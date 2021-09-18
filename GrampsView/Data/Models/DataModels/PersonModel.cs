@@ -26,6 +26,8 @@
     [KnownType(typeof(HLinkFamilyModel))]
     public sealed class PersonModel : ModelBase, IPersonModel
     {
+        private Gender _GGender = Gender.Unknown;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonModel"/> class.
         /// </summary>
@@ -121,10 +123,37 @@
         [JsonInclude]
         public Gender GGender
         {
-            get;
+            get
+            {
+                return _GGender;
+            }
 
-            set;
-        } = Gender.Unknown;
+            set
+            {
+                SetProperty(ref _GGender, value);
+
+                switch (value)
+                {
+                    case Gender.Female:
+                        {
+                            ModelItemGlyph.Symbol = CommonConstants.IconPersonFemale;
+                            break;
+                        }
+
+                    case Gender.Male:
+                        {
+                            ModelItemGlyph.Symbol = CommonConstants.IconPersonMale;
+                            break;
+                        }
+                    case Gender.Unknown:
+                    default:
+                        {
+                            ModelItemGlyph.Symbol = CommonConstants.IconPeople;
+                            break;
+                        }
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the LDS collection.
