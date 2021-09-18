@@ -56,7 +56,7 @@
             }
         }
 
-        public CardGroupHLink<HLinkFamilyModel> LatestFamilyChanges
+        public HLinkFamilyModelCollection LatestFamilyChanges
         {
             get
             {

@@ -15,32 +15,6 @@ namespace GrampsView.Data.Model
 
     public class HLinkBackLink : HLinkBase
     {
-        private HLinkAdressModel _HLinkAddressModel;
-
-        private HLinkCitationModel _HLinkCitationModel;
-
-        private HLinkEventModel _HLinkEventModel;
-
-        private HLinkFamilyModel _HLinkFamilyModel;
-
-        private HLinkMediaModel _HLinkMediaModel;
-
-        private HLinkNameMapModel _HLinkNameMapModel;
-
-        private HLinkNoteModel _HLinkNoteModel;
-
-        private HLinkPersonModel _HLinkPersonModel;
-
-        private HLinkPersonNameModel _HLinkPersonNameModel;
-
-        private HLinkPlaceModel _HLinkPlaceModel;
-
-        private HLinkRepositoryModel _HLinkRepositoryModel;
-
-        private HLinkSourceModel _HLinkSourceModel;
-
-        private HLinkTagModel _HLinkTagModel;
-
         public HLinkBackLink()
         {
             HLinkKey = HLinkKey.NewAsGUID();
@@ -263,6 +237,32 @@ namespace GrampsView.Data.Model
             }
         }
 
+        private HLinkAdressModel _HLinkAddressModel { get; set; }
+
+        private HLinkCitationModel _HLinkCitationModel { get; set; }
+
+        private HLinkEventModel _HLinkEventModel { get; set; }
+
+        private HLinkFamilyModel _HLinkFamilyModel { get; set; }
+
+        private HLinkMediaModel _HLinkMediaModel { get; set; }
+
+        private HLinkNameMapModel _HLinkNameMapModel { get; set; }
+
+        private HLinkNoteModel _HLinkNoteModel { get; set; }
+
+        private HLinkPersonModel _HLinkPersonModel { get; set; }
+
+        private HLinkPersonNameModel _HLinkPersonNameModel { get; set; }
+
+        private HLinkPlaceModel _HLinkPlaceModel { get; set; }
+
+        private HLinkRepositoryModel _HLinkRepositoryModel { get; set; }
+
+        private HLinkSourceModel _HLinkSourceModel { get; set; }
+
+        private HLinkTagModel _HLinkTagModel { get; set; }
+
         public override bool Equals(object obj)
         {
             if (GetType() != obj.GetType())
@@ -277,10 +277,5 @@ namespace GrampsView.Data.Model
         {
             return HLinkKey.GetHashCode();
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.HLink.DeRef;
-        //}
     }
 }
