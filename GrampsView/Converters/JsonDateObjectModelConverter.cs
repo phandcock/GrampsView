@@ -87,25 +87,25 @@
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelRange);
 
-                writeRange(writer, range);
+                writeRange(ref writer, range);
             }
             else if (value is DateObjectModelSpan span)
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelSpan);
 
-                writeSpan(writer, span);
+                writeSpan(ref writer, span);
             }
             else if (value is DateObjectModelStr str)
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelStr);
 
-                writeStr(writer, str);
+                writeStr(ref writer, str);
             }
             else if (value is DateObjectModelVal val)
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelVal);
 
-                writeVal(writer, val);
+                writeVal(ref writer, val);
             }
 
             writer.WriteEndObject();
@@ -183,6 +183,30 @@
                         case "NotionalDate":
                             {
                                 returnDate.NotionalDate = argReader.GetDateTime();
+                                break;
+                            }
+                        case "Valid":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
                                 break;
                             }
                         default:
@@ -268,6 +292,30 @@
                                 returnDate.NotionalDate = argReader.GetDateTime();
                                 break;
                             }
+                        case "Valid":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
+                                break;
+                            }
                         default:
                             {
                                 throw new JsonException();
@@ -320,6 +368,30 @@
                         case "NotionalDate":
                             {
                                 returnDate.NotionalDate = argReader.GetDateTime();
+                                break;
+                            }
+                        case "Valid":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
                                 break;
                             }
                         default:
@@ -405,6 +477,30 @@
                                 returnDate.NotionalDate = argReader.GetDateTime();
                                 break;
                             }
+                        case "Valid":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                Boolean argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
+                                break;
+                            }
                         default:
                             {
                                 throw new JsonException();
@@ -416,13 +512,25 @@
             return returnDate;
         }
 
-        private void writeRange(Utf8JsonWriter argWriter, DateObjectModelRange argRange)
+        private void writeBasic(ref Utf8JsonWriter argWriter, DateObjectModel argBasic)
         {
-            argWriter.WriteString("ModelItemGlyph.Symbol", argRange.ModelItemGlyph.Symbol);
+            argWriter.WriteString("ModelItemGlyph.Symbol", argBasic.ModelItemGlyph.Symbol);
 
-            argWriter.WriteString("ModelItemGlyph.SymbolColour", argRange.ModelItemGlyph.SymbolColour.ToHex());
+            argWriter.WriteString("ModelItemGlyph.SymbolColour", argBasic.ModelItemGlyph.SymbolColour.ToHex());
 
-            argWriter.WriteString("HLinkKey", argRange.HLinkKey.Value);
+            argWriter.WriteString("HLinkKey", argBasic.HLinkKey.Value);
+
+            argWriter.WriteString("NotionalDate", argBasic.NotionalDate);
+
+            argWriter.WriteBoolean("Valid", argBasic.Valid);
+            argWriter.WriteBoolean("ValidDay", argBasic.ValidDay);
+            argWriter.WriteBoolean("ValidMonth", argBasic.ValidMonth);
+            argWriter.WriteBoolean("ValidYear", argBasic.ValidYear);
+        }
+
+        private void writeRange(ref Utf8JsonWriter argWriter, DateObjectModelRange argRange)
+        {
+            writeBasic(ref argWriter, argRange);
 
             argWriter.WriteString("GCformat", argRange.GCformat);
 
@@ -433,23 +541,17 @@
             argWriter.WriteNumber("GQuality", (int)argRange.GQuality);
 
             argWriter.WriteStartObject("GStart");
-            writeVal(argWriter, argRange.GStart);
+            writeVal(ref argWriter, argRange.GStart);
             argWriter.WriteEndObject();
 
             argWriter.WriteStartObject("GStop");
-            writeVal(argWriter, argRange.GStop);
+            writeVal(ref argWriter, argRange.GStop);
             argWriter.WriteEndObject();
-
-            argWriter.WriteString("NotionalDate", argRange.NotionalDate);
         }
 
-        private void writeSpan(Utf8JsonWriter argWriter, DateObjectModelSpan argSpan)
+        private void writeSpan(ref Utf8JsonWriter argWriter, DateObjectModelSpan argSpan)
         {
-            argWriter.WriteString("ModelItemGlyph.Symbol", argSpan.ModelItemGlyph.Symbol);
-
-            argWriter.WriteString("ModelItemGlyph.SymbolColour", argSpan.ModelItemGlyph.SymbolColour.ToHex());
-
-            argWriter.WriteString("HLinkKey", argSpan.HLinkKey.Value);
+            writeBasic(ref argWriter, argSpan);
 
             argWriter.WriteString("GCformat", argSpan.GCformat);
 
@@ -460,36 +562,24 @@
             argWriter.WriteNumber("GQuality", (int)argSpan.GQuality);
 
             argWriter.WriteStartObject("GStart");
-            writeVal(argWriter, argSpan.GStart);
+            writeVal(ref argWriter, argSpan.GStart);
             argWriter.WriteEndObject();
 
             argWriter.WriteStartObject("GStop");
-            writeVal(argWriter, argSpan.GStop);
+            writeVal(ref argWriter, argSpan.GStop);
             argWriter.WriteEndObject();
-
-            argWriter.WriteString("NotionalDate", argSpan.NotionalDate);
         }
 
-        private void writeStr(Utf8JsonWriter argWriter, DateObjectModelStr argStr)
+        private void writeStr(ref Utf8JsonWriter argWriter, DateObjectModelStr argStr)
         {
-            argWriter.WriteString("ModelItemGlyph.Symbol", argStr.ModelItemGlyph.Symbol);
-
-            argWriter.WriteString("ModelItemGlyph.SymbolColour", argStr.ModelItemGlyph.SymbolColour.ToHex());
-
-            argWriter.WriteString("HLinkKey", argStr.HLinkKey.Value);
+            writeBasic(ref argWriter, argStr);
 
             argWriter.WriteString("GVal", argStr.GVal);
-
-            argWriter.WriteString("NotionalDate", argStr.NotionalDate);
         }
 
-        private void writeVal(Utf8JsonWriter argWriter, DateObjectModelVal argVal)
+        private void writeVal(ref Utf8JsonWriter argWriter, DateObjectModelVal argVal)
         {
-            argWriter.WriteString("ModelItemGlyph.Symbol", argVal.ModelItemGlyph.Symbol);
-
-            argWriter.WriteString("ModelItemGlyph.SymbolColour", argVal.ModelItemGlyph.SymbolColour.ToHex());
-
-            argWriter.WriteString("HLinkKey", argVal.HLinkKey.Value);
+            writeBasic(ref argWriter, argVal);
 
             argWriter.WriteString("GCformat", argVal.GCformat);
 
@@ -502,8 +592,6 @@
             argWriter.WriteString("GVal", argVal.GVal);
 
             argWriter.WriteNumber("GValType", (int)argVal.GValType);
-
-            argWriter.WriteString("NotionalDate", argVal.NotionalDate);
         }
     }
 }
