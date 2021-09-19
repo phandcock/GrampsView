@@ -195,7 +195,6 @@
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
                 DataStore.Instance.CN.NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
-                throw;
             }
 
             return;
@@ -238,7 +237,6 @@
             {
                 DataStore.Instance.CN.NotifyException("Trying to serialise object ", ex);
                 CommonLocalSettings.DataSerialised = false;
-                throw;
             }
         }
 

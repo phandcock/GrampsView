@@ -14,7 +14,7 @@ namespace GrampsView.Data.Model
     /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
     public interface IPlaceNameModel : IModelBase
     {
-        IDateObjectModel GDate { get; set; }
+        DateObjectModel GDate { get; set; }
         string GLang { get; set; }
         string GValue { get; set; }
     }
