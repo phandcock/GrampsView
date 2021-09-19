@@ -14,7 +14,7 @@ namespace GrampsView.Data.Model
         {
         }
 
-        public DateObjectModel GDate { get; set; } = new DateObjectModel();
+        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
 
         public string GLang { get; set; } = string.Empty;
 

@@ -1,6 +1,8 @@
 ﻿namespace GrampsView.Converters
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
+    using GrampsView.Data.Repository;
 
     using System;
     using System.Text.Json;
@@ -26,25 +28,49 @@
         {
             if (reader.TokenType != JsonTokenType.StartObject)
             {
-                throw new JsonException();
+                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                {
+                    { "Expected Token", JsonTokenType.StartObject.ToString() },
+                    { "Found Token", reader.TokenType.ToString() }
+                };
+
+                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             reader.Read();
             if (reader.TokenType != JsonTokenType.PropertyName)
             {
-                throw new JsonException();
+                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                {
+                    { "Expected Token", JsonTokenType.PropertyName.ToString() },
+                    { "Found Token", reader.TokenType.ToString() }
+                };
+
+                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             string propertyName = reader.GetString();
             if (propertyName != "TypeDiscriminator")
             {
-                throw new JsonException();
+                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                {
+                    { "Expected Property Name", "TypeDiscriminator" },
+                    { "Found Property Name", propertyName }
+                };
+
+                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             reader.Read();
             if (reader.TokenType != JsonTokenType.Number)
             {
-                throw new JsonException();
+                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                {
+                    { "Expected Token", JsonTokenType.Number.ToString() },
+                    { "Found Token", reader.TokenType.ToString() }
+                };
+
+                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             DateObjectModelDerivedTypeEnum typeDiscriminator = (DateObjectModelDerivedTypeEnum)reader.GetInt32();
@@ -71,7 +97,13 @@
                     }
                 default:
                     {
-                        throw new JsonException();
+                        ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected TypeDiscriminator.")
+                        {
+                            { "Found TypeDiscriminator", typeDiscriminator.ToString() }
+                        };
+
+                        DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                        break;
                     }
             };
 
