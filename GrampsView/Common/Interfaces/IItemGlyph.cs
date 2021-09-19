@@ -18,7 +18,7 @@ namespace GrampsView.Common
             get; set;
         }
 
-        IHLinkMediaModel ImageHLinkMediaModel
+        HLinkMediaModel ImageHLinkMediaModel
         {
             get;
         }
@@ -57,7 +57,7 @@ namespace GrampsView.Common
             get; set;
         }
 
-        IHLinkMediaModel MediaHLinkMediaModel
+        HLinkMediaModel MediaHLinkMediaModel
         {
             get;
         }

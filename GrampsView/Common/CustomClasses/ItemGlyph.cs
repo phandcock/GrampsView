@@ -32,7 +32,7 @@
         } = new HLinkKey();
 
         [JsonIgnore]
-        public IHLinkMediaModel ImageHLinkMediaModel
+        public HLinkMediaModel ImageHLinkMediaModel
         {
             get
             {
@@ -85,7 +85,7 @@
         } = new HLinkKey();
 
         [JsonIgnore]
-        public IHLinkMediaModel MediaHLinkMediaModel
+        public HLinkMediaModel MediaHLinkMediaModel
         {
             get
             {
@@ -211,7 +211,7 @@
             return;
         }
 
-        private IHLinkMediaModel GetHLinkMediaModelKey(HLinkKey argHLinkKey)
+        private HLinkMediaModel GetHLinkMediaModelKey(HLinkKey argHLinkKey)
         {
             if (MediaHLink == null)
             {
