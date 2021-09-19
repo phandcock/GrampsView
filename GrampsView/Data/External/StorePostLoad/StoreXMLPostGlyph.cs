@@ -18,97 +18,6 @@
     {
         private List<IMediaModel> addLater = new List<IMediaModel>();
 
-        public  void SetAddressImages()
-        {
-            foreach (AddressModel argModel in DataStore.Instance.DS.AddressData.Values)
-            {
-                if (argModel is null)
-                {
-                    throw new ArgumentNullException(nameof(argModel));
-                }
-
-                ItemGlyph hlink = argModel.ModelItemGlyph;
-
-                // Try citation reference collection first
-                ItemGlyph t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
-                if ((!hlink.ValidImage) && t.ValidImage)
-                {
-                    hlink = t;
-                }
-
-                // Handle the link if we can
-                if (hlink.Valid)
-                {
-                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.ImageHLink = hlink.ImageHLink;
-                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
-                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
-                }
-                else
-                {
-                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
-                    {
-                        { "Address Model Image", argModel.Id }
-                    };
-
-                    _commonNotifications.NotifyError(NotifyError);
-                }
-            }
-        }
-
-        public  void SetCitationImages()
-        {
-            foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
-            {
-                if (argModel is null)
-                {
-                    throw new ArgumentNullException(nameof(argModel));
-                }
-
-                //if (argModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
-                //{
-                //}
-
-                ItemGlyph hlink = argModel.ModelItemGlyph;
-
-                if (argModel.Id == "C0772")
-                {
-                }
-
-                // Try media reference collection first
-                ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-                if ((!hlink.ValidImage) && (t.ValidImage))
-                {
-                    hlink = t;
-                }
-
-                // Check Source for Image
-                t = argModel.GSourceRef.DeRef.ModelItemGlyph;
-                if ((!hlink.ValidImage) && (t.ValidImage))
-                {
-                    hlink = t;
-                }
-
-                // Handle the link if we can
-                if (hlink.Valid)
-                {
-                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
-                    argModel.ModelItemGlyph.ImageHLink = hlink.ImageHLink;
-                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
-                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
-                }
-                else
-                {
-                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
-                    {
-                        { "Citation Model Image", argModel.Id }
-                    };
-
-                    _commonNotifications.NotifyError(NotifyError);
-                }
-            }
-        }
-
         public static void SetEventImages()
         {
             foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
@@ -312,6 +221,97 @@
             //foreach (TagModel argModel in DataStore.Instance.DS.TagData.Values)
             //{
             //}
+        }
+
+        public void SetAddressImages()
+        {
+            foreach (AddressModel argModel in DataStore.Instance.DS.AddressData.Values)
+            {
+                if (argModel is null)
+                {
+                    throw new ArgumentNullException(nameof(argModel));
+                }
+
+                ItemGlyph hlink = argModel.ModelItemGlyph;
+
+                // Try citation reference collection first
+                ItemGlyph t = argModel.GCitationRefCollection.FirstHLinkHomeImage;
+                if ((!hlink.ValidImage) && t.ValidImage)
+                {
+                    hlink = t;
+                }
+
+                // Handle the link if we can
+                if (hlink.Valid)
+                {
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.ImageHLink = hlink.ImageHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
+                }
+                else
+                {
+                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    {
+                        { "Address Model Image", argModel.Id }
+                    };
+
+                    _commonNotifications.NotifyError(NotifyError);
+                }
+            }
+        }
+
+        public void SetCitationImages()
+        {
+            foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
+            {
+                if (argModel is null)
+                {
+                    throw new ArgumentNullException(nameof(argModel));
+                }
+
+                //if (argModel.ModelItemGlyph.ImageType == CommonEnums.HLinkGlyphType.Image)
+                //{
+                //}
+
+                ItemGlyph hlink = argModel.ModelItemGlyph;
+
+                if (argModel.Id == "C0772")
+                {
+                }
+
+                // Try media reference collection first
+                ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
+                if ((!hlink.ValidImage) && (t.ValidImage))
+                {
+                    hlink = t;
+                }
+
+                // Check Source for Image
+                t = argModel.GSourceRef.DeRef.ModelItemGlyph;
+                if ((!hlink.ValidImage) && (t.ValidImage))
+                {
+                    hlink = t;
+                }
+
+                // Handle the link if we can
+                if (hlink.Valid)
+                {
+                    argModel.ModelItemGlyph.ImageType = hlink.ImageType;
+                    argModel.ModelItemGlyph.ImageHLink = hlink.ImageHLink;
+                    argModel.ModelItemGlyph.ImageSymbol = hlink.ImageSymbol;
+                    argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
+                }
+                else
+                {
+                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    {
+                        { "Citation Model Image", argModel.Id }
+                    };
+
+                    _commonNotifications.NotifyError(NotifyError);
+                }
+            }
         }
 
         public async Task<bool> SetMediaImages()

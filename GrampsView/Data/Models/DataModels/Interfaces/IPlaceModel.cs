@@ -3,7 +3,7 @@
     using GrampsView.Data.Collections;
 
     /// <summary>
-    /// Public interfaces for the Place elements.
+    /// Public interfaces for the Place model
     /// </summary>
     public interface IPlaceModel : IModelBase
     {

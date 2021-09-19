@@ -1,5 +1,8 @@
 ﻿namespace GrampsView.Data.Model
 {
+    /// <summary>
+    /// Interfaces for the PlaceLocation model.
+    /// </summary>
     public interface IPlaceLocationModel : IModelBase
     {
         string GCity

@@ -18,7 +18,7 @@
     /// if selected to play or display <br/></note>
     /// </summary>
 
-    public class ItemGlyph : ObservableObject
+    public class ItemGlyph : ObservableObject, IItemGlyph
     {
         public ItemGlyph()
         {
@@ -32,7 +32,7 @@
         } = new HLinkKey();
 
         [JsonIgnore]
-        public HLinkMediaModel ImageHLinkMediaModel
+        public IHLinkMediaModel ImageHLinkMediaModel
         {
             get
             {
@@ -85,7 +85,7 @@
         } = new HLinkKey();
 
         [JsonIgnore]
-        public HLinkMediaModel MediaHLinkMediaModel
+        public IHLinkMediaModel MediaHLinkMediaModel
         {
             get
             {
@@ -211,7 +211,7 @@
             return;
         }
 
-        private HLinkMediaModel GetHLinkMediaModelKey(HLinkKey argHLinkKey)
+        private IHLinkMediaModel GetHLinkMediaModelKey(HLinkKey argHLinkKey)
         {
             if (MediaHLink == null)
             {

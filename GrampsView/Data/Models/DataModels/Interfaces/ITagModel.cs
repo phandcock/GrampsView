@@ -1,16 +1,7 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="ITagModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.Data.Model
+﻿namespace GrampsView.Data.Model
 {
     /// <summary>
-    /// Public interfaces for the Tag elements.
+    /// Public interfaces for the Tag model
     /// </summary>
     public interface ITagModel : IModelBase
     {

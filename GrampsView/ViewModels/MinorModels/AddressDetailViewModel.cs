@@ -32,15 +32,16 @@
             get; set;
         }
 
-        public HLinkMediaModel MediaCard
+        public IHLinkMediaModel MediaCard
         {
             get; set;
         }
 
         /// <summary>
-        /// Populates the view ViewModel.
+        /// Populates the view ViewModel by handling the Load Event.
         /// </summary>
         /// <returns>
+        /// <br/>
         /// </returns>
         public override void BaseHandleLoadEvent()
         {
@@ -72,12 +73,11 @@
                     new CardListLine("Phone:", AddressObject.GPhone),
                 });
 
-                // Get date card
+                // Add date card
                 BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
                 // Add Map card
-                IMapModel t = AddressObject.ToMapModel();
-                BaseDetail.Add(t.HLink);
+                BaseDetail.Add(AddressObject.ToMapModel().HLink);
 
                 // Add Standard details
                 BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
