@@ -1,3 +1,21 @@
+# [16.21.0](https://github.com/phandcock/GrampsView/compare/v16.20.8...v16.21.0) (2021-09-19)
+
+
+### Bug Fixes
+
+* add convertor for dateobjectmodel until derived class supported by json.text ([e31611f](https://github.com/phandcock/GrampsView/commit/e31611fab57a301bc7b4cbbec6e3a92518d65af0))
+* display male/female icons.  Gramps only has three types. ([716c1be](https://github.com/phandcock/GrampsView/commit/716c1be73e506632d975fbba4d9937d2079bc052))
+* fix deref ignore don minor models ([f72b692](https://github.com/phandcock/GrampsView/commit/f72b6925e47c065478e8cd15ef417469c6052d36))
+* fix missing Valid flags for dateobjectmodel serialization ([fa7c888](https://github.com/phandcock/GrampsView/commit/fa7c888e8551faaa017997ae869ff79cbe9ce059))
+* hide flexsinglecard when no entries ([ae826dd](https://github.com/phandcock/GrampsView/commit/ae826dd06c49f5cf1e7e0ba5576b0b4224b0661b))
+
+
+### Features
+
+* change to system.json.text.  Lots of code cleanup. ([fe05b54](https://github.com/phandcock/GrampsView/commit/fe05b54a5240d8943f2418be1646b5462b0c17c7))
+
+
+
 ## [16.20.8](https://github.com/phandcock/GrampsView/compare/v16.20.7...v16.20.8) (2021-09-12)
 
 
@@ -27,15 +45,6 @@
 
 * fix cardline integer remove trailiing zeros ([1c371d8](https://github.com/phandcock/GrampsView/commit/1c371d8e0c551cab517a2ab01365d280058813bd))
 * work on backlink collection sort after load ([a328131](https://github.com/phandcock/GrampsView/commit/a3281312fd17a340002d57d638609611fc0e190f))
-
-
-
-## [16.20.5](https://github.com/phandcock/GrampsView/compare/v16.20.4...v16.20.5) (2021-09-06)
-
-
-### Bug Fixes
-
-* cleanup aboutpage code ([4c7f686](https://github.com/phandcock/GrampsView/commit/4c7f6861ae26133124414686a7b0ae80d62cffd8))
 
 
 
