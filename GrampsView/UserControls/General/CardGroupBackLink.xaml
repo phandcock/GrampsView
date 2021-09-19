@@ -1,0 +1,36 @@
+﻿<Frame
+    x:Class="GrampsView.UserControls.CardGroupHeader"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:collections="clr-namespace:GrampsView.Data.Collections"
+    x:Name="CardGroupHeaderRoot"
+    Margin="0"
+    Padding="0"
+    x:DataType="collections:HLinkBackLinkModelCollection"
+    BackgroundColor="Transparent"
+    IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
+
+    <Frame.Resources>
+        <ResourceDictionary>
+            <toolkit:IsNotNullOrEmptyConverter x:Key="StringToBool" />
+            <toolkit:IntToBoolConverter x:Key="IntToBool" />
+        </ResourceDictionary>
+    </Frame.Resources>
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+        <Frame
+            x:Name="LLCardLargeFrame"
+            IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
+            Style="{DynamicResource GVFrameHeaderStyle}">
+            <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
+        </Frame>
+
+        <FlexLayout
+            x:Name="CardGroupTemplateFlexer"
+            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+            BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
+            Style="{StaticResource FlexLayoutCards}" />
+    </StackLayout>
+</Frame>

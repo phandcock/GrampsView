@@ -68,6 +68,7 @@
 		<Compile Remove="Events\ProgressRingUpdate.cs" />
 		<Compile Remove="Events\StatusUpdated.cs" />
 		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
+		<Compile Remove="UserControls\General\CardGroupBackLink.xaml.cs" />
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
@@ -78,6 +79,7 @@
 	<ItemGroup>
 		<EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
 		<EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
+		<EmbeddedResource Remove="UserControls\General\CardGroupBackLink.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
 		<EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />

@@ -158,6 +158,32 @@ namespace GrampsView.Data.Model
             Unknown
         }
 
+        public HLinkAdressModel _HLinkAddressModel { get; set; }
+
+        public HLinkCitationModel _HLinkCitationModel { get; set; }
+
+        public HLinkEventModel _HLinkEventModel { get; set; }
+
+        public HLinkFamilyModel _HLinkFamilyModel { get; set; }
+
+        public HLinkMediaModel _HLinkMediaModel { get; set; }
+
+        public HLinkNameMapModel _HLinkNameMapModel { get; set; }
+
+        public HLinkNoteModel _HLinkNoteModel { get; set; }
+
+        public HLinkPersonModel _HLinkPersonModel { get; set; }
+
+        public HLinkPersonNameModel _HLinkPersonNameModel { get; set; }
+
+        public HLinkPlaceModel _HLinkPlaceModel { get; set; }
+
+        public HLinkRepositoryModel _HLinkRepositoryModel { get; set; }
+
+        public HLinkSourceModel _HLinkSourceModel { get; set; }
+
+        public HLinkTagModel _HLinkTagModel { get; set; }
+
         public HLinkBase HLink
         {
             get
@@ -236,32 +262,6 @@ namespace GrampsView.Data.Model
                 return !((HLinkType == HLinkBackLinkEnum.HLinkBookMarkModel) && (HLinkType == HLinkBackLinkEnum.Unknown));
             }
         }
-
-        private HLinkAdressModel _HLinkAddressModel { get; set; }
-
-        private HLinkCitationModel _HLinkCitationModel { get; set; }
-
-        private HLinkEventModel _HLinkEventModel { get; set; }
-
-        private HLinkFamilyModel _HLinkFamilyModel { get; set; }
-
-        private HLinkMediaModel _HLinkMediaModel { get; set; }
-
-        private HLinkNameMapModel _HLinkNameMapModel { get; set; }
-
-        private HLinkNoteModel _HLinkNoteModel { get; set; }
-
-        private HLinkPersonModel _HLinkPersonModel { get; set; }
-
-        private HLinkPersonNameModel _HLinkPersonNameModel { get; set; }
-
-        private HLinkPlaceModel _HLinkPlaceModel { get; set; }
-
-        private HLinkRepositoryModel _HLinkRepositoryModel { get; set; }
-
-        private HLinkSourceModel _HLinkSourceModel { get; set; }
-
-        private HLinkTagModel _HLinkTagModel { get; set; }
 
         public override bool Equals(object obj)
         {

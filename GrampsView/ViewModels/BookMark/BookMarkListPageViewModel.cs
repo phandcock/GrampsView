@@ -15,7 +15,7 @@
             BaseTitleIcon = CommonConstants.IconBookMark;
         }
 
-        public CardGroupHLink<HLinkBackLink> BookMarkSource
+        public CardGroupHLink<HLinkBase> BookMarkSource
         {
             get
             {

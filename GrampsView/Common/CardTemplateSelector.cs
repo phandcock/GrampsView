@@ -361,10 +361,10 @@ namespace GrampsView.Common
                         return FamilyTemplate;
                     }
 
-                case HLinkBackLink i:
-                    {
-                        return OnSelectTemplate(i.HLink, container);
-                    }
+                //case HLinkBackLink i:
+                //    {
+                //        return OnSelectTemplate(i.HLink, container);
+                //    }
 
                 case HLinkChildRefModel i:
                     {

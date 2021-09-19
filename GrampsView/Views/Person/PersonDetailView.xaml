@@ -44,7 +44,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
-            <!--<ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />-->
+            <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBase>

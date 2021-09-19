@@ -5,16 +5,13 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Collections.ObjectModel;
     using System.Linq;
-    using System.Runtime.Serialization;
 
     using static GrampsView.Data.Model.HLinkBackLink;
 
     /// <summary>
     /// </summary>
 
-    [KnownType(typeof(ObservableCollection<HLinkBackLink>))]
     public class HLinkBackLinkModelCollection : HLinkBaseCollection<HLinkBackLink>
     {
         public HLinkBackLinkModelCollection()
@@ -31,7 +28,7 @@
                 var query = from item in Items
                             orderby item.HLinkType
 
-                            group item by (item.HLinkType) into g
+                            group item by item.HLinkType into g
                             select new
                             {
                                 GroupName = g.Key,
@@ -57,15 +54,15 @@
             }
         }
 
-        public override CardGroupHLink<HLinkBackLink> CardGroupAsProperty
+        public new CardGroupHLink<HLinkBase> CardGroupAsProperty
         {
             get
             {
-                CardGroupHLink<HLinkBackLink> t = new CardGroupHLink<HLinkBackLink>();
+                CardGroupHLink<HLinkBase> t = new CardGroupHLink<HLinkBase>();
 
                 foreach (HLinkBackLink item in Items)
                 {
-                    t.Add(item);
+                    t.Add(item.HLink);
                 }
 
                 t.Title = Title;
@@ -73,6 +70,18 @@
                 return t;
             }
         }
+
+        //public List<HLinkBase> GetList
+        //{
+        //    get
+        //    {
+        //        List<HLinkBase> t = new List<HLinkBase>();
+
+        // foreach (HLinkBackLink item in Items) { t.Add(item.HLink); }
+
+        //        return t;
+        //    }
+        //}
 
         public override void SetGlyph()
         {
