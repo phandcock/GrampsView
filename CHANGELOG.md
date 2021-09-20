@@ -1,3 +1,16 @@
+## [16.21.1](https://github.com/phandcock/GrampsView/compare/v16.21.0...v16.21.1) (2021-09-20)
+
+
+### Bug Fixes
+
+* backlinkmodelcollection cleanup ([324176e](https://github.com/phandcock/GrampsView/commit/324176e62811744c8b5663a811880e7ec378de2b))
+* fix another system.text.json interface bug ([b4ee9c2](https://github.com/phandcock/GrampsView/commit/b4ee9c227f79fc51c975926c3ee423b00506a605))
+* fix placename deserialise of interface ([d11b026](https://github.com/phandcock/GrampsView/commit/d11b026051e4519a02c57a4c5f4a646d1e26bdb1))
+* fix placenamemodel date init ([0a25d07](https://github.com/phandcock/GrampsView/commit/0a25d07c9cbf8e4e818eac1dc709160c93357eb5))
+* tweaks ([924bc52](https://github.com/phandcock/GrampsView/commit/924bc520012fe177f04ee8ffd81e842896a20ff2))
+
+
+
 # [16.21.0](https://github.com/phandcock/GrampsView/compare/v16.20.8...v16.21.0) (2021-09-19)
 
 
@@ -35,16 +48,6 @@
 
 * chnage compiler default to c# 8 ([00b1346](https://github.com/phandcock/GrampsView/commit/00b1346de0224f12ac376ad96da9be512877811f))
 * cleanup personref model loading ([f38e77b](https://github.com/phandcock/GrampsView/commit/f38e77bc66447a94ddbe639cf5dff001ec89e4f5))
-
-
-
-## [16.20.6](https://github.com/phandcock/GrampsView/compare/v16.20.5...v16.20.6) (2021-09-08)
-
-
-### Bug Fixes
-
-* fix cardline integer remove trailiing zeros ([1c371d8](https://github.com/phandcock/GrampsView/commit/1c371d8e0c551cab517a2ab01365d280058813bd))
-* work on backlink collection sort after load ([a328131](https://github.com/phandcock/GrampsView/commit/a3281312fd17a340002d57d638609611fc0e190f))
 
 
 
