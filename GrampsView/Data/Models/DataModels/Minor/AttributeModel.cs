@@ -6,6 +6,7 @@
 
     using System;
     using System.Diagnostics.Contracts;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -37,7 +38,7 @@
         /// <value>
         /// The citation reference collection.
         /// </value>
-
+        [JsonInclude]
         public HLinkCitationModelCollection GCitationReferenceCollection
         {
             get;
@@ -52,7 +53,7 @@
         /// <value>
         /// The note model reference collection.
         /// </value>
-
+        [JsonInclude]
         public HLinkNoteModelCollection GNoteModelReferenceCollection
         {
             get;
@@ -67,14 +68,12 @@
         /// <value>
         /// The attribute text.
         /// </value>
-
+        [JsonInclude]
         public string GType
         {
             get;
             set;
         }
-
-            = null;
 
         /// <summary>
         /// Gets or sets the attribute value.
@@ -82,14 +81,12 @@
         /// <value>
         /// The value text.
         /// </value>
-
+        [JsonInclude]
         public string GValue
         {
             get;
             set;
         }
-
-            = null;
 
         public HLinkAttributeModel HLink
         {
@@ -216,7 +213,7 @@
         /// </value>
         public override string ToString()
         {
-            string returnString = this.GType;
+            string returnString = GType;
 
             if (!string.IsNullOrEmpty(GValue))
             {

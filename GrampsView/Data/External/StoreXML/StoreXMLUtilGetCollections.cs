@@ -142,6 +142,10 @@
                         DeRef = newPlaceNameModel
                     };
 
+                    if (string.IsNullOrEmpty(newPlaceNameModel.GValue))
+                    {
+                    }
+
                     t.Add(tt);
                 }
             }

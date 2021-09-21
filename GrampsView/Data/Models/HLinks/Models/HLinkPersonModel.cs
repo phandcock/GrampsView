@@ -46,7 +46,7 @@ namespace GrampsView.Data.Model
         /// The dereference.
         /// </value>
         [JsonIgnore]
-        public new PersonModel DeRef
+        public PersonModel DeRef
         {
             get
             {
@@ -86,10 +86,5 @@ namespace GrampsView.Data.Model
             await UCNavigateBase(this, nameof(PersonDetailPage));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

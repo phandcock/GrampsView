@@ -25,7 +25,7 @@ namespace GrampsView.Data.Collections
 
             if (this.Count > 0)
             {
-                return this[0].DeRef.GValue;
+                return this[0].DeRef.ToString();
             }
 
             return "Unknown Place Name";

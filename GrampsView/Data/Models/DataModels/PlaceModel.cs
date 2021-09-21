@@ -23,10 +23,10 @@ namespace GrampsView.Data.Model
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// <seealso cref="GrampsView.Data.ViewModel.IPlaceModel"/>
-    /// <seealso cref="System.IComparable"/>
-    /// <seealso cref="System.Collections.IComparer"/>
+    /// <seealso cref="Data.ViewModel.ModelBase"/>
+    /// <seealso cref="Data.ViewModel.IPlaceModel"/>
+    /// <seealso cref="IComparable"/>
+    /// <seealso cref="IComparer"/>
 
     public sealed class PlaceModel : ModelBase, IPlaceModel, IComparable, IComparer
     {

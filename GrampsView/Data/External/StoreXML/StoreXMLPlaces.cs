@@ -39,7 +39,7 @@
                             //{
                             //}
 
-                            if (loadPlace.Id == "P0018")
+                            if (loadPlace.Id == "P0273")
                             {
                             }
 
@@ -49,6 +49,10 @@
                             loadPlace.GPTitle = GetElement(pPlaceElement, "ptitle");
 
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
+
+                            if (string.IsNullOrEmpty(loadPlace.GPlaceNames[0].DeRef.GValue))
+                            {
+                            }
 
                             loadPlace.GCode = GetElement(pPlaceElement, "code");
 

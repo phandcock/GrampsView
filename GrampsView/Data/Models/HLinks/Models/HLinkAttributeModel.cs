@@ -33,7 +33,7 @@
         /// The dereference.
         /// </value>
 
-        public new AttributeModel DeRef
+        public AttributeModel DeRef
         {
             get;
 
@@ -57,10 +57,5 @@
             await UCNavigateBase(this, nameof(AttributeDetailPage));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

@@ -21,7 +21,7 @@ namespace GrampsView.Data.Model
         /// The de reference.
         /// </value>
 
-        public new PlaceNameModel DeRef
+        public PlaceNameModel DeRef
         {
             get;
 
@@ -39,10 +39,5 @@ namespace GrampsView.Data.Model
                 return HLinkGlyphItem.Valid;
             }
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

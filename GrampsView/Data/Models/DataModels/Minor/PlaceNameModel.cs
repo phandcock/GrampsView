@@ -68,5 +68,20 @@ namespace GrampsView.Data.Model
         {
             return HLinkKey.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            if (!Valid)
+            {
+                return string.Empty;
+            }
+
+            if (!string.IsNullOrEmpty(GValue))
+            {
+                return GValue;
+            }
+
+            return GValue;
+        }
     }
 }
