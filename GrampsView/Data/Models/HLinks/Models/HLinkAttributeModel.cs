@@ -24,6 +24,7 @@
         {
             HLinkGlyphItem.Symbol = CommonConstants.IconAttribute;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAttribute");
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
         }
 
         /// <summary>
@@ -44,10 +45,6 @@
         {
             get
             {
-                if (!HLinkGlyphItem.Valid)
-                {
-                }
-
                 return HLinkGlyphItem.Valid;
             }
         }

@@ -34,7 +34,7 @@
         /// The de reference.
         /// </value>
 
-        public new URLModel DeRef
+        public URLModel DeRef
         {
             get;
 

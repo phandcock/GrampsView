@@ -2,12 +2,9 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
-    using GrampsView.Views;
 
     using System;
     using System.Diagnostics.Contracts;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// <para> Holds details of Attributes. </para>
@@ -38,7 +35,7 @@
         /// <value>
         /// The citation reference collection.
         /// </value>
-        [JsonInclude]
+
         public HLinkCitationModelCollection GCitationReferenceCollection
         {
             get;
@@ -53,7 +50,7 @@
         /// <value>
         /// The note model reference collection.
         /// </value>
-        [JsonInclude]
+
         public HLinkNoteModelCollection GNoteModelReferenceCollection
         {
             get;
@@ -68,7 +65,7 @@
         /// <value>
         /// The attribute text.
         /// </value>
-        [JsonInclude]
+
         public string GType
         {
             get;
@@ -81,7 +78,7 @@
         /// <value>
         /// The value text.
         /// </value>
-        [JsonInclude]
+
         public string GValue
         {
             get;
@@ -158,17 +155,11 @@
                 return CommonConstants.CompareEquals;
             }
 
-            AttributeModel firstPersonName = (AttributeModel)a;
-            AttributeModel secondPersonName = (AttributeModel)b;
+            AttributeModel firstAttributeName = (AttributeModel)a;
+            AttributeModel secondAttributeName = (AttributeModel)b;
 
             // Compare on Surname first
-            int testFlag = string.Compare(firstPersonName.GType, secondPersonName.GType, StringComparison.CurrentCulture);
-
-            if (testFlag == CommonConstants.CompareEquals)
-            {
-                // Compare on first name
-                testFlag = string.Compare(firstPersonName.GType, secondPersonName.GType, StringComparison.CurrentCulture);
-            }
+            int testFlag = string.Compare(firstAttributeName.GType, secondAttributeName.GType, StringComparison.CurrentCulture);
 
             return testFlag;
         }
@@ -223,13 +214,13 @@
             return returnString;
         }
 
-        /// <summary>
-        /// Navigates to the detail page for the attribute.
-        /// </summary>
-        public override async Task UCNavigate()
-        {
-            await UCNavigateBase(this, nameof(AttributeDetailPage));
-            return;
-        }
+        ///// <summary>
+        ///// Navigates to the detail page for the attribute.
+        ///// </summary>
+        //public override async Task UCNavigate()
+        //{
+        //    await UCNavigateBase(this, nameof(AttributeDetailPage));
+        //    return;
+        //}
     }
 }

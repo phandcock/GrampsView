@@ -2,10 +2,10 @@
 <views:ViewBase
     x:Class="GrampsView.Views.TagDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -27,7 +27,7 @@
 
             <Label BackgroundColor="{Binding TagObject.GColor}" Text="Tag Color" />
 
-            <ucon:CollectionMultiCardGrouped FsctSource="{Binding Path=TagObject.BackHLinkReferenceCollection.AsGroupedCardGroup, Source={RelativeSource AncestorType={x:Type viewmodels:TagDetailViewModel}}, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding Path=TagObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBase>

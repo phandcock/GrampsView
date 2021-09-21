@@ -2,8 +2,8 @@
 <views:ViewBase
     x:Class="GrampsView.Views.RepositoryListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -18,5 +18,5 @@
 
     <!--  Content  -->
 
-    <ucon:CollectionSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+    <ucon:FlexSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
 </views:ViewBase>

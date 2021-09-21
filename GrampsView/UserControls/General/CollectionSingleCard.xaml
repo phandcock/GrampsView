@@ -4,13 +4,12 @@
     x:Class="GrampsView.UserControls.CollectionSingleCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent"
-    CornerRadius="0">
+    BackgroundColor="Transparent">
 
     <Frame.Resources>
         <toolkit:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
@@ -18,17 +17,15 @@
 
     <CollectionView
         x:Name="theCollectionView"
-        IsVisible="{Binding FsctSource.Visible, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
-        ItemSizingStrategy="MeasureAllItems"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
         Style="{StaticResource CollectionViewBase}">
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout
-                HorizontalItemSpacing="2"
+                HorizontalItemSpacing="1"
                 Orientation="Vertical"
                 Span="{Binding CardsAcrossColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                VerticalItemSpacing="2" />
+                VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 
         <CollectionView.Header>

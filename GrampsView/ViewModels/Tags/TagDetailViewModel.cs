@@ -48,7 +48,7 @@
         /// </param>
         public override void BaseHandleLoadEvent()
         {
-            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>((BaseParamsHLink));
+            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(BaseParamsHLink);
 
             TagObject = HLinkObject.DeRef;
 

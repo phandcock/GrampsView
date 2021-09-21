@@ -5,8 +5,6 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using System.Linq;
-
     using static GrampsView.Data.Model.HLinkBackLink;
 
     /// <summary>
@@ -19,40 +17,26 @@
             Title = "BackLink Collection";
         }
 
-        public Group<HLinkBackLinkModelCollection> AsGroupedCardGroup
-        {
-            get
-            {
-                Group<HLinkBackLinkModelCollection> t = new Group<HLinkBackLinkModelCollection>();
+        //public Group<HLinkBackLinkModelCollection> AsGroupedCardGroup
+        //{
+        //    get
+        //    {
+        //        Group<HLinkBackLinkModelCollection> t = new Group<HLinkBackLinkModelCollection>();
 
-                var query = from item in Items
-                            orderby item.HLinkType
+        // var query = from item in Items orderby item.HLinkType
 
-                            group item by item.HLinkType into g
-                            select new
-                            {
-                                GroupName = g.Key,
-                                Items = g
-                            };
+        // group item by item.HLinkType into g select new { GroupName = g.Key, Items = g };
 
-                foreach (var g in query)
-                {
-                    HLinkBackLinkModelCollection info = new HLinkBackLinkModelCollection()
-                    {
-                        Title = g.GroupName.ToString(),
-                    };
+        // foreach (var g in query) { HLinkBackLinkModelCollection info = new
+        // HLinkBackLinkModelCollection() { Title = g.GroupName.ToString(), };
 
-                    foreach (var item in g.Items)
-                    {
-                        info.Add(item);
-                    }
+        // foreach (var item in g.Items) { info.Add(item); }
 
-                    t.Add(info);
-                }
+        // t.Add(info); }
 
-                return t;
-            }
-        }
+        //        return t;
+        //    }
+        //}
 
         public new CardGroupHLink<HLinkBase> CardGroupAsProperty
         {
@@ -70,18 +54,6 @@
                 return t;
             }
         }
-
-        //public List<HLinkBase> GetList
-        //{
-        //    get
-        //    {
-        //        List<HLinkBase> t = new List<HLinkBase>();
-
-        // foreach (HLinkBackLink item in Items) { t.Add(item.HLink); }
-
-        //        return t;
-        //    }
-        //}
 
         public override void SetGlyph()
         {

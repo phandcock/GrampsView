@@ -25,8 +25,8 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding PersonNameObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
