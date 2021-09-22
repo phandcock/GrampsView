@@ -69,6 +69,7 @@
 		<Compile Remove="Events\StatusUpdated.cs" />
 		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
 		<Compile Remove="UserControls\General\CardGroupBackLink.xaml.cs" />
+		<Compile Remove="UserControls\General\CollectionMultiCardGrouped.xaml.cs" />
 		<Compile Remove="UserControls\General\CollectionSingleCard.xaml.cs" />
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
@@ -81,6 +82,7 @@
 		<EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
 		<EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
 		<EmbeddedResource Remove="UserControls\General\CardGroupBackLink.xaml" />
+		<EmbeddedResource Remove="UserControls\General\CollectionMultiCardGrouped.xaml" />
 		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />

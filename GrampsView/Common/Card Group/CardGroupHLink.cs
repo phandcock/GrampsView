@@ -21,7 +21,7 @@ namespace GrampsView.Common
     {
         public CardGroupHLink()
         {
-            this.CollectionChanged += Cards_CollectionChanged;
+            CollectionChanged += Cards_CollectionChanged;
         }
 
         public CardGroupHLink(IEnumerable<T> argList)
@@ -64,7 +64,7 @@ namespace GrampsView.Common
             if (argItem.Valid)
             {
                 // Check if a duplicate
-                if (this.Contains(argItem))
+                if (Contains(argItem))
                 {
                     return;
                 }
@@ -75,7 +75,7 @@ namespace GrampsView.Common
 
         public new void Clear()
         {
-            foreach (var item in this)
+            foreach (T item in this)
             {
                 if (item is INotifyPropertyChanged i)
                 {
@@ -90,7 +90,7 @@ namespace GrampsView.Common
         {
             if (e.OldItems != null)
             {
-                foreach (var item in e.OldItems)
+                foreach (T item in e.OldItems)
                 {
                     if (item != null && item is INotifyPropertyChanged i)
                     {
@@ -101,7 +101,7 @@ namespace GrampsView.Common
 
             if (e.NewItems != null)
             {
-                foreach (var item in e.NewItems)
+                foreach (T item in e.NewItems)
                 {
                     if (item != null && item is INotifyPropertyChanged i)
                     {

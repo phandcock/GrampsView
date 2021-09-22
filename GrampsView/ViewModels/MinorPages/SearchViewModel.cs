@@ -1,16 +1,15 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using Prism.Events;
 
-    using System.Collections.Generic;
     using System.Diagnostics.Contracts;
     using System.Globalization;
-    using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using Xamarin.Forms;
 
     /// <summary>
     /// Search ViewModel class.
@@ -38,28 +37,30 @@
 
             BaseTitleIcon = CommonConstants.IconSearch;
 
-            SearchButtonCommand = new AsyncCommand<string>(buttonClickText => SearchProcessQuery(buttonClickText), _ => !IsBusy);
+            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
         }
 
-        public bool IsBusy
-        {
-            get => _isBusy;
-            set
-            {
-                if (_isBusy != value)
-                {
-                    _isBusy = value;
-                    SearchButtonCommand.RaiseCanExecuteChanged();
-                }
-            }
-        }
+        //public bool IsBusy
+        //{
+        //    get => _isBusy;
+        //    set
+        //    {
+        //        if (_isBusy != value)
+        //        {
+        //            _isBusy = value;
+        //            SearchButtonCommand.RaiseCanExecuteChanged();
+        //        }
+        //    }
+        //}
 
-        public List<object> ItemsFoundList
-        {
-            get; set;
-        }
+        //public Group<object> ItemsFoundList
+        //{
+        //    get; set;
+        //}
 
-        = new List<object>();
+        //= new Group<object>();
+
+        public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
 
         /// <summary>
         /// Gets the search button command.
@@ -67,10 +68,16 @@
         /// <value>
         /// The search button command.
         /// </value>
-        public IAsyncCommand<string> SearchButtonCommand
+        public Command<string> SearchButtonCommand
         {
             get;
         }
+
+        public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
+
+        public HLinkEventModelCollection SearchEventsCollection { get; set; } = new HLinkEventModelCollection();
+
+        public HLinkFamilyModelCollection SearchFamilyCollection { get; set; } = new HLinkFamilyModelCollection();
 
         /// <summary>
         /// Gets or sets a value indicating whether [search items found].
@@ -83,7 +90,17 @@
             get;
 
             set;
-        }
+        } = false;
+
+        public HLinkMediaModelCollection SearchMediaCollection { get; set; } = new HLinkMediaModelCollection();
+
+        public HLinkNoteModelCollection SearchNoteCollection { get; set; } = new HLinkNoteModelCollection();
+
+        public HLinkPersonModelCollection SearchPersonCollection { get; set; } = new HLinkPersonModelCollection();
+
+        public HLinkPersonNameModelCollection SearchPersonNameCollection { get; set; } = new HLinkPersonNameModelCollection();
+
+        public HLinkPlaceModelCollection SearchPlaceCollection { get; set; } = new HLinkPlaceModelCollection();
 
         /// <summary>
         /// Gets or sets the search text.
@@ -104,7 +121,8 @@
         /// <param name="argSearch">
         /// Search Text.
         /// </param>
-        public async Task ProcessQuery(string argSearch)
+        public void ProcessQuery(string argSearch)
+
         {
             Contract.Assert(argSearch != null);
 
@@ -114,26 +132,26 @@
             {
                 SearchItemsFound = true;
 
-                ItemsFoundList.Clear();
+                SearchAddressCollection = DV.AddressDV.Search(SearchText);
+                SearchCitationCollection = DV.CitationDV.Search(SearchText);
+                SearchEventsCollection = DV.EventDV.Search(SearchText);
+                SearchFamilyCollection = DV.FamilyDV.Search(SearchText);
+                SearchMediaCollection = DV.MediaDV.Search(SearchText);
+                SearchNoteCollection = DV.NoteDV.Search(SearchText);
+                SearchPersonCollection = DV.PersonDV.Search(SearchText);
+                SearchPersonNameCollection = DV.PersonNameDV.Search(SearchText);
+                SearchPlaceCollection = DV.PlaceDV.Search(SearchText);
 
-                ItemsFoundList.Add(DV.AddressDV.Search(SearchText));
-                ItemsFoundList.Add(DV.CitationDV.Search(SearchText));
-                ItemsFoundList.Add(DV.EventDV.Search(SearchText));
-                ItemsFoundList.Add(DV.FamilyDV.Search(SearchText));
-                ItemsFoundList.Add(DV.MediaDV.Search(SearchText));
-                ItemsFoundList.Add(DV.NoteDV.Search(SearchText));
-                ItemsFoundList.Add(DV.PersonDV.Search(SearchText));
-                ItemsFoundList.Add(DV.PersonNameDV.Search(SearchText));
-                ItemsFoundList.Add(DV.PlaceDV.Search(SearchText));
-
-                if (ItemsFoundList.Count > 0)
-                {
-                    SearchItemsFound = true;
-                }
-                else
-                {
-                    SearchItemsFound = false;
-                }
+                SearchItemsFound = (SearchAddressCollection.Count +
+                    SearchCitationCollection.Count +
+                    SearchEventsCollection.Count +
+                    SearchFamilyCollection.Count +
+                    SearchMediaCollection.Count +
+                    SearchNoteCollection.Count +
+                    SearchPersonCollection.Count +
+                    SearchPersonNameCollection.Count +
+                    SearchPlaceCollection.Count)
+                    > 0;
             }
         }
 
@@ -142,12 +160,12 @@
         /// </summary>
         /// <param name="argSearch">
         /// </param>
-        public async Task SearchProcessQuery(string argSearch)
+        public void SearchProcessQuery(string argSearch)
         {
             // Handle issues with bounce onf EventToCommand
             if (lastArg != argSearch)
             {
-                await ProcessQuery(argSearch);
+                ProcessQuery(argSearch);
             }
 
             lastArg = argSearch;
