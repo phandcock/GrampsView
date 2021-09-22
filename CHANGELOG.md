@@ -1,3 +1,12 @@
+## [16.21.3](https://github.com/phandcock/GrampsView/compare/v16.21.2...v16.21.3) (2021-09-22)
+
+
+### Bug Fixes
+
+* fix advanced search ([251c27e](https://github.com/phandcock/GrampsView/commit/251c27ee966e0f078b5ec4ddeca982dce57d4558))
+
+
+
 ## [16.21.2](https://github.com/phandcock/GrampsView/compare/v16.21.1...v16.21.2) (2021-09-22)
 
 
@@ -36,18 +45,6 @@
 ### Features
 
 * change to system.json.text.  Lots of code cleanup. ([fe05b54](https://github.com/phandcock/GrampsView/commit/fe05b54a5240d8943f2418be1646b5462b0c17c7))
-
-
-
-## [16.20.8](https://github.com/phandcock/GrampsView/compare/v16.20.7...v16.20.8) (2021-09-12)
-
-
-### Bug Fixes
-
-* add basic drag gesture for notefullcard ([484fb9e](https://github.com/phandcock/GrampsView/commit/484fb9e7d5e67df0977762f8e0500178959a5b88))
-* add note formatted text underline ([fccc476](https://github.com/phandcock/GrampsView/commit/fccc4768f90eb0eb21a83c4faa206c8eec5f9f21))
-* cleanup settings theme selection code ([50a847e](https://github.com/phandcock/GrampsView/commit/50a847ee4947a0444c34c04ed2f310b66f1dea93))
-* migrate defaultText to ToString ([574b2d4](https://github.com/phandcock/GrampsView/commit/574b2d44e38901a972d2e56d6e2cd25c3701941f))
 
 
 
