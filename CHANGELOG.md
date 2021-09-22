@@ -1,3 +1,13 @@
+## [16.21.2](https://github.com/phandcock/GrampsView/compare/v16.21.1...v16.21.2) (2021-09-22)
+
+
+### Bug Fixes
+
+* fix display of tag and repository lists ([15b6b1c](https://github.com/phandcock/GrampsView/commit/15b6b1cc9b9e8dee3121c455780e297f89d6ea33))
+* fix placenamemodel tostring ([97e4568](https://github.com/phandcock/GrampsView/commit/97e45684c1db33248e7fbad0197fd085f15e2e17))
+
+
+
 ## [16.21.1](https://github.com/phandcock/GrampsView/compare/v16.21.0...v16.21.1) (2021-09-20)
 
 
@@ -38,16 +48,6 @@
 * add note formatted text underline ([fccc476](https://github.com/phandcock/GrampsView/commit/fccc4768f90eb0eb21a83c4faa206c8eec5f9f21))
 * cleanup settings theme selection code ([50a847e](https://github.com/phandcock/GrampsView/commit/50a847ee4947a0444c34c04ed2f310b66f1dea93))
 * migrate defaultText to ToString ([574b2d4](https://github.com/phandcock/GrampsView/commit/574b2d44e38901a972d2e56d6e2cd25c3701941f))
-
-
-
-## [16.20.7](https://github.com/phandcock/GrampsView/compare/v16.20.6...v16.20.7) (2021-09-10)
-
-
-### Bug Fixes
-
-* chnage compiler default to c# 8 ([00b1346](https://github.com/phandcock/GrampsView/commit/00b1346de0224f12ac376ad96da9be512877811f))
-* cleanup personref model loading ([f38e77b](https://github.com/phandcock/GrampsView/commit/f38e77bc66447a94ddbe639cf5dff001ec89e4f5))
 
 
 
