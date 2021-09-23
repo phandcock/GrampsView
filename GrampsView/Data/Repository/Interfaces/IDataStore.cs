@@ -21,7 +21,5 @@
         /// The datastore.
         /// </value>
         DataInstance DS { get; }
-
-        //NavCmd NV { get; set; }
     }
 }

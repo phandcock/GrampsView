@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// Interface defintion for IGrampsRepository.cs
-//
-// <copyright file="IDataRepositoryManager.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.Repository
 {
     using System.Threading.Tasks;
@@ -16,12 +7,6 @@ namespace GrampsView.Data.Repository
     /// </summary>
     public interface IDataRepositoryManager
     {
-        ///// <summary>
-        ///// Determines whether [is data loaded].
-        ///// </summary>
-        ///// <returns> Flag if data is loaded </returns>
-        // bool DataLoaded { get; }
-
         /// <summary>
         /// Gets the storage.
         /// </summary>
@@ -32,12 +17,6 @@ namespace GrampsView.Data.Repository
         {
             get;
         }
-
-        ///// <summary>
-        ///// Load Gramps Export XML Plus Media
-        ///// </summary>
-        ///// <returns> loaded or not </returns>
-        // Task<bool> TriggerLoadGPKGFileAsync(bool deleteOld);
 
         void StartDataLoad();
 

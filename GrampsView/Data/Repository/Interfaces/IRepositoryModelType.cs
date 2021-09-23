@@ -1,10 +1,3 @@
-//-----------------------------------------------------------------------
-//
-// <copyright file="IRepositoryModelType.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
 namespace GrampsView.Data.Repositories
 {
     /// <summary>
@@ -70,11 +63,6 @@ namespace GrampsView.Data.Repositories
         /// </returns>
         T Find(string key);
 
-        ///// <summary>
-        ///// Gets the h link string collection.
-        ///// </summary>
-        ///// <returns></returns>
-        // ObservableCollection<object> HLinkStringCollection();
         /// <summary>
         /// Randoms the item.
         /// </summary>
