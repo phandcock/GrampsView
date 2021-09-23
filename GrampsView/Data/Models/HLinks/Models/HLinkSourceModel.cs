@@ -39,7 +39,7 @@
         /// The HLink reference.
         /// </value>
         [JsonIgnore]
-        public new SourceModel DeRef
+        public SourceModel DeRef
         {
             get
             {

@@ -61,10 +61,5 @@
             await DeRef.OpenURL();
             return;
         }
-
-        //protected  IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

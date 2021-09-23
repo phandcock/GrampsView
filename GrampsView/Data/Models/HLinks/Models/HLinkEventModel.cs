@@ -34,7 +34,7 @@ namespace GrampsView.Data.Model
         /// The Event Model.
         /// </value>
         [JsonIgnore]
-        public new EventModel DeRef
+        public EventModel DeRef
         {
             get
             {

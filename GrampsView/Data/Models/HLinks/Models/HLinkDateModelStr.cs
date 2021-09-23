@@ -23,7 +23,7 @@ namespace GrampsView.Data.Model
         }
 
         [JsonIgnore]
-        public new DateObjectModelStr DeRef
+        public DateObjectModelStr DeRef
         {
             get;
             set;

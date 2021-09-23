@@ -26,6 +26,7 @@ namespace GrampsView.Data.Model
             {
                 HLinkPlaceNameModel t = new HLinkPlaceNameModel
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };

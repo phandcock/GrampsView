@@ -30,7 +30,7 @@
         /// The de reference.
         /// </value>
         [JsonIgnore]
-        public new NameMapModel DeRef
+        public NameMapModel DeRef
         {
             get
             {

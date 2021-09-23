@@ -5,6 +5,7 @@
 
     using System;
     using System.Diagnostics.Contracts;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// <para> Holds details of Attributes. </para>
@@ -70,7 +71,7 @@
         {
             get;
             set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets the attribute value.
@@ -83,14 +84,16 @@
         {
             get;
             set;
-        }
+        } = string.Empty;
 
+        [JsonIgnore]
         public HLinkAttributeModel HLink
         {
             get
             {
                 HLinkAttributeModel t = new HLinkAttributeModel
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
@@ -213,14 +216,5 @@
 
             return returnString;
         }
-
-        ///// <summary>
-        ///// Navigates to the detail page for the attribute.
-        ///// </summary>
-        //public override async Task UCNavigate()
-        //{
-        //    await UCNavigateBase(this, nameof(AttributeDetailPage));
-        //    return;
-        //}
     }
 }

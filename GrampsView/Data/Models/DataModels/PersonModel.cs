@@ -248,6 +248,7 @@
         /// <value>
         /// The get h link.
         /// </value>
+
         public HLinkPersonModel HLink
         {
             get

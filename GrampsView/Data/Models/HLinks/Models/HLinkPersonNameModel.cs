@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
         }
 
         [JsonIgnore]
-        public new PersonNameModel DeRef
+        public PersonNameModel DeRef
         {
             get
             {

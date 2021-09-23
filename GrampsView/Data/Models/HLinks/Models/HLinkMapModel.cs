@@ -33,7 +33,7 @@
         /// The dereference.
         /// </value>
 
-        public new IMapModel DeRef
+        public IMapModel DeRef
         {
             get;
 

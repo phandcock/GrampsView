@@ -26,7 +26,7 @@
         /// The de reference.
         /// </value>
 
-        public new HeaderModel DeRef
+        public HeaderModel DeRef
         {
             get
             {

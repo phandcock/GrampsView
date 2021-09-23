@@ -29,7 +29,7 @@
         /// The address model.
         /// </value>
         [JsonIgnore]
-        public new AddressModel DeRef
+        public AddressModel DeRef
         {
             get
             {

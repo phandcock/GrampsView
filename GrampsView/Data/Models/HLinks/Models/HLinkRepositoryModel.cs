@@ -30,7 +30,7 @@
         /// The de reference.
         /// </value>
         [JsonIgnore]
-        public new RepositoryModel DeRef
+        public RepositoryModel DeRef
         {
             get
             {

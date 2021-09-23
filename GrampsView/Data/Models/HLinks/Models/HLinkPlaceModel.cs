@@ -42,7 +42,7 @@
         public DateObjectModel Date { get; set; } = new DateObjectModelVal();
 
         [JsonIgnore]
-        public new PlaceModel DeRef
+        public PlaceModel DeRef
         {
             get
             {
@@ -61,7 +61,5 @@
             await UCNavigateBase(this, "PlaceDetailPage");
             return;
         }
-
-        // protected override IModelBase GetDeRef() { return DeRef; }
     }
 }

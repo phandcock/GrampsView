@@ -34,7 +34,7 @@
         /// The dereference.
         /// </value>
 
-        public new FamilyModel DeRef
+        public FamilyModel DeRef
         {
             get;
 

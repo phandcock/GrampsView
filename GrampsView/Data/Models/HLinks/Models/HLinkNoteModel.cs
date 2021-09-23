@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
         }
 
         [JsonIgnore]
-        public new NoteModel DeRef
+        public NoteModel DeRef
         {
             get
             {

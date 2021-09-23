@@ -30,7 +30,7 @@ namespace GrampsView.Data.Model
         /// Gets.
         /// </summary>
         [JsonIgnore]
-        public new FamilyModel DeRef
+        public FamilyModel DeRef
         {
             get
             {

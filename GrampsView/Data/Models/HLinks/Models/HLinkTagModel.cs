@@ -40,7 +40,7 @@
         /// The de reference.
         /// </value>
         [JsonIgnore]
-        public new TagModel DeRef
+        public TagModel DeRef
         {
             get
             {

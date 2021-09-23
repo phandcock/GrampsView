@@ -44,7 +44,7 @@
         /// as the Model Base has a hlinkmediamodel in it and this will cause a reference loop </note>
         /// </value>
         [JsonIgnore]
-        public new IMediaModel DeRef
+        public IMediaModel DeRef
         {
             get
             {

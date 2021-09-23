@@ -81,6 +81,7 @@
             {
                 HLinkURLModel t = new HLinkURLModel
                 {
+                    DeRef = this,
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };

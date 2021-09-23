@@ -39,7 +39,7 @@
         /// The de reference.
         /// </value>
         [JsonIgnore]
-        public new CitationModel DeRef
+        public CitationModel DeRef
         {
             get
             {
