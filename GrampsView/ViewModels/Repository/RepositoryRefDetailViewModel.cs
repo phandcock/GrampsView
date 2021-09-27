@@ -44,7 +44,7 @@
         /// <summary>
         /// Handles navigation inwards and sets up the repository model parameter.
         /// </summary>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryRefModel>(BaseParamsHLink);
 

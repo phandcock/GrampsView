@@ -59,7 +59,7 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BaseParamsHLink);
 

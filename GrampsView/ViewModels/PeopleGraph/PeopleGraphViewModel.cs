@@ -353,47 +353,6 @@ namespace GrampsView.ViewModels
         //}
 
         /// <summary>
-        /// Override for the OnNavigatedTo Prism method.
-        /// </summary>
-        public override void BaseHandleLoadEvent()
-        {
-            BaseCL.RoutineEntry("PeopleGraphViewModel");
-
-            HLinkKey startPoint = new HLinkKey("_c47a6bd11500b4b0cc8");
-
-            // Assume person
-            PersonModel t = DV.PersonDV.GetModelFromHLinkKey(startPoint);
-
-            // TODO add back in
-            //if (t.HLink.Valid == true)
-            //{
-            //    StartHLink = t.HLink;
-            //}
-            //else
-            //{
-            //    FamilyModel tf = DV.FamilyDV.GetModelFromHLinkKey(startPoint);
-
-            //    StartHLink = tf.HLink;
-            //}
-
-            if (!StartHLink.Valid)
-            {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
-                return;
-            }
-
-            GraphReset();
-
-            GetGraph();
-
-            LayoutPreStart();
-
-            LayoutNodes();
-
-            LayoutEdges();
-        }
-
-        /// <summary>
         /// Gets the graph.
         /// </summary>
         /// <param name="argHLink">
@@ -492,6 +451,47 @@ namespace GrampsView.ViewModels
         public void GraphReset()
         {
             TreeGraph = new List<PeopleGraphNode>();
+        }
+
+        /// <summary>
+        /// Override for the OnNavigatedTo Prism method.
+        /// </summary>
+        public override void HandleViewDataLoadEvent()
+        {
+            BaseCL.RoutineEntry("PeopleGraphViewModel");
+
+            HLinkKey startPoint = new HLinkKey("_c47a6bd11500b4b0cc8");
+
+            // Assume person
+            PersonModel t = DV.PersonDV.GetModelFromHLinkKey(startPoint);
+
+            // TODO add back in
+            //if (t.HLink.Valid == true)
+            //{
+            //    StartHLink = t.HLink;
+            //}
+            //else
+            //{
+            //    FamilyModel tf = DV.FamilyDV.GetModelFromHLinkKey(startPoint);
+
+            //    StartHLink = tf.HLink;
+            //}
+
+            if (!StartHLink.Valid)
+            {
+                DataStore.Instance.CN.NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
+                return;
+            }
+
+            GraphReset();
+
+            GetGraph();
+
+            LayoutPreStart();
+
+            LayoutNodes();
+
+            LayoutEdges();
         }
 
         /// <summary>

@@ -19,6 +19,7 @@
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : ObservableObject, INotifyPropertyChanged
     {
+        private string _BaseParamsHLink;
         private string _BaseTitle;
 
         /// <summary>
@@ -111,7 +112,21 @@
 
         public string BaseParamsHLink
         {
-            get; set;
+            get
+
+            {
+                return _BaseParamsHLink;
+            }
+
+            set
+            {
+                SetProperty(ref _BaseParamsHLink, value);
+
+                if (!string.IsNullOrEmpty(value))
+                {
+                    HandleBaseParamLinkChange();
+                }
+            }
         }
 
         public string BaseParamsModel
@@ -179,25 +194,17 @@
         }
 
         /// <summary>
-        /// Called when [navigated to].
+        /// Handle the appearing event. Designed to be overridden at the modelview level.
         /// </summary>
+        public virtual void HandleViewAppearingEvent()
+        {
+            return;
+        }
+
         /// <summary>
-        /// Populates the view ViewModel.
+        /// Handle the view loaded event. Designed to be overridden at the modelview level.
         /// </summary>
-        /// <returns>
-        /// Nothibg.
-        /// </returns>
-        public virtual void BaseHandleAppearingEvent()
-        {
-            return;
-        }
-
-        public virtual void BaseHandleDisAppearingEvent()
-        {
-            return;
-        }
-
-        public virtual void BaseHandleLoadEvent()
+        public virtual void HandleViewDataLoadEvent()
         {
             return;
         }
@@ -227,21 +234,19 @@
             await Email.ComposeAsync(message);
         }
 
-        internal void BaseHandleAppearingEventInternal()
+        internal void BaseHandleViewAppearingEventInternal()
         {
-            if (BaseHandleLoadTriggered == false)
-            {
-                BaseHandleLoadTriggered = true;
-
-                BaseHandleLoadEvent();
-            }
-
-            BaseHandleAppearingEvent();
+            HandleViewAppearingEvent();
         }
 
-        internal void BaseHandleDisAppearingEventInternal()
+        private void HandleBaseParamLinkChange()
         {
-            BaseHandleDisAppearingEvent();
+            //if (BaseHandleLoadTriggered == false)
+            //{
+            //    BaseHandleLoadTriggered = true;
+
+            HandleViewDataLoadEvent();
+            //}
         }
 
         // TODO work out how to add these to Frody

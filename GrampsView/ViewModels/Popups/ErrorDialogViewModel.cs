@@ -38,8 +38,8 @@
             set => SetProperty(ref _Title, value);
         }
 
-        public override void BaseHandleDisAppearingEvent()
-        {
-        }
+        //public override void BaseHandleDisAppearingEvent()
+        //{
+        //}
     }
 }

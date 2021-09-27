@@ -62,7 +62,7 @@
         /// <returns>
         /// Task.
         /// </returns>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(BaseParamsHLink);
 

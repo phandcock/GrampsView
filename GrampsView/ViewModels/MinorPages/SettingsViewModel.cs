@@ -25,7 +25,7 @@
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
-            // BaseHandleAppearingEvent();
+            // HandleViewAppearingEvent();
         }
 
         public IAsyncCommand ShowMessageLogCommand
@@ -139,7 +139,7 @@
             }
         }
 
-        public override void BaseHandleAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             switch (CommonLocalSettings.ApplicationTheme)
             {

@@ -32,7 +32,7 @@
             }
         }
 
-        public override void BaseHandleAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             return;
         }

@@ -51,7 +51,7 @@
         /// <value>
         /// The citation object.
         /// </value>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             // Handle HLinkKeys
             HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(BaseParamsHLink);

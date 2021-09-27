@@ -54,7 +54,7 @@
         /// Called when navigation is performed to a page. You can use this method to load state if
         /// it is available.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             BaseCurrentLayoutState = LayoutState.None;
         }

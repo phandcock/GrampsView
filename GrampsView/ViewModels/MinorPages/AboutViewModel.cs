@@ -19,8 +19,6 @@
         {
             BaseTitle = "About";
             BaseTitleIcon = CommonConstants.IconAbout;
-
-            //BaseHandleAppearingEvent();
         }
 
         /// <summary>
@@ -56,7 +54,7 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void BaseHandleAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             // Assembly level stuff
             Assembly assembly = GetType().GetTypeInfo().Assembly;

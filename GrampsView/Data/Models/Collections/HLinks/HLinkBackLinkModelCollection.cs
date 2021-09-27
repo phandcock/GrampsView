@@ -17,28 +17,7 @@
             Title = "BackLink Collection";
         }
 
-        //public Group<HLinkBackLinkModelCollection> AsGroupedCardGroup
-        //{
-        //    get
-        //    {
-        //        Group<HLinkBackLinkModelCollection> t = new Group<HLinkBackLinkModelCollection>();
-
-        // var query = from item in Items orderby item.HLinkType
-
-        // group item by item.HLinkType into g select new { GroupName = g.Key, Items = g };
-
-        // foreach (var g in query) { HLinkBackLinkModelCollection info = new
-        // HLinkBackLinkModelCollection() { Title = g.GroupName.ToString(), };
-
-        // foreach (var item in g.Items) { info.Add(item); }
-
-        // t.Add(info); }
-
-        //        return t;
-        //    }
-        //}
-
-        public new CardGroupHLink<HLinkBase> CardGroupAsProperty
+        public CardGroupHLink<HLinkBase> CardGroupAsProperty
         {
             get
             {

@@ -40,7 +40,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>((BaseParamsHLink));
 

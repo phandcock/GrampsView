@@ -113,7 +113,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 

@@ -36,7 +36,7 @@
         /// <summary>
         /// Handles navigation inwards and sets up the place model parameter.
         /// </summary>
-        public override void BaseHandleLoadEvent()
+        public override void HandleViewDataLoadEvent()
         {
             HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(BaseParamsHLink);
 

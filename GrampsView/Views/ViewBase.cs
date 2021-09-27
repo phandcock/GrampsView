@@ -12,17 +12,11 @@
 
         protected override void OnAppearing()
         {
-            if (!(this.BindingContext is null))
-            {
-                (this.BindingContext as ViewModelBase).BaseHandleAppearingEventInternal();
-            }
-        }
+            base.OnAppearing();
 
-        protected override void OnDisappearing()
-        {
-            if (!(this.BindingContext is null))
+            if (!(BindingContext is null))
             {
-                (this.BindingContext as ViewModelBase).BaseHandleDisAppearingEventInternal();
+                (BindingContext as ViewModelBase).BaseHandleViewAppearingEventInternal();
             }
         }
     }
