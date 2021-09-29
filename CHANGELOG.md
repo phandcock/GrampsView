@@ -1,3 +1,13 @@
+## [16.21.5](https://github.com/phandcock/GrampsView/compare/v16.21.4...v16.21.5) (2021-09-29)
+
+
+### Bug Fixes
+
+* cleanup viewbase event handling ([2c0b12d](https://github.com/phandcock/GrampsView/commit/2c0b12d184b738b57d1c80dedd0948c71e3bd1e2))
+* update windows uwp toolkit nuget ([f546e34](https://github.com/phandcock/GrampsView/commit/f546e346414cabff09f0c2db321006ad5a5b9dc5))
+
+
+
 ## [16.21.4](https://github.com/phandcock/GrampsView/compare/v16.21.3...v16.21.4) (2021-09-24)
 
 
@@ -25,19 +35,6 @@
 
 * fix display of tag and repository lists ([15b6b1c](https://github.com/phandcock/GrampsView/commit/15b6b1cc9b9e8dee3121c455780e297f89d6ea33))
 * fix placenamemodel tostring ([97e4568](https://github.com/phandcock/GrampsView/commit/97e45684c1db33248e7fbad0197fd085f15e2e17))
-
-
-
-## [16.21.1](https://github.com/phandcock/GrampsView/compare/v16.21.0...v16.21.1) (2021-09-20)
-
-
-### Bug Fixes
-
-* backlinkmodelcollection cleanup ([324176e](https://github.com/phandcock/GrampsView/commit/324176e62811744c8b5663a811880e7ec378de2b))
-* fix another system.text.json interface bug ([b4ee9c2](https://github.com/phandcock/GrampsView/commit/b4ee9c227f79fc51c975926c3ee423b00506a605))
-* fix placename deserialise of interface ([d11b026](https://github.com/phandcock/GrampsView/commit/d11b026051e4519a02c57a4c5f4a646d1e26bdb1))
-* fix placenamemodel date init ([0a25d07](https://github.com/phandcock/GrampsView/commit/0a25d07c9cbf8e4e818eac1dc709160c93357eb5))
-* tweaks ([924bc52](https://github.com/phandcock/GrampsView/commit/924bc520012fe177f04ee8ffd81e842896a20ff2))
 
 
 
