@@ -159,10 +159,5 @@
         }
 
         IMediaModel Clone();
-
-        /// <summary>
-        /// Cleans this instance.
-        /// </summary>
-        void FullImageClean();
     }
 }

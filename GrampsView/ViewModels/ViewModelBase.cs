@@ -112,21 +112,7 @@
 
         public string BaseParamsHLink
         {
-            get
-
-            {
-                return _BaseParamsHLink;
-            }
-
-            set
-            {
-                SetProperty(ref _BaseParamsHLink, value);
-
-                if (!string.IsNullOrEmpty(value))
-                {
-                    HandleBaseParamLinkChange();
-                }
-            }
+            get; set;
         }
 
         public string BaseParamsModel
@@ -188,11 +174,6 @@
             get; private set;
         }
 
-        private bool BaseHandleLoadTriggered
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Handle the appearing event. Designed to be overridden at the modelview level.
         /// </summary>
@@ -239,27 +220,33 @@
             HandleViewAppearingEvent();
         }
 
-        private void HandleBaseParamLinkChange()
-        {
-            //if (BaseHandleLoadTriggered == false)
-            //{
-            //    BaseHandleLoadTriggered = true;
-
-            HandleViewDataLoadEvent();
-            //}
-        }
-
-        // TODO work out how to add these to Frody
+        /// <summary>
+        /// Called when [basecl changed]. Frody automatically wires this up.
+        /// </summary>
         private void OnBaseCLChanged()
         {
             Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
         }
 
+        /// <summary>
+        /// Called when [baseeventaggregator changed]. Frody automatically wires this up.
+        /// </summary>
         private void OnBaseEventAggregatorChanged()
         {
             Debug.Assert(BaseEventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
         }
 
+        /// <summary>
+        /// Called when [base parametershlink changed]. Frody automatically wires this up.
+        /// </summary>
+        private void OnBaseParamsHLinkChanged()
+        {
+            HandleViewDataLoadEvent();
+        }
+
+        /// <summary>
+        /// Called when [basetitlechanged]. Frody automatically wires this up.
+        /// </summary>
         private void OnBaseTitleChanged()
         {
             if (!(BaseTitle == null))

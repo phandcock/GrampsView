@@ -29,12 +29,12 @@
             // Use cache base if currentdatafolder not allowed
             if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
             {
-                MakeGetFile(new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory), argFileName);
+                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
                 return;
             }
 
             // Standard call
-            MakeGetFile(new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)), argFileName);
+            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
         }
 
         public bool Exists
@@ -154,7 +154,16 @@
             }
         }
 
-        private void MakeGetFile(DirectoryInfo argBaseFolder = null, string argFileName = null)
+        /// <summary>
+        /// Checks and creates the directory path to a file. The filename may be prepended by a path.
+        /// </summary>
+        /// <param name="argFileName">
+        /// Path of the file. May be prepended by a path.
+        /// </param>
+        /// <param name="argBaseFolder">
+        /// The base folder of the file.
+        /// </param>
+        private void createFilePath(string argFileName, DirectoryInfo argBaseFolder = null)
         {
             if (argBaseFolder is null)
             {
@@ -162,15 +171,6 @@
             }
 
             Contract.Assert(argFileName != null);
-
-            // TODO Handle relative paths
-
-            // Check for relative path
-            // TODO Why?
-            //if (!StoreFileUtility.IsRelativeFilePathValid(argFileName))
-            //{
-            //    return new FileInfoEx();
-            //}
 
             // load the real file
             DirectoryInfo realPath = new DirectoryInfo(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
@@ -181,7 +181,7 @@
             {
                 try
                 {
-                    // Check if exists
+                    // If the file exists the path exists
                     if (FInfo.Exists)
                     {
                         return;
@@ -192,17 +192,6 @@
                     {
                         realPath.Create();
                     }
-
-                    //// Get file details if it exists
-                    //FileInfo[] t = realPath.GetFiles();
-
-                    //foreach (FileInfo item in t)
-                    //{
-                    //    if (item.Name == Path.GetFileName(argFileName))
-                    //    {
-                    //        this.FInfo = item;
-                    //    }
-                    //}
                 }
                 catch (FileNotFoundException ex)
                 {

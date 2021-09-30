@@ -17,6 +17,12 @@
             Title = "BackLink Collection";
         }
 
+        /// <summary>
+        /// Returns a CardGroup of HLinkBase and not HLinkBackLink.
+        /// </summary>
+        /// <value>
+        /// The card group as property.
+        /// </value>
         public CardGroupHLink<HLinkBase> CardGroupAsProperty
         {
             get

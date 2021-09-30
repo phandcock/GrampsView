@@ -16,14 +16,6 @@ namespace GrampsView.Data.Model
     {
         // TODO Handle HLink collections properly by handling all their data
 
-        //public virtual CardGroupHLink<T> CardGroupAsProperty
-        //{
-        //    get
-        //    {
-        //        return GetCardGroup();
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the first image hlink.
         /// </summary>
@@ -37,17 +29,6 @@ namespace GrampsView.Data.Model
             }
         }
 
-        //public virtual CardGroupHLink<T> GetCardGroup()
-        //{
-        //    CardGroupHLink<T> t = new CardGroupHLink<T>();
-
-        // foreach (T item in Items) { t.Add(item); }
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
-
         public virtual CardGroupHLink<T> GetCardGroupBase(string argTitle = "")
         {
             CardGroupHLink<T> t = GetCardGroupBase();
@@ -59,17 +40,6 @@ namespace GrampsView.Data.Model
 
             return t;
         }
-
-        //public virtual CardGroupHLink<T> GetCardGroupBase()
-        //{
-        //    CardGroupHLink<T> t = new CardGroupHLink<T>();
-
-        // foreach (T item in Items) { t.Add(item); }
-
-        // t.Title = Title;
-
-        //    return t;
-        //}
 
         /// <summary>
         /// <para> Sets the first image. </para>

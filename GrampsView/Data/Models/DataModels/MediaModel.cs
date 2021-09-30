@@ -37,8 +37,6 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _FileDescription = string.Empty;
 
-        //private bool _IsInternalMediaFile;
-
         /// <summary>
         /// Local Storage File for media object.
         /// </summary>
@@ -486,16 +484,6 @@ namespace GrampsView.Data.Model
             }
 
             return testFlag;
-        }
-
-        /// <summary>
-        /// Cleans this instance.
-        /// </summary>
-        public void FullImageClean()
-        {
-            // TODO fix cache
-            //IsFullImageLoaded = false;
-            //ImageFullBitmap = null;
         }
 
         /// <summary>
