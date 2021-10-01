@@ -1,6 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Data.Model;
 
@@ -8,7 +6,18 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// URL model collection.
+    /// URL HLink collection
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
+    /// <para> <br/> </para>
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<HLinkURLModel>))]
