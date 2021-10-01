@@ -399,11 +399,9 @@
             return t;
         }
 
-        private OCLdsOrdModelCollection GetLDSOrdCollection(XElement xmlData)
+        private HLinkLdsOrdModelCollection GetLDSOrdCollection(XElement xmlData)
         {
-            //TODO Fix
-
-            OCLdsOrdModelCollection t = new OCLdsOrdModelCollection
+            HLinkLdsOrdModelCollection t = new HLinkLdsOrdModelCollection
             {
                 Title = "LDS Ordination Collection"
             };
@@ -414,7 +412,7 @@
 
             if (theERElement.Any())
             {
-                // load event object references
+                // load LDS Ordination object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
                     LdsOrdModel t2 = new LdsOrdModel
@@ -422,7 +420,12 @@
                         HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
-                    t.Add(t2);
+                    HLinkLDSModel ttt = new HLinkLDSModel
+                    {
+                        DeRef = t2
+                    };
+
+                    t.Add(ttt);
                 }
             }
 
@@ -456,11 +459,9 @@
                 {
                     HLinkNoteModel noteHLink = new HLinkNoteModel
                     {
-                        // object details
                         HLinkKey = GetHLinkKey(loadNoteElement),
                     };
 
-                    // save the object
                     t.Add(noteHLink);
                 }
             }

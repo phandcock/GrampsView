@@ -162,12 +162,12 @@
         /// The GLDS collection.
         /// </value>
         [JsonInclude]
-        public OCLdsOrdModelCollection GLDSCollection
+        public HLinkLdsOrdModelCollection GLDSCollection
         {
             get;
 
             set;
-        } = new OCLdsOrdModelCollection();
+        } = new HLinkLdsOrdModelCollection();
 
         /// <summary> Gets or sets Media In $$(hLink)$$.
         // </summary>

@@ -1,8 +1,4 @@
-﻿// TODO Needs XML 1.71 check
-
-/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
+﻿namespace GrampsView.Data.Collections
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -12,6 +8,17 @@ namespace GrampsView.Data.Collections
     using System.Runtime.Serialization;
 
     /// <summary>
+    /// Data model for a collection of HLINks to media models.
+    /// <list type="table">
+    /// <listheader>
+    /// <term> Item </term>
+    /// <term> Status </term>
+    /// </listheader>
+    /// <item>
+    /// <description> XML 1.71 check </description>
+    /// <description> Done </description>
+    /// </item>
+    /// </list>
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<HLinkMediaModel>))]
@@ -38,23 +45,5 @@ namespace GrampsView.Data.Collections
 
             base.SetGlyph();
         }
-
-        ///// <summary>
-        ///// Helper method to sort.
-        ///// </summary>
-        ///// <param name="collectionArg">
-        ///// The collection argument.
-        ///// </param>
-        //public void Sort()
-        //{
-        //    List<HLinkMediaModel> t = this.OrderBy(hLinkMediaModel => hLinkMediaModel.DeRef.GDescription).ToList();
-
-        // Items.Clear();
-
-        //    foreach (HLinkMediaModel item in t)
-        //    {
-        //        Items.Add(item);
-        //    }
-        //}
     }
 }

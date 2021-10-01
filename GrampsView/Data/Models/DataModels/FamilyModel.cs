@@ -136,12 +136,12 @@ namespace GrampsView.Data.Model
             set;
         } = new HLinkPersonModel();
 
-        public OCLdsOrdModelCollection GLDSOrdCollection
+        public HLinkLdsOrdModelCollection GLDSOrdCollection
         {
             get;
 
             set;
-        } = new OCLdsOrdModelCollection();
+        } = new HLinkLdsOrdModelCollection();
 
         /// <summary>
         /// Gets or sets the g media reference collection. This is the [objref*] attribute.

@@ -68,10 +68,10 @@
         public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
 
         /// <summary>
-        /// Gets or sets the g citation model collection.
+        /// Gets or sets the citation model collection.
         /// </summary>
         /// <value>
-        /// The g citation model collection.
+        /// The citation model collection.
         /// </value>
 
         public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
@@ -126,10 +126,5 @@
             await UCNavigateBase(this, "MediaDetailPage");
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }
