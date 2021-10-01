@@ -1,3 +1,12 @@
+## [16.21.6](https://github.com/phandcock/GrampsView/compare/v16.21.5...v16.21.6) (2021-10-01)
+
+
+### Bug Fixes
+
+* reactor baseviewmodel code ([a862bfc](https://github.com/phandcock/GrampsView/commit/a862bfc0cba2546b7927b312d04cac41946d5667))
+
+
+
 ## [16.21.5](https://github.com/phandcock/GrampsView/compare/v16.21.4...v16.21.5) (2021-09-29)
 
 
@@ -25,16 +34,6 @@
 ### Bug Fixes
 
 * fix advanced search ([251c27e](https://github.com/phandcock/GrampsView/commit/251c27ee966e0f078b5ec4ddeca982dce57d4558))
-
-
-
-## [16.21.2](https://github.com/phandcock/GrampsView/compare/v16.21.1...v16.21.2) (2021-09-22)
-
-
-### Bug Fixes
-
-* fix display of tag and repository lists ([15b6b1c](https://github.com/phandcock/GrampsView/commit/15b6b1cc9b9e8dee3121c455780e297f89d6ea33))
-* fix placenamemodel tostring ([97e4568](https://github.com/phandcock/GrampsView/commit/97e45684c1db33248e7fbad0197fd085f15e2e17))
 
 
 
