@@ -19,11 +19,11 @@
     /// <para> <br/> </para>
     /// </summary>
 
-    public class HLinkURLModel : HLinkBase, IHLinkURLModel
+    public class HLinkSurnameModel : HLinkBase, IHLinkSurnameModel
     {
-        public HLinkURLModel()
+        public HLinkSurnameModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconURL;
+            HLinkGlyphItem.Symbol = CommonConstants.IconDDefault;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
@@ -31,15 +31,15 @@
         /// Gets the reference.
         /// </summary>
         /// <value>
-        /// The de reference.
+        /// The reference.
         /// </value>
 
-        public URLModel DeRef
+        public SurnameModel DeRef
         {
             get;
 
             set;
-        } = new URLModel();
+        } = new SurnameModel();
 
         public override bool Valid
         {
@@ -53,12 +53,22 @@
             }
         }
 
+        public override string ToString()
+        {
+            if (DeRef != null)
+            {
+                return DeRef.DefaultTextShort;
+            }
+
+            return base.ToString();
+        }
+
         /// <summary>
         /// No detail page to navigate to, just open the URL externally.
         /// </summary>
         public override async Task UCNavigate()
         {
-            await DeRef.OpenURL();
+            // TODO finish this await DeRef.OpenURL();
             return;
         }
     }

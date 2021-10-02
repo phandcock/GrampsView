@@ -62,7 +62,7 @@
                     new CardListLine("Primary SurName:", PersonNameObject.GSurName.GetPrimarySurname),
                     new CardListLine("Suffix:", PersonNameObject.GSuffix),
 
-                    new CardListLine("Alt:", PersonNameObject.GAlt.ToString()),
+                    new CardListLine("Alternative:", PersonNameObject.GAlt.ToString()),
                     new CardListLine("Call:", PersonNameObject.GCall),
                     new CardListLine("Display:", PersonNameObject.GDisplay),
                     new CardListLine("Family Nick:", PersonNameObject.GFamilyNick),
@@ -78,15 +78,15 @@
                 // Get date card
                 BaseDetail.Add(PersonNameObject.GDate.AsHLink("Name Date"));
 
-                foreach (SurnameModel item in PersonNameObject.GSurName)
+                foreach (HLinkSurnameModel item in PersonNameObject.GSurName)
                 {
                     CardListLineCollection SurnameCard = new CardListLineCollection("Surnames")
                         {
                             new CardListLine("Surname:", item.ToString()),
-                            new CardListLine("Prefix:", item.GPrefix),
-                            new CardListLine("Primary:", item.GPrim),
-                            new CardListLine("Derivation:", item.GDerivation),
-                            new CardListLine("Connector:", item.GConnector),
+                            new CardListLine("Prefix:", item.DeRef.GPrefix),
+                            new CardListLine("Primary:", item.DeRef.GPrim),
+                            new CardListLine("Derivation:", item.DeRef.GDerivation),
+                            new CardListLine("Connector:", item.DeRef.GConnector),
                         };
 
                     BaseDetail.Add(SurnameCard);

@@ -847,9 +847,9 @@
             return returnValue;
         }
 
-        private SurnameModelCollection GetSurnameCollection(XElement xmlData)
+        private HLinkSurnameModelCollection GetSurnameCollection(XElement xmlData)
         {
-            SurnameModelCollection t = new SurnameModelCollection
+            HLinkSurnameModelCollection t = new HLinkSurnameModelCollection
             {
                 Title = "Surname Collection"
             };
@@ -866,7 +866,13 @@
                     {
                         GText = GetElement(theLoadORElement),
                     };
-                    t.Add(t2);
+
+                    HLinkSurnameModel newHLink = new HLinkSurnameModel
+                    {
+                        DeRef = t2,
+                    };
+
+                    t.Add(newHLink);
                 }
             }
 

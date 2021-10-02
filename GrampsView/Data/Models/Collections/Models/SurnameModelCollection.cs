@@ -2,7 +2,6 @@
 
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
 
     using System.Collections.ObjectModel;
@@ -13,9 +12,9 @@ namespace GrampsView.Data.Collections
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<SurnameModel>))]
-    public class SurnameModelCollection : CardGroupModel<SurnameModel>
+    public class HLinkSurnameModelCollection : HLinkBaseCollection<HLinkSurnameModel>
     {
-        public SurnameModelCollection()
+        public HLinkSurnameModelCollection()
         {
             Title = "Surname Model Collection";
         }
@@ -31,7 +30,7 @@ namespace GrampsView.Data.Collections
 
                 if ((Items.Count > 0) && (Items[0].Valid))
                 {
-                    return Items[0].GText;
+                    return Items[0].DeRef.GText;
                 }
 
                 return "Unknown";

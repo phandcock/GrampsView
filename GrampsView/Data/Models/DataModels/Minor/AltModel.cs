@@ -44,5 +44,10 @@
 
             set;
         }
+
+        public override string ToString()
+        {
+            return GAlt.ToString();
+        }
     }
 }

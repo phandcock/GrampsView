@@ -255,14 +255,14 @@ namespace GrampsView.Data.Model
         /// The name of the g sur.
         /// </value>
 
-        public SurnameModelCollection GSurName
+        public HLinkSurnameModelCollection GSurName
         {
             get;
 
             set;
         }
 
-        = new SurnameModelCollection();
+        = new HLinkSurnameModelCollection();
 
         /// <summary>
         /// Gets or sets the title.
