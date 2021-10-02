@@ -12,9 +12,9 @@ namespace GrampsView.Data.Collections
     /// </summary>
 
     [KnownType(typeof(HLinkBaseCollection<HLinkChildRefModel>))]
-    public class ChildRefCollectionCollection : HLinkBaseCollection<HLinkChildRefModel>
+    public class HLinkChildRefCollection : HLinkBaseCollection<HLinkChildRefModel>
     {
-        public ChildRefCollectionCollection()
+        public HLinkChildRefCollection()
         {
             Title = "Child Reference Collection";
         }

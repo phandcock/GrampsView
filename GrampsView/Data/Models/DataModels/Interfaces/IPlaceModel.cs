@@ -27,7 +27,7 @@
             get; set;
         }
 
-        PlaceLocationCollection GLocation
+        HLinkPlaceLocationCollection GLocation
         {
             get;
         }

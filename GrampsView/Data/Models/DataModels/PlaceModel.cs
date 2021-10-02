@@ -72,7 +72,7 @@ namespace GrampsView.Data.Model
             get; set;
         }
 
-        public PlaceLocationCollection GLocation { get; set; } = new PlaceLocationCollection();
+        public HLinkPlaceLocationCollection GLocation { get; set; } = new HLinkPlaceLocationCollection();
 
         /// <summary>
         /// Gets or sets the media reference collection.

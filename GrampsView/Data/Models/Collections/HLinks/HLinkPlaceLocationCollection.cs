@@ -4,19 +4,15 @@
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
-
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Place location model collection
     /// </summary>
 
-    [KnownType(typeof(CardGroupModel<PlaceLocationModel>))]
-    public class PlaceLocationCollection : CardGroupModel<PlaceLocationModel>
+    public class HLinkPlaceLocationCollection : HLinkBaseCollection<HLinkPlaceLocationModel>
     {
-        public PlaceLocationCollection()
+        public HLinkPlaceLocationCollection()
         {
             Title = "Place Location Collection";
         }

@@ -2,7 +2,6 @@
 
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
 
     /// <summary>
@@ -10,9 +9,9 @@ namespace GrampsView.Data.Collections
     /// </summary>
     /// <seealso cref="System.Collections.ObjectViewModel.ObservableCollection{GrampsView.Data.ViewModel.SrcAttributeModel}"/>
 
-    public class OCSrcAttributeModelCollection : CardGroupModel<SrcAttributeModel>
+    public class HLinkOCSrcAttributeCollection : HLinkBaseCollection<HLinkSrcAttributeModel>
     {
-        public OCSrcAttributeModelCollection()
+        public HLinkOCSrcAttributeCollection()
         {
             Title = "Source Attribute Collection";
         }

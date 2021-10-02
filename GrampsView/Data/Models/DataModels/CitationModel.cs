@@ -112,19 +112,20 @@ namespace GrampsView.Data.Model
         /// The g source attribute.
         /// </value>
 
-        public OCSrcAttributeModelCollection GSourceAttributeCollection
+        // TODO Where does this get loaded?
+        public HLinkOCSrcAttributeCollection GSourceAttributeCollection
         {
             get;
             set;
         }
 
-            = new OCSrcAttributeModelCollection();
+            = new HLinkOCSrcAttributeCollection();
 
         /// <summary>
         /// Gets or sets the source reference.
         /// </summary>
         /// <value>
-        /// The g source reference.
+        /// The source reference.
         /// </value>
 
         public HLinkSourceModel GSourceRef

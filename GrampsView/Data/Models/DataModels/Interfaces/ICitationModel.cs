@@ -63,7 +63,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        OCSrcAttributeModelCollection GSourceAttributeCollection
+        HLinkOCSrcAttributeCollection GSourceAttributeCollection
         {
             get;
         }

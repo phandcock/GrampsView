@@ -56,19 +56,19 @@
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
 
-                foreach (PlaceLocationModel thePlaceLocation in PlaceObject.GLocation)
+                foreach (HLinkPlaceLocationModel thePlaceLocation in PlaceObject.GLocation)
                 {
                     BaseDetail.Add(new CardListLineCollection("Location")
                     {
-                        new CardListLine("Street:", thePlaceLocation.GStreet),
-                        new CardListLine("City:", thePlaceLocation.GCity),
-                        new CardListLine("County:", thePlaceLocation.GCounty),
-                        new CardListLine("Locality:", thePlaceLocation.GLocality),
-                        new CardListLine("Parish:", thePlaceLocation.GParish),
-                        new CardListLine("State:", thePlaceLocation.GState),
-                        new CardListLine("Country:", thePlaceLocation.GCountry),
-                        new CardListLine("Phone:", thePlaceLocation.GPhone),
-                        new CardListLine("City:", thePlaceLocation.GPostal),
+                        new CardListLine("Street:", thePlaceLocation.DeRef.GStreet),
+                        new CardListLine("City:", thePlaceLocation.DeRef.GCity),
+                        new CardListLine("County:", thePlaceLocation.DeRef.GCounty),
+                        new CardListLine("Locality:", thePlaceLocation.DeRef.GLocality),
+                        new CardListLine("Parish:", thePlaceLocation.DeRef.GParish),
+                        new CardListLine("State:", thePlaceLocation.DeRef.GState),
+                        new CardListLine("Country:", thePlaceLocation.DeRef.GCountry),
+                        new CardListLine("Phone:", thePlaceLocation.DeRef.GPhone),
+                        new CardListLine("City:", thePlaceLocation.DeRef.GPostal),
                     });
                 }
 

@@ -18,9 +18,9 @@
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
-        private static PlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
+        private static HLinkPlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
         {
-            PlaceLocationCollection t = new PlaceLocationCollection
+            HLinkPlaceLocationCollection t = new HLinkPlaceLocationCollection
             {
                 Title = "Place Location Collection"
             };
@@ -99,7 +99,13 @@
                     }
 
                     newLocationModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
-                    t.Add(newLocationModel);
+
+                    HLinkPlaceLocationModel newHLink = new HLinkPlaceLocationModel()
+                    {
+                        DeRef = newLocationModel,
+                    };
+
+                    t.Add(newHLink);
                 }
             }
 
@@ -266,9 +272,9 @@
             return t;
         }
 
-        private ChildRefCollectionCollection GetChildRefCollection(XElement xmlData)
+        private HLinkChildRefCollection GetChildRefCollection(XElement xmlData)
         {
-            ChildRefCollectionCollection t = new ChildRefCollectionCollection
+            HLinkChildRefCollection t = new HLinkChildRefCollection
             {
                 Title = "Child Reference Collection"
             };
@@ -734,9 +740,9 @@
         /// </param>
         /// <returns>
         /// </returns>
-        private OCSrcAttributeModelCollection GetSrcAttributeCollection(XElement xmlData)
+        private HLinkOCSrcAttributeCollection GetSrcAttributeCollection(XElement xmlData)
         {
-            OCSrcAttributeModelCollection t = new OCSrcAttributeModelCollection
+            HLinkOCSrcAttributeCollection t = new HLinkOCSrcAttributeCollection
             {
                 Title = "Source Attribute Collection"
             };
@@ -758,7 +764,12 @@
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),
                     };
 
-                    t.Add(tt);
+                    HLinkSrcAttributeModel newHLink = new HLinkSrcAttributeModel()
+                    {
+                        DeRef = tt,
+                    };
+
+                    t.Add(newHLink);
                 }
             }
 

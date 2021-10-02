@@ -68,14 +68,14 @@ namespace GrampsView.Data.Model
         /// The g child reference collection.
         /// </value>
 
-        public ChildRefCollectionCollection GChildRefCollection
+        public HLinkChildRefCollection GChildRefCollection
         {
             get;
 
             set;
         }
 
-        = new ChildRefCollectionCollection();
+        = new HLinkChildRefCollection();
 
         /// <summary>
         /// Gets or sets the g citation reference collection.

@@ -43,9 +43,6 @@
 		<Compile Remove="Common\MainMenuItem.cs" />
 		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
 		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
-		<Compile Remove="Data\Models\Collections\Models\HLinkAttributeModelCollection.cs" />
-		<Compile Remove="Data\Models\Collections\Models\OCAttributeModelCollection.cs" />
-		<Compile Remove="Data\Models\Collections\Models\PlaceNameModelCollection.cs" />
 		<Compile Remove="Data\Models\DataModels\Minor\ParentLinkModel.cs" />
 		<Compile Remove="Data\Models\HLinks\HLinkGlyph.cs" />
 		<Compile Remove="Data\Models\HLinks\HLinkHomeImageModel.cs" />
