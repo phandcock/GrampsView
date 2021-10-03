@@ -52,8 +52,11 @@
         /// <value>
         /// The home symbol.
         /// </value>
+        /// <remarks>
+        /// This is set when the model is created.
+        /// </remarks>
 
-        [JsonInclude]
+        [JsonIgnore]
         public string ImageSymbol
         {
             get; set;
@@ -65,8 +68,10 @@
         /// <value>
         /// The background colour.
         /// </value>
-
-        [JsonInclude]
+        /// <remarks>
+        /// This is set when the model is created.
+        /// </remarks>
+        [JsonIgnore]
         public Color ImageSymbolColour
         {
             get; set;
