@@ -1,3 +1,12 @@
+## [16.21.8](https://github.com/phandcock/GrampsView/compare/v16.21.7...v16.21.8) (2021-10-04)
+
+
+### Bug Fixes
+
+* do not save color and symbol for models as these are set when created.  This allows colour changes. ([aab7d15](https://github.com/phandcock/GrampsView/commit/aab7d150170ce6340cc0ecc5b49dce59b4fdc1ce))
+
+
+
 ## [16.21.7](https://github.com/phandcock/GrampsView/compare/v16.21.6...v16.21.7) (2021-10-03)
 
 
@@ -26,17 +35,6 @@
 
 * cleanup viewbase event handling ([2c0b12d](https://github.com/phandcock/GrampsView/commit/2c0b12d184b738b57d1c80dedd0948c71e3bd1e2))
 * update windows uwp toolkit nuget ([f546e34](https://github.com/phandcock/GrampsView/commit/f546e346414cabff09f0c2db321006ad5a5b9dc5))
-
-
-
-## [16.21.4](https://github.com/phandcock/GrampsView/compare/v16.21.3...v16.21.4) (2021-09-24)
-
-
-### Bug Fixes
-
-* cleanup hlinkbasecollection ([0d4a117](https://github.com/phandcock/GrampsView/commit/0d4a11788d8a7a9e58914200d8581f371c9b1c34))
-* fix display of attribute detailpage ([6fecee2](https://github.com/phandcock/GrampsView/commit/6fecee23d467c9b77370dcd3c83a355bc123de0c))
-* update nugets ([50142b6](https://github.com/phandcock/GrampsView/commit/50142b682de941357298d631ecc9a75f04fc835d))
 
 
 
