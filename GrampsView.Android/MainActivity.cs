@@ -20,6 +20,7 @@
     using System.Threading.Tasks;
 
     using Xamarin.Essentials;
+    using Xamarin.Forms.DualScreen;
 
     public class AndroidInitializer : IPlatformInitializer
     {
@@ -68,6 +69,8 @@
             CachedImageRenderer.Init(enableFastRenderer: false);
 
             CachedImageRenderer.InitImageViewHandler();
+
+            DualScreenService.Init(this);
 
             Platform.Init(this, savedInstanceState);
 
