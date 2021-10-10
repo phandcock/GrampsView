@@ -34,6 +34,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "android", "android", "{AEA6
 		.azure\android\azure-pipeline-android-vstest.yml = .azure\android\azure-pipeline-android-vstest.yml
 		.azure\android\azure-pipeline-android.yml = .azure\android\azure-pipeline-android.yml
 		.azure\android\azure-pipeline-test.yml = .azure\android\azure-pipeline-test.yml
+		.azure\android\azure-pipelinetemplate-build-android-aab.yml = .azure\android\azure-pipelinetemplate-build-android-aab.yml
+		.azure\android\azure-pipelinetemplate-build-android-apk.yml = .azure\android\azure-pipelinetemplate-build-android-apk.yml
+		.azure\android\azure-pipelinetemplate-build-android.yml = .azure\android\azure-pipelinetemplate-build-android.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{9001E1F9-1650-4E0F-BE28-57C16727A4A4}"
@@ -45,6 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{D48CC23A-5C6
 	ProjectSection(SolutionItems) = preProject
 		.azure\uwp\azure-pipeline-uwp-store.yml = .azure\uwp\azure-pipeline-uwp-store.yml
 		.azure\uwp\azure-pipeline-uwp.yml = .azure\uwp\azure-pipeline-uwp.yml
+		.azure\uwp\azure-pipelinetemplate-build-uwp.yml = .azure\uwp\azure-pipelinetemplate-build-uwp.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
