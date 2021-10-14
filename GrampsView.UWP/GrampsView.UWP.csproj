@@ -188,6 +188,7 @@
     <Content Include="Assets\Icons\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="FodyWeavers.xml" />
     <Content Include="ic_launcher.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
