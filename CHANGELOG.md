@@ -1,3 +1,12 @@
+## [16.21.9](https://github.com/phandcock/GrampsView/compare/v16.21.8...v16.21.9) (2021-10-15)
+
+
+### Reverts
+
+* Revert "ci: use templates" ([d5f8e36](https://github.com/phandcock/GrampsView/commit/d5f8e3611aa0e337698f08b3d33149571b4a5ac4))
+
+
+
 ## [16.21.8](https://github.com/phandcock/GrampsView/compare/v16.21.7...v16.21.8) (2021-10-04)
 
 
@@ -25,16 +34,6 @@
 ### Bug Fixes
 
 * reactor baseviewmodel code ([a862bfc](https://github.com/phandcock/GrampsView/commit/a862bfc0cba2546b7927b312d04cac41946d5667))
-
-
-
-## [16.21.5](https://github.com/phandcock/GrampsView/compare/v16.21.4...v16.21.5) (2021-09-29)
-
-
-### Bug Fixes
-
-* cleanup viewbase event handling ([2c0b12d](https://github.com/phandcock/GrampsView/commit/2c0b12d184b738b57d1c80dedd0948c71e3bd1e2))
-* update windows uwp toolkit nuget ([f546e34](https://github.com/phandcock/GrampsView/commit/f546e346414cabff09f0c2db321006ad5a5b9dc5))
 
 
 
