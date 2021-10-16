@@ -62,7 +62,7 @@
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            _StartAppLoad.StartProcessing();
+            await _StartAppLoad.StartProcessing();
         }
     }
 }
