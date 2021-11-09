@@ -232,4 +232,6 @@
 			<Generator>MSBuild:Compile</Generator>
 		</None>
 	</ItemGroup>
+
+	<Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />
 </Project>

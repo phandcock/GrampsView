@@ -40,4 +40,6 @@
     <EmbeddedResource Include="..\.test data\grampsxml.171.rng" Link="Test Data\grampsxml.171.rng" />
     <EmbeddedResource Include="..\.test data\example.gramps" Link="Test Data\example.gramps" />
   </ItemGroup>
+
+  <Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />
 </Project>

@@ -15,6 +15,10 @@
     using Microsoft.AppCenter.Crashes;
     using Microsoft.AppCenter.Distribute;
 
+    using SharedSharp.Misc;
+
+    using System;
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.Globalization;
     using System.Threading.Tasks;
@@ -22,7 +26,7 @@
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
-    public sealed partial class App
+    public sealed partial class App : Application
     {
         private static HLinkFamilyModel FamilyStartModel = null;
 
@@ -30,31 +34,46 @@
 
         public App()
         {
+            InitializeComponent();
+
+            Services = ConfigureServices();
         }
 
-        public App(IPlatformInitializer initializer)
-                            : base(initializer)
-        {
-        }
+        /// <summary>
+        /// Gets the current <see cref="App"/> instance in use
+        /// </summary>
+        public new static App Current => (App)Application.Current;
 
-        public App(IPlatformInitializer initializer, bool setFormsDependencyResolver)
-                            : base(initializer, setFormsDependencyResolver)
-        {
-        }
-
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        {
-        }
+        /// <summary>
+        /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
+        /// </summary>
+        public IServiceProvider Services { get; }
 
         protected override void OnAppLinkRequestReceived(System.Uri uri)
         {
             base.OnAppLinkRequestReceived(uri);
         }
 
-        protected override void OnInitialized()
+        protected override void OnResume()
         {
-            InitializeComponent();
+            Debug.WriteLine("Resuming");
 
+            base.OnResume();
+
+            // Handle when your app resumes
+        }
+
+        protected override void OnSleep()
+        {
+            Debug.WriteLine("Sleeping");
+
+            base.OnSleep();
+
+            // Handle when your app sleeps
+        }
+
+        protected override void OnStart()
+        {
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {
@@ -81,9 +100,9 @@
 
             //// Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
-           {
-               OnMainDisplayInfoChanged(s, a);
-           };
+            {
+                OnMainDisplayInfoChanged(s, a);
+            };
             DataStore.Instance.AD.ScreenSizeInit();
 
             VersionTracking.Track();
@@ -95,31 +114,10 @@
             Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
 
             StartAtDetailPage().GetAwaiter().GetResult();
-        }
 
-        protected override void OnResume()
-        {
-            Debug.WriteLine("Resuming");
-
-            base.OnResume();
-
-            // Handle when your app resumes
-        }
-
-        protected override void OnSleep()
-        {
-            Debug.WriteLine("Sleeping");
-
-            base.OnSleep();
-
-            // Handle when your app sleeps
-        }
-
-        protected override void OnStart()
-        {
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                CommonRoutines.NavigateHub();
+                SharedSharpStaticRoutines.NavigateHub();
 
                 return;
             }
@@ -127,8 +125,28 @@
             Container.Resolve<IStartAppLoad>().StartProcessing();
         }
 
-        protected override void RegisterTypes(IContainerRegistry container)
+        /// <summary>
+        /// Initialize App Center.
+        /// </summary>
+        private static void AppCenterInit()
         {
+            string initString = "uwp=" + Secret.UWPSecret + ";" +
+                                "android=" + Secret.AndroidSecret + ";" +
+                                "ios=" + Secret.IOSSecret;
+
+            Debug.WriteLine(initString, "AppCenterInit");
+
+            AppCenter.Start(initString,
+                            typeof(Analytics), typeof(Crashes), typeof(Distribute));
+
+            Distribute.SetEnabledAsync(true);
+
+            Distribute.CheckForUpdate();
+        }
+
+        private static IServiceProvider ConfigureServices()
+        {
+            var services = new ServiceCollection();
             container.RegisterForNavigation<AboutPage, AboutViewModel>();
             container.RegisterForNavigation<AddressDetailPage, AddressDetailViewModel>();
             container.RegisterForNavigation<AttributeDetailPage, AttributeDetailViewModel>();
@@ -197,25 +215,6 @@
             container.RegisterForNavigation<WhatsNewPage, WhatsNewViewModel>();
             container.RegisterForNavigation<FirstRunPage>();
             container.RegisterForNavigation<NeedDatabaseReloadPage>();
-        }
-
-        /// <summary>
-        /// Initialize App Center.
-        /// </summary>
-        private static void AppCenterInit()
-        {
-            string initString = "uwp=" + Secret.UWPSecret + ";" +
-                                "android=" + Secret.AndroidSecret + ";" +
-                                "ios=" + Secret.IOSSecret;
-
-            Debug.WriteLine(initString, "AppCenterInit");
-
-            AppCenter.Start(initString,
-                            typeof(Analytics), typeof(Crashes), typeof(Distribute));
-
-            Distribute.SetEnabledAsync(true);
-
-            Distribute.CheckForUpdate();
         }
 
         // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
