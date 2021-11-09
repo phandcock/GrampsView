@@ -3,8 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
-    using Prism.Events;
-
     using System.Collections.ObjectModel;
 
     public class MessageLogViewModel : ViewModelBase

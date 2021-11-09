@@ -14,7 +14,7 @@
     {
         public MediaDetailPage()
         {
-            InitializeComponent();
+            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
         }
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)

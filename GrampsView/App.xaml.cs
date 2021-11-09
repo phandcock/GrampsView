@@ -15,16 +15,9 @@
     using Microsoft.AppCenter.Crashes;
     using Microsoft.AppCenter.Distribute;
 
-    using Prism;
-    using Prism.Events;
-    using Prism.Ioc;
-    using Prism.Modularity;
-
     using System.Diagnostics;
     using System.Globalization;
     using System.Threading.Tasks;
-
-    using Unity;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;

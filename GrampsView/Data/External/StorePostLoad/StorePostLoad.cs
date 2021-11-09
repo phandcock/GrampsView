@@ -4,8 +4,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Events;
 
-    using Prism.Events;
-
     using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>

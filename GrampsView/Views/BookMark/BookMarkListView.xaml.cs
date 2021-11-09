@@ -4,7 +4,7 @@
     {
         public BookMarkListPage()
         {
-            InitializeComponent();
+            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
         }
     }
 }

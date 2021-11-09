@@ -4,7 +4,7 @@ namespace GrampsView.Views
     {
         public SearchPage()
         {
-            InitializeComponent();
+            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
         }
 
         private void ContentPage_Appearing(object sender, System.EventArgs e)

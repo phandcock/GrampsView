@@ -3,7 +3,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.Views;
 
     using System;
     using System.Diagnostics;
@@ -11,7 +10,6 @@
     using System.Reflection;
     using System.Text.Json;
     using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -66,13 +64,6 @@
             return modelInfoList;
         }
 
-        public static Color GetResourceColour(string argColourResourceName)
-        {
-            // Get colour
-            Application.Current.Resources.TryGetValue(argColourResourceName, out var varCardColour);
-            return (Color)varCardColour;
-        }
-
         public static void ImageCacheFolderInit()
         {
             try
@@ -120,82 +111,6 @@
         public static string MimeFileContentTypeGet(string argFileExtension)
         {
             return MimeTypes.MimeTypeMap.GetMimeType(argFileExtension);
-        }
-
-        public static string MimeMimeSubTypeGet(string argContentType)
-        {
-            // Gramps unknown override
-            if (argContentType == "unknown")
-            {
-                return argContentType;
-            }
-
-            // get the first part
-            string[] t = argContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture).Split('/');
-
-            if (t.Length > 1)
-            {
-                return t[1].ToLower(System.Globalization.CultureInfo.CurrentCulture);
-            }
-
-            ErrorInfo errorDetails = new ErrorInfo("MimeMimeSubTypeGet", "Invalid ContentType")
-            {
-                { "argContentType", argContentType }
-            };
-
-            DataStore.Instance.CN.NotifyError(errorDetails);
-
-            return string.Empty;
-        }
-
-        public static string MimeMimeTypeGet(string argContentType)
-        {
-            // Gramps unknown override
-            if (argContentType == "unknown")
-            {
-                return argContentType;
-            }
-
-            // get the first part
-            string[] t = argContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture).Split('/');
-
-            if (t.Length > 0)
-            {
-                return t[0].ToLower(System.Globalization.CultureInfo.CurrentCulture);
-            }
-
-            ErrorInfo errorDetails = new ErrorInfo("MimeMimeTypeGet", "Invalid ContentType")
-            {
-                { "argContentType", argContentType }
-            };
-
-            DataStore.Instance.CN.NotifyError(errorDetails);
-
-            return string.Empty;
-        }
-
-        public static async Task NavigateAsync(string argPageName)
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Shell.Current.GoToAsync(argPageName, animate: false);
-            });
-        }
-
-        public static async Task NavigateBack()
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                AppShell.Current.Navigation.PopAsync();               // Go back
-            });
-        }
-
-        public static void NavigateHub()
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Shell.Current.GoToAsync($"//{nameof(HubPage)}");
-            });
         }
 
         public static bool ReleaseMode()
