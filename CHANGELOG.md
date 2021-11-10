@@ -1,3 +1,17 @@
+# [16.22.0](https://github.com/phandcock/GrampsView/compare/v16.21.10...v16.22.0) (2021-11-10)
+
+
+### Bug Fixes
+
+* start work again ([bab63ba](https://github.com/phandcock/GrampsView/commit/bab63ba8e073ec71791b0616d4accf3437a6b37b))
+
+
+### Features
+
+* Windows 11 and Prism ([cd2ce7a](https://github.com/phandcock/GrampsView/commit/cd2ce7a887bba5ae5bb7b461e80355f4089f516c))
+
+
+
 ## [16.21.10](https://github.com/phandcock/GrampsView/compare/v16.21.9...v16.21.10) (2021-10-17)
 
 
@@ -23,18 +37,6 @@
 ### Bug Fixes
 
 * do not save color and symbol for models as these are set when created.  This allows colour changes. ([aab7d15](https://github.com/phandcock/GrampsView/commit/aab7d150170ce6340cc0ecc5b49dce59b4fdc1ce))
-
-
-
-## [16.21.7](https://github.com/phandcock/GrampsView/compare/v16.21.6...v16.21.7) (2021-10-03)
-
-
-### Bug Fixes
-
-* change surname collection to use hlinks ([34d1861](https://github.com/phandcock/GrampsView/commit/34d18613f67474913c6323a87828f8f3d631e9d6))
-* check hlinkurlmodelfor 1.71 compliance ([c65baf1](https://github.com/phandcock/GrampsView/commit/c65baf18d8c14f7e17a8b63289c585480f90ca07))
-* cleanup remaining model collections ([f4cc6ed](https://github.com/phandcock/GrampsView/commit/f4cc6edd0fb0af7a122259a72bd4685cb862e383))
-* refactor LDS Ordination colelction to be HLink ([25734f8](https://github.com/phandcock/GrampsView/commit/25734f831b35477ce820904704f012add81939ad))
 
 
 
