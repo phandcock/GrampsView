@@ -14,6 +14,7 @@
     using Microsoft.AppCenter.Analytics;
     using Microsoft.AppCenter.Crashes;
     using Microsoft.AppCenter.Distribute;
+    using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Misc;
 
@@ -147,60 +148,62 @@
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
-            container.RegisterForNavigation<AboutPage, AboutViewModel>();
-            container.RegisterForNavigation<AddressDetailPage, AddressDetailViewModel>();
-            container.RegisterForNavigation<AttributeDetailPage, AttributeDetailViewModel>();
 
-            container.RegisterForNavigation<BookMarkListPage, BookMarkListViewModel>();
+            // Viewmodels
+            services.AddTransient<AboutViewModel>();
+            services.AddTransient<AddressDetailViewModel>();
+            services.AddTransient<AttributeDetailViewModel>();
 
-            container.RegisterForNavigation<ChildRefDetailPage, ChildRefDetailViewModel>();
-            container.RegisterForNavigation<CitationDetailPage, CitationDetailViewModel>();
-            container.RegisterForNavigation<CitationListPage, CitationListViewModel>();
+            services.AddTransient<BookMarkListViewModel>();
 
-            container.RegisterForNavigation<DateRangeDetailPage, DateRangeDetailViewModel>();
-            container.RegisterForNavigation<DateSpanDetailPage, DateSpanDetailViewModel>();
-            container.RegisterForNavigation<DateStrDetailPage, DateStrDetailViewModel>();
-            container.RegisterForNavigation<DateValDetailPage, DateValDetailViewModel>();
+            services.AddTransient<ChildRefDetailViewModel>();
+            services.AddTransient<CitationDetailViewModel>();
+            services.AddTransient<CitationListViewModel>();
 
-            container.RegisterForNavigation<EventDetailPage, EventDetailViewModel>();
-            container.RegisterForNavigation<EventListPage, EventListViewModel>();
+            services.AddTransient<DateRangeDetailViewModel>();
+            services.AddTransient<DateSpanDetailViewModel>();
+            services.AddTransient<DateStrDetailViewModel>();
+            services.AddTransient<DateValDetailViewModel>();
 
-            container.RegisterForNavigation<FamilyDetailPage, FamilyDetailViewModel>();
-            container.RegisterForNavigation<FamilyListPage, FamilyListViewModel>();
-            container.RegisterForNavigation<FileInputHandlerPage, FileInputHandlerViewModel>();
-            container.RegisterForNavigation<FirstRunPage, FirstRunViewModel>();
+            services.AddTransient<EventDetailViewModel>();
+            services.AddTransient<EventListViewModel>();
 
-            container.RegisterForNavigation<HubPage, HubViewModel>();
+            services.AddTransient<FamilyDetailViewModel>();
+            services.AddTransient<FamilyListViewModel>();
+            services.AddTransient<FileInputHandlerViewModel>();
+            services.AddTransient<FirstRunViewModel>();
 
-            container.RegisterForNavigation<MessageLogPage, MessageLogViewModel>();
-            container.RegisterForNavigation<MediaDetailPage, MediaDetailViewModel>();
-            container.RegisterForNavigation<MediaListPage, MediaListViewModel>();
+            services.AddTransient<HubViewModel>();
 
-            container.RegisterForNavigation<NeedDatabaseReloadPage, NeedDatabaseReloadViewModel>();
-            container.RegisterForNavigation<NoteDetailPage, NoteDetailViewModel>();
-            container.RegisterForNavigation<NoteListPage, NoteListViewModel>();
+            services.AddTransient<MessageLogViewModel>();
+            services.AddTransient<MediaDetailViewModel>();
+            services.AddTransient<MediaListViewModel>();
 
-            container.RegisterForNavigation<PeopleGraphPage, PeopleGraphViewModel>();
-            container.RegisterForNavigation<PersonBirthdayPage, PersonBirthdayViewModel>();
-            container.RegisterForNavigation<PersonDetailPage, PersonDetailViewModel>();
-            container.RegisterForNavigation<PersonListPage, PersonListViewModel>();
-            container.RegisterForNavigation<PersonNameDetailPage, PersonNameDetailViewModel>();
-            container.RegisterForNavigation<PlaceDetailPage, PlaceDetailViewModel>();
-            container.RegisterForNavigation<PlaceListPage, PlaceListViewModel>();
+            services.AddTransient<NeedDatabaseReloadViewModel>();
+            services.AddTransient<NoteDetailViewModel>();
+            services.AddTransient<NoteListViewModel>();
 
-            container.RegisterForNavigation<RepositoryDetailPage, RepositoryDetailViewModel>();
-            container.RegisterForNavigation<RepositoryRefDetailPage, RepositoryRefDetailViewModel>();
-            container.RegisterForNavigation<RepositoryListPage, RepositoryListViewModel>();
+            services.AddTransient<PeopleGraphViewModel>();
+            services.AddTransient<PersonBirthdayViewModel>();
+            services.AddTransient<PersonDetailViewModel>();
+            services.AddTransient<PersonListViewModel>();
+            services.AddTransient<PersonNameDetailViewModel>();
+            services.AddTransient<PlaceDetailViewModel>();
+            services.AddTransient<PlaceListViewModel>();
 
-            container.RegisterForNavigation<SearchPage, SearchPageViewModel>();
-            container.RegisterForNavigation<SettingsPage, SettingsViewModel>();
-            container.RegisterForNavigation<SourceDetailPage, SourceDetailViewModel>();
-            container.RegisterForNavigation<SourceListPage, SourceListViewModel>();
+            services.AddTransient<RepositoryDetailViewModel>();
+            services.AddTransient<RepositoryRefDetailViewModel>();
+            services.AddTransient<RepositoryListViewModel>();
 
-            container.RegisterForNavigation<TagDetailPage, TagDetailViewModel>();
-            container.RegisterForNavigation<TagListPage, TagListViewModel>();
+            services.AddTransient<SearchPageViewModel>();
+            services.AddTransient<SettingsViewModel>();
+            services.AddTransient<SourceDetailViewModel>();
+            services.AddTransient<SourceListViewModel>();
 
-            container.RegisterForNavigation<NavigationPage>();
+            services.AddTransient<TagDetailViewModel>();
+            services.AddTransient<TagListViewModel>();
+
+            services.AddTransient<NavigationPage>();
 
             container.RegisterSingleton<IStartAppLoad, StartAppLoad>();
             container.RegisterSingleton<ICommonLogging, CommonLogging>();
@@ -212,42 +215,45 @@
             container.RegisterSingleton<IStoreXML, StoreXML>();
             container.RegisterSingleton<IStoreFile, StoreFile>();
 
-            container.RegisterForNavigation<WhatsNewPage, WhatsNewViewModel>();
-            container.RegisterForNavigation<FirstRunPage>();
-            container.RegisterForNavigation<NeedDatabaseReloadPage>();
-        }
+            services.AddTransient<WhatsNewPage, WhatsNewViewModel>();
+            services.AddTransient<FirstRunPage>();
+            services.AddTransient<NeedDatabaseReloadPage>();
 
-        // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
-        //See CardSizxes for the current hack fix.
-
-        private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-        {
-            DataStore.Instance.AD.ScreenSizeInit();
-
-            // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
-
-            // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
-            // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems
-            // // to be one rotation behind on emulator. Try the old school way until fixed if
-            // (e.DisplayInfo.Width > e.DisplayInfo.Height) {
-            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
-            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
-
-            // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
-            ////     }
-        }
-
-        private static async Task StartAtDetailPage()
-        {
-            if (PersonStartPage != null)
-            {
-                await PersonStartPage.UCNavigate();
-            }
-
-            if (FamilyStartModel != null)
-            {
-                await FamilyStartModel.UCNavigate();
-            }
+            return services.BuildServiceProvider();
         }
     }
+
+    // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
+    //See CardSizxes for the current hack fix.
+
+    private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+    {
+        DataStore.Instance.AD.ScreenSizeInit();
+
+        // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
+
+        // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
+        // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems // to
+        // be one rotation behind on emulator. Try the old school way until fixed if
+        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { DataStore.Instance.AD.CurrentOrientation =
+        // DisplayOrientation.Landscape; } else { // DataStore.Instance.AD.CurrentOrientation =
+        // DisplayOrientation.Portrait; }
+
+        // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
+        ////     }
+    }
+
+    private static async Task StartAtDetailPage()
+    {
+        if (PersonStartPage != null)
+        {
+            await PersonStartPage.UCNavigate();
+        }
+
+        if (FamilyStartModel != null)
+        {
+            await FamilyStartModel.UCNavigate();
+        }
+    }
+}
 }

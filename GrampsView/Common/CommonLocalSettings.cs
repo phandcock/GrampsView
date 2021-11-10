@@ -7,61 +7,36 @@
     using System;
     using System.Diagnostics.Contracts;
 
-    using Xamarin.Forms;
-
     public static class CommonLocalSettings
     {
         private const string SettingsAppTheme = "ApplicationTheme";
 
-        public static OSAppTheme ApplicationTheme
-        {
-            get
-            {
-                int _settingsAppTheme = DataStore.Instance.ES.PreferencesGet(SettingsAppTheme, 0);
+        //public static OSAppTheme ApplicationTheme
+        //{
+        //    get
+        //    {
+        //        int _settingsAppTheme = DataStore.Instance.ES.PreferencesGet(SettingsAppTheme, 0);
 
-                switch (_settingsAppTheme)
-                {
-                    case 1:
-                        {
-                            return OSAppTheme.Dark;
-                        }
+        // switch (_settingsAppTheme) { case 1: { return OSAppTheme.Dark; }
 
-                    case 2:
-                        {
-                            return OSAppTheme.Light;
-                        }
+        // case 2: { return OSAppTheme.Light; }
 
-                    default:
-                        {
-                            return OSAppTheme.Unspecified;
-                        }
-                }
-            }
+        // default: { return OSAppTheme.Unspecified; } } }
 
-            set
-            {
-                switch (value)
-                {
-                    case OSAppTheme.Dark:
-                        {
-                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 1);
-                            break;
-                        }
+        // set { switch (value) { case OSAppTheme.Dark: {
+        // DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 1); break; }
 
-                    case OSAppTheme.Light:
-                        {
-                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 2);
-                            break;
-                        }
+        // case OSAppTheme.Light: { DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 2);
+        // break; }
 
-                    default:
-                        {
-                            DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 3);
-                            break;
-                        }
-                }
-            }
-        }
+        //            default:
+        //                {
+        //                    DataStore.Instance.ES.PreferencesSet(SettingsAppTheme, 3);
+        //                    break;
+        //                }
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Gets a value indicating whether needs the database reload.
@@ -131,18 +106,18 @@
             }
         }
 
-        public static bool FirstRunDisplay
-        {
-            get
-            {
-                return DataStore.Instance.ES.PreferencesGet("FirstRunDisplay", false);
-            }
+        //public static bool FirstRunDisplay
+        //{
+        //    get
+        //    {
+        //        return DataStore.Instance.ES.PreferencesGet("FirstRunDisplay", false);
+        //    }
 
-            set
-            {
-                DataStore.Instance.ES.PreferencesSet("FirstRunDisplay", value);
-            }
-        }
+        //    set
+        //    {
+        //        DataStore.Instance.ES.PreferencesSet("FirstRunDisplay", value);
+        //    }
+        //}
 
         public static string NoteEmailAddress
         {
