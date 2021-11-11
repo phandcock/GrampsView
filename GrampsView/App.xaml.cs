@@ -8,7 +8,6 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.ViewModels;
-    using GrampsView.Views;
 
     using Microsoft.AppCenter;
     using Microsoft.AppCenter.Analytics;
@@ -205,19 +204,20 @@
 
             services.AddTransient<NavigationPage>();
 
-            container.RegisterSingleton<IStartAppLoad, StartAppLoad>();
-            container.RegisterSingleton<ICommonLogging, CommonLogging>();
-            container.RegisterSingleton<ICommonNotifications, CommonNotifications>();
-            container.RegisterSingleton<IDataRepositoryManager, DataRepositoryManager>();
-            container.RegisterSingleton<IEventAggregator, EventAggregator>();
-            container.RegisterSingleton<IStorePostLoad, StorePostLoad>();
-            container.RegisterSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
-            container.RegisterSingleton<IStoreXML, StoreXML>();
-            container.RegisterSingleton<IStoreFile, StoreFile>();
+            // Add Services
+            services.AddSingleton<IStartAppLoad, StartAppLoad>();
+            services.AddSingleton<ICommonLogging, CommonLogging>();
+            services.AddSingleton<ICommonNotifications, CommonNotifications>();
+            services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
+            services.AddSingleton<IEventAggregator, EventAggregator>();
+            services.AddSingleton<IStorePostLoad, StorePostLoad>();
+            services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
+            services.AddSingleton<IStoreXML, StoreXML>();
+            services.AddSingleton<IStoreFile, StoreFile>();
 
-            services.AddTransient<WhatsNewPage, WhatsNewViewModel>();
-            services.AddTransient<FirstRunPage>();
-            services.AddTransient<NeedDatabaseReloadPage>();
+            //services.AddTransient<WhatsNewPage, WhatsNewViewModel>();
+            //services.AddTransient<FirstRunPage>();
+            //services.AddTransient<NeedDatabaseReloadPage>();
 
             return services.BuildServiceProvider();
         }
