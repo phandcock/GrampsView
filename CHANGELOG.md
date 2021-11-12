@@ -1,3 +1,13 @@
+## [16.22.1](https://github.com/phandcock/GrampsView/compare/v16.22.0...v16.22.1) (2021-11-12)
+
+
+### Bug Fixes
+
+* Changes 20211111 ([b17e4ff](https://github.com/phandcock/GrampsView/commit/b17e4ff9871eb8a88c3959886860fb03f1f17084))
+* Changes 20211112a ([9c1cea7](https://github.com/phandcock/GrampsView/commit/9c1cea7b791d49c6242ae01c01167d5b80932924))
+
+
+
 # [16.22.0](https://github.com/phandcock/GrampsView/compare/v16.21.10...v16.22.0) (2021-11-10)
 
 
@@ -28,15 +38,6 @@
 ### Reverts
 
 * Revert "ci: use templates" ([d5f8e36](https://github.com/phandcock/GrampsView/commit/d5f8e3611aa0e337698f08b3d33149571b4a5ac4))
-
-
-
-## [16.21.8](https://github.com/phandcock/GrampsView/compare/v16.21.7...v16.21.8) (2021-10-04)
-
-
-### Bug Fixes
-
-* do not save color and symbol for models as these are set when created.  This allows colour changes. ([aab7d15](https://github.com/phandcock/GrampsView/commit/aab7d150170ce6340cc0ecc5b49dce59b4fdc1ce))
 
 
 
