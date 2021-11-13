@@ -4,7 +4,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// People Page View ViewModel.
@@ -20,7 +20,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PersonListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public PersonListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Person List";

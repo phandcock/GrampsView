@@ -2,11 +2,10 @@
 {
     using GrampsView.Common;
 
-    using Prism.Commands;
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
-    /// <c>First Run View Model</c>
+    /// <c> First Run View Model </c>
     /// </summary>
     public class FirstRunViewModel : ViewModelBase
     {
@@ -21,7 +20,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public FirstRunViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);

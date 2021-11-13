@@ -4,7 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -23,7 +23,7 @@
         /// <param name="iocNavigationService">
         /// Prism Navigation Service.
         /// </param>
-        public TagListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public TagListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Tag List";

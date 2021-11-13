@@ -14,11 +14,12 @@
     using Microsoft.AppCenter.Crashes;
     using Microsoft.AppCenter.Distribute;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.Misc;
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
 
     using System;
-    using System.ComponentModel;
     using System.Diagnostics;
     using System.Globalization;
     using System.Threading.Tasks;
@@ -88,26 +89,28 @@
 
             AppCenterInit();
 
-            Container.Resolve<IPlatformSpecific>();
+            Services.GetService<IPlatformSpecific>();
 
             // Resove it here. TODO Have each class resolve its own copy using the service locator
             // pattern from prism.
-            DataStore.Instance.CN = Container.Resolve<ICommonNotifications>();
+            Services.GetService<ICommonNotifications>();
 
-            Container.Resolve<IDataRepositoryManager>();
+            Services.GetService<IDataRepositoryManager>();
 
-            Container.Resolve<IStartAppLoad>();
+            Services.GetService<IStartAppLoad>();
+
+            SharedSharp.Misc.SharedSharpStatic.Init(Services);
 
             //// Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
             {
                 OnMainDisplayInfoChanged(s, a);
             };
-            DataStore.Instance.AD.ScreenSizeInit();
+            SharedSharp.CommonRoutines.CommonRoutines.ScreenSizeInit();
 
             VersionTracking.Track();
 
-            Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
+            Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
 
             MainPage = new AppShell();
 
@@ -117,12 +120,12 @@
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                SharedSharpStaticRoutines.NavigateHub();
+                SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
 
                 return;
             }
 
-            Container.Resolve<IStartAppLoad>().StartProcessing();
+            Services.GetService<IStartAppLoad>().StartProcessing();
         }
 
         /// <summary>
@@ -147,6 +150,21 @@
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
+
+            // Add Services
+            services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
+
+            services.AddSingleton<IErrorNotifications, ErrorNotifications>();
+
+            services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
+
+            services.AddSingleton<IMessenger, WeakReferenceMessenger>();
+
+            services.AddSingleton<ISharedLogging, SharedLogging>();
+            services.AddSingleton<IStartAppLoad, StartAppLoad>();
+            services.AddSingleton<IStoreFile, StoreFile>();
+            services.AddSingleton<IStorePostLoad, StorePostLoad>();
+            services.AddSingleton<IStoreXML, StoreXML>();
 
             // Viewmodels
             services.AddTransient<AboutViewModel>();
@@ -204,56 +222,40 @@
 
             services.AddTransient<NavigationPage>();
 
-            // Add Services
-            services.AddSingleton<IStartAppLoad, StartAppLoad>();
-            services.AddSingleton<ICommonLogging, CommonLogging>();
-            services.AddSingleton<ICommonNotifications, CommonNotifications>();
-            services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
-            services.AddSingleton<IEventAggregator, EventAggregator>();
-            services.AddSingleton<IStorePostLoad, StorePostLoad>();
-            services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
-            services.AddSingleton<IStoreXML, StoreXML>();
-            services.AddSingleton<IStoreFile, StoreFile>();
-
-            //services.AddTransient<WhatsNewPage, WhatsNewViewModel>();
-            //services.AddTransient<FirstRunPage>();
-            //services.AddTransient<NeedDatabaseReloadPage>();
-
             return services.BuildServiceProvider();
         }
-    }
 
-    // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
-    //See CardSizxes for the current hack fix.
+        // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
+        //See CardSizxes for the current hack fix.
 
-    private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-    {
-        DataStore.Instance.AD.ScreenSizeInit();
-
-        // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
-
-        // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
-        // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems // to
-        // be one rotation behind on emulator. Try the old school way until fixed if
-        // (e.DisplayInfo.Width > e.DisplayInfo.Height) { DataStore.Instance.AD.CurrentOrientation =
-        // DisplayOrientation.Landscape; } else { // DataStore.Instance.AD.CurrentOrientation =
-        // DisplayOrientation.Portrait; }
-
-        // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
-        ////     }
-    }
-
-    private static async Task StartAtDetailPage()
-    {
-        if (PersonStartPage != null)
+        private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
-            await PersonStartPage.UCNavigate();
+            SharedSharp.CommonRoutines.CommonRoutines.ScreenSizeInit();
+
+            // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
+
+            // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
+            // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems
+            // // to be one rotation behind on emulator. Try the old school way until fixed if
+            // (e.DisplayInfo.Width > e.DisplayInfo.Height) {
+            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
+            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
+
+            // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
+            ////     }
         }
 
-        if (FamilyStartModel != null)
+        private static async Task StartAtDetailPage()
         {
-            await FamilyStartModel.UCNavigate();
+            if (PersonStartPage != null)
+            {
+                await PersonStartPage.UCNavigate();
+            }
+
+            if (FamilyStartModel != null)
+            {
+                await FamilyStartModel.UCNavigate();
+            }
         }
     }
-}
 }

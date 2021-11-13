@@ -8,9 +8,9 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using Moq;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using Prism.Events;
+    using Moq;
 
     using System.Diagnostics;
     using System.IO;
@@ -28,7 +28,7 @@
         public static IGrampsStoreSerial iocGrampsStoreSerial;
         public static IPlatformSpecific iocPlatformSpecific;
         public static IStoreFile iocStoreFile;
-        public static Mock<IEventAggregator> mocEventAggregator = new Mock<IEventAggregator>();
+        public static Mock<IMessenger> mocEventAggregator = new Mock<IMessenger>();
         public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
         public static DataRepositoryManager newManager;
 
@@ -107,7 +107,7 @@
                 .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
                     .Returns(mockedEventDataLoadCompleteEvent.Object);
 
-            IEventAggregator iocEventAggregator = mocEventAggregator.Object;
+            IMessenger iocEventAggregator = mocEventAggregator.Object;
 
             /*
             * Mock Platform specific

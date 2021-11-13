@@ -4,11 +4,11 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     public class BookMarkListViewModel : ViewModelBase
     {
-        public BookMarkListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public BookMarkListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "BookMark List";

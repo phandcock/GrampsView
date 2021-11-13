@@ -4,6 +4,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Events;
 
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
     using Xamarin.CommunityToolkit.ObjectModel;
 
     /// <summary>
@@ -21,7 +23,7 @@
         /// <summary>
         /// Gets or sets injected Event Aggregator.
         /// </summary>
-        private readonly IEventAggregator _EventAggregator;
+        private readonly IMessenger _EventAggregator;
 
         private readonly IPlatformSpecific _iocPlatformSpecific;
 
@@ -34,7 +36,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public StorePostLoad(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;

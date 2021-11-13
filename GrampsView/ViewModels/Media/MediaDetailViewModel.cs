@@ -4,7 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// Media Detail ViewModel
@@ -20,7 +20,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public MediaDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public MediaDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseCL.Progress("MediaDetailViewModel created");

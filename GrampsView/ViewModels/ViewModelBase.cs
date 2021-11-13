@@ -3,7 +3,7 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -39,7 +39,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public ViewModelBase(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public ViewModelBase(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
         {
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
@@ -103,7 +103,7 @@
         /// <value>
         /// The base event aggregator.
         /// </value>
-        public IEventAggregator BaseEventAggregator
+        public IMessenger BaseEventAggregator
         {
             get; set;
         }

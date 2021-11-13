@@ -5,7 +5,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// Family detail page view ViewModel.
@@ -31,7 +31,7 @@
         /// <param name="iocPlatformSpecific">
         /// Platform specific calls for Windows Timeline
         /// </param>
-        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
             _PlatformSpecific = iocPlatformSpecific;

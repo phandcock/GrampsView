@@ -7,7 +7,7 @@
     using GrampsView.Events;
     using GrampsView.UWP.Common;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System;
     using System.Threading.Tasks;
@@ -23,7 +23,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlatformSpecific(IEventAggregator iocEventAggregator)
+        public PlatformSpecific(IMessenger iocEventAggregator)
         {
             iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateTile, ThreadOption.UIThread);
         }

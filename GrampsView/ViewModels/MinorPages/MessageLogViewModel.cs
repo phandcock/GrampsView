@@ -3,11 +3,13 @@
     using GrampsView.Common;
     using GrampsView.Data.Repository;
 
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
     using System.Collections.ObjectModel;
 
     public class MessageLogViewModel : ViewModelBase
     {
-        public MessageLogViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public MessageLogViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "MessageLog";

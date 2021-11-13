@@ -1,19 +1,9 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="SourceListViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
+﻿//-
 namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
-
-    using Prism.Events;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -29,7 +19,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public SourceListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public SourceListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Source List";

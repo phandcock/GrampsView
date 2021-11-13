@@ -4,14 +4,14 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
     public class PersonBirthdayViewModel : ViewModelBase
     {
-        public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Person Birthday List";

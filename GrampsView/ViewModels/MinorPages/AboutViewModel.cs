@@ -5,8 +5,7 @@
     using GrampsView.Data.Model;
 
     using Microsoft.AppCenter.Distribute;
-
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System.Reflection;
 
@@ -14,7 +13,7 @@
 
     public class AboutViewModel : ViewModelBase
     {
-        public AboutViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public AboutViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
                                             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "About";

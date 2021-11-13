@@ -5,7 +5,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System.ComponentModel;
 
@@ -25,7 +25,7 @@
         /// The event aggregator.
         /// </param>
 
-        public EventDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public EventDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
         }

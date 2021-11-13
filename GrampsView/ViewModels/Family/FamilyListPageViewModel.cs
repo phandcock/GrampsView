@@ -4,7 +4,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// Creates a Family Section Page View ViewModel.
@@ -23,7 +23,7 @@
         /// <param name="iocNavigationService">
         /// Injected Navigation Service.
         /// </param>
-        public FamilyListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public FamilyListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Family List";

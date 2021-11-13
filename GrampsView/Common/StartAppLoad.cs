@@ -5,7 +5,8 @@
     using GrampsView.Services;
     using GrampsView.Views;
 
-    using Prism.Events;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System.Threading.Tasks;
 
@@ -15,11 +16,11 @@
 
         private static IFirstRunDisplayService _FirstRunDisplayService = new FirstRunDisplayService();
 
-        private static IEventAggregator _iocEventAggregator;
+        private static IMessenger _iocEventAggregator;
 
         private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
-        public StartAppLoad(IEventAggregator iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
+        public StartAppLoad(IMessenger iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
             _iocEventAggregator = iocEventAggregator;
@@ -58,13 +59,13 @@
 
             if (CommonLocalSettings.DataSerialised)
             {
-                _iocEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
+                App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent());
                 return;
             }
 
             // No Serialised Data and made it this far so some problem has occurred. Load everything
             // from the beginning.
-            await CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
+            await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
         }
     }
 }

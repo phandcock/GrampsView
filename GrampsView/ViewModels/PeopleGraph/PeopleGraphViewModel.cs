@@ -1,8 +1,4 @@
-﻿// <copyright file="PeopleGraphViewModel.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
@@ -10,7 +6,7 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System;
     using System.Collections.Generic;
@@ -159,7 +155,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PeopleGraphViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public PeopleGraphViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "People Graph";

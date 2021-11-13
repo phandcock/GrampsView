@@ -9,7 +9,7 @@
 
     public static class CommonLocalSettings
     {
-        private const string SettingsAppTheme = "ApplicationTheme";
+        // private const string SettingsAppTheme = "ApplicationTheme";
 
         //public static OSAppTheme ApplicationTheme
         //{

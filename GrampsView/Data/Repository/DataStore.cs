@@ -36,17 +36,6 @@
         public ApplicationWideData AD { get; set; } = new ApplicationWideData();
 
         /// <summary>
-        /// Gets or sets the cn.
-        /// </summary>
-        /// <value>
-        /// The cn.
-        /// </value>
-        public ICommonNotifications CN
-        {
-            get; set;
-        }
-
-        /// <summary>
         /// Gets the Data Store.
         /// </summary>
         /// <value>

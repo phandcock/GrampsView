@@ -5,7 +5,7 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System;
     using System.Reflection;
@@ -28,7 +28,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "File Chooser";

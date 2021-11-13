@@ -6,9 +6,9 @@
     using GrampsView.Data.Repository;
     using GrampsView.Test.e2e.Utility;
 
-    using NUnit.Framework;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using Prism.Events;
+    using NUnit.Framework;
 
     using System.Diagnostics;
     using System.Reflection;
@@ -51,7 +51,7 @@
             GeneralData.setupMocks();
 
             // Other setup
-            IEventAggregator iocEventAggregator = GeneralData.mocEventAggregator.Object;
+            IMessenger iocEventAggregator = GeneralData.mocEventAggregator.Object;
 
             IStoreXML iocExternalStorage = new StoreXML(GeneralData.iocCommonLogging, GeneralData.iocCommonNotifications);
 

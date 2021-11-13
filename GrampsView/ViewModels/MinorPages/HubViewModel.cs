@@ -6,7 +6,7 @@
     using GrampsView.Data.Model;
     using GrampsView.Events;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -22,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public HubViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public HubViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
        : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Hub";

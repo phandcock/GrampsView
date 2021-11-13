@@ -1,18 +1,10 @@
-﻿//-----------------------------------------------------------------------
-// Code behind for Repository List page
-//
-// <copyright file="RepositoryListViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-
-namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -31,7 +23,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocNavigationService">
         /// The ioc navigation service.
         /// </param>
-        public RepositoryListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public RepositoryListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Repository List";

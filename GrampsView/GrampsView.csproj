@@ -26,10 +26,16 @@
 		<Compile Remove="Common\Card Group\CardGroupCollection.cs" />
 		<Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
 		<Compile Remove="Common\Card Group\Grouping.cs" />
+		<Compile Remove="Common\CommonBindableBase.cs" />
+		<Compile Remove="Common\CommonDataLog.cs" />
+		<Compile Remove="Common\CommonNotifications.cs" />
 		<Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
 		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
 		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
+		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
+		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
+		<Compile Remove="Common\Interfaces\IDataLog.cs" />
 		<Compile Remove="Common\ObservableObject.cs" />
 		<Compile Remove="Common\CommonFontNamesFAB.cs" />
 		<Compile Remove="Common\CommonFontNamesFAR.cs" />

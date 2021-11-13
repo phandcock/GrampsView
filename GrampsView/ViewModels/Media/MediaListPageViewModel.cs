@@ -4,7 +4,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     public class MediaListViewModel : ViewModelBase
     {
@@ -17,7 +17,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public MediaListViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public MediaListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Media List";

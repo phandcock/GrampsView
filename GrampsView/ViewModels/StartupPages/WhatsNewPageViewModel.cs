@@ -2,8 +2,7 @@
 {
     using GrampsView.Common;
 
-    using Prism.Commands;
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// View model for WHats New Page.
@@ -22,7 +21,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(LoadDataAction);

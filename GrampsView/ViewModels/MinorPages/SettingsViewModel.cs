@@ -4,8 +4,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
-    using Prism.Events;
-
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -15,7 +13,7 @@
     {
         private string _ThemeButtonChecked = string.Empty;
 
-        public SettingsViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public SettingsViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
                                 : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Settings";
@@ -65,21 +63,21 @@
                 {
                     case "Dark":
                         {
-                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Dark;
+                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Dark;
                             Application.Current.UserAppTheme = OSAppTheme.Dark;
 
                             break;
                         }
                     case "Light":
                         {
-                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Light;
+                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Light;
                             Application.Current.UserAppTheme = OSAppTheme.Light;
 
                             break;
                         }
                     case "System":
                         {
-                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;
@@ -87,7 +85,7 @@
 
                     default:
                         {
-                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;

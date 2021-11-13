@@ -7,8 +7,7 @@
     using GrampsView.Events;
 
     using Microsoft.AppCenter.Analytics;
-
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System;
     using System.Collections.Generic;
@@ -34,7 +33,7 @@
         /// <summary>
         /// Injected Event Aggregator.
         /// </summary>
-        private readonly IEventAggregator _EventAggregator;
+        private readonly IMessenger _EventAggregator;
 
         /// <summary>
         /// Injected External Storage.
@@ -77,7 +76,7 @@
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IEventAggregator iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 

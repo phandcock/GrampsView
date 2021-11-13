@@ -2,11 +2,10 @@
 {
     using GrampsView.Common;
 
-    using Prism.Commands;
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
-    /// <c>viewmodel</c> for the About <c>Flyout</c>.
+    /// <c> viewmodel </c> for the About <c> Flyout </c>.
     /// </summary>
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
@@ -21,7 +20,7 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Database reload needed";

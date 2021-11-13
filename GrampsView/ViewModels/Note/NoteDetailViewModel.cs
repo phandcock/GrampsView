@@ -4,7 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using System;
 
@@ -19,7 +19,7 @@
         /// <param name="iocEventAggregator">
         /// Common Event Aggregator.
         /// </param>
-        public NoteDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public NoteDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconNotes;

@@ -4,7 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
@@ -20,7 +20,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public RepositoryRefDetailViewModel(ICommonLogging iocCommonLogging, IEventAggregator iocEventAggregator)
+        public RepositoryRefDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
         }
