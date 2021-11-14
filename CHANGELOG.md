@@ -1,3 +1,12 @@
+## [16.22.2](https://github.com/phandcock/GrampsView/compare/v16.22.1...v16.22.2) (2021-11-14)
+
+
+### Bug Fixes
+
+* changes 2021113a ([d0e4ce4](https://github.com/phandcock/GrampsView/commit/d0e4ce411559eeba2c8dc1cc8ff71a683c76dc14))
+
+
+
 ## [16.22.1](https://github.com/phandcock/GrampsView/compare/v16.22.0...v16.22.1) (2021-11-12)
 
 
@@ -29,15 +38,6 @@
 
 * tweaks to test new build system ([cdce6f9](https://github.com/phandcock/GrampsView/commit/cdce6f9f1521616206100ef7ac53e6911c254af4))
 * work on shared yaml ([ff69d7f](https://github.com/phandcock/GrampsView/commit/ff69d7fd78b44a01b5b280e6cb1f84e0b8875012))
-
-
-
-## [16.21.9](https://github.com/phandcock/GrampsView/compare/v16.21.8...v16.21.9) (2021-10-15)
-
-
-### Reverts
-
-* Revert "ci: use templates" ([d5f8e36](https://github.com/phandcock/GrampsView/commit/d5f8e3611aa0e337698f08b3d33149571b4a5ac4))
 
 
 
