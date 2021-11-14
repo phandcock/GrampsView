@@ -6,6 +6,8 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     using System.ComponentModel;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -26,7 +28,7 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public PersonDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+        public PersonDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconPeople;

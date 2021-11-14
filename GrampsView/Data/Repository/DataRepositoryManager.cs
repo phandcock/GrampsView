@@ -9,6 +9,9 @@
     using Microsoft.AppCenter.Analytics;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
+
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
@@ -26,9 +29,9 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ICommonLogging _CL;
+        private readonly ISharedLogging _CL;
 
-        private readonly ICommonNotifications _commonNotifications;
+        private readonly IErrorNotifications _commonNotifications;
 
         /// <summary>
         /// Injected Event Aggregator.
@@ -76,7 +79,7 @@
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 

@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     using System;
 
     public class NoteDetailViewModel : ViewModelBase
@@ -19,7 +21,7 @@
         /// <param name="iocEventAggregator">
         /// Common Event Aggregator.
         /// </param>
-        public NoteDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public NoteDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconNotes;

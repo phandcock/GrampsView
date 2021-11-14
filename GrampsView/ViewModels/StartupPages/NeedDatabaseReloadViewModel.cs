@@ -4,6 +4,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// <c> viewmodel </c> for the About <c> Flyout </c>.
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        public NeedDatabaseReloadViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Database reload needed";

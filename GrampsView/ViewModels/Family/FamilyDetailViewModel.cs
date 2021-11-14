@@ -7,6 +7,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Family detail page view ViewModel.
     /// </summary>
@@ -31,7 +33,7 @@
         /// <param name="iocPlatformSpecific">
         /// Platform specific calls for Windows Timeline
         /// </param>
-        public FamilyDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
             _PlatformSpecific = iocPlatformSpecific;

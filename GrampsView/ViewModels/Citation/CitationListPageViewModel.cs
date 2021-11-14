@@ -6,9 +6,11 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     public class CitationListViewModel : ViewModelBase
     {
-        public CitationListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public CitationListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Citation List";

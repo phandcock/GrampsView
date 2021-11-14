@@ -4,6 +4,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.Logging;
+
     using System;
     using System.IO;
     using System.IO.IsolatedStorage;
@@ -21,7 +23,7 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ICommonLogging localGVLogging;
+        private readonly ISharedLogging localGVLogging;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GrampsStoreSerial"/> class.
@@ -32,7 +34,7 @@
         /// <param name="iocGVLogging">
         /// The ioc gv logging.
         /// </param>
-        public GrampsStoreSerial(ICommonLogging iocGVLogging)
+        public GrampsStoreSerial(ISharedLogging iocGVLogging)
         {
             // save injected references for later
             localGVLogging = iocGVLogging;

@@ -6,6 +6,8 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     using System.ComponentModel;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -26,7 +28,7 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public ChildRefDetailViewModel(ICommonLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
             : base(iocCommonLogging)
         {
             BaseTitle = "Child of Person Detail";

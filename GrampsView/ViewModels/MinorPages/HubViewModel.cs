@@ -8,6 +8,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View model for the Hub Page.
     /// </summary>
@@ -22,7 +24,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public HubViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
        : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Hub";

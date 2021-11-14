@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     public class MediaListViewModel : ViewModelBase
     {
         /// <summary>
@@ -17,7 +19,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public MediaListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public MediaListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Media List";

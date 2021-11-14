@@ -93,7 +93,7 @@
 
             // Resove it here. TODO Have each class resolve its own copy using the service locator
             // pattern from prism.
-            Services.GetService<ICommonNotifications>();
+            Services.GetService<IErrorNotifications>();
 
             Services.GetService<IDataRepositoryManager>();
 

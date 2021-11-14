@@ -8,6 +8,9 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
+
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
@@ -155,7 +158,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PeopleGraphViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "People Graph";

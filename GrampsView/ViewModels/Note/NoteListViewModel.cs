@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public NoteListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public NoteListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Note List";

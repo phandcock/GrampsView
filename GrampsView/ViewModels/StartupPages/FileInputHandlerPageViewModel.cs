@@ -7,6 +7,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     using System;
     using System.Reflection;
     using System.Threading.Tasks;
@@ -28,7 +30,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public FileInputHandlerViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public FileInputHandlerViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "File Chooser";

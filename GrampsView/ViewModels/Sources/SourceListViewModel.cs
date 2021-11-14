@@ -5,6 +5,8 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
@@ -19,7 +21,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public SourceListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SourceListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Source List";

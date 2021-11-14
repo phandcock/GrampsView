@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public TagDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public TagDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
         }

@@ -1,9 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
 
     using Microsoft.Toolkit.Mvvm.Messaging;
+
+    using SharedSharp.Logging;
 
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -39,7 +40,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public ViewModelBase(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public ViewModelBase(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
         {
             BaseCL = iocCommonLogging;
             BaseEventAggregator = iocEventAggregator;
@@ -53,7 +54,7 @@
         /// <param name="iocCommonLogging">
         /// The ioc common logging.
         /// </param>
-        public ViewModelBase(ICommonLogging iocCommonLogging)
+        public ViewModelBase(ISharedLogging iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
 
@@ -66,7 +67,7 @@
         /// <value>
         /// The base cl.
         /// </value>
-        public ICommonLogging BaseCL
+        public ISharedLogging BaseCL
         {
             get; set;
         }

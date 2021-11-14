@@ -12,6 +12,9 @@
 
     using Moq;
 
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
+
     using System.Diagnostics;
     using System.IO;
     using System.Reflection;
@@ -21,8 +24,8 @@
     public static class GeneralData
     {
         public static IFileInfoEx GrampsFile = new FileInfoEx();
-        public static ICommonLogging iocCommonLogging = new CommonLogging();
-        public static ICommonNotifications iocCommonNotifications;
+        public static ISharedLogging iocCommonLogging = new CommonLogging();
+        public static IErrorNotifications iocCommonNotifications;
         public static IStoreXML iocExternalStorage;
         public static IStorePostLoad iocGrampsStorePostLoad;
         public static IGrampsStoreSerial iocGrampsStoreSerial;
@@ -53,12 +56,12 @@
             /*
              * Mock Common Logging
              */
-            ICommonLogging iocCommonLogging = new CommonLogging();
+            ISharedLogging iocCommonLogging = new CommonLogging();
 
             /*
              * Mock Common Notifications
              */
-            Mock<ICommonNotifications> mockCommonNotifications = new Mock<ICommonNotifications>();
+            Mock<IErrorNotifications> mockCommonNotifications = new Mock<IErrorNotifications>();
 
             mockCommonNotifications
                 .Setup(x => x.DataLog)

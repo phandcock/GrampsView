@@ -4,6 +4,9 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
+
     using System;
     using System.IO;
     using System.Linq;
@@ -23,9 +26,9 @@
         /// <summary>
         /// local copy of GramsView Logging routines.
         /// </summary>
-        private readonly ICommonLogging _iocCommonLogging;
+        private readonly ISharedLogging _iocCommonLogging;
 
-        private readonly ICommonNotifications _iocCommonNotifications;
+        private readonly IErrorNotifications _iocCommonNotifications;
 
         /// <summary>
         /// The Gramps XML document.
@@ -41,7 +44,7 @@
         /// <param name="iocCommonNotifications">
         /// Common Notifications
         /// </param>
-        public StoreXML(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications)
+        public StoreXML(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications)
         {
             _iocCommonLogging = iocCommonLogging;
 

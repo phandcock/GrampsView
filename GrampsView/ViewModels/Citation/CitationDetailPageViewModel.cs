@@ -7,6 +7,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public CitationDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public CitationDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
         }

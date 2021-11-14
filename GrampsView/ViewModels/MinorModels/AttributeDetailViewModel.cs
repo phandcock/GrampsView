@@ -3,6 +3,8 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// ViewModel for the Attribute Detail page.
     /// </summary>
@@ -14,7 +16,7 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public AttributeDetailViewModel(ICommonLogging iocCommonLogging)
+        public AttributeDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconAttribute;

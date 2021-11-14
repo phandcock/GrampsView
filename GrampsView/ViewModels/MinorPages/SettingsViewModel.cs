@@ -4,6 +4,9 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
+
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -13,7 +16,7 @@
     {
         private string _ThemeButtonChecked = string.Empty;
 
-        public SettingsViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                 : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Settings";

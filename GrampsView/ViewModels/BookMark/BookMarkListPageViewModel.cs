@@ -6,9 +6,11 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     public class BookMarkListViewModel : ViewModelBase
     {
-        public BookMarkListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public BookMarkListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "BookMark List";

@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
@@ -23,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// Prism Navigation Service.
         /// </param>
-        public TagListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public TagListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Tag List";

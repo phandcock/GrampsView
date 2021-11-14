@@ -1,10 +1,12 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Events;
 
     using Microsoft.Toolkit.Mvvm.Messaging;
+
+    using SharedSharp.Errors;
+    using SharedSharp.Logging;
 
     using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -16,9 +18,9 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ICommonLogging _CommonLogging;
+        private readonly ISharedLogging _CommonLogging;
 
-        private readonly ICommonNotifications _commonNotifications;
+        private readonly IErrorNotifications _commonNotifications;
 
         /// <summary>
         /// Gets or sets injected Event Aggregator.
@@ -36,7 +38,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ICommonLogging iocCommonLogging, ICommonNotifications iocCommonNotifications, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public StorePostLoad(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;

@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Media Detail ViewModel
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public MediaDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public MediaDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseCL.Progress("MediaDetailViewModel created");

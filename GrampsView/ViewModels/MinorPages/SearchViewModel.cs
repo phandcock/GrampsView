@@ -4,6 +4,8 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
+    using SharedSharp.Logging;
+
     using System.Diagnostics.Contracts;
     using System.Globalization;
 
@@ -28,7 +30,7 @@
         /// <param name="iocEventAggregator">
         /// Event Aggregator.
         /// </param>
-        public SearchPageViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Search Page";

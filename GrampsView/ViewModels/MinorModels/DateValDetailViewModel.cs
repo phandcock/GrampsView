@@ -3,12 +3,14 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
     public class DateValDetailViewModel : ViewModelBase
     {
-        public DateValDetailViewModel(ICommonLogging iocCommonLogging)
+        public DateValDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconDDefault;

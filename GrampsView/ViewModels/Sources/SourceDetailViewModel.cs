@@ -4,6 +4,8 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.
     /// </summary>
@@ -16,7 +18,7 @@
         /// </param>
         /// <param name="iocEventAggregator">
         /// </param>
-        public SourceDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SourceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconSource;

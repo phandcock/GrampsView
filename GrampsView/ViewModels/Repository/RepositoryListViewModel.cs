@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
@@ -23,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// The ioc navigation service.
         /// </param>
-        public RepositoryListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public RepositoryListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Repository List";

@@ -7,6 +7,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     using System.ComponentModel;
 
     /// <summary>
@@ -25,7 +27,7 @@
         /// The event aggregator.
         /// </param>
 
-        public EventDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
         }

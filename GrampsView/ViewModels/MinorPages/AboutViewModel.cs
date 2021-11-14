@@ -7,13 +7,15 @@
     using Microsoft.AppCenter.Distribute;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     using System.Reflection;
 
     using Xamarin.Essentials;
 
     public class AboutViewModel : ViewModelBase
     {
-        public AboutViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public AboutViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "About";

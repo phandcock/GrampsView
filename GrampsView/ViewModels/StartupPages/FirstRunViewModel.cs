@@ -4,6 +4,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// <c> First Run View Model </c>
     /// </summary>
@@ -20,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(FirstRunLoadAFileButton);

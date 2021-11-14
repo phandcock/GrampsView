@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
@@ -19,7 +21,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlaceDetailViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PlaceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
         }

@@ -4,6 +4,8 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
@@ -15,7 +17,7 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public AddressDetailViewModel(ICommonLogging iocCommonLogging)
+        public AddressDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconAddress;

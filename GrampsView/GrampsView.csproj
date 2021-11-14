@@ -28,13 +28,15 @@
 		<Compile Remove="Common\Card Group\Grouping.cs" />
 		<Compile Remove="Common\CommonBindableBase.cs" />
 		<Compile Remove="Common\CommonDataLog.cs" />
+		<Compile Remove="Common\CommonLogging.cs" />
 		<Compile Remove="Common\CommonNotifications.cs" />
+		<Compile Remove="Common\CustomClasses\ErrorInfo.cs" />
 		<Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
 		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
 		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
-		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
-		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
+		<Compile Remove="Common\Interfaces\ISharedLogging.cs" />
+		<Compile Remove="Common\Interfaces\IErrorNotifications.cs" />
 		<Compile Remove="Common\Interfaces\IDataLog.cs" />
 		<Compile Remove="Common\ObservableObject.cs" />
 		<Compile Remove="Common\CommonFontNamesFAB.cs" />

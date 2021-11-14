@@ -4,6 +4,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View model for WHats New Page.
     /// </summary>
@@ -21,7 +23,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public WhatsNewViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new DelegateCommand(LoadDataAction);

@@ -3,6 +3,8 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Logging;
+
     public class PersonNameDetailViewModel : ViewModelBase
     {
         /// <summary>
@@ -11,7 +13,7 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public PersonNameDetailViewModel(ICommonLogging iocCommonLogging)
+        public PersonNameDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconPersonName;

@@ -6,12 +6,14 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
     public class PersonBirthdayViewModel : ViewModelBase
     {
-        public PersonBirthdayViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PersonBirthdayViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Person Birthday List";

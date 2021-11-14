@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using GrampsView.Common;
+    using SharedSharp.Errors;
 
     public interface IDataStore
     {
@@ -12,7 +12,7 @@
         /// <value>
         /// The cn.
         /// </value>
-        ICommonNotifications CN { get; set; }
+        IErrorNotifications CN { get; set; }
 
         /// <summary>
         /// Gets the Data Store.

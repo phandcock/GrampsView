@@ -6,6 +6,8 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Logging;
+
     /// <summary>
     /// Creates a Family Section Page View ViewModel.
     /// </summary>
@@ -23,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// Injected Navigation Service.
         /// </param>
-        public FamilyListViewModel(ICommonLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public FamilyListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Family List";
