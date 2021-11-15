@@ -7,6 +7,8 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.Errors;
+
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;

@@ -1,8 +1,11 @@
 ﻿namespace GrampsView.Events
 {
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 
-    public class DataLoadStartEvent : PubSubEvent
+    public class DataLoadStartEvent : ValueChangedMessage<bool>
     {
+        public DataLoadStartEvent(bool value) : base(value)
+        {
+        }
     }
 }

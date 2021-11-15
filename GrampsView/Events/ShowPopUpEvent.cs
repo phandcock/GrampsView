@@ -1,8 +1,11 @@
 ﻿namespace GrampsView.Events
 {
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 
-    public class ShowPopUpEvent : PubSubEvent
+    public class ShowPopUpEvent : ValueChangedMessage<bool>
     {
+        public ShowPopUpEvent(bool value) : base(value)
+        {
+        }
     }
 }

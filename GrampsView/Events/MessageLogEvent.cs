@@ -2,9 +2,12 @@
 {
     using GrampsView.Common.CustomClasses;
 
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 
-    public class MessageLogEvent : PubSubEvent<MessageLogEventPayload>
+    public class MessageLogEvent : ValueChangedMessage<MessageLogEventPayload>
     {
+        public MessageLogEvent(MessageLogEventPayload value) : base(value)
+        {
+        }
     }
 }

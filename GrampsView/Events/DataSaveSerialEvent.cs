@@ -1,8 +1,11 @@
 ﻿namespace GrampsView.Events
 {
-    using Prism.Events;
+    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 
-    public class DataSaveSerialEvent : PubSubEvent<object>
+    public class DataSaveSerialEvent : ValueChangedMessage<bool>
     {
+        public DataSaveSerialEvent(bool value) : base(value)
+        {
+        }
     }
 }

@@ -1,6 +1,6 @@
 namespace GrampsView.Common
 {
-    using GrampsView.Common.CustomClasses;
+    using SharedSharp.Errors;
 
     using System;
     using System.Collections.Generic;
