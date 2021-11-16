@@ -5,6 +5,8 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
     using SharedSharp.Logging;
 
     /// <summary>
@@ -12,6 +14,14 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class SourceListViewModel : ViewModelBase
     {
+        public Group<HLinkSourceModelCollection> SourceSource
+        {
+            get
+            {
+                return DV.SourceDV.GetAllAsGroupedCardGroup();
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceListViewModel"/> class.
         /// </summary>
@@ -26,14 +36,6 @@ namespace GrampsView.ViewModels
         {
             BaseTitle = "Source List";
             BaseTitleIcon = CommonConstants.IconSource;
-        }
-
-        public Group<HLinkSourceModelCollection> SourceSource
-        {
-            get
-            {
-                return DV.SourceDV.GetAllAsGroupedCardGroup();
-            }
         }
     }
 }

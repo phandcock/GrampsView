@@ -2,7 +2,8 @@
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.IO;
@@ -75,7 +76,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -88,7 +89,7 @@
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -98,7 +99,7 @@
         {
             StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
 
-            StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath,CreationCollisionOption.ReplaceExisting);
+            StorageFile outfile = await currentFolder.CreateFileAsync(argNewMediaModel.OriginalFilePath, CreationCollisionOption.ReplaceExisting);
 
             //if (outfile.Name == "_e9e27fbe8ed34e9b554a0ba93aa~imagevideo.jpg")
             //{

@@ -7,7 +7,8 @@
 
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.IO;
@@ -60,7 +61,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -73,7 +74,7 @@
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -136,7 +137,7 @@
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
+                _IErrorNotifications.NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             catch (Exception ex)
             {
@@ -148,7 +149,7 @@
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                DataStore.Instance.CN.NotifyException("GetSeekableFileDescriptor", ex, t);
+                _IErrorNotifications.NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             return fileDescriptor;
         }

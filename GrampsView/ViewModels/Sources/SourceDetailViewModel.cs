@@ -4,6 +4,8 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
     using SharedSharp.Logging;
 
     /// <summary>
@@ -11,6 +13,17 @@
     /// </summary>
     public class SourceDetailViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Gets or sets the public Source ViewModel.
+        /// </summary>
+        /// <value>
+        /// The source object.
+        /// </value>
+        public SourceModel SourceObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceDetailViewModel"/> class.
         /// </summary>
@@ -22,17 +35,6 @@
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconSource;
-        }
-
-        /// <summary>
-        /// Gets or sets the public Source ViewModel.
-        /// </summary>
-        /// <value>
-        /// The source object.
-        /// </value>
-        public SourceModel SourceObject
-        {
-            get; set;
         }
 
         /// <summary>

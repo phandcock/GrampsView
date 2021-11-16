@@ -6,6 +6,10 @@
 
     using SharedSharp.Logging;
 
+    using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// View model for WHats New Page.
     /// </summary>
@@ -14,28 +18,7 @@
         private IStartAppLoad _StartAppLoad;
         private string _WhatsNewText = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            LoadDataCommand = new DelegateCommand(LoadDataAction);
-
-            BaseTitle = "What's new";
-
-            BaseTitleIcon = CommonConstants.IconSettings;
-
-            _StartAppLoad = iocStartAppLoad;
-        }
-
-        public DelegateCommand LoadDataCommand
+        public AsyncCommand LoadDataCommand
         {
             get; private set;
         }
@@ -59,7 +42,28 @@
             }
         }
 
-        public async void LoadDataAction()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The event aggregator.
+        /// </param>
+        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+            : base(iocCommonLogging, iocEventAggregator)
+        {
+            LoadDataCommand = new AsyncCommand(LoadDataAction);
+
+            BaseTitle = "What's new";
+
+            BaseTitleIcon = CommonConstants.IconSettings;
+
+            _StartAppLoad = iocStartAppLoad;
+        }
+
+        public async Task LoadDataAction()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 

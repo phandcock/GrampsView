@@ -1,8 +1,9 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
     using SharedSharp.Logging;
@@ -15,19 +16,6 @@
     public class SettingsViewModel : ViewModelBase
     {
         private string _ThemeButtonChecked = string.Empty;
-
-        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "Settings";
-            BaseTitleIcon = CommonConstants.IconSettings;
-
-            TestButtonCommand = new AsyncCommand(TestButtonHandler);
-
-            UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
-
-            // HandleViewAppearingEvent();
-        }
 
         public IAsyncCommand ShowMessageLogCommand
         {
@@ -140,9 +128,22 @@
             }
         }
 
+        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                                                                                        : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "Settings";
+            BaseTitleIcon = CommonConstants.IconSettings;
+
+            TestButtonCommand = new AsyncCommand(TestButtonHandler);
+
+            UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
+
+            // HandleViewAppearingEvent();
+        }
+
         public override void HandleViewAppearingEvent()
         {
-            switch (CommonLocalSettings.ApplicationTheme)
+            switch (SharedSharp.Misc.LocalSettings.ApplicationTheme)
             {
                 case OSAppTheme.Light:
                     {
@@ -175,7 +176,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.Instance.CN.NotifyAlert("Test Alert", t);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("Test Alert", t);
 
             t = new ErrorInfo
             {
@@ -186,7 +187,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.Instance.CN.NotifyError(t);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
 
             t = new ErrorInfo
             {
@@ -197,7 +198,7 @@
             t.Add("Test Line 1", "Test Value 1");
             t.Add("Test LIne 2", "Test Value 2");
 
-            DataStore.Instance.CN.NotifyException("Test Exception", new System.Exception(), t);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("Test Exception", new System.Exception(), t);
         }
 
         private void UpdateNoteEmailHandler(string argEmailAddress)

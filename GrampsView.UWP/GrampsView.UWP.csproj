@@ -110,8 +110,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\CommonTileUpdate.cs" />
-    <Compile Include="Common\CommonTimeline.cs" />
     <Compile Include="Common\PlatformSpecificThumbNail.cs" />
     <Compile Include="Common\PlatformSpecific.cs" />
     <Compile Include="Common\XamDepends.cs" />

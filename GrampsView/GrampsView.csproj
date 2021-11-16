@@ -35,6 +35,8 @@
 		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
 		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
+		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
+		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
 		<Compile Remove="Common\Interfaces\ISharedLogging.cs" />
 		<Compile Remove="Common\Interfaces\IErrorNotifications.cs" />
 		<Compile Remove="Common\Interfaces\IDataLog.cs" />

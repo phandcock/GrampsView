@@ -33,13 +33,6 @@
 
         private static HLinkPersonModel PersonStartPage = null;
 
-        public App()
-        {
-            InitializeComponent();
-
-            Services = ConfigureServices();
-        }
-
         /// <summary>
         /// Gets the current <see cref="App"/> instance in use
         /// </summary>
@@ -49,6 +42,13 @@
         /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
         /// </summary>
         public IServiceProvider Services { get; }
+
+        public App()
+        {
+            InitializeComponent();
+
+            Services = ConfigureServices();
+        }
 
         protected override void OnAppLinkRequestReceived(System.Uri uri)
         {

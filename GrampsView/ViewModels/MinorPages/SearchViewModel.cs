@@ -4,6 +4,8 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
     using SharedSharp.Logging;
 
     using System.Diagnostics.Contracts;
@@ -21,24 +23,25 @@
 
         private string lastArg = string.Empty;
 
+        public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
+
+        //= new Group<object>();
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchViewModel"/> class.
+        /// Gets the search button command.
         /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// Event Aggregator.
-        /// </param>
-        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+        /// <value>
+        /// The search button command.
+        /// </value>
+        public Command<string> SearchButtonCommand
         {
-            BaseTitle = "Search Page";
-
-            BaseTitleIcon = CommonConstants.IconSearch;
-
-            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
+            get;
         }
+
+        //public Group<object> ItemsFoundList
+        //{
+        //    get; set;
+        //}
+        public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
 
         //public bool IsBusy
         //{
@@ -52,29 +55,6 @@
         //        }
         //    }
         //}
-
-        //public Group<object> ItemsFoundList
-        //{
-        //    get; set;
-        //}
-
-        //= new Group<object>();
-
-        public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
-
-        /// <summary>
-        /// Gets the search button command.
-        /// </summary>
-        /// <value>
-        /// The search button command.
-        /// </value>
-        public Command<string> SearchButtonCommand
-        {
-            get;
-        }
-
-        public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
-
         public HLinkEventModelCollection SearchEventsCollection { get; set; } = new HLinkEventModelCollection();
 
         public HLinkFamilyModelCollection SearchFamilyCollection { get; set; } = new HLinkFamilyModelCollection();
@@ -113,6 +93,25 @@
             get;
 
             set;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// Common Logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// Event Aggregator.
+        /// </param>
+        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "Search Page";
+
+            BaseTitleIcon = CommonConstants.IconSearch;
+
+            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
         }
 
         /// <summary>

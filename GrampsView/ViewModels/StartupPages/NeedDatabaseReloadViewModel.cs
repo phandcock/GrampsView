@@ -6,12 +6,21 @@
 
     using SharedSharp.Logging;
 
+    using System.Threading.Tasks;
+
+    using Xamarin.CommunityToolkit.ObjectModel;
+
     /// <summary>
     /// <c> viewmodel </c> for the About <c> Flyout </c>.
     /// </summary>
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
         private IStartAppLoad _StartAppLoad;
+
+        public AsyncCommand LoadDataCommand
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NeedDatabaseReloadViewModel"/> class.
@@ -29,17 +38,12 @@
 
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            LoadDataCommand = new DelegateCommand(LoadDataAction);
+            LoadDataCommand = new AsyncCommand(LoadDataAction);
 
             _StartAppLoad = iocStartAppLoad;
         }
 
-        public DelegateCommand LoadDataCommand
-        {
-            get; private set;
-        }
-
-        public async void LoadDataAction()
+        public async Task LoadDataAction()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
