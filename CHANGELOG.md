@@ -1,3 +1,13 @@
+## [16.22.4](https://github.com/phandcock/GrampsView/compare/v16.22.3...v16.22.4) (2021-11-17)
+
+
+### Bug Fixes
+
+* changes 20211115 ([aa731c4](https://github.com/phandcock/GrampsView/commit/aa731c484f6216d2aebba0f4a7525300b8eeaad5))
+* changes 20211116 ([12571d2](https://github.com/phandcock/GrampsView/commit/12571d23e2658aa9948443732521b4c4a5c5317f))
+
+
+
 ## [16.22.3](https://github.com/phandcock/GrampsView/compare/v16.22.2...v16.22.3) (2021-11-15)
 
 
@@ -23,20 +33,6 @@
 
 * Changes 20211111 ([b17e4ff](https://github.com/phandcock/GrampsView/commit/b17e4ff9871eb8a88c3959886860fb03f1f17084))
 * Changes 20211112a ([9c1cea7](https://github.com/phandcock/GrampsView/commit/9c1cea7b791d49c6242ae01c01167d5b80932924))
-
-
-
-# [16.22.0](https://github.com/phandcock/GrampsView/compare/v16.21.10...v16.22.0) (2021-11-10)
-
-
-### Bug Fixes
-
-* start work again ([bab63ba](https://github.com/phandcock/GrampsView/commit/bab63ba8e073ec71791b0616d4accf3437a6b37b))
-
-
-### Features
-
-* Windows 11 and Prism ([cd2ce7a](https://github.com/phandcock/GrampsView/commit/cd2ce7a887bba5ae5bb7b461e80355f4089f516c))
 
 
 
