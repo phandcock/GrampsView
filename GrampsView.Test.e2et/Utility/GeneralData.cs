@@ -8,6 +8,8 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using Moq;
@@ -120,7 +122,7 @@
             /*
              * Configure DataStore
              */
-            DataStore.Instance.CN = iocCommonNotifications;
+            App.Current.Services.GetService<IErrorNotifications>() = iocCommonNotifications;
             DataStore.Instance.ES = iocXamarinEssentials;
             DataStore.Instance.FFIL = iocFFImageLoading;
 

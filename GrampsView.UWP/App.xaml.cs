@@ -5,7 +5,6 @@
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
     using Microsoft.AppCenter;
 
@@ -23,7 +22,7 @@
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    internal sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object. This is the first line of authored code
@@ -66,7 +65,7 @@
                             { "Data", uriArgs.Data.ToString() }
                         };
 
-                        DataStore.Instance.CN.NotifyError(badUriAdditionalInfo);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(badUriAdditionalInfo);
                     }
 
                     // TODO Handle if GrampsView not running
@@ -192,7 +191,7 @@
             {
                 var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
 
-                DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
 
                 return true;
             });
@@ -204,7 +203,7 @@
             {
                 Exception e = argsUnhandledExceptionEventArgs.Exception;
 
-                DataStore.Instance.CN.NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
 
                 return true;
             });
@@ -221,7 +220,7 @@
         /// </param>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            DataStore.Instance.CN.NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
+            App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
         }
 
         /// <summary>

@@ -7,6 +7,8 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using SharedSharp.Errors;
 
     using System.Threading.Tasks;
@@ -134,7 +136,7 @@
                       { "New path", "pdfimage" }
                   };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }
@@ -188,7 +190,7 @@
                       { "New path", "pdfimage" }
                   };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }

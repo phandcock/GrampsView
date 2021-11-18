@@ -4,8 +4,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
@@ -150,22 +150,6 @@
         private int numLevels;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleGraphViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "People Graph";
-            BaseTitleIcon = CommonConstants.IconPeopleGraph;
-        }
-
-        /// <summary>
         /// Gets or sets the height of the canvas.
         /// </summary>
         /// <value>
@@ -254,6 +238,22 @@
         /// The tree graph.
         /// </value>
         public List<PeopleGraphNode> TreeGraph { get; set; } = new List<PeopleGraphNode>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeopleGraphViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                    : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "People Graph";
+            BaseTitleIcon = CommonConstants.IconPeopleGraph;
+        }
 
         /// <summary>
         /// Adds the h link.
@@ -478,7 +478,7 @@
 
             if (!StartHLink.Valid)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
                 return;
             }
 

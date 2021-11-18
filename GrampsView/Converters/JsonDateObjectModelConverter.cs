@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.Converters
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Text.Json;
@@ -34,7 +34,7 @@
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             reader.Read();
@@ -46,7 +46,7 @@
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             string propertyName = reader.GetString();
@@ -58,7 +58,7 @@
                     { "Found Property Name", propertyName }
                 };
 
-                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             reader.Read();
@@ -70,7 +70,7 @@
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             DateObjectModelDerivedTypeEnum typeDiscriminator = (DateObjectModelDerivedTypeEnum)reader.GetInt32();
@@ -102,7 +102,7 @@
                             { "Found TypeDiscriminator", typeDiscriminator.ToString() }
                         };
 
-                        DataStore.Instance.CN.NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
                         break;
                     }
             };

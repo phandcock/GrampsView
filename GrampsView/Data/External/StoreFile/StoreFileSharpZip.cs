@@ -1,12 +1,13 @@
 ﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.Core;
     using ICSharpCode.SharpZipLib.Zip;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.IO;
@@ -123,7 +124,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -136,7 +137,7 @@
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                DataStore.Instance.CN.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

@@ -3,7 +3,10 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Collections.Generic;
@@ -26,7 +29,7 @@
         {
             _iocCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
-            await DataStore.Instance.CN.DataLogEntryAdd("Loading People data").ConfigureAwait(false);
+            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading People data").ConfigureAwait(false);
             {
                 string defaultImage = string.Empty;
 
@@ -144,12 +147,12 @@
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        DataStore.Instance.CN.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
                         throw;
                     }
                     else
                     {
-                        DataStore.Instance.CN.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
                         throw;
                     }
                 }
@@ -160,7 +163,7 @@
             //{
             //}
 
-            DataStore.Instance.CN.DataLogEntryReplace("People load complete");
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("People load complete");
 
             return;
         }

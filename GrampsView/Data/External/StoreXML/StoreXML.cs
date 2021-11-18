@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
     using SharedSharp.Logging;
@@ -68,7 +68,7 @@
             {
                 IFileInfoEx inputFile = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
 
-                await DataStore.Instance.CN.DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
+                await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
                 {
                     // TODO Handle no network connection
                     Stream xmlReader = inputFile.FInfo.OpenRead();
@@ -84,7 +84,7 @@
                     }
                     catch (Exception ex)
                     {
-                        DataStore.Instance.CN.NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
                         throw;
                     }
@@ -98,7 +98,7 @@
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                         return false;
                     }
 
@@ -116,7 +116,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Trying to load Gramps data only", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex);
                 throw;
             }
 

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Views
 {
+    using Microsoft.Extensions.DependencyInjection;
+
     public partial class TagDetailPage : ViewBase
     {
         public TagDetailPage()

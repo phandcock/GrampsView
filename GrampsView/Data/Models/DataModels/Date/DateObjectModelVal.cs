@@ -1,7 +1,8 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -34,46 +35,6 @@
 
         private DateValType _GValType = DateValType.unknown;
 
-        public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
-        {
-            {
-                Contract.Requires(!string.IsNullOrEmpty(aVal));
-
-                // Setup basics
-                ModelItemGlyph.Symbol = CommonConstants.IconDate;
-                ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-                //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
-
-                HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
-
-                try
-                {
-                    GCformat = aCFormat;
-
-                    GDualdated = aDualDated;
-
-                    GNewYear = aNewYear;
-
-                    GQuality = aQuality;
-
-                    GVal = aVal;
-
-                    GValType = aValType;
-
-                    NotionalDate = ConvertRFC1123StringToDateTime(aVal);
-                }
-                catch (Exception e)
-                {
-                    DataStore.Instance.CN.NotifyException("Error in SetDate", e);
-                    throw;
-                }
-            }
-        }
-
-        public DateObjectModelVal()
-        {
-        }
-
         public override string DefaultTextShort
         {
             get
@@ -81,10 +42,6 @@
                 return ShortDate;
             }
         }
-
-        /// <summary>
-        /// Gets the $$(cformat)$$ field.
-        /// </summary>
 
         public string GCformat
         {
@@ -102,10 +59,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
-        /// </summary>
-
         public bool GDualdated
         {
             get;
@@ -113,6 +66,12 @@
             set;
         }
 
+        /// <summary>
+        /// Gets the $$(cformat)$$ field.
+        /// </summary>
+        /// <summary>
+        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
+        /// </summary>
         public override int? GetAge
         {
             get
@@ -143,10 +102,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the New Year field.
-        /// </summary>
-
         public string GNewYear
         {
             get
@@ -163,10 +118,6 @@
             }
         }
 
-        /// <summary>
-        /// Get the Date Quality.
-        /// </summary>
-
         public DateQuality GQuality
         {
             get
@@ -179,10 +130,6 @@
                 SetProperty(ref _GQuality, value);
             }
         }
-
-        /// <summary>
-        /// Gets the $$(val)$$ field.
-        /// </summary>
 
         public string GVal
         {
@@ -200,13 +147,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the type of the Val Type, e.g. Before
-        /// </summary>
-        /// <value>
-        /// The type of the g value.
-        /// </value>
-
         public DateValType GValType
         {
             get
@@ -220,6 +160,21 @@
             }
         }
 
+        /// <summary>
+        /// Gets the New Year field.
+        /// </summary>
+        /// <summary>
+        /// Get the Date Quality.
+        /// </summary>
+        /// <summary>
+        /// Gets the $$(val)$$ field.
+        /// </summary>
+        /// <summary>
+        /// Gets the type of the Val Type, e.g. Before
+        /// </summary>
+        /// <value>
+        /// The type of the g value.
+        /// </value>
         public HLinkDateModelVal HLink
         {
             get
@@ -310,6 +265,46 @@
 
                 return dateString.Trim();
             }
+        }
+
+        public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
+        {
+            {
+                Contract.Requires(!string.IsNullOrEmpty(aVal));
+
+                // Setup basics
+                ModelItemGlyph.Symbol = CommonConstants.IconDate;
+                ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+                //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
+
+                HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
+
+                try
+                {
+                    GCformat = aCFormat;
+
+                    GDualdated = aDualDated;
+
+                    GNewYear = aNewYear;
+
+                    GQuality = aQuality;
+
+                    GVal = aVal;
+
+                    GValType = aValType;
+
+                    NotionalDate = ConvertRFC1123StringToDateTime(aVal);
+                }
+                catch (Exception e)
+                {
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
+                    throw;
+                }
+            }
+        }
+
+        public DateObjectModelVal()
+        {
         }
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")

@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
+    using Microsoft.Extensions.DependencyInjection;
 
     using System.IO;
     using System.Reflection;
@@ -37,13 +36,13 @@
                         }
                         else
                         {
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("Error trying to open resource") { { "Resource Name", resourceName }, });
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Error trying to open resource") { { "Resource Name", resourceName }, });
                         }
                     }
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyException("File not Found Exception trying to open " + resourceName, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("File not Found Exception trying to open " + resourceName, ex);
                 }
             }
         }

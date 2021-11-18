@@ -1,7 +1,8 @@
 ﻿namespace GrampsView.Data
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Collections.Generic;
@@ -63,7 +64,7 @@
 
             if (aFail)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
                 returnValue = false;
             }
 
@@ -115,7 +116,7 @@
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception in PickCurrentInputFile", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex);
 
                 throw;
             }

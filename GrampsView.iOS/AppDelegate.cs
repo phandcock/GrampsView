@@ -2,12 +2,9 @@
 
 using Foundation;
 
-using GrampsView.Data.Repository;
-
 using Microsoft.AppCenter.Distribute;
 
-using Prism;
-using Prism.Ioc;
+using Microsoft.Extensions.DependencyInjection;
 
 using System;
 using System.Threading.Tasks;
@@ -52,13 +49,13 @@ namespace GrampsView.iOS
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
             var newExc = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
-            DataStore.Instance.CN.NotifyException("CurrentDomainOnUnhandledException", newExc);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("CurrentDomainOnUnhandledException", newExc);
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
-            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }
 

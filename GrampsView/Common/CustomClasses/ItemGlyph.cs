@@ -4,6 +4,8 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using System.Text.Json;
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
@@ -20,11 +22,6 @@
 
     public class ItemGlyph : ObservableObject, IItemGlyph
     {
-        public ItemGlyph()
-        {
-            UCNavigateCommand = new AsyncCommand(UCNavigate);
-        }
-
         [JsonInclude]
         public HLinkKey ImageHLink
         {
@@ -38,13 +35,19 @@
             {
                 if (ImageHLink == null)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
                 return GetHLinkMediaModelKey(ImageHLink);
             }
         }
+
+        [JsonIgnore]
+        public string ImageSymbol
+        {
+            get; set;
+        } = CommonConstants.IconDDefault;
 
         /// <summary>
         /// Gets or sets the home symbol font glyph.
@@ -55,13 +58,6 @@
         /// <remarks>
         /// This is set when the model is created.
         /// </remarks>
-
-        [JsonIgnore]
-        public string ImageSymbol
-        {
-            get; set;
-        } = CommonConstants.IconDDefault;
-
         /// <summary>
         /// Gets or sets the Home Symbol background colour.
         /// </summary>
@@ -96,7 +92,7 @@
             {
                 if (MediaHLink == null)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -104,25 +100,11 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the home symbol font glyph.
-        /// </summary>
-        /// <value>
-        /// The home symbol.
-        /// </value>
-
         [JsonInclude]
         public string Symbol
         {
             get; set;
         } = CommonConstants.IconDDefault;
-
-        /// <summary>
-        /// Gets or sets the Home Symbol background colour.
-        /// </summary>
-        /// <value>
-        /// The background colour.
-        /// </value>
 
         [JsonInclude]
         public Color SymbolColour
@@ -130,6 +112,18 @@
             get; set;
         } = Color.White;
 
+        /// <summary>
+        /// Gets or sets the home symbol font glyph.
+        /// </summary>
+        /// <value>
+        /// The home symbol.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the Home Symbol background colour.
+        /// </summary>
+        /// <value>
+        /// The background colour.
+        /// </value>
         public IAsyncCommand UCNavigateCommand
         {
             get;
@@ -173,6 +167,11 @@
         public bool ValidImage => Valid && (ImageType == CommonEnums.HLinkGlyphType.Image);
 
         public bool ValidMedia => Valid && (ImageType == CommonEnums.HLinkGlyphType.Media);
+
+        public ItemGlyph()
+        {
+            UCNavigateCommand = new AsyncCommand(UCNavigate);
+        }
 
         public async Task UCNavigate()
         {
@@ -220,7 +219,7 @@
         {
             if (MediaHLink == null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
                 return new HLinkMediaModel();
             }
 

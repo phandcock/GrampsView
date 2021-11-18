@@ -1,9 +1,9 @@
 ﻿namespace GrampsView.Views
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
     using GrampsView.ViewModels;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
 
@@ -29,7 +29,7 @@
 
             argDetail.Text = "Error displaying Media Element";
 
-            DataStore.Instance.CN.NotifyError(argDetail);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyError(argDetail);
 
             // TODO Handle when can not play video better
         }

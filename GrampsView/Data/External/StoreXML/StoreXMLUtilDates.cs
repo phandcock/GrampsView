@@ -1,9 +1,11 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -93,7 +95,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error in SetDate", e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
 
                 throw;
             }
@@ -157,7 +159,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -178,7 +180,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error in SetDate", e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
                 throw;
             }
 
@@ -218,7 +220,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Error", e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error", e);
                 throw;
             }
 
@@ -281,7 +283,7 @@
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -296,7 +298,7 @@
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -310,7 +312,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException(e.Message, e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException(e.Message, e);
                 throw;
             }
 
@@ -368,7 +370,7 @@
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -389,7 +391,7 @@
             catch (Exception e)
             {
                 // TODO
-                DataStore.Instance.CN.NotifyException("Exception in SetDateRange", e);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in SetDateRange", e);
                 throw;
             }
 

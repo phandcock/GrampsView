@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Threading.Tasks;
@@ -32,15 +32,16 @@
         //// "href"
         //// "description"
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="URLModel"/> class.
-        /// </summary>
-        public URLModel()
+        public string GDescription
         {
-            OpenURLCommand = new AsyncCommand(OpenURL);
+            get;
+            set;
+        }
 
-            ModelItemGlyph.Symbol = CommonConstants.IconURL;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        public Uri GHRef
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -49,26 +50,12 @@
         /// <value>
         /// The g description.
         /// </value>
-
-        public string GDescription
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Gets or sets the hlink reference.
         /// </summary>
         /// <value>
         /// The gh reference.
         /// </value>
-
-        public Uri GHRef
-        {
-            get;
-            set;
-        }
-
         public string GType
         {
             get;
@@ -98,13 +85,24 @@
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="URLModel"/> class.
+        /// </summary>
+        public URLModel()
+        {
+            OpenURLCommand = new AsyncCommand(OpenURL);
+
+            ModelItemGlyph.Symbol = CommonConstants.IconURL;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        }
+
+        /// <summary>
         /// Opens the URL.
         /// </summary>
         public async Task OpenURL()
         {
             if (GHRef is null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad URI for URL Model"));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad URI for URL Model"));
                 return;
             }
 

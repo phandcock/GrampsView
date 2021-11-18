@@ -1,7 +1,8 @@
 ﻿namespace GrampsView.Data
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -13,29 +14,6 @@
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
         private FileInfo _FInfo;
-
-        public FileInfoEx()
-        {
-        }
-
-        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
-        {
-            Contract.Requires(argFileName != null, $"argFileName can not be null");
-
-            Contract.Requires(!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder), $"argUseCurrentDataFolder is false and argRelativeFolder is null");
-
-            FInfo = argFInfo;
-
-            // Use cache base if currentdatafolder not allowed
-            if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
-            {
-                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
-                return;
-            }
-
-            // Standard call
-            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
-        }
 
         public bool Exists
         {
@@ -71,6 +49,29 @@
             }
         }
 
+        public FileInfoEx()
+        {
+        }
+
+        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
+        {
+            Contract.Requires(argFileName != null, $"argFileName can not be null");
+
+            Contract.Requires(!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder), $"argUseCurrentDataFolder is false and argRelativeFolder is null");
+
+            FInfo = argFInfo;
+
+            // Use cache base if currentdatafolder not allowed
+            if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
+            {
+                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
+                return;
+            }
+
+            // Standard call
+            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
+        }
+
         /// <summary>
         /// get the StorageFile of the file.
         /// </summary>
@@ -81,7 +82,7 @@
         /// StorageFile for the chosen file.
         /// </returns>
         /// TODO Check if same as MakeGetFile
-        public async static Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
+        public static async Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
         {
             IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 
@@ -116,13 +117,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException(ex.Message + relativeFilePath, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex);
                     throw;
                 }
             }
@@ -148,7 +149,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex);
 
                 throw;
             }
@@ -195,19 +196,19 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
 
                     // default to a standard file marker
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

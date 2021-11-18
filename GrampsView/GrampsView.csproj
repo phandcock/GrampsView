@@ -82,6 +82,7 @@
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
 		<Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
+		<Compile Remove="Views\Popups\ErrorPopup.xaml.cs" />
 		<Compile Remove="Views\Popups\MessageLog.xaml.cs" />
 	</ItemGroup>
 
@@ -93,6 +94,7 @@
 		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
+		<EmbeddedResource Remove="Views\Popups\ErrorPopup.xaml" />
 		<EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />
 	</ItemGroup>
 
@@ -219,9 +221,6 @@
 		<Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
 			<DependentUpon>ChildRefDetailView.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="Views\Popups\ErrorPopup.xaml.cs">
-			<DependentUpon>ErrorPopup.xaml</DependentUpon>
-		</Compile>
 		<Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
 			<DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
 		</Compile>
@@ -241,6 +240,10 @@
 		<None Update="App.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Views\Popups\" />
 	</ItemGroup>
 
 	<Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />

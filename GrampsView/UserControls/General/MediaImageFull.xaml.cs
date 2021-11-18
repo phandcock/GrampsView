@@ -1,8 +1,10 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -28,7 +30,7 @@
                 extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
             }
 
-            DataStore.Instance.CN.NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
 
             if (!(sender is null))
             {
@@ -71,7 +73,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("Exception in MediaImageFull control", ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex);
                     throw;
                 }
             }

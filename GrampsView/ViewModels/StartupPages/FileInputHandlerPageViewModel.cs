@@ -5,6 +5,8 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
@@ -21,6 +23,16 @@
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
+        public IAsyncCommand LoadSampleCommand
+        {
+            get; private set;
+        }
+
+        public IAsyncCommand PickFileCommand
+        {
+            get; private set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
         /// </summary>
@@ -40,16 +52,6 @@
             LoadSampleCommand = new AsyncCommand(LoadSample);
 
             PickFileCommand = new AsyncCommand(PickFile);
-        }
-
-        public IAsyncCommand LoadSampleCommand
-        {
-            get; private set;
-        }
-
-        public IAsyncCommand PickFileCommand
-        {
-            get; private set;
         }
 
         /// <summary>
@@ -92,7 +94,7 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                DataStore.Instance.CN.DataLog.Clear();
+                App.Current.Services.GetService<IErrorNotifications>().DataLog.Clear();
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -101,14 +103,14 @@
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    DataStore.Instance.CN.NotifyAlert("No input file was selected");
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("No input file was selected");
 
                     BaseCurrentLayoutState = LayoutState.None;
                 }
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception when using File Picker", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex);
 
                 throw;
             }

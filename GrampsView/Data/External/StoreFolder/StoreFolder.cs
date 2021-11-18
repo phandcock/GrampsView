@@ -1,6 +1,8 @@
 ﻿namespace GrampsView.Data
 {
-    using GrampsView.Data.Repository;
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.IO;
@@ -38,13 +40,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }
@@ -89,13 +91,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await DataStore.Instance.CN.DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException(ex.Message + argFileName, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

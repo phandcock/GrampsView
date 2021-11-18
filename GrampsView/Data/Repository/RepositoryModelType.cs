@@ -1,13 +1,11 @@
-﻿// <copyright file="RepositoryModelType.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace GrampsView.Data.Repositories
+﻿namespace GrampsView.Data.Repositories
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
     using GrampsView.Exceptions;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Collections.Generic;
@@ -36,19 +34,19 @@ namespace GrampsView.Data.Repositories
         /// </summary>
         private readonly Random localRandomNumberGenerator = new Random();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
-        /// </summary>
-        public RepositoryModelDictionary()
-        {
-        }
-
         public List<T1> GetList
         {
             get
             {
                 return Values.ToList();
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
+        /// </summary>
+        public RepositoryModelDictionary()
+        {
         }
 
         /// <summary>
@@ -68,7 +66,7 @@ namespace GrampsView.Data.Repositories
             {
                 if (string.IsNullOrEmpty(key))
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 //if (key == "_e5bfa72904e68ce059252b501df" || key == "_e5bfa72904e68ce059252b501df")
@@ -109,7 +107,7 @@ namespace GrampsView.Data.Repositories
             {
                 if (hLink.HLinkKey.Valid)
                 {
-                    DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
@@ -130,7 +128,7 @@ namespace GrampsView.Data.Repositories
         {
             if (!arg.HLinkKey.Valid)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
             }
 
             //Update(localItems.Count, arg);

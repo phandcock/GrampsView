@@ -1,10 +1,13 @@
 ﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.Tar;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.IO;
@@ -120,7 +123,7 @@
                         {
                         }
 
-                        DataStore.Instance.CN.DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = await StoreFolder.FolderCreateFileAsync(newFileName.FInfo.Directory, filename).ConfigureAwait(false);
 
@@ -130,7 +133,7 @@
                         }
                         catch (Exception ex)
                         {
-                            DataStore.Instance.CN.NotifyException("UnTar issue", ex);
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar issue", ex);
                         }
                         //}
 
@@ -188,7 +191,7 @@
                     else
                     {
                         // TODO write to the output log // await
-                        // DataStore.Instance.CN.DataLogEntryAdd("File "
+                        // App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }
@@ -204,7 +207,7 @@
                                     { "Filename",  filename },
                                 };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }
@@ -222,18 +225,18 @@
                 if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
                     throw;
                 }
                 else
                 {
-                    DataStore.Instance.CN.NotifyException("UnTar tarEntry null Exception ", ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex);
                     throw;
                 }
             }

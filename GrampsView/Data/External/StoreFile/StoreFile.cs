@@ -3,11 +3,14 @@
     using FFImageLoading.Cache;
 
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.GZip;
     using ICSharpCode.SharpZipLib.Tar;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Diagnostics;
@@ -26,7 +29,7 @@
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
+            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
             {
                 try
                 {
@@ -49,7 +52,7 @@
                 }
                 catch (Exception ex)
                 {
-                    DataStore.Instance.CN.NotifyException("DataStorageInitialiseAsync", ex);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("DataStorageInitialiseAsync", ex);
                     throw;
                 }
             }
@@ -57,7 +60,7 @@
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            DataStore.Instance.CN.DataLog.Remove();
+            App.Current.Services.GetService<IErrorNotifications>().DataLog.Remove();
 
             return true;
         }
@@ -74,12 +77,12 @@
         /// </returns>
         public async Task<bool> DecompressGZIP(IFileInfoEx inputFile)
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
+            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
 
             // Check arguments
             if (inputFile == null)
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("The input file is null"));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("The input file is null"));
                 return false;
             }
 
@@ -87,7 +90,7 @@
             {
                 ExtractGZip(inputFile, "data.xml");
 
-                DataStore.Instance.CN.DataLogEntryReplace("GRAMPS GZIP file decompress complete");
+                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -97,7 +100,7 @@
                         { "Exception Message ", ex.Message },
                     };
 
-                DataStore.Instance.CN.NotifyError(t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                 return false;
             }
         }
@@ -111,12 +114,12 @@
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await DataStore.Instance.CN.DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
+            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                DataStore.Instance.CN.NotifyAlert("The input file is invalid");
+                App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("The input file is invalid");
                 return false;
             }
 
@@ -132,7 +135,7 @@
                 }
             }
 
-            DataStore.Instance.CN.DataLogEntryReplace("UnTaring of files complete");
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("UnTaring of files complete");
             return true;
         }
     }

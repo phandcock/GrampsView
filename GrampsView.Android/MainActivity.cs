@@ -10,17 +10,14 @@
 
     using GrampsView;
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Repository;
     using GrampsView.Droid.Common;
 
-    using Prism;
-    using Prism.Ioc;
+    using Microsoft.Extensions.DependencyInjection;
 
     using System;
     using System.Threading.Tasks;
 
     using Xamarin.Essentials;
-    using Xamarin.Forms.DualScreen;
 
     public class AndroidInitializer : IPlatformInitializer
     {
@@ -91,13 +88,13 @@
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
             Exception newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unhandledExceptionEventArgs.ExceptionObject as Exception);
-            DataStore.Instance.CN.NotifyException("CurrentDomainOnUnhandledException", newExc);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("CurrentDomainOnUnhandledException", newExc);
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             Exception newExc = new Exception(nameof(CurrentDomainOnUnhandledException), unobservedTaskExceptionEventArgs.Exception);
-            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }
 }

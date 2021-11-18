@@ -1,8 +1,11 @@
 ﻿namespace GrampsView.Common
 {
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Diagnostics;
@@ -81,7 +84,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Exception creating application image cache", ex, null);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
         }
@@ -199,7 +202,7 @@
             // Search all dictionaries
             if (!Application.Current.Resources.TryGetValue(keyName, out var retVal))
             {
-                DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Resource Key", keyName));
+                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Resource Key", keyName));
             }
 
             return retVal;

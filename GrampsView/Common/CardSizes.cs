@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Common
 {
-    using GrampsView.Data.Repository;
-
     using System;
     using System.ComponentModel;
 
@@ -159,9 +157,9 @@
                 };
 
                 // Check size
-                if (outVal > DataStore.Instance.AD.ScreenSize.Width)
+                if (outVal > SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width)
                 {
-                    outVal = DataStore.Instance.AD.ScreenSize.Width;
+                    outVal = SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width;
                 }
 
                 return outVal;
@@ -169,9 +167,9 @@
         }
 
         /// <summary>
-        /// <para>Gets the size of the window.</para>
-        /// <para>Adjusted for Heading sizes.</para>
-        /// <para>Hack TODO</para>
+        /// <para> Gets the size of the window. </para>
+        /// <para> Adjusted for Heading sizes. </para>
+        /// <para> Hack TODO </para>
         /// </summary>
         /// <value>
         /// The size of the window.
@@ -186,10 +184,10 @@
 
                     case TargetIdiom.Desktop:
                     case TargetIdiom.Tablet:
-                        return new Size(DataStore.Instance.AD.ScreenSize.Width - 100, DataStore.Instance.AD.ScreenSize.Height - 100); // Window Size does not include headings
+                        return new Size(SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width - 100, SharedSharp.Misc.SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(DataStore.Instance.AD.ScreenSize.Width, DataStore.Instance.AD.ScreenSize.Height - 100); // Window Size does not include headings
+                        return new Size(SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width, SharedSharp.Misc.SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -197,7 +195,7 @@
                         }
                 };
 
-                return DataStore.Instance.AD.ScreenSize; // Window Size does not include headings
+                return SharedSharp.Misc.SharedSharpStatic.ScreenSize; // Window Size does not include headings
             }
         }
 

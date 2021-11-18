@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Services
 {
-    using GrampsView.Common;
     using GrampsView.Views;
 
     using System.Threading.Tasks;
@@ -20,11 +19,11 @@
         /// </returns>
         public async Task<bool> ShowIfAppropriate()
         {
-            if (VersionTracking.IsFirstLaunchEver && !Common.CommonLocalSettings.FirstRunDisplay)
+            if (VersionTracking.IsFirstLaunchEver && !SharedSharp.Misc.LocalSettings.FirstRunDisplay)
             {
-                Common.CommonLocalSettings.FirstRunDisplay = true;
+                SharedSharp.Misc.LocalSettings.FirstRunDisplay = true;
 
-                await CommonRoutines.NavigateAsync(nameof(FirstRunPage));
+                await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(FirstRunPage));
 
                 return true;
             }

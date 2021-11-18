@@ -2,6 +2,8 @@
 {
     using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using SharedSharp.Errors;
 
     public class ErrorDialogViewModel : ViewModelBase
@@ -25,13 +27,13 @@
 
         public ErrorDialogViewModel()
         {
-            DataStore.Instance.CN.DialogShown = true;
+            App.Current.Services.GetService<IErrorNotifications>().DialogShown = true;
 
             ErrorInfo t = new ErrorInfo();
 
             if (DataStore.Instance.CN.PopupQueue.Count > 0)
             {
-                t = DataStore.Instance.CN.PopupQueue.Dequeue();
+                t = App.Current.Services.GetService<IErrorNotifications>().PopupQueue.Dequeue();
             }
 
             Title = t.DialogBoxTitle;

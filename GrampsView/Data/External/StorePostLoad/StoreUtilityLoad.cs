@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
@@ -17,7 +16,32 @@
     /// </summary>
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
-        public  bool FixSingleMediaFile(IMediaModel argMediaModel)
+        /// <summary>
+        /// Fixes the media files.
+        /// </summary>
+        /// <returns>
+        /// true.
+        /// </returns>
+        public async Task<bool> FixMediaFiles()
+        {
+            _CommonLogging.RoutineEntry("FixMediaFiles");
+
+            if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
+            {
+                await _commonNotifications.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
+
+                foreach (IMediaModel item in DV.MediaDV.DataViewData)
+                {
+                    FixSingleMediaFile(item);
+                }
+            }
+
+            _CommonLogging.RoutineExit(string.Empty);
+
+            return true;
+        }
+
+        public bool FixSingleMediaFile(IMediaModel argMediaModel)
         {
             try
             {
@@ -45,31 +69,6 @@
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Fixes the media files.
-        /// </summary>
-        /// <returns>
-        /// true.
-        /// </returns>
-        public async Task<bool> FixMediaFiles()
-        {
-            _CommonLogging.RoutineEntry("FixMediaFiles");
-
-            if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
-            {
-                await _commonNotifications.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
-
-                foreach (IMediaModel item in DV.MediaDV.DataViewData)
-                {
-                    FixSingleMediaFile(item);
-                }
-            }
-
-            _CommonLogging.RoutineExit(string.Empty);
-
-            return true;
         }
     }
 }

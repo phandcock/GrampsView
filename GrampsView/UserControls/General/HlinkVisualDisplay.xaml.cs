@@ -5,7 +5,10 @@
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
 
@@ -21,18 +24,6 @@
           = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowSymbols), defaultValue: true);
 
         private ItemGlyph newItemGlyph = new ItemGlyph();
-
-        public HLinkVisualDisplay()
-        {
-            InitializeComponent();
-
-            //// Handle IsEnabled on the control and pass to the image Tap event
-            //this.daImage.IsEnabled = true;
-            //if (!this.IsEnabled)
-            //{
-            //    this.daImage.IsEnabled = false;
-            //}
-        }
 
         public bool FsctShowMedia
         {
@@ -61,6 +52,18 @@
         private ItemGlyph WorkHLMediaModel
         {
             get; set;
+        }
+
+        public HLinkVisualDisplay()
+        {
+            InitializeComponent();
+
+            //// Handle IsEnabled on the control and pass to the image Tap event
+            //this.daImage.IsEnabled = true;
+            //if (!this.IsEnabled)
+            //{
+            //    this.daImage.IsEnabled = false;
+            //}
         }
 
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
@@ -102,7 +105,7 @@
 
                     default:
                         {
-                            DataStore.Instance.CN.NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
                             return;
                         }
                 }
@@ -121,7 +124,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -142,7 +145,7 @@
 
             t.Add("File", (sender as CachedImage).Source.ToString());
 
-            DataStore.Instance.CN.NotifyError(t);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
 
             (sender as CachedImage).Cancel();
             (sender as CachedImage).Source = null;
@@ -161,7 +164,7 @@
                             { "Id", argMediaModel.Id }
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
@@ -198,7 +201,7 @@
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
@@ -217,7 +220,7 @@
                             { "Id", argMediaModel.Id }
                         };
 
-                        DataStore.Instance.CN.NotifyError(t);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
@@ -246,7 +249,7 @@
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
@@ -314,7 +317,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -355,7 +358,7 @@
                             { "HLinkKey", argItemGlyph.ToString() }
                         };
 
-                    DataStore.Instance.CN.NotifyError(t);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                 }
 
                 if (fontGlyph.Color == null)
@@ -365,7 +368,7 @@
                             { "HLinkKey", argItemGlyph.ImageHLink.Value }
                         };
 
-                    DataStore.Instance.CN.NotifyError(t);
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
                 }
 
                 newImageControl.Source = fontGlyph;
@@ -382,7 +385,7 @@
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                DataStore.Instance.CN.NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }

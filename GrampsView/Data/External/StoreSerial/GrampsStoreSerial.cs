@@ -1,9 +1,11 @@
 ﻿namespace GrampsView.Data.External.StoreSerial
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
 
     using System;
@@ -63,7 +65,7 @@
                                     { "File", GetSerialFile() },
                                 };
 
-                        DataStore.Instance.CN.NotifyError(tt);
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(tt);
                         CommonLocalSettings.DataSerialised = false;
                         return;
                     }
@@ -86,7 +88,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.BookMarkCollection != null)
@@ -96,7 +98,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.CitationData != null)
@@ -106,7 +108,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.EventData != null)
@@ -116,7 +118,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.FamilyData != null)
@@ -126,7 +128,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.MediaData != null)
@@ -136,7 +138,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.PersonData != null)
@@ -146,7 +148,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.PersonNameData != null)
@@ -156,7 +158,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // Check for nulls
@@ -167,7 +169,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // Check for nulls
@@ -178,7 +180,7 @@
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        DataStore.Instance.CN.NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // TODO Finish setting the checks up on these
@@ -196,7 +198,7 @@
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
-                DataStore.Instance.CN.NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
             }
 
             return;
@@ -237,7 +239,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.CN.NotifyException("Trying to serialise object ", ex);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
                 CommonLocalSettings.DataSerialised = false;
             }
         }

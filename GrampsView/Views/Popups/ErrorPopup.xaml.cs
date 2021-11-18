@@ -2,6 +2,7 @@
 {
     using GrampsView.Data.Repository;
     using GrampsView.ViewModels;
+using SharedSharp.Errors;
 
     using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Forms;
@@ -14,14 +15,14 @@
 
             BindingContext = new ErrorDialogViewModel();
 
-            Size = new Size(DataStore.Instance.AD.ScreenSize.Width - 100, DataStore.Instance.AD.ScreenSize.Height - 100);
+            Size = new Size(SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width - 100, SharedSharp.Misc.SharedSharpStatic.ScreenSize.Height - 100);
         }
 
         private void Button_Clicked(object sender, System.EventArgs e)
         {
-            DataStore.Instance.CN.DialogShown = false;
+            App.Current.Services.GetService<IErrorNotifications>().DialogShown = false;
 
-            if (DataStore.Instance.CN.PopupQueue.Count > 0)
+            if (App.Current.Services.GetService<IErrorNotifications>().PopupQueue.Count > 0)
             {
                 DataStore.Instance.CN.PopUpShow();
             }

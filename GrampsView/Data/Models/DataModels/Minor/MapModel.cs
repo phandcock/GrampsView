@@ -1,7 +1,10 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
+
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -27,17 +30,6 @@
     /// </summary>
     public class MapModel : ModelBase, IMapModel
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MapModel"> MapModel </see> class.
-        /// </summary>
-        public MapModel()
-        {
-            OpenMapCommand = new AsyncCommand(OpenMap);
-
-            ModelItemGlyph.Symbol = CommonConstants.IconMap;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-        }
-
         public string Description
         {
             get;
@@ -65,25 +57,11 @@
             set;
         } = MapType.Unknown;
 
-        /// <summary>
-        /// Gets or sets the Lat / Long GPS location..
-        /// </summary>
-        /// <value>
-        /// The xamarin essentials location object.
-        /// </value>
-
         public Location MyLocation
         {
             get;
             set;
         } = new Location();
-
-        /// <summary>
-        /// Gets or sets the PlaceMark location description.
-        /// </summary>
-        /// <value>
-        /// The xamarin essentials placemark.
-        /// </value>
 
         public Placemark MyPlaceMark
         {
@@ -91,9 +69,32 @@
             set;
         } = new Placemark();
 
+        /// <summary>
+        /// Gets or sets the Lat / Long GPS location..
+        /// </summary>
+        /// <value>
+        /// The xamarin essentials location object.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the PlaceMark location description.
+        /// </summary>
+        /// <value>
+        /// The xamarin essentials placemark.
+        /// </value>
         public IAsyncCommand OpenMapCommand
         {
             get; private set;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MapModel"> MapModel </see> class.
+        /// </summary>
+        public MapModel()
+        {
+            OpenMapCommand = new AsyncCommand(OpenMap);
+
+            ModelItemGlyph.Symbol = CommonConstants.IconMap;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>
@@ -111,7 +112,7 @@
                         }
                         catch (Exception ex)
                         {
-                            DataStore.Instance.CN.NotifyException("No map application available to open", ex);
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("No map application available to open", ex);
 
                             throw;
                         }
@@ -132,7 +133,7 @@
                         }
                         catch (Exception ex)
                         {
-                            DataStore.Instance.CN.NotifyException("No map application available to open", ex);
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("No map application available to open", ex);
 
                             throw;
                         }

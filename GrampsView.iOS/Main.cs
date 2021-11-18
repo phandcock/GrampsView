@@ -1,6 +1,8 @@
-﻿using GrampsView.Data.Repository;
+﻿using Microsoft.Extensions.DependencyInjection;
+
 using System;
 using System.Threading.Tasks;
+
 using UIKit;
 
 namespace GrampsView.iOS
@@ -14,15 +16,15 @@ namespace GrampsView.iOS
 
             // TODO UnhandledExceptionHandler += new Windows.UI.Xaml.UnhandledExceptionEventHandler(UnhandledExceptionHandler);
 
-            // if you want to use a different Application Delegate class from "AppDelegate"
-            // you can specify it here.
+            // if you want to use a different Application Delegate class from "AppDelegate" you can
+            // specify it here.
             UIApplication.Main(args, null, "AppDelegate");
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
-            DataStore.Instance.CN.NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }
 }

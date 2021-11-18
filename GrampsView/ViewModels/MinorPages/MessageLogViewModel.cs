@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Repository;
 
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
@@ -11,19 +11,19 @@
 
     public class MessageLogViewModel : ViewModelBase
     {
-        public MessageLogViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "MessageLog";
-            BaseTitleIcon = CommonConstants.IconDDefault;
-        }
-
         public ObservableCollection<DataLogEntry> DataLoadLog
         {
             get
             {
-                return DataStore.Instance.CN.DataLog.DataLoadLog;
+                return App.Current.Services.GetService<IErrorNotifications>().DataLog.DataLoadLog;
             }
+        }
+
+        public MessageLogViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                    : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "MessageLog";
+            BaseTitleIcon = CommonConstants.IconDDefault;
         }
     }
 }
