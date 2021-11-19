@@ -1,3 +1,12 @@
+## [16.22.5](https://github.com/phandcock/GrampsView/compare/v16.22.4...v16.22.5) (2021-11-19)
+
+
+### Bug Fixes
+
+* changes 20211118a ([a84b65e](https://github.com/phandcock/GrampsView/commit/a84b65e4c7535726185a72f21b7f01a5ae748775))
+
+
+
 ## [16.22.4](https://github.com/phandcock/GrampsView/compare/v16.22.3...v16.22.4) (2021-11-17)
 
 
@@ -23,16 +32,6 @@
 ### Bug Fixes
 
 * changes 2021113a ([d0e4ce4](https://github.com/phandcock/GrampsView/commit/d0e4ce411559eeba2c8dc1cc8ff71a683c76dc14))
-
-
-
-## [16.22.1](https://github.com/phandcock/GrampsView/compare/v16.22.0...v16.22.1) (2021-11-12)
-
-
-### Bug Fixes
-
-* Changes 20211111 ([b17e4ff](https://github.com/phandcock/GrampsView/commit/b17e4ff9871eb8a88c3959886860fb03f1f17084))
-* Changes 20211112a ([9c1cea7](https://github.com/phandcock/GrampsView/commit/9c1cea7b791d49c6242ae01c01167d5b80932924))
 
 
 
