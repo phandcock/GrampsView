@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
+    using Microsoft.Extensions.DependencyInjection;
+
     using System.IO;
 
     using Xamarin.Essentials;

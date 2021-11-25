@@ -49,22 +49,6 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _OriginalFilePath = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaModel"/> class.
-        /// </summary>
-        public MediaModel()
-        {
-            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundMedia");
-        }
-
-        /// <summary>
-        /// Gets or sets the type of the file content.
-        /// </summary>
-        /// <value>
-        /// The type of the file content.
-        /// </value>
-
         public string FileContentType
         {
             get => _FileContentType;
@@ -77,38 +61,22 @@ namespace GrampsView.Data.Model
                 {
                     SetProperty(ref _FileContentType, value);
 
-                    FileMimeType = CommonRoutines.MimeMimeTypeGet(value);
+                    FileMimeType = SharedSharp.CommonRoutines.CommonRoutines.MimeMimeTypeGet(value);
 
-                    FileMimeSubType = CommonRoutines.MimeMimeSubTypeGet(value);
+                    FileMimeSubType = SharedSharp.CommonRoutines.CommonRoutines.MimeMimeSubTypeGet(value);
                 }
             }
         }
-
-        /// <summary>
-        /// Gets or sets the MIME subtype of the file.
-        /// </summary>
-        /// <value>
-        /// The type of the file MIME sub.
-        /// </value>
 
         public string FileMimeSubType
         {
             get; set;
         }
 
-        /// <summary> Gets or sets the file MIME type. </summary> <value> The file MIME type.
-
         public string FileMimeType
         {
             get; set;
         }
-
-        /// <summary>
-        /// Gets or sets the citation reference collection.
-        /// </summary>
-        /// <value>
-        /// The citation reference collection.
-        /// </value>
 
         public HLinkCitationModelCollection GCitationRefCollection
         {
@@ -116,27 +84,13 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        = new HLinkCitationModelCollection();
-
-        /// <summary>
-        /// Gets or sets the date value.
-        /// </summary>
-        /// <value>
-        /// The date value.
-        /// </value>
+                = new HLinkCitationModelCollection();
 
         public DateObjectModel GDateValue
         {
             get;
             set;
         } = new DateObjectModelVal();
-
-        /// <summary>
-        /// Gets or sets the file description.
-        /// </summary>
-        /// <value>
-        /// The file description.
-        /// </value>
 
         public string GDescription
         {
@@ -145,13 +99,6 @@ namespace GrampsView.Data.Model
             set => SetProperty(ref _FileDescription, value);
         }
 
-        /// <summary>
-        /// Gets or sets the note reference collection.
-        /// </summary>
-        /// <value>
-        /// The note reference collection.
-        /// </value>
-
         public HLinkNoteModelCollection GNoteRefCollection
         {
             get => _NoteReferenceCollection;
@@ -159,21 +106,19 @@ namespace GrampsView.Data.Model
             set => SetProperty(ref _NoteReferenceCollection, value);
         }
 
-        /// <summary>
-        /// Gets or sets the tag reference collection.
-        /// </summary>
-        /// <value>
-        /// The tag reference collection.
-        /// </value>
-
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
 
-        /// <summary>
-        /// Gets the hlink.
-        /// </summary>
-        /// <value>
-        /// The get hlink.
-        /// </value>
+        /// <summary> Gets or sets the type of the file content. </summary> <value> The type of the
+        /// file content. </value> <summary> Gets or sets the MIME subtype of the file. </summary>
+        /// <value> The type of the file MIME sub. </value> <summary> Gets or sets the file MIME
+        /// type. </summary> <value> The file MIME type. <summary> Gets or sets the citation
+        /// reference collection. </summary> <value> The citation reference collection. </value>
+        /// <summary> Gets or sets the date value. </summary> <value> The date value. </value>
+        /// <summary> Gets or sets the file description. </summary> <value> The file description.
+        /// </value> <summary> Gets or sets the note reference collection. </summary> <value> The
+        /// note reference collection. </value> <summary> Gets or sets the tag reference collection.
+        /// </summary> <value> The tag reference collection. </value> <summary> Gets the hlink.
+        /// </summary> <value> The get hlink. </value>
         public HLinkMediaModel HLink
         {
             get
@@ -336,36 +281,15 @@ namespace GrampsView.Data.Model
             }
         }
 
-        /// <summary>
-        /// Gets or sets the height of the image metadata.
-        /// </summary>
-        /// <value>
-        /// The height of the meta data.
-        /// </value>
-
         public double MetaDataHeight
         {
             get; set;
         }
 
-        /// <summary>
-        /// Gets or sets the width of the image metadata.
-        /// </summary>
-        /// <value>
-        /// The width of the meta data.
-        /// </value>
-
         public double MetaDataWidth
         {
             get; set;
         }
-
-        /// <summary>
-        /// Gets or sets the original file path.
-        /// </summary>
-        /// <value>
-        /// The original file path.
-        /// </value>
 
         public string OriginalFilePath
         {
@@ -381,6 +305,24 @@ namespace GrampsView.Data.Model
         }
 
         /// <summary>
+        /// Gets or sets the height of the image metadata.
+        /// </summary>
+        /// <value>
+        /// The height of the meta data.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the width of the image metadata.
+        /// </summary>
+        /// <value>
+        /// The width of the meta data.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the original file path.
+        /// </summary>
+        /// <value>
+        /// The original file path.
+        /// </value>
+        /// <summary>
         /// Gets the title decoded.
         /// </summary>
         /// <value>
@@ -392,6 +334,15 @@ namespace GrampsView.Data.Model
             {
                 return GDateValue.ShortDate + " - " + GDescription;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediaModel"/> class.
+        /// </summary>
+        public MediaModel()
+        {
+            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
+            ModelItemGlyph.SymbolColour = SharedSharp.CommonRoutines.CommonRoutines.GetResourceColour("CardBackGroundMedia");
         }
 
         public IMediaModel Clone()
