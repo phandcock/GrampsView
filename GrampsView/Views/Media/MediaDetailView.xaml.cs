@@ -5,6 +5,8 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using SharedSharp.Errors;
+
     using System;
 
     using Xamarin.Essentials;
@@ -14,7 +16,9 @@
     {
         public MediaDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
+            InitializeComponent();
+
+            BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
         }
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)

@@ -6,6 +6,8 @@ using Microsoft.AppCenter.Distribute;
 
 using Microsoft.Extensions.DependencyInjection;
 
+using SharedSharp.Errors;
+
 using System;
 using System.Threading.Tasks;
 
@@ -59,11 +61,11 @@ namespace GrampsView.iOS
         }
     }
 
-    public class IOSInitializer : IPlatformInitializer
-    {
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            // Register any platform specific implementations
-        }
-    }
+    //public class IOSInitializer : IPlatformInitializer
+    //{
+    //    public void RegisterTypes(IContainerRegistry containerRegistry)
+    //    {
+    //        // Register any platform specific implementations
+    //    }
+    //}
 }

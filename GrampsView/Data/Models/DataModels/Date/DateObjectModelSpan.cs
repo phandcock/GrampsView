@@ -4,6 +4,8 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using SharedSharp.Errors;
+
     using System;
     using System.Diagnostics.Contracts;
 

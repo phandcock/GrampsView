@@ -9,27 +9,27 @@
     using FFImageLoading.Forms.Platform;
 
     using GrampsView;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Droid.Common;
 
     using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Threading.Tasks;
 
     using Xamarin.Essentials;
 
-    public class AndroidInitializer : IPlatformInitializer
+    public class AndroidInitializer /*: IPlatformInitializer*/
     {
         public AndroidInitializer()
         {
         }
 
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            // Register any platform specific implementations
-            containerRegistry.RegisterSingleton<IPlatformSpecific, PlatformSpecific>();
-        }
+        //public void RegisterTypes(IContainerRegistry containerRegistry)
+        //{
+        //    // Register any platform specific implementations
+        //    containerRegistry.RegisterSingleton<IPlatformSpecific, PlatformSpecific>();
+        //}
     }
 
     /// <summary>
@@ -66,8 +66,6 @@
             CachedImageRenderer.Init(enableFastRenderer: false);
 
             CachedImageRenderer.InitImageViewHandler();
-
-            DualScreenService.Init(this);
 
             Platform.Init(this, savedInstanceState);
 

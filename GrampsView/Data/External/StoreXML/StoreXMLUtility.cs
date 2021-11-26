@@ -5,6 +5,8 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.Errors;
+
     using SkiaSharp;
 
     using System;
