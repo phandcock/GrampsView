@@ -21,7 +21,7 @@
         {
             if ((CommonLocalSettings.DatabaseReloadNeeded) && (CommonLocalSettings.DataSerialised == true))
             {
-                await CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
+                await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(NeedDatabaseReloadPage));
 
                 return true;
             }

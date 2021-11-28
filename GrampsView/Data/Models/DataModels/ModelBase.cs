@@ -36,15 +36,6 @@
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
 
-        public ModelBase()
-        {
-            ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
-            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-
-            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
-        }
-
         /// <summary>
         /// Gets or sets the h link reference collection.
         /// </summary>
@@ -81,13 +72,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the h link key.
-        /// </summary>
-        /// <value>
-        /// The h link key.
-        /// </value>
-
         [JsonInclude]
         public HLinkKey HLinkKey
         {
@@ -95,13 +79,6 @@
 
             set;
         } = new HLinkKey();
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
 
         [JsonInclude]
         public string Id
@@ -111,6 +88,18 @@
             set => SetProperty(ref _Id, value);
         }
 
+        /// <summary>
+        /// Gets or sets the h link key.
+        /// </summary>
+        /// <value>
+        /// The h link key.
+        /// </value>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         [JsonInclude]
         public ItemGlyph ModelItemGlyph
         {
@@ -118,13 +107,6 @@
 
             set => SetProperty(ref _ModelItemGlyph, value);
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
-        /// </summary>
-        /// <value>
-        /// <c> true </c> if priv; otherwise, <c> false </c>.
-        /// </value>
 
         [JsonInclude]
         public bool Priv
@@ -134,6 +116,12 @@
             set;
         } = false;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
+        /// </summary>
+        /// <value>
+        /// <c> true </c> if priv; otherwise, <c> false </c>.
+        /// </value>
         public IAsyncCommand UCNavigateCommand
         {
             get;
@@ -151,6 +139,15 @@
             {
                 return HLinkKey.Valid && ModelItemGlyph.Valid;
             }
+        }
+
+        public ModelBase()
+        {
+            ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
+            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
         public static bool operator !=(ModelBase left, ModelBase right)
@@ -296,7 +293,7 @@
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await CommonRoutines.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
+            await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }
     }
 }

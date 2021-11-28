@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data
 {
+    using GrampsView.Common;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -84,7 +85,7 @@
                     string entryFileName = zipEntry.Name;
 
                     // check for image TODO do proper mimetype mapping. See https://github.com/samuelneff/MimeTypeMap
-                    if (SharedSharp.CommonRoutines.CommonRoutines.MimeMimeTypeGet(SharedSharp.CommonRoutines.CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
+                    if (SharedSharp.CommonRoutines.CommonRoutines.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
                     {
                         continue;
                     }

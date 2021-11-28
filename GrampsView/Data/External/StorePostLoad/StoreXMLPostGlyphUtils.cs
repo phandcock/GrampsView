@@ -35,7 +35,7 @@
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
-                await _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 

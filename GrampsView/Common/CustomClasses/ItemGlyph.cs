@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
-    using GrampsView.Common;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
@@ -185,7 +184,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.ImageHLinkMediaModel);
 
-                        await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }
@@ -193,7 +192,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.MediaHLinkMediaModel);
 
-                        await CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }

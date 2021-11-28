@@ -28,11 +28,6 @@
 
     public class HLinkBase : ObservableObject, IHLinkBase
     {
-        public HLinkBase()
-        {
-            UCNavigateCommand = new AsyncCommand(UCNavigate);
-        }
-
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
 
         public ItemGlyph HLinkGlyphItem
@@ -42,13 +37,6 @@
             set;
         } = new ItemGlyph();
 
-        /// <summary>
-        /// Gets or sets the hlink key.
-        /// </summary>
-        /// <value>
-        /// The h link key.
-        /// </value>
-
         public HLinkKey HLinkKey
         {
             get;
@@ -56,6 +44,12 @@
             set;
         } = new HLinkKey();
 
+        /// <summary>
+        /// Gets or sets the hlink key.
+        /// </summary>
+        /// <value>
+        /// The h link key.
+        /// </value>
         public bool Priv
         {
             get;
@@ -86,6 +80,11 @@
             }
         }
 
+        public HLinkBase()
+        {
+            UCNavigateCommand = new AsyncCommand(UCNavigate);
+        }
+
         public override int GetHashCode()
         {
             return HLinkKey.GetHashCode();
@@ -112,7 +111,7 @@
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await CommonRoutines.NavigateAsync($"{argPage}?BaseParamsHLink={ser}");
+            await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{argPage}?BaseParamsHLink={ser}");
         }
 
         /// <summary>

@@ -194,7 +194,7 @@
 
         public void TopMenuHubCommandHandler()
         {
-            CommonRoutines.NavigateHub();
+            SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
         }
 
         public async Task TopMenuNoteCommandHandler()

@@ -29,7 +29,7 @@
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Deleting existing datastorage").ConfigureAwait(false);
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Deleting existing datastorage");
             {
                 try
                 {

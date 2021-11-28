@@ -119,7 +119,7 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName).ConfigureAwait(false);
+                    App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }

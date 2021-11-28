@@ -7,6 +7,9 @@
     using GrampsView.Data.Model;
 
     using Microsoft.AppCenter;
+    using Microsoft.Extensions.DependencyInjection;
+
+    using SharedSharp.Errors;
 
     using System;
     using System.Collections.Generic;
@@ -65,7 +68,7 @@
                             { "Data", uriArgs.Data.ToString() }
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(badUriAdditionalInfo);
+                        ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyError(badUriAdditionalInfo);
                     }
 
                     // TODO Handle if GrampsView not running
@@ -191,7 +194,7 @@
             {
                 var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
 
                 return true;
             });
@@ -203,7 +206,7 @@
             {
                 Exception e = argsUnhandledExceptionEventArgs.Exception;
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
+                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
 
                 return true;
             });
@@ -220,7 +223,7 @@
         /// </param>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
+            ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Failed to load Page") { { "Name", e.SourcePageType.FullName } });
         }
 
         /// <summary>

@@ -59,7 +59,7 @@
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
-            await _commonNotifications.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising data after load");
             {
                 {
                     // Called in order of media linkages from Media outwards

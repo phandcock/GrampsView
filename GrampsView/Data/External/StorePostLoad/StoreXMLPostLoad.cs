@@ -20,7 +20,7 @@
         /// </summary>
         private async Task<bool> OrganiseAddressRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Address data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Address data");
 
             foreach (AddressModel argModel in DV.AddressDV.DataViewData)
             {

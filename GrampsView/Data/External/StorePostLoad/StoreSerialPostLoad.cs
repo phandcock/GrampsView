@@ -15,7 +15,7 @@
                 await FixMediaFiles().ConfigureAwait(false);
             }
 
-            await _commonNotifications.DataLogEntryAdd("Serial UI Load Complete. Data ready for display").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Serial UI Load Complete. Data ready for display");
 
             _CommonLogging.RoutineExit(nameof(LoadSerialUiItems));
         }

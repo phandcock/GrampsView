@@ -125,7 +125,7 @@
 
             BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
 
-            CommonRoutines.NavigateHub();
+            SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
         }
     }
 }

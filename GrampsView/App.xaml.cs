@@ -91,8 +91,7 @@
 
             Services.GetService<IPlatformSpecific>();
 
-            // Resove it here. TODO Have each class resolve its own copy using the service locator
-            // pattern from prism.
+            // Resolve it here.
             Services.GetService<IErrorNotifications>();
 
             Services.GetService<IDataRepositoryManager>();

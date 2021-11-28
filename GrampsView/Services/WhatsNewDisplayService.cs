@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Services
 {
-    using GrampsView.Common;
     using GrampsView.Views;
 
     using System.Threading.Tasks;
@@ -26,7 +25,7 @@
             {
                 displayWhatsNew = false;
 
-                await CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
+                await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(WhatsNewPage));
 
                 return true;
             }
