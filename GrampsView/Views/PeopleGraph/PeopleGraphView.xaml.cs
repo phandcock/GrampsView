@@ -4,31 +4,13 @@
 
     public sealed partial class PeopleGraphPage : ViewBase
     {
+        private BookMarkListPage _viewModel { get; set; }
+
         public PeopleGraphPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
+            InitializeComponent();
+            BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
         }
-
-        ///// <summary>
-        ///// Gets the ViewModel.
-        ///// </summary>
-        ///// <value>
-        ///// The ViewModel.
-        ///// </value>
-        //public PeopleGraphViewModel ViewModel
-        //{
-        //    get
-        //    {
-        //        if ((DataContext != null) && (DataContext.GetType() == typeof(PeopleGraphViewModel)))
-        //        {
-        //            return (PeopleGraphViewModel)DataContext;
-        //        }
-        //        else
-        //        {
-        //            return new PeopleGraphViewModel();
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// Handles the Loaded event of the GraphViewerPage control.

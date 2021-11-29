@@ -77,7 +77,7 @@
         /// </returns>
         public async Task<bool> DecompressGZIP(IFileInfoEx inputFile)
         {
-            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS GZIP file").ConfigureAwait(false);
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
 
             // Check arguments
             if (inputFile == null)

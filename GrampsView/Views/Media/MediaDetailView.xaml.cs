@@ -14,6 +14,8 @@
 
     public partial class MediaDetailPage : ViewBase
     {
+        private BookMarkListPage _viewModel { get; set; }
+
         public MediaDetailPage()
         {
             InitializeComponent();
