@@ -29,7 +29,7 @@
         {
             _iocCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
-            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading People data").ConfigureAwait(false);
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading People data");
             {
                 string defaultImage = string.Empty;
 

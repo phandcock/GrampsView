@@ -6,6 +6,7 @@
     using GrampsView.Data.Model;
     using GrampsView.Events;
 
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
@@ -15,24 +16,6 @@
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-       : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "Hub";
-            BaseTitleIcon = CommonConstants.IconHub;
-
-            BaseEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(HandledDataLoadedEvent, ThreadOption.UIThread);
-        }
-
         public CardListLineCollection HeaderCard
         {
             get
@@ -149,6 +132,30 @@
 
                 return toDoCardGroup;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+       : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "Hub";
+            BaseTitleIcon = CommonConstants.IconHub;
+
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            {
+                if (m.Value == null)
+                    return;
+
+                HandledDataLoadedEvent();
+            });
         }
 
         public void HandledDataLoadedEvent()

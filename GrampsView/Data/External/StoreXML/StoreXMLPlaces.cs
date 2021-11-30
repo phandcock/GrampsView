@@ -12,8 +12,7 @@
     {
         public async Task LoadPlacesAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Place data").ConfigureAwait(false);
-
+            _iocCommonNotifications.DataLogEntryAdd("Loading Place data");
             {
                 try
                 {

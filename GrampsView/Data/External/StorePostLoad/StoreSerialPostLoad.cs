@@ -8,7 +8,7 @@
         {
             _CommonLogging.RoutineEntry("LoadSerialUiItems");
 
-            await _commonNotifications.DataLogEntryAdd("Organising data after load").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising data after load");
             {
                 _CommonLogging.RoutineExit(string.Empty);
 

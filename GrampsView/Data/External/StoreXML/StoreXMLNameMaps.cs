@@ -12,7 +12,7 @@
     {
         public async Task LoadNameMapsAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading NameMap data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading NameMap data");
 
             {
                 // XNamespace ns = grampsXMLNameSpace;
@@ -53,7 +53,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
 
                     throw;
                 }

@@ -22,7 +22,7 @@
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd(argMessage: "Loading Source data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd(argMessage: "Loading Source data");
             {
                 try
                 {
@@ -74,7 +74,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
 
                     throw;
                 }

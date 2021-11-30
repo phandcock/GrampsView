@@ -114,7 +114,7 @@
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS TAR files").ConfigureAwait(false);
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS TAR files");
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)

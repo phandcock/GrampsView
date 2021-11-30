@@ -27,7 +27,7 @@
         /// </returns>
         public async Task LoadNotesAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Note data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Note data");
             {
                 // Load notes
                 try

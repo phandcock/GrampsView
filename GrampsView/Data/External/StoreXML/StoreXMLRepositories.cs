@@ -12,7 +12,7 @@
     {
         public async Task LoadRepositoriesAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Repository data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Repository data");
             {
                 try
                 {
@@ -46,7 +46,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
 
                     throw;
                 }

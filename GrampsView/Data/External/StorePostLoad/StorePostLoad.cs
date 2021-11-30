@@ -3,6 +3,7 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Events;
 
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
@@ -45,7 +46,13 @@
             _commonNotifications = iocCommonNotifications;
             _iocPlatformSpecific = iocPlatformSpecific;
 
-            _EventAggregator.GetEvent<DataLoadXMLEvent>().Subscribe(LoadXMLUIItems, ThreadOption.UIThread);
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
+            {
+                if (m.Value == null)
+                    return;
+
+                LoadXMLUIItems(true);
+            });
         }
 
         /// <summary>
@@ -103,7 +110,7 @@
                 }
             }
 
-            await _commonNotifications.DataLogEntryAdd(null).ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd(null);
 
             await _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
 
@@ -111,7 +118,7 @@
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
             // let everybody know we have finished loading data
-            _EventAggregator.GetEvent<DataLoadCompleteEvent>().Publish();
+            App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
             _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }

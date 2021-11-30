@@ -21,7 +21,7 @@
         /// </returns>
         public async Task LoadTagsAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Tag data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Tag data");
             {
                 try
                 {
