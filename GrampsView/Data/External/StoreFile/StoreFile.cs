@@ -60,7 +60,7 @@
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            App.Current.Services.GetService<IErrorNotifications>().DataLog.Remove();
+            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd();
 
             return true;
         }

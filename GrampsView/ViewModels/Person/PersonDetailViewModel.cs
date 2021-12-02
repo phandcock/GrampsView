@@ -19,23 +19,6 @@
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging service.
-        /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// platform specific routines
-        /// </param>
-        public PersonDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
-            : base(iocCommonLogging)
-        {
-            BaseTitleIcon = CommonConstants.IconPeople;
-
-            _PlatformSpecific = iocPlatformSpecific;
-        }
-
         public HLinkNoteModel BioNote
         {
             get; set;
@@ -76,7 +59,7 @@
             get; set;
         }
 
-        = new ItemGlyph();
+                = new ItemGlyph();
 
         public HLinkNoteModelCollection NotesWithoutHighlight
         {
@@ -109,6 +92,23 @@
         }
 
         = new PersonModel();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging service.
+        /// </param>
+        /// <param name="iocPlatformSpecific">
+        /// platform specific routines
+        /// </param>
+        public PersonDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+            : base(iocCommonLogging)
+        {
+            BaseTitleIcon = CommonConstants.IconPeople;
+
+            _PlatformSpecific = iocPlatformSpecific;
+        }
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -171,7 +171,7 @@
                 //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
                 //}
 
-                _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
+                // _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }
 
             // TODO fix this

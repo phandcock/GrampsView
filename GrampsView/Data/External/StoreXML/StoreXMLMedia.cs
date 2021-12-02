@@ -29,7 +29,7 @@
         {
             _iocCommonLogging.RoutineEntry("loadMediaObjects");
 
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Media Objects").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Media Objects");
             {
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);

@@ -1,12 +1,17 @@
 ﻿namespace GrampsView.Views
 {
+    using GrampsView.ViewModels;
+
     using Microsoft.Extensions.DependencyInjection;
 
     public sealed partial class PersonListPage : ViewBase
     {
+        private PersonListViewModel _viewModel { get; set; }
+
         public PersonListPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
+            InitializeComponent();
+            BindingContext = _viewModel = App.Current.Services.GetService<PersonListViewModel>();
         }
     }
 }

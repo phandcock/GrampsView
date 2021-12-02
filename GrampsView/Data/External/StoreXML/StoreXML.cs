@@ -68,7 +68,7 @@
             {
                 IFileInfoEx inputFile = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
 
-                await App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data").ConfigureAwait(false);
+                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
                 {
                     // TODO Handle no network connection
                     Stream xmlReader = inputFile.FInfo.OpenRead();

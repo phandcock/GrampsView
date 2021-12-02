@@ -1,14 +1,17 @@
 ﻿namespace GrampsView.Views
 {
+    using GrampsView.ViewModels;
+
     using Microsoft.Extensions.DependencyInjection;
 
     public sealed partial class BookMarkListPage : ViewBase
     {
-        private BookMarkListPage _viewModel { get; set; }
+        private BookMarkListViewModel _viewModel { get; set; }
 
         public BookMarkListPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<BookMarkListPage>();
+            InitializeComponent();
+            BindingContext = _viewModel = App.Current.Services.GetService<BookMarkListViewModel>();
         }
     }
 }

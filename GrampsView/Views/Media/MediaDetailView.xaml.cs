@@ -14,13 +14,13 @@
 
     public partial class MediaDetailPage : ViewBase
     {
-        private BookMarkListPage _viewModel { get; set; }
+        private MediaDetailViewModel _viewModel { get; set; }
 
         public MediaDetailPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
+            BindingContext = _viewModel = App.Current.Services.GetService<MediaDetailViewModel>();
         }
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)

@@ -5,6 +5,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
 
     using System.Collections.ObjectModel;

@@ -42,7 +42,7 @@
 
         private async Task<bool> OrganiseBookMarkRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising BookMark data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising BookMark data");
 
             DV.BookMarkCollection.SetGlyph();
 
@@ -54,7 +54,7 @@
         /// </summary>
         private async Task<bool> OrganiseCitationRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Citation data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Citation data");
 
             foreach (CitationModel argModel in DV.CitationDV.DataViewData)
             {
@@ -108,7 +108,7 @@
         /// </summary>
         private async Task<bool> OrganiseEventRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Event data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Event data");
 
             foreach (EventModel argModel in DV.EventDV.DataViewData)
             {
@@ -166,7 +166,7 @@
         /// </summary>
         private async Task<bool> OrganiseFamilyRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Family data ").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Family data ");
 
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
             {
@@ -248,7 +248,7 @@
         /// </summary>
         private async Task<bool> OrganiseHeaderRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Header data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Header data");
 
             SetHeaderImages();
 
@@ -260,7 +260,7 @@
         /// </summary>
         private async Task<bool> OrganiseMediaRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Media data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Media data");
 
             try
             {
@@ -311,7 +311,7 @@
         /// </summary>
         private async Task<bool> OrganiseMisc()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Misc data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Misc data");
 
             // Family children
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
@@ -330,7 +330,7 @@
         /// </summary>
         private async Task<bool> OrganiseNameMapRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising NameMap data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising NameMap data");
 
             SetNameMapImages();
 
@@ -342,7 +342,7 @@
         /// </summary>
         private async Task<bool> OrganiseNoteRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Note data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Note data");
 
             foreach (NoteModel argModel in DV.NoteDV.DataViewData)
             {
@@ -364,7 +364,7 @@
 
         private async Task<bool> OrganisePersonNameRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Person Name data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Person Name data");
 
             foreach (PersonNameModel argModel in DV.PersonNameDV.DataViewData)
             {
@@ -399,7 +399,7 @@
         /// </summary>
         private async Task<bool> OrganisePersonRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Person data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Person data");
 
             foreach (PersonModel argModel in DV.PersonDV.DataViewData)
             {
@@ -508,7 +508,7 @@
         /// </summary>
         private async Task<bool> OrganisePlaceRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Place data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Place data");
 
             foreach (PlaceModel argModel in DV.PlaceDV.DataViewData)
             {
@@ -574,7 +574,7 @@
         /// </summary>
         private async Task<bool> OrganiseRepositoryRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Repository data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Repository data");
 
             foreach (RepositoryModel argModel in DV.RepositoryDV.DataViewData)
             {
@@ -611,7 +611,7 @@
         /// </returns>
         private async Task<bool> OrganiseSourceRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Source data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Source data");
 
             foreach (SourceModel argModel in DV.SourceDV.DataViewData)
             {
@@ -660,7 +660,7 @@
         /// </summary>
         private async Task<bool> OrganiseTagRepository()
         {
-            await _commonNotifications.DataLogEntryAdd("Organising Tag data").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Organising Tag data");
 
             SetTagImages();
 

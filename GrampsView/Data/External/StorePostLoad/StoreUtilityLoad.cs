@@ -30,7 +30,7 @@
 
             if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
             {
-                await _commonNotifications.DataLogEntryAdd("Loading media file pointers").ConfigureAwait(false);
+                _commonNotifications.DataLogEntryAdd("Loading media file pointers");
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {

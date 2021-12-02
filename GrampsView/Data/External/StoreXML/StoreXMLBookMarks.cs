@@ -96,7 +96,7 @@
         /// </returns>
         public async Task LoadBookMarksAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data");
             {
                 try
                 {
@@ -139,7 +139,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
 
                     throw;
                 }

@@ -112,7 +112,7 @@
 
             _commonNotifications.DataLogEntryAdd(null);
 
-            await _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display").ConfigureAwait(false);
+            _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
             _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);

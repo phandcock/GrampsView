@@ -23,7 +23,7 @@
         /// </returns>
         public async Task LoadHeaderDataAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Header Metadata").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Header Metadata");
             {
                 try
                 {

@@ -9,6 +9,7 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
 
     using System;
@@ -94,7 +95,7 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                App.Current.Services.GetService<IErrorNotifications>().DataLog.Clear();
+                App.Current.Services.GetService<IErrorNotifications>().da.Clear();
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {

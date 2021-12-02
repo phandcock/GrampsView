@@ -1,14 +1,16 @@
 ﻿namespace GrampsView.Views
 {
+    using GrampsView.ViewModels;
+
     using Microsoft.Extensions.DependencyInjection;
 
     public partial class NoteDetailPage : ViewBase
     {
-        private BookMarkListPage _viewModel { get; set; }
+        private NoteDetailViewModel _viewModel { get; set; }
 
         public NoteDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<ItemsViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<NoteDetailViewModel>();
         }
     }
 }

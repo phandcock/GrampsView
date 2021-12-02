@@ -13,7 +13,7 @@
     {
         public async Task LoadCitationsAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Citation data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Citation data");
             {
                 try
                 {

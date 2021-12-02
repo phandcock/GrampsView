@@ -59,7 +59,7 @@
 
             if (CommonLocalSettings.DataSerialised)
             {
-                App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent());
+                App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
                 return;
             }
 

@@ -23,7 +23,7 @@
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Family data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Family data");
             {
                 // Load notes
                 try
@@ -103,7 +103,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
                     throw;
                 }
             }

@@ -19,24 +19,6 @@
     {
         private readonly IPlatformSpecific _PlatformSpecific;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging service.
-        /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// platform specific routines
-        /// </param>
-        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
-            : base(iocCommonLogging)
-        {
-            BaseTitle = "Child of Person Detail";
-            BaseTitleIcon = CommonConstants.IconPeople;
-
-            _PlatformSpecific = iocPlatformSpecific;
-        }
-
         public HLinkNoteModel BioNote
         {
             get; set;
@@ -47,7 +29,7 @@
             get; set;
         }
 
-             = new HLinkChildRefModel();
+                     = new HLinkChildRefModel();
 
         /// <summary>
         /// Gets the persons events and those of any families they were in.
@@ -84,7 +66,7 @@
             get; set;
         }
 
-        = new ItemGlyph();
+                = new ItemGlyph();
 
         public HLinkNoteModelCollection NotesWithoutHighlight
         {
@@ -117,6 +99,24 @@
         }
 
         = new PersonModel();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging service.
+        /// </param>
+        /// <param name="iocPlatformSpecific">
+        /// platform specific routines
+        /// </param>
+        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+            : base(iocCommonLogging)
+        {
+            BaseTitle = "Child of Person Detail";
+            BaseTitleIcon = CommonConstants.IconPeople;
+
+            _PlatformSpecific = iocPlatformSpecific;
+        }
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -193,7 +193,7 @@
                 //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
                 //}
 
-                _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
+                // _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
 
                 //// Trigger refresh of View fields via INotifyPropertyChanged
                 //OnPropertyChanged(string.Empty);

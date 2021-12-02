@@ -14,7 +14,7 @@
     {
         public async Task LoadEventsAsync()
         {
-            await _iocCommonNotifications.DataLogEntryAdd("Loading Event data").ConfigureAwait(false);
+            _iocCommonNotifications.DataLogEntryAdd("Loading Event data");
             {
                 try
                 {
@@ -75,7 +75,7 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    await _iocCommonNotifications.DataLogEntryAdd(e.Message).ConfigureAwait(false);
+                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
 
                     _iocCommonNotifications.NotifyException("LoadEventsAsync", e);
 
