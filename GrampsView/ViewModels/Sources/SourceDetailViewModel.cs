@@ -7,6 +7,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.

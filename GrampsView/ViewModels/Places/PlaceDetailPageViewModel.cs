@@ -7,12 +7,18 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
     public class PlaceDetailViewModel : ViewModelBase
     {
+        public PlaceModel PlaceObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceDetailViewModel"/> class.
         /// </summary>
@@ -29,12 +35,6 @@
         /// <summary>
         /// Gets or sets the public Place ViewModel.
         /// </summary>
-
-        public PlaceModel PlaceObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Handles navigation inwards and sets up the place model parameter.
         /// </summary>

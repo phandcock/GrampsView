@@ -7,12 +7,18 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
     /// </summary>
     public class TagDetailViewModel : ViewModelBase
     {
+        public TagModel TagObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TagDetailViewModel"/> class.
         /// </summary>
@@ -33,12 +39,6 @@
         /// <value>
         /// The tag object.
         /// </value>
-
-        public TagModel TagObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Handles navigation in wards and sets up the event model parameter.
         /// </summary>

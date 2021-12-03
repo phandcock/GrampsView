@@ -4,9 +4,21 @@
     using GrampsView.Data.Model;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     public class PersonNameDetailViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Gets or sets the View Current Person.
+        /// </summary>
+        /// <value>
+        /// The current person ViewModel.
+        /// </value>
+        public PersonNameModel PersonNameObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
         /// </summary>
@@ -17,17 +29,6 @@
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconPersonName;
-        }
-
-        /// <summary>
-        /// Gets or sets the View Current Person.
-        /// </summary>
-        /// <value>
-        /// The current person ViewModel.
-        /// </value>
-        public PersonNameModel PersonNameObject
-        {
-            get; set;
         }
 
         /// <summary>

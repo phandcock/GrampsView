@@ -95,7 +95,7 @@
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                App.Current.Services.GetService<IErrorNotifications>().da.Clear();
+                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("");
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -124,7 +124,7 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            BaseEventAggregator.GetEvent<DataLoadStartEvent>().Publish();
+            App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
 
             SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
         }

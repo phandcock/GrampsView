@@ -10,6 +10,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// View model for the Hub Page.

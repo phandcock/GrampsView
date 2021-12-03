@@ -8,6 +8,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     using System.ComponentModel;
 
@@ -26,11 +27,6 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-
-        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
-        {
-        }
 
         /// <summary>
         /// Gets or sets the public Event ViewModel.
@@ -57,6 +53,11 @@
         {
             get; set;
         } = new HLinkNoteModelCollection();
+
+        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                                                    : base(iocCommonLogging, iocEventAggregator)
+        {
+        }
 
         /// <summary>
         /// Populates the view ViewModel.

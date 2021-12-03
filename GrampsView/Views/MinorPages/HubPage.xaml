@@ -2,7 +2,6 @@
 <views:ViewBase
     x:Class="GrampsView.Views.HubPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -14,7 +13,6 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
-    prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="ViewModels:HubViewModel"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">

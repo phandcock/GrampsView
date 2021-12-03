@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using SharedSharp.Model;
+
     using System;
     using System.Collections.Generic;
 

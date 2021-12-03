@@ -2,6 +2,8 @@
 {
     using GrampsView.Common;
 
+    using SharedSharp.Model;
+
     using System;
     using System.Diagnostics.Contracts;
 
@@ -15,36 +17,6 @@
         /// $$(val)$$ field.
         /// </summary>
         private string _GVal = string.Empty;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but is
-        /// stored as a string so can not be converted to a DateTime.
-        /// </summary>
-        /// <param name="aVal">
-        /// a value.
-        /// </param>
-        public DateObjectModelStr(string aVal)
-        {
-            Contract.Requires(!String.IsNullOrEmpty(aVal));
-
-            // Setup basics
-            ModelItemGlyph.Symbol = CommonConstants.IconDate;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-            //DerivedType = CommonEnums.DateObjectModelDerivedTypeEnum.DateObjectModelStr;
-
-            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
-
-            GVal = aVal;
-
-            // Set NotionalDate
-            NotionalDate = DateTime.MinValue;
-
-            Valid = true;
-        }
-
-        public DateObjectModelStr()
-        {
-        }
 
         /// <summary>
         /// Not a properly formatted date so return null;
@@ -72,10 +44,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the $$(val)$$ field.
-        /// </summary>
-
         public string GVal
         {
             get
@@ -92,6 +60,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets the $$(val)$$ field.
+        /// </summary>
         public HLinkDateModelStr HLink
         {
             get
@@ -143,6 +114,36 @@
 
                 return GVal;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but is
+        /// stored as a string so can not be converted to a DateTime.
+        /// </summary>
+        /// <param name="aVal">
+        /// a value.
+        /// </param>
+        public DateObjectModelStr(string aVal)
+        {
+            Contract.Requires(!String.IsNullOrEmpty(aVal));
+
+            // Setup basics
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            //DerivedType = CommonEnums.DateObjectModelDerivedTypeEnum.DateObjectModelStr;
+
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
+
+            GVal = aVal;
+
+            // Set NotionalDate
+            NotionalDate = DateTime.MinValue;
+
+            Valid = true;
+        }
+
+        public DateObjectModelStr()
+        {
         }
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")

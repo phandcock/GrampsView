@@ -4,6 +4,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
+    using SharedSharp.Model;
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;

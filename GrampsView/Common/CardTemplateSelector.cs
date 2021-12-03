@@ -5,6 +5,8 @@ namespace GrampsView.Common
 {
     using GrampsView.Data.Model;
 
+    using SharedSharp.Model;
+
     using System.Diagnostics.Contracts;
 
     using Xamarin.Forms;

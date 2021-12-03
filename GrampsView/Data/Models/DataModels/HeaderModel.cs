@@ -2,6 +2,8 @@
 {
     using GrampsView.Data.DataView;
 
+    using SharedSharp.Model;
+
     using Xamarin.Essentials;
 
     /// <summary>
@@ -20,14 +22,6 @@
 
     public class HeaderModel : ModelBase, IHeaderModel
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HeaderModel"/> class.
-        /// </summary>
-        public HeaderModel()
-        {
-            ModelItemGlyph.Symbol = Common.CommonConstants.IconHeader;
-        }
-
         public CardListLineCollection AsCardListLineCollection
         {
             get
@@ -84,20 +78,12 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets date the file was created.
-        /// </summary>
-
         public string GCreatedDate
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the data version.
-        /// </summary>
 
         public string GCreatedVersion
         {
@@ -106,20 +92,12 @@
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the absolute path to the start of the media file file structure.
-        /// </summary>
-
         public string GMediaPath
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the researchers address.
-        /// </summary>
 
         public string GResearcherAddress
         {
@@ -128,20 +106,12 @@
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the researchers city.
-        /// </summary>
-
         public string GResearcherCity
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the researchers country.
-        /// </summary>
 
         public string GResearcherCountry
         {
@@ -150,20 +120,12 @@
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the researchers email address.
-        /// </summary>
-
         public string GResearcherEmail
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the researchers locality.
-        /// </summary>
 
         public string GResearcherLocality
         {
@@ -172,20 +134,12 @@
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the researchers name.
-        /// </summary>
-
         public string GResearcherName
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the researchers phone.
-        /// </summary>
 
         public string GResearcherPhone
         {
@@ -194,20 +148,12 @@
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the researchers postal address.
-        /// </summary>
-
         public string GResearcherPostal
         {
             get;
 
             set;
         }
-
-        /// <summary>
-        /// Gets or sets the researchers state.
-        /// </summary>
 
         public string GResearcherState
         {
@@ -216,6 +162,42 @@
             set;
         }
 
+        /// <summary>
+        /// Gets or sets date the file was created.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the data version.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the absolute path to the start of the media file file structure.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers address.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers city.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers country.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers email address.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers locality.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers name.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers phone.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers postal address.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the researchers state.
+        /// </summary>
         public HLinkHeaderModel HLink
         {
             get
@@ -228,6 +210,14 @@
 
                 return t;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeaderModel"/> class.
+        /// </summary>
+        public HeaderModel()
+        {
+            ModelItemGlyph.Symbol = Common.CommonConstants.IconHeader;
         }
     }
 }

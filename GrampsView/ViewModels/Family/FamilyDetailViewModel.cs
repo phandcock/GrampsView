@@ -8,6 +8,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Family detail page view ViewModel.
@@ -76,7 +77,6 @@
                 BaseTitleIcon = CommonConstants.IconFamilies;
 
                 // Get basic details
-
                 BaseDetail.Add(new CardListLineCollection("Family Detail")
                     {
                     new CardListLine("Family Display Name:", FamilyObject.ToString()),

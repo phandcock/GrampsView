@@ -16,8 +16,14 @@
 
 	<ItemGroup>
 		<Compile Remove="Behaviours\**" />
+		<Compile Remove="ViewModels\Popups\**" />
+		<Compile Remove="Views\Popups\**" />
 		<EmbeddedResource Remove="Behaviours\**" />
+		<EmbeddedResource Remove="ViewModels\Popups\**" />
+		<EmbeddedResource Remove="Views\Popups\**" />
 		<None Remove="Behaviours\**" />
+		<None Remove="ViewModels\Popups\**" />
+		<None Remove="Views\Popups\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,6 +67,8 @@
 		<Compile Remove="Data\Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
 		<Compile Remove="Data\Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
 		<Compile Remove="Data\Models\HLinks\Models\HLinkSourceAttrModel.cs" />
+		<Compile Remove="Data\Models\Misc\CardListLine.cs" />
+		<Compile Remove="Data\Models\Misc\CardListLineCollection.cs" />
 		<Compile Remove="Data\Models\Misc\MenuItemModel.cs" />
 		<Compile Remove="Events\AppStartFirstRunEvent.cs" />
 		<Compile Remove="Events\AppStartSaveSerial.cs" />
@@ -81,9 +89,6 @@
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
-		<Compile Remove="ViewModels\Popups\MessageLogViewModel.cs" />
-		<Compile Remove="Views\Popups\ErrorPopup.xaml.cs" />
-		<Compile Remove="Views\Popups\MessageLog.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -94,8 +99,6 @@
 		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
-		<EmbeddedResource Remove="Views\Popups\ErrorPopup.xaml" />
-		<EmbeddedResource Remove="Views\Popups\MessageLog.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -240,10 +243,6 @@
 		<None Update="App.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Views\Popups\" />
 	</ItemGroup>
 
 	<Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />

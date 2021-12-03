@@ -115,7 +115,7 @@
             _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
-            _EventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
+            App.Current.Services.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
 
             // let everybody know we have finished loading data
             App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));

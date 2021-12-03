@@ -8,25 +8,13 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public CitationDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-        }
-
         public CitationModel CitationObject
         {
             get; set;
@@ -46,6 +34,19 @@
         {
             get; set;
         } = new HLinkNoteModelCollection();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public CitationDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
+        {
+        }
 
         /// <summary>
         /// Gets or sets the citation object.

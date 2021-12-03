@@ -7,11 +7,17 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     using System;
 
     public class NoteDetailViewModel : ViewModelBase
     {
+        public INoteModel NoteObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteDetailViewModel"/> class. Common logging.
         /// </summary>
@@ -25,11 +31,6 @@
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitleIcon = CommonConstants.IconNotes;
-        }
-
-        public INoteModel NoteObject
-        {
-            get; set;
         }
 
         /// <summary>

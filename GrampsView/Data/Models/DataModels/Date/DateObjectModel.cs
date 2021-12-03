@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using SharedSharp.Model;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Globalization;
@@ -63,19 +65,14 @@
         /// <item> <description> XML 1.71 check </description> <description> Not Done </description>
         /// </item> </list> <para> <br/> </para> </summary>
 
-        public DateObjectModel()
-        {
-        }
-
-        //public DateObjectModelDerivedTypeEnum DerivedType
-        //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
-
         [JsonIgnore]
         public virtual int? GetAge
         {
             get;
         }
 
+        //public DateObjectModelDerivedTypeEnum DerivedType
+        //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
         [JsonIgnore]
         public string GetDecade
         {
@@ -299,6 +296,10 @@
             {
                 SetProperty(ref _ValidYear, value);
             }
+        }
+
+        public DateObjectModel()
+        {
         }
 
         /// <summary>

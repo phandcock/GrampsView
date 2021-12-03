@@ -4,12 +4,23 @@
     using GrampsView.Data.Model;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// ViewModel for the Attribute Detail page.
     /// </summary>
     public class AttributeDetailViewModel : ViewModelBase
     {
+        public AttributeModel AttributeObject
+        {
+            get; set;
+        }
+
+        public HLinkAttributeModel HLinkAttributeObject
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AttributeDetailViewModel"/> class.
         /// </summary>
@@ -20,16 +31,6 @@
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconAttribute;
-        }
-
-        public AttributeModel AttributeObject
-        {
-            get; set;
-        }
-
-        public HLinkAttributeModel HLinkAttributeObject
-        {
-            get; set;
         }
 
         /// <summary>

@@ -7,6 +7,7 @@
     using GrampsView.Data.Model;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     using System.ComponentModel;
 

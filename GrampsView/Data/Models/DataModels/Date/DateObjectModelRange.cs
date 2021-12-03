@@ -2,6 +2,8 @@
 {
     using GrampsView.Common;
 
+    using SharedSharp.Model;
+
     using System;
     using System.Diagnostics.Contracts;
 
@@ -37,47 +39,6 @@
 
         private DateObjectModelVal _GStop = new DateObjectModelVal();
 
-        public DateObjectModelRange(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
-        {
-            Contract.Requires(!String.IsNullOrEmpty(aStart));
-            Contract.Requires(!String.IsNullOrEmpty(aStop));
-
-            // Setup basics
-            ModelItemGlyph.Symbol = CommonConstants.IconDate;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-            //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelRange;
-
-            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
-
-            GCformat = aCFormat;
-
-            // dualdated value #REQUIRED
-            GDualdated = aDualDated;
-
-            // newyear CDATA #IMPLIED
-            GNewYear = aNewYear;
-
-            // type CDATA #REQUIRED
-            GQuality = aQuality;
-
-            // start CDATA #REQUIRED
-            GStart = new DateObjectModelVal(aStart);
-
-            // stop CDATA #REQUIRED
-            GStop = new DateObjectModelVal(aStop);
-
-            // Set NotionalDate
-            NotionalDate = ConvertRFC1123StringToDateTime(aStart);
-        }
-
-        public DateObjectModelRange()
-        {
-        }
-
-        /// <summary>
-        /// Gets the $$(cformat)$$ field.
-        /// </summary>
-
         public string GCformat
         {
             get => _GCformat;
@@ -91,10 +52,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
-        /// </summary>
-
         public bool GDualdated
         {
             get => _GDualdated;
@@ -102,6 +59,12 @@
             internal set => SetProperty(ref _GDualdated, value);
         }
 
+        /// <summary>
+        /// Gets the $$(cformat)$$ field.
+        /// </summary>
+        /// <summary>
+        /// Gets a value indicating whether gets or sets the $$(dualdated)$$ field.
+        /// </summary>
         public override int? GetAge
         {
             get
@@ -132,10 +95,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the New Year field.
-        /// </summary>
-
         public string GNewYear
         {
             get => _GNewYear;
@@ -149,20 +108,12 @@
             }
         }
 
-        /// <summary>
-        /// Get the Date Quality.
-        /// </summary>
-
         public DateQuality GQuality
         {
             get => _GQuality;
 
             internal set => SetProperty(ref _GQuality, value);
         }
-
-        /// <summary>
-        /// Gets the Date Start.
-        /// </summary>
 
         public DateObjectModelVal GStart
         {
@@ -180,10 +131,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the Stop field.
-        /// </summary>
-
         public DateObjectModelVal GStop
         {
             get
@@ -200,6 +147,18 @@
             }
         }
 
+        /// <summary>
+        /// Gets the New Year field.
+        /// </summary>
+        /// <summary>
+        /// Get the Date Quality.
+        /// </summary>
+        /// <summary>
+        /// Gets the Date Start.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets the Stop field.
+        /// </summary>
         public HLinkDateModelRange HLink
         {
             get
@@ -268,6 +227,43 @@
                 string dateString = $"Range {GStart.ShortDate} -{GStop.ShortDate}";
                 return dateString.Trim();
             }
+        }
+
+        public DateObjectModelRange(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
+        {
+            Contract.Requires(!String.IsNullOrEmpty(aStart));
+            Contract.Requires(!String.IsNullOrEmpty(aStop));
+
+            // Setup basics
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelRange;
+
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
+
+            GCformat = aCFormat;
+
+            // dualdated value #REQUIRED
+            GDualdated = aDualDated;
+
+            // newyear CDATA #IMPLIED
+            GNewYear = aNewYear;
+
+            // type CDATA #REQUIRED
+            GQuality = aQuality;
+
+            // start CDATA #REQUIRED
+            GStart = new DateObjectModelVal(aStart);
+
+            // stop CDATA #REQUIRED
+            GStop = new DateObjectModelVal(aStop);
+
+            // Set NotionalDate
+            NotionalDate = ConvertRFC1123StringToDateTime(aStart);
+        }
+
+        public DateObjectModelRange()
+        {
         }
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")

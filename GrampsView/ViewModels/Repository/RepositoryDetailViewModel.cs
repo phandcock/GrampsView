@@ -7,26 +7,13 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
     public class RepositoryDetailViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public RepositoryDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-        }
-
         public HLinkRepositoryModel RepositoryHLink
         {
             get; set;
@@ -41,6 +28,20 @@
         public RepositoryModel RepositoryObject
         {
             get; set;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public RepositoryDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging, iocEventAggregator)
+        {
         }
 
         /// <summary>

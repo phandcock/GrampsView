@@ -5,24 +5,13 @@
     using GrampsView.Data.Model;
 
     using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
     public class AddressDetailViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging service.
-        /// </param>
-        public AddressDetailViewModel(ISharedLogging iocCommonLogging)
-            : base(iocCommonLogging)
-        {
-            BaseTitleIcon = CommonConstants.IconAddress;
-        }
-
         /// <summary>
         /// Gets or sets the View Current Person.
         /// </summary>
@@ -37,6 +26,18 @@
         public IHLinkMediaModel MediaCard
         {
             get; set;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging service.
+        /// </param>
+        public AddressDetailViewModel(ISharedLogging iocCommonLogging)
+            : base(iocCommonLogging)
+        {
+            BaseTitleIcon = CommonConstants.IconAddress;
         }
 
         /// <summary>
