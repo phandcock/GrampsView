@@ -1,6 +1,9 @@
 using System.Reflection;
 using System.Resources;
+
 using System.Runtime.InteropServices;
+
+using Xamarin.Forms;
 
 // General Information about an assembly is controlled through the following set of attributes.
 // Change these attribute values to modify the information associated with an assembly.
@@ -24,3 +27,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.13.176.152")]
 [assembly: ComVisible(false)]
 [assembly: AssemblyInformationalVersion("1.13.138")]
+[assembly: Dependency(typeof(GrampsView.UWP.PlatformSpecific))]

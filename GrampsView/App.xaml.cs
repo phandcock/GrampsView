@@ -1,12 +1,12 @@
 ﻿namespace GrampsView
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data;
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Services;
     using GrampsView.ViewModels;
 
     using Microsoft.AppCenter;
@@ -45,9 +45,11 @@
 
         public App()
         {
+            Services = ConfigureServices();
+
             InitializeComponent();
 
-            Services = ConfigureServices();
+            MainPage = new AppShell();
         }
 
         protected override void OnAppLinkRequestReceived(System.Uri uri)
@@ -89,14 +91,10 @@
 
             AppCenterInit();
 
-            Services.GetService<IPlatformSpecific>();
-
             // Resolve it here.
             Services.GetService<IErrorNotifications>();
 
-            Services.GetService<IDataRepositoryManager>();
-
-            Services.GetService<IStartAppLoad>();
+            // Services.GetService<IStartAppLoad>();
 
             SharedSharp.Misc.SharedSharpStatic.Init(Services);
 
@@ -111,9 +109,9 @@
 
             Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
 
-            MainPage = new AppShell();
+            // MainPage = new AppShell();
 
-            Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
+            // Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
 
             StartAtDetailPage().GetAwaiter().GetResult();
 
@@ -123,8 +121,7 @@
 
                 return;
             }
-
-            Services.GetService<IStartAppLoad>().StartProcessing();
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await Services.GetService<IStartAppLoad>().StartProcessing());
         }
 
         /// <summary>
@@ -151,19 +148,25 @@
             var services = new ServiceCollection();
 
             // Add Services
+            services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
 
             services.AddSingleton<IErrorNotifications, ErrorNotifications>();
+
+            services.AddSingleton<IFirstRunDisplayService, FirstRunDisplayService>();
 
             services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
 
             services.AddSingleton<IMessenger, WeakReferenceMessenger>();
 
             services.AddSingleton<ISharedLogging, SharedLogging>();
+            services.AddSingleton<ISharedMessageLog, SharedMessageLog>();
             services.AddSingleton<IStartAppLoad, StartAppLoad>();
             services.AddSingleton<IStoreFile, StoreFile>();
             services.AddSingleton<IStorePostLoad, StorePostLoad>();
             services.AddSingleton<IStoreXML, StoreXML>();
+
+            services.AddSingleton<IWhatsNewDisplayService, WhatsNewDisplayService>();
 
             // Viewmodels
             services.AddTransient<AboutViewModel>();

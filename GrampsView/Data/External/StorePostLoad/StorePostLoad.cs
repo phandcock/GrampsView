@@ -10,6 +10,7 @@
     using SharedSharp.Logging;
 
     using Xamarin.CommunityToolkit.ObjectModel;
+    using Xamarin.Forms;
 
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
@@ -39,12 +40,13 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public StorePostLoad(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;
             _commonNotifications = iocCommonNotifications;
-            _iocPlatformSpecific = iocPlatformSpecific;
+
+            _iocPlatformSpecific = DependencyService.Get<IPlatformSpecific>();
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {

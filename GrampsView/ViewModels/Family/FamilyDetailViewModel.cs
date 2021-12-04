@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -15,8 +14,6 @@
     /// </summary>
     public class FamilyDetailViewModel : ViewModelBase
     {
-        private readonly IPlatformSpecific _PlatformSpecific;
-
         /// <summary>
         /// Holds the family object.
         /// </summary>
@@ -53,10 +50,9 @@
         /// <param name="iocPlatformSpecific">
         /// Platform specific calls for Windows Timeline
         /// </param>
-        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IPlatformSpecific iocPlatformSpecific)
+        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging, iocEventAggregator)
         {
-            _PlatformSpecific = iocPlatformSpecific;
         }
 
         /// <summary>
@@ -94,8 +90,6 @@
                 {
                     DeRef = localFamilyModel,
                 });
-
-                // _PlatformSpecific.ActivityTimeLineAdd(FamilyObject);
             }
         }
     }

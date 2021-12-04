@@ -3,6 +3,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using SharedSharp.Errors;
 
     using System;
@@ -76,7 +78,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
+                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -89,7 +91,7 @@
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
+                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

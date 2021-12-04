@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Repository;
-    using GrampsView.Events;
     using GrampsView.Services;
     using GrampsView.Views;
 
@@ -20,7 +19,7 @@
 
         private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
 
-        public StartAppLoad(IMessenger iocEventAggregator, FirstRunDisplayService iocFirstRunDisplayService, WhatsNewDisplayService iocWhatsNewDisplayService, DatabaseReloadDisplayService iocDatabaseReloadDisplayService)
+        public StartAppLoad(IMessenger iocEventAggregator, IFirstRunDisplayService iocFirstRunDisplayService, IWhatsNewDisplayService iocWhatsNewDisplayService, IDatabaseReloadDisplayService iocDatabaseReloadDisplayService)
 
         {
             _iocEventAggregator = iocEventAggregator;
@@ -59,7 +58,10 @@
 
             if (CommonLocalSettings.DataSerialised)
             {
-                App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+                App.Current.Services.GetService<IDataRepositoryManager>();
+
+                App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
+                // App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
                 return;
             }
 

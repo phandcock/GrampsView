@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common
 {
+    using SharedSharp.Misc;
+
     using System;
     using System.ComponentModel;
 
@@ -56,7 +58,7 @@
         {
             get
             {
-                int numCols = (int)Math.Floor(WindowSize.Width / CardSmallWidth);
+                int numCols = (int)Math.Floor(SharedSharpStatic.WindowSize.Width / CardSmallWidth);
 
                 if (numCols < 1)
                 {
@@ -231,16 +233,14 @@
 
             // Set width so that a whole number of cards fit across the screen
 
-            int numCols = (int)Math.Floor(WindowSize.Width / CardBaseWidth);
+            int numCols = (int)Math.Floor(SharedSharpStatic.WindowSize.Width / CardBaseWidth);
 
             if (numCols < 1)
             {
                 numCols = 1;
             }
 
-            CardBaseWidth = Math.Floor((WindowSize.Width - (numCols * 20)) / numCols);     //adjust for margin and padding for each card
-
-            //Debug.WriteLine("Card Base Width changed to " + CardBaseWidth.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            CardBaseWidth = Math.Floor((SharedSharpStatic.WindowSize.Width - (numCols * 20)) / numCols);     //adjust for margin and padding for each card
         }
 
         private void SetCardLargeDoubleWidth()

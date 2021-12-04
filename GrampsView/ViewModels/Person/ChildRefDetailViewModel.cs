@@ -18,8 +18,6 @@
     /// </summary>
     public class ChildRefDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private readonly IPlatformSpecific _PlatformSpecific;
-
         public HLinkNoteModel BioNote
         {
             get; set;
@@ -110,13 +108,11 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitle = "Child of Person Detail";
             BaseTitleIcon = CommonConstants.IconPeople;
-
-            _PlatformSpecific = iocPlatformSpecific;
         }
 
         /// <summary>

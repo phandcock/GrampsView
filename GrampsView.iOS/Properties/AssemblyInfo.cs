@@ -11,7 +11,7 @@ using Xamarin.Forms;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GrampsView.iOS")]
-[assembly: AssemblyCopyright("Copyright ©  2010 - 2019")]
+[assembly: AssemblyCopyright("Copyright ©  2010 - 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
@@ -32,3 +32,4 @@ using Xamarin.Forms;
 [assembly: AssemblyVersion("1.4.16.15")]
 [assembly: AssemblyFileVersion("1.4.16.15")]
 [assembly: AssemblyInformationalVersion("1.4.10")]
+[assembly: Dependency(typeof(GrampsView.iOS.PlatformSpecific))]

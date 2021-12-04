@@ -159,9 +159,7 @@
 
                 // Forms Init
                 ////////////////////////////////////////////////////////////////////////////////////////////////
-                Xamarin.Forms.Forms.SetFlags(new string[] {
-                    "Shell_UWP_Experimental"
-                });
+                global::Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental");
 
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 

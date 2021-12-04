@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
+using Xamarin.Forms;
+
 // General Information about an assembly is controlled through the following set of attributes.
 // Change these attribute values to modify the information associated with an assembly.
 [assembly: AssemblyTitle("GrampsView.Android")]
@@ -23,3 +25,5 @@ using System.Runtime.InteropServices;
 //[assembly: UsesPermission(Android.Manifest.Permission.Internet)]
 //[assembly: UsesPermission(Android.Manifest.Permission.ReadExternalStorage)]
 //[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+
+[assembly: Dependency(typeof(GrampsView.Droid.Common.PlatformSpecific))]

@@ -5,7 +5,6 @@
     using GrampsView.Data.External.StoreSerial;
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
-    using GrampsView.Views;
 
     using Microsoft.AppCenter.Analytics;
     using Microsoft.Extensions.DependencyInjection;
@@ -218,7 +217,7 @@
                 return true;
             }
 
-            await _commonNotifications.DataLogShow(nameof(MessageLogPage));
+            // await _commonNotifications.DataLogShow(nameof(MessageLogPage));
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
@@ -285,7 +284,7 @@
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
 
-                    await _commonNotifications.DataLogHide();
+                    // await _commonNotifications.DataLogHide();
                 }
 
                 return true;

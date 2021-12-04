@@ -2,18 +2,15 @@
 {
     using GrampsView.Common.CustomClasses;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
-
-    using SharedSharp.Errors;
-
     /// <summary>
     /// UWP Platform specific code
     /// </summary>
+
     internal partial class PlatformSpecific : IPlatformSpecific
     {
-        private IErrorNotifications _IErrorNotifications;
+        //private IErrorNotifications _IErrorNotifications;
 
-        private IMessenger _IMessenger;
+        //private IMessenger _IMessenger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformSpecific"/> class.
@@ -21,12 +18,12 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlatformSpecific(IMessenger iocEventAggregator, IErrorNotifications iocErrorNotification)
+        public PlatformSpecific() //IMessenger iocEventAggregator, IErrorNotifications iocErrorNotification)
         {
             // iocEventAggregator.GetEvent<DataLoadCompleteEvent>().Subscribe(UpdateTile, ThreadOption.UIThread);
 
-            _IMessenger = iocEventAggregator;
-            _IErrorNotifications = iocErrorNotification;
+            //_IMessenger = iocEventAggregator;
+            //_IErrorNotifications = iocErrorNotification;
         }
 
         ///// <summary>

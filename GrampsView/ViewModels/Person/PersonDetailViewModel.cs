@@ -18,8 +18,6 @@
     /// </summary>
     public class PersonDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private readonly IPlatformSpecific _PlatformSpecific;
-
         public HLinkNoteModel BioNote
         {
             get; set;
@@ -103,12 +101,10 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public PersonDetailViewModel(ISharedLogging iocCommonLogging, IPlatformSpecific iocPlatformSpecific)
+        public PersonDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconPeople;
-
-            _PlatformSpecific = iocPlatformSpecific;
         }
 
         /// <summary>
@@ -171,8 +167,6 @@
                 //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
                 //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
                 //}
-
-                // _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
             }
 
             // TODO fix this
