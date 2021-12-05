@@ -2,7 +2,7 @@ name: Prepare Release
 
 on:
   schedule:
-  - cron: "0 0 * * mon,wed,fri,sun"
+  - cron: "0 21 * * mon,wed,fri,sun"
  #   displayName: Four day a week build
  #   branches:
  #       include:
@@ -26,8 +26,8 @@ jobs:
         # pulls all commits (needed for lerna / semantic release to correctly version)
  #       fetch-depth: "0"
 
-     # pulls all tags (needed for lerna / semantic release to correctly version)
- #   - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*  
+      # pulls all tags (needed for lerna / semantic release to correctly version)
+    - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*  
 
     - name: Conventional Changelog Action
       id: changelog

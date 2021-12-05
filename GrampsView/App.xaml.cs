@@ -89,14 +89,14 @@
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
+            // Setup various support frameworks
             AppCenterInit();
 
-            // Resolve it here.
-            Services.GetService<IErrorNotifications>();
-
-            // Services.GetService<IStartAppLoad>();
+            VersionTracking.Track();
 
             SharedSharp.Misc.SharedSharpStatic.Init(Services);
+
+            Services.GetService<IErrorNotifications>();
 
             //// Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
@@ -105,9 +105,14 @@
             };
             SharedSharp.CommonRoutines.CommonRoutines.ScreenSizeInit();
 
-            VersionTracking.Track();
-
+            // App Setup
             Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
+
+            CardSizes.Current.ReCalculateCardWidths();
+
+            // Get Going
+
+            // Services.GetService<IStartAppLoad>();
 
             // MainPage = new AppShell();
 
@@ -121,6 +126,7 @@
 
                 return;
             }
+
             Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await Services.GetService<IStartAppLoad>().StartProcessing());
         }
 
