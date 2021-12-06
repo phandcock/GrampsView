@@ -1,3 +1,17 @@
+# [16.23.0](https://github.com/phandcock/GrampsView/compare/v16.22.10...v16.23.0) (2021-12-06)
+
+
+### Bug Fixes
+
+* correct viewmodel fo persondetail page ([daa5cba](https://github.com/phandcock/GrampsView/commit/daa5cbaf0f112dc48a278366944589a4147f2ba9))
+
+
+### Features
+
+* windows 11 and change ioc and mvvm ([d544ddf](https://github.com/phandcock/GrampsView/commit/d544ddfb13fc9d582f741f8768315607596ba01f))
+
+
+
 ## [16.22.10](https://github.com/phandcock/GrampsView/compare/v16.22.9...v16.22.10) (2021-12-05)
 
 
@@ -23,15 +37,6 @@
 ### Bug Fixes
 
 * changes 20211203 ([5f83eed](https://github.com/phandcock/GrampsView/commit/5f83eed57f85f1c341635a90fde49605b0d51e3c))
-
-
-
-## [16.22.7](https://github.com/phandcock/GrampsView/compare/v16.22.6...v16.22.7) (2021-12-01)
-
-
-### Bug Fixes
-
-* changes 20211129 ([18fbeec](https://github.com/phandcock/GrampsView/commit/18fbeecb474df3948753afafc60e0d17f1c6f536))
 
 
 
