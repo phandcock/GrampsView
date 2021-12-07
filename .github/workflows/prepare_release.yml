@@ -2,7 +2,7 @@ name: Prepare Release
 
 on:
   schedule:
-  - cron: "0 21 * * mon,wed,fri,sun"
+  - cron: "0 21 * * tue,thu,sat,sun"
  #   displayName: Four day a week build
  #   branches:
  #       include:
