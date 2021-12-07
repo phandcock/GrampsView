@@ -1,3 +1,12 @@
+## [16.23.1](https://github.com/phandcock/GrampsView/compare/v16.23.0...v16.23.1) (2021-12-07)
+
+
+### Bug Fixes
+
+* build scripts ([80ac0ae](https://github.com/phandcock/GrampsView/commit/80ac0aecbdd5111a653b7858b3e4598f5d7e922c))
+
+
+
 # [16.23.0](https://github.com/phandcock/GrampsView/compare/v16.22.10...v16.23.0) (2021-12-06)
 
 
@@ -28,15 +37,6 @@
 
 * finish basic code migration ([1845654](https://github.com/phandcock/GrampsView/commit/18456546eeb7d03f0d997be847f2761aae8b767f))
 * work on rebuild ([a808603](https://github.com/phandcock/GrampsView/commit/a808603d37c21d22c24cfd0e8760177f679754c4))
-
-
-
-## [16.22.8](https://github.com/phandcock/GrampsView/compare/v16.22.7...v16.22.8) (2021-12-03)
-
-
-### Bug Fixes
-
-* changes 20211203 ([5f83eed](https://github.com/phandcock/GrampsView/commit/5f83eed57f85f1c341635a90fde49605b0d51e3c))
 
 
 
