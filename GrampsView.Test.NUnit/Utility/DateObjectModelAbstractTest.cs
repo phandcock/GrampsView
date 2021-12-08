@@ -2,15 +2,12 @@
 {
     using GrampsView.Data.Model;
 
+    using SharedSharp.Model;
+
     using System;
 
     public partial class DateObjectModelAbstractTest : DateObjectModel, IDateObjectModel
     {
-        public DateObjectModelAbstractTest()
-        {
-            Valid = true;
-        }
-
         public override Nullable<int> GetAge => throw new NotImplementedException();
 
         public override string GetYear => throw new NotImplementedException();
@@ -33,6 +30,11 @@
             {
                 return new DateTime();
             }
+        }
+
+        public DateObjectModelAbstractTest()
+        {
+            Valid = true;
         }
 
         public override CardListLineCollection AsCardListLine(string argTitle = null)

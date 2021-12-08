@@ -26,7 +26,7 @@
     public static class GeneralData
     {
         public static IFileInfoEx GrampsFile = new FileInfoEx();
-        public static ISharedLogging iocCommonLogging = new CommonLogging();
+        public static ISharedLogging iocCommonLogging = new SharedLogging();
         public static IErrorNotifications iocCommonNotifications;
         public static IStoreXML iocExternalStorage;
         public static IStorePostLoad iocGrampsStorePostLoad;
@@ -58,7 +58,7 @@
             /*
              * Mock Common Logging
              */
-            ISharedLogging iocCommonLogging = new CommonLogging();
+            ISharedLogging iocCommonLogging = new SharedLogging();
 
             /*
              * Mock Common Notifications
@@ -66,8 +66,8 @@
             Mock<IErrorNotifications> mockCommonNotifications = new Mock<IErrorNotifications>();
 
             mockCommonNotifications
-                .Setup(x => x.DataLog)
-                .Returns(new CommonDataLog());
+                .Setup(x => x.DataLogEntryAdd)
+                .Returns(new SharedLogging());
 
             iocCommonNotifications = mockCommonNotifications.Object;
 
