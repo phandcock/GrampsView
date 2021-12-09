@@ -1,3 +1,12 @@
+## [16.23.2](https://github.com/phandcock/GrampsView/compare/v16.23.1...v16.23.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* tweaks ([a0b04e6](https://github.com/phandcock/GrampsView/commit/a0b04e63c3e8be7c3727adb5c9f1314f0ac5219f))
+
+
+
 ## [16.23.1](https://github.com/phandcock/GrampsView/compare/v16.23.0...v16.23.1) (2021-12-07)
 
 
@@ -27,16 +36,6 @@
 ### Bug Fixes
 
 * init screensizes etc ([d992bc5](https://github.com/phandcock/GrampsView/commit/d992bc510307f764d91469874ffbaab1a675001a))
-
-
-
-## [16.22.9](https://github.com/phandcock/GrampsView/compare/v16.22.8...v16.22.9) (2021-12-05)
-
-
-### Bug Fixes
-
-* finish basic code migration ([1845654](https://github.com/phandcock/GrampsView/commit/18456546eeb7d03f0d997be847f2761aae8b767f))
-* work on rebuild ([a808603](https://github.com/phandcock/GrampsView/commit/a808603d37c21d22c24cfd0e8760177f679754c4))
 
 
 
