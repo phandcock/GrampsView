@@ -33,7 +33,7 @@
                     { "e", e.ToString() },
                 };
 
-            argDetail.Text = "Error displaying Media Element";
+            argDetail.ErrorArea = "Error displaying Media Element";
 
             App.Current.Services.GetService<IErrorNotifications>().NotifyError(argDetail);
 

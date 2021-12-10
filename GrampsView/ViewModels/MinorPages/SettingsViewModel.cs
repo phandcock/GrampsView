@@ -169,8 +169,8 @@
         {
             ErrorInfo t = new ErrorInfo
             {
-                Name = "Test Alert",
-                Text = "Test Alert with detail and even more detail and more and more and more",
+                ErrorArea = "Test Alert",
+                ErrorMessage = "Test Alert with detail and even more detail and more and more and more",
             };
 
             t.Add("Test Line 1", "Test Value 1");
@@ -180,8 +180,8 @@
 
             t = new ErrorInfo
             {
-                Name = "Test Error",
-                Text = "Test Error with detail and even more detail and more and more and more",
+                ErrorArea = "Test Error",
+                ErrorMessage = "Test Error with detail and even more detail and more and more and more",
             };
 
             t.Add("Test Line 1", "Test Value 1");
@@ -191,8 +191,8 @@
 
             t = new ErrorInfo
             {
-                Name = "Test Exception",
-                Text = "Test Exception with detail and even more detail and more and more and more",
+                ErrorArea = "Test Exception",
+                ErrorMessage = "Test Exception with detail and even more detail and more and more and more",
             };
 
             t.Add("Test Line 1", "Test Value 1");
