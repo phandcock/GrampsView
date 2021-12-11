@@ -1,3 +1,12 @@
+## [16.23.3](https://github.com/phandcock/GrampsView/compare/v16.23.2...v16.23.3) (2021-12-11)
+
+
+### Bug Fixes
+
+* sharedsharp errorinfo updates ([7873e07](https://github.com/phandcock/GrampsView/commit/7873e077f922acc4cdf49c2fbb0494eb4b382070))
+
+
+
 ## [16.23.2](https://github.com/phandcock/GrampsView/compare/v16.23.1...v16.23.2) (2021-12-09)
 
 
@@ -27,15 +36,6 @@
 ### Features
 
 * windows 11 and change ioc and mvvm ([d544ddf](https://github.com/phandcock/GrampsView/commit/d544ddfb13fc9d582f741f8768315607596ba01f))
-
-
-
-## [16.22.10](https://github.com/phandcock/GrampsView/compare/v16.22.9...v16.22.10) (2021-12-05)
-
-
-### Bug Fixes
-
-* init screensizes etc ([d992bc5](https://github.com/phandcock/GrampsView/commit/d992bc510307f764d91469874ffbaab1a675001a))
 
 
 
