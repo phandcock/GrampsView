@@ -34,6 +34,4 @@
   <ItemGroup>
     <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
   </ItemGroup>
-
-  <Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />
 </Project>

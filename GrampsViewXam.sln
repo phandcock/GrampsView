@@ -72,11 +72,9 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedSharp\SharedSharp\SharedSharp.projitems*{2b89a712-6a2b-466c-9730-5b0890a17ee4}*SharedItemsImports = 4
 		SharedSharp\SharedSharp\SharedSharp.projitems*{3651f099-4475-42df-ab9c-115beceeb8eb}*SharedItemsImports = 4
-		SharedSharp\SharedSharp\SharedSharp.projitems*{4469fd17-d2ab-43fd-8ea5-3ec5942a5a11}*SharedItemsImports = 5
 		SharedSharp\SharedSharp\SharedSharp.projitems*{54eaf1e8-e560-4a93-8206-263171b8900d}*SharedItemsImports = 5
 		SharedSharp\SharedSharp\SharedSharp.projitems*{c6f4232f-922c-494b-ae39-8a65d6c89da9}*SharedItemsImports = 13
 		SharedSharp\SharedSharp\SharedSharp.projitems*{c9e3d22c-dd30-4d5d-9cde-99c1cc514105}*SharedItemsImports = 4
-		SharedSharp\SharedSharp\SharedSharp.projitems*{ceb8843c-ead4-425c-bbb1-4addd93b6672}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

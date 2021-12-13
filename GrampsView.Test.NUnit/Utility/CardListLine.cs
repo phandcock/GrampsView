@@ -2,7 +2,7 @@
 {
     using global::NUnit.Framework;
 
-    using GrampsView.Data.Model;
+    using SharedSharp.Model;
 
     public static class CardListLineUtils
     {

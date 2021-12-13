@@ -8,8 +8,6 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using Microsoft.Extensions.DependencyInjection;
-
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using Moq;
@@ -122,7 +120,7 @@
             /*
              * Configure DataStore
              */
-            App.Current.Services.GetService<IErrorNotifications>() = iocCommonNotifications;
+            //?  App.Current.Services.GetService<IErrorNotifications>() = iocCommonNotifications;
             DataStore.Instance.ES = iocXamarinEssentials;
             DataStore.Instance.FFIL = iocFFImageLoading;
 
@@ -131,7 +129,7 @@
             */
             iocExternalStorage = new StoreXML(iocCommonLogging, iocCommonNotifications);
 
-            iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocCommonNotifications, iocEventAggregator, iocPlatformSpecific);
+            iocGrampsStorePostLoad = new StorePostLoad(iocCommonLogging, iocCommonNotifications, iocEventAggregator);
 
             iocGrampsStoreSerial = new GrampsStoreSerial(iocCommonLogging);
 

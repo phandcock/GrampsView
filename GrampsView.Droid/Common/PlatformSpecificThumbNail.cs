@@ -8,13 +8,13 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
 
+    using Microsoft.Extensions.DependencyInjection;
+
     using SharedSharp.Errors;
 
     using System;
     using System.IO;
     using System.Threading.Tasks;
-
-    using static Android.Graphics.Pdf.PdfRenderer;
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {
@@ -33,7 +33,7 @@
                     int pageCount = renderer.PageCount;
 
                     // Use `openPage` to open a specific page in PDF.
-                    Page page = renderer.OpenPage(0);
+                    PdfRenderer.Page page = renderer.OpenPage(0);
 
                     //Creates bitmap
                     Bitmap bmp = Bitmap.CreateBitmap(page.Width, page.Height, Bitmap.Config.Argb8888);
@@ -61,7 +61,7 @@
                                      { "New path", "pdfimage" }
                                  };
 
-                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -74,7 +74,7 @@
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                _IErrorNotifications.NotifyException("PDF to Image", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -137,7 +137,7 @@
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                _IErrorNotifications.NotifyException("GetSeekableFileDescriptor", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             catch (Exception ex)
             {
@@ -149,7 +149,7 @@
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                _IErrorNotifications.NotifyException("GetSeekableFileDescriptor", ex, t);
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             return fileDescriptor;
         }

@@ -37,7 +37,7 @@
             Valid = true;
         }
 
-        public override CardListLineCollection AsCardListLine(string argTitle = null)
+        public CardListLineCollection AsCardListLine(string argTitle = null)
         {
             return new CardListLineCollection();
         }

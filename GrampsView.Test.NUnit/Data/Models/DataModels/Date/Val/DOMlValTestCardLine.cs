@@ -5,6 +5,8 @@
     using GrampsView.Common;
     using GrampsView.e2e.Test.Utility;
 
+    using SharedSharp.Model;
+
     [TestFixture()]
     public partial class DOMValTests
     {

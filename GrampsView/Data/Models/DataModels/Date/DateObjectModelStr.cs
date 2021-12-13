@@ -146,7 +146,7 @@
         {
         }
 
-        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
+        public CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 

@@ -5,6 +5,8 @@
     using GrampsView.Data.Model;
     using GrampsView.e2e.Test.Utility;
 
+    using SharedSharp.Model;
+
     [TestFixture()]
     public class DateObjectModelTests
     {

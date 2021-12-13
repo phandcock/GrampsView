@@ -29,7 +29,7 @@
 
         public static async Task TestGrampsLoad()
         {
-            await GeneralData.iocCommonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
+            GeneralData.iocCommonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
 
             // Load the new data
             await GeneralData.newManager.TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
@@ -39,7 +39,7 @@
 
         public static async Task TestGrampsUnzip()
         {
-            await GeneralData.iocCommonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program").ConfigureAwait(false);
+            GeneralData.iocCommonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
             //File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
 
