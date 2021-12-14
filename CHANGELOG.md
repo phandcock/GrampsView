@@ -1,3 +1,13 @@
+## [16.23.4](https://github.com/phandcock/GrampsView/compare/v16.23.3...v16.23.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* code cleanup ([d2b26b3](https://github.com/phandcock/GrampsView/commit/d2b26b34d41a1ce34311422f4e1fcc7dffb5e84b))
+* uwp build pipeline ([b6be89a](https://github.com/phandcock/GrampsView/commit/b6be89aba940064d24e1dfb36f3f532143c76f65))
+
+
+
 ## [16.23.3](https://github.com/phandcock/GrampsView/compare/v16.23.2...v16.23.3) (2021-12-11)
 
 
@@ -22,20 +32,6 @@
 ### Bug Fixes
 
 * build scripts ([80ac0ae](https://github.com/phandcock/GrampsView/commit/80ac0aecbdd5111a653b7858b3e4598f5d7e922c))
-
-
-
-# [16.23.0](https://github.com/phandcock/GrampsView/compare/v16.22.10...v16.23.0) (2021-12-06)
-
-
-### Bug Fixes
-
-* correct viewmodel fo persondetail page ([daa5cba](https://github.com/phandcock/GrampsView/commit/daa5cbaf0f112dc48a278366944589a4147f2ba9))
-
-
-### Features
-
-* windows 11 and change ioc and mvvm ([d544ddf](https://github.com/phandcock/GrampsView/commit/d544ddfb13fc9d582f741f8768315607596ba01f))
 
 
 
