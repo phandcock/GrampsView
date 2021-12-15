@@ -98,6 +98,8 @@
 
             Services.GetService<IErrorNotifications>();
 
+            Services.GetService<IDataRepositoryManager>();
+
             //// Subscribe to changes of screen metrics
             DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
             {
@@ -227,6 +229,8 @@
 
             services.AddTransient<TagDetailViewModel>();
             services.AddTransient<TagListViewModel>();
+
+            services.AddTransient<WhatsNewViewModel>();
 
             services.AddTransient<NavigationPage>();
 

@@ -80,7 +80,7 @@
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             // Load the app
-            LoadApplication(new App(new AndroidInitializer()));
+            LoadApplication(new App());
         }
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)

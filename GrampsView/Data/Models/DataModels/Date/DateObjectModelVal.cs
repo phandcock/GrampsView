@@ -83,7 +83,11 @@
                 {
                     // Calculate the age - ROUGHLY
                     DateTime today = DateTime.Today;
-                    return (today - NotionalDate).Days / 365;
+                    // return (today - NotionalDate).Days / 365;
+
+                    return (today.Year - NotionalDate.Year - 1) +
+                            (((today.Month > NotionalDate.Month) ||
+                            ((today.Month == NotionalDate.Month) && (today.Day >= NotionalDate.Day))) ? 1 : 0);
                 }
 
                 return null;
