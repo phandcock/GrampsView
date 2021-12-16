@@ -1,3 +1,14 @@
+## [16.23.5](https://github.com/phandcock/GrampsView/compare/v16.23.4...v16.23.5) (2021-12-16)
+
+
+### Bug Fixes
+
+* yaml and file load fixes ([595f9dc](https://github.com/phandcock/GrampsView/commit/595f9dcdf8a03951e89f22e936a4199cf44287fa))
+* yaml changes ([497f171](https://github.com/phandcock/GrampsView/commit/497f17177ec14578ce833467775e820a1b90d09f))
+* yaml uwp store ([168f7c3](https://github.com/phandcock/GrampsView/commit/168f7c34391a044d72b3f4c0c99607236b20c007))
+
+
+
 ## [16.23.4](https://github.com/phandcock/GrampsView/compare/v16.23.3...v16.23.4) (2021-12-14)
 
 
@@ -23,15 +34,6 @@
 ### Bug Fixes
 
 * tweaks ([a0b04e6](https://github.com/phandcock/GrampsView/commit/a0b04e63c3e8be7c3727adb5c9f1314f0ac5219f))
-
-
-
-## [16.23.1](https://github.com/phandcock/GrampsView/compare/v16.23.0...v16.23.1) (2021-12-07)
-
-
-### Bug Fixes
-
-* build scripts ([80ac0ae](https://github.com/phandcock/GrampsView/commit/80ac0aecbdd5111a653b7858b3e4598f5d7e922c))
 
 
 
