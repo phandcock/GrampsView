@@ -1,3 +1,17 @@
+## [16.23.6](https://github.com/phandcock/GrampsView/compare/v16.23.5...v16.23.6) (2021-12-18)
+
+
+### Bug Fixes
+
+* cleanup appdatastart ([533bb71](https://github.com/phandcock/GrampsView/commit/533bb71b576d8fc3f0e66e6734f35907e8041a2f))
+* cleanup people citation glyphs ([9e9a04e](https://github.com/phandcock/GrampsView/commit/9e9a04eb559288521dc545b43f9fedc671f997d4))
+* family card text cut off at bottom ([62d9904](https://github.com/phandcock/GrampsView/commit/62d9904ec9db2d18efba18d122e3b9ceeff13e30))
+* non-display of event list ([6f8c0fb](https://github.com/phandcock/GrampsView/commit/6f8c0fb6646d2779c0516757d65faee7d414ce8b))
+* remove GrampsView dependency ([404b88c](https://github.com/phandcock/GrampsView/commit/404b88c8f3e07dfd0a36ceac4734f084af9b116b))
+* yaml ([a20ec41](https://github.com/phandcock/GrampsView/commit/a20ec41dcd9189f7cc96c50b331bd3d74f50d7ee))
+
+
+
 ## [16.23.5](https://github.com/phandcock/GrampsView/compare/v16.23.4...v16.23.5) (2021-12-16)
 
 
@@ -25,15 +39,6 @@
 ### Bug Fixes
 
 * sharedsharp errorinfo updates ([7873e07](https://github.com/phandcock/GrampsView/commit/7873e077f922acc4cdf49c2fbb0494eb4b382070))
-
-
-
-## [16.23.2](https://github.com/phandcock/GrampsView/compare/v16.23.1...v16.23.2) (2021-12-09)
-
-
-### Bug Fixes
-
-* tweaks ([a0b04e6](https://github.com/phandcock/GrampsView/commit/a0b04e63c3e8be7c3727adb5c9f1314f0ac5219f))
 
 
 
