@@ -345,7 +345,7 @@
                 // Setup HomeImage
                 argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
 
-                if (argModel.Id == "O0235")
+                if (argModel.Id == "O0319")
                 {
                 }
 
