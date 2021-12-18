@@ -129,7 +129,8 @@
                 return;
             }
 
-            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await Services.GetService<IStartAppLoad>().StartProcessing());
+            // Get Going
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await Services.GetService<IAppInit>().Init());
         }
 
         /// <summary>
@@ -156,6 +157,7 @@
             var services = new ServiceCollection();
 
             // Add Services
+            services.AddSingleton<IAppInit, AppInit>();
             services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
 
@@ -169,7 +171,6 @@
 
             services.AddSingleton<ISharedLogging, SharedLogging>();
             services.AddSingleton<ISharedMessageLog, SharedMessageLog>();
-            services.AddSingleton<IStartAppLoad, StartAppLoad>();
             services.AddSingleton<IStoreFile, StoreFile>();
             services.AddSingleton<IStorePostLoad, StorePostLoad>();
             services.AddSingleton<IStoreXML, StoreXML>();

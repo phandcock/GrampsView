@@ -15,7 +15,7 @@
     /// </summary>
     public class FirstRunViewModel : ViewModelBase
     {
-        private IStartAppLoad _StartAppLoad;
+        private IAppInit _AppInit;
 
         public AsyncCommand LoadDataCommand
         {
@@ -31,7 +31,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
             : base(iocCommonLogging, iocEventAggregator)
         {
             LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);
@@ -40,7 +40,7 @@
 
             BaseTitleIcon = CommonConstants.IconSettings;
 
-            _StartAppLoad = iocStartAppLoad;
+            _AppInit = iocAppInit;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            _StartAppLoad.StartProcessing();
+            await _AppInit.Init();
         }
     }
 }

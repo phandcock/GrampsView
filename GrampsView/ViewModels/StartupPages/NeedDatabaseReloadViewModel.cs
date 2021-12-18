@@ -15,7 +15,7 @@
     /// </summary>
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
-        private IStartAppLoad _StartAppLoad;
+        private IAppInit _AppInit;
 
         public AsyncCommand LoadDataCommand
         {
@@ -31,7 +31,7 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IStartAppLoad iocStartAppLoad)
+        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
             : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Database reload needed";
@@ -40,14 +40,14 @@
 
             LoadDataCommand = new AsyncCommand(LoadDataAction);
 
-            _StartAppLoad = iocStartAppLoad;
+            _AppInit = iocAppInit;
         }
 
         public async Task LoadDataAction()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
-            _StartAppLoad.StartProcessing();
+            await _AppInit.Init();
         }
     }
 }

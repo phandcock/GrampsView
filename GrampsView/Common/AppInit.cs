@@ -1,0 +1,100 @@
+﻿namespace GrampsView.Common
+{
+    using GrampsView.Data.Repository;
+    using GrampsView.Services;
+    using GrampsView.Views;
+
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Toolkit.Mvvm.Messaging;
+
+    using SharedSharp.Errors;
+    using SharedSharp.Messages;
+
+    using System;
+    using System.Threading.Tasks;
+
+    public class AppInit : IAppInit
+    {
+        // private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
+
+        public async Task Init()
+        {
+            try
+            {
+                // Need WhatNew?
+                if (await App.Current.Services.GetService<IWhatsNewDisplayService>().ShowIfAppropriate())
+                {
+                    return;
+                }
+
+                if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
+                {
+                    CommonLocalSettings.DataSerialised = false;
+
+                    return;
+                }
+
+                // Setup Event Handling
+                App.Current.Services.GetService<IMessenger>().Register<MessageWindowSizeChanged>(this, (r, m) =>
+                {
+                    if (m.Value == null)
+                        return;
+
+                    SharedSharp.Misc.SharedSharpStatic.WindowSize = m.Value;
+                    CardSizes.Current.ReCalculateCardWidths();
+                });
+
+                App.Current.Services.GetService<IMessenger>().Register<MessageScreenOrientationChanged>(this, (r, m) =>
+                {
+                    if (m == null)
+                        return;
+
+                    CardSizes.Current.ReCalculateCardWidths();
+                });
+
+                // Load da data
+                await LoadData().ConfigureAwait(false);
+
+                //// Action startup parameters
+                //if (App.Current.StartUpParameterUri != null)
+                //{
+                //    HyperLinkCard parameterURICard = new HyperLinkCard();
+                //    parameterURICard.Create();
+                //    parameterURICard.Title = DateTime.UtcNow.ToString();
+                //    parameterURICard.theLink = App.Current.StartUpParameterUri;
+
+                //    await App.Current.Services.GetService<IDataStore>().ItemAddShareTargetAsync(parameterURICard);
+                //}
+            }
+            catch (Exception ex)
+            {
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("AppInit.Init", ex);
+
+                throw;
+            }
+        }
+
+        private async Task LoadData()
+        {
+            try
+            {
+                if (CommonLocalSettings.DataSerialised)
+                {
+                    App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
+                    // App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+                    return;
+                }
+
+                // No Serialised Data and made it this far so some problem has occurred. Load
+                // everything from the beginning.
+                await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
+            }
+            catch (Exception ex)
+            {
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("AppInit.LoadData", ex);
+
+                throw;
+            }
+        }
+    }
+}

@@ -46,6 +46,7 @@
 		<Compile Remove="Common\Interfaces\ISharedLogging.cs" />
 		<Compile Remove="Common\Interfaces\IErrorNotifications.cs" />
 		<Compile Remove="Common\Interfaces\IDataLog.cs" />
+		<Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
 		<Compile Remove="Common\ObservableObject.cs" />
 		<Compile Remove="Common\CommonFontNamesFAB.cs" />
 		<Compile Remove="Common\CommonFontNamesFAR.cs" />
@@ -57,6 +58,7 @@
 		<Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
 		<Compile Remove="Common\CustomClasses\Priv.cs" />
 		<Compile Remove="Common\MainMenuItem.cs" />
+		<Compile Remove="Common\StartAppLoad.cs" />
 		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
 		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
 		<Compile Remove="Data\Models\DataModels\Minor\ParentLinkModel.cs" />
