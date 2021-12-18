@@ -266,7 +266,7 @@ namespace GrampsView.Common
         /// </summary>
         public const string SettingsGPRAMPSFileLastDateTimeModified = "SettingsGPRAMPSFileLastDateTimeModified";
 
-        public const string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
+        //public const string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
 
         /// <summary>
         /// The settings XML file last date time modified.

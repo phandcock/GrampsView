@@ -6,7 +6,6 @@
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
-    using GrampsView.Services;
     using GrampsView.ViewModels;
 
     using Microsoft.AppCenter;
@@ -18,6 +17,7 @@
 
     using SharedSharp.Errors;
     using SharedSharp.Logging;
+    using SharedSharp.Services;
 
     using System;
     using System.Diagnostics;
@@ -111,6 +111,8 @@
             Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
 
             CardSizes.Current.ReCalculateCardWidths();
+
+            SharedSharp.Misc.LocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
 
             // Get Going
 

@@ -84,6 +84,9 @@
 		<Compile Remove="Events\ProgressLoading.cs" />
 		<Compile Remove="Events\ProgressRingUpdate.cs" />
 		<Compile Remove="Events\StatusUpdated.cs" />
+		<Compile Remove="Services\Interfaces\IDatabaseReloadDisplayService.cs" />
+		<Compile Remove="Services\Interfaces\IFirstRunDisplayService.cs" />
+		<Compile Remove="Services\Interfaces\IWhatsNewDisplayService.cs" />
 		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
 		<Compile Remove="UserControls\General\CardGroupBackLink.xaml.cs" />
 		<Compile Remove="UserControls\General\CollectionMultiCardGrouped.xaml.cs" />

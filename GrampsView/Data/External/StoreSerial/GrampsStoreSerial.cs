@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.External.StoreSerial
 {
-    using GrampsView.Common;
     using GrampsView.Data.Repository;
 
     using Microsoft.Extensions.DependencyInjection;
@@ -66,7 +65,7 @@
                                 };
 
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(tt);
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         return;
                     }
 
@@ -87,7 +86,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -97,7 +96,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -107,7 +106,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -117,7 +116,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -127,7 +126,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -137,7 +136,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -147,7 +146,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -157,7 +156,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -168,7 +167,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -179,7 +178,7 @@
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharp.Misc.LocalSettings.DataSerialised = false;
                         App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -197,7 +196,7 @@
             catch (Exception ex)
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharp.Misc.LocalSettings.DataSerialised = false;
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
             }
 
@@ -234,13 +233,13 @@
 
                 var ttt = isoStream.Read(buffer, 0, 100);
 
-                CommonLocalSettings.DataSerialised = true;
+                SharedSharp.Misc.LocalSettings.DataSerialised = true;
                 return;
             }
             catch (Exception ex)
             {
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharp.Misc.LocalSettings.DataSerialised = false;
             }
         }
 

@@ -47,68 +47,64 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public static bool DatabaseReloadNeeded
-        {
-            get
-            {
-                if (DatabaseVersion < CommonConstants.GrampsViewDatabaseVersion)
-                {
-                    // ClearPreferences();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        //public static bool DatabaseReloadNeeded
+        //{
+        //    get
+        //    {
+        //        if (DatabaseVersion < CommonConstants.GrampsViewDatabaseVersion)
+        //        {
+        //            // ClearPreferences();
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
 
-        /// <summary>
-        /// Gets or sets the database version.
-        /// </summary>
-        /// <value>
-        /// The database version.
-        /// </value>
-        public static int DatabaseVersion
-        {
-            get
-            {
-                int localGrampsViewDatabaseVersion = DataStore.Instance.ES.PreferencesGet(CommonConstants.SettingsGrampsViewDatabaseVersion, int.MinValue);
+        ///// <summary>
+        ///// Gets or sets the database version.
+        ///// </summary>
+        ///// <value>
+        ///// The database version.
+        ///// </value>
+        //public static int DatabaseVersion
+        //{
+        //    get
+        //    {
+        //        int localGrampsViewDatabaseVersion = DataStore.Instance.ES.PreferencesGet(CommonConstants.SettingsGrampsViewDatabaseVersion, int.MinValue);
 
-                if (localGrampsViewDatabaseVersion == int.MinValue)
-                {
-                    // If the Setting is not defined then assume the database has not been loaded so
-                    // the version number is set to MinValue to force load
-                    return int.MinValue;
-                }
+        // if (localGrampsViewDatabaseVersion == int.MinValue) { // If the Setting is not defined
+        // then assume the database has not been loaded so // the version number is set to MinValue
+        // to force load return int.MinValue; }
 
-                return localGrampsViewDatabaseVersion;
-            }
+        // return localGrampsViewDatabaseVersion; }
 
-            set
-            {
-                DataStore.Instance.ES.PreferencesSet("GrampsViewDatabaseVersion", value);
-            }
-        }
+        //    set
+        //    {
+        //        DataStore.Instance.ES.PreferencesSet("GrampsViewDatabaseVersion", value);
+        //    }
+        //}
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [data serialised].
-        /// </summary>
-        /// <value>
-        /// <c> true </c> if [data serialised]; otherwise, <c> false </c>.
-        /// </value>
-        public static bool DataSerialised
-        {
-            get
-            {
-                return DataStore.Instance.ES.PreferencesGet("SerialisedData", false);
-            }
+        ///// <summary>
+        ///// Gets or sets a value indicating whether [data serialised].
+        ///// </summary>
+        ///// <value>
+        ///// <c> true </c> if [data serialised]; otherwise, <c> false </c>.
+        ///// </value>
+        //public static bool DataSerialised
+        //{
+        //    get
+        //    {
+        //        return DataStore.Instance.ES.PreferencesGet("SerialisedData", false);
+        //    }
 
-            set
-            {
-                DataStore.Instance.ES.PreferencesSet("SerialisedData", value);
-            }
-        }
+        //    set
+        //    {
+        //        DataStore.Instance.ES.PreferencesSet("SerialisedData", value);
+        //    }
+        //}
 
         //public static bool FirstRunDisplay
         //{
@@ -241,7 +237,7 @@
 
             DataStore.Instance.DS.IsDataLoaded = false;
 
-            DataSerialised = false;
+            SharedSharp.Misc.LocalSettings.DataSerialised = false;
         }
     }
 }

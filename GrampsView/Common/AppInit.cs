@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.Common
 {
     using GrampsView.Data.Repository;
-    using GrampsView.Services;
     using GrampsView.Views;
 
     using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +8,7 @@
 
     using SharedSharp.Errors;
     using SharedSharp.Messages;
+    using SharedSharp.Services;
 
     using System;
     using System.Threading.Tasks;
@@ -21,15 +21,21 @@
         {
             try
             {
-                // Need WhatNew?
-                if (await App.Current.Services.GetService<IWhatsNewDisplayService>().ShowIfAppropriate())
+                // First run?
+                if (await App.Current.Services.GetService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
                 {
                     return;
                 }
 
-                if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
+                // Need WhatNew?
+                if (await App.Current.Services.GetService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(WhatsNewPage)))
                 {
-                    CommonLocalSettings.DataSerialised = false;
+                    return;
+                }
+
+                if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
+                {
+                    SharedSharp.Misc.LocalSettings.DataSerialised = false;
 
                     return;
                 }
@@ -78,7 +84,7 @@
         {
             try
             {
-                if (CommonLocalSettings.DataSerialised)
+                if (SharedSharp.Misc.LocalSettings.DataSerialised)
                 {
                     App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
                     // App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));

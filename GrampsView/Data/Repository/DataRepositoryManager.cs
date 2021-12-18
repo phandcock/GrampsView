@@ -180,7 +180,7 @@
 
             await _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
-            CommonLocalSettings.DataSerialised = true;
+            SharedSharp.Misc.LocalSettings.DataSerialised = true;
         }
 
         /// <summary>
@@ -279,7 +279,7 @@
                     }
                 }
 
-                if (CommonLocalSettings.DataSerialised)
+                if (SharedSharp.Misc.LocalSettings.DataSerialised)
                 {
                     // 4) ELSE load Serial file
                     await TriggerLoadSerialDataAsync().ConfigureAwait(false);
@@ -437,7 +437,7 @@
                 _commonNotifications.DataLogEntryAdd("Checking for Serialised GRAMPS data");
                 if (DataStore.Instance.DS.IsDataLoaded == false)
                 {
-                    if (CommonLocalSettings.DataSerialised)
+                    if (SharedSharp.Misc.LocalSettings.DataSerialised)
                     {
                         _commonNotifications.DataLogEntryAdd("Loading GRAMPS Serial data");
 
@@ -462,7 +462,7 @@
             }
             catch (Exception ex)
             {
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharp.Misc.LocalSettings.DataSerialised = false;
 
                 _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
@@ -479,7 +479,7 @@
         private static void UpdateSavedLocalSettings()
         {
             // save the database version
-            CommonLocalSettings.DatabaseVersion = CommonConstants.GrampsViewDatabaseVersion;
+            SharedSharp.Misc.LocalSettings.DatabaseVersion = CommonConstants.GrampsViewDatabaseVersion;
         }
     }
 }

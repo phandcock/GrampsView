@@ -2,6 +2,7 @@
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Events;
+    using GrampsView.Views;
 
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
@@ -108,7 +109,7 @@
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     await OrganiseMisc().ConfigureAwait(false);
 
-                    await _commonNotifications.DataLogHide();
+                    await _commonNotifications.DataLogHide(typeof(MessageLogPage));
                 }
             }
 

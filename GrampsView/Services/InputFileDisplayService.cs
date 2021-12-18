@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Services
 {
-    using GrampsView.Common;
     using GrampsView.Views;
 
     using System.Threading.Tasks;
@@ -18,7 +17,7 @@
 
         public async Task ShowIfAppropriate()
         {
-            if (!CommonLocalSettings.DataSerialised && !shown)
+            if (!SharedSharp.Misc.LocalSettings.DataSerialised && !shown)
             {
                 shown = true;
 
