@@ -64,20 +64,19 @@
             Mock<IErrorNotifications> mockCommonNotifications = new Mock<IErrorNotifications>();
 
             mockCommonNotifications
-                .Setup(x => x.DataLogEntryAdd)
-                .Returns(new SharedLogging());
+                .Setup(x => x.DataLogEntryAdd(It.IsAny<string>()));
 
             iocCommonNotifications = mockCommonNotifications.Object;
 
             /*
-            * Mock Image Loading
-            */
+             * Mock Image Loading
+             */
             Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
             IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
 
             /*
-           * Mock Xamarin Essentials
-           */
+             * Mock Xamarin Essentials
+             */
             Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
 
             mocXamarinEssentials
@@ -87,45 +86,46 @@
             IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
 
             /*
-            * Mock Event Aggregator
-            */
+             * Mock Event Aggregator
+             */
             Mock<DataLoadXMLEvent> mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
 
-            mocEventAggregator
-                  .Setup(x => x.GetEvent<DataLoadXMLEvent>())
-                      .Returns(mockedEventDataLoadXMLEvent.Object);
+            // TODO fix this
 
-            Mock<DataLoadStartEvent> mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
-            mocEventAggregator
-                  .Setup(x => x.GetEvent<DataLoadStartEvent>())
-                      .Returns(mockedEventDataLoadStartEvent.Object);
+            //mocEventAggregator
+            //      .Setup(x => x.Register<DataLoadXMLEvent>())
+            //          .Returns(mockedEventDataLoadXMLEvent.Object);
 
-            Mock<DataSaveSerialEvent> mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
-            mocEventAggregator
-                .Setup(x => x.GetEvent<DataSaveSerialEvent>())
-                    .Returns(mockedEventDataSaveSerialEvent.Object);
+            //Mock<DataLoadStartEvent> mockedEventDataLoadStartEvent = new Mock<DataLoadStartEvent>();
+            //mocEventAggregator
+            //      .Setup(x => x.GetEvent<DataLoadStartEvent>())
+            //          .Returns(mockedEventDataLoadStartEvent.Object);
 
-            Mock<DataLoadCompleteEvent> mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
-            mocEventAggregator
-                .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
-                    .Returns(mockedEventDataLoadCompleteEvent.Object);
+            //Mock<DataSaveSerialEvent> mockedEventDataSaveSerialEvent = new Mock<DataSaveSerialEvent>();
+            //mocEventAggregator
+            //    .Setup(x => x.GetEvent<DataSaveSerialEvent>())
+            //        .Returns(mockedEventDataSaveSerialEvent.Object);
+
+            //Mock<DataLoadCompleteEvent> mockedEventDataLoadCompleteEvent = new Mock<DataLoadCompleteEvent>();
+            //mocEventAggregator
+            //    .Setup(x => x.GetEvent<DataLoadCompleteEvent>())
+            //        .Returns(mockedEventDataLoadCompleteEvent.Object);
 
             IMessenger iocEventAggregator = mocEventAggregator.Object;
 
             /*
-            * Mock Platform specific
-            */
+             * Mock Platform specific
+             */
             iocPlatformSpecific = mocPlatformSpecific.Object;
 
             /*
              * Configure DataStore
              */
-            //?  App.Current.Services.GetService<IErrorNotifications>() = iocCommonNotifications;
             DataStore.Instance.ES = iocXamarinEssentials;
             DataStore.Instance.FFIL = iocFFImageLoading;
 
             /*
-            * Other setup
+             * Other setup
             */
             iocExternalStorage = new StoreXML(iocCommonLogging, iocCommonNotifications);
 
