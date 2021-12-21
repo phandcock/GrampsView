@@ -1,3 +1,12 @@
+## [16.23.7](https://github.com/phandcock/GrampsView/compare/v16.23.6...v16.23.7) (2021-12-21)
+
+
+### Bug Fixes
+
+* temp fix e2e ([f63d4a8](https://github.com/phandcock/GrampsView/commit/f63d4a84f7de848336705884a5febf2274e17d6e))
+
+
+
 ## [16.23.6](https://github.com/phandcock/GrampsView/compare/v16.23.5...v16.23.6) (2021-12-18)
 
 
@@ -30,15 +39,6 @@
 
 * code cleanup ([d2b26b3](https://github.com/phandcock/GrampsView/commit/d2b26b34d41a1ce34311422f4e1fcc7dffb5e84b))
 * uwp build pipeline ([b6be89a](https://github.com/phandcock/GrampsView/commit/b6be89aba940064d24e1dfb36f3f532143c76f65))
-
-
-
-## [16.23.3](https://github.com/phandcock/GrampsView/compare/v16.23.2...v16.23.3) (2021-12-11)
-
-
-### Bug Fixes
-
-* sharedsharp errorinfo updates ([7873e07](https://github.com/phandcock/GrampsView/commit/7873e077f922acc4cdf49c2fbb0494eb4b382070))
 
 
 
