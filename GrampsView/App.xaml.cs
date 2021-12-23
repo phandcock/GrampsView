@@ -237,6 +237,8 @@
 
             services.AddTransient<NavigationPage>();
 
+            SharedSharp.Misc.SharedSharpStatic.InitServicesAdd(ref services);
+
             return services.BuildServiceProvider();
         }
 
