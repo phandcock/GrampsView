@@ -1,3 +1,12 @@
+## [16.23.8](https://github.com/phandcock/GrampsView/compare/v16.23.7...v16.23.8) (2021-12-23)
+
+
+### Bug Fixes
+
+* errordialog not closing properly ([b67a10a](https://github.com/phandcock/GrampsView/commit/b67a10ac761ea71e3c25d00d17d20decb6407350))
+
+
+
 ## [16.23.7](https://github.com/phandcock/GrampsView/compare/v16.23.6...v16.23.7) (2021-12-21)
 
 
@@ -29,16 +38,6 @@
 * yaml and file load fixes ([595f9dc](https://github.com/phandcock/GrampsView/commit/595f9dcdf8a03951e89f22e936a4199cf44287fa))
 * yaml changes ([497f171](https://github.com/phandcock/GrampsView/commit/497f17177ec14578ce833467775e820a1b90d09f))
 * yaml uwp store ([168f7c3](https://github.com/phandcock/GrampsView/commit/168f7c34391a044d72b3f4c0c99607236b20c007))
-
-
-
-## [16.23.4](https://github.com/phandcock/GrampsView/compare/v16.23.3...v16.23.4) (2021-12-14)
-
-
-### Bug Fixes
-
-* code cleanup ([d2b26b3](https://github.com/phandcock/GrampsView/commit/d2b26b34d41a1ce34311422f4e1fcc7dffb5e84b))
-* uwp build pipeline ([b6be89a](https://github.com/phandcock/GrampsView/commit/b6be89aba940064d24e1dfb36f3f532143c76f65))
 
 
 
