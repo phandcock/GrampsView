@@ -41,6 +41,7 @@
 		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
 		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
+		<Compile Remove="Common\IAppInit.cs" />
 		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
 		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
 		<Compile Remove="Common\Interfaces\ISharedLogging.cs" />
@@ -94,6 +95,8 @@
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
+		<Compile Remove="ViewModels\MinorPages\MessageLogViewModel.cs" />
+		<Compile Remove="Views\MinorPages\MessageLogPage.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -104,6 +107,7 @@
 		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
+		<EmbeddedResource Remove="Views\MinorPages\MessageLogPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -222,9 +226,6 @@
 		</Compile>
 		<Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
 			<DependentUpon>AttributeDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorPages\MessageLogPage.xaml.cs">
-			<DependentUpon>MessageLogPage.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
 			<DependentUpon>ChildRefDetailView.xaml</DependentUpon>

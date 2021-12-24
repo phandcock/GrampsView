@@ -132,7 +132,7 @@
             }
 
             // Get Going
-            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await Services.GetService<IAppInit>().Init());
+            Services.GetService<IAppInit>().Init();
         }
 
         /// <summary>
@@ -205,7 +205,6 @@
 
             services.AddTransient<HubViewModel>();
 
-            services.AddTransient<MessageLogViewModel>();
             services.AddTransient<MediaDetailViewModel>();
             services.AddTransient<MediaListViewModel>();
 
