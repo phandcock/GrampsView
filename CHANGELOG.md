@@ -1,3 +1,13 @@
+## [16.23.9](https://github.com/phandcock/GrampsView/compare/v16.23.8...v16.23.9) (2021-12-25)
+
+
+### Bug Fixes
+
+* cleanup sharedsharp naming ([0c16080](https://github.com/phandcock/GrampsView/commit/0c16080eba25622e5ac426315f9567e62a420ab2))
+* messagelogpage styles ([3550632](https://github.com/phandcock/GrampsView/commit/35506326db53a59982bf746fce89c3e2b65fe6c9))
+
+
+
 ## [16.23.8](https://github.com/phandcock/GrampsView/compare/v16.23.7...v16.23.8) (2021-12-23)
 
 
@@ -27,17 +37,6 @@
 * non-display of event list ([6f8c0fb](https://github.com/phandcock/GrampsView/commit/6f8c0fb6646d2779c0516757d65faee7d414ce8b))
 * remove GrampsView dependency ([404b88c](https://github.com/phandcock/GrampsView/commit/404b88c8f3e07dfd0a36ceac4734f084af9b116b))
 * yaml ([a20ec41](https://github.com/phandcock/GrampsView/commit/a20ec41dcd9189f7cc96c50b331bd3d74f50d7ee))
-
-
-
-## [16.23.5](https://github.com/phandcock/GrampsView/compare/v16.23.4...v16.23.5) (2021-12-16)
-
-
-### Bug Fixes
-
-* yaml and file load fixes ([595f9dc](https://github.com/phandcock/GrampsView/commit/595f9dcdf8a03951e89f22e936a4199cf44287fa))
-* yaml changes ([497f171](https://github.com/phandcock/GrampsView/commit/497f17177ec14578ce833467775e820a1b90d09f))
-* yaml uwp store ([168f7c3](https://github.com/phandcock/GrampsView/commit/168f7c34391a044d72b3f4c0c99607236b20c007))
 
 
 
