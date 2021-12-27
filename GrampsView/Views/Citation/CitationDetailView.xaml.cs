@@ -10,7 +10,8 @@
 
         public CitationDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<CitationDetailViewModel>();
+            InitializeComponent();
+            BindingContext = _viewModel = App.Current.Services.GetService<CitationDetailViewModel>();
         }
     }
 }

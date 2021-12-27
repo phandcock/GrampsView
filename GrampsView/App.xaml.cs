@@ -132,7 +132,7 @@
             }
 
             // Get Going
-            Services.GetService<IAppInit>().Init();
+            Services.GetService<IAppInit>().Init().ConfigureAwait(false);
         }
 
         /// <summary>

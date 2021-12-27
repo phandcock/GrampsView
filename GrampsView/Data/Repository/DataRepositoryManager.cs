@@ -108,6 +108,7 @@
 
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
+
             App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
             {
                 if (m.Value == null)
@@ -188,12 +189,14 @@
         /// </summary>
         public void StartDataLoad()
         {
-            Task<bool> t = Task.Run(() => StartDataLoadAsync());
+            Task.Run(() => StartDataLoadAsync());
 
-            if (!t.Result)
-            {
-                _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
-            }
+            // Task<bool> t =
+
+            //if (!t.Result)
+            //{
+            //    _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
+            //}
         }
 
         /// <summary>
@@ -217,7 +220,7 @@
                 return true;
             }
 
-            // await _commonNotifications.DataLogShow(nameof(MessageLogPage));
+            //await _commonNotifications.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interupted.
             ClearRepositories();
@@ -273,7 +276,7 @@
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        //_commonNotifications.DataLogHide();
+                        // _commonNotifications.DataLogHide();
 
                         return true;
                     }

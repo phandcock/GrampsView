@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using GrampsView.Data.Repository;
+    using GrampsView.Events;
     using GrampsView.Views;
 
     using Microsoft.Extensions.DependencyInjection;
@@ -86,8 +86,8 @@
             {
                 if (SharedSharp.Misc.LocalSettings.DataSerialised)
                 {
-                    App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
-                    // App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+                    // App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
+                    App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
                     return;
                 }
 

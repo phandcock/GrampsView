@@ -9,6 +9,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
     using SharedSharp.Model;
 
@@ -17,6 +18,8 @@
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
+        public IErrorNotifications _iocErrorNotifications;
+
         public CardListLineCollection HeaderCard
         {
             get
@@ -144,9 +147,11 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
        : base(iocCommonLogging, iocEventAggregator)
         {
+            _iocErrorNotifications = iocErrorNotifications;
+
             BaseTitle = "Hub";
             BaseTitleIcon = CommonConstants.IconHub;
 
@@ -157,11 +162,21 @@
 
                 HandledDataLoadedEvent();
             });
+
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, async (r, m) =>
+             {
+                 if (m.Value == null)
+                     return;
+
+                 await _iocErrorNotifications.DataLogShow();
+             });
         }
 
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);
+
+            _iocErrorNotifications.DataLogHide();
         }
     }
 }
