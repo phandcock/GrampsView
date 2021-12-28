@@ -1,3 +1,12 @@
+## [16.23.10](https://github.com/phandcock/GrampsView/compare/v16.23.9...v16.23.10) (2021-12-28)
+
+
+### Bug Fixes
+
+* messagelogpage display ([5331cf5](https://github.com/phandcock/GrampsView/commit/5331cf588410503030b9a7ad07946f34d1fe7365))
+
+
+
 ## [16.23.9](https://github.com/phandcock/GrampsView/compare/v16.23.8...v16.23.9) (2021-12-25)
 
 
@@ -23,20 +32,6 @@
 ### Bug Fixes
 
 * temp fix e2e ([f63d4a8](https://github.com/phandcock/GrampsView/commit/f63d4a84f7de848336705884a5febf2274e17d6e))
-
-
-
-## [16.23.6](https://github.com/phandcock/GrampsView/compare/v16.23.5...v16.23.6) (2021-12-18)
-
-
-### Bug Fixes
-
-* cleanup appdatastart ([533bb71](https://github.com/phandcock/GrampsView/commit/533bb71b576d8fc3f0e66e6734f35907e8041a2f))
-* cleanup people citation glyphs ([9e9a04e](https://github.com/phandcock/GrampsView/commit/9e9a04eb559288521dc545b43f9fedc671f997d4))
-* family card text cut off at bottom ([62d9904](https://github.com/phandcock/GrampsView/commit/62d9904ec9db2d18efba18d122e3b9ceeff13e30))
-* non-display of event list ([6f8c0fb](https://github.com/phandcock/GrampsView/commit/6f8c0fb6646d2779c0516757d65faee7d414ce8b))
-* remove GrampsView dependency ([404b88c](https://github.com/phandcock/GrampsView/commit/404b88c8f3e07dfd0a36ceac4734f084af9b116b))
-* yaml ([a20ec41](https://github.com/phandcock/GrampsView/commit/a20ec41dcd9189f7cc96c50b331bd3d74f50d7ee))
 
 
 
