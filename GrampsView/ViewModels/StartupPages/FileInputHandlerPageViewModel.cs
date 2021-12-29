@@ -124,9 +124,9 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
-
             SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
+
+            App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
         }
     }
 }

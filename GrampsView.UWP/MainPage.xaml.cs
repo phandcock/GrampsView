@@ -26,7 +26,7 @@
             {
                 Size t = new Size(args.NewSize.Width, args.NewSize.Height);
 
-                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IMessenger>().Send(new MessageWindowSizeChanged(t));
+                ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IMessenger>().Send(new SSharpMessageWindowSizeChanged(t));
             };
         }
     }

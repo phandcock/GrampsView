@@ -41,7 +41,7 @@
                 }
 
                 // Setup Event Handling
-                App.Current.Services.GetService<IMessenger>().Register<MessageWindowSizeChanged>(this, (r, m) =>
+                App.Current.Services.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
                 {
                     if (m.Value == null)
                         return;
@@ -50,7 +50,7 @@
                     CardSizes.Current.ReCalculateCardWidths();
                 });
 
-                App.Current.Services.GetService<IMessenger>().Register<MessageScreenOrientationChanged>(this, (r, m) =>
+                App.Current.Services.GetService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
                 {
                     if (m == null)
                         return;
