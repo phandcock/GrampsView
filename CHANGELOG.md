@@ -1,3 +1,13 @@
+## [16.23.11](https://github.com/phandcock/GrampsView/compare/v16.23.10...v16.23.11) (2021-12-30)
+
+
+### Bug Fixes
+
+* cleanup data log message log ([1fd4805](https://github.com/phandcock/GrampsView/commit/1fd4805042284f1506879b63aec7180d8fcb0cb7))
+* cleanup menu colours for dark theme.  UWP broken ([058aa5a](https://github.com/phandcock/GrampsView/commit/058aa5aea7b762cb7f29d5924255314951592a9b))
+
+
+
 ## [16.23.10](https://github.com/phandcock/GrampsView/compare/v16.23.9...v16.23.10) (2021-12-28)
 
 
@@ -23,15 +33,6 @@
 ### Bug Fixes
 
 * errordialog not closing properly ([b67a10a](https://github.com/phandcock/GrampsView/commit/b67a10ac761ea71e3c25d00d17d20decb6407350))
-
-
-
-## [16.23.7](https://github.com/phandcock/GrampsView/compare/v16.23.6...v16.23.7) (2021-12-21)
-
-
-### Bug Fixes
-
-* temp fix e2e ([f63d4a8](https://github.com/phandcock/GrampsView/commit/f63d4a84f7de848336705884a5febf2274e17d6e))
 
 
 
