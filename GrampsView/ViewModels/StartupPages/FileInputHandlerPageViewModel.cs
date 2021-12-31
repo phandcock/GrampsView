@@ -126,6 +126,8 @@
 
             SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
 
+            await Task.Delay(500);
+
             App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
         }
     }
