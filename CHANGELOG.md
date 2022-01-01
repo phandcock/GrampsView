@@ -1,3 +1,12 @@
+## [16.23.12](https://github.com/phandcock/GrampsView/compare/v16.23.11...v16.23.12) (2022-01-01)
+
+
+### Bug Fixes
+
+* tweak error popup colours ([990d81b](https://github.com/phandcock/GrampsView/commit/990d81bb2b97470499f9a77942047b7112c922fc))
+
+
+
 ## [16.23.11](https://github.com/phandcock/GrampsView/compare/v16.23.10...v16.23.11) (2021-12-30)
 
 
@@ -24,15 +33,6 @@
 
 * cleanup sharedsharp naming ([0c16080](https://github.com/phandcock/GrampsView/commit/0c16080eba25622e5ac426315f9567e62a420ab2))
 * messagelogpage styles ([3550632](https://github.com/phandcock/GrampsView/commit/35506326db53a59982bf746fce89c3e2b65fe6c9))
-
-
-
-## [16.23.8](https://github.com/phandcock/GrampsView/compare/v16.23.7...v16.23.8) (2021-12-23)
-
-
-### Bug Fixes
-
-* errordialog not closing properly ([b67a10a](https://github.com/phandcock/GrampsView/commit/b67a10ac761ea71e3c25d00d17d20decb6407350))
 
 
 
