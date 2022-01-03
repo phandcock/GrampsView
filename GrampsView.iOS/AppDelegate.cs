@@ -43,7 +43,7 @@ namespace GrampsView.iOS
 
             //GrampsView.UserControls.iOS.Renderers.BorderlessEntryRenderer.Init();
 
-            LoadApplication(new App(new IOSInitializer()));
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

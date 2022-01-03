@@ -21,6 +21,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="App.xaml" />
+    <EmbeddedResource Remove="MainPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.4.0" />
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
     <PackageReference Include="Moq" Version="4.16.1" />
@@ -39,5 +48,9 @@
     <EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
     <EmbeddedResource Include="..\.test data\grampsxml.171.rng" Link="Test Data\grampsxml.171.rng" />
     <EmbeddedResource Include="..\.test data\example.gramps" Link="Test Data\example.gramps" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
   </ItemGroup>
 </Project>

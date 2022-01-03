@@ -10,7 +10,7 @@ using Xamarin.Forms;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GrampsView.Android")]
-[assembly: AssemblyCopyright("Copyright © 2014-2021")]
+[assembly: AssemblyCopyright("Copyright © 2014-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
