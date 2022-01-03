@@ -33,7 +33,7 @@
                 <StackLayout>
                     <ucon:HLinkVisualDisplay
                         x:Name="daImage"
-                        BindingContext="{Binding CurrentHLinkMedia.HLinkGlyphItem, Mode=OneWay}"
+                        BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}"
                         FsctShowMedia="True"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />

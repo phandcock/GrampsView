@@ -25,7 +25,7 @@
         /// <value>
         /// The current media object.
         /// </value>
-        public IMediaModel CurrentMediaObject
+        public MediaModel CurrentMediaObject
         {
             get; set;
         }
@@ -70,7 +70,7 @@
 
             if (!(CurrentHLinkMedia is null))
             {
-                CurrentMediaObject = CurrentHLinkMedia.DeRef;
+                CurrentMediaObject = CurrentHLinkMedia.DeRef as MediaModel;
 
                 if (!(CurrentMediaObject is null))
                 {

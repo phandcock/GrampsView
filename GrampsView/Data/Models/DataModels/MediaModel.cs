@@ -128,6 +128,11 @@ namespace GrampsView.Data.Model
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
                 };
+
+                if (HLinkKey.Value == "_eecc89181d268434d7a471cc8e1")
+                {
+                }
+
                 return t;
             }
         }
