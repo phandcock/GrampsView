@@ -345,7 +345,7 @@
                 // Setup HomeImage
                 argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
 
-                if (argModel.Id == "O0319")
+                if (argModel.Id == "O0629")
                 {
                 }
 
@@ -425,6 +425,27 @@
 
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                             argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
+
+                            break;
+                        }
+
+                    case "text":
+                        {
+                            argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+
+                            switch (argModel.FileMimeSubType)
+                            {
+                                case "html":
+                                    {
+                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.Link;
+                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.Link;
+
+                                        break;
+                                    }
+
+                                default:
+                                    break;
+                            }
 
                             break;
                         }
