@@ -20,7 +20,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>03BDFEC5D0A511504290DBCC8EEB81DC65B7AF0E</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>84CD001180BB8EB151AEDFB927E0DA92AC9495A4</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
@@ -189,6 +189,7 @@
     <Content Include="FodyWeavers.xml" />
     <Content Include="ic_launcher.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <None Include="UWPDev.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -240,9 +241,6 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2291</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GrampsViewUWP.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml">
