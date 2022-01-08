@@ -1,3 +1,12 @@
+## [16.23.14](https://github.com/phandcock/GrampsView/compare/v16.23.13...v16.23.14) (2022-01-08)
+
+
+### Bug Fixes
+
+* new UWP certificate ([0713799](https://github.com/phandcock/GrampsView/commit/0713799397031bb19b6f5dbdcffa29076ebce8c0))
+
+
+
 ## [16.23.13](https://github.com/phandcock/GrampsView/compare/v16.23.12...v16.23.13) (2022-01-04)
 
 
@@ -25,15 +34,6 @@
 
 * cleanup data log message log ([1fd4805](https://github.com/phandcock/GrampsView/commit/1fd4805042284f1506879b63aec7180d8fcb0cb7))
 * cleanup menu colours for dark theme.  UWP broken ([058aa5a](https://github.com/phandcock/GrampsView/commit/058aa5aea7b762cb7f29d5924255314951592a9b))
-
-
-
-## [16.23.10](https://github.com/phandcock/GrampsView/compare/v16.23.9...v16.23.10) (2021-12-28)
-
-
-### Bug Fixes
-
-* messagelogpage display ([5331cf5](https://github.com/phandcock/GrampsView/commit/5331cf588410503030b9a7ad07946f34d1fe7365))
 
 
 
