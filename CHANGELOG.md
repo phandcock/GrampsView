@@ -1,3 +1,12 @@
+## [16.23.15](https://github.com/phandcock/GrampsView/compare/v16.23.14...v16.23.15) (2022-01-13)
+
+
+### Bug Fixes
+
+* nuget updates ([49e3c25](https://github.com/phandcock/GrampsView/commit/49e3c257f10d89d9c84a2f769c023b833ec6dc6a))
+
+
+
 ## [16.23.14](https://github.com/phandcock/GrampsView/compare/v16.23.13...v16.23.14) (2022-01-08)
 
 
@@ -24,16 +33,6 @@
 ### Bug Fixes
 
 * tweak error popup colours ([990d81b](https://github.com/phandcock/GrampsView/commit/990d81bb2b97470499f9a77942047b7112c922fc))
-
-
-
-## [16.23.11](https://github.com/phandcock/GrampsView/compare/v16.23.10...v16.23.11) (2021-12-30)
-
-
-### Bug Fixes
-
-* cleanup data log message log ([1fd4805](https://github.com/phandcock/GrampsView/commit/1fd4805042284f1506879b63aec7180d8fcb0cb7))
-* cleanup menu colours for dark theme.  UWP broken ([058aa5a](https://github.com/phandcock/GrampsView/commit/058aa5aea7b762cb7f29d5924255314951592a9b))
 
 
 
