@@ -22,7 +22,7 @@
     </PackageCertificateKeyFile>
     <PackageCertificateThumbprint>84CD001180BB8EB151AEDFB927E0DA92AC9495A4</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
@@ -185,6 +185,7 @@
     <Content Include="Assets\Icons\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Icons\Wide310x150Logo.scale-400.png" />
+    <None Include="GrampsView.UWP_TemporaryKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="ic_launcher.png" />

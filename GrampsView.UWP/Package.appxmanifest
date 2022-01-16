@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="30016Nannup.GrampsView" Publisher="CN=MeMyselfAndI, O=Nannup, C=AU" Version="16.17.52.0" />
-  <mp:PhoneIdentity PhoneProductId="5a300169-de18-4aec-9439-395171c5ef46" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="30016Nannup.GrampsView" Publisher="CN=B997B174-2E37-4FD9-BD13-265C00BC7129" Version="16.23.56.0" />
+  <mp:PhoneIdentity PhoneProductId="d56cbb4a-dc7f-4d39-8c1c-62685664444c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>GrampsView</DisplayName>
     <PublisherDisplayName>Nannup</PublisherDisplayName>
