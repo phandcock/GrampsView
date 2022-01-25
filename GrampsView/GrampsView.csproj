@@ -140,10 +140,10 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.AppCenter" Version="4.4.0" />
-		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
-		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
-		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.4.0" />
+		<PackageReference Include="Microsoft.AppCenter" Version="4.5.0" />
+		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
+		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
+		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
