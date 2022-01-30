@@ -8,11 +8,11 @@ using Xamarin.Forms;
 // General Information about an assembly is controlled through the following set of attributes.
 // Change these attribute values to modify the information associated with an assembly.
 [assembly: AssemblyTitle("GrampsView.UWP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Gramps file viewer")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("MeMyselfAndI")]
 [assembly: AssemblyProduct("GrampsView.UWP")]
-[assembly: AssemblyCopyright("Copyright ©  2015 - 2021")]
+[assembly: AssemblyCopyright("Copyright ©  2015 - 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

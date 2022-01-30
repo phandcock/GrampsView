@@ -5,13 +5,12 @@
     using System.IO;
 
     using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials;
 
     public class ApplicationWideData : ObservableObject
     {
         private CurrentDataFolder _CurrentDataFolder = null;
         private CurrentImageFolder _CurrentImageFolder = null;
-        private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
+        //private DisplayOrientation _CurrentOrientation = DisplayOrientation.Portrait;
 
         /// <summary>
         /// Gets or sets the current data folder.
