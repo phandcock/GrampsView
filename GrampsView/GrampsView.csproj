@@ -169,9 +169,9 @@
 
 	<ItemGroup>
 		<Compile Update="Assets\Strings\AppResources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AppResources.resx</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>AppResources.resx</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
 			<DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
@@ -237,8 +237,8 @@
 
 	<ItemGroup>
 		<EmbeddedResource Update="Assets\Strings\AppResources.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>

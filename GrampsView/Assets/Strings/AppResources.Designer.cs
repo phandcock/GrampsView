@@ -19,7 +19,7 @@ namespace GrampsView.Assets.Strings {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
@@ -147,6 +147,15 @@ namespace GrampsView.Assets.Strings {
         public static string FileInputHandlerPage_Sample_Button_Text {
             get {
                 return ResourceManager.GetString("FileInputHandlerPage_Sample_Button_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GrampsView - A viewer for Gramps geneological data.
+        /// </summary>
+        public static string FirstRun_Header {
+            get {
+                return ResourceManager.GetString("FirstRun_Header", resourceCulture);
             }
         }
         
@@ -336,6 +345,15 @@ namespace GrampsView.Assets.Strings {
         public static string WhatsNew_LoadDataButton {
             get {
                 return ResourceManager.GetString("WhatsNew_LoadDataButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What&apos;s changed recently.
+        /// </summary>
+        public static string WhatsNew_TitleText {
+            get {
+                return ResourceManager.GetString("WhatsNew_TitleText", resourceCulture);
             }
         }
     }
