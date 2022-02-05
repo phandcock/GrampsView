@@ -1,3 +1,13 @@
+## [16.23.19](https://github.com/phandcock/GrampsView/compare/v16.23.18...v16.23.19) (2022-02-05)
+
+
+### Bug Fixes
+
+* cleanup initial program startup ([d23d4c8](https://github.com/phandcock/GrampsView/commit/d23d4c8f911c7c3a4e71132810443b4be07ab0e4))
+* cleanup initial program startup ([a8e5253](https://github.com/phandcock/GrampsView/commit/a8e5253b16d663ae2f99debd8a30271e4d5a7e8a))
+
+
+
 ## [16.23.18](https://github.com/phandcock/GrampsView/compare/v16.23.17...v16.23.18) (2022-01-30)
 
 
@@ -24,15 +34,6 @@
 ### Bug Fixes
 
 * windows store packaging ([cb5fe88](https://github.com/phandcock/GrampsView/commit/cb5fe887b3f0c608e5951aa88655ed34312975f4))
-
-
-
-## [16.23.15](https://github.com/phandcock/GrampsView/compare/v16.23.14...v16.23.15) (2022-01-13)
-
-
-### Bug Fixes
-
-* nuget updates ([49e3c25](https://github.com/phandcock/GrampsView/commit/49e3c257f10d89d9c84a2f769c023b833ec6dc6a))
 
 
 
