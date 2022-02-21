@@ -1,5 +1,7 @@
 ﻿namespace GrampsView
 {
+    using CardWorld.Common;
+
     using GrampsView.Common;
     using GrampsView.Data;
     using GrampsView.Data.External.StoreSerial;
