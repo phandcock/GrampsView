@@ -1,3 +1,13 @@
+## [16.23.20](https://github.com/phandcock/GrampsView/compare/v16.23.19...v16.23.20) (2022-02-22)
+
+
+### Bug Fixes
+
+* shorten settigng text ([8c95827](https://github.com/phandcock/GrampsView/commit/8c958278900fa3d232682878f68fedf327755f77))
+* update nugets and get UWP working again ([99bb5f8](https://github.com/phandcock/GrampsView/commit/99bb5f810701722da2e0aea80af36357e9cbafd3))
+
+
+
 ## [16.23.19](https://github.com/phandcock/GrampsView/compare/v16.23.18...v16.23.19) (2022-02-05)
 
 
@@ -25,15 +35,6 @@
 ### Bug Fixes
 
 * nuget updates ([165a20c](https://github.com/phandcock/GrampsView/commit/165a20cec703d099f1f151526be07e8553da2598))
-
-
-
-## [16.23.16](https://github.com/phandcock/GrampsView/compare/v16.23.15...v16.23.16) (2022-01-16)
-
-
-### Bug Fixes
-
-* windows store packaging ([cb5fe88](https://github.com/phandcock/GrampsView/commit/cb5fe887b3f0c608e5951aa88655ed34312975f4))
 
 
 
