@@ -118,7 +118,7 @@
                             Grid.Row="1"
                             Grid.Column="0"
                             Style="{DynamicResource GVCardLabelStyle}"
-                            Text="Use first image from collections.  Defaults to last" />
+                            Text="Use first (not last) image from collections." />
 
                         <Switch
                             Grid.Row="1"
