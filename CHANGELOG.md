@@ -1,3 +1,12 @@
+## [16.23.22](https://github.com/phandcock/GrampsView/compare/v16.23.21...v16.23.22) (2022-02-26)
+
+
+### Bug Fixes
+
+* tweak dark colour scheme ([a2d8a54](https://github.com/phandcock/GrampsView/commit/a2d8a5427e789b9831ac2682f76dbebdb429a559))
+
+
+
 ## [16.23.21](https://github.com/phandcock/GrampsView/compare/v16.23.20...v16.23.21) (2022-02-24)
 
 
@@ -24,17 +33,6 @@
 
 * cleanup initial program startup ([d23d4c8](https://github.com/phandcock/GrampsView/commit/d23d4c8f911c7c3a4e71132810443b4be07ab0e4))
 * cleanup initial program startup ([a8e5253](https://github.com/phandcock/GrampsView/commit/a8e5253b16d663ae2f99debd8a30271e4d5a7e8a))
-
-
-
-## [16.23.18](https://github.com/phandcock/GrampsView/compare/v16.23.17...v16.23.18) (2022-01-30)
-
-
-### Bug Fixes
-
-* nuget updates ([4df7e7c](https://github.com/phandcock/GrampsView/commit/4df7e7cfc16fc1e282cbe4977ef6b58251aa5dde))
-* tweak shell title colours ([c027dce](https://github.com/phandcock/GrampsView/commit/c027dce7d202be9954f4b191b4908bc8ac08fe5a))
-* tweaks ([7470138](https://github.com/phandcock/GrampsView/commit/74701380fbf2caf9576d7ef02afea74142f647da))
 
 
 
