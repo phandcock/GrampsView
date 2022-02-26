@@ -2,15 +2,15 @@
 
     <!--  Dark colour  -->
     <Color x:Key="PrimaryColorDark">
-        #5F4339
+        #795548
     </Color>
 
     <Color x:Key="PrimaryDarkColorDark">
-        #341c13
+        #4b2c20
     </Color>
 
     <Color x:Key="PrimaryLightColorDark">
-        #8d6e63
+        #a98274
     </Color>
 
     <Color x:Key="OnPrimaryColorDark">
@@ -18,15 +18,15 @@
     </Color>
 
     <Color x:Key="SecondaryColorDark">
-        #c79a00
+        #ffee58
     </Color>
 
     <Color x:Key="SecondaryDarkColorDark">
-        #c7a500
+        #c9bc1f
     </Color>
 
     <Color x:Key="SecondaryLightColorDark">
-        #fffd61
+        #ffff8b
     </Color>
 
     <Color x:Key="OnSecondaryColorDark">
