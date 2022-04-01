@@ -5,7 +5,7 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 		<LangVersion>8.0</LangVersion>
 		<UserSecretsId>886841ad-558a-446c-bd12-4f8281b1b465</UserSecretsId>
-		<Version>16</Version>
+		<Version>16.24</Version>
 		<Copyright>2014 - 2021</Copyright>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
