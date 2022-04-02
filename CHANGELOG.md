@@ -1,3 +1,12 @@
+## [16.23.24](https://github.com/phandcock/GrampsView/compare/v16.23.23...v16.23.24) (2022-04-02)
+
+
+### Bug Fixes
+
+* update to version 16.24 ([185097b](https://github.com/phandcock/GrampsView/commit/185097bbe8ed71824c372a17725fb252d758f999))
+
+
+
 ## [16.23.23](https://github.com/phandcock/GrampsView/compare/v16.23.22...v16.23.23) (2022-03-26)
 
 
@@ -22,16 +31,6 @@
 ### Bug Fixes
 
 * update secret.cs ([3bde5aa](https://github.com/phandcock/GrampsView/commit/3bde5aaadc6df46e09d41c4cfab537749ee89f1c))
-
-
-
-## [16.23.20](https://github.com/phandcock/GrampsView/compare/v16.23.19...v16.23.20) (2022-02-22)
-
-
-### Bug Fixes
-
-* shorten settigng text ([8c95827](https://github.com/phandcock/GrampsView/commit/8c958278900fa3d232682878f68fedf327755f77))
-* update nugets and get UWP working again ([99bb5f8](https://github.com/phandcock/GrampsView/commit/99bb5f810701722da2e0aea80af36357e9cbafd3))
 
 
 
