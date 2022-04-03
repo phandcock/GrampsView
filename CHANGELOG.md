@@ -1,3 +1,12 @@
+## [16.24.2](https://github.com/phandcock/GrampsView/compare/v16.23.24...v16.24.2) (2022-04-03)
+
+
+### Bug Fixes
+
+* 16.24 Store refresh ([d27861f](https://github.com/phandcock/GrampsView/commit/d27861f4b68775ddf2a0cf7476ecf0fcf498b22e))
+
+
+
 ## [16.23.24](https://github.com/phandcock/GrampsView/compare/v16.23.23...v16.23.24) (2022-04-02)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * tweak dark colour scheme ([a2d8a54](https://github.com/phandcock/GrampsView/commit/a2d8a5427e789b9831ac2682f76dbebdb429a559))
-
-
-
-## [16.23.21](https://github.com/phandcock/GrampsView/compare/v16.23.20...v16.23.21) (2022-02-24)
-
-
-### Bug Fixes
-
-* update secret.cs ([3bde5aa](https://github.com/phandcock/GrampsView/commit/3bde5aaadc6df46e09d41c4cfab537749ee89f1c))
 
 
 
