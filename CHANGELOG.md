@@ -1,3 +1,12 @@
+## [16.24.3](https://github.com/phandcock/GrampsView/compare/v16.24.2...v16.24.3) (2022-04-07)
+
+
+### Bug Fixes
+
+* update Xamarin Forms nuget ([5a14237](https://github.com/phandcock/GrampsView/commit/5a14237b0e8bd302cebe7607f965f7e8c27e90de))
+
+
+
 ## [16.24.2](https://github.com/phandcock/GrampsView/compare/v16.23.24...v16.24.2) (2022-04-03)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * update NUGETs ([7d70639](https://github.com/phandcock/GrampsView/commit/7d706391161e0b49c00fc39a0a40e57c5d1f2945))
-
-
-
-## [16.23.22](https://github.com/phandcock/GrampsView/compare/v16.23.21...v16.23.22) (2022-02-26)
-
-
-### Bug Fixes
-
-* tweak dark colour scheme ([a2d8a54](https://github.com/phandcock/GrampsView/commit/a2d8a5427e789b9831ac2682f76dbebdb429a559))
 
 
 
