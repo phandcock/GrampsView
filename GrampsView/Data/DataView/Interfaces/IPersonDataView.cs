@@ -35,7 +35,7 @@ namespace GrampsView.Data.DataView
             get;
         }
 
-        Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup();
+        Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup(bool BirthdayShowOnlyLivingFlag);
 
         /// <summary>
         /// Gets all as hlink.

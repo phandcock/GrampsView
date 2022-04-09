@@ -20,11 +20,23 @@
             BaseTitleIcon = CommonConstants.IconPeopleBirthday;
         }
 
+        public bool BirthdayShowOnlyLivingFlag
+        {
+            get
+            {
+                return CommonLocalSettings.BirthdayShowOnlyLivingFlag;
+            }
+            set
+            {
+                CommonLocalSettings.BirthdayShowOnlyLivingFlag = value;
+            }
+        }
+
         public Group<HLinkPersonModelCollection> PersonSource
         {
             get
             {
-                return DV.PersonDV.GetAllAsGroupedBirthDayCardGroup();
+                return DV.PersonDV.GetAllAsGroupedBirthDayCardGroup(BirthdayShowOnlyLivingFlag);
             }
         }
     }

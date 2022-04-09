@@ -14,7 +14,47 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <ucon:CollectionSingleCardGrouped FsctSource="{Binding PersonSource, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  TODO Add to TitleView when fixed in UWP.  See https://github.com/xamarin/Xamarin.Forms/issues/9808  -->
+
+        <Frame
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="3"
+            Padding="0"
+            HorizontalOptions="EndAndExpand"
+            Style="{DynamicResource FrameCardStyle}">
+            <StackLayout Margin="0" Orientation="Horizontal">
+                <Label
+                    Padding="3"
+                    Style="{DynamicResource GVCardLabelStyle}"
+                    Text="Show Only Living People"
+                    VerticalTextAlignment="Center" />
+
+                <Switch
+                    Margin="3"
+                    IsToggled="{Binding BirthdayShowOnlyLivingFlag}"
+                    Style="{DynamicResource GVSwitchStyle}" />
+            </StackLayout>
+        </Frame>
+
+        <!--  Content  -->
+        <ucon:CollectionSingleCardGrouped
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FsctSource="{Binding PersonSource, Mode=OneWay}"
+            FsctTemplate="{StaticResource PersonCardSmallDT}" />
+    </Grid>
 </views:ViewBase>

@@ -144,13 +144,13 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup()
+        public Group<HLinkPersonModelCollection> GetAllAsGroupedBirthDayCardGroup(bool BirthdayShowOnlyLivingFlag)
         {
             Group<HLinkPersonModelCollection> t = new Group<HLinkPersonModelCollection>();
 
             IEnumerable<(string GroupName, IGrouping<string, PersonModel> Items)> query = from item in DataViewData
                                                                                           orderby item.BirthDate.GetMonthDay, item.GPersonNamesCollection.GetPrimaryName.DeRef
-                                                                                          where item.IsLiving && item.BirthDate.Valid && item.BirthDate.ValidMonth && item.BirthDate.ValidDay
+                                                                                          where (item.IsLiving || (!item.IsLiving && !BirthdayShowOnlyLivingFlag)) && item.BirthDate.Valid && item.BirthDate.ValidMonth && item.BirthDate.ValidDay
                                                                                           group item by $"{item.BirthDate.GetMonthDay}" into g
                                                                                           select (
                                                                                               GroupName: g.Key,

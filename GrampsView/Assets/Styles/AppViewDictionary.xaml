@@ -639,4 +639,17 @@
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
+
+    <!--
+        ******************************************************
+        Switch Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Base Style for a Switches  -->
+    <Style x:Key="GVSwitchStyle" TargetType="Switch">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
+                                                              Light={StaticResource SecondaryColorLight}}" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+    </Style>
 </ResourceDictionary>

@@ -109,9 +109,7 @@
                         <Switch
                             Grid.Row="0"
                             Grid.Column="1"
-                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                              Light={StaticResource SecondaryColorLight}}"
-                            HorizontalOptions="EndAndExpand"
+                          Style="{DynamicResource GVSwitchStyle}"
                             IsToggled="{Binding SortCollectionsFlag}" />
 
                         <Label
@@ -123,9 +121,7 @@
                         <Switch
                             Grid.Row="1"
                             Grid.Column="1"
-                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                              Light={StaticResource SecondaryColorLight}}"
-                            HorizontalOptions="EndAndExpand"
+                           Style="{DynamicResource GVSwitchStyle}"
                             IsToggled="{Binding UseFirstImageFlag}" />
                     </Grid>
                 </StackLayout>
