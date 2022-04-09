@@ -1,3 +1,14 @@
+## [16.24.4](https://github.com/phandcock/GrampsView/compare/v16.24.3...v16.24.4) (2022-04-09)
+
+
+### Bug Fixes
+
+* Switch to show only living in the Birthday list ([bec0174](https://github.com/phandcock/GrampsView/commit/bec01744e7e22cc45da8dc79595f3c1ed2ba0f55))
+* Tweak Birthdate in Person Small card ([beeb4d7](https://github.com/phandcock/GrampsView/commit/beeb4d706c91de054698ff339c9b5b9ef68c5361))
+* update Xamarin Forms nuget ([70115cb](https://github.com/phandcock/GrampsView/commit/70115cb67c849ebe62365b05329f502d71022d70))
+
+
+
 ## [16.24.3](https://github.com/phandcock/GrampsView/compare/v16.24.2...v16.24.3) (2022-04-07)
 
 
@@ -22,15 +33,6 @@
 ### Bug Fixes
 
 * update to version 16.24 ([185097b](https://github.com/phandcock/GrampsView/commit/185097bbe8ed71824c372a17725fb252d758f999))
-
-
-
-## [16.23.23](https://github.com/phandcock/GrampsView/compare/v16.23.22...v16.23.23) (2022-03-26)
-
-
-### Bug Fixes
-
-* update NUGETs ([7d70639](https://github.com/phandcock/GrampsView/commit/7d706391161e0b49c00fc39a0a40e57c5d1f2945))
 
 
 
