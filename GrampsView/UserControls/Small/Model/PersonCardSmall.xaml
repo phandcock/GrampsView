@@ -30,7 +30,7 @@
             Grid.Row="1"
             Grid.Column="0"
             IsVisible="{Binding DeRef.BirthDate.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource GVCardLabelStyleVerySmall}"
             Text="{Binding DeRef.BirthDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>
