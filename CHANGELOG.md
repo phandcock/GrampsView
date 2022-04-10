@@ -1,3 +1,12 @@
+## [16.24.5](https://github.com/phandcock/GrampsView/compare/v16.24.4...v16.24.5) (2022-04-10)
+
+
+### Bug Fixes
+
+* tweak layout ([a4303b1](https://github.com/phandcock/GrampsView/commit/a4303b1be0533f25199e43745896aa133bca662d))
+
+
+
 ## [16.24.4](https://github.com/phandcock/GrampsView/compare/v16.24.3...v16.24.4) (2022-04-09)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * 16.24 Store refresh ([d27861f](https://github.com/phandcock/GrampsView/commit/d27861f4b68775ddf2a0cf7476ecf0fcf498b22e))
-
-
-
-## [16.23.24](https://github.com/phandcock/GrampsView/compare/v16.23.23...v16.23.24) (2022-04-02)
-
-
-### Bug Fixes
-
-* update to version 16.24 ([185097b](https://github.com/phandcock/GrampsView/commit/185097bbe8ed71824c372a17725fb252d758f999))
 
 
 
