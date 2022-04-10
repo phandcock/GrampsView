@@ -145,6 +145,17 @@
         <Setter Property="CornerRadius" Value="0" />
     </Style>
 
+    <!--  Create a PageMenu Style  -->
+    <Style x:Key="GVPageMenu" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark}, Light={StaticResource SecondaryLightColorLight}}" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="Padding" Value="3" />
+    </Style>
+
     <!--  Create a MediaImage Style  -->
     <Style x:Key="MediaImageStyle" TargetType="Grid">
         <Setter Property="Margin" Value="0" />
@@ -648,8 +659,7 @@
 
     <!--  Create a Base Style for a Switches  -->
     <Style x:Key="GVSwitchStyle" TargetType="Switch">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                              Light={StaticResource SecondaryColorLight}}" />
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}" />-->
         <Setter Property="HorizontalOptions" Value="EndAndExpand" />
     </Style>
 </ResourceDictionary>
