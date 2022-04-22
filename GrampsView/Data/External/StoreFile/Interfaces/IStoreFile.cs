@@ -22,7 +22,7 @@ namespace GrampsView.Data
         /// </param>
         /// <returns>
         /// </returns>
-        Task<bool> DecompressGZIP(IFileInfoEx grampsDataFile);
+        bool DecompressGZIP(IFileInfoEx grampsDataFile);
 
         Task<bool> DecompressTAR();
     }

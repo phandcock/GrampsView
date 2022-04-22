@@ -75,7 +75,7 @@
         /// <returns>
         /// Flag indicating success or not.
         /// </returns>
-        public async Task<bool> DecompressGZIP(IFileInfoEx inputFile)
+        public bool DecompressGZIP(IFileInfoEx inputFile)
         {
             App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
 

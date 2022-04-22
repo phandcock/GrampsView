@@ -6,6 +6,7 @@
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
 
+    using Microsoft.AppCenter;
     using Microsoft.AppCenter.Analytics;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
@@ -58,20 +59,6 @@
         /// The local gramps store serial.
         /// </summary>
         private readonly IGrampsStoreSerial _StoreSerial;
-
-        /// <summary>
-        /// Gets the storage.
-        /// </summary>
-        /// <value>
-        /// The storage.
-        /// </value>
-        public IStoreFile Storage
-        {
-            get
-            {
-                return _StoreFile;
-            }
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -132,6 +119,20 @@
 
                 DataLoadedSetTrue();
             });
+        }
+
+        /// <summary>
+        /// Gets the storage.
+        /// </summary>
+        /// <value>
+        /// The storage.
+        /// </value>
+        public IStoreFile Storage
+        {
+            get
+            {
+                return _StoreFile;
+            }
         }
 
         /// <summary>
@@ -276,7 +277,7 @@
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        // _commonNotifications.DataLogHide();
+                        Analytics.TrackEvent($"Load GPKG file: {DataStore.Instance.AD.CurrentInputStreamPath}");
 
                         return true;
                     }
@@ -373,7 +374,7 @@
                     //await localStoreFile.DataStorageInitialiseAsync(DataStore.Instance.AD.CurrentDataFolder).ConfigureAwait(false);
                 }
 
-                await _StoreFile.DecompressGZIP(fileGrampsDataInput).ConfigureAwait(false);
+                _StoreFile.DecompressGZIP(fileGrampsDataInput);
 
                 // Save the current Index File modified date for later checking
 

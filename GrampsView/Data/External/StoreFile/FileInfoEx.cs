@@ -84,7 +84,7 @@
         /// StorageFile for the chosen file.
         /// </returns>
         /// TODO Check if same as MakeGetFile
-        public static async Task<IFileInfoEx> GetStorageFileAsync(string relativeFilePath)
+        public static  IFileInfoEx GetStorageFile(string relativeFilePath)
         {
             IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 

@@ -125,7 +125,7 @@
 
                         App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
-                        Stream outStr = await StoreFolder.FolderCreateFileAsync(newFileName.FInfo.Directory, filename).ConfigureAwait(false);
+                        Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
 
                         try
                         {
@@ -226,18 +226,24 @@
                     || ex.HResult == HR_ERROR_DISK_FULL)
                 {
                     App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+
+                    // No recovery from this
+                    throw;
                 }
 
                 // Handle other errors
                 if (tarEntry != null)
                 {
                     App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
-                    throw;
+
+                    // Keep going
+                    // throw;
                 }
                 else
                 {
                     App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex);
-                    throw;
+                    // Keep going
+                    // throw;
                 }
             }
         }

@@ -108,7 +108,7 @@
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata
-                                    loadObject.MediaStorageFile = await FileInfoEx.GetStorageFileAsync(loadObject.OriginalFilePath).ConfigureAwait(false);
+                                    loadObject.MediaStorageFile = FileInfoEx.GetStorageFile(loadObject.OriginalFilePath);
 
                                     if (loadObject.MediaStorageFile.Valid)
                                     {

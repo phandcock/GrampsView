@@ -33,6 +33,15 @@
 
         private static HLinkPersonModel PersonStartPage = null;
 
+        public App()
+        {
+            Services = ConfigureServices();
+
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
+
         /// <summary>
         /// Gets the current <see cref="App"/> instance in use
         /// </summary>
@@ -42,15 +51,6 @@
         /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
         /// </summary>
         public IServiceProvider Services { get; }
-
-        public App()
-        {
-            Services = ConfigureServices();
-
-            InitializeComponent();
-
-            MainPage = new AppShell();
-        }
 
         protected override void OnAppLinkRequestReceived(System.Uri uri)
         {
@@ -137,7 +137,7 @@
 
         /// <summary>
         /// Initialize App Center.
-        /// </summary>
+        /// </summary> 
         private static void AppCenterInit()
         {
             string initString = "uwp=" + Secret.UWPSecret + ";" +
@@ -146,10 +146,12 @@
 
             Debug.WriteLine(initString, "AppCenterInit");
 
+            //    AppCenter.LogLevel = LogLevel.Verbose;
+
             AppCenter.Start(initString,
                             typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
-            Distribute.SetEnabledAsync(true);
+            // Distribute.SetEnabledAsync(true);
 
             Distribute.CheckForUpdate();
         }

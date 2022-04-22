@@ -19,7 +19,7 @@
         {
         }
 
-        public static async Task<FileStream> FolderCreateFileAsync(DirectoryInfo argBaseFolder, string argFileName)
+        public static FileStream FolderCreateFile(DirectoryInfo argBaseFolder, string argFileName)
         {
             // TODO Handle relative paths
 
