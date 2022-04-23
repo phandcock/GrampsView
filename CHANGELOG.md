@@ -1,3 +1,12 @@
+## [16.24.6](https://github.com/phandcock/GrampsView/compare/v16.24.5...v16.24.6) (2022-04-23)
+
+
+### Bug Fixes
+
+* code cleanup and testing ([3d9ae4a](https://github.com/phandcock/GrampsView/commit/3d9ae4af3e895c15f3c0ec113c534cd3a971ed65))
+
+
+
 ## [16.24.5](https://github.com/phandcock/GrampsView/compare/v16.24.4...v16.24.5) (2022-04-10)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * update Xamarin Forms nuget ([5a14237](https://github.com/phandcock/GrampsView/commit/5a14237b0e8bd302cebe7607f965f7e8c27e90de))
-
-
-
-## [16.24.2](https://github.com/phandcock/GrampsView/compare/v16.23.24...v16.24.2) (2022-04-03)
-
-
-### Bug Fixes
-
-* 16.24 Store refresh ([d27861f](https://github.com/phandcock/GrampsView/commit/d27861f4b68775ddf2a0cf7476ecf0fcf498b22e))
 
 
 
