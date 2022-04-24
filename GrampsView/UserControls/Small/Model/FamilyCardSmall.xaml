@@ -36,7 +36,7 @@
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource GVCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GEventRefCollection.GetFirst.DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

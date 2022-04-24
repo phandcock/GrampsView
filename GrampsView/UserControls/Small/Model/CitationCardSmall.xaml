@@ -21,12 +21,12 @@
         <Label
             LineBreakMode="TailTruncation"
             MaxLines="1"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource GVCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GPage, Mode=OneWay}" />
 
         <Label
             IsVisible="{Binding DeRef.GDateContent.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource GVCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GDateContent.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </StackLayout>
 </ucon:SmallCardControlTemplate>

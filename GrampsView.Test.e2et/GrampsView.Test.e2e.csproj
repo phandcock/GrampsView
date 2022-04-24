@@ -1,57 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
 
-    <IsPackable>false</IsPackable>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
-    <OutputType>WinExe</OutputType>
-  </PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
+		<OutputType>WinExe</OutputType>
+		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Data\Basic Test Data\**" />
-    <EmbeddedResource Remove="Data\Basic Test Data\**" />
-    <None Remove="Data\Basic Test Data\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Data\Basic Test Data\**" />
+		<EmbeddedResource Remove="Data\Basic Test Data\**" />
+		<None Remove="Data\Basic Test Data\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="UnitTest1.cs" />
-    <Compile Remove="Utility\DataStoreClean.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="UnitTest1.cs" />
+		<Compile Remove="Utility\DataStoreClean.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Remove="App.xaml" />
-    <EmbeddedResource Remove="MainPage.xaml" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.0" />
+		<PackageReference Include="Moq" Version="4.17.2" />
+		<PackageReference Include="nunit" Version="3.13.3" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+		<PackageReference Include="RelaxNG" Version="3.2.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GrampsView\GrampsView.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.0" />
-    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
-    <PackageReference Include="Moq" Version="4.17.2" />
-    <PackageReference Include="nunit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="RelaxNG" Version="3.2.3" />
-    <PackageReference Include="System.Text.Json" Version="6.0.2" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
-    <EmbeddedResource Include="..\.test data\grampsxml.171.rng" Link="Test Data\grampsxml.171.rng" />
-    <EmbeddedResource Include="..\.test data\example.gramps" Link="Test Data\example.gramps" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="MainPage.xaml" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="..\.test data\GrampsView Test Basic.gpkg" Link="Test Data\GrampsView Test Basic.gpkg" />
+		<EmbeddedResource Include="..\.test data\grampsxml.171.rng" Link="Test Data\grampsxml.171.rng" />
+		<EmbeddedResource Include="..\.test data\example.gramps" Link="Test Data\example.gramps" />
+	</ItemGroup>
 </Project>
