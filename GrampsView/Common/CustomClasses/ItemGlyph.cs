@@ -23,6 +23,11 @@
 
     public class ItemGlyph : ObservableObject, IItemGlyph
     {
+        public ItemGlyph()
+        {
+            UCNavigateCommand = new AsyncCommand(UCNavigate);
+        }
+
         [JsonInclude]
         public HLinkKey ImageHLink
         {
@@ -169,11 +174,6 @@
 
         public bool ValidMedia => Valid && (ImageType == CommonEnums.HLinkGlyphType.Media);
 
-        public ItemGlyph()
-        {
-            UCNavigateCommand = new AsyncCommand(UCNavigate);
-        }
-
         public async Task UCNavigate()
         {
             string ser;
@@ -184,7 +184,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.ImageHLinkMediaModel);
 
-                        await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }
@@ -192,7 +192,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.MediaHLinkMediaModel);
 
-                        await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }

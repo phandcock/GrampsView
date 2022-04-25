@@ -101,7 +101,7 @@ namespace GrampsView.Data.Model
             {
                 if (_TextFormatted.Spans.Count == 0)
                 {
-                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, CommonFontSize.FontSmall);
+                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, SharedSharp.CommonRoutines.FontSizes.FontSmall);
                 }
 
                 return _TextFormatted;

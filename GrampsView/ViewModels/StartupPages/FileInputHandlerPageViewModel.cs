@@ -24,16 +24,6 @@
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
-        public IAsyncCommand LoadSampleCommand
-        {
-            get; private set;
-        }
-
-        public IAsyncCommand PickFileCommand
-        {
-            get; private set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
         /// </summary>
@@ -53,6 +43,16 @@
             LoadSampleCommand = new AsyncCommand(LoadSample);
 
             PickFileCommand = new AsyncCommand(PickFile);
+        }
+
+        public IAsyncCommand LoadSampleCommand
+        {
+            get; private set;
+        }
+
+        public IAsyncCommand PickFileCommand
+        {
+            get; private set;
         }
 
         /// <summary>
@@ -124,7 +124,7 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
+            SharedSharp.CommonRoutines.Navigation.NavigateHub();
 
             await Task.Delay(500);
 

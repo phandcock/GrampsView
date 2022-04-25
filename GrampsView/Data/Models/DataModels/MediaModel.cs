@@ -49,6 +49,15 @@ namespace GrampsView.Data.Model
         /// </summary>
         private string _OriginalFilePath = string.Empty;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediaModel"/> class.
+        /// </summary>
+        public MediaModel()
+        {
+            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
+            ModelItemGlyph.SymbolColour = SharedSharp.CommonRoutines.General.GetResourceColour("CardBackGroundMedia");
+        }
+
         public string FileContentType
         {
             get => _FileContentType;
@@ -61,9 +70,9 @@ namespace GrampsView.Data.Model
                 {
                     SetProperty(ref _FileContentType, value);
 
-                    FileMimeType = SharedSharp.CommonRoutines.CommonRoutines.MimeMimeTypeGet(value);
+                    FileMimeType = SharedSharp.CommonRoutines.General.MimeMimeTypeGet(value);
 
-                    FileMimeSubType = SharedSharp.CommonRoutines.CommonRoutines.MimeMimeSubTypeGet(value);
+                    FileMimeSubType = SharedSharp.CommonRoutines.General.MimeMimeSubTypeGet(value);
                 }
             }
         }
@@ -339,15 +348,6 @@ namespace GrampsView.Data.Model
             {
                 return GDateValue.ShortDate + " - " + GDescription;
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaModel"/> class.
-        /// </summary>
-        public MediaModel()
-        {
-            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
-            ModelItemGlyph.SymbolColour = SharedSharp.CommonRoutines.CommonRoutines.GetResourceColour("CardBackGroundMedia");
         }
 
         public IMediaModel Clone()

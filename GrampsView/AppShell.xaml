@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines"
     xmlns:views="clr-namespace:GrampsView.Views"
     FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
                                             Light={StaticResource PrimaryDarkColorLight}}">
@@ -36,13 +37,13 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

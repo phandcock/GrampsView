@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
@@ -99,7 +98,7 @@
 
             string theText = (string)argStyledText.Element(ns + "text");
 
-            loadString.Spans.Add(new Span { Text = theText, FontSize = CommonFontSize.FontMedium });
+            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharp.CommonRoutines.FontSizes.FontMedium });
 
             return loadString;
         }

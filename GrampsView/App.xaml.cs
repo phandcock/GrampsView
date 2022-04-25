@@ -105,7 +105,7 @@
             {
                 OnMainDisplayInfoChanged(s, a);
             };
-            SharedSharp.CommonRoutines.CommonRoutines.ScreenSizeInit();
+            SharedSharp.CommonRoutines.General.ScreenSizeInit();
 
             // App Setup
             Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
@@ -126,7 +126,7 @@
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
+                SharedSharp.CommonRoutines.Navigation.NavigateHub();
 
                 return;
             }
@@ -137,7 +137,7 @@
 
         /// <summary>
         /// Initialize App Center.
-        /// </summary> 
+        /// </summary>
         private static void AppCenterInit()
         {
             string initString = "uwp=" + Secret.UWPSecret + ";" +
@@ -248,7 +248,7 @@
 
         private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
-            SharedSharp.CommonRoutines.CommonRoutines.ScreenSizeInit();
+            SharedSharp.CommonRoutines.General.ScreenSizeInit();
 
             // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
 

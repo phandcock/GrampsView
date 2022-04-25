@@ -93,7 +93,7 @@
 
                 // No Serialised Data and made it this far so some problem has occurred. Load
                 // everything from the beginning.
-                await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync(nameof(FileInputHandlerPage));
+                await SharedSharp.CommonRoutines.Navigation.NavigateAsync(nameof(FileInputHandlerPage));
             }
             catch (Exception ex)
             {

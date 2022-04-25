@@ -19,7 +19,7 @@
             // Handle the normal case with no formatting
             if ((argTextModel.GText.Length == 0) || (argTextModel.Styles.Count == 0))
             {
-                returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = Common.CommonFontSize.FontSmall });
+                returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = SharedSharp.CommonRoutines.FontSizes.FontSmall });
 
                 return returnString;
             }

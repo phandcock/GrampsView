@@ -2,9 +2,10 @@
     x:Class="GrampsView.UserControls.ChildRefCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ChildRefCardSmallRoot"
     x:DataType="models:HLinkChildRefModel">
@@ -22,7 +23,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            FontSize="{x:Static common:CommonFontSize.FontVerySmall}"
+            FontSize="{x:Static sharedsharp:FontSizes.FontVerySmall}"
             FormattedText="{Binding RelationShips, Mode=OneWay}"
             HorizontalOptions="End"
             Style="{DynamicResource GVCardLabelStyleVerySmall}" />

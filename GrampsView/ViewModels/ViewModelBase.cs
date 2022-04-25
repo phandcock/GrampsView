@@ -25,6 +25,44 @@
         private string _BaseTitle;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
+        /// </summary>
+        public ViewModelBase()
+        {
+            ViewSetup();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public ViewModelBase(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        {
+            BaseCL = iocCommonLogging;
+            BaseEventAggregator = iocEventAggregator;
+
+            ViewSetup();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        public ViewModelBase(ISharedLogging iocCommonLogging)
+        {
+            BaseCL = iocCommonLogging;
+
+            ViewSetup();
+        }
+
+        /// <summary>
         /// Gets or sets the base common logger.
         /// </summary>
         /// <value>
@@ -139,44 +177,6 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        public ViewModelBase()
-        {
-            ViewSetup();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public ViewModelBase(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-        {
-            BaseCL = iocCommonLogging;
-            BaseEventAggregator = iocEventAggregator;
-
-            ViewSetup();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        public ViewModelBase(ISharedLogging iocCommonLogging)
-        {
-            BaseCL = iocCommonLogging;
-
-            ViewSetup();
-        }
-
-        /// <summary>
         /// Handle the appearing event. Designed to be overridden at the modelview level.
         /// </summary>
         public virtual void HandleViewAppearingEvent()
@@ -194,7 +194,7 @@
 
         public void TopMenuHubCommandHandler()
         {
-            SharedSharp.CommonRoutines.CommonRoutines.NavigateHub();
+            SharedSharp.CommonRoutines.Navigation.NavigateHub();
         }
 
         public async Task TopMenuNoteCommandHandler()

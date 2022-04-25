@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:common="clr-namespace:GrampsView.Common">
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -40,7 +41,7 @@
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
@@ -552,7 +553,7 @@
         <Setter Property="LineBreakMode" Value="WordWrap" />
         <Setter Property="VerticalOptions" Value="StartAndExpand" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
     </Style>
 
@@ -562,7 +563,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,1,1" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontVerySmall}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontVerySmall}" />
     </Style>
 
     <!--  Create Small Styles for a Label  -->
@@ -571,7 +572,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
     </Style>
 
     <Style
@@ -579,7 +580,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontSmall}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
@@ -589,7 +590,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
     </Style>
 
     <Style
@@ -597,7 +598,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
@@ -606,7 +607,7 @@
         x:Key="GVLabelStyleLarge"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontLarge}" />
         <Setter Property="MaxLines" Value="4" />
     </Style>
 
@@ -615,7 +616,7 @@
         BasedOn="{StaticResource GVLabelStyleLarge}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontLarge}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
     </Style>
 
@@ -625,7 +626,7 @@
         TargetType="Label">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark}, Light={StaticResource OnSecondaryColorLight}}" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
     </Style>
 
     <!--  Create a Instructions Style for a Label  -->
@@ -633,7 +634,7 @@
         x:Key="GVLabelStyleInstructions"
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -645,7 +646,7 @@
         BasedOn="{StaticResource GVCardLabelStyle}"
         TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation" />
-        <Setter Property="FontSize" Value="{x:Static common:CommonFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark}, Light={StaticResource OnSurfaceColorLight}}" />

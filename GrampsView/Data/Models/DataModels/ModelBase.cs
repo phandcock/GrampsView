@@ -36,6 +36,15 @@
 
         private ItemGlyph _ModelItemGlyph = new ItemGlyph();
 
+        public ModelBase()
+        {
+            ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
+            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
+            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+
+            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
+        }
+
         /// <summary>
         /// Gets or sets the h link reference collection.
         /// </summary>
@@ -139,15 +148,6 @@
             {
                 return HLinkKey.Valid && ModelItemGlyph.Valid;
             }
-        }
-
-        public ModelBase()
-        {
-            ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
-            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-
-            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
         }
 
         public static bool operator !=(ModelBase left, ModelBase right)
@@ -293,7 +293,7 @@
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharp.CommonRoutines.CommonRoutines.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
+            await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }
     }
 }
