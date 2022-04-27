@@ -37,7 +37,11 @@ namespace GrampsView.Data.Model
                 if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.FamilyDV.GetModelFromHLinkKey(HLinkKey);
-                    DeRefCached = true;
+
+                    if (_Deref.Valid)
+                    {
+                        DeRefCached = true;
+                    }
                 }
 
                 if (_Deref is null)

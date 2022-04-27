@@ -39,7 +39,7 @@
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
-                        if (loadSource.Id == "S0008")
+                        if (loadSource.Id == "S0312")
                         {
                         }
 

@@ -30,7 +30,7 @@
                         // Citation attributes
                         loadCitation.LoadBasics(GetBasics(pcitation));
 
-                        if (loadCitation.Id == "C0115")
+                        if (loadCitation.Id == "C0520")
                         {
                         }
 

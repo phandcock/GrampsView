@@ -151,7 +151,7 @@
             AppCenter.Start(initString,
                             typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
-            // Distribute.SetEnabledAsync(true);
+            Distribute.SetEnabledAsync(true);
 
             Distribute.CheckForUpdate();
         }

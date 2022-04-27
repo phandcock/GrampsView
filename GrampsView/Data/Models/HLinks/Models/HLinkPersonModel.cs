@@ -53,7 +53,11 @@ namespace GrampsView.Data.Model
                 if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.PersonDV.GetModelFromHLinkKey(HLinkKey);
-                    DeRefCached = true;
+
+                    if (_Deref.Valid)
+                    {
+                        DeRefCached = true;
+                    }
                 }
 
                 if (_Deref is null)
@@ -69,7 +73,7 @@ namespace GrampsView.Data.Model
         /// Converts to string. TODO fu. Mainly exists to allow workaround for Xamarin bug https://github.com/xamarin/Xamarin.Forms/issues/11075
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String"/> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         public override string ToString()
         {

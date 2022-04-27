@@ -36,7 +36,11 @@
                 if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.AddressDV.GetModelFromHLinkKey(HLinkKey);
-                    DeRefCached = true;
+
+                    if (_Deref.Valid)
+                    {
+                        DeRefCached = true;
+                    }
                 }
 
                 if (_Deref is null)

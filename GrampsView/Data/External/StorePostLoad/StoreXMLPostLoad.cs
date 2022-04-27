@@ -266,6 +266,10 @@
             {
                 foreach (MediaModel argModel in DV.MediaDV.DataViewData)
                 {
+                    if (argModel.Id == "O0010")
+                    {
+                    }
+
                     // Citation Collection
                     argModel.GCitationRefCollection.SetGlyph();
 

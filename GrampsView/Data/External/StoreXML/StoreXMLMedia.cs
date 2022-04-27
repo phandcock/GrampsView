@@ -82,7 +82,7 @@
                         IMediaModel loadObject = new MediaModel();
                         loadObject.LoadBasics(GetBasics(pname));
 
-                        if (loadObject.Id == "O0515")
+                        if (loadObject.Id == "O0010")
                         {
                         }
 

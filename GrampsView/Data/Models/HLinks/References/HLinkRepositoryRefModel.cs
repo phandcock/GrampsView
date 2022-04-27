@@ -39,7 +39,11 @@
                 if (Valid && (!DeRefCached))
                 {
                     _Deref = DV.RepositoryDV.GetModelFromHLinkKey(HLinkKey);
-                    DeRefCached = true;
+
+                    if (_Deref.Valid)
+                    {
+                        DeRefCached = true;
+                    }
                 }
 
                 return _Deref;
