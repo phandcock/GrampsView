@@ -17,6 +17,19 @@
     {
         private string _ThemeButtonChecked = string.Empty;
 
+        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                                                                                        : base(iocCommonLogging, iocEventAggregator)
+        {
+            BaseTitle = "Settings";
+            BaseTitleIcon = CommonConstants.IconSettings;
+
+            TestButtonCommand = new AsyncCommand(TestButtonHandler);
+
+            UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
+
+            // HandleViewAppearingEvent();
+        }
+
         public IAsyncCommand ShowMessageLogCommand
         {
             get;
@@ -126,19 +139,6 @@
             {
                 CommonLocalSettings.UseFirstImageFlag = value;
             }
-        }
-
-        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                                                                                        : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "Settings";
-            BaseTitleIcon = CommonConstants.IconSettings;
-
-            TestButtonCommand = new AsyncCommand(TestButtonHandler);
-
-            UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
-
-            // HandleViewAppearingEvent();
         }
 
         public override void HandleViewAppearingEvent()

@@ -344,7 +344,7 @@
         /// <summary>
         /// Organises the note repository.
         /// </summary>
-        private async Task<bool> OrganiseNoteRepository()
+        private bool OrganiseNoteRepository()
         {
             _commonNotifications.DataLogEntryAdd("Organising Note data");
 

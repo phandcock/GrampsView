@@ -291,5 +291,4 @@
       <Name>GrampsView</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\SharedSharp\SharedSharp\SharedSharp.projitems" Label="Shared" />
 </Project>

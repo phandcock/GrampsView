@@ -38,6 +38,46 @@
 
         private DateValType _GValType = DateValType.unknown;
 
+        public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
+        {
+            {
+                Contract.Requires(!string.IsNullOrEmpty(aVal));
+
+                // Setup basics
+                ModelItemGlyph.Symbol = CommonConstants.IconDate;
+                ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+                //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
+
+                HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
+
+                try
+                {
+                    GCformat = aCFormat;
+
+                    GDualdated = aDualDated;
+
+                    GNewYear = aNewYear;
+
+                    GQuality = aQuality;
+
+                    GVal = aVal;
+
+                    GValType = aValType;
+
+                    NotionalDate = ConvertRFC1123StringToDateTime(aVal);
+                }
+                catch (Exception e)
+                {
+                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
+                    throw;
+                }
+            }
+        }
+
+        public DateObjectModelVal()
+        {
+        }
+
         public override string DefaultTextShort
         {
             get
@@ -274,47 +314,7 @@
             }
         }
 
-        public DateObjectModelVal(string aVal, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
-        {
-            {
-                Contract.Requires(!string.IsNullOrEmpty(aVal));
-
-                // Setup basics
-                ModelItemGlyph.Symbol = CommonConstants.IconDate;
-                ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-                //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
-
-                HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
-
-                try
-                {
-                    GCformat = aCFormat;
-
-                    GDualdated = aDualDated;
-
-                    GNewYear = aNewYear;
-
-                    GQuality = aQuality;
-
-                    GVal = aVal;
-
-                    GValType = aValType;
-
-                    NotionalDate = ConvertRFC1123StringToDateTime(aVal);
-                }
-                catch (Exception e)
-                {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
-                    throw;
-                }
-            }
-        }
-
-        public DateObjectModelVal()
-        {
-        }
-
-        public CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
+        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 

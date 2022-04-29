@@ -37,6 +37,53 @@
 
         private DateObjectModelVal _GStop = new DateObjectModelVal();
 
+        public DateObjectModelSpan(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
+        {
+            Contract.Requires(!string.IsNullOrEmpty(aStart));
+            Contract.Requires(!string.IsNullOrEmpty(aStop));
+
+            // Setup basics
+            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelSpan;
+
+            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
+
+            // check for date range
+            try
+            {
+                GCformat = aCFormat;
+
+                // dualdated value #REQUIRED
+                GDualdated = aDualDated;
+
+                // newyear CDATA #IMPLIED
+                GNewYear = aNewYear;
+
+                // type CDATA #REQUIRED
+                GQuality = aQuality;
+
+                // start CDATA #REQUIRED
+                GStart = new DateObjectModelVal(aStart);
+
+                // stop CDATA #REQUIRED
+                GStop = new DateObjectModelVal(aStop); ;
+
+                // Set NotionalDate
+                NotionalDate = NotionalDate = ConvertRFC1123StringToDateTime(aStart);
+            }
+            catch (Exception e)
+            {
+                // TODO
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
+                throw;
+            }
+        }
+
+        public DateObjectModelSpan()
+        {
+        }
+
         public string GCformat
         {
             get => _GCformat;
@@ -254,54 +301,7 @@
             }
         }
 
-        public DateObjectModelSpan(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
-        {
-            Contract.Requires(!String.IsNullOrEmpty(aStart));
-            Contract.Requires(!String.IsNullOrEmpty(aStop));
-
-            // Setup basics
-            ModelItemGlyph.Symbol = CommonConstants.IconDate;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
-            //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelSpan;
-
-            HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
-
-            // check for date range
-            try
-            {
-                GCformat = aCFormat;
-
-                // dualdated value #REQUIRED
-                GDualdated = aDualDated;
-
-                // newyear CDATA #IMPLIED
-                GNewYear = aNewYear;
-
-                // type CDATA #REQUIRED
-                GQuality = aQuality;
-
-                // start CDATA #REQUIRED
-                GStart = new DateObjectModelVal(aStart);
-
-                // stop CDATA #REQUIRED
-                GStop = new DateObjectModelVal(aStop); ;
-
-                // Set NotionalDate
-                NotionalDate = NotionalDate = ConvertRFC1123StringToDateTime(aStart);
-            }
-            catch (Exception e)
-            {
-                // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
-                throw;
-            }
-        }
-
-        public DateObjectModelSpan()
-        {
-        }
-
-        public CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
+        public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 

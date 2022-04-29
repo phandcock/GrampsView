@@ -20,6 +20,40 @@
     {
         public IErrorNotifications _iocErrorNotifications;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
+       : base(iocCommonLogging, iocEventAggregator)
+        {
+            _iocErrorNotifications = iocErrorNotifications;
+
+            BaseTitle = "Hub";
+            BaseTitleIcon = CommonConstants.IconHub;
+
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            {
+                if (!m.Value)
+                    return;
+
+                HandledDataLoadedEvent();
+            });
+
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, async (r, m) =>
+             {
+                 if (!m.Value)
+                     return;
+
+                 await _iocErrorNotifications.DataLogShow();
+             });
+        }
+
         public CardListLineCollection HeaderCard
         {
             get
@@ -136,40 +170,6 @@
 
                 return toDoCardGroup;
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
-       : base(iocCommonLogging, iocEventAggregator)
-        {
-            _iocErrorNotifications = iocErrorNotifications;
-
-            BaseTitle = "Hub";
-            BaseTitleIcon = CommonConstants.IconHub;
-
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
-            {
-                if (m.Value == null)
-                    return;
-
-                HandledDataLoadedEvent();
-            });
-
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, async (r, m) =>
-             {
-                 if (m.Value == null)
-                     return;
-
-                 await _iocErrorNotifications.DataLogShow();
-             });
         }
 
         public void HandledDataLoadedEvent()

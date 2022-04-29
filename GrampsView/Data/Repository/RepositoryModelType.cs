@@ -34,19 +34,19 @@
         /// </summary>
         private readonly Random localRandomNumberGenerator = new Random();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
+        /// </summary>
+        public RepositoryModelDictionary()
+        {
+        }
+
         public List<T1> GetList
         {
             get
             {
                 return Values.ToList();
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
-        /// </summary>
-        public RepositoryModelDictionary()
-        {
         }
 
         /// <summary>
@@ -110,9 +110,9 @@
                     App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
-                if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
-                {
-                }
+                //if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
+                //{
+                //}
 
                 return Find(hLink.HLinkKey.Value);
             }
@@ -138,6 +138,7 @@
             //}
 
             var key = KeySelector(arg);
+
             if (base.ContainsKey(key))
             {
                 throw new DuplicateKeyException(key);

@@ -40,8 +40,7 @@
         /// Gets the associated media model
         /// </summary>
         /// <value>
-        /// The media model. <note type="caution"> This can not hold a local copy of the media model
-        /// as the Model Base has a hlinkmediamodel in it and this will cause a reference loop </note>
+        /// The media model.
         /// </value>
         [JsonIgnore]
         public IMediaModel DeRef

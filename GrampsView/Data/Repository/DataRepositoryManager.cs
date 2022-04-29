@@ -6,7 +6,6 @@
     using GrampsView.Data.ExternalStorage;
     using GrampsView.Events;
 
-    using Microsoft.AppCenter;
     using Microsoft.AppCenter.Analytics;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
@@ -98,7 +97,7 @@
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
             {
-                if (m.Value == null)
+                if (!m.Value)
                     return;
 
                 StartDataLoad();
@@ -106,7 +105,7 @@
 
             App.Current.Services.GetService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
             {
-                if (m.Value == null)
+                if (!m.Value)
                     return;
 
                 SerializeRepositoriesAsync(true);
@@ -114,7 +113,7 @@
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
-                if (m.Value == null)
+                if (!m.Value)
                     return;
 
                 DataLoadedSetTrue();
@@ -468,7 +467,7 @@
             {
                 SharedSharp.Misc.LocalSettings.DataSerialised = false;
 
-                _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
+                _commonNotifications.NotifyException("Trying to load existing serialised data", ex, argMsAppCenterTrack: true);
 
                 CommonLocalSettings.SetReloadDatabase();
 

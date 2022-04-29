@@ -55,7 +55,7 @@
             get;
         }
 
-        bool Valid
+        new bool Valid
         {
             get; set;
         }

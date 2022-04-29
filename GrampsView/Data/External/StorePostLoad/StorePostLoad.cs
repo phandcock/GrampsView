@@ -87,7 +87,7 @@
 
                     await OrganiseNameMapRepository().ConfigureAwait(false);
 
-                    await OrganiseNoteRepository().ConfigureAwait(false);
+                    OrganiseNoteRepository();
 
                     await OrganisePlaceRepository().ConfigureAwait(false);
 
