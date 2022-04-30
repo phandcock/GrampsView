@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
 
 		<IsPackable>false</IsPackable>
-		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
+
 		<OutputType>WinExe</OutputType>
 	</PropertyGroup>
 
@@ -21,14 +21,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.1" />
-		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
-		<PackageReference Include="Moq" Version="4.16.1" />
-		<PackageReference Include="nunit" Version="3.13.2" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+		<PackageReference Include="Moq" Version="4.17.2" />
+		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="nunit.xamarin.2022" Version="3.10.1" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+		<PackageReference Include="coverlet.collector" Version="3.1.2">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="RelaxNG" Version="3.2.3" />
-		<PackageReference Include="System.Text.Json" Version="6.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
