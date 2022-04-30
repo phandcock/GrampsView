@@ -1,33 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
 
-    <IsPackable>false</IsPackable>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
-    <OutputType>Exe</OutputType>
-    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
-  </PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Configurations>Debug;Release;GooglePlay;Unit Test</Configurations>
+		<OutputType>WinExe</OutputType>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Test Data\**" />
-    <EmbeddedResource Remove="Test Data\**" />
-    <None Remove="Test Data\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Test Data\**" />
+		<EmbeddedResource Remove="Test Data\**" />
+		<None Remove="Test Data\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="UnitTest1.cs" />
-    <Compile Remove="Utility\DataStoreClean.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="UnitTest1.cs" />
+		<Compile Remove="Utility\DataStoreClean.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="nunit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.1" />
+		<PackageReference Include="Moq" Version="4.16.1" />
+		<PackageReference Include="nunit" Version="3.13.2" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+		<PackageReference Include="RelaxNG" Version="3.2.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\GrampsView\GrampsView.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GrampsView\GrampsView.csproj" />
+	</ItemGroup>
 </Project>
