@@ -1,3 +1,12 @@
+## [16.24.10](https://github.com/phandcock/GrampsView/compare/v16.24.9...v16.24.10) (2022-05-01)
+
+
+### Bug Fixes
+
+* add note search to the hub page ([09bb2ee](https://github.com/phandcock/GrampsView/commit/09bb2eed435e52050558d4934f4fd6bbb49188aa))
+
+
+
 ## [16.24.9](https://github.com/phandcock/GrampsView/compare/v16.24.8...v16.24.9) (2022-04-30)
 
 
@@ -28,15 +37,6 @@
 ### Bug Fixes
 
 * tweak font sizes on cards ([8e81c4e](https://github.com/phandcock/GrampsView/commit/8e81c4ea8b615023e73849c6c3ee2bcaff1707f5))
-
-
-
-## [16.24.6](https://github.com/phandcock/GrampsView/compare/v16.24.5...v16.24.6) (2022-04-23)
-
-
-### Bug Fixes
-
-* code cleanup and testing ([3d9ae4a](https://github.com/phandcock/GrampsView/commit/3d9ae4af3e895c15f3c0ec113c534cd3a971ed65))
 
 
 
