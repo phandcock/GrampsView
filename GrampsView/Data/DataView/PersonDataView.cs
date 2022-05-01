@@ -349,9 +349,16 @@ namespace GrampsView.Data.DataView
             return itemsFound;
         }
 
-        public List<HLinkPersonModel> SearchShell(string argQuery)
+        public List<SearcHandlerItem> SearchShell(string argQuery)
         {
-            return Search(argQuery).ToList();
+            List<SearcHandlerItem> returnValue = new List<SearcHandlerItem>();
+
+            foreach (var item in Search(argQuery))
+            {
+                returnValue.Add(new SearcHandlerItem(item));
+            }
+
+            return returnValue;
         }
     }
 }

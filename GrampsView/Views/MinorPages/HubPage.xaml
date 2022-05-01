@@ -2,14 +2,15 @@
 <views:ViewBase
     x:Class="GrampsView.Views.HubPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
-    xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:ViewModels="clr-namespace:GrampsView.ViewModels"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:views="clr-namespace:GrampsView.Views"
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
@@ -25,13 +26,7 @@
         <common:GrampsViewSearchHandler
             Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
-            ShowsResults="true">
-            <common:GrampsViewSearchHandler.ItemTemplate>
-                <DataTemplate>
-                    <ucon:PersonCardSmall HeightRequest="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-                </DataTemplate>
-            </common:GrampsViewSearchHandler.ItemTemplate>
-        </common:GrampsViewSearchHandler>
+            ShowsResults="true" />
     </Shell.SearchHandler>
 
     <Grid>

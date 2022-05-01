@@ -14,6 +14,8 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Model;
     using GrampsView.Data.Repositories;
 
+    using System.Collections.Generic;
+
     /// <summary>
     /// Interface for the Note Repository.
     /// </summary>
@@ -47,6 +49,8 @@ namespace GrampsView.Data.DataView
         /// HLinkNoteModel
         /// </returns>
         CardGroupModel<NoteModel> GetAllOfType(string argType);
+
+        List<SearcHandlerItem> SearchShell(string argQuery);
 
         CardGroupHLink<HLinkNoteModel> SearchTag(string queryString);
     }

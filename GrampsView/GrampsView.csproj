@@ -60,6 +60,7 @@
 		<Compile Remove="Common\CustomClasses\Priv.cs" />
 		<Compile Remove="Common\MainMenuItem.cs" />
 		<Compile Remove="Common\StartAppLoad.cs" />
+		<Compile Remove="Converters\BackLinkDefaultTextShortConverter.cs" />
 		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
 		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
 		<Compile Remove="Data\Models\DataModels\Minor\ParentLinkModel.cs" />

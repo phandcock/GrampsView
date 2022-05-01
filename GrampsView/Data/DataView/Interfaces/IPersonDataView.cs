@@ -55,6 +55,6 @@ namespace GrampsView.Data.DataView
         /// </returns>
         ObservableCollection<EventModel> GetPersonPlusFamilyEvents(PersonModel argPerson);
 
-        List<HLinkPersonModel> SearchShell(string argQuery);
+        List<SearcHandlerItem> SearchShell(string argQuery);
     }
 }
