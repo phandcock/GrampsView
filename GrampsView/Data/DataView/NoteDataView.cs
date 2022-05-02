@@ -210,44 +210,6 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        //public override HLinkNoteModelCollection Search(string argQuery)
-        //{
-        //    HLinkNoteModelCollection itemsFound = new HLinkNoteModelCollection
-        //    {
-        //        Title = "Notes"
-        //    };
-
-        //    if (string.IsNullOrEmpty(argQuery))
-        //    {
-        //        return itemsFound;
-        //    }
-
-        //    // Get list of notes
-        //    HLinkNoteModelCollection tt = DV.NoteDV.Search(argQuery);
-
-        //    // Convert to HlinkNote
-        //    List<HLinkNoteModel> ttt = new List<HLinkNoteModel>();
-
-        //    foreach (var item in tt)
-        //    {
-        //        foreach (HLinkBackLink item1 in item.DeRef.BackHLinkReferenceCollection)
-        //        {
-        //            if (item1.HLinkType == HLinkBackLink.HLinkBackLinkEnum.HLinkPersonModel)
-        //            {
-        //                ttt.Add(item1.HLink as HLinkNoteModel);
-        //            }
-        //        }
-        //    }
-
-        //    // Get Distinct
-        //    foreach (var item2 in ttt.Distinct())
-        //    {
-        //        itemsFound.Add(item2);
-        //    }
-
-        //    return itemsFound;
-        //}
-
         public override HLinkNoteModelCollection Search(string queryString)
         {
             HLinkNoteModelCollection itemsFound = new HLinkNoteModelCollection();
@@ -257,7 +219,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).OrderBy(y => y.ToString()).Distinct();
+            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
 
             if (temp.Any())
             {

@@ -26,7 +26,17 @@
         <common:GrampsViewSearchHandler
             Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
-            ShowsResults="true" />
+            ShowsResults="true">
+            <common:GrampsViewSearchHandler.ItemTemplate>
+                <DataTemplate x:DataType="models:SearcHandlerItem">
+                    <Label
+                        Grid.Column="1"
+                        Style="{DynamicResource GVCardLabelStyleSmall}"
+                        Text="{Binding DefaultShortText}"
+                        VerticalOptions="Center" />
+                </DataTemplate>
+            </common:GrampsViewSearchHandler.ItemTemplate>
+        </common:GrampsViewSearchHandler>
     </Shell.SearchHandler>
 
     <Grid>
