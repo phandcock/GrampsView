@@ -1,3 +1,13 @@
+## [16.24.11](https://github.com/phandcock/GrampsView/compare/v16.24.10...v16.24.11) (2022-05-03)
+
+
+### Bug Fixes
+
+* add style to searchhandler output ([e5a7b35](https://github.com/phandcock/GrampsView/commit/e5a7b35f8f36452bd74ae3194ecc532d271380b1))
+* tweak test packages ([0df8723](https://github.com/phandcock/GrampsView/commit/0df8723aaaa84740611806794957fd85993b2aff))
+
+
+
 ## [16.24.10](https://github.com/phandcock/GrampsView/compare/v16.24.9...v16.24.10) (2022-05-01)
 
 
@@ -28,15 +38,6 @@
 
 * work on shared fontsizing ([c424f30](https://github.com/phandcock/GrampsView/commit/c424f303f1198b753fbc5cf75e1f05073bab8612))
 * work on shared fontsizing ([602d232](https://github.com/phandcock/GrampsView/commit/602d2322f83c14e7d1e89a6528394da81f22d59e))
-
-
-
-## [16.24.7](https://github.com/phandcock/GrampsView/compare/v16.24.6...v16.24.7) (2022-04-24)
-
-
-### Bug Fixes
-
-* tweak font sizes on cards ([8e81c4e](https://github.com/phandcock/GrampsView/commit/8e81c4ea8b615023e73849c6c3ee2bcaff1707f5))
 
 
 
