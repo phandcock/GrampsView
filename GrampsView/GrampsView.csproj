@@ -95,6 +95,7 @@
 		<Compile Remove="UserControls\General\CollectionSingleCard.xaml.cs" />
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
+		<Compile Remove="UserControls\Large\ListLineCardLarge.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
 		<Compile Remove="ViewModels\MinorPages\MessageLogViewModel.cs" />
 		<Compile Remove="Views\MinorPages\MessageLogPage.xaml.cs" />
@@ -108,6 +109,7 @@
 		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
+		<EmbeddedResource Remove="UserControls\Large\ListLineCardLarge.xaml" />
 		<EmbeddedResource Remove="Views\MinorPages\MessageLogPage.xaml" />
 	</ItemGroup>
 
