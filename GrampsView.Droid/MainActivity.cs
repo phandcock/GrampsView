@@ -10,6 +10,7 @@
 
     using GrampsView;
 
+    using Microsoft.AppCenter.Distribute;
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
@@ -61,6 +62,8 @@
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
 
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
+
+            Distribute.SetEnabledForDebuggableBuild(true);
 
             // FFImageLoading Init
             CachedImageRenderer.Init(enableFastRenderer: false);
