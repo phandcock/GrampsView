@@ -1,3 +1,14 @@
+## [16.24.12](https://github.com/phandcock/GrampsView/compare/v16.24.11...v16.24.12) (2022-05-07)
+
+
+### Bug Fixes
+
+* enable ms app center debug build distirution ([b016a18](https://github.com/phandcock/GrampsView/commit/b016a184061d87ea0f4e2d69edeece66c2e55cc5))
+* update nugets ([88ff5a4](https://github.com/phandcock/GrampsView/commit/88ff5a4991b8803fc32e0b561fd63617ed623278))
+* use sharedsharp listlinecard large ([594ae7f](https://github.com/phandcock/GrampsView/commit/594ae7f7e56b48ac2eb03316a1ed87e774e433f5))
+
+
+
 ## [16.24.11](https://github.com/phandcock/GrampsView/compare/v16.24.10...v16.24.11) (2022-05-03)
 
 
@@ -28,16 +39,6 @@
 * Fix forward linking bugs where hlink loaded before model ([025b98f](https://github.com/phandcock/GrampsView/commit/025b98f295f8cdcbe302056c53169ee193c7d810))
 * regress test project nugets ([2ded6e0](https://github.com/phandcock/GrampsView/commit/2ded6e0e0a728b097280de705e6e44f45a6fcf36))
 * update nugets ([f0e7f48](https://github.com/phandcock/GrampsView/commit/f0e7f48f0f43e62ee6bafaa7c4553652b914050a))
-
-
-
-## [16.24.8](https://github.com/phandcock/GrampsView/compare/v16.24.7...v16.24.8) (2022-04-26)
-
-
-### Bug Fixes
-
-* work on shared fontsizing ([c424f30](https://github.com/phandcock/GrampsView/commit/c424f303f1198b753fbc5cf75e1f05073bab8612))
-* work on shared fontsizing ([602d232](https://github.com/phandcock/GrampsView/commit/602d2322f83c14e7d1e89a6528394da81f22d59e))
 
 
 
