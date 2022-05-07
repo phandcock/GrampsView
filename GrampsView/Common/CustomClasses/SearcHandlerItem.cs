@@ -1,6 +1,10 @@
-﻿namespace GrampsView.Data.Model
+﻿namespace GrampsView.Common.CustomClasses
 {
-    public class SearcHandlerItem
+    using GrampsView.Data.Model;
+
+    using System;
+
+    public class SearcHandlerItem : IComparable
     {
         private HLinkBackLink baseBackLink = new HLinkBackLink();
 
@@ -38,6 +42,11 @@
             {
                 return baseBackLink.HLink;
             }
+        }
+
+        public int CompareTo(object obj)
+        {
+            return string.Compare(this.DefaultShortText, (obj as SearcHandlerItem).DefaultShortText);
         }
 
         public override string ToString()

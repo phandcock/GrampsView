@@ -6,6 +6,7 @@
     xmlns:ViewModels="clr-namespace:GrampsView.ViewModels"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:commonclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -29,7 +30,7 @@
             SearchBoxVisibility="Collapsible"
             ShowsResults="true">
             <common:GrampsViewSearchHandler.ItemTemplate>
-                <DataTemplate x:DataType="models:SearcHandlerItem">
+                <DataTemplate x:DataType="commonclasses:sea:SearcHandlerItem">
                     <Label
                         Grid.Column="1"
                         Style="{DynamicResource GVCardLabelStyleSmall}"

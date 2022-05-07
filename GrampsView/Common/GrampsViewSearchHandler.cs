@@ -1,9 +1,8 @@
 ﻿namespace GrampsView.Common
 {
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
 
-    using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -30,7 +29,7 @@
             }
             else
             {
-                IList temp = new List<object>();
+                List<SearcHandlerItem> temp = new List<SearcHandlerItem>();
 
                 // Add people
                 foreach (var item in DV.PersonDV.SearchShell(newValue))
@@ -43,6 +42,8 @@
                 {
                     temp.Add(item);
                 }
+
+                temp.Sort();
 
                 // add to the display
                 ItemsSource = temp;
