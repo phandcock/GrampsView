@@ -22,7 +22,7 @@
         {
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
             {
-                ci = DependencyService.Get<GrampsView.Common.ILocalize>().GetCurrentCultureInfo();
+                ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
         }
 
