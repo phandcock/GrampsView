@@ -21,7 +21,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource GVCardLabelStyleVerySmall}"
             Text="{Binding DeRef.FullName, Mode=OneWay}"
             VerticalTextAlignment="Start" />
 
