@@ -2,6 +2,8 @@
 {
     using GrampsView.Views;
 
+    using SharedSharp.CommonRoutines;
+
     using System.Threading.Tasks;
 
     /// <summary>
@@ -17,7 +19,7 @@
 
         public async Task ShowIfAppropriate()
         {
-            if (!SharedSharp.Misc.LocalSettings.DataSerialised && !shown)
+            if (!LocalSettings.DataSerialised && !shown)
             {
                 shown = true;
 

@@ -6,6 +6,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
 
     using System;
@@ -144,7 +145,7 @@
 
             DataStore.Instance.DS.IsDataLoaded = false;
 
-            SharedSharp.Misc.LocalSettings.DataSerialised = false;
+            LocalSettings.DataSerialised = false;
         }
     }
 }

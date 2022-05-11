@@ -6,6 +6,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
     using SharedSharp.Messages;
     using SharedSharp.Services;
@@ -35,7 +36,7 @@
 
                 if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
-                    SharedSharp.Misc.LocalSettings.DataSerialised = false;
+                    LocalSettings.DataSerialised = false;
 
                     return;
                 }
@@ -46,7 +47,7 @@
                     if (m.Value == null)
                         return;
 
-                    SharedSharp.Misc.SharedSharpStatic.WindowSize = m.Value;
+                    SharedSharpStatic.WindowSize = m.Value;
                     CardSizes.Current.ReCalculateCardWidths();
                 });
 
@@ -84,7 +85,7 @@
         {
             try
             {
-                if (SharedSharp.Misc.LocalSettings.DataSerialised)
+                if (LocalSettings.DataSerialised)
                 {
                     // App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
                     App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));

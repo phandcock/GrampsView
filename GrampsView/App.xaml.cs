@@ -15,6 +15,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
     using SharedSharp.Logging;
     using SharedSharp.Services;
@@ -94,7 +95,7 @@
 
             VersionTracking.Track();
 
-            SharedSharp.Misc.SharedSharpStatic.Init(Services);
+            SharedSharpStatic.Init(Services);
 
             Services.GetService<IErrorNotifications>();
 
@@ -108,11 +109,11 @@
             SharedSharp.CommonRoutines.General.ScreenSizeInit();
 
             // App Setup
-            Application.Current.UserAppTheme = SharedSharp.Misc.LocalSettings.ApplicationTheme;
+            Application.Current.UserAppTheme = LocalSettings.ApplicationTheme;
 
             CardSizes.Current.ReCalculateCardWidths();
 
-            SharedSharp.Misc.LocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
+            LocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
 
             // Get Going
 
@@ -238,7 +239,7 @@
 
             services.AddTransient<NavigationPage>();
 
-            SharedSharp.Misc.SharedSharpStatic.InitServicesAdd(ref services);
+            SharedSharpStatic.InitServicesAdd(ref services);
 
             return services.BuildServiceProvider();
         }

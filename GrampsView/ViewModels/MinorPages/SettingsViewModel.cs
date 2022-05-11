@@ -5,6 +5,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
+    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
     using SharedSharp.Logging;
 
@@ -67,21 +68,21 @@
                 {
                     case "Dark":
                         {
-                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Dark;
+                            LocalSettings.ApplicationTheme = OSAppTheme.Dark;
                             Application.Current.UserAppTheme = OSAppTheme.Dark;
 
                             break;
                         }
                     case "Light":
                         {
-                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Light;
+                            LocalSettings.ApplicationTheme = OSAppTheme.Light;
                             Application.Current.UserAppTheme = OSAppTheme.Light;
 
                             break;
                         }
                     case "System":
                         {
-                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;
@@ -89,7 +90,7 @@
 
                     default:
                         {
-                            SharedSharp.Misc.LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;
@@ -143,7 +144,7 @@
 
         public override void HandleViewAppearingEvent()
         {
-            switch (SharedSharp.Misc.LocalSettings.ApplicationTheme)
+            switch (LocalSettings.ApplicationTheme)
             {
                 case OSAppTheme.Light:
                     {

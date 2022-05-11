@@ -4,6 +4,7 @@
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 
+    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
 
     using System;
@@ -63,7 +64,7 @@
             }
             catch (Exception ex)
             {
-                SharedSharp.Misc.LocalSettings.DataSerialised = false;
+                LocalSettings.DataSerialised = false;
                 _commonNotifications.NotifyException("Trying to add media file pointer", ex);
 
                 throw;

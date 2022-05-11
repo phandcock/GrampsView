@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using SharedSharp.Misc;
+    using SharedSharp.CommonRoutines;
 
     using System;
     using System.ComponentModel;
@@ -54,7 +54,7 @@
 
         = 0;
 
-        public Int32 CardsAcrossColumns
+        public int CardsAcrossColumns
         {
             get
             {
@@ -159,9 +159,9 @@
                 };
 
                 // Check size
-                if (outVal > SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width)
+                if (outVal > SharedSharpStatic.ScreenSize.Width)
                 {
-                    outVal = SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width;
+                    outVal = SharedSharpStatic.ScreenSize.Width;
                 }
 
                 return outVal;
@@ -186,10 +186,10 @@
 
                     case TargetIdiom.Desktop:
                     case TargetIdiom.Tablet:
-                        return new Size(SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width - 100, SharedSharp.Misc.SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
+                        return new Size(SharedSharpStatic.ScreenSize.Width - 100, SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
 
                     case TargetIdiom.Phone:
-                        return new Size(SharedSharp.Misc.SharedSharpStatic.ScreenSize.Width, SharedSharp.Misc.SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
+                        return new Size(SharedSharpStatic.ScreenSize.Width, SharedSharpStatic.ScreenSize.Height - 100); // Window Size does not include headings
 
                     default:
                         {
@@ -197,7 +197,7 @@
                         }
                 };
 
-                return SharedSharp.Misc.SharedSharpStatic.ScreenSize; // Window Size does not include headings
+                return SharedSharpStatic.ScreenSize; // Window Size does not include headings
             }
         }
 
