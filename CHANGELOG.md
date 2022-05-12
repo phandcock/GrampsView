@@ -1,3 +1,12 @@
+## [16.24.14](https://github.com/phandcock/GrampsView/compare/v16.24.13...v16.24.14) (2022-05-12)
+
+
+### Bug Fixes
+
+* move misc to commonroutines ([77c0e46](https://github.com/phandcock/GrampsView/commit/77c0e465f2fdce1efcac6152addea523f7385eb3))
+
+
+
 ## [16.24.13](https://github.com/phandcock/GrampsView/compare/v16.24.12...v16.24.13) (2022-05-10)
 
 
@@ -26,15 +35,6 @@
 
 * add style to searchhandler output ([e5a7b35](https://github.com/phandcock/GrampsView/commit/e5a7b35f8f36452bd74ae3194ecc532d271380b1))
 * tweak test packages ([0df8723](https://github.com/phandcock/GrampsView/commit/0df8723aaaa84740611806794957fd85993b2aff))
-
-
-
-## [16.24.10](https://github.com/phandcock/GrampsView/compare/v16.24.9...v16.24.10) (2022-05-01)
-
-
-### Bug Fixes
-
-* add note search to the hub page ([09bb2ee](https://github.com/phandcock/GrampsView/commit/09bb2eed435e52050558d4934f4fd6bbb49188aa))
 
 
 
