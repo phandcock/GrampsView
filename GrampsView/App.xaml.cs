@@ -81,7 +81,7 @@
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {
-                // determine the correct, supported .NET culture
+                // Determine the correct, supported .NET culture
                 DependencyService.Get<ILocalize>();
 
                 CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
