@@ -2,15 +2,15 @@
 <views:ViewBase
     x:Class="GrampsView.Views.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SettingsViewModel"
     Style="{DynamicResource GVBaseContentPage}"
@@ -109,8 +109,8 @@
                         <Switch
                             Grid.Row="0"
                             Grid.Column="1"
-                          Style="{DynamicResource GVSwitchStyle}"
-                            IsToggled="{Binding SortCollectionsFlag}" />
+                            IsToggled="{Binding SortCollectionsFlag}"
+                            Style="{DynamicResource GVSwitchStyle}" />
 
                         <Label
                             Grid.Row="1"
@@ -121,8 +121,8 @@
                         <Switch
                             Grid.Row="1"
                             Grid.Column="1"
-                           Style="{DynamicResource GVSwitchStyle}"
-                            IsToggled="{Binding UseFirstImageFlag}" />
+                            IsToggled="{Binding UseFirstImageFlag}"
+                            Style="{DynamicResource GVSwitchStyle}" />
                     </Grid>
                 </StackLayout>
             </Frame>
@@ -144,8 +144,8 @@
                     <Entry
                         Grid.Row="0"
                         Grid.Column="1"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark},
-                                                          Light={StaticResource SecondaryColorLight}}"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
+                                                          Light={StaticResource SecondaryLight}}"
                         ClearButtonVisibility="WhileEditing"
                         Keyboard="Email"
                         Placeholder="Email"

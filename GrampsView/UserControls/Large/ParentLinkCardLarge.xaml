@@ -29,10 +29,10 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryLightColorDark},
-                                                  Light={StaticResource PrimaryLightColorLight}}"
-                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryLightColorDark},
-                                              Light={StaticResource SecondaryLightColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryContainerDark},
+                                                  Light={StaticResource PrimaryContainerLight}}"
+                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryContainerDark},
+                                              Light={StaticResource SecondaryContainerLight}}"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
                 Style="{StaticResource FrameCardStyle}">

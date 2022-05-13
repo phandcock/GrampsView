@@ -2,11 +2,11 @@
 <views:ViewBase
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -23,8 +23,8 @@
     <ucon:DetailPageControlTemplate>
         <StackLayout>
             <Frame
-                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                              Light={StaticResource SecondaryDarkColorLight}}"
+                BorderColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
+                                              Light={StaticResource OnSecondaryContainerLight}}"
                 HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
                 WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>

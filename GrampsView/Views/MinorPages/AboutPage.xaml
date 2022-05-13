@@ -38,8 +38,8 @@
 
             <StackLayout
                 Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryColorDark},
-                                                  Light={StaticResource PrimaryColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDark},
+                                                  Light={StaticResource PrimaryLight}}"
                 Orientation="Horizontal">
 
                 <Image
@@ -53,8 +53,8 @@
                     FontSize="{x:Static sharedsharp:FontSizes.FontLarge}"
                     Style="{DynamicResource GVLabelStyleLarge}"
                     Text="{x:Static i18n:AppResources.AboutPage_AppHeader}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark},
-                                                Light={StaticResource OnPrimaryColorLight}}"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
+                                                Light={StaticResource OnPrimaryLight}}"
                     VerticalOptions="Center" />
             </StackLayout>
 

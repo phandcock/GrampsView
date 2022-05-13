@@ -3,10 +3,10 @@
     <ControlTemplate x:Key="GVRadioButtonTemplate">
         <Frame
             Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark},
-                                              Light={StaticResource SecondaryDarkColorLight}}"
-            BorderColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
-                                          Light={StaticResource PrimaryDarkColorLight}}"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
+                                              Light={StaticResource OnSecondaryContainerLight}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
+                                          Light={StaticResource OnPrimaryContainerLight}}"
             HasShadow="False"
             HeightRequest="100"
             HorizontalOptions="Start"

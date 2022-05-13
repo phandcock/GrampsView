@@ -6,8 +6,8 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines"
     xmlns:views="clr-namespace:GrampsView.Views"
-    FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark},
-                                            Light={StaticResource PrimaryDarkColorLight}}">
+    FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
+                                            Light={StaticResource OnPrimaryContainerLight}}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -18,10 +18,11 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
-                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
-                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryColorDark}, Light={StaticResource OnPrimaryColorLight}}" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.FlyoutBackground" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryLight}}" />
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDark}, Light={StaticResource PrimaryLight}}" />
                 <Setter Property="Shell.UnselectedColor" Value="Red" />
             </Style>
 
@@ -36,13 +37,13 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
@@ -60,13 +61,13 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDarkColorDark}, Light={StaticResource PrimaryDarkColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Orange" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDarkColorDark}, Light={StaticResource SecondaryDarkColorLight}}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Black" />
                                 </VisualState.Setters>
                             </VisualState>

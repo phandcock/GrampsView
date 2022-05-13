@@ -2,14 +2,14 @@
 <views:ViewBase
     x:Class="GrampsView.Views.SearchPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="SearchPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SearchPageViewModel"
@@ -37,8 +37,8 @@
                 x:Name="SearchBar"
                 Grid.Row="0"
                 Margin="3"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark},
-                                                  Light={StaticResource SurfaceColorLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                                  Light={StaticResource SurfaceLight}}"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
                 IsTabStop="True"
@@ -66,7 +66,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceColorDark}, Light={StaticResource SurfaceColorLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
             </Frame>
         </StackLayout>

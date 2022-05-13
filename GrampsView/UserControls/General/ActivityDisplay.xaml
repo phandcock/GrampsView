@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="ActivityDisplayRoot">
 
-    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryColorDark}, Light={StaticResource SecondaryColorLight}}">
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
@@ -19,15 +19,15 @@
             Grid.Column="0"
             BackgroundColor="Transparent"
             IsRunning="True"
-            Color="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                    Light={StaticResource OnSecondaryColorLight}}" />
+            Color="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
+                                    Light={StaticResource OnSecondaryLight}}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="1"
             Text="{Binding ., Mode=OneWay}"
-            TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryColorDark},
-                                        Light={StaticResource OnSecondaryColorLight}}"
+            TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
+                                        Light={StaticResource OnSecondaryLight}}"
             VerticalTextAlignment="Center" />
     </Grid>
 </Grid>

@@ -31,8 +31,8 @@
                 FontFamily="FA-Solid"
                 Glyph="{Binding BaseTitleIcon}"
                 Size="44"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceColorDark},
-                                        Light={StaticResource OnSurfaceColorLight}}" />
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </Image.Source>
     </Image>
 
