@@ -2,8 +2,8 @@
 <views:ViewBase
     x:Class="GrampsView.Views.TagDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
@@ -11,7 +11,7 @@
     x:Name="TagDetailPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:TagDetailViewModel"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{DynamicResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

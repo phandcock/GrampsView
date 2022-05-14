@@ -35,27 +35,29 @@
     -->
 
     <!--  Create a Base Style for a Button Style  -->
-    <Style x:Key="GVButtonStyle" TargetType="Button">
+    <!--
+    <Style x:Key="SSButtonStyle" TargetType="Button">
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
-    </Style>
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
+    </Style>-->
 
     <!--  Create a Menu Style Button Style  -->
+    <!--
     <Style
-        x:Key="GVButtonMenu"
-        BasedOn="{StaticResource GVButtonStyle}"
+        x:Key="SSButtonMenu"
+        BasedOn="{StaticResource SSButtonStyle}"
         TargetType="Button">
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************
@@ -74,10 +76,12 @@
     -->
 
     <!--  Create a ContentPage style  -->
-    <Style x:Key="GVBaseContentPage" TargetType="ContentPage">
+    <!--
+    <Style x:Key="SSBaseContentPage" TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>
 
+    -->
     <!--<Style x:Key="GVMessageLog" TargetType="customclass:MessageLogPopup">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>-->
@@ -136,6 +140,7 @@
     -->
 
     <!--  Create a TopMenu Style  -->
+    <!--
     <Style x:Key="TopMenu" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="HasShadow" Value="False" />
@@ -144,10 +149,11 @@
         <Setter Property="MinimumWidthRequest" Value="40" />
         <Setter Property="HorizontalOptions" Value="EndAndExpand" />
         <Setter Property="CornerRadius" Value="0" />
-    </Style>
+    </Style>-->
 
     <!--  Create a PageMenu Style  -->
-    <Style x:Key="GVPageMenu" TargetType="Frame">
+    <!--
+    <Style x:Key="SSPageMenu" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="CornerRadius" Value="3" />
@@ -155,7 +161,7 @@
         <Setter Property="HorizontalOptions" Value="Fill" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="3" />
-    </Style>
+    </Style>-->
 
     <!--  Create a MediaImage Style  -->
     <Style x:Key="MediaImageStyle" TargetType="Grid">

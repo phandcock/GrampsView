@@ -13,7 +13,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SettingsViewModel"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{DynamicResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
@@ -171,7 +171,7 @@
 
                     <Button
                         Command="{Binding TestButtonCommand}"
-                        Style="{DynamicResource GVButtonMenu}"
+                        Style="{DynamicResource SSButtonMenu}"
                         Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
                 </StackLayout>
             </Frame>
