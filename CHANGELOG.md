@@ -1,3 +1,19 @@
+## [16.24.15](https://github.com/phandcock/GrampsView/compare/v16.24.14...v16.24.15) (2022-05-14)
+
+
+### Bug Fixes
+
+* move to common styles ([7d69216](https://github.com/phandcock/GrampsView/commit/7d69216a508f9f1480535f78e7c787c9b58e5186))
+* move to Material Design 3 colours ([fdcbf71](https://github.com/phandcock/GrampsView/commit/fdcbf71858ae068d4758b05e69e776d14944a5f2))
+* move to Material Design 3 colours ([af1e37a](https://github.com/phandcock/GrampsView/commit/af1e37aad98a930fb7288e64bbc49ce870379416))
+* nuget updates ([4f7ff8f](https://github.com/phandcock/GrampsView/commit/4f7ff8f48e5f9885d49c2a8e24add3182b45a7ec))
+* nuget updates ([23bb16a](https://github.com/phandcock/GrampsView/commit/23bb16ad30d4310508ef6e2d9a7e93c12ab84b14))
+* remove ssstyles ([9a3573c](https://github.com/phandcock/GrampsView/commit/9a3573cb770e7e8240d6864217268234be1494cf))
+* remove unused nugets ([00598fe](https://github.com/phandcock/GrampsView/commit/00598fe19e9cb3d9e891ff64435a5c0b3b64a037))
+* tweak themes ([27ebba6](https://github.com/phandcock/GrampsView/commit/27ebba60260e0be8ec884062e2dddaa42b9b9e94))
+
+
+
 ## [16.24.14](https://github.com/phandcock/GrampsView/compare/v16.24.13...v16.24.14) (2022-05-12)
 
 
@@ -25,16 +41,6 @@
 * enable ms app center debug build distirution ([b016a18](https://github.com/phandcock/GrampsView/commit/b016a184061d87ea0f4e2d69edeece66c2e55cc5))
 * update nugets ([88ff5a4](https://github.com/phandcock/GrampsView/commit/88ff5a4991b8803fc32e0b561fd63617ed623278))
 * use sharedsharp listlinecard large ([594ae7f](https://github.com/phandcock/GrampsView/commit/594ae7f7e56b48ac2eb03316a1ed87e774e433f5))
-
-
-
-## [16.24.11](https://github.com/phandcock/GrampsView/compare/v16.24.10...v16.24.11) (2022-05-03)
-
-
-### Bug Fixes
-
-* add style to searchhandler output ([e5a7b35](https://github.com/phandcock/GrampsView/commit/e5a7b35f8f36452bd74ae3194ecc532d271380b1))
-* tweak test packages ([0df8723](https://github.com/phandcock/GrampsView/commit/0df8723aaaa84740611806794957fd85993b2aff))
 
 
 
