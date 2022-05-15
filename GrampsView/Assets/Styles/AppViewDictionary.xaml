@@ -12,6 +12,8 @@
 
         <ResourceDictionary Source="AppThemeDictionary.xaml" />
 
+        <ResourceDictionary Source="CommonDictionary.xaml" />
+
         <ResourceDictionary Source="_Thickness.xaml" />
 
         <ResourceDictionary Source="_Sizes.xaml" />
@@ -35,6 +37,7 @@
     -->
 
     <!--  Create a Base Style for a Button Style  -->
+    <!--
     <Style x:Key="GVButtonStyle" TargetType="Button">
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
@@ -45,9 +48,10 @@
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
-    </Style>
+    </Style>-->
 
     <!--  Create a Menu Style Button Style  -->
+    <!--
     <Style
         x:Key="GVButtonMenu"
         BasedOn="{StaticResource GVButtonStyle}"
@@ -55,7 +59,7 @@
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************

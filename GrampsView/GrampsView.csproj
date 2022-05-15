@@ -243,6 +243,9 @@
 		  <Generator>PublicResXFileCodeGenerator</Generator>
 		  <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+		<EmbeddedResource Update="Assets\Styles\CommonDictionary.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
