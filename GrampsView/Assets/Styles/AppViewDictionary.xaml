@@ -41,8 +41,10 @@
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
     </Style>
 
     <!--  Create a Menu Style Button Style  -->
@@ -53,8 +55,6 @@
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
     </Style>
 
     <!--
