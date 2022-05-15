@@ -1,3 +1,12 @@
+## [16.24.17](https://github.com/phandcock/GrampsView/compare/v16.24.16...v16.24.17) (2022-05-15)
+
+
+### Bug Fixes
+
+* add commondictionary ([fb43f09](https://github.com/phandcock/GrampsView/commit/fb43f095caa9b23e10f76521b71ad429d091cdd6))
+
+
+
 ## [16.24.16](https://github.com/phandcock/GrampsView/compare/v16.24.15...v16.24.16) (2022-05-15)
 
 
@@ -29,16 +38,6 @@
 ### Bug Fixes
 
 * move misc to commonroutines ([77c0e46](https://github.com/phandcock/GrampsView/commit/77c0e465f2fdce1efcac6152addea523f7385eb3))
-
-
-
-## [16.24.13](https://github.com/phandcock/GrampsView/compare/v16.24.12...v16.24.13) (2022-05-10)
-
-
-### Bug Fixes
-
-* chnage to msixbundle for ms app centre ([3da26ff](https://github.com/phandcock/GrampsView/commit/3da26ff4085a4c3f1614343ae720b00b3bd09e4b))
-* fix font size of person name single line card ([ddaa533](https://github.com/phandcock/GrampsView/commit/ddaa5333051294aa4617bb186523eb5ffac57d76))
 
 
 
