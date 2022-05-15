@@ -1,3 +1,12 @@
+## [16.24.16](https://github.com/phandcock/GrampsView/compare/v16.24.15...v16.24.16) (2022-05-15)
+
+
+### Bug Fixes
+
+* tweak button colours ([8a07be7](https://github.com/phandcock/GrampsView/commit/8a07be7a78e5cf83055bc823dc037e5991bb658f))
+
+
+
 ## [16.24.15](https://github.com/phandcock/GrampsView/compare/v16.24.14...v16.24.15) (2022-05-14)
 
 
@@ -30,17 +39,6 @@
 
 * chnage to msixbundle for ms app centre ([3da26ff](https://github.com/phandcock/GrampsView/commit/3da26ff4085a4c3f1614343ae720b00b3bd09e4b))
 * fix font size of person name single line card ([ddaa533](https://github.com/phandcock/GrampsView/commit/ddaa5333051294aa4617bb186523eb5ffac57d76))
-
-
-
-## [16.24.12](https://github.com/phandcock/GrampsView/compare/v16.24.11...v16.24.12) (2022-05-07)
-
-
-### Bug Fixes
-
-* enable ms app center debug build distirution ([b016a18](https://github.com/phandcock/GrampsView/commit/b016a184061d87ea0f4e2d69edeece66c2e55cc5))
-* update nugets ([88ff5a4](https://github.com/phandcock/GrampsView/commit/88ff5a4991b8803fc32e0b561fd63617ed623278))
-* use sharedsharp listlinecard large ([594ae7f](https://github.com/phandcock/GrampsView/commit/594ae7f7e56b48ac2eb03316a1ed87e774e433f5))
 
 
 
