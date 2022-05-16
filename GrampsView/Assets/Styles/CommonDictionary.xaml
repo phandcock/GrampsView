@@ -39,4 +39,16 @@
         <Setter Property="Margin" Value="3" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
     </Style>
+
+    <!--
+        ******************************************************
+        ContentPage Styles
+        ******************************************************
+    -->
+
+    <!--  Create a ContentPage style  -->
+
+    <Style x:Key="GVBaseContentPage" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
+    </Style>
 </ResourceDictionary>

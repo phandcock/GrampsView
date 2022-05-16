@@ -27,6 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Remove="Assets\Styles\CommonDictionary.cs" />
 		<Compile Remove="Common\ActionDialogArgs.cs" />
 		<Compile Remove="Common\Card Group\CardGroupBaseEx.cs" />
 		<Compile Remove="Common\Card Group\CardGroupCollection.cs" />
@@ -102,6 +103,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Remove="Assets\Styles\CommonDictionary.xaml" />
 		<EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
 		<EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
 		<EmbeddedResource Remove="UserControls\General\CardGroupBackLink.xaml" />
@@ -164,6 +166,10 @@
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 		<PackageReference Include="Xamarin.Forms.Breadcrumb" Version="2.8.2" />
 		<PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Include="Assets\Styles\CommonDictionary.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -242,9 +248,6 @@
 		<EmbeddedResource Update="Assets\Strings\AppResources.resx">
 		  <Generator>PublicResXFileCodeGenerator</Generator>
 		  <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Assets\Styles\CommonDictionary.xaml">
-		  <Generator>MSBuild:Compile</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
