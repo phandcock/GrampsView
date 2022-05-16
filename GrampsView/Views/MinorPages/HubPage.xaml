@@ -28,14 +28,19 @@
         <common:GrampsViewSearchHandler
             Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
-            ShowsResults="true">
+            ShowsResults="false">
             <common:GrampsViewSearchHandler.ItemTemplate>
-                <DataTemplate x:DataType="commonclasses:sea:SearcHandlerItem">
-                    <Label
-                        Grid.Column="1"
-                        Style="{DynamicResource GVCardLabelStyleSmall}"
-                        Text="{Binding DefaultShortText}"
-                        VerticalOptions="Center" />
+                <DataTemplate x:DataType="commonclasses:SearcHandlerItem">
+                    <Grid ColumnDefinitions="0.15*,0.85*">
+                        <ucon:HLinkVisualDisplay
+                            Grid.Column="0"
+                            BindingContext="{Binding HLink.HLinkGlyphItem}"
+                            Style="{DynamicResource MediaImageStyle}" />
+                        <Label
+                            Grid.Column="1"
+                            Style="{DynamicResource GVCardLabelStyleSmall}"
+                            Text="{Binding DefaultShortText}" />
+                    </Grid>
                 </DataTemplate>
             </common:GrampsViewSearchHandler.ItemTemplate>
         </common:GrampsViewSearchHandler>
