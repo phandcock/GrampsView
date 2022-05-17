@@ -1,3 +1,14 @@
+## [16.24.18](https://github.com/phandcock/GrampsView/compare/v16.24.17...v16.24.18) (2022-05-17)
+
+
+### Bug Fixes
+
+* Add CommonDictionary ([b2b1751](https://github.com/phandcock/GrampsView/commit/b2b1751557895c26e5bff9fa53df99e413af5552))
+* add icons to search handler ([802623c](https://github.com/phandcock/GrampsView/commit/802623c776708b9d6ecb437959cd29cbd790f475))
+* tweak card background colour ([ead7b56](https://github.com/phandcock/GrampsView/commit/ead7b56cb708f2e07f9b372dde445b17129ed5d7))
+
+
+
 ## [16.24.17](https://github.com/phandcock/GrampsView/compare/v16.24.16...v16.24.17) (2022-05-15)
 
 
@@ -29,15 +40,6 @@
 * remove ssstyles ([9a3573c](https://github.com/phandcock/GrampsView/commit/9a3573cb770e7e8240d6864217268234be1494cf))
 * remove unused nugets ([00598fe](https://github.com/phandcock/GrampsView/commit/00598fe19e9cb3d9e891ff64435a5c0b3b64a037))
 * tweak themes ([27ebba6](https://github.com/phandcock/GrampsView/commit/27ebba60260e0be8ec884062e2dddaa42b9b9e94))
-
-
-
-## [16.24.14](https://github.com/phandcock/GrampsView/compare/v16.24.13...v16.24.14) (2022-05-12)
-
-
-### Bug Fixes
-
-* move misc to commonroutines ([77c0e46](https://github.com/phandcock/GrampsView/commit/77c0e465f2fdce1efcac6152addea523f7385eb3))
 
 
 
