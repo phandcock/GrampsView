@@ -10,7 +10,7 @@
     xmlns:vviewmodel="clr-namespace:GrampsView.ViewModels"
     Title="{Binding BaseTitle}"
     x:DataType="vviewmodel:BookMarkListViewModel"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

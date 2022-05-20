@@ -13,7 +13,7 @@
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:NeedDatabaseReloadViewModel"
     Shell.PresentationMode="ModalNotAnimated"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

@@ -8,7 +8,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:TagListViewModel"
-    Style="{DynamicResource SSBaseContentPage}">
+    Style="{DynamicResource GVBaseContentPage}">
 
     <Shell.TitleView>
         <ucon:TopMenu />

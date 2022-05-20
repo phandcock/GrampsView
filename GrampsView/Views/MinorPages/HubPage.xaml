@@ -17,7 +17,7 @@
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="ViewModels:HubViewModel"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

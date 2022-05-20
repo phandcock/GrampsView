@@ -159,7 +159,7 @@
     </Color>
 
     <Color x:Key="BackgroundLight">
-        #FFFBFE
+        #fffff0
     </Color>
 
     <Color x:Key="OnBackgroundLight">

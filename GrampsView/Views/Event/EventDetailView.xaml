@@ -10,7 +10,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:EventDetailViewModel"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

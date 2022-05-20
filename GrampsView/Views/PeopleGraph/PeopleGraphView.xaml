@@ -8,7 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

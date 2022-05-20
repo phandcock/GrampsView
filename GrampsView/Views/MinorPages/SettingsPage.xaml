@@ -13,7 +13,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SettingsViewModel"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
@@ -27,7 +27,7 @@
 
             <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeVariableCardStyleNS}">
 
-                <StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
 
                     <Frame Style="{DynamicResource GVFrameHeaderStyle}">
                         <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Application Theme" />

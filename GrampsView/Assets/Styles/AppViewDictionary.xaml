@@ -133,10 +133,10 @@
     <Style x:Key="FrameCardStyle" TargetType="Frame">
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="HasShadow" Value="True" />
     </Style>
 
@@ -539,7 +539,6 @@
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
     </Style>
 
     <!--  Create Medium Styles for a Label  -->
@@ -557,7 +556,6 @@
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
     </Style>
 
     <!--  Create Large Styles for a Label  -->
@@ -575,7 +573,6 @@
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontLarge}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
     </Style>
 
     <Style

@@ -11,7 +11,7 @@
     x:Name="TagDetailPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:TagDetailViewModel"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

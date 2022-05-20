@@ -14,7 +14,7 @@
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SearchPageViewModel"
     Appearing="ContentPage_Appearing"
-    Style="{DynamicResource SSBaseContentPage}"
+    Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
     <!--  Header  -->
