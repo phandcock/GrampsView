@@ -1,3 +1,13 @@
+## [16.24.20](https://github.com/phandcock/GrampsView/compare/v16.24.19...v16.24.20) (2022-05-21)
+
+
+### Bug Fixes
+
+* ytweak colours ([87b5539](https://github.com/phandcock/GrampsView/commit/87b55398db46ffa5eabb47fb446fafc4e5eeb33f))
+* ytweak colours ([756ef3c](https://github.com/phandcock/GrampsView/commit/756ef3caead9e01fa2906ff84839d992d4ec3310))
+
+
+
 ## [16.24.19](https://github.com/phandcock/GrampsView/compare/v16.24.18...v16.24.19) (2022-05-19)
 
 
@@ -24,15 +34,6 @@
 ### Bug Fixes
 
 * add commondictionary ([fb43f09](https://github.com/phandcock/GrampsView/commit/fb43f095caa9b23e10f76521b71ad429d091cdd6))
-
-
-
-## [16.24.16](https://github.com/phandcock/GrampsView/compare/v16.24.15...v16.24.16) (2022-05-15)
-
-
-### Bug Fixes
-
-* tweak button colours ([8a07be7](https://github.com/phandcock/GrampsView/commit/8a07be7a78e5cf83055bc823dc037e5991bb658f))
 
 
 
