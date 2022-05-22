@@ -1,3 +1,15 @@
+## [16.24.21](https://github.com/phandcock/GrampsView/compare/v16.24.20...v16.24.21) (2022-05-22)
+
+
+### Bug Fixes
+
+* move to sharedsharp view/model base ([4656f4d](https://github.com/phandcock/GrampsView/commit/4656f4d34f4b64a6300367a0a06910bb13bb28bd))
+* nuget updates ([3c55935](https://github.com/phandcock/GrampsView/commit/3c559353dc8aa4756c347808c780cc7be8fa7d15))
+* nuget updates ([803a3dc](https://github.com/phandcock/GrampsView/commit/803a3dc21435c8450f286330a9a7532ff481ac67))
+* tweak edit pages ([ee40dcb](https://github.com/phandcock/GrampsView/commit/ee40dcb998bc9eeb479e65a595eaa6fd14809cb0))
+
+
+
 ## [16.24.20](https://github.com/phandcock/GrampsView/compare/v16.24.19...v16.24.20) (2022-05-21)
 
 
@@ -25,15 +37,6 @@
 * Add CommonDictionary ([b2b1751](https://github.com/phandcock/GrampsView/commit/b2b1751557895c26e5bff9fa53df99e413af5552))
 * add icons to search handler ([802623c](https://github.com/phandcock/GrampsView/commit/802623c776708b9d6ecb437959cd29cbd790f475))
 * tweak card background colour ([ead7b56](https://github.com/phandcock/GrampsView/commit/ead7b56cb708f2e07f9b372dde445b17129ed5d7))
-
-
-
-## [16.24.17](https://github.com/phandcock/GrampsView/compare/v16.24.16...v16.24.17) (2022-05-15)
-
-
-### Bug Fixes
-
-* add commondictionary ([fb43f09](https://github.com/phandcock/GrampsView/commit/fb43f095caa9b23e10f76521b71ad429d091cdd6))
 
 
 
