@@ -1,7 +1,6 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Model;
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
@@ -13,24 +12,15 @@
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.CommunityToolkit.UI.Views;
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
-    public class ViewModelBase : ObservableObject, INotifyPropertyChanged
+    public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
     {
         private string _BaseParamsHLink;
         private string _BaseTitle;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        public ViewModelBase()
-        {
-            ViewSetup();
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
@@ -49,6 +39,11 @@
             ViewSetup();
         }
 
+        public ViewModelBase()
+        {
+            ViewSetup();
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
         /// </summary>
@@ -63,30 +58,6 @@
         }
 
         /// <summary>
-        /// Gets or sets the base common logger.
-        /// </summary>
-        /// <value>
-        /// The base cl.
-        /// </value>
-        public ISharedLogging BaseCL
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Gets or sets the state of the base current.
-        /// </summary>
-        /// <value>
-        /// The state of the base current.
-        /// </value>
-        public LayoutState BaseCurrentLayoutState
-        {
-            get; set;
-        }
-
-        = LayoutState.None;
-
-        /// <summary>
         /// Gets the base detail.
         /// </summary>
         /// <value>
@@ -98,19 +69,6 @@
         }
 
         = new Group<object>();
-
-        /// <summary>
-        /// Gets or sets the base event aggregator.
-        /// </summary>
-        /// <value>
-        /// The base event aggregator.
-        /// </value>
-        public IMessenger BaseEventAggregator
-        {
-            get; set;
-        }
-
-        public IModelBase BaseModelBase { get; set; } = new ModelBase();
 
         public string BaseParamsHLink
         {
@@ -128,7 +86,7 @@
         /// <value>
         /// The base title.
         /// </value>
-        public string BaseTitle
+        public override string BaseTitle
         {
             get
             {
@@ -150,17 +108,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets or sets the base title icon.
-        /// </summary>
-        /// <value>
-        /// The base title icon.
-        /// </value>
-        public string BaseTitleIcon
-        {
-            get; set;
-        }
-
         public bool TopMenuHubButtonVisible
         {
             get; private set;
@@ -174,22 +121,6 @@
         public IAsyncCommand TopMenuNoteCommand
         {
             get; private set;
-        }
-
-        /// <summary>
-        /// Handle the appearing event. Designed to be overridden at the modelview level.
-        /// </summary>
-        public virtual void HandleViewAppearingEvent()
-        {
-            return;
-        }
-
-        /// <summary>
-        /// Handle the view loaded event. Designed to be overridden at the modelview level.
-        /// </summary>
-        public virtual void HandleViewDataLoadEvent()
-        {
-            return;
         }
 
         public void TopMenuHubCommandHandler()
@@ -217,9 +148,17 @@
             await Email.ComposeAsync(message);
         }
 
-        internal void BaseHandleViewAppearingEventInternal()
+        public override void ViewSetup()
         {
-            HandleViewAppearingEvent();
+            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
+
+            // As UWP does not support shell swipes for desktop. TODO Fix this when we can
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                TopMenuHubButtonVisible = true;
+            }
+
+            TopMenuNoteCommand = new AsyncCommand(TopMenuNoteCommandHandler);
         }
 
         /// <summary>
@@ -257,19 +196,6 @@
 
                 BaseTitle = BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
             }
-        }
-
-        private void ViewSetup()
-        {
-            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
-
-            // As UWP does not support shell swipes for desktop. TODO Fix this when we can
-            if (Device.RuntimePlatform == Device.UWP)
-            {
-                TopMenuHubButtonVisible = true;
-            }
-
-            TopMenuNoteCommand = new AsyncCommand(TopMenuNoteCommandHandler);
         }
     }
 }
