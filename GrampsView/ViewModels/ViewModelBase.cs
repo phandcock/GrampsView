@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
+    using GrampsView.Data.Model;
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
@@ -69,6 +70,8 @@
         }
 
         = new Group<object>();
+
+        public IModelBase BaseModelBase { get; set; } = new ModelBase();
 
         public string BaseParamsHLink
         {
