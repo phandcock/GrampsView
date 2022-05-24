@@ -6,7 +6,7 @@
     {
         public override void Init()
         {
-            CardSmallWidthDefault = 270;
+            CardSmallWidthDefault = 230;
         }
 
         // Ratio of Height to width is 3 times
