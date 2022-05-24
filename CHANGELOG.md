@@ -1,3 +1,12 @@
+## [16.24.22](https://github.com/phandcock/GrampsView/compare/v16.24.21...v16.24.22) (2022-05-24)
+
+
+### Bug Fixes
+
+* tweaks ([e2023d6](https://github.com/phandcock/GrampsView/commit/e2023d6c6a2cba3e7879787e8fbe97d08286b72d))
+
+
+
 ## [16.24.21](https://github.com/phandcock/GrampsView/compare/v16.24.20...v16.24.21) (2022-05-22)
 
 
@@ -26,17 +35,6 @@
 ### Bug Fixes
 
 * tweak flyout colours ([6a40d7c](https://github.com/phandcock/GrampsView/commit/6a40d7c01c4c27cc588547f49e5285bd6878f006))
-
-
-
-## [16.24.18](https://github.com/phandcock/GrampsView/compare/v16.24.17...v16.24.18) (2022-05-17)
-
-
-### Bug Fixes
-
-* Add CommonDictionary ([b2b1751](https://github.com/phandcock/GrampsView/commit/b2b1751557895c26e5bff9fa53df99e413af5552))
-* add icons to search handler ([802623c](https://github.com/phandcock/GrampsView/commit/802623c776708b9d6ecb437959cd29cbd790f475))
-* tweak card background colour ([ead7b56](https://github.com/phandcock/GrampsView/commit/ead7b56cb708f2e07f9b372dde445b17129ed5d7))
 
 
 
