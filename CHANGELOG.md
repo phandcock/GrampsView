@@ -1,3 +1,12 @@
+## [16.24.23](https://github.com/phandcock/GrampsView/compare/v16.24.22...v16.24.23) (2022-05-25)
+
+
+### Bug Fixes
+
+* fix cardsizes ([61ea06a](https://github.com/phandcock/GrampsView/commit/61ea06a8cbf988f0411d5b58bb16bc3c5005abff))
+
+
+
 ## [16.24.22](https://github.com/phandcock/GrampsView/compare/v16.24.21...v16.24.22) (2022-05-24)
 
 
@@ -26,15 +35,6 @@
 
 * ytweak colours ([87b5539](https://github.com/phandcock/GrampsView/commit/87b55398db46ffa5eabb47fb446fafc4e5eeb33f))
 * ytweak colours ([756ef3c](https://github.com/phandcock/GrampsView/commit/756ef3caead9e01fa2906ff84839d992d4ec3310))
-
-
-
-## [16.24.19](https://github.com/phandcock/GrampsView/compare/v16.24.18...v16.24.19) (2022-05-19)
-
-
-### Bug Fixes
-
-* tweak flyout colours ([6a40d7c](https://github.com/phandcock/GrampsView/commit/6a40d7c01c4c27cc588547f49e5285bd6878f006))
 
 
 
