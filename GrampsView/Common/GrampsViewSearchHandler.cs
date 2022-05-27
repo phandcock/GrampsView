@@ -23,7 +23,7 @@
         {
             base.OnQueryChanged(oldValue, newValue);
 
-            if (string.IsNullOrWhiteSpace(newValue))
+            if (string.IsNullOrWhiteSpace(newValue) || (newValue.Length < 5))
             {
                 ItemsSource = null;
             }
