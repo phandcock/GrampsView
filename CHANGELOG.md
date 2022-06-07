@@ -1,3 +1,12 @@
+## [16.24.26](https://github.com/phandcock/GrampsView/compare/v16.24.25...v16.24.26) (2022-06-07)
+
+
+### Bug Fixes
+
+* nugets and sharedsharp ([e285130](https://github.com/phandcock/GrampsView/commit/e2851308a21462fdabb1f742dcdea821282a26c8))
+
+
+
 ## [16.24.25](https://github.com/phandcock/GrampsView/compare/v16.24.24...v16.24.25) (2022-06-02)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * fix cardsizes ([61ea06a](https://github.com/phandcock/GrampsView/commit/61ea06a8cbf988f0411d5b58bb16bc3c5005abff))
-
-
-
-## [16.24.22](https://github.com/phandcock/GrampsView/compare/v16.24.21...v16.24.22) (2022-05-24)
-
-
-### Bug Fixes
-
-* tweaks ([e2023d6](https://github.com/phandcock/GrampsView/commit/e2023d6c6a2cba3e7879787e8fbe97d08286b72d))
 
 
 
