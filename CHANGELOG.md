@@ -1,3 +1,12 @@
+## [16.24.27](https://github.com/phandcock/GrampsView/compare/v16.24.26...v16.24.27) (2022-06-11)
+
+
+### Bug Fixes
+
+* nuget updates ([4a07c81](https://github.com/phandcock/GrampsView/commit/4a07c81a358ac4e799d1de182e2250fb66c72931))
+
+
+
 ## [16.24.26](https://github.com/phandcock/GrampsView/compare/v16.24.25...v16.24.26) (2022-06-07)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * only return hub search ifmore than 4 characters ([353c0c4](https://github.com/phandcock/GrampsView/commit/353c0c4bb5e16f18a9af9dd013b90c3350bb6929))
-
-
-
-## [16.24.23](https://github.com/phandcock/GrampsView/compare/v16.24.22...v16.24.23) (2022-05-25)
-
-
-### Bug Fixes
-
-* fix cardsizes ([61ea06a](https://github.com/phandcock/GrampsView/commit/61ea06a8cbf988f0411d5b58bb16bc3c5005abff))
 
 
 
