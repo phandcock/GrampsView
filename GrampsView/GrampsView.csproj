@@ -162,7 +162,7 @@
 		<PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
 		<PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" GeneratePathProperty="true" />
 		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 		<PackageReference Include="Xamarin.Forms.Breadcrumb" Version="2.8.2" />
 		<PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
