@@ -2,9 +2,8 @@
     x:Class="GrampsView.UserControls.NoteCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharesharp="clr-namespace:SharedSharp.CommonRoutines"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkNoteModel">
 
@@ -28,7 +27,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="1"
-            FontSize="{x:Static sharesharp:FontSizes.FontVerySmall}"
+            FontSize="{x:Static sharedsharp:FontSizes.FontVerySmall}"
             FormattedText="{Binding DeRef.GType, Mode=OneWay}"
             HorizontalOptions="End"
             Style="{DynamicResource GVCardLabelStyleSmall}" />

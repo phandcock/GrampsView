@@ -5,7 +5,7 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ChildRefCardSmallRoot"
     x:DataType="models:HLinkChildRefModel">

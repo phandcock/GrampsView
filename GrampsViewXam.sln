@@ -64,15 +64,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.Test.NUnit", "Gr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrampsView.Test.e2e", "GrampsView.Test.e2et\GrampsView.Test.e2e.csproj", "{CEB8843C-EAD4-425C-BBB1-4ADDD93B6672}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedSharp", "SharedSharp\SharedSharp\SharedSharp.shproj", "{C6F4232F-922C-494B-AE39-8A65D6C89DA9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrampsView.Droid", "GrampsView.Droid\GrampsView.Droid.csproj", "{3651F099-4475-42DF-AB9C-115BECEEB8EB}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		SharedSharp\SharedSharp\SharedSharp.projitems*{54eaf1e8-e560-4a93-8206-263171b8900d}*SharedItemsImports = 5
-		SharedSharp\SharedSharp\SharedSharp.projitems*{c6f4232f-922c-494b-ae39-8a65d6c89da9}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
