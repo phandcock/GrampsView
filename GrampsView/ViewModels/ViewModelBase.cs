@@ -6,6 +6,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using SharedSharp.ViewModels;
 
     using System.Collections.Generic;
     using System.ComponentModel;

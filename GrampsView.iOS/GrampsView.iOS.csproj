@@ -248,7 +248,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharpNu">
-      <Version>1.0.0</Version>
+      <Version>0.0.4-CI-20220613-235726</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.4</Version>

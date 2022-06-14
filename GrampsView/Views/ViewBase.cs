@@ -1,6 +1,8 @@
 ﻿namespace GrampsView.Views
 {
-    public class ViewBase : ShraredSharpViewBase
+    using SharedSharp.Views;
+
+    public class ViewBase : SharedSharpViewBase
     {
         public ViewBase()
         {

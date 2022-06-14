@@ -30,7 +30,7 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="RelaxNG" Version="3.2.3" />
-		<PackageReference Include="SharedSharpNu" Version="1.0.0" />
+		<PackageReference Include="SharedSharpNu" Version="0.0.4-CI-20220613-235726" />
 	</ItemGroup>
 
 	<ItemGroup>
