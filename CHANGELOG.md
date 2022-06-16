@@ -1,3 +1,12 @@
+## [16.24.29](https://github.com/phandcock/GrampsView/compare/v16.24.28...v16.24.29) (2022-06-16)
+
+
+### Bug Fixes
+
+* update nuget ([212d419](https://github.com/phandcock/GrampsView/commit/212d419830fb147c10a83df9c5ad5f85adb9af17))
+
+
+
 ## [16.24.28](https://github.com/phandcock/GrampsView/compare/v16.24.27...v16.24.28) (2022-06-14)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * nugets and sharedsharp ([e285130](https://github.com/phandcock/GrampsView/commit/e2851308a21462fdabb1f742dcdea821282a26c8))
-
-
-
-## [16.24.25](https://github.com/phandcock/GrampsView/compare/v16.24.24...v16.24.25) (2022-06-02)
-
-
-### Bug Fixes
-
-* tweak error dialog ([2668925](https://github.com/phandcock/GrampsView/commit/26689255137c45e23d998305cccecdd2f02ab6ba))
 
 
 
