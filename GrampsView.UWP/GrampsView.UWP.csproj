@@ -214,10 +214,10 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharpNu">
-      <Version>0.0.5-CI-20220614-202543</Version>
+      <Version>0.0.6</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
-      <Version>6.0.4</Version>
+      <Version>6.0.5</Version>
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
@@ -231,7 +231,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.13" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2478</Version>
     </PackageReference>
