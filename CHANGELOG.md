@@ -1,3 +1,14 @@
+## [16.24.30](https://github.com/phandcock/GrampsView/compare/v16.24.29...v16.24.30) (2022-06-18)
+
+
+### Bug Fixes
+
+* tweaks ([61d64ff](https://github.com/phandcock/GrampsView/commit/61d64ffed35c540ab102ed4934eea702d0dd1345))
+* update nuget.config ([64a9e1e](https://github.com/phandcock/GrampsView/commit/64a9e1ef9684cc0dfaa9157273e4925ad38bf40a))
+* update nugets ([db58ae2](https://github.com/phandcock/GrampsView/commit/db58ae2da172e9379c7a91c22a1545626c75dc3a))
+
+
+
 ## [16.24.29](https://github.com/phandcock/GrampsView/compare/v16.24.28...v16.24.29) (2022-06-16)
 
 
@@ -23,15 +34,6 @@
 ### Bug Fixes
 
 * nuget updates ([4a07c81](https://github.com/phandcock/GrampsView/commit/4a07c81a358ac4e799d1de182e2250fb66c72931))
-
-
-
-## [16.24.26](https://github.com/phandcock/GrampsView/compare/v16.24.25...v16.24.26) (2022-06-07)
-
-
-### Bug Fixes
-
-* nugets and sharedsharp ([e285130](https://github.com/phandcock/GrampsView/commit/e2851308a21462fdabb1f742dcdea821282a26c8))
 
 
 
