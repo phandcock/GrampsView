@@ -1,3 +1,12 @@
+## [16.24.31](https://github.com/phandcock/GrampsView/compare/v16.24.30...v16.24.31) (2022-06-19)
+
+
+### Bug Fixes
+
+* tweaks ([e2167ba](https://github.com/phandcock/GrampsView/commit/e2167babdad42631163e1ec6e88db32c1de225a8))
+
+
+
 ## [16.24.30](https://github.com/phandcock/GrampsView/compare/v16.24.29...v16.24.30) (2022-06-18)
 
 
@@ -25,15 +34,6 @@
 
 * add sharedsharpnu nuget ([51445fb](https://github.com/phandcock/GrampsView/commit/51445fb6a9f6de9f2c44e9d563bdd13907f7deb8))
 * choose correct sharedsharpnu nuget ([51f4bae](https://github.com/phandcock/GrampsView/commit/51f4bae880d5f36095c6c114bd862777dce5abfd))
-
-
-
-## [16.24.27](https://github.com/phandcock/GrampsView/compare/v16.24.26...v16.24.27) (2022-06-11)
-
-
-### Bug Fixes
-
-* nuget updates ([4a07c81](https://github.com/phandcock/GrampsView/commit/4a07c81a358ac4e799d1de182e2250fb66c72931))
 
 
 
