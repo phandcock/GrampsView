@@ -19,7 +19,7 @@
         private string _ThemeButtonChecked = string.Empty;
 
         public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                                                                                        : base(iocCommonLogging, iocEventAggregator)
+                                    : base(iocCommonLogging, iocEventAggregator)
         {
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;
@@ -139,30 +139,6 @@
             set
             {
                 CommonLocalSettings.UseFirstImageFlag = value;
-            }
-        }
-
-        public override void HandleViewAppearingEvent()
-        {
-            switch (LocalSettings.ApplicationTheme)
-            {
-                case OSAppTheme.Light:
-                    {
-                        ThemeButtonChecked = "Light";
-                        break;
-                    }
-
-                case OSAppTheme.Dark:
-                    {
-                        ThemeButtonChecked = "Dark";
-                        break;
-                    }
-
-                default:
-                    {
-                        ThemeButtonChecked = "System";
-                        break;
-                    }
             }
         }
 

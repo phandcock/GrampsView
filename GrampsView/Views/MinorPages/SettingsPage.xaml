@@ -3,10 +3,10 @@
     x:Class="GrampsView.Views.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -23,69 +23,22 @@
     <!--  Content  -->
     <ScrollView Padding="10">
 
-        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+        <StackLayout
+            HorizontalOptions="StartAndExpand"
+            Orientation="Vertical">
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <sharedsharpucon:ThemeSelector />
 
-                <StackLayout HorizontalOptions="CenterAndExpand">
-
-                    <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Application Theme" />
-                    </Frame>
-
-                    <StackLayout
-                        Orientation="Horizontal"
-                        RadioButtonGroup.GroupName="AppTheme"
-                        RadioButtonGroup.SelectedValue="{Binding ThemeButtonChecked, Mode=TwoWay}">
-
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="Light">
-                            <RadioButton.Content>
-                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeLight}" />
-                                        </Image.Source>
-                                    </Image>
-                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Light" />
-                                </StackLayout>
-                            </RadioButton.Content>
-                        </RadioButton>
-
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="Dark">
-                            <RadioButton.Content>
-                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeDark}" />
-                                        </Image.Source>
-                                    </Image>
-                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Dark" />
-                                </StackLayout>
-                            </RadioButton.Content>
-                        </RadioButton>
-
-                        <RadioButton ControlTemplate="{StaticResource GVRadioButtonTemplate}" Value="System">
-                            <RadioButton.Content>
-                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Image>
-                                        <Image.Source>
-                                            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconThemeSystem}" />
-                                        </Image.Source>
-                                    </Image>
-                                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="System" />
-                                </StackLayout>
-                            </RadioButton.Content>
-                        </RadioButton>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <Frame
+                HorizontalOptions="Center"
+                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
 
                 <StackLayout>
 
                     <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Settings" />
+                        <Label
+                            Style="{DynamicResource GVHeaderStyleMedium}"
+                            Text="Settings" />
                     </Frame>
 
                     <Grid>
@@ -127,12 +80,16 @@
                 </StackLayout>
             </Frame>
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <Frame
+                HorizontalOptions="Center"
+                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
 
                 <StackLayout>
 
                     <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Defaults" />
+                        <Label
+                            Style="{DynamicResource GVHeaderStyleMedium}"
+                            Text="Defaults" />
                     </Frame>
 
                     <Label
@@ -162,11 +119,15 @@
                 </StackLayout>
             </Frame>
 
-            <Frame HorizontalOptions="Center" Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <Frame
+                HorizontalOptions="Center"
+                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
                 <StackLayout>
 
                     <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Control Buttons" />
+                        <Label
+                            Style="{DynamicResource GVHeaderStyleMedium}"
+                            Text="Control Buttons" />
                     </Frame>
 
                     <Button
