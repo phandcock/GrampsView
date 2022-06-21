@@ -468,7 +468,7 @@
             {
                 LocalSettings.DataSerialised = false;
 
-                _commonNotifications.NotifyException("Trying to load existing serialised data", ex, argMsAppCenterTrack: true);
+                _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
 
