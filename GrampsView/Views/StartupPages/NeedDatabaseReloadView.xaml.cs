@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class NeedDatabaseReloadPage : ViewBase
+    public sealed partial class NeedDatabaseReloadPage : ViewBasePage
     {
         private NeedDatabaseReloadViewModel _viewModel { get; set; }
 

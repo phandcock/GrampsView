@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.NeedDatabaseReloadPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -25,7 +25,9 @@
 
             <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
 
-            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}" HorizontalOptions="Center" />
+            <ucon:InstructionCardLarge
+                BindingContext="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}"
+                HorizontalOptions="Center" />
 
             <Button
                 Command="{Binding LoadDataCommand}"
@@ -34,4 +36,4 @@
                 Text="{x:Static i18n:AppResources.LoadDataBase_GotoLoadData}" />
         </StackLayout>
     </ScrollView>
-</views:ViewBase>
+</views:ViewBasePage>

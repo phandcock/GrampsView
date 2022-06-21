@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class TagDetailPage : ViewBase
+    public partial class TagDetailPage : ViewBasePage
     {
         private TagDetailViewModel _viewModel { get; set; }
 

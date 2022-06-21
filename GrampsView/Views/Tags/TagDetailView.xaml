@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.TagDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -23,9 +23,11 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <Label BackgroundColor="{Binding TagObject.GColor}" Text="Tag Color" />
+            <Label
+                BackgroundColor="{Binding TagObject.GColor}"
+                Text="Tag Color" />
 
             <ucon:CardGroupHeader BindingContext="{Binding Path=TagObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
-</views:ViewBase>
+</views:ViewBasePage>

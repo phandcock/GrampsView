@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.PersonBirthdayPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -14,7 +14,9 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid Margin="0" Padding="0">
+    <Grid
+        Margin="0"
+        Padding="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -32,7 +34,9 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource SSPageMenu}">
-            <StackLayout Margin="0" Orientation="Horizontal">
+            <StackLayout
+                Margin="0"
+                Orientation="Horizontal">
                 <Label
                     Padding="3"
                     Style="{DynamicResource GVCardLabelStyle}"
@@ -54,4 +58,4 @@
             FsctSource="{Binding PersonSource, Mode=OneWay}"
             FsctTemplate="{StaticResource PersonCardSmallDT}" />
     </Grid>
-</views:ViewBase>
+</views:ViewBasePage>

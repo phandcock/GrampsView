@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.AboutPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -58,15 +58,25 @@
                     VerticalOptions="Center" />
             </StackLayout>
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="1" BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCardLarge
+                Grid.Row="1"
+                BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="2" BindingContext="{Binding HeaderData}" />
+            <sharedsharpucon:ListLineCardLarge
+                Grid.Row="2"
+                BindingContext="{Binding HeaderData}" />
 
-            <ucon:FileViewCardLarge Grid.Row="3" BindingContext="GrampsView.Attribution.md" />
+            <ucon:FileViewCardLarge
+                Grid.Row="3"
+                BindingContext="GrampsView.Attribution.md" />
 
-            <ucon:FileViewCardLarge Grid.Row="4" BindingContext="GrampsView.CHANGELOG.md" />
+            <ucon:FileViewCardLarge
+                Grid.Row="4"
+                BindingContext="GrampsView.CHANGELOG.md" />
 
-            <ucon:FileViewCardLarge Grid.Row="5" BindingContext="GrampsView.PrivacyPolicy.md" />
+            <ucon:FileViewCardLarge
+                Grid.Row="5"
+                BindingContext="GrampsView.PrivacyPolicy.md" />
         </Grid>
     </ScrollView>
-</views:ViewBase>
+</views:ViewBasePage>

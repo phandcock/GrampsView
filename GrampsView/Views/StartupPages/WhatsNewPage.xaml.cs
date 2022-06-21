@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class WhatsNewPage : ViewBase
+    public sealed partial class WhatsNewPage : ViewBasePage
     {
         private WhatsNewViewModel _viewModel { get; set; }
 

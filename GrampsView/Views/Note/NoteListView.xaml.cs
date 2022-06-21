@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class NoteListPage : ViewBase
+    public partial class NoteListPage : ViewBasePage
     {
         private NoteListViewModel _viewModel { get; set; }
 

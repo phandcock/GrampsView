@@ -4,13 +4,13 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class AboutPage : ViewBase
+    public sealed partial class AboutPage : ViewBasePage
     {
-        private AboutViewModel _viewModel { get; set; }
-
         public AboutPage()
         {
             InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<AboutViewModel>();
         }
+
+        private AboutViewModel _viewModel { get; set; }
     }
 }

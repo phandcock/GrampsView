@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class DateSpanDetailPage : ViewBase
+    public partial class DateSpanDetailPage : ViewBasePage
     {
         private DateSpanDetailViewModel _viewModel { get; set; }
 

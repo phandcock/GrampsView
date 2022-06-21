@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class FileInputHandlerPage : ViewBase
+    public sealed partial class FileInputHandlerPage : ViewBasePage
     {
         private FileInputHandlerViewModel _viewModel { get; set; }
 

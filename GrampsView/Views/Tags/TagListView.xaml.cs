@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class TagListPage : ViewBase
+    public sealed partial class TagListPage : ViewBasePage
     {
         private TagListViewModel _viewModel { get; set; }
 

@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class SettingsPage : ViewBase
+    public sealed partial class SettingsPage : ViewBasePage
     {
         public SettingsPage()
         {

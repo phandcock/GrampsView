@@ -18,7 +18,9 @@
 
     <!--  Create a Base Style for a Button Style  -->
 
-    <Style x:Key="GVButtonStyle" TargetType="Button">
+    <Style
+        x:Key="GVButtonStyle"
+        TargetType="Button">
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
@@ -47,7 +49,9 @@
 
     <!--  Create a ContentPage style  -->
 
-    <Style x:Key="GVBaseContentPage" TargetType="ContentPage">
+    <Style
+        x:Key="GVBaseContentPage"
+        TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>
 </ResourceDictionary>

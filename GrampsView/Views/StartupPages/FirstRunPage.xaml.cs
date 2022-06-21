@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class FirstRunPage : ViewBase
+    public sealed partial class FirstRunPage : ViewBasePage
     {
         private FirstRunViewModel _viewModel { get; set; }
 

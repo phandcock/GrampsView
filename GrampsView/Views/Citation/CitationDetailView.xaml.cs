@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class CitationDetailPage : ViewBase
+    public partial class CitationDetailPage : ViewBasePage
     {
         private CitationDetailViewModel _viewModel { get; set; }
 

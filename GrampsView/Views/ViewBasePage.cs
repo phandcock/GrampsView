@@ -2,9 +2,9 @@
 {
     using SharedSharp.Views;
 
-    public class ViewBase : SharedSharpViewBase
+    public class ViewBasePage : SharedSharpViewBase
     {
-        public ViewBase()
+        public ViewBasePage()
         {
         }
     }

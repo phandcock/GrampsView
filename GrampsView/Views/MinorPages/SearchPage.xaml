@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.SearchPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -56,19 +56,40 @@
 
             <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchCitationCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchEventsCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchMediaCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchPersonCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchAddressCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchCitationCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchEventsCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchMediaCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchNoteCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+            <Frame
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                                  Light={StaticResource SurfaceLight}}"
+                IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
             </Frame>
         </StackLayout>
     </ScrollView>
-</views:ViewBase>
+</views:ViewBasePage>

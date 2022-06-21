@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class PeopleGraphPage : ViewBase
+    public sealed partial class PeopleGraphPage : ViewBasePage
     {
         private PeopleGraphViewModel _viewModel { get; set; }
 

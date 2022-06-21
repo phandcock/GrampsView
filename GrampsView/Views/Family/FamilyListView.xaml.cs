@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class FamilyListPage : ViewBase
+    public sealed partial class FamilyListPage : ViewBasePage
     {
         private FamilyListViewModel _viewModel { get; set; }
 

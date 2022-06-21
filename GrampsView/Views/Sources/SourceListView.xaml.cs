@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class SourceListPage : ViewBase
+    public sealed partial class SourceListPage : ViewBasePage
     {
         private SourceListViewModel _viewModel { get; set; }
 

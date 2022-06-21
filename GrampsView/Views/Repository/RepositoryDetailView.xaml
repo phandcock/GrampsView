@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.RepositoryDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -21,12 +21,20 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding RepositoryObject.GNoteRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding RepositoryObject.GTagRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding RepositoryObject.GAddress, Mode=OneWay}"
+                FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding RepositoryObject.GURL, Mode=OneWay}"
+                FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding RepositoryObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
-</views:ViewBase>
+</views:ViewBasePage>

@@ -4,7 +4,7 @@ namespace GrampsView.Views
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class SearchPage : ViewBase
+    public sealed partial class SearchPage : ViewBasePage
     {
         private SearchPageViewModel _viewModel { get; set; }
 

@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class PersonBirthdayPage : ViewBase
+    public sealed partial class PersonBirthdayPage : ViewBasePage
     {
         private PersonBirthdayViewModel _viewModel { get; set; }
 

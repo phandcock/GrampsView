@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.RepositoryRefDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -21,7 +21,9 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryHLink.GNoteRef, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding RepositoryHLink.GNoteRef, Mode=OneWay}"
+                FsctTemplate="{StaticResource NoteCardSmallDT}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
-</views:ViewBase>
+</views:ViewBasePage>

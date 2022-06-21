@@ -12,7 +12,7 @@
     using Xamarin.Essentials;
     using Xamarin.Forms;
 
-    public partial class MediaDetailPage : ViewBase
+    public partial class MediaDetailPage : ViewBasePage
     {
         private MediaDetailViewModel _viewModel { get; set; }
 

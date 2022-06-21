@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.EventListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -16,5 +16,7 @@
 
     <!--  Content  -->
 
-    <ucon:CollectionSingleCardGrouped FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-</views:ViewBase>
+    <ucon:CollectionSingleCardGrouped
+        FsctSource="{Binding EventSource, Mode=OneWay}"
+        FsctTemplate="{StaticResource EventCardSmallDT}" />
+</views:ViewBasePage>

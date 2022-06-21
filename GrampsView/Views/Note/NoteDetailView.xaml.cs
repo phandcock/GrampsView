@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class NoteDetailPage : ViewBase
+    public partial class NoteDetailPage : ViewBasePage
     {
         private NoteDetailViewModel _viewModel { get; set; }
 

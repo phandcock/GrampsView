@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class MediaListPage : ViewBase
+    public sealed partial class MediaListPage : ViewBasePage
     {
         private MediaListViewModel _viewModel { get; set; }
 

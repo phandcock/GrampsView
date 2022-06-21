@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -28,7 +28,9 @@
                 HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
                 WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
+                    <TapGestureRecognizer
+                        NumberOfTapsRequired="2"
+                        Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
                 <StackLayout>
                     <ucon:HLinkVisualDisplay
@@ -38,18 +40,32 @@
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
 
-                    <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}" HorizontalOptions="Center" />
+                    <ucon:InstructionCardLarge
+                        BindingContext="{x:Static i18n:AppResources.Media_Detail_Open_File}"
+                        HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentHLinkMedia.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentHLinkMedia.GNoteRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentMediaObject.GCitationRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard
+                FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}"
+                FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
         </StackLayout>
@@ -58,4 +74,4 @@
                 x:Name="graphbutton"
                 Background="{StaticResource GVThemeDominantBackground}"
                 ToolTipService.ToolTip="Show Graph">-->
-</views:ViewBase>
+</views:ViewBasePage>

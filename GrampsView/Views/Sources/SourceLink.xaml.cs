@@ -5,7 +5,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class SourceLink : ViewBase
+    public partial class SourceLink : ViewBasePage
     {
         private SourceDetailViewModel _viewModel { get; set; }
 

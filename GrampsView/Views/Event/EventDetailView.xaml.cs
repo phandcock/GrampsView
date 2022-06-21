@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class EventDetailPage : ViewBase
+    public partial class EventDetailPage : ViewBasePage
     {
         private EventDetailViewModel _viewModel { get; set; }
 

@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class ChildRefDetailPage : ViewBase
+    public partial class ChildRefDetailPage : ViewBasePage
     {
         private ChildRefDetailViewModel _viewModel { get; set; }
 

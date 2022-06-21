@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class BookMarkListPage : ViewBase
+    public sealed partial class BookMarkListPage : ViewBasePage
     {
         private BookMarkListViewModel _viewModel { get; set; }
 

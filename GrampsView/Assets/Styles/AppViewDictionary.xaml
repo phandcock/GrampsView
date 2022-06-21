@@ -24,7 +24,9 @@
         BreadCrumb Styles
         ******************************************************
     -->
-    <Style x:Key="GVBreadcrumb" TargetType="breadcrumb:Breadcrumb">
+    <Style
+        x:Key="GVBreadcrumb"
+        TargetType="breadcrumb:Breadcrumb">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="LastBreadcrumbTextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
@@ -35,7 +37,9 @@
         CollectionView Styles
         ******************************************************
     -->
-    <Style x:Key="CollectionViewBase" TargetType="CollectionView">
+    <Style
+        x:Key="CollectionViewBase"
+        TargetType="CollectionView">
         <Setter Property="Margin" Value="1" />
         <Setter Property="BackgroundColor" Value="Transparent" />
     </Style>
@@ -47,11 +51,15 @@
     -->
 
     <!--  Create a Entry style  -->
-    <Style x:Key="GVEntryBase" TargetType="Entry">
+    <Style
+        x:Key="GVEntryBase"
+        TargetType="Entry">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
     </Style>
 
-    <Style x:Key="GVEntryInvalid" TargetType="Entry">
+    <Style
+        x:Key="GVEntryInvalid"
+        TargetType="Entry">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ErrorDark}, Light={StaticResource ErrorLight}}" />
     </Style>
 
@@ -62,7 +70,9 @@
     -->
 
     <!--  Create a Card Style for a FlexLayout Style  -->
-    <Style x:Key="FlexLayoutCards" TargetType="FlexLayout">
+    <Style
+        x:Key="FlexLayoutCards"
+        TargetType="FlexLayout">
         <Setter Property="Wrap" Value="Wrap" />
         <Setter Property="AlignItems" Value="Start" />
         <Setter Property="BackgroundColor" Value="Transparent" />
@@ -71,7 +81,9 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
+    <Style
+        x:Key="FlexSingleCollection"
+        TargetType="FlexLayout">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Wrap" Value="Wrap" />
@@ -79,7 +91,9 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>
 
-    <Style x:Key="FlexMulti" TargetType="FlexLayout">
+    <Style
+        x:Key="FlexMulti"
+        TargetType="FlexLayout">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
@@ -94,7 +108,9 @@
     -->
 
     <!--  Create a TopMenu Style  -->
-    <Style x:Key="TopMenu" TargetType="Frame">
+    <Style
+        x:Key="TopMenu"
+        TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Margin" Value="0" />
@@ -105,7 +121,9 @@
     </Style>
 
     <!--  Create a PageMenu Style  -->
-    <Style x:Key="GVPageMenu" TargetType="Frame">
+    <Style
+        x:Key="GVPageMenu"
+        TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="CornerRadius" Value="3" />
@@ -116,7 +134,9 @@
     </Style>
 
     <!--  Create a MediaImage Style  -->
-    <Style x:Key="MediaImageStyle" TargetType="Grid">
+    <Style
+        x:Key="MediaImageStyle"
+        TargetType="Grid">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="1" />
     </Style>
@@ -130,7 +150,9 @@
     <!--
         Create a Frame Card Style
     -->
-    <Style x:Key="FrameCardStyle" TargetType="Frame">
+    <Style
+        x:Key="FrameCardStyle"
+        TargetType="Frame">
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
@@ -307,7 +329,9 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
     </Style>
 
-    <Style x:Key="CardGroupStyle" TargetType="Frame">
+    <Style
+        x:Key="CardGroupStyle"
+        TargetType="Frame">
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="0" />
@@ -316,7 +340,9 @@
         <Setter Property="CornerRadius" Value="3" />
     </Style>
 
-    <Style x:Key="FlexMultiCollection" TargetType="Frame">
+    <Style
+        x:Key="FlexMultiCollection"
+        TargetType="Frame">
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
@@ -363,7 +389,9 @@
     -->
 
     <!--  Create a Base Style for a Grid Style  -->
-    <Style x:Key="GridBaseStyle" TargetType="Grid">
+    <Style
+        x:Key="GridBaseStyle"
+        TargetType="Grid">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="1" />
@@ -377,7 +405,9 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
     </Style>
 
-    <Style x:Key="GVPageTitleStyle" TargetType="Grid">
+    <Style
+        x:Key="GVPageTitleStyle"
+        TargetType="Grid">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
     </Style>
 
@@ -429,7 +459,9 @@
         ******************************************************
     -->
 
-    <Style x:Key="GVSymbolIconBaseType" TargetType="Image">
+    <Style
+        x:Key="GVSymbolIconBaseType"
+        TargetType="Image">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="IsEnabled" Value="False" />
     </Style>
@@ -489,7 +521,9 @@
     -->
 
     <!--  Create a Material Font Style Button Style  -->
-    <Style x:Key="GVImageButton" TargetType="ImageButton">
+    <Style
+        x:Key="GVImageButton"
+        TargetType="ImageButton">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="CornerRadius" Value="2" />
@@ -504,7 +538,9 @@
     -->
 
     <!--  Create a Base Style for a Label  -->
-    <Style x:Key="GVCardLabelStyle" TargetType="Label">
+    <Style
+        x:Key="GVCardLabelStyle"
+        TargetType="Label">
         <Setter Property="IsEnabled" Value="False" />
         <Setter Property="HorizontalOptions" Value="StartAndExpand" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
@@ -614,7 +650,9 @@
     -->
 
     <!--  Create a Base Style for a Switches  -->
-    <Style x:Key="GVSwitchStyle" TargetType="Switch">
+    <Style
+        x:Key="GVSwitchStyle"
+        TargetType="Switch">
         <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />-->
         <Setter Property="HorizontalOptions" Value="EndAndExpand" />
     </Style>

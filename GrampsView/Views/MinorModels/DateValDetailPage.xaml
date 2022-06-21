@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBase
+<views:ViewBasePage
     x:Class="GrampsView.Views.DateValDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -23,4 +23,4 @@
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
-</views:ViewBase>
+</views:ViewBasePage>

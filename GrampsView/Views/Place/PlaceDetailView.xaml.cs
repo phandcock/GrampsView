@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public partial class PlaceDetailPage : ViewBase
+    public partial class PlaceDetailPage : ViewBasePage
     {
         private PlaceDetailViewModel _viewModel { get; set; }
 

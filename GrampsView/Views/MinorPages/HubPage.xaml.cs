@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class HubPage : ViewBase
+    public sealed partial class HubPage : ViewBasePage
     {
         private HubViewModel _viewModel { get; set; }
 

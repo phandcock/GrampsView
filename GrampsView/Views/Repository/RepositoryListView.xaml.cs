@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    public sealed partial class RepositoryListPage : ViewBase
+    public sealed partial class RepositoryListPage : ViewBasePage
     {
         private RepositoryListViewModel _viewModel { get; set; }
 
