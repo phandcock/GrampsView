@@ -1,3 +1,12 @@
+## [16.24.32](https://github.com/phandcock/GrampsView/compare/v16.24.31...v16.24.32) (2022-06-21)
+
+
+### Bug Fixes
+
+* update to new errornotification ms app center crash default ([00d9f6b](https://github.com/phandcock/GrampsView/commit/00d9f6b04849ec48ff7a2a12fb05032a2ea1fc2a))
+
+
+
 ## [16.24.31](https://github.com/phandcock/GrampsView/compare/v16.24.30...v16.24.31) (2022-06-19)
 
 
@@ -24,16 +33,6 @@
 ### Bug Fixes
 
 * update nuget ([212d419](https://github.com/phandcock/GrampsView/commit/212d419830fb147c10a83df9c5ad5f85adb9af17))
-
-
-
-## [16.24.28](https://github.com/phandcock/GrampsView/compare/v16.24.27...v16.24.28) (2022-06-14)
-
-
-### Bug Fixes
-
-* add sharedsharpnu nuget ([51445fb](https://github.com/phandcock/GrampsView/commit/51445fb6a9f6de9f2c44e9d563bdd13907f7deb8))
-* choose correct sharedsharpnu nuget ([51f4bae](https://github.com/phandcock/GrampsView/commit/51f4bae880d5f36095c6c114bd862777dce5abfd))
 
 
 
