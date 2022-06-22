@@ -1,4 +1,4 @@
-﻿namespace GrampsView.Assets.Styles
+﻿namespace SharedSharpNu.Assets.Styles
 {
     using Xamarin.Forms;
 

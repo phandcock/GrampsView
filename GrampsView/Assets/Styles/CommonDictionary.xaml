@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary
-    x:Class="GrampsView.Assets.Styles.CommonDictionary"
+    x:Class="SharedSharpNu.Assets.Styles.CommonDictionary"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu">
@@ -17,9 +17,8 @@
     -->
 
     <!--  Create a Base Style for a Button Style  -->
-
     <Style
-        x:Key="GVButtonStyle"
+        x:Key="SSButtonStyle"
         TargetType="Button">
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
@@ -33,12 +32,12 @@
     </Style>
 
     <Style
-        x:Key="GVButtonMenu"
-        BasedOn="{StaticResource GVButtonStyle}"
+        x:Key="SSButtonMenu"
+        BasedOn="{StaticResource SSButtonStyle}"
         TargetType="Button">
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
 
     <!--
@@ -48,10 +47,81 @@
     -->
 
     <!--  Create a ContentPage style  -->
-
     <Style
-        x:Key="GVBaseContentPage"
+        x:Key="SSBaseContentPage"
         TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Label Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Base Style for a Label  -->
+    <Style
+        x:Key="SSCardLabelStyle"
+        TargetType="Label">
+        <Setter Property="IsEnabled" Value="False" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+    </Style>
+
+    <!--  Create Medium Styles for a Label  -->
+    <Style
+        x:Key="SSLabelStyleMedium"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,3,3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Frame Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Frame Card Style  -->
+    <Style
+        x:Key="SSFrameCardStyle"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Padding" Value="5,5,5,0" />
+        <Setter Property="Margin" Value="1" />
+    </Style>
+
+    <!--  Create a Style for a Button Menu Frame  -->
+    <Style
+        x:Key="SSButtonMenuFrameStyle"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Padding" Value="10,5,10,5" />
+    </Style>
+
+    <!--  Create a Style for a Label Frame  -->
+    <Style
+        x:Key="SSFrameHeaderStyle"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Padding" Value="2" />
     </Style>
 </ResourceDictionary>
