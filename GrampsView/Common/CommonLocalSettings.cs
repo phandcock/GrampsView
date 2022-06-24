@@ -12,7 +12,7 @@
     using System;
     using System.Diagnostics.Contracts;
 
-    public static class CommonLocalSettings
+    public class CommonLocalSettings : SharedSharpSettings
     {
         public static bool BirthdayShowOnlyLivingFlag
         {
@@ -145,7 +145,7 @@
 
             DataStore.Instance.DS.IsDataLoaded = false;
 
-            LocalSettings.DataSerialised = false;
+            CommonLocalSettings.DataSerialised = false;
         }
     }
 }

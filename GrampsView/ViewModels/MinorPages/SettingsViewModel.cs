@@ -68,21 +68,21 @@
                 {
                     case "Dark":
                         {
-                            LocalSettings.ApplicationTheme = OSAppTheme.Dark;
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Dark;
                             Application.Current.UserAppTheme = OSAppTheme.Dark;
 
                             break;
                         }
                     case "Light":
                         {
-                            LocalSettings.ApplicationTheme = OSAppTheme.Light;
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Light;
                             Application.Current.UserAppTheme = OSAppTheme.Light;
 
                             break;
                         }
                     case "System":
                         {
-                            LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;
@@ -90,7 +90,7 @@
 
                     default:
                         {
-                            LocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
+                            CommonLocalSettings.ApplicationTheme = OSAppTheme.Unspecified;
                             Application.Current.UserAppTheme = OSAppTheme.Unspecified;
 
                             break;

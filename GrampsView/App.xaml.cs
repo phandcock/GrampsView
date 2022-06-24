@@ -109,11 +109,11 @@
             SharedSharp.CommonRoutines.General.ScreenSizeInit();
 
             // App Setup
-            Application.Current.UserAppTheme = LocalSettings.ApplicationTheme;
+            Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
 
             CardSizes.Current.ReCalculateCardWidths();
 
-            LocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
+            CommonLocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
 
             // Get Going
 

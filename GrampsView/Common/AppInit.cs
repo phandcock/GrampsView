@@ -36,7 +36,7 @@
 
                 if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
-                    LocalSettings.DataSerialised = false;
+                    CommonLocalSettings.DataSerialised = false;
 
                     return;
                 }
@@ -85,7 +85,7 @@
         {
             try
             {
-                if (LocalSettings.DataSerialised)
+                if (CommonLocalSettings.DataSerialised)
                 {
                     // App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
                     App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
