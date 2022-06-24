@@ -42,15 +42,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{9001E1F9-165
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{D48CC23A-5C6D-4C1C-8396-EA84260E90BC}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\uwp\grampsview-azure-pipeline-uwp.yml = .azure\uwp\grampsview-azure-pipeline-uwp.yml
 		.azure\uwp\grampsview-azure-pipeline-uwp-store.yml = .azure\uwp\grampsview-azure-pipeline-uwp-store.yml
+		.azure\uwp\grampsview-azure-pipeline-uwp.yml = .azure\uwp\grampsview-azure-pipeline-uwp.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
 	ProjectSection(SolutionItems) = preProject
 		.azure\xamarin\azure-pipeline-xam-e2e.yml = .azure\xamarin\azure-pipeline-xam-e2e.yml
 		.azure\xamarin\azure-pipeline-xam-nunit.yml = .azure\xamarin\azure-pipeline-xam-nunit.yml
-		.azure\xamarin\azure-pipelinetemplate-build-nunit.yml = .azure\xamarin\azure-pipelinetemplate-build-nunit.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF772D0-B54F-4526-9FF6-535E9ED88E14}"
