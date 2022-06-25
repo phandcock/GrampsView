@@ -14,11 +14,6 @@
     /// </summary>
     public class TagDetailViewModel : ViewModelBase
     {
-        public TagModel TagObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TagDetailViewModel"/> class.
         /// </summary>
@@ -29,8 +24,13 @@
         /// The ioc event aggregator.
         /// </param>
         public TagDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
+        }
+
+        public TagModel TagObject
+        {
+            get; set;
         }
 
         /// <summary>

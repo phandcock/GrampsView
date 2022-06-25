@@ -26,7 +26,7 @@
         /// Injected Navigation Service.
         /// </param>
         public FamilyListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Family List";
             BaseTitleIcon = CommonConstants.IconFamilies;

@@ -150,6 +150,22 @@
         private int numLevels;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="PeopleGraphViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                    : base(iocCommonLogging)
+        {
+            BaseTitle = "People Graph";
+            BaseTitleIcon = CommonConstants.IconPeopleGraph;
+        }
+
+        /// <summary>
         /// Gets or sets the height of the canvas.
         /// </summary>
         /// <value>
@@ -238,22 +254,6 @@
         /// The tree graph.
         /// </value>
         public List<PeopleGraphNode> TreeGraph { get; set; } = new List<PeopleGraphNode>();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PeopleGraphViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "People Graph";
-            BaseTitleIcon = CommonConstants.IconPeopleGraph;
-        }
 
         /// <summary>
         /// Adds the h link.

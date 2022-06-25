@@ -28,6 +28,11 @@
         /// The event aggregator.
         /// </param>
 
+        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                                                            : base(iocCommonLogging)
+        {
+        }
+
         /// <summary>
         /// Gets or sets the public Event ViewModel.
         /// </summary>
@@ -53,11 +58,6 @@
         {
             get; set;
         } = new HLinkNoteModelCollection();
-
-        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                                                    : base(iocCommonLogging, iocEventAggregator)
-        {
-        }
 
         /// <summary>
         /// Populates the view ViewModel.

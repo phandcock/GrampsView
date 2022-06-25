@@ -14,7 +14,7 @@
     public class PersonBirthdayViewModel : ViewModelBase
     {
         public PersonBirthdayViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Person Birthday List";
             BaseTitleIcon = CommonConstants.IconPeopleBirthday;

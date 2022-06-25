@@ -17,11 +17,6 @@
     {
         private IAppInit _AppInit;
 
-        public AsyncCommand LoadDataCommand
-        {
-            get; private set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="NeedDatabaseReloadViewModel"/> class.
         /// </summary>
@@ -32,7 +27,7 @@
         /// Injected event aggregator.
         /// </param>
         public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Database reload needed";
 
@@ -41,6 +36,11 @@
             LoadDataCommand = new AsyncCommand(LoadDataAction);
 
             _AppInit = iocAppInit;
+        }
+
+        public AsyncCommand LoadDataCommand
+        {
+            get; private set;
         }
 
         public async Task LoadDataAction()

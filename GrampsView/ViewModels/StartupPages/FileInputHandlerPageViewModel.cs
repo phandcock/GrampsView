@@ -34,7 +34,7 @@
         /// The event aggregator.
         /// </param>
         public FileInputHandlerViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "File Chooser";
 

@@ -23,7 +23,7 @@
         /// The ioc event aggregator.
         /// </param>
         public NoteListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Note List";
             BaseTitleIcon = CommonConstants.IconNotes;

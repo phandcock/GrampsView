@@ -5,7 +5,6 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
     using SharedSharp.Logging;
 
@@ -19,7 +18,7 @@
         private string _ThemeButtonChecked = string.Empty;
 
         public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
+                                    : base(iocCommonLogging)
         {
             BaseTitle = "Settings";
             BaseTitleIcon = CommonConstants.IconSettings;

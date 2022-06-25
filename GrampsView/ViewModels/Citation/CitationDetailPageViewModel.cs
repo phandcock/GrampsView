@@ -15,6 +15,19 @@
     /// </summary>
     public class CitationDetailViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public CitationDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+        }
+
         public CitationModel CitationObject
         {
             get; set;
@@ -34,19 +47,6 @@
         {
             get; set;
         } = new HLinkNoteModelCollection();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CitationDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public CitationDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-        }
 
         /// <summary>
         /// Gets or sets the citation object.

@@ -19,6 +19,27 @@
 
         private string _WhatsNewText = string.Empty;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The event aggregator.
+        /// </param>
+        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
+            : base(iocCommonLogging)
+        {
+            LoadDataCommand = new AsyncCommand(LoadDataAction);
+
+            BaseTitle = "What's new";
+
+            BaseTitleIcon = CommonConstants.IconSettings;
+
+            _AppInit = iocAppInit;
+        }
+
         public AsyncCommand LoadDataCommand
         {
             get; private set;
@@ -41,27 +62,6 @@
             {
                 SetProperty(ref _WhatsNewText, value);
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            LoadDataCommand = new AsyncCommand(LoadDataAction);
-
-            BaseTitle = "What's new";
-
-            BaseTitleIcon = CommonConstants.IconSettings;
-
-            _AppInit = iocAppInit;
         }
 
         public async Task LoadDataAction()

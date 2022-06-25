@@ -17,11 +17,6 @@
     {
         private IAppInit _AppInit;
 
-        public AsyncCommand LoadDataCommand
-        {
-            get;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstRunViewModel"/> class.
         /// </summary>
@@ -32,7 +27,7 @@
         /// The ioc event aggregator.
         /// </param>
         public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);
 
@@ -41,6 +36,11 @@
             BaseTitleIcon = CommonConstants.IconSettings;
 
             _AppInit = iocAppInit;
+        }
+
+        public AsyncCommand LoadDataCommand
+        {
+            get;
         }
 
         /// <summary>

@@ -26,7 +26,7 @@
         /// Prism Navigation Service.
         /// </param>
         public TagListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Tag List";
             BaseTitleIcon = CommonConstants.IconTag;

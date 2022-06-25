@@ -23,7 +23,7 @@
         /// The ioc event aggregator.
         /// </param>
         public PersonListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Person List";
             BaseTitleIcon = CommonConstants.IconPeople;

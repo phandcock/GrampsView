@@ -11,7 +11,7 @@
     public class CitationListViewModel : ViewModelBase
     {
         public CitationListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
+                                    : base(iocCommonLogging)
         {
             BaseTitle = "Citation List";
             BaseTitleIcon = CommonConstants.IconCitation;

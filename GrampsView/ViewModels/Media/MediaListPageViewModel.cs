@@ -20,7 +20,7 @@
         /// The ioc event aggregator.
         /// </param>
         public MediaListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Media List";
             BaseTitleIcon = CommonConstants.IconMedia;

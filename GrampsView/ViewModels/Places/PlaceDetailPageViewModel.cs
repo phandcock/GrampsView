@@ -14,11 +14,6 @@
     /// </summary>
     public class PlaceDetailViewModel : ViewModelBase
     {
-        public PlaceModel PlaceObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceDetailViewModel"/> class.
         /// </summary>
@@ -28,8 +23,13 @@
         /// The ioc event aggregator.
         /// </param>
         public PlaceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
+        }
+
+        public PlaceModel PlaceObject
+        {
+            get; set;
         }
 
         /// <summary>

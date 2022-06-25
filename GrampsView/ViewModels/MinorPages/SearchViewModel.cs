@@ -23,6 +23,25 @@
 
         private string lastArg = string.Empty;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// Common Logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// Event Aggregator.
+        /// </param>
+        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+            BaseTitle = "Search Page";
+
+            BaseTitleIcon = CommonConstants.IconSearch;
+
+            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
+        }
+
         public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
 
         //= new Group<object>();
@@ -93,25 +112,6 @@
             get;
 
             set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// Event Aggregator.
-        /// </param>
-        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "Search Page";
-
-            BaseTitleIcon = CommonConstants.IconSearch;
-
-            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
         }
 
         /// <summary>

@@ -14,6 +14,21 @@
     /// </summary>
     public class MediaDetailViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// Common logger.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The event aggregator.
+        /// </param>
+        public MediaDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+            BaseCL.Progress("MediaDetailViewModel created");
+        }
+
         public HLinkMediaModel CurrentHLinkMedia
         {
             get; set;
@@ -33,21 +48,6 @@
         public IHLinkMediaModel MediaCard
         {
             get; set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common logger.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        public MediaDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseCL.Progress("MediaDetailViewModel created");
         }
 
         /// <summary>

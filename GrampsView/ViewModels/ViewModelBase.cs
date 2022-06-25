@@ -3,8 +3,6 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
-
     using SharedSharp.Logging;
     using SharedSharp.ViewModels;
 
@@ -21,7 +19,7 @@
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
     {
-        private string _BaseParamsHLink;
+        //private string _BaseParamsHLink;
         private string _BaseTitle;
 
         /// <summary>
@@ -33,10 +31,10 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public ViewModelBase(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public ViewModelBase(ISharedLogging iocCommonLogging /*IMessenger iocEventAggregator*/)
         {
             BaseCL = iocCommonLogging;
-            BaseEventAggregator = iocEventAggregator;
+            //BaseEventAggregator = iocEventAggregator;
 
             ViewSetup();
         }
@@ -46,18 +44,18 @@
             ViewSetup();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        public ViewModelBase(ISharedLogging iocCommonLogging)
-        {
-            BaseCL = iocCommonLogging;
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="ViewModelBase"/> class.
+        ///// </summary>
+        ///// <param name="iocCommonLogging">
+        ///// The ioc common logging.
+        ///// </param>
+        //public ViewModelBase(ISharedLogging iocCommonLogging)
+        //{
+        //    BaseCL = iocCommonLogging;
 
-            ViewSetup();
-        }
+        //    ViewSetup();
+        //}
 
         /// <summary>
         /// Gets the base detail.
@@ -173,13 +171,13 @@
             Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
         }
 
-        /// <summary>
-        /// Called when [baseeventaggregator changed]. Frody automatically wires this up.
-        /// </summary>
-        private void OnBaseEventAggregatorChanged()
-        {
-            Debug.Assert(BaseEventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
-        }
+        ///// <summary>
+        ///// Called when [baseeventaggregator changed]. Frody automatically wires this up.
+        ///// </summary>
+        //private void OnBaseEventAggregatorChanged()
+        //{
+        //    Debug.Assert(BaseEventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
+        //}
 
         /// <summary>
         /// Called when [base parametershlink changed]. Frody automatically wires this up.

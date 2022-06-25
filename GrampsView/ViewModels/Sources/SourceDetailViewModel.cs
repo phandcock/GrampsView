@@ -15,6 +15,19 @@
     public class SourceDetailViewModel : ViewModelBase
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="SourceDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// </param>
+        public SourceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+            BaseTitleIcon = CommonConstants.IconSource;
+        }
+
+        /// <summary>
         /// Gets or sets the public Source ViewModel.
         /// </summary>
         /// <value>
@@ -23,19 +36,6 @@
         public SourceModel SourceObject
         {
             get; set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SourceDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// </param>
-        public SourceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitleIcon = CommonConstants.IconSource;
         }
 
         /// <summary>

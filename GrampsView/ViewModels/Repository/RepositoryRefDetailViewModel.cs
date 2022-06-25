@@ -14,6 +14,20 @@
     /// </summary>
     public class RepositoryRefDetailViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
+        public RepositoryRefDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+        }
+
         public HLinkRepositoryRefModel RepositoryHLink
         {
             get; set;
@@ -28,20 +42,6 @@
         public RepositoryModel RepositoryObject
         {
             get; set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public RepositoryRefDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
-        {
         }
 
         /// <summary>

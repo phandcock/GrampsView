@@ -15,6 +15,13 @@
 
     public class AboutViewModel : ViewModelBase
     {
+        public AboutViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                                                    : base(iocCommonLogging)
+        {
+            BaseTitle = "About";
+            BaseTitleIcon = CommonConstants.IconAbout;
+        }
+
         public CardListLineCollection ApplicationVersionList
         {
             get;
@@ -42,13 +49,6 @@
             {
                 return DV.HeaderDV.HeaderDataModel.DetailAsCardListLineCollection;
             }
-        }
-
-        public AboutViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                                                    : base(iocCommonLogging, iocEventAggregator)
-        {
-            BaseTitle = "About";
-            BaseTitleIcon = CommonConstants.IconAbout;
         }
 
         /// <summary>

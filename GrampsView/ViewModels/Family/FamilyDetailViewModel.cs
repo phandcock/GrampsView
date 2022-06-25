@@ -20,6 +20,23 @@
         private FamilyModel localFamilyModel = new FamilyModel();
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="FamilyDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// common logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// Prism event aggregator.
+        /// </param>
+        /// <param name="iocPlatformSpecific">
+        /// Platform specific calls for Windows Timeline
+        /// </param>
+        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+                                    : base(iocCommonLogging)
+        {
+        }
+
+        /// <summary>
         /// Gets or sets the Family object.
         /// </summary>
         /// <value>
@@ -36,23 +53,6 @@
             {
                 SetProperty(ref localFamilyModel, value);
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FamilyDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// Prism event aggregator.
-        /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// Platform specific calls for Windows Timeline
-        /// </param>
-        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-                                    : base(iocCommonLogging, iocEventAggregator)
-        {
         }
 
         /// <summary>

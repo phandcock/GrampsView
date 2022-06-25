@@ -14,14 +14,6 @@ namespace GrampsView.ViewModels
     /// </summary>
     public class SourceListViewModel : ViewModelBase
     {
-        public Group<HLinkSourceModelCollection> SourceSource
-        {
-            get
-            {
-                return DV.SourceDV.GetAllAsGroupedCardGroup();
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceListViewModel"/> class.
         /// </summary>
@@ -32,10 +24,18 @@ namespace GrampsView.ViewModels
         /// The ioc event aggregator.
         /// </param>
         public SourceListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Source List";
             BaseTitleIcon = CommonConstants.IconSource;
+        }
+
+        public Group<HLinkSourceModelCollection> SourceSource
+        {
+            get
+            {
+                return DV.SourceDV.GetAllAsGroupedCardGroup();
+            }
         }
     }
 }

@@ -26,7 +26,7 @@
         /// The ioc navigation service.
         /// </param>
         public RepositoryListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Repository List";
             BaseTitleIcon = CommonConstants.IconRepository;

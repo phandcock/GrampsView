@@ -30,7 +30,7 @@
         /// The ioc event aggregator.
         /// </param>
         public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
-       : base(iocCommonLogging, iocEventAggregator)
+       : base(iocCommonLogging)
         {
             _iocErrorNotifications = iocErrorNotifications;
 

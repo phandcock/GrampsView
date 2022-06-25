@@ -13,11 +13,6 @@
 
     public class NoteDetailViewModel : ViewModelBase
     {
-        public INoteModel NoteObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteDetailViewModel"/> class. Common logging.
         /// </summary>
@@ -28,9 +23,14 @@
         /// Common Event Aggregator.
         /// </param>
         public NoteDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitleIcon = CommonConstants.IconNotes;
+        }
+
+        public INoteModel NoteObject
+        {
+            get; set;
         }
 
         /// <summary>

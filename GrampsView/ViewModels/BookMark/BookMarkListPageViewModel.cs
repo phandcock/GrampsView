@@ -11,7 +11,7 @@
     public class BookMarkListViewModel : ViewModelBase
     {
         public BookMarkListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "BookMark List";
             BaseTitleIcon = CommonConstants.IconBookMark;

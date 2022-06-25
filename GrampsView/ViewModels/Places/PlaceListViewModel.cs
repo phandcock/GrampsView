@@ -23,7 +23,7 @@
         /// The ioc event aggregator.
         /// </param>
         public PlaceListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging, iocEventAggregator)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Place List";
             BaseTitleIcon = CommonConstants.IconPlace;
