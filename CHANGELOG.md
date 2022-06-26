@@ -1,3 +1,12 @@
+## [16.24.36](https://github.com/phandcock/GrampsView/compare/v16.24.35...v16.24.36) (2022-06-26)
+
+
+### Bug Fixes
+
+* warning cleanup ([3c9933a](https://github.com/phandcock/GrampsView/commit/3c9933a82a0f46c0f4f5ed34c3ca5d66d523b033))
+
+
+
 ## [16.24.35](https://github.com/phandcock/GrampsView/compare/v16.24.34...v16.24.35) (2022-06-26)
 
 
@@ -28,15 +37,6 @@
 * refactor viewbasepage ([ed01afb](https://github.com/phandcock/GrampsView/commit/ed01afb60653716a90009108e0d34e291fca7962))
 * tagret android api 31 ([85d28bd](https://github.com/phandcock/GrampsView/commit/85d28bd729261496863aa06603f19046e20d6fdb))
 * tweak common styles ([6645b0d](https://github.com/phandcock/GrampsView/commit/6645b0d7d95d5fd898b1433b4cf1c8cda5565725))
-
-
-
-## [16.24.32](https://github.com/phandcock/GrampsView/compare/v16.24.31...v16.24.32) (2022-06-21)
-
-
-### Bug Fixes
-
-* update to new errornotification ms app center crash default ([00d9f6b](https://github.com/phandcock/GrampsView/commit/00d9f6b04849ec48ff7a2a12fb05032a2ea1fc2a))
 
 
 
