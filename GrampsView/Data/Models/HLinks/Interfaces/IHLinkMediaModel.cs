@@ -2,7 +2,7 @@
 {
     public interface IHLinkMediaModel : IHLinkBase
     {
-        new IMediaModel DeRef
+        IMediaModel DeRef
         {
             get;
         }

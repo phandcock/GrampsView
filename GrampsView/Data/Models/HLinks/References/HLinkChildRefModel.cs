@@ -25,7 +25,7 @@
         }
 
         [JsonIgnore]
-        public new PersonModel DeRef
+        public PersonModel DeRef
         {
             get
             {

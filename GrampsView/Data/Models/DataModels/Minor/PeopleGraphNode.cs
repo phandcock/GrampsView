@@ -156,7 +156,5 @@ namespace GrampsView.Data.Model
         {
             throw new NotImplementedException();
         }
-
-        public string ToString() => throw new NotImplementedException();
     }
 }
