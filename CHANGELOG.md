@@ -1,3 +1,13 @@
+## [16.24.35](https://github.com/phandcock/GrampsView/compare/v16.24.34...v16.24.35) (2022-06-26)
+
+
+### Bug Fixes
+
+* tweaks ([d935122](https://github.com/phandcock/GrampsView/commit/d93512236e901d279f5e6ac36a74607d687bdec2))
+* tweaks ([0689de4](https://github.com/phandcock/GrampsView/commit/0689de42a1e8f359b7f6dd22bfa6ea0d70e272d1))
+
+
+
 ## [16.24.34](https://github.com/phandcock/GrampsView/compare/v16.24.33...v16.24.34) (2022-06-25)
 
 
@@ -27,15 +37,6 @@
 ### Bug Fixes
 
 * update to new errornotification ms app center crash default ([00d9f6b](https://github.com/phandcock/GrampsView/commit/00d9f6b04849ec48ff7a2a12fb05032a2ea1fc2a))
-
-
-
-## [16.24.31](https://github.com/phandcock/GrampsView/compare/v16.24.30...v16.24.31) (2022-06-19)
-
-
-### Bug Fixes
-
-* tweaks ([e2167ba](https://github.com/phandcock/GrampsView/commit/e2167babdad42631163e1ec6e88db32c1de225a8))
 
 
 
