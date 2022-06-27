@@ -1,7 +1,7 @@
-﻿using GrampsView.Assets.Fonts;
-
-namespace GrampsView.Common
+﻿namespace GrampsView.Common
 {
+    using GrampsView.Assets.Fonts;
+
     /// <summary>
     /// Common Constants.
     /// </summary>
@@ -57,151 +57,151 @@ namespace GrampsView.Common
         ///// </summary>
         //public const int HeaderProcessAreaDisplayTime = 30000;
 
-        public const string IconAbout = CommonFontNamesFAS.Info;
+        public const string IconAbout = IconFont.Info;
 
         /// <summary>
         /// The icon Address.
         /// </summary>
-        public const string IconAddress = CommonFontNamesFAS.AddressCard;
+        public const string IconAddress = IconFont.AddressCard;
 
         ///// <summary>
         ///// The icon attribute.
         ///// </summary>
-        public const string IconAttribute = CommonFontNamesFAS.Atom;
+        public const string IconAttribute = IconFont.Atom;
 
         /// <summary>
         /// The icon bookMark.
         /// </summary>
-        public const string IconBookMark = CommonFontNamesFAS.Bookmark;
+        public const string IconBookMark = IconFont.Bookmark;
 
         /// <summary>
         /// The icon ChooseDataFile.
         /// </summary>
-        public const string IconChooseDataFile = CommonFontNamesFAS.FileDownload;
+        public const string IconChooseDataFile = IconFont.FileDownload;
 
         /// <summary>
         /// The icon citation.
         /// </summary>
-        public const string IconCitation = CommonFontNamesFAS.Receipt;
+        public const string IconCitation = IconFont.Receipt;
 
         /// <summary>
         /// The icon for a date symbol.
         /// </summary>
-        public const string IconDate = CommonFontNamesFAS.Clock;
+        public const string IconDate = IconFont.Clock;
 
         /// <summary>
         /// The icon for a default symbol.
         /// </summary>
-        public const string IconDDefault = CommonFontNamesFAS.FileAlt;
+        public const string IconDDefault = IconFont.FileAlt;
 
         /// <summary>
         /// The icon diagram.
         /// </summary>
-        public const string IconDiagram = CommonFontNamesFAS.ProjectDiagram;
+        public const string IconDiagram = IconFont.ProjectDiagram;
 
         /// <summary>
         /// The icon events.
         /// </summary>
-        public const string IconEvents = CommonFontNamesFAS.CalendarDay;
+        public const string IconEvents = IconFont.CalendarDay;
 
         /// <summary>
         /// The icon families.
         /// </summary>
-        public const string IconFamilies = CommonFontNamesFAS.PeopleArrows;
+        public const string IconFamilies = IconFont.PeopleArrows;
 
-        public const string IconHeader = CommonFontNamesFAS.Heading;
+        public const string IconHeader = IconFont.Heading;
 
         /// <summary>
         /// The icon hub.
         /// </summary>
-        public const string IconHub = CommonFontNamesFAS.HouseUser;
+        public const string IconHub = IconFont.HouseUser;
 
-        public const string IconLog = CommonFontNamesFAS.List;
+        public const string IconLog = IconFont.List;
 
         /// <summary>
         /// The map icon.
         /// </summary>
-        public const string IconMap = CommonFontNamesFAS.Map;
+        public const string IconMap = IconFont.Map;
 
         /// <summary>
         /// The icon media.
         /// </summary>
-        public const string IconMedia = CommonFontNamesFAS.FileImage;
+        public const string IconMedia = IconFont.FileImage;
 
         // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
-        public const string IconNameMaps = CommonFontNamesFAS.Mountain;
+        public const string IconNameMaps = IconFont.Mountain;
 
         /// <summary>
         /// The icon notes.
         /// </summary>
-        public const string IconNotes = CommonFontNamesFAS.Book;
+        public const string IconNotes = IconFont.Book;
 
         /// <summary>
         /// The icon people.
         /// </summary>
-        public const string IconPeople = CommonFontNamesFAS.AddressBook;
+        public const string IconPeople = IconFont.AddressBook;
 
-        public const string IconPeopleBirthday = CommonFontNamesFAS.BirthdayCake;
+        public const string IconPeopleBirthday = IconFont.BirthdayCake;
 
         /// <summary>
         /// The icon people graph.
         /// </summary>
-        public const string IconPeopleGraph = CommonFontNamesFAS.Atlas;
+        public const string IconPeopleGraph = IconFont.Atlas;
 
         /// <summary>
         /// The icon person female.
         /// </summary>
-        public const string IconPersonFemale = CommonFontNamesFAS.Female;
+        public const string IconPersonFemale = IconFont.Female;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconPersonMale = CommonFontNamesFAS.Male;
+        public const string IconPersonMale = IconFont.Male;
 
-        public const string IconPersonName = CommonFontNamesFAS.Images;
+        public const string IconPersonName = IconFont.Images;
 
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public const string IconPlace = CommonFontNamesFAS.Atlas;
+        public const string IconPlace = IconFont.Atlas;
 
         /// <summary>
         /// The symbol Repository.
         /// </summary>
-        public const string IconRepository = CommonFontNamesFAS.LifeRing;
+        public const string IconRepository = IconFont.LifeRing;
 
         /// <summary>
         /// The icon Search.
         /// </summary>
-        public const string IconSearch = CommonFontNamesFAS.Search;
+        public const string IconSearch = IconFont.Search;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSettings = CommonFontNamesFAS.Tools;
+        public const string IconSettings = IconFont.Tools;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSource = CommonFontNamesFAS.SatelliteDish;
+        public const string IconSource = IconFont.SatelliteDish;
 
-        public const string IconSurname = CommonFontNamesFAS.Signature;
+        public const string IconSurname = IconFont.Signature;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconTag = CommonFontNamesFAS.Tag;
+        public const string IconTag = IconFont.Tag;
 
-        public const string IconThemeDark = CommonFontNamesFAS.Moon;
+        public const string IconThemeDark = IconFont.Moon;
 
-        public const string IconThemeLight = CommonFontNamesFAS.Sun;
+        public const string IconThemeLight = IconFont.Sun;
 
-        public const string IconThemeSystem = CommonFontNamesFAS.Globe;
+        public const string IconThemeSystem = IconFont.Globe;
 
-        public const string IconURL = CommonFontNamesFAS.Link;
+        public const string IconURL = IconFont.Link;
 
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.

@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Assets.Fonts;
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -49,7 +48,7 @@
                 // check if we can get an image for the first page of the PDF
                 pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, CommonFontNamesFAS.FilePdf);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconFont.FilePdf);
             }
             else
             {
@@ -77,7 +76,7 @@
                 // check if we can get an image for the video
                 videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, CommonFontNamesFAS.FileArchive);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconFont.FileArchive);
             }
             else
             {
@@ -115,7 +114,7 @@
 
                     zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
-                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, CommonFontNamesFAS.FileArchive);
+                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconFont.FileArchive);
                 }
                 else
                 {

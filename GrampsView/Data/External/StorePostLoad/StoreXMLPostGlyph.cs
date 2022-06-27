@@ -1,6 +1,5 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Assets.Fonts;
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
@@ -360,8 +359,8 @@
                                 case "msword":
                                 case "rtf":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileWord;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileWord;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.FileWord;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.FileWord;
                                         //argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
                                     }
@@ -372,8 +371,8 @@
                                         {
                                         }
 
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FilePdf;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FilePdf;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.FilePdf;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.FilePdf;
 
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
@@ -381,15 +380,15 @@
 
                                 case "vnd.ms-outlook":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.MailBulk;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.MailBulk;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.MailBulk;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.MailBulk;
                                         break;
                                     }
 
                                 case "x-zip-compressed":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.FileArchive;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.FileArchive;
 
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
@@ -397,8 +396,8 @@
 
                                 case "zip":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileArchive;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileArchive;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.FileArchive;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.FileArchive;
 
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
@@ -413,15 +412,15 @@
 
                     case "audio":
                         {
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileAudio;
-                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileAudio;
+                            argModel.ModelItemGlyph.Symbol = IconFont.FileAudio;
+                            argModel.ModelItemGlyph.ImageSymbol = IconFont.FileAudio;
                             break;
                         }
 
                     case "image":
                         {
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileImage;
-                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileImage;
+                            argModel.ModelItemGlyph.Symbol = IconFont.FileImage;
+                            argModel.ModelItemGlyph.ImageSymbol = IconFont.FileImage;
 
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                             argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
@@ -437,8 +436,8 @@
                             {
                                 case "html":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.Link;
-                                        argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.Link;
+                                        argModel.ModelItemGlyph.Symbol = IconFont.Link;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconFont.Link;
 
                                         break;
                                     }
@@ -452,8 +451,8 @@
 
                     case "video":
                         {
-                            argModel.ModelItemGlyph.Symbol = CommonFontNamesFAS.FileVideo;
-                            argModel.ModelItemGlyph.ImageSymbol = CommonFontNamesFAS.FileVideo;
+                            argModel.ModelItemGlyph.Symbol = IconFont.FileVideo;
+                            argModel.ModelItemGlyph.ImageSymbol = IconFont.FileVideo;
 
                             argModel.ModelItemGlyph = await GetThumbImageFromVideo(argModel);
 

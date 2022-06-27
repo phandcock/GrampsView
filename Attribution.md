@@ -9,6 +9,6 @@
     - Microsoft.Toolkit.uwp
     - Xamarin.Essentials
     - Xamarin.Community.Toolkit
-    - Wonderful Font to Code website - https://andreinitescu.github.io/CommonFontNamesFAS2Code/
+    - Wonderful Font to Code website - https://andreinitescu.github.io/IconFont2Code/
     
 
