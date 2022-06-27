@@ -13,7 +13,7 @@
         public DateRangeDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitleIcon = CommonConstants.IconDDefault;
+            BaseTitleIcon = Constants.IconDDefault;
         }
 
         /// <summary>

@@ -9,17 +9,6 @@
     public class PersonNameDetailViewModel : ViewModelBase
     {
         /// <summary>
-        /// Gets or sets the View Current Person.
-        /// </summary>
-        /// <value>
-        /// The current person ViewModel.
-        /// </value>
-        public PersonNameModel PersonNameObject
-        {
-            get; set;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="AddressDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -28,7 +17,18 @@
         public PersonNameDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitleIcon = CommonConstants.IconPersonName;
+            BaseTitleIcon = Constants.IconPersonName;
+        }
+
+        /// <summary>
+        /// Gets or sets the View Current Person.
+        /// </summary>
+        /// <value>
+        /// The current person ViewModel.
+        /// </value>
+        public PersonNameModel PersonNameObject
+        {
+            get; set;
         }
 
         /// <summary>

@@ -38,7 +38,7 @@
         {
             BaseTitle = "File Chooser";
 
-            BaseTitleIcon = CommonConstants.IconSettings;
+            BaseTitleIcon = Constants.IconSettings;
 
             LoadSampleCommand = new AsyncCommand(LoadSample);
 

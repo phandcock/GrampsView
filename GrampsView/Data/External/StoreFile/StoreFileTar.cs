@@ -87,7 +87,7 @@
                     //// work how how to add it to the list .gramps are .gz to just rename for now
                     //if (filename == "data.gramps")
                     //{
-                    //    filename = CommonConstants.StorageGRAMPSFileName;
+                    //    filename = Constants.StorageGRAMPSFileName;
                     //}
 
                     IFileInfoEx newFileName = new FileInfoEx(argFileName: filename, argRelativeFolder: relativePath);
@@ -119,7 +119,7 @@
 
                     if (okToCopyFlag)
                     {
-                        if (filename == CommonConstants.StorageGRAMPSFileName)
+                        if (filename == Constants.StorageGRAMPSFileName)
                         {
                         }
 

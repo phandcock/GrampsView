@@ -35,7 +35,7 @@
             _iocErrorNotifications = iocErrorNotifications;
 
             BaseTitle = "Hub";
-            BaseTitleIcon = CommonConstants.IconHub;
+            BaseTitleIcon = Constants.IconHub;
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
@@ -156,7 +156,7 @@
             get
             {
                 // Setup ToDo list
-                CardGroupModel<NoteModel> t = DV.NoteDV.GetAllOfType(CommonConstants.NoteTypeToDo);
+                CardGroupModel<NoteModel> t = DV.NoteDV.GetAllOfType(Constants.NoteTypeToDo);
 
                 CardGroupHLink<HLinkNoteModel> toDoCardGroup = new CardGroupHLink<HLinkNoteModel>()
                 {

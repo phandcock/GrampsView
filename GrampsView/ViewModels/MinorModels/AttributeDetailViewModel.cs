@@ -11,16 +11,6 @@
     /// </summary>
     public class AttributeDetailViewModel : ViewModelBase
     {
-        public AttributeModel AttributeObject
-        {
-            get; set;
-        }
-
-        public HLinkAttributeModel HLinkAttributeObject
-        {
-            get; set;
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AttributeDetailViewModel"/> class.
         /// </summary>
@@ -30,7 +20,17 @@
         public AttributeDetailViewModel(ISharedLogging iocCommonLogging)
             : base(iocCommonLogging)
         {
-            BaseTitleIcon = CommonConstants.IconAttribute;
+            BaseTitleIcon = Constants.IconAttribute;
+        }
+
+        public AttributeModel AttributeObject
+        {
+            get; set;
+        }
+
+        public HLinkAttributeModel HLinkAttributeObject
+        {
+            get; set;
         }
 
         /// <summary>

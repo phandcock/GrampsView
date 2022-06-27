@@ -53,7 +53,7 @@
         public string ImageSymbol
         {
             get; set;
-        } = CommonConstants.IconDDefault;
+        } = Constants.IconDDefault;
 
         /// <summary>
         /// Gets or sets the home symbol font glyph.
@@ -110,7 +110,7 @@
         public string Symbol
         {
             get; set;
-        } = CommonConstants.IconDDefault;
+        } = Constants.IconDDefault;
 
         [JsonInclude]
         public Color SymbolColour

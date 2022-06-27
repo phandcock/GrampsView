@@ -21,7 +21,7 @@
                                     : base(iocCommonLogging)
         {
             BaseTitle = "Settings";
-            BaseTitleIcon = CommonConstants.IconSettings;
+            BaseTitleIcon = Constants.IconSettings;
 
             TestButtonCommand = new AsyncCommand(TestButtonHandler);
 

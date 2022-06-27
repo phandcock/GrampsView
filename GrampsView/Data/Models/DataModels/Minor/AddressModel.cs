@@ -14,7 +14,7 @@
     {
         public AddressModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconAddress;
+            ModelItemGlyph.Symbol = Constants.IconAddress;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
         }
 

@@ -14,7 +14,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "BookMark List";
-            BaseTitleIcon = CommonConstants.IconBookMark;
+            BaseTitleIcon = Constants.IconBookMark;
         }
 
         public CardGroupHLink<HLinkBase> BookMarkSource

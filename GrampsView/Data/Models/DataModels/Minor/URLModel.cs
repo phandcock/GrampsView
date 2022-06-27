@@ -34,6 +34,17 @@
         //// "href"
         //// "description"
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="URLModel"/> class.
+        /// </summary>
+        public URLModel()
+        {
+            OpenURLCommand = new AsyncCommand(OpenURL);
+
+            ModelItemGlyph.Symbol = Constants.IconURL;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        }
+
         public string GDescription
         {
             get;
@@ -84,17 +95,6 @@
         public IAsyncCommand OpenURLCommand
         {
             get; private set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="URLModel"/> class.
-        /// </summary>
-        public URLModel()
-        {
-            OpenURLCommand = new AsyncCommand(OpenURL);
-
-            ModelItemGlyph.Symbol = CommonConstants.IconURL;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>

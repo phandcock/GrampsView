@@ -100,7 +100,7 @@
                         }
                     }
 
-                    newLocationModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+                    newLocationModel.ModelItemGlyph.Symbol = Constants.IconPlace;
 
                     HLinkPlaceLocationModel newHLink = new HLinkPlaceLocationModel()
                     {
@@ -142,7 +142,7 @@
                         GDate = GetDate(theLoadORElement),
                     };
 
-                    newPlaceNameModel.ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+                    newPlaceNameModel.ModelItemGlyph.Symbol = Constants.IconPlace;
                     newPlaceNameModel.HLinkKey = HLinkKey.NewAsGUID();
 
                     HLinkPlaceNameModel tt = new HLinkPlaceNameModel
@@ -965,7 +965,7 @@
 
                     tt.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
-                    tt.ModelItemGlyph.Symbol = CommonConstants.IconURL;
+                    tt.ModelItemGlyph.Symbol = Constants.IconURL;
 
                     tt.HLinkKey = HLinkKey.NewAsGUID();
 

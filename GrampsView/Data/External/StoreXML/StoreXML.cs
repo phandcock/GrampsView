@@ -50,7 +50,7 @@
 
             _iocCommonNotifications = iocCommonNotifications;
 
-            ns = CommonConstants.GrampsXMLNameSpace;
+            ns = Constants.GrampsXMLNameSpace;
         }
 
         /// <summary>
@@ -66,7 +66,7 @@
         {
             try
             {
-                IFileInfoEx inputFile = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
+                IFileInfoEx inputFile = new FileInfoEx(argFileName: Constants.StorageXMLFileName);
 
                 App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
                 {
@@ -89,12 +89,12 @@
                         throw;
                     }
 
-                    int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, CommonConstants.GrampsXMLPublicId, StringComparison.CurrentCulture);
+                    int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
                     if (compareFlag < 0)
                     {
                         ErrorInfo t = new ErrorInfo("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
                                 {
-                                    { "Minimum Version", CommonConstants.GrampsXMLPublicId },
+                                    { "Minimum Version", Constants.GrampsXMLPublicId },
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 

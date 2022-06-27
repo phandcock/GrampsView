@@ -19,7 +19,7 @@
 
         public HLinkRepositoryModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconRepository;
+            HLinkGlyphItem.Symbol = Constants.IconRepository;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundRepository");
         }
 

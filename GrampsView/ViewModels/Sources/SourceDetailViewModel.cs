@@ -24,7 +24,7 @@
         public SourceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
-            BaseTitleIcon = CommonConstants.IconSource;
+            BaseTitleIcon = Constants.IconSource;
         }
 
         /// <summary>

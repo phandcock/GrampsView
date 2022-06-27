@@ -17,7 +17,7 @@ namespace GrampsView.Data.Model
 
         public HLinkNoteModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconNotes;
+            HLinkGlyphItem.Symbol = Constants.IconNotes;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 

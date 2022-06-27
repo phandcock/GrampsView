@@ -33,7 +33,7 @@
         /// </summary>
         public PersonModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconPeople;
+            ModelItemGlyph.Symbol = Constants.IconPeople;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
@@ -136,19 +136,19 @@
                 {
                     case Gender.Female:
                         {
-                            ModelItemGlyph.Symbol = CommonConstants.IconPersonFemale;
+                            ModelItemGlyph.Symbol = Constants.IconPersonFemale;
                             break;
                         }
 
                     case Gender.Male:
                         {
-                            ModelItemGlyph.Symbol = CommonConstants.IconPersonMale;
+                            ModelItemGlyph.Symbol = Constants.IconPersonMale;
                             break;
                         }
                     case Gender.Unknown:
                     default:
                         {
-                            ModelItemGlyph.Symbol = CommonConstants.IconPeople;
+                            ModelItemGlyph.Symbol = Constants.IconPeople;
                             break;
                         }
                 }

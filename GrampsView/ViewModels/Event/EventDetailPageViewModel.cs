@@ -73,7 +73,7 @@
                 if (!(EventObject is null) && EventObject.Valid)
                 {
                     BaseModelBase = EventObject;
-                    BaseTitleIcon = CommonConstants.IconEvents;
+                    BaseTitleIcon = Constants.IconEvents;
 
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Event Detail")
@@ -93,7 +93,7 @@
                     BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
 
                     // If event note, display it while showing the full list further below.
-                    HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeEvent);
+                    HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeEvent);
 
                     NotesWithoutHighlight = EventObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
                 }

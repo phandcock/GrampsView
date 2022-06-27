@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Assets.Fonts;
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
@@ -104,7 +105,7 @@
                     argModel.ModelItemGlyph.ImageSymbolColour = hlink.ImageSymbolColour;
                 }
 
-                //var tt = (argModel.ModelItemGlyph.Symbol == CommonConstants.IconFamilies);
+                //var tt = (argModel.ModelItemGlyph.Symbol == Constants.IconFamilies);
             }
         }
 

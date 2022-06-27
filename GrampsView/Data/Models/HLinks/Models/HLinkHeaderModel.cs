@@ -16,7 +16,7 @@
 
         public HLinkHeaderModel()
         {
-            HLinkGlyphItem.Symbol = Common.CommonConstants.IconHeader;
+            HLinkGlyphItem.Symbol = Common.Constants.IconHeader;
         }
 
         /// <summary>

@@ -27,7 +27,7 @@ namespace GrampsView.ViewModels
             : base(iocCommonLogging)
         {
             BaseTitle = "Source List";
-            BaseTitleIcon = CommonConstants.IconSource;
+            BaseTitleIcon = Constants.IconSource;
         }
 
         public Group<HLinkSourceModelCollection> SourceSource

@@ -14,7 +14,7 @@
                                     : base(iocCommonLogging)
         {
             BaseTitle = "Citation List";
-            BaseTitleIcon = CommonConstants.IconCitation;
+            BaseTitleIcon = Constants.IconCitation;
         }
 
         public Group<HLinkCitationModelCollection> CitationSource

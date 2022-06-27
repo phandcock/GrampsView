@@ -472,14 +472,14 @@
                 }
 
                 // set Birthdate
-                EventModel birthDate = DV.EventDV.GetEventType(argModel.GEventRefCollection, CommonConstants.EventTypeBirth);
+                EventModel birthDate = DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeBirth);
                 if (birthDate.Valid)
                 {
                     argModel.BirthDate = birthDate.GDate;
                 }
 
                 // set Is Living
-                if (DV.EventDV.GetEventType(argModel.GEventRefCollection, CommonConstants.EventTypeDeath).Valid)
+                if (DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeDeath).Valid)
                 {
                     argModel.IsLiving = false;
                 }

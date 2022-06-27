@@ -37,7 +37,7 @@
         {
             BaseTitle = "Search Page";
 
-            BaseTitleIcon = CommonConstants.IconSearch;
+            BaseTitleIcon = Constants.IconSearch;
 
             SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
         }

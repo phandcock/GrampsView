@@ -34,7 +34,7 @@ namespace GrampsView.Data.Collections
         //{
         //    get
         //    {
-        //        HLinkPersonNameModel t = this.FirstOrDefault(x => x.DeRef.GType == CommonConstants.NameTypeMarried);
+        //        HLinkPersonNameModel t = this.FirstOrDefault(x => x.DeRef.GType == Constants.NameTypeMarried);
 
         // // If no married name then return the primary name if (t ==
         // default(HLinkPersonNameModel)) { return GetPrimaryName; }

@@ -23,7 +23,7 @@
     {
         public HLinkLDSModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconURL;
+            HLinkGlyphItem.Symbol = Constants.IconURL;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 

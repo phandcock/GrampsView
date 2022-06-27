@@ -26,7 +26,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public CitationModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconCitation;
+            ModelItemGlyph.Symbol = Constants.IconCitation;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundCitation");
         }
 

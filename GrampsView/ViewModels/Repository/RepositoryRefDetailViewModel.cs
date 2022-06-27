@@ -56,7 +56,7 @@
             if (!(RepositoryObject == null))
             {
                 BaseTitle = RepositoryObject.ToString();
-                BaseTitleIcon = CommonConstants.IconRepository;
+                BaseTitleIcon = Constants.IconRepository;
 
                 BaseDetail.Add(new CardListLineCollection("Repostiory Ref Detail")
                     {

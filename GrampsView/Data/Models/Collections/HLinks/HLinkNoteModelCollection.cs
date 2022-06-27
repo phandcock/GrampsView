@@ -39,7 +39,7 @@ namespace GrampsView.Data.Collections
         {
             get
             {
-                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType == CommonConstants.NoteTypeBiography || x.DeRef.GType == CommonConstants.NoteTypePersonNote);
+                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType == Constants.NoteTypeBiography || x.DeRef.GType == Constants.NoteTypePersonNote);
 
                 if (temp is null)
                 {

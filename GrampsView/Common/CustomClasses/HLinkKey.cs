@@ -37,7 +37,7 @@
         {
             if (!Valid)
             {
-                return CommonConstants.CompareLessThan;
+                return Constants.CompareLessThan;
             }
 
             return Value.CompareTo(argOther.Value);
@@ -47,7 +47,7 @@
         {
             if (obj is HLinkKey)
             {
-                return CommonConstants.CompareLessThan;
+                return Constants.CompareLessThan;
             }
 
             return Value.CompareTo((obj as HLinkKey).Value);

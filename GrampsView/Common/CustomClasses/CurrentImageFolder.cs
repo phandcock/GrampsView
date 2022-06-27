@@ -10,6 +10,28 @@
 
     public class CurrentImageFolder
     {
+        public CurrentImageFolder()
+        {
+            try
+            {
+                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+
+                Value = new DirectoryInfo(tt);
+
+                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(FileSystem.CacheDirectory, Constants.DirectoryCacheBase));
+
+                if (!Value.Exists)
+                {
+                    t.CreateSubdirectory(Constants.DirectoryImageCache);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
+                throw;
+            }
+        }
+
         public string Path
         {
             get
@@ -30,27 +52,5 @@
         {
             get; set;
         } = null;
-
-        public CurrentImageFolder()
-        {
-            try
-            {
-                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase, CommonConstants.DirectoryImageCache);
-
-                Value = new DirectoryInfo(tt);
-
-                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(FileSystem.CacheDirectory, CommonConstants.DirectoryCacheBase));
-
-                if (!Value.Exists)
-                {
-                    t.CreateSubdirectory(CommonConstants.DirectoryImageCache);
-                }
-            }
-            catch (System.Exception ex)
-            {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
-                throw;
-            }
-        }
     }
 }

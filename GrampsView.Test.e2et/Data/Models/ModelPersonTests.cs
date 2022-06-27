@@ -99,11 +99,11 @@
 
             Assert.True(tt.GNoteRefCollection.Count == 2, "Wrong notes count");
 
-            HLinkNoteModel noteModel = tt.GNoteRefCollection.GetFirstOfType(Common.CommonConstants.NoteTypeBiography);
+            HLinkNoteModel noteModel = tt.GNoteRefCollection.GetFirstOfType(Common.Constants.NoteTypeBiography);
 
             Assert.True(noteModel.DeRef.Id == "N0000", "Wrong Person Model Notes Bio found");
 
-            Assert.True(noteModel.DeRef.GType == Common.CommonConstants.NoteTypeBiography, "Wrong Person Model Notes Type found");
+            Assert.True(noteModel.DeRef.GType == Common.Constants.NoteTypeBiography, "Wrong Person Model Notes Type found");
 
             Assert.True(noteModel.DeRef.GStyledText.GText == "Biography Note.\n", "Wrong Person Model Notes Text found");
         }

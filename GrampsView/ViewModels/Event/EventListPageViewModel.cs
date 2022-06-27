@@ -14,7 +14,7 @@
 
         {
             BaseTitle = "Event List";
-            BaseTitleIcon = CommonConstants.IconEvents;
+            BaseTitleIcon = Constants.IconEvents;
         }
 
         public Group<HLinkEventModelCollection> EventSource

@@ -28,7 +28,7 @@
 
         public HLinkSourceModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconSource;
+            HLinkGlyphItem.Symbol = Constants.IconSource;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 

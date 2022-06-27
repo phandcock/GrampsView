@@ -31,7 +31,7 @@
         /// </summary>
         public RepositoryModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconRepository;
+            ModelItemGlyph.Symbol = Constants.IconRepository;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundRepository");
         }
 

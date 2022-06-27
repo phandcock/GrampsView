@@ -70,7 +70,7 @@
             if (!(FamilyObject is null))
             {
                 BaseModelBase = FamilyObject;
-                BaseTitleIcon = CommonConstants.IconFamilies;
+                BaseTitleIcon = Constants.IconFamilies;
 
                 // Get basic details
                 BaseDetail.Add(new CardListLineCollection("Family Detail")

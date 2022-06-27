@@ -28,7 +28,7 @@
 
         public HLinkCitationModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconCitation;
+            HLinkGlyphItem.Symbol = Constants.IconCitation;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundCitation");
         }
 

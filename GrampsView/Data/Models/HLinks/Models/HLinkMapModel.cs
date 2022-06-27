@@ -22,7 +22,7 @@
     {
         public HLinkMapModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconMap;
+            HLinkGlyphItem.Symbol = Constants.IconMap;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 

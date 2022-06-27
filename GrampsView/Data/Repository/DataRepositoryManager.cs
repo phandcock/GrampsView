@@ -10,7 +10,6 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.CommonRoutines;
     using SharedSharp.Errors;
     using SharedSharp.Logging;
 
@@ -249,7 +248,7 @@
                 {
                     _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
-                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
+                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Common.Constants.StorageXMLFileName));
 
                     GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
                 }
@@ -257,7 +256,7 @@
                 // 2) UnZip new data.GRAMPS file
                 if (GrampsFile.Valid)
                 {
-                    if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified))
+                    if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified))
                     {
                         _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program");
 
@@ -266,11 +265,11 @@
                 }
 
                 // 3) Load new data.XML file
-                IFileInfoEx dataXML = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
+                IFileInfoEx dataXML = new FileInfoEx(argFileName: Common.Constants.StorageXMLFileName);
 
                 if (dataXML.Valid)
                 {
-                    if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, CommonConstants.SettingsXMLFileLastDateTimeModified))
+                    if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, Common.Constants.SettingsXMLFileLastDateTimeModified))
                     {
                         _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
 
@@ -350,10 +349,10 @@
 
                 // Save the current Index File modified date for later checking TODO How doe sthis
                 // work if only loading picked file?
-                // StoreFileNames.SaveFileModifiedSinceLastSave(CommonConstants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
+                // StoreFileNames.SaveFileModifiedSinceLastSave(Constants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
             }
 
-            return new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
+            return new FileInfoEx(argFileName: Common.Constants.StorageGRAMPSFileName);
         }
 
         /// <summary>
@@ -364,7 +363,7 @@
         /// </returns>
         public async Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
-            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
+            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: Common.Constants.StorageGRAMPSFileName);
 
             if (fileGrampsDataInput != null)
             {
@@ -378,7 +377,7 @@
 
                 // Save the current Index File modified date for later checking
 
-                CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
+                CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified);
             }
 
             return false;
@@ -404,12 +403,12 @@
 
                     _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data");
 
-                    IFileInfoEx t = new FileInfoEx(argFileName: CommonConstants.StorageXMLFileName);
+                    IFileInfoEx t = new FileInfoEx(argFileName: Common.Constants.StorageXMLFileName);
 
                     if (t.Valid)
                     {
                         // Save the current Index File modified date for later checking
-                        CommonLocalSettings.SaveLastWriteToSettings(t, CommonConstants.SettingsXMLFileLastDateTimeModified);
+                        CommonLocalSettings.SaveLastWriteToSettings(t, Common.Constants.SettingsXMLFileLastDateTimeModified);
                     }
 
                     UpdateSavedLocalSettings();
@@ -483,7 +482,7 @@
         private static void UpdateSavedLocalSettings()
         {
             // save the database version
-            CommonLocalSettings.DatabaseVersion = CommonConstants.GrampsViewDatabaseVersion;
+            CommonLocalSettings.DatabaseVersion = Common.Constants.GrampsViewDatabaseVersion;
         }
     }
 }

@@ -89,14 +89,14 @@
             //newManager.TriggerLoadGPKGFileAsync().ConfigureAwait(false);
 
             //// 2) UnZip new data.GRAMPS file
-            //FileInfoEx GrampsFile = StoreFolder.FolderGetFile(CommonConstants.StorageGRAMPSFileName);
+            //FileInfoEx GrampsFile = StoreFolder.FolderGetFile(Constants.StorageGRAMPSFileName);
 
             //DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program").ConfigureAwait(false);
 
             //newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
 
             //// 3) Load new data.XML file
-            //FileInfoEx dataXML = StoreFolder.FolderGetFile(CommonConstants.StorageXMLFileName);
+            //FileInfoEx dataXML = StoreFolder.FolderGetFile(Constants.StorageXMLFileName);
 
             //DataStore.Instance.CN.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program").ConfigureAwait(false);
 

@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
+    using GrampsView.Assets.Fonts;
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
@@ -148,7 +149,7 @@
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
 
             newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
-            newMediaModel.OriginalFilePath = System.IO.Path.Combine(CommonConstants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
+            newMediaModel.OriginalFilePath = System.IO.Path.Combine(Constants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 
             return newMediaModel;
         }

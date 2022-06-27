@@ -47,7 +47,7 @@
             if (PlaceObject != null)
             {
                 BaseModelBase = PlaceObject;
-                BaseTitleIcon = CommonConstants.IconPlace;
+                BaseTitleIcon = Constants.IconPlace;
 
                 // TODO Display all details
 

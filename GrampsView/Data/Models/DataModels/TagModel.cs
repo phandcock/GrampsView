@@ -33,7 +33,7 @@
         /// </summary>
         public TagModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconTag;
+            ModelItemGlyph.Symbol = Constants.IconTag;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 

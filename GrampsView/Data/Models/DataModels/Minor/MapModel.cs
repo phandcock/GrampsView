@@ -30,6 +30,17 @@
     /// </summary>
     public class MapModel : ModelBase, IMapModel
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MapModel"> MapModel </see> class.
+        /// </summary>
+        public MapModel()
+        {
+            OpenMapCommand = new AsyncCommand(OpenMap);
+
+            ModelItemGlyph.Symbol = Constants.IconMap;
+            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+        }
+
         public string Description
         {
             get;
@@ -84,17 +95,6 @@
         public IAsyncCommand OpenMapCommand
         {
             get; private set;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MapModel"> MapModel </see> class.
-        /// </summary>
-        public MapModel()
-        {
-            OpenMapCommand = new AsyncCommand(OpenMap);
-
-            ModelItemGlyph.Symbol = CommonConstants.IconMap;
-            ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 
         /// <summary>

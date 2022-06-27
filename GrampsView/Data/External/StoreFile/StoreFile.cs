@@ -46,7 +46,7 @@
                     }
 
                     // Create standard directories
-                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(CommonConstants.DirectoryImageCache);
+                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(Constants.DirectoryImageCache);
 
                     await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }

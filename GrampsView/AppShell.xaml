@@ -84,126 +84,126 @@
 
     <FlyoutItem Title="Hub">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconHub}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconHub}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:HubPage}" Route="HubPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Birthdays">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconPeopleBirthday}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeopleBirthday}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonBirthdayPage}" Route="PersonBirthdayPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Bookmarks">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconBookMark}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconBookMark}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:BookMarkListPage}" Route="BookMarkListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Citations">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconCitation}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconCitation}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:CitationListPage}" Route="CitationListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Events">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconEvents}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconEvents}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:EventListPage}" Route="EventListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Families">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconFamilies}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconFamilies}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FamilyListPage}" Route="FamilyListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Media">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconMedia}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconMedia}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:MediaListPage}" Route="MediaListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Notes">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconNotes}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconNotes}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:NoteListPage}" Route="NoteListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="People">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconPeople}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeople}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonListPage}" Route="PersonListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Places">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconPlace}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPlace}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PlaceListPage}" Route="PlaceListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Repositories">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconRepository}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconRepository}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:RepositoryListPage}" Route="RepositoryListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Sources">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconSource}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSource}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SourceListPage}" Route="SourceListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Tags">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconTag}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconTag}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:TagListPage}" Route="TagListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="People Graph">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconPeopleGraph}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeopleGraph}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PeopleGraphPage}" Route="PeopleGraphPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Advanced Search">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconSearch}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSearch}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Load Data File">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconChooseDataFile}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconChooseDataFile}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FileInputHandlerPage}" Route="FileInputHandlerPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconSettings}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSettings}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="About">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:CommonConstants.IconAbout}" />
+            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconAbout}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
     </FlyoutItem>

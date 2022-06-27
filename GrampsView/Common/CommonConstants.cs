@@ -5,7 +5,7 @@
     /// <summary>
     /// Common Constants.
     /// </summary>
-    public static class CommonConstants
+    public static class Constants
     {
         public const int CompareEquals = 0;
 

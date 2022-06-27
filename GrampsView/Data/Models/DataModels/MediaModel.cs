@@ -54,7 +54,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public MediaModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconMedia;
+            ModelItemGlyph.Symbol = Constants.IconMedia;
             ModelItemGlyph.SymbolColour = SharedSharp.CommonRoutines.General.GetResourceColour("CardBackGroundMedia");
         }
 

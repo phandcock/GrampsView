@@ -33,7 +33,7 @@
         /// </summary>
         public SourceModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconSource;
+            ModelItemGlyph.Symbol = Constants.IconSource;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 

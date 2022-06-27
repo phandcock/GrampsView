@@ -16,7 +16,7 @@ namespace GrampsView.Data.Model
     {
         public HLinkDateModelStr()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconDate;
+            HLinkGlyphItem.Symbol = Constants.IconDate;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
             HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();

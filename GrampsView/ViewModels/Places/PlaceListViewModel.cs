@@ -26,7 +26,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Place List";
-            BaseTitleIcon = CommonConstants.IconPlace;
+            BaseTitleIcon = Constants.IconPlace;
         }
 
         public Group<HLinkPlaceModelCollection> PlaceSource

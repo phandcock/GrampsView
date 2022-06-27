@@ -17,7 +17,7 @@ namespace GrampsView.Data.Model
 
         public HLinkPersonNameModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconPersonName;
+            HLinkGlyphItem.Symbol = Constants.IconPersonName;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 

@@ -162,7 +162,7 @@
                                     : base(iocCommonLogging)
         {
             BaseTitle = "People Graph";
-            BaseTitleIcon = CommonConstants.IconPeopleGraph;
+            BaseTitleIcon = Constants.IconPeopleGraph;
         }
 
         /// <summary>

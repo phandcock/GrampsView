@@ -25,7 +25,7 @@
         public NoteDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
-            BaseTitleIcon = CommonConstants.IconNotes;
+            BaseTitleIcon = Constants.IconNotes;
         }
 
         public INoteModel NoteObject
@@ -57,7 +57,7 @@
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
 
                 // Handle Link Note types
-                if (NoteObject.GType == CommonConstants.NoteTypeLink)
+                if (NoteObject.GType == Constants.NoteTypeLink)
                 {
                     URLModel newLinkURL = new URLModel
                     {

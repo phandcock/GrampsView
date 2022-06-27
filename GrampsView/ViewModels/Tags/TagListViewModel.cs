@@ -29,7 +29,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Tag List";
-            BaseTitleIcon = CommonConstants.IconTag;
+            BaseTitleIcon = Constants.IconTag;
         }
 
         /// <summary>

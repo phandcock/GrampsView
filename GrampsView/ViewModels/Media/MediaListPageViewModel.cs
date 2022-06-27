@@ -23,7 +23,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Media List";
-            BaseTitleIcon = CommonConstants.IconMedia;
+            BaseTitleIcon = Constants.IconMedia;
         }
 
         public Group<HLinkMediaModelCollection> MediaSource

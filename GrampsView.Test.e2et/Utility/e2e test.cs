@@ -12,7 +12,7 @@
     {
         public static void TestDecompressGzip()
         {
-            GeneralData.GrampsFile = new FileInfoEx(argFileName: CommonConstants.StorageGRAMPSFileName);
+            GeneralData.GrampsFile = new FileInfoEx(argFileName: Constants.StorageGRAMPSFileName);
 
             if (GeneralData.GrampsFile.Valid)
             {
@@ -41,7 +41,7 @@
         {
             GeneralData.iocCommonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
-            //File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName));
+            //File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Constants.StorageXMLFileName));
 
             await GeneralData.newManager.TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
 

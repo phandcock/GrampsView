@@ -72,15 +72,15 @@
         {
             try
             {
-                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase, CommonConstants.DirectoryImageCache);
+                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
                 DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, CommonConstants.DirectoryCacheBase));
+                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, Constants.DirectoryCacheBase));
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {
-                    t.CreateSubdirectory(CommonConstants.DirectoryImageCache);
+                    t.CreateSubdirectory(Constants.DirectoryImageCache);
                 }
             }
             catch (Exception ex)

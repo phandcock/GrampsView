@@ -28,7 +28,7 @@
 
             Assert.True(tt.Valid, "Invalid Note");
 
-            Assert.True(tt.GType == Common.CommonConstants.NoteTypeBiography, "Invalid Note");
+            Assert.True(tt.GType == Common.Constants.NoteTypeBiography, "Invalid Note");
         }
     }
 }

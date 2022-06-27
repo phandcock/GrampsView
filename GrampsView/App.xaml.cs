@@ -113,7 +113,7 @@
 
             CardSizes.Current.ReCalculateCardWidths();
 
-            CommonLocalSettings.DatabaseVersionMin = CommonConstants.GrampsViewDatabaseVersion;
+            CommonLocalSettings.DatabaseVersionMin = Common.Constants.GrampsViewDatabaseVersion;
 
             // Get Going
 

@@ -39,7 +39,7 @@
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
-            ModelItemGlyph.Symbol = CommonConstants.IconDDefault;
+            ModelItemGlyph.Symbol = Constants.IconDDefault;
             ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
             UCNavigateCommand = new AsyncCommand(() => UCNavigate());
@@ -157,12 +157,12 @@
 
         public static bool operator <(ModelBase left, ModelBase right)
         {
-            return left is null ? right is object : left.CompareTo(right) < CommonConstants.CompareEquals;
+            return left is null ? right is object : left.CompareTo(right) < Constants.CompareEquals;
         }
 
         public static bool operator <=(ModelBase left, ModelBase right)
         {
-            return left is null || left.CompareTo(right) <= CommonConstants.CompareEquals;
+            return left is null || left.CompareTo(right) <= Constants.CompareEquals;
         }
 
         public static bool operator ==(ModelBase left, ModelBase right)
@@ -177,12 +177,12 @@
 
         public static bool operator >(ModelBase left, ModelBase right)
         {
-            return left is object && left.CompareTo(right) > CommonConstants.CompareEquals;
+            return left is object && left.CompareTo(right) > Constants.CompareEquals;
         }
 
         public static bool operator >=(ModelBase left, ModelBase right)
         {
-            return left is null ? right is null : left.CompareTo(right) >= CommonConstants.CompareEquals;
+            return left is null ? right is null : left.CompareTo(right) >= Constants.CompareEquals;
         }
 
         /// <summary>
@@ -210,9 +210,9 @@
 
             ModelBase firstSource = (ModelBase)argFirstModelBase; ModelBase secondSource = (ModelBase)argSecondModelBase;
 
-            if (firstSource is null) { return CommonConstants.CompareEquals; }
+            if (firstSource is null) { return Constants.CompareEquals; }
 
-            if (secondSource is null) { return CommonConstants.CompareEquals; }
+            if (secondSource is null) { return Constants.CompareEquals; }
 
             return Compare(firstSource.HLinkKey, secondSource.HLinkKey);
         }
@@ -221,7 +221,7 @@
         {
             if (other is null)
             {
-                return CommonConstants.CompareGreaterThan;
+                return Constants.CompareGreaterThan;
             }
 
             // This is effectively random

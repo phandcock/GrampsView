@@ -26,7 +26,7 @@
     {
         public AttributeModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconAttribute;
+            ModelItemGlyph.Symbol = Constants.IconAttribute;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAttribute");
         }
 
@@ -150,12 +150,12 @@
         {
             if (a is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             if (b is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             AttributeModel firstAttributeName = (AttributeModel)a;
@@ -192,7 +192,7 @@
         {
             if (other is null)
             {
-                return CommonConstants.CompareGreaterThan;
+                return Constants.CompareGreaterThan;
             }
 
             // This is effectively random

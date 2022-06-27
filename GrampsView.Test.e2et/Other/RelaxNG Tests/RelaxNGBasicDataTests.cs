@@ -41,7 +41,7 @@
         {
             DataStoreUtility.DataStoreSetup();
 
-            string filePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, CommonConstants.StorageXMLFileName);
+            string filePath = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Constants.StorageXMLFileName);
 
             XmlReader instance = new XmlTextReader(filePath);
 

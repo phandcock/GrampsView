@@ -21,7 +21,7 @@
     {
         public HLinkPersonRefModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconPeople;
+            HLinkGlyphItem.Symbol = Constants.IconPeople;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 

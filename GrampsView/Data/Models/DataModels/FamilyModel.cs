@@ -43,7 +43,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public FamilyModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconFamilies;
+            ModelItemGlyph.Symbol = Constants.IconFamilies;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
 

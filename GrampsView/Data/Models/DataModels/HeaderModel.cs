@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using SharedSharp.Model;
@@ -22,6 +23,14 @@
 
     public class HeaderModel : ModelBase, IHeaderModel
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeaderModel"/> class.
+        /// </summary>
+        public HeaderModel()
+        {
+            ModelItemGlyph.Symbol = Constants.IconHeader;
+        }
+
         public CardListLineCollection AsCardListLineCollection
         {
             get
@@ -210,14 +219,6 @@
 
                 return t;
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HeaderModel"/> class.
-        /// </summary>
-        public HeaderModel()
-        {
-            ModelItemGlyph.Symbol = Common.CommonConstants.IconHeader;
         }
     }
 }

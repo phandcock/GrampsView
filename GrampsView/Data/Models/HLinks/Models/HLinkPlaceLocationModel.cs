@@ -23,7 +23,7 @@
     {
         public HLinkPlaceLocationModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconDDefault;
+            HLinkGlyphItem.Symbol = Constants.IconDDefault;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
         }
 

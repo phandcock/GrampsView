@@ -36,7 +36,7 @@
         //{
         //    try
         //    {
-        //        await CommonTimeline.AddToTimeLine(CommonConstants.ModelNamePerson, argPersonModel, argPersonModel.ToString());
+        //        await CommonTimeline.AddToTimeLine(Constants.ModelNamePerson, argPersonModel, argPersonModel.ToString());
         //    }
         //    catch (Exception ex)
         //    {
@@ -56,7 +56,7 @@
         //{
         //    try
         //    {
-        //        await CommonTimeline.AddToTimeLine(CommonConstants.ModelNameFamily, argFamilyModel, argFamilyModel.ToString());
+        //        await CommonTimeline.AddToTimeLine(Constants.ModelNameFamily, argFamilyModel, argFamilyModel.ToString());
         //    }
         //    catch (Exception ex)
         //    {

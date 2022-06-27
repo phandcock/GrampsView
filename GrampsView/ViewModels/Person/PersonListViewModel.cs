@@ -26,7 +26,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Person List";
-            BaseTitleIcon = CommonConstants.IconPeople;
+            BaseTitleIcon = Constants.IconPeople;
         }
 
         /// <summary>

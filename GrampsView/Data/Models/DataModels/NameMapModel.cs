@@ -23,7 +23,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public NameMapModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconNameMaps;
+            ModelItemGlyph.Symbol = Constants.IconNameMaps;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNameMap");
         }
 

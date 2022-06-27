@@ -31,7 +31,7 @@
         {
             BaseTitle = "Database reload needed";
 
-            BaseTitleIcon = CommonConstants.IconSettings;
+            BaseTitleIcon = Constants.IconSettings;
 
             LoadDataCommand = new AsyncCommand(LoadDataAction);
 

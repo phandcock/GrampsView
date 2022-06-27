@@ -18,6 +18,21 @@
     /// </summary>
     public class PersonDetailViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The common logging service.
+        /// </param>
+        /// <param name="iocPlatformSpecific">
+        /// platform specific routines
+        /// </param>
+        public PersonDetailViewModel(ISharedLogging iocCommonLogging)
+            : base(iocCommonLogging)
+        {
+            BaseTitleIcon = Constants.IconPeople;
+        }
+
         public HLinkNoteModel BioNote
         {
             get; set;
@@ -91,21 +106,6 @@
         }
 
         = new PersonModel();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PersonDetailViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging service.
-        /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// platform specific routines
-        /// </param>
-        public PersonDetailViewModel(ISharedLogging iocCommonLogging)
-            : base(iocCommonLogging)
-        {
-            BaseTitleIcon = CommonConstants.IconPeople;
-        }
 
         /// <summary>
         /// Populates the view ViewModel.

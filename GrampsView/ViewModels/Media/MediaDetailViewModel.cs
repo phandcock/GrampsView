@@ -75,7 +75,7 @@
                 if (!(CurrentMediaObject is null))
                 {
                     BaseModelBase = CurrentMediaObject;
-                    BaseTitleIcon = CommonConstants.IconMedia;
+                    BaseTitleIcon = Constants.IconMedia;
 
                     MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
 

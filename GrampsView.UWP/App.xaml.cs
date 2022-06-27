@@ -75,7 +75,7 @@
 
                     switch (uriArgs.Uri.Host)
                     {
-                        case CommonConstants.ModelNameFamily:
+                        case Constants.ModelNameFamily:
                             {
                                 HLinkFamilyModel targetFamily = new HLinkFamilyModel
                                 {
@@ -87,7 +87,7 @@
                                 break;
                             }
 
-                        case CommonConstants.ModelNamePerson:
+                        case Constants.ModelNamePerson:
                             {
                                 HLinkPersonModel targetPerson = new HLinkPersonModel
                                 {

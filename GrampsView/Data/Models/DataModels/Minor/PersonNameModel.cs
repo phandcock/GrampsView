@@ -29,7 +29,7 @@ namespace GrampsView.Data.Model
     {
         public PersonNameModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconPersonName;
+            ModelItemGlyph.Symbol = Constants.IconPersonName;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
@@ -319,12 +319,12 @@ namespace GrampsView.Data.Model
         {
             if (a is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             if (b is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             PersonNameModel firstPersonName = (PersonNameModel)a;
@@ -333,7 +333,7 @@ namespace GrampsView.Data.Model
             // Compare on Surname first
             int testFlag = string.Compare(firstPersonName.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == CommonConstants.CompareEquals)
+            if (testFlag == Constants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(firstPersonName.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
@@ -346,12 +346,12 @@ namespace GrampsView.Data.Model
         {
             if (other is null)
             {
-                return CommonConstants.CompareGreaterThan;
+                return Constants.CompareGreaterThan;
             }
             // Compare on Surname first
             int testFlag = string.Compare(GSurName.GetPrimarySurname, other.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == CommonConstants.CompareEquals)
+            if (testFlag == Constants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(GFirstName, other.GFirstName, StringComparison.CurrentCulture);
@@ -373,14 +373,14 @@ namespace GrampsView.Data.Model
         {
             if (obj is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             PersonNameModel secondPersonName = obj as PersonNameModel;
 
             if (secondPersonName is null)
             {
-                return CommonConstants.CompareEquals;
+                return Constants.CompareEquals;
             }
 
             return CompareTo(secondPersonName);

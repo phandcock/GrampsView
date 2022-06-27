@@ -64,7 +64,7 @@
             if (CitationObject != null)
             {
                 BaseModelBase = CitationObject;
-                BaseTitleIcon = CommonConstants.IconCitation;
+                BaseTitleIcon = Constants.IconCitation;
 
                 BaseDetail.Add(new CardListLineCollection("Citation Detail")
                 {
@@ -78,7 +78,7 @@
                 BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
                 // If event note, display it while showing the full list further below.
-                HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(CommonConstants.NoteTypeCitation);
+                HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeCitation);
 
                 NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 

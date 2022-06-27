@@ -45,7 +45,7 @@
             Contract.Requires(!string.IsNullOrEmpty(aStop));
 
             // Setup basics
-            ModelItemGlyph.Symbol = CommonConstants.IconDate;
+            ModelItemGlyph.Symbol = Constants.IconDate;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
             //DerivedType = DateObjectModelDerivedTypeEnum.DateObjectModelRange;
 

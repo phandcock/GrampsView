@@ -19,7 +19,7 @@
 
         public HLinkNameMapModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconNameMaps;
+            HLinkGlyphItem.Symbol = Constants.IconNameMaps;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNameMap");
         }
 

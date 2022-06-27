@@ -10,7 +10,7 @@ namespace GrampsView.Data.Model
     {
         public HLinkPlaceNameModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconPlace;
+            HLinkGlyphItem.Symbol = Constants.IconPlace;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
         }
 

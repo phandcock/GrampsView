@@ -26,7 +26,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Note List";
-            BaseTitleIcon = CommonConstants.IconNotes;
+            BaseTitleIcon = Constants.IconNotes;
         }
 
         public Group<HLinkNoteModelCollection> NoteSource

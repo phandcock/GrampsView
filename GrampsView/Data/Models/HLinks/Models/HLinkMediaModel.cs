@@ -32,7 +32,7 @@
         /// </summary>
         public HLinkMediaModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconMedia;
+            HLinkGlyphItem.Symbol = Constants.IconMedia;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundMedia");
         }
 

@@ -22,7 +22,7 @@ namespace GrampsView.Data.Model
 
         public HLinkFamilyModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconFamilies;
+            HLinkGlyphItem.Symbol = Constants.IconFamilies;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
 

@@ -19,7 +19,7 @@
                                                                     : base(iocCommonLogging)
         {
             BaseTitle = "About";
-            BaseTitleIcon = CommonConstants.IconAbout;
+            BaseTitleIcon = Constants.IconAbout;
         }
 
         public CardListLineCollection ApplicationVersionList

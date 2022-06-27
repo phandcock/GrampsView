@@ -29,7 +29,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Repository List";
-            BaseTitleIcon = CommonConstants.IconRepository;
+            BaseTitleIcon = Constants.IconRepository;
         }
 
         public HLinkRepositoryModelCollection RepositorySource

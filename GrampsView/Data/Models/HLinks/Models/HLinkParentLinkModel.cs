@@ -23,7 +23,7 @@
     {
         public HLinkParentLinkModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconAttribute;
+            HLinkGlyphItem.Symbol = Constants.IconAttribute;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAttribute");
         }
 

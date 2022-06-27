@@ -35,7 +35,7 @@
 
             BaseTitle = "What's new";
 
-            BaseTitleIcon = CommonConstants.IconSettings;
+            BaseTitleIcon = Constants.IconSettings;
 
             _AppInit = iocAppInit;
         }

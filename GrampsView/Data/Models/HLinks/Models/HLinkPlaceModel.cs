@@ -29,7 +29,7 @@
 
         public HLinkPlaceModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconPlace;
+            HLinkGlyphItem.Symbol = Constants.IconPlace;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
         }
 

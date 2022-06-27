@@ -27,7 +27,7 @@
         /// </summary>
         public EventModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconEvents;
+            ModelItemGlyph.Symbol = Constants.IconEvents;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
         }
 

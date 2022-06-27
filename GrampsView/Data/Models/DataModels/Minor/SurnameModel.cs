@@ -11,7 +11,7 @@ namespace GrampsView.Data.Model
     {
         public SurnameModel()
         {
-            ModelItemGlyph.Symbol = Common.CommonConstants.IconSurname;
+            ModelItemGlyph.Symbol = Common.Constants.IconSurname;
         }
 
         public string GConnector

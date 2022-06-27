@@ -35,7 +35,7 @@ namespace GrampsView.Data.Model
         /// </summary>
         public PlaceModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconPlace;
+            ModelItemGlyph.Symbol = Constants.IconPlace;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
 
             PlaceChildCollection.Title = "Enclosed Places";

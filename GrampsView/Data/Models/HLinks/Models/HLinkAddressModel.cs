@@ -18,7 +18,7 @@
 
         public HLinkAdressModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconAddress;
+            HLinkGlyphItem.Symbol = Constants.IconAddress;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
         }
 

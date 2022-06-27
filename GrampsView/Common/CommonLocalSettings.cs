@@ -139,9 +139,9 @@
         public static void SetReloadDatabase()
         {
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
-            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsGPKGFileLastDateTimeModified);
-            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsGPRAMPSFileLastDateTimeModified);
-            DataStore.Instance.ES.PreferencesRemove(CommonConstants.SettingsXMLFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsGPKGFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsGPRAMPSFileLastDateTimeModified);
+            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsXMLFileLastDateTimeModified);
 
             DataStore.Instance.DS.IsDataLoaded = false;
 

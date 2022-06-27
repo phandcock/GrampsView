@@ -23,7 +23,7 @@ namespace GrampsView.Data.Model
 
         public HLinkEventModel()
         {
-            HLinkGlyphItem.Symbol = CommonConstants.IconEvents;
+            HLinkGlyphItem.Symbol = Constants.IconEvents;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
         }
 

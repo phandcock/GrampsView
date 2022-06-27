@@ -27,7 +27,7 @@ namespace GrampsView.Data.Model
 
         public NoteModel()
         {
-            ModelItemGlyph.Symbol = CommonConstants.IconNotes;
+            ModelItemGlyph.Symbol = Constants.IconNotes;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 

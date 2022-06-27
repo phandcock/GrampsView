@@ -17,7 +17,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Person Birthday List";
-            BaseTitleIcon = CommonConstants.IconPeopleBirthday;
+            BaseTitleIcon = Constants.IconPeopleBirthday;
         }
 
         public bool BirthdayShowOnlyLivingFlag

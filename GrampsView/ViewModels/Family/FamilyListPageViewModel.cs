@@ -29,7 +29,7 @@
             : base(iocCommonLogging)
         {
             BaseTitle = "Family List";
-            BaseTitleIcon = CommonConstants.IconFamilies;
+            BaseTitleIcon = Constants.IconFamilies;
         }
 
         public Group<HLinkFamilyModelCollection> FamilySource
