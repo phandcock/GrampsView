@@ -23,118 +23,98 @@
     <!--  Content  -->
     <ScrollView Padding="10">
 
-        <StackLayout
-            HorizontalOptions="StartAndExpand"
-            Orientation="Vertical">
+        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
             <sharedsharpucon:ThemeSelector />
 
-            <Frame
-                HorizontalOptions="Center"
-                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
+                <Frame HorizontalOptions="CenterAndExpand" Style="{DynamicResource SSFrameCardStyle}">
 
-                <StackLayout>
+                    <StackLayout>
 
-                    <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label
-                            Style="{DynamicResource GVHeaderStyleMedium}"
-                            Text="Settings" />
-                    </Frame>
+                        <Frame Style="{DynamicResource SSFrameHeaderStyle}">
+                            <Label Style="{DynamicResource SSLabelStyleMedium}" Text="Settings" />
+                        </Frame>
 
-                    <Grid>
+                        <StackLayout Orientation="Horizontal">
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Style="{DynamicResource SSCardLabelStyle}"
+                                Text="Sort Item collections on load" />
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="1*" />
-                        </Grid.ColumnDefinitions>
+                            <Switch
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                IsToggled="{Binding SortCollectionsFlag}"
+                                Style="{DynamicResource GVSwitchStyle}" />
+                        </StackLayout>
 
-                        <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Style="{DynamicResource GVCardLabelStyle}"
-                            Text="Sort Item collections on load" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{DynamicResource SSCardLabelStyle}"
+                                Text="Use first (not last) image from collections." />
 
-                        <Switch
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            IsToggled="{Binding SortCollectionsFlag}"
-                            Style="{DynamicResource GVSwitchStyle}" />
-
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Style="{DynamicResource GVCardLabelStyle}"
-                            Text="Use first (not last) image from collections." />
-
-                        <Switch
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            IsToggled="{Binding UseFirstImageFlag}"
-                            Style="{DynamicResource GVSwitchStyle}" />
-                    </Grid>
-                </StackLayout>
+                            <Switch
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                IsToggled="{Binding UseFirstImageFlag}"
+                                Style="{DynamicResource GVSwitchStyle}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
             </Frame>
 
-            <Frame
-                HorizontalOptions="Center"
-                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
+            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
+                <Frame HorizontalOptions="CenterAndExpand" Style="{DynamicResource SSFrameCardStyle}">
 
-                <StackLayout>
+                    <StackLayout>
 
-                    <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label
-                            Style="{DynamicResource GVHeaderStyleMedium}"
-                            Text="Defaults" />
-                    </Frame>
+                        <Frame Style="{DynamicResource SSFrameHeaderStyle}">
+                            <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Defaults" />
+                        </Frame>
 
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Style="{DynamicResource GVCardLabelStyle}"
-                        Text="Default email address for Notes" />
+                        <Label Style="{DynamicResource GVCardLabelStyle}" Text="Default email address for Notes" />
 
-                    <Entry
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
-                                                          Light={StaticResource SecondaryLight}}"
-                        ClearButtonVisibility="WhileEditing"
-                        Keyboard="Email"
-                        Placeholder="Email"
-                        ReturnCommand="{Binding UpdateNoteEmailCommand}"
-                        Text="{Binding UpdateNoteEmailAddress}"
-                        TextTransform="Lowercase">
-                        <Entry.Behaviors>
-                            <xct:EmailValidationBehavior
-                                DecorationFlags="Trim"
-                                InvalidStyle="{DynamicResource GVEntryInvalid}"
-                                IsValid="{Binding UpdateNoteEmailValidValue}" />
-                        </Entry.Behaviors>
-                    </Entry>
-                </StackLayout>
+                        <Entry
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
+                                                              Light={StaticResource SecondaryLight}}"
+                            ClearButtonVisibility="WhileEditing"
+                            Keyboard="Email"
+                            Placeholder="Email"
+                            ReturnCommand="{Binding UpdateNoteEmailCommand}"
+                            Text="{Binding UpdateNoteEmailAddress}"
+                            TextTransform="Lowercase">
+                            <Entry.Behaviors>
+                                <xct:EmailValidationBehavior
+                                    DecorationFlags="Trim"
+                                    InvalidStyle="{DynamicResource GVEntryInvalid}"
+                                    IsValid="{Binding UpdateNoteEmailValidValue}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
             </Frame>
 
-            <Frame
-                HorizontalOptions="Center"
-                Style="{DynamicResource FrameLargeVariableCardStyleNS}">
-                <StackLayout>
+            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
 
-                    <Frame Style="{DynamicResource GVFrameHeaderStyle}">
-                        <Label
-                            Style="{DynamicResource GVHeaderStyleMedium}"
-                            Text="Control Buttons" />
-                    </Frame>
+                <Frame Style="{DynamicResource SSButtonMenuFrameStyle}">
 
-                    <Button
-                        Command="{Binding TestButtonCommand}"
-                        Style="{DynamicResource SSButtonMenu}"
-                        Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
-                </StackLayout>
+                    <StackLayout>
+
+                        <Frame Style="{DynamicResource SSFrameHeaderStyle}">
+                            <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Control Buttons" />
+                        </Frame>
+
+                        <Button
+                            Command="{Binding TestButtonCommand}"
+                            Style="{DynamicResource SSButtonMenu}"
+                            Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
+                    </StackLayout>
+                </Frame>
             </Frame>
         </StackLayout>
     </ScrollView>
