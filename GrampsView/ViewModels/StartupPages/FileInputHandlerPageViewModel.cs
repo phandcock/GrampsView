@@ -124,7 +124,7 @@
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            SharedSharp.CommonRoutines.Navigation.NavigateHub();
+            SharedSharp.Common.SharedSharpNavigation.NavigateHub();
 
             await Task.Delay(500);
 

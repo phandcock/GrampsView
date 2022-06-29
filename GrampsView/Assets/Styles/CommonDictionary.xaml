@@ -2,7 +2,7 @@
     x:Class="SharedSharpNu.Assets.Styles.CommonDictionary"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu">
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -17,15 +17,13 @@
     -->
 
     <!--  Create a Base Style for a Button Style  -->
-    <Style
-        x:Key="SSButtonStyle"
-        TargetType="Button">
+    <Style x:Key="SSButtonStyle" TargetType="Button">
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontSmall}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
@@ -47,9 +45,7 @@
     -->
 
     <!--  Create a ContentPage style  -->
-    <Style
-        x:Key="SSBaseContentPage"
-        TargetType="ContentPage">
+    <Style x:Key="SSBaseContentPage" TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>
 
@@ -60,16 +56,14 @@
     -->
 
     <!--  Create a Base Style for a Label  -->
-    <Style
-        x:Key="SSCardLabelStyle"
-        TargetType="Label">
+    <Style x:Key="SSCardLabelStyle" TargetType="Label">
         <Setter Property="IsEnabled" Value="False" />
         <Setter Property="HorizontalOptions" Value="StartAndExpand" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
         <Setter Property="LineBreakMode" Value="WordWrap" />
         <Setter Property="VerticalOptions" Value="StartAndExpand" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
     </Style>
 
@@ -79,7 +73,7 @@
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
     </Style>
 
     <!--
@@ -89,9 +83,7 @@
     -->
 
     <!--  Create a Frame Card Style  -->
-    <Style
-        x:Key="SSFrameCardStyle"
-        TargetType="Frame">
+    <Style x:Key="SSFrameCardStyle" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="CornerRadius" Value="3" />

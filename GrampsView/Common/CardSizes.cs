@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using SharedSharp.CommonRoutines;
+    using SharedSharp.Common;
 
     public class CardSizes : SharedSharpCardSizes
     {

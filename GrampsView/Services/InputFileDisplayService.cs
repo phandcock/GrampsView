@@ -22,7 +22,7 @@
             {
                 shown = true;
 
-                await SharedSharp.CommonRoutines.Navigation.NavigateAsync(nameof(FileInputHandlerPage));
+                await SharedSharp.Common.SharedSharpNavigation.NavigateAsync(nameof(FileInputHandlerPage));
             }
         }
     }

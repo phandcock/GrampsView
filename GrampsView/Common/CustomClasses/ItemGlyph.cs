@@ -184,7 +184,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.ImageHLinkMediaModel);
 
-                        await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }
@@ -192,7 +192,7 @@
                     {
                         ser = JsonSerializer.Serialize(this.MediaHLinkMediaModel);
 
-                        await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
                         break;
                     }

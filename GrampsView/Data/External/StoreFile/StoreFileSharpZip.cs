@@ -85,7 +85,7 @@
                     string entryFileName = zipEntry.Name;
 
                     // check for image TODO do proper mimetype mapping. See https://github.com/samuelneff/MimeTypeMap
-                    if (SharedSharp.CommonRoutines.General.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
+                    if (SharedSharp.Common.SharedSharpGeneral.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
                     {
                         continue;
                     }

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonNameModel">
 
@@ -22,7 +22,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            FontSize="{x:Static sharedsharp:FontSizes.FontVerySmall}"
+            FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
             HorizontalOptions="EndAndExpand"
             Style="{DynamicResource GVCardLabelStyleSmall}"
             Text="{Binding DeRef.GType, Mode=OneWay}" />

@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
@@ -50,7 +50,7 @@
 
                 <Label
                     FontAttributes="Bold"
-                    FontSize="{x:Static sharedsharp:FontSizes.FontLarge}"
+                    FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}"
                     Style="{DynamicResource GVLabelStyleLarge}"
                     Text="{x:Static i18n:AppResources.AboutPage_AppHeader}"
                     TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
@@ -58,25 +58,15 @@
                     VerticalOptions="Center" />
             </StackLayout>
 
-            <sharedsharpucon:ListLineCardLarge
-                Grid.Row="1"
-                BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCardLarge Grid.Row="1" BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
 
-            <sharedsharpucon:ListLineCardLarge
-                Grid.Row="2"
-                BindingContext="{Binding HeaderData}" />
+            <sharedsharpucon:ListLineCardLarge Grid.Row="2" BindingContext="{Binding HeaderData}" />
 
-            <ucon:FileViewCardLarge
-                Grid.Row="3"
-                BindingContext="GrampsView.Attribution.md" />
+            <ucon:FileViewCardLarge Grid.Row="3" BindingContext="GrampsView.Attribution.md" />
 
-            <ucon:FileViewCardLarge
-                Grid.Row="4"
-                BindingContext="GrampsView.CHANGELOG.md" />
+            <ucon:FileViewCardLarge Grid.Row="4" BindingContext="GrampsView.CHANGELOG.md" />
 
-            <ucon:FileViewCardLarge
-                Grid.Row="5"
-                BindingContext="GrampsView.PrivacyPolicy.md" />
+            <ucon:FileViewCardLarge Grid.Row="5" BindingContext="GrampsView.PrivacyPolicy.md" />
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

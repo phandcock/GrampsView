@@ -15,7 +15,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.CommonRoutines;
+    using SharedSharp.Common;
     using SharedSharp.Errors;
     using SharedSharp.Logging;
     using SharedSharp.Services;
@@ -106,7 +106,7 @@
             {
                 OnMainDisplayInfoChanged(s, a);
             };
-            SharedSharp.CommonRoutines.General.ScreenSizeInit();
+            SharedSharp.Common.SharedSharpGeneral.ScreenSizeInit();
 
             // App Setup
             Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
@@ -127,7 +127,7 @@
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                SharedSharp.CommonRoutines.Navigation.NavigateHub();
+                SharedSharp.Common.SharedSharpNavigation.NavigateHub();
 
                 return;
             }
@@ -249,7 +249,7 @@
 
         private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
-            SharedSharp.CommonRoutines.General.ScreenSizeInit();
+            SharedSharp.Common.SharedSharpGeneral.ScreenSizeInit();
 
             // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
 

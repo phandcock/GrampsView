@@ -111,7 +111,7 @@
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{argPage}?BaseParamsHLink={ser}");
+            await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{argPage}?BaseParamsHLink={ser}");
         }
 
         /// <summary>

@@ -5,7 +5,7 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ChildRefCardSmallRoot"
     x:DataType="models:HLinkChildRefModel">
@@ -23,7 +23,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            FontSize="{x:Static sharedsharp:FontSizes.FontVerySmall}"
+            FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
             FormattedText="{Binding RelationShips, Mode=OneWay}"
             HorizontalOptions="End"
             Style="{DynamicResource GVCardLabelStyleVerySmall}" />

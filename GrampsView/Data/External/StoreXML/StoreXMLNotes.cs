@@ -98,7 +98,7 @@
 
             string theText = (string)argStyledText.Element(ns + "text");
 
-            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharp.CommonRoutines.FontSizes.FontMedium });
+            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharp.Common.SharedSharpFontSize.FontMedium });
 
             return loadString;
         }

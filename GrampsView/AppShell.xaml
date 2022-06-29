@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.CommonRoutines;assembly=SharedSharpNu"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu"
     xmlns:views="clr-namespace:GrampsView.Views"
     FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
                                             Light={StaticResource OnPrimaryContainerLight}}">
@@ -38,13 +38,13 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:FontSizes.FontMedium}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

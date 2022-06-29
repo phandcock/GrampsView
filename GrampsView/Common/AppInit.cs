@@ -6,7 +6,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.CommonRoutines;
+    using SharedSharp.Common;
     using SharedSharp.Errors;
     using SharedSharp.Messages;
     using SharedSharp.Services;
@@ -36,7 +36,7 @@
 
                 if (await App.Current.Services.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
-                    CommonLocalSettings.DataSerialised = false;
+                    SharedSharpSettings.DataSerialised = false;
 
                     return;
                 }
@@ -48,7 +48,7 @@
                         return;
 
                     SharedSharpStatic.WindowSize = m.Value;
-                    CardSizes.Current.ReCalculateCardWidths();
+                    SharedSharpCardSizes.Current.ReCalculateCardWidths();
                 });
 
                 App.Current.Services.GetService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
@@ -56,7 +56,7 @@
                     if (m == null)
                         return;
 
-                    CardSizes.Current.ReCalculateCardWidths();
+                    SharedSharpCardSizes.Current.ReCalculateCardWidths();
                 });
 
                 // Load da data
@@ -85,7 +85,7 @@
         {
             try
             {
-                if (CommonLocalSettings.DataSerialised)
+                if (SharedSharpSettings.DataSerialised)
                 {
                     // App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
                     App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
@@ -94,7 +94,7 @@
 
                 // No Serialised Data and made it this far so some problem has occurred. Load
                 // everything from the beginning.
-                await SharedSharp.CommonRoutines.Navigation.NavigateAsync(nameof(FileInputHandlerPage));
+                await SharedSharpNavigation.NavigateAsync(nameof(FileInputHandlerPage));
             }
             catch (Exception ex)
             {

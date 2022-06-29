@@ -293,7 +293,7 @@
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharp.CommonRoutines.Navigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
+            await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }
     }
 }
