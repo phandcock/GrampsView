@@ -95,7 +95,7 @@
 
             VersionTracking.Track();
 
-            SharedSharpStatic.Init(Services);
+            ShardSharpCore.Init(Services);
 
             Services.GetService<IErrorNotifications>();
 
@@ -239,7 +239,7 @@
 
             services.AddTransient<NavigationPage>();
 
-            SharedSharpStatic.InitServicesAdd(ref services);
+            ShardSharpCore.InitServicesAdd(ref services);
 
             return services.BuildServiceProvider();
         }
