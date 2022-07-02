@@ -1,3 +1,15 @@
+## [16.24.38](https://github.com/phandcock/GrampsView/compare/v16.24.37...v16.24.38) (2022-07-02)
+
+
+### Bug Fixes
+
+* tweaks ([9c1c31b](https://github.com/phandcock/GrampsView/commit/9c1c31b44d2a594fb02b851c37bb0916f42f26ad))
+* tweaks ([201601f](https://github.com/phandcock/GrampsView/commit/201601f448b89c96ccf414da2314cea4921ad3a3))
+* update nugets ([8b97e62](https://github.com/phandcock/GrampsView/commit/8b97e62f1fe327a65305f0927d4cb15be2a7659f))
+* update to latest sharedsharp ([1a935bb](https://github.com/phandcock/GrampsView/commit/1a935bbc52417397f7094dcc95d876784ac21052))
+
+
+
 ## [16.24.37](https://github.com/phandcock/GrampsView/compare/v16.24.36...v16.24.37) (2022-06-28)
 
 
@@ -26,18 +38,6 @@
 
 * tweaks ([d935122](https://github.com/phandcock/GrampsView/commit/d93512236e901d279f5e6ac36a74607d687bdec2))
 * tweaks ([0689de4](https://github.com/phandcock/GrampsView/commit/0689de42a1e8f359b7f6dd22bfa6ea0d70e272d1))
-
-
-
-## [16.24.34](https://github.com/phandcock/GrampsView/compare/v16.24.33...v16.24.34) (2022-06-25)
-
-
-### Bug Fixes
-
-* build tweaks ([d68a228](https://github.com/phandcock/GrampsView/commit/d68a228d504d7076861b78d8f96781f5c87760e4))
-* code refactor ([6f4bf36](https://github.com/phandcock/GrampsView/commit/6f4bf36a2e929ef14989b9da685df951fd2edba0))
-* tweak buld script ([dec2dbd](https://github.com/phandcock/GrampsView/commit/dec2dbddba538b670e4bf6824e0c9b3b0b114af2))
-* update to the latest sharedsharp settings ([02e6458](https://github.com/phandcock/GrampsView/commit/02e6458424fffcd5f6b08ef9f4e12e82d9c98784))
 
 
 
