@@ -9,9 +9,6 @@
     using GrampsView.ViewModels;
 
     using Microsoft.AppCenter;
-    using Microsoft.AppCenter.Analytics;
-    using Microsoft.AppCenter.Crashes;
-    using Microsoft.AppCenter.Distribute;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
@@ -91,7 +88,9 @@
             }
 
             // Setup various support frameworks
-            AppCenterInit();
+            // Any updates?
+
+            SharedSharpGeneral.MSAppCenterInit(Secret.AndroidSecret, Secret.IOSSecret, Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
 
             VersionTracking.Track();
 
@@ -134,27 +133,6 @@
 
             // Get Going
             Services.GetService<IAppInit>().Init().ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Initialize App Center.
-        /// </summary>
-        private static void AppCenterInit()
-        {
-            string initString = "uwp=" + Secret.UWPSecret + ";" +
-                                "android=" + Secret.AndroidSecret + ";" +
-                                "ios=" + Secret.IOSSecret;
-
-            Debug.WriteLine(initString, "AppCenterInit");
-
-            //    AppCenter.LogLevel = LogLevel.Verbose;
-
-            AppCenter.Start(initString,
-                            typeof(Analytics), typeof(Crashes), typeof(Distribute));
-
-            Distribute.SetEnabledAsync(true);
-
-            Distribute.CheckForUpdate();
         }
 
         private static IServiceProvider ConfigureServices()
