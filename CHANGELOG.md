@@ -1,3 +1,12 @@
+## [16.24.39](https://github.com/phandcock/GrampsView/compare/v16.24.38...v16.24.39) (2022-07-03)
+
+
+### Bug Fixes
+
+* update nugets and move to msappcenterinit ([89e7644](https://github.com/phandcock/GrampsView/commit/89e7644a116fd8ffb9dd9c8444bbcde08277f696))
+
+
+
 ## [16.24.38](https://github.com/phandcock/GrampsView/compare/v16.24.37...v16.24.38) (2022-07-02)
 
 
@@ -28,16 +37,6 @@
 ### Bug Fixes
 
 * warning cleanup ([3c9933a](https://github.com/phandcock/GrampsView/commit/3c9933a82a0f46c0f4f5ed34c3ca5d66d523b033))
-
-
-
-## [16.24.35](https://github.com/phandcock/GrampsView/compare/v16.24.34...v16.24.35) (2022-06-26)
-
-
-### Bug Fixes
-
-* tweaks ([d935122](https://github.com/phandcock/GrampsView/commit/d93512236e901d279f5e6ac36a74607d687bdec2))
-* tweaks ([0689de4](https://github.com/phandcock/GrampsView/commit/0689de42a1e8f359b7f6dd22bfa6ea0d70e272d1))
 
 
 
