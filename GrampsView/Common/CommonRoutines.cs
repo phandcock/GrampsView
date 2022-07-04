@@ -8,6 +8,8 @@
     using SharedSharp.Errors;
     using SharedSharp.Model;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
     using System.Diagnostics;
     using System.IO;

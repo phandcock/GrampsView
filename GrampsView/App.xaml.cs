@@ -10,12 +10,11 @@
 
     using Microsoft.AppCenter;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Common;
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
     using SharedSharp.Services;
+
+    using SharedSharpNu.Interfaces;
 
     using System;
     using System.Diagnostics;
@@ -34,6 +33,7 @@
         public App()
         {
             Services = ConfigureServices();
+            ShardSharpCore.Init(Services);
 
             InitializeComponent();
 
@@ -94,8 +94,6 @@
 
             VersionTracking.Track();
 
-            ShardSharpCore.Init(Services);
-
             Services.GetService<IErrorNotifications>();
 
             Services.GetService<IDataRepositoryManager>();
@@ -144,21 +142,19 @@
             services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
 
-            services.AddSingleton<IErrorNotifications, ErrorNotifications>();
-
-            services.AddSingleton<IFirstRunDisplayService, FirstRunDisplayService>();
+            //     services.AddSingleton<IFirstRunDisplayService, FirstRunDisplayService>();
 
             services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
 
-            services.AddSingleton<IMessenger, WeakReferenceMessenger>();
+            //      services.AddSingleton<IMessenger, WeakReferenceMessenger>();
 
-            services.AddSingleton<ISharedLogging, SharedLogging>();
-            services.AddSingleton<ISharedMessageLog, SharedMessageLog>();
+            //     services.AddSingleton<ISharedLogging, SharedLogging>();
+            //     services.AddSingleton<ISharedMessageLog, SharedMessageLog>();
             services.AddSingleton<IStoreFile, StoreFile>();
             services.AddSingleton<IStorePostLoad, StorePostLoad>();
             services.AddSingleton<IStoreXML, StoreXML>();
 
-            services.AddSingleton<IWhatsNewDisplayService, WhatsNewDisplayService>();
+            //       services.AddSingleton<IWhatsNewDisplayService, WhatsNewDisplayService>();
 
             // Viewmodels
             services.AddTransient<AboutViewModel>();

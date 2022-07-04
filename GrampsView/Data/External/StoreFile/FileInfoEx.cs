@@ -4,8 +4,8 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using SharedSharpNu.Interfaces;
     using SharedSharp.Errors;
-
     using System;
     using System.Diagnostics.Contracts;
     using System.IO;
@@ -16,6 +16,29 @@
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
         private FileInfo _FInfo;
+
+        public FileInfoEx()
+        {
+        }
+
+        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
+        {
+            Contract.Requires(argFileName != null, $"argFileName can not be null");
+
+            Contract.Requires(!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder), $"argUseCurrentDataFolder is false and argRelativeFolder is null");
+
+            FInfo = argFInfo;
+
+            // Use cache base if currentdatafolder not allowed
+            if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
+            {
+                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
+                return;
+            }
+
+            // Standard call
+            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
+        }
 
         public bool Exists
         {
@@ -51,29 +74,6 @@
             }
         }
 
-        public FileInfoEx()
-        {
-        }
-
-        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
-        {
-            Contract.Requires(argFileName != null, $"argFileName can not be null");
-
-            Contract.Requires(!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder), $"argUseCurrentDataFolder is false and argRelativeFolder is null");
-
-            FInfo = argFInfo;
-
-            // Use cache base if currentdatafolder not allowed
-            if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
-            {
-                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
-                return;
-            }
-
-            // Standard call
-            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
-        }
-
         /// <summary>
         /// get the StorageFile of the file.
         /// </summary>
@@ -84,7 +84,7 @@
         /// StorageFile for the chosen file.
         /// </returns>
         /// TODO Check if same as MakeGetFile
-        public static  IFileInfoEx GetStorageFile(string relativeFilePath)
+        public static IFileInfoEx GetStorageFile(string relativeFilePath)
         {
             IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 

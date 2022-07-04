@@ -63,7 +63,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharpNu">
-      <Version>0.2.3</Version>
+      <Version>0.2.6</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>

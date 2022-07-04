@@ -9,7 +9,7 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.Errors;
+    using SharedSharpNu.Interfaces;
     using SharedSharp.Logging;
 
     using System;

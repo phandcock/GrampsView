@@ -8,6 +8,8 @@
     using SharedSharp.Errors;
     using SharedSharp.Logging;
 
+    using SharedSharpNu.Interfaces;
+
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;

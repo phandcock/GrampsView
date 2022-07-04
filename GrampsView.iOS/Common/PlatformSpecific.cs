@@ -4,7 +4,7 @@
 
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.Errors;
+    using SharedSharpNu.Interfaces;
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {

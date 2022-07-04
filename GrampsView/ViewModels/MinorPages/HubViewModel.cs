@@ -9,9 +9,10 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharp.Errors;
     using SharedSharp.Logging;
     using SharedSharp.Model;
+
+    using SharedSharpNu.Interfaces;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -50,7 +51,7 @@
                  if (!m.Value)
                      return;
 
-                 await _iocErrorNotifications.DataLogShow();
+                 _iocErrorNotifications.DataLogShow();
              });
         }
 

@@ -9,6 +9,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
     using System.IO;
     using System.Threading.Tasks;

@@ -4,6 +4,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System.IO;
     using System.Reflection;
 

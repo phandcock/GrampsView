@@ -12,8 +12,9 @@
 
     using Moq;
 
-    using SharedSharp.Errors;
     using SharedSharp.Logging;
+
+    using SharedSharpNu.Interfaces;
 
     using System.Diagnostics;
     using System.IO;

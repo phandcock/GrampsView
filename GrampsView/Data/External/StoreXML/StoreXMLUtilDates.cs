@@ -7,6 +7,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Xml.Linq;

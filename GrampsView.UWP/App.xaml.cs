@@ -11,6 +11,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;

@@ -7,7 +7,8 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Common;
-    using SharedSharp.Errors;
+
+    using SharedSharpNu.Interfaces;
 
     using System;
     using System.Diagnostics.Contracts;

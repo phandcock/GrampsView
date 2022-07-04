@@ -10,6 +10,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -24,6 +26,18 @@
           = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowSymbols), defaultValue: true);
 
         private ItemGlyph newItemGlyph = new ItemGlyph();
+
+        public HLinkVisualDisplay()
+        {
+            InitializeComponent();
+
+            //// Handle IsEnabled on the control and pass to the image Tap event
+            //this.daImage.IsEnabled = true;
+            //if (!this.IsEnabled)
+            //{
+            //    this.daImage.IsEnabled = false;
+            //}
+        }
 
         public bool FsctShowMedia
         {
@@ -52,18 +66,6 @@
         private ItemGlyph WorkHLMediaModel
         {
             get; set;
-        }
-
-        public HLinkVisualDisplay()
-        {
-            InitializeComponent();
-
-            //// Handle IsEnabled on the control and pass to the image Tap event
-            //this.daImage.IsEnabled = true;
-            //if (!this.IsEnabled)
-            //{
-            //    this.daImage.IsEnabled = false;
-            //}
         }
 
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)

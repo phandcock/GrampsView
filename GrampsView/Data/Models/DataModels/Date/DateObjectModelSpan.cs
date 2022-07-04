@@ -4,7 +4,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    using SharedSharp.Errors;
+    using SharedSharpNu.Interfaces;
     using SharedSharp.Model;
 
     using System;

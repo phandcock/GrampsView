@@ -7,6 +7,8 @@
 
     using SharedSharp.Errors;
 
+    using SharedSharpNu.Interfaces;
+
     using System;
 
     using Xamarin.Essentials;
@@ -14,14 +16,14 @@
 
     public partial class MediaDetailPage : ViewBasePage
     {
-        private MediaDetailViewModel _viewModel { get; set; }
-
         public MediaDetailPage()
         {
             InitializeComponent();
 
             BindingContext = _viewModel = App.Current.Services.GetService<MediaDetailViewModel>();
         }
+
+        private MediaDetailViewModel _viewModel { get; set; }
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)
         {
