@@ -6,7 +6,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Toolkit.Mvvm.Messaging;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
     using SharedSharp.Logging;
 
     using Xamarin.CommunityToolkit.ObjectModel;

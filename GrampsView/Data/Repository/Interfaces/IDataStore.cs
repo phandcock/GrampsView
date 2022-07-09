@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     public interface IDataStore
     {

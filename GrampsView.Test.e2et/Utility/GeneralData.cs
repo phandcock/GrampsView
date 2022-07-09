@@ -14,7 +14,7 @@
 
     using SharedSharp.Logging;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System.Diagnostics;
     using System.IO;

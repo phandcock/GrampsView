@@ -11,7 +11,7 @@
 
     using SharedSharp.Errors;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System.Threading.Tasks;
 

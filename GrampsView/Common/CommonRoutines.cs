@@ -8,7 +8,7 @@
     using SharedSharp.Errors;
     using SharedSharp.Model;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System;
     using System.Diagnostics;

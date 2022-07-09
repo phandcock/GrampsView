@@ -7,7 +7,7 @@
     using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Common;
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
     using SharedSharp.Messages;
     using SharedSharp.Services;
 

@@ -2,7 +2,7 @@
 {
     using Microsoft.Extensions.DependencyInjection;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System.IO;
 

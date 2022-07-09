@@ -8,7 +8,7 @@
 
     using SharedSharp.Common;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System;
     using System.Diagnostics.Contracts;

@@ -12,7 +12,7 @@
     using SharedSharp.Logging;
     using SharedSharp.Model;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     /// <summary>
     /// View model for the Hub Page.

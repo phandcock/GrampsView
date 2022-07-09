@@ -13,7 +13,7 @@
     using SharedSharp.Errors;
     using SharedSharp.Logging;
 
-    using SharedSharpNu.Interfaces;
+    using SharedSharp.Interfaces;
 
     using System;
     using System.Collections.Generic;
