@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu">
 
+    <!--  Version 07  -->
+
     <ResourceDictionary.MergedDictionaries>
 
         <!--  Default dictionarys  -->
         <ResourceDictionary Source="/Assets/Styles/AppThemeDictionary.xaml" />
+        <ResourceDictionary Source="/Assets/Styles/ControlTemplates.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--
@@ -51,33 +54,6 @@
 
     <!--
         ******************************************************
-        Label Styles
-        ******************************************************
-    -->
-
-    <!--  Create a Base Style for a Label  -->
-    <Style x:Key="SSCardLabelStyle" TargetType="Label">
-        <Setter Property="IsEnabled" Value="False" />
-        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-        <Setter Property="HorizontalTextAlignment" Value="Start" />
-        <Setter Property="LineBreakMode" Value="WordWrap" />
-        <Setter Property="VerticalOptions" Value="StartAndExpand" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
-    </Style>
-
-    <!--  Create Medium Styles for a Label  -->
-    <Style
-        x:Key="SSLabelStyleMedium"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
-    </Style>
-
-    <!--
-        ******************************************************
         Frame Styles
         ******************************************************
     -->
@@ -115,5 +91,190 @@
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="Padding" Value="2" />
+    </Style>
+
+    <!--  Create a Style for a Label Frame  Background  -->
+    <Style
+        x:Key="SSFrameHeaderControlStyle"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="CornerRadius" Value="0" />
+    </Style>
+
+    <!--
+        Create Large Frame Styles
+    -->
+
+    <Style
+        x:Key="SSFrameCardLargeStyle"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Margin" Value="3" />
+    </Style>
+
+    <Style
+        x:Key="SSFrameLargeFixedCardStyle"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
+        TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
+    </Style>
+
+    <Style
+        x:Key="SSFrameCardLargeFixedNSStyle"
+        BasedOn="{StaticResource SSFrameLargeFixedCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+    </Style>
+
+    <!--  Create a Variable Height Large Card Style  -->
+    <Style
+        x:Key="SSFrameLargeVariableCardStyle"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
+        TargetType="Frame">
+        <Setter Property="MinimumHeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
+    </Style>
+
+    <!--  Create a Variable Height Large Card Style - Not Selectable  -->
+    <Style
+        x:Key="SSFrameLargeVariableCardStyleNS"
+        BasedOn="{StaticResource SSFrameLargeVariableCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Grid Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Base Style for a Grid Style  -->
+    <Style x:Key="SSGridBaseStyle" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="1" />
+    </Style>
+
+    <Style
+        x:Key="SSGridLargeVariableCardStyle"
+        BasedOn="{StaticResource SSGridBaseStyle}"
+        TargetType="Grid" />
+
+    <Style
+        x:Key="SSGridHeaderControlStyle"
+        BasedOn="{StaticResource SSGridBaseStyle}"
+        TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Label Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Base Style for a Label  -->
+    <Style x:Key="SSCardLabelStyle" TargetType="Label">
+        <Setter Property="IsEnabled" Value="False" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+    </Style>
+
+    <!--  Create Very Small Styles for a Label  -->
+    <Style
+        x:Key="SSCardLabelStyleVerySmall"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,1,1" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}" />
+    </Style>
+
+    <!--  Create Small Styles for a Label  -->
+    <Style
+        x:Key="SSCardLabelStyleSmall"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,3,3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
+    </Style>
+
+    <Style
+        x:Key="SSHeaderStyleSmall"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
+    </Style>
+
+    <!--  Create Medium Styles for a Label  -->
+    <Style
+        x:Key="SSLabelStyleMedium"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="0,0,3,3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+    </Style>
+
+    <Style
+        x:Key="SSHeaderStyleMedium"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+    </Style>
+
+    <!--  Create Large Styles for a Label  -->
+    <Style
+        x:Key="SSLabelStyleLarge"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="MaxLines" Value="4" />
+    </Style>
+
+    <Style
+        x:Key="SSHeaderStyleLarge"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+    </Style>
+
+    <!--  Create a Instructions Style for a Label  -->
+    <Style
+        x:Key="SSLabelStyleInstructions"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+
+    <!--  Create a PageHeader Title Style for a Label  -->
+    <Style
+        x:Key="SSLabelPageHeaderTitleStyle"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
     </Style>
 </ResourceDictionary>
