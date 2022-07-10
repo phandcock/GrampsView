@@ -1,0 +1,19 @@
+﻿<ControlTemplate
+    x:Class="GrampsView.UserControls.SharedSharpHeaderFrame"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Frame Style="{DynamicResource SSFrameHeaderControlStyle}">
+
+            <Frame
+                BackgroundColor="Red"
+                BorderColor="Yellow"
+                HorizontalOptions="Center"
+                Style="{DynamicResource SSFrameCardStyle}">
+
+                <ContentPresenter />
+            </Frame>
+        </Frame>
+    </Grid>
+</ControlTemplate>

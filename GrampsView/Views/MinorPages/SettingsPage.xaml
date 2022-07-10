@@ -27,7 +27,7 @@
 
             <sharedsharpucon:ThemeSelector />
 
-            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
+            <Frame Style="{DynamicResource SSFrameHeaderControlStyle}">
                 <Frame HorizontalOptions="CenterAndExpand" Style="{DynamicResource SSFrameCardStyle}">
 
                     <StackLayout>
@@ -68,7 +68,7 @@
                 </Frame>
             </Frame>
 
-            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
+            <Frame Style="{DynamicResource SSFrameHeaderControlStyle}">
                 <Frame HorizontalOptions="CenterAndExpand" Style="{DynamicResource SSFrameCardStyle}">
 
                     <StackLayout>
@@ -99,9 +99,9 @@
                 </Frame>
             </Frame>
 
-            <Frame Style="{DynamicResource SSFrameBackgroundStyle}">
+            <Frame Style="{DynamicResource SSFrameHeaderControlStyle}">
 
-                <Frame Style="{DynamicResource SSButtonMenuFrameStyle}">
+                <Frame Style="{DynamicResource SSFrameCardStyle}">
 
                     <StackLayout>
 
