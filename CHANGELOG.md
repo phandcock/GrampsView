@@ -1,3 +1,12 @@
+## [16.24.42](https://github.com/phandcock/GrampsView/compare/v16.24.41...v16.24.42) (2022-07-10)
+
+
+### Bug Fixes
+
+* tweak settngs styles ([a1187ca](https://github.com/phandcock/GrampsView/commit/a1187ca3c46f459204a9a5341f54d2cdaa77e119))
+
+
+
 ## [16.24.41](https://github.com/phandcock/GrampsView/compare/v16.24.40...v16.24.41) (2022-07-09)
 
 
@@ -23,18 +32,6 @@
 ### Bug Fixes
 
 * update nugets and move to msappcenterinit ([89e7644](https://github.com/phandcock/GrampsView/commit/89e7644a116fd8ffb9dd9c8444bbcde08277f696))
-
-
-
-## [16.24.38](https://github.com/phandcock/GrampsView/compare/v16.24.37...v16.24.38) (2022-07-02)
-
-
-### Bug Fixes
-
-* tweaks ([9c1c31b](https://github.com/phandcock/GrampsView/commit/9c1c31b44d2a594fb02b851c37bb0916f42f26ad))
-* tweaks ([201601f](https://github.com/phandcock/GrampsView/commit/201601f448b89c96ccf414da2314cea4921ad3a3))
-* update nugets ([8b97e62](https://github.com/phandcock/GrampsView/commit/8b97e62f1fe327a65305f0927d4cb15be2a7659f))
-* update to latest sharedsharp ([1a935bb](https://github.com/phandcock/GrampsView/commit/1a935bbc52417397f7094dcc95d876784ac21052))
 
 
 
