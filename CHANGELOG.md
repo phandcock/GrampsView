@@ -1,3 +1,13 @@
+## [16.24.43](https://github.com/phandcock/GrampsView/compare/v16.24.42...v16.24.43) (2022-07-12)
+
+
+### Bug Fixes
+
+* tweak whatsnewpage layout ([f497f4b](https://github.com/phandcock/GrampsView/commit/f497f4b46b51d20e6f0a4d3f76a9f9506b7c05ff))
+* work on card edit menu ([fd1761f](https://github.com/phandcock/GrampsView/commit/fd1761f0a5907a6e591815f0eeb643fc87e6633b))
+
+
+
 ## [16.24.42](https://github.com/phandcock/GrampsView/compare/v16.24.41...v16.24.42) (2022-07-10)
 
 
@@ -23,15 +33,6 @@
 ### Bug Fixes
 
 * tweaks ([0297ddc](https://github.com/phandcock/GrampsView/commit/0297ddce71f3ab1f0a1a3207b722644e2676414f))
-
-
-
-## [16.24.39](https://github.com/phandcock/GrampsView/compare/v16.24.38...v16.24.39) (2022-07-03)
-
-
-### Bug Fixes
-
-* update nugets and move to msappcenterinit ([89e7644](https://github.com/phandcock/GrampsView/commit/89e7644a116fd8ffb9dd9c8444bbcde08277f696))
 
 
 
