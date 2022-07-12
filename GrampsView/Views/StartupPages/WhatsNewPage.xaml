@@ -23,16 +23,15 @@
     <ScrollView>
         <StackLayout>
 
-            <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+            <Image
+                HorizontalOptions="Center"
+                MinimumHeightRequest="24"
+                Source="ic_launcher.png" />
 
-            <ucon:InstructionCardLarge
-                BindingContext="{x:Static i18n:AppResources.WhatsNew_TitleText}"
-                HorizontalOptions="Center" />
+            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.WhatsNew_TitleText}" HorizontalOptions="Center" />
 
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
-                <ucon:FileViewCardLarge
-                    BindingContext="GrampsView.CHANGELOG.md"
-                    FlexLayout.Basis="75" />
+                <ucon:FileViewCardLarge BindingContext="GrampsView.CHANGELOG.md" FlexLayout.Basis="75" />
             </Frame>
 
             <Button
