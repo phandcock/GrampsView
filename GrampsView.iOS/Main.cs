@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using SharedSharp.Errors;
+using SharedSharp.Interfaces;
 
 using System;
 using System.Threading.Tasks;
