@@ -112,13 +112,6 @@
             CommonLocalSettings.DatabaseVersionMin = Common.Constants.GrampsViewDatabaseVersion;
 
             // Get Going
-
-            // Services.GetService<IStartAppLoad>();
-
-            // MainPage = new AppShell();
-
-            // Shell.Current.GoToAsync("///HubPage").GetAwaiter().GetResult();
-
             StartAtDetailPage().GetAwaiter().GetResult();
 
             if (DataStore.Instance.DS.IsDataLoaded)
