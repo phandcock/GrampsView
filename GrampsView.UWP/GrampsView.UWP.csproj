@@ -213,8 +213,8 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
       <Version>7.1.2</Version>
     </PackageReference>
-    <PackageReference Include="SharedSharpNu">
-      <Version>0.2.18</Version>
+    <PackageReference Include="SharedSharp">
+      <Version>0.2.23</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>
@@ -247,12 +247,6 @@
       <Project>{54eaf1e8-e560-4a93-8206-263171b8900d}</Project>
       <Name>GrampsView</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="SharedSharpNu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SharedSharp\SharedSharpNu\bin\Debug\netstandard2.0\SharedSharpNu.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

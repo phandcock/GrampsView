@@ -38,6 +38,7 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,8 +63,8 @@
     <PackageReference Include="Microsoft.Toolkit.Mvvm">
       <Version>7.1.2</Version>
     </PackageReference>
-    <PackageReference Include="SharedSharpNu">
-      <Version>0.2.18</Version>
+    <PackageReference Include="SharedSharp">
+      <Version>0.2.23</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>

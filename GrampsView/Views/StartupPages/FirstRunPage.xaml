@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -27,17 +28,11 @@
                 MinimumHeightRequest="24"
                 Source="ic_launcher.png" />
 
-            <ucon:InstructionCardLarge
-                BindingContext="{x:Static i18n:AppResources.FirstRun_Header}"
-                HorizontalOptions="Center" />
+            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.FirstRun_Header}" />
 
-            <ucon:InstructionCardLarge
-                BindingContext="{x:Static i18n:AppResources.FirstRun_IntroductionText}"
-                HorizontalOptions="Center" />
+            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.FirstRun_IntroductionText}" />
 
-            <ucon:InstructionCardLarge
-                BindingContext="{x:Static i18n:AppResources.FirstRun_WhatsNext}"
-                HorizontalOptions="Center" />
+            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.FirstRun_WhatsNext}" />
 
             <Button
                 Command="{Binding LoadDataCommand}"

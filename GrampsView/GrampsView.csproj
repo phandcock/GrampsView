@@ -96,6 +96,8 @@
 		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
 		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
 		<Compile Remove="UserControls\General\SharedSharpHeaderFrame.xaml.cs" />
+		<Compile Remove="UserControls\Large\FileViewCardLarge.xaml.cs" />
+		<Compile Remove="UserControls\Large\InstructionCardLarge.xaml.cs" />
 		<Compile Remove="UserControls\Large\ListLineCardLarge.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
 		<Compile Remove="ViewModels\MinorPages\MessageLogViewModel.cs" />
@@ -111,6 +113,8 @@
 		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
 		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
 		<EmbeddedResource Remove="UserControls\General\SharedSharpHeaderFrame.xaml" />
+		<EmbeddedResource Remove="UserControls\Large\FileViewCardLarge.xaml" />
+		<EmbeddedResource Remove="UserControls\Large\InstructionCardLarge.xaml" />
 		<EmbeddedResource Remove="UserControls\Large\ListLineCardLarge.xaml" />
 		<EmbeddedResource Remove="Views\MinorPages\MessageLogPage.xaml" />
 	</ItemGroup>
@@ -156,7 +160,7 @@
 		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.0.0" PrivateAssets="All" />
-		<PackageReference Include="SharedSharpNu" Version="0.2.18" />
+		<PackageReference Include="SharedSharp" Version="0.2.23" />
 		<PackageReference Include="SharpZipLib" Version="1.3.3" />
 		<PackageReference Include="SkiaSharp" Version="2.88.0" />
 		<PackageReference Include="System.Text.Json" Version="6.0.5" />

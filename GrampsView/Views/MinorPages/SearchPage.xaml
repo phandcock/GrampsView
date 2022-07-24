@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -54,41 +55,20 @@
                 </SearchBar.Behaviors>
             </SearchBar>
 
-            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_Instructions}" />
+            <sharedsharpucon:InstructionCardLarge InstructionText="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchPersonCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource PersonCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchAddressCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchCitationCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchEventsCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchMediaCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchNoteCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchCitationCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchEventsCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchMediaCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Frame
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
-                                                  Light={StaticResource SurfaceLight}}"
-                IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
-                <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
+            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+                <sharedsharpucon:InstructionCardLarge InstructionText="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
             </Frame>
         </StackLayout>
     </ScrollView>

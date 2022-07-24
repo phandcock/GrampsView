@@ -247,8 +247,8 @@
     <PackageReference Include="Microsoft.Toolkit.Mvvm">
       <Version>7.1.2</Version>
     </PackageReference>
-    <PackageReference Include="SharedSharpNu">
-      <Version>0.2.18</Version>
+    <PackageReference Include="SharedSharp">
+      <Version>0.2.23</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>

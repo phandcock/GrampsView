@@ -1,4 +1,4 @@
-﻿namespace SharedSharpNu.Assets.Styles
+﻿namespace SharedSharp.Assets.Styles
 {
     using Xamarin.Forms;
 

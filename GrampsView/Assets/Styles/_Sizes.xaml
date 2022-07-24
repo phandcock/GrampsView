@@ -1,6 +1,4 @@
-﻿<ResourceDictionary
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!--
         ******************************************************
@@ -24,17 +22,13 @@
         5
     </x:Double>
 
-    <OnPlatform
-        x:Key="GVCardIconSize"
-        x:TypeArguments="x:Int32">
+    <OnPlatform x:Key="GVCardIconSize" x:TypeArguments="x:Int32">
         <On Platform="Android">20</On>
         <On Platform="UWP">15</On>
         <On Platform="iOS">20</On>
     </OnPlatform>
 
-    <OnPlatform
-        x:Key="CollectionCardListItemMargin"
-        x:TypeArguments="x:Double">
+    <OnPlatform x:Key="CollectionCardListItemMargin" x:TypeArguments="x:Double">
         <On Platform="Android">10</On>
         <On Platform="UWP">5</On>
         <On Platform="iOS">0</On>

@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -28,10 +29,10 @@
                 MinimumHeightRequest="24"
                 Source="ic_launcher.png" />
 
-            <ucon:InstructionCardLarge BindingContext="{x:Static i18n:AppResources.WhatsNew_TitleText}" HorizontalOptions="Center" />
+            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.WhatsNew_TitleText}" />
 
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
-                <ucon:FileViewCardLarge BindingContext="GrampsView.CHANGELOG.md" FlexLayout.Basis="75" />
+                <sharedsharpucon:FileViewCardLarge FileName="GrampsView.CHANGELOG.md" FlexLayout.Basis="75" />
             </Frame>
 
             <Button

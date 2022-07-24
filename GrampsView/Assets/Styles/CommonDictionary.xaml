@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary
-    x:Class="SharedSharpNu.Assets.Styles.CommonDictionary"
+    x:Class="SharedSharp.Assets.Styles.CommonDictionary"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharpNu">
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
     <!--  Version 07  -->
 
