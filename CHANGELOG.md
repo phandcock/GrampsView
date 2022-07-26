@@ -1,3 +1,12 @@
+## [16.24.47](https://github.com/phandcock/GrampsView/compare/v16.24.46...v16.24.47) (2022-07-26)
+
+
+### Bug Fixes
+
+* update nugets ([508a5b8](https://github.com/phandcock/GrampsView/commit/508a5b809ef5eb232408afe4f8e42f0800c296a2))
+
+
+
 ## [16.24.46](https://github.com/phandcock/GrampsView/compare/v16.24.45...v16.24.46) (2022-07-24)
 
 
@@ -23,16 +32,6 @@
 ### Bug Fixes
 
 * update nugets ([a6108f7](https://github.com/phandcock/GrampsView/commit/a6108f7641b8181d87d11485ddff4602e3689282))
-
-
-
-## [16.24.43](https://github.com/phandcock/GrampsView/compare/v16.24.42...v16.24.43) (2022-07-12)
-
-
-### Bug Fixes
-
-* tweak whatsnewpage layout ([f497f4b](https://github.com/phandcock/GrampsView/commit/f497f4b46b51d20e6f0a4d3f76a9f9506b7c05ff))
-* work on card edit menu ([fd1761f](https://github.com/phandcock/GrampsView/commit/fd1761f0a5907a6e591815f0eeb643fc87e6633b))
 
 
 
