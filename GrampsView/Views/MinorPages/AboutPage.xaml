@@ -58,9 +58,9 @@
                     VerticalOptions="Center" />
             </StackLayout>
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="1" BindingContext="{Binding ApplicationVersionList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCardLarge Grid.Row="1" CardList="{Binding ApplicationVersionList, Mode=OneWay}" />
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="2" BindingContext="{Binding HeaderData}" />
+            <sharedsharpucon:ListLineCardLarge Grid.Row="2" CardList="{Binding HeaderData}" />
 
             <sharedsharpucon:FileViewCardLarge Grid.Row="3" FileName="GrampsView.Attribution.md" />
 

@@ -62,7 +62,7 @@
 
                 <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" MinimumHeightRequest="100" />
 
-                <sharedsharpucon:ListLineCardLarge BindingContext="{Binding HeaderCard}" />
+                <sharedsharpucon:ListLineCardLarge CardList="{Binding HeaderCard}" />
 
                 <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 

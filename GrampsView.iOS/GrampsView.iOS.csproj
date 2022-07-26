@@ -248,7 +248,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharp">
-      <Version>0.2.23</Version>
+      <Version>0.2.26</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>
@@ -266,7 +266,7 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2478</Version>
+      <Version>5.0.0.2515</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
