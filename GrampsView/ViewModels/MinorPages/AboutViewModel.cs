@@ -43,6 +43,8 @@
             }
         }
 
+        public string AttributionText { get; set; }
+
         public CardListLineCollection HeaderData
         {
             get
@@ -51,10 +53,14 @@
             }
         }
 
+        public string PrivacyPolicyText { get; set; }
+
+        public string WhatsNewText { get; set; }
+
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void HandleViewAppearingEvent()
+        public override async void HandleViewAppearingEvent()
         {
             // Assembly level stuff
             Assembly assembly = GetType().GetTypeInfo().Assembly;
@@ -100,6 +106,12 @@
             });
 
             ApplicationVersionList.Title = "Application Versions";
+
+            WhatsNewText = await CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
+
+            AttributionText = await CommonRoutines.LoadResource("GrampsView.Attribution.md");
+
+            PrivacyPolicyText = await CommonRoutines.LoadResource("GrampsView.PrivacyPolicy.md");
 
             return;
         }

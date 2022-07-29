@@ -62,11 +62,11 @@
 
             <sharedsharpucon:ListLineCardLarge Grid.Row="2" CardList="{Binding HeaderData}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="3" FileName="GrampsView.Attribution.md" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="3" FileName="{Binding AttributionText}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="4" FileName="GrampsView.CHANGELOG.md" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="4" FileName="{Binding WhatsNewText}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="5" FileName="GrampsView.PrivacyPolicy.md" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="5" FileName="{Binding PrivacyPolicyText}" />
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

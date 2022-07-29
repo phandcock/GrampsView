@@ -64,6 +64,11 @@
             }
         }
 
+        public override async void HandleViewAppearingEvent()
+        {
+            WhatsNewText = await CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
+        }
+
         public async Task LoadDataAction()
         {
             await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
-    <!--  Version 09  -->
+    <!--  Version 10  -->
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -78,7 +78,7 @@
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="2" />
-        <Setter Property="Padding" Value="10,5,10,5" />
+        <Setter Property="Padding" Value="5" />
     </Style>
 
     <!--  Create a Style for a Label Frame  -->

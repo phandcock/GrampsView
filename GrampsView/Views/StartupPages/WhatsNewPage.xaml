@@ -32,7 +32,7 @@
             <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.WhatsNew_TitleText}" />
 
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
-                <sharedsharpucon:FileViewCardLarge FileName="GrampsView.CHANGELOG.md" FlexLayout.Basis="75" />
+                <sharedsharpucon:FileViewCardLarge FileName="{Binding WhatsNewText}" />
             </Frame>
 
             <Button

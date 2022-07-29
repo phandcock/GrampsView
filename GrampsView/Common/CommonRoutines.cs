@@ -6,9 +6,8 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
-    using SharedSharp.Model;
-
     using SharedSharp.Interfaces;
+    using SharedSharp.Model;
 
     using System;
     using System.Diagnostics;
@@ -16,6 +15,7 @@
     using System.Reflection;
     using System.Text.Json;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -112,6 +112,30 @@
             {
                 Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
             }
+        }
+
+        public static async Task<string> LoadResource(string argResourceName)
+        {
+            string returnValue = string.Empty;
+
+            // Load Resource
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(argResourceName))
+            {
+                if (!(stream is null))
+                {
+                    Debug.WriteLine($"LoadResource - Stream Not Null {stream.Length}");
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        returnValue = reader.ReadToEnd();
+                    }
+                }
+                else
+                {
+                    Debug.WriteLine($"LoadResource - Stream is Null");
+                }
+            }
+
+            return returnValue;
         }
 
         public static string MimeFileContentTypeGet(string argFileExtension)
