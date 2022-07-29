@@ -107,11 +107,11 @@
 
             ApplicationVersionList.Title = "Application Versions";
 
-            WhatsNewText = await CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
+            WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
 
-            AttributionText = await CommonRoutines.LoadResource("GrampsView.Attribution.md");
+            AttributionText = CommonRoutines.LoadResource("GrampsView.Attribution.md");
 
-            PrivacyPolicyText = await CommonRoutines.LoadResource("GrampsView.PrivacyPolicy.md");
+            PrivacyPolicyText = CommonRoutines.LoadResource("GrampsView.PrivacyPolicy.md");
 
             return;
         }

@@ -29,56 +29,58 @@
                 <sharedsharpucon:ThemeSelector />
             </sharedsharpucon:SSHeaderFrameSettings>
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Theme Selector">
+            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Settings" HorizontalOptions="Center">
 
-                <StackLayout>
+                <Grid>
 
-                    <Frame Style="{DynamicResource SSFrameHeaderStyle}">
-                        <Label Style="{DynamicResource SSLabelStyleMedium}" Text="Settings" />
-                    </Frame>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                    <StackLayout Orientation="Horizontal">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-                        <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Style="{DynamicResource SSCardLabelStyle}"
-                            Text="Sort Item collections on load" />
 
-                        <Switch
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            IsToggled="{Binding SortCollectionsFlag}"
-                            Style="{DynamicResource GVSwitchStyle}" />
-                    </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Style="{DynamicResource SSCardLabelStyle}"
-                            Text="Use first (not last) image from collections." />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{DynamicResource SSCardLabelStyle}"
+                        Text="Sort Item collections on load" />
 
-                        <Switch
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            IsToggled="{Binding UseFirstImageFlag}"
-                            Style="{DynamicResource GVSwitchStyle}" />
-                    </StackLayout>
-                </StackLayout>
-            </sharedsharpucon:SSHeaderFrameSettings>
+                    <Switch
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        IsToggled="{Binding SortCollectionsFlag}"
+                        Style="{DynamicResource GVSwitchStyle}" />
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Theme Selector">
 
-                <StackLayout>
 
-                    <Frame Style="{DynamicResource SSFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Defaults" />
-                    </Frame>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{DynamicResource SSCardLabelStyle}"
+                        Text="Use first (not last) image from collections." />
 
-                    <Label Style="{DynamicResource GVCardLabelStyle}" Text="Default email address for Notes" />
+                    <Switch
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsToggled="{Binding UseFirstImageFlag}"
+                        Style="{DynamicResource GVSwitchStyle}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{DynamicResource GVCardLabelStyle}"
+                        Text="Default email address for Notes" />
 
                     <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
                         BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
                                                           Light={StaticResource SecondaryLight}}"
                         ClearButtonVisibility="WhileEditing"
@@ -94,16 +96,15 @@
                                 IsValid="{Binding UpdateNoteEmailValidValue}" />
                         </Entry.Behaviors>
                     </Entry>
-                </StackLayout>
+
+
+                </Grid>
+
             </sharedsharpucon:SSHeaderFrameSettings>
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Theme Selector">
+            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Control Buttons">
 
-                <StackLayout>
-
-                    <Frame Style="{DynamicResource SSFrameHeaderStyle}">
-                        <Label Style="{DynamicResource GVHeaderStyleMedium}" Text="Control Buttons" />
-                    </Frame>
+                <StackLayout Orientation="Horizontal">
 
                     <Button
                         Command="{Binding TestButtonCommand}"

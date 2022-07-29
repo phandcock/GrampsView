@@ -15,7 +15,6 @@
     using System.Reflection;
     using System.Text.Json;
     using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
 
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -114,25 +113,37 @@
             }
         }
 
-        public static async Task<string> LoadResource(string argResourceName)
+        public static string LoadResource(string argResourceName)
         {
             string returnValue = string.Empty;
 
-            // Load Resource
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(argResourceName))
+            try
             {
-                if (!(stream is null))
+                // Load Resource
+                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(argResourceName))
                 {
-                    Debug.WriteLine($"LoadResource - Stream Not Null {stream.Length}");
-                    using (StreamReader reader = new StreamReader(stream))
+                    if (stream is null)
                     {
-                        returnValue = reader.ReadToEnd();
+                        Debug.WriteLine($"LoadResource - Stream is Null");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
+                        using (StreamReader reader = new StreamReader(stream))
+                        {
+                            returnValue = reader.ReadToEnd();
+                        }
                     }
                 }
-                else
-                {
-                    Debug.WriteLine($"LoadResource - Stream is Null");
-                }
+            }
+            catch (Exception ex)
+            {
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("LoadResource - Exception trying to open resource", ex,
+                                                  new ErrorInfo("Error trying to open resource")
+                                                          {
+                                                            { "File Name", argResourceName },
+                                                          }
+                                                  );
             }
 
             return returnValue;

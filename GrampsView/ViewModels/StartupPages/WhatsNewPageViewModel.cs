@@ -51,22 +51,11 @@
         /// <value>
         /// Whats New text
         /// </value>
-        public string WhatsNewText
-        {
-            get
-            {
-                return _WhatsNewText;
-            }
-
-            set
-            {
-                SetProperty(ref _WhatsNewText, value);
-            }
-        }
+        public string WhatsNewText { get; set; }
 
         public override async void HandleViewAppearingEvent()
         {
-            WhatsNewText = await CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
+            WhatsNewText = CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
         }
 
         public async Task LoadDataAction()
