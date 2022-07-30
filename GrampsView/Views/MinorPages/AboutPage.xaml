@@ -62,11 +62,11 @@
 
             <sharedsharpucon:ListLineCardLarge Grid.Row="2" CardList="{Binding HeaderData, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="3" FileName="{Binding WhatsNewText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="3" FileText="{Binding WhatsNewText, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="4" FileName="{Binding AttributionText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="4" FileText="{Binding AttributionText, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="5" FileName="{Binding PrivacyPolicyText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCardLarge Grid.Row="5" FileText="{Binding PrivacyPolicyText, Mode=OneWay}" />
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

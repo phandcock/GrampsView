@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
-    <!--  Version 10  -->
+    <!--  Version 12  -->
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -276,5 +276,17 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Switch Styles
+        ******************************************************
+    -->
+
+    <Style x:Key="SSSwitchStyle" TargetType="Switch">
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <Setter Property="ThumbColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryDark}, Light={StaticResource OnSecondaryLight}}" />
     </Style>
 </ResourceDictionary>

@@ -16,8 +16,6 @@
 
     public class AppInit : IAppInit
     {
-        // private static IWhatsNewDisplayService _WhatsNewDisplayService = new WhatsNewDisplayService();
-
         public async Task Init()
         {
             try

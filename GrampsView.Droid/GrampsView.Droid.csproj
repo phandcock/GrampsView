@@ -64,7 +64,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharp">
-      <Version>0.2.28</Version>
+      <Version>0.2.29</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>

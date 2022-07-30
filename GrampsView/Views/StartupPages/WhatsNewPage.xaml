@@ -32,7 +32,7 @@
             <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.WhatsNew_TitleText}" />
 
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
-                <sharedsharpucon:FileViewCardLarge FileName="{Binding WhatsNewText}" />
+                <sharedsharpucon:FileViewCardLarge FileText="{Binding WhatsNewText}" />
             </Frame>
 
             <Button

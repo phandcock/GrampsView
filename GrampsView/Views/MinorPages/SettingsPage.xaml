@@ -44,8 +44,6 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-
-
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
@@ -56,9 +54,7 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         IsToggled="{Binding SortCollectionsFlag}"
-                        Style="{DynamicResource GVSwitchStyle}" />
-
-
+                        Style="{DynamicResource SSSwitchStyle}" />
 
                     <Label
                         Grid.Row="1"
@@ -70,7 +66,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         IsToggled="{Binding UseFirstImageFlag}"
-                        Style="{DynamicResource GVSwitchStyle}" />
+                        Style="{DynamicResource SSSwitchStyle}" />
 
                     <Label
                         Grid.Row="2"
@@ -96,10 +92,7 @@
                                 IsValid="{Binding UpdateNoteEmailValidValue}" />
                         </Entry.Behaviors>
                     </Entry>
-
-
                 </Grid>
-
             </sharedsharpucon:SSHeaderFrameSettings>
 
             <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Control Buttons">
