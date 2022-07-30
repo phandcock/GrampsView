@@ -1,3 +1,14 @@
+## [16.24.48](https://github.com/phandcock/GrampsView/compare/v16.24.47...v16.24.48) (2022-07-30)
+
+
+### Bug Fixes
+
+* tweak styles ([234ab5d](https://github.com/phandcock/GrampsView/commit/234ab5def01e168c02d39da3eb7d9b0f82221119))
+* update nugets ([51fd685](https://github.com/phandcock/GrampsView/commit/51fd6854c939fcbe5710968547b70cd5733a26e5))
+* update nugets ([f08722a](https://github.com/phandcock/GrampsView/commit/f08722a5f26130af41d7b78bcc33836001b1f5d6))
+
+
+
 ## [16.24.47](https://github.com/phandcock/GrampsView/compare/v16.24.46...v16.24.47) (2022-07-26)
 
 
@@ -23,15 +34,6 @@
 
 * update nugets ([9eaa2b9](https://github.com/phandcock/GrampsView/commit/9eaa2b907dcc8ee64015ac842409cb54dea57e2e))
 * update nugets and use HeaderFrameSettings ([94a3ce9](https://github.com/phandcock/GrampsView/commit/94a3ce937b58b19763596421c3ca719d7c8e6d50))
-
-
-
-## [16.24.44](https://github.com/phandcock/GrampsView/compare/v16.24.43...v16.24.44) (2022-07-16)
-
-
-### Bug Fixes
-
-* update nugets ([a6108f7](https://github.com/phandcock/GrampsView/commit/a6108f7641b8181d87d11485ddff4602e3689282))
 
 
 
