@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
-    <!--  Version 12  -->
+    <!--  Version 13  -->
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -93,13 +93,27 @@
         <Setter Property="Padding" Value="2" />
     </Style>
 
-    <!--  Create a Style for a Label Frame  Background  -->
+    <!--  Create a Style for a Label Frame Background  -->
     <Style
         x:Key="SSFrameHeaderControlStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Padding" Value="3,3,3,3" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <!--  Create a Style for a Label Frame  -->
+    <Style
+        x:Key="SSFrameHeaderInsideControlStyle"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Padding" Value="3,3,3,3" />
