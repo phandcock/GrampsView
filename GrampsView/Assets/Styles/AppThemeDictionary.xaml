@@ -1,242 +1,194 @@
 ﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <!--  Version 03  -->
+
+    <Color x:Key="Neutral">
+        #8f918d
+    </Color>
+
     <!--  Dark colour  -->
     <Color x:Key="PrimaryDark">
-        #D0BCFF
+        #4de17f
     </Color>
 
     <Color x:Key="OnPrimaryDark">
-        #381E72
+        #003918
     </Color>
 
     <Color x:Key="PrimaryContainerDark">
-        #4F378B
+        #005226
     </Color>
 
     <Color x:Key="OnPrimaryContainerDark">
-        #EADDFF
+        #6dfe99
     </Color>
 
     <Color x:Key="SecondaryDark">
-        #CCC2DC
+        #d6baff
     </Color>
 
     <Color x:Key="OnSecondaryDark">
-        #332D41
+        #420089
     </Color>
 
     <Color x:Key="SecondaryContainerDark">
-        #4A4458
+        #5e0dba
     </Color>
 
     <Color x:Key="OnSecondaryContainerDark">
-        #E8DEF8
+        #ecdcff
     </Color>
 
     <Color x:Key="TertiaryDark">
-        #EFB8C8
+        #ffb787
     </Color>
 
     <Color x:Key="OnTertiaryDark">
-        #492532
+        #512400
     </Color>
 
     <Color x:Key="TertiaryContainerDark">
-        #633B48
+        #733600
     </Color>
 
     <Color x:Key="OnTertiaryContainerDark">
-        #FFD8E4
+        #ffdcc7
     </Color>
 
     <Color x:Key="ErrorDark">
-        #F2B8B5
+        #ffb4ab
     </Color>
 
     <Color x:Key="OnErrorDark">
-        #601410
+        #690005
     </Color>
 
     <Color x:Key="ErrorContainerDark">
-        #8C1D18
+        #93000a
     </Color>
 
     <Color x:Key="OnErrorContainerDark">
-        #F9DEDC
+        #ffdad6
     </Color>
 
     <Color x:Key="BackgroundDark">
-        #1C1B1F
+        #191c19
     </Color>
 
     <Color x:Key="OnBackgroundDark">
-        #E6E1E5
+        #e2e3de
     </Color>
 
     <Color x:Key="SurfaceDark">
-        #1C1B1F
+        #191c19
     </Color>
 
     <Color x:Key="OnSurfaceDark">
-        #E6E1E5
+        #e2e3de
     </Color>
 
     <Color x:Key="OutlineDark">
-        #938F99
+        #8b938a
     </Color>
 
     <Color x:Key="SurfaceVariantDark">
-        #49454F
+        #414941
     </Color>
 
     <Color x:Key="OnSurfaceVariantDark">
-        #CAC4D0
+        #c1c9be
     </Color>
 
     <!--  Light colour  -->
     <Color x:Key="PrimaryLight">
-        #6750A4
+        #006d34
     </Color>
 
     <Color x:Key="OnPrimaryLight">
-        #FFFFFF
+        #ffffff
     </Color>
 
     <Color x:Key="PrimaryContainerLight">
-        #EADDFF
+        #6dfe99
     </Color>
 
     <Color x:Key="OnPrimaryContainerLight">
-        #21005D
+        #00210b
     </Color>
 
     <Color x:Key="SecondaryLight">
-        #625B71
+        #7736d3
     </Color>
 
     <Color x:Key="OnSecondaryLight">
-        #FFFFFF
+        #ffffff
     </Color>
 
     <Color x:Key="SecondaryContainerLight">
-        #E8DEF8
+        #ecdcff
     </Color>
 
     <Color x:Key="OnSecondaryContainerLight">
-        #1D192B
+        #270057
     </Color>
 
     <Color x:Key="TertiaryLight">
-        #7D5260
+        #964900
     </Color>
 
     <Color x:Key="OnTertiaryLight">
-        #FFFFFF
+        #ffffff
     </Color>
 
     <Color x:Key="TertiaryContainerLight">
-        #FFD8E4
+        #ffdcc7
     </Color>
 
     <Color x:Key="OnTertiaryContainerLight">
-        #31111D
+        #311300
     </Color>
 
     <Color x:Key="ErrorLight">
-        #B3261E
+        #ba1a1a
     </Color>
 
     <Color x:Key="OnErrorLight">
-        #FFFFFF
+        #ffffff
     </Color>
 
     <Color x:Key="ErrorContainerLight">
-        #F9DEDC
+        #ffdad6
     </Color>
 
     <Color x:Key="OnErrorContainerLight">
-        #410E0B
+        #410002
     </Color>
 
     <Color x:Key="BackgroundLight">
-        #fffff0
+        #fcfdf7
     </Color>
 
     <Color x:Key="OnBackgroundLight">
-        #1C1B1F
+        #191c19
     </Color>
 
     <Color x:Key="SurfaceLight">
-        #FFFBFE
+        #fcfdf7
     </Color>
 
     <Color x:Key="OnSurfaceLight">
-        #1C1B1F
+        #191c19
     </Color>
 
     <Color x:Key="OutlineLight">
-        #79747E
+        #717970
     </Color>
 
     <Color x:Key="SurfaceVariantLight">
-        #E7E0EC
+        #dde5da
     </Color>
 
     <Color x:Key="OnSurfaceVariantLight">
-        #49454F
-    </Color>
-
-    <!--  - Card Backgrounds  -->
-
-    <Color x:Key="CardBackGroundAddress">
-        #A9A9A9
-    </Color>
-
-    <Color x:Key="CardBackGroundAttribute">
-        #A9A9A9
-    </Color>
-
-    <Color x:Key="CardBackGroundCitation">
-        #FFAA1D
-    </Color>
-
-    <Color x:Key="CardBackGroundEvent">
-        #b120a2
-    </Color>
-
-    <Color x:Key="CardBackGroundFamily">
-        #00FFCC
-    </Color>
-
-    <Color x:Key="CardBackGroundMedia">
-        #ce3d64
-    </Color>
-
-    <Color x:Key="CardBackGroundNote">
-        #ff00bf
-    </Color>
-
-    <Color x:Key="CardBackGroundPlace">
-        #ffa500
-    </Color>
-
-    <Color x:Key="CardBackGroundPerson">
-        #0080ff
-    </Color>
-
-    <Color x:Key="CardBackGroundRepository">
-        #A9A9A9
-    </Color>
-
-    <Color x:Key="CardBackGroundSource">
-        #ff4000
-    </Color>
-
-    <Color x:Key="CardBackGroundTag">
-        #A9A9A9
-    </Color>
-
-    <Color x:Key="CardBackGroundUtility">
-        #A9A9A9
+        #414941
     </Color>
 </ResourceDictionary>

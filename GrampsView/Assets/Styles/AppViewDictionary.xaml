@@ -12,6 +12,8 @@
 
         <ResourceDictionary Source="AppThemeDictionary.xaml" />
 
+        <ResourceDictionary Source="CardThemeDictionary.xaml" />
+
         <ResourceDictionary Source="CommonDictionary.xaml" />
 
         <ResourceDictionary Source="_Thickness.xaml" />

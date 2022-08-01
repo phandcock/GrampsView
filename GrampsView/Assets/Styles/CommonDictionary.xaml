@@ -4,13 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
-    <!--  Version 13  -->
+    <!--  Version 16  -->
 
     <ResourceDictionary.MergedDictionaries>
 
         <!--  Default dictionarys  -->
         <ResourceDictionary Source="/Assets/Styles/AppThemeDictionary.xaml" />
-        <ResourceDictionary Source="/Assets/Styles/ControlTemplates.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--
@@ -27,9 +26,9 @@
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
     </Style>
 
     <Style
@@ -98,8 +97,8 @@
         x:Key="SSFrameHeaderControlStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Neutral}, Light={StaticResource Neutral}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Padding" Value="3,3,3,3" />
@@ -112,8 +111,8 @@
         x:Key="SSFrameHeaderInsideControlStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceLight}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="Padding" Value="3,3,3,3" />
@@ -188,7 +187,7 @@
         x:Key="SSGridHeaderControlStyle"
         BasedOn="{StaticResource SSGridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
     </Style>
 
     <!--
