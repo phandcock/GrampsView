@@ -1,3 +1,15 @@
+## [16.24.50](https://github.com/phandcock/GrampsView/compare/v16.24.49...v16.24.50) (2022-08-02)
+
+
+### Bug Fixes
+
+* fix: update nugets ([52efcd9](https://github.com/phandcock/GrampsView/commit/52efcd9f5c83b18c027e376ca96eca414b44b6a4))
+* update colour themes ([17a4f06](https://github.com/phandcock/GrampsView/commit/17a4f06b7afa05f56bb429f1623f69b1e207b3cd))
+* work on styles ([d7c55d3](https://github.com/phandcock/GrampsView/commit/d7c55d3873995b983f8f671a75896393032ba3db))
+* work on styles and whatsnew card ([cdb3980](https://github.com/phandcock/GrampsView/commit/cdb39807b0c8b22be4509fd4fcac1301e0be5a55))
+
+
+
 ## [16.24.49](https://github.com/phandcock/GrampsView/compare/v16.24.48...v16.24.49) (2022-07-31)
 
 
@@ -24,15 +36,6 @@
 ### Bug Fixes
 
 * update nugets ([508a5b8](https://github.com/phandcock/GrampsView/commit/508a5b809ef5eb232408afe4f8e42f0800c296a2))
-
-
-
-## [16.24.46](https://github.com/phandcock/GrampsView/compare/v16.24.45...v16.24.46) (2022-07-24)
-
-
-### Bug Fixes
-
-* update to the latest nugets ([e53894d](https://github.com/phandcock/GrampsView/commit/e53894d36cb3693553234e24ae54cad42ade9ab3))
 
 
 
