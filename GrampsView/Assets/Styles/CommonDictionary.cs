@@ -6,7 +6,7 @@
     {
         public CommonDictionary()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

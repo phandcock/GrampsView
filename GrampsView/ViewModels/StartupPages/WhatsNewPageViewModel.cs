@@ -55,7 +55,7 @@
 
         public override async void HandleViewAppearingEvent()
         {
-            WhatsNewText = CommonRoutines.LoadResource("CardWorld.CHANGELOG.md");
+            WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
         }
 
         public async Task LoadDataAction()

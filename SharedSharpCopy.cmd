@@ -1,0 +1,3 @@
+xcopy "C:\Users\phand\source\repos\SharedSharp\SharedSharpNu\Assets\Styles\AppThemeDictionary.xaml" "C:\Users\phand\source\repos\GrampsView\GrampsView\Assets\Styles\AppThemeDictionary.xaml" /f /y
+xcopy "C:\Users\phand\source\repos\SharedSharp\SharedSharpNu\Assets\Styles\CommonDictionary.cs" "C:\Users\phand\source\repos\GrampsView\GrampsView\Assets\Styles\CommonDictionary.cs" /f /y
+xcopy "C:\Users\phand\source\repos\SharedSharp\SharedSharpNu\Assets\Styles\CommonDictionary.xaml" "C:\Users\phand\source\repos\GrampsView\GrampsView\Assets\Styles\CommonDictionary.xaml" /f /y

@@ -263,4 +263,8 @@
 			<Generator>MSBuild:Compile</Generator>
 		</None>
 	</ItemGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="$(SolutionDir)\SharedSharpCopy.cmd" />
+	</Target>
 </Project>
