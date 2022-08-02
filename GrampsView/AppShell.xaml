@@ -6,21 +6,12 @@
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:views="clr-namespace:GrampsView.Views"
-    FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
-                                            Light={StaticResource OnPrimaryContainerLight}}">
-
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
+    Style="{StaticResource SSShellBaseStyle}">
 
     <Shell.Resources>
         <ResourceDictionary>
 
             <ResourceDictionary.MergedDictionaries>
-
-                <!--  Default dictionarys  -->
                 <ResourceDictionary Source="Assets/Styles/CommonDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -32,126 +23,198 @@
 
     <FlyoutItem Title="Hub">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconHub}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconHub}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:HubPage}" Route="HubPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Birthdays">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeopleBirthday}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconPeopleBirthday}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonBirthdayPage}" Route="PersonBirthdayPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Bookmarks">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconBookMark}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconBookMark}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:BookMarkListPage}" Route="BookMarkListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Citations">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconCitation}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconCitation}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:CitationListPage}" Route="CitationListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Events">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconEvents}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconEvents}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:EventListPage}" Route="EventListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Families">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconFamilies}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconFamilies}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FamilyListPage}" Route="FamilyListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Media">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconMedia}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconMedia}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:MediaListPage}" Route="MediaListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Notes">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconNotes}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconNotes}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:NoteListPage}" Route="NoteListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="People">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeople}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconPeople}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PersonListPage}" Route="PersonListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Places">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPlace}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconPlace}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PlaceListPage}" Route="PlaceListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Repositories">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconRepository}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconRepository}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:RepositoryListPage}" Route="RepositoryListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Sources">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSource}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconSource}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SourceListPage}" Route="SourceListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Tags">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconTag}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconTag}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:TagListPage}" Route="TagListPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="People Graph">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconPeopleGraph}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconPeopleGraph}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PeopleGraphPage}" Route="PeopleGraphPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Advanced Search">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSearch}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconSearch}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Load Data File">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconChooseDataFile}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconChooseDataFile}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:FileInputHandlerPage}" Route="FileInputHandlerPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconSettings}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconSettings}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="About">
         <FlyoutItem.FlyoutIcon>
-            <FontImageSource FontFamily="FA-Solid" Glyph="{x:Static common:Constants.IconAbout}" />
+            <FontImageSource
+                FontFamily="FA-Solid"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
     </FlyoutItem>
