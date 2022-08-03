@@ -21,7 +21,7 @@
         <Frame
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
-            Style="{DynamicResource GVFrameHeaderStyle}">
+            Style="{DynamicResource SSFrameHeaderStyle}">
             <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
         </Frame>
 

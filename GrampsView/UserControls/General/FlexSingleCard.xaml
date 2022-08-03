@@ -21,7 +21,7 @@
         <Frame
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-            Style="{StaticResource GVFrameHeaderStyle}">
+            Style="{StaticResource SSFrameHeaderStyle}">
             <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
         </Frame>
 

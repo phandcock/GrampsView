@@ -33,7 +33,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
-                Style="{DynamicResource GVFrameHeaderStyle}">
+                Style="{DynamicResource SSFrameHeaderStyle}">
                 <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 

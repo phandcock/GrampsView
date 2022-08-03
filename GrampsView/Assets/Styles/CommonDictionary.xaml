@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
-    <!--  Version 18  -->
+    <!--  Version 19  -->
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -304,7 +304,7 @@
         <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
         <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
         <Setter Property="Shell.FlyoutBackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDark}, Light={StaticResource PrimaryLight}}" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource Neutral}, Light={StaticResource Neutral}}" />
         <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryDark}, Light={StaticResource OnPrimaryLight}}" />
         <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
         <Setter Property="Shell.TabBarTitleColor" Value="White" />

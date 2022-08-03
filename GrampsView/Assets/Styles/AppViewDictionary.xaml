@@ -306,7 +306,7 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="HasShadow" Value="false" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
     </Style>
 
     <Style x:Key="CardGroupStyle" TargetType="Frame">
@@ -342,20 +342,6 @@
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="CornerRadius" Value="0" />
-    </Style>
-
-    <!--  Create a Style for a Text Block Header  -->
-    <Style
-        x:Key="GVFrameHeaderStyle"
-        BasedOn="{StaticResource FrameCardStyle}"
-        TargetType="Frame">
-        <Setter Property="HasShadow" Value="False" />
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryContainerDark}, Light={StaticResource PrimaryContainerLight}}" />
     </Style>
 
     <!--
