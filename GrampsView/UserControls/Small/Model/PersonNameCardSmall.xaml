@@ -24,19 +24,19 @@
             Grid.Column="0"
             FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
             HorizontalOptions="EndAndExpand"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GType, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.FullName, Mode=OneWay}" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.ExtraNames, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate> 

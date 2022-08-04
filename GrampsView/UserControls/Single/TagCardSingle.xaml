@@ -20,7 +20,7 @@
             x:Name="NameTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
     </Grid>

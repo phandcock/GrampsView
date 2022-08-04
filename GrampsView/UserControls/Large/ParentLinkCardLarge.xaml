@@ -35,7 +35,7 @@
                                               Light={StaticResource SecondaryContainerLight}}"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
-                Style="{StaticResource FrameCardStyle}">
+                Style="{StaticResource SSFrameCardStyle}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
                 </Frame.GestureRecognizers>

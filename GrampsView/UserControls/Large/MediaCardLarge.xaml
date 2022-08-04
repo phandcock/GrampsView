@@ -11,7 +11,7 @@
     IsVisible="{Binding Valid}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource FrameCardLargeStyle}" VerticalOptions="Start">
+    <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
 
         <Frame.Content>
 
@@ -45,7 +45,7 @@
                     Grid.ColumnSpan="2"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
-                    Style="{DynamicResource GVCardLabelStyleSmall}"
+                    Style="{DynamicResource SSCardLabelStyleSmall}"
                     Text="{Binding DeRef.GDescription, Mode=OneWay}" />
 
                 <Image

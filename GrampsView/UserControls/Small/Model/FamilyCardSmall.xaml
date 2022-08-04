@@ -24,19 +24,19 @@
             Grid.Row="0"
             Grid.Column="0"
             LineBreakMode="WordWrap"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef, Mode=OneWay}" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GFamilyRelationship, StringFormat={x:Static i18n:AppResources.FieldPrefixFamilyRelationship}, Mode=OneWay}" />
 
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleVerySmall}"
+            Style="{DynamicResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GEventRefCollection.GetFirst.DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

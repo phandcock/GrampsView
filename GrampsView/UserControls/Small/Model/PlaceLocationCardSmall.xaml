@@ -13,34 +13,34 @@
         Spacing="1"
         VerticalOptions="StartAndExpand">
 
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding GStreet, Mode=OneWay}" />
+        <Label Style="{DynamicResource SSCardLabelStyleSmall}" Text="{Binding GStreet, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding GLocality, Mode=OneWay}" />
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding GCity, Mode=OneWay}" />
+        <Label Style="{DynamicResource SSCardLabelStyleSmall}" Text="{Binding GCity, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding GParish, Mode=OneWay}" />
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding GCounty, Mode=OneWay}" />
+        <Label Style="{DynamicResource SSCardLabelStyleSmall}" Text="{Binding GCounty, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding GState, Mode=OneWay}" />
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding GCountry, Mode=OneWay}" />
+        <Label Style="{DynamicResource SSCardLabelStyleSmall}" Text="{Binding GCountry, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding GPostal, Mode=OneWay}" />
-        <Label Style="{DynamicResource GVCardLabelStyleSmall}" Text="{Binding GPhone, Mode=OneWay}" />
+        <Label Style="{DynamicResource SSCardLabelStyleSmall}" Text="{Binding GPhone, Mode=OneWay}" />
     </StackLayout>
 </ucon:SmallCardControlTemplate>

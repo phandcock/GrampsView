@@ -22,21 +22,21 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleMedium}"
+            Style="{DynamicResource SSCardLabelStyleMedium}"
             Text="{Binding DeRef, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GSPubInfo, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
 
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GSAuthor, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
     </Grid>

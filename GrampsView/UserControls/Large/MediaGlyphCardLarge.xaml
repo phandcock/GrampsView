@@ -10,7 +10,7 @@
     IsVisible="{Binding ValidImage}"
     Style="{DynamicResource GridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource FrameCardLargeStyle}" VerticalOptions="Start">
+    <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
 
         <Frame.Content>
 

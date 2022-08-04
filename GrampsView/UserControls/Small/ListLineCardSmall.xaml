@@ -53,13 +53,13 @@
 
                             <Label
                                 Grid.Column="0"
-                                Style="{DynamicResource GVCardLabelStyle}"
+                                Style="{DynamicResource SSCardLabelStyle}"
                                 Text="{Binding Label}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"
-                                Style="{DynamicResource GVCardLabelStyle}"
+                                Style="{DynamicResource SSCardLabelStyle}"
                                 Text="{Binding Value}" />
                         </Grid>
                     </DataTemplate>

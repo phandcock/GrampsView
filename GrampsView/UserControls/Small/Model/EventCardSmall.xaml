@@ -23,7 +23,7 @@
             x:Name="dateTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleVerySmall}"
+            Style="{DynamicResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
 
         <Label
@@ -31,14 +31,14 @@
             Grid.Row="0"
             Grid.Column="0"
             HorizontalOptions="EndAndExpand"
-            Style="{DynamicResource GVCardLabelStyleVerySmall}"
+            Style="{DynamicResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GType, Mode=OneWay}" />
 
         <Label
             x:Name="descriptionTextBlock"
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GDescription, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

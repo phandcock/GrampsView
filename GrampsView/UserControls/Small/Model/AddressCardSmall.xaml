@@ -23,15 +23,15 @@
             Padding="0"
             Spacing="1"
             VerticalOptions="StartAndExpand">
-            <Label Style="{DynamicResource GVCardLabelStyleVerySmall}" Text="{Binding DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
 
-            <Label Style="{DynamicResource GVCardLabelStyleVerySmall}" Text="{Binding DeRef.GStreet, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GStreet, Mode=OneWay}" />
 
-            <Label Style="{DynamicResource GVCardLabelStyleVerySmall}" Text="{Binding DeRef.GLocality, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GLocality, Mode=OneWay}" />
 
-            <Label Style="{DynamicResource GVCardLabelStyleVerySmall}" Text="{Binding DeRef.GCity, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GCity, Mode=OneWay}" />
 
-            <Label Style="{DynamicResource GVCardLabelStyleVerySmall}" Text="{Binding DeRef.GState, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GState, Mode=OneWay}" />
         </StackLayout>
     </Grid>
 </ucon:SmallCardControlTemplate> 

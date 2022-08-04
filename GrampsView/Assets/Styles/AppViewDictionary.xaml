@@ -130,24 +130,11 @@
     -->
 
     <!--
-        Create a Frame Card Style
-    -->
-    <Style x:Key="FrameCardStyle" TargetType="Frame">
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="Margin" Value="10" />
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
-        <Setter Property="HasShadow" Value="True" />
-    </Style>
-
-    <!--
         Create Single Line Card Styles
     -->
     <Style
         x:Key="FrameCardSingleStyle"
-        BasedOn="{StaticResource FrameCardStyle}"
+        BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="2" />
@@ -175,7 +162,7 @@
     -->
     <Style
         x:Key="FrameCardSmallStyle"
-        BasedOn="{StaticResource FrameCardStyle}"
+        BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Margin" Value="2" />
@@ -213,7 +200,7 @@
 
     <Style
         x:Key="FrameCardMediumStyle"
-        BasedOn="{StaticResource FrameCardStyle}"
+        BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="4" />
@@ -256,17 +243,8 @@
     -->
 
     <Style
-        x:Key="FrameCardLargeStyle"
-        BasedOn="{StaticResource FrameCardStyle}"
-        TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="Margin" Value="3" />
-    </Style>
-
-    <Style
         x:Key="FrameLargeFixedCardStyle"
-        BasedOn="{StaticResource FrameCardLargeStyle}"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
@@ -282,7 +260,7 @@
     <!--  Create a Variable Height Large Card Style  -->
     <Style
         x:Key="FrameLargeVariableCardStyle"
-        BasedOn="{StaticResource FrameCardLargeStyle}"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="MinimumHeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
@@ -300,7 +278,7 @@
 
     <Style
         x:Key="CardImageBackgroundFrame"
-        BasedOn="{StaticResource FrameCardStyle}"
+        BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Margin" Value="0" />
@@ -337,7 +315,7 @@
 
     <Style
         x:Key="MediaImageFull"
-        BasedOn="{StaticResource FrameCardLargeStyle}"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
@@ -491,22 +469,10 @@
         ******************************************************
     -->
 
-    <!--  Create a Base Style for a Label  -->
-    <Style x:Key="GVCardLabelStyle" TargetType="Label">
-        <Setter Property="IsEnabled" Value="False" />
-        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-        <Setter Property="HorizontalTextAlignment" Value="Start" />
-        <Setter Property="LineBreakMode" Value="WordWrap" />
-        <Setter Property="VerticalOptions" Value="StartAndExpand" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
-    </Style>
-
     <!--  Create Very Small Styles for a Label  -->
     <Style
-        x:Key="GVCardLabelStyleVerySmall"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        x:Key="SSCardLabelStyleVerySmall"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,1,1" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}" />
@@ -514,8 +480,8 @@
 
     <!--  Create Small Styles for a Label  -->
     <Style
-        x:Key="GVCardLabelStyleSmall"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        x:Key="SSCardLabelStyleSmall"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,3,3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
@@ -523,7 +489,7 @@
 
     <Style
         x:Key="GVHeaderStyleSmall"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
@@ -531,8 +497,8 @@
 
     <!--  Create Medium Styles for a Label  -->
     <Style
-        x:Key="GVCardLabelStyleMedium"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        x:Key="SSCardLabelStyleMedium"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="0,0,3,3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
@@ -540,7 +506,7 @@
 
     <Style
         x:Key="GVHeaderStyleMedium"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
@@ -549,7 +515,7 @@
     <!--  Create Large Styles for a Label  -->
     <Style
         x:Key="GVLabelStyleLarge"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
         <Setter Property="MaxLines" Value="4" />
@@ -565,7 +531,7 @@
 
     <Style
         x:Key="GVLabelStyleNoteFull"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
@@ -575,7 +541,7 @@
     <!--  Create a Instructions Style for a Label  -->
     <Style
         x:Key="GVLabelStyleInstructions"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
@@ -586,7 +552,7 @@
     <!--  Create a PageHeader Title Style for a Label  -->
     <Style
         x:Key="GVLabelPageHeaderTitleStyle"
-        BasedOn="{StaticResource GVCardLabelStyle}"
+        BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />

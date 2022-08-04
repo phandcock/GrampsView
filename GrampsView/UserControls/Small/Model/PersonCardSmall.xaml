@@ -22,7 +22,7 @@
             x:Name="PersonSummaryNameTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
 
         <Label
@@ -30,7 +30,7 @@
             Grid.Row="1"
             Grid.Column="0"
             IsVisible="{Binding DeRef.BirthDate.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
-            Style="{DynamicResource GVCardLabelStyleVerySmall}"
+            Style="{DynamicResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.BirthDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

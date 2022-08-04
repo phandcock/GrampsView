@@ -10,7 +10,7 @@
                                       Light={StaticResource PrimaryContainerLight}}"
     HeightRequest="100"
     IsEnabled="{Binding Valid}"
-    Style="{DynamicResource FrameCardStyle}"
+    Style="{DynamicResource SSFrameCardStyle}"
     VerticalOptions="Center">
 
     <Frame.Content>
@@ -46,7 +46,7 @@
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
                 IsEnabled="false"
-                Style="{DynamicResource GVCardLabelStyleVerySmall}"
+                Style="{DynamicResource SSCardLabelStyleVerySmall}"
                 Text="{Binding DeRef}"
                 TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
                                             Light={StaticResource OnSecondaryLight}}" />

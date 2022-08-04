@@ -39,7 +39,7 @@
                 Orientation="Horizontal">
                 <Label
                     Padding="3"
-                    Style="{DynamicResource GVCardLabelStyle}"
+                    Style="{DynamicResource SSCardLabelStyle}"
                     Text="Show Only Living People"
                     VerticalTextAlignment="Center" />
 

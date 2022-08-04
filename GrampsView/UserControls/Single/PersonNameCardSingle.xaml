@@ -21,14 +21,14 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleVerySmall}"
+            Style="{DynamicResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.FullName, Mode=OneWay}"
             VerticalTextAlignment="Start" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource GVCardLabelStyleSmall}"
+            Style="{DynamicResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.ExtraNames, Mode=OneWay}"
             VerticalTextAlignment="Center" />
     </Grid>
