@@ -4,7 +4,7 @@
     using GrampsView.Data.DataView;
 
     using Microsoft.AppCenter.Distribute;
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;

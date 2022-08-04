@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
@@ -7,12 +9,10 @@
     using GrampsView.Events;
 
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Toolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
 
     using SharedSharp.Interfaces;
+    using SharedSharp.Logging;
+    using SharedSharp.Model;
 
     /// <summary>
     /// View model for the Hub Page.
@@ -40,17 +40,11 @@
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
-                if (!m.Value)
-                    return;
-
                 HandledDataLoadedEvent();
             });
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, async (r, m) =>
              {
-                 if (!m.Value)
-                     return;
-
                  _iocErrorNotifications.DataLogShow();
              });
         }

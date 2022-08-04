@@ -1,10 +1,11 @@
 ﻿namespace GrampsView.Common
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Events;
     using GrampsView.Views;
 
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Toolkit.Mvvm.Messaging;
 
     using SharedSharp.Common;
     using SharedSharp.Interfaces;

@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
 		<PackageReference Include="nunit.xamarin.2022" Version="3.10.1" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
@@ -28,7 +29,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SharedSharp" Version="0.2.35" />
+		<PackageReference Include="SharedSharp" Version="0.2.37" />
 	</ItemGroup>
 
 	<ItemGroup>

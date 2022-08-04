@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Events
 {
-    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
+    using CommunityToolkit.Mvvm.Messaging.Messages;
 
     public class AppStartLoadDataEvent : ValueChangedMessage<bool>
     {

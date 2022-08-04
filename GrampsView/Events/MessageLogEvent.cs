@@ -2,7 +2,7 @@
 {
     using GrampsView.Common.CustomClasses;
 
-    using Microsoft.Toolkit.Mvvm.Messaging.Messages;
+    using CommunityToolkit.Mvvm.Messaging.Messages;
 
     public class MessageLogEvent : ValueChangedMessage<MessageLogEventPayload>
     {

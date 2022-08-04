@@ -8,7 +8,7 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using Moq;
 

@@ -6,7 +6,7 @@
     using GrampsView.Data.Repository;
     using GrampsView.Test.e2e.Utility;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using NUnit.Framework;
 

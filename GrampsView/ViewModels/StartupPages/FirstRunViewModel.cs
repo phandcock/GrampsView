@@ -2,7 +2,7 @@
 {
     using GrampsView.Common;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
 

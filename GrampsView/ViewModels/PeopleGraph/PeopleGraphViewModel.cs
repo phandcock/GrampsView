@@ -6,7 +6,7 @@
     using GrampsView.Data.Model;
 
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
     using SharedSharp.Logging;

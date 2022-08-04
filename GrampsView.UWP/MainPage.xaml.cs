@@ -1,7 +1,7 @@
 ﻿namespace GrampsView.UWP
 {
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Messages;
 

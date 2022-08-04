@@ -7,7 +7,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Interfaces;
     using SharedSharp.Logging;

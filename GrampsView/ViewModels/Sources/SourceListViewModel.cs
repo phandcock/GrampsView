@@ -5,7 +5,7 @@ namespace GrampsView.ViewModels
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
-    using Microsoft.Toolkit.Mvvm.Messaging;
+    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
 
