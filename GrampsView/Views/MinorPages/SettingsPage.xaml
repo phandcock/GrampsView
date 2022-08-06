@@ -29,7 +29,7 @@
                 <sharedsharpucon:ThemeSelector />
             </sharedsharpucon:SSHeaderFrameSettings>
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Settings" HorizontalOptions="Center">
+            <sharedsharpucon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="Center">
 
                 <Grid>
 
@@ -93,9 +93,9 @@
                         </Entry.Behaviors>
                     </Entry>
                 </Grid>
-            </sharedsharpucon:SSHeaderFrameSettings>
+            </sharedsharpucon:SSHeaderSettings>
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Control Buttons">
+            <sharedsharpucon:SSHeaderSettings HeaderTitle="Control Buttons">
 
                 <StackLayout Orientation="Horizontal">
 
@@ -104,7 +104,7 @@
                         Style="{DynamicResource SSButtonMenu}"
                         Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
                 </StackLayout>
-            </sharedsharpucon:SSHeaderFrameSettings>
+            </sharedsharpucon:SSHeaderSettings>
         </StackLayout>
     </ScrollView>
 </views:ViewBasePage>

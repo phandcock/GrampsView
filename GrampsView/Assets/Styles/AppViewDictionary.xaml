@@ -65,27 +65,25 @@
 
     <!--  Create a Card Style for a FlexLayout Style  -->
     <Style x:Key="FlexLayoutCards" TargetType="FlexLayout">
-        <Setter Property="Wrap" Value="Wrap" />
+        <Setter Property="AlignContent" Value="Start" />
         <Setter Property="AlignItems" Value="Start" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="AlignContent" Value="Start" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="Wrap" Value="Wrap" />
     </Style>
 
     <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Wrap" Value="Wrap" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
     </Style>
 
     <Style x:Key="FlexMulti" TargetType="FlexLayout">
+        <Setter Property="AlignItems" Value="Stretch" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
-        <Setter Property="AlignItems" Value="Stretch" />
         <Setter Property="Wrap" Value="Wrap" />
     </Style>
 
@@ -98,23 +96,12 @@
     <!--  Create a TopMenu Style  -->
     <Style x:Key="TopMenu" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="HasShadow" Value="False" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="MinimumWidthRequest" Value="40" />
-        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
         <Setter Property="CornerRadius" Value="0" />
-    </Style>
-
-    <!--  Create a PageMenu Style  -->
-    <Style x:Key="GVPageMenu" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
-        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HasShadow" Value="False" />
-        <Setter Property="HorizontalOptions" Value="Fill" />
-        <Setter Property="Margin" Value="3" />
-        <Setter Property="Padding" Value="3" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="MinimumWidthRequest" Value="40" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <!--  Create a MediaImage Style  -->
@@ -134,19 +121,19 @@
     -->
     <Style
         x:Key="FrameCardSingleStyle"
-        BasedOn="{StaticResource SSFrameCardStyle}"
+        BasedOn="{StaticResource FrameCardSmallStyle}"
         TargetType="Frame">
-        <Setter Property="Padding" Value="3" />
-        <Setter Property="Margin" Value="2" />
         <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Padding" Value="3" />
     </Style>
 
     <Style
         x:Key="FrameSingleFixedCardStyle"
         BasedOn="{StaticResource FrameCardSingleStyle}"
         TargetType="Frame">
-        <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -164,8 +151,9 @@
         x:Key="FrameCardSmallStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
         <Setter Property="Margin" Value="2" />
+        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -179,7 +167,7 @@
         x:Key="FrameSmallFixedCardStyleNS"
         BasedOn="{StaticResource FrameSmallFixedCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
     </Style>
 
     <Style
@@ -191,7 +179,7 @@
         x:Key="FrameSmallVariableCardStyleNS"
         BasedOn="{StaticResource FrameSmallVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
     </Style>
 
     <!--
@@ -202,9 +190,9 @@
         x:Key="FrameCardMediumStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="4" />
         <Setter Property="Margin" Value="3" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -234,7 +222,7 @@
         x:Key="FrameMediumVariableCardStyleNS"
         BasedOn="{StaticResource FrameMediumVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
@@ -280,28 +268,30 @@
         x:Key="CardImageBackgroundFrame"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-        <Setter Property="Margin" Value="0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="HasShadow" Value="false" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style x:Key="CardGroupStyle" TargetType="Frame">
-        <Setter Property="HasShadow" Value="False" />
-        <Setter Property="Margin" Value="3" />
-        <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style x:Key="FlexMultiCollection" TargetType="Frame">
-        <Setter Property="HasShadow" Value="False" />
         <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="False" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style
@@ -309,17 +299,17 @@
         BasedOn="{StaticResource FrameLargeVariableCardStyleNS}"
         TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{DynamicResource CardBackGroundNote}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDark}, Light={StaticResource PrimaryLight}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
         x:Key="MediaImageFull"
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
         <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--
@@ -391,7 +381,7 @@
 
     <!--
         ******************************************************
-        Image  Styles
+        Image Styles
         ******************************************************
     -->
 

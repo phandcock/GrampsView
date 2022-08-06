@@ -1,10 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -74,16 +74,22 @@
                     });
                 }
 
-                BaseDetail.Add(new CardListLineCollection("Coordinates")
+                if (PlaceObject.GCoordLat != 0 || PlaceObject.GCoordLong != 0)
+                {
+                    BaseDetail.Add(new CardListLineCollection("Coordinates")
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),
                         new CardListLine("Long:", PlaceObject.GCoordLong),
                   });
+                }
 
-                BaseDetail.Add(new CardListLineCollection("Place Date Ref")
+                if (HLinkObject.Date.Valid)
+                {
+                    BaseDetail.Add(new CardListLineCollection("Place Date Ref")
                     {
                         new CardListLine("Date:", HLinkObject.Date.ShortDate),
                 });
+                }
 
                 // Add Map card
                 IMapModel t = PlaceObject.ToMapModel();
