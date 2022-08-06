@@ -1,3 +1,13 @@
+## [16.24.53](https://github.com/phandcock/GrampsView/compare/v16.24.52...v16.24.53) (2022-08-06)
+
+
+### Bug Fixes
+
+* tweak styles and notecard text ([ab3ba64](https://github.com/phandcock/GrampsView/commit/ab3ba645b0805e07b0914a3046f3129b65ab2f32))
+* tweak styles and place detail ([fce912c](https://github.com/phandcock/GrampsView/commit/fce912c2ea68ed4f2dc51f24f1c5203dc205fae8))
+
+
+
 ## [16.24.52](https://github.com/phandcock/GrampsView/compare/v16.24.51...v16.24.52) (2022-08-04)
 
 
@@ -27,15 +37,6 @@
 * update colour themes ([17a4f06](https://github.com/phandcock/GrampsView/commit/17a4f06b7afa05f56bb429f1623f69b1e207b3cd))
 * work on styles ([d7c55d3](https://github.com/phandcock/GrampsView/commit/d7c55d3873995b983f8f671a75896393032ba3db))
 * work on styles and whatsnew card ([cdb3980](https://github.com/phandcock/GrampsView/commit/cdb39807b0c8b22be4509fd4fcac1301e0be5a55))
-
-
-
-## [16.24.49](https://github.com/phandcock/GrampsView/compare/v16.24.48...v16.24.49) (2022-07-31)
-
-
-### Bug Fixes
-
-* tweak styles ([a868b45](https://github.com/phandcock/GrampsView/commit/a868b4515946cf31a870754983e4413a69fda4c3))
 
 
 
