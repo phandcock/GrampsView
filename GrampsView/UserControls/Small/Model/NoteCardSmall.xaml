@@ -21,8 +21,9 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
+            LineBreakMode="TailTruncation"
             Style="{DynamicResource SSCardLabelStyleSmall}"
-            Text="{Binding DeRef, Mode=OneWay}" />
+            Text="{Binding DeRef.GStyledText.GText, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"

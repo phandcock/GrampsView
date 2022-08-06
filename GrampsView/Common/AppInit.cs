@@ -46,7 +46,7 @@
                     if (m.Value == null)
                         return;
 
-                    SharedSharpStatic.WindowSize = m.Value;
+                    SharedSharpSizes.WindowSize = m.Value;
                     SharedSharpCardSizes.Current.ReCalculateCardWidths();
                 });
 

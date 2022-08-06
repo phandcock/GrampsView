@@ -51,7 +51,7 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}"
-                    Style="{DynamicResource GVLabelStyleLarge}"
+                    Style="{DynamicResource SSLabelStyleLarge}"
                     Text="{x:Static i18n:AppResources.AboutPage_AppHeader}"
                     TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
                                                 Light={StaticResource OnPrimaryLight}}"

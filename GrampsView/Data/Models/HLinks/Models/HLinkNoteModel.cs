@@ -45,10 +45,5 @@ namespace GrampsView.Data.Model
             await UCNavigateBase(this, nameof(NoteDetailPage));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

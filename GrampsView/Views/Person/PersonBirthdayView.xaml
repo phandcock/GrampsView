@@ -14,9 +14,7 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <Grid
-        Margin="0"
-        Padding="0">
+    <Grid Margin="0" Padding="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -34,9 +32,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource SSPageMenu}">
-            <StackLayout
-                Margin="0"
-                Orientation="Horizontal">
+            <StackLayout Margin="0" Orientation="Horizontal">
                 <Label
                     Padding="3"
                     Style="{DynamicResource SSCardLabelStyle}"
@@ -46,7 +42,7 @@
                 <Switch
                     Margin="3"
                     IsToggled="{Binding BirthdayShowOnlyLivingFlag}"
-                    Style="{DynamicResource GVSwitchStyle}" />
+                    Style="{DynamicResource SSSwitchStyle}" />
             </StackLayout>
         </Frame>
 

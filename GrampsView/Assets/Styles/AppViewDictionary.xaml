@@ -469,41 +469,7 @@
         ******************************************************
     -->
 
-    <!--  Create Very Small Styles for a Label  -->
-    <Style
-        x:Key="SSCardLabelStyleVerySmall"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="Margin" Value="0,0,1,1" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}" />
-    </Style>
-
-    <!--  Create Small Styles for a Label  -->
-    <Style
-        x:Key="SSCardLabelStyleSmall"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
-    </Style>
-
-    <Style
-        x:Key="GVHeaderStyleSmall"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
-    </Style>
-
     <!--  Create Medium Styles for a Label  -->
-    <Style
-        x:Key="SSCardLabelStyleMedium"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="Margin" Value="0,0,3,3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
-    </Style>
-
     <Style
         x:Key="GVHeaderStyleMedium"
         BasedOn="{StaticResource SSCardLabelStyle}"
@@ -514,16 +480,8 @@
 
     <!--  Create Large Styles for a Label  -->
     <Style
-        x:Key="GVLabelStyleLarge"
-        BasedOn="{StaticResource SSCardLabelStyle}"
-        TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
-        <Setter Property="MaxLines" Value="4" />
-    </Style>
-
-    <Style
         x:Key="GVHeaderStyleLarge"
-        BasedOn="{StaticResource GVLabelStyleLarge}"
+        BasedOn="{StaticResource SSLabelStyleLarge}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
@@ -559,17 +517,5 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
-    </Style>
-
-    <!--
-        ******************************************************
-        Switch Styles
-        ******************************************************
-    -->
-
-    <!--  Create a Base Style for a Switches  -->
-    <Style x:Key="GVSwitchStyle" TargetType="Switch">
-        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />-->
-        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
     </Style>
 </ResourceDictionary>

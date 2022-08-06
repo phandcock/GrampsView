@@ -22,7 +22,7 @@
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
             Style="{DynamicResource SSFrameHeaderStyle}">
-            <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title}" />
+            <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title}" />
         </Frame>
 
         <FlexLayout

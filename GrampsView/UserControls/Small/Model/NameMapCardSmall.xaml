@@ -19,7 +19,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource GVLabelStyleLarge}"
+            Style="{DynamicResource SSLabelStyleLarge}"
             Text="{Binding HLinkKey, Mode=OneWay}"
             TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
                                         Light={StaticResource OnSecondaryLight}}" />

@@ -55,7 +55,7 @@
                     <Label
                         Margin="5"
                         Padding="0"
-                        Style="{StaticResource GVHeaderStyleSmall}"
+                        Style="{StaticResource SSHeaderStyleSmall}"
                         Text="Parents and Family" />
                 </StackLayout>
             </Frame>

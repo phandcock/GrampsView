@@ -22,7 +22,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleMedium}"
+            Style="{DynamicResource SSLabelStyleMedium}"
             Text="{Binding DeRef, Mode=OneWay}"
             VerticalOptions="CenterAndExpand" />
 

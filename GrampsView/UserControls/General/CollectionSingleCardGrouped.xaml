@@ -31,7 +31,7 @@
                     Padding="0"
                     IsVisible="{Binding Visible, Mode=OneWay}"
                     Style="{DynamicResource SSFrameHeaderStyle}">
-                    <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
+                    <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
                         <!--  TODO checkout another bug in UWP CollectionView  -->
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">

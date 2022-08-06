@@ -60,9 +60,9 @@
     <!--  Create a Frame Card Style  -->
     <Style x:Key="SSFrameCardStyle" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="HasShadow" Value="False" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="1" />
@@ -215,6 +215,7 @@
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}" />
     </Style>
 
+
     <!--  Create Small Styles for a Label  -->
     <Style
         x:Key="SSCardLabelStyleSmall"
@@ -248,6 +249,7 @@
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
     </Style>
+
 
     <!--  Create Large Styles for a Label  -->
     <Style

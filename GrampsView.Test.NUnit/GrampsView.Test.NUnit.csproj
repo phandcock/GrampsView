@@ -29,7 +29,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SharedSharp" Version="0.2.37" />
+		<PackageReference Include="SharedSharp" Version="0.2.38" />
 	</ItemGroup>
 
 	<ItemGroup>

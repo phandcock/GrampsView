@@ -34,7 +34,7 @@
                 Grid.Column="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
                 Style="{DynamicResource SSFrameHeaderStyle}">
-                <Label Style="{StaticResource GVHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
+                <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
             </Frame>
 
             <StackLayout
