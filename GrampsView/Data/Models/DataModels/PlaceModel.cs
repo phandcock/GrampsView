@@ -37,9 +37,6 @@ namespace GrampsView.Data.Model
         {
             ModelItemGlyph.Symbol = Constants.IconPlace;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPlace");
-
-            PlaceChildCollection.Title = "Enclosed Places";
-            GPlaceParentCollection.Title = "Enclosing Place";
         }
 
         /// <summary>
@@ -121,7 +118,10 @@ namespace GrampsView.Data.Model
             get;
 
             set;
-        } = new HLinkPlaceModelCollection();
+        } = new HLinkPlaceModelCollection()
+        {
+            Title = "Enclosing Place",
+        };
 
         ///// <summary>
         ///// Gets or sets the place title.
@@ -194,7 +194,10 @@ namespace GrampsView.Data.Model
             get;
 
             set;
-        } = new HLinkPlaceModelCollection();
+        } = new HLinkPlaceModelCollection()
+        {
+            Title = "Enclosed Places",
+        };
 
         /// <summary>
         /// Compares two objects.
@@ -253,17 +256,26 @@ namespace GrampsView.Data.Model
             }
 
             // Default to place
+            PlaceModel thisPlaceModel = this;
 
             // Walk the hierarchy to the top to give Maps something to search for
-            string currentPlace = $"{GPTitle}, {GPlaceNames[0].DeRef.DefaultTextShort}";
+            string currentPlace = String.Empty;
 
-            PlaceModel thisPlaceModel = this;
+            if (!string.IsNullOrEmpty(GPTitle))
+            {
+                currentPlace += $"{GPTitle},";
+            };
+
+            if (!string.IsNullOrEmpty(GPlaceNames[0].DeRef.DefaultTextShort))
+            {
+                currentPlace += $"{GPlaceNames[0].DeRef.DefaultTextShort}, ";
+            };
 
             while (thisPlaceModel.GPlaceParentCollection.Count > 0)
             {
                 thisPlaceModel = thisPlaceModel.GPlaceParentCollection[0].DeRef;
 
-                currentPlace += $", {thisPlaceModel.DefaultTextShort}";
+                currentPlace += $"{thisPlaceModel.DefaultTextShort}, ";
             }
 
             newMapModel.Description = currentPlace;

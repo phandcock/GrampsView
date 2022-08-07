@@ -24,6 +24,13 @@ namespace GrampsView.Common
             CollectionChanged += Cards_CollectionChanged;
         }
 
+        public CardGroupHLink(string argTitle)
+        {
+            Title = argTitle;
+
+            CollectionChanged += Cards_CollectionChanged;
+        }
+
         public CardGroupHLink(IEnumerable<T> argList)
         {
             Contract.Assert(argList != null);

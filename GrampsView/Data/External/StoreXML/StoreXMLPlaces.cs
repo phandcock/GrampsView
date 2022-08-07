@@ -66,7 +66,7 @@
                             }
 
                             loadPlace.GPlaceParentCollection = GetPlaceRefCollection(pPlaceElement);
-                            loadPlace.GPlaceParentCollection.Title = "Parent Places";
+                            loadPlace.GPlaceParentCollection.Title = "Enclosing Places";
 
                             loadPlace.GLocation = GetPlaceLocationModelCollection(pPlaceElement);
 
