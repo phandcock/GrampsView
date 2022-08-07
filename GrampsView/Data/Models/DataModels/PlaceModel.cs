@@ -238,10 +238,8 @@ namespace GrampsView.Data.Model
 
         public IMapModel ToMapModel()
         {
-            IMapModel newMapModel = new MapModel
-            {
-                Description = ToString(),
-            };
+            IMapModel newMapModel = new MapModel();
+            newMapModel.Description = GPTitle;
 
             // Try Lat-Long first
             if (GCoordLat != 0.0 && GCoordLong != 0.0)
@@ -255,6 +253,20 @@ namespace GrampsView.Data.Model
             }
 
             // Default to place
+
+            // Walk the hierarchy to the top to give Maps something to search for
+            string currentPlace = $"{GPTitle}, {GPlaceNames[0].DeRef.DefaultTextShort}";
+
+            PlaceModel thisPlaceModel = this;
+
+            while (thisPlaceModel.GPlaceParentCollection.Count > 0)
+            {
+                thisPlaceModel = thisPlaceModel.GPlaceParentCollection[0].DeRef;
+
+                currentPlace += $", {thisPlaceModel.DefaultTextShort}";
+            }
+
+            newMapModel.Description = currentPlace;
             newMapModel.MapType = MapType.Place;
 
             return newMapModel;
