@@ -254,6 +254,9 @@ namespace GrampsView.Data.Model
                 return newMapModel;
             }
 
+            // Default to place
+            newMapModel.MapType = MapType.Place;
+
             return newMapModel;
         }
 
@@ -265,6 +268,8 @@ namespace GrampsView.Data.Model
         /// </value>
         public override string ToString()
         {
+            // Build a complete place name.  Assumes we are usiing the hierarchy.
+
             if (!string.IsNullOrEmpty(GPTitle))
             {
                 return GPTitle;

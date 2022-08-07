@@ -121,7 +121,7 @@
     -->
     <Style
         x:Key="FrameCardSingleStyle"
-        BasedOn="{StaticResource FrameCardSmallStyle}"
+        BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Margin" Value="2" />
