@@ -1,3 +1,14 @@
+## [16.24.54](https://github.com/phandcock/GrampsView/compare/v16.24.53...v16.24.54) (2022-08-07)
+
+
+### Bug Fixes
+
+* fix bugs ([ee01234](https://github.com/phandcock/GrampsView/commit/ee012348b767ac815123311172448e9504fb3bec))
+* tweak places map setup ([92c753b](https://github.com/phandcock/GrampsView/commit/92c753bc04791cde4f57d727477bc67dd4c97cef))
+* work on place map ([6a730cb](https://github.com/phandcock/GrampsView/commit/6a730cbc55c5c962584fe5ebc4e0ff9a3b534d3e))
+
+
+
 ## [16.24.53](https://github.com/phandcock/GrampsView/compare/v16.24.52...v16.24.53) (2022-08-06)
 
 
@@ -25,18 +36,6 @@
 ### Bug Fixes
 
 * tweaks ([e12ce21](https://github.com/phandcock/GrampsView/commit/e12ce213d0b267d7aa6ba3a7129abc0e757e985f))
-
-
-
-## [16.24.50](https://github.com/phandcock/GrampsView/compare/v16.24.49...v16.24.50) (2022-08-02)
-
-
-### Bug Fixes
-
-* fix: update nugets ([52efcd9](https://github.com/phandcock/GrampsView/commit/52efcd9f5c83b18c027e376ca96eca414b44b6a4))
-* update colour themes ([17a4f06](https://github.com/phandcock/GrampsView/commit/17a4f06b7afa05f56bb429f1623f69b1e207b3cd))
-* work on styles ([d7c55d3](https://github.com/phandcock/GrampsView/commit/d7c55d3873995b983f8f671a75896393032ba3db))
-* work on styles and whatsnew card ([cdb3980](https://github.com/phandcock/GrampsView/commit/cdb39807b0c8b22be4509fd4fcac1301e0be5a55))
 
 
 
