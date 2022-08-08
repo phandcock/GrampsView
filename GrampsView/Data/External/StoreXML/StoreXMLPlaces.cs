@@ -38,14 +38,15 @@
                             //{
                             //}
 
-                            if (loadPlace.Id == "P0273")
+                            if (loadPlace.Id == "P0065")
                             {
                             }
 
                             // Load other Place fields
                             loadPlace.GType = (string)pPlaceElement.Attribute("type");
 
-                            loadPlace.GPTitle = GetElement(pPlaceElement, "ptitle");
+                            XElement gpNameElement = pPlaceElement.Element(ns + "pname");
+                            loadPlace.GPName = GetAttribute(gpNameElement, "value");
 
                             loadPlace.GPlaceNames = GetPlaceNameModelCollection(pPlaceElement);
 

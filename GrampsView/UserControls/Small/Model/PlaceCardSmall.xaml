@@ -37,7 +37,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Style="{DynamicResource SSCardLabelStyleVerySmall}"
-            Text="{Binding DeRef.GPTitle, Mode=OneWay}" />
+            Text="{Binding DeRef.GPName, Mode=OneWay}" />
 
         <Label
             Grid.Row="2"

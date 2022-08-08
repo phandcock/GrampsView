@@ -53,7 +53,7 @@
 
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
-                        new CardListLine("Title:", PlaceObject.GPTitle),
+                        new CardListLine("Title:", PlaceObject.GPName),
                         new CardListLine("Type:", PlaceObject.GType),
                         new CardListLine("Code:", PlaceObject.GCode),
                 });

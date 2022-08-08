@@ -13,11 +13,6 @@
 
         public const int CompareLessThan = -1;
 
-        ///// <summary>
-        ///// The data log size.
-        ///// </summary>
-        //public const int DataLogSize = 11;
-
         public const string DirectoryCacheBase = "~GV";
 
         public const string DirectoryImageCache = "~worka";
@@ -40,7 +35,7 @@
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 72;
+        public const int GrampsViewDatabaseVersion = 73;
 
         /// <summary>
         /// The Gramps XML name space.

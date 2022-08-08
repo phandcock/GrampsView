@@ -8,6 +8,8 @@ namespace GrampsView.Data.Model
     using System;
     using System.Collections;
 
+    using Xamarin.Essentials;
+
     using static GrampsView.Common.CommonEnums;
 
     /// <summary>
@@ -124,13 +126,13 @@ namespace GrampsView.Data.Model
         };
 
         ///// <summary>
-        ///// Gets or sets the place title.
+        ///// Gets or sets the place name.
         ///// </summary>
         ///// <value>
         ///// The gp title.
         ///// </value>
 
-        public string GPTitle
+        public string GPName
         {
             get;
 
@@ -242,7 +244,7 @@ namespace GrampsView.Data.Model
         public IMapModel ToMapModel()
         {
             IMapModel newMapModel = new MapModel();
-            newMapModel.Description = GPTitle;
+            newMapModel.Description = GPName;
 
             // Try Lat-Long first
             if (GCoordLat != 0.0 && GCoordLong != 0.0)
@@ -259,26 +261,59 @@ namespace GrampsView.Data.Model
             PlaceModel thisPlaceModel = this;
 
             // Walk the hierarchy to the top to give Maps something to search for
-            string currentPlace = String.Empty;
+            Placemark currentPlace = new Placemark();
 
-            if (!string.IsNullOrEmpty(GPTitle))
+            if (!string.IsNullOrEmpty(GPName))
             {
-                currentPlace += $"{GPTitle},";
-            };
-
-            if (!string.IsNullOrEmpty(GPlaceNames[0].DeRef.DefaultTextShort))
+                currentPlace.Thoroughfare = $"{GPName}";
+                newMapModel.Description = $"{GPName}";
+            }
+            else
             {
-                currentPlace += $"{GPlaceNames[0].DeRef.DefaultTextShort}, ";
-            };
+                if (!string.IsNullOrEmpty(GPlaceNames[0].DeRef.DefaultTextShort))
+                {
+                    currentPlace.Thoroughfare = $"{GPlaceNames[0].DeRef.DefaultTextShort}";
+                    newMapModel.Description = $"{GPlaceNames[0].DeRef.DefaultTextShort}";
+                };
+            }
 
             while (thisPlaceModel.GPlaceParentCollection.Count > 0)
             {
                 thisPlaceModel = thisPlaceModel.GPlaceParentCollection[0].DeRef;
 
-                currentPlace += $"{thisPlaceModel.DefaultTextShort}, ";
+                switch (thisPlaceModel.GType)
+                {
+                    case "Country":
+                        {
+                            currentPlace.CountryName = $"{thisPlaceModel.DefaultTextShort}";
+                            break;
+                        }
+                    case "City":
+                    case "Locality":
+                    case "Town":
+                        {
+                            currentPlace.Locality = $"{thisPlaceModel.DefaultTextShort}";
+                            break;
+                        }
+                    case "County":
+                        {
+                            currentPlace.SubAdminArea = $"{thisPlaceModel.DefaultTextShort}";
+                            break;
+                        }
+                    case "State":
+                        {
+                            currentPlace.AdminArea = $"{thisPlaceModel.DefaultTextShort}";
+                            break;
+                        }
+                    default:
+                        {
+                            // TODO Display alert for unknown Type
+                            break;
+                        }
+                }
             }
 
-            newMapModel.Description = currentPlace;
+            newMapModel.MyPlaceMark = currentPlace;
             newMapModel.MapType = MapType.Place;
 
             return newMapModel;
@@ -294,9 +329,9 @@ namespace GrampsView.Data.Model
         {
             // Build a complete place name.  Assumes we are usiing the hierarchy.
 
-            if (!string.IsNullOrEmpty(GPTitle))
+            if (!string.IsNullOrEmpty(GPName))
             {
-                return GPTitle;
+                return GPName;
             }
 
             return GPlaceNames.ToString();

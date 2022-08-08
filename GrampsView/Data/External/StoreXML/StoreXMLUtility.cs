@@ -184,7 +184,7 @@
         /// The b.
         /// </param>
         /// <returns>
-        /// Text of the XML element int he provided namespace.
+        /// Text of the XML element in the provided namespace.
         /// </returns>
         private static string GetElement(XElement a, string b)
         {
