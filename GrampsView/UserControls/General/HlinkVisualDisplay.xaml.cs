@@ -31,12 +31,7 @@
         {
             InitializeComponent();
 
-            //// Handle IsEnabled on the control and pass to the image Tap event
-            //this.daImage.IsEnabled = true;
-            //if (!this.IsEnabled)
-            //{
-            //    this.daImage.IsEnabled = false;
-            //}
+
         }
 
         public bool FsctShowMedia
