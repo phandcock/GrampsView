@@ -1,3 +1,13 @@
+## [16.24.55](https://github.com/phandcock/GrampsView/compare/v16.24.54...v16.24.55) (2022-08-09)
+
+
+### Bug Fixes
+
+* fix up Map interface ([6c5d5ff](https://github.com/phandcock/GrampsView/commit/6c5d5ffb6cf8bc86c1710447ff34d1ec06b5d13b))
+* tweak citation small card layout ([76584de](https://github.com/phandcock/GrampsView/commit/76584de8593e4e11d4bdde56a6405039aadb3870))
+
+
+
 ## [16.24.54](https://github.com/phandcock/GrampsView/compare/v16.24.53...v16.24.54) (2022-08-07)
 
 
@@ -27,15 +37,6 @@
 * tweak styles ([9ab6cfd](https://github.com/phandcock/GrampsView/commit/9ab6cfd2f614b3e1fed529f43cbe95e3929d7e62))
 * update nugets ([f6c62fe](https://github.com/phandcock/GrampsView/commit/f6c62febfe8f350bf9626b8ce01410293d294f91))
 * update nugets ([8631272](https://github.com/phandcock/GrampsView/commit/86312725811c669bdbd6af85c654d7d572088d6d))
-
-
-
-## [16.24.51](https://github.com/phandcock/GrampsView/compare/v16.24.50...v16.24.51) (2022-08-03)
-
-
-### Bug Fixes
-
-* tweaks ([e12ce21](https://github.com/phandcock/GrampsView/commit/e12ce213d0b267d7aa6ba3a7129abc0e757e985f))
 
 
 
