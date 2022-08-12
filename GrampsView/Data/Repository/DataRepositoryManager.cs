@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Repository
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.External.StoreSerial;
@@ -8,12 +10,10 @@
 
     using Microsoft.AppCenter.Analytics;
     using Microsoft.Extensions.DependencyInjection;
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
     using SharedSharp.Interfaces;
+    using SharedSharp.Logging;
 
     using System;
     using System.Collections.Generic;
@@ -277,8 +277,6 @@
 
                         // Load the new data
                         await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
-
-                        Analytics.TrackEvent($"Load GPKG file: {DataStore.Instance.AD.CurrentInputStreamPath}");
 
                         return true;
                     }
