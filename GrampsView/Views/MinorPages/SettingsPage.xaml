@@ -100,9 +100,11 @@
                 <StackLayout Orientation="Horizontal">
 
                     <Button
-                        Command="{Binding TestButtonCommand}"
+                        Command="{Binding DisplayMessageLogButtonCommand}"
                         Style="{DynamicResource SSButtonMenu}"
-                        Text="{x:Static i18n:AppResources.Settings_ViewAlertDialog}" />
+                        Text="Show MesageLog" />
+
+                
                 </StackLayout>
             </sharedsharpucon:SSHeaderSettings>
         </StackLayout>

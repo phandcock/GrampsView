@@ -1,14 +1,13 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
 
     using Microsoft.Extensions.DependencyInjection;
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
 
     using SharedSharp.Interfaces;
+    using SharedSharp.Logging;
 
     using System.Threading.Tasks;
 
@@ -25,17 +24,24 @@
             BaseTitle = "Settings";
             BaseTitleIcon = Constants.IconSettings;
 
-            TestButtonCommand = new AsyncCommand(TestButtonHandler);
+            DisplayMessageLogButtonCommand = new AsyncCommand(DisplayMessageLogButtonCommandHandler);
+
+
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
             // HandleViewAppearingEvent();
         }
 
-        public IAsyncCommand ShowMessageLogCommand
+        public IAsyncCommand DisplayMessageLogButtonCommand
         {
             get;
         }
+
+        //public IAsyncCommand ShowMessageLogCommand
+        //{
+        //    get;
+        //}
 
         public bool SortCollectionsFlag
         {
@@ -49,10 +55,6 @@
             }
         }
 
-        public IAsyncCommand TestButtonCommand
-        {
-            get;
-        }
 
         public string ThemeButtonChecked
         {
@@ -143,41 +145,12 @@
             }
         }
 
-        private async Task TestButtonHandler()
+        private async Task DisplayMessageLogButtonCommandHandler()
         {
-            ErrorInfo t = new ErrorInfo
-            {
-                ErrorArea = "Test Alert",
-                ErrorMessage = "Test Alert with detail and even more detail and more and more and more",
-            };
-
-            t.Add("Test Line 1", "Test Value 1");
-            t.Add("Test LIne 2", "Test Value 2");
-
-            App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("Test Alert", t);
-
-            t = new ErrorInfo
-            {
-                ErrorArea = "Test Error",
-                ErrorMessage = "Test Error with detail and even more detail and more and more and more",
-            };
-
-            t.Add("Test Line 1", "Test Value 1");
-            t.Add("Test LIne 2", "Test Value 2");
-
-            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
-
-            t = new ErrorInfo
-            {
-                ErrorArea = "Test Exception",
-                ErrorMessage = "Test Exception with detail and even more detail and more and more and more",
-            };
-
-            t.Add("Test Line 1", "Test Value 1");
-            t.Add("Test LIne 2", "Test Value 2");
-
-            App.Current.Services.GetService<IErrorNotifications>().NotifyException("Test Exception", new System.Exception(), t);
+            App.Current.Services.GetService<IErrorNotifications>().DataLogShow();
         }
+
+
 
         private void UpdateNoteEmailHandler(string argEmailAddress)
         {

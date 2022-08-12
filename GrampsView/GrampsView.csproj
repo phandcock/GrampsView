@@ -63,6 +63,7 @@
 		<Compile Remove="Converters\BackLinkDefaultTextShortConverter.cs" />
 		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
 		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
+		<Compile Remove="Events\MessageLogEvent.cs" />
 		<Compile Remove="Models\DataModels\Minor\ParentLinkModel.cs" />
 		<Compile Remove="Models\HLinks\HLinkGlyph.cs" />
 		<Compile Remove="Models\HLinks\HLinkHomeImageModel.cs" />
@@ -160,7 +161,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.3.0" />
+		<PackageReference Include="SharedSharp" Version="0.4.0" />
 		<PackageReference Include="SharpZipLib" Version="1.3.3" />
 		<PackageReference Include="SkiaSharp" Version="2.88.0" />
 		<PackageReference Include="System.Text.Json" Version="6.0.5" />
