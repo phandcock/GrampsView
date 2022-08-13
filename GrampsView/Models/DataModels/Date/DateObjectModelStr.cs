@@ -6,6 +6,7 @@
 
     using System;
     using System.Diagnostics.Contracts;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// Create Str version of DateObjectModel.
@@ -93,6 +94,7 @@
         /// <summary>
         /// Gets the $$(val)$$ field.
         /// </summary>
+        [JsonIgnore]
         public HLinkDateModelStr HLink
         {
             get

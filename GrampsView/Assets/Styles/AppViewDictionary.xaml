@@ -222,7 +222,7 @@
         x:Key="FrameMediumVariableCardStyleNS"
         BasedOn="{StaticResource FrameMediumVariableCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
     </Style>
 

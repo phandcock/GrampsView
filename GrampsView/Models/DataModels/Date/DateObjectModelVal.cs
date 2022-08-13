@@ -9,6 +9,7 @@
 
     using System;
     using System.Diagnostics.Contracts;
+    using System.Text.Json.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -222,6 +223,7 @@
         /// <value>
         /// The type of the g value.
         /// </value>
+        [JsonIgnore]
         public HLinkDateModelVal HLink
         {
             get

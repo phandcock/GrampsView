@@ -9,6 +9,7 @@
 
     using System;
     using System.Diagnostics.Contracts;
+    using System.Text.Json.Serialization;
 
     using static GrampsView.Common.CommonEnums;
 
@@ -204,6 +205,8 @@
         /// <summary>
         /// Gets or sets the Stop field.
         /// </summary>
+        ///
+        [JsonIgnore]
         public HLinkDateModelSpan HLink
         {
             get

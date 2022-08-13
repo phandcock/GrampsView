@@ -5,7 +5,6 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Views;
 
-    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -22,7 +21,6 @@ namespace GrampsView.Data.Model
             HLinkKey = Common.CustomClasses.HLinkKey.NewAsGUID();
         }
 
-        [JsonIgnore]
         public DateObjectModelVal DeRef
         {
             get;
