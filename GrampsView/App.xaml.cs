@@ -133,20 +133,10 @@
             services.AddSingleton<IAppInit, AppInit>();
             services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
-
-            //     services.AddSingleton<IFirstRunDisplayService, FirstRunDisplayService>();
-
             services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
-
-            //      services.AddSingleton<IMessenger, WeakReferenceMessenger>();
-
-            //     services.AddSingleton<ISharedLogging, SharedLogging>();
-            //     services.AddSingleton<ISharedMessageLog, SharedMessageLog>();
             services.AddSingleton<IStoreFile, StoreFile>();
             services.AddSingleton<IStorePostLoad, StorePostLoad>();
             services.AddSingleton<IStoreXML, StoreXML>();
-
-            //       services.AddSingleton<IWhatsNewDisplayService, WhatsNewDisplayService>();
 
             // Viewmodels
             services.AddTransient<AboutViewModel>();

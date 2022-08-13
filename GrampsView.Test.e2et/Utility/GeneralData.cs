@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Test.e2e.Utility
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data;
@@ -8,13 +10,10 @@
     using GrampsView.Data.Repository;
     using GrampsView.Events;
 
-    using CommunityToolkit.Mvvm.Messaging;
-
     using Moq;
 
-    using SharedSharp.Logging;
-
     using SharedSharp.Interfaces;
+    using SharedSharp.Logging;
 
     using System.Diagnostics;
     using System.IO;
@@ -26,15 +25,15 @@
     {
         public static IFileInfoEx GrampsFile = new FileInfoEx();
         public static ISharedLogging iocCommonLogging = new SharedLogging();
-        public static IErrorNotifications iocCommonNotifications;
-        public static IStoreXML iocExternalStorage;
-        public static IStorePostLoad iocGrampsStorePostLoad;
-        public static IGrampsStoreSerial iocGrampsStoreSerial;
-        public static IPlatformSpecific iocPlatformSpecific;
-        public static IStoreFile iocStoreFile;
+        public static IErrorNotifications? iocCommonNotifications;
+        public static IStoreXML? iocExternalStorage;
+        public static IStorePostLoad? iocGrampsStorePostLoad;
+        public static IGrampsStoreSerial? iocGrampsStoreSerial;
+        public static IPlatformSpecific? iocPlatformSpecific;
+        public static IStoreFile? iocStoreFile;
         public static Mock<IMessenger> mocEventAggregator = new Mock<IMessenger>();
         public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
-        public static DataRepositoryManager newManager;
+        public static DataRepositoryManager? newManager;
 
         public static void DataStoreSetup()
         {

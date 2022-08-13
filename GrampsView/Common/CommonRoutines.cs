@@ -16,7 +16,6 @@
     using System.Text.Json;
     using System.Text.RegularExpressions;
 
-    using Xamarin.Essentials;
     using Xamarin.Forms;
 
     /// <summary>
@@ -89,16 +88,6 @@
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
-        }
-
-        public static bool IsEmulator()
-        {
-            if (DeviceInfo.DeviceType == DeviceType.Virtual)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         [Conditional("DEBUG")]

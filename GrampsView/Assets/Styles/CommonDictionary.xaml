@@ -86,9 +86,10 @@
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="2" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <!--  Create a Style for a Label Frame Background  -->
