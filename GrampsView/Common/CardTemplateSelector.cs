@@ -89,6 +89,18 @@ namespace GrampsView.Common
         }
 
         /// <summary>
+        /// Gets or sets the Family Graph template.
+        /// </summary>
+        /// <value>
+        /// The Family Graph template.
+        /// </value>
+        public DataTemplate FamilyGraphTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the family template.
         /// </summary>
         /// <value>
@@ -179,10 +191,10 @@ namespace GrampsView.Common
         }
 
         /// <summary>
-        /// Gets or sets the parent link template.
+        /// Gets or sets the ParentLink template.
         /// </summary>
         /// <value>
-        /// The parent link template.
+        /// The ParentLink template.
         /// </value>
         public DataTemplate ParentLinkTemplate
         {
@@ -214,13 +226,13 @@ namespace GrampsView.Common
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the person template.
-        /// </summary>
-        /// <value>
-        /// The person template.
-        /// </value>
-        public DataTemplate PersonTemplate
+        public DataTemplate PersonSingleTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate PersonSmallTemplate
         {
             get;
             set;
@@ -392,6 +404,11 @@ namespace GrampsView.Common
                         return EventTemplate;
                     }
 
+                case HLinkFamilyGraphModel i:
+                    {
+                        return FamilyGraphTemplate;
+                    }
+
                 case HLinkFamilyModel i:
                     {
                         return FamilyTemplate;
@@ -425,6 +442,32 @@ namespace GrampsView.Common
                             default:
                                 {
                                     return NoteTemplate;
+                                }
+                        }
+                    }
+
+                case HLinkParentLinkModel i:
+                    {
+                        return ParentLinkTemplate;
+                    }
+
+                case HLinkPersonModel i:
+                    {
+                        switch ((item as HLinkPersonModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SingleCard:
+                                {
+                                    return PersonSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return PersonSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return PersonSmallTemplate;
                                 }
                         }
                     }
@@ -505,23 +548,6 @@ namespace GrampsView.Common
                 return NoteTemplate;
             }
 
-            // PersonRef related
-
-            if (item is HLinkPersonRefModel)
-            {
-                return PersonRefTemplate;
-            }
-
-            if (item is HLinkPersonModel)
-            {
-                return PersonTemplate;
-            }
-
-            //if (item is HLinkPersonNameModel)
-            //{
-            //    return PersonNameSingleTemplate;
-            //}
-
             if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
             {
                 return PlaceLocationTemplate;
@@ -535,16 +561,6 @@ namespace GrampsView.Common
             if (item is HLinkTagModel)
             {
                 return TagTemplate;
-            }
-
-            if (item is HLinkParentLinkModel)
-            {
-                return ParentLinkTemplate;
-            }
-
-            if (item is PersonModel)
-            {
-                return PersonTemplate;
             }
 
             if (item is PersonNameModel)

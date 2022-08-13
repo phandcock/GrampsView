@@ -142,15 +142,15 @@
                 // Get date card
                 BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
 
-                // Get parent details
-                BaseDetail.Add(
-                    new HLinkParentLinkModel
-                    {
-                        DeRef = PersonObject.GChildOf.DeRef,
-                    });
-
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
+
+                // Get Faily Graph details
+                BaseDetail.Add(
+                    new HLinkFamilyGraphModel
+                    {
+                        DeRef = PersonObject,
+                    });
 
                 // If Bio note, display it while showing the full list further below.
                 BioNote = PersonObject.GNoteRefCollection.GetBio;

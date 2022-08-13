@@ -43,7 +43,6 @@
         {
             get; set;
         }
-
                      = new HLinkChildRefModel();
 
         /// <summary>
@@ -166,9 +165,9 @@
 
                 // Get parent details
                 BaseDetail.Add(
-                    new HLinkParentLinkModel
+                    new HLinkFamilyGraphModel
                     {
-                        DeRef = PersonObject.GChildOf.DeRef,
+                        DeRef = PersonObject
                     });
 
                 // Add Standard details

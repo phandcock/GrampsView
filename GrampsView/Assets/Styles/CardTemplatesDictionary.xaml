@@ -61,8 +61,16 @@
         <usercontrols:NoteCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="FamilyGraphCardLargeDT">
+        <usercontrols:FamilyGraphCardLarge />
+    </DataTemplate>
+
     <DataTemplate x:Key="ParentLinkCardLargeDT">
         <usercontrols:ParentLinkCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardSingleDT">
+        <usercontrols:PersonCardSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonCardSmallDT">
@@ -126,6 +134,7 @@
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         DateObjectTemplate="{StaticResource DateCardSingleDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
+        FamilyGraphTemplate="{StaticResource FamilyGraphCardLargeDT}"
         FamilyTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
         MapTemplate="{StaticResource MapCardSmallDT}"
@@ -137,7 +146,8 @@
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
-        PersonTemplate="{StaticResource PersonCardSmallDT}"
+        PersonSingleTemplate="{StaticResource PersonCardSingleDT}"
+        PersonSmallTemplate="{StaticResource PersonCardSmallDT}"
         PlaceLocationTemplate="{StaticResource PlaceLocationCardSmallDT}"
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"

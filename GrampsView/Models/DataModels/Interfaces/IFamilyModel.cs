@@ -9,6 +9,10 @@ namespace GrampsView.Data.Model
     /// </summary>
     public interface IFamilyModel : IModelBase, IComparable<FamilyModel>, INotifyPropertyChanged, IComparable, IComparer
     {
+        HLinkPersonModel GFather { get; set; }
+
+        HLinkPersonModel GMother { get; set; }
+
         /// <summary>
         /// Gets the get hlink Family Model that points to this ViewModel.
         /// </summary>
