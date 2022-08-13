@@ -1,3 +1,20 @@
+# [16.25.0](https://github.com/phandcock/GrampsView/compare/v16.24.55...v16.25.0) (2022-08-13)
+
+
+### Bug Fixes
+
+* fix display of date detail pages ([63ae915](https://github.com/phandcock/GrampsView/commit/63ae915c88ae5b94def814b85a17054f7c4a7d2f))
+* tweak diagnostic log ([9d17f84](https://github.com/phandcock/GrampsView/commit/9d17f8467959f6c51379552bb78b1e7bc6e6cecd))
+* tweaks ([f738707](https://github.com/phandcock/GrampsView/commit/f738707de1fdc46b853d944e99f0f352430917a6))
+* update nuget and add messagelog show button ([5bb5fd3](https://github.com/phandcock/GrampsView/commit/5bb5fd32fa9142f497ac2b918114e7c499378668))
+
+
+### Features
+
+* new FamilyGraph card ([b1437e0](https://github.com/phandcock/GrampsView/commit/b1437e0fdb1189a1509878adfdc64c269bad45b5))
+
+
+
 ## [16.24.55](https://github.com/phandcock/GrampsView/compare/v16.24.54...v16.24.55) (2022-08-09)
 
 
@@ -26,17 +43,6 @@
 
 * tweak styles and notecard text ([ab3ba64](https://github.com/phandcock/GrampsView/commit/ab3ba645b0805e07b0914a3046f3129b65ab2f32))
 * tweak styles and place detail ([fce912c](https://github.com/phandcock/GrampsView/commit/fce912c2ea68ed4f2dc51f24f1c5203dc205fae8))
-
-
-
-## [16.24.52](https://github.com/phandcock/GrampsView/compare/v16.24.51...v16.24.52) (2022-08-04)
-
-
-### Bug Fixes
-
-* tweak styles ([9ab6cfd](https://github.com/phandcock/GrampsView/commit/9ab6cfd2f614b3e1fed529f43cbe95e3929d7e62))
-* update nugets ([f6c62fe](https://github.com/phandcock/GrampsView/commit/f6c62febfe8f350bf9626b8ce01410293d294f91))
-* update nugets ([8631272](https://github.com/phandcock/GrampsView/commit/86312725811c669bdbd6af85c654d7d572088d6d))
 
 
 
