@@ -1,3 +1,12 @@
+## [16.25.1](https://github.com/phandcock/GrampsView/compare/v16.25.0...v16.25.1) (2022-08-14)
+
+
+### Bug Fixes
+
+* work on graph and cardsizes ([b809d71](https://github.com/phandcock/GrampsView/commit/b809d71a9083b41817056dcb501a252dcb803532))
+
+
+
 # [16.25.0](https://github.com/phandcock/GrampsView/compare/v16.24.55...v16.25.0) (2022-08-13)
 
 
@@ -33,16 +42,6 @@
 * fix bugs ([ee01234](https://github.com/phandcock/GrampsView/commit/ee012348b767ac815123311172448e9504fb3bec))
 * tweak places map setup ([92c753b](https://github.com/phandcock/GrampsView/commit/92c753bc04791cde4f57d727477bc67dd4c97cef))
 * work on place map ([6a730cb](https://github.com/phandcock/GrampsView/commit/6a730cbc55c5c962584fe5ebc4e0ff9a3b534d3e))
-
-
-
-## [16.24.53](https://github.com/phandcock/GrampsView/compare/v16.24.52...v16.24.53) (2022-08-06)
-
-
-### Bug Fixes
-
-* tweak styles and notecard text ([ab3ba64](https://github.com/phandcock/GrampsView/commit/ab3ba645b0805e07b0914a3046f3129b65ab2f32))
-* tweak styles and place detail ([fce912c](https://github.com/phandcock/GrampsView/commit/fce912c2ea68ed4f2dc51f24f1c5203dc205fae8))
 
 
 
