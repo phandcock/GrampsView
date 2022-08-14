@@ -4,14 +4,21 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using SkiaSharp.Views.Forms;
+
     public sealed partial class PeopleGraphPage : ViewBasePage
     {
-        private PeopleGraphViewModel _viewModel { get; set; }
-
         public PeopleGraphPage()
         {
             InitializeComponent();
             BindingContext = _viewModel = App.Current.Services.GetService<PeopleGraphViewModel>();
+        }
+
+        private PeopleGraphViewModel _viewModel { get; set; }
+
+        private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            _viewModel.OnCanvasViewPaintSurface(sender, args);
         }
 
         /// <summary>

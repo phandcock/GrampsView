@@ -25,12 +25,6 @@
         public AndroidInitializer()
         {
         }
-
-        //public void RegisterTypes(IContainerRegistry containerRegistry)
-        //{
-        //    // Register any platform specific implementations
-        //    containerRegistry.RegisterSingleton<IPlatformSpecific, PlatformSpecific>();
-        //}
     }
 
     /// <summary>

@@ -1,22 +1,28 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
 
     using Microsoft.Extensions.DependencyInjection;
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Errors;
+    using SharedSharp.Interfaces;
     using SharedSharp.Logging;
 
-    using SharedSharp.Interfaces;
+    using SkiaSharp;
+    using SkiaSharp.Views.Forms;
 
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
+
     using System.Linq;
+
+    using Xamarin.Forms;
 
     /// <summary>
     /// Details on an edge between nodes.
@@ -322,37 +328,6 @@
             }
         }
 
-        ///// <summary>
-        ///// Draws the graph.
-        ///// </summary>
-        //public void DrawTheGraph()
-        //{
-        //    Canvas theGraph = new Canvas();
-
-        // // Draw the edges for (int i = 0; i < Edges.Count; i++) {
-        // theGraph.Children.Add(Edges[i].TheLine); }
-
-        // // Draw the nodes for (int i = 0; i < TreeGraph.Count; i++) { PeopleGraphNode item = TreeGraph[i];
-
-        // // Assume person PersonModel t = DV.PersonDV.GetModel(item.nodeHLink.HLinkKey);
-
-        // if (t.HLink.Valid == true) { PersonCardSmall tt = new PersonCardSmall { DataContext = t,
-        // Background = new SolidColorBrush(Colors.AliceBlue), }; theGraph.Children.Add(tt);
-
-        // tt.SetValue(Canvas.LeftProperty, item.xStart); tt.SetValue(Canvas.TopProperty,
-        // item.yStart); } else { // Assume Family FamilyModel tf =
-        // DV.FamilyDV.GetModel(item.nodeHLink.HLinkKey); FamilyCardSmall tt = new FamilyCardSmall {
-        // DataContext = tf, Background = new SolidColorBrush(Colors.AliceBlue), };
-
-        // theGraph.Children.Add(tt);
-
-        // tt.SetValue(Canvas.LeftProperty, item.xStart); tt.SetValue(Canvas.TopProperty,
-        // item.yStart); } }
-
-        //    // Display it
-        //    GraphCanvas = theGraph;
-        //}
-
         /// <summary>
         /// Gets the graph.
         /// </summary>
@@ -634,6 +609,54 @@
             }
 
             maxXNodes = tempMaxX;
+        }
+
+        /// <summary>
+        /// Draws the graph.
+        /// </summary>
+        public void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            var info = args.Info;
+            var surface = args.Surface;
+            SKCanvas theGraph = surface.Canvas;
+
+            // In this example, we will draw a circle in the middle of the canvas
+            var paint = new SKPaint
+            {
+                Style = SKPaintStyle.Fill,
+                Color = Color.Red.ToSKColor(), // Alternatively: SKColors.Red
+            };
+            theGraph.DrawCircle(info.Width / 2, info.Height / 2, 100, paint);
+
+            //        // Draw the edges for (int i = 0; i < Edges.Count; i++) {
+            //        theGraph.Children.Add(Edges[i].TheLine);
+            //    }
+
+            //     // Draw the nodes for (int i = 0; i < TreeGraph.Count; i++) { PeopleGraphNode item = TreeGraph[i];
+
+            //     // Assume person PersonModel t = DV.PersonDV.GetModel(item.nodeHLink.HLinkKey);
+
+            //     if (t.HLink.Valid == true) { PersonCardSmall tt = new PersonCardSmall
+            //        {
+            //            DataContext = t,
+            //            Background = new SolidColorBrush(Colors.AliceBlue),
+            //        }; theGraph.Children.Add(tt);
+
+            //     tt.SetValue(Canvas.LeftProperty, item.xStart); tt.SetValue(Canvas.TopProperty,
+            //     item.yStart); } else { // Assume Family FamilyModel tf =
+            //     DV.FamilyDV.GetModel(item.nodeHLink.HLinkKey); FamilyCardSmall tt = new FamilyCardSmall
+            //     {
+            //         DataContext = tf,
+            //         Background = new SolidColorBrush(Colors.AliceBlue),
+            //     };
+
+            //theGraph.Children.Add(tt);
+
+            //     tt.SetValue(Canvas.LeftProperty, item.xStart); tt.SetValue(Canvas.TopProperty,
+            //     item.yStart); } }
+
+            //        // Display it
+            //        GraphCanvas = theGraph;
         }
 
         /// <summary>

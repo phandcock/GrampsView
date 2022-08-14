@@ -5,9 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:vm="clr-namespace:GrampsView.ViewModels"
     Title="{Binding BaseTitle}"
+    x:DataType="vm:PeopleGraphViewModel"
     Style="{DynamicResource GVBaseContentPage}"
     mc:Ignorable="d">
 
@@ -15,33 +18,18 @@
         <ucon:TopMenu />
     </Shell.TitleView>
 
-    <!--<Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Row="0">
+        <!--<Viewbox Grid.Row="0">-->
 
-            <Border MinWidth="300" MinHeight="300">
-                <ScrollViewer
-                    Name="ScrollViewerMain"
-                    MinWidth="100"
-                    MinHeight="100"
-                    HorizontalScrollBarVisibility="Auto"
-                    MinZoomFactor="1"
-                    VerticalScrollBarVisibility="Auto"
-                    ZoomMode="Enabled">
-                    <Canvas
-                        Name="theGraph"
-                        Width="{x:Bind ViewModel.CanvasWidth, Mode=OneWay}"
-                        Height="{x:Bind ViewModel.CanvasHeight, Mode=OneWay}"
-                        MaxWidth="{Binding Path=ViewportWidth, ElementName=ScrollViewerMain}"
-                        MaxHeight="{Binding Path=ViewportHeight, ElementName=ScrollViewerMain}" />
-    -->
-    <!--  DataContext="{x:Bind ViewModel.GraphCanvas}" />  -->
-    <!--
-                </ScrollViewer>
-            </Border>
-        </Viewbox>
-    </Grid>-->
+        <!--<Border MinWidth="300" MinHeight="300">-->
+        <ScrollView>
+            <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface" />
+        </ScrollView>
+        <!--</Border>-->
+        <!--</Viewbox>-->
+    </Grid>
 </views:ViewBasePage>
