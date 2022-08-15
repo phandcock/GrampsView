@@ -66,8 +66,28 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <Frame
+            <ucon:PersonLink
                 Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="5"
+                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
+                HorizontalOptions="FillAndExpand"
+                MinimumHeightRequest="50"
+                MinimumWidthRequest="50" />
+
+            <ucon:PersonLink
+                Grid.Row="1"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Margin="5"
+                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
+                HorizontalOptions="FillAndExpand"
+                MinimumHeightRequest="50"
+                MinimumWidthRequest="50" />
+
+            <Frame
+                Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
                 Margin="0"
@@ -103,26 +123,6 @@
             </Frame>
 
             <ucon:PersonLink
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Margin="5"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
-
-            <ucon:PersonLink
-                Grid.Row="2"
-                Grid.Column="2"
-                Grid.ColumnSpan="2"
-                Margin="5"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
-
-            <ucon:PersonCardSingle
                 Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
