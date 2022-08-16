@@ -1,3 +1,12 @@
+## [16.25.2](https://github.com/phandcock/GrampsView/compare/v16.25.1...v16.25.2) (2022-08-16)
+
+
+### Bug Fixes
+
+* tweak familygraph card ([e17b4f2](https://github.com/phandcock/GrampsView/commit/e17b4f2f436039e91a1d083e33be6bc98789d8fd))
+
+
+
 ## [16.25.1](https://github.com/phandcock/GrampsView/compare/v16.25.0...v16.25.1) (2022-08-14)
 
 
@@ -31,17 +40,6 @@
 
 * fix up Map interface ([6c5d5ff](https://github.com/phandcock/GrampsView/commit/6c5d5ffb6cf8bc86c1710447ff34d1ec06b5d13b))
 * tweak citation small card layout ([76584de](https://github.com/phandcock/GrampsView/commit/76584de8593e4e11d4bdde56a6405039aadb3870))
-
-
-
-## [16.24.54](https://github.com/phandcock/GrampsView/compare/v16.24.53...v16.24.54) (2022-08-07)
-
-
-### Bug Fixes
-
-* fix bugs ([ee01234](https://github.com/phandcock/GrampsView/commit/ee012348b767ac815123311172448e9504fb3bec))
-* tweak places map setup ([92c753b](https://github.com/phandcock/GrampsView/commit/92c753bc04791cde4f57d727477bc67dd4c97cef))
-* work on place map ([6a730cb](https://github.com/phandcock/GrampsView/commit/6a730cbc55c5c962584fe5ebc4e0ff9a3b534d3e))
 
 
 
