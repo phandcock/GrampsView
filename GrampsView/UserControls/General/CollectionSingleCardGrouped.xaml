@@ -5,6 +5,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:ssharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
     Padding="0"
@@ -21,7 +22,7 @@
             <GridItemsLayout
                 HorizontalItemSpacing="1"
                 Orientation="Vertical"
-                Span="{Binding CardsAcrossColumns, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                Span="{x:DynamicResource ssharp:SharedSharpCardSizes.Current.CardsAcrossColumns}"
                 VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 

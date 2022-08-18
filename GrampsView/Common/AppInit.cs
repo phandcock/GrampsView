@@ -9,7 +9,6 @@
 
     using SharedSharp.Common;
     using SharedSharp.Interfaces;
-    using SharedSharp.Messages;
     using SharedSharp.Services;
 
     using System;
@@ -41,22 +40,22 @@
                 }
 
                 // Setup Event Handling
-                App.Current.Services.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
-                {
-                    if (m.Value == null)
-                        return;
+                //App.Current.Services.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+                //{
+                //    if (m.Value == null)
+                //        return;
 
-                    SharedSharpSizes.WindowSize = m.Value;
-                    SharedSharpCardSizes.Current.ReCalculateCardWidths();
-                });
+                //    SharedSharpSizes.WindowSize = m.Value;
+                //    SharedSharpCardSizes.Current.ReCalculateCardWidths();
+                //});
 
-                App.Current.Services.GetService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
-                {
-                    if (m == null)
-                        return;
+                //App.Current.Services.GetService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
+                //{
+                //    if (m == null)
+                //        return;
 
-                    SharedSharpCardSizes.Current.ReCalculateCardWidths();
-                });
+                //    SharedSharpCardSizes.Current.ReCalculateCardWidths();
+                //});
 
                 // Load da data
                 await LoadData().ConfigureAwait(false);

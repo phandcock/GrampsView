@@ -4,7 +4,7 @@
 
     public class CardSizes : SharedSharpCardSizes
     {
-        public override void Init()
+        public CardSizes()
         {
             CardSmallWidthDefault = 230;
         }

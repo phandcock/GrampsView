@@ -32,7 +32,7 @@
         public App()
         {
             Services = ConfigureServices();
-            ShardSharpCore.Init(Services);
+            ShardSharpCore.InitService(Services);
 
             InitializeComponent();
 
@@ -87,36 +87,27 @@
             }
 
             // Setup various support frameworks
+            ShardSharpCore.Init();
+
             // Any updates?
-
             SharedSharpGeneral.MSAppCenterInit(Secret.AndroidSecret, Secret.IOSSecret, Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
-
             VersionTracking.Track();
 
             Services.GetService<IErrorNotifications>();
 
             Services.GetService<IDataRepositoryManager>();
 
-            //// Subscribe to changes of screen metrics
-            DeviceDisplay.MainDisplayInfoChanged += (s, a) =>
-            {
-                OnMainDisplayInfoChanged(s, a);
-            };
-            SharedSharp.Common.SharedSharpGeneral.ScreenSizeInit();
-
             // App Setup
-            Application.Current.UserAppTheme = CommonLocalSettings.ApplicationTheme;
+            Application.Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
 
-            CardSizes.Current.ReCalculateCardWidths();
-
-            CommonLocalSettings.DatabaseVersionMin = Common.Constants.GrampsViewDatabaseVersion;
+            SharedSharpSettings.DatabaseVersionMin = Constants.GrampsViewDatabaseVersion;
 
             // Get Going
             StartAtDetailPage().GetAwaiter().GetResult();
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                SharedSharp.Common.SharedSharpNavigation.NavigateHub();
+                SharedSharpNavigation.NavigateHub();
 
                 return;
             }
@@ -198,26 +189,6 @@
             ShardSharpCore.InitServicesAdd(ref services);
 
             return services.BuildServiceProvider();
-        }
-
-        // TODO This code currently runs one rotation behind and does not set the window size properly on UWP.
-        //See CardSizxes for the current hack fix.
-
-        private static void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-        {
-            SharedSharp.Common.SharedSharpGeneral.ScreenSizeInit();
-
-            // // Process changes // EventAggregator ea = this.Container.Resolve<EventAggregator>();
-
-            // //if (!(ea is null)) // { //var t = DeviceDisplay.MainDisplayInfo; // //
-            // ea.GetEvent<OrientationChanged>().Publish(e.DisplayInfo.Orientation); because seems
-            // // to be one rotation behind on emulator. Try the old school way until fixed if
-            // (e.DisplayInfo.Width > e.DisplayInfo.Height) {
-            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Landscape; } else { //
-            // DataStore.Instance.AD.CurrentOrientation = DisplayOrientation.Portrait; }
-
-            // // // Card width reset CardSizes.Current.ReCalculateCardWidths();
-            ////     }
         }
 
         private static async Task StartAtDetailPage()

@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
@@ -24,7 +25,7 @@
     <ScrollView>
         <StackLayout Orientation="Vertical">
 
-            <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+            <BoxView HeightRequest="{Binding Source={x:StaticResource sharedsharp:SharedSharpCardSizes.CardLargeHeight}, Mode=OneWay}" />
 
             <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}" />
 

@@ -9,9 +9,9 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame Style="{DynamicResource FrameLargeFixedCardStyle}">
+            <Frame Style="{DynamicResource SSFrameLargeFixedCardStyle}">
 
-                <Grid x:Name="controlRoot" Style="{DynamicResource GridlargeFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{DynamicResource SSGridlargeFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />

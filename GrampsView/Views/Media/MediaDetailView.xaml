@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
@@ -26,8 +27,8 @@
             <Frame
                 BorderColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
                                               Light={StaticResource OnSecondaryContainerLight}}"
-                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}">
+                HeightRequest="{Binding Source={x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.MediaDetailImageHeight}, Mode=OneWay}"
+                WidthRequest="{Binding Source={x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.MediaDetailImageWidth}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
@@ -39,7 +40,7 @@
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
 
-                    <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.Media_Detail_Open_File}" />
+                    <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:DynamicResource i18n:AppResources.Media_Detail_Open_File}" />
                 </StackLayout>
             </Frame>
 

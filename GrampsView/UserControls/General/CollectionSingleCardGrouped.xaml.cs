@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common;
+    using SharedSharp.Common;
 
     using System;
     using System.ComponentModel;
@@ -115,7 +115,7 @@
 
             CollectionSingleCardGrouped t = sender as CollectionSingleCardGrouped;
 
-            NumColumns = (Int32)(t.Width / CardSizes.Current.CardSmallWidth + 1);  // +1 for padding
+            NumColumns = (Int32)(t.Width / SharedSharpCardSizes.Current.CardSmallWidth + 1);  // +1 for padding
         }
     }
 }

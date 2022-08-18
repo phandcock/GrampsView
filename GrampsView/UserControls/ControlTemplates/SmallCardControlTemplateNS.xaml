@@ -3,9 +3,9 @@
     x:Class="GrampsView.UserControls.SmallCardControlTemplateNS"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:hlinks="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="hlinks:HLinkBase">
 
     <ContentView.Resources>
@@ -17,9 +17,9 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame Style="{DynamicResource FrameSmallFixedCardStyleNS}">
+            <Frame Style="{DynamicResource SSFrameSmallFixedCardStyleNS}">
 
-                <Grid x:Name="controlRoot" Style="{DynamicResource GridSmallFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{DynamicResource SSGridSmallFixedCardStyle}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />

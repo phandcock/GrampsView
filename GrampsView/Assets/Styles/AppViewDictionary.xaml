@@ -3,7 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
     <ResourceDictionary.MergedDictionaries>
@@ -116,152 +115,6 @@
         ******************************************************
     -->
 
-    <!--
-        Create Single Line Card Styles
-    -->
-    <Style
-        x:Key="FrameCardSingleStyle"
-        BasedOn="{StaticResource SSFrameCardStyle}"
-        TargetType="Frame">
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="Margin" Value="2" />
-        <Setter Property="Padding" Value="3" />
-    </Style>
-
-    <Style
-        x:Key="FrameSingleFixedCardStyle"
-        BasedOn="{StaticResource FrameCardSingleStyle}"
-        TargetType="Frame">
-        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameSingleFixedCardStyleNS"
-        BasedOn="{StaticResource FrameSingleFixedCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
-    </Style>
-
-    <!--
-        Create Small Card Styles
-    -->
-    <Style
-        x:Key="FrameCardSmallStyle"
-        BasedOn="{StaticResource SSFrameCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
-        <Setter Property="Margin" Value="2" />
-        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameSmallFixedCardStyle"
-        BasedOn="{StaticResource FrameCardSmallStyle}"
-        TargetType="Frame">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameSmallFixedCardStyleNS"
-        BasedOn="{StaticResource FrameSmallFixedCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-    </Style>
-
-    <Style
-        x:Key="FrameSmallVariableCardStyle"
-        BasedOn="{StaticResource FrameCardSmallStyle}"
-        TargetType="Frame" />
-
-    <Style
-        x:Key="FrameSmallVariableCardStyleNS"
-        BasedOn="{StaticResource FrameSmallVariableCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-    </Style>
-
-    <!--
-        Create Medium Card Styles
-    -->
-
-    <Style
-        x:Key="FrameCardMediumStyle"
-        BasedOn="{StaticResource SSFrameCardStyle}"
-        TargetType="Frame">
-        <Setter Property="Margin" Value="3" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameMediumFixedCardStyle"
-        BasedOn="{StaticResource FrameCardMediumStyle}"
-        TargetType="Frame">
-        <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameMediumFixedCardStyleNS"
-        BasedOn="{StaticResource FrameCardMediumStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
-    </Style>
-
-    <!--  Create a Variable Height Medium Card Style  -->
-    <Style
-        x:Key="FrameMediumVariableCardStyle"
-        BasedOn="{StaticResource FrameCardMediumStyle}"
-        TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <!--  Create a Variable Height Medium Card Style - Not Selectable  -->
-    <Style
-        x:Key="FrameMediumVariableCardStyleNS"
-        BasedOn="{StaticResource FrameMediumVariableCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <!--
-        Create Large Card Styles
-    -->
-
-    <Style
-        x:Key="FrameLargeFixedCardStyle"
-        BasedOn="{StaticResource SSFrameCardLargeStyle}"
-        TargetType="Frame">
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameCardLargeFixedNSStyle"
-        BasedOn="{StaticResource FrameLargeFixedCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
-    </Style>
-
-    <!--  Create a Variable Height Large Card Style  -->
-    <Style
-        x:Key="FrameLargeVariableCardStyle"
-        BasedOn="{StaticResource SSFrameCardLargeStyle}"
-        TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <!--  Create a Variable Height Large Card Style - Not Selectable  -->
-    <Style
-        x:Key="FrameLargeVariableCardStyleNS"
-        BasedOn="{StaticResource FrameLargeVariableCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
     <!--  Card Special Cards  -->
 
     <Style
@@ -296,11 +149,11 @@
 
     <Style
         x:Key="NoteFullTextStyle"
-        BasedOn="{StaticResource FrameLargeVariableCardStyleNS}"
+        BasedOn="{StaticResource SSFrameLargeVariableCardStyleNS}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{DynamicResource CardBackGroundNote}" />
+        <Setter Property="BackgroundColor" Value="{x:DynamicResource CardBackGroundNote}" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDark}, Light={StaticResource PrimaryLight}}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeDoubleWidth}" />
     </Style>
 
     <Style
@@ -308,8 +161,8 @@
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
+        <Setter Property="HeightRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeHeight}" />
+        <Setter Property="WidthRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeWidth}" />
     </Style>
 
     <!--
@@ -319,15 +172,16 @@
     -->
 
     <!--  Create a Base Style for a Grid Style  -->
+    <!--
     <Style x:Key="GridBaseStyle" TargetType="Grid">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="1" />
-    </Style>
+    </Style>-->
 
     <Style
         x:Key="CardImageBackground"
-        BasedOn="{StaticResource GridBaseStyle}"
+        BasedOn="{StaticResource SSGridBaseStyle}"
         TargetType="Grid">
         <Setter Property="Margin" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
@@ -336,48 +190,6 @@
     <Style x:Key="GVPageTitleStyle" TargetType="Grid">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
     </Style>
-
-    <!--  Grid Single  -->
-    <Style
-        x:Key="GridSingleFixedCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <!--  Grid Small  -->
-    <Style
-        x:Key="GridSmallFixedCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="GridSmallVariableCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid" />
-
-    <!--  Grid Medium  -->
-    <Style
-        x:Key="GridMediumFixedCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <!--<Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
-    </Style>
-
-    <!--  Grid Large  -->
-    <Style
-        x:Key="GridLargeFixedCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid">
-        <!--<Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CardSizes.Current}, Mode=OneWay}" />-->
-    </Style>
-
-    <Style
-        x:Key="GridLargeVariableCardStyle"
-        BasedOn="{StaticResource GridBaseStyle}"
-        TargetType="Grid" />
 
     <!--
         ******************************************************

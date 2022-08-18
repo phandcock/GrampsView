@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Common;
-
     using System.Collections;
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
@@ -75,7 +73,7 @@
             }
 
             // Set Justification to Center if only one column
-            if (CardSizes.Current.CardsAcrossColumns == 1)
+            if (SharedSharp.Common.SharedSharpCardSizes.Current.CardsAcrossColumns == 1)
             {
                 thisCard.theCollectionView.JustifyContent = FlexJustify.Center;
             }
