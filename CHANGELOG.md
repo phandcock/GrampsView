@@ -1,3 +1,12 @@
+## [16.25.3](https://github.com/phandcock/GrampsView/compare/v16.25.2...v16.25.3) (2022-08-18)
+
+
+### Bug Fixes
+
+* rework cardsizes ([86566bd](https://github.com/phandcock/GrampsView/commit/86566bddfcabbc28505983bb1739e5218c8f68b3))
+
+
+
 ## [16.25.2](https://github.com/phandcock/GrampsView/compare/v16.25.1...v16.25.2) (2022-08-16)
 
 
@@ -30,16 +39,6 @@
 ### Features
 
 * new FamilyGraph card ([b1437e0](https://github.com/phandcock/GrampsView/commit/b1437e0fdb1189a1509878adfdc64c269bad45b5))
-
-
-
-## [16.24.55](https://github.com/phandcock/GrampsView/compare/v16.24.54...v16.24.55) (2022-08-09)
-
-
-### Bug Fixes
-
-* fix up Map interface ([6c5d5ff](https://github.com/phandcock/GrampsView/commit/6c5d5ffb6cf8bc86c1710447ff34d1ec06b5d13b))
-* tweak citation small card layout ([76584de](https://github.com/phandcock/GrampsView/commit/76584de8593e4e11d4bdde56a6405039aadb3870))
 
 
 
