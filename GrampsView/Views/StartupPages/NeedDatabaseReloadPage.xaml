@@ -25,7 +25,7 @@
     <ScrollView>
         <StackLayout Orientation="Vertical">
 
-            <BoxView HeightRequest="{Binding Source={x:StaticResource sharedsharp:SharedSharpCardSizes.CardLargeHeight}, Mode=OneWay}" />
+            <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
 
             <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}" />
 

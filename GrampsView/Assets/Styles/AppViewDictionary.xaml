@@ -151,9 +151,7 @@
         x:Key="NoteFullTextStyle"
         BasedOn="{StaticResource SSFrameLargeVariableCardStyleNS}"
         TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{x:DynamicResource CardBackGroundNote}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource PrimaryDark}, Light={StaticResource PrimaryLight}}" />
-        <Setter Property="WidthRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeDoubleWidth}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>
 
     <Style
@@ -161,8 +159,8 @@
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="HeightRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeHeight}" />
-        <Setter Property="WidthRequest" Value="{x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.CardLargeWidth}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>
 
     <!--
@@ -170,14 +168,6 @@
         Grid Styles
         ******************************************************
     -->
-
-    <!--  Create a Base Style for a Grid Style  -->
-    <!--
-    <Style x:Key="GridBaseStyle" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="Margin" Value="1" />
-    </Style>-->
 
     <Style
         x:Key="CardImageBackground"

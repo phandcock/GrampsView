@@ -3,13 +3,12 @@
     x:Class="GrampsView.UserControls.ListLineCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sharedsharpmodels="clr-namespace:SharedSharp.Model;assembly=SharedSharp"
     xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="sharedsharpmodels:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
-    MinimumHeightRequest="{Binding Source={x:StaticResource sharedsharp:SharedSharpCardSizes.CardSmallHeight}, Mode=OneWay}"
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
     Style="{DynamicResource GridSmallVariableCardStyle}">
 
     <Grid.Resources>

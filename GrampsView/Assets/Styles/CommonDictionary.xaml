@@ -273,39 +273,7 @@
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>
-
-    <!--
-        Create Large Card Styles
-    -->
-    <!--
-
-    <Style
-        x:Key="FrameLargeFixedCardStyle"
-        BasedOn="{StaticResource SSFrameCardLargeStyle}"
-        TargetType="Frame">
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding Source={x:StaticResource sharedsharp:SharedSharpCardSizes.CardLargeHeight}, Mode=OneWay}" />
-    </Style>
-
-    <Style
-        x:Key="FrameCardLargeFixedNSStyle"
-        BasedOn="{StaticResource FrameLargeFixedCardStyle}"
-        TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
-    </Style>
-
-    -->
-    <!--  Create a Variable Height Large Card Style  -->
-    <!--
-    <Style
-        x:Key="FrameLargeVariableCardStyle"
-        BasedOn="{StaticResource SSFrameCardLargeStyle}"
-        TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding Source={x:StaticResource sharedsharp:SharedSharpCardSizes.CardLargeHeight}, Mode=OneWay}" />
-    </Style>
-
-    -->
-
+    --&gt;
     <!--
         ******************************************************
         Grid Styles
@@ -351,17 +319,13 @@
     <Style
         x:Key="SSGridMediumFixedCardStyle"
         BasedOn="{StaticResource SSGridBaseStyle}"
-        TargetType="Grid">
-        <!--<Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:StaticResource common:CardSizes.Current}, Mode=OneWay}" />-->
-    </Style>
+        TargetType="Grid" />
 
     <!--  Grid Large  -->
     <Style
         x:Key="SSGridLargeFixedCardStyle"
         BasedOn="{StaticResource SSGridBaseStyle}"
-        TargetType="Grid">
-        <!--<Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:StaticResource common:CardSizes.Current}, Mode=OneWay}" />-->
-    </Style>
+        TargetType="Grid" />
 
     <Style
         x:Key="SSGridLargeVariableCardStyle"

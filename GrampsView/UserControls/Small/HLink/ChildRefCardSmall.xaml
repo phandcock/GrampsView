@@ -2,7 +2,6 @@
     x:Class="GrampsView.UserControls.ChildRefCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
