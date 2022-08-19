@@ -12,7 +12,7 @@ using Xamarin.Forms;
 [assembly: AssemblyProduct("GrampsView.Android")]
 [assembly: AssemblyCopyright("Copyright © 2014-2022")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("en")]
 [assembly: ComVisible(false)]
 
 // Version information for an assembly consists of the following four values:

@@ -5,9 +5,8 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
     using SharedSharp.Interfaces;
+    using SharedSharp.Logging;
 
     using System;
     using System.IO;
@@ -88,7 +87,7 @@
                     {
                         App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
-                        throw;
+                        return false;
                     }
 
                     int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
