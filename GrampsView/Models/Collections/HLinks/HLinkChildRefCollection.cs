@@ -19,6 +19,24 @@ namespace GrampsView.Data.Collections
             Title = "Child Reference Collection";
         }
 
+        public HLinkPersonModelCollection AsHLinkPersonModels
+
+        {
+            get
+            {
+                HLinkPersonModelCollection returnValue = new HLinkPersonModelCollection();
+
+                returnValue.Title = this.Title;
+
+                foreach (HLinkChildRefModel item in this)
+                {
+                    returnValue.Add(item.DeRef.HLink);
+                }
+
+                return returnValue;
+            }
+        }
+
         public override void SetGlyph()
         {
             foreach (HLinkChildRefModel argHLink in this)

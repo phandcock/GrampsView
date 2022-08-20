@@ -112,6 +112,18 @@ namespace GrampsView.Common
         /// <value>
         /// The family template.
         /// </value>
+        public DataTemplate FamilyLargeTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the family template.
+        /// </summary>
+        /// <value>
+        /// The family template.
+        /// </value>
         public DataTemplate FamilySingleTemplate
         {
             get;
@@ -215,6 +227,12 @@ namespace GrampsView.Common
         /// The ParentLink template.
         /// </value>
         public DataTemplate ParentLinkTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate PersonLinkTemplate
         {
             get;
             set;
@@ -442,6 +460,11 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
+                            case CommonEnums.DisplayFormat.LargeCard:
+                                {
+                                    return FamilyLargeTemplate;
+                                }
+
                             case CommonEnums.DisplayFormat.SingleCard:
                                 {
                                     return FamilySingleTemplate;
@@ -508,6 +531,11 @@ namespace GrampsView.Common
                             case CommonEnums.DisplayFormat.SmallCard:
                                 {
                                     return PersonSmallTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SpecialCard:
+                                {
+                                    return PersonLinkTemplate;
                                 }
 
                             default:

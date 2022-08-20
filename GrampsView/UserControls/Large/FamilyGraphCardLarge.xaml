@@ -7,7 +7,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ParentLinkCardLargeRoot"
     x:DataType="models:HLinkFamilyGraphModel"
-    Style="{DynamicResource SSGridLargeVariableCardStyle}">
+    Style="{DynamicResource SSGridMediumVariableCardStyle}">
 
     <Frame Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
 
@@ -32,7 +32,7 @@
             <ucon:PersonLink
                 Grid.Row="0"
                 Grid.Column="0"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
@@ -41,7 +41,7 @@
             <ucon:PersonLink
                 Grid.Row="0"
                 Grid.Column="1"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
@@ -51,7 +51,7 @@
             <ucon:PersonLink
                 Grid.Row="0"
                 Grid.Column="2"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
@@ -60,7 +60,7 @@
             <ucon:PersonLink
                 Grid.Row="0"
                 Grid.Column="3"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
@@ -70,7 +70,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
@@ -80,53 +80,24 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <Frame
+            <ucon:FamilyCardSingle
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
                 Margin="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryContainerDark},
-                                                  Light={StaticResource PrimaryContainerLight}}"
-                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryContainerDark},
-                                              Light={StaticResource SecondaryContainerLight}}"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
-                Style="{StaticResource SSFrameCardStyle}">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.GChildOf}" />
-                </Frame.GestureRecognizers>
-
-                <StackLayout Orientation="Horizontal">
-                    <Image
-                        Margin="5"
-                        Style="{DynamicResource GVSymbolIconSingleCardType}"
-                        VerticalOptions="Center">
-                        <Image.Source>
-                            <FontImageSource
-                                FontFamily="FA-Solid"
-                                Glyph="{Binding DeRef.ModelItemGlyph.Symbol}"
-                                Color="{Binding DeRef.ModelItemGlyph.SymbolColour}" />
-                        </Image.Source>
-                    </Image>
-                    <Label
-                        Margin="5"
-                        Padding="0"
-                        Style="{StaticResource SSHeaderStyleSmall}"
-                        Text="Parent Family Details" />
-                </StackLayout>
-            </Frame>
+                BindingContext="{Binding DeRef.GChildOf}" />
 
             <ucon:PersonLink
                 Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
-                Margin="5"
+                Margin="1"
                 BindingContext="{Binding DeRef.HLink, Mode=OneWay}"
                 HorizontalOptions="CenterAndExpand"
                 IsEnabled="False"

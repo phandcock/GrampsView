@@ -64,7 +64,7 @@
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Padding" Value="5" />
+        <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="1" />
     </Style>
 
@@ -238,8 +238,8 @@
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="Margin" Value="3" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Margin" Value="1" />
     </Style>
 
     <Style
@@ -273,7 +273,7 @@
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>
-    --&gt;
+
     <!--
         ******************************************************
         Grid Styles

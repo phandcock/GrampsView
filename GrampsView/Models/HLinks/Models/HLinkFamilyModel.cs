@@ -26,6 +26,31 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
 
+        //public Group<object> ChildrenLinks
+        //{
+        //    get
+        //    {
+        //        Group<object> returnValue = new Group<object>();
+        //        foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
+        //        {
+        //            currentFamily.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+        //            // Add Family
+        //            returnValue.Add(currentFamily);
+
+        //            // Add children
+        //            foreach (HLinkChildRefModel currentChild in currentFamily.DeRef.GChildRefCollection)
+        //            {
+        //                currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+        //                returnValue.Add(currentChild);
+        //            }
+        //        }
+
+        //        return returnValue;
+        //    }
+        //}
+
         /// <summary>
         /// Gets.
         /// </summary>
@@ -58,10 +83,5 @@ namespace GrampsView.Data.Model
             await UCNavigateBase(this, nameof(FamilyDetailPage));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

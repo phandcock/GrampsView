@@ -67,7 +67,8 @@ namespace GrampsView.Common
             FullCard,
             LargeCard,
             SingleCard,
-            SmallCard
+            SmallCard,
+            SpecialCard
         }
 
         public enum EventModelType

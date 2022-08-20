@@ -206,6 +206,9 @@
 		<Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
 			<DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\Large\FamilyCardLarge.xaml.cs">
+		  <DependentUpon>FamilyCardLarge.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>

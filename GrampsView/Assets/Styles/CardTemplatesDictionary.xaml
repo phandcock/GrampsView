@@ -37,9 +37,14 @@
         <usercontrols:EventCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="FamilyCardLargeDT">
+        <usercontrols:FamilyCardLarge />
+    </DataTemplate>
+
     <DataTemplate x:Key="FamilyCardSingleDT">
         <usercontrols:FamilyCardSingle />
     </DataTemplate>
+
     <DataTemplate x:Key="FamilyCardSmallDT">
         <usercontrols:FamilyCardSmall />
     </DataTemplate>
@@ -82,6 +87,10 @@
 
     <DataTemplate x:Key="PersonCardSmallDT">
         <usercontrols:PersonCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardLinkDT">
+        <usercontrols:PersonLink />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonNameCardSingleDT">
@@ -143,6 +152,7 @@
         DateObjectTemplate="{StaticResource DateCardSingleDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyGraphTemplate="{StaticResource FamilyGraphCardLargeDT}"
+        FamilyLargeTemplate="{StaticResource FamilyCardLargeDT}"
         FamilySingleTemplate="{StaticResource FamilyCardSingleDT}"
         FamilySmallTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
@@ -152,6 +162,7 @@
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
         ParentLinkTemplate="{StaticResource ParentLinkCardLargeDT}"
+        PersonLinkTemplate="{StaticResource PersonCardLinkDT}"
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
