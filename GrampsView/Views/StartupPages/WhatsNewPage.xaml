@@ -22,7 +22,7 @@
     </Shell.TitleView>
 
     <ScrollView>
-        <StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand">
 
             <Image
                 HorizontalOptions="Center"
