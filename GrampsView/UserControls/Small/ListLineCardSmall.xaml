@@ -9,7 +9,7 @@
     x:DataType="sharedsharpmodels:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
     MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
-    Style="{DynamicResource GridSmallVariableCardStyle}">
+    Style="{DynamicResource SSGridSmallVariableCardStyle}">
 
     <Grid.Resources>
         <ResourceDictionary>
@@ -17,7 +17,7 @@
         </ResourceDictionary>
     </Grid.Resources>
 
-    <Frame Style="{DynamicResource FrameSmallVariableCardStyleNS}">
+    <Frame Style="{DynamicResource SSFrameSmallVariableCardStyleNS}">
 
         <Grid>
             <Grid.RowDefinitions>

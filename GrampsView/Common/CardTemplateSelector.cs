@@ -52,7 +52,13 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate ChildRefTemplate
+        public DataTemplate ChildRefSingleTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate ChildRefSmallTemplate
         {
             get;
             set;
@@ -106,7 +112,19 @@ namespace GrampsView.Common
         /// <value>
         /// The family template.
         /// </value>
-        public DataTemplate FamilyTemplate
+        public DataTemplate FamilySingleTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the family template.
+        /// </summary>
+        /// <value>
+        /// The family template.
+        /// </value>
+        public DataTemplate FamilySmallTemplate
         {
             get;
             set;
@@ -372,17 +390,28 @@ namespace GrampsView.Common
 
                 case FamilyModel i:
                     {
-                        return FamilyTemplate;
+                        return FamilySmallTemplate;
                     }
-
-                //case HLinkBackLink i:
-                //    {
-                //        return OnSelectTemplate(i.HLink, container);
-                //    }
 
                 case HLinkChildRefModel i:
                     {
-                        return ChildRefTemplate;
+                        switch ((item as HLinkChildRefModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SingleCard:
+                                {
+                                    return ChildRefSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return ChildRefSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return ChildRefSmallTemplate;
+                                }
+                        }
                     }
 
                 case HLinkCitationModel i:
@@ -411,7 +440,23 @@ namespace GrampsView.Common
 
                 case HLinkFamilyModel i:
                     {
-                        return FamilyTemplate;
+                        switch ((item as HLinkFamilyModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.SingleCard:
+                                {
+                                    return FamilySingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return FamilySmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return FamilySmallTemplate;
+                                }
+                        }
                     }
 
                 case HLinkMapModel i:

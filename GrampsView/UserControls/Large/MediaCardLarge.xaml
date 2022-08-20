@@ -9,7 +9,7 @@
     x:DataType="models:HLinkMediaModel"
     BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
     IsVisible="{Binding Valid}"
-    Style="{DynamicResource GridLargeVariableCardStyle}">
+    Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
     <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
 

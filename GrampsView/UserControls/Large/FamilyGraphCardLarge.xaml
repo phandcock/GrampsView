@@ -7,9 +7,9 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ParentLinkCardLargeRoot"
     x:DataType="models:HLinkFamilyGraphModel"
-    Style="{DynamicResource GridLargeVariableCardStyle}">
+    Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource FrameMediumVariableCardStyleNS}">
+    <Frame Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
 
         <Grid>
 

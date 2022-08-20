@@ -6,7 +6,8 @@
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                      Light={StaticResource Neutral}}"
     IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
     <Frame.Resources>
@@ -16,7 +17,10 @@
         </ResourceDictionary>
     </Frame.Resources>
 
-    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+    <StackLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Start">
 
         <Frame
             x:Name="LLCardLargeFrame"

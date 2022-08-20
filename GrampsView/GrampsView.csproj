@@ -163,7 +163,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.5.8" />
+		<PackageReference Include="SharedSharp" Version="0.5.9" />
 		<PackageReference Include="SharpZipLib" Version="1.3.3" />
 		<PackageReference Include="SkiaSharp" Version="2.88.1" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
@@ -211,6 +211,13 @@
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
 			<DependentUpon>DateCardSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Single\ChildRefCardSingle.xaml.cs">
+		  <SubType>Code</SubType>
+		  <DependentUpon>ChildRefCardSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Single\FamilyCardSingle.xaml.cs">
+		  <DependentUpon>FamilyCardSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\PersonCardSingle.xaml.cs">
 		  <DependentUpon>PersonCardSingle.xaml</DependentUpon>
@@ -266,6 +273,10 @@
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="UserControls\Single\ChildRefCardSingle.xaml">
+		  <SubType>Designer</SubType>
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 	</ItemGroup>
 

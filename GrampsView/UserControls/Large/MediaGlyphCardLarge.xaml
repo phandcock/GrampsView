@@ -8,7 +8,7 @@
     x:Name="MediaGlyphCardLargeRoot"
     x:DataType="customclasses:ItemGlyph"
     IsVisible="{Binding ValidImage}"
-    Style="{DynamicResource GridLargeVariableCardStyle}">
+    Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
     <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
 

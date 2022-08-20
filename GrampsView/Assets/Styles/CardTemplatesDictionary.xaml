@@ -17,6 +17,10 @@
         <usercontrols:ListLineCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="ChildRefCardSingleDT">
+        <usercontrols:ChildRefCardSingle />
+    </DataTemplate>
+
     <DataTemplate x:Key="ChildRefCardSmallDT">
         <usercontrols:ChildRefCardSmall />
     </DataTemplate>
@@ -33,6 +37,9 @@
         <usercontrols:EventCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="FamilyCardSingleDT">
+        <usercontrols:FamilyCardSingle />
+    </DataTemplate>
     <DataTemplate x:Key="FamilyCardSmallDT">
         <usercontrols:FamilyCardSmall />
     </DataTemplate>
@@ -130,12 +137,14 @@
         AddressTemplate="{StaticResource AddressCardSmallDT}"
         AttributeTemplate="{StaticResource AttributeCardSingleDT}"
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
-        ChildRefTemplate="{StaticResource ChildRefCardSmallDT}"
+        ChildRefSingleTemplate="{StaticResource ChildRefCardSingleDT}"
+        ChildRefSmallTemplate="{StaticResource ChildRefCardSmallDT}"
         CitationTemplate="{StaticResource CitationCardSmallDT}"
         DateObjectTemplate="{StaticResource DateCardSingleDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyGraphTemplate="{StaticResource FamilyGraphCardLargeDT}"
-        FamilyTemplate="{StaticResource FamilyCardSmallDT}"
+        FamilySingleTemplate="{StaticResource FamilyCardSingleDT}"
+        FamilySmallTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
         MapTemplate="{StaticResource MapCardSmallDT}"
         MediaCardLargeTemplate="{StaticResource MediaCardLargeDT}"

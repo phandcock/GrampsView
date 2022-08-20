@@ -46,9 +46,20 @@
             get
             {
                 Group<object> returnValue = new Group<object>();
-                foreach (HLinkFamilyModel item in DeRef.GParentInRefCollection)
+                foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
                 {
-                    returnValue.Add(item);
+                    currentFamily.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+                    // Add Family
+                    returnValue.Add(currentFamily);
+
+                    // Add children
+                    foreach (HLinkChildRefModel currentChild in currentFamily.DeRef.GChildRefCollection)
+                    {
+                        currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+                        returnValue.Add(currentChild);
+                    }
                 }
 
                 return returnValue;
