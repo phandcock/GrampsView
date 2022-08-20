@@ -1,3 +1,12 @@
+## [16.25.5](https://github.com/phandcock/GrampsView/compare/v16.25.4...v16.25.5) (2022-08-20)
+
+
+### Bug Fixes
+
+* tweak familycard layout ([6829762](https://github.com/phandcock/GrampsView/commit/68297623025e2515cee603d229b3586fa526266c))
+
+
+
 ## [16.25.4](https://github.com/phandcock/GrampsView/compare/v16.25.3...v16.25.4) (2022-08-20)
 
 
@@ -25,15 +34,6 @@
 ### Bug Fixes
 
 * tweak familygraph card ([e17b4f2](https://github.com/phandcock/GrampsView/commit/e17b4f2f436039e91a1d083e33be6bc98789d8fd))
-
-
-
-## [16.25.1](https://github.com/phandcock/GrampsView/compare/v16.25.0...v16.25.1) (2022-08-14)
-
-
-### Bug Fixes
-
-* work on graph and cardsizes ([b809d71](https://github.com/phandcock/GrampsView/commit/b809d71a9083b41817056dcb501a252dcb803532))
 
 
 
