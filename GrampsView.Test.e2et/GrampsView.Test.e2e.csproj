@@ -31,7 +31,7 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="RelaxNG" Version="3.2.3" />
-		<PackageReference Include="SharedSharp" Version="0.5.9" />
+		<PackageReference Include="SharedSharp" Version="0.5.10" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
 		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
 	</ItemGroup>
