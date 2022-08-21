@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Frame
-    x:Class="GrampsView.UserControls.PersonLink"
+    x:Class="GrampsView.UserControls.PersonCardLink"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonModel"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryContainerDark},
-                                      Light={StaticResource PrimaryContainerLight}}"
-    HeightRequest="100"
-    IsEnabled="{Binding Valid}"
+    HeightRequest="90"
+    IsEnabled="{Binding Valid}" BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark}, Light={StaticResource OnTertiaryContainerLight}}"
     Style="{DynamicResource SSFrameCardStyle}"
     VerticalOptions="Center">
 
@@ -48,8 +46,8 @@
                 IsEnabled="false"
                 Style="{DynamicResource SSCardLabelStyleVerySmall}"
                 Text="{Binding DeRef}"
-                TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
-                                            Light={StaticResource OnSecondaryLight}}" />
+                TextColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                            Light={StaticResource SurfaceLight}}" />
         </Grid>
     </Frame.Content>
 </Frame>

@@ -95,24 +95,24 @@ namespace GrampsView.Common
         }
 
         /// <summary>
-        /// Gets or sets the Family Graph template.
+        /// Gets or sets the family template.
         /// </summary>
         /// <value>
-        /// The Family Graph template.
+        /// The family template.
         /// </value>
-        public DataTemplate FamilyGraphTemplate
+        public DataTemplate FamilyCardMediumTemplate
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets or sets the family template.
+        /// Gets or sets the Family Graph template.
         /// </summary>
         /// <value>
-        /// The family template.
+        /// The Family Graph template.
         /// </value>
-        public DataTemplate FamilyLargeTemplate
+        public DataTemplate FamilyGraphMediumTemplate
         {
             get;
             set;
@@ -453,16 +453,16 @@ namespace GrampsView.Common
 
                 case HLinkFamilyGraphModel i:
                     {
-                        return FamilyGraphTemplate;
+                        return FamilyGraphMediumTemplate;
                     }
 
                 case HLinkFamilyModel i:
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
-                            case CommonEnums.DisplayFormat.LargeCard:
+                            case CommonEnums.DisplayFormat.LinkCard:
                                 {
-                                    return FamilyLargeTemplate;
+                                    return FamilyCardMediumTemplate;
                                 }
 
                             case CommonEnums.DisplayFormat.SingleCard:
@@ -533,7 +533,7 @@ namespace GrampsView.Common
                                     return PersonSmallTemplate;
                                 }
 
-                            case CommonEnums.DisplayFormat.SpecialCard:
+                            case CommonEnums.DisplayFormat.LinkCard:
                                 {
                                     return PersonLinkTemplate;
                                 }

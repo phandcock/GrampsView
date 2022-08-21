@@ -17,13 +17,19 @@
 
 	<ItemGroup>
 		<Compile Remove="Behaviours\**" />
+		<Compile Remove="ViewModels\PeopleGraph\**" />
 		<Compile Remove="ViewModels\Popups\**" />
+		<Compile Remove="Views\PeopleGraph\**" />
 		<Compile Remove="Views\Popups\**" />
 		<EmbeddedResource Remove="Behaviours\**" />
+		<EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
 		<EmbeddedResource Remove="ViewModels\Popups\**" />
+		<EmbeddedResource Remove="Views\PeopleGraph\**" />
 		<EmbeddedResource Remove="Views\Popups\**" />
 		<None Remove="Behaviours\**" />
+		<None Remove="ViewModels\PeopleGraph\**" />
 		<None Remove="ViewModels\Popups\**" />
+		<None Remove="Views\PeopleGraph\**" />
 		<None Remove="Views\Popups\**" />
 	</ItemGroup>
 
@@ -211,6 +217,12 @@
 		</Compile>
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\FamilyGraphCardMediumLink.xaml.cs">
+		  <DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\PersonCardLink.xaml.cs">
+		  <DependentUpon>PersonCardLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
 			<DependentUpon>DateCardSingle.xaml</DependentUpon>

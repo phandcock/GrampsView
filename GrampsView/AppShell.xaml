@@ -164,7 +164,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:TagListPage}" Route="TagListPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="People Graph">
+    <!--<FlyoutItem Title="People Graph">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="FA-Solid"
@@ -173,7 +173,7 @@
                                         Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:PeopleGraphPage}" Route="PeopleGraphPage" />
-    </FlyoutItem>
+    </FlyoutItem>-->
 
     <FlyoutItem Title="Advanced Search">
         <FlyoutItem.FlyoutIcon>

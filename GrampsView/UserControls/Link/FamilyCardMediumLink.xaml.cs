@@ -2,9 +2,9 @@
 {
     using Xamarin.Forms;
 
-    public partial class PersonLink : Frame
+    public partial class FamilyCardMediumLink : Grid
     {
-        public PersonLink()
+        public FamilyCardMediumLink()
         {
             InitializeComponent();
         }

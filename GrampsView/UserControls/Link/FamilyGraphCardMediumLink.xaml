@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
-    x:Class="GrampsView.UserControls.FamilyGraphCardLarge"
+    x:Class="GrampsView.UserControls.FamilyGraphCardMediumLink"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="ParentLinkCardLargeRoot"
+    x:Name="FamilyGraphCardMediumLinkRoot"
     x:DataType="models:HLinkFamilyGraphModel"
     Style="{DynamicResource SSGridMediumVariableCardStyle}">
 
-    <Frame Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
+    <Frame
+        BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
+                                          Light={StaticResource TertiaryContainerLight}}"
+        BorderColor="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
+                                      Light={StaticResource SurfaceVariantLight}}"
+        Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
 
         <Grid>
 
@@ -29,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <!--  Father Parents  -->
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="1"
@@ -38,7 +43,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="1"
@@ -48,7 +53,7 @@
                 MinimumWidthRequest="50" />
 
             <!--  Mother Parents  -->
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="0"
                 Grid.Column="2"
                 Margin="1"
@@ -57,7 +62,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="0"
                 Grid.Column="3"
                 Margin="1"
@@ -66,7 +71,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
@@ -76,7 +81,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="1"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
@@ -86,14 +91,15 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:FamilyCardSingle
+            <ucon:FamilyCardLinkSingle
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
                 Margin="0"
-                BindingContext="{Binding DeRef.GChildOf}" />
+                BindingContext="{Binding DeRef.GChildOf}"
+                WidthRequest="{Binding WidthRequest, Source={x:Reference FamilyGraphCardMediumLinkRoot}}" />
 
-            <ucon:PersonLink
+            <ucon:PersonCardLink
                 Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
