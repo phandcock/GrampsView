@@ -25,6 +25,14 @@
         <usercontrols:ChildRefCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="CitationCardLinkMediumDT">
+        <usercontrols:CitationCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardLinkSingleDT">
+        <usercontrols:CitationCardLinkSingle />
+    </DataTemplate>
+
     <DataTemplate x:Key="CitationCardSmallDT">
         <usercontrols:CitationCardSmall />
     </DataTemplate>
@@ -77,8 +85,8 @@
         <usercontrols:FamilyGraphCardMediumLink />
     </DataTemplate>
 
-    <DataTemplate x:Key="ParentLinkCardLargeDT">
-        <usercontrols:ParentLinkCardLarge />
+    <DataTemplate x:Key="PersonCardLinkSingleDT">
+        <usercontrols:PersonCardLinkSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonCardSingleDT">
@@ -87,10 +95,6 @@
 
     <DataTemplate x:Key="PersonCardSmallDT">
         <usercontrols:PersonCardSmall />
-    </DataTemplate>
-
-    <DataTemplate x:Key="PersonCardLinkDT">
-        <usercontrols:PersonCardLink />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonNameCardSingleDT">
@@ -148,7 +152,9 @@
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
         ChildRefSingleTemplate="{StaticResource ChildRefCardSingleDT}"
         ChildRefSmallTemplate="{StaticResource ChildRefCardSmallDT}"
-        CitationTemplate="{StaticResource CitationCardSmallDT}"
+        CitationLinkMediumTemplate="{StaticResource CitationCardLinkMediumDT}"
+        CitationLinkSingleTemplate="{StaticResource CitationCardLinkSingleDT}"
+        CitationSmallTemplate="{StaticResource CitationCardSmallDT}"
         DateObjectTemplate="{StaticResource DateCardSingleDT}"
         EventTemplate="{StaticResource EventCardSmallDT}"
         FamilyCardMediumTemplate="{StaticResource FamilyCardMediumLinkDT}"
@@ -161,8 +167,7 @@
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
-        ParentLinkTemplate="{StaticResource ParentLinkCardLargeDT}"
-        PersonLinkTemplate="{StaticResource PersonCardLinkDT}"
+        PersonLinkSingleTemplate="{StaticResource PersonCardLinkSingleDT}"
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"

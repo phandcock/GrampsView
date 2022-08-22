@@ -79,6 +79,7 @@
 		<Compile Remove="Models\HLinks\HLinkTableObjectModel.cs" />
 		<Compile Remove="Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
 		<Compile Remove="Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
+		<Compile Remove="Models\HLinks\Models\HLinkParentLinkModel.cs" />
 		<Compile Remove="Models\HLinks\Models\HLinkSourceAttrModel.cs" />
 		<Compile Remove="Models\Misc\CardListLine.cs" />
 		<Compile Remove="Models\Misc\CardListLineCollection.cs" />
@@ -218,11 +219,20 @@
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\Link\CitationCardMediumLink.xaml.cs">
+		  <DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\Link\FamilyGraphCardMediumLink.xaml.cs">
 		  <DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\PersonCardLink.xaml.cs">
-		  <DependentUpon>PersonCardLink.xaml</DependentUpon>
+		<Compile Update="UserControls\Link\CitationCardLinkSingle.xaml.cs">
+		  <DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\PersonLinkCardLarge.xaml.cs">
+		  <DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\PersonCardLinkSingle.xaml.cs">
+		  <DependentUpon>PersonCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
 			<DependentUpon>DateCardSingle.xaml</DependentUpon>

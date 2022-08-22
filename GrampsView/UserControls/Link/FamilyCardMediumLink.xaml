@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="ParentLinkCardLargeRoot"
+    x:Name="FamilyCardMediumLinkRoot"
     x:DataType="models:HLinkFamilyModel"
     Style="{DynamicResource SSGridMediumVariableCardStyle}">
 
@@ -28,9 +28,11 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
+                                                  Light={StaticResource OnTertiaryContainerLight}}"
                 HorizontalOptions="FillAndExpand" />
 
-            <ucon:PersonCardLink
+            <ucon:PersonCardLinkSingle
                 Grid.Row="1"
                 Grid.Column="0"
                 BindingContext="{Binding DeRef.GFather, Mode=OneWay}"
@@ -38,7 +40,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLink
+            <ucon:PersonCardLinkSingle
                 Grid.Row="1"
                 Grid.Column="1"
                 BindingContext="{Binding DeRef.GMother, Mode=OneWay}"
@@ -53,7 +55,7 @@
                 Margin="0"
                 Padding="0"
                 FsctSource="{Binding DeRef.GChildRefCollection.AsHLinkPersonModels, Mode=OneWay}"
-                FsctTemplate="{StaticResource PersonCardLinkDT}"
+                FsctTemplate="{StaticResource PersonCardLinkSingleDT}"
                 HorizontalOptions="CenterAndExpand" />
         </Grid>
     </Frame>

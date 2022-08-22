@@ -64,13 +64,25 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate CitationLinkMediumTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate CitationLinkSingleTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the citation template.
         /// </summary>
         /// <value>
         /// The citation template.
         /// </value>
-        public DataTemplate CitationTemplate
+        public DataTemplate CitationSmallTemplate
         {
             get;
             set;
@@ -232,7 +244,7 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate PersonLinkTemplate
+        public DataTemplate PersonLinkSingleTemplate
         {
             get;
             set;
@@ -435,7 +447,28 @@ namespace GrampsView.Common
                 case HLinkCitationModel i:
                 case ICitationModel i2:
                     {
-                        return CitationTemplate;
+                        switch ((item as HLinkCitationModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.LinkMediumCard:
+                                {
+                                    return CitationLinkMediumTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.LinkSingleCard:
+                                {
+                                    return CitationLinkSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return CitationSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return CitationSmallTemplate;
+                                }
+                        }
                     }
 
                 case HLinkDateModelRange i1:
@@ -460,7 +493,7 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
-                            case CommonEnums.DisplayFormat.LinkCard:
+                            case CommonEnums.DisplayFormat.LinkMediumCard:
                                 {
                                     return FamilyCardMediumTemplate;
                                 }
@@ -514,11 +547,6 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkParentLinkModel i:
-                    {
-                        return ParentLinkTemplate;
-                    }
-
                 case HLinkPersonModel i:
                     {
                         switch ((item as HLinkPersonModel).DisplayAs)
@@ -533,9 +561,9 @@ namespace GrampsView.Common
                                     return PersonSmallTemplate;
                                 }
 
-                            case CommonEnums.DisplayFormat.LinkCard:
+                            case CommonEnums.DisplayFormat.LinkSingleCard:
                                 {
-                                    return PersonLinkTemplate;
+                                    return PersonLinkSingleTemplate;
                                 }
 
                             default:

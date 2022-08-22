@@ -2,9 +2,9 @@
 {
     using Xamarin.Forms;
 
-    public partial class PersonCardLink : Frame
+    public partial class CitationCardLinkSingle : Frame
     {
-        public PersonCardLink()
+        public CitationCardLinkSingle()
         {
             InitializeComponent();
         }

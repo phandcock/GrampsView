@@ -86,9 +86,10 @@
                 BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
 
                 // Add parent link
-                BaseDetail.Add(new HLinkParentLinkModel
+                BaseDetail.Add(new HLinkFamilyModel
                 {
-                    DeRef = localFamilyModel,
+                    HLinkKey = localFamilyModel.HLinkKey,
+                    DisplayAs = CommonEnums.DisplayFormat.LinkMediumCard
                 });
             }
         }

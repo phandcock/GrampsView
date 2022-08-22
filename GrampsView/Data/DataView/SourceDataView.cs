@@ -104,8 +104,8 @@ namespace GrampsView.Data.DataView
             Group<HLinkSourceModelCollection> t = new Group<HLinkSourceModelCollection>();
 
             var query = from item in DataViewData
-                        orderby item.GetDefaultRepository, item.GSTitle
-                        group item by (item.GetDefaultRepository) into g
+                        orderby item.GRepositoryRefCollection.GetFirst, item.GSTitle
+                        group item by (item.GRepositoryRefCollection.GetFirst) into g
                         select new
                         {
                             GroupName = g.Key,

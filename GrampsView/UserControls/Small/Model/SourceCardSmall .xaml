@@ -28,6 +28,6 @@
             Grid.Row="1"
             Grid.Column="0"
             Style="{DynamicResource SSCardLabelStyleVerySmall}"
-            Text="{Binding DeRef.GetDefaultRepository, Mode=OneWay}" />
+            Text="{Binding DeRef.GRepositoryRefCollection.GetFirst.DeRef.DefaultTextShort, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

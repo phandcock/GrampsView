@@ -1,11 +1,11 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -82,8 +82,8 @@
 
                 NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
-                CitationObject.GSourceRef.DisplayAs = CommonEnums.DisplayFormat.LargeCard;
-                BaseDetail.Add(CitationObject.GSourceRef);
+                HLinkCitation.DisplayAs = CommonEnums.DisplayFormat.LinkMediumCard;
+                BaseDetail.Add(HLinkCitation);
             }
         }
     }

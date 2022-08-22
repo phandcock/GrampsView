@@ -66,7 +66,8 @@ namespace GrampsView.Common
             Default,
             FullCard,
             LargeCard,
-            LinkCard,
+            LinkMediumCard,
+            LinkSingleCard,
             SingleCard,
             SmallCard,
         }

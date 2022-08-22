@@ -16,7 +16,7 @@ namespace GrampsView.Data.Collections
     {
         public HLinkChildRefCollection()
         {
-            Title = "Child Reference Collection";
+            Title = "Child Collection";
         }
 
         public HLinkPersonModelCollection AsHLinkPersonModels

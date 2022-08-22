@@ -2,12 +2,12 @@
 {
     using Xamarin.Forms;
 
-    public partial class ParentLinkCardLarge : Grid
+    public partial class PersonLinkCardLarge : Grid
     {
         public static readonly BindableProperty FsctShowParentLinkProperty
-        = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(ParentLinkCardLarge), propertyName: nameof(FsctShowParentLink), defaultValue: true);
+        = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(PersonLinkCardLarge), propertyName: nameof(FsctShowParentLink), defaultValue: true);
 
-        public ParentLinkCardLarge()
+        public PersonLinkCardLarge()
         {
             InitializeComponent();
         }

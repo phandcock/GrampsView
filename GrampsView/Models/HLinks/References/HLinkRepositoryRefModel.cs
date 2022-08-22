@@ -32,7 +32,7 @@
         /// The reference.
         /// </value>
         [JsonIgnore]
-        public new RepositoryModel DeRef
+        public RepositoryModel DeRef
         {
             get
             {
@@ -101,10 +101,5 @@
             await UCNavigateBase(this, nameof(RepositoryRefDetailPage));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

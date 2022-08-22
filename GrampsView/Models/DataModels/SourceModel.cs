@@ -37,23 +37,23 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
-        public string GetDefaultRepository
-        {
-            get
-            {
-                if (GRepositoryRefCollection.Count > 0)
-                {
-                    HLinkRepositoryRefModel t = GRepositoryRefCollection[0];
+        //public HLinkRepositoryRefModel GetDefaultRepository
+        //{
+        //    get
+        //    {
+        //        if (GRepositoryRefCollection.Count > 0)
+        //        {
+        //            HLinkRepositoryRefModel t = GRepositoryRefCollection[0];
 
-                    if (t.Valid)
-                    {
-                        return t.DeRef.ToString();
-                    }
-                }
+        //            if (t.Valid)
+        //            {
+        //                return t;
+        //            }
+        //        }
 
-                return string.Empty;
-            }
-        }
+        //        return new HLinkRepositoryRefModel();
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the media reference collection.

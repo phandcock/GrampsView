@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
-    x:Class="GrampsView.UserControls.ParentLinkCardLarge"
+    x:Class="GrampsView.UserControls.PersonLinkCardLarge"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ParentLinkCardLargeRoot"
-    x:DataType="models:HLinkParentLinkModel"
+    x:DataType="models:HLinkPersonModel"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
     <Frame Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
@@ -60,22 +60,22 @@
                 </StackLayout>
             </Frame>
 
-            <ucon:PersonCardLink
+            <ucon:PersonCardLinkSingle
                 x:Name="AnchorImage1"
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="5"
-                BindingContext="{Binding DeRef.GFather, Mode=OneWay}"
+                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLink
+            <ucon:PersonCardLinkSingle
                 x:Name="AnchorImage2"
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="5"
-                BindingContext="{Binding DeRef.GMother, Mode=OneWay}"
+                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand"
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
