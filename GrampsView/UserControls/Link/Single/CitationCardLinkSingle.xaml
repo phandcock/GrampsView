@@ -46,6 +46,7 @@
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
                 IsEnabled="false"
+                LineBreakMode="WordWrap"
                 Style="{DynamicResource SSCardLabelStyleVerySmall}"
                 Text="{Binding DeRef}"
                 TextColor="{AppThemeBinding Dark={StaticResource SurfaceDark},

@@ -219,19 +219,19 @@
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\CitationCardMediumLink.xaml.cs">
+		<Compile Update="UserControls\Link\Medium\CitationCardMediumLink.xaml.cs">
 		  <DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\FamilyGraphCardMediumLink.xaml.cs">
+		<Compile Update="UserControls\Link\Medium\FamilyGraphCardMediumLink.xaml.cs">
 		  <DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\CitationCardLinkSingle.xaml.cs">
+		<Compile Update="UserControls\Link\Single\CitationCardLinkSingle.xaml.cs">
 		  <DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\PersonLinkCardLarge.xaml.cs">
+		<Compile Update="UserControls\Link\Large\PersonLinkCardLarge.xaml.cs">
 		  <DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\PersonCardLinkSingle.xaml.cs">
+		<Compile Update="UserControls\Link\Single\PersonCardLinkSingle.xaml.cs">
 		  <DependentUpon>PersonCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">

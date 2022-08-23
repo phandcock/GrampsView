@@ -23,14 +23,10 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard
-                FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonNameObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding PersonNameObject.GNoteReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding PersonNameObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding PersonNameObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

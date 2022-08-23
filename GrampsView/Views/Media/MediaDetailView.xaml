@@ -53,7 +53,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
     <!--<Button // TODO finish this

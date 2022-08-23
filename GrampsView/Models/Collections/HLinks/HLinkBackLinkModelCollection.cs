@@ -23,7 +23,7 @@
         /// <value>
         /// The card group as property.
         /// </value>
-        public CardGroupHLink<HLinkBase> CardGroupAsProperty
+        public CardGroupHLink<HLinkBase> AsCardGroup
         {
             get
             {
@@ -31,6 +31,31 @@
 
                 foreach (HLinkBackLink item in Items)
                 {
+                    item.HLink.DisplayAs = CommonEnums.DisplayFormat.SmallCard;
+                    t.Add(item.HLink);
+                }
+
+                t.Title = Title;
+
+                return t;
+            }
+        }
+
+        /// <summary>
+        /// Returns a CardGroup of HLinkBase and not HLinkBackLink.
+        /// </summary>
+        /// <value>
+        /// The card group as property.
+        /// </value>
+        public CardGroupHLink<HLinkBase> AsCardGroupLink
+        {
+            get
+            {
+                CardGroupHLink<HLinkBase> t = new CardGroupHLink<HLinkBase>();
+
+                foreach (HLinkBackLink item in Items)
+                {
+                    item.HLink.DisplayAs = CommonEnums.DisplayFormat.LinkSingleCard;
                     t.Add(item.HLink);
                 }
 

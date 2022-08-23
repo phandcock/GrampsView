@@ -23,11 +23,9 @@
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <Label
-                BackgroundColor="{Binding TagObject.GColor}"
-                Text="Tag Color" />
+            <Label BackgroundColor="{Binding TagObject.GColor}" Text="Tag Color" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding Path=TagObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding Path=TagObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

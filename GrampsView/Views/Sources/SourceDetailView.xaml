@@ -19,29 +19,17 @@
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-            <ucon:MediaGlyphCardLarge
-                BindingContext="{Binding SourceObject.ModelItemGlyph, Mode=OneWay}"
-                MinimumHeightRequest="100" />
+            <ucon:MediaGlyphCardLarge BindingContext="{Binding SourceObject.ModelItemGlyph, Mode=OneWay}" MinimumHeightRequest="100" />
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource RepositoryRefCardSmallDT}" />
-            <ucon:FlexSingleCard
-                FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}"
-                FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GNoteRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GRepositoryRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryRefCardSmallDT}" />
+            <ucon:FlexSingleCard FsctSource="{Binding SourceObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding SourceObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

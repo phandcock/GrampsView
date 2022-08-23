@@ -30,7 +30,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.CardGroupAsProperty, Mode=OneWay}" />
+            <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>
