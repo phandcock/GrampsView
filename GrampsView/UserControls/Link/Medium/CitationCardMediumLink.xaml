@@ -9,7 +9,12 @@
     x:DataType="models:HLinkCitationModel"
     Style="{DynamicResource SSGridMediumVariableCardStyle}">
 
-    <Frame Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
+    <Frame
+        BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
+                                          Light={StaticResource TertiaryContainerLight}}"
+        BorderColor="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
+                                      Light={StaticResource SurfaceVariantLight}}"
+        Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
 
         <Grid>
 

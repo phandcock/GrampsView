@@ -201,6 +201,10 @@
 		<Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
 			<DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\ControlTemplates\LinkSIngleCardControlTemplate.xaml.cs">
+		  <SubType>Code</SubType>
+		  <DependentUpon>LinkSIngleCardControlTemplate.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplateNS.xaml.cs">
 			<DependentUpon>SmallCardControlTemplateNS.xaml</DependentUpon>
 		</Compile>
@@ -298,6 +302,10 @@
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="UserControls\ControlTemplates\LinkSIngleCardControlTemplate.xaml">
+		  <SubType>Designer</SubType>
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\Single\ChildRefCardSingle.xaml">
 		  <SubType>Designer</SubType>
