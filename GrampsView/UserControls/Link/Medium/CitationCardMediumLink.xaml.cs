@@ -1,8 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using Xamarin.Forms;
-
-    public partial class CitationCardMediumLink : Grid
+    public partial class CitationCardMediumLink : LinkMediumCardControlTemplate
     {
         public CitationCardMediumLink()
         {

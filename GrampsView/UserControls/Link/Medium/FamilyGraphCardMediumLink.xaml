@@ -1,121 +1,110 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Grid
+<ucon:LinkMediumCardControlTemplate
     x:Class="GrampsView.UserControls.FamilyGraphCardMediumLink"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:Name="FamilyGraphCardMediumLinkRoot"
-    x:DataType="models:HLinkFamilyGraphModel"
-    Style="{DynamicResource SSGridMediumVariableCardStyle}">
+    x:DataType="models:HLinkFamilyGraphModel">
 
-    <Frame
-        BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
-                                          Light={StaticResource TertiaryContainerLight}}"
-        BorderColor="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
-                                      Light={StaticResource SurfaceVariantLight}}"
-        Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
+    <Grid>
 
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <!--  Father Parents  -->
+        <ucon:PersonCardLinkSingle
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <!--  Father Parents  -->
-            <ucon:PersonCardLinkSingle
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <ucon:PersonCardLinkSingle
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <!--  Mother Parents  -->
+        <ucon:PersonCardLinkSingle
+            Grid.Row="0"
+            Grid.Column="2"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <!--  Mother Parents  -->
-            <ucon:PersonCardLinkSingle
-                Grid.Row="0"
-                Grid.Column="2"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <ucon:PersonCardLinkSingle
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
-                Grid.Row="0"
-                Grid.Column="3"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <ucon:PersonCardLinkSingle
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <ucon:PersonCardLinkSingle
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Margin="1"
+            BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
-                Grid.Row="1"
-                Grid.Column="2"
-                Grid.ColumnSpan="2"
-                Margin="1"
-                BindingContext="{Binding DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
+        <ucon:FamilyCardLinkSingle
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="0"
+            BindingContext="{Binding DeRef.GChildOf}" />
 
-            <ucon:FamilyCardLinkSingle
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                Margin="0"
-                BindingContext="{Binding DeRef.GChildOf}"
-                WidthRequest="{Binding WidthRequest, Source={x:Reference FamilyGraphCardMediumLinkRoot}}" />
+        <ucon:PersonCardLinkSingle
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="1"
+            BindingContext="{Binding DeRef.HLink, Mode=OneWay}"
+            HorizontalOptions="CenterAndExpand"
+            IsEnabled="False"
+            MinimumHeightRequest="50"
+            MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
-                Grid.Row="3"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                Margin="1"
-                BindingContext="{Binding DeRef.HLink, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand"
-                IsEnabled="False"
-                MinimumHeightRequest="50"
-                MinimumWidthRequest="50" />
-
-            <ucon:CardGroupHeader
-                Grid.Row="4"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                BindingContext="{Binding Families, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand" />
-        </Grid>
-    </Frame>
-</Grid>
+        <ucon:CardGroupHeader
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            BindingContext="{Binding Families, Mode=OneWay}"
+            HorizontalOptions="CenterAndExpand" />
+    </Grid>
+</ucon:LinkMediumCardControlTemplate>
