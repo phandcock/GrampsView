@@ -1,3 +1,13 @@
+## [16.25.8](https://github.com/phandcock/GrampsView/compare/v16.25.7...v16.25.8) (2022-08-25)
+
+
+### Bug Fixes
+
+* refactor citation and person linksingle cards ([e45fe06](https://github.com/phandcock/GrampsView/commit/e45fe0643d1d9da5d82e6e0fe75adcb2183b3b7c))
+* tweak link style ([c675cde](https://github.com/phandcock/GrampsView/commit/c675cdedfcc15c19e3e8b096810e33ca3ab782c8))
+
+
+
 ## [16.25.7](https://github.com/phandcock/GrampsView/compare/v16.25.6...v16.25.7) (2022-08-23)
 
 
@@ -24,18 +34,6 @@
 ### Bug Fixes
 
 * tweak familycard layout ([6829762](https://github.com/phandcock/GrampsView/commit/68297623025e2515cee603d229b3586fa526266c))
-
-
-
-## [16.25.4](https://github.com/phandcock/GrampsView/compare/v16.25.3...v16.25.4) (2022-08-20)
-
-
-### Bug Fixes
-
-* tweak note styles ([c78deb0](https://github.com/phandcock/GrampsView/commit/c78deb04d2de66a007c3e91008f7444d64809217))
-* tweak whatsnewpage layout ([ec3553c](https://github.com/phandcock/GrampsView/commit/ec3553cf9fd817b9202ed58d880c42ae2279b7dc))
-* update nugets ([f078381](https://github.com/phandcock/GrampsView/commit/f078381a18a11915f514c833b98153b93930d97f))
-* work on familygraphcard ([2ec890b](https://github.com/phandcock/GrampsView/commit/2ec890b62bcf5352f7916b6914af10e8ab60f41f))
 
 
 
