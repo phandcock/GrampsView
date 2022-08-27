@@ -65,7 +65,7 @@
                 </StackLayout>
             </Frame>
 
-            <ucon:PersonCardLinkSingle
+            <ucon:PersonCardLinkCell
                 x:Name="AnchorImage1"
                 Grid.Row="1"
                 Grid.Column="0"
@@ -75,7 +75,7 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
 
-            <ucon:PersonCardLinkSingle
+            <ucon:PersonCardLinkCell
                 x:Name="AnchorImage2"
                 Grid.Row="1"
                 Grid.Column="1"

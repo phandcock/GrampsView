@@ -48,7 +48,7 @@
                 Group<object> returnValue = new Group<object>();
                 foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
                 {
-                    currentFamily.DisplayAs = CommonEnums.DisplayFormat.LinkMediumCard;
+                    currentFamily.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
                     returnValue.Add(currentFamily);
                 }
 

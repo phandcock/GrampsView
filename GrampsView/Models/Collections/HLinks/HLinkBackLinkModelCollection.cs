@@ -55,7 +55,7 @@
 
                 foreach (HLinkBackLink item in Items)
                 {
-                    item.HLink.DisplayAs = CommonEnums.DisplayFormat.LinkSingleCard;
+                    item.HLink.DisplayAs = CommonEnums.DisplayFormat.LinkCardCell;
                     t.Add(item.HLink);
                 }
 

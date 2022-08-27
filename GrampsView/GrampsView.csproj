@@ -202,6 +202,9 @@
 		  <SubType>Code</SubType>
 		  <DependentUpon>LinkMediumCardControlTemplate.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\ControlTemplates\LinkCellCardControlTemplate.xaml.cs">
+		  <DependentUpon>LinkCellCardControlTemplate.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
 			<DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
 		</Compile>
@@ -227,20 +230,32 @@
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\Link\Medium\SourceCardMediumLink.xaml.cs">
+		  <DependentUpon>SourceCardMediumLink.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\Link\Medium\CitationCardMediumLink.xaml.cs">
 		  <DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\FamilyGraphCardMediumLink.xaml.cs">
 		  <DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\Single\CitationCardLinkSingle.xaml.cs">
-		  <DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
+		<Compile Update="UserControls\Link\Cell\CitationCardLinkCell.xaml.cs">
+		  <DependentUpon>CitationCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Large\PersonLinkCardLarge.xaml.cs">
 		  <DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="UserControls\Link\Single\PersonCardLinkSingle.xaml.cs">
-		  <DependentUpon>PersonCardLinkSingle.xaml</DependentUpon>
+		<Compile Update="UserControls\Link\Single\CitationCardLinkSingle.xaml.cs">
+		  <DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\Single\RepositoryCardLinkSingle.xaml.cs">
+		  <DependentUpon>RepositoryCardLinkSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\Single\SourceCardLinkSingle.xaml.cs">
+		  <DependentUpon>SourceCardLinkSingle.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\Cell\PersonCardLinkCell.xaml.cs">
+		  <DependentUpon>PersonCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
 			<DependentUpon>DateCardSingle.xaml</DependentUpon>

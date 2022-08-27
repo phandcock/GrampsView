@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    public partial class FamilyCardLinkSingle : SingleCardControlTemplate
+    public partial class FamilyCardLinkSingle : LinkSingleCardControlTemplate
     {
         public FamilyCardLinkSingle()
         {

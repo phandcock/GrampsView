@@ -82,8 +82,9 @@
 
                 NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
-                HLinkCitation.DisplayAs = CommonEnums.DisplayFormat.LinkMediumCard;
-                BaseDetail.Add(HLinkCitation);
+                HLinkCitationModel t = CitationObject.HLink;
+                t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                BaseDetail.Add(t);
             }
         }
     }

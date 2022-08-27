@@ -64,6 +64,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate CitationLinkCellTemplate
+        {
+            get;
+            set;
+        }
+
         public DataTemplate CitationLinkMediumTemplate
         {
             get;
@@ -232,19 +238,7 @@ namespace GrampsView.Common
             set;
         }
 
-        /// <summary>
-        /// Gets or sets the ParentLink template.
-        /// </summary>
-        /// <value>
-        /// The ParentLink template.
-        /// </value>
-        public DataTemplate ParentLinkTemplate
-        {
-            get;
-            set;
-        }
-
-        public DataTemplate PersonLinkSingleTemplate
+        public DataTemplate PersonLinkCellTemplate
         {
             get;
             set;
@@ -310,6 +304,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate RepositoryLinkSingleTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the repository ref template.
         /// </summary>
@@ -328,7 +328,7 @@ namespace GrampsView.Common
         /// <value>
         /// The repository template.
         /// </value>
-        public DataTemplate RepositoryTemplate
+        public DataTemplate RepositorySmallTemplate
         {
             get;
             set;
@@ -341,6 +341,18 @@ namespace GrampsView.Common
         /// The source template.
         /// </value>
         public DataTemplate SourceLargeTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate SourceLinkMediumTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate SourceLinkSingleTemplate
         {
             get;
             set;
@@ -449,14 +461,18 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkCitationModel).DisplayAs)
                         {
-                            case CommonEnums.DisplayFormat.LinkMediumCard:
+                            case CommonEnums.DisplayFormat.LinkCardCell:
                                 {
-                                    return CitationLinkMediumTemplate;
+                                    return CitationLinkCellTemplate;
                                 }
 
-                            case CommonEnums.DisplayFormat.LinkSingleCard:
+                            case CommonEnums.DisplayFormat.LinkCardSingle:
                                 {
                                     return CitationLinkSingleTemplate;
+                                }
+                            case CommonEnums.DisplayFormat.LinkCardMedium:
+                                {
+                                    return CitationLinkMediumTemplate;
                                 }
 
                             case CommonEnums.DisplayFormat.SmallCard:
@@ -493,7 +509,7 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
-                            case CommonEnums.DisplayFormat.LinkMediumCard:
+                            case CommonEnums.DisplayFormat.LinkCardMedium:
                                 {
                                     return FamilyCardMediumTemplate;
                                 }
@@ -561,9 +577,9 @@ namespace GrampsView.Common
                                     return PersonSmallTemplate;
                                 }
 
-                            case CommonEnums.DisplayFormat.LinkSingleCard:
+                            case CommonEnums.DisplayFormat.LinkCardCell:
                                 {
-                                    return PersonLinkSingleTemplate;
+                                    return PersonLinkCellTemplate;
                                 }
 
                             default:
@@ -594,18 +610,48 @@ namespace GrampsView.Common
                         }
                     }
 
+                case HLinkRepositoryModel i:
+                    {
+                        switch ((item as HLinkRepositoryModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.LinkCardSingle:
+                                {
+                                    return RepositoryLinkSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return RepositorySmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return RepositorySmallTemplate;
+                                }
+                        }
+                    }
+
                 case HLinkSourceModel i:
                     {
                         switch ((item as HLinkSourceModel).DisplayAs)
                         {
-                            case CommonEnums.DisplayFormat.SmallCard:
+                            case CommonEnums.DisplayFormat.LinkCardMedium:
                                 {
-                                    return SourceSmallTemplate;
+                                    return SourceLinkMediumTemplate;
+                                }
+                            case CommonEnums.DisplayFormat.LinkCardSingle:
+                                {
+                                    return SourceLinkSingleTemplate;
                                 }
 
                             case CommonEnums.DisplayFormat.LargeCard:
                                 {
                                     return SourceLargeTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return SourceSmallTemplate;
                                 }
 
                             default:
@@ -623,11 +669,6 @@ namespace GrampsView.Common
                 case LdsOrdModel i:
                     {
                         return LDSOrdTemplate;
-                    }
-
-                case HLinkRepositoryModel i:
-                    {
-                        return RepositoryTemplate;
                     }
 
                 case HLinkRepositoryRefModel i:
@@ -682,11 +723,6 @@ namespace GrampsView.Common
             if (item is PlaceNameModel)
             {
                 return PlaceNameTemplate;
-            }
-
-            if (item is RepositoryModel)
-            {
-                return RepositoryTemplate;
             }
 
             if (item is SourceModel)

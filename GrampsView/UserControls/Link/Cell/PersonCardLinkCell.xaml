@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ucon:LinkSingleCardControlTemplate
-    x:Class="GrampsView.UserControls.PersonCardLinkSingle"
+<ucon:LinkCellCardControlTemplate
+    x:Class="GrampsView.UserControls.PersonCardLinkCell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
@@ -23,4 +23,4 @@
             Style="{DynamicResource SSLinkCardSingleStyle}"
             Text="{Binding DeRef}" />
     </Grid>
-</ucon:LinkSingleCardControlTemplate>
+</ucon:LinkCellCardControlTemplate>

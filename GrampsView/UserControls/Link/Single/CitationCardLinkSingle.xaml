@@ -14,7 +14,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -23,11 +22,5 @@
             Grid.Column="0"
             Style="{DynamicResource SSLinkCardSingleStyle}"
             Text="{Binding DeRef}" />
-
-        <Label
-            Grid.Row="1"
-            Grid.Column="0"
-            Style="{DynamicResource SSLinkCardSingleStyle}"
-            Text="{Binding DeRef.GDateContent}" />
     </Grid>
 </ucon:LinkSingleCardControlTemplate>

@@ -29,6 +29,10 @@
         <usercontrols:CitationCardMediumLink />
     </DataTemplate>
 
+    <DataTemplate x:Key="CitationCardLinkCellDT">
+        <usercontrols:CitationCardLinkCell />
+    </DataTemplate>
+
     <DataTemplate x:Key="CitationCardLinkSingleDT">
         <usercontrols:CitationCardLinkSingle />
     </DataTemplate>
@@ -85,8 +89,8 @@
         <usercontrols:FamilyGraphCardMediumLink />
     </DataTemplate>
 
-    <DataTemplate x:Key="PersonCardLinkSingleDT">
-        <usercontrols:PersonCardLinkSingle />
+    <DataTemplate x:Key="PersonCardLinkCellDT">
+        <usercontrols:PersonCardLinkCell />
     </DataTemplate>
 
     <DataTemplate x:Key="PersonCardSingleDT">
@@ -121,6 +125,10 @@
         <usercontrols:PlaceNameCardSmall />
     </DataTemplate>
 
+    <DataTemplate x:Key="RepositoryCardLinkSingleDT">
+        <usercontrols:RepositoryCardLinkSingle />
+    </DataTemplate>
+
     <DataTemplate x:Key="RepositoryCardSmallDT">
         <usercontrols:RepositoryCardSmall />
     </DataTemplate>
@@ -135,6 +143,14 @@
 
     <DataTemplate x:Key="SourceCardLargeDT">
         <usercontrols:SourceCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceLinkMediumDT">
+        <usercontrols:SourceCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceLinkSingleDT">
+        <usercontrols:SourceCardLinkSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="SourceCardSmallDT">
@@ -152,6 +168,7 @@
         CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
         ChildRefSingleTemplate="{StaticResource ChildRefCardSingleDT}"
         ChildRefSmallTemplate="{StaticResource ChildRefCardSmallDT}"
+        CitationLinkCellTemplate="{StaticResource CitationCardLinkCellDT}"
         CitationLinkMediumTemplate="{StaticResource CitationCardLinkMediumDT}"
         CitationLinkSingleTemplate="{StaticResource CitationCardLinkSingleDT}"
         CitationSmallTemplate="{StaticResource CitationCardSmallDT}"
@@ -167,7 +184,7 @@
         MediaTemplate="{StaticResource MediaCardSmallDT}"
         NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
         NoteTemplate="{StaticResource NoteCardSmallDT}"
-        PersonLinkSingleTemplate="{StaticResource PersonCardLinkSingleDT}"
+        PersonLinkCellTemplate="{StaticResource PersonCardLinkCellDT}"
         PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
         PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
         PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
@@ -176,9 +193,12 @@
         PlaceLocationTemplate="{StaticResource PlaceLocationCardSmallDT}"
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"
+        RepositoryLinkSingleTemplate="{StaticResource RepositoryCardLinkSingleDT}"
         RepositoryRefTemplate="{StaticResource RepositoryRefCardSmallDT}"
-        RepositoryTemplate="{StaticResource RepositoryCardSmallDT}"
+        RepositorySmallTemplate="{StaticResource RepositoryCardSmallDT}"
         SourceLargeTemplate="{StaticResource SourceCardLargeDT}"
+        SourceLinkMediumTemplate="{StaticResource SourceLinkMediumDT}"
+        SourceLinkSingleTemplate="{StaticResource SourceLinkSingleDT}"
         SourceSmallTemplate="{StaticResource SourceCardSmallDT}"
         TagTemplate="{StaticResource TagCardSingleDT}"
         URLTemplate="{StaticResource URLCardSmallDT}" />

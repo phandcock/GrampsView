@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ucon:LinkMediumCardControlTemplate
-    x:Class="GrampsView.UserControls.CitationCardMediumLink"
+    x:Class="GrampsView.UserControls.SourceCardMediumLink"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="CitationCardMediumLinkRoot"
-    x:DataType="models:HLinkCitationModel">
+    x:DataType="models:HLinkSourceModel">
 
     <Grid>
 
@@ -21,17 +21,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ucon:RepositoryCardLinkSingle
+        <ucon:RepositoryRefCardSmall
             Grid.Row="0"
             Grid.Column="0"
-            BindingContext="{Binding DeRef.GSourceRef.DeRef.GRepositoryRefCollection.GetFirst, Mode=OneWay}" />
+            BindingContext="{Binding DeRef.GRepositoryRefCollection.GetFirst, Mode=OneWay}" />
 
-        <ucon:SourceCardLinkSingle
-            Grid.Row="1"
-            Grid.Column="0"
-            BindingContext="{Binding DeRef.GSourceRef, Mode=OneWay}" />
-
-        <ucon:CitationCardLinkSingle
+        <ucon:SourceCardSmall
             Grid.Row="2"
             Grid.Column="0"
             BindingContext="{Binding ., Mode=OneWay}" />
@@ -41,7 +36,7 @@
             Grid.Column="0"
             Margin="0"
             Padding="0"
-            BindingContext="{Binding DeRef.GSourceRef.DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
+            BindingContext="{Binding DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
             HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

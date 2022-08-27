@@ -20,7 +20,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ucon:FamilyCardSingle
+        <ucon:FamilyCardLinkSingle
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -28,7 +28,7 @@
                                               Light={StaticResource OnTertiaryContainerLight}}"
             HorizontalOptions="FillAndExpand" />
 
-        <ucon:PersonCardLinkSingle
+        <ucon:PersonCardLinkCell
             Grid.Row="1"
             Grid.Column="0"
             BindingContext="{Binding DeRef.GFather, Mode=OneWay}"
@@ -36,7 +36,7 @@
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 
-        <ucon:PersonCardLinkSingle
+        <ucon:PersonCardLinkCell
             Grid.Row="1"
             Grid.Column="1"
             BindingContext="{Binding DeRef.GMother, Mode=OneWay}"
@@ -51,7 +51,7 @@
             Margin="0"
             Padding="0"
             FsctSource="{Binding DeRef.GChildRefCollection.AsHLinkPersonModels, Mode=OneWay}"
-            FsctTemplate="{StaticResource PersonCardLinkSingleDT}"
+            FsctTemplate="{StaticResource PersonCardLinkCellDT}"
             HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

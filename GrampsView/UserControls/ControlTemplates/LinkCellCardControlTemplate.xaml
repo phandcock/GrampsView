@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
-    x:Class="GrampsView.UserControls.LinkSingleCardControlTemplate"
+    x:Class="GrampsView.UserControls.LinkCellCardControlTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:hlinks="clr-namespace:GrampsView.Data.Model"
@@ -20,35 +20,31 @@
             <Frame
                 BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
                                                   Light={StaticResource OnTertiaryContainerLight}}"
-                HeightRequest="50"
-                HorizontalOptions="FillAndExpand"
-                Style="{x:DynamicResource SSFrameCardStyle}">
+                HeightRequest="100"
+                Style="{x:DynamicResource SSFrameCardStyle}"
+                WidthRequest="120">
 
-                <Grid
-                    x:Name="controlRoot"
-                    HorizontalOptions="FillAndExpand"
-                    Style="{x:DynamicResource SSGridBaseStyle}">
+                <Grid x:Name="controlRoot" Style="{x:DynamicResource SSGridSmallFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Grid.GestureRecognizers>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Frame
                         Grid.Row="0"
                         Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         BackgroundColor="Transparent"
                         Style="{DynamicResource CardImageBackgroundFrame}">
 
@@ -59,14 +55,13 @@
                     </Frame>
 
                     <ContentPresenter
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.RowSpan="2"
-                        Grid.Column="1"
-                        VerticalOptions="CenterAndExpand" />
+                        Grid.Column="0" />
 
                     <Image
-                        Grid.Row="0"
-                        Grid.Column="2"
+                        Grid.Row="2"
+                        Grid.Column="1"
                         Style="{DynamicResource GVSymbolIconSmallCardType}">
                         <Image.Source>
                             <FontImageSource

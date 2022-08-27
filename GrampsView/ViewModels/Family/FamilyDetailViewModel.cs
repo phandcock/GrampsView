@@ -89,7 +89,7 @@
                 BaseDetail.Add(new HLinkFamilyModel
                 {
                     HLinkKey = localFamilyModel.HLinkKey,
-                    DisplayAs = CommonEnums.DisplayFormat.LinkMediumCard
+                    DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium
                 });
             }
         }
