@@ -1,11 +1,13 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.DataView;
 
     using Microsoft.AppCenter.Distribute;
-    using CommunityToolkit.Mvvm.Messaging;
 
+    using SharedSharp.Common;
     using SharedSharp.Logging;
     using SharedSharp.Model;
 
@@ -21,6 +23,13 @@
             BaseTitle = "About";
             BaseTitleIcon = Constants.IconAbout;
         }
+
+        public CardListLineCollection ApplicationStateList
+        {
+            get;
+        }
+
+  = new CardListLineCollection();
 
         public CardListLineCollection ApplicationVersionList
         {
@@ -106,6 +115,31 @@
             });
 
             ApplicationVersionList.Title = "Application Versions";
+
+            ///////////////////////////////
+            ///
+            ApplicationStateList.Clear();
+
+            ApplicationStateList.AddRange(new CardListLineCollection
+                {
+                new CardListLine("Display Class", SharedSharpSizes.CurrentDisplayClass.ToString()),
+
+                new CardListLine("Window Size", SharedSharpSizes.WindowSize.ToString()),
+
+                new CardListLine("Screen Size", SharedSharpSizes.ScreenSize.ToString()),
+
+                new CardListLine("Orientation", SharedSharpSizes.CurrentOrientation.ToString()),
+
+                new CardListLine("Idiom", SharedSharpSizes.CurrentDeviceIdiom.ToString()),
+
+                new CardListLine("CardSize Small Width", SharedSharpCardSizes.Current.CardSmallWidth.ToString()),
+
+                new CardListLine("CardSize Num Columns", SharedSharpCardSizes.Current.CardsAcrossColumns.ToString()),
+            });
+
+            ApplicationStateList.Title = "Application State";
+
+            /////////////////////////////////////////
 
             WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
 
