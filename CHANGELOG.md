@@ -1,3 +1,12 @@
+## [16.25.10](https://github.com/phandcock/GrampsView/compare/v16.25.9...v16.25.10) (2022-08-28)
+
+
+### Bug Fixes
+
+* tweak orientation code ([f15414d](https://github.com/phandcock/GrampsView/commit/f15414ddc55b13a87873ada7b1d0d9d25eb6d48c))
+
+
+
 ## [16.25.9](https://github.com/phandcock/GrampsView/compare/v16.25.8...v16.25.9) (2022-08-27)
 
 
@@ -25,15 +34,6 @@
 * add citation link ([cdbf54f](https://github.com/phandcock/GrampsView/commit/cdbf54f44855435b22530572c161e56908adfd19))
 * refactor link cards and add basic citation medium link ([5599ab6](https://github.com/phandcock/GrampsView/commit/5599ab649ac9f833e548e8fac1f0e1bd870207d6))
 * tweak note small card text length ([16f0626](https://github.com/phandcock/GrampsView/commit/16f0626d6534b93af8e9359f01367ed694b31a1e))
-
-
-
-## [16.25.6](https://github.com/phandcock/GrampsView/compare/v16.25.5...v16.25.6) (2022-08-21)
-
-
-### Bug Fixes
-
-* tweak familygraph cards and links ([b95bce2](https://github.com/phandcock/GrampsView/commit/b95bce22721f2a5b53cb4ce92fb37f780345e3de))
 
 
 
