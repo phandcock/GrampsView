@@ -310,13 +310,19 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate RepositoryRefLinkSingleTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the repository ref template.
         /// </summary>
         /// <value>
         /// The repository template.
         /// </value>
-        public DataTemplate RepositoryRefTemplate
+        public DataTemplate RepositoryRefSmallTemplate
         {
             get;
             set;
@@ -610,6 +616,27 @@ namespace GrampsView.Common
                         }
                     }
 
+                case HLinkRepositoryRefModel i:
+                    {
+                        switch ((item as HLinkRepositoryRefModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.LinkCardSingle:
+                                {
+                                    return RepositoryRefLinkSingleTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return RepositoryRefSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return RepositoryRefSmallTemplate;
+                                }
+                        }
+                    }
+
                 case HLinkRepositoryModel i:
                     {
                         switch ((item as HLinkRepositoryModel).DisplayAs)
@@ -671,11 +698,6 @@ namespace GrampsView.Common
                         return LDSOrdTemplate;
                     }
 
-                case HLinkRepositoryRefModel i:
-                    {
-                        return RepositoryRefTemplate;
-                    }
-
                 default:
                     break;
             }
@@ -708,11 +730,6 @@ namespace GrampsView.Common
             if (item is PersonNameModel)
             {
                 return PersonNameSingleTemplate;
-            }
-
-            if (item is PersonRefModel)
-            {
-                return PersonRefTemplate;
             }
 
             if (item is PlaceModel)

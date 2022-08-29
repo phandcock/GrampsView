@@ -194,7 +194,7 @@
         PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
         PlaceTemplate="{StaticResource PlaceCardSmallDT}"
         RepositoryLinkSingleTemplate="{StaticResource RepositoryCardLinkSingleDT}"
-        RepositoryRefTemplate="{StaticResource RepositoryRefCardSmallDT}"
+        RepositoryRefSmallTemplate="{StaticResource RepositoryRefCardSmallDT}"
         RepositorySmallTemplate="{StaticResource RepositoryCardSmallDT}"
         SourceLargeTemplate="{StaticResource SourceCardLargeDT}"
         SourceLinkMediumTemplate="{StaticResource SourceLinkMediumDT}"

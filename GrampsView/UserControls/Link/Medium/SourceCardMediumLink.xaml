@@ -21,12 +21,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ucon:RepositoryRefCardSmall
+        <ucon:RepositoryRefCardLinkSingle
             Grid.Row="0"
             Grid.Column="0"
             BindingContext="{Binding DeRef.GRepositoryRefCollection.GetFirst, Mode=OneWay}" />
 
-        <ucon:SourceCardSmall
+        <ucon:SourceCardLinkSingle
             Grid.Row="2"
             Grid.Column="0"
             BindingContext="{Binding ., Mode=OneWay}" />
