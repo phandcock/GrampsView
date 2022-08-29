@@ -83,6 +83,12 @@
                     {
                         localGrampsXMLdoc = XDocument.Load(xmlReader);
                     }
+                    catch (System.IO.DirectoryNotFoundException ex)
+                    {
+                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+
+                        return false;
+                    }
                     catch (Exception ex)
                     {
                         App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
