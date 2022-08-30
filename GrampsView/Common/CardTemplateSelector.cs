@@ -100,13 +100,31 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate EventLinkCellTemplate
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the event template.
         /// </summary>
         /// <value>
         /// The event template.
         /// </value>
-        public DataTemplate EventTemplate
+        public DataTemplate EventLinkMediumTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the event template.
+        /// </summary>
+        /// <value>
+        /// The event template.
+        /// </value>
+        public DataTemplate EventSmallTemplate
         {
             get;
             set;
@@ -131,6 +149,12 @@ namespace GrampsView.Common
         /// The Family Graph template.
         /// </value>
         public DataTemplate FamilyGraphMediumTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate FamilyLinkCellTemplate
         {
             get;
             set;
@@ -503,7 +527,28 @@ namespace GrampsView.Common
 
                 case HLinkEventModel i:
                     {
-                        return EventTemplate;
+                        switch ((item as HLinkEventModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.LinkCardCell:
+                                {
+                                    return EventLinkCellTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.LinkCardMedium:
+                                {
+                                    return EventLinkMediumTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return EventSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return EventSmallTemplate;
+                                }
+                        }
                     }
 
                 case HLinkFamilyGraphModel i:
@@ -515,6 +560,11 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
+                            case CommonEnums.DisplayFormat.LinkCardCell:
+                                {
+                                    return FamilyLinkCellTemplate;
+                                }
+
                             case CommonEnums.DisplayFormat.LinkCardMedium:
                                 {
                                     return FamilyCardMediumTemplate;

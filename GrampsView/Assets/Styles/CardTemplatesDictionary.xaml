@@ -45,8 +45,20 @@
         <usercontrols:DateCardSingle />
     </DataTemplate>
 
+    <DataTemplate x:Key="EventCardLinkCellDT">
+        <usercontrols:EventCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="EventCardLinkMediumDT">
+        <usercontrols:EventCardMediumLink />
+    </DataTemplate>
+
     <DataTemplate x:Key="EventCardSmallDT">
         <usercontrols:EventCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardLinkCellDT">
+        <usercontrols:FamilyCardLinkCell />
     </DataTemplate>
 
     <DataTemplate x:Key="FamilyCardMediumLinkDT">
@@ -173,9 +185,12 @@
         CitationLinkSingleTemplate="{StaticResource CitationCardLinkSingleDT}"
         CitationSmallTemplate="{StaticResource CitationCardSmallDT}"
         DateObjectTemplate="{StaticResource DateCardSingleDT}"
-        EventTemplate="{StaticResource EventCardSmallDT}"
+        EventLinkCellTemplate="{StaticResource EventCardLinkCellDT}"
+        EventLinkMediumTemplate="{StaticResource EventCardLinkMediumDT}"
+        EventSmallTemplate="{StaticResource EventCardSmallDT}"
         FamilyCardMediumTemplate="{StaticResource FamilyCardMediumLinkDT}"
         FamilyGraphMediumTemplate="{StaticResource FamilyGraphCardMediumLinkDT}"
+        FamilyLinkCellTemplate="{StaticResource FamilyCardLinkCellDT}"
         FamilySingleTemplate="{StaticResource FamilyCardSingleDT}"
         FamilySmallTemplate="{StaticResource FamilyCardSmallDT}"
         LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"

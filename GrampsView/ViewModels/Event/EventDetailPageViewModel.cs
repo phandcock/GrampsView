@@ -1,11 +1,11 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -96,6 +96,11 @@
                     HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeEvent);
 
                     NotesWithoutHighlight = EventObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
+
+                    // Add Event Link Card
+                    HLinkEventModel t = EventObject.HLink;
+                    t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                    BaseDetail.Add(t);
                 }
             }
         }

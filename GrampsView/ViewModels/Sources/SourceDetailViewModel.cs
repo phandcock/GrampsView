@@ -69,6 +69,7 @@
                 // Add Model details
                 BaseDetail.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
 
+                // Add Source Link Card
                 HLinkSourceModel t = SourceObject.HLink;
                 t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
                 BaseDetail.Add(t);
