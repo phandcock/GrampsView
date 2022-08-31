@@ -434,11 +434,25 @@
     </Style>
 
     <!--
+        Create Link Cell Card Styles
+    -->
+    <Style
+        x:Key="SSLinkCardCellStyle"
+        BasedOn="{StaticResource SSCardLabelStyleVerySmall}"
+        TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="IsEnabled" Value="False" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+    </Style>
+
+    <!--
         Create Link Single Card Styles
     -->
     <Style
         x:Key="SSLinkCardSingleStyle"
-        BasedOn="{StaticResource SSCardLabelStyleVerySmall}"
+        BasedOn="{StaticResource SSCardLabelStyleSmall}"
         TargetType="Label">
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />

@@ -208,7 +208,13 @@ namespace GrampsView.Common
         /// <value>
         /// The media card large template.
         /// </value>
-        public DataTemplate MediaCardLargeTemplate
+        public DataTemplate MediaLargeTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate MediaLinkMediumTemplate
         {
             get;
             set;
@@ -220,7 +226,7 @@ namespace GrampsView.Common
         /// <value>
         /// The media template.
         /// </value>
-        public DataTemplate MediaTemplate
+        public DataTemplate MediaSmallTemplate
         {
             get;
             set;
@@ -593,9 +599,29 @@ namespace GrampsView.Common
                     }
 
                 case HLinkMediaModel i:
+                    {
+                        switch ((item as HLinkMediaModel).DisplayAs)
+                        {
+                            case CommonEnums.DisplayFormat.LinkCardMedium:
+                                {
+                                    return MediaLinkMediumTemplate;
+                                }
+
+                            case CommonEnums.DisplayFormat.SmallCard:
+                                {
+                                    return MediaSmallTemplate;
+                                }
+
+                            default:
+                                {
+                                    return MediaSmallTemplate;
+                                }
+                        }
+                    }
+
                 case IHLinkMediaModel i2:
                     {
-                        return MediaTemplate;
+                        return MediaSmallTemplate;
                     }
 
                 case HLinkNoteModel i:

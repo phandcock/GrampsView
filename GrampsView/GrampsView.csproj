@@ -239,6 +239,9 @@
 		<Compile Update="UserControls\Link\Medium\EventCardMediumLink.xaml.cs">
 		  <DependentUpon>EventCardMediumLink.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\Link\Medium\MediaCardMediumLink.xaml.cs">
+		  <DependentUpon>MediaCardMediumLink.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\Link\Medium\SourceCardMediumLink.xaml.cs">
 		  <DependentUpon>SourceCardMediumLink.xaml</DependentUpon>
 		</Compile>
@@ -253,6 +256,9 @@
 		</Compile>
 		<Compile Update="UserControls\Link\Large\PersonLinkCardLarge.xaml.cs">
 		  <DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="UserControls\Link\Single\MediaCardLinkSingle.xaml.cs">
+		  <DependentUpon>MediaCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\EventCardLinkSingle.xaml.cs">
 		  <DependentUpon>EventCardLinkSingle.xaml</DependentUpon>

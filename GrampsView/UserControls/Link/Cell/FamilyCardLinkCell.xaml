@@ -20,7 +20,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSLinkCardSingleStyle}"
+            Style="{DynamicResource SSLinkCardCellStyle}"
             Text="{Binding DeRef}" />
     </Grid>
 </ucon:LinkCellCardControlTemplate>

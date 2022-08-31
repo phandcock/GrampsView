@@ -1,10 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -95,6 +95,11 @@
                     // Add standard details
                     MediaModel t = CurrentMediaObject as MediaModel;
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(t));
+
+                    // Add Media Link Card
+                    HLinkMediaModel ttt = CurrentMediaObject.HLink;
+                    ttt.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                    BaseDetail.Add(ttt);
                 }
 
                 BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");

@@ -24,7 +24,11 @@
                 Style="{x:DynamicResource SSFrameCardStyle}"
                 WidthRequest="120">
 
-                <Grid x:Name="controlRoot" Style="{x:DynamicResource SSGridSmallFixedCardStyle}">
+                <Grid
+                    x:Name="controlRoot"
+                    Margin="0"
+                    Padding="0"
+                    Style="{x:DynamicResource SSGridSmallFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -57,12 +61,12 @@
                     <ContentPresenter
                         Grid.Row="1"
                         Grid.RowSpan="2"
-                        Grid.Column="0" />
+                        Grid.Column="0" Grid.ColumnSpan="2" />
 
                     <Image
                         Grid.Row="2"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        Style="{DynamicResource GVSymbolIconLinkCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="FA-Solid"

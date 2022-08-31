@@ -193,6 +193,17 @@
     </Style>
 
     <Style
+        x:Key="GVSymbolIconLinkCardType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="HeightRequest" Value="10" />
+        <Setter Property="WidthRequest" Value="10" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,1,1" />
+    </Style>
+
+    <Style
         x:Key="GVSymbolIconSingleCardType"
         BasedOn="{StaticResource GVSymbolIconBaseType}"
         TargetType="Image">
