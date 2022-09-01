@@ -1,3 +1,15 @@
+## [16.25.12](https://github.com/phandcock/GrampsView/compare/v16.25.11...v16.25.12) (2022-09-01)
+
+
+### Bug Fixes
+
+* add Event Link Cards ([12b6635](https://github.com/phandcock/GrampsView/commit/12b6635acf9892dc7a5583f64a44fe182a7e4f94))
+* add medialinks and tweaks ([314d822](https://github.com/phandcock/GrampsView/commit/314d822446b0f2323c2d8369be00b0d5fbb1d14c))
+* tweaks and add media link cards ([530adb3](https://github.com/phandcock/GrampsView/commit/530adb36be5662faefc7de8326586c9f5f1d1e14))
+* update nugets ([4374df8](https://github.com/phandcock/GrampsView/commit/4374df8991f1d808806f67160b97afd93d93e784))
+
+
+
 ## [16.25.11](https://github.com/phandcock/GrampsView/compare/v16.25.10...v16.25.11) (2022-08-30)
 
 
@@ -23,16 +35,6 @@
 ### Bug Fixes
 
 * add more link cards ([b6850a9](https://github.com/phandcock/GrampsView/commit/b6850a9fa260e207955b49eead04d00c704f607c))
-
-
-
-## [16.25.8](https://github.com/phandcock/GrampsView/compare/v16.25.7...v16.25.8) (2022-08-25)
-
-
-### Bug Fixes
-
-* refactor citation and person linksingle cards ([e45fe06](https://github.com/phandcock/GrampsView/commit/e45fe0643d1d9da5d82e6e0fe75adcb2183b3b7c))
-* tweak link style ([c675cde](https://github.com/phandcock/GrampsView/commit/c675cdedfcc15c19e3e8b096810e33ca3ab782c8))
 
 
 
