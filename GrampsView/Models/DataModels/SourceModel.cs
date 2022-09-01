@@ -285,7 +285,7 @@
         /// </value>
         public override string ToString()
         {
-            return GSTitle;
+            return GSTitle.Substring(0, Math.Min(40, GSTitle.Length)); ;
         }
     }
 }

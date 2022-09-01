@@ -21,10 +21,10 @@
         <ucon:MediaCardLinkSingle
             Grid.Row="0"
             Grid.Column="0"
-            BindingContext="{Binding DeRef, Mode=OneWay}" />
+            BindingContext="{Binding ., Mode=OneWay}" />
 
         <ucon:CardGroupHeader
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="0"
             Margin="0"
             Padding="0"

@@ -161,6 +161,10 @@
         <usercontrols:SourceCardLarge />
     </DataTemplate>
 
+    <DataTemplate x:Key="SourceLinkCellDT">
+        <usercontrols:SourceCardLinkCell />
+    </DataTemplate>
+
     <DataTemplate x:Key="SourceLinkMediumDT">
         <usercontrols:SourceCardMediumLink />
     </DataTemplate>
@@ -217,6 +221,7 @@
         RepositoryRefSmallTemplate="{StaticResource RepositoryRefCardSmallDT}"
         RepositorySmallTemplate="{StaticResource RepositoryCardSmallDT}"
         SourceLargeTemplate="{StaticResource SourceCardLargeDT}"
+        SourceLinkCellTemplate="{StaticResource SourceLinkCellDT}"
         SourceLinkMediumTemplate="{StaticResource SourceLinkMediumDT}"
         SourceLinkSingleTemplate="{StaticResource SourceLinkSingleDT}"
         SourceSmallTemplate="{StaticResource SourceCardSmallDT}"

@@ -11,7 +11,7 @@
     IsVisible="{Binding Valid}"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
+    <Frame Style="{DynamicResource SSFrameLargeVariableCardStyle}" VerticalOptions="Start">
 
         <Frame.Content>
 

@@ -230,6 +230,9 @@
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
 		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="UserControls\Link\Cell\SourceCardLinkCell.xaml.cs">
+		  <DependentUpon>SourceCardLinkCell.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="UserControls\Link\Cell\EventCardLinkCell.xaml.cs">
 		  <DependentUpon>EventCardLinkCell.xaml</DependentUpon>
 		</Compile>

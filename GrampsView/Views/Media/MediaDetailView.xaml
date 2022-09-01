@@ -3,12 +3,10 @@
     x:Class="GrampsView.Views.MediaDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -34,13 +32,12 @@
                 </Frame.GestureRecognizers>
                 <StackLayout>
                     <ucon:HLinkVisualDisplay
-                        x:Name="daImage"
                         BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}"
                         FsctShowMedia="True"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
 
-                    <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:DynamicResource i18n:AppResources.Media_Detail_Open_File}" />
+                    <Label HorizontalOptions="Center" Text="{x:Static i18n:AppResources.Media_Detail_Open_File}" />
                 </StackLayout>
             </Frame>
 

@@ -9,7 +9,6 @@
     using SharedSharp.Logging;
 
     using System;
-    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Xml;
@@ -71,13 +70,19 @@
 
                 App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
                 {
-                    // TODO Handle no network connection
-                    Stream xmlReader = inputFile.FInfo.OpenRead();
+                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings
+                    if (Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android)
                     {
-                        DtdProcessing = DtdProcessing.Parse
-                    };
+                        xmlReaderSettings.DtdProcessing = DtdProcessing.Ignore;
+                    }
+                    else
+                    {
+                        xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
+                    }
+
+                    // TODO Handle no network connection
+                    XmlReader xmlReader = XmlReader.Create(inputFile.FInfo.OpenRead(), xmlReaderSettings);
 
                     try
                     {
@@ -96,17 +101,20 @@
                         return false;
                     }
 
-                    int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
-                    if (compareFlag < 0)
+                    if (!(localGrampsXMLdoc.DocumentType is null))
                     {
-                        ErrorInfo t = new ErrorInfo("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
+                        int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
+                        if (compareFlag < 0)
+                        {
+                            ErrorInfo t = new ErrorInfo("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
                                 {
                                     { "Minimum Version", Constants.GrampsXMLPublicId },
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
-                        return false;
+                            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                            return false;
+                        }
                     }
 
                     var nameSpaceList = localGrampsXMLdoc.Root.Attributes().Where(

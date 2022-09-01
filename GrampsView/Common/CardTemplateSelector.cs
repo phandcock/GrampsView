@@ -382,6 +382,12 @@ namespace GrampsView.Common
             set;
         }
 
+        public DataTemplate SourceLinkCellTemplate
+        {
+            get;
+            set;
+        }
+
         public DataTemplate SourceLinkMediumTemplate
         {
             get;
@@ -738,10 +744,16 @@ namespace GrampsView.Common
                     {
                         switch ((item as HLinkSourceModel).DisplayAs)
                         {
+                            case CommonEnums.DisplayFormat.LinkCardCell:
+                                {
+                                    return SourceLinkCellTemplate;
+                                }
+
                             case CommonEnums.DisplayFormat.LinkCardMedium:
                                 {
                                     return SourceLinkMediumTemplate;
                                 }
+
                             case CommonEnums.DisplayFormat.LinkCardSingle:
                                 {
                                     return SourceLinkSingleTemplate;
