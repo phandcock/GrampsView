@@ -60,7 +60,8 @@
     <!--  Create a Frame Card Style  -->
     <Style x:Key="SSFrameCardStyle" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
+        <!--<Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />-->
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="HorizontalOptions" Value="Center" />
@@ -154,7 +155,6 @@
         x:Key="SSFrameCardSmallStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>

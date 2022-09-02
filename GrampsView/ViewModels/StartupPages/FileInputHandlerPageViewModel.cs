@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data;
     using GrampsView.Data.Repository;
@@ -7,9 +9,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Interfaces;
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
 
     using System;

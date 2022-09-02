@@ -11,8 +11,6 @@
 
     using SharedSharp.Errors;
 
-    using SharedSharp.Interfaces;
-
     using System.Threading.Tasks;
 
     using Xamarin.CommunityToolkit.ObjectModel;

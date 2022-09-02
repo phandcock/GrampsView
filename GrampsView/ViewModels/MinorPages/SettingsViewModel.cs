@@ -6,7 +6,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    using SharedSharp.Interfaces;
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
 
     using System.Threading.Tasks;
@@ -25,8 +25,6 @@
             BaseTitleIcon = Constants.IconSettings;
 
             DisplayMessageLogButtonCommand = new AsyncCommand(DisplayMessageLogButtonCommandHandler);
-
-
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
@@ -54,7 +52,6 @@
                 CommonLocalSettings.SortHLinkCollections = value;
             }
         }
-
 
         public string ThemeButtonChecked
         {
@@ -149,8 +146,6 @@
         {
             App.Current.Services.GetService<IErrorNotifications>().DataLogShow();
         }
-
-
 
         private void UpdateNoteEmailHandler(string argEmailAddress)
         {

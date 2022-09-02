@@ -6,7 +6,6 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
-    using SharedSharp.Interfaces;
     using SharedSharp.Model;
 
     using System;

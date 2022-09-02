@@ -10,7 +10,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
 
-    using SharedSharp.Interfaces;
+    using SharedSharp.Errors;
     using SharedSharp.Logging;
     using SharedSharp.Model;
 

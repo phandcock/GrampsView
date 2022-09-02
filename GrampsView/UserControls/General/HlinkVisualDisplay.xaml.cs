@@ -10,8 +10,6 @@
 
     using SharedSharp.Errors;
 
-    using SharedSharp.Interfaces;
-
     using System;
 
     using Xamarin.CommunityToolkit.UI.Views;
@@ -30,8 +28,6 @@
         public HLinkVisualDisplay()
         {
             InitializeComponent();
-
-
         }
 
         public bool FsctShowMedia

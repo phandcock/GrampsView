@@ -11,8 +11,6 @@
 
     using SharedSharp.Errors;
 
-    using SharedSharp.Interfaces;
-
     using System;
     using System.IO;
     using System.IO.Compression;

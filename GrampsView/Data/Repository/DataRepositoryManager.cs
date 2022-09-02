@@ -12,7 +12,6 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
-    using SharedSharp.Interfaces;
     using SharedSharp.Logging;
 
     using System;
