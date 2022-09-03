@@ -114,10 +114,16 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                HLinkSourceModelCollection info = new HLinkSourceModelCollection
+                HLinkSourceModelCollection info = new HLinkSourceModelCollection { };
+
+                if (g.GroupName != null)
                 {
-                    Title = g.GroupName.ToString(),
-                };
+                    info.Title = g.GroupName.DeRef.DefaultTextShort.ToString();
+                }
+                else
+                {
+                    info.Title = "Unknown";
+                }
 
                 foreach (var item in g.Items)
                 {

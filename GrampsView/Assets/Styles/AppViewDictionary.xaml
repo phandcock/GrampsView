@@ -290,14 +290,14 @@
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
     </Style>
 
-    <Style
+    <!--<Style
         x:Key="GVLabelStyleNoteFull"
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
-    </Style>
+    </Style>-->
 
     <!--  Create a Instructions Style for a Label  -->
     <Style

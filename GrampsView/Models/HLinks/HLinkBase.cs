@@ -26,7 +26,7 @@
     /// </summary>
     /// TODO Update fields as per Schema
 
-    public class HLinkBase : ObservableObject, IHLinkBase
+    public class HLinkBase : ObservableObject, IComparable, IHLinkBase
     {
         public HLinkBase()
         {
@@ -83,6 +83,11 @@
 
                 return HLinkKey.Valid && HLinkGlyphItem.Valid;
             }
+        }
+
+        public int CompareTo(object obj)
+        {
+            return ((IComparable)HLinkKey).CompareTo(obj);
         }
 
         public override int GetHashCode()

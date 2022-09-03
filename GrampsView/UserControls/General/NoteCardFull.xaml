@@ -14,7 +14,7 @@
             <Label
                 FormattedText="{Binding DeRef.TextFormatted}"
                 IsEnabled="True"
-                Style="{DynamicResource GVLabelStyleNoteFull}">
+                Style="{DynamicResource SSLabelStyleMedium}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer DragStarting="DragGestureRecognizer_DragStarting" />
                 </Label.GestureRecognizers>

@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
+    using GrampsView.Data.Model;
+
     using System;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -45,12 +47,12 @@
 
         public int CompareTo(object obj)
         {
-            if (obj is HLinkKey)
+            if (obj is null)
             {
                 return Constants.CompareLessThan;
             }
 
-            return Value.CompareTo((obj as HLinkKey).Value);
+            return this.CompareTo((obj as HLinkBase).HLinkKey);
         }
     }
 }
