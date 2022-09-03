@@ -1,3 +1,13 @@
+## [16.25.13](https://github.com/phandcock/GrampsView/compare/v16.25.12...v16.25.13) (2022-09-03)
+
+
+### Bug Fixes
+
+* tweaks ([764852f](https://github.com/phandcock/GrampsView/commit/764852fc88be96df1a4471380b2b8f2bb6d6df63))
+* update nugets ([6cb21d3](https://github.com/phandcock/GrampsView/commit/6cb21d3800c3c70472a35007b489fe76f87c112c))
+
+
+
 ## [16.25.12](https://github.com/phandcock/GrampsView/compare/v16.25.11...v16.25.12) (2022-09-01)
 
 
@@ -26,15 +36,6 @@
 ### Bug Fixes
 
 * tweak orientation code ([f15414d](https://github.com/phandcock/GrampsView/commit/f15414ddc55b13a87873ada7b1d0d9d25eb6d48c))
-
-
-
-## [16.25.9](https://github.com/phandcock/GrampsView/compare/v16.25.8...v16.25.9) (2022-08-27)
-
-
-### Bug Fixes
-
-* add more link cards ([b6850a9](https://github.com/phandcock/GrampsView/commit/b6850a9fa260e207955b49eead04d00c704f607c))
 
 
 
