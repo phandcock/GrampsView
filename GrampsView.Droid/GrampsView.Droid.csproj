@@ -75,6 +75,9 @@
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Essentials.Interfaces">
+      <Version>1.7.3.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>

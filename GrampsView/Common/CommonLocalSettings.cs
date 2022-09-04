@@ -12,18 +12,20 @@
     using System;
     using System.Diagnostics.Contracts;
 
+    using Xamarin.Essentials.Interfaces;
+
     public class CommonLocalSettings : SharedSharpSettings
     {
         public static bool BirthdayShowOnlyLivingFlag
         {
             get
             {
-                return DataStore.Instance.ES.PreferencesGet("BirthdayShowOnlyLivingFlag", false);
+                return App.Current.Services.GetService<IPreferences>().Get("BirthdayShowOnlyLivingFlag", false);
             }
 
             set
             {
-                DataStore.Instance.ES.PreferencesSet("BirthdayShowOnlyLivingFlag", value);
+                App.Current.Services.GetService<IPreferences>().Set("BirthdayShowOnlyLivingFlag", value);
             }
         }
 
@@ -31,12 +33,12 @@
         {
             get
             {
-                return DataStore.Instance.ES.PreferencesGet("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
+                return App.Current.Services.GetService<IPreferences>().Get("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
             }
 
             set
             {
-                DataStore.Instance.ES.PreferencesSet("NoteEmailAddress", value);
+                App.Current.Services.GetService<IPreferences>().Set("NoteEmailAddress", value);
             }
         }
 
@@ -44,12 +46,12 @@
         {
             get
             {
-                return DataStore.Instance.ES.PreferencesGet("SortHLinkCollections", false);
+                return App.Current.Services.GetService<IPreferences>().Get("SortHLinkCollections", false);
             }
 
             set
             {
-                DataStore.Instance.ES.PreferencesSet("SortHLinkCollections", value);
+                App.Current.Services.GetService<IPreferences>().Set("SortHLinkCollections", value);
             }
         }
 
@@ -57,12 +59,12 @@
         {
             get
             {
-                return DataStore.Instance.ES.PreferencesGet("UseFirstImageFlag", false);
+                return App.Current.Services.GetService<IPreferences>().Get("UseFirstImageFlag", false);
             }
 
             set
             {
-                DataStore.Instance.ES.PreferencesSet("UseFirstImageFlag", value);
+                App.Current.Services.GetService<IPreferences>().Set("UseFirstImageFlag", value);
             }
         }
 
@@ -92,11 +94,11 @@
                 fileDateTime = DateTime.Parse(fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture), System.Globalization.CultureInfo.CurrentCulture);
 
                 // Save a fresh copy if null so we can load next time
-                string oldDateTime = DataStore.Instance.ES.PreferencesGet(argSettingsKey, string.Empty);
+                string oldDateTime = App.Current.Services.GetService<IPreferences>().Get(argSettingsKey, string.Empty);
 
                 if (string.IsNullOrEmpty(oldDateTime))
                 {
-                    DataStore.Instance.ES.PreferencesSet(argSettingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
+                    App.Current.Services.GetService<IPreferences>().Set(argSettingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
 
                     // No previous settings entry so do the load (it might be the FirstRun)
                     return true;
@@ -117,7 +119,7 @@
             }
             catch (Exception ex)
             {
-                DataStore.Instance.ES.PreferencesRemove(argSettingsKey);
+                App.Current.Services.GetService<IPreferences>().Remove(argSettingsKey);
 
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync", ex);
                 throw;
@@ -133,15 +135,15 @@
 
             Contract.Assert(argSettingsKey != string.Empty);
 
-            DataStore.Instance.ES.PreferencesSet(argSettingsKey, argFileInfoEx.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            App.Current.Services.GetService<IPreferences>().Set(argSettingsKey, argFileInfoEx.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
         }
 
         public static void SetReloadDatabase()
         {
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
-            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsGPKGFileLastDateTimeModified);
-            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsGPRAMPSFileLastDateTimeModified);
-            DataStore.Instance.ES.PreferencesRemove(Constants.SettingsXMLFileLastDateTimeModified);
+            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsGPKGFileLastDateTimeModified);
+            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsGPRAMPSFileLastDateTimeModified);
+            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsXMLFileLastDateTimeModified);
 
             DataStore.Instance.DS.IsDataLoaded = false;
 

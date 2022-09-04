@@ -49,6 +49,7 @@
 		<Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
 		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
+		<Compile Remove="Common\CustomClasses\XamarinEssentials.cs" />
 		<Compile Remove="Common\IAppInit.cs" />
 		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
 		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
@@ -56,6 +57,7 @@
 		<Compile Remove="Common\Interfaces\IErrorNotifications.cs" />
 		<Compile Remove="Common\Interfaces\IDataLog.cs" />
 		<Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
+		<Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
 		<Compile Remove="Common\ObservableObject.cs" />
 		<Compile Remove="Common\CommonFontNamesFAB.cs" />
 		<Compile Remove="Common\CommonFontNamesFAR.cs" />
@@ -177,6 +179,7 @@
 		<PackageReference Include="System.Text.Json" Version="6.0.5" />
 		<PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
 		<PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" GeneratePathProperty="true" />
+		<PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
 		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
 		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />

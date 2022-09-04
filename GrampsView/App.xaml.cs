@@ -186,6 +186,11 @@
 
             services.AddTransient<NavigationPage>();
 
+            // Essentials Interfaces
+            services.AddSingleton<Xamarin.Essentials.Interfaces.IDeviceInfo, Xamarin.Essentials.Implementation.DeviceInfoImplementation>();
+            services.AddSingleton<Xamarin.Essentials.Interfaces.IFileSystem, Xamarin.Essentials.Implementation.FileSystemImplementation>();
+            services.AddSingleton<Xamarin.Essentials.Interfaces.IPreferences, Xamarin.Essentials.Implementation.PreferencesImplementation>();
+
             ShardSharpCore.InitServicesAdd(ref services);
 
             return services.BuildServiceProvider();

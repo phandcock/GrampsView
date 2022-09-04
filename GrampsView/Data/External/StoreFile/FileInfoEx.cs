@@ -11,6 +11,7 @@
     using System.IO;
 
     using Xamarin.CommunityToolkit.ObjectModel;
+    using Xamarin.Essentials.Interfaces;
 
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
@@ -31,7 +32,7 @@
             // Use cache base if currentdatafolder not allowed
             if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
             {
-                createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory));
+                createFilePath(argFileName, new DirectoryInfo(App.Current.Services.GetService<IFileSystem>().CacheDirectory));
                 return;
             }
 

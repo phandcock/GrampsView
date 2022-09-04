@@ -1,16 +1,12 @@
 ﻿namespace GrampsView.Common
 {
-    using System;
-
-    using Xamarin.Essentials;
-
     public class XamarinEssentials : IXamarinEssentials
     {
         public DevicePlatform DevicePlatform
         {
             get
             {
-                return Xamarin.Essentials.DeviceInfo.Platform;
+                return DeviceInfo.Platform;
             }
         }
 

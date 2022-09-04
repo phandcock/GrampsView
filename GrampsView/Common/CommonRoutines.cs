@@ -15,6 +15,7 @@
     using System.Text.Json;
     using System.Text.RegularExpressions;
 
+    using Xamarin.Essentials.Interfaces;
     using Xamarin.Forms;
 
     /// <summary>
@@ -71,11 +72,11 @@
         {
             try
             {
-                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+                string tt = System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
                 DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, Constants.DirectoryCacheBase));
+                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase));
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {

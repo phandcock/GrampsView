@@ -1,7 +1,5 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
-    using GrampsView.Data.Repository;
-
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
@@ -9,17 +7,19 @@
     using System.Diagnostics;
     using System.IO;
 
+    using Xamarin.Essentials.Interfaces;
+
     public class CurrentDataFolder
     {
         public CurrentDataFolder()
         {
             try
             {
-                string tt = System.IO.Path.Combine(DataStore.Instance.ES.FileSystemCacheDirectory, Constants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(DataStore.Instance.ES.FileSystemCacheDirectory);
+                DirectoryInfo t = new DirectoryInfo(App.Current.Services.GetService<IFileSystem>().CacheDirectory);
 
                 if (!Value.Exists)
                 {

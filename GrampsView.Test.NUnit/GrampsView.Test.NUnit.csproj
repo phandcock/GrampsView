@@ -31,6 +31,7 @@
 		</PackageReference>
 		<PackageReference Include="SharedSharp" Version="0.5.14" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
+		<PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
 		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
 	</ItemGroup>
 

@@ -43,10 +43,10 @@
         /// </value>
         public DataInstance DS { get; } = new DataInstance();
 
-        public IXamarinEssentials ES
-        {
-            get; set;
-        } = new XamarinEssentials();
+        //public IXamarinEssentials ES
+        //{
+        //    get; set;
+        //} = new XamarinEssentials();
 
         public IFFImageLoading FFIL
         {

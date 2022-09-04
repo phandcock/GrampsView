@@ -77,13 +77,13 @@
             /*
              * Mock Xamarin Essentials
              */
-            Mock<IXamarinEssentials> mocXamarinEssentials = new Mock<IXamarinEssentials>();
+            Mock<Xamarin.Essentials.Interfaces.IFileSystem> mocXamarinEssentials = new Mock<Xamarin.Essentials.Interfaces.IFileSystem>();
 
             mocXamarinEssentials
-                .Setup(x => x.FileSystemCacheDirectory)
+                .Setup(x => x.CacheDirectory)
                 .Returns(Path.GetTempPath());
 
-            IXamarinEssentials iocXamarinEssentials = mocXamarinEssentials.Object;
+            Xamarin.Essentials.Interfaces.IFileSystem iocXamarinEssentials = mocXamarinEssentials.Object;
 
             /*
              * Mock Event Aggregator
@@ -121,7 +121,7 @@
             /*
              * Configure DataStore
              */
-            DataStore.Instance.ES = iocXamarinEssentials;
+            //DataStore.Instance.ES = iocXamarinEssentials;
             DataStore.Instance.FFIL = iocFFImageLoading;
 
             /*
