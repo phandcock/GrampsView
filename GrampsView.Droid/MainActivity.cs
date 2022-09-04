@@ -13,7 +13,7 @@
     using Microsoft.AppCenter.Distribute;
     using Microsoft.Extensions.DependencyInjection;
 
-    using SharedSharp.Interfaces;
+    using SharedSharp.Errors;
 
     using System;
     using System.Threading.Tasks;

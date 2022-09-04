@@ -1,10 +1,10 @@
 ﻿namespace GrampsView.iOS.Common
 {
-    using GrampsView.Common.CustomClasses;
-
     using CommunityToolkit.Mvvm.Messaging;
 
-    using SharedSharp.Interfaces;
+    using GrampsView.Common.CustomClasses;
+
+    using SharedSharp.Errors;
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {
