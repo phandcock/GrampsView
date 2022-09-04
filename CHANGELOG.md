@@ -1,3 +1,17 @@
+# [16.26.0](https://github.com/phandcock/GrampsView/compare/v16.25.13...v16.26.0) (2022-09-04)
+
+
+### Bug Fixes
+
+* change xamarin essentials mocking interface ([989f057](https://github.com/phandcock/GrampsView/commit/989f05777ebe4031e7f9fcfeb605408cb6fe90ea))
+
+
+### Features
+
+* update nugets for android and ios ([269eef5](https://github.com/phandcock/GrampsView/commit/269eef504c890952676b56cd2be478d9da2d53ff))
+
+
+
 ## [16.25.13](https://github.com/phandcock/GrampsView/compare/v16.25.12...v16.25.13) (2022-09-03)
 
 
@@ -27,15 +41,6 @@
 
 * add epositoryreflinksingle and cleanup ([4518c05](https://github.com/phandcock/GrampsView/commit/4518c0555cc2f64eced40741a34871c11183a8a9))
 * tweak rotation code ([c4b777d](https://github.com/phandcock/GrampsView/commit/c4b777d4842263bdf38e04f66aeea6a1cbc574b1))
-
-
-
-## [16.25.10](https://github.com/phandcock/GrampsView/compare/v16.25.9...v16.25.10) (2022-08-28)
-
-
-### Bug Fixes
-
-* tweak orientation code ([f15414d](https://github.com/phandcock/GrampsView/commit/f15414ddc55b13a87873ada7b1d0d9d25eb6d48c))
 
 
 
