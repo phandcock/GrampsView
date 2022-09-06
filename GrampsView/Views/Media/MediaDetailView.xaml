@@ -53,8 +53,4 @@
             <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
-    <!--<Button // TODO finish this
-                x:Name="graphbutton"
-                Background="{StaticResource GVThemeDominantBackground}"
-                ToolTipService.ToolTip="Show Graph">-->
 </views:ViewBasePage>
