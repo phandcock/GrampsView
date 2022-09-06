@@ -1,12 +1,11 @@
 ﻿namespace GrampsView.UserControls
 {
     using System.Collections;
-    using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
     using Xamarin.Forms;
 
-    public partial class FlexSingleCard : Frame, INotifyPropertyChanged
+    public partial class FlexSingleCard : Frame
 
     {
         public static readonly BindableProperty FsctSourceProperty

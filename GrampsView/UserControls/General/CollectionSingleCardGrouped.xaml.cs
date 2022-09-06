@@ -3,12 +3,11 @@
     using SharedSharp.Common;
 
     using System;
-    using System.ComponentModel;
     using System.Diagnostics.Contracts;
 
     using Xamarin.Forms;
 
-    public partial class CollectionSingleCardGrouped : Frame, INotifyPropertyChanged
+    public partial class CollectionSingleCardGrouped : Frame
     {
         public static readonly BindableProperty FsctSourceProperty
               = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
