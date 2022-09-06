@@ -9,6 +9,11 @@
             get; set;
         }
 
+        public bool FontSize
+        {
+            get; set;
+        }
+
         public bool StyleBold
         {
             get; set;

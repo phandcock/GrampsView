@@ -10,7 +10,7 @@
     public static class GrampsTextToXamarinText
     {
         // TODO Cleanup up the code
-        public static FormattedString GetFormattedString(StyledTextModel argTextModel, double argFontSize)
+        public static FormattedString GetFormattedString(StyledTextModel argTextModel, double argDefaultFontSize)
         {
             FormattedString returnString = new FormattedString();
 
@@ -19,7 +19,7 @@
             // Handle the normal case with no formatting
             if ((argTextModel.GText.Length == 0) || (argTextModel.Styles.Count == 0))
             {
-                returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = SharedSharp.Common.SharedSharpFontSize.FontSmall });
+                returnString.Spans.Add(new Span { Text = argTextModel.GText, FontSize = argDefaultFontSize });
 
                 return returnString;
             }
@@ -107,7 +107,7 @@
             string outString = string.Empty;
 
             // Add default font
-            returnString.Spans.Add(new Span { FontSize = argFontSize });
+            returnString.Spans.Add(new Span { FontSize = argDefaultFontSize });
 
             currentStyle = workingString[0];
 
@@ -154,7 +154,7 @@
 
             if (argStyle.StyleSuperscript)
             {
-                // TODO WOrk out how to do this. Two spans with different fontsizes?
+                // TODO Work out how to do this. Two spans with different fontsizes?
             }
 
             if (argStyle.StyleUnderline)

@@ -69,6 +69,14 @@
         <Setter Property="Margin" Value="1" />
     </Style>
 
+    <!--  Create a Frame Card Style (Not Selectable)  -->
+    <Style
+        x:Key="SSFrameCardStyleNS"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+    </Style>
+
     <!--  Create a Style for a Button Menu Frame  -->
     <Style
         x:Key="SSButtonMenuFrameStyle"
@@ -138,7 +146,7 @@
         TargetType="Frame">
         <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="WidthRequest" Value="{Binding CardSingleWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardSingleWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
     </Style>
 
     <Style
@@ -417,7 +425,6 @@
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
