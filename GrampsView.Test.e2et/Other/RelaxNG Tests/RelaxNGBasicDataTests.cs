@@ -8,6 +8,8 @@
     using GrampsView.Data.Repository;
     using GrampsView.e2e.Test.Utility;
 
+    using System;
+
     using System.IO;
     using System.Reflection;
     using System.Xml;
@@ -17,14 +19,22 @@
     {
         public System.IO.Stream rngStream;
 
+        public IServiceProvider Services { get; set; }
+
         [TearDown]
         public void Cleanup()
         {
         }
 
+        /// <summary>
+        /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
+        /// </summary>
         [SetUp]
         public void Init()
         {
+            //Services = CommonRoutines.ConfigureServices();
+            //ShardSharpCore.InitService(Services);
+
             DataStoreUtility.DataStoreSetup();
 
             // Load Resource

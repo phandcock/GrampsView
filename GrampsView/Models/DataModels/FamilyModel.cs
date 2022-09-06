@@ -294,7 +294,7 @@ namespace GrampsView.Data.Model
             string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
 
             // set family display name
-            if (GFather.Valid)
+            if (GFather.Valid && !string.IsNullOrWhiteSpace(fatherName))
             {
                 familyName.Append(fatherName);
             }
@@ -303,7 +303,7 @@ namespace GrampsView.Data.Model
                 familyName.Append("Unknown");
             }
 
-            if (GMother.Valid)
+            if (GMother.Valid && !string.IsNullOrWhiteSpace(motherName))
             {
                 familyName.Append(" - ");
                 familyName.Append(motherName);

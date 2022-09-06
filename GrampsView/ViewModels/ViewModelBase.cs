@@ -44,19 +44,6 @@
             ViewSetup();
         }
 
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        ///// </summary>
-        ///// <param name="iocCommonLogging">
-        ///// The ioc common logging.
-        ///// </param>
-        //public ViewModelBase(ISharedLogging iocCommonLogging)
-        //{
-        //    BaseCL = iocCommonLogging;
-
-        //    ViewSetup();
-        //}
-
         /// <summary>
         /// Gets the base detail.
         /// </summary>

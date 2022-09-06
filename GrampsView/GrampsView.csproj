@@ -15,6 +15,12 @@
 		<Optimize>false</Optimize>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PropertyChangedAnalyzerConfiguration>
+			<IsCodeGeneratorDisabled>false</IsCodeGeneratorDisabled>
+		</PropertyChangedAnalyzerConfiguration>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Compile Remove="Behaviours\**" />
 		<Compile Remove="ViewModels\PeopleGraph\**" />
@@ -172,7 +178,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.5.14" />
+		<PackageReference Include="SharedSharp" Version="0.5.16" />
 		<PackageReference Include="SharpZipLib" Version="1.3.3" />
 		<PackageReference Include="SkiaSharp" Version="2.88.1" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
@@ -194,26 +200,26 @@
 
 	<ItemGroup>
 		<Compile Update="Assets\Strings\AppResources.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>AppResources.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AppResources.resx</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
 			<DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\LinkMediumCardControlTemplate.xaml.cs">
-		  <SubType>Code</SubType>
-		  <DependentUpon>LinkMediumCardControlTemplate.xaml</DependentUpon>
+			<SubType>Code</SubType>
+			<DependentUpon>LinkMediumCardControlTemplate.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\LinkCellCardControlTemplate.xaml.cs">
-		  <DependentUpon>LinkCellCardControlTemplate.xaml</DependentUpon>
+			<DependentUpon>LinkCellCardControlTemplate.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
 			<DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\LinkSIngleCardControlTemplate.xaml.cs">
-		  <SubType>Code</SubType>
-		  <DependentUpon>LinkSingleCardControlTemplate.xaml</DependentUpon>
+			<SubType>Code</SubType>
+			<DependentUpon>LinkSingleCardControlTemplate.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplateNS.xaml.cs">
 			<DependentUpon>SmallCardControlTemplateNS.xaml</DependentUpon>
@@ -228,75 +234,75 @@
 			<DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Large\FamilyCardLarge.xaml.cs">
-		  <DependentUpon>FamilyCardLarge.xaml</DependentUpon>
+			<DependentUpon>FamilyCardLarge.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
-		  <DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
+			<DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Cell\SourceCardLinkCell.xaml.cs">
-		  <DependentUpon>SourceCardLinkCell.xaml</DependentUpon>
+			<DependentUpon>SourceCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Cell\EventCardLinkCell.xaml.cs">
-		  <DependentUpon>EventCardLinkCell.xaml</DependentUpon>
+			<DependentUpon>EventCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Cell\FamilyCardLinkCell.xaml.cs">
-		  <DependentUpon>FamilyCardLinkCell.xaml</DependentUpon>
+			<DependentUpon>FamilyCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\EventCardMediumLink.xaml.cs">
-		  <DependentUpon>EventCardMediumLink.xaml</DependentUpon>
+			<DependentUpon>EventCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\MediaCardMediumLink.xaml.cs">
-		  <DependentUpon>MediaCardMediumLink.xaml</DependentUpon>
+			<DependentUpon>MediaCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\SourceCardMediumLink.xaml.cs">
-		  <DependentUpon>SourceCardMediumLink.xaml</DependentUpon>
+			<DependentUpon>SourceCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\CitationCardMediumLink.xaml.cs">
-		  <DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
+			<DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Medium\FamilyGraphCardMediumLink.xaml.cs">
-		  <DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
+			<DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Cell\CitationCardLinkCell.xaml.cs">
-		  <DependentUpon>CitationCardLinkCell.xaml</DependentUpon>
+			<DependentUpon>CitationCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Large\PersonLinkCardLarge.xaml.cs">
-		  <DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
+			<DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\MediaCardLinkSingle.xaml.cs">
-		  <DependentUpon>MediaCardLinkSingle.xaml</DependentUpon>
+			<DependentUpon>MediaCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\EventCardLinkSingle.xaml.cs">
-		  <DependentUpon>EventCardLinkSingle.xaml</DependentUpon>
+			<DependentUpon>EventCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\CitationCardLinkSingle.xaml.cs">
-		  <DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
+			<DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\RepositoryRefCardLinkSingle.xaml.cs">
-		  <SubType>Code</SubType>
-		  <DependentUpon>RepositoryRefCardLinkSingle.xaml</DependentUpon>
+			<SubType>Code</SubType>
+			<DependentUpon>RepositoryRefCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\RepositoryCardLinkSingle.xaml.cs">
-		  <DependentUpon>RepositoryCardLinkSingle.xaml</DependentUpon>
+			<DependentUpon>RepositoryCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Single\SourceCardLinkSingle.xaml.cs">
-		  <DependentUpon>SourceCardLinkSingle.xaml</DependentUpon>
+			<DependentUpon>SourceCardLinkSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Link\Cell\PersonCardLinkCell.xaml.cs">
-		  <DependentUpon>PersonCardLinkCell.xaml</DependentUpon>
+			<DependentUpon>PersonCardLinkCell.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
 			<DependentUpon>DateCardSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\ChildRefCardSingle.xaml.cs">
-		  <SubType>Code</SubType>
-		  <DependentUpon>ChildRefCardSingle.xaml</DependentUpon>
+			<SubType>Code</SubType>
+			<DependentUpon>ChildRefCardSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\FamilyCardSingle.xaml.cs">
-		  <DependentUpon>FamilyCardSingle.xaml</DependentUpon>
+			<DependentUpon>FamilyCardSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Single\PersonCardSingle.xaml.cs">
-		  <DependentUpon>PersonCardSingle.xaml</DependentUpon>
+			<DependentUpon>PersonCardSingle.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
 			<DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
@@ -338,33 +344,33 @@
 			<DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="Views\StartupPages\NeedDatabaseReloadPage.xaml.cs">
-		  <DependentUpon>NeedDatabaseReloadPage.xaml</DependentUpon>
+			<DependentUpon>NeedDatabaseReloadPage.xaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Update="Assets\Strings\AppResources.resx">
-		  <Generator>PublicResXFileCodeGenerator</Generator>
-		  <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\LinkMediumCardControlTemplate.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\ControlTemplates\LinkSingleCardControlTemplate.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\Link\Single\RepositoryRefCardLinkSingle.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="UserControls\Single\ChildRefCardSingle.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 	</ItemGroup>
 
