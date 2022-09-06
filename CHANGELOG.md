@@ -1,3 +1,14 @@
+## [16.26.1](https://github.com/phandcock/GrampsView/compare/v16.26.0...v16.26.1) (2022-09-06)
+
+
+### Bug Fixes
+
+* chnage default formattedfontsize to medium ([6ab3028](https://github.com/phandcock/GrampsView/commit/6ab30280f8c9e2e216f646a45120476e66d8dd81))
+* fix essentials composeasync on android 11 ([34f868d](https://github.com/phandcock/GrampsView/commit/34f868d22f2599d3821805c583ebd852951925d6))
+* tweaks ([5942a32](https://github.com/phandcock/GrampsView/commit/5942a3223ce6e9657cccc85abf91b098dd557aed))
+
+
+
 # [16.26.0](https://github.com/phandcock/GrampsView/compare/v16.25.13...v16.26.0) (2022-09-04)
 
 
@@ -31,16 +42,6 @@
 * add medialinks and tweaks ([314d822](https://github.com/phandcock/GrampsView/commit/314d822446b0f2323c2d8369be00b0d5fbb1d14c))
 * tweaks and add media link cards ([530adb3](https://github.com/phandcock/GrampsView/commit/530adb36be5662faefc7de8326586c9f5f1d1e14))
 * update nugets ([4374df8](https://github.com/phandcock/GrampsView/commit/4374df8991f1d808806f67160b97afd93d93e784))
-
-
-
-## [16.25.11](https://github.com/phandcock/GrampsView/compare/v16.25.10...v16.25.11) (2022-08-30)
-
-
-### Bug Fixes
-
-* add epositoryreflinksingle and cleanup ([4518c05](https://github.com/phandcock/GrampsView/commit/4518c0555cc2f64eced40741a34871c11183a8a9))
-* tweak rotation code ([c4b777d](https://github.com/phandcock/GrampsView/commit/c4b777d4842263bdf38e04f66aeea6a1cbc574b1))
 
 
 
