@@ -1,10 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
+    using CommunityToolkit.Mvvm.Messaging;
+
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -62,10 +62,11 @@
                     URLModel newLinkURL = new URLModel
                     {
                         GDescription = NoteObject.ToString(),
-                        GHRef = new Uri(NoteObject.TextShort)
+                        GHRef = new Uri(NoteObject.TextShort),
+                        // ModelItemGlyph = NoteObject.ModelItemGlyph,
                     };
 
-                    BaseDetail.Add(newLinkURL);
+                    BaseDetail.Add(newLinkURL.HLink);
                 }
             }
         }
