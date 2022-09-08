@@ -1,3 +1,13 @@
+## [16.26.2](https://github.com/phandcock/GrampsView/compare/v16.26.1...v16.26.2) (2022-09-08)
+
+
+### Bug Fixes
+
+* hide hlinks in links if not valid or empty ([62f827a](https://github.com/phandcock/GrampsView/commit/62f827ad0030094e89c485149480961c535b3b2d))
+* tweak note links ([43f3b32](https://github.com/phandcock/GrampsView/commit/43f3b32f083e47e66e81c089acf87be17745079b))
+
+
+
 ## [16.26.1](https://github.com/phandcock/GrampsView/compare/v16.26.0...v16.26.1) (2022-09-06)
 
 
@@ -30,18 +40,6 @@
 
 * tweaks ([764852f](https://github.com/phandcock/GrampsView/commit/764852fc88be96df1a4471380b2b8f2bb6d6df63))
 * update nugets ([6cb21d3](https://github.com/phandcock/GrampsView/commit/6cb21d3800c3c70472a35007b489fe76f87c112c))
-
-
-
-## [16.25.12](https://github.com/phandcock/GrampsView/compare/v16.25.11...v16.25.12) (2022-09-01)
-
-
-### Bug Fixes
-
-* add Event Link Cards ([12b6635](https://github.com/phandcock/GrampsView/commit/12b6635acf9892dc7a5583f64a44fe182a7e4f94))
-* add medialinks and tweaks ([314d822](https://github.com/phandcock/GrampsView/commit/314d822446b0f2323c2d8369be00b0d5fbb1d14c))
-* tweaks and add media link cards ([530adb3](https://github.com/phandcock/GrampsView/commit/530adb36be5662faefc7de8326586c9f5f1d1e14))
-* update nugets ([4374df8](https://github.com/phandcock/GrampsView/commit/4374df8991f1d808806f67160b97afd93d93e784))
 
 
 
