@@ -25,7 +25,12 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                return this.FirstOrDefault();
+                if (Count == 0)
+                {
+                    return new T();
+                }
+
+                return this.First();
             }
         }
 

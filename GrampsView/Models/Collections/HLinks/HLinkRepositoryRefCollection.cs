@@ -34,21 +34,5 @@
 
             base.SetGlyph();
         }
-
-        ///// <summary>
-        ///// Helper method to sort and set the firt image link.
-        ///// </summary>
-        //public void Sort()
-        //{
-        //    // Sort the collection
-        //    List<HLinkRepositoryRefModel> t = this.OrderBy(HLinkRepositoryRefModel => HLinkRepositoryRefModel.DeRef.ToString()).ToList();
-
-        // Items.Clear();
-
-        //    foreach (HLinkRepositoryRefModel item in t)
-        //    {
-        //        Items.Add(item);
-        //    }
-        //}
     }
 }

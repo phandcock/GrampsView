@@ -24,7 +24,7 @@
         <ucon:RepositoryRefCardLinkSingle
             Grid.Row="0"
             Grid.Column="0"
-            BindingContext="{Binding DeRef.GSourceRef.DeRef.GRepositoryRefCollection.GetFirst, Mode=OneWay}" />
+            IsVisible="{Binding DeRef.GSourceRef.DeRef.GRepositoryRefCollection.GetFirst.Valid, Mode=OneWay}" />
 
         <ucon:SourceCardLinkSingle
             Grid.Row="1"
