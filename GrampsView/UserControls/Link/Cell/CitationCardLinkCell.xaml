@@ -3,9 +3,16 @@
     x:Class="GrampsView.UserControls.CitationCardLinkCell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:convert="clr-namespace:GrampsView.Converters"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkCitationModel">
+
+    <ucon:LinkCellCardControlTemplate.Resources>
+        <ResourceDictionary>
+            <convert:DateValidConverter x:Key="DateValid" />
+        </ResourceDictionary>
+    </ucon:LinkCellCardControlTemplate.Resources>
 
     <Grid>
 
@@ -27,6 +34,7 @@
         <Label
             Grid.Row="1"
             Grid.Column="0"
+            IsVisible="{Binding DeRef.GDateContent, Converter={StaticResource DateValid}}"
             Style="{DynamicResource SSLinkCardCellStyle}"
             Text="{Binding DeRef.GDateContent}" />
     </Grid>

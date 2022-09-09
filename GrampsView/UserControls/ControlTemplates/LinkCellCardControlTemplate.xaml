@@ -41,8 +41,7 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Frame
@@ -58,15 +57,11 @@
                             Style="{DynamicResource MediaImageStyle}" />
                     </Frame>
 
-                    <ContentPresenter
-                        Grid.Row="1"
-                        Grid.RowSpan="2"
-                        Grid.Column="0" Grid.ColumnSpan="2" />
-
                     <Image
-                        Grid.Row="2"
+                        Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconLinkCardType}">
+                        Style="{DynamicResource GVSymbolIconLinkCardType}"
+                        VerticalOptions="Start">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="FA-Solid"
@@ -74,6 +69,12 @@
                                 Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                         </Image.Source>
                     </Image>
+
+                    <ContentPresenter
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="End" />
                 </Grid>
             </Frame>
         </ControlTemplate>

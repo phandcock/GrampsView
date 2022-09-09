@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
+    using GrampsView.Views;
 
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
@@ -65,7 +66,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public int CompareTo(object obj)
+        public new int CompareTo(object obj)
         {
             // Null objects go first
             if (obj is null)
@@ -84,7 +85,7 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "CitationDetailPage");
+            await UCNavigateBase(this, nameof(CitationDetailPage));
             return;
         }
     }
