@@ -4,6 +4,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
 
+    using SharedSharp.Common;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Text.Json;
@@ -157,12 +159,12 @@
 
         public static bool operator <(ModelBase left, ModelBase right)
         {
-            return left is null ? right is object : left.CompareTo(right) < Constants.CompareEquals;
+            return left is null ? right is object : left.CompareTo(right) < SharedSharpConstants.CompareEquals;
         }
 
         public static bool operator <=(ModelBase left, ModelBase right)
         {
-            return left is null || left.CompareTo(right) <= Constants.CompareEquals;
+            return left is null || left.CompareTo(right) <= SharedSharpConstants.CompareEquals;
         }
 
         public static bool operator ==(ModelBase left, ModelBase right)
@@ -177,12 +179,12 @@
 
         public static bool operator >(ModelBase left, ModelBase right)
         {
-            return left is object && left.CompareTo(right) > Constants.CompareEquals;
+            return left is object && left.CompareTo(right) > SharedSharpConstants.CompareEquals;
         }
 
         public static bool operator >=(ModelBase left, ModelBase right)
         {
-            return left is null ? right is null : left.CompareTo(right) >= Constants.CompareEquals;
+            return left is null ? right is null : left.CompareTo(right) >= SharedSharpConstants.CompareEquals;
         }
 
         /// <summary>
@@ -210,9 +212,9 @@
 
             ModelBase firstSource = (ModelBase)argFirstModelBase; ModelBase secondSource = (ModelBase)argSecondModelBase;
 
-            if (firstSource is null) { return Constants.CompareEquals; }
+            if (firstSource is null) { return SharedSharpConstants.CompareEquals; }
 
-            if (secondSource is null) { return Constants.CompareEquals; }
+            if (secondSource is null) { return SharedSharpConstants.CompareEquals; }
 
             return Compare(firstSource.HLinkKey, secondSource.HLinkKey);
         }
@@ -221,7 +223,7 @@
         {
             if (other is null)
             {
-                return Constants.CompareGreaterThan;
+                return SharedSharpConstants.CompareGreaterThan;
             }
 
             // This is effectively random

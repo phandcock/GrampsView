@@ -7,12 +7,6 @@
     /// </summary>
     public static class Constants
     {
-        public const int CompareEquals = 0;
-
-        public const int CompareGreaterThan = 1;
-
-        public const int CompareLessThan = -1;
-
         public const string DirectoryCacheBase = "~GV";
 
         public const string DirectoryImageCache = "~worka";

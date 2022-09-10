@@ -5,6 +5,8 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
+    using SharedSharp.Common;
+
     using System;
 
     /// <summary>
@@ -319,12 +321,12 @@ namespace GrampsView.Data.Model
         {
             if (a is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             if (b is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             PersonNameModel firstPersonName = (PersonNameModel)a;
@@ -333,7 +335,7 @@ namespace GrampsView.Data.Model
             // Compare on Surname first
             int testFlag = string.Compare(firstPersonName.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == Constants.CompareEquals)
+            if (testFlag == SharedSharpConstants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(firstPersonName.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
@@ -346,12 +348,12 @@ namespace GrampsView.Data.Model
         {
             if (other is null)
             {
-                return Constants.CompareGreaterThan;
+                return SharedSharpConstants.CompareGreaterThan;
             }
             // Compare on Surname first
             int testFlag = string.Compare(GSurName.GetPrimarySurname, other.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == Constants.CompareEquals)
+            if (testFlag == SharedSharpConstants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(GFirstName, other.GFirstName, StringComparison.CurrentCulture);
@@ -373,14 +375,14 @@ namespace GrampsView.Data.Model
         {
             if (obj is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             PersonNameModel secondPersonName = obj as PersonNameModel;
 
             if (secondPersonName is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             return CompareTo(secondPersonName);

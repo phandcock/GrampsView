@@ -2,6 +2,8 @@
 {
     using GrampsView.Data.Model;
 
+    using SharedSharp.Common;
+
     using System;
 
     using Xamarin.CommunityToolkit.ObjectModel;
@@ -39,7 +41,7 @@
         {
             if (!Valid)
             {
-                return Constants.CompareLessThan;
+                return SharedSharpConstants.CompareLessThan;
             }
 
             return Value.CompareTo(argOther.Value);
@@ -49,7 +51,7 @@
         {
             if (obj is null)
             {
-                return Constants.CompareLessThan;
+                return SharedSharpConstants.CompareLessThan;
             }
 
             return this.CompareTo((obj as HLinkBase).HLinkKey);

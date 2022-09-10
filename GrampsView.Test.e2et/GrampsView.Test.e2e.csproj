@@ -31,8 +31,8 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="RelaxNG" Version="3.2.3" />
-		<PackageReference Include="SharedSharp" Version="0.5.16" />
-		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
+		<PackageReference Include="SharedSharp" Version="0.5.17" />
+		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.2" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 		<PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
 		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />

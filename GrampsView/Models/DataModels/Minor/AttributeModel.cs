@@ -3,6 +3,8 @@
     using GrampsView.Common;
     using GrampsView.Data.Collections;
 
+    using SharedSharp.Common;
+
     using System;
     using System.Diagnostics.Contracts;
     using System.Text.Json.Serialization;
@@ -150,12 +152,12 @@
         {
             if (a is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             if (b is null)
             {
-                return Constants.CompareEquals;
+                return SharedSharpConstants.CompareEquals;
             }
 
             AttributeModel firstAttributeName = (AttributeModel)a;
@@ -192,7 +194,7 @@
         {
             if (other is null)
             {
-                return Constants.CompareGreaterThan;
+                return SharedSharpConstants.CompareGreaterThan;
             }
 
             // This is effectively random
