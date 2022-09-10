@@ -31,11 +31,7 @@
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
                 <StackLayout>
-                    <ucon:HLinkVisualDisplay
-                        BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}"
-                        FsctShowMedia="True"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <ucon:HLinkVisualDisplay BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}" FsctShowMedia="True" />
 
                     <Label HorizontalOptions="Center" Text="{x:Static i18n:AppResources.Media_Detail_Open_File}" />
                 </StackLayout>

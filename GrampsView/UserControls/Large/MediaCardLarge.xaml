@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaCardLargeRoot"
     x:DataType="models:HLinkMediaModel"
@@ -11,7 +12,11 @@
     IsVisible="{Binding Valid}"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource SSFrameLargeVariableCardStyle}" VerticalOptions="Start">
+    <Frame
+        HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}"
+        Style="{DynamicResource SSFrameLargeFixedCardStyle}"
+        VerticalOptions="Start"
+        WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}">
 
         <Frame.Content>
 
