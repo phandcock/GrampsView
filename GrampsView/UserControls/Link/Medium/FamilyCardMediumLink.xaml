@@ -26,7 +26,9 @@
             Grid.ColumnSpan="2"
             BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
                                               Light={StaticResource OnTertiaryContainerLight}}"
-            HorizontalOptions="FillAndExpand" />
+            BindingContext="{Binding ., Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            IsEnabled="False" />
 
         <ucon:PersonCardLinkCell
             Grid.Row="1"

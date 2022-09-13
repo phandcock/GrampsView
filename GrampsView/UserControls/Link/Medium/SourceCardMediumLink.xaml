@@ -29,7 +29,8 @@
         <ucon:SourceCardLinkSingle
             Grid.Row="2"
             Grid.Column="0"
-            BindingContext="{Binding ., Mode=OneWay}" />
+            BindingContext="{Binding ., Mode=OneWay}"
+            IsEnabled="False" />
 
         <ucon:CardGroupHeader
             Grid.Row="3"

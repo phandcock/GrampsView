@@ -74,6 +74,8 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
+                        Margin="0"
+                        Padding="0"
                         VerticalOptions="End" />
                 </Grid>
             </Frame>

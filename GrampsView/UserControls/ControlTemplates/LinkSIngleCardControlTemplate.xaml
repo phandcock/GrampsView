@@ -55,10 +55,7 @@
                         BackgroundColor="Transparent"
                         Style="{DynamicResource CardImageBackgroundFrame}">
 
-                        <ucon:HLinkVisualDisplay
-                            x:Name="AnchorImage"
-                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                        <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Frame>
 
                     <ContentPresenter

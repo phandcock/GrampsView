@@ -125,7 +125,6 @@
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="HasShadow" Value="false" />
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
     </Style>
