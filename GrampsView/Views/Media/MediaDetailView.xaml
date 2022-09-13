@@ -25,8 +25,8 @@
             <Frame
                 BorderColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
                                               Light={StaticResource OnSecondaryContainerLight}}"
-                HeightRequest="{Binding Source={x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.MediaDetailImageHeight}, Mode=OneWay}"
-                WidthRequest="{Binding Source={x:DynamicResource sharedsharp:SharedSharpCardSizes.Current.MediaDetailImageWidth}, Mode=OneWay}">
+                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
+                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
