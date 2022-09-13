@@ -1,3 +1,14 @@
+## [16.26.4](https://github.com/phandcock/GrampsView/compare/v16.26.3...v16.26.4) (2022-09-13)
+
+
+### Bug Fixes
+
+* tweak media image size ([cc0f0ff](https://github.com/phandcock/GrampsView/commit/cc0f0ff7af2975b46a77a8920c214e214873f6c7))
+* tweaks ([3ceb79d](https://github.com/phandcock/GrampsView/commit/3ceb79d6e87ecfd42f91155f3cbe1b88fbb3a8ab))
+* update nugets ([b949e6a](https://github.com/phandcock/GrampsView/commit/b949e6a9099cba20c9c9b73bc63eef136eee4ddf))
+
+
+
 ## [16.26.3](https://github.com/phandcock/GrampsView/compare/v16.26.2...v16.26.3) (2022-09-10)
 
 
@@ -28,20 +39,6 @@
 * chnage default formattedfontsize to medium ([6ab3028](https://github.com/phandcock/GrampsView/commit/6ab30280f8c9e2e216f646a45120476e66d8dd81))
 * fix essentials composeasync on android 11 ([34f868d](https://github.com/phandcock/GrampsView/commit/34f868d22f2599d3821805c583ebd852951925d6))
 * tweaks ([5942a32](https://github.com/phandcock/GrampsView/commit/5942a3223ce6e9657cccc85abf91b098dd557aed))
-
-
-
-# [16.26.0](https://github.com/phandcock/GrampsView/compare/v16.25.13...v16.26.0) (2022-09-04)
-
-
-### Bug Fixes
-
-* change xamarin essentials mocking interface ([989f057](https://github.com/phandcock/GrampsView/commit/989f05777ebe4031e7f9fcfeb605408cb6fe90ea))
-
-
-### Features
-
-* update nugets for android and ios ([269eef5](https://github.com/phandcock/GrampsView/commit/269eef504c890952676b56cd2be478d9da2d53ff))
 
 
 
