@@ -9,8 +9,6 @@
 
 using GrampsView.Data.Collections;
 
-using Xamarin.Forms;
-
 namespace GrampsView.Data.Model
 {
     /// <summary>
@@ -67,22 +65,6 @@ namespace GrampsView.Data.Model
         /// The get h link.
         /// </value>
         HLinkNoteModel HLink
-        {
-            get;
-        }
-
-        FormattedString TextFormatted
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the shortened form of the text. Maximum length is 100.
-        /// </summary>
-        /// <value>
-        /// The text short.
-        /// </value>
-        string TextShort
         {
             get;
         }

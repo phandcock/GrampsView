@@ -198,7 +198,7 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkNoteModel> t = collectionArg.OrderBy(HLinkNoteModel => HLinkNoteModel.DeRef.TextShort);
+            IOrderedEnumerable<HLinkNoteModel> t = collectionArg.OrderBy(HLinkNoteModel => HLinkNoteModel.DeRef.GStyledText.TextShort);
 
             HLinkNoteModelCollection tt = new HLinkNoteModelCollection();
 

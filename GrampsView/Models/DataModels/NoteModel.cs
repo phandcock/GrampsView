@@ -95,32 +95,32 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public FormattedString TextFormatted
-        {
-            get
-            {
-                if (_TextFormatted.Spans.Count == 0)
-                {
-                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, SharedSharp.Common.SharedSharpFontSize.FontMedium);
-                }
+        //public FormattedString TextFormatted
+        //{
+        //    get
+        //    {
+        //        if (_TextFormatted.Spans.Count == 0)
+        //        {
+        //            _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, SharedSharp.Common.SharedSharpFontSize.FontMedium);
+        //        }
 
-                return _TextFormatted;
-            }
-        }
+        //        return _TextFormatted;
+        //    }
+        //}
 
-        /// <summary>
-        /// Gets the shortened form of the text. Maximum length is 100.
-        /// </summary>
-        /// <value>
-        /// The text short.
-        /// </value>
-        public string TextShort
-        {
-            get
-            {
-                return GStyledText.GText.Substring(0, Math.Min(GStyledText.GText.Length, 100));
-            }
-        }
+        ///// <summary>
+        ///// Gets the shortened form of the text. Maximum length is 100.
+        ///// </summary>
+        ///// <value>
+        ///// The text short.
+        ///// </value>
+        //public string TextShort
+        //{
+        //    get
+        //    {
+        //        return GStyledText.GText.Substring(0, Math.Min(GStyledText.GText.Length, 100));
+        //    }
+        //}
 
         /// <summary>
         /// Compares two objects.

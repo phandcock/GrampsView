@@ -62,7 +62,7 @@
                     URLModel newLinkURL = new URLModel
                     {
                         GDescription = NoteObject.ToString(),
-                        GHRef = new Uri(NoteObject.TextShort),
+                        GHRef = new Uri(NoteObject.GStyledText.TextShort),
                         // ModelItemGlyph = NoteObject.ModelItemGlyph,
                     };
 

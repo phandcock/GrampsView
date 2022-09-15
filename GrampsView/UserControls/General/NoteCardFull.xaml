@@ -12,7 +12,7 @@
         <Frame.Content>
 
             <Label
-                FormattedText="{Binding DeRef.TextFormatted}"
+                FormattedText="{Binding DeRef.GStyledText.TextFormatted}"
                 IsEnabled="True"
                 Style="{DynamicResource SSLabelStyleMedium}">
                 <Label.GestureRecognizers>
