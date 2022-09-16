@@ -104,8 +104,8 @@ namespace GrampsView.Data.DataView
             Group<HLinkSourceModelCollection> t = new Group<HLinkSourceModelCollection>();
 
             var query = from item in DataViewData
-                        orderby item.GRepositoryRefCollection.GetFirst, item.GSTitle
-                        group item by (item.GRepositoryRefCollection.GetFirst) into g
+                        orderby item.GRepositoryRefCollection.GetFirst.ToString(), item.GSTitle
+                        group item by (item.GRepositoryRefCollection.GetFirst.ToString()) into g
                         select new
                         {
                             GroupName = g.Key,
@@ -118,7 +118,7 @@ namespace GrampsView.Data.DataView
 
                 if (g.GroupName != null)
                 {
-                    info.Title = g.GroupName.DeRef.DefaultTextShort.ToString();
+                    info.Title = g.GroupName;
                 }
                 else
                 {

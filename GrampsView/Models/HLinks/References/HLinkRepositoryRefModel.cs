@@ -93,6 +93,16 @@
 
         = new HLinkNoteModelCollection();
 
+        public override string ToString()
+        {
+            if (DeRef.Valid)
+            {
+                return DeRef.ToString();
+            };
+
+            return "~None";
+        }
+
         /// <summary>
         /// Navigates to a Repository Reference detail page.
         /// </summary>

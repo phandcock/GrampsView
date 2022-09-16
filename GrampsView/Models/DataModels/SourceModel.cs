@@ -37,24 +37,6 @@
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundSource");
         }
 
-        //public HLinkRepositoryRefModel GetDefaultRepository
-        //{
-        //    get
-        //    {
-        //        if (GRepositoryRefCollection.Count > 0)
-        //        {
-        //            HLinkRepositoryRefModel t = GRepositoryRefCollection[0];
-
-        //            if (t.Valid)
-        //            {
-        //                return t;
-        //            }
-        //        }
-
-        //        return new HLinkRepositoryRefModel();
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the media reference collection.
         /// </summary>
@@ -85,7 +67,7 @@
             = new HLinkNoteModelCollection();
 
         /// <summary>
-        /// Gets or sets the g repository reference collection.
+        /// Gets or sets the repository reference collection.
         /// </summary>
         /// <value>
         /// The repository reference collection.
