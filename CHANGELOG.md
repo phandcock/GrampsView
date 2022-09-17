@@ -1,3 +1,12 @@
+## [16.26.6](https://github.com/phandcock/GrampsView/compare/v16.26.5...v16.26.6) (2022-09-17)
+
+
+### Bug Fixes
+
+* fix source model list ([afaf098](https://github.com/phandcock/GrampsView/commit/afaf09812f2e5182deab1a859a3cd3fc7a37d65d))
+
+
+
 ## [16.26.5](https://github.com/phandcock/GrampsView/compare/v16.26.4...v16.26.5) (2022-09-15)
 
 
@@ -27,16 +36,6 @@
 * tweaks ([1d8b3f0](https://github.com/phandcock/GrampsView/commit/1d8b3f05b34c66e6e7be1e32b870fd140e360d28))
 * tweaks ([597575d](https://github.com/phandcock/GrampsView/commit/597575d4612dc66edd89495741ffb46eebc25322))
 * tweaks media card ([f839f96](https://github.com/phandcock/GrampsView/commit/f839f96ffa785f5f2dd836da990481d8c5ff4394))
-
-
-
-## [16.26.2](https://github.com/phandcock/GrampsView/compare/v16.26.1...v16.26.2) (2022-09-08)
-
-
-### Bug Fixes
-
-* hide hlinks in links if not valid or empty ([62f827a](https://github.com/phandcock/GrampsView/commit/62f827ad0030094e89c485149480961c535b3b2d))
-* tweak note links ([43f3b32](https://github.com/phandcock/GrampsView/commit/43f3b32f083e47e66e81c089acf87be17745079b))
 
 
 
