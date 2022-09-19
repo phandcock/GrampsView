@@ -17,16 +17,19 @@
 
 	<ItemGroup>
 		<Compile Remove="Behaviours\**" />
+		<Compile Remove="Models\Misc\**" />
 		<Compile Remove="ViewModels\PeopleGraph\**" />
 		<Compile Remove="ViewModels\Popups\**" />
 		<Compile Remove="Views\PeopleGraph\**" />
 		<Compile Remove="Views\Popups\**" />
 		<EmbeddedResource Remove="Behaviours\**" />
+		<EmbeddedResource Remove="Models\Misc\**" />
 		<EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
 		<EmbeddedResource Remove="ViewModels\Popups\**" />
 		<EmbeddedResource Remove="Views\PeopleGraph\**" />
 		<EmbeddedResource Remove="Views\Popups\**" />
 		<None Remove="Behaviours\**" />
+		<None Remove="Models\Misc\**" />
 		<None Remove="ViewModels\PeopleGraph\**" />
 		<None Remove="ViewModels\Popups\**" />
 		<None Remove="Views\PeopleGraph\**" />
@@ -83,9 +86,6 @@
 		<Compile Remove="Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
 		<Compile Remove="Models\HLinks\Models\HLinkParentLinkModel.cs" />
 		<Compile Remove="Models\HLinks\Models\HLinkSourceAttrModel.cs" />
-		<Compile Remove="Models\Misc\CardListLine.cs" />
-		<Compile Remove="Models\Misc\CardListLineCollection.cs" />
-		<Compile Remove="Models\Misc\MenuItemModel.cs" />
 		<Compile Remove="Events\AppStartFirstRunEvent.cs" />
 		<Compile Remove="Events\AppStartSaveSerial.cs" />
 		<Compile Remove="Events\DataLoadUnzipped.cs" />
@@ -167,18 +167,18 @@
 		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.3" />
 		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.3" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-		<PackageReference Include="PropertyChanged.Fody" Version="4.0.1" PrivateAssets="All" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.0.3" PrivateAssets="All" />
 		<PackageReference Include="SharedSharp" Version="0.5.18" />
-		<PackageReference Include="SharpZipLib" Version="1.3.3" />
+		<PackageReference Include="SharpZipLib" Version="1.4.0" />
 		<PackageReference Include="SkiaSharp" Version="2.88.2" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.2" />
-		<PackageReference Include="System.Text.Json" Version="6.0.5" />
+		<PackageReference Include="System.Text.Json" Version="6.0.6" />
 		<PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
-		<PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" GeneratePathProperty="true" />
+		<PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" GeneratePathProperty="true" />
 		<PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
 		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
 		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />

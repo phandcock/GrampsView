@@ -81,9 +81,6 @@
             }
         }
 
-        //        return groups;
-        //    }
-        //}
         /// <summary>
         /// Gets all as card group.
         /// </summary>
