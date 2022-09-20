@@ -1,3 +1,12 @@
+## [16.26.7](https://github.com/phandcock/GrampsView/compare/v16.26.6...v16.26.7) (2022-09-20)
+
+
+### Bug Fixes
+
+* update nugets ([2083373](https://github.com/phandcock/GrampsView/commit/2083373b91232bc1fe3c92db3e56a8afddaf0b50))
+
+
+
 ## [16.26.6](https://github.com/phandcock/GrampsView/compare/v16.26.5...v16.26.6) (2022-09-17)
 
 
@@ -24,18 +33,6 @@
 * tweak media image size ([cc0f0ff](https://github.com/phandcock/GrampsView/commit/cc0f0ff7af2975b46a77a8920c214e214873f6c7))
 * tweaks ([3ceb79d](https://github.com/phandcock/GrampsView/commit/3ceb79d6e87ecfd42f91155f3cbe1b88fbb3a8ab))
 * update nugets ([b949e6a](https://github.com/phandcock/GrampsView/commit/b949e6a9099cba20c9c9b73bc63eef136eee4ddf))
-
-
-
-## [16.26.3](https://github.com/phandcock/GrampsView/compare/v16.26.2...v16.26.3) (2022-09-10)
-
-
-### Bug Fixes
-
-* tweak link cel layout ([a1e5b3f](https://github.com/phandcock/GrampsView/commit/a1e5b3f70c83d6a87d087acebfb5b8af60c170aa))
-* tweaks ([1d8b3f0](https://github.com/phandcock/GrampsView/commit/1d8b3f05b34c66e6e7be1e32b870fd140e360d28))
-* tweaks ([597575d](https://github.com/phandcock/GrampsView/commit/597575d4612dc66edd89495741ffb46eebc25322))
-* tweaks media card ([f839f96](https://github.com/phandcock/GrampsView/commit/f839f96ffa785f5f2dd836da990481d8c5ff4394))
 
 
 
