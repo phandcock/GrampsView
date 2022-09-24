@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
@@ -61,24 +62,21 @@
             }
         }
 
+        public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
+        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
+
         /// <summary>
         /// Gets or sets the Attribute collection.
         /// </summary>
         /// <value>
         /// The Attribute.
         /// </value>
-
-        public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
-
         /// <summary>
         /// Gets or sets the citation model collection.
         /// </summary>
         /// <value>
         /// The citation model collection.
         /// </value>
-
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
-
         public int GCorner1X
         {
             get; set;
@@ -99,15 +97,15 @@
             get; set;
         }
 
+        public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
+        public HLinkKey OriginalMediaHLink { get; set; } = new HLinkKey();
+
         /// <summary>
         /// Gets or sets the note model collection.
         /// </summary>
         /// <value>
         /// The g note model collection.
         /// </value>
-
-        public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
-
         /// <summary>
         /// Gets a value indicating whether gets boolean showing if the $$(HLink)$$ is valid. <note
         /// type="note"> Can have a HLink or be a pointer to an image. <br/><br/> So, MUST be valid

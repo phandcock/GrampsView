@@ -77,6 +77,12 @@
                     //mediaRef.HLinkGlyphItem = DV.MediaDV.GetGlyph(mediaRef.HLinkKey);
 
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+
+                    // Save to original Hlink as well
+                    if (mediaRef.OriginalMediaHLink.Valid)
+                    {
+                        DataStore.Instance.DS.MediaData[mediaRef.OriginalMediaHLink.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    }
                 }
 
                 // Note Collection

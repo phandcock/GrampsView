@@ -293,6 +293,8 @@
                 throw new ArgumentException("CreateClippedMediaModel argument is invalid", nameof(argHLinkLoadImageModel));
             }
 
+            HLinkKey temp = argHLinkLoadImageModel.HLinkKey;
+
             IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync(() =>
          {
              // TODO cleanup code. Multiple copies of things in use
@@ -419,7 +421,10 @@
              return newMediaModel;
          }).ConfigureAwait(false);
 
-            return returnMediaModel.HLink;
+            HLinkMediaModel tt = returnMediaModel.HLink;
+            tt.OriginalMediaHLink = temp;
+
+            return tt;
         }
 
         private ModelBase GetBasics(XElement argElement)

@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+
         </Grid.RowDefinitions>
 
         <ucon:RepositoryRefCardLinkSingle
@@ -27,13 +27,13 @@
             BindingContext="{Binding DeRef.GRepositoryRefCollection.GetFirst, Mode=OneWay}" />
 
         <ucon:SourceCardLinkSingle
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="0"
             BindingContext="{Binding ., Mode=OneWay}"
             IsEnabled="False" />
 
         <ucon:CardGroupHeader
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="0"
             Margin="0"
             Padding="0"
