@@ -1,3 +1,12 @@
+## [16.26.8](https://github.com/phandcock/GrampsView/compare/v16.26.7...v16.26.8) (2022-09-24)
+
+
+### Bug Fixes
+
+* tweak source link medium card ([95a9e63](https://github.com/phandcock/GrampsView/commit/95a9e63d770f4e43f0ee3ee6b883c4b5608a8639))
+
+
+
 ## [16.26.7](https://github.com/phandcock/GrampsView/compare/v16.26.6...v16.26.7) (2022-09-20)
 
 
@@ -22,17 +31,6 @@
 ### Bug Fixes
 
 * refactor styled text handling ([c0d1b7e](https://github.com/phandcock/GrampsView/commit/c0d1b7ed55dbaad0889622f18e5c107315c7a025))
-
-
-
-## [16.26.4](https://github.com/phandcock/GrampsView/compare/v16.26.3...v16.26.4) (2022-09-13)
-
-
-### Bug Fixes
-
-* tweak media image size ([cc0f0ff](https://github.com/phandcock/GrampsView/commit/cc0f0ff7af2975b46a77a8920c214e214873f6c7))
-* tweaks ([3ceb79d](https://github.com/phandcock/GrampsView/commit/3ceb79d6e87ecfd42f91155f3cbe1b88fbb3a8ab))
-* update nugets ([b949e6a](https://github.com/phandcock/GrampsView/commit/b949e6a9099cba20c9c9b73bc63eef136eee4ddf))
 
 
 
