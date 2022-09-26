@@ -1,3 +1,13 @@
+## [16.26.9](https://github.com/phandcock/GrampsView/compare/v16.26.8...v16.26.9) (2022-09-25)
+
+
+### Bug Fixes
+
+* update nugets ([81e7194](https://github.com/phandcock/GrampsView/commit/81e719494cdf82fbdda2418e405c9521adcfc25a))
+* update nugets ([8126726](https://github.com/phandcock/GrampsView/commit/8126726e40a6cd5f6a0883523fbcb3df1fd4fc62))
+
+
+
 ## [16.26.8](https://github.com/phandcock/GrampsView/compare/v16.26.7...v16.26.8) (2022-09-24)
 
 
@@ -22,15 +32,6 @@
 ### Bug Fixes
 
 * fix source model list ([afaf098](https://github.com/phandcock/GrampsView/commit/afaf09812f2e5182deab1a859a3cd3fc7a37d65d))
-
-
-
-## [16.26.5](https://github.com/phandcock/GrampsView/compare/v16.26.4...v16.26.5) (2022-09-15)
-
-
-### Bug Fixes
-
-* refactor styled text handling ([c0d1b7e](https://github.com/phandcock/GrampsView/commit/c0d1b7ed55dbaad0889622f18e5c107315c7a025))
 
 
 
