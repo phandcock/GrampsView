@@ -68,8 +68,8 @@
             }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "Between Jan 1939 and Oct 1948");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "Jan1939");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "Oct1948");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "Jan 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "Oct 1948");
 
             Assert.True(AsCardListLineTest_Basic.Count == 3);
         }
@@ -88,8 +88,8 @@
             }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "Between 1 Jan 1939 and 11 Oct 1948");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "1Jan1939");
-            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "11Oct1948");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Start:", "1 Jan 1939");
+            CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[2], "Stop:", "11 Oct 1948");
 
             Assert.True(AsCardListLineTest_Basic.Count == 3);
         }

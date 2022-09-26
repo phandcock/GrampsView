@@ -264,7 +264,7 @@
                     return string.Empty;
                 }
 
-                string dateString = $"Range {GStart.ShortDate} -{GStop.ShortDate}";
+                string dateString = $"Range {GStart.ShortDate} - {GStop.ShortDate}";
                 return dateString.Trim();
             }
         }

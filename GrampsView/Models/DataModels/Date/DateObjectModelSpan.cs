@@ -272,7 +272,7 @@
                     return string.Empty;
                 }
 
-                string dateString = $"{GStart.ShortDate}-{GStop.ShortDate}";
+                string dateString = $"{GStart.ShortDate} - {GStop.ShortDate}";
                 return dateString.Trim();
             }
         }

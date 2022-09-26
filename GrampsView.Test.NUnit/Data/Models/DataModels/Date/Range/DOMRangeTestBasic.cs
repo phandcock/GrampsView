@@ -52,7 +52,7 @@
         {
             InitYearMonthDay();
 
-            Assert.True(testVal.ShortDate == "Range 1Jan1939 -11Oct1948");
+            Assert.True(testVal.ShortDate == "Range 1 Jan 1939 - 11 Oct 1948");
         }
     }
 }

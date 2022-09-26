@@ -162,7 +162,6 @@
             services.AddTransient<NoteDetailViewModel>();
             services.AddTransient<NoteListViewModel>();
 
-            //services.AddTransient<PeopleGraphViewModel>();
             services.AddTransient<PersonBirthdayViewModel>();
             services.AddTransient<PersonDetailViewModel>();
             services.AddTransient<PersonListViewModel>();

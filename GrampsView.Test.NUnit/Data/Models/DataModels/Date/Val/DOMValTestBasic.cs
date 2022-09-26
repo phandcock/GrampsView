@@ -60,7 +60,7 @@
         {
             InitYearMonthDay();
 
-            Assert.True(testVal.ShortDate == "1Oct1939");
+            Assert.True(testVal.ShortDate == "1 Oct 1939");
         }
     }
 }
