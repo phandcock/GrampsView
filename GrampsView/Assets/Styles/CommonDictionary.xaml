@@ -20,21 +20,22 @@
 
     <!--  Create a Base Style for a Button Style  -->
     <Style x:Key="SSButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
         <Setter Property="BorderWidth" Value="1" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontSmall}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
     </Style>
 
     <Style
         x:Key="SSButtonMenu"
         BasedOn="{StaticResource SSButtonStyle}"
         TargetType="Button">
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="HorizontalOptions" Value="Center" />
@@ -108,10 +109,8 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Neutral}, Light={StaticResource Neutral}}" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="Margin" Value="1" />
-        <Setter Property="HasShadow" Value="False" />
         <Setter Property="Padding" Value="3,3,3,3" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <!--  Create a Style for a Label Frame  -->
