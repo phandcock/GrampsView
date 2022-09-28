@@ -25,7 +25,8 @@
             Grid.Column="0"
             HorizontalOptions="EndAndExpand"
             Style="{DynamicResource SSCardLabelStyleVerySmall}"
-            Text="{Binding DeRef.GType, Mode=OneWay}" />
+            Text="{Binding DeRef.GType, Mode=OneWay}"
+            TextColor="{StaticResource CardBackGroundPlace}" />
 
         <Label
             Grid.Row="0"

@@ -31,6 +31,7 @@
             FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
             FormattedText="{Binding DeRef.GType, Mode=OneWay}"
             HorizontalOptions="End"
-            Style="{DynamicResource SSCardLabelStyleSmall}" />
+            Style="{DynamicResource SSCardLabelStyleSmall}"
+            TextColor="{StaticResource CardBackGroundNote}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

@@ -65,7 +65,7 @@
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Padding" Value="3" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="1" />
     </Style>
 

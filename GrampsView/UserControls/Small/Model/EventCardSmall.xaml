@@ -32,7 +32,8 @@
             Grid.Column="0"
             HorizontalOptions="EndAndExpand"
             Style="{DynamicResource SSCardLabelStyleVerySmall}"
-            Text="{Binding DeRef.GType, Mode=OneWay}" />
+            Text="{Binding DeRef.GType, Mode=OneWay}"
+            TextColor="{StaticResource CardBackGroundEvent}" />
 
         <Label
             x:Name="descriptionTextBlock"
