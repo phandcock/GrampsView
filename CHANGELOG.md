@@ -1,3 +1,12 @@
+## [16.26.12](https://github.com/phandcock/GrampsView/compare/v16.26.11...v16.26.12) (2022-10-06)
+
+
+### Bug Fixes
+
+* update nugets ([c7613ab](https://github.com/phandcock/GrampsView/commit/c7613ab44ca4eeda5c63a1045ddbeb08ee0e9a34))
+
+
+
 ## [16.26.11](https://github.com/phandcock/GrampsView/compare/v16.26.10...v16.26.11) (2022-10-01)
 
 
@@ -24,15 +33,6 @@
 
 * update nugets ([81e7194](https://github.com/phandcock/GrampsView/commit/81e719494cdf82fbdda2418e405c9521adcfc25a))
 * update nugets ([8126726](https://github.com/phandcock/GrampsView/commit/8126726e40a6cd5f6a0883523fbcb3df1fd4fc62))
-
-
-
-## [16.26.8](https://github.com/phandcock/GrampsView/compare/v16.26.7...v16.26.8) (2022-09-24)
-
-
-### Bug Fixes
-
-* tweak source link medium card ([95a9e63](https://github.com/phandcock/GrampsView/commit/95a9e63d770f4e43f0ee3ee6b883c4b5608a8639))
 
 
 
