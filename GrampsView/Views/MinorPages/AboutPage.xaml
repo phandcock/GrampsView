@@ -59,17 +59,17 @@
                     VerticalOptions="Center" />
             </StackLayout>
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="1" CardList="{Binding ApplicationVersionList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard Grid.Row="1" CardList="{Binding ApplicationVersionList, Mode=OneWay}" />
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="2" CardList="{Binding ApplicationStateList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard Grid.Row="2" CardList="{Binding ApplicationStateList, Mode=OneWay}" />
 
-            <sharedsharpucon:ListLineCardLarge Grid.Row="3" CardList="{Binding HeaderData, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard Grid.Row="3" CardList="{Binding HeaderData, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="4" FileText="{Binding WhatsNewText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard Grid.Row="4" FileText="{Binding WhatsNewText, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="5" FileText="{Binding AttributionText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard Grid.Row="5" FileText="{Binding AttributionText, Mode=OneWay}" />
 
-            <sharedsharpucon:FileViewCardLarge Grid.Row="6" FileText="{Binding PrivacyPolicyText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard Grid.Row="6" FileText="{Binding PrivacyPolicyText, Mode=OneWay}" />
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

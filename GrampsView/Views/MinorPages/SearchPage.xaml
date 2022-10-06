@@ -55,7 +55,7 @@
                 </SearchBar.Behaviors>
             </SearchBar>
 
-            <sharedsharpucon:InstructionCardLarge InstructionText="{x:Static i18n:AppResources.SearchPage_Instructions}" />
+            <sharedsharpucon:InstructionCard InstructionText="{x:Static i18n:AppResources.SearchPage_Instructions}" />
 
             <ucon:FlexSingleCard FsctSource="{Binding SearchPersonCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
@@ -68,7 +68,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
             <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
-                <sharedsharpucon:InstructionCardLarge InstructionText="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
+                <sharedsharpucon:InstructionCard InstructionText="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
             </Frame>
         </StackLayout>
     </ScrollView>

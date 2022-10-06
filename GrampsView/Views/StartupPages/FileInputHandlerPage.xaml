@@ -28,7 +28,7 @@
 
                 <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
 
-                <sharedsharpucon:InstructionCardLarge
+                <sharedsharpucon:InstructionCard
                     Grid.Row="0"
                     HorizontalOptions="CenterAndExpand"
                     InstructionText="{x:Static i18n:AppResources.FileInputHandlerPage_Instructions}" />

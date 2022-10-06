@@ -29,10 +29,10 @@
                 MinimumHeightRequest="24"
                 Source="ic_launcher.png" />
 
-            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.WhatsNew_TitleText}" />
+            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.WhatsNew_TitleText}" />
 
             <Frame Style="{DynamicResource FrameLargeVariableCardStyle}">
-                <sharedsharpucon:FileViewCardLarge FileText="{Binding WhatsNewText}" />
+                <sharedsharpucon:FileViewCard FileText="{Binding WhatsNewText}" />
             </Frame>
 
             <Button

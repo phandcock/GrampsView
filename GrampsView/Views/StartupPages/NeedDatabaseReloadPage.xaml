@@ -27,7 +27,7 @@
 
             <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
 
-            <sharedsharpucon:InstructionCardLarge HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}" />
+            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{x:Static i18n:AppResources.NeedDatabaseReloadPage_Instructions}" />
 
             <Button
                 Command="{Binding LoadDataCommand}"

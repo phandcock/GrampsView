@@ -91,6 +91,7 @@
 
             // Any updates?
             SharedSharpGeneral.MSAppCenterInit(Secret.AndroidSecret, Secret.IOSSecret, Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
+
             VersionTracking.Track();
 
             Services.GetService<IErrorNotifications>();
