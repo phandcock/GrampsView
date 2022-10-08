@@ -14,8 +14,13 @@
     using System;
     using System.Threading.Tasks;
 
-    public class AppInit : IAppInit
+    public class AppInit : ISharedSharpAppInit
     {
+        public string GetChangesText()
+        {
+            return CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
+        }
+
         public async Task Init()
         {
             try
@@ -27,7 +32,7 @@
                 }
 
                 // Need WhatNew?
-                if (await App.Current.Services.GetService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(WhatsNewPage)))
+                if (await App.Current.Services.GetService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(SharedSharp.Views.WhatsNewPage)))
                 {
                     return;
                 }

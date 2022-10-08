@@ -28,7 +28,7 @@
 
             Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
 
-            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
+            Routing.RegisterRoute(nameof(SharedSharp.Views.WhatsNewPage), typeof(SharedSharp.Views.WhatsNewPage));
         }
 
         private void RegisterDetailRoutes()

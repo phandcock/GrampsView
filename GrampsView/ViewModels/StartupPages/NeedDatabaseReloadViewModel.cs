@@ -1,9 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-
     using CommunityToolkit.Mvvm.Messaging;
 
+    using GrampsView.Common;
+
+    using SharedSharp.Common;
     using SharedSharp.Logging;
 
     using System.Threading.Tasks;
@@ -15,7 +16,7 @@
     /// </summary>
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
-        private IAppInit _AppInit;
+        private ISharedSharpAppInit _AppInit;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NeedDatabaseReloadViewModel"/> class.
@@ -26,7 +27,7 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
+        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             BaseTitle = "Database reload needed";

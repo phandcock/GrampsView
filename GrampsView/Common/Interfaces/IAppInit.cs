@@ -1,9 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using System.Threading.Tasks;
-
-    public interface IAppInit
+    public interface IAppInit : SharedSharp.Common.ISharedSharpAppInit
     {
-        Task Init();
     }
 }

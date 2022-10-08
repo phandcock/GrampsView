@@ -1,9 +1,10 @@
 ﻿namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-
     using CommunityToolkit.Mvvm.Messaging;
 
+    using GrampsView.Common;
+
+    using SharedSharp.Common;
     using SharedSharp.Logging;
 
     using System.Threading.Tasks;
@@ -15,7 +16,7 @@
     /// </summary>
     public class FirstRunViewModel : ViewModelBase
     {
-        private IAppInit _AppInit;
+        private ISharedSharpAppInit _AppInit;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstRunViewModel"/> class.
@@ -26,7 +27,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
+        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);

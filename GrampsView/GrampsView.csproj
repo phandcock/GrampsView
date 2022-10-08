@@ -18,18 +18,21 @@
 	<ItemGroup>
 		<Compile Remove="Behaviours\**" />
 		<Compile Remove="Models\Misc\**" />
+		<Compile Remove="Services\**" />
 		<Compile Remove="ViewModels\PeopleGraph\**" />
 		<Compile Remove="ViewModels\Popups\**" />
 		<Compile Remove="Views\PeopleGraph\**" />
 		<Compile Remove="Views\Popups\**" />
 		<EmbeddedResource Remove="Behaviours\**" />
 		<EmbeddedResource Remove="Models\Misc\**" />
+		<EmbeddedResource Remove="Services\**" />
 		<EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
 		<EmbeddedResource Remove="ViewModels\Popups\**" />
 		<EmbeddedResource Remove="Views\PeopleGraph\**" />
 		<EmbeddedResource Remove="Views\Popups\**" />
 		<None Remove="Behaviours\**" />
 		<None Remove="Models\Misc\**" />
+		<None Remove="Services\**" />
 		<None Remove="ViewModels\PeopleGraph\**" />
 		<None Remove="ViewModels\Popups\**" />
 		<None Remove="Views\PeopleGraph\**" />
@@ -54,6 +57,7 @@
 		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
 		<Compile Remove="Common\CustomClasses\XamarinEssentials.cs" />
 		<Compile Remove="Common\IAppInit.cs" />
+		<Compile Remove="Common\Interfaces\IAppInit.cs" />
 		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
 		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
 		<Compile Remove="Common\Interfaces\ISharedLogging.cs" />
@@ -98,9 +102,6 @@
 		<Compile Remove="Events\ProgressLoading.cs" />
 		<Compile Remove="Events\ProgressRingUpdate.cs" />
 		<Compile Remove="Events\StatusUpdated.cs" />
-		<Compile Remove="Services\Interfaces\IDatabaseReloadDisplayService.cs" />
-		<Compile Remove="Services\Interfaces\IFirstRunDisplayService.cs" />
-		<Compile Remove="Services\Interfaces\IWhatsNewDisplayService.cs" />
 		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
 		<Compile Remove="UserControls\General\CardGroupBackLink.xaml.cs" />
 		<Compile Remove="UserControls\General\CollectionMultiCardGrouped.xaml.cs" />
@@ -113,7 +114,9 @@
 		<Compile Remove="UserControls\Large\ListLineCard.xaml.cs" />
 		<Compile Remove="UserControls\UserControlBase.cs" />
 		<Compile Remove="ViewModels\MinorPages\MessageLogViewModel.cs" />
+		<Compile Remove="ViewModels\StartupPages\WhatsNewPageViewModel.cs" />
 		<Compile Remove="Views\MinorPages\MessageLogPage.xaml.cs" />
+		<Compile Remove="Views\StartupPages\WhatsNewPage.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -129,6 +132,7 @@
 		<EmbeddedResource Remove="UserControls\Large\InstructionCard.xaml" />
 		<EmbeddedResource Remove="UserControls\Large\ListLineCard.xaml" />
 		<EmbeddedResource Remove="Views\MinorPages\MessageLogPage.xaml" />
+		<EmbeddedResource Remove="Views\StartupPages\WhatsNewPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -172,7 +176,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.0.3" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.7.2" />
+		<PackageReference Include="SharedSharp" Version="0.7.6" />
 		<PackageReference Include="SharpZipLib" Version="1.4.0" />
 		<PackageReference Include="SkiaSharp" Version="2.88.3" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />

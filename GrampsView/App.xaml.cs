@@ -114,7 +114,7 @@
             }
 
             // Get Going
-            Services.GetService<IAppInit>().Init().ConfigureAwait(false);
+            Services.GetService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
         }
 
         private static IServiceProvider ConfigureServices()
@@ -122,7 +122,7 @@
             var services = new ServiceCollection();
 
             // Add Services
-            services.AddSingleton<IAppInit, AppInit>();
+            services.AddSingleton<ISharedSharpAppInit, AppInit>();
             services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
             services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
@@ -182,7 +182,7 @@
             services.AddTransient<TagDetailViewModel>();
             services.AddTransient<TagListViewModel>();
 
-            services.AddTransient<WhatsNewViewModel>();
+            services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
 
             services.AddTransient<NavigationPage>();
 
