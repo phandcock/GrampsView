@@ -16,7 +16,7 @@
 
     public class AppInit : ISharedSharpAppInit
     {
-        public string GetChangesText()
+        public async Task<string> GetChangesText()
         {
             return CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
         }
