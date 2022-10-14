@@ -1,3 +1,13 @@
+## [16.26.13](https://github.com/phandcock/GrampsView/compare/v16.26.12...v16.26.13) (2022-10-08)
+
+
+### Bug Fixes
+
+* update nugets and use new WantsNew service ([a35f11d](https://github.com/phandcock/GrampsView/commit/a35f11d10e66c16752465ff3b7fec360f20cf6b6))
+* update nugets and use new WantsNew service ([619023d](https://github.com/phandcock/GrampsView/commit/619023d1924db79f91a1e18b0aefba0c2d206bd5))
+
+
+
 ## [16.26.12](https://github.com/phandcock/GrampsView/compare/v16.26.11...v16.26.12) (2022-10-06)
 
 
@@ -23,16 +33,6 @@
 
 * tweak layout and colours ([520f2d7](https://github.com/phandcock/GrampsView/commit/520f2d72a410f41430956d72d85cc8cf6d7cfd4f))
 * update nugets ([16f7a58](https://github.com/phandcock/GrampsView/commit/16f7a58cbca9914d64df0ce68454488de0be5add))
-
-
-
-## [16.26.9](https://github.com/phandcock/GrampsView/compare/v16.26.8...v16.26.9) (2022-09-25)
-
-
-### Bug Fixes
-
-* update nugets ([81e7194](https://github.com/phandcock/GrampsView/commit/81e719494cdf82fbdda2418e405c9521adcfc25a))
-* update nugets ([8126726](https://github.com/phandcock/GrampsView/commit/8126726e40a6cd5f6a0883523fbcb3df1fd4fc62))
 
 
 
