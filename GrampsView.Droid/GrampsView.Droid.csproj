@@ -64,7 +64,7 @@
       <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="SharedSharp">
-      <Version>0.7.8</Version>
+      <Version>0.7.10</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.88.3</Version>

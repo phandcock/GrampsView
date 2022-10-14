@@ -38,6 +38,7 @@
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
 
