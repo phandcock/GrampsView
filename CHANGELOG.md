@@ -1,3 +1,13 @@
+## [16.26.14](https://github.com/phandcock/GrampsView/compare/v16.26.13...v16.26.14) (2022-10-15)
+
+
+### Bug Fixes
+
+* update nugets ([3aee7e9](https://github.com/phandcock/GrampsView/commit/3aee7e9f91601a47c6ae928ccd2a5344aeae715e))
+* update nugets and add editorconfig ([a2fe318](https://github.com/phandcock/GrampsView/commit/a2fe3182e2ada0eeadc1f26c5365a6fd7abf6566))
+
+
+
 ## [16.26.13](https://github.com/phandcock/GrampsView/compare/v16.26.12...v16.26.13) (2022-10-08)
 
 
@@ -23,16 +33,6 @@
 ### Bug Fixes
 
 * update nugets ([4bf967d](https://github.com/phandcock/GrampsView/commit/4bf967d6b8b3b5413d58ab0f8278ba0cac00a4b4))
-
-
-
-## [16.26.10](https://github.com/phandcock/GrampsView/compare/v16.26.9...v16.26.10) (2022-09-29)
-
-
-### Bug Fixes
-
-* tweak layout and colours ([520f2d7](https://github.com/phandcock/GrampsView/commit/520f2d72a410f41430956d72d85cc8cf6d7cfd4f))
-* update nugets ([16f7a58](https://github.com/phandcock/GrampsView/commit/16f7a58cbca9914d64df0ce68454488de0be5add))
 
 
 
