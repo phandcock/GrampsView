@@ -173,11 +173,11 @@
     </Color>
 
     <Color x:Key="SurfaceLight">
-        #fcfdf7
+        #ababab
     </Color>
 
     <Color x:Key="OnSurfaceLight">
-        #191c19
+        #ffffff
     </Color>
 
     <Color x:Key="OutlineLight">
