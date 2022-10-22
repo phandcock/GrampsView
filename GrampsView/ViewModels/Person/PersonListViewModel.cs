@@ -22,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PersonListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PersonListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Person List";

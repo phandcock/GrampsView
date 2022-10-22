@@ -28,7 +28,7 @@
         /// The event aggregator.
         /// </param>
 
-        public EventDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public EventDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                             : base(iocCommonLogging)
         {
         }

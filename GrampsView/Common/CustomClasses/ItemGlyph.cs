@@ -1,19 +1,20 @@
-﻿namespace GrampsView.Common.CustomClasses
+﻿using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Forms;
+
+namespace GrampsView.Common.CustomClasses
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
-
     /// <summary>
     /// Holds details on how to display the HLink or DataModel <note type="note"> Can be one of three
     /// states: <br/><br/> a) Symbol = Dsiplay only symbol for card <br/> b) Image = Display Symbol
@@ -182,7 +183,7 @@
             {
                 case CommonEnums.HLinkGlyphType.Image:
                     {
-                        ser = JsonSerializer.Serialize(this.ImageHLinkMediaModel);
+                        ser = JsonSerializer.Serialize(ImageHLinkMediaModel);
 
                         await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 
@@ -190,7 +191,7 @@
                     }
                 case CommonEnums.HLinkGlyphType.Media:
                     {
-                        ser = JsonSerializer.Serialize(this.MediaHLinkMediaModel);
+                        ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
                         await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
 

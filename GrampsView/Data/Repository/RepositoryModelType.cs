@@ -1,16 +1,18 @@
-﻿namespace GrampsView.Data.Repositories
+﻿using GrampsView.Data.Model;
+using GrampsView.Data.Repositories;
+using GrampsView.Exceptions;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GrampsView.Data.Repository
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Exceptions;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// </summary>
     /// <typeparam name="T1">
@@ -19,9 +21,9 @@
     /// <typeparam name="T2">
     /// HLink Base.
     /// </typeparam>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
+    /// <seealso cref="Common.ObservableObject"/>
     /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.Repositories.IRepositoryModelDictionary{T, U}"/>
+    /// <seealso cref="IRepositoryModelDictionary{T, U}"/>
     /// /// /// /// /// /// /// ///
     /// <seealso cref="System.ComponentViewModel.INotifyPropertyChanged"/>
 
@@ -41,13 +43,7 @@
         {
         }
 
-        public List<T1> GetList
-        {
-            get
-            {
-                return Values.ToList();
-            }
-        }
+        public List<T1> GetList => Values.ToList();
 
         /// <summary>
         /// Gets the <see cref="T1"/> with the specified key.
@@ -76,8 +72,7 @@
                 return Find(key);
             }
 
-            set
-            {
+            set =>
                 //if (string.IsNullOrEmpty(key))
                 //{
                 //}
@@ -87,7 +82,6 @@
                 //}
 
                 base[key] = value;
-            }
         }
 
         /// <summary>
@@ -137,14 +131,14 @@
             //{
             //}
 
-            var key = KeySelector(arg);
+            string key = KeySelector(arg);
 
-            if (base.ContainsKey(key))
+            if (ContainsKey(key))
             {
                 throw new DuplicateKeyException(key);
             }
 
-            base.Add(arg.HLinkKey.Value, arg);
+            Add(arg.HLinkKey.Value, arg);
         }
 
         /// <summary>
@@ -158,14 +152,7 @@
         /// </returns>
         public T1 Find(string key)
         {
-            if (ContainsKey(key) == true)
-            {
-                return base[key];
-            }
-            else
-            {
-                return new T1();
-            }
+            return ContainsKey(key) == true ? base[key] : new T1();
         }
 
         /// <summary>
@@ -178,12 +165,7 @@
         /// </returns>
         public T1 GetModelFromHLink(T2 argHLink)
         {
-            if (argHLink is null)
-            {
-                throw new ArgumentNullException(nameof(argHLink));
-            }
-
-            return GetModelFromHLink(argHLink);
+            return argHLink is null ? throw new ArgumentNullException(nameof(argHLink)) : GetModelFromHLink(argHLink);
         }
 
         /// <summary>
@@ -196,14 +178,9 @@
         /// </returns>
         public T1 GetModelFromHLink(string argHLink)
         {
-            T1 tempMO = this.Values.FirstOrDefault(x => x.HLinkKey.Value == argHLink);
+            T1 tempMO = Values.FirstOrDefault(x => x.HLinkKey.Value == argHLink);
 
-            if (tempMO == null)
-            {
-                return new T1();
-            }
-
-            return tempMO;
+            return tempMO == null ? new T1() : tempMO;
         }
 
         /// <summary>
@@ -211,9 +188,9 @@
         /// </summary>
         public T1 GetRandomItem()
         {
-            if (base.Count > 0)
+            if (Count > 0)
             {
-                return base.Values.ElementAt(localRandomNumberGenerator.Next(0, base.Count));
+                return Values.ElementAt(localRandomNumberGenerator.Next(0, Count));
             }
             else
             {

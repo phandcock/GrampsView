@@ -1,33 +1,37 @@
-﻿namespace GrampsView
+﻿using GrampsView.Common;
+using GrampsView.Data;
+using GrampsView.Data.External.StoreSerial;
+using GrampsView.Data.ExternalStorage;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.ViewModels;
+using GrampsView.ViewModels.MinorPages;
+using GrampsView.ViewModels.StartupPages;
+
+using Microsoft.AppCenter;
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Common;
+using SharedSharp.Common.Interfaces;
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Services;
+using SharedSharp.Services.Interfaces;
+
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Threading.Tasks;
+
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+namespace GrampsView
 {
-    using GrampsView.Common;
-    using GrampsView.Data;
-    using GrampsView.Data.External.StoreSerial;
-    using GrampsView.Data.ExternalStorage;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.ViewModels;
-
-    using Microsoft.AppCenter;
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Common;
-    using SharedSharp.Errors;
-    using SharedSharp.Services;
-
-    using System;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.Threading.Tasks;
-
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
-
     public sealed partial class App : Application
     {
-        private static HLinkFamilyModel FamilyStartModel = null;
+        private static readonly HLinkFamilyModel FamilyStartModel = null;
 
-        private static HLinkPersonModel PersonStartPage = null;
+        private static readonly HLinkPersonModel PersonStartPage = null;
 
         public App()
         {
@@ -42,7 +46,7 @@
         /// <summary>
         /// Gets the current <see cref="App"/> instance in use
         /// </summary>
-        public new static App Current => (App)Application.Current;
+        public static new App Current => (App)Application.Current;
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
@@ -78,7 +82,7 @@
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {
                 // Determine the correct, supported .NET culture
-                DependencyService.Get<ILocalize>();
+                _ = DependencyService.Get<ILocalize>();
 
                 CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
 
@@ -94,9 +98,9 @@
 
             VersionTracking.Track();
 
-            Services.GetService<IErrorNotifications>();
+            _ = Services.GetService<IErrorNotifications>();
 
-            Services.GetService<IDataRepositoryManager>();
+            _ = Services.GetService<IDataRepositoryManager>();
 
             // App Setup
             Application.Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
@@ -114,82 +118,82 @@
             }
 
             // Get Going
-            Services.GetService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
+            _ = Services.GetService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
         }
 
         private static IServiceProvider ConfigureServices()
         {
-            var services = new ServiceCollection();
+            ServiceCollection services = new ServiceCollection();
 
             // Add Services
-            services.AddSingleton<ISharedSharpAppInit, AppInit>();
-            services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
-            services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
-            services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
-            services.AddSingleton<IStoreFile, StoreFile>();
-            services.AddSingleton<IStorePostLoad, StorePostLoad>();
-            services.AddSingleton<IStoreXML, StoreXML>();
+            _ = services.AddSingleton<ISharedSharpAppInit, AppInit>();
+            _ = services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
+            _ = services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
+            _ = services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
+            _ = services.AddSingleton<IStoreFile, StoreFile>();
+            _ = services.AddSingleton<IStorePostLoad, StorePostLoad>();
+            _ = services.AddSingleton<IStoreXML, StoreXML>();
 
             // Viewmodels
-            services.AddTransient<AboutViewModel>();
-            services.AddTransient<AddressDetailViewModel>();
-            services.AddTransient<AttributeDetailViewModel>();
+            _ = services.AddTransient<AboutViewModel>();
+            _ = services.AddTransient<AddressDetailViewModel>();
+            _ = services.AddTransient<AttributeDetailViewModel>();
 
-            services.AddTransient<BookMarkListViewModel>();
+            _ = services.AddTransient<BookMarkListViewModel>();
 
-            services.AddTransient<ChildRefDetailViewModel>();
-            services.AddTransient<CitationDetailViewModel>();
-            services.AddTransient<CitationListViewModel>();
+            _ = services.AddTransient<ChildRefDetailViewModel>();
+            _ = services.AddTransient<CitationDetailViewModel>();
+            _ = services.AddTransient<CitationListViewModel>();
 
-            services.AddTransient<DateRangeDetailViewModel>();
-            services.AddTransient<DateSpanDetailViewModel>();
-            services.AddTransient<DateStrDetailViewModel>();
-            services.AddTransient<DateValDetailViewModel>();
+            _ = services.AddTransient<DateRangeDetailViewModel>();
+            _ = services.AddTransient<DateSpanDetailViewModel>();
+            _ = services.AddTransient<DateStrDetailViewModel>();
+            _ = services.AddTransient<DateValDetailViewModel>();
 
-            services.AddTransient<EventDetailViewModel>();
-            services.AddTransient<EventListViewModel>();
+            _ = services.AddTransient<EventDetailViewModel>();
+            _ = services.AddTransient<EventListViewModel>();
 
-            services.AddTransient<FamilyDetailViewModel>();
-            services.AddTransient<FamilyListViewModel>();
-            services.AddTransient<FileInputHandlerViewModel>();
-            services.AddTransient<FirstRunViewModel>();
+            _ = services.AddTransient<FamilyDetailViewModel>();
+            _ = services.AddTransient<FamilyListViewModel>();
+            _ = services.AddTransient<FileInputHandlerViewModel>();
+            _ = services.AddTransient<FirstRunViewModel>();
 
-            services.AddTransient<HubViewModel>();
+            _ = services.AddTransient<HubViewModel>();
 
-            services.AddTransient<MediaDetailViewModel>();
-            services.AddTransient<MediaListViewModel>();
+            _ = services.AddTransient<MediaDetailViewModel>();
+            _ = services.AddTransient<MediaListViewModel>();
 
-            services.AddTransient<NeedDatabaseReloadViewModel>();
-            services.AddTransient<NoteDetailViewModel>();
-            services.AddTransient<NoteListViewModel>();
+            _ = services.AddTransient<NeedDatabaseReloadViewModel>();
+            _ = services.AddTransient<NoteDetailViewModel>();
+            _ = services.AddTransient<NoteListViewModel>();
 
-            services.AddTransient<PersonBirthdayViewModel>();
-            services.AddTransient<PersonDetailViewModel>();
-            services.AddTransient<PersonListViewModel>();
-            services.AddTransient<PersonNameDetailViewModel>();
-            services.AddTransient<PlaceDetailViewModel>();
-            services.AddTransient<PlaceListViewModel>();
+            _ = services.AddTransient<PersonBirthdayViewModel>();
+            _ = services.AddTransient<PersonDetailViewModel>();
+            _ = services.AddTransient<PersonListViewModel>();
+            _ = services.AddTransient<PersonNameDetailViewModel>();
+            _ = services.AddTransient<PlaceDetailViewModel>();
+            _ = services.AddTransient<PlaceListViewModel>();
 
-            services.AddTransient<RepositoryDetailViewModel>();
-            services.AddTransient<RepositoryRefDetailViewModel>();
-            services.AddTransient<RepositoryListViewModel>();
+            _ = services.AddTransient<RepositoryDetailViewModel>();
+            _ = services.AddTransient<RepositoryRefDetailViewModel>();
+            _ = services.AddTransient<RepositoryListViewModel>();
 
-            services.AddTransient<SearchPageViewModel>();
-            services.AddTransient<SettingsViewModel>();
-            services.AddTransient<SourceDetailViewModel>();
-            services.AddTransient<SourceListViewModel>();
+            _ = services.AddTransient<SearchPageViewModel>();
+            _ = services.AddTransient<SettingsViewModel>();
+            _ = services.AddTransient<SourceDetailViewModel>();
+            _ = services.AddTransient<SourceListViewModel>();
 
-            services.AddTransient<TagDetailViewModel>();
-            services.AddTransient<TagListViewModel>();
+            _ = services.AddTransient<TagDetailViewModel>();
+            _ = services.AddTransient<TagListViewModel>();
 
-            services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
+            _ = services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
 
-            services.AddTransient<NavigationPage>();
+            _ = services.AddTransient<NavigationPage>();
 
             // Essentials Interfaces
-            services.AddSingleton<Xamarin.Essentials.Interfaces.IDeviceInfo, Xamarin.Essentials.Implementation.DeviceInfoImplementation>();
-            services.AddSingleton<Xamarin.Essentials.Interfaces.IFileSystem, Xamarin.Essentials.Implementation.FileSystemImplementation>();
-            services.AddSingleton<Xamarin.Essentials.Interfaces.IPreferences, Xamarin.Essentials.Implementation.PreferencesImplementation>();
+            _ = services.AddSingleton<Xamarin.Essentials.Interfaces.IDeviceInfo, Xamarin.Essentials.Implementation.DeviceInfoImplementation>();
+            _ = services.AddSingleton<Xamarin.Essentials.Interfaces.IFileSystem, Xamarin.Essentials.Implementation.FileSystemImplementation>();
+            _ = services.AddSingleton<Xamarin.Essentials.Interfaces.IPreferences, Xamarin.Essentials.Implementation.PreferencesImplementation>();
 
             ShardSharpCore.InitServicesAdd(ref services);
 

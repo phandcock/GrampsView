@@ -3,6 +3,7 @@
     using global::NUnit.Framework;
 
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Date;
 
     [TestFixture()]
     public partial class DOMValTests

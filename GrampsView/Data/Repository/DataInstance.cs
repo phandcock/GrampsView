@@ -5,7 +5,6 @@ namespace GrampsView.Data.Repository
 {
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;

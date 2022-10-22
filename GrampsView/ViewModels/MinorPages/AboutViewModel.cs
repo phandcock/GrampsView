@@ -17,7 +17,7 @@
 
     public class AboutViewModel : ViewModelBase
     {
-        public AboutViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public AboutViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                     : base(iocCommonLogging)
         {
             BaseTitle = "About";

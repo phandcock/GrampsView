@@ -31,7 +31,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public ViewModelBase(ISharedLogging iocCommonLogging /*IMessenger iocEventAggregator*/)
+        public ViewModelBase(SharedSharp.Logging.Interfaces.ILog iocCommonLogging /*IMessenger iocEventAggregator*/)
         {
             BaseCL = iocCommonLogging;
             //BaseEventAggregator = iocEventAggregator;

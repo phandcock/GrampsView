@@ -1,24 +1,25 @@
-﻿namespace GrampsView.Data
+﻿using FFImageLoading.Cache;
+
+using GrampsView.Common;
+using GrampsView.Data.Repository;
+
+using ICSharpCode.SharpZipLib.GZip;
+using ICSharpCode.SharpZipLib.Tar;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data
 {
-    using FFImageLoading.Cache;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Repository;
-
-    using ICSharpCode.SharpZipLib.GZip;
-    using ICSharpCode.SharpZipLib.Tar;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>
@@ -46,7 +47,7 @@
                     }
 
                     // Create standard directories
-                    DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(Constants.DirectoryImageCache);
+                    _ = DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(Constants.DirectoryImageCache);
 
                     await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }
@@ -88,7 +89,7 @@
 
             try
             {
-                ExtractGZip(inputFile, "data.xml");
+                _ = ExtractGZip(inputFile, "data.xml");
 
                 App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
                 return true;
@@ -128,11 +129,9 @@
             // open the gzip and extract the tar file
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
-                using (TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII))
-                {
-                    // TODO DO NOT AWAIT as causes thread blocking await
-                    await ExtractTar(tarIn).ConfigureAwait(false);
-                }
+                using TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII);
+                // TODO DO NOT AWAIT as causes thread blocking await
+                await ExtractTar(tarIn).ConfigureAwait(false);
             }
 
             App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("UnTaring of files complete");

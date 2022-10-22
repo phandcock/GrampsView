@@ -25,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// Injected Navigation Service.
         /// </param>
-        public FamilyListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public FamilyListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Family List";

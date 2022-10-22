@@ -5,6 +5,7 @@ namespace GrampsView.Data.Model
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
+    using GrampsView.Data.External.StoreFile;
 
     using System;
     using System.Collections;

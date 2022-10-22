@@ -21,7 +21,7 @@
         /// </param>
         /// <param name="iocEventAggregator">
         /// </param>
-        public SourceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SourceDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconSource;

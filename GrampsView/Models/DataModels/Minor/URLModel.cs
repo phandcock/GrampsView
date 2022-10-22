@@ -1,17 +1,19 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
+
+namespace GrampsView.Models.DataModels.Minor
 {
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials;
-
     /// <summary>
     /// GRAMPS URL element class. TODO Needs XML 1.71 check
     /// <list type="table">

@@ -22,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public NoteListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public NoteListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Note List";

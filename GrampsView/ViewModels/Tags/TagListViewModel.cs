@@ -25,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// Prism Navigation Service.
         /// </param>
-        public TagListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public TagListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Tag List";

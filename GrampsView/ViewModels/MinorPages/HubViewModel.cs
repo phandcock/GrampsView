@@ -1,19 +1,18 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Events;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.MinorPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Events;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// View model for the Hub Page.
     /// </summary>
@@ -30,7 +29,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public HubViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
+        public HubViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
        : base(iocCommonLogging)
         {
             _iocErrorNotifications = iocErrorNotifications;
@@ -43,108 +42,36 @@
                 HandledDataLoadedEvent();
             });
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, async (r, m) =>
+            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
              {
                  _iocErrorNotifications.DataLogShow();
              });
         }
 
-        public CardListLineCollection HeaderCard
-        {
-            get
-            {
-                return DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
-            }
-        }
+        public CardListLineCollection HeaderCard => DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
 
         // TODO cleanup naming. See personcitationchanges
-        public CardGroupHLink<HLinkCitationModel> LatestCitationChanges
-        {
-            get
-            {
-                return DV.CitationDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkCitationModel> LatestCitationChanges => DV.CitationDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkEventModel> LatestEventChanges
-        {
-            get
-            {
-                return DV.EventDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkEventModel> LatestEventChanges => DV.EventDV.GetLatestChanges;
 
-        public HLinkFamilyModelCollection LatestFamilyChanges
-        {
-            get
-            {
-                return DV.FamilyDV.GetLatestChanges;
-            }
-        }
+        public HLinkFamilyModelCollection LatestFamilyChanges => DV.FamilyDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkMediaModel> LatestMediaChanges
-        {
-            get
-            {
-                return DV.MediaDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkMediaModel> LatestMediaChanges => DV.MediaDV.GetLatestChanges;
 
-        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges
-        {
-            get
-            {
-                return DV.NoteDV.GetLatestChanges;
-            }
-        }
+        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges => DV.NoteDV.GetLatestChanges;
 
-        public HLinkPersonModelCollection LatestPersonChanges
-        {
-            get
-            {
-                return DV.PersonDV.GetLatestChanges;
-            }
-        }
+        public HLinkPersonModelCollection LatestPersonChanges => DV.PersonDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkPlaceModel> LatestPlaceChanges
-        {
-            get
-            {
-                return DV.PlaceDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkPlaceModel> LatestPlaceChanges => DV.PlaceDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkRepositoryModel> LatestRepositoryChanges
-        {
-            get
-            {
-                return DV.RepositoryDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkRepositoryModel> LatestRepositoryChanges => DV.RepositoryDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkSourceModel> LatestSourceChanges
-        {
-            get
-            {
-                return DV.SourceDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkSourceModel> LatestSourceChanges => DV.SourceDV.GetLatestChanges;
 
-        public CardGroupHLink<HLinkTagModel> LatestTagChanges
-        {
-            get
-            {
-                return DV.TagDV.GetLatestChanges;
-            }
-        }
+        public CardGroupHLink<HLinkTagModel> LatestTagChanges => DV.TagDV.GetLatestChanges;
 
-        public IHLinkMediaModel MediaCard
-        {
-            get
-            {
-                return DV.MediaDV.GetRandomFromCollection(DV.MediaDV.GetAllNotClippedAsHLink());
-            }
-        }
+        public IHLinkMediaModel MediaCard => DV.MediaDV.GetRandomFromCollection(DV.MediaDV.GetAllNotClippedAsHLink());
 
         public CardGroupHLink<HLinkNoteModel> ToDoList
         {
@@ -171,7 +98,7 @@
         {
             OnPropertyChanged(string.Empty);
 
-            _iocErrorNotifications.DataLogHide();
+            _ = _iocErrorNotifications.DataLogHide();
         }
     }
 }

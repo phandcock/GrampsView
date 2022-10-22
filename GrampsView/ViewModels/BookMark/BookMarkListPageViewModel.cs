@@ -10,7 +10,7 @@
 
     public class BookMarkListViewModel : ViewModelBase
     {
-        public BookMarkListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public BookMarkListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "BookMark List";

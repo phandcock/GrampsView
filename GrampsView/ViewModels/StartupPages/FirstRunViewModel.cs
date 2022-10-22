@@ -1,22 +1,21 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+
+using SharedSharp.Common.Interfaces;
+
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.ViewModels.StartupPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-
-    using SharedSharp.Common;
-    using SharedSharp.Logging;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// <c> First Run View Model </c>
     /// </summary>
     public class FirstRunViewModel : ViewModelBase
     {
-        private ISharedSharpAppInit _AppInit;
+        private readonly ISharedSharpAppInit _AppInit;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstRunViewModel"/> class.
@@ -27,7 +26,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
+        public FirstRunViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             LoadDataCommand = new AsyncCommand(FirstRunLoadAFileButton);
@@ -55,7 +54,7 @@
         /// </param>
         public async Task FirstRunLoadAFileButton()
         {
-            await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
+            _ = await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
             await _AppInit.Init();
         }

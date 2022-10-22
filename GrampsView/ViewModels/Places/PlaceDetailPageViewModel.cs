@@ -22,7 +22,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlaceDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PlaceDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
         }

@@ -1,71 +1,47 @@
-﻿namespace GrampsView.Common
+﻿using GrampsView.Data;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Common;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Diagnostics.Contracts;
+
+using Xamarin.Essentials.Interfaces;
+
+namespace GrampsView.Common
 {
-    using GrampsView.Data;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Common;
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Diagnostics.Contracts;
-
-    using Xamarin.Essentials.Interfaces;
-
     public class CommonLocalSettings : SharedSharpSettings
     {
         public static bool BirthdayShowOnlyLivingFlag
         {
-            get
-            {
-                return App.Current.Services.GetService<IPreferences>().Get("BirthdayShowOnlyLivingFlag", false);
-            }
+            get => App.Current.Services.GetService<IPreferences>().Get("BirthdayShowOnlyLivingFlag", false);
 
-            set
-            {
-                App.Current.Services.GetService<IPreferences>().Set("BirthdayShowOnlyLivingFlag", value);
-            }
+            set => App.Current.Services.GetService<IPreferences>().Set("BirthdayShowOnlyLivingFlag", value);
         }
 
         public static string NoteEmailAddress
         {
-            get
-            {
-                return App.Current.Services.GetService<IPreferences>().Get("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
-            }
+            get => App.Current.Services.GetService<IPreferences>().Get("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
 
-            set
-            {
-                App.Current.Services.GetService<IPreferences>().Set("NoteEmailAddress", value);
-            }
+            set => App.Current.Services.GetService<IPreferences>().Set("NoteEmailAddress", value);
         }
 
         public static bool SortHLinkCollections
         {
-            get
-            {
-                return App.Current.Services.GetService<IPreferences>().Get("SortHLinkCollections", false);
-            }
+            get => App.Current.Services.GetService<IPreferences>().Get("SortHLinkCollections", false);
 
-            set
-            {
-                App.Current.Services.GetService<IPreferences>().Set("SortHLinkCollections", value);
-            }
+            set => App.Current.Services.GetService<IPreferences>().Set("SortHLinkCollections", value);
         }
 
         public static bool UseFirstImageFlag
         {
-            get
-            {
-                return App.Current.Services.GetService<IPreferences>().Get("UseFirstImageFlag", false);
-            }
+            get => App.Current.Services.GetService<IPreferences>().Get("UseFirstImageFlag", false);
 
-            set
-            {
-                App.Current.Services.GetService<IPreferences>().Set("UseFirstImageFlag", value);
-            }
+            set => App.Current.Services.GetService<IPreferences>().Set("UseFirstImageFlag", value);
         }
 
         /// <summary>
@@ -109,12 +85,7 @@
                     settingsStoredDateTime = DateTime.Parse(oldDateTime, System.Globalization.CultureInfo.CurrentCulture);
 
                     int t = fileDateTime.CompareTo(settingsStoredDateTime);
-                    if (t > 0)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    return t > 0;
                 }
             }
             catch (Exception ex)

@@ -1,24 +1,23 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.External.StoreFile;
+using GrampsView.Data.Repository;
+using GrampsView.Events;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
+
+namespace GrampsView.ViewModels.StartupPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data;
-    using GrampsView.Data.Repository;
-    using GrampsView.Events;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System;
-    using System.Reflection;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.CommunityToolkit.UI.Views;
-
     /// <summary>
     /// View model for File Input Page.
     /// </summary>
@@ -33,7 +32,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public FileInputHandlerViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public FileInputHandlerViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "File Chooser";
@@ -74,8 +73,8 @@
             CommonRoutines.ListEmbeddedResources();
 
             // Load Resource
-            var assemblyExec = Assembly.GetExecutingAssembly();
-            var resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
+            Assembly assemblyExec = Assembly.GetExecutingAssembly();
+            string resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
             DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
 
@@ -128,7 +127,7 @@
 
             await Task.Delay(500);
 
-            App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+            _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
         }
     }
 }

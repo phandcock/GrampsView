@@ -1,18 +1,19 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Model;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Text.Json.Serialization;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels.Date
 {
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Text.Json.Serialization;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Create Val version of DateObjectModel.
     /// </summary>
@@ -79,26 +80,17 @@
         {
         }
 
-        public override string DefaultTextShort
-        {
-            get
-            {
-                return ShortDate;
-            }
-        }
+        public override string DefaultTextShort => ShortDate;
 
         public string GCformat
         {
-            get
-            {
-                return _GCformat;
-            }
+            get => _GCformat;
 
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GCformat, value);
+                    _ = SetProperty(ref _GCformat, value);
                 }
             }
         }
@@ -126,86 +118,55 @@
                     DateTime today = DateTime.Today;
                     // return (today - NotionalDate).Days / 365;
 
-                    return (today.Year - NotionalDate.Year - 1) +
-                            (((today.Month > NotionalDate.Month) ||
-                            ((today.Month == NotionalDate.Month) && (today.Day >= NotionalDate.Day))) ? 1 : 0);
+                    return today.Year - NotionalDate.Year - 1 +
+                            (today.Month > NotionalDate.Month ||
+                            today.Month == NotionalDate.Month && today.Day >= NotionalDate.Day ? 1 : 0);
                 }
 
                 return null;
             }
         }
 
-        public override string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return NotionalDate.Year.ToString(System.Globalization.CultureInfo.CurrentCulture);
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
+        public override string GetYear => Valid ? NotionalDate.Year.ToString(System.Globalization.CultureInfo.CurrentCulture) : "Unknown";
 
         public string GNewYear
         {
-            get
-            {
-                return _GNewYear;
-            }
+            get => _GNewYear;
 
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GNewYear, value);
+                    _ = SetProperty(ref _GNewYear, value);
                 }
             }
         }
 
         public DateQuality GQuality
         {
-            get
-            {
-                return _GQuality;
-            }
+            get => _GQuality;
 
-            set
-            {
-                SetProperty(ref _GQuality, value);
-            }
+            set => SetProperty(ref _GQuality, value);
         }
 
         public string GVal
         {
-            get
-            {
-                return _GVal;
-            }
+            get => _GVal;
 
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GVal, value);
+                    _ = SetProperty(ref _GVal, value);
                 }
             }
         }
 
         public DateValType GValType
         {
-            get
-            {
-                return _GValType;
-            }
+            get => _GValType;
 
-            set
-            {
-                SetProperty(ref _GValType, value);
-            }
+            set => SetProperty(ref _GValType, value);
         }
 
         /// <summary>
@@ -320,21 +281,21 @@
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
-            if (this.Valid)
+            if (Valid)
             {
                 DateModelCard = new CardListLineCollection("Date Detail")
                             {
-                                new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Val:", this.GVal),
-                                new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Type:", this.GValType.ToString(),this.GValType != DateValType.unknown),
-                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
-                                new CardListLine("Dual Dated:", this.GDualdated,true),
-                                new CardListLine("New Year:", this.GNewYear),
+                                new CardListLine("Date:", LongDate),
+                                new CardListLine("Val:", GVal),
+                                new CardListLine("C Format:", GCformat),
+                                new CardListLine("Type:", GValType.ToString(),GValType != DateValType.unknown),
+                                new CardListLine("Quality:", GQuality.ToString(),GQuality != DateQuality.unknown),
+                                new CardListLine("Dual Dated:", GDualdated,true),
+                                new CardListLine("New Year:", GNewYear),
                             };
             }
 
-            if (!(string.IsNullOrEmpty(argTitle)))
+            if (!string.IsNullOrEmpty(argTitle))
             {
                 DateModelCard.Title = argTitle;
             }
@@ -344,7 +305,7 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            HLinkDateModelVal t = this.HLink;
+            HLinkDateModelVal t = HLink;
             t.Title = argTitle;
 
             return t;
@@ -367,14 +328,14 @@
                 return false;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
             DateObjectModel tempObj = obj as DateObjectModel;
 
-            return (this.NotionalDate == tempObj.NotionalDate);
+            return NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

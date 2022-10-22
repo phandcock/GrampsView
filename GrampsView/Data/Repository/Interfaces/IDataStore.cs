@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Data.Repository
 {
-    using SharedSharp.Errors;
+    using SharedSharp.Errors.Interfaces;
 
     public interface IDataStore
     {

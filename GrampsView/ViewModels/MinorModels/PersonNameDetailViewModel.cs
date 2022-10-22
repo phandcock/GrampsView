@@ -14,7 +14,7 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public PersonNameDetailViewModel(ISharedLogging iocCommonLogging)
+        public PersonNameDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconPersonName;

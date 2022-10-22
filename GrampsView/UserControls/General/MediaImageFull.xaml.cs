@@ -1,16 +1,17 @@
-﻿namespace GrampsView.UserControls
+﻿using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Diagnostics.Contracts;
+
+using Xamarin.Forms;
+
+namespace GrampsView.UserControls
 {
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Diagnostics.Contracts;
-
-    using Xamarin.Forms;
-
     public partial class MediaImageFull : Frame
     {
         private HLinkMediaModel CurrentHLinkMediaModel = new HLinkMediaModel();
@@ -43,7 +44,7 @@
         {
             Contract.Assert(sender != null);
 
-            MediaImageFull mifModel = (sender as MediaImageFull);
+            MediaImageFull mifModel = sender as MediaImageFull;
 
             // Hide if not valid
             if ((!(mifModel.BindingContext is HLinkMediaModel argHLinkMediaModel)) || (!argHLinkMediaModel.Valid))
@@ -59,7 +60,7 @@
 
             IMediaModel t = argHLinkMediaModel.DeRef;
 
-            if ((t.IsMediaStorageFileValid) && (t.IsImage))
+            if (t.IsMediaStorageFileValid && t.IsImage)
             {
                 try
                 {

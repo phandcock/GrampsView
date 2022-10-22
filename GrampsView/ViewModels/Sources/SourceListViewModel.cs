@@ -23,7 +23,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public SourceListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SourceListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Source List";

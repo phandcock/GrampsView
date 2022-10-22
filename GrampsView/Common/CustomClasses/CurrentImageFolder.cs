@@ -1,13 +1,13 @@
-﻿namespace GrampsView.Common.CustomClasses
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System.IO;
+
+using Xamarin.Essentials;
+
+namespace GrampsView.Common.CustomClasses
 {
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System.IO;
-
-    using Xamarin.Essentials;
-
     public class CurrentImageFolder
     {
         public CurrentImageFolder()
@@ -22,7 +22,7 @@
 
                 if (!Value.Exists)
                 {
-                    t.CreateSubdirectory(Constants.DirectoryImageCache);
+                    _ = t.CreateSubdirectory(Constants.DirectoryImageCache);
                 }
             }
             catch (System.Exception ex)
@@ -32,21 +32,9 @@
             }
         }
 
-        public string Path
-        {
-            get
-            {
-                return Value.FullName;
-            }
-        }
+        public string Path => Value.FullName;
 
-        public bool Valid
-        {
-            get
-            {
-                return (!(Value == null) && (Value.Exists));
-            }
-        }
+        public bool Valid => !(Value == null) && Value.Exists;
 
         public DirectoryInfo Value
         {

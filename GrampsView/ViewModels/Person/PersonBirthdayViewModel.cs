@@ -13,7 +13,7 @@
     /// </summary>
     public class PersonBirthdayViewModel : ViewModelBase
     {
-        public PersonBirthdayViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PersonBirthdayViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Person Birthday List";

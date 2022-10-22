@@ -1,22 +1,23 @@
-﻿namespace GrampsView.Data
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using ICSharpCode.SharpZipLib.Core;
+using ICSharpCode.SharpZipLib.Zip;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.IO;
+using System.IO.Compression;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using ICSharpCode.SharpZipLib.Core;
-    using ICSharpCode.SharpZipLib.Zip;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.IO;
-    using System.IO.Compression;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// </summary>
     /// <seealso cref="Common.ObservableObject"/>

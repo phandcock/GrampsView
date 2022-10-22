@@ -1,38 +1,37 @@
-﻿namespace GrampsView.Test.e2e.Utility
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data;
+using GrampsView.Data.External.StoreSerial;
+using GrampsView.Data.ExternalStorage;
+using GrampsView.Data.Repository;
+using GrampsView.Events;
+
+using Moq;
+
+using SharedSharp.Errors.Interfaces;
+
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+
+using Xamarin.Forms;
+
+namespace GrampsView.Test.e2e.Utility
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data;
-    using GrampsView.Data.External.StoreSerial;
-    using GrampsView.Data.ExternalStorage;
-    using GrampsView.Data.Repository;
-    using GrampsView.Events;
-
-    using Moq;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System.Diagnostics;
-    using System.IO;
-    using System.Reflection;
-
-    using Xamarin.Forms;
-
     public static class GeneralData
     {
         public static IFileInfoEx GrampsFile = new FileInfoEx();
-        public static ISharedLogging iocCommonLogging = new SharedLogging();
+        public static SharedSharp.Logging.Interfaces.ILog iocCommonLogging = new SharedSharp.Logging.Log();
         public static IErrorNotifications? iocCommonNotifications;
         public static IStoreXML? iocExternalStorage;
         public static IStorePostLoad? iocGrampsStorePostLoad;
         public static IGrampsStoreSerial? iocGrampsStoreSerial;
         public static IPlatformSpecific? iocPlatformSpecific;
         public static IStoreFile? iocStoreFile;
-        public static Mock<IMessenger> mocEventAggregator = new Mock<IMessenger>();
-        public static Mock<IPlatformSpecific> mocPlatformSpecific = new Mock<IPlatformSpecific>();
+        public static Mock<IMessenger> mocEventAggregator = new();
+        public static Mock<IPlatformSpecific> mocPlatformSpecific = new();
         public static DataRepositoryManager? newManager;
 
         public static void DataStoreSetup()
@@ -56,14 +55,14 @@
             /*
              * Mock Common Logging
              */
-            ISharedLogging iocCommonLogging = new SharedLogging();
+            SharedSharp.Logging.Interfaces.ILog iocCommonLogging = new SharedSharp.Logging.Log();
 
             /*
              * Mock Common Notifications
              */
-            Mock<IErrorNotifications> mockCommonNotifications = new Mock<IErrorNotifications>();
+            Mock<IErrorNotifications> mockCommonNotifications = new();
 
-            mockCommonNotifications
+            _ = mockCommonNotifications
                 .Setup(x => x.DataLogEntryAdd(It.IsAny<string>()));
 
             iocCommonNotifications = mockCommonNotifications.Object;
@@ -71,15 +70,15 @@
             /*
              * Mock Image Loading
              */
-            Mock<IFFImageLoading> mocFFImageLoading = new Mock<IFFImageLoading>();
+            Mock<IFFImageLoading> mocFFImageLoading = new();
             IFFImageLoading iocFFImageLoading = mocFFImageLoading.Object;
 
             /*
              * Mock Xamarin Essentials
              */
-            Mock<Xamarin.Essentials.Interfaces.IFileSystem> mocXamarinEssentials = new Mock<Xamarin.Essentials.Interfaces.IFileSystem>();
+            Mock<Xamarin.Essentials.Interfaces.IFileSystem> mocXamarinEssentials = new();
 
-            mocXamarinEssentials
+            _ = mocXamarinEssentials
                 .Setup(x => x.CacheDirectory)
                 .Returns(Path.GetTempPath());
 
@@ -88,7 +87,7 @@
             /*
              * Mock Event Aggregator
              */
-            Mock<DataLoadXMLEvent> mockedEventDataLoadXMLEvent = new Mock<DataLoadXMLEvent>();
+            Mock<DataLoadXMLEvent> mockedEventDataLoadXMLEvent = new();
 
             // TODO fix this
 

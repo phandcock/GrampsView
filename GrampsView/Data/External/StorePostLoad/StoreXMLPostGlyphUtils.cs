@@ -1,20 +1,21 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Assets.Fonts;
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Assets.Fonts;
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         public static ErrorInfo UtilGetPostGlyphErrorInfo(string argErrorText, MediaModel argMediaModel)
@@ -44,7 +45,7 @@
             // Check if new pdf image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-            if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
+            if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
             {
                 // check if we can get an image for the first page of the PDF
                 pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
@@ -109,7 +110,7 @@
                 // Check if new zip image file already exists
                 IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-                if ((!fileExists.Valid) && (argMediaModel.IsMediaStorageFileValid))
+                if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
                 {
                     // check if we can get an image for the first page of the PDF
 

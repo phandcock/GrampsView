@@ -1,19 +1,20 @@
-﻿namespace GrampsView.Data
+﻿using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+
+using Xamarin.Essentials;
+
+namespace GrampsView.Data.External.StoreFile
 {
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.Essentials;
-
     /// <summary>
     /// Various common routines.
     /// </summary>
@@ -95,7 +96,7 @@
                                 }
                             );
 
-                var options = new PickOptions
+                PickOptions options = new PickOptions
                 {
                     PickerTitle = "Please select a Gramps input file",
                     FileTypes = customFileType,

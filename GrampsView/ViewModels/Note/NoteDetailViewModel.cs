@@ -5,6 +5,7 @@
     using GrampsView.Common;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels.Minor;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;
@@ -22,7 +23,7 @@
         /// <param name="iocEventAggregator">
         /// Common Event Aggregator.
         /// </param>
-        public NoteDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public NoteDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconNotes;

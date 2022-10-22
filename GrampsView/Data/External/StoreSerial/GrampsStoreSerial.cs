@@ -1,22 +1,22 @@
-﻿namespace GrampsView.Data.External.StoreSerial
+﻿using GrampsView.Common;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Runtime.Serialization;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.External.StoreSerial
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System;
-    using System.IO;
-    using System.IO.IsolatedStorage;
-    using System.Runtime.Serialization;
-    using System.Text.Json;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -25,7 +25,7 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ISharedLogging localGVLogging;
+        private readonly SharedSharp.Logging.Interfaces.ILog localGVLogging;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GrampsStoreSerial"/> class.
@@ -36,7 +36,7 @@
         /// <param name="iocGVLogging">
         /// The ioc gv logging.
         /// </param>
-        public GrampsStoreSerial(ISharedLogging iocGVLogging)
+        public GrampsStoreSerial(SharedSharp.Logging.Interfaces.ILog iocGVLogging)
         {
             // save injected references for later
             localGVLogging = iocGVLogging;
@@ -220,19 +220,17 @@
 
                 using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    using (IsolatedStorageFileStream stream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Create, isoStore))
-                    {
-                        //StreamWriter sw = new StreamWriter(stream);
+                    using IsolatedStorageFileStream stream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Create, isoStore);
+                    //StreamWriter sw = new StreamWriter(stream);
 
-                        await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
-                    }
+                    await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
                 }
 
                 byte[] buffer = new byte[1024];
 
                 IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
 
-                var ttt = isoStream.Read(buffer, 0, 100);
+                int ttt = isoStream.Read(buffer, 0, 100);
 
                 CommonLocalSettings.DataSerialised = true;
                 return;

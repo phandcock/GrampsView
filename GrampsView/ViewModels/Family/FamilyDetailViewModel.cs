@@ -31,7 +31,7 @@
         /// <param name="iocPlatformSpecific">
         /// Platform specific calls for Windows Timeline
         /// </param>
-        public FamilyDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public FamilyDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
         }

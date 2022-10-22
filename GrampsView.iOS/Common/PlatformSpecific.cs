@@ -4,7 +4,7 @@
 
     using GrampsView.Common.CustomClasses;
 
-    using SharedSharp.Errors;
+    using SharedSharp.Errors.Interfaces;
 
     internal partial class PlatformSpecific : IPlatformSpecific
     {

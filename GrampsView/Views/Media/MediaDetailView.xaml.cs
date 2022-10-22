@@ -1,17 +1,18 @@
-﻿namespace GrampsView.Views
+﻿using GrampsView.Data.Model;
+using GrampsView.ViewModels;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+namespace GrampsView.Views
 {
-    using GrampsView.Data.Model;
-    using GrampsView.ViewModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
-
     public partial class MediaDetailPage : ViewBasePage
     {
         public MediaDetailPage()
@@ -46,7 +47,7 @@
             IMediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
 
             OpenFileRequest t = new OpenFileRequest(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));
-            Launcher.OpenAsync(t);
+            _ = Launcher.OpenAsync(t);
         }
     }
 }

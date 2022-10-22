@@ -1,18 +1,17 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Events;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Forms;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Events;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -21,7 +20,7 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ISharedLogging _CommonLogging;
+        private readonly SharedSharp.Logging.Interfaces.ILog _CommonLogging;
 
         private readonly IErrorNotifications _commonNotifications;
 
@@ -41,7 +40,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
+        public StorePostLoad(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;
@@ -52,7 +51,9 @@
             App.Current.Services.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {
                 if (m.Value == null)
+                {
                     return;
+                }
 
                 LoadXMLUIItems(true);
             });
@@ -74,40 +75,40 @@
                 {
                     // Called in order of media linkages from Media outwards
 
-                    await OrganiseMediaRepository().ConfigureAwait(false);
+                    _ = await OrganiseMediaRepository().ConfigureAwait(false);
 
-                    await OrganiseSourceRepository().ConfigureAwait(false);
+                    _ = await OrganiseSourceRepository().ConfigureAwait(false);
 
-                    await OrganiseCitationRepository().ConfigureAwait(false);
+                    _ = await OrganiseCitationRepository().ConfigureAwait(false);
 
-                    await OrganiseEventRepository().ConfigureAwait(false);
+                    _ = await OrganiseEventRepository().ConfigureAwait(false);
 
-                    await OrganiseFamilyRepository().ConfigureAwait(false);
+                    _ = await OrganiseFamilyRepository().ConfigureAwait(false);
 
-                    await OrganiseHeaderRepository().ConfigureAwait(false);
+                    _ = await OrganiseHeaderRepository().ConfigureAwait(false);
 
-                    await OrganiseNameMapRepository().ConfigureAwait(false);
+                    _ = await OrganiseNameMapRepository().ConfigureAwait(false);
 
-                    OrganiseNoteRepository();
+                    _ = OrganiseNoteRepository();
 
-                    await OrganisePlaceRepository().ConfigureAwait(false);
+                    _ = await OrganisePlaceRepository().ConfigureAwait(false);
 
-                    await OrganiseRepositoryRepository().ConfigureAwait(false);
+                    _ = await OrganiseRepositoryRepository().ConfigureAwait(false);
 
-                    await OrganiseTagRepository().ConfigureAwait(false);
+                    _ = await OrganiseTagRepository().ConfigureAwait(false);
 
-                    await OrganiseAddressRepository().ConfigureAwait(false);
+                    _ = await OrganiseAddressRepository().ConfigureAwait(false);
 
-                    await OrganisePersonNameRepository().ConfigureAwait(false);
+                    _ = await OrganisePersonNameRepository().ConfigureAwait(false);
 
                     // People last as they pretty much depend on everything else
-                    await OrganisePersonRepository().ConfigureAwait(false);
+                    _ = await OrganisePersonRepository().ConfigureAwait(false);
 
                     // Apart from BookMarks
-                    await OrganiseBookMarkRepository().ConfigureAwait(false);
+                    _ = await OrganiseBookMarkRepository().ConfigureAwait(false);
 
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
-                    await OrganiseMisc().ConfigureAwait(false);
+                    _ = await OrganiseMisc().ConfigureAwait(false);
 
                     await _commonNotifications.DataLogHide();
                 }
@@ -118,10 +119,10 @@
             _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
-            App.Current.Services.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
+            _ = App.Current.Services.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
 
             // let everybody know we have finished loading data
-            App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+            _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
             _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }

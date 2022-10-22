@@ -4,7 +4,6 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
     using GrampsView.Data.Repository;
 
     using System.Collections.Generic;

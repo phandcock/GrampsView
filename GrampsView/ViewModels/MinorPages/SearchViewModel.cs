@@ -32,7 +32,7 @@
         /// <param name="iocEventAggregator">
         /// Event Aggregator.
         /// </param>
-        public SearchPageViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SearchPageViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Search Page";

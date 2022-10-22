@@ -8,6 +8,7 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using SharedSharp.Errors;
+    using SharedSharp.Errors.Interfaces;
 
     using System;
     using System.IO;

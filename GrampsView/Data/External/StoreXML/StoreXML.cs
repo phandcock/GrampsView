@@ -1,20 +1,20 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml;
-    using System.Xml.Linq;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public partial class StoreXML : ObservableObject, IStoreXML
     {
         /// <summary>
@@ -25,7 +25,7 @@
         /// <summary>
         /// local copy of GramsView Logging routines.
         /// </summary>
-        private readonly ISharedLogging _iocCommonLogging;
+        private readonly SharedSharp.Logging.Interfaces.ILog _iocCommonLogging;
 
         private readonly IErrorNotifications _iocCommonNotifications;
 
@@ -43,7 +43,7 @@
         /// <param name="iocCommonNotifications">
         /// Common Notifications
         /// </param>
-        public StoreXML(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications)
+        public StoreXML(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications)
         {
             _iocCommonLogging = iocCommonLogging;
 
@@ -61,7 +61,7 @@
         /// <returns>
         /// Flag if Gramps Data Only loaded successfully.
         /// </returns>
-        public async Task<bool> DataStorageLoadXML()
+        public Task<bool> DataStorageLoadXML()
         {
             try
             {
@@ -71,14 +71,9 @@
                 {
                     XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
 
-                    if (Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android)
-                    {
-                        xmlReaderSettings.DtdProcessing = DtdProcessing.Ignore;
-                    }
-                    else
-                    {
-                        xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
-                    }
+                    xmlReaderSettings.DtdProcessing = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android
+                        ? DtdProcessing.Ignore
+                        : DtdProcessing.Parse;
 
                     // TODO Handle no network connection
                     XmlReader xmlReader = XmlReader.Create(inputFile.FInfo.OpenRead(), xmlReaderSettings);
@@ -91,13 +86,13 @@
                     {
                         App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
-                        return false;
+                        return Task.FromResult(false);
                     }
                     catch (Exception ex)
                     {
                         App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
 
-                        return false;
+                        return Task.FromResult(false);
                     }
 
                     if (!(localGrampsXMLdoc.DocumentType is null))
@@ -112,11 +107,11 @@
                         };
 
                             App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
-                            return false;
+                            return Task.FromResult(false);
                         }
                     }
 
-                    var nameSpaceList = localGrampsXMLdoc.Root.Attributes().Where(
+                    System.Collections.Generic.Dictionary<string, XNamespace> nameSpaceList = localGrampsXMLdoc.Root.Attributes().Where(
                         a => a.IsNamespaceDeclaration).GroupBy(
                             a => a.Name.Namespace == XNamespace.None ? string.Empty : a.Name.LocalName,
                             a => XNamespace.Get(a.Value)).ToDictionary(
@@ -134,7 +129,7 @@
                 throw;
             }
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -146,7 +141,7 @@
         public async Task<bool> LoadXMLDataAsync()
         {
             // load media because we need it for hlink cropping later
-            await LoadMediaObjectsAsync().ConfigureAwait(false);
+            _ = await LoadMediaObjectsAsync().ConfigureAwait(false);
 
             // load the rest of the data in dependency order
             await LoadSourcesAsync().ConfigureAwait(false);
@@ -163,7 +158,7 @@
 
             await LoadTagsAsync().ConfigureAwait(false);
 
-            await LoadFamiliesAsync().ConfigureAwait(false);
+            _ = await LoadFamiliesAsync().ConfigureAwait(false);
 
             // People last because they rely on pretty much everything else
             await LoadPeopleDataAsync().ConfigureAwait(false);

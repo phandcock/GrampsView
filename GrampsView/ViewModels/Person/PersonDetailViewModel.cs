@@ -27,7 +27,7 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public PersonDetailViewModel(ISharedLogging iocCommonLogging)
+        public PersonDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconPeople;

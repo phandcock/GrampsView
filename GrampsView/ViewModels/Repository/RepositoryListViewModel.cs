@@ -25,7 +25,7 @@
         /// <param name="iocNavigationService">
         /// The ioc navigation service.
         /// </param>
-        public RepositoryListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public RepositoryListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Repository List";

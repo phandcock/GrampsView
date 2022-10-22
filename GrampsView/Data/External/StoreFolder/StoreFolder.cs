@@ -1,15 +1,15 @@
-﻿namespace GrampsView.Data
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.External.StoreFolder
 {
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public partial class StoreFolder : ObservableObject
     {
         /// <summary>
@@ -66,12 +66,12 @@
         /// <returns>
         /// StorageFile for the chosen file.
         /// </returns>
-        public static async Task<bool> FolderFileExistsAsync(DirectoryInfo argBaseFolder, string argFileName)
+        public static Task<bool> FolderFileExistsAsync(DirectoryInfo argBaseFolder, string argFileName)
         {
             // Check for relative path
             if (!StoreFileUtility.IsRelativeFilePathValid(argFileName))
             {
-                return false;
+                return Task.FromResult(false);
             }
 
             // Load the real file
@@ -85,7 +85,7 @@
                     {
                         if (item.Name == argFileName)
                         {
-                            return true;
+                            return Task.FromResult(true);
                         }
                     }
                 }
@@ -102,7 +102,7 @@
                 }
             }
 
-            return false;
+            return Task.FromResult(false);
         }
     }
 }

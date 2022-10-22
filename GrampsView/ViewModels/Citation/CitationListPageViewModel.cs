@@ -10,7 +10,7 @@
 
     public class CitationListViewModel : ViewModelBase
     {
-        public CitationListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public CitationListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
             BaseTitle = "Citation List";

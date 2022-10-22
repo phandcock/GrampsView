@@ -27,7 +27,7 @@
         /// <param name="iocPlatformSpecific">
         /// platform specific routines
         /// </param>
-        public ChildRefDetailViewModel(ISharedLogging iocCommonLogging)
+        public ChildRefDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitle = "Child of Person Detail";

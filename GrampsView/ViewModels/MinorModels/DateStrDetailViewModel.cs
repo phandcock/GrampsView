@@ -10,7 +10,7 @@
     /// </summary>
     public class DateStrDetailViewModel : ViewModelBase
     {
-        public DateStrDetailViewModel(ISharedLogging iocCommonLogging)
+        public DateStrDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconDDefault;

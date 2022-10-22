@@ -1,20 +1,21 @@
-﻿namespace GrampsView.UserControls
+﻿using FFImageLoading.Forms;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+
+using Xamarin.CommunityToolkit.UI.Views;
+using Xamarin.Forms;
+
+namespace GrampsView.UserControls
 {
-    using FFImageLoading.Forms;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-
-    using Xamarin.CommunityToolkit.UI.Views;
-    using Xamarin.Forms;
-
     public partial class HLinkVisualDisplay : Grid
     {
         public static readonly BindableProperty FsctShowMediaProperty
@@ -32,26 +33,14 @@
 
         public bool FsctShowMedia
         {
-            get
-            {
-                return (bool)GetValue(FsctShowMediaProperty);
-            }
-            set
-            {
-                SetValue(FsctShowMediaProperty, value);
-            }
+            get => (bool)GetValue(FsctShowMediaProperty);
+            set => SetValue(FsctShowMediaProperty, value);
         }
 
         public bool FsctShowSymbols
         {
-            get
-            {
-                return (bool)GetValue(FsctShowSymbolsProperty);
-            }
-            set
-            {
-                SetValue(FsctShowSymbolsProperty, value);
-            }
+            get => (bool)GetValue(FsctShowSymbolsProperty);
+            set => SetValue(FsctShowSymbolsProperty, value);
         }
 
         private ItemGlyph WorkHLMediaModel

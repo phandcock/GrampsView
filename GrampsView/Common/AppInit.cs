@@ -1,24 +1,25 @@
-﻿namespace GrampsView.Common
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Events;
+using GrampsView.Views;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Common;
+using SharedSharp.Common.Interfaces;
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Services.Interfaces;
+
+using System;
+using System.Threading.Tasks;
+
+namespace GrampsView.Common
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Events;
-    using GrampsView.Views;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Common;
-    using SharedSharp.Errors;
-    using SharedSharp.Services;
-
-    using System;
-    using System.Threading.Tasks;
-
     public class AppInit : ISharedSharpAppInit
     {
-        public async Task<string> GetChangesText()
+        public Task<string> GetChangesText()
         {
-            return CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
+            return Task.FromResult(CommonRoutines.LoadResource("GrampsView.CHANGELOG.md"));
         }
 
         public async Task Init()
@@ -91,7 +92,7 @@
                 if (SharedSharpSettings.DataSerialised)
                 {
                     // App.Current.Services.GetService<IDataRepositoryManager>().StartDataLoad();
-                    App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+                    _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
                     return;
                 }
 

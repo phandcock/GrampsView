@@ -19,7 +19,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public MediaListViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public MediaListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Media List";

@@ -1,27 +1,28 @@
-﻿namespace GrampsView.Data.Repository
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.External.StoreFile;
+using GrampsView.Data.External.StoreSerial;
+using GrampsView.Data.ExternalStorage;
+using GrampsView.Events;
+
+using Microsoft.AppCenter.Analytics;
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.IO;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.Repository
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.External.StoreSerial;
-    using GrampsView.Data.ExternalStorage;
-    using GrampsView.Events;
-
-    using Microsoft.AppCenter.Analytics;
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -31,7 +32,7 @@
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly ISharedLogging _CL;
+        private readonly SharedSharp.Logging.Interfaces.ILog _CL;
 
         private readonly IErrorNotifications _commonNotifications;
 
@@ -49,11 +50,6 @@
         /// The local post load.
         /// </summary>
         private readonly IStorePostLoad _PostLoad;
-
-        /// <summary>
-        /// The local store file.
-        /// </summary>
-        private readonly IStoreFile _StoreFile;
 
         /// <summary>
         /// The local gramps store serial.
@@ -81,7 +77,7 @@
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(ISharedLogging iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 
@@ -89,7 +85,7 @@
 
             _PostLoad = iocGrampsStorePostLoad;
             _StoreSerial = iocGrampsStoreSerial;
-            _StoreFile = iocStoreFile;
+            Storage = iocStoreFile;
             _EventAggregator = iocEventAggregator;
             _commonNotifications = iocCommonNotifications;
 
@@ -99,7 +95,9 @@
             App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
             {
                 if (!m.Value)
+                {
                     return;
+                }
 
                 StartDataLoad();
             });
@@ -107,7 +105,9 @@
             App.Current.Services.GetService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
             {
                 if (!m.Value)
+                {
                     return;
+                }
 
                 SerializeRepositoriesAsync(true);
             });
@@ -115,7 +115,9 @@
             App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
                 if (!m.Value)
+                {
                     return;
+                }
 
                 DataLoadedSetTrue();
             });
@@ -127,13 +129,7 @@
         /// <value>
         /// The storage.
         /// </value>
-        public IStoreFile Storage
-        {
-            get
-            {
-                return _StoreFile;
-            }
-        }
+        public IStoreFile Storage { get; }
 
         /// <summary>
         /// Clears the repositories.
@@ -190,7 +186,7 @@
         /// </summary>
         public void StartDataLoad()
         {
-            Task.Run(() => StartDataLoadAsync());
+            _ = Task.Run(() => StartDataLoadAsync());
 
             // Task<bool> t =
 
@@ -235,7 +231,7 @@
                 if (DataStore.Instance.AD.CurrentInputStreamValid)
                 {
                     // Clear the file system
-                    await _StoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
+                    _ = await Storage.DataStorageInitialiseAsync().ConfigureAwait(false);
                 }
 
                 // 1a) UnTar *.GPKG
@@ -261,7 +257,7 @@
                     {
                         _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program");
 
-                        await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
+                        _ = await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
                     }
                 }
 
@@ -275,7 +271,7 @@
                         _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
 
                         // Load the new data
-                        await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
+                        _ = await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
                         return true;
                     }
@@ -284,7 +280,7 @@
                 if (CommonLocalSettings.DataSerialised)
                 {
                     // 4) ELSE load Serial file
-                    await TriggerLoadSerialDataAsync().ConfigureAwait(false);
+                    _ = await TriggerLoadSerialDataAsync().ConfigureAwait(false);
 
                     // await _commonNotifications.DataLogHide();
                 }
@@ -344,7 +340,7 @@
                 // IReadOnlyList<StorageFolder> t = await DataStore.Instance.AD.CurrentDataFolder.GetFoldersAsync();
 
                 // foreach (StorageFolder item in t) { await item.DeleteAsync(); }
-                await _StoreFile.DecompressTAR().ConfigureAwait(false);
+                _ = await Storage.DecompressTAR().ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking TODO How doe sthis
                 // work if only loading picked file?
@@ -360,7 +356,7 @@
         /// <returns>
         /// True if the load is successful or False if not.
         /// </returns>
-        public async Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
+        public Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
             IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: Common.Constants.StorageGRAMPSFileName);
 
@@ -372,14 +368,14 @@
                     //await localStoreFile.DataStorageInitialiseAsync(DataStore.Instance.AD.CurrentDataFolder).ConfigureAwait(false);
                 }
 
-                _StoreFile.DecompressGZIP(fileGrampsDataInput);
+                _ = Storage.DecompressGZIP(fileGrampsDataInput);
 
                 // Save the current Index File modified date for later checking
 
                 CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified);
             }
 
-            return false;
+            return Task.FromResult(false);
         }
 
         /// <summary>
@@ -398,7 +394,7 @@
 
                 if (tt)
                 {
-                    await _ExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
+                    _ = await _ExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
 
                     _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data");
 
@@ -415,7 +411,7 @@
                     // save the data in a serial format for next time localEventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
                     // let everybody know we have finished loading data
-                    App.Current.Services.GetService<IMessenger>().Send(new DataLoadXMLEvent(true));
+                    _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadXMLEvent(true));
 
                     return true;
                 }
@@ -452,7 +448,7 @@
                         _commonNotifications.DataLogEntryReplace("GRAMPS Serial data load complete");
 
                         // let everybody know we have finished loading data
-                        App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+                        _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
                     }
                     else
                     {

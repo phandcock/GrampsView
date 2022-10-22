@@ -1,19 +1,19 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// <summary>
     /// People load Routines.
     /// </summary>
@@ -34,7 +34,7 @@
                 string defaultImage = string.Empty;
 
                 // Run query
-                var de =
+                IEnumerable<XElement> de =
                     from el in localGrampsXMLdoc.Descendants(ns + "person")
                     select el;
 

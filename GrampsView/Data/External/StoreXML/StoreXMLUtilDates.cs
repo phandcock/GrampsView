@@ -1,18 +1,19 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Xml.Linq;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Xml.Linq;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary> Private Storage Routines. </summary> <code> <define name="date-content">
     // <choice> <element name = "daterange" > < attribute name="start"><text/></attribute>
     // <attribute name = "stop" >< text /></ attribute > < optional >< attribute
@@ -198,14 +199,7 @@
         public static DateObjectModelStr SetDateStr(XElement argCurrentElement)
         {
             Contract.Assert(argCurrentElement != null);
-
-            string aCFormat = string.Empty;
-            string aNewYear = string.Empty;
-            string aQuality = string.Empty;
-            string aStart = string.Empty;
-            string aStop = string.Empty;
             string aVal = string.Empty;
-            string aValType = string.Empty;
 
             // check for date range
             try

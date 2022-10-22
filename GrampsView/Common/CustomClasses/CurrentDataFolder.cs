@@ -1,14 +1,14 @@
-﻿namespace GrampsView.Common.CustomClasses
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System.Diagnostics;
+using System.IO;
+
+using Xamarin.Essentials.Interfaces;
+
+namespace GrampsView.Common.CustomClasses
 {
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System.Diagnostics;
-    using System.IO;
-
-    using Xamarin.Essentials.Interfaces;
-
     public class CurrentDataFolder
     {
         public CurrentDataFolder()
@@ -35,21 +35,9 @@
             }
         }
 
-        public string Path
-        {
-            get
-            {
-                return Value.FullName;
-            }
-        }
+        public string Path => Value.FullName;
 
-        public bool Valid
-        {
-            get
-            {
-                return !(Value == null) && (Value.Exists);
-            }
-        }
+        public bool Valid => !(Value == null) && Value.Exists;
 
         public DirectoryInfo Value
         {

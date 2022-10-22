@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
     using GrampsView.Common;
+    using GrampsView.Data.External.StoreFile;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
 

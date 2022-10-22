@@ -11,7 +11,7 @@ namespace GrampsView.Data.DataView
 {
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repositories;
+    using GrampsView.Data.Repository;
 
     /// <summary>
     /// Interface for the Note Repository.

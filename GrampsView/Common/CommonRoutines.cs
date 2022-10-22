@@ -1,23 +1,24 @@
-﻿namespace GrampsView.Common
+﻿using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Model;
+
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+
+using Xamarin.Essentials.Interfaces;
+using Xamarin.Forms;
+
+namespace GrampsView.Common
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Reflection;
-    using System.Text.Json;
-    using System.Text.RegularExpressions;
-
-    using Xamarin.Essentials.Interfaces;
-    using Xamarin.Forms;
-
     /// <summary>
     /// Various common routines.
     /// </summary>
@@ -80,7 +81,7 @@
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {
-                    t.CreateSubdirectory(Constants.DirectoryImageCache);
+                    _ = t.CreateSubdirectory(Constants.DirectoryImageCache);
                 }
             }
             catch (Exception ex)
@@ -95,8 +96,8 @@
         public static void ListEmbeddedResources()
         {
             // ... // NOTE: use for debugging, not in released app code!
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-            foreach (var res in assembly.GetManifestResourceNames())
+            Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+            foreach (string res in assembly.GetManifestResourceNames())
             {
                 Debug.WriteLine($"Found resource: {res} ? {ImageSource.FromResource(res, typeof(App)) != null}");
             }
@@ -109,20 +110,16 @@
             try
             {
                 // Load Resource
-                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(argResourceName))
+                using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(argResourceName);
+                if (stream is null)
                 {
-                    if (stream is null)
-                    {
-                        Debug.WriteLine($"LoadResource - Stream is Null");
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            returnValue = reader.ReadToEnd();
-                        }
-                    }
+                    Debug.WriteLine($"LoadResource - Stream is Null");
+                }
+                else
+                {
+                    Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
+                    using StreamReader reader = new StreamReader(stream);
+                    returnValue = reader.ReadToEnd();
                 }
             }
             catch (Exception ex)
@@ -148,11 +145,11 @@
             // From https://dave-black.blogspot.com/2011/12/how-to-tell-if-assembly-is-debug-or.html
 
             bool HasDebuggableAttribute = false;
-            var IsJITOptimized = false;
-            var IsJITTrackingEnabled = false;
-            var BuildType = "";
-            var DebugOutput = "";
-            var ReflectedAssembly = Assembly.LoadFile(@"C:\src\TMDE\Git\RedisScalingTest\bin\Release\netcoreapp3.1\RedisScalingTest.dll");
+            bool IsJITOptimized = false;
+            bool IsJITTrackingEnabled = false;
+            string BuildType = "";
+            string DebugOutput = "";
+            Assembly ReflectedAssembly = Assembly.LoadFile(@"C:\src\TMDE\Git\RedisScalingTest\bin\Release\netcoreapp3.1\RedisScalingTest.dll");
 
             // var ReflectedAssembly = Assembly.LoadFile(@"path to the dll you are testing");
             object[] attribs = ReflectedAssembly.GetCustomAttributes(typeof(DebuggableAttribute), false);
@@ -163,8 +160,7 @@
                 // Just because the 'DebuggableAttribute' is found doesn't necessarily mean it's a
                 // DEBUG build; we have to check the JIT Optimization flag i.e. it could have the
                 // "generate PDB" checked but have JIT Optimization enabled
-                DebuggableAttribute debuggableAttribute = attribs[0] as DebuggableAttribute;
-                if (debuggableAttribute != null)
+                if (attribs[0] is DebuggableAttribute debuggableAttribute)
                 {
                     HasDebuggableAttribute = true;
                     IsJITOptimized = !debuggableAttribute.IsJITOptimizerDisabled;
@@ -193,12 +189,7 @@
             Debug.WriteLine("IsJITTrackingEnabled", IsJITTrackingEnabled);
             Debug.WriteLine("DebugOutput", DebugOutput);
 
-            if (BuildType == "Release")
-            {
-                return true;
-            }
-
-            return false;
+            return BuildType == "Release";
         }
 
         public static string ReplaceLineSeperators(string argString)
@@ -208,14 +199,9 @@
 
         public static Color ResourceColourGet(string keyName)
         {
-            var t = ResourceValueGet(keyName);
+            object t = ResourceValueGet(keyName);
 
-            if (t is null)
-            {
-                return Color.White;
-            }
-
-            return (Color)t;
+            return t is null ? Color.White : (Color)t;
         }
 
         public static object ResourceValueGet(string keyName)
@@ -227,7 +213,7 @@
             }
 
             // Search all dictionaries
-            if (!Application.Current.Resources.TryGetValue(keyName, out var retVal))
+            if (!Application.Current.Resources.TryGetValue(keyName, out object retVal))
             {
                 App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Resource Key", keyName));
             }

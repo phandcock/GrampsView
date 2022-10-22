@@ -23,7 +23,7 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public MediaDetailViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public MediaDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseCL.Progress("MediaDetailViewModel created");

@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Date;
 
     /// <summary>
     /// Public interfaces for the DateObject elements.

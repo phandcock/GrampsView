@@ -1,22 +1,21 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+
+using SharedSharp.Common.Interfaces;
+
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.ViewModels.StartupPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-
-    using SharedSharp.Common;
-    using SharedSharp.Logging;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// <c> viewmodel </c> for the About <c> Flyout </c>.
     /// </summary>
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
-        private ISharedSharpAppInit _AppInit;
+        private readonly ISharedSharpAppInit _AppInit;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NeedDatabaseReloadViewModel"/> class.
@@ -27,7 +26,7 @@
         /// <param name="iocEventAggregator">
         /// Injected event aggregator.
         /// </param>
-        public NeedDatabaseReloadViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
+        public NeedDatabaseReloadViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             BaseTitle = "Database reload needed";
@@ -46,7 +45,7 @@
 
         public async Task LoadDataAction()
         {
-            await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
+            _ = await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
 
             await _AppInit.Init();
         }

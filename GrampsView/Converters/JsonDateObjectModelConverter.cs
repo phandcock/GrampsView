@@ -1,19 +1,21 @@
-﻿namespace GrampsView.Converters
+﻿using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+using Xamarin.Forms;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Converters
 {
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-
-    using Xamarin.Forms;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Convert DtaeObjectModel to the underlying DateObjectModel derived class. <note type="note">
     /// TODO Remove when serial convertor polymorphism fixed. </note>
@@ -39,7 +41,7 @@
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
-            reader.Read();
+            _ = reader.Read();
             if (reader.TokenType != JsonTokenType.PropertyName)
             {
                 ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
@@ -63,7 +65,7 @@
                 App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
-            reader.Read();
+            _ = reader.Read();
             if (reader.TokenType != JsonTokenType.Number)
             {
                 ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
@@ -159,12 +161,12 @@
                 if (argReader.TokenType == JsonTokenType.PropertyName)
                 {
                     string propertyName = argReader.GetString();
-                    argReader.Read();
+                    _ = argReader.Read();
                     switch (propertyName)
                     {
                         case "GDualdated":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.GDualdated = argValue;
                                 break;
                             }
@@ -221,25 +223,25 @@
                             }
                         case "Valid":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.Valid = argValue;
                                 break;
                             }
                         case "ValidDay":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidDay = argValue;
                                 break;
                             }
                         case "ValidMonth":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidMonth = argValue;
                                 break;
                             }
                         case "ValidYear":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidYear = argValue;
                                 break;
                             }
@@ -268,12 +270,12 @@
                 if (argReader.TokenType == JsonTokenType.PropertyName)
                 {
                     string propertyName = argReader.GetString();
-                    argReader.Read();
+                    _ = argReader.Read();
                     switch (propertyName)
                     {
                         case "GDualdated":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.GDualdated = argValue;
                                 break;
                             }
@@ -328,25 +330,25 @@
                             }
                         case "Valid":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.Valid = argValue;
                                 break;
                             }
                         case "ValidDay":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidDay = argValue;
                                 break;
                             }
                         case "ValidMonth":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidMonth = argValue;
                                 break;
                             }
                         case "ValidYear":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidYear = argValue;
                                 break;
                             }
@@ -375,7 +377,7 @@
                 if (argReader.TokenType == JsonTokenType.PropertyName)
                 {
                     string propertyName = argReader.GetString();
-                    argReader.Read();
+                    _ = argReader.Read();
                     switch (propertyName)
                     {
                         case "GVal":
@@ -406,25 +408,25 @@
                             }
                         case "Valid":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.Valid = argValue;
                                 break;
                             }
                         case "ValidDay":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidDay = argValue;
                                 break;
                             }
                         case "ValidMonth":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidMonth = argValue;
                                 break;
                             }
                         case "ValidYear":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidYear = argValue;
                                 break;
                             }
@@ -453,12 +455,12 @@
                 if (argReader.TokenType == JsonTokenType.PropertyName)
                 {
                     string propertyName = argReader.GetString();
-                    argReader.Read();
+                    _ = argReader.Read();
                     switch (propertyName)
                     {
                         case "GDualdated":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.GDualdated = argValue;
                                 break;
                             }
@@ -513,25 +515,25 @@
                             }
                         case "Valid":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.Valid = argValue;
                                 break;
                             }
                         case "ValidDay":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidDay = argValue;
                                 break;
                             }
                         case "ValidMonth":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidMonth = argValue;
                                 break;
                             }
                         case "ValidYear":
                             {
-                                Boolean argValue = argReader.GetBoolean();
+                                bool argValue = argReader.GetBoolean();
                                 returnDate.ValidYear = argValue;
                                 break;
                             }

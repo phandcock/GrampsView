@@ -1,24 +1,23 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Forms;
+
+namespace GrampsView.ViewModels.MinorPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Logging;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
-
     public class SettingsViewModel : ViewModelBase
     {
         private string _ThemeButtonChecked = string.Empty;
 
-        public SettingsViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public SettingsViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
             BaseTitle = "Settings";
@@ -43,26 +42,17 @@
 
         public bool SortCollectionsFlag
         {
-            get
-            {
-                return CommonLocalSettings.SortHLinkCollections;
-            }
-            set
-            {
-                CommonLocalSettings.SortHLinkCollections = value;
-            }
+            get => CommonLocalSettings.SortHLinkCollections;
+            set => CommonLocalSettings.SortHLinkCollections = value;
         }
 
         public string ThemeButtonChecked
         {
-            get
-            {
-                return _ThemeButtonChecked;
-            }
+            get => _ThemeButtonChecked;
 
             set
             {
-                SetProperty(ref _ThemeButtonChecked, value);
+                _ = SetProperty(ref _ThemeButtonChecked, value);
 
                 switch (_ThemeButtonChecked)
                 {
@@ -106,10 +96,7 @@
 
         public string UpdateNoteEmailAddress
         {
-            get
-            {
-                return CommonLocalSettings.NoteEmailAddress;
-            }
+            get => CommonLocalSettings.NoteEmailAddress;
 
             set
             {
@@ -132,19 +119,14 @@
 
         public bool UseFirstImageFlag
         {
-            get
-            {
-                return CommonLocalSettings.UseFirstImageFlag;
-            }
-            set
-            {
-                CommonLocalSettings.UseFirstImageFlag = value;
-            }
+            get => CommonLocalSettings.UseFirstImageFlag;
+            set => CommonLocalSettings.UseFirstImageFlag = value;
         }
 
-        private async Task DisplayMessageLogButtonCommandHandler()
+        private Task DisplayMessageLogButtonCommandHandler()
         {
             App.Current.Services.GetService<IErrorNotifications>().DataLogShow();
+            return Task.CompletedTask;
         }
 
         private void UpdateNoteEmailHandler(string argEmailAddress)

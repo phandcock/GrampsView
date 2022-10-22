@@ -1,21 +1,22 @@
-﻿namespace GrampsView.Droid.Common
+﻿using Android.Graphics;
+using Android.Graphics.Pdf;
+using Android.Media;
+using Android.OS;
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace GrampsView.Droid.Common
 {
-    using Android.Graphics;
-    using Android.Graphics.Pdf;
-    using Android.Media;
-    using Android.OS;
-
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
     internal partial class PlatformSpecific : IPlatformSpecific
     {
         public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
@@ -42,8 +43,8 @@
                     page.Render(bmp, null, null, PdfRenderMode.ForDisplay);
 
                     //Save the bitmap
-                    var stream = new FileStream(outFilePath, FileMode.Create);
-                    bmp.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    FileStream stream = new FileStream(outFilePath, FileMode.Create);
+                    _ = bmp.Compress(Bitmap.CompressFormat.Png, 100, stream);
                     stream.Close();
 
                     page.Close();
@@ -97,8 +98,8 @@
                 if (bitmap != null)
                 {
                     //Save the bitmap
-                    var outStream = new FileStream(outFilePath, FileMode.Create);
-                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, outStream);
+                    FileStream outStream = new FileStream(outFilePath, FileMode.Create);
+                    _ = bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, outStream);
                     outStream.Close();
 
                     returnValue = argNewMediaModel;

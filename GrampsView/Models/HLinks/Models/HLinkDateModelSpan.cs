@@ -3,6 +3,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Date;
     using GrampsView.Views;
 
     using System.Threading.Tasks;

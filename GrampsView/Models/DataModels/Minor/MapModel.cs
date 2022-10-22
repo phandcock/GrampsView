@@ -1,20 +1,21 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels.Minor
 {
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Data model for a Map reference.
     /// <list type="table">
