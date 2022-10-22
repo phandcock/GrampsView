@@ -3,6 +3,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Minor;
 
     /// TODO Update fields as per Schema
 

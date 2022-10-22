@@ -1,5 +1,6 @@
 ﻿namespace GrampsView.Data
 {
+    using GrampsView.Data.External.StoreFile;
     using GrampsView.Data.Repository;
 
     using Microsoft.Extensions.DependencyInjection;

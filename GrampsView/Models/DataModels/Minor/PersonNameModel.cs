@@ -1,14 +1,16 @@
 ﻿// TODO Needs XML 1.71 check
 
-namespace GrampsView.Data.Model
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using SharedSharp.Common;
+
+using System;
+
+namespace GrampsView.Models.DataModels.Minor
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using SharedSharp.Common;
-
-    using System;
-
     /// <summary>
     /// TODO Update fields as per Schema Class for holding a person's name.
     /// <list type="table">
@@ -22,9 +24,9 @@ namespace GrampsView.Data.Model
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.Model.ModelBase"/>
-    /// <seealso cref="GrampsView.Data.Model.IPersonNameModel"/>
-    /// <seealso cref="System.IComparable"/>
+    /// <seealso cref="ModelBase"/>
+    /// <seealso cref="IPersonNameModel"/>
+    /// <seealso cref="IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
 
     public class PersonNameModel : ModelBase, IPersonNameModel
@@ -40,14 +42,7 @@ namespace GrampsView.Data.Model
             get
             {
                 string fullName = FirstFirstName + " " + GSurName.GetPrimarySurname;
-                if (fullName.Trim().Length == 0)
-                {
-                    return "Unknown";
-                }
-                else
-                {
-                    return fullName;
-                }
+                return fullName.Trim().Length == 0 ? "Unknown" : fullName;
             }
         }
 
@@ -60,27 +55,13 @@ namespace GrampsView.Data.Model
                     return $"Called: {GCall}";
                 }
 
-                if (!string.IsNullOrEmpty(GNick))
-                {
-                    return $"Nickname: {GNick}";
-                }
-
-                if (!string.IsNullOrEmpty(GFamilyNick))
-                {
-                    return $"Family Nickname: {GFamilyNick}";
-                }
-
-                return string.Empty;
+                return !string.IsNullOrEmpty(GNick)
+                    ? $"Nickname: {GNick}"
+                    : !string.IsNullOrEmpty(GFamilyNick) ? $"Family Nickname: {GFamilyNick}" : string.Empty;
             }
         }
 
-        public string FirstFirstName
-        {
-            get
-            {
-                return GFirstName.Split()[0];
-            }
-        }
+        public string FirstFirstName => GFirstName.Split()[0];
 
         /// <summary>
         /// Gets the Persons FullName. Returns 'unknown' if no firstname or surname.
@@ -90,14 +71,7 @@ namespace GrampsView.Data.Model
             get
             {
                 string fullName = GFirstName + " " + GSurName.GetPrimarySurname;
-                if (fullName.Trim().Length == 0)
-                {
-                    return "Unknown";
-                }
-                else
-                {
-                    return fullName;
-                }
+                return fullName.Trim().Length == 0 ? "Unknown" : fullName;
             }
         }
 
@@ -373,19 +347,9 @@ namespace GrampsView.Data.Model
         /// </returns>
         public override int CompareTo(object obj)
         {
-            if (obj is null)
-            {
-                return SharedSharpConstants.CompareEquals;
-            }
-
-            PersonNameModel secondPersonName = obj as PersonNameModel;
-
-            if (secondPersonName is null)
-            {
-                return SharedSharpConstants.CompareEquals;
-            }
-
-            return CompareTo(secondPersonName);
+            return obj is null
+                ? SharedSharpConstants.CompareEquals
+                : !(obj is PersonNameModel secondPersonName) ? SharedSharpConstants.CompareEquals : CompareTo(secondPersonName);
         }
 
         /// <summary>

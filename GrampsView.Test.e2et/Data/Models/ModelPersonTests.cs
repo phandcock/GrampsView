@@ -5,6 +5,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.e2e.Test.Utility;
+    using GrampsView.Models.DataModels;
 
     [TestFixture()]
     public class ModelPersonTests

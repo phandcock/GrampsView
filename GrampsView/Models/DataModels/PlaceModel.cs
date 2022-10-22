@@ -1,17 +1,20 @@
 ﻿// TODO Needs XML 1.71 check
 
-namespace GrampsView.Data.Model
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Models;
+
+using System;
+using System.Collections;
+
+using Xamarin.Essentials;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-    using System.Collections;
-
-    using Xamarin.Essentials;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Data model for a place.
     /// <list type="table">
@@ -243,8 +246,10 @@ namespace GrampsView.Data.Model
 
         public IMapModel ToMapModel()
         {
-            IMapModel newMapModel = new MapModel();
-            newMapModel.Description = GPName;
+            IMapModel newMapModel = new MapModel
+            {
+                Description = GPName
+            };
 
             // Try Lat-Long first
             if (GCoordLat != 0.0 && GCoordLong != 0.0)
@@ -329,12 +334,7 @@ namespace GrampsView.Data.Model
         {
             // Build a complete place name.  Assumes we are usiing the hierarchy.
 
-            if (!string.IsNullOrEmpty(GPName))
-            {
-                return GPName;
-            }
-
-            return GPlaceNames.ToString();
+            return !string.IsNullOrEmpty(GPName) ? GPName : GPlaceNames.ToString();
         }
     }
 }

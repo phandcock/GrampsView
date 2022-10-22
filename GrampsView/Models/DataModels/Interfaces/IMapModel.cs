@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using GrampsView.Models.HLinks.Models;
+
+using System.Threading.Tasks;
 
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;

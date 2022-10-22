@@ -4,6 +4,9 @@
 namespace GrampsView.Common
 {
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
+    using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Models.HLinks.Models;
 
     using SharedSharp.Model;
 

@@ -6,6 +6,7 @@ namespace GrampsView.Data.DataView
 {
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     using System.Collections.Generic;
 

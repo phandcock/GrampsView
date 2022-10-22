@@ -11,7 +11,7 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     /// <summary>
     /// Interface for the GrampsView common progress routines.

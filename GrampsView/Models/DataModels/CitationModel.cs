@@ -2,18 +2,20 @@
 ///
 /// SecondaryColor-object date-content page confidence noteref objref srcattribute sourceref tagref
 
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Runtime.Serialization;
+
 /// <summary>
 /// </summary>
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-    using System.Collections;
-    using System.ComponentModel;
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// Data model for a Citation.
     /// </summary>
@@ -234,12 +236,7 @@ namespace GrampsView.Data.Model
         /// </value>
         public override string ToString()
         {
-            if (GSourceRef.Valid)
-            {
-                return GSourceRef.DeRef.GSTitle;
-            }
-
-            return "???Source Reference not found";
+            return GSourceRef.Valid ? GSourceRef.DeRef.GSTitle : "???Source Reference not found";
         }
     }
 }

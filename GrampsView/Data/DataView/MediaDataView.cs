@@ -5,6 +5,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
 
     using System;
     using System.Collections;

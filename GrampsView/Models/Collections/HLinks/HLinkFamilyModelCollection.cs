@@ -6,6 +6,7 @@ namespace GrampsView.Data.Collections
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;

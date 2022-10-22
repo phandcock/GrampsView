@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
+    using GrampsView.Models.HLinks.Models;
 
     /// <summary>
     /// Public interfaces for the Place model

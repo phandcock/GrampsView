@@ -1,22 +1,25 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+using GrampsView.Models.HLinks.Models;
+
+using System;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Event ViewModel.
     ///
     /// XML 171 - All fields defined
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
+    /// <seealso cref="Data.ViewModel.ModelBase"/>
     /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.ViewModel.IEventModel"/>
+    /// <seealso cref="Data.ViewModel.IEventModel"/>
     /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.IComparable"/>
+    /// <seealso cref="IComparable"/>
     /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
 
@@ -259,12 +262,7 @@
 
         public override string ToString()
         {
-            if (!string.IsNullOrEmpty(GDescription))
-            {
-                return GDescription;
-            }
-
-            return GType;
+            return !string.IsNullOrEmpty(GDescription) ? GDescription : GType;
         }
     }
 }

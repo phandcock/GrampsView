@@ -10,9 +10,9 @@
 namespace GrampsView.Data.DataView
 {
     using GrampsView.Data.Collections;
-
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
+    using GrampsView.Models.HLinks.Models;
 
     /// <summary>
     /// Interface for the Note Repository.

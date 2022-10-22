@@ -1,19 +1,19 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Model;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Text.Json.Serialization;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels.Date
 {
-    using GrampsView.Common;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Text.Json.Serialization;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Create Span version of DateObjectModel.
     /// </summary>
@@ -94,7 +94,7 @@
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GCformat, value);
+                    _ = SetProperty(ref _GCformat, value);
                 }
             }
         }
@@ -127,20 +127,7 @@
             }
         }
 
-        public override string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return GStart + " to " + GStop;
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
+        public override string GetYear => Valid ? GStart + " to " + GStop : "Unknown";
 
         public string GNewYear
         {
@@ -150,7 +137,7 @@
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GNewYear, value);
+                    _ = SetProperty(ref _GNewYear, value);
                 }
             }
         }
@@ -164,32 +151,26 @@
 
         public DateObjectModelVal GStart
         {
-            get
-            {
-                return _GStart;
-            }
+            get => _GStart;
 
             internal set
             {
                 if (value.Valid)
                 {
-                    SetProperty(ref _GStart, value);
+                    _ = SetProperty(ref _GStart, value);
                 }
             }
         }
 
         public DateObjectModelVal GStop
         {
-            get
-            {
-                return _GStop;
-            }
+            get => _GStop;
 
             internal set
             {
                 if (value.Valid)
                 {
-                    SetProperty(ref _GStop, value);
+                    _ = SetProperty(ref _GStop, value);
                 }
             }
         }
@@ -285,44 +266,32 @@
         /// <value>
         /// The single date.
         /// </value>
-        public override DateTime SingleDate
-        {
-            get
-            {
-                return NotionalDate;
-            }
-        }
+        public override DateTime SingleDate => NotionalDate;
 
         /// <summary>
         /// Gets returns a sortable version of the date field Because the field can have one or two
         /// dates etc this is trickier than it sounds. We use the start date.
         /// </summary>
-        public override DateTime SortDate
-        {
-            get
-            {
-                return NotionalDate;
-            }
-        }
+        public override DateTime SortDate => NotionalDate;
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
             CardListLineCollection DateModelCard = new CardListLineCollection();
 
-            if (this.Valid)
+            if (Valid)
             {
                 DateModelCard = new CardListLineCollection
                             {
-                                new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Start:", this.GStart.ShortDate),
-                                new CardListLine("Stop:", this.GStop.ShortDate),
-                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
-                                new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Dual Dated:", this.GDualdated,true),
-                                new CardListLine("New Year:", this.GNewYear),
+                                new CardListLine("Date:", LongDate),
+                                new CardListLine("Start:", GStart.ShortDate),
+                                new CardListLine("Stop:", GStop.ShortDate),
+                                new CardListLine("Quality:", GQuality.ToString(),GQuality != DateQuality.unknown),
+                                new CardListLine("C Format:", GCformat),
+                                new CardListLine("Dual Dated:", GDualdated,true),
+                                new CardListLine("New Year:", GNewYear),
                             };
 
-                if (!(string.IsNullOrEmpty(argTitle)))
+                if (!string.IsNullOrEmpty(argTitle))
                 {
                     DateModelCard.Title = argTitle;
                 }
@@ -333,7 +302,7 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            HLinkDateModelSpan t = this.HLink;
+            HLinkDateModelSpan t = HLink;
             t.Title = argTitle;
 
             return t;
@@ -356,14 +325,14 @@
                 return false;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
             DateObjectModel tempObj = obj as DateObjectModel;
 
-            return (this.NotionalDate == tempObj.NotionalDate);
+            return NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

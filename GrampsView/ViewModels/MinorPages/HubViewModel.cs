@@ -5,6 +5,7 @@ using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Events;
+using GrampsView.Models.HLinks.Models;
 
 using Microsoft.Extensions.DependencyInjection;
 

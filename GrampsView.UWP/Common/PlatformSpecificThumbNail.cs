@@ -2,6 +2,7 @@
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     using Microsoft.Extensions.DependencyInjection;
 

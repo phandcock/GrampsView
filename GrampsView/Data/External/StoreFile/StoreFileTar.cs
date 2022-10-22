@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data
 {
     using GrampsView.Common;
+    using GrampsView.Data.External.StoreFolder;
     using GrampsView.Data.Repository;
 
     using ICSharpCode.SharpZipLib.Tar;
@@ -42,7 +43,7 @@
         /// <returns>
         /// True if the file is UnTARed correctly.
         /// </returns>
-        public async Task ExtractTar(TarInputStream tarIn)
+        public Task ExtractTar(TarInputStream tarIn)
         {
             if (tarIn is null)
             {
@@ -247,6 +248,8 @@
                     // throw;
                 }
             }
+
+            return Task.CompletedTask;
         }
     }
 }

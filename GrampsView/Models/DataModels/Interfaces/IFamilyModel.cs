@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GrampsView.Models.DataModels;
+
+using System;
 using System.Collections;
 using System.ComponentModel;
 

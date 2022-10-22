@@ -15,23 +15,25 @@
 /// - tagref
 /// </summary>
 
-namespace GrampsView.Data.Model
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using System;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-    using System.Runtime.Serialization;
-    using System.Text;
-
     /// <summary>
     /// Data model for a family.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
+    /// <seealso cref="Data.ViewModel.ModelBase"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.ViewModel.IFamilyModel"/>
+    /// <seealso cref="Data.ViewModel.IFamilyModel"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.IComparable"/>
+    /// <seealso cref="IComparable"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// <seealso cref="System.Collections.IComparer"/>
 
@@ -277,7 +279,7 @@ namespace GrampsView.Data.Model
             FamilyModel secondFamilyModel = (FamilyModel)obj;
 
             // Compare on surnname and then first name
-            return this.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(secondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
+            return GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.CompareTo(secondFamilyModel.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef);
         }
 
         /// <summary>
@@ -296,21 +298,21 @@ namespace GrampsView.Data.Model
             // set family display name
             if (GFather.Valid && !string.IsNullOrWhiteSpace(fatherName))
             {
-                familyName.Append(fatherName);
+                _ = familyName.Append(fatherName);
             }
             else
             {
-                familyName.Append("Unknown");
+                _ = familyName.Append("Unknown");
             }
 
             if (GMother.Valid && !string.IsNullOrWhiteSpace(motherName))
             {
-                familyName.Append(" - ");
-                familyName.Append(motherName);
+                _ = familyName.Append(" - ");
+                _ = familyName.Append(motherName);
             }
             else
             {
-                familyName.Append(" - Unknown");
+                _ = familyName.Append(" - Unknown");
             }
 
             return familyName.ToString();

@@ -1,9 +1,12 @@
 ﻿// TODO Needs XML 1.71 check
 
-namespace GrampsView.Data.Model
-{
-    using System;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
 
+using System;
+
+namespace GrampsView.Models.DataModels.Minor
+{
     /// <summary>
     /// Gramps XML 1.71 value lang date-content
     /// </summary>
@@ -37,12 +40,9 @@ namespace GrampsView.Data.Model
 
         public int CompareTo(PlaceNameModel other)
         {
-            if (other is null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
-
-            return string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
+            return other is null
+                ? throw new ArgumentNullException(nameof(other))
+                : string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(PlaceNameModel other)
@@ -52,12 +52,7 @@ namespace GrampsView.Data.Model
                 return false;
             }
 
-            if (ToString() == other.ToString())
-            {
-                return true;
-            }
-
-            return false;
+            return ToString() == other.ToString();
         }
 
         public override bool Equals(object obj)
@@ -77,12 +72,7 @@ namespace GrampsView.Data.Model
                 return string.Empty;
             }
 
-            if (!string.IsNullOrEmpty(GValue))
-            {
-                return GValue;
-            }
-
-            return GValue;
+            return !string.IsNullOrEmpty(GValue) ? GValue : GValue;
         }
     }
 }

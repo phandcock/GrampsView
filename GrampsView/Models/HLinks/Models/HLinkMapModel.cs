@@ -1,9 +1,11 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Minor;
+
+using System.Threading.Tasks;
+
+namespace GrampsView.Models.HLinks.Models
 {
-    using GrampsView.Common;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Data model for a Map Reference.
     /// <list type="table">

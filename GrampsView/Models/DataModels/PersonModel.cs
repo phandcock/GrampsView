@@ -1,14 +1,16 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using System;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-    using System.Runtime.Serialization;
-    using System.Text.Json.Serialization;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Data model for a person.
     /// <list type="table">
@@ -123,14 +125,11 @@
         [JsonInclude]
         public Gender GGender
         {
-            get
-            {
-                return _GGender;
-            }
+            get => _GGender;
 
             set
             {
-                SetProperty(ref _GGender, value);
+                _ = SetProperty(ref _GGender, value);
 
                 switch (value)
                 {
@@ -283,13 +282,7 @@
         /// <value>
         /// The is living as string.
         /// </value>
-        public string IsLivingAsString
-        {
-            get
-            {
-                return IsLiving.ToString(System.Globalization.CultureInfo.CurrentCulture);
-            }
-        }
+        public string IsLivingAsString => IsLiving.ToString(System.Globalization.CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Compare two PersonModels.
@@ -305,7 +298,7 @@
         /// </returns>
         public new int Compare(object a, object b)
         {
-            if ((a is null) || (b is null))
+            if (a is null || b is null)
             {
                 return 0;   // equal
             }
@@ -364,6 +357,9 @@
             return testFlag;
         }
 
-        public override string ToString() => GPersonNamesCollection.GetPrimaryName.DeRef.ToString();
+        public override string ToString()
+        {
+            return GPersonNamesCollection.GetPrimaryName.DeRef.ToString();
+        }
     }
 }

@@ -6,6 +6,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     using SharedSharp.Logging;
     using SharedSharp.Model;

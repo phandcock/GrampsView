@@ -2,7 +2,7 @@
 {
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     using System;
     using System.Linq;

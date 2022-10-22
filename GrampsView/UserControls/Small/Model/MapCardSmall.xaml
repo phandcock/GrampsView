@@ -2,7 +2,7 @@
     x:Class="GrampsView.UserControls.MapCardSmall"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:models="clr-namespace:GrampsView.Models.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkMapModel">
     <Grid>

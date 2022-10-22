@@ -4,6 +4,7 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
+    using GrampsView.Models.DataModels;
 
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;

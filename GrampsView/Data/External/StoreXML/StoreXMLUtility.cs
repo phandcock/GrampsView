@@ -4,6 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
 
     using SharedSharp.Errors;
 

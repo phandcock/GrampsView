@@ -6,6 +6,7 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Models.HLinks.Models;
 
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.

@@ -2,6 +2,7 @@ namespace GrampsView.Data.DataView
 {
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels;
 
     /// <summary>
     /// Interfaces for Media Repository.

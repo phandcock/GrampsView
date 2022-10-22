@@ -1,16 +1,19 @@
 ﻿// TODO Needs XML 1.71 check
 
-namespace GrampsView.Data.Model
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data;
+using GrampsView.Data.Collections;
+using GrampsView.Data.External.StoreFile;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using System;
+using System.Collections;
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Models.DataModels
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.External.StoreFile;
-
-    using System;
-    using System.Collections;
-    using System.Text.Json.Serialization;
-
     //// gramps XML 1.71
     ////
     //// "primary-object"
@@ -69,7 +72,7 @@ namespace GrampsView.Data.Model
                 // handling it. Maybe FileInfo COntent Type
                 if (value != null)
                 {
-                    SetProperty(ref _FileContentType, value);
+                    _ = SetProperty(ref _FileContentType, value);
 
                     FileMimeType = SharedSharp.Common.SharedSharpGeneral.MimeMimeTypeGet(value);
 
@@ -152,13 +155,7 @@ namespace GrampsView.Data.Model
             get; set;
         } = new HLinkKey();
 
-        public bool IsImage
-        {
-            get
-            {
-                return (FileMimeType == "image");
-            }
-        }
+        public bool IsImage => FileMimeType == "image";
 
         public bool IsInternalMediaFile
         {
@@ -199,18 +196,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// <c> true </c> if [original file path valid]; otherwise, <c> false </c>.
         /// </value>
-        public bool IsOriginalFilePathValid
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(OriginalFilePath))
-                {
-                    return false;
-                }
-
-                return StoreFileUtility.IsRelativeFilePathValid(OriginalFilePath);
-            }
-        }
+        public bool IsOriginalFilePathValid => !string.IsNullOrEmpty(OriginalFilePath) && StoreFileUtility.IsRelativeFilePathValid(OriginalFilePath);
 
         /// <summary>
         /// Gets a value indicating whether this instance is media file.
@@ -262,20 +248,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media storage file.
         /// </value>
-        public string MediaStorageFilePath
-        {
-            get
-            {
-                if (IsMediaStorageFileValid)
-                {
-                    return _MediaStorageFile.FInfo.FullName;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
-        }
+        public string MediaStorageFilePath => IsMediaStorageFileValid ? _MediaStorageFile.FInfo.FullName : string.Empty;
 
         /// <summary>
         /// Gets the media storage file URI.
@@ -283,18 +256,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The media storage file URI.
         /// </value>
-        public Uri MediaStorageFileUri
-        {
-            get
-            {
-                if (IsMediaStorageFileValid)
-                {
-                    return new Uri(MediaStorageFilePath);
-                }
-
-                return null;
-            }
-        }
+        public Uri MediaStorageFileUri => IsMediaStorageFileValid ? new Uri(MediaStorageFilePath) : null;
 
         public double MetaDataHeight
         {
@@ -314,7 +276,7 @@ namespace GrampsView.Data.Model
             {
                 if (value != null)
                 {
-                    SetProperty(ref _OriginalFilePath, value);
+                    _ = SetProperty(ref _OriginalFilePath, value);
                 }
             }
         }
@@ -343,34 +305,28 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The title decoded.
         /// </value>
-        public string TitleDecoded
-        {
-            get
-            {
-                return GDateValue.ShortDate + " - " + GDescription;
-            }
-        }
+        public string TitleDecoded => GDateValue.ShortDate + " - " + GDescription;
 
         public IMediaModel Clone()
         {
             IMediaModel t = new MediaModel
             {
-                FileMimeType = this.FileMimeType,
-                GDateValue = this.GDateValue,
-                GDescription = this.GDescription,
-                GNoteRefCollection = this.GNoteRefCollection,
-                GTagRefCollection = this.GTagRefCollection,
+                FileMimeType = FileMimeType,
+                GDateValue = GDateValue,
+                GDescription = GDescription,
+                GNoteRefCollection = GNoteRefCollection,
+                GTagRefCollection = GTagRefCollection,
 
-                MetaDataHeight = this.MetaDataHeight,
-                OriginalFilePath = this.OriginalFilePath
+                MetaDataHeight = MetaDataHeight,
+                OriginalFilePath = OriginalFilePath
             };
 
-            t.ModelItemGlyph.ImageType = this.ModelItemGlyph.ImageType;
-            t.ModelItemGlyph.Symbol = this.ModelItemGlyph.Symbol;
-            t.ModelItemGlyph.SymbolColour = this.ModelItemGlyph.SymbolColour;
+            t.ModelItemGlyph.ImageType = ModelItemGlyph.ImageType;
+            t.ModelItemGlyph.Symbol = ModelItemGlyph.Symbol;
+            t.ModelItemGlyph.SymbolColour = ModelItemGlyph.SymbolColour;
 
             t.GCitationRefCollection.Clear();
-            t.GCitationRefCollection.AddRange(this.GCitationRefCollection);
+            t.GCitationRefCollection.AddRange(GCitationRefCollection);
 
             return t;
         }

@@ -4,6 +4,9 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
+    using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Models.HLinks.Models;
 
     using System;
     using System.Threading.Tasks;

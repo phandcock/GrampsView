@@ -1,12 +1,14 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+
+using System;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels.Minor
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// XML 1.71 all done
     /// </summary>
@@ -86,12 +88,9 @@
 
         public int CompareTo(AddressModel other)
         {
-            if (other is null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
-
-            return string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
+            return other is null
+                ? throw new ArgumentNullException(nameof(other))
+                : string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public override bool Equals(object obj)
@@ -106,14 +105,14 @@
                 return true;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
             AddressModel tempObj = obj as AddressModel;
 
-            return (this.ToString() == tempObj.ToString());
+            return ToString() == tempObj.ToString();
         }
 
         public bool Equals(AddressModel other)
@@ -123,12 +122,7 @@
                 return false;
             }
 
-            if (ToString() == other.ToString())
-            {
-                return true;
-            }
-
-            return false;
+            return ToString() == other.ToString();
         }
 
         public override int GetHashCode()

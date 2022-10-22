@@ -10,6 +10,7 @@ namespace GrampsView.Data.DataView
 
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels.Minor;
 
     /// <summary>
     /// Interface for the Address Repository.

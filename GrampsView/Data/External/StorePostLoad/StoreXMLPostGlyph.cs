@@ -5,6 +5,8 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
+    using GrampsView.Models.DataModels.Minor;
 
     using SharedSharp.Errors;
 

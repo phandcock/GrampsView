@@ -1,11 +1,14 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Date;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Models.HLinks.Models
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// <para> HLink to a Place Model <font color="#333333"> </font> </para>
     /// <list type="table">
@@ -46,7 +49,7 @@
         {
             get
             {
-                if (Valid && (!DeRefCached))
+                if (Valid && !DeRefCached)
                 {
                     _Deref = DV.PlaceDV.GetModelFromHLinkKey(HLinkKey);
 
