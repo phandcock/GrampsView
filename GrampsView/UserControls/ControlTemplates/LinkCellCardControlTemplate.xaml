@@ -41,13 +41,15 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Frame
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
                         BackgroundColor="Transparent"
                         Style="{DynamicResource CardImageBackgroundFrame}">
 

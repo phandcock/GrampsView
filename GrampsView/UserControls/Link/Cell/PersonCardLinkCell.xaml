@@ -7,7 +7,10 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPersonModel">
 
-    <Grid>
+    <Grid
+        Margin="0"
+        Padding="0"
+        RowSpacing="0">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -21,6 +24,6 @@
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource SSLinkCardCellStyle}"
-            Text="{Binding DeRef}" />
+            Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.DefaultTextShort}" />
     </Grid>
 </ucon:LinkCellCardControlTemplate>
