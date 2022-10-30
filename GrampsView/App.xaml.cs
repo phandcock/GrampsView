@@ -91,10 +91,10 @@ namespace GrampsView
             }
 
             // Setup various support frameworks
-            ShardSharpCore.Init();
-
             // Any updates?
-            SharedSharpGeneral.MSAppCenterInit(Secret.AndroidSecret, Secret.IOSSecret, Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
+            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretIOS: Secret.IOSSecret, argMSAppCenterSecretUWP: Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
+
+            ShardSharpCore.Init(argGlobalDebugFlag: true);
 
             VersionTracking.Track();
 
@@ -186,7 +186,7 @@ namespace GrampsView
             _ = services.AddTransient<TagDetailViewModel>();
             _ = services.AddTransient<TagListViewModel>();
 
-            _ = services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
+            //_ = services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
 
             _ = services.AddTransient<NavigationPage>();
 

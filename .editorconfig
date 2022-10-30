@@ -76,9 +76,9 @@ dotnet_style_allow_statement_immediately_after_block_experimental = true
 #### C# Coding Conventions ####
 
 # var preferences
-csharp_style_var_elsewhere = false
-csharp_style_var_for_built_in_types = false
-csharp_style_var_when_type_is_apparent = false
+csharp_style_var_elsewhere = false:silent
+csharp_style_var_for_built_in_types = false:silent
+csharp_style_var_when_type_is_apparent = false:silent
 
 # Expression-bodied members
 csharp_style_expression_bodied_accessors = true:silent
@@ -91,18 +91,18 @@ csharp_style_expression_bodied_operators = false:silent
 csharp_style_expression_bodied_properties = true:silent
 
 # Pattern matching preferences
-csharp_style_pattern_matching_over_as_with_null_check = true
-csharp_style_pattern_matching_over_is_with_cast_check = true
-csharp_style_prefer_extended_property_pattern = true
-csharp_style_prefer_not_pattern = true
-csharp_style_prefer_pattern_matching = true
-csharp_style_prefer_switch_expression = true
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_prefer_extended_property_pattern = true:suggestion
+csharp_style_prefer_not_pattern = true:suggestion
+csharp_style_prefer_pattern_matching = true:silent
+csharp_style_prefer_switch_expression = true:suggestion
 
 # Null-checking preferences
-csharp_style_conditional_delegate_call = true
+csharp_style_conditional_delegate_call = true:suggestion
 
 # Modifier preferences
-csharp_prefer_static_local_function = true
+csharp_prefer_static_local_function = true:suggestion
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async
 
 # Code-block preferences
@@ -133,7 +133,7 @@ csharp_using_directive_placement = outside_namespace:silent
 # New line preferences
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:silent
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:silent
-csharp_style_allow_embedded_statements_on_same_line_experimental = true
+csharp_style_allow_embedded_statements_on_same_line_experimental = true:silent
 
 #### C# Formatting Rules ####
 
@@ -180,7 +180,7 @@ csharp_space_between_square_brackets = false
 
 # Wrapping preferences
 csharp_preserve_single_line_blocks = true
-csharp_preserve_single_line_statements = true
+csharp_preserve_single_line_statements = false
 
 #### Naming styles ####
 
@@ -247,3 +247,15 @@ dotnet_style_namespace_match_folder = true:suggestion
 dotnet_style_readonly_field = true:suggestion
 dotnet_style_predefined_type_for_locals_parameters_members = true:silent
 dotnet_style_allow_multiple_blank_lines_experimental = true:warning
+dotnet_style_predefined_type_for_member_access = true:silent
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_style_allow_statement_immediately_after_block_experimental = true:silent
+dotnet_code_quality_unused_parameters = all:suggestion
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
+dotnet_style_qualification_for_field = false:silent
+dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_method = false:silent
+dotnet_style_qualification_for_event = false:silent

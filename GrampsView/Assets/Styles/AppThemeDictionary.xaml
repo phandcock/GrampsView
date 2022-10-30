@@ -177,7 +177,7 @@
     </Color>
 
     <Color x:Key="OnSurfaceLight">
-        #ffffff
+        #000000
     </Color>
 
     <Color x:Key="OutlineLight">

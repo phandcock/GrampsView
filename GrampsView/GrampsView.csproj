@@ -177,7 +177,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.0.5" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.7.16" />
+		<PackageReference Include="SharedSharp" Version="0.7.21" />
 		<PackageReference Include="SharpZipLib" Version="1.4.0" />
 		<PackageReference Include="SkiaSharp" Version="2.88.3" />
 		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />
