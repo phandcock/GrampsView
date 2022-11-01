@@ -1,3 +1,12 @@
+## [16.26.17](https://github.com/phandcock/GrampsView/compare/v16.26.16...v16.26.17) (2022-11-01)
+
+
+### Bug Fixes
+
+* update nugets and init personname model ([c959db4](https://github.com/phandcock/GrampsView/commit/c959db4343cbd3325fd86b5c3c63c0d6ee61635e))
+
+
+
 ## [16.26.16](https://github.com/phandcock/GrampsView/compare/v16.26.15...v16.26.16) (2022-10-30)
 
 
@@ -24,16 +33,6 @@
 
 * update nugets ([3aee7e9](https://github.com/phandcock/GrampsView/commit/3aee7e9f91601a47c6ae928ccd2a5344aeae715e))
 * update nugets and add editorconfig ([a2fe318](https://github.com/phandcock/GrampsView/commit/a2fe3182e2ada0eeadc1f26c5365a6fd7abf6566))
-
-
-
-## [16.26.13](https://github.com/phandcock/GrampsView/compare/v16.26.12...v16.26.13) (2022-10-08)
-
-
-### Bug Fixes
-
-* update nugets and use new WantsNew service ([a35f11d](https://github.com/phandcock/GrampsView/commit/a35f11d10e66c16752465ff3b7fec360f20cf6b6))
-* update nugets and use new WantsNew service ([619023d](https://github.com/phandcock/GrampsView/commit/619023d1924db79f91a1e18b0aefba0c2d206bd5))
 
 
 
