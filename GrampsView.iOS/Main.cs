@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
 
 using System;
 using System.Threading.Tasks;
@@ -12,6 +12,7 @@ namespace GrampsView.iOS
     public class Application
     {
         // This is the main entry point of the application.
+        [Obsolete]
         private static void Main(string[] args)
         {
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
@@ -25,7 +26,7 @@ namespace GrampsView.iOS
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
-            var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
+            Exception newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
             App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }

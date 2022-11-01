@@ -46,20 +46,11 @@ namespace GrampsView.Models.DataModels.Minor
             }
         }
 
-        public string ExtraNames
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(GCall))
-                {
-                    return $"Called: {GCall}";
-                }
-
-                return !string.IsNullOrEmpty(GNick)
+        public string ExtraNames => !string.IsNullOrEmpty(GCall)
+                    ? $"Called: {GCall}"
+                    : !string.IsNullOrEmpty(GNick)
                     ? $"Nickname: {GNick}"
                     : !string.IsNullOrEmpty(GFamilyNick) ? $"Family Nickname: {GFamilyNick}" : string.Empty;
-            }
-        }
 
         public string FirstFirstName => GFirstName.Split()[0];
 
@@ -134,6 +125,8 @@ namespace GrampsView.Models.DataModels.Minor
             set;
         }
 
+          = string.Empty;
+
         /// <summary>
         /// Gets or sets the family nick.
         /// </summary>
@@ -145,6 +138,8 @@ namespace GrampsView.Models.DataModels.Minor
         {
             get; set;
         }
+
+          = string.Empty;
 
         /// <summary>
         /// Gets or sets the first name.
@@ -159,6 +154,7 @@ namespace GrampsView.Models.DataModels.Minor
 
             set;
         }
+          = string.Empty;
 
         /// <summary>
         /// Gets or sets the group.
@@ -172,6 +168,8 @@ namespace GrampsView.Models.DataModels.Minor
             get; set;
         }
 
+          = string.Empty;
+
         /// <summary>
         /// Gets or sets the nick.
         /// </summary>
@@ -183,6 +181,8 @@ namespace GrampsView.Models.DataModels.Minor
         {
             get; set;
         }
+
+          = string.Empty;
 
         /// <summary>
         /// Gets or sets the note reference collection.
@@ -212,6 +212,9 @@ namespace GrampsView.Models.DataModels.Minor
             set;
         }
 
+          = string.Empty;
+
+
         /// <summary>
         /// Gets or sets the suffix.
         /// </summary>
@@ -223,6 +226,8 @@ namespace GrampsView.Models.DataModels.Minor
         {
             get; set;
         }
+
+          = string.Empty;
 
         /// <summary>
         /// Gets or sets the surname.
@@ -252,6 +257,8 @@ namespace GrampsView.Models.DataModels.Minor
             get; set;
         }
 
+          = string.Empty;
+
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -264,6 +271,8 @@ namespace GrampsView.Models.DataModels.Minor
             get;
             set;
         }
+
+          = string.Empty;
 
         public HLinkPersonNameModel HLink
         {

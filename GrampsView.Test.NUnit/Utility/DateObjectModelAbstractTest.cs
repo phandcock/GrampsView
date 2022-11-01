@@ -1,14 +1,14 @@
-﻿namespace GrampsView.e2e.Test.Utility
+﻿using GrampsView.Data.Model;
+
+using SharedSharp.Model;
+
+using System;
+
+namespace GrampsView.Test.NUnit.Utility
 {
-    using GrampsView.Data.Model;
-
-    using SharedSharp.Model;
-
-    using System;
-
     public partial class DateObjectModelAbstractTest : DateObjectModel, IDateObjectModel
     {
-        public override Nullable<int> GetAge => throw new NotImplementedException();
+        public override int? GetAge => throw new NotImplementedException();
 
         public override string GetYear => throw new NotImplementedException();
 
@@ -16,28 +16,16 @@
 
         public override string ShortDate => throw new NotImplementedException();
 
-        public override DateTime SingleDate
-        {
-            get
-            {
-                return new DateTime();
-            }
-        }
+        public override DateTime SingleDate => new();
 
-        public override DateTime SortDate
-        {
-            get
-            {
-                return new DateTime();
-            }
-        }
+        public override DateTime SortDate => new();
 
         public DateObjectModelAbstractTest()
         {
             Valid = true;
         }
 
-        public CardListLineCollection AsCardListLine(string argTitle = null)
+        public CardListLineCollection AsCardListLine(string? argTitle = null)
         {
             return new CardListLineCollection();
         }

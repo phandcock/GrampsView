@@ -1,11 +1,11 @@
-﻿namespace GrampsView.Data.Model.Tests
-{
-    using global::NUnit.Framework;
+﻿using global::NUnit.Framework;
 
+namespace GrampsView.Data.Model.Tests
+{
     [TestFixture()]
     public partial class DOMStrTests
     {
-        private DateObjectModelStr testVal;
+        private DateObjectModelStr testVal = new();
 
         [TearDown]
         public void Cleanup()

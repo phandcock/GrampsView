@@ -1,15 +1,15 @@
-﻿namespace GrampsView.Data.Model.Tests
+﻿using global::NUnit.Framework;
+
+using GrampsView.Common;
+
+namespace GrampsView.Data.Model.Tests
 {
-    using global::NUnit.Framework;
-
-    using GrampsView.Common;
-
     [TestFixture()]
     public partial class DateObjectModelRangeTests
     {
         // TODO Add more tests and add the same to other dateobjectmodel types
 
-        private DateObjectModelRange testVal;
+        private DateObjectModelRange testVal = new();
 
         [TearDown]
         public void Cleanup()
@@ -39,9 +39,9 @@
 
         public void InitYearMonth()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aStart = "1939-01";
             string aStop = "1948-10";
@@ -51,9 +51,9 @@
 
         public void InitYearMonthDay()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aStart = "1939-01-01";
             string aStop = "1948-10-11";
@@ -63,9 +63,9 @@
 
         public void InitYearOnly()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aStart = "1939";
             string aStop = "1948";

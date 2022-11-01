@@ -217,7 +217,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SharedSharp">
-      <Version>0.7.21</Version>
+      <Version>0.7.22</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.88.3</Version>

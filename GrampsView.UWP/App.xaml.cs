@@ -1,28 +1,28 @@
-﻿namespace GrampsView.UWP
+﻿using FFImageLoading.Forms;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+
+using Microsoft.AppCenter;
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
+using System.Threading.Tasks;
+
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Navigation;
+
+namespace GrampsView.UWP
 {
-    using FFImageLoading.Forms;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-
-    using Microsoft.AppCenter;
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Threading.Tasks;
-
-    using Windows.ApplicationModel;
-    using Windows.ApplicationModel.Activation;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Navigation;
-
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -35,9 +35,9 @@
 
         public App()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.Suspending += OnSuspending;
+            Suspending += OnSuspending;
 
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 
@@ -83,7 +83,7 @@
                                     HLinkKey = new HLinkKey(uriSegments[2])
                                 };
 
-                                targetFamily.UCNavigate();
+                                _ = targetFamily.UCNavigate();
 
                                 break;
                             }
@@ -95,7 +95,7 @@
                                     HLinkKey = new HLinkKey(uriSegments[2])
                                 };
 
-                                targetPerson.UCNavigate();
+                                _ = targetPerson.UCNavigate();
 
                                 break;
                             }
@@ -133,7 +133,7 @@
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
-                var config = new FFImageLoading.Config.Configuration()
+                FFImageLoading.Config.Configuration config = new FFImageLoading.Config.Configuration()
 
                 {
                     VerboseLogging = false,
@@ -147,7 +147,7 @@
 
                 FFImageLoading.ImageService.Instance.Initialize(config);
 
-                var assembliesToInclude = new List<Assembly>
+                List<Assembly> assembliesToInclude = new List<Assembly>
                     {
                         typeof(CachedImage).GetTypeInfo().Assembly,
                         typeof(FFImageLoading.Forms.Platform.CachedImageRenderer).GetTypeInfo().Assembly,
@@ -178,7 +178,7 @@
             {
                 // When the navigation stack isn't restored navigate to the first page, configuring
                 // the new page by passing required information as a navigation parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                _ = rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
             // Ensure the current window is active
@@ -189,9 +189,9 @@
         {
             unobservedTaskExceptionEventArgs.SetObserved();
 
-            ((AggregateException)unobservedTaskExceptionEventArgs.Exception).Handle(ex =>
+            unobservedTaskExceptionEventArgs.Exception.Handle(ex =>
             {
-                var newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
+                Exception newExc = new Exception(nameof(TaskSchedulerOnUnobservedTaskException), unobservedTaskExceptionEventArgs.Exception);
 
                 ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
 
@@ -201,14 +201,23 @@
 
         private static void UnhandledExceptionHandler(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs argsUnhandledExceptionEventArgs)
         {
-            ((AggregateException)argsUnhandledExceptionEventArgs.Exception).Handle(ex =>
+            if (argsUnhandledExceptionEventArgs.Exception.GetType() == typeof(AggregateException))
+            {
+                ((AggregateException)argsUnhandledExceptionEventArgs.Exception).Handle(ex =>
+                {
+                    Exception e = argsUnhandledExceptionEventArgs.Exception;
+
+                    ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
+
+                    return true;
+                });
+            }
+            else
             {
                 Exception e = argsUnhandledExceptionEventArgs.Exception;
 
                 ((GrampsView.App)Xamarin.Forms.Application.Current).Services.GetService<IErrorNotifications>().NotifyException($"UnhandledExceptionHandler-{argsUnhandledExceptionEventArgs.Message}", e);
-
-                return true;
-            });
+            }
         }
 
         /// <summary>
@@ -238,7 +247,7 @@
         /// </param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
+            SuspendingDeferral deferral = e.SuspendingOperation.GetDeferral();
 
             //TODO: Save application state and stop any background activity
             deferral.Complete();

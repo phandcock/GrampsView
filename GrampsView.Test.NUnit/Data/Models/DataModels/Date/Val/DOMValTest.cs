@@ -1,16 +1,16 @@
-﻿namespace GrampsView.Data.Model.Tests
+﻿using global::NUnit.Framework;
+
+using GrampsView.Common;
+using GrampsView.Models.DataModels.Date;
+
+namespace GrampsView.Data.Model.Tests
 {
-    using global::NUnit.Framework;
-
-    using GrampsView.Common;
-    using GrampsView.Models.DataModels.Date;
-
     [TestFixture()]
     public partial class DOMValTests
     {
         // TODO Add more tests and add the same to other dateobjectmodel types
 
-        private DateObjectModelVal testVal;
+        private DateObjectModelVal testVal = new();
 
         [TearDown]
         public void Cleanup()
@@ -24,9 +24,9 @@
 
         public void InitYearMonth()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939-01";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
@@ -36,9 +36,9 @@
 
         public void InitYearMonthDay()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939-10-01";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
@@ -48,9 +48,9 @@
 
         public void InitYearOnly()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;

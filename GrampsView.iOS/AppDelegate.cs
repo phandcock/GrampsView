@@ -6,7 +6,7 @@ using Microsoft.AppCenter.Distribute;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
 
 using System;
 using System.Threading.Tasks;
@@ -50,13 +50,13 @@ namespace GrampsView.iOS
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
-            var newExc = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
+            Exception newExc = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
             App.Current.Services.GetService<IErrorNotifications>().NotifyException("CurrentDomainOnUnhandledException", newExc);
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
-            var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
+            Exception newExc = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
             App.Current.Services.GetService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
         }
     }

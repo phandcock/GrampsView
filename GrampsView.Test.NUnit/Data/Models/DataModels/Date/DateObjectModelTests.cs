@@ -1,17 +1,17 @@
-﻿namespace GrampsView.Data.Model.Tests
+﻿using GrampsView.Data.Model;
+using GrampsView.Test.NUnit.Utility;
+
+using NUnit.Framework;
+
+using SharedSharp.Model;
+
+namespace GrampsView.Test.NUnit.Data.Models.DataModels.Date
 {
-    using global::NUnit.Framework;
-
-    using GrampsView.Data.Model;
-    using GrampsView.e2e.Test.Utility;
-
-    using SharedSharp.Model;
-
     [TestFixture()]
     public class DateObjectModelTests
     {
-        private DateObjectModelAbstractTest compareVal;
-        private DateObjectModelAbstractTest testVal;
+        private DateObjectModelAbstractTest compareVal = new();
+        private DateObjectModelAbstractTest testVal = new();
 
         [Test()]
         public void AsCardListLineTest()

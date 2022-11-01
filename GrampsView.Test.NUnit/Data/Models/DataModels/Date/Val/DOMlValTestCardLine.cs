@@ -1,21 +1,22 @@
-﻿namespace GrampsView.Data.Model.Tests
+﻿using global::NUnit.Framework;
+
+using GrampsView.Common;
+using GrampsView.e2e.Test.Utility;
+using GrampsView.Models.DataModels.Date;
+
+using SharedSharp.Model;
+
+namespace GrampsView.Data.Model.Tests
 {
-    using global::NUnit.Framework;
-
-    using GrampsView.Common;
-    using GrampsView.e2e.Test.Utility;
-
-    using SharedSharp.Model;
-
     [TestFixture()]
     public partial class DOMValTests
     {
         [Test()]
         public void AsCardListLineTest_After()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.after;
@@ -40,9 +41,9 @@
         [Test()]
         public void AsCardListLineTest_Basic()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = false;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
@@ -66,9 +67,9 @@
         [Test()]
         public void AsCardListLineTest_DualDated()
         {
-            string aCFormat = null;
+            string? aCFormat = null;
             bool aDualDated = true;
-            string aNewYear = null;
+            string? aNewYear = null;
             CommonEnums.DateQuality aQuality = CommonEnums.DateQuality.unknown;
             string aVal = "1939";
             CommonEnums.DateValType aValType = CommonEnums.DateValType.unknown;
@@ -77,7 +78,8 @@
 
             CardListLineCollection AsCardListLineTest_Basic = testVal.AsCardListLine("Test Title");
 
-            if (AsCardListLineTest_Basic.Title != "Test Title") { Assert.Fail(); return; }
+            if (AsCardListLineTest_Basic.Title != "Test Title")
+            { Assert.Fail(); return; }
 
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[0], "Date:", "1939 (Dual dated)");
             CardListLineUtils.CheckCardListLine(AsCardListLineTest_Basic[1], "Val:", "1939");
