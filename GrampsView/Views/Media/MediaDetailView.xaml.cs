@@ -1,4 +1,4 @@
-﻿using GrampsView.Data.Model;
+﻿using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.ViewModels;
 
 using Microsoft.Extensions.DependencyInjection;

@@ -1,8 +1,8 @@
 ﻿namespace GrampsView.iOS.Common
 {
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
     using GrampsView.Models.DataModels;
+    using GrampsView.Models.DataModels.Interfaces;
 
     using System.IO;
     using System.Threading.Tasks;

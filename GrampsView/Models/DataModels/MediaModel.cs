@@ -7,6 +7,7 @@ using GrampsView.Data.Collections;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.Models.DataModels.Interfaces;
 
 using System;
 using System.Collections;
@@ -307,29 +308,7 @@ namespace GrampsView.Models.DataModels
         /// </value>
         public string TitleDecoded => GDateValue.ShortDate + " - " + GDescription;
 
-        public IMediaModel Clone()
-        {
-            IMediaModel t = new MediaModel
-            {
-                FileMimeType = FileMimeType,
-                GDateValue = GDateValue,
-                GDescription = GDescription,
-                GNoteRefCollection = GNoteRefCollection,
-                GTagRefCollection = GTagRefCollection,
 
-                MetaDataHeight = MetaDataHeight,
-                OriginalFilePath = OriginalFilePath
-            };
-
-            t.ModelItemGlyph.ImageType = ModelItemGlyph.ImageType;
-            t.ModelItemGlyph.Symbol = ModelItemGlyph.Symbol;
-            t.ModelItemGlyph.SymbolColour = ModelItemGlyph.SymbolColour;
-
-            t.GCitationRefCollection.Clear();
-            t.GCitationRefCollection.AddRange(GCitationRefCollection);
-
-            return t;
-        }
 
         /// <summary>
         /// Compares the specified a.

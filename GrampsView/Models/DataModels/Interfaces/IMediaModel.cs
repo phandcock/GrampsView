@@ -1,9 +1,11 @@
-﻿namespace GrampsView.Data.Model
-{
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
+﻿using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
 
+namespace GrampsView.Models.DataModels.Interfaces
+{
     public interface IMediaModel : IModelBase
     {
         string FileContentType
@@ -158,6 +160,6 @@
             set;
         }
 
-        IMediaModel Clone();
+
     }
 }

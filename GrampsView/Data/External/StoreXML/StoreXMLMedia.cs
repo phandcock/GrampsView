@@ -1,21 +1,22 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Data.External.StoreFile;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+
+using SharedSharp.Errors;
+
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+using Xamarin.Forms;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Data.External.StoreFile;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.IO;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Private Storage Routines.
     /// </summary>
@@ -27,7 +28,7 @@
         /// <returns>
         /// Flag showing of loaded successfully.
         /// </returns>
-        public async Task<bool> LoadMediaObjectsAsync()
+        public Task<bool> LoadMediaObjectsAsync()
         {
             _iocCommonLogging.RoutineEntry("loadMediaObjects");
 
@@ -37,7 +38,7 @@
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
                 // Load notes Run query
-                var de =
+                System.Collections.Generic.IEnumerable<XElement> de =
                     from el in localGrampsXMLdoc.Descendants(ns + "object")
                     select el;
 
@@ -170,7 +171,7 @@
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
-                        _iocCommonLogging.LogVariable("LoadMedia", loadObject.GDescription);
+                        _iocCommonLogging.Variable("LoadMedia", loadObject.GDescription);
                     }
                 }
                 catch (Exception e)
@@ -186,7 +187,7 @@
 
             _iocCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
 
-            return true;
+            return Task.FromResult(true);
         }
     }
 }

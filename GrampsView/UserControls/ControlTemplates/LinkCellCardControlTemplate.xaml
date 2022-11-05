@@ -28,6 +28,7 @@
                     x:Name="controlRoot"
                     Margin="0"
                     Padding="0"
+                    RowSpacing="0"
                     Style="{x:DynamicResource SSGridSmallFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
@@ -40,8 +41,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
 
                     <Frame
@@ -50,7 +51,7 @@
                         Grid.ColumnSpan="2"
                         VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="Red"
                         Style="{DynamicResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
@@ -78,6 +79,7 @@
                         Grid.ColumnSpan="2"
                         Margin="0"
                         Padding="0"
+                        BackgroundColor="Red"
                         VerticalOptions="End" />
                 </Grid>
             </Frame>

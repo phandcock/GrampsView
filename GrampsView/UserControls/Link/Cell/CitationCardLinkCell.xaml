@@ -14,7 +14,10 @@
         </ResourceDictionary>
     </ucon:LinkCellCardControlTemplate.Resources>
 
-    <Grid>
+    <Grid
+        Margin="0"
+        Padding="0"
+        RowSpacing="0">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

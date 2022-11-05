@@ -1,27 +1,28 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+
+using SharedSharp.Errors;
+
+using SkiaSharp;
+
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Errors;
-
-    using SkiaSharp;
-
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Various utility and loading routines for XML data.
     /// </summary>
@@ -40,14 +41,7 @@
         /// </returns>
         private static string GetAttribute(XAttribute a)
         {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
+            return a == null ? string.Empty : ((string)a).Trim();
         }
 
         /// <summary>
@@ -165,14 +159,7 @@
         /// </returns>
         private static string GetElement(XElement a)
         {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return ((string)a).Trim();
-            }
+            return a == null ? string.Empty : ((string)a).Trim();
         }
 
         /// <summary>
@@ -189,24 +176,12 @@
         /// </returns>
         private static string GetElement(XElement a, string b)
         {
-            if (a == null)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return GetElement(a.Element(ns + b));
-            }
+            return a == null ? string.Empty : GetElement(a.Element(ns + b));
         }
 
         private static HLinkKey GetHLinkKey(XElement argElement)
         {
-            if (argElement == null)
-            {
-                return new HLinkKey();
-            }
-
-            return new HLinkKey(GetAttribute(argElement, "hlink"));
+            return argElement == null ? new HLinkKey() : new HLinkKey(GetAttribute(argElement, "hlink"));
         }
 
         /// <summary>
@@ -222,12 +197,7 @@
         {
             string t = GetAttribute(xmlData.Attribute("priv"));
 
-            if (t == "1")
-            {
-                return true;
-            }
-
-            return false;
+            return t == "1";
         }
 
         private static TextStyle GetTextStyle(XElement a)
@@ -388,7 +358,7 @@
                  croppedBitmap.Dispose();
 
                  // ------------ Save new MediaObject
-                 newMediaModel = theMediaModel.Clone();
+                 newMediaModel = SharedSharp.Common.SharedSharpGeneral.CopyObject<MediaModel>(theMediaModel);
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFilePath;
@@ -459,12 +429,12 @@
             {
                 const string ColorNotSet = "#000000000000";
 
-                var regexColorCode = new Regex("^#[a-fA-F0-9]{6}$");
+                Regex regexColorCode = new Regex("^#[a-fA-F0-9]{6}$");
 
                 string hexColour = GetAttribute(a.Attribute(b));
 
                 // Validate
-                if ((!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet))
+                if (!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet)
                 {
                     ErrorInfo argErrorDetail = new ErrorInfo("Bad colour in GetColour")
                     {
@@ -484,7 +454,7 @@
 
                 ColorTypeConverter colConverter = new ColorTypeConverter();
 
-                return (Color)(colConverter.ConvertFromInvariantString(hexColour));
+                return (Color)colConverter.ConvertFromInvariantString(hexColour);
             }
             catch (Exception ex)
             {

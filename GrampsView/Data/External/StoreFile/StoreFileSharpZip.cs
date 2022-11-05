@@ -1,7 +1,7 @@
 ﻿using GrampsView.Common;
-using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
 
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;

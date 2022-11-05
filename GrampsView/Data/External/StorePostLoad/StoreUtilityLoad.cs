@@ -2,8 +2,8 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels.Interfaces;
 
     using SharedSharp.Errors;
 

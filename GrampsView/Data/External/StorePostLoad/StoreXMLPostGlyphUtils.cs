@@ -2,9 +2,9 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -146,7 +146,7 @@ namespace GrampsView.Data.ExternalStorage
 
         private IMediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
-            IMediaModel newMediaModel = argSourceMediaModel.Clone();
+            IMediaModel newMediaModel = SharedSharp.Common.SharedSharpGeneral.CopyObject<MediaModel>(argSourceMediaModel);
 
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
 

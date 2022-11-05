@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Models.DataModels.Interfaces;
 
     public interface IHLinkMediaModel : IHLinkBase
     {
