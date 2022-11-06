@@ -82,6 +82,12 @@ namespace GrampsView.Converters
             switch (typeDiscriminator)
 
             {
+                case DateObjectModelDerivedTypeEnum.DateObjectInvalid:
+                    {
+                        _ = reader.Read();
+
+                        return new DateObjectModel();
+                    }
                 case DateObjectModelDerivedTypeEnum.DateObjectModelRange:
                     {
                         return readRange(ref reader);
@@ -98,6 +104,10 @@ namespace GrampsView.Converters
                 case DateObjectModelDerivedTypeEnum.DateObjectModelVal:
                     {
                         return readVal(ref reader);
+                    }
+                case DateObjectModelDerivedTypeEnum.DateObjectModelUnknown:
+                    {
+                        return readDOM(ref reader);
                     }
                 default:
                     {
@@ -118,8 +128,20 @@ namespace GrampsView.Converters
         {
             writer.WriteStartObject();
 
+            // Handle Invalid
+            if (!value.Valid)
+            {
+                writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectInvalid);
+            }
+
             // Write specific fields
-            if (value is DateObjectModelRange range)
+            else if (value is DateObjectModel dom)
+            {
+                writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelUnknown);
+
+                writeDOM(ref writer, dom);
+            }
+            else if (value is DateObjectModelRange range)
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelRange);
 
@@ -142,6 +164,14 @@ namespace GrampsView.Converters
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelVal);
 
                 writeVal(ref writer, val);
+            }
+            else
+            {
+                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter - Write", new JsonException(),
+                                                                                            new ErrorInfo()
+                                                                                            {
+                                                                                              new SharedSharp.Model.CardListLine("Value",value.ToString()),
+                                                                                            });
             }
 
             writer.WriteEndObject();
@@ -441,6 +471,79 @@ namespace GrampsView.Converters
             return returnDate;
         }
 
+        private DateObjectModel readDOM(ref Utf8JsonReader argReader)
+        {
+            DateObjectModel returnDate = new DateObjectModelStr();
+
+            while (argReader.Read())
+            {
+                if (argReader.TokenType == JsonTokenType.EndObject)
+                {
+                    return returnDate;
+                }
+
+                if (argReader.TokenType == JsonTokenType.PropertyName)
+                {
+                    string propertyName = argReader.GetString();
+                    _ = argReader.Read();
+                    switch (propertyName)
+                    {
+
+                        case "HLinkKey":
+                            {
+                                returnDate.HLinkKey.Value = argReader.GetString();
+                                break;
+                            }
+                        case "ModelItemGlyph.Symbol":
+                            {
+                                returnDate.ModelItemGlyph.Symbol = argReader.GetString();
+                                break;
+                            }
+                        case "ModelItemGlyph.SymbolColour":
+                            {
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                break;
+                            }
+                        case "NotionalDate":
+                            {
+                                returnDate.NotionalDate = argReader.GetDateTime();
+                                break;
+                            }
+                        case "Valid":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
+                                break;
+                            }
+                        default:
+                            {
+                                throw new JsonException();
+                            }
+                    }
+                }
+            }
+
+            return returnDate;
+        }
+
         private DateObjectModelVal readVal(ref Utf8JsonReader argReader)
         {
             DateObjectModelVal returnDate = new DateObjectModelVal();
@@ -629,5 +732,13 @@ namespace GrampsView.Converters
 
             argWriter.WriteNumber("GValType", (int)argVal.GValType);
         }
+
+        private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModel argVal)
+        {
+            writeBasic(ref argWriter, argVal);
+
+
+        }
+
     }
 }

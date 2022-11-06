@@ -32,6 +32,7 @@ namespace GrampsView.Common
             DateObjectModelStr,
             DateObjectModelUnknown,
             DateObjectModelVal,
+            DateObjectInvalid,
         }
 
         public enum DateQuality

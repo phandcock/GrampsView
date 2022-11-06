@@ -163,14 +163,14 @@
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
         <Setter Property="Margin" Value="2" />
-        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardSmallWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
         x:Key="SSFrameSmallFixedCardStyle"
         BasedOn="{StaticResource SSFrameCardSmallStyle}"
         TargetType="Frame">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -202,14 +202,14 @@
         TargetType="Frame">
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="4" />
-        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
         x:Key="SSFrameMediumFixedCardStyle"
         BasedOn="{StaticResource SSFrameCardMediumStyle}"
         TargetType="Frame">
-        <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardMediumHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -224,7 +224,7 @@
         x:Key="SSFrameMediumVariableCardStyle"
         BasedOn="{StaticResource SSFrameCardMediumStyle}"
         TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding CardMediumHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="MinimumHeightRequest" Value="{Binding CardMediumHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--  Create a Variable Height Medium Card Style - Not Selectable  -->
@@ -233,7 +233,7 @@
         BasedOn="{StaticResource SSFrameMediumVariableCardStyle}"
         TargetType="Frame">
         <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardMediumWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--
@@ -244,7 +244,7 @@
         x:Key="SSFrameCardLargeStyle"
         BasedOn="{StaticResource SSFrameCardStyle}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="Margin" Value="1" />
     </Style>
@@ -254,7 +254,7 @@
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -269,7 +269,7 @@
         x:Key="SSFrameLargeVariableCardStyle"
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
-        <Setter Property="MinimumHeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="MinimumHeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--  Create a Variable Height Large Card Style - Not Selectable  -->
@@ -278,7 +278,7 @@
         BasedOn="{StaticResource SSFrameLargeVariableCardStyle}"
         TargetType="Frame">
         <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--
@@ -306,7 +306,7 @@
         x:Key="SSGridSingleFixedCardStyle"
         BasedOn="{StaticResource SSGridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardSingleHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <!--  Grid Small  -->
@@ -314,7 +314,7 @@
         x:Key="SSGridSmallFixedCardStyle"
         BasedOn="{StaticResource SSGridBaseStyle}"
         TargetType="Grid">
-        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}" />
     </Style>
 
     <Style
