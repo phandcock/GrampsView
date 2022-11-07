@@ -1,3 +1,12 @@
+## [16.26.18](https://github.com/phandcock/GrampsView/compare/v16.26.17...v16.26.18) (2022-11-05)
+
+
+### Bug Fixes
+
+* refactor code and change clone method ([52fecd0](https://github.com/phandcock/GrampsView/commit/52fecd06340d07512052b499226e0f13ad0335eb))
+
+
+
 ## [16.26.17](https://github.com/phandcock/GrampsView/compare/v16.26.16...v16.26.17) (2022-11-01)
 
 
@@ -23,16 +32,6 @@
 ### Bug Fixes
 
 * update nugets ([575afa1](https://github.com/phandcock/GrampsView/commit/575afa1c50157640c49b9f73703e4076514e2841))
-
-
-
-## [16.26.14](https://github.com/phandcock/GrampsView/compare/v16.26.13...v16.26.14) (2022-10-15)
-
-
-### Bug Fixes
-
-* update nugets ([3aee7e9](https://github.com/phandcock/GrampsView/commit/3aee7e9f91601a47c6ae928ccd2a5344aeae715e))
-* update nugets and add editorconfig ([a2fe318](https://github.com/phandcock/GrampsView/commit/a2fe3182e2ada0eeadc1f26c5365a6fd7abf6566))
 
 
 
