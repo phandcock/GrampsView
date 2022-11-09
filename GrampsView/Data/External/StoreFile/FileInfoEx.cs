@@ -7,6 +7,7 @@
 
     using SharedSharp.Errors;
     using SharedSharp.Errors.Interfaces;
+    using SharedSharp.Logging.Interfaces;
 
     using System;
     using System.Diagnostics.Contracts;
@@ -121,7 +122,7 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }

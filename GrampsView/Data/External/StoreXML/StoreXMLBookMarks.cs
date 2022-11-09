@@ -1,18 +1,18 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.HLinks.Models;
+
+using SharedSharp.Errors;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// <summary>
     /// Loads BookMark XML.
     /// </summary>
@@ -95,14 +95,14 @@
         /// <returns>
         /// True if loaded ok.
         /// </returns>
-        public async Task LoadBookMarksAsync()
+        public Task LoadBookMarksAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading BookMark data");
+            myCommonLogging.DataLogEntryAdd("Loading BookMark data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "bookmark")
                         select el;
 
@@ -126,13 +126,13 @@
                         }
                         else
                         {
-                            _iocCommonNotifications.NotifyError(new ErrorInfo("Bad BookMark")
+                            myCommonNotifications.NotifyError(new ErrorInfo("Bad BookMark")
                                 {
                                     { "HLink",  argBookMark.ToString() }
                                 });
                         }
 
-                        _iocCommonNotifications.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
+                        myCommonLogging.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
                     }
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
@@ -140,15 +140,14 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Bookmark load complete");
-
-            return;
+            myCommonLogging.DataLogEntryReplace("Bookmark load complete");
+            return Task.CompletedTask;
         }
     }
 }

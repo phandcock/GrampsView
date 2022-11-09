@@ -1,23 +1,23 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     public partial class StoreXML : IStoreXML
     {
         public async Task LoadPlacesAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Place data");
+            myCommonLogging.DataLogEntryAdd("Loading Place data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "placeobj")
                         select el;
 
@@ -59,8 +59,8 @@
                             XElement coord = pPlaceElement.Element(ns + "coord");
                             if (!(coord is null))
                             {
-                                double.TryParse(GetAttribute(coord, "lat"), out double latDouble);
-                                double.TryParse(GetAttribute(coord, "long"), out double longDouble);
+                                _ = double.TryParse(GetAttribute(coord, "lat"), out double latDouble);
+                                _ = double.TryParse(GetAttribute(coord, "long"), out double longDouble);
 
                                 loadPlace.GCoordLat = latDouble;
                                 loadPlace.GCoordLong = longDouble;
@@ -89,13 +89,13 @@
                 }
                 catch (Exception e)
                 {
-                    _iocCommonNotifications.NotifyException("Exception loading Place data from the file", e);
+                    myCommonNotifications.NotifyException("Exception loading Place data from the file", e);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Place load complete");
+            myCommonLogging.DataLogEntryReplace("Place load complete");
 
             return;
         }

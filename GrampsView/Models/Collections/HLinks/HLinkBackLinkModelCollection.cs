@@ -4,6 +4,7 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.Models.HLinks;
 
     using static GrampsView.Data.Model.HLinkBackLink;
 

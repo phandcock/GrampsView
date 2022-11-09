@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Models.HLinks;
+
     using SharedSharp.Model;
 
     using System;

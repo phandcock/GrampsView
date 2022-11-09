@@ -58,12 +58,9 @@ namespace GrampsView.Test.e2e.Utility
             SharedSharp.Logging.Interfaces.ILog iocCommonLogging = new SharedSharp.Logging.Log();
 
             /*
-             * Mock Common Notifications
+             * Mock Common Logging
              */
             Mock<IErrorNotifications> mockCommonNotifications = new();
-
-            _ = mockCommonNotifications
-                .Setup(x => x.DataLogEntryAdd(It.IsAny<string>()));
 
             iocCommonNotifications = mockCommonNotifications.Object;
 

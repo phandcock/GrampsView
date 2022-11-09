@@ -1,25 +1,25 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     public partial class StoreXML : IStoreXML
     {
-        public async Task LoadNameMapsAsync()
+        public Task LoadNameMapsAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading NameMap data");
+            myCommonLogging.DataLogEntryAdd("Loading NameMap data");
 
             {
                 // XNamespace ns = grampsXMLNameSpace;
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "namemaps")
                         select el;
 
@@ -53,15 +53,14 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("NameMap load complete");
-
-            return;
+            myCommonLogging.DataLogEntryReplace("NameMap load complete");
+            return Task.CompletedTask;
         }
     }
 }

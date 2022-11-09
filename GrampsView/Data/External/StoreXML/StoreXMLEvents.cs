@@ -1,26 +1,26 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks.Models;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using static GrampsView.Common.CommonEnums;
-
     public partial class StoreXML : IStoreXML
     {
         public async Task LoadEventsAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Event data");
+            myCommonLogging.DataLogEntryAdd("Loading Event data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "event")
                         select el;
 
@@ -54,8 +54,10 @@
                         XElement tt = pname.Element(ns + "place");
                         if (!(tt is null))
                         {
-                            HLinkPlaceModel t = new HLinkPlaceModel();
-                            t.HLinkKey = GetHLinkKey(tt);
+                            HLinkPlaceModel t = new HLinkPlaceModel
+                            {
+                                HLinkKey = GetHLinkKey(tt)
+                            };
                             loadEvent.GPlace = t;
                         }
 
@@ -76,15 +78,15 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
 
-                    _iocCommonNotifications.NotifyException("LoadEventsAsync", e);
+                    myCommonNotifications.NotifyException("LoadEventsAsync", e);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Event load complete");
+            myCommonLogging.DataLogEntryReplace("Event load complete");
             return;
         }
     }

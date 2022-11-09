@@ -1,23 +1,23 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     public partial class StoreXML : IStoreXML
     {
-        public async Task LoadRepositoriesAsync()
+        public Task LoadRepositoriesAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Repository data");
+            myCommonLogging.DataLogEntryAdd("Loading Repository data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "repository")
                         select el;
 
@@ -46,14 +46,13 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
 
-                _iocCommonNotifications.DataLogEntryReplace("Repository load complete");
-
-                return;
+                myCommonLogging.DataLogEntryReplace("Repository load complete");
+                return Task.CompletedTask;
             }
         }
     }

@@ -4,6 +4,7 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Models.HLinks;
 
     /// TODO Update fields as per Schema
 

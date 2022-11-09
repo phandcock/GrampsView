@@ -6,6 +6,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Models.DataModels;
     using GrampsView.Models.DataModels.Interfaces;
+    using GrampsView.Models.HLinks;
 
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;

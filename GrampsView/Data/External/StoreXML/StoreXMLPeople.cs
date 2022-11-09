@@ -6,6 +6,7 @@ using GrampsView.Models.DataModels;
 using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public async Task LoadPeopleDataAsync()
         {
-            _iocCommonLogging.RoutineEntry("LoadPeopleDataAsync");
+            myCommonLogging.RoutineEntry("LoadPeopleDataAsync");
 
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading People data");
+            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Loading People data");
             {
                 string defaultImage = string.Empty;
 
@@ -141,7 +142,7 @@ namespace GrampsView.Data.ExternalStorage
                     }
 
                     // let everybody know
-                    _iocCommonLogging.RoutineExit("loadPeopleData");
+                    myCommonLogging.RoutineExit("loadPeopleData");
                 }
                 catch (Exception ex)
                 {
@@ -164,7 +165,7 @@ namespace GrampsView.Data.ExternalStorage
             //{
             //}
 
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("People load complete");
+            App.Current.Services.GetService<ILog>().DataLogEntryReplace("People load complete");
 
             return;
         }

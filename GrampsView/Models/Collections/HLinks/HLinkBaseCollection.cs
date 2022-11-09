@@ -4,6 +4,7 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Models.HLinks;
 
     using System.Linq;
 

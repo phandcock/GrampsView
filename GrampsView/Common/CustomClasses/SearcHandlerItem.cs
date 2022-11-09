@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Common.CustomClasses
 {
     using GrampsView.Data.Model;
+    using GrampsView.Models.HLinks;
 
     using System;
 

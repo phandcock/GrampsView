@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System;
 using System.Linq;
@@ -25,9 +26,9 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// local copy of GramsView Logging routines.
         /// </summary>
-        private readonly SharedSharp.Logging.Interfaces.ILog _iocCommonLogging;
+        private readonly ILog myCommonLogging;
 
-        private readonly IErrorNotifications _iocCommonNotifications;
+        private readonly IErrorNotifications myCommonNotifications;
 
         /// <summary>
         /// The Gramps XML document.
@@ -43,11 +44,11 @@ namespace GrampsView.Data.ExternalStorage
         /// <param name="iocCommonNotifications">
         /// Common Notifications
         /// </param>
-        public StoreXML(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications)
+        public StoreXML(ILog iocCommonLogging, IErrorNotifications iocCommonNotifications)
         {
-            _iocCommonLogging = iocCommonLogging;
+            myCommonLogging = iocCommonLogging;
 
-            _iocCommonNotifications = iocCommonNotifications;
+            myCommonNotifications = iocCommonNotifications;
 
             ns = Constants.GrampsXMLNameSpace;
         }
@@ -67,13 +68,14 @@ namespace GrampsView.Data.ExternalStorage
             {
                 IFileInfoEx inputFile = new FileInfoEx(argFileName: Constants.StorageXMLFileName);
 
-                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
+                App.Current.Services.GetService<ILog>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
                 {
-                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
-
-                    xmlReaderSettings.DtdProcessing = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android
+                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings
+                    {
+                        DtdProcessing = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android
                         ? DtdProcessing.Ignore
-                        : DtdProcessing.Parse;
+                        : DtdProcessing.Parse
+                    };
 
                     // TODO Handle no network connection
                     XmlReader xmlReader = XmlReader.Create(inputFile.FInfo.OpenRead(), xmlReaderSettings);

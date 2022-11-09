@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.Data.Model;
+    using GrampsView.Models.HLinks;
 
     using Xamarin.Forms;
 

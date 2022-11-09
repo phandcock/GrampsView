@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.HLinks;
 
     using System.Threading.Tasks;
 

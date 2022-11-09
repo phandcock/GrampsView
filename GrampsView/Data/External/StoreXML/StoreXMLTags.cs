@@ -1,13 +1,13 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// <summary>
     /// Load Tags from Gramps XML file.
     /// </summary>
@@ -19,14 +19,14 @@
         /// <returns>
         /// True if loaded successfully.
         /// </returns>
-        public async Task LoadTagsAsync()
+        public Task LoadTagsAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Tag data");
+            myCommonLogging.DataLogEntryAdd("Loading Tag data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "tag")
                         select el;
 
@@ -61,14 +61,13 @@
                 }
                 catch (Exception ex)
                 {
-                    _iocCommonNotifications.NotifyException("Error in LoadTagsAsync", ex);
+                    myCommonNotifications.NotifyException("Error in LoadTagsAsync", ex);
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Tag load complete");
-
-            return;
+            myCommonLogging.DataLogEntryReplace("Tag load complete");
+            return Task.CompletedTask;
         }
     }
 }

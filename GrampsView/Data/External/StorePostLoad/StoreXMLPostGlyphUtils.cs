@@ -37,7 +37,7 @@ namespace GrampsView.Data.ExternalStorage
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
             {
-                _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -102,7 +102,7 @@ namespace GrampsView.Data.ExternalStorage
                 // TODO Having an issue where Gramps XML content type is not always correct
                 if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
                 {
-                    _commonNotifications.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                    _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                     return argMediaModel.ModelItemGlyph;
                 }
 

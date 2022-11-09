@@ -1,14 +1,14 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     public partial class StoreXML : IStoreXML
     {
         /// <summary>
@@ -23,13 +23,13 @@
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            _iocCommonNotifications.DataLogEntryAdd("Loading Family data");
+            myCommonLogging.DataLogEntryAdd("Loading Family data");
             {
                 // Load notes
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "family")
                         select el;
 
@@ -97,18 +97,18 @@
 
                         // save the family
                         DV.FamilyDV.FamilyData.Add(loadFamily);
-                        _iocCommonLogging.Variable("Family Name", loadFamily.HLinkKey.Value);
+                        myCommonLogging.Variable("Family Name", loadFamily.HLinkKey.Value);
                     }
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Family load complete");
+            myCommonLogging.DataLogEntryReplace("Family load complete");
 
             return true;
         }

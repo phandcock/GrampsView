@@ -1,13 +1,13 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// - XML 1.71 Completed
     /// <summary>
     /// Source Storage Routines.
@@ -22,12 +22,12 @@
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd(argMessage: "Loading Source data");
+            myCommonLogging.DataLogEntryAdd(argMessage: "Loading Source data");
             {
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "source")
                         select el;
 
@@ -74,13 +74,13 @@
                 catch (Exception e)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.DataLogEntryAdd(e.Message);
+                    myCommonLogging.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Source load complete");
+            myCommonLogging.DataLogEntryReplace("Source load complete");
 
             return;
         }

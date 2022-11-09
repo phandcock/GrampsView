@@ -840,7 +840,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        _iocCommonNotifications.NotifyError(t);
+                        myCommonNotifications.NotifyError(t);
                     };
                     newStyleModel.Start = Start;
 
@@ -851,7 +851,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        _iocCommonNotifications.NotifyError(t);
+                        myCommonNotifications.NotifyError(t);
                     };
                     newStyleModel.End = End;
 

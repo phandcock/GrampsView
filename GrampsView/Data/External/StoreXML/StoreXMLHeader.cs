@@ -1,13 +1,13 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// <summary>
     /// </summary>
     /// <seealso cref="GrampsView.Common.ObservableObject"/>
@@ -21,9 +21,9 @@
         /// <returns>
         /// Flag indicating if the header data was loaded.
         /// </returns>
-        public async Task LoadHeaderDataAsync()
+        public Task LoadHeaderDataAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Header Metadata");
+            myCommonLogging.DataLogEntryAdd("Loading Header Metadata");
             {
                 try
                 {
@@ -32,7 +32,7 @@
                     // XNamespace ns = grampsXMLNameSpace;
 
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "header")
                         select el;
 
@@ -71,15 +71,14 @@
                 }
                 catch (System.Exception ex)
                 {
-                    _iocCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
+                    myCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Header load complete");
-
-            return;
+            myCommonLogging.DataLogEntryReplace("Header load complete");
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,15 +1,15 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+using Xamarin.Forms;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Private Storage Routines.
     /// </summary>
@@ -24,15 +24,15 @@
         /// <returns>
         /// Flag of loaded successfully.
         /// </returns>
-        public async Task LoadNotesAsync()
+        public Task LoadNotesAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Note data");
+            myCommonLogging.DataLogEntryAdd("Loading Note data");
             {
                 // Load notes
                 try
                 {
                     // Run query
-                    var de =
+                    System.Collections.Generic.IEnumerable<XElement> de =
                         from el in localGrampsXMLdoc.Descendants(ns + "note")
                         select el;
 
@@ -82,14 +82,14 @@
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    _iocCommonNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
+                    myCommonNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
 
                     throw;
                 }
             }
 
-            _iocCommonNotifications.DataLogEntryReplace("Note load complete");
-            return;
+            myCommonLogging.DataLogEntryReplace("Note load complete");
+            return Task.CompletedTask;
         }
 
         private FormattedString GetFormattedString(XElement argStyledText)

@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Data.DataView;
+    using GrampsView.Models.HLinks;
 
     /// <summary>
     /// HLink to the Header model.

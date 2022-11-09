@@ -3,6 +3,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System;
 using System.IO;
@@ -42,7 +43,7 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
@@ -93,7 +94,7 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }

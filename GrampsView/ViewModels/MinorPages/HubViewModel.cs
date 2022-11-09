@@ -45,7 +45,7 @@ namespace GrampsView.ViewModels.MinorPages
 
             App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
              {
-                 _iocErrorNotifications.DataLogShow();
+                 BaseCL.DataLogShow();
              });
         }
 
@@ -99,7 +99,7 @@ namespace GrampsView.ViewModels.MinorPages
         {
             OnPropertyChanged(string.Empty);
 
-            _ = _iocErrorNotifications.DataLogHide();
+            _ = BaseCL.DataLogHide();
         }
     }
 }

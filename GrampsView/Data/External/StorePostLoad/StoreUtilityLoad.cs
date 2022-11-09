@@ -1,18 +1,18 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels.Interfaces;
+
+using SharedSharp.Errors;
+
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels.Interfaces;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -24,23 +24,23 @@
         /// <returns>
         /// true.
         /// </returns>
-        public async Task<bool> FixMediaFiles()
+        public Task<bool> FixMediaFiles()
         {
             _CommonLogging.RoutineEntry("FixMediaFiles");
 
             if (DataStore.Instance.AD.CurrentDataFolder.Valid && DataStore.Instance.AD.CurrentImageAssetsFolder.Valid)
             {
-                _commonNotifications.DataLogEntryAdd("Loading media file pointers");
+                _CommonLogging.DataLogEntryAdd("Loading media file pointers");
 
                 foreach (IMediaModel item in DV.MediaDV.DataViewData)
                 {
-                    FixSingleMediaFile(item);
+                    _ = FixSingleMediaFile(item);
                 }
             }
 
             _CommonLogging.RoutineExit(string.Empty);
 
-            return true;
+            return Task.FromResult(true);
         }
 
         public bool FixSingleMediaFile(IMediaModel argMediaModel)

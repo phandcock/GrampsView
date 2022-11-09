@@ -4,7 +4,7 @@ using GrampsView.Common;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System.Threading.Tasks;
 
@@ -125,7 +125,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         private Task DisplayMessageLogButtonCommandHandler()
         {
-            App.Current.Services.GetService<IErrorNotifications>().DataLogShow();
+            App.Current.Services.GetService<ILog>().DataLogShow();
             return Task.CompletedTask;
         }
 

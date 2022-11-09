@@ -1,18 +1,18 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Models;
+
+using System;
+using System.Threading.Tasks;
+
+using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks.Models;
-
-    using System;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Creates a collection of entities with content read from a GRAMPS XML file.
     /// </summary>
@@ -21,9 +21,9 @@
         /// <summary>
         /// Organises the address repository.
         /// </summary>
-        private async Task<bool> OrganiseAddressRepository()
+        private Task<bool> OrganiseAddressRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Address data");
+            _CommonLogging.DataLogEntryAdd("Organising Address data");
 
             foreach (AddressModel argModel in DV.AddressDV.DataViewData)
             {
@@ -40,24 +40,24 @@
 
             SetAddressImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
-        private async Task<bool> OrganiseBookMarkRepository()
+        private Task<bool> OrganiseBookMarkRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising BookMark data");
+            _CommonLogging.DataLogEntryAdd("Organising BookMark data");
 
             DV.BookMarkCollection.SetGlyph();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>
-        private async Task<bool> OrganiseCitationRepository()
+        private Task<bool> OrganiseCitationRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Citation data");
+            _CommonLogging.DataLogEntryAdd("Organising Citation data");
 
             foreach (CitationModel argModel in DV.CitationDV.DataViewData)
             {
@@ -113,15 +113,15 @@
             // TODO finish adding the collections to the backlinks
             SetCitationImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the event repository.
         /// </summary>
-        private async Task<bool> OrganiseEventRepository()
+        private Task<bool> OrganiseEventRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Event data");
+            _CommonLogging.DataLogEntryAdd("Organising Event data");
 
             foreach (EventModel argModel in DV.EventDV.DataViewData)
             {
@@ -171,15 +171,15 @@
 
             SetEventImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the family repository.
         /// </summary>
-        private async Task<bool> OrganiseFamilyRepository()
+        private Task<bool> OrganiseFamilyRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Family data ");
+            _CommonLogging.DataLogEntryAdd("Organising Family data ");
 
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
             {
@@ -253,19 +253,19 @@
 
             SetFamilyImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the header repository.
         /// </summary>
-        private async Task<bool> OrganiseHeaderRepository()
+        private Task<bool> OrganiseHeaderRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Header data");
+            _CommonLogging.DataLogEntryAdd("Organising Header data");
 
             SetHeaderImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -273,7 +273,7 @@
         /// </summary>
         private async Task<bool> OrganiseMediaRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Media data");
+            _CommonLogging.DataLogEntryAdd("Organising Media data");
 
             try
             {
@@ -318,7 +318,7 @@
                 throw;
             }
 
-            await SetMediaImages();
+            _ = await SetMediaImages();
 
             return true;
         }
@@ -326,9 +326,9 @@
         /// <summary>
         /// Organises misc items pending use of a dependency graph.
         /// </summary>
-        private async Task<bool> OrganiseMisc()
+        private Task<bool> OrganiseMisc()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Misc data");
+            _CommonLogging.DataLogEntryAdd("Organising Misc data");
 
             // Family children
             foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
@@ -339,19 +339,19 @@
 
             SetAddressImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the namemap repository.
         /// </summary>
-        private async Task<bool> OrganiseNameMapRepository()
+        private Task<bool> OrganiseNameMapRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising NameMap data");
+            _CommonLogging.DataLogEntryAdd("Organising NameMap data");
 
             SetNameMapImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -359,7 +359,7 @@
         /// </summary>
         private bool OrganiseNoteRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Note data");
+            _CommonLogging.DataLogEntryAdd("Organising Note data");
 
             foreach (NoteModel argModel in DV.NoteDV.DataViewData)
             {
@@ -379,9 +379,9 @@
             return true;
         }
 
-        private async Task<bool> OrganisePersonNameRepository()
+        private Task<bool> OrganisePersonNameRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Person Name data");
+            _CommonLogging.DataLogEntryAdd("Organising Person Name data");
 
             foreach (PersonNameModel argModel in DV.PersonNameDV.DataViewData)
             {
@@ -408,15 +408,15 @@
 
             SetPersonNameImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the person repository.
         /// </summary>
-        private async Task<bool> OrganisePersonRepository()
+        private Task<bool> OrganisePersonRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Person data");
+            _CommonLogging.DataLogEntryAdd("Organising Person data");
 
             foreach (PersonModel argModel in DV.PersonDV.DataViewData)
             {
@@ -492,14 +492,7 @@
                 }
 
                 // set Is Living
-                if (DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeDeath).Valid)
-                {
-                    argModel.IsLiving = false;
-                }
-                else
-                {
-                    argModel.IsLiving = true;
-                }
+                argModel.IsLiving = !DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeDeath).Valid;
 
                 // Tag Collection
                 argModel.GTagRefCollection.SetGlyph();
@@ -517,15 +510,15 @@
 
             SetPersonImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the place repository.
         /// </summary>
-        private async Task<bool> OrganisePlaceRepository()
+        private Task<bool> OrganisePlaceRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Place data");
+            _CommonLogging.DataLogEntryAdd("Organising Place data");
 
             foreach (PlaceModel argModel in DV.PlaceDV.DataViewData)
             {
@@ -583,15 +576,15 @@
 
             SetPlaceImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the repository repository.
         /// </summary>
-        private async Task<bool> OrganiseRepositoryRepository()
+        private Task<bool> OrganiseRepositoryRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Repository data");
+            _CommonLogging.DataLogEntryAdd("Organising Repository data");
 
             foreach (RepositoryModel argModel in DV.RepositoryDV.DataViewData)
             {
@@ -616,7 +609,7 @@
 
             SetRepositoryImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -626,9 +619,9 @@
         /// <returns>
         /// true if the organisation worked.
         /// </returns>
-        private async Task<bool> OrganiseSourceRepository()
+        private Task<bool> OrganiseSourceRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Source data");
+            _CommonLogging.DataLogEntryAdd("Organising Source data");
 
             foreach (SourceModel argModel in DV.SourceDV.DataViewData)
             {
@@ -669,19 +662,19 @@
 
             SetSourceImages();
 
-            return true;
+            return Task.FromResult(true);
         }
 
         /// <summary>
         /// Organises the tag repository.
         /// </summary>
-        private async Task<bool> OrganiseTagRepository()
+        private Task<bool> OrganiseTagRepository()
         {
-            _commonNotifications.DataLogEntryAdd("Organising Tag data");
+            _CommonLogging.DataLogEntryAdd("Organising Tag data");
 
             SetTagImages();
 
-            return true;
+            return Task.FromResult(true);
         }
     }
 }

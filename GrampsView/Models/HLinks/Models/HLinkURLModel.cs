@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Models.HLinks;
 
     using System.Threading.Tasks;
 

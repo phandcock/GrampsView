@@ -1,5 +1,6 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Models.HLinks;
 
 using Microsoft.Extensions.DependencyInjection;
 

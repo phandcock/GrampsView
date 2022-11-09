@@ -70,7 +70,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
-            _commonNotifications.DataLogEntryAdd("Organising data after load");
+            _CommonLogging.DataLogEntryAdd("Organising data after load");
             {
                 {
                     // Called in order of media linkages from Media outwards
@@ -110,13 +110,13 @@ namespace GrampsView.Data.ExternalStorage
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     _ = await OrganiseMisc().ConfigureAwait(false);
 
-                    await _commonNotifications.DataLogHide();
+                    await _CommonLogging.DataLogHide();
                 }
             }
 
-            _commonNotifications.DataLogEntryAdd(null);
+            _CommonLogging.DataLogEntryAdd(null);
 
-            _commonNotifications.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
+            _CommonLogging.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
             _ = App.Current.Services.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System;
 using System.Diagnostics;
@@ -30,7 +31,7 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Deleting existing datastorage");
+            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Deleting existing datastorage");
             {
                 try
                 {
@@ -61,7 +62,7 @@ namespace GrampsView.Data
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("");
+            App.Current.Services.GetService<ILog>().DataLogEntryReplace("");
 
             return true;
         }
@@ -78,7 +79,7 @@ namespace GrampsView.Data
         /// </returns>
         public bool DecompressGZIP(IFileInfoEx inputFile)
         {
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
+            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
 
             // Check arguments
             if (inputFile == null)
@@ -91,7 +92,7 @@ namespace GrampsView.Data
             {
                 _ = ExtractGZip(inputFile, "data.xml");
 
-                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
+                App.Current.Services.GetService<ILog>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
                 return true;
             }
             catch (UnauthorizedAccessException ex)
@@ -115,7 +116,7 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("Decompressing GRAMPS TAR files");
+            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS TAR files");
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
@@ -134,7 +135,7 @@ namespace GrampsView.Data
                 await ExtractTar(tarIn).ConfigureAwait(false);
             }
 
-            App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("UnTaring of files complete");
+            App.Current.Services.GetService<ILog>().DataLogEntryReplace("UnTaring of files complete");
             return true;
         }
     }

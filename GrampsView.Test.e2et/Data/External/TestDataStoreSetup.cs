@@ -1,11 +1,11 @@
-﻿namespace GrampsView.Data.External.Tests
+﻿using GrampsView.Data.Repository;
+using GrampsView.e2e.Test.Utility;
+using GrampsView.Test.e2e.Utility;
+
+using NUnit.Framework;
+
+namespace GrampsView.Test.e2e.Data.External
 {
-    using global::NUnit.Framework;
-
-    using GrampsView.Data.Repository;
-    using GrampsView.e2e.Test.Utility;
-    using GrampsView.Test.e2e.Utility;
-
     [TestFixture()]
     public class DataStoreTests
     {
@@ -25,7 +25,7 @@
         [Test()]
         public void TestDataStoreSetup_Basic()
         {
-            GeneralData.iocCommonLogging.LogVariable("DataStoreCreate_Basic", DataStore.Instance.AD.CurrentDataFolder.Path);
+            GeneralData.iocCommonLogging.Variable("DataStoreCreate_Basic", DataStore.Instance.AD.CurrentDataFolder.Path);
 
             Assert.True(DataStore.Instance.AD.CurrentDataFolder.Valid);
         }

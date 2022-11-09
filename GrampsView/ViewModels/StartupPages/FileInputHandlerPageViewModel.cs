@@ -8,6 +8,7 @@ using GrampsView.Events;
 using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 
 using System;
 using System.Reflection;
@@ -94,7 +95,7 @@ namespace GrampsView.ViewModels.StartupPages
             {
                 BaseCurrentLayoutState = LayoutState.Loading;
 
-                App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace("");
+                App.Current.Services.GetService<ILog>().DataLogEntryReplace("");
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {

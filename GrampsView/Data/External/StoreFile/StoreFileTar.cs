@@ -10,6 +10,7 @@
 
     using SharedSharp.Errors;
     using SharedSharp.Errors.Interfaces;
+    using SharedSharp.Logging.Interfaces;
 
     using System;
     using System.IO;
@@ -125,7 +126,7 @@
                         {
                         }
 
-                        App.Current.Services.GetService<IErrorNotifications>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        App.Current.Services.GetService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
 

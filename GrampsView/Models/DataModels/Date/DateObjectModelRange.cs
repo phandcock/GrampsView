@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Models.DataModels.Date;
+    using GrampsView.Models.HLinks;
 
     using SharedSharp.Model;
 

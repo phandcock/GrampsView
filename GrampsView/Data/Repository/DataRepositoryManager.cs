@@ -2,7 +2,6 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Events;
@@ -174,7 +173,7 @@ namespace GrampsView.Data.Repository
         /// </param>
         public async void SerializeRepositoriesAsync(object value)
         {
-            _commonNotifications.DataLogEntryAdd("Serialising Data");
+            _CL.DataLogEntryAdd("Serialising Data");
 
             await _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
@@ -210,7 +209,7 @@ namespace GrampsView.Data.Repository
         {
             IFileInfoEx GrampsFile = new FileInfoEx();
 
-            _commonNotifications.DataLogEntryAdd("Loading Data...");
+            _CL.DataLogEntryAdd("Loading Data...");
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
@@ -243,7 +242,7 @@ namespace GrampsView.Data.Repository
                 // 1b) UnTar *.GRAMPS
                 if (DataStore.Instance.AD.CurrentInputStreamFileType == ".gramps")
                 {
-                    _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
+                    _CL.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
                     File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Common.Constants.StorageXMLFileName));
 
@@ -255,7 +254,7 @@ namespace GrampsView.Data.Repository
                 {
                     if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified))
                     {
-                        _commonNotifications.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program");
+                        _CL.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program");
 
                         _ = await TriggerLoadGRAMPSFileAsync(false).ConfigureAwait(false);
                     }
@@ -268,7 +267,7 @@ namespace GrampsView.Data.Repository
                 {
                     if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, Common.Constants.SettingsXMLFileLastDateTimeModified))
                     {
-                        _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
+                        _CL.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
 
                         // Load the new data
                         _ = await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
@@ -296,7 +295,7 @@ namespace GrampsView.Data.Repository
 
             // TODO Handle special messages if there is a problem
 
-            _commonNotifications.DataLogEntryAdd("Unable to load Datafolder");
+            _CL.DataLogEntryAdd("Unable to load Datafolder");
             return false;
         }
 
@@ -323,11 +322,11 @@ namespace GrampsView.Data.Repository
                 return new FileInfoEx();
             }
 
-            _commonNotifications.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program");
+            _CL.DataLogEntryAdd("Later version of Gramps XML data plus Media compressed file found. Loading it into the program");
 
             // Only unZip gzip files
 
-            _commonNotifications.DataLogEntryAdd("Loading GPKG data");
+            _CL.DataLogEntryAdd("Loading GPKG data");
 
             if (DataStore.Instance.AD.CurrentInputStreamValid)
             {
@@ -386,7 +385,7 @@ namespace GrampsView.Data.Repository
         /// </returns>
         public async Task<bool> TriggerLoadGrampsUnZippedFolderAsync()
         {
-            _commonNotifications.DataLogEntryAdd("Loading GRAMPS XML unzipped data");
+            _CL.DataLogEntryAdd("Loading GRAMPS XML unzipped data");
             {
                 ClearRepositories();
 
@@ -396,7 +395,7 @@ namespace GrampsView.Data.Repository
                 {
                     _ = await _ExternalStorage.LoadXMLDataAsync().ConfigureAwait(false);
 
-                    _commonNotifications.DataLogEntryAdd("Finished loading GRAMPS XML data");
+                    _CL.DataLogEntryAdd("Finished loading GRAMPS XML data");
 
                     IFileInfoEx t = new FileInfoEx(argFileName: Common.Constants.StorageXMLFileName);
 
@@ -432,12 +431,12 @@ namespace GrampsView.Data.Repository
             {
                 _CL.RoutineEntry("TriggerLoadSerialDataAsync");
 
-                _commonNotifications.DataLogEntryAdd("Checking for Serialised GRAMPS data");
+                _CL.DataLogEntryAdd("Checking for Serialised GRAMPS data");
                 if (DataStore.Instance.DS.IsDataLoaded == false)
                 {
                     if (CommonLocalSettings.DataSerialised)
                     {
-                        _commonNotifications.DataLogEntryAdd("Loading GRAMPS Serial data");
+                        _CL.DataLogEntryAdd("Loading GRAMPS Serial data");
 
                         await _StoreSerial.DeSerializeRepository();
 
@@ -445,14 +444,14 @@ namespace GrampsView.Data.Repository
 
                         await _PostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
-                        _commonNotifications.DataLogEntryReplace("GRAMPS Serial data load complete");
+                        _CL.DataLogEntryReplace("GRAMPS Serial data load complete");
 
                         // let everybody know we have finished loading data
                         _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
                     }
                     else
                     {
-                        _commonNotifications.DataLogEntryAdd("GRAMPS Serial data load failed.");
+                        _CL.DataLogEntryAdd("GRAMPS Serial data load failed.");
 
                         CommonLocalSettings.SetReloadDatabase();
                     }

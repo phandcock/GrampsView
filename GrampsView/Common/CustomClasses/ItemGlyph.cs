@@ -209,7 +209,7 @@ namespace GrampsView.Common.CustomClasses
 
                 default:
                     {
-                        // TODO What to do for symbol if anything)
+                        // TODO What to do for symbol if anything
                         break;
                     }
             }

@@ -1,19 +1,19 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     public partial class StoreXML : IStoreXML
     {
         public async Task LoadCitationsAsync()
         {
-            _iocCommonNotifications.DataLogEntryAdd("Loading Citation data");
+            myCommonLogging.DataLogEntryAdd("Loading Citation data");
             {
                 try
                 {
@@ -58,11 +58,11 @@
                 }
                 catch (Exception e)
                 {
-                    _iocCommonNotifications.NotifyException("Exception loading Citations form XML", e);
+                    myCommonNotifications.NotifyException("Exception loading Citations form XML", e);
                     throw;
                 }
 
-                _iocCommonNotifications.DataLogEntryReplace("Citation load complete");
+                myCommonLogging.DataLogEntryReplace("Citation load complete");
 
                 return;
             }
