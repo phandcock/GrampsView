@@ -1,8 +1,6 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Models.HLinks;
 
-using SharedSharp.Model;
-
 using System;
 
 namespace GrampsView.Test.NUnit.Utility
@@ -26,10 +24,10 @@ namespace GrampsView.Test.NUnit.Utility
             Valid = true;
         }
 
-        public CardListLineCollection AsCardListLine(string? argTitle = null)
-        {
-            return new CardListLineCollection();
-        }
+        //public CardListLineCollection AsCardListLine(string? argTitle = null)
+        //{
+        //    return new CardListLineCollection();
+        //}
 
         public override HLinkBase AsHLink(string v)
         {

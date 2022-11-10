@@ -3,7 +3,7 @@
     x:Class="GrampsView.UserControls.SmallCardControlTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:hlinks="clr-namespace:GrampsView.Data.Model"
+    xmlns:hlinks="clr-namespace:GrampsView.Models.HLinks"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:DataType="hlinks:HLinkBase">
@@ -52,7 +52,10 @@
                             Style="{DynamicResource MediaImageStyle}" />
                     </Frame>
 
-                    <ContentPresenter Grid.Row="0" Grid.Column="1" Padding="1" />
+                    <ContentPresenter
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="1" />
 
                     <Image
                         Grid.Row="0"

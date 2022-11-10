@@ -1,26 +1,22 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+
+using System.Diagnostics.Contracts;
+using System.Globalization;
+
+using Xamarin.Forms;
+
+namespace GrampsView.ViewModels.MinorPages
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-
-    using System.Diagnostics.Contracts;
-    using System.Globalization;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Search ViewModel class.
     /// </summary>
-    /// <seealso cref="GrampsView.ViewModels.ViewModelBase"/>
+    /// <seealso cref="ViewModelBase"/>
     public class SearchPageViewModel : ViewModelBase
     {
-        private bool _isBusy;
-
         private string lastArg = string.Empty;
 
         /// <summary>
@@ -141,7 +137,7 @@
                 SearchPersonNameCollection = DV.PersonNameDV.Search(SearchText);
                 SearchPlaceCollection = DV.PlaceDV.Search(SearchText);
 
-                SearchItemsFound = (SearchAddressCollection.Count +
+                SearchItemsFound = SearchAddressCollection.Count +
                     SearchCitationCollection.Count +
                     SearchEventsCollection.Count +
                     SearchFamilyCollection.Count +
@@ -149,7 +145,7 @@
                     SearchNoteCollection.Count +
                     SearchPersonCollection.Count +
                     SearchPersonNameCollection.Count +
-                    SearchPlaceCollection.Count)
+                    SearchPlaceCollection.Count
                     > 0;
             }
         }

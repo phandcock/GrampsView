@@ -488,7 +488,6 @@ namespace GrampsView.Converters
                     _ = argReader.Read();
                     switch (propertyName)
                     {
-
                         case "HLinkKey":
                             {
                                 returnDate.HLinkKey.Value = argReader.GetString();
@@ -736,9 +735,6 @@ namespace GrampsView.Converters
         private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModel argVal)
         {
             writeBasic(ref argWriter, argVal);
-
-
         }
-
     }
 }

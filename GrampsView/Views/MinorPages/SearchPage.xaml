@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="SearchPageRoot"
