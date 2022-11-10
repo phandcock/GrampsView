@@ -1,3 +1,12 @@
+## [16.26.21](https://github.com/phandcock/GrampsView/compare/v16.26.20...v16.26.21) (2022-11-10)
+
+
+### Bug Fixes
+
+* change using changes ([fa39ad1](https://github.com/phandcock/GrampsView/commit/fa39ad1107c912bd6175e7ad100fa40392467886))
+
+
+
 ## [16.26.20](https://github.com/phandcock/GrampsView/compare/v16.26.19...v16.26.20) (2022-11-10)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * refactor code and change clone method ([52fecd0](https://github.com/phandcock/GrampsView/commit/52fecd06340d07512052b499226e0f13ad0335eb))
-
-
-
-## [16.26.17](https://github.com/phandcock/GrampsView/compare/v16.26.16...v16.26.17) (2022-11-01)
-
-
-### Bug Fixes
-
-* update nugets and init personname model ([c959db4](https://github.com/phandcock/GrampsView/commit/c959db4343cbd3325fd86b5c3c63c0d6ee61635e))
 
 
 
