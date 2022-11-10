@@ -1,3 +1,12 @@
+## [16.26.20](https://github.com/phandcock/GrampsView/compare/v16.26.19...v16.26.20) (2022-11-10)
+
+
+### Bug Fixes
+
+* nugets and refactoring ([f92f038](https://github.com/phandcock/GrampsView/commit/f92f03837dc3bda42f8699d5913a0617e476c6ff))
+
+
+
 ## [16.26.19](https://github.com/phandcock/GrampsView/compare/v16.26.18...v16.26.19) (2022-11-08)
 
 
@@ -23,16 +32,6 @@
 ### Bug Fixes
 
 * update nugets and init personname model ([c959db4](https://github.com/phandcock/GrampsView/commit/c959db4343cbd3325fd86b5c3c63c0d6ee61635e))
-
-
-
-## [16.26.16](https://github.com/phandcock/GrampsView/compare/v16.26.15...v16.26.16) (2022-10-30)
-
-
-### Bug Fixes
-
-* tweak personcell card image size and name length ([006d87e](https://github.com/phandcock/GrampsView/commit/006d87e711a5d2e930f2e588527ab3dda1b18dfd))
-* update nugets ([10978ea](https://github.com/phandcock/GrampsView/commit/10978eaa793de33060ad43a0a6a697b8d5a74be8))
 
 
 
