@@ -94,7 +94,7 @@ namespace GrampsView
             // Any updates?
             SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretIOS: Secret.IOSSecret, argMSAppCenterSecretUWP: Secret.UWPSecret, argLogLevel: LogLevel.Verbose);
 
-            ShardSharpCore.Init(argGlobalDebugFlag: true);
+            ShardSharpCore.Init(argLogLevel: Microsoft.Extensions.Logging.LogLevel.Debug);
 
             VersionTracking.Track();
 
