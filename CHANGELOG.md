@@ -1,3 +1,13 @@
+## [16.26.22](https://github.com/phandcock/GrampsView/compare/v16.26.21...v16.26.22) (2022-11-12)
+
+
+### Bug Fixes
+
+* update nugets ([6684f2e](https://github.com/phandcock/GrampsView/commit/6684f2e45c7a093c66c2972285c5d804210c4345))
+* update nugets ([de501e5](https://github.com/phandcock/GrampsView/commit/de501e5a6c081c7a5afe7549e17889a7bd2d4f86))
+
+
+
 ## [16.26.21](https://github.com/phandcock/GrampsView/compare/v16.26.20...v16.26.21) (2022-11-10)
 
 
@@ -23,15 +33,6 @@
 
 * serilisation to handle dateobjectmodel ([ef95554](https://github.com/phandcock/GrampsView/commit/ef955542eeed4e7d10c84050368d4dc47e4e1e39))
 * tweaks ([18136ff](https://github.com/phandcock/GrampsView/commit/18136ff421014aecaa697f0a1b3323a94f84b2e3))
-
-
-
-## [16.26.18](https://github.com/phandcock/GrampsView/compare/v16.26.17...v16.26.18) (2022-11-05)
-
-
-### Bug Fixes
-
-* refactor code and change clone method ([52fecd0](https://github.com/phandcock/GrampsView/commit/52fecd06340d07512052b499226e0f13ad0335eb))
 
 
 
