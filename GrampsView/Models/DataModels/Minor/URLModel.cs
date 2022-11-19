@@ -1,16 +1,9 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Model;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Essentials;
 
 namespace GrampsView.Models.DataModels.Minor
 {
@@ -41,7 +34,7 @@ namespace GrampsView.Models.DataModels.Minor
         /// </summary>
         public URLModel()
         {
-            OpenURLCommand = new AsyncCommand(OpenURL);
+            OpenURLCommand = new AsyncRelayCommand(OpenURL);
 
             ModelItemGlyph.Symbol = Constants.IconURL;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
@@ -81,7 +74,7 @@ namespace GrampsView.Models.DataModels.Minor
         {
             get
             {
-                HLinkURLModel t = new HLinkURLModel
+                HLinkURLModel t = new()
                 {
                     DeRef = this,
                     HLinkKey = HLinkKey,
@@ -94,7 +87,7 @@ namespace GrampsView.Models.DataModels.Minor
 
         public Placemark MapLocation { get; set; } = new Placemark();
 
-        public IAsyncCommand OpenURLCommand
+        public IAsyncRelayCommand OpenURLCommand
         {
             get; private set;
         }
@@ -106,13 +99,13 @@ namespace GrampsView.Models.DataModels.Minor
         {
             if (GHRef is null)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad URI for URL Model"));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad URI for URL Model"));
                 return;
             }
 
             if (GHRef.IsWellFormedOriginalString())
             {
-                await Launcher.OpenAsync(GHRef);
+                _ = await Launcher.OpenAsync(GHRef);
             }
         }
 

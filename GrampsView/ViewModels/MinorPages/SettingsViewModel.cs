@@ -1,15 +1,7 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using GrampsView.Common;
 
 using SharedSharp.Logging.Interfaces;
 
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
 
 namespace GrampsView.ViewModels.MinorPages
 {
@@ -23,19 +15,19 @@ namespace GrampsView.ViewModels.MinorPages
             BaseTitle = "Settings";
             BaseTitleIcon = Constants.IconSettings;
 
-            DisplayMessageLogButtonCommand = new AsyncCommand(DisplayMessageLogButtonCommandHandler);
+            DisplayMessageLogButtonCommand = new AsyncRelayCommand(DisplayMessageLogButtonCommandHandler);
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
 
             // HandleViewAppearingEvent();
         }
 
-        public IAsyncCommand DisplayMessageLogButtonCommand
+        public IAsyncRelayCommand DisplayMessageLogButtonCommand
         {
             get;
         }
 
-        //public IAsyncCommand ShowMessageLogCommand
+        //public IAsyncRelayCommand ShowMessageLogCommand
         //{
         //    get;
         //}
@@ -58,30 +50,30 @@ namespace GrampsView.ViewModels.MinorPages
                 {
                     case "Dark":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = OSAppTheme.Dark;
-                            Application.Current.UserAppTheme = OSAppTheme.Dark;
+                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Dark;
+                            Application.Current.UserAppTheme = AppTheme.Dark;
 
                             break;
                         }
                     case "Light":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = OSAppTheme.Light;
-                            Application.Current.UserAppTheme = OSAppTheme.Light;
+                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Light;
+                            Application.Current.UserAppTheme = AppTheme.Light;
 
                             break;
                         }
                     case "System":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = OSAppTheme.Unspecified;
-                            Application.Current.UserAppTheme = OSAppTheme.Unspecified;
+                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
+                            Application.Current.UserAppTheme = AppTheme.Unspecified;
 
                             break;
                         }
 
                     default:
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = OSAppTheme.Unspecified;
-                            Application.Current.UserAppTheme = OSAppTheme.Unspecified;
+                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
+                            Application.Current.UserAppTheme = AppTheme.Unspecified;
 
                             break;
                         }
@@ -89,7 +81,7 @@ namespace GrampsView.ViewModels.MinorPages
             }
         }
 
-        public IAsyncCommand UCNavigateCommand
+        public IAsyncRelayCommand UCNavigateCommand
         {
             get; private set;
         }
@@ -125,7 +117,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         private Task DisplayMessageLogButtonCommandHandler()
         {
-            App.Current.Services.GetService<ILog>().DataLogShow();
+            Ioc.Default.GetService<ILog>().DataLogShow();
             return Task.CompletedTask;
         }
 

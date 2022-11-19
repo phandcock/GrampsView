@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
     x:Class="GrampsView.UserControls.DetailPageControlTemplate"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
+    
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels">
     <ContentView.ControlTemplate>
         <ControlTemplate>
@@ -38,10 +38,11 @@
                     Text="Note"
                     WidthRequest="40" />
 
-                <breadcrumb:Breadcrumb
+                <!-- TODO -->
+                <!--<breadcrumb:Breadcrumb
                     Grid.Row="0"
                     Grid.Column="2"
-                    Style="{DynamicResource GVBreadcrumb}" />
+                    Style="{DynamicResource GVBreadcrumb}" />-->
 
                 <!--  Content  -->
                 <ScrollView

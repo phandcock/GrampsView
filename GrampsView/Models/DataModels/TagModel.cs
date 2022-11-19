@@ -1,12 +1,10 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+
+using System;
+using System.Collections;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
-    using System;
-    using System.Collections;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Data model for a Tag item. XML 1.71 check complete
     /// </summary>
@@ -16,7 +14,7 @@
         /// <summary>
         /// The color.
         /// </summary>
-        private Color _GColor = Color.White;
+        private Color _GColor = Microsoft.Maui.Graphics.Colors.White;
 
         /// <summary>
         /// The name.
@@ -89,7 +87,7 @@
         {
             get
             {
-                HLinkTagModel t = new HLinkTagModel
+                HLinkTagModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

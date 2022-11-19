@@ -11,7 +11,7 @@
         public HubPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<HubViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<HubViewModel>();
         }
     }
 }

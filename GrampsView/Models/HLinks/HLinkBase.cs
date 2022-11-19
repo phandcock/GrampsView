@@ -7,7 +7,7 @@ using System.Diagnostics.Contracts;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-using Xamarin.CommunityToolkit.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Models.HLinks
 {
@@ -31,7 +31,7 @@ namespace GrampsView.Models.HLinks
     {
         public HLinkBase()
         {
-            UCNavigateCommand = new AsyncCommand(UCNavigate);
+            UCNavigateCommand = new AsyncRelayCommand(UCNavigate);
         }
 
         public CommonEnums.DisplayFormat DisplayAs { get; set; } = CommonEnums.DisplayFormat.Default;
@@ -63,7 +63,7 @@ namespace GrampsView.Models.HLinks
             set;
         } = false;
 
-        public IAsyncCommand UCNavigateCommand
+        public IAsyncRelayCommand UCNavigateCommand
         {
             get;
         }

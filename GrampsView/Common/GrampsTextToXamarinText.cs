@@ -5,7 +5,7 @@
 
     using System.Collections.Generic;
 
-    using Xamarin.Forms;
+  
 
     public static class GrampsTextToXamarinText
     {

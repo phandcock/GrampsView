@@ -1,16 +1,13 @@
 ﻿using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
     public partial class StoreXML : IStoreXML
     {
+        [Obsolete]
         public async Task LoadCitationsAsync()
         {
             myCommonLogging.DataLogEntryAdd("Loading Citation data");
@@ -25,7 +22,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Citation
                     foreach (XElement pcitation in de)
                     {
-                        CitationModel loadCitation = new CitationModel();
+                        CitationModel loadCitation = new();
 
                         // Citation attributes
                         loadCitation.LoadBasics(GetBasics(pcitation));
@@ -56,9 +53,9 @@ namespace GrampsView.Data.ExternalStorage
                         DataStore.Instance.DS.CitationData.Add(loadCitation);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    myCommonNotifications.NotifyException("Exception loading Citations form XML", e);
+                    myCommonNotifications.NotifyException("Exception loading Citations form XML", ex, null);
                     throw;
                 }
 

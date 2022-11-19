@@ -1,19 +1,13 @@
-﻿using GrampsView.Assets.Fonts;
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
-
-using Microsoft.Extensions.DependencyInjection;
+using GrampsView.Resources.Fonts;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -130,7 +124,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (System.Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {
                       { "Original ID", argMediaModel.Id },
                       { "Original File", argMediaModel.MediaStorageFilePath },
@@ -138,7 +132,7 @@ namespace GrampsView.Data.ExternalStorage
                       { "New path", "pdfimage" }
                   };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }
@@ -184,7 +178,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (System.Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {
                       { "Original ID", argNewMediaModel.Id },
                       { "Original File", argNewMediaModel.MediaStorageFilePath },
@@ -192,7 +186,7 @@ namespace GrampsView.Data.ExternalStorage
                       { "New path", "pdfimage" }
                   };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }

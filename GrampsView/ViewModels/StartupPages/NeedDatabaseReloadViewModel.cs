@@ -1,12 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 
 using SharedSharp.Common.Interfaces;
-
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.ViewModels.StartupPages
 {
@@ -33,19 +27,19 @@ namespace GrampsView.ViewModels.StartupPages
 
             BaseTitleIcon = Constants.IconSettings;
 
-            LoadDataCommand = new AsyncCommand(LoadDataAction);
+            LoadDataCommand = new AsyncRelayCommand(LoadDataAction);
 
             _AppInit = iocAppInit;
         }
 
-        public AsyncCommand LoadDataCommand
+        public AsyncRelayCommand LoadDataCommand
         {
             get; private set;
         }
 
         public async Task LoadDataAction()
         {
-            _ = await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
+            _ = await Shell.Current.Navigation.PopModalAsync();
 
             await _AppInit.Init();
         }

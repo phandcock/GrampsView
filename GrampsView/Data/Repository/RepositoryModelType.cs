@@ -63,7 +63,7 @@ namespace GrampsView.Data.Repository
             {
                 if (string.IsNullOrEmpty(key))
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 //if (key == "_e5bfa72904e68ce059252b501df" || key == "_e5bfa72904e68ce059252b501df")
@@ -102,7 +102,7 @@ namespace GrampsView.Data.Repository
             {
                 if (hLink.HLinkKey.Valid)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
                 }
 
                 //if (hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df" || hLink.HLinkKey.Value == "_e5bfa72904e68ce059252b501df")
@@ -123,7 +123,7 @@ namespace GrampsView.Data.Repository
         {
             if (!arg.HLinkKey.Valid)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Null or empty HLinkKey"));
             }
 
             //Update(localItems.Count, arg);

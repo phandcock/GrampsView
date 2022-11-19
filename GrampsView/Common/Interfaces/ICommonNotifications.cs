@@ -1,17 +1,18 @@
+using SharedSharp.Errors;
+using SharedSharp.Logging.Interfaces;
+
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace GrampsView.Common
 {
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface for the GrampsView common progress routines.
     /// </summary>
     public interface ICommonNotifications
     {
-        IDataLog DataLog
+        IMessageLog DataLog
         {
             get;
         }
@@ -62,7 +63,7 @@ namespace GrampsView.Common
 
         Task MinorMessageAdd(string argMessage);
 
-        void NotifyAlert(string argMessage, ErrorInfo argErrorDetail = null);
+        void NotifyAlert(string argMessage, ErrorInfo? argErrorDetail = null);
 
         /// <summary>
         /// Helper to Notify Error.
@@ -70,7 +71,7 @@ namespace GrampsView.Common
         /// <param name="argErrorDetail">
         /// The argument error detail.
         /// </param>
-        void NotifyError(ErrorInfo argErrorDetail = null);
+        void NotifyError(ErrorInfo? argErrorDetail = null);
 
         /// <summary>
         /// Notify the user about an Exception.
@@ -84,7 +85,7 @@ namespace GrampsView.Common
         /// <param name="argExtraItems">
         /// Extra information
         /// </param>
-        void NotifyException(string argMessage, Exception argException, ErrorInfo argExtraItems = null);
+        void NotifyException(string argMessage, Exception argException, ErrorInfo? argExtraItems = null);
 
         void PopUpShow();
     }

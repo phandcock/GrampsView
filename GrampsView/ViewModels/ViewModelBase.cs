@@ -3,17 +3,12 @@
     using GrampsView.Common;
     using GrampsView.Data.Model;
 
-    using SharedSharp.Logging;
     using SharedSharp.ViewModels;
 
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials;
-    using Xamarin.Forms;
 
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
@@ -107,7 +102,7 @@
             get; private set;
         }
 
-        public IAsyncCommand TopMenuNoteCommand
+        public IAsyncRelayCommand TopMenuNoteCommand
         {
             get; private set;
         }
@@ -137,6 +132,7 @@
             await Email.ComposeAsync(message);
         }
 
+        [Obsolete]
         public override void ViewSetup()
         {
             TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
@@ -147,7 +143,7 @@
                 TopMenuHubButtonVisible = true;
             }
 
-            TopMenuNoteCommand = new AsyncCommand(TopMenuNoteCommandHandler);
+            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
         }
 
         /// <summary>

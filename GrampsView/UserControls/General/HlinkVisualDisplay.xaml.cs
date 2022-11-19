@@ -1,19 +1,10 @@
-﻿using FFImageLoading.Forms;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-
-using System;
-
-using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Forms;
 
 namespace GrampsView.UserControls
 {
@@ -25,7 +16,7 @@ namespace GrampsView.UserControls
         public static readonly BindableProperty FsctShowSymbolsProperty
           = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(HLinkVisualDisplay), propertyName: nameof(FsctShowSymbols), defaultValue: true);
 
-        private ItemGlyph newItemGlyph = new ItemGlyph();
+        private ItemGlyph newItemGlyph = new();
 
         public HLinkVisualDisplay()
         {
@@ -49,6 +40,7 @@ namespace GrampsView.UserControls
             get; set;
         }
 
+        [Obsolete]
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
             if (BindingContext == null)
@@ -88,7 +80,7 @@ namespace GrampsView.UserControls
 
                     default:
                         {
-                            App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
+                            Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
                             return;
                         }
                 }
@@ -107,33 +99,36 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
 
                 throw;
             }
         }
 
-        private void NewMediaControl_Error(object sender, CachedImageEvents.ErrorEventArgs e)
-        {
-            ErrorInfo t = new ErrorInfo("Error in HLinkVisualDisplay.")
-                    {
-                        { "Error is ", e.Exception.Message },
-                    };
+        //private void NewMediaControl_Error(object sender, CachedImageEvents.ErrorEventArgs e)
+        //{
+        //    ErrorInfo t = new("Error in HLinkVisualDisplay.")
+        //            {
+        //                { "Error is ", e.Exception.Message },
+        //            };
 
-            // Component not found exception
-            if (e.Exception.HResult == -2003292336)
-            {
-                t.Add("Ideas", "Showing bad file, perhaps an internalmediafile or the file type can not be displayed?");
-            }
+        //    // Component not found exception
+        //    if (e.Exception.HResult == -2003292336)
+        //    {
+        //        t.Add("Ideas", "Showing bad file, perhaps an internalmediafile or the file type can not be displayed?");
+        //    }
 
-            t.Add("File", (sender as CachedImage).Source.ToString());
+        //    // TODO
+        //    // t.Add("File", (sender as CachedImage).Source.ToString());
 
-            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+        //    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
 
-            (sender as CachedImage).Cancel();
-            (sender as CachedImage).Source = null;
-        }
+        //    // TODO
+        //    //(sender as CachedImage).Cancel();
+        //    //(sender as CachedImage).Source = null;
+        //}
 
+        [Obsolete]
         private void ShowImage(IMediaModel argMediaModel)
         {
             if (argMediaModel.IsMediaStorageFileValid)
@@ -142,54 +137,57 @@ namespace GrampsView.UserControls
                 {
                     if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
                     {
-                        ErrorInfo t = new ErrorInfo("The image file path is null")
+                        ErrorInfo t = new("The image file path is null")
                         {
                             { "Id", argMediaModel.Id }
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
-                    CachedImage newMediaControl = new CachedImage
-                    {
-                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                        Margin = 3,
-                        Aspect = Aspect.AspectFit,
-                        BackgroundColor = Color.Transparent,
-                        CacheType = FFImageLoading.Cache.CacheType.All,
-                        DownsampleToViewSize = true,
+                    // TODO fix
+                    //CachedImage newMediaControl = new()
+                    //{
+                    //    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                    //    Margin = 3,
+                    //    // TODO
+                    //    //Aspect = Aspect.AspectFit,
+                    //    //BackgroundColor = Color.Transparent,
+                    //    CacheType = FFImageLoading.Cache.CacheType.All,
+                    //    DownsampleToViewSize = true,
 
-                        // HeightRequest = 100, // "{Binding MediaDetailImageHeight,
-                        // Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        IsVisible = true,
-                        ErrorPlaceholder = "ic_launcher.png",
-                        LoadingPlaceholder = "ic_launcher.png",
-                        RetryCount = 3,
-                        RetryDelay = 1000
-                    };
+                    //    // HeightRequest = 100, // "{Binding MediaDetailImageHeight,
+                    //    // Source={x:Static common:CardSizes.Current}, Mode=OneWay}"
+                    //    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    //    IsVisible = true,
+                    //    ErrorPlaceholder = "ic_launcher.png",
+                    //    LoadingPlaceholder = "ic_launcher.png",
+                    //    RetryCount = 3,
+                    //    RetryDelay = 1000
+                    //};
 
-                    newMediaControl.Error += NewMediaControl_Error;
+                    //newMediaControl.Error += NewMediaControl_Error;
 
-                    HLinkVisualDisplayRoot.Children.Clear();
-                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    //HLinkVisualDisplayRoot.Children.Clear();
+                    //HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {
-                    ErrorInfo argDetail = new ErrorInfo
-                {
+                    ErrorInfo argDetail = new()
+                    {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
         }
 
+        [Obsolete]
         private void ShowMedia(IMediaModel argMediaModel)
         {
             if (argMediaModel.IsMediaStorageFileValid)
@@ -198,46 +196,48 @@ namespace GrampsView.UserControls
                 {
                     if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
                     {
-                        ErrorInfo t = new ErrorInfo("The media file path is null")
+                        ErrorInfo t = new("The media file path is null")
                         {
                             { "Id", argMediaModel.Id }
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
-                    MediaElement newMediaControl = new MediaElement
-                    {
-                        Aspect = Aspect.AspectFit,
-                        AutoPlay = false,
-                        ShowsPlaybackControls = true,
-                        BackgroundColor = Color.Transparent,
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        IsVisible = true,
-                        Margin = 3,
-                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                        VerticalOptions = LayoutOptions.FillAndExpand,
-                    };
+                    // TODO
+                    //MediaElement newMediaControl = new MediaElement
+                    //{
+                    //    Aspect = Aspect.AspectFit,
+                    //    AutoPlay = false,
+                    //    ShowsPlaybackControls = true,
+                    //    BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
+                    //    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    //    IsVisible = true,
+                    //    Margin = 3,
+                    //    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                    //    VerticalOptions = LayoutOptions.FillAndExpand,
+                    //};
 
-                    HLinkVisualDisplayRoot.Children.Clear();
-                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    //HLinkVisualDisplayRoot.Children.Clear();
+                    //HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {
-                    ErrorInfo argDetail = new ErrorInfo
-                {
+                    ErrorInfo argDetail = new()
+                    {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
         }
 
+        [Obsolete]
         private void ShowSomething(ItemGlyph argItemGlyph)
         {
             try
@@ -295,22 +295,23 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
 
                 throw;
             }
         }
 
+        [Obsolete]
         private void ShowSymbol(ItemGlyph argItemGlyph)
         {
             try
             {
                 // create symbol control
 
-                Image newImageControl = new Image
+                Image newImageControl = new()
                 {
                     Aspect = Aspect.AspectFit,
-                    BackgroundColor = Color.Transparent,
+                    BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
                     IsVisible = true,
                     Margin = 5,
                     Source = new FontImageSource
@@ -322,7 +323,7 @@ namespace GrampsView.UserControls
                 // Input valid so start work
 
                 // Set symbol
-                FontImageSource fontGlyph = new FontImageSource
+                FontImageSource fontGlyph = new()
                 {
                     Glyph = argItemGlyph.Symbol,
                     Color = argItemGlyph.SymbolColour,
@@ -331,22 +332,22 @@ namespace GrampsView.UserControls
 
                 if (fontGlyph.Glyph == null)
                 {
-                    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph")
+                    ErrorInfo t = new("HLinkVisualDisplay", "Null Glyph")
                         {
                             { "HLinkKey", argItemGlyph.ToString() }
                         };
 
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                 }
 
                 if (fontGlyph.Color == null)
                 {
-                    ErrorInfo t = new ErrorInfo("HLinkVisualDisplay", "Null Glyph Colour")
+                    ErrorInfo t = new("HLinkVisualDisplay", "Null Glyph Colour")
                         {
                             { "HLinkKey", argItemGlyph.ImageHLink.Value }
                         };
 
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                 }
 
                 newImageControl.Source = fontGlyph;
@@ -356,14 +357,14 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                ErrorInfo argDetail = new ErrorInfo
+                ErrorInfo argDetail = new()
                 {
                     { "Type", "Symbol" },
                     { "Media Model HLinkKey", argItemGlyph.ImageHLink.Value  },
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }

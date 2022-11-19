@@ -10,7 +10,7 @@
 
         public DateValDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<DateValDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<DateValDetailViewModel>();
         }
     }
 }

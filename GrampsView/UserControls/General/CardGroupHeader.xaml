@@ -1,8 +1,8 @@
 ﻿<Frame
     x:Class="GrampsView.UserControls.CardGroupHeader"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
@@ -12,7 +12,7 @@
 
     <Frame.Resources>
         <ResourceDictionary>
-            <toolkit:IsNotNullOrEmptyConverter x:Key="StringToBool" />
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="StringToBool" />
             <toolkit:IntToBoolConverter x:Key="IntToBool" />
         </ResourceDictionary>
     </Frame.Resources>

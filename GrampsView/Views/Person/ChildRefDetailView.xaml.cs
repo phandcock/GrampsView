@@ -11,7 +11,7 @@
         public ChildRefDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<ChildRefDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<ChildRefDetailViewModel>();
         }
     }
 }

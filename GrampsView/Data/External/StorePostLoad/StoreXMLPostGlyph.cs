@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Assets.Fonts;
+    using CommunityToolkit.Mvvm.ComponentModel;
+
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Model;
@@ -8,6 +9,7 @@
     using GrampsView.Models.DataModels;
     using GrampsView.Models.DataModels.Interfaces;
     using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Resources.Fonts;
 
     using SharedSharp.Errors;
 
@@ -17,11 +19,9 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
-        private List<IMediaModel> addLater = new List<IMediaModel>();
+        private List<IMediaModel> addLater = new();
 
         public static void SetEventImages()
         {
@@ -256,7 +256,7 @@
                 }
                 else
                 {
-                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    ErrorInfo NotifyError = new("HLink Invalid")
                     {
                         { "Address Model Image", argModel.Id }
                     };
@@ -309,7 +309,7 @@
                 }
                 else
                 {
-                    ErrorInfo NotifyError = new ErrorInfo("HLink Invalid")
+                    ErrorInfo NotifyError = new("HLink Invalid")
                     {
                         { "Citation Model Image", argModel.Id }
                     };

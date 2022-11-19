@@ -1,23 +1,16 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Common.Interfaces;
+
+namespace GrampsView.ViewModels.StartupPages
 {
-    using GrampsView.Common;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// View model for WHats New Page.
     /// </summary>
     public partial class WhatsNewViewModel : ViewModelBase
     {
-        private IAppInit _AppInit;
+        private readonly IAppInit _AppInit;
 
-        private string _WhatsNewText = string.Empty;
+        private readonly string _WhatsNewText = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
@@ -28,10 +21,10 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public WhatsNewViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
+        public WhatsNewViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
             : base(iocCommonLogging)
         {
-            LoadDataCommand = new AsyncCommand(LoadDataAction);
+            LoadDataCommand = new AsyncRelayCommand(LoadDataAction);
 
             BaseTitle = "What's new";
 
@@ -40,7 +33,7 @@
             _AppInit = iocAppInit;
         }
 
-        public AsyncCommand LoadDataCommand
+        public AsyncRelayCommand LoadDataCommand
         {
             get; private set;
         }
@@ -53,14 +46,14 @@
         /// </value>
         public string WhatsNewText { get; set; }
 
-        public override async void HandleViewAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
         }
 
         public async Task LoadDataAction()
         {
-            await Xamarin.Forms.Shell.Current.Navigation.PopModalAsync();
+            _ = await Shell.Current.Navigation.PopModalAsync();
 
             await _AppInit.Init();
         }

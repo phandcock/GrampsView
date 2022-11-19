@@ -1,19 +1,19 @@
-﻿namespace GrampsView.Data.Model
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+
+using SharedSharp.Common;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-
-    using SharedSharp.Common;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Base for Models.
     /// </summary>
@@ -27,7 +27,7 @@
         /// <summary>
         /// The local h link reference collection.
         /// </summary>
-        private HLinkBackLinkModelCollection _BackHLinkReferenceCollection = new HLinkBackLinkModelCollection();
+        private HLinkBackLinkModelCollection _BackHLinkReferenceCollection = new();
 
         /// <summary>
         /// The local change.
@@ -36,15 +36,16 @@
 
         private string _Id = string.Empty;
 
-        private ItemGlyph _ModelItemGlyph = new ItemGlyph();
+        private ItemGlyph _ModelItemGlyph = new();
 
+        [Obsolete]
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
             ModelItemGlyph.Symbol = Constants.IconDDefault;
-            ModelItemGlyph.SymbolColour = Xamarin.Forms.Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            ModelItemGlyph.SymbolColour = Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
-            UCNavigateCommand = new AsyncCommand(() => UCNavigate());
+            UCNavigateCommand = new AsyncRelayCommand(UCNavigate);
         }
 
         /// <summary>
@@ -75,13 +76,7 @@
             set => SetProperty(ref _Change, value);
         }
 
-        public virtual string DefaultTextShort
-        {
-            get
-            {
-                return ToString().Substring(0, Math.Min(ToString().Length, 40));
-            }
-        }
+        public virtual string DefaultTextShort => ToString()[..Math.Min(ToString().Length, 40)];
 
         [JsonInclude]
         public HLinkKey HLinkKey
@@ -133,7 +128,7 @@
         /// <value>
         /// <c> true </c> if priv; otherwise, <c> false </c>.
         /// </value>
-        public IAsyncCommand UCNavigateCommand
+        public IAsyncRelayCommand UCNavigateCommand
         {
             get;
         }
@@ -144,13 +139,7 @@
         /// <value>
         /// <c> true </c> if this instance is valid; otherwise, <c> false </c>.
         /// </value>
-        public virtual bool Valid
-        {
-            get
-            {
-                return HLinkKey.Valid && ModelItemGlyph.Valid;
-            }
-        }
+        public virtual bool Valid => HLinkKey.Valid && ModelItemGlyph.Valid;
 
         public static bool operator !=(ModelBase left, ModelBase right)
         {
@@ -159,7 +148,7 @@
 
         public static bool operator <(ModelBase left, ModelBase right)
         {
-            return left is null ? right is object : left.CompareTo(right) < SharedSharpConstants.CompareEquals;
+            return left is null ? right is not null : left.CompareTo(right) < SharedSharpConstants.CompareEquals;
         }
 
         public static bool operator <=(ModelBase left, ModelBase right)
@@ -169,17 +158,12 @@
 
         public static bool operator ==(ModelBase left, ModelBase right)
         {
-            if (left is null)
-            {
-                return right is null;
-            }
-
-            return left.Equals(right);
+            return left is null ? right is null : left.Equals(right);
         }
 
         public static bool operator >(ModelBase left, ModelBase right)
         {
-            return left is object && left.CompareTo(right) > SharedSharpConstants.CompareEquals;
+            return left is not null && left.CompareTo(right) > SharedSharpConstants.CompareEquals;
         }
 
         public static bool operator >=(ModelBase left, ModelBase right)
@@ -210,13 +194,13 @@
                 throw new ArgumentNullException(nameof(argSecondModelBase));
             }
 
-            ModelBase firstSource = (ModelBase)argFirstModelBase; ModelBase secondSource = (ModelBase)argSecondModelBase;
+            ModelBase firstSource = (ModelBase)argFirstModelBase;
+            ModelBase secondSource = (ModelBase)argSecondModelBase;
 
-            if (firstSource is null) { return SharedSharpConstants.CompareEquals; }
+            if (firstSource is null)
+            { return SharedSharpConstants.CompareEquals; }
 
-            if (secondSource is null) { return SharedSharpConstants.CompareEquals; }
-
-            return Compare(firstSource.HLinkKey, secondSource.HLinkKey);
+            return secondSource is null ? SharedSharpConstants.CompareEquals : Compare(firstSource.HLinkKey, secondSource.HLinkKey);
         }
 
         public int CompareTo(ModelBase other)
@@ -249,17 +233,19 @@
                 return true;
             }
 
-            if (obj is null) { return false; }
+            if (obj is null)
+            { return false; }
 
-            if (obj.GetType() != this.GetType()) { return false; }
+            if (obj.GetType() != GetType())
+            { return false; }
 
-            if (string.IsNullOrEmpty(this.Id)) { return false; }
+            if (string.IsNullOrEmpty(Id))
+            { return false; }
 
-            if (string.IsNullOrEmpty((obj as ModelBase).Id)) { return false; }
+            if (string.IsNullOrEmpty((obj as ModelBase).Id))
+            { return false; }
 
-            if (this.Id == (obj as ModelBase).Id) { return true; }
-
-            return false;
+            return Id == (obj as ModelBase).Id;
         }
 
         public override int GetHashCode()
@@ -269,7 +255,7 @@
 
         public void LoadBasics(ModelBase argBasics)
         {
-            Contract.Requires(!(argBasics is null));
+            Contract.Requires(argBasics is not null);
 
             if (!string.IsNullOrEmpty(argBasics.Id))
             {
@@ -289,7 +275,10 @@
             }
         }
 
-        public virtual Task UCNavigate() => throw new NotImplementedException();
+        public virtual Task UCNavigate()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
         {

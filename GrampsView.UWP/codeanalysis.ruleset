@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="codeanalysis" ToolsVersion="16.0">
-  <Include Path="extendeddesignguidelinerules.ruleset" Action="Default" />
-  <Include Path="minimumrecommendedrules.ruleset" Action="Default" />
-  <Include Path="securityrules.ruleset" Action="Default" />
-</RuleSet>

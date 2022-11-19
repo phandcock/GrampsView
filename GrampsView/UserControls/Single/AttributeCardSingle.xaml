@@ -1,6 +1,6 @@
 ﻿<ucon:SingleCardControlTemplate
     x:Class="GrampsView.UserControls.AttributeCardSingle"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"

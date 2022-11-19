@@ -11,7 +11,7 @@
         public NeedDatabaseReloadPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<NeedDatabaseReloadViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<NeedDatabaseReloadViewModel>();
         }
     }
 }

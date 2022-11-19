@@ -1,10 +1,8 @@
-﻿namespace GrampsView.UserControls
+﻿using System.Collections;
+using System.Diagnostics.Contracts;
+
+namespace GrampsView.UserControls
 {
-    using System.Collections;
-    using System.Diagnostics.Contracts;
-
-    using Xamarin.Forms;
-
     public partial class FlexSingleCard : Frame
 
     {
@@ -50,7 +48,7 @@
         {
             Contract.Assert(argSource != null);
 
-            FlexSingleCard thisCard = argSource as FlexSingleCard;
+            FlexSingleCard? thisCard = argSource as FlexSingleCard;
 
             if (newValue is null)
             {
@@ -72,14 +70,9 @@
             }
 
             // Set Justification to Center if only one column
-            if (SharedSharp.Common.SharedSharpCardSizes.Current.CardsAcrossColumns == 1)
-            {
-                thisCard.theCollectionView.JustifyContent = FlexJustify.Center;
-            }
-            else
-            {
-                thisCard.theCollectionView.JustifyContent = FlexJustify.Start;
-            }
+            thisCard.theCollectionView.JustifyContent = SharedSharp.Common.SharedSharpCardSizes.Current.CardsAcrossColumns == 1
+                ? Microsoft.Maui.Layouts.FlexJustify.Center
+                : Microsoft.Maui.Layouts.FlexJustify.Start;
         }
     }
 }

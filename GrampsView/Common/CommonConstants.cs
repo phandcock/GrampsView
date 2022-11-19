@@ -1,7 +1,7 @@
-﻿namespace GrampsView.Common
-{
-    using GrampsView.Assets.Fonts;
+﻿using GrampsView.Resources.Fonts;
 
+namespace GrampsView.Common
+{
     /// <summary>
     /// Common Constants.
     /// </summary>

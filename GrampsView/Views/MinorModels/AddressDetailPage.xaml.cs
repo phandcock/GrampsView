@@ -10,7 +10,7 @@
 
         public AddressDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<AddressDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<AddressDetailViewModel>();
         }
     }
 }

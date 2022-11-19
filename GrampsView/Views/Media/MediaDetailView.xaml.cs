@@ -1,15 +1,11 @@
 ﻿using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.ViewModels;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
 
-using Xamarin.Essentials;
-using Xamarin.Forms;
+
 
 namespace GrampsView.Views
 {
@@ -19,24 +15,25 @@ namespace GrampsView.Views
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = App.Current.Services.GetService<MediaDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<MediaDetailViewModel>();
         }
 
         private MediaDetailViewModel _viewModel { get; set; }
 
         private void daMediaElement_MediaFailed(object sender, EventArgs e)
         {
-            (sender as Xamarin.CommunityToolkit.UI.Views.MediaElement).Source = null;
+            // TODO
+            // (sender as MediaElement).Source = null;
 
-            ErrorInfo argDetail = new ErrorInfo
-                {
+            ErrorInfo argDetail = new()
+            {
                     { "Type", "Media Element" },
                     { "e", e.ToString() },
                 };
 
             argDetail.ErrorArea = "Error displaying Media Element";
 
-            App.Current.Services.GetService<IErrorNotifications>().NotifyError(argDetail);
+            Ioc.Default.GetService<IErrorNotifications>().NotifyError(argDetail);
 
             // TODO Handle when can not play video better
         }
@@ -46,7 +43,7 @@ namespace GrampsView.Views
             Frame theFrame = sender as Frame;
             IMediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
 
-            OpenFileRequest t = new OpenFileRequest(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));
+            OpenFileRequest t = new(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));
             _ = Launcher.OpenAsync(t);
         }
     }

@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using Xamarin.Forms;
+
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -129,7 +129,7 @@ namespace GrampsView.Data.ExternalStorage
                                 }
                                 catch (Exception ex)
                                 {
-                                    myCommonNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
+                                    myCommonNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex,null);
                                     throw;
                                 }
                             }
@@ -177,7 +177,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonNotifications.NotifyException("Loading Media Objects", e);
+                    myCommonNotifications.NotifyException("Loading Media Objects",e,null);
 
                     throw;
                 }

@@ -10,7 +10,7 @@
 
         public EventDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<EventDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<EventDetailViewModel>();
         }
     }
 }

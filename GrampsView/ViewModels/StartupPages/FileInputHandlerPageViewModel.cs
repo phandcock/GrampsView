@@ -1,21 +1,12 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Events;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
 
-using System;
 using System.Reflection;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.CommunityToolkit.UI.Views;
 
 namespace GrampsView.ViewModels.StartupPages
 {
@@ -40,29 +31,22 @@ namespace GrampsView.ViewModels.StartupPages
 
             BaseTitleIcon = Constants.IconSettings;
 
-            LoadSampleCommand = new AsyncCommand(LoadSample);
+            LoadSampleCommand = new AsyncRelayCommand(LoadSample);
 
-            PickFileCommand = new AsyncCommand(PickFile);
+            PickFileCommand = new AsyncRelayCommand(PickFile);
         }
 
-        public IAsyncCommand LoadSampleCommand
+        public IAsyncRelayCommand LoadSampleCommand
         {
             get; private set;
         }
 
-        public IAsyncCommand PickFileCommand
+        public IAsyncRelayCommand PickFileCommand
         {
             get; private set;
         }
 
-        /// <summary>
-        /// Called when navigation is performed to a page. You can use this method to load state if
-        /// it is available.
-        /// </summary>
-        public override void HandleViewAppearingEvent()
-        {
-            BaseCurrentLayoutState = LayoutState.None;
-        }
+
 
         /// <summary>
         /// Loads the sample data.
@@ -93,9 +77,9 @@ namespace GrampsView.ViewModels.StartupPages
 
             try
             {
-                BaseCurrentLayoutState = LayoutState.Loading;
 
-                App.Current.Services.GetService<ILog>().DataLogEntryReplace("");
+
+                Ioc.Default.GetService<ILog>().DataLogEntryReplace("");
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -104,14 +88,14 @@ namespace GrampsView.ViewModels.StartupPages
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("No input file was selected");
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyAlert("No input file was selected", new SharedSharp.Errors.ErrorInfo());
 
-                    BaseCurrentLayoutState = LayoutState.None;
+
                 }
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex, new SharedSharp.Errors.ErrorInfo());
 
                 throw;
             }
@@ -128,7 +112,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             await Task.Delay(500);
 
-            _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+            _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
         }
     }
 }

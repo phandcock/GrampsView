@@ -1,0 +1,324 @@
+﻿<ResourceDictionary
+    x:Class="GrampsView.Assets.Styles.AppViewDictionary"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
+    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!--  Default dictionarys  -->
+
+        <ResourceDictionary Source="AppThemeDictionary.xaml" />
+
+        <ResourceDictionary Source="CardThemeDictionary.xaml" />
+
+        <ResourceDictionary Source="CommonDictionary.xaml" />
+
+        <ResourceDictionary Source="_Thickness.xaml" />
+
+        <ResourceDictionary Source="_Sizes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--
+        ******************************************************
+        BreadCrumb Styles
+        ******************************************************
+    -->
+    <Style x:Key="GVBreadcrumb" TargetType="breadcrumb:Breadcrumb">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="LastBreadcrumbTextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        CollectionView Styles
+        ******************************************************
+    -->
+    <Style x:Key="CollectionViewBase" TargetType="CollectionView">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Entry Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Entry style  -->
+    <Style x:Key="GVEntryBase" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
+    </Style>
+
+    <Style x:Key="GVEntryInvalid" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ErrorDark}, Light={StaticResource ErrorLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        FlexLayout Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Card Style for a FlexLayout Style  -->
+    <Style x:Key="FlexLayoutCards" TargetType="FlexLayout">
+        <Setter Property="AlignContent" Value="Start" />
+        <Setter Property="AlignItems" Value="Start" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Wrap" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="FlexSingleCollection" TargetType="FlexLayout">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Wrap" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="FlexMulti" TargetType="FlexLayout">
+        <Setter Property="AlignItems" Value="Stretch" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Wrap" Value="Wrap" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Frame Styles
+        ******************************************************
+    -->
+
+    <!--  Create a TopMenu Style  -->
+    <Style x:Key="TopMenu" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="MinimumWidthRequest" Value="40" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <!--  Create a MediaImage Style  -->
+    <Style x:Key="MediaImageStyle" TargetType="Grid">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="1" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Frame Card Styles
+        ******************************************************
+    -->
+
+    <!--  Card Special Cards  -->
+
+    <Style
+        x:Key="CardImageBackgroundFrame"
+        BasedOn="{StaticResource SSFrameCardStyle}"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HasShadow" Value="false" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style x:Key="CardGroupStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style x:Key="FlexMultiCollection" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style
+        x:Key="NoteFullTextStyle"
+        BasedOn="{StaticResource SSFrameLargeVariableCardStyleNS}"
+        TargetType="Frame">
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+    </Style>
+
+    <Style
+        x:Key="MediaImageFull"
+        BasedOn="{StaticResource SSFrameCardLargeStyle}"
+        TargetType="Frame">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Grid Styles
+        ******************************************************
+    -->
+
+    <Style
+        x:Key="CardImageBackground"
+        BasedOn="{StaticResource SSGridBaseStyle}"
+        TargetType="Grid">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
+    </Style>
+
+    <Style x:Key="GVPageTitleStyle" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Image Styles
+        ******************************************************
+    -->
+
+    <Style x:Key="GVSymbolIconBaseType" TargetType="Image">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="IsEnabled" Value="False" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolIconLinkCardType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="HeightRequest" Value="10" />
+        <Setter Property="WidthRequest" Value="10" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,1,1" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolIconSingleCardType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="HeightRequest" Value="15" />
+        <Setter Property="WidthRequest" Value="15" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,3,3" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolIconSmallCardType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="HeightRequest" Value="20" />
+        <Setter Property="WidthRequest" Value="20" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,3,3" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolIconLargeCardType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,3,3" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolconPageHeaderType"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="Margin" Value="3" />
+    </Style>
+
+    <Style
+        x:Key="GVSymbolcon"
+        BasedOn="{StaticResource GVSymbolIconBaseType}"
+        TargetType="Image">
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Image Control Styles
+        ******************************************************
+    -->
+
+    <!--  Create a Material Font Style Button Style  -->
+    <Style x:Key="GVImageButton" TargetType="ImageButton">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Aspect" Value="AspectFit" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
+    </Style>
+
+    <!--
+        ******************************************************
+        Label Styles
+        ******************************************************
+    -->
+
+    <!--  Create Medium Styles for a Label  -->
+    <Style
+        x:Key="GVHeaderStyleMedium"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+    </Style>
+
+    <!--  Create Large Styles for a Label  -->
+    <Style
+        x:Key="GVHeaderStyleLarge"
+        BasedOn="{StaticResource SSLabelStyleLarge}"
+        TargetType="Label">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+    </Style>
+
+    <!--<Style
+        x:Key="GVLabelStyleNoteFull"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+    </Style>-->
+
+    <!--  Create a Instructions Style for a Label  -->
+    <Style
+        x:Key="GVLabelStyleInstructions"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+
+    <!--  Create a PageHeader Title Style for a Label  -->
+    <Style
+        x:Key="GVLabelPageHeaderTitleStyle"
+        BasedOn="{StaticResource SSCardLabelStyle}"
+        TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+    </Style>
+</ResourceDictionary>

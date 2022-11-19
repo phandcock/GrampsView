@@ -11,7 +11,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Xml.Linq;
 
-using Xamarin.CommunityToolkit.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -97,7 +97,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error in SetDate",e,null);
 
                 throw;
             }
@@ -161,7 +161,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -182,7 +182,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error in SetDate",e,null);
                 throw;
             }
 
@@ -215,7 +215,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Error", e);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error",e,null);
                 throw;
             }
 
@@ -278,7 +278,7 @@ namespace GrampsView.Data.ExternalStorage
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -293,7 +293,7 @@ namespace GrampsView.Data.ExternalStorage
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -307,7 +307,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException(e.Message, e);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException(e.Message,e,null);
                 throw;
             }
 
@@ -365,7 +365,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -386,7 +386,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in SetDateRange", e);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in SetDateRange",e,null);
                 throw;
             }
 

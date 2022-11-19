@@ -4,7 +4,7 @@
 
     using System.IO;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using CommunityToolkit.Mvvm.ComponentModel;
 
     public class ApplicationWideData : ObservableObject
     {

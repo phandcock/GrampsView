@@ -10,7 +10,7 @@
 
         public DateRangeDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<DateRangeDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<DateRangeDetailViewModel>();
         }
     }
 }

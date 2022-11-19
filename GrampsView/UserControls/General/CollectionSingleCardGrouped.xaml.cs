@@ -5,7 +5,7 @@
     using System;
     using System.Diagnostics.Contracts;
 
-    using Xamarin.Forms;
+  
 
     public partial class CollectionSingleCardGrouped : Frame
     {

@@ -7,8 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors.Interfaces;
 
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
+using CommunityToolkit.Mvvm.ComponentModel;
+
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -48,7 +48,7 @@ namespace GrampsView.Data.ExternalStorage
 
             _iocPlatformSpecific = DependencyService.Get<IPlatformSpecific>();
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {
                 if (m.Value == null)
                 {
@@ -119,10 +119,10 @@ namespace GrampsView.Data.ExternalStorage
             _CommonLogging.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
-            _ = App.Current.Services.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
+            _ = Ioc.Default.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
 
             // let everybody know we have finished loading data
-            _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+            _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
             _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }

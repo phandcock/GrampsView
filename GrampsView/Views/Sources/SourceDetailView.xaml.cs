@@ -10,7 +10,7 @@
 
         public SourceDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<SourceDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<SourceDetailViewModel>();
         }
     }
 }

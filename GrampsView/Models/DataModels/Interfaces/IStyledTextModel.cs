@@ -2,7 +2,7 @@
 {
     using System.Collections.ObjectModel;
 
-    using Xamarin.Forms;
+  
 
     /// <summary>
     /// Interfaces for the StyledText model

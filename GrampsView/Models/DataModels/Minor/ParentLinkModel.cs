@@ -1,17 +1,18 @@
 ﻿// TODO Needs XML 1.71 check
 
+using GrampsView.Models.DataModels;
+using GrampsView.Views;
+
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
+
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Views;
-
-    using System.Runtime.Serialization;
-    using System.Threading.Tasks;
-
     /// TODO Update fields as per Schema XML 1.71
     [DataContract]
     public class ParentLinkModel : ModelBase, IParentLinkModel
     {
-        private FamilyModel _Parents = new FamilyModel();
+        private FamilyModel _Parents = new();
 
         public ParentLinkModel()
         {
@@ -19,18 +20,15 @@ namespace GrampsView.Data.Model
 
         public FamilyModel Parents
         {
-            get
-            {
-                return _Parents;
-            }
+            get => _Parents;
 
             set
             {
-                SetProperty(ref _Parents, value);
+                _ = SetProperty(ref _Parents, value);
 
                 // Set HLinkKey to the family model so Valid is true. TODO Why?
-                this.HLinkKey = Parents.HLinkKey;
-                this.ModelItemGlyph = Parents.ModelItemGlyph;
+                HLinkKey = Parents.HLinkKey;
+                ModelItemGlyph = Parents.ModelItemGlyph;
             }
         }
 

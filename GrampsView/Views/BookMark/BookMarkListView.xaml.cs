@@ -11,7 +11,7 @@
         public BookMarkListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<BookMarkListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<BookMarkListViewModel>();
         }
     }
 }

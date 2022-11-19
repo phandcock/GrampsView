@@ -13,7 +13,7 @@
     using System.Diagnostics.Contracts;
     using System.Linq;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using CommunityToolkit.Mvvm.ComponentModel;
 
     /// <summary>
     /// Partially based on http://stackoverflow.com/questions/8157140/net-4-0-indexer-with-observablecollection.

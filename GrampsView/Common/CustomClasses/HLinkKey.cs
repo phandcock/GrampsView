@@ -6,7 +6,7 @@
 
     using System;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using CommunityToolkit.Mvvm.ComponentModel;
 
     public class HLinkKey : ObservableObject, IComparable<HLinkKey>, IComparable
     {

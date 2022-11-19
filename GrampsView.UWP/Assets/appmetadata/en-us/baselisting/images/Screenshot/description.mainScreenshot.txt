@@ -1,1 +1,0 @@
-﻿Hub page showing the todo list and recent changes.

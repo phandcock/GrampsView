@@ -1,9 +1,8 @@
 ﻿<Frame
     x:Class="GrampsView.UserControls.MediaImageFull"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     x:Name="MediaImageFullRoot"
     Margin="0"
     Padding="0"
@@ -14,7 +13,8 @@
     IsVisible="True"
     Style="{DynamicResource SSFrameLargeVariableCardStyleNS}">
 
-    <ffimageloading:CachedImage
+    <!--  TODO  -->
+    <!--<ffimageloading:CachedImage
         x:Name="daImage"
         Aspect="AspectFit"
         BackgroundColor="Transparent"
@@ -27,5 +27,5 @@
         LoadingPlaceholder="ic_launcher.png"
         RetryCount="3"
         RetryDelay="1000"
-        VerticalOptions="Fill" />
+        VerticalOptions="Fill" />-->
 </Frame>

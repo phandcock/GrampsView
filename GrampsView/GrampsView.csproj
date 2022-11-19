@@ -1,381 +1,139 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+		<!-- Android, iOS, MacCatalyst -->
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+      
+        
+        <!-- .NET MAUI -->
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+        
+        <!-- Project Options -->
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>GrampsView</RootNamespace>
+        
+        <!-- Display name -->
+        <ApplicationTitle>GrampsView</ApplicationTitle>
+        
+        <!-- App Identifier -->
+        <ApplicationId>com.companyname.GrampsView</ApplicationId>
+        <ApplicationIdGuid>96d4740a-95e4-4689-8e38-896897feb38f</ApplicationIdGuid>
+        
+        <!-- Versions -->
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationVersion>1</ApplicationVersion>
 
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-		<LangVersion>8.0</LangVersion>
-		<UserSecretsId>886841ad-558a-446c-bd12-4f8281b1b465</UserSecretsId>
-		<Version>16.24</Version>
-		<Copyright>2014 - 2022</Copyright>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-		<NeutralLanguage>en-US</NeutralLanguage>
-	</PropertyGroup>
+        <!-- Target Platform Options -->
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<Optimize>false</Optimize>
-	</PropertyGroup>
+        <!-- Minimum Target OS Version for Windows Platform -->
+        <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+        <DefaultLanguage>en</DefaultLanguage>
+        <PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
+        <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Remove="Behaviours\**" />
-		<Compile Remove="Models\Misc\**" />
-		<Compile Remove="Services\**" />
-		<Compile Remove="ViewModels\PeopleGraph\**" />
-		<Compile Remove="ViewModels\Popups\**" />
-		<Compile Remove="Views\PeopleGraph\**" />
-		<Compile Remove="Views\Popups\**" />
-		<EmbeddedResource Remove="Behaviours\**" />
-		<EmbeddedResource Remove="Models\Misc\**" />
-		<EmbeddedResource Remove="Services\**" />
-		<EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
-		<EmbeddedResource Remove="ViewModels\Popups\**" />
-		<EmbeddedResource Remove="Views\PeopleGraph\**" />
-		<EmbeddedResource Remove="Views\Popups\**" />
-		<None Remove="Behaviours\**" />
-		<None Remove="Models\Misc\**" />
-		<None Remove="Services\**" />
-		<None Remove="ViewModels\PeopleGraph\**" />
-		<None Remove="ViewModels\Popups\**" />
-		<None Remove="Views\PeopleGraph\**" />
-		<None Remove="Views\Popups\**" />
-	</ItemGroup>
+    <ItemGroup>
+        <!-- App Icon -->
+        <MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#512BD4" />
+        <!-- Splash Screen -->
+        <MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
+        <!-- Images -->
+        <MauiImage Include="Resources\Images\*" />
+        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+        <!-- Custom Fonts -->
+        <MauiFont Include="Resources\Fonts\*" />
+        <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<Compile Remove="Common\ActionDialogArgs.cs" />
-		<Compile Remove="Common\Card Group\CardGroupBaseEx.cs" />
-		<Compile Remove="Common\Card Group\CardGroupCollection.cs" />
-		<Compile Remove="Common\Card Group\CardGroupCollectionTyped.cs" />
-		<Compile Remove="Common\Card Group\Grouping.cs" />
-		<Compile Remove="Common\CommonBindableBase.cs" />
-		<Compile Remove="Common\CommonDataLog.cs" />
-		<Compile Remove="Common\CommonLogging.cs" />
-		<Compile Remove="Common\CommonNotifications.cs" />
-		<Compile Remove="Common\CustomClasses\ErrorInfo.cs" />
-		<Compile Remove="Common\CustomClasses\FlexLayoutEx.cs" />
-		<Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
-		<Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
-		<Compile Remove="Common\CustomClasses\MessageLogPopup.cs" />
-		<Compile Remove="Common\CustomClasses\ObjectCloneExtension.cs" />
-		<Compile Remove="Common\CustomClasses\XamarinEssentials.cs" />
-		<Compile Remove="Common\IAppInit.cs" />
-		<Compile Remove="Common\Interfaces\IAppInit.cs" />
-		<Compile Remove="Common\Interfaces\ICommonLogging.cs" />
-		<Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
-		<Compile Remove="Common\Interfaces\SharedSharp.Logging.Interfaces.ILog.cs" />
-		<Compile Remove="Common\Interfaces\IErrorNotifications.cs" />
-		<Compile Remove="Common\Interfaces\IDataLog.cs" />
-		<Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
-		<Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
-		<Compile Remove="Common\ObservableObject.cs" />
-		<Compile Remove="Common\CommonFontNamesFAB.cs" />
-		<Compile Remove="Common\CommonFontNamesFAR.cs" />
-		<Compile Remove="Common\CustomClasses\BorderlessEditor.cs" />
-		<Compile Remove="Common\CustomClasses\BorderlessEntry.cs" />
-		<Compile Remove="Common\CustomClasses\FlexPlus.cs" />
-		<Compile Remove="Common\CustomClasses\ModelGlyph.cs" />
-		<Compile Remove="Common\CustomClasses\NavCmd.cs" />
-		<Compile Remove="Common\CustomClasses\ObservableCollectionExtensions.cs" />
-		<Compile Remove="Common\CustomClasses\Priv.cs" />
-		<Compile Remove="Common\MainMenuItem.cs" />
-		<Compile Remove="Common\StartAppLoad.cs" />
-		<Compile Remove="Converters\BackLinkDefaultTextShortConverter.cs" />
-		<Compile Remove="Converters\NewtonSoftFormattedStringConverter.cs" />
-		<Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
-		<Compile Remove="Events\MessageLogEvent.cs" />
-		<Compile Remove="Models\DataModels\Minor\ParentLinkModel.cs" />
-		<Compile Remove="Models\HLinks\HLinkGlyph.cs" />
-		<Compile Remove="Models\HLinks\HLinkHomeImageModel.cs" />
-		<Compile Remove="Models\HLinks\HLinkPrimaryObjectModel.cs" />
-		<Compile Remove="Models\HLinks\HLinkTableObjectModel.cs" />
-		<Compile Remove="Models\HLinks\Interfaces\IHLinkPrimaryObjectModel.cs" />
-		<Compile Remove="Models\HLinks\Interfaces\IHLinkTableObjectModel.cs" />
-		<Compile Remove="Models\HLinks\Models\HLinkParentLinkModel.cs" />
-		<Compile Remove="Models\HLinks\Models\HLinkSourceAttrModel.cs" />
-		<Compile Remove="Events\AppStartFirstRunEvent.cs" />
-		<Compile Remove="Events\AppStartSaveSerial.cs" />
-		<Compile Remove="Events\DataLoadUnzipped.cs" />
-		<Compile Remove="Events\DialogBoxEvent.cs" />
-		<Compile Remove="Events\LoadImageBitMapEvent.cs" />
-		<Compile Remove="Events\LoadMediaBitmapEvent.cs" />
-		<Compile Remove="Events\OrientationChanged.cs" />
-		<Compile Remove="Events\PageNavigateEvent.cs" />
-		<Compile Remove="Events\PersonCurrentChanged.cs" />
-		<Compile Remove="Events\ProgressLoading.cs" />
-		<Compile Remove="Events\ProgressRingUpdate.cs" />
-		<Compile Remove="Events\StatusUpdated.cs" />
-		<Compile Remove="UserControls\General\BottomMenu.xaml.cs" />
-		<Compile Remove="UserControls\General\CardGroupBackLink.xaml.cs" />
-		<Compile Remove="UserControls\General\CollectionMultiCardGrouped.xaml.cs" />
-		<Compile Remove="UserControls\General\CollectionSingleCard.xaml.cs" />
-		<Compile Remove="UserControls\General\FlexMultiCard.xaml.cs" />
-		<Compile Remove="UserControls\General\ModelVisualDisplay.xaml.cs" />
-		<Compile Remove="UserControls\General\SharedSharpHeaderFrame.xaml.cs" />
-		<Compile Remove="UserControls\Large\FileViewCardLarge.xaml.cs" />
-		<Compile Remove="UserControls\Large\InstructionCard.xaml.cs" />
-		<Compile Remove="UserControls\Large\ListLineCard.xaml.cs" />
-		<Compile Remove="UserControls\UserControlBase.cs" />
-		<Compile Remove="ViewModels\MinorPages\MessageLogViewModel.cs" />
-		<Compile Remove="ViewModels\StartupPages\WhatsNewPageViewModel.cs" />
-		<Compile Remove="Views\MinorPages\MessageLogPage.xaml.cs" />
-		<Compile Remove="Views\StartupPages\WhatsNewPage.xaml.cs" />
-	</ItemGroup>
+    <ItemGroup>
+      <AndroidResource Remove="ViewModels\PeopleGraph\**" />
+      <AndroidResource Remove="Views\PeopleGraph\**" />
+      <Compile Remove="ViewModels\PeopleGraph\**" />
+      <Compile Remove="Views\PeopleGraph\**" />
+      <EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
+      <EmbeddedResource Remove="Views\PeopleGraph\**" />
+      <MauiCss Remove="ViewModels\PeopleGraph\**" />
+      <MauiCss Remove="Views\PeopleGraph\**" />
+      <MauiXaml Remove="ViewModels\PeopleGraph\**" />
+      <MauiXaml Remove="Views\PeopleGraph\**" />
+      <None Remove="ViewModels\PeopleGraph\**" />
+      <None Remove="Views\PeopleGraph\**" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Remove="Assets\Styles\_Glyphs.xaml" />
-		<EmbeddedResource Remove="UserControls\General\BottomMenu.xaml" />
-		<EmbeddedResource Remove="UserControls\General\CardGroupBackLink.xaml" />
-		<EmbeddedResource Remove="UserControls\General\CollectionMultiCardGrouped.xaml" />
-		<EmbeddedResource Remove="UserControls\General\CollectionSingleCard.xaml" />
-		<EmbeddedResource Remove="UserControls\General\FlexMultiCard.xaml" />
-		<EmbeddedResource Remove="UserControls\General\ModelVisualDisplay.xaml" />
-		<EmbeddedResource Remove="UserControls\General\SharedSharpHeaderFrame.xaml" />
-		<EmbeddedResource Remove="UserControls\Large\FileViewCardLarge.xaml" />
-		<EmbeddedResource Remove="UserControls\Large\InstructionCard.xaml" />
-		<EmbeddedResource Remove="UserControls\Large\ListLineCard.xaml" />
-		<EmbeddedResource Remove="Views\MinorPages\MessageLogPage.xaml" />
-		<EmbeddedResource Remove="Views\StartupPages\WhatsNewPage.xaml" />
-	</ItemGroup>
+    <ItemGroup>
+      <Compile Remove="App.xaml.cs" />
+      <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
+      <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
+      <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
+      <Compile Remove="Common\CustomClasses\XamarinFFImageLoading.cs" />
+      <Compile Remove="Common\Interfaces\IDataLog.cs" />
+      <Compile Remove="Events\MessageLogEvent.cs" />
+      <Compile Remove="MainPage.cs" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<None Remove="AnythingElse\DeploymentTools\ReleaseNotesTemplate.txt" />
-		<None Remove="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-		<None Remove="Assets\Fonts\fa-solid-900.ttf" />
-		<None Remove="Assets\Icons\ApplicationIcon.svg" />
-	</ItemGroup>
+    <ItemGroup>
+        <None Remove="GrampsView.code-workspace" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="AnythingElse\SampleData\EnglishTudorHouse.gpkg" />
-		<EmbeddedResource Include="Assets\Fonts\fa-solid-900.ttf" />
-		<EmbeddedResource Include="fa-solid-900.ttf" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui.Core" Version="3.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.0.0" />
+        <PackageReference Include="Fody" Version="6.6.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0-preview.1" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0-preview.1" />
+        <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.0-preview.1" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+        <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+        <PackageReference Include="SharedSharp" Version="1.1.2" />
+        <PackageReference Include="SharpZipLib" Version="1.4.1" />
+        <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
+        <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.3" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="..\Attribution.md" Link="Attribution.md" />
-	</ItemGroup>
+    <ItemGroup>
+      <Compile Update="Resources\Strings\AppResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppResources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
-	</ItemGroup>
+    <ItemGroup>
+      <MauiXaml Update="App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="AppShell.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Resources\Styles\AppViewDictionary.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Resources\Styles\ControlTemplates.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+    </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="..\PrivacyPolicy.md" Link="PrivacyPolicy.md" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-		<PackageReference Include="Fody" Version="6.6.4">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.AppCenter" Version="4.5.3" />
-		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.3" />
-		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.3" />
-		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.3" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
-		<PackageReference Include="SharedSharp" Version="0.7.30" />
-		<PackageReference Include="SharpZipLib" Version="1.4.1" />
-		<PackageReference Include="SkiaSharp" Version="2.88.3" />
-		<PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />
-		<PackageReference Include="System.Text.Json" Version="7.0.0" />
-		<PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
-		<PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" GeneratePathProperty="true" />
-		<PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
-		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-		<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-		<PackageReference Include="Xamarin.Forms.Breadcrumb" Version="3.0.0" />
-		<PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<SharedImage Include="Assets\Icons\ApplicationIcon.svg" BaseSize="40,20" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Assets\Strings\AppResources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AppResources.resx</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\LargeCardControlTemplate.xaml.cs">
-			<DependentUpon>LargeCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\LinkMediumCardControlTemplate.xaml.cs">
-			<SubType>Code</SubType>
-			<DependentUpon>LinkMediumCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\LinkCellCardControlTemplate.xaml.cs">
-			<DependentUpon>LinkCellCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\SingleCardControlTemplate.xaml.cs">
-			<DependentUpon>SingleCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\LinkSIngleCardControlTemplate.xaml.cs">
-			<SubType>Code</SubType>
-			<DependentUpon>LinkSingleCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplateNS.xaml.cs">
-			<DependentUpon>SmallCardControlTemplateNS.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\ControlTemplates\SmallCardControlTemplate.xaml.cs">
-			<DependentUpon>SmallCardControlTemplate.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\General\CollectionMultiCard.xaml.cs">
-			<DependentUpon>CollectionMultiCard.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\General\HlinkVisualDisplay.xaml.cs">
-			<DependentUpon>HLinkVisualDisplay.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Large\FamilyCardLarge.xaml.cs">
-			<DependentUpon>FamilyCardLarge.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Large\FamilyGraphCardLarge.xaml.cs">
-			<DependentUpon>FamilyGraphCardLarge.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Cell\SourceCardLinkCell.xaml.cs">
-			<DependentUpon>SourceCardLinkCell.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Cell\EventCardLinkCell.xaml.cs">
-			<DependentUpon>EventCardLinkCell.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Cell\FamilyCardLinkCell.xaml.cs">
-			<DependentUpon>FamilyCardLinkCell.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Medium\EventCardMediumLink.xaml.cs">
-			<DependentUpon>EventCardMediumLink.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Medium\MediaCardMediumLink.xaml.cs">
-			<DependentUpon>MediaCardMediumLink.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Medium\SourceCardMediumLink.xaml.cs">
-			<DependentUpon>SourceCardMediumLink.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Medium\CitationCardMediumLink.xaml.cs">
-			<DependentUpon>CitationCardMediumLink.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Medium\FamilyGraphCardMediumLink.xaml.cs">
-			<DependentUpon>FamilyGraphCardMediumLink.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Cell\CitationCardLinkCell.xaml.cs">
-			<DependentUpon>CitationCardLinkCell.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Large\PersonLinkCardLarge.xaml.cs">
-			<DependentUpon>PersonLinkCardLarge.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\MediaCardLinkSingle.xaml.cs">
-			<DependentUpon>MediaCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\EventCardLinkSingle.xaml.cs">
-			<DependentUpon>EventCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\CitationCardLinkSingle.xaml.cs">
-			<DependentUpon>CitationCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\RepositoryRefCardLinkSingle.xaml.cs">
-			<SubType>Code</SubType>
-			<DependentUpon>RepositoryRefCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\RepositoryCardLinkSingle.xaml.cs">
-			<DependentUpon>RepositoryCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Single\SourceCardLinkSingle.xaml.cs">
-			<DependentUpon>SourceCardLinkSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Link\Cell\PersonCardLinkCell.xaml.cs">
-			<DependentUpon>PersonCardLinkCell.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Single\DateCardSingle.xaml.cs">
-			<DependentUpon>DateCardSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Single\ChildRefCardSingle.xaml.cs">
-			<SubType>Code</SubType>
-			<DependentUpon>ChildRefCardSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Single\FamilyCardSingle.xaml.cs">
-			<DependentUpon>FamilyCardSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Single\PersonCardSingle.xaml.cs">
-			<DependentUpon>PersonCardSingle.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Small\HLink\RepositoryRefCardSmall.xaml.cs">
-			<DependentUpon>RepositoryRefCardSmall.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Small\Model\LDSOrdCardSmall.xaml.cs">
-			<DependentUpon>LDSOrdCardSmall.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Large\MediaGlyphCardLarge.xaml.cs">
-			<DependentUpon>MediaGlyphCardLarge.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Small\HLink\ChildRefCardSmall.xaml.cs">
-			<DependentUpon>ChildRefCardSmall.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Small\Model\PersonNameCardSmall.xaml.cs">
-			<DependentUpon>PersonNameCardSmall.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="UserControls\Small\Model\MapCardSmall.xaml.cs">
-			<DependentUpon>MapCardSmall.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorModels\DateStrDetailPage.xaml.cs">
-			<DependentUpon>DateStrDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorModels\DateSpanDetailPage.xaml.cs">
-			<DependentUpon>DateSpanDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorModels\DateRangeDetailPage.xaml.cs">
-			<DependentUpon>DateRangeDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorModels\DateValDetailPage.xaml.cs">
-			<DependentUpon>DateValDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\MinorModels\AttributeDetailPage.xaml.cs">
-			<DependentUpon>AttributeDetailPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\Person\ChildRefDetailView.xaml.cs">
-			<DependentUpon>ChildRefDetailView.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\Repository\RepositoryRefDetailView.xaml.cs">
-			<DependentUpon>RepositoryRefDetailView.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\StartupPages\NeedDatabaseReloadPage.xaml.cs">
-			<DependentUpon>NeedDatabaseReloadPage.xaml</DependentUpon>
-		</Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Update="Assets\Strings\AppResources.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="UserControls\ControlTemplates\DetailPageControlTemplate.xaml">
-			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-		</EmbeddedResource>
-		<EmbeddedResource Update="UserControls\ControlTemplates\LinkMediumCardControlTemplate.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-		</EmbeddedResource>
-		<EmbeddedResource Update="UserControls\ControlTemplates\LinkSingleCardControlTemplate.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-		</EmbeddedResource>
-		<EmbeddedResource Update="UserControls\Link\Single\RepositoryRefCardLinkSingle.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-		</EmbeddedResource>
-		<EmbeddedResource Update="UserControls\Single\ChildRefCardSingle.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-		</EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="App.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</None>
-	</ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
 </Project>

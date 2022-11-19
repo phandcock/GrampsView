@@ -80,7 +80,7 @@ namespace GrampsView.Data.ExternalStorage
                     // TODO handle this
                     myCommonLogging.DataLogEntryAdd(e.Message);
 
-                    myCommonNotifications.NotifyException("LoadEventsAsync", e);
+                    myCommonNotifications.NotifyException("LoadEventsAsync",e,null);
 
                     throw;
                 }

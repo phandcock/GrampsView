@@ -1,9 +1,7 @@
-﻿namespace GrampsView
+﻿using GrampsView.Views;
+
+namespace GrampsView
 {
-    using GrampsView.Views;
-
-    using Xamarin.Forms;
-
     public partial class AppShell : Shell
     {
         public AppShell()

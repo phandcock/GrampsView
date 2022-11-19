@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-using Xamarin.CommunityToolkit.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -60,12 +60,12 @@ namespace GrampsView.Data.ExternalStorage
             {
                 _commonNotifications.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
-                _commonNotifications.NotifyException("Trying to  add media file pointer", ex);
+                _commonNotifications.NotifyException("Trying to  add media file pointer",ex,null);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                _commonNotifications.NotifyException("Trying to add media file pointer", ex);
+                _commonNotifications.NotifyException("Trying to add media file pointer",ex,null);
 
                 throw;
             }

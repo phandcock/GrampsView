@@ -13,7 +13,7 @@ namespace GrampsView.Data.Repository
     using System.Runtime.Serialization;
     using System.Text.Json.Serialization;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using CommunityToolkit.Mvvm.ComponentModel;
 
     /// <summary>
     /// Static Data Store.

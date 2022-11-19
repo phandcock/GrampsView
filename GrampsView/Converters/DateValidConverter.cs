@@ -5,7 +5,7 @@
     using System;
     using System.Globalization;
 
-    using Xamarin.Forms;
+  
 
     internal class DateValidConverter : IValueConverter
     {

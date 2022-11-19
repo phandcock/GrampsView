@@ -1,15 +1,12 @@
-﻿using GrampsView.Common;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
-
-using System;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -313,7 +310,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
+                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository",ex,null);
 
                 throw;
             }

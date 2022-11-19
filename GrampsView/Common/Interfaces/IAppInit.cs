@@ -1,6 +1,8 @@
-﻿namespace GrampsView.Common
+﻿using SharedSharp.Common.Interfaces;
+
+namespace GrampsView.Common.Interfaces
 {
-    public interface IAppInit : SharedSharp.Common.ISharedSharpAppInit
+    public interface IAppInit : ISharedSharpAppInit
     {
     }
 }

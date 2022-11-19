@@ -3,8 +3,8 @@ using GrampsView.Data.Model;
 
 using System.Threading.Tasks;
 
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
+using CommunityToolkit.Mvvm.ComponentModel;
+
 
 namespace GrampsView.Common
 {
@@ -85,7 +85,7 @@ namespace GrampsView.Common
             get; set;
         }
 
-        IAsyncCommand UCNavigateCommand
+        IAsyncRelayCommand UCNavigateCommand
         {
             get;
         }

@@ -1,54 +1,51 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
 using System.Diagnostics.Contracts;
-
-using Xamarin.Forms;
 
 namespace GrampsView.UserControls
 {
     public partial class MediaImageFull : Frame
     {
-        private HLinkMediaModel CurrentHLinkMediaModel = new HLinkMediaModel();
+        private HLinkMediaModel CurrentHLinkMediaModel = new();
 
         public MediaImageFull()
         {
             InitializeComponent();
         }
 
-        private void DaImage_Error(object sender, FFImageLoading.Forms.CachedImageEvents.ErrorEventArgs e)
-        {
-            ErrorInfo extraInfo = new ErrorInfo();
+        // TODO
+        //private void DaImage_Error(object sender, CachedImageEvents.ErrorEventArgs e)
+        //{
+        //    ErrorInfo extraInfo = new();
 
-            if (CurrentHLinkMediaModel.Valid)
-            {
-                extraInfo.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey.Value);
-                extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
-            }
+        //    if (CurrentHLinkMediaModel.Valid)
+        //    {
+        //        extraInfo.Add("HLinkMediaModel HLinkKey", CurrentHLinkMediaModel.HLinkKey.Value);
+        //        extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
+        //    }
 
-            App.Current.Services.GetService<IErrorNotifications>().NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
+        //    Ioc.Default.GetService<IErrorNotifications>().NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
 
-            if (!(sender is null))
-            {
-                (sender as FFImageLoading.Forms.CachedImage).Cancel();
-                (sender as FFImageLoading.Forms.CachedImage).Source = null;
-            }
-        }
+        //    if (sender is not null)
+        //    {
+        //        // TODO
+        //        //(sender as FFImageLoading.Forms.CachedImage).Cancel();
+        //        //(sender as FFImageLoading.Forms.CachedImage).Source = null;
+        //    }
+        //}
 
         private void MediaImageFull_BindingContextChanged(object sender, EventArgs e)
         {
             Contract.Assert(sender != null);
 
-            MediaImageFull mifModel = sender as MediaImageFull;
+            MediaImageFull? mifModel = sender as MediaImageFull;
 
             // Hide if not valid
-            if ((!(mifModel.BindingContext is HLinkMediaModel argHLinkMediaModel)) || (!argHLinkMediaModel.Valid))
+            if ((mifModel.BindingContext is not HLinkMediaModel argHLinkMediaModel) || (!argHLinkMediaModel.Valid))
             {
                 mifModel.IsVisible = false;
                 return;
@@ -65,7 +62,7 @@ namespace GrampsView.UserControls
             {
                 try
                 {
-                    mifModel.daImage.Source = t.MediaStorageFilePath;
+                    // TODO   mifModel.daImage.Source = t.MediaStorageFilePath;
 
                     mifModel.IsVisible = true;
 
@@ -75,7 +72,7 @@ namespace GrampsView.UserControls
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex, new ErrorInfo());
                     throw;
                 }
             }

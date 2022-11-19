@@ -12,7 +12,7 @@
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = App.Current.Services.GetService<EventListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<EventListViewModel>();
         }
     }
 }

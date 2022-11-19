@@ -11,7 +11,7 @@
         public AttributeDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<AttributeDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<AttributeDetailViewModel>();
         }
     }
 }
