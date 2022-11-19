@@ -1,15 +1,7 @@
 ﻿using GrampsView.Data.External.StoreFile;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.External.StoreFolder
 {
@@ -22,7 +14,7 @@ namespace GrampsView.Data.External.StoreFolder
         {
         }
 
-        public static FileStream FolderCreateFile(DirectoryInfo argBaseFolder, string argFileName)
+        public static FileStream? FolderCreateFile(DirectoryInfo argBaseFolder, string argFileName)
         {
             // TODO Handle relative paths
 
@@ -43,13 +35,13 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }
@@ -94,13 +86,13 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }

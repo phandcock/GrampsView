@@ -11,7 +11,7 @@
         public TagDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<TagDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<TagDetailViewModel>();
         }
     }
 }

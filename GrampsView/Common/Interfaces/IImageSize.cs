@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using Xamarin.Forms;
+  
 
     public interface IImageResource
     {

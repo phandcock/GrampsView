@@ -1,17 +1,12 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
 
 namespace GrampsView.Common.CustomClasses
 {
@@ -26,7 +21,7 @@ namespace GrampsView.Common.CustomClasses
     {
         public ItemGlyph()
         {
-            UCNavigateCommand = new AsyncCommand(UCNavigate);
+            UCNavigateCommand = new AsyncRelayCommand(UCNavigate);
         }
 
         [JsonInclude]
@@ -42,7 +37,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 if (ImageHLink == null)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -78,7 +73,7 @@ namespace GrampsView.Common.CustomClasses
         public Color ImageSymbolColour
         {
             get; set;
-        } = Color.White;
+        } = Microsoft.Maui.Graphics.Colors.White;
 
         [JsonInclude]
         public CommonEnums.HLinkGlyphType ImageType
@@ -99,7 +94,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 if (MediaHLink == null)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -117,7 +112,7 @@ namespace GrampsView.Common.CustomClasses
         public Color SymbolColour
         {
             get; set;
-        } = Color.White;
+        } = Microsoft.Maui.Graphics.Colors.White;
 
         /// <summary>
         /// Gets or sets the home symbol font glyph.
@@ -131,7 +126,7 @@ namespace GrampsView.Common.CustomClasses
         /// <value>
         /// The background colour.
         /// </value>
-        public IAsyncCommand UCNavigateCommand
+        public IAsyncRelayCommand UCNavigateCommand
         {
             get;
         }
@@ -221,7 +216,7 @@ namespace GrampsView.Common.CustomClasses
         {
             if (MediaHLink == null)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
                 return new HLinkMediaModel();
             }
 

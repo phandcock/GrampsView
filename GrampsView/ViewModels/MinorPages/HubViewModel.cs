@@ -38,12 +38,12 @@ namespace GrampsView.ViewModels.MinorPages
             BaseTitle = "Hub";
             BaseTitleIcon = Constants.IconHub;
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
                 HandledDataLoadedEvent();
             });
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
              {
                  BaseCL.DataLogShow();
              });

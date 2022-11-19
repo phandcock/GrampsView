@@ -12,7 +12,7 @@ namespace GrampsView.Common
 
     using System.Diagnostics.Contracts;
 
-    using Xamarin.Forms;
+  
 
     /// <summary>
     /// Card Template Selector.

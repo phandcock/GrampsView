@@ -5,7 +5,7 @@
 
     using SharedSharp.Model;
 
-    using Xamarin.Essentials;
+    
 
     /// <summary>
     /// Data model for a Gramps file header.

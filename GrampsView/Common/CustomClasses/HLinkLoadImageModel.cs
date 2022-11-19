@@ -9,27 +9,19 @@
 
 namespace GrampsView.Common.CustomClasses
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System.Runtime.Serialization;
-
-    using Xamarin.Forms;
-
     public class HLinkLoadImageModel : HLinkBase
     {
         ///// <summary>
         ///// The local internal default character icon
         ///// </summary
-        private string _IDefaultSymbol = CommonConstants.IconDDefault;
+        private string _IDefaultSymbol = GrampsView.Common.Constants.IconDDefault;
 
         /// <summary>
         /// The local home use image.
         /// </summary>
         private CommonEnums.HLinkGlyphType _ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
-        private Color _SymbolColour = Color.White;
+        private Color _SymbolColour = Microsoft.Maui.Graphics.Colors.White;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HLinkMediaModel"/> class.
@@ -44,20 +36,7 @@ namespace GrampsView.Common.CustomClasses
         /// <value>
         /// The media model.
         /// </value>
-        public new IMediaModel DeRef
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return DV.MediaDV.GetModelFromHLinkKey(HLinkKey);
-                }
-                else
-                {
-                    return new MediaModel();
-                }
-            }
-        }
+        public IMediaModel DeRef => Valid ? (IMediaModel)DV.MediaDV.GetModelFromHLinkKey(HLinkKey) : new MediaModel();
 
         public int GCorner1X
         {
@@ -145,11 +124,11 @@ namespace GrampsView.Common.CustomClasses
 
             set
             {
-                if (value != Color.Default)
+                if (value != Microsoft.Maui.Graphics.Colors.DarkSlateGrey)
                 {
                 }
 
-                SetProperty(ref _SymbolColour, value);
+                _ = SetProperty(ref _SymbolColour, value);
             }
         }
 
@@ -186,7 +165,7 @@ namespace GrampsView.Common.CustomClasses
 
         protected override IModelBase GetDeRef()
         {
-            return this.DeRef;
+            return DeRef;
         }
     }
 }

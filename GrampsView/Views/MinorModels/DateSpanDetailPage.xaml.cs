@@ -10,7 +10,7 @@
 
         public DateSpanDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<DateSpanDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<DateSpanDetailViewModel>();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using GrampsView.Models.HLinks;
 
-    using Xamarin.Forms;
+  
 
     public partial class MediaCardLarge : Grid
     {

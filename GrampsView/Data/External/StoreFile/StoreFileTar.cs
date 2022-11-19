@@ -1,23 +1,23 @@
-﻿namespace GrampsView.Data
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+using GrampsView.Data.External.StoreFolder;
+using GrampsView.Data.Repository;
+
+using ICSharpCode.SharpZipLib.Tar;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
+
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data
 {
-    using GrampsView.Common;
-    using GrampsView.Data.External.StoreFolder;
-    using GrampsView.Data.Repository;
-
-    using ICSharpCode.SharpZipLib.Tar;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-    using SharedSharp.Logging.Interfaces;
-
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// </summary>
     /// <seealso cref="GrampsView.Common.ObservableObject"/>
@@ -71,7 +71,7 @@
                     // Remove any root e.g. '\' because a PathRooted filename defeats Path.Combine
                     if (Path.IsPathRooted(tarName))
                     {
-                        tarName = tarName.Substring(Path.GetPathRoot(tarName).Length);
+                        tarName = tarName[Path.GetPathRoot(tarName).Length..];
                     }
 
                     // Apply further name transformations here as necessary
@@ -126,7 +126,7 @@
                         {
                         }
 
-                        App.Current.Services.GetService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        Ioc.Default.GetService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
 
@@ -136,7 +136,7 @@
                         }
                         catch (Exception ex)
                         {
-                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar issue", ex);
+                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar issue",ex,null);
                         }
                         //}
 
@@ -194,7 +194,7 @@
                     else
                     {
                         // TODO write to the output log // await
-                        // App.Current.Services.GetService<IErrorNotifications>().DataLogEntryAdd("File "
+                        // Ioc.Default.GetService<IErrorNotifications>().DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }
@@ -204,13 +204,13 @@
 
                     if (!checkFileExistsFlag)
                     {
-                        ErrorInfo t = new ErrorInfo("Error UnTaring file. File not created.  Perhaps the path is too long?")
+                        ErrorInfo t = new("Error UnTaring file. File not created.  Perhaps the path is too long?")
                                 {
                                     { "New Folder",  newFileName.FInfo.FullName },
                                     { "Filename",  filename },
                                 };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }
@@ -225,10 +225,10 @@
                 const int HR_ERROR_HANDLE_DISK_FULL = unchecked((int)0x80070027);
                 const int HR_ERROR_DISK_FULL = unchecked((int)0x80070070);
 
-                if (ex.HResult == HR_ERROR_HANDLE_DISK_FULL
-                    || ex.HResult == HR_ERROR_DISK_FULL)
+                if (ex.HResult is HR_ERROR_HANDLE_DISK_FULL
+                    or HR_ERROR_DISK_FULL)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name,ex,null);
 
                     // No recovery from this
                     throw;
@@ -237,14 +237,14 @@
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name,ex,null);
 
                     // Keep going
                     // throw;
                 }
                 else
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ",ex,null);
                     // Keep going
                     // throw;
                 }

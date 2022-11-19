@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using Xamarin.Forms;
+
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -82,7 +82,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    myCommonNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
+                    myCommonNotifications.NotifyException("Exception loading Notes from the Gramps file",ex,null);
 
                     throw;
                 }

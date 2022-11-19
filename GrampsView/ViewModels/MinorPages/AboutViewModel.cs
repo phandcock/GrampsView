@@ -13,7 +13,7 @@
 
     using System.Reflection;
 
-    using Xamarin.Essentials;
+    
 
     public class AboutViewModel : ViewModelBase
     {
@@ -29,7 +29,7 @@
             get;
         }
 
-  = new CardListLineCollection();
+            = new CardListLineCollection();
 
         public CardListLineCollection ApplicationVersionList
         {

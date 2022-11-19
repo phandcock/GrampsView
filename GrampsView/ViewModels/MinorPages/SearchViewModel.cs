@@ -7,7 +7,7 @@ using GrampsView.Data.DataView;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 
-using Xamarin.Forms;
+
 
 namespace GrampsView.ViewModels.MinorPages
 {

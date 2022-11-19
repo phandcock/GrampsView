@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.HubPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:commonclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"

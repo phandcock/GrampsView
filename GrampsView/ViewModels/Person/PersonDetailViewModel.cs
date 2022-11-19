@@ -1,19 +1,17 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+
+using SharedSharp.Logging;
+using SharedSharp.Model;
+
+using System.ComponentModel;
+
+namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
-    using System.ComponentModel;
-
-    using Xamarin.CommunityToolkit.UI.Views;
-
     /// <summary>
     /// ViewModel for the Person Detail page.
     /// </summary>
@@ -50,7 +48,7 @@
             get
             {
                 // Get the personal events
-                HLinkEventModelCollection t = new HLinkEventModelCollection();
+                HLinkEventModelCollection t = new();
 
                 t.AddRange(PersonObject.GEventRefCollection);
 
@@ -81,19 +79,9 @@
             get; set;
         } = new HLinkNoteModelCollection();
 
-        public HLinkPersonNameModelCollection PersonNameMultipleDetails
-        {
-            get
-            {
+        public HLinkPersonNameModelCollection PersonNameMultipleDetails =>
                 // If only one name then its already displayed in the detail section
-                if (PersonObject.GPersonNamesCollection.Count == 1)
-                {
-                    return new HLinkPersonNameModelCollection();
-                }
-
-                return PersonObject.GPersonNamesCollection;
-            }
-        }
+                PersonObject.GPersonNamesCollection.Count == 1 ? new HLinkPersonNameModelCollection() : PersonObject.GPersonNamesCollection;
 
         /// <summary>
         /// Gets or sets the Person to be shown on the page.
@@ -117,15 +105,13 @@
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 
-            // TODO try again to set this up when the toolkit is a little more mature or I have an
-            // idea where the bug is coming from
-            BaseCurrentLayoutState = LayoutState.Loading;
+
 
             HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(BaseParamsHLink);
 
             PersonObject = HLinkPerson.DeRef;
 
-            if (!(PersonObject is null))
+            if (PersonObject is not null)
             {
                 BaseModelBase = PersonObject;
 
@@ -170,16 +156,15 @@
                 //}
             }
 
-            // TODO fix this
-            BaseCurrentLayoutState = LayoutState.None;
+
             return;
         }
 
         private CardListLineCollection GetExtraPersonDetails()
         {
             // Get extra details
-            CardListLineCollection extraDetailsCard = new CardListLineCollection
-                {
+            CardListLineCollection extraDetailsCard = new()
+            {
                         new CardListLine("Gender:", PersonObject.GGender.ToString()),
                 };
 

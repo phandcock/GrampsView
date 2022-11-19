@@ -6,24 +6,22 @@
 ////    styledtext
 ///     tagref
 
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+
+using System;
+using System.Collections;
+using System.Text.RegularExpressions;
+
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-
-    using System;
-    using System.Collections;
-    using System.Text.RegularExpressions;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Data model for a note.
     /// </summary>
 
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
-        private FormattedString _TextFormatted = new FormattedString();
+        private readonly FormattedString _TextFormatted = new();
 
         public NoteModel()
         {
@@ -86,7 +84,7 @@ namespace GrampsView.Data.Model
         {
             get
             {
-                HLinkNoteModel t = new HLinkNoteModel
+                HLinkNoteModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -185,6 +183,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// Get the default text.
         /// </value>
+        [Obsolete]
         public override string ToString()
         {
             string removableChars = @"\n\r\s\t";
@@ -202,16 +201,15 @@ namespace GrampsView.Data.Model
                     break;
 
                 case Device.UWP:
-                    return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
+                    return cleanString[..Math.Min(cleanString.Length, 100)];
 
-                case Device.macOS:
-                    break;
+
 
                 default:
                     break;
             }
 
-            return cleanString.Substring(0, Math.Min(cleanString.Length, 100));
+            return cleanString[..Math.Min(cleanString.Length, 100)];
         }
     }
 }

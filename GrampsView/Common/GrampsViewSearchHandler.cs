@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using Xamarin.Forms;
+  
 
     // TODO: Bodgy up our own handler until Shell Search for UWP can handle multiple types in the display
     public class GrampsViewSearchHandler : SearchHandler

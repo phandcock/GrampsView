@@ -1,23 +1,14 @@
-﻿using FFImageLoading.Cache;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Data.Repository;
 
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
 
-using System;
 using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data
 {
@@ -31,7 +22,7 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DataStorageInitialiseAsync()
         {
-            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Deleting existing datastorage");
+            Ioc.Default.GetService<ILog>().DataLogEntryAdd("Deleting existing datastorage");
             {
                 try
                 {
@@ -50,11 +41,11 @@ namespace GrampsView.Data
                     // Create standard directories
                     _ = DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(Constants.DirectoryImageCache);
 
-                    await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
+                    // TODO    await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException("DataStorageInitialiseAsync", ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("DataStorageInitialiseAsync", ex, null);
                     throw;
                 }
             }
@@ -62,7 +53,7 @@ namespace GrampsView.Data
             // Wait for Android. TODO FInd a better answer for why crash if load file twice Dispose error
             await Task.Delay(2000);
 
-            App.Current.Services.GetService<ILog>().DataLogEntryReplace("");
+            Ioc.Default.GetService<ILog>().DataLogEntryReplace("");
 
             return true;
         }
@@ -79,12 +70,12 @@ namespace GrampsView.Data
         /// </returns>
         public bool DecompressGZIP(IFileInfoEx inputFile)
         {
-            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
+            Ioc.Default.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS GZIP file");
 
             // Check arguments
             if (inputFile == null)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("The input file is null"));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("The input file is null"));
                 return false;
             }
 
@@ -92,17 +83,17 @@ namespace GrampsView.Data
             {
                 _ = ExtractGZip(inputFile, "data.xml");
 
-                App.Current.Services.GetService<ILog>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
+                Ioc.Default.GetService<ILog>().DataLogEntryReplace("GRAMPS GZIP file decompress complete");
                 return true;
             }
             catch (UnauthorizedAccessException ex)
             {
-                ErrorInfo t = new ErrorInfo("Unauthorised Access exception when trying to acess file")
+                ErrorInfo t = new("Unauthorised Access exception when trying to acess file")
                     {
                         { "Exception Message ", ex.Message },
                     };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                 return false;
             }
         }
@@ -116,12 +107,12 @@ namespace GrampsView.Data
         /// </returns>
         public async Task<bool> DecompressTAR()
         {
-            App.Current.Services.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS TAR files");
+            Ioc.Default.GetService<ILog>().DataLogEntryAdd("Decompressing GRAMPS TAR files");
 
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyAlert("The input file is invalid");
+                Ioc.Default.GetService<IErrorNotifications>().NotifyAlert("The input file is invalid", new ErrorInfo());
                 return false;
             }
 
@@ -130,12 +121,12 @@ namespace GrampsView.Data
             // open the gzip and extract the tar file
             using (Stream stream = new GZipInputStream(originalFileStream))
             {
-                using TarInputStream tarIn = new TarInputStream(stream, System.Text.Encoding.ASCII);
+                using TarInputStream tarIn = new(stream, System.Text.Encoding.ASCII);
                 // TODO DO NOT AWAIT as causes thread blocking await
                 await ExtractTar(tarIn).ConfigureAwait(false);
             }
 
-            App.Current.Services.GetService<ILog>().DataLogEntryReplace("UnTaring of files complete");
+            Ioc.Default.GetService<ILog>().DataLogEntryReplace("UnTaring of files complete");
             return true;
         }
     }

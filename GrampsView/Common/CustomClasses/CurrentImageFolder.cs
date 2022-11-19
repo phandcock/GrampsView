@@ -4,7 +4,7 @@ using SharedSharp.Errors.Interfaces;
 
 using System.IO;
 
-using Xamarin.Essentials;
+
 
 namespace GrampsView.Common.CustomClasses
 {
@@ -27,7 +27,7 @@ namespace GrampsView.Common.CustomClasses
             }
             catch (System.Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
         }

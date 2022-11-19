@@ -2,15 +2,11 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.Repository;
 
-using Microsoft.Extensions.DependencyInjection;
-
-using SharedSharp.Common;
 using SharedSharp.Errors.Interfaces;
 
-using System;
 using System.Diagnostics.Contracts;
 
-using Xamarin.Essentials.Interfaces;
+
 
 namespace GrampsView.Common
 {
@@ -18,30 +14,30 @@ namespace GrampsView.Common
     {
         public static bool BirthdayShowOnlyLivingFlag
         {
-            get => App.Current.Services.GetService<IPreferences>().Get("BirthdayShowOnlyLivingFlag", false);
+            get => Ioc.Default.GetService<IPreferences>().Get("BirthdayShowOnlyLivingFlag", false);
 
-            set => App.Current.Services.GetService<IPreferences>().Set("BirthdayShowOnlyLivingFlag", value);
+            set => Ioc.Default.GetService<IPreferences>().Set("BirthdayShowOnlyLivingFlag", value);
         }
 
         public static string NoteEmailAddress
         {
-            get => App.Current.Services.GetService<IPreferences>().Get("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
+            get => Ioc.Default.GetService<IPreferences>().Get("NoteEmailAddress", DV.HeaderDV.HeaderDataModel.GResearcherEmail);
 
-            set => App.Current.Services.GetService<IPreferences>().Set("NoteEmailAddress", value);
+            set => Ioc.Default.GetService<IPreferences>().Set("NoteEmailAddress", value);
         }
 
         public static bool SortHLinkCollections
         {
-            get => App.Current.Services.GetService<IPreferences>().Get("SortHLinkCollections", false);
+            get => Ioc.Default.GetService<IPreferences>().Get("SortHLinkCollections", false);
 
-            set => App.Current.Services.GetService<IPreferences>().Set("SortHLinkCollections", value);
+            set => Ioc.Default.GetService<IPreferences>().Set("SortHLinkCollections", value);
         }
 
         public static bool UseFirstImageFlag
         {
-            get => App.Current.Services.GetService<IPreferences>().Get("UseFirstImageFlag", false);
+            get => Ioc.Default.GetService<IPreferences>().Get("UseFirstImageFlag", false);
 
-            set => App.Current.Services.GetService<IPreferences>().Set("UseFirstImageFlag", value);
+            set => Ioc.Default.GetService<IPreferences>().Set("UseFirstImageFlag", value);
         }
 
         /// <summary>
@@ -70,11 +66,11 @@ namespace GrampsView.Common
                 fileDateTime = DateTime.Parse(fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture), System.Globalization.CultureInfo.CurrentCulture);
 
                 // Save a fresh copy if null so we can load next time
-                string oldDateTime = App.Current.Services.GetService<IPreferences>().Get(argSettingsKey, string.Empty);
+                string oldDateTime = Ioc.Default.GetService<IPreferences>().Get(argSettingsKey, string.Empty);
 
                 if (string.IsNullOrEmpty(oldDateTime))
                 {
-                    App.Current.Services.GetService<IPreferences>().Set(argSettingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
+                    Ioc.Default.GetService<IPreferences>().Set(argSettingsKey, fileDateTime.ToString(System.Globalization.CultureInfo.CurrentCulture));
 
                     // No previous settings entry so do the load (it might be the FirstRun)
                     return true;
@@ -90,9 +86,9 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IPreferences>().Remove(argSettingsKey);
+                Ioc.Default.GetService<IPreferences>().Remove(argSettingsKey);
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync",ex,null);
                 throw;
             }
         }
@@ -106,15 +102,15 @@ namespace GrampsView.Common
 
             Contract.Assert(argSettingsKey != string.Empty);
 
-            App.Current.Services.GetService<IPreferences>().Set(argSettingsKey, argFileInfoEx.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
+            Ioc.Default.GetService<IPreferences>().Set(argSettingsKey, argFileInfoEx.FInfo.LastWriteTimeUtc.ToString(System.Globalization.CultureInfo.CurrentCulture));
         }
 
         public static void SetReloadDatabase()
         {
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
-            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsGPKGFileLastDateTimeModified);
-            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsGPRAMPSFileLastDateTimeModified);
-            App.Current.Services.GetService<IPreferences>().Remove(Constants.SettingsXMLFileLastDateTimeModified);
+            Ioc.Default.GetService<IPreferences>().Remove(Constants.SettingsGPKGFileLastDateTimeModified);
+            Ioc.Default.GetService<IPreferences>().Remove(Constants.SettingsGPRAMPSFileLastDateTimeModified);
+            Ioc.Default.GetService<IPreferences>().Remove(Constants.SettingsXMLFileLastDateTimeModified);
 
             DataStore.Instance.DS.IsDataLoaded = false;
 

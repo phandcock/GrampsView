@@ -11,7 +11,7 @@
         public NoteListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<NoteListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<NoteListViewModel>();
         }
     }
 }

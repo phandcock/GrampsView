@@ -2,8 +2,8 @@
 
 using System.Threading.Tasks;
 
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Essentials;
+using CommunityToolkit.Mvvm.ComponentModel;
+
 
 using static GrampsView.Common.CommonEnums;
 
@@ -43,7 +43,7 @@ namespace GrampsView.Data.Model
             set;
         }
 
-        IAsyncCommand OpenMapCommand
+        IAsyncRelayCommand OpenMapCommand
         {
             get;
         }

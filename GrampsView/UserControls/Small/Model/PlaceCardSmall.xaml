@@ -1,9 +1,9 @@
 ﻿<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.PlaceCardSmall"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
     xmlns:models="clr-namespace:GrampsView.Models.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPlaceModel"

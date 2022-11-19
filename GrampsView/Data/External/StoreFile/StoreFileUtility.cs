@@ -11,7 +11,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
-using Xamarin.Essentials;
+
 
 namespace GrampsView.Data.External.StoreFile
 {
@@ -67,7 +67,7 @@ namespace GrampsView.Data.External.StoreFile
 
             if (aFail)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Relative folder path names are not allowed.") { { "Path", path } });
                 returnValue = false;
             }
 
@@ -119,7 +119,7 @@ namespace GrampsView.Data.External.StoreFile
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile",ex,null);
 
                 throw;
             }

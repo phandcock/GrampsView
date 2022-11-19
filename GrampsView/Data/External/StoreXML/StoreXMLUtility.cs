@@ -5,19 +5,18 @@ using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 
+using Microsoft.Maui.Graphics.Converters;
+
 using SharedSharp.Errors;
 
 using SkiaSharp;
 
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using Xamarin.Essentials;
-using Xamarin.Forms;
+
+
 
 using static GrampsView.Common.CommonEnums;
 
@@ -272,11 +271,11 @@ namespace GrampsView.Data.ExternalStorage
 
              IMediaModel theMediaModel = argHLinkLoadImageModel.DeRef;
 
-             SKBitmap resourceBitmap = new SKBitmap();
+             SKBitmap resourceBitmap = new();
 
              IMediaModel newMediaModel = new MediaModel();
 
-             HLinkKey newHLinkKey = new HLinkKey($"{argHLinkLoadImageModel.HLinkKey.Value}-{argHLinkLoadImageModel.GCorner1X}{argHLinkLoadImageModel.GCorner1Y}{argHLinkLoadImageModel.GCorner2X}{argHLinkLoadImageModel.GCorner2Y}");
+             HLinkKey newHLinkKey = new($"{argHLinkLoadImageModel.HLinkKey.Value}-{argHLinkLoadImageModel.GCorner1X}{argHLinkLoadImageModel.GCorner1Y}{argHLinkLoadImageModel.GCorner2X}{argHLinkLoadImageModel.GCorner2Y}");
              string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
 
              if (newHLinkKey.Value == "_c5132553a185c9c51d8-35415065")
@@ -295,7 +294,7 @@ namespace GrampsView.Data.ExternalStorage
              if ((!fileExists.Valid) && theMediaModel.IsMediaStorageFileValid)
              {
                  // Needs clipping
-                 using (StreamReader stream = new StreamReader(theMediaModel.MediaStorageFilePath))
+                 using (StreamReader stream = new(theMediaModel.MediaStorageFilePath))
                  {
                      //resourceBitmap = SKBitmap.Decode(stream.BaseStream);
                      // TODO See https://github.com/mono/SkiaSharp/issues/1621
@@ -317,27 +316,27 @@ namespace GrampsView.Data.ExternalStorage
                  float crtop = (float)(argHLinkLoadImageModel.GCorner1Y / 100d * theMediaModel.MetaDataHeight);
                  float crbottom = (float)(argHLinkLoadImageModel.GCorner2Y / 100d * theMediaModel.MetaDataHeight);
 
-                 SKRect cropRect = new SKRect(crleft, crtop, crright, crbottom);
+                 SKRect cropRect = new(crleft, crtop, crright, crbottom);
 
-                 SKBitmap croppedBitmap = new SKBitmap(
+                 SKBitmap croppedBitmap = new(
                                                      (int)cropRect.Width,
                                                      (int)cropRect.Height
                                                      );
 
-                 SKRect dest = new SKRect(
+                 SKRect dest = new(
                                          0,
                                          0,
                                          cropRect.Width,
                                          cropRect.Height
                                          );
 
-                 SKRect source = new SKRect(
+                 SKRect source = new(
                                          cropRect.Left,
                                          cropRect.Top,
                                          cropRect.Right,
                                          cropRect.Bottom);
 
-                 using (SKCanvas canvas = new SKCanvas(croppedBitmap))
+                 using (SKCanvas canvas = new(croppedBitmap))
                  {
                      canvas.DrawBitmap(resourceBitmap, source, dest);
                  }
@@ -376,7 +375,7 @@ namespace GrampsView.Data.ExternalStorage
              }
              else
              {
-                 ErrorInfo t = new ErrorInfo("File not found when Region specified in ClipMedia")
+                 ErrorInfo t = new("File not found when Region specified in ClipMedia")
 
                  {
                      { "Original ID", theMediaModel.Id },
@@ -398,9 +397,10 @@ namespace GrampsView.Data.ExternalStorage
             return tt;
         }
 
+        [Obsolete]
         private ModelBase GetBasics(XElement argElement)
         {
-            ModelBase returnVal = new ModelBase
+            ModelBase returnVal = new()
             {
                 Id = GetAttribute(argElement.Attribute("id")),
                 Change = GetDateTime(argElement, "change"),
@@ -429,14 +429,14 @@ namespace GrampsView.Data.ExternalStorage
             {
                 const string ColorNotSet = "#000000000000";
 
-                Regex regexColorCode = new Regex("^#[a-fA-F0-9]{6}$");
+                Regex regexColorCode = new("^#[a-fA-F0-9]{6}$");
 
                 string hexColour = GetAttribute(a.Attribute(b));
 
                 // Validate
                 if (!regexColorCode.IsMatch(hexColour.Trim()) && hexColour != ColorNotSet)
                 {
-                    ErrorInfo argErrorDetail = new ErrorInfo("Bad colour in GetColour")
+                    ErrorInfo argErrorDetail = new("Bad colour in GetColour")
                     {
                         { "Color element is", a.ToString() },
                         { "Attribute is", b }
@@ -452,13 +452,13 @@ namespace GrampsView.Data.ExternalStorage
                     hexColour = "#000000";
                 }
 
-                ColorTypeConverter colConverter = new ColorTypeConverter();
+                ColorTypeConverter colConverter = new();
 
                 return (Color)colConverter.ConvertFromInvariantString(hexColour);
             }
             catch (Exception ex)
             {
-                myCommonNotifications.NotifyException("Error in XML Utils GetColour", ex);
+                myCommonNotifications.NotifyException("Error in XML Utils GetColour", ex, null);
                 throw;
             }
         }
@@ -502,7 +502,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (UriFormatException ex)
             {
-                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not well formed")
+                ErrorInfo t = new("The URI in the Internet address is not well formed")
                     {
                         { "Exception Message ", ex.Message },
                         { "URI", xmlData }
@@ -514,7 +514,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (FormatException ex)
             {
-                ErrorInfo t = new ErrorInfo("The URI in the Internet address is not in the correct format")
+                ErrorInfo t = new("The URI in the Internet address is not in the correct format")
                     {
                         { "Exception Message ", ex.Message },
                         { "URI", xmlData }
@@ -526,7 +526,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                myCommonNotifications.NotifyException("Exception in GetUri", ex);
+                myCommonNotifications.NotifyException("Exception in GetUri", ex, null);
 
                 throw;
             }

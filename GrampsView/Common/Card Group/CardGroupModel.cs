@@ -1,14 +1,12 @@
-﻿namespace GrampsView.Common
+﻿using GrampsView.Data.Model;
+
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics.Contracts;
+
+namespace GrampsView.Common
 {
-    using GrampsView.Data.Model;
-
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.ComponentModel;
-    using System.Diagnostics.Contracts;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     public class CardGroupModel<T> : ObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
           where T : ModelBase, new()
     {
@@ -60,15 +58,12 @@
         /// <value>
         /// <c> true </c> if [control visible]; otherwise, <c> false </c>.
         /// </value>
-        public bool Visible
-        {
-            get
-            {
-                return !(Items is null) && (Items.Count > 0);
-            }
-        }
+        public bool Visible => Items is not null && (Items.Count > 0);
 
-        public new void Add(T argItem)
+        public event NotifyCollectionChangedEventHandler? CollectionChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public void Add(T argItem)
         {
             if (argItem.Valid)
             {
@@ -117,7 +112,7 @@
         //    }
         //}
 
-        public new void Clear()
+        public void Clear()
         {
             foreach (var item in this)
             {
@@ -134,9 +129,9 @@
         {
             if (e.OldItems != null)
             {
-                foreach (var item in e.OldItems)
+                foreach (object? item in e.OldItems)
                 {
-                    if (item != null && item is INotifyPropertyChanged i)
+                    if (item is not null and INotifyPropertyChanged i)
                     {
                         i.PropertyChanged -= Element_PropertyChanged;
                     }
@@ -145,9 +140,9 @@
 
             if (e.NewItems != null)
             {
-                foreach (var item in e.NewItems)
+                foreach (object? item in e.NewItems)
                 {
-                    if (item != null && item is INotifyPropertyChanged i)
+                    if (item is not null and INotifyPropertyChanged i)
                     {
                         i.PropertyChanged -= Element_PropertyChanged;
                         i.PropertyChanged += Element_PropertyChanged;

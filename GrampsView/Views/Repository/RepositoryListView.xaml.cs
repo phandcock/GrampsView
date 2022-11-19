@@ -10,7 +10,7 @@
 
         public RepositoryListPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = App.Current.Services.GetService<RepositoryListViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<RepositoryListViewModel>();
         }
     }
 }

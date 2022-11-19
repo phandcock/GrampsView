@@ -10,8 +10,8 @@ namespace GrampsView.Data.Model
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Forms;
+    using CommunityToolkit.Mvvm.ComponentModel;
+  
 
     /// <summary>
     /// Styled Text model collection.

@@ -71,7 +71,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (System.Exception ex)
                 {
-                    myCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
+                    myCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded",ex,null);
 
                     throw;
                 }

@@ -2,21 +2,19 @@
 using GrampsView.Data.Repository;
 using GrampsView.Models.HLinks;
 
-using Microsoft.Extensions.DependencyInjection;
+using MimeTypes;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Model;
 
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-using Xamarin.Essentials.Interfaces;
-using Xamarin.Forms;
+
+
 
 namespace GrampsView.Common
 {
@@ -33,8 +31,8 @@ namespace GrampsView.Common
                 throw new ArgumentNullException(nameof(argHLink));
             }
 
-            CardListLineCollection hlinkInfoList = new CardListLineCollection
-               {
+            CardListLineCollection hlinkInfoList = new()
+            {
                  new CardListLine("Private Object:", argHLink.Priv.ToString()),
                };
 
@@ -58,8 +56,8 @@ namespace GrampsView.Common
                 throw new ArgumentNullException(nameof(argModel));
             }
 
-            CardListLineCollection modelInfoList = new CardListLineCollection
-               {
+            CardListLineCollection modelInfoList = new()
+            {
                  new CardListLine("Id:", argModel.Id),
                  new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                  new CardListLine("Private Object:", argModel.Priv.ToString()),
@@ -74,11 +72,11 @@ namespace GrampsView.Common
         {
             try
             {
-                string tt = System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+                string tt = System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
                 DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase));
+                DirectoryInfo t = new(System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase));
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {
@@ -87,7 +85,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
         }
@@ -119,13 +117,13 @@ namespace GrampsView.Common
                 else
                 {
                     Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
-                    using StreamReader reader = new StreamReader(stream);
+                    using StreamReader reader = new(stream);
                     returnValue = reader.ReadToEnd();
                 }
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("LoadResource - Exception trying to open resource", ex,
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("LoadResource - Exception trying to open resource", ex,
                                                   new ErrorInfo("Error trying to open resource")
                                                           {
                                                             { "File Name", argResourceName },
@@ -138,7 +136,7 @@ namespace GrampsView.Common
 
         public static string MimeFileContentTypeGet(string argFileExtension)
         {
-            return MimeTypes.MimeTypeMap.GetMimeType(argFileExtension);
+            return MimeTypeMap.GetMimeType(argFileExtension);
         }
 
         public static bool ReleaseMode()
@@ -202,7 +200,7 @@ namespace GrampsView.Common
         {
             object t = ResourceValueGet(keyName);
 
-            return t is null ? Color.White : (Color)t;
+            return t is null ? Microsoft.Maui.Graphics.Colors.White : (Color)t;
         }
 
         public static object ResourceValueGet(string keyName)
@@ -216,7 +214,7 @@ namespace GrampsView.Common
             // Search all dictionaries
             if (!Application.Current.Resources.TryGetValue(keyName, out object retVal))
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Resource Key", keyName));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Resource Key", keyName));
             }
 
             return retVal;

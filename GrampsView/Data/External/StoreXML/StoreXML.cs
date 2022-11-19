@@ -1,18 +1,11 @@
 ﻿using GrampsView.Common;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -68,11 +61,11 @@ namespace GrampsView.Data.ExternalStorage
             {
                 IFileInfoEx inputFile = new FileInfoEx(argFileName: Constants.StorageXMLFileName);
 
-                App.Current.Services.GetService<ILog>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
+                Ioc.Default.GetService<ILog>().DataLogEntryAdd("Loading existing local copy of the GRAMPS data");
                 {
-                    XmlReaderSettings xmlReaderSettings = new XmlReaderSettings
+                    XmlReaderSettings xmlReaderSettings = new()
                     {
-                        DtdProcessing = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android
+                        DtdProcessing = DeviceInfo.Platform == DevicePlatform.Android
                         ? DtdProcessing.Ignore
                         : DtdProcessing.Parse
                     };
@@ -86,29 +79,29 @@ namespace GrampsView.Data.ExternalStorage
                     }
                     catch (System.IO.DirectoryNotFoundException ex)
                     {
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex, new SharedSharp.Errors.ErrorInfo());
 
                         return Task.FromResult(false);
                     }
                     catch (Exception ex)
                     {
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load",ex,null);
 
                         return Task.FromResult(false);
                     }
 
-                    if (!(localGrampsXMLdoc.DocumentType is null))
+                    if (localGrampsXMLdoc.DocumentType is not null)
                     {
                         int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
                         if (compareFlag < 0)
                         {
-                            ErrorInfo t = new ErrorInfo("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
+                            ErrorInfo t = new("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
                                 {
                                     { "Minimum Version", Constants.GrampsXMLPublicId },
                                     { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
                         };
 
-                            App.Current.Services.GetService<IErrorNotifications>().NotifyError(t);
+                            Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
                             return Task.FromResult(false);
                         }
                     }
@@ -127,7 +120,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to load Gramps data only",ex,null);
                 throw;
             }
 

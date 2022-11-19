@@ -1,11 +1,11 @@
-﻿namespace GrampsView.Data.Repository
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+
+using System;
+
+namespace GrampsView.Data.Repository
 {
-    using GrampsView.Common;
-
-    using System;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-
     /// <summary>
     /// Static Data Store.
     /// </summary>
@@ -13,19 +13,13 @@
     public sealed class DataStore : ObservableObject
 
     {
-        private static readonly Lazy<DataStore> lazy = new Lazy<DataStore>(() => new DataStore());
+        private static readonly Lazy<DataStore> lazy = new(() => new DataStore());
 
         private DataStore()
         {
         }
 
-        public static DataStore Instance
-        {
-            get
-            {
-                return lazy.Value;
-            }
-        }
+        public static DataStore Instance => lazy.Value;
 
         /// <summary>
         /// Gets or sets the Application Wide Data Store.
@@ -48,9 +42,9 @@
         //    get; set;
         //} = new XamarinEssentials();
 
-        public IFFImageLoading FFIL
-        {
-            get; set;
-        } = new XamarinFFImageLoading();
+        //public IFFImageLoading FFIL
+        //{
+        //    get; set;
+        //} = new XamarinFFImageLoading();
     }
 }

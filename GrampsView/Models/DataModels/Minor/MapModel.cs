@@ -2,16 +2,9 @@
 using GrampsView.Data.Model;
 using GrampsView.Models.HLinks.Models;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors.Interfaces;
 
-using System;
 using System.Diagnostics.Contracts;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Essentials;
 
 using static GrampsView.Common.CommonEnums;
 
@@ -37,7 +30,7 @@ namespace GrampsView.Models.DataModels.Minor
         /// </summary>
         public MapModel()
         {
-            OpenMapCommand = new AsyncCommand(OpenMap);
+            OpenMapCommand = new AsyncRelayCommand(OpenMap);
 
             ModelItemGlyph.Symbol = Constants.IconMap;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundUtility");
@@ -53,7 +46,7 @@ namespace GrampsView.Models.DataModels.Minor
         {
             get
             {
-                HLinkMapModel t = new HLinkMapModel
+                HLinkMapModel t = new()
                 {
                     DeRef = this,
                     HLinkKey = HLinkKey,
@@ -94,7 +87,7 @@ namespace GrampsView.Models.DataModels.Minor
         /// <value>
         /// The xamarin essentials placemark.
         /// </value>
-        public IAsyncCommand OpenMapCommand
+        public IAsyncRelayCommand OpenMapCommand
         {
             get; private set;
         }
@@ -114,7 +107,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("No map application available to open", ex);
+                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
 
                             throw;
                         }
@@ -126,7 +119,7 @@ namespace GrampsView.Models.DataModels.Minor
                     {
                         try
                         {
-                            MapLaunchOptions mapOptions = new MapLaunchOptions
+                            MapLaunchOptions mapOptions = new()
                             {
                                 Name = ToString(),
                             };
@@ -135,7 +128,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            App.Current.Services.GetService<IErrorNotifications>().NotifyException("No map application available to open", ex);
+                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
 
                             throw;
                         }

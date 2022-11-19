@@ -1,24 +1,15 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Events;
 
 using Microsoft.AppCenter.Analytics;
-using Microsoft.Extensions.DependencyInjection;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.IO;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.Repository
 {
@@ -91,7 +82,7 @@ namespace GrampsView.Data.Repository
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -101,7 +92,7 @@ namespace GrampsView.Data.Repository
                 StartDataLoad();
             });
 
-            App.Current.Services.GetService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -111,7 +102,7 @@ namespace GrampsView.Data.Repository
                 SerializeRepositoriesAsync(true);
             });
 
-            App.Current.Services.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -185,7 +176,7 @@ namespace GrampsView.Data.Repository
         /// </summary>
         public void StartDataLoad()
         {
-            _ = Task.Run(() => StartDataLoadAsync());
+            _ = Task.Run(StartDataLoadAsync);
 
             // Task<bool> t =
 
@@ -410,7 +401,7 @@ namespace GrampsView.Data.Repository
                     // save the data in a serial format for next time localEventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
                     // let everybody know we have finished loading data
-                    _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadXMLEvent(true));
+                    _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadXMLEvent(true));
 
                     return true;
                 }
@@ -447,7 +438,7 @@ namespace GrampsView.Data.Repository
                         _CL.DataLogEntryReplace("GRAMPS Serial data load complete");
 
                         // let everybody know we have finished loading data
-                        _ = App.Current.Services.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+                        _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
                     }
                     else
                     {
@@ -461,7 +452,7 @@ namespace GrampsView.Data.Repository
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
+                _commonNotifications.NotifyException("Trying to load existing serialised data",ex,null);
 
                 CommonLocalSettings.SetReloadDatabase();
 

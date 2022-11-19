@@ -11,7 +11,7 @@
         public RepositoryRefDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<RepositoryRefDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<RepositoryRefDetailViewModel>();
         }
     }
 }

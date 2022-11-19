@@ -1,21 +1,20 @@
-﻿namespace GrampsView.Data
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Data.External.StoreFile;
+using GrampsView.Data.Repository;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.IO;
+
+namespace GrampsView.Data
 {
-    using GrampsView.Data.External.StoreFile;
-    using GrampsView.Data.Repository;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-    using SharedSharp.Logging.Interfaces;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.IO;
-
-    using Xamarin.CommunityToolkit.ObjectModel;
-    using Xamarin.Essentials.Interfaces;
-
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
         private FileInfo _FInfo;
@@ -24,7 +23,7 @@
         {
         }
 
-        public FileInfoEx(string argFileName, FileInfo argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
+        public FileInfoEx(string argFileName, FileInfo? argFInfo = null, string argRelativeFolder = "", bool argUseCurrentDataFolder = true)
         {
             Contract.Requires(argFileName != null, $"argFileName can not be null");
 
@@ -35,7 +34,7 @@
             // Use cache base if currentdatafolder not allowed
             if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
             {
-                createFilePath(argFileName, new DirectoryInfo(App.Current.Services.GetService<IFileSystem>().CacheDirectory));
+                createFilePath(argFileName, new DirectoryInfo(Ioc.Default.GetService<IFileSystem>().CacheDirectory));
                 return;
             }
 
@@ -59,23 +58,11 @@
 
         public FileInfo FInfo
         {
-            get
-            {
-                return _FInfo;
-            }
-            set
-            {
-                SetProperty(ref _FInfo, value);
-            }
+            get => _FInfo;
+            set => SetProperty(ref _FInfo, value);
         }
 
-        public bool Valid
-        {
-            get
-            {
-                return ((FInfo != null) && (FInfo.Exists) && (FInfo.FullName != null));
-            }
-        }
+        public bool Valid => (FInfo != null) && FInfo.Exists && (FInfo.FullName != null);
 
         /// <summary>
         /// get the StorageFile of the file.
@@ -92,7 +79,7 @@
             IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 
             // Validate the input
-            if ((relativeFilePath is null) || (string.IsNullOrEmpty(relativeFilePath)))
+            if ((relativeFilePath is null) || string.IsNullOrEmpty(relativeFilePath))
             {
                 return resultFile;
             }
@@ -122,13 +109,13 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex, null);
                     throw;
                 }
             }
@@ -145,16 +132,11 @@
         {
             try
             {
-                if (Valid)
-                {
-                    return FInfo.LastWriteTimeUtc;
-                }
-
-                return new DateTime();
+                return Valid ? FInfo.LastWriteTimeUtc : new DateTime();
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex, null);
 
                 throw;
             }
@@ -169,17 +151,14 @@
         /// <param name="argBaseFolder">
         /// The base folder of the file.
         /// </param>
-        private void createFilePath(string argFileName, DirectoryInfo argBaseFolder = null)
+        private void createFilePath(string argFileName, DirectoryInfo? argBaseFolder = null)
         {
-            if (argBaseFolder is null)
-            {
-                argBaseFolder = DataStore.Instance.AD.CurrentDataFolder.Value;
-            }
+            argBaseFolder ??= DataStore.Instance.AD.CurrentDataFolder.Value;
 
             Contract.Assert(argFileName != null);
 
             // load the real file
-            DirectoryInfo realPath = new DirectoryInfo(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
+            DirectoryInfo realPath = new(Path.Combine(argBaseFolder.FullName, Path.GetDirectoryName(argFileName)));
 
             FInfo = new FileInfo(Path.Combine(realPath.FullName, Path.GetFileName(argFileName)));
 
@@ -201,19 +180,19 @@
                 }
                 catch (FileNotFoundException ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
 
                     // default to a standard file marker
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    App.Current.Services.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
+                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }

@@ -1,19 +1,14 @@
-﻿using GrampsView.Common;
-using GrampsView.Data.Repository;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-using Microsoft.Extensions.DependencyInjection;
+using GrampsView.Common;
+using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
-using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.Serialization;
 using System.Text.Json;
-using System.Threading.Tasks;
-
-using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace GrampsView.Data.External.StoreSerial
 {
@@ -53,26 +48,26 @@ namespace GrampsView.Data.External.StoreSerial
 
             try
             {
-                DataContractSerializer ser = new DataContractSerializer(typeof(DataInstance));
+                DataContractSerializer ser = new(typeof(DataInstance));
 
                 using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetUserStoreForApplication())
                 {
                     // Check of the file exists
                     if (!isoStore.FileExists(GetSerialFile()))
                     {
-                        ErrorInfo tt = new ErrorInfo("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
+                        ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
                                 {
                                     { "File", GetSerialFile() },
                                 };
 
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(tt);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(tt);
                         CommonLocalSettings.DataSerialised = false;
                         return;
                     }
 
                     //byte[] buffer = new byte[1024];
 
-                    IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Open, isoStore);
+                    IsolatedStorageFileStream isoStream = new(GetSerialFile(), FileMode.Open, isoStore);
 
                     //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
 
@@ -88,7 +83,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.BookMarkCollection != null)
@@ -98,7 +93,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.CitationData != null)
@@ -108,7 +103,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.EventData != null)
@@ -118,7 +113,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.FamilyData != null)
@@ -128,7 +123,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.MediaData != null)
@@ -138,7 +133,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.PersonData != null)
@@ -148,7 +143,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     if (t.PersonNameData != null)
@@ -158,7 +153,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // Check for nulls
@@ -169,7 +164,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // Check for nulls
@@ -180,7 +175,7 @@ namespace GrampsView.Data.External.StoreSerial
                     else
                     {
                         CommonLocalSettings.DataSerialised = false;
-                        App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
                     // TODO Finish setting the checks up on these
@@ -198,7 +193,7 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled",ex,null);
             }
 
             return;
@@ -220,7 +215,7 @@ namespace GrampsView.Data.External.StoreSerial
 
                 using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    using IsolatedStorageFileStream stream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Create, isoStore);
+                    using IsolatedStorageFileStream stream = new(GetSerialFile(), FileMode.Create, isoStore);
                     //StreamWriter sw = new StreamWriter(stream);
 
                     await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
@@ -228,7 +223,7 @@ namespace GrampsView.Data.External.StoreSerial
 
                 byte[] buffer = new byte[1024];
 
-                IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
+                IsolatedStorageFileStream isoStream = new(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
 
                 int ttt = isoStream.Read(buffer, 0, 100);
 
@@ -237,7 +232,7 @@ namespace GrampsView.Data.External.StoreSerial
             }
             catch (Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ",ex,null);
                 CommonLocalSettings.DataSerialised = false;
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Common
 {
-    using Xamarin.Essentials;
+    
 
     /// <summary>
     /// Implement interface to allow Unit Tetsing and Mocking

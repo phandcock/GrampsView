@@ -1,11 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-using SharedSharp.Errors.Interfaces;
+﻿using SharedSharp.Errors.Interfaces;
 
 using System.Diagnostics;
-using System.IO;
 
-using Xamarin.Essentials.Interfaces;
+
 
 namespace GrampsView.Common.CustomClasses
 {
@@ -15,11 +12,11 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                string tt = System.IO.Path.Combine(App.Current.Services.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(App.Current.Services.GetService<IFileSystem>().CacheDirectory);
+                DirectoryInfo t = new(Ioc.Default.GetService<IFileSystem>().CacheDirectory);
 
                 if (!Value.Exists)
                 {
@@ -30,7 +27,7 @@ namespace GrampsView.Common.CustomClasses
             }
             catch (System.Exception ex)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("Exception creating application cache", ex, null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception creating application cache", ex, null);
                 throw;
             }
         }
@@ -39,7 +36,7 @@ namespace GrampsView.Common.CustomClasses
 
         public bool Valid => !(Value == null) && Value.Exists;
 
-        public DirectoryInfo Value
+        public DirectoryInfo? Value
         {
             get; set;
         } = null;

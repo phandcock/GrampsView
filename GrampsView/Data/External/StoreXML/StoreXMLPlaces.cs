@@ -89,7 +89,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception e)
                 {
-                    myCommonNotifications.NotifyException("Exception loading Place data from the file", e);
+                    myCommonNotifications.NotifyException("Exception loading Place data from the file",e,null);
 
                     throw;
                 }

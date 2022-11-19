@@ -15,7 +15,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 
-using Xamarin.CommunityToolkit.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Data
 {
@@ -128,7 +128,7 @@ namespace GrampsView.Data
                                      { "New path", "pdfimage" }
                                  };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }
@@ -141,7 +141,7 @@ namespace GrampsView.Data
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                App.Current.Services.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new MediaModel();
             }

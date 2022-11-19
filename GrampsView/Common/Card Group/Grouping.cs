@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Xamarin.CommunityToolkit.ObjectModel;
+    using CommunityToolkit.Mvvm.ComponentModel;
 
     public class Grouping<K, T> : ObservableRangeCollection<T>
     {

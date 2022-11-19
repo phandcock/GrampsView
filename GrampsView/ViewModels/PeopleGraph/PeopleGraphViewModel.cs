@@ -1,29 +1,5 @@
-﻿namespace GrampsView.ViewModels
+﻿namespace GrampsView.ViewModels.PeopleGraph
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Interfaces;
-    using SharedSharp.Logging;
-
-    using SkiaSharp;
-    using SkiaSharp.Views.Forms;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
-
-    using System.Linq;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// Details on an edge between nodes.
     /// </summary>
@@ -105,12 +81,12 @@
         /// <summary>
         /// The visited.
         /// </summary>
-        private readonly Dictionary<HLinkKey, bool> nodeVisited = new Dictionary<HLinkKey, bool>();
+        private readonly Dictionary<HLinkKey, bool> nodeVisited = new();
 
         /// <summary>
         /// The graph collection.
         /// </summary>
-        private readonly Queue<NextModel> nodeVisitQueue = new Queue<NextModel>();
+        private readonly Queue<NextModel> nodeVisitQueue = new();
 
         /// <summary>
         /// The local canvas height.
@@ -125,7 +101,7 @@
         /// <summary>
         /// The current family or person.
         /// </summary>
-        private HLinkBackLink localStartHLink = new HLinkBackLink();
+        private HLinkBackLink localStartHLink = new();
 
         /// <summary>
         /// Gets or sets the maximum level.
@@ -143,7 +119,7 @@
         /// <summary>
         /// The maximum horizontal.
         /// </summary>
-        private SortedDictionary<int, int> maxXNodes = new SortedDictionary<int, int>()
+        private SortedDictionary<int, int> maxXNodes = new()
         {
         };
 
@@ -166,7 +142,7 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PeopleGraphViewModel(ISharedLogging iocCommonLogging, IMessenger iocEventAggregator)
+        public PeopleGraphViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
             BaseTitle = "People Graph";
@@ -181,15 +157,9 @@
         /// </value>
         public int CanvasHeight
         {
-            get
-            {
-                return _CanvasHeight;
-            }
+            get => _CanvasHeight;
 
-            set
-            {
-                SetProperty(ref _CanvasHeight, value);
-            }
+            set => SetProperty(ref _CanvasHeight, value);
         }
 
         /// <summary>
@@ -200,15 +170,9 @@
         /// </value>
         public int CanvasWidth
         {
-            get
-            {
-                return _CanvasWidth;
-            }
+            get => _CanvasWidth;
 
-            set
-            {
-                SetProperty(ref _CanvasWidth, value);
-            }
+            set => SetProperty(ref _CanvasWidth, value);
         }
 
         /// <summary>
@@ -230,7 +194,7 @@
         /// <value>
         /// The graph canvas.
         /// </value>
-        public SkiaSharp.SKCanvas GraphCanvas
+        public SKCanvas GraphCanvas
         {
             get; set;
         }
@@ -244,15 +208,9 @@
         // [RestorableState]
         public HLinkBackLink StartHLink
         {
-            get
-            {
-                return localStartHLink;
-            }
+            get => localStartHLink;
 
-            set
-            {
-                SetProperty(ref localStartHLink, value);
-            }
+            set => SetProperty(ref localStartHLink, value);
         }
 
         /// <summary>
@@ -436,7 +394,7 @@
         {
             BaseCL.RoutineEntry("PeopleGraphViewModel");
 
-            HLinkKey startPoint = new HLinkKey("_c47a6bd11500b4b0cc8");
+            HLinkKey startPoint = new("_c47a6bd11500b4b0cc8");
 
             // Assume person
             PersonModel t = DV.PersonDV.GetModelFromHLinkKey(startPoint);
@@ -455,7 +413,7 @@
 
             if (!StartHLink.Valid)
             {
-                App.Current.Services.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
+                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLink passed to PersonGraph not found"));
                 return;
             }
 
@@ -526,7 +484,7 @@
                     currentY = item.YStart;
                     currentX = -1;
 
-                    levelNodeOffset = ((maxLevelNodes * nodeXSeperation) - (maxXNodes[currentY] * nodeXSeperation)) / maxXNodes[currentY];
+                    levelNodeOffset = (maxLevelNodes * nodeXSeperation - maxXNodes[currentY] * nodeXSeperation) / maxXNodes[currentY];
                 }
 
                 // Get vertical start location
@@ -536,16 +494,7 @@
                 currentX += 1;
 
                 // Do the actual X layout
-                int offsetX = 0;
-
-                if (maxXNodes[currentY] == 1)
-                {
-                    offsetX = (levelXMax - nodeXSeperation) / 2;
-                }
-                else
-                {
-                    offsetX = (nodeXSeperation * currentX) + (levelNodeOffset * currentX);
-                }
+                int offsetX = maxXNodes[currentY] == 1 ? (levelXMax - nodeXSeperation) / 2 : nodeXSeperation * currentX + levelNodeOffset * currentX;
 
                 // Save the location for use when laying out the edges
                 PeopleGraphNode itemTemp = TreeGraph.FirstOrDefault(ie => ie.NodeHLink == item.NodeHLink);
@@ -569,7 +518,7 @@
             maxLevel = 0;
             maxLevelNodes = 0;
 
-            foreach (var item in maxXNodes)
+            foreach (KeyValuePair<int, int> item in maxXNodes)
             {
                 if (item.Key < minLevel)
                 {
@@ -589,7 +538,7 @@
 
             // Convert relative levels to absolute starting at 0 Allows for easy layout on canvas
             int numNegativeLevels = Math.Abs(minLevel);
-            numLevels = (Math.Abs(minLevel) + maxLevel) + 1;        // Plus 1 for the starting zero level
+            numLevels = Math.Abs(minLevel) + maxLevel + 1;        // Plus 1 for the starting zero level
 
             for (int i = 0; i < TreeGraph.Count; i++)
             {
@@ -601,9 +550,9 @@
             }
 
             // offset the maxnodes list to match the TreeGraph absolute levels
-            SortedDictionary<int, int> tempMaxX = new SortedDictionary<int, int>();
+            SortedDictionary<int, int> tempMaxX = new();
 
-            foreach (var item in maxXNodes)
+            foreach (KeyValuePair<int, int> item in maxXNodes)
             {
                 tempMaxX.Add(item.Key + numNegativeLevels, maxXNodes[item.Key]);
             }
@@ -621,7 +570,7 @@
             SKCanvas theGraph = surface.Canvas;
 
             // In this example, we will draw a circle in the middle of the canvas
-            var paint = new SKPaint
+            SKPaint paint = new()
             {
                 Style = SKPaintStyle.Fill,
                 Color = Color.Red.ToSKColor(), // Alternatively: SKColors.Red

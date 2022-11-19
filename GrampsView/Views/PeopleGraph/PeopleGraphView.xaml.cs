@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
+    using GrampsView.ViewModels.PeopleGraph;
 
     using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +11,7 @@
         public PeopleGraphPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = App.Current.Services.GetService<PeopleGraphViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetService<PeopleGraphViewModel>();
         }
 
         private PeopleGraphViewModel _viewModel { get; set; }
