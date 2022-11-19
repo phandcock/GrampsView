@@ -13,7 +13,7 @@ namespace GrampsView.Common
 
     /// <summary>
     /// </summary>
-    public class CardGroupHLink<T> : ObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
+    public class CardGroupHLink<T> : SharedSharpObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
           where T : HLinkBase, new()
     {
         public CardGroupHLink()
@@ -47,7 +47,7 @@ namespace GrampsView.Common
         public string Title
         {
             get; set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets a value indicating whether [control visible].
@@ -57,10 +57,9 @@ namespace GrampsView.Common
         /// </value>
         public bool Visible => Items is not null && (Items.Count > 0);
 
-        public event NotifyCollectionChangedEventHandler? CollectionChanged;
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void Add(T argItem)
+
+        public new void Add(T argItem)
         {
             if (argItem.Valid)
             {
@@ -74,7 +73,7 @@ namespace GrampsView.Common
             }
         }
 
-        public void Clear()
+        public new void Clear()
         {
             foreach (T item in this)
             {

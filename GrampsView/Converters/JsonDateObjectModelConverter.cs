@@ -1,12 +1,9 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -243,7 +240,7 @@ namespace GrampsView.Converters
                             }
                         case "ModelItemGlyph.SymbolColour":
                             {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
                                 break;
                             }
                         case "NotionalDate":
@@ -350,7 +347,7 @@ namespace GrampsView.Converters
                             }
                         case "ModelItemGlyph.SymbolColour":
                             {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
                                 break;
                             }
                         case "NotionalDate":
@@ -428,7 +425,7 @@ namespace GrampsView.Converters
                             }
                         case "ModelItemGlyph.SymbolColour":
                             {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
                                 break;
                             }
                         case "NotionalDate":
@@ -500,7 +497,7 @@ namespace GrampsView.Converters
                             }
                         case "ModelItemGlyph.SymbolColour":
                             {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
                                 break;
                             }
                         case "NotionalDate":
@@ -607,7 +604,7 @@ namespace GrampsView.Converters
                             }
                         case "ModelItemGlyph.SymbolColour":
                             {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromHex(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
                                 break;
                             }
                         case "NotionalDate":

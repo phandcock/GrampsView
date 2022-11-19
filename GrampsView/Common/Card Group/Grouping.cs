@@ -2,9 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using CommunityToolkit.Mvvm.ComponentModel;
-
-    public class Grouping<K, T> : ObservableRangeCollection<T>
+    public class Grouping<K, T> : SharedSharpObservableRangeCollection<T>
     {
         public Grouping(K key, IEnumerable<T> items)
         {

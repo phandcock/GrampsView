@@ -2,9 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using CommunityToolkit.Mvvm.ComponentModel;
-
-    public class Group<T> : ObservableRangeCollection<T>
+    public class Group<T> : SharedSharpObservableRangeCollection<T>
     {
         /// <summary>
         /// Gets or sets the title.

@@ -1,15 +1,9 @@
 ﻿using GrampsView.Data.Repository;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
 
 
 
@@ -85,18 +79,18 @@ namespace GrampsView.Data.External.StoreFile
             try
             {
                 FilePickerFileType customFileType =
-                        new FilePickerFileType(
+                        new(
                             new Dictionary<DevicePlatform,
                             IEnumerable<string>>
                                 {
                                     //{ DevicePlatform.iOS, new[] { "public.my.comic.extension" } }, // TODO add these or general UTType values
                                     { DevicePlatform.Android, new[] { "application/octet-stream" } },
-                                    { DevicePlatform.UWP, new[] { ".gpkg",".gramps" } },
+                                    { DevicePlatform.WinUI, new[] { ".gpkg",".gramps" } },
                                     //{ DevicePlatform.macOS, new[] { "cbr" } }, // TODO add these or general UTType values
                                 }
                             );
 
-                PickOptions options = new PickOptions
+                PickOptions options = new()
                 {
                     PickerTitle = "Please select a Gramps input file",
                     FileTypes = customFileType,
@@ -104,7 +98,7 @@ namespace GrampsView.Data.External.StoreFile
 
                 FileResult result = await FilePicker.PickAsync(options);
 
-                if (result == null)
+                if (result is null)
                 {
                     return false; // user canceled file picking
                 }
@@ -119,7 +113,7 @@ namespace GrampsView.Data.External.StoreFile
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile",ex,null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex, null);
 
                 throw;
             }
