@@ -14,15 +14,13 @@
 
                 <ssharp:AppThemeDictionary />
                 <ssharp:CommonDictionary />
+
+                <ResourceDictionary Source="/Resources/Styles/AppViewDictionary.xaml" />
+
+                <ResourceDictionary Source="/Resources/Styles/ControlTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-  
-
-        <ResourceDictionary Source="/Resources/Styles/AppViewDictionary.xaml"/>
-        
-     
-
-        <ResourceDictionary Source="/Resources/Styles/ControlTemplates.xaml" />
+ 
     </Application.Resources>
 </Application>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.SearchPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="SearchPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SearchPageViewModel"
@@ -22,7 +22,7 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <xct:InvertedBoolConverter x:Key="flipBool" />
+            <mauitoolkit:InvertedBoolConverter x:Key="flipBool" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -38,16 +38,15 @@
                 x:Name="SearchBar"
                 Grid.Row="0"
                 Margin="3"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
-                                                  Light={StaticResource SurfaceLight}}"
+                BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark},
+                                                  Light={DynamicResource SurfaceLight}}"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
-                IsTabStop="True"
                 SearchCommand="{Binding SearchButtonCommand}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
                 TextColor="{DynamicResource OnSurfaceColor}">
                 <SearchBar.Behaviors>
-                    <xct:UserStoppedTypingBehavior
+                    <mauitoolkit:UserStoppedTypingBehavior
                         Command="{Binding SearchButtonCommand}"
                         MinimumLengthThreshold="4"
                         ShouldDismissKeyboardAutomatically="True"
@@ -67,7 +66,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+            <Frame BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <sharedsharpucon:InstructionCard InstructionText="{x:Static i18n:AppResources.SearchPage_NothingFound}" />
             </Frame>
         </StackLayout>

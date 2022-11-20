@@ -21,7 +21,7 @@
             Grid.Column="0"
             Style="{DynamicResource SSLabelStyleLarge}"
             Text="{Binding HLinkKey, Mode=OneWay}"
-            TextColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
-                                        Light={StaticResource OnSecondaryLight}}" />
+            TextColor="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
+                                        Light={DynamicResource OnSecondaryLight}}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

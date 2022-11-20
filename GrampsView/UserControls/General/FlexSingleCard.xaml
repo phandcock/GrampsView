@@ -1,9 +1,9 @@
 ﻿<Frame
     x:Class="GrampsView.UserControls.FlexSingleCard"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:toolkitc="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Name="FlexSingleCardRoot"
     Margin="0"
     Padding="0"
@@ -11,9 +11,11 @@
     IsVisible="{Binding FsctSource.Visible, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}">
 
     <Frame.Resources>
-        <toolkitc:IsNotNullOrEmptyConverter x:Key="StringToVisible" />
+        <ResourceDictionary>
+            <mauitoolkit:IsStringNotNullOrEmptyConverter x:Key="StringToVisible"/>
+        </ResourceDictionary>
     </Frame.Resources>
-
+    
     <StackLayout
         Margin="0"
         Padding="0"
@@ -22,8 +24,8 @@
         <Frame
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-            Style="{StaticResource SSFrameHeaderStyle}">
-            <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
+            Style="{DynamicResource SSFrameHeaderStyle}">
+            <Label Style="{DynamicResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
         </Frame>
 
         <FlexLayout
@@ -32,6 +34,6 @@
             Padding="0"
             BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
-            Style="{StaticResource FlexSingleCollection}" />
+            Style="{DynamicResource FlexSingleCollection}" />
     </StackLayout>
 </Frame>

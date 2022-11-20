@@ -6,8 +6,8 @@
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
-                                      Light={StaticResource Neutral}}"
+    BackgroundColor="{AppThemeBinding Dark={DynamicResource Neutral},
+                                      Light={DynamicResource Neutral}}"
     IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
     <Frame.Resources>

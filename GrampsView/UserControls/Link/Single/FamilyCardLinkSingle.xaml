@@ -6,8 +6,8 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkFamilyModel"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
-                                      Light={StaticResource OnTertiaryContainerLight}}">
+    BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
+                                      Light={DynamicResource OnTertiaryContainerLight}}">
 
     <Grid>
 

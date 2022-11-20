@@ -1,12 +1,12 @@
-﻿<ResourceDictionary  xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ControlTemplate x:Key="GVRadioButtonTemplate">
         <Frame
             Padding="0"
-            BackgroundColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
-                                              Light={StaticResource OnSecondaryContainerLight}}"
+            BackgroundColor="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
+                                              Light={DynamicResource OnSecondaryContainerLight}}"
             BorderColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
-                                          Light={StaticResource OnPrimaryContainerLight}}"
+                                          Light={DynamicResource OnPrimaryContainerLight}}"
             HasShadow="False"
             HeightRequest="100"
             HorizontalOptions="Start"

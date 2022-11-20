@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.HubPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
@@ -64,18 +64,18 @@
 
                 <sharedsharpucon:ListLineCard CardList="{Binding HeaderCard}" />
 
-                <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{DynamicResource NoteCardSmallDT}" />
 
-                <ucon:FlexSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestMediaChanges, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestNoteChanges, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestRepositoryChanges, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{DynamicResource CitationCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{DynamicResource EventCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{DynamicResource FamilyCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestMediaChanges, Mode=OneWay}" FsctTemplate="{DynamicResource MediaCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestNoteChanges, Mode=OneWay}" FsctTemplate="{DynamicResource NoteCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{DynamicResource PersonCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{DynamicResource PlaceCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestRepositoryChanges, Mode=OneWay}" FsctTemplate="{DynamicResource RepositoryCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{DynamicResource SourceCardSmallDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{DynamicResource TagCardSingleDT}" />
             </StackLayout>
         </ScrollView>
     </Grid>

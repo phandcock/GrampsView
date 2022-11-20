@@ -37,23 +37,32 @@
         <!-- Minimum Target OS Version for Windows Platform -->
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <DefaultLanguage>en</DefaultLanguage>
+		<Title>GrampsView</Title>
+		<PackageIcon>application_icon.png</PackageIcon>
         <PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
         <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     </PropertyGroup>
 
-    <ItemGroup>
-        <!-- App Icon -->
-        <MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#512BD4" />
-        <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
-        <!-- Images -->
-        <MauiImage Include="Resources\Images\*" />
-        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-        <!-- Custom Fonts -->
-        <MauiFont Include="Resources\Fonts\*" />
-        <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-    </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
+		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
+		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\Images\application_icon.png" ForegroundFile="Resources\Images\application_icon.png" Color="#ffb787" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
 
     <ItemGroup>
       <AndroidResource Remove="ViewModels\PeopleGraph\**" />
@@ -76,31 +85,50 @@
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
       <Compile Remove="Common\CustomClasses\XamarinFFImageLoading.cs" />
+      <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
+      <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
       <Compile Remove="Common\Interfaces\IDataLog.cs" />
+      <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
     </ItemGroup>
 
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
+        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
+        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
+      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+     
+        <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />
+     
+        <PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
+     
+        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.0.0" />
      
         <PackageReference Include="Fody" Version="6.6.4">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+     
+        <PackageReference Include="IeuanWalker.Maui.Breadcrumb" Version="1.0.0-Preview.2" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0-preview.1" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0-preview.1" />
         <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.0-preview.1" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
-        <PackageReference Include="SharedSharp" Version="1.1.2" />
+        <PackageReference Include="SharedSharp" Version="1.1.4" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
-        <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
     
     </ItemGroup>
 

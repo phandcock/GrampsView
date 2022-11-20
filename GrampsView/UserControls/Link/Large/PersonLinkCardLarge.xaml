@@ -10,10 +10,10 @@
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
     <Frame
-        BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
-                                          Light={StaticResource TertiaryContainerLight}}"
-        BorderColor="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
-                                      Light={StaticResource SurfaceVariantLight}}"
+        BackgroundColor="{AppThemeBinding Dark={DynamicResource TertiaryContainerDark},
+                                          Light={DynamicResource TertiaryContainerLight}}"
+        BorderColor="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
+                                      Light={DynamicResource SurfaceVariantLight}}"
         Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
 
         <Grid>
@@ -34,10 +34,10 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryContainerDark},
-                                                  Light={StaticResource PrimaryContainerLight}}"
-                BorderColor="{AppThemeBinding Dark={StaticResource SecondaryContainerDark},
-                                              Light={StaticResource SecondaryContainerLight}}"
+                BackgroundColor="{AppThemeBinding Dark={DynamicResource PrimaryContainerDark},
+                                                  Light={DynamicResource PrimaryContainerLight}}"
+                BorderColor="{AppThemeBinding Dark={DynamicResource SecondaryContainerDark},
+                                              Light={DynamicResource SecondaryContainerLight}}"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
                 Style="{StaticResource SSFrameCardStyle}">

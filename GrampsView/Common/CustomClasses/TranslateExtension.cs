@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
@@ -9,7 +8,7 @@ namespace GrampsView.Common.CustomClasses
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
-        private const string ResourceId = "GrampsView.Assets.Strings.AppResources";
+        private const string ResourceId = "GrampsView.Resources.Strings.AppResources";
 
         private static readonly Lazy<ResourceManager> ResMgr = new(() => new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(TranslateExtension)).Assembly));
 

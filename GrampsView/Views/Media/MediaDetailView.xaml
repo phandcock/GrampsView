@@ -23,8 +23,8 @@
     <ucon:DetailPageControlTemplate>
         <StackLayout>
             <Frame
-                BorderColor="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
-                                              Light={StaticResource OnSecondaryContainerLight}}"
+                BorderColor="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
+                                              Light={DynamicResource OnSecondaryContainerLight}}"
                 HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
                 WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}">
                 <Frame.GestureRecognizers>

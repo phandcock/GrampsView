@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.SettingsPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Assets.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SettingsViewModel"
     Style="{DynamicResource GVBaseContentPage}"
@@ -77,8 +77,8 @@
                     <Entry
                         Grid.Row="2"
                         Grid.Column="1"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
-                                                          Light={StaticResource SecondaryLight}}"
+                        BackgroundColor="{AppThemeBinding Dark={DynamicResource SecondaryDark},
+                                                          Light={DynamicResource SecondaryLight}}"
                         ClearButtonVisibility="WhileEditing"
                         Keyboard="Email"
                         Placeholder="Email"
@@ -86,7 +86,7 @@
                         Text="{Binding UpdateNoteEmailAddress}"
                         TextTransform="Lowercase">
                         <Entry.Behaviors>
-                            <xct:EmailValidationBehavior
+                            <mauitoolkit:EmailValidationBehavior
                                 DecorationFlags="Trim"
                                 InvalidStyle="{DynamicResource GVEntryInvalid}"
                                 IsValid="{Binding UpdateNoteEmailValidValue}" />
@@ -103,8 +103,6 @@
                         Command="{Binding DisplayMessageLogButtonCommand}"
                         Style="{DynamicResource SSButtonMenu}"
                         Text="Show MesageLog" />
-
-                
                 </StackLayout>
             </sharedsharpucon:SSHeaderSettings>
         </StackLayout>

@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Maui.Core;
+﻿using CommunityToolkit.Maui.Markup;
 
 using Microsoft.Extensions.Logging;
 
@@ -13,7 +13,6 @@ namespace GrampsView
             builder.UseMauiApp<App>()
                     .UseMauiCommunityToolkit()
                     .UseMauiCommunityToolkitMarkup()
-                    .UseMauiCommunityToolkitCore()
                     .SharedSharpInit()
                     .ConfigureFonts(fonts =>
                     {
