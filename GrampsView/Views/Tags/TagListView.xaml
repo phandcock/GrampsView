@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.TagListPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
@@ -16,7 +16,5 @@
 
     <!--  Content  -->
 
-    <ucon:FlexSingleCard
-        FsctSource="{Binding TagSource, Mode=OneWay}"
-        FsctTemplate="{StaticResource TagCardSingleDT}" />
+    <ucon:FlexSingleCard FsctSource="{Binding TagSource, Mode=OneWay}" FsctTemplate="{DynamicResource TagCardSingleDT}" />
 </views:ViewBasePage>

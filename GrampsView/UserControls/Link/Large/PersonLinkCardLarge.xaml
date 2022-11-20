@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
     x:Class="GrampsView.UserControls.PersonLinkCardLarge"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -52,7 +52,7 @@
                         VerticalOptions="Center">
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="FA-Solid"
+                                FontFamily="IconFont"
                                 Glyph="{Binding DeRef.ModelItemGlyph.Symbol}"
                                 Color="{Binding DeRef.ModelItemGlyph.SymbolColour}" />
                         </Image.Source>

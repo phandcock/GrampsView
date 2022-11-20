@@ -29,7 +29,7 @@
     <FlyoutItem Title="Hub">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconHub}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -40,7 +40,7 @@
     <FlyoutItem Title="Birthdays">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconPeopleBirthday}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -51,7 +51,7 @@
     <FlyoutItem Title="Bookmarks">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconBookMark}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -62,7 +62,7 @@
     <FlyoutItem Title="Citations">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconCitation}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -73,7 +73,7 @@
     <FlyoutItem Title="Events">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconEvents}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -84,7 +84,7 @@
     <FlyoutItem Title="Families">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconFamilies}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -95,7 +95,7 @@
     <FlyoutItem Title="Media">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconMedia}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -106,7 +106,7 @@
     <FlyoutItem Title="Notes">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconNotes}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -117,7 +117,7 @@
     <FlyoutItem Title="People">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconPeople}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -128,7 +128,7 @@
     <FlyoutItem Title="Places">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconPlace}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -139,7 +139,7 @@
     <FlyoutItem Title="Repositories">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconRepository}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -150,7 +150,7 @@
     <FlyoutItem Title="Sources">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconSource}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -161,7 +161,7 @@
     <FlyoutItem Title="Tags">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconTag}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -172,7 +172,7 @@
     <!--<FlyoutItem Title="People Graph">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconPeopleGraph}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -183,7 +183,7 @@
     <FlyoutItem Title="Advanced Search">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconSearch}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -194,7 +194,7 @@
     <FlyoutItem Title="Load Data File">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconChooseDataFile}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -205,7 +205,7 @@
     <FlyoutItem Title="Settings">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconSettings}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />
@@ -216,7 +216,7 @@
     <FlyoutItem Title="About">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
-                FontFamily="FA-Solid"
+                FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconAbout}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />

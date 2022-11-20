@@ -23,11 +23,13 @@ namespace GrampsView
             builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddLocalization();
+
             MauiApp mauiApp = builder.Build();
 
             Ioc.Default.ConfigureServices(mauiApp.Services);
 
-            SharedSharp.Common.SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretUWP: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
+            SharedSharp.Common.SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Common.Secret.AndroidSecret, argMSAppCenterSecretUWP: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
 
             return mauiApp;
         }

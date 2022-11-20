@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
     x:Class="GrampsView.UserControls.SingleCardControlTemplate"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:hlinks="clr-namespace:GrampsView.Models.HLinks"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -45,7 +45,7 @@
                         Style="{DynamicResource GVSymbolIconSingleCardType}">
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="FA-Solid"
+                                FontFamily="IconFont"
                                 Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
                                 Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                         </Image.Source>

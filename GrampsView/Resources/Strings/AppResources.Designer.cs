@@ -22,7 +22,7 @@ namespace GrampsView.Resources.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class AppResources {
+    internal class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace GrampsView.Resources.Strings {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrampsView.Resources.Strings.AppResources", typeof(AppResources).Assembly);
@@ -51,7 +51,7 @@ namespace GrampsView.Resources.Strings {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to GrampsView - Gramps GPKG file display.
         /// </summary>
-        public static string AboutPage_AppHeader {
+        internal static string AboutPage_AppHeader {
             get {
                 return ResourceManager.GetString("AboutPage_AppHeader", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to ms-appx:///Assets/SmallLogo.scale-100.png.
         /// </summary>
-        public static string defaultImage {
+        internal static string defaultImage {
             get {
                 return ResourceManager.GetString("defaultImage", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
-        public static string ErrorDialog_Ok {
+        internal static string ErrorDialog_Ok {
             get {
                 return ResourceManager.GetString("ErrorDialog_Ok", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Relationship: {0}.
         /// </summary>
-        public static string FieldPrefixFamilyRelationship {
+        internal static string FieldPrefixFamilyRelationship {
             get {
                 return ResourceManager.GetString("FieldPrefixFamilyRelationship", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to In: {0}.
         /// </summary>
-        public static string FieldPrefixPlaceParent {
+        internal static string FieldPrefixPlaceParent {
             get {
                 return ResourceManager.GetString("FieldPrefixPlaceParent", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to When: {0}.
         /// </summary>
-        public static string FieldPrefixShortDate {
+        internal static string FieldPrefixShortDate {
             get {
                 return ResourceManager.GetString("FieldPrefixShortDate", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Choose a file with a *.GPKG extension.
         /// </summary>
-        public static string FileInputHandlerPage_Choose_Button_Text {
+        internal static string FileInputHandlerPage_Choose_Button_Text {
             get {
                 return ResourceManager.GetString("FileInputHandlerPage_Choose_Button_Text", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Load Gramps Export file that has a .GPKG or .GRAMPS extension. .
         /// </summary>
-        public static string FileInputHandlerPage_Instructions {
+        internal static string FileInputHandlerPage_Instructions {
             get {
                 return ResourceManager.GetString("FileInputHandlerPage_Instructions", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Downloading file.  If it is large then this will take a while....
         /// </summary>
-        public static string FileInputHandlerPage_Loading {
+        internal static string FileInputHandlerPage_Loading {
             get {
                 return ResourceManager.GetString("FileInputHandlerPage_Loading", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Load the sample data.
         /// </summary>
-        public static string FileInputHandlerPage_Sample_Button_Text {
+        internal static string FileInputHandlerPage_Sample_Button_Text {
             get {
                 return ResourceManager.GetString("FileInputHandlerPage_Sample_Button_Text", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to GrampsView - A viewer for Gramps geneological data.
         /// </summary>
-        public static string FirstRun_Header {
+        internal static string FirstRun_Header {
             get {
                 return ResourceManager.GetString("FirstRun_Header", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to This seems to be the first time this application has been run.  Congratulations!.
         /// </summary>
-        public static string FirstRun_IntroductionText {
+        internal static string FirstRun_IntroductionText {
             get {
                 return ResourceManager.GetString("FirstRun_IntroductionText", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Load a file.
         /// </summary>
-        public static string FirstRun_LoadAFileButton {
+        internal static string FirstRun_LoadAFileButton {
             get {
                 return ResourceManager.GetString("FirstRun_LoadAFileButton", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Load Sample Data.
         /// </summary>
-        public static string FirstRun_SampleButton {
+        internal static string FirstRun_SampleButton {
             get {
                 return ResourceManager.GetString("FirstRun_SampleButton", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
-        public static string FirstRun_WhatsNewButton {
+        internal static string FirstRun_WhatsNewButton {
             get {
                 return ResourceManager.GetString("FirstRun_WhatsNewButton", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to You will need to load a Gramps (https://gramps-project.org/) data file.  These contain genealogy information.  Press the button below to see what has recently changed..
         /// </summary>
-        public static string FirstRun_WhatsNext {
+        internal static string FirstRun_WhatsNext {
             get {
                 return ResourceManager.GetString("FirstRun_WhatsNext", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
-        public static string Gender_Female {
+        internal static string Gender_Female {
             get {
                 return ResourceManager.GetString("Gender_Female", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
-        public static string Gender_Male {
+        internal static string Gender_Male {
             get {
                 return ResourceManager.GetString("Gender_Male", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Unknown.
         /// </summary>
-        public static string Gender_Unknown {
+        internal static string Gender_Unknown {
             get {
                 return ResourceManager.GetString("Gender_Unknown", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to This program displays the information contained in a GRAMPS geneology program export data file (the type that includes media)..
         /// </summary>
-        public static string HubPage_IntroductionText {
+        internal static string HubPage_IntroductionText {
             get {
                 return ResourceManager.GetString("HubPage_IntroductionText", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Search records.
         /// </summary>
-        public static string HubPage_SearchButton {
+        internal static string HubPage_SearchButton {
             get {
                 return ResourceManager.GetString("HubPage_SearchButton", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to This program displays the information contained in a GRAMPS genealogy program export data file (the type that includes media).  No data file has been loaded.  Choose option from the menu to load one..
         /// </summary>
-        public static string HubView_DataNotLoadedText {
+        internal static string HubView_DataNotLoadedText {
             get {
                 return ResourceManager.GetString("HubView_DataNotLoadedText", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
-        public static string LoadDataBase_GotoLoadData {
+        internal static string LoadDataBase_GotoLoadData {
             get {
                 return ResourceManager.GetString("LoadDataBase_GotoLoadData", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Double click the image or symbol to open the file..
         /// </summary>
-        public static string Media_Detail_Open_File {
+        internal static string Media_Detail_Open_File {
             get {
                 return ResourceManager.GetString("Media_Detail_Open_File", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Database reload required as the GrampsView internal database version has changed..
         /// </summary>
-        public static string NeedDatabaseReloadPage_Instructions {
+        internal static string NeedDatabaseReloadPage_Instructions {
             get {
                 return ResourceManager.GetString("NeedDatabaseReloadPage_Instructions", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Loading details.  If there are a lot then this will take a while....
         /// </summary>
-        public static string PersonDetailPage_Loading {
+        internal static string PersonDetailPage_Loading {
             get {
                 return ResourceManager.GetString("PersonDetailPage_Loading", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Type something and press Search or the Search icon to find it..
         /// </summary>
-        public static string SearchPage_Instructions {
+        internal static string SearchPage_Instructions {
             get {
                 return ResourceManager.GetString("SearchPage_Instructions", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Nothing found that matches the search text..
         /// </summary>
-        public static string SearchPage_NothingFound {
+        internal static string SearchPage_NothingFound {
             get {
                 return ResourceManager.GetString("SearchPage_NothingFound", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Force check for update.
         /// </summary>
-        public static string Settings_ForceUpdateCheck {
+        internal static string Settings_ForceUpdateCheck {
             get {
                 return ResourceManager.GetString("Settings_ForceUpdateCheck", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to View Message Log.
         /// </summary>
-        public static string Settings_GotoMessageLog {
+        internal static string Settings_GotoMessageLog {
             get {
                 return ResourceManager.GetString("Settings_GotoMessageLog", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Test Alert DIalogs.
         /// </summary>
-        public static string Settings_ViewAlertDialog {
+        internal static string Settings_ViewAlertDialog {
             get {
                 return ResourceManager.GetString("Settings_ViewAlertDialog", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
-        public static string WhatsNew_LoadDataButton {
+        internal static string WhatsNew_LoadDataButton {
             get {
                 return ResourceManager.GetString("WhatsNew_LoadDataButton", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace GrampsView.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to What&apos;s changed recently.
         /// </summary>
-        public static string WhatsNew_TitleText {
+        internal static string WhatsNew_TitleText {
             get {
                 return ResourceManager.GetString("WhatsNew_TitleText", resourceCulture);
             }

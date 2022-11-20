@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
 		<!-- Android, iOS, MacCatalyst -->
-		<TargetFrameworks>net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net7.0-windows10.0.19041.0;net7.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('android'))">$(TargetFrameworks);net7.0-android</TargetFrameworks>
 		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
@@ -41,6 +41,7 @@
 		<PackageIcon>application_icon.png</PackageIcon>
         <PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
         <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
@@ -84,6 +85,7 @@
       <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
+      <Compile Remove="Common\CustomClasses\TranslateExtension.cs" />
       <Compile Remove="Common\CustomClasses\XamarinFFImageLoading.cs" />
       <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
       <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
@@ -91,6 +93,7 @@
       <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
+      <Compile Remove="Platforms\Android\SplashActivity.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -121,6 +124,7 @@
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0-preview.1" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0-preview.1" />
         <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.0-preview.1" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
@@ -130,6 +134,14 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
     
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Strings\AppResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppResources.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 
  
@@ -151,16 +163,8 @@
 
     <ItemGroup>
       <EmbeddedResource Update="Resources\Strings\AppResources.resx">
-        <Generator>PublicResXFileCodeGenerator</Generator>
+        <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Resources\Strings\AppResources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AppResources.resx</DependentUpon>
-		</Compile>
-	</ItemGroup>
 </Project>

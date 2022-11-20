@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
+    xmlns:i18n="clr-namespace:GrampsView.Common"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:commonclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -58,7 +58,7 @@
 
             <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
 
-                <sharedsharpucon:InstructionCard InstructionText="{x:Static i18n:AppResources.HubPage_IntroductionText}" />
+                <sharedsharpucon:InstructionCard InstructionText="{i18n:LocaliseExtension HubPage_IntroductionText}" />
 
                 <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" MinimumHeightRequest="100" />
 
