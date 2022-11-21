@@ -27,9 +27,9 @@ namespace GrampsView
                     .UseMauiCommunityToolkit()
                     .UseMauiCommunityToolkitMarkup()
                     .SharedSharpInit()
-                   .RegisterFonts()
-            .RegisterHandlers()
-            .RegisterServices();
+                    .RegisterFonts()
+                    .RegisterHandlers()
+                    .RegisterServices();
 
 #if DEBUG
             builder.Logging.AddDebug();

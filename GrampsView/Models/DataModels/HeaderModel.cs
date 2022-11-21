@@ -1,12 +1,10 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+
+using SharedSharp.Model;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-
-    using SharedSharp.Model;
-
-    
-
     /// <summary>
     /// Data model for a Gramps file header.
     /// <list type="table">
@@ -26,6 +24,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderModel"/> class.
         /// </summary>
+        [Obsolete]
         public HeaderModel()
         {
             ModelItemGlyph.Symbol = Constants.IconHeader;
@@ -35,8 +34,8 @@
         {
             get
             {
-                CardListLineCollection HeaderCard = new CardListLineCollection
-                    {
+                CardListLineCollection HeaderCard = new()
+                {
                         new CardListLine("Created using version:", GCreatedVersion),
                         new CardListLine("Created on:", GCreatedDate),
 
@@ -63,7 +62,7 @@
         {
             get
             {
-                CardListLineCollection HeaderCard = this.AsCardListLineCollection;
+                CardListLineCollection HeaderCard = AsCardListLineCollection;
 
                 HeaderCard.AddRange(
 
@@ -211,7 +210,7 @@
         {
             get
             {
-                HLinkHeaderModel t = new HLinkHeaderModel
+                HLinkHeaderModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

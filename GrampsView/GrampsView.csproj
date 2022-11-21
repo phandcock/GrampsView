@@ -81,7 +81,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="App.xaml.cs" />
+      <Compile Remove="App.cs" />
       <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
@@ -129,7 +129,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
-        <PackageReference Include="SharedSharp" Version="1.1.5" />
+        <PackageReference Include="SharedSharp" Version="1.1.6" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -137,10 +137,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="App.xaml.cs">
+        <DependentUpon>%(Filename)</DependentUpon>
+      </Compile>
       <Compile Update="Resources\Strings\AppResources.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>AppResources.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Styles\CardThemeDictionary.xaml.cs">
+        <DependentUpon>CardThemeDictionary.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
 
@@ -157,6 +163,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\ControlTemplates.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Resources\Styles\CardThemeDictionary.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
     </ItemGroup>

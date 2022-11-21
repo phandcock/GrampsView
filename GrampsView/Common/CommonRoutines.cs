@@ -212,11 +212,17 @@ namespace GrampsView.Common
             }
 
             // Search all dictionaries
-            if (!Application.Current.Resources.TryGetValue(keyName, out object retVal))
+            object retVal;
+            if (!Application.Current.Resources.TryGetValue(keyName, out retVal))
             {
+
                 IErrorNotifications t = Ioc.Default.GetService<IErrorNotifications>();
 
-                ErrorInfo tt = new ErrorInfo("Bad Resource Key", keyName);
+                ErrorInfo tt = new("Bad Resource Key", keyName)
+                {
+                    new CardListLine("T", "test"),
+                };
+
                 t.NotifyError(tt);
             }
 
