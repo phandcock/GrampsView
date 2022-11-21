@@ -1,3 +1,18 @@
+# [16.28.0](https://github.com/phandcock/GrampsView/compare/v16.27.0...v16.28.0) (2022-11-20)
+
+
+### Bug Fixes
+
+* more fixes to get going ([499a7bd](https://github.com/phandcock/GrampsView/commit/499a7bdb85c049cc64fa7956d2bb24c6687219d8))
+* tweaks ([a68fc74](https://github.com/phandcock/GrampsView/commit/a68fc74f613b2eb589245fbe44a14abbb4b88231))
+
+
+### Features
+
+* maui sorta working ([a42b351](https://github.com/phandcock/GrampsView/commit/a42b351766f8288aaff8bd4e26f3f4743434f8a4))
+
+
+
 # [16.27.0](https://github.com/phandcock/GrampsView/compare/v16.26.22...v16.27.0) (2022-11-19)
 
 
@@ -23,15 +38,6 @@
 ### Bug Fixes
 
 * change using changes ([fa39ad1](https://github.com/phandcock/GrampsView/commit/fa39ad1107c912bd6175e7ad100fa40392467886))
-
-
-
-## [16.26.20](https://github.com/phandcock/GrampsView/compare/v16.26.19...v16.26.20) (2022-11-10)
-
-
-### Bug Fixes
-
-* nugets and refactoring ([f92f038](https://github.com/phandcock/GrampsView/commit/f92f03837dc3bda42f8699d5913a0617e476c6ff))
 
 
 
