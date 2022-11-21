@@ -1,3 +1,12 @@
+## [16.28.1](https://github.com/phandcock/GrampsView/compare/v16.28.0...v16.28.1) (2022-11-21)
+
+
+### Bug Fixes
+
+* fix app.xaml.cs ([ef473e5](https://github.com/phandcock/GrampsView/commit/ef473e5482753d56fd7a72ebf1c85d12367ed066))
+
+
+
 # [16.28.0](https://github.com/phandcock/GrampsView/compare/v16.27.0...v16.28.0) (2022-11-20)
 
 
@@ -29,15 +38,6 @@
 
 * update nugets ([6684f2e](https://github.com/phandcock/GrampsView/commit/6684f2e45c7a093c66c2972285c5d804210c4345))
 * update nugets ([de501e5](https://github.com/phandcock/GrampsView/commit/de501e5a6c081c7a5afe7549e17889a7bd2d4f86))
-
-
-
-## [16.26.21](https://github.com/phandcock/GrampsView/compare/v16.26.20...v16.26.21) (2022-11-10)
-
-
-### Bug Fixes
-
-* change using changes ([fa39ad1](https://github.com/phandcock/GrampsView/commit/fa39ad1107c912bd6175e7ad100fa40392467886))
 
 
 
