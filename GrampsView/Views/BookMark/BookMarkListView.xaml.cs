@@ -2,16 +2,14 @@
 {
     using GrampsView.ViewModels;
 
-    using Microsoft.Extensions.DependencyInjection;
-
     public sealed partial class BookMarkListPage : ViewBasePage
     {
-        private BookMarkListViewModel _viewModel { get; set; }
-
         public BookMarkListPage()
         {
             InitializeComponent();
             BindingContext = _viewModel = Ioc.Default.GetService<BookMarkListViewModel>();
         }
+
+        private BookMarkListViewModel _viewModel { get; set; }
     }
 }

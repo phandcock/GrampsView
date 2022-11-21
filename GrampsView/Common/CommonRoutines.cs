@@ -203,7 +203,7 @@ namespace GrampsView.Common
             return t is null ? Microsoft.Maui.Graphics.Colors.White : (Color)t;
         }
 
-        public static object ResourceValueGet(string keyName)
+        public static object? ResourceValueGet(string keyName)
         {
             // Test if running in NUnit test mode
             if (Application.Current is null)
@@ -214,7 +214,10 @@ namespace GrampsView.Common
             // Search all dictionaries
             if (!Application.Current.Resources.TryGetValue(keyName, out object retVal))
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Resource Key", keyName));
+                IErrorNotifications t = Ioc.Default.GetService<IErrorNotifications>();
+
+                ErrorInfo tt = new ErrorInfo("Bad Resource Key", keyName);
+                t.NotifyError(tt);
             }
 
             return retVal;

@@ -25,28 +25,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B48C-2D99-4498-97DF-136E379816A4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "android", "android", "{AEA674AD-4F61-4588-BEE8-D463C57E2BF1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\android\azure-pipeline-android-vstest.yml = .azure\android\azure-pipeline-android-vstest.yml
 		.azure\android\azure-pipeline-test.yml = .azure\android\azure-pipeline-test.yml
-		.azure\android\grampsview-azure-pipeline-android.yml = .azure\android\grampsview-azure-pipeline-android.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ios", "ios", "{9001E1F9-1650-4E0F-BE28-57C16727A4A4}"
-	ProjectSection(SolutionItems) = preProject
-		.azure\ios\azure-pipeline-ios.yml = .azure\ios\azure-pipeline-ios.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uwp", "uwp", "{D48CC23A-5C6D-4C1C-8396-EA84260E90BC}"
-	ProjectSection(SolutionItems) = preProject
-		.azure\uwp\grampsview-azure-pipeline-uwp-store.yml = .azure\uwp\grampsview-azure-pipeline-uwp-store.yml
-		.azure\uwp\grampsview-azure-pipeline-uwp.yml = .azure\uwp\grampsview-azure-pipeline-uwp.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xamarin", "xamarin", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
-	ProjectSection(SolutionItems) = preProject
 		.azure\xamarin\azure-pipeline-xam-e2e.yml = .azure\xamarin\azure-pipeline-xam-e2e.yml
 		.azure\xamarin\azure-pipeline-xam-nunit.yml = .azure\xamarin\azure-pipeline-xam-nunit.yml
+		.azure\android\grampsview-azure-pipeline-android.yml = .azure\android\grampsview-azure-pipeline-android.yml
+		.azure\uwp\grampsview-azure-pipeline-winui.yml = .azure\uwp\grampsview-azure-pipeline-winui.yml
+		.azure\uwp\grampsview-azure-pipeline-winui-store.yml = .azure\uwp\grampsview-azure-pipeline-winui-store.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF772D0-B54F-4526-9FF6-535E9ED88E14}"
@@ -139,9 +125,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F161B48C-2D99-4498-97DF-136E379816A4} = {4E56C56F-B9F2-4B6A-8D92-C96B523CC949}
-		{AEA674AD-4F61-4588-BEE8-D463C57E2BF1} = {F161B48C-2D99-4498-97DF-136E379816A4}
-		{9001E1F9-1650-4E0F-BE28-57C16727A4A4} = {F161B48C-2D99-4498-97DF-136E379816A4}
-		{D48CC23A-5C6D-4C1C-8396-EA84260E90BC} = {F161B48C-2D99-4498-97DF-136E379816A4}
 		{23F10156-2581-4430-89BE-6871D70BD4FB} = {F161B48C-2D99-4498-97DF-136E379816A4}
 		{6FF772D0-B54F-4526-9FF6-535E9ED88E14} = {4E56C56F-B9F2-4B6A-8D92-C96B523CC949}
 	EndGlobalSection
