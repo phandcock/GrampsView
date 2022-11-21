@@ -88,6 +88,8 @@ namespace GrampsView
             _ = builder.Services.AddSingleton<IStorePostLoad, StorePostLoad>();
             _ = builder.Services.AddSingleton<IStoreXML, StoreXML>();
 
+
+
             // Viewmodels
             _ = builder.Services.AddTransient<AboutViewModel>();
             _ = builder.Services.AddTransient<AddressDetailViewModel>();
@@ -141,6 +143,8 @@ namespace GrampsView
             _ = builder.Services.AddTransient<TagListViewModel>();
 
             //_ = builder.Services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
+
+
 
             _ = builder.Services.AddTransient<NavigationPage>();
 

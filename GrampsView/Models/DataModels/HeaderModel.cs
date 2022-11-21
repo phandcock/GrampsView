@@ -49,7 +49,7 @@ namespace GrampsView.Data.Model
                         new CardListLine("Researcher Phone:", GResearcherPhone),
                         new CardListLine("Researcher Postal:", GResearcherPostal),
                         new CardListLine("MediaPath:", GMediaPath),
-                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
+                        //new CardListLine("Application Version:", VersionTracking.CurrentVersion),
             };
 
                 HeaderCard.Title = "Header Details";
