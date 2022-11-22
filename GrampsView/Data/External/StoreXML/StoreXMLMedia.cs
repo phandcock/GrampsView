@@ -115,7 +115,8 @@ namespace GrampsView.Data.ExternalStorage
 
                                     if (loadObject.MediaStorageFile.Valid)
                                     {
-                                        Size imageSize = DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
+                                        // TODO add this back in
+                                        Size imageSize = new(100, 100); // DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
 
                                         loadObject.MetaDataHeight = imageSize.Height;
                                         loadObject.MetaDataWidth = imageSize.Width;

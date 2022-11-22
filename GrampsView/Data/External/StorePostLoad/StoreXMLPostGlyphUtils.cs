@@ -43,7 +43,8 @@ namespace GrampsView.Data.ExternalStorage
             if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
             {
                 // check if we can get an image for the first page of the PDF
-                pdfimage = await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                // TODO add this back in
+                pdfimage = new MediaModel(); // await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconFont.FilePdf);
             }
@@ -71,7 +72,8 @@ namespace GrampsView.Data.ExternalStorage
             if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
             {
                 // check if we can get an image for the video
-                videoImage = await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                // TODO add this back in
+                videoImage = new MediaModel(); // await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconFont.FileArchive);
             }

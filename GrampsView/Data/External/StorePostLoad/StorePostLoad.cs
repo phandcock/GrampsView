@@ -1,13 +1,7 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common.CustomClasses;
+﻿using GrampsView.Common.CustomClasses;
 using GrampsView.Events;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors.Interfaces;
-
-using CommunityToolkit.Mvvm.ComponentModel;
 
 
 namespace GrampsView.Data.ExternalStorage
@@ -114,7 +108,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
             }
 
-            _CommonLogging.DataLogEntryAdd(null);
+            //    _CommonLogging.DataLogEntryAdd(null);
 
             _CommonLogging.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
