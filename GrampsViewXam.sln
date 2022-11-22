@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B48C-2D99-4498-97DF-136E379816A4}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\android\grampsview-azure-pl-android.yml = .azure\android\grampsview-azure-pl-android.yml
-		.azure\xamarin\grampsview-azure-pl-e2e.yml = .azure\xamarin\grampsview-azure-pl-e2e.yml
-		.azure\xamarin\grampsview-azure-pl-nunit.yml = .azure\xamarin\grampsview-azure-pl-nunit.yml
-		.azure\uwp\grampsview-azure-pl-winui-store.yml = .azure\uwp\grampsview-azure-pl-winui-store.yml
-		.azure\uwp\grampsview-azure-pl-winui.yml = .azure\uwp\grampsview-azure-pl-winui.yml
+		.azure\grampsview-azure-pl-android.yml = .azure\grampsview-azure-pl-android.yml
+		.azure\grampsview-azure-pl-e2e.yml = .azure\grampsview-azure-pl-e2e.yml
+		.azure\grampsview-azure-pl-nunit.yml = .azure\grampsview-azure-pl-nunit.yml
+		.azure\grampsview-azure-pl-winui-store.yml = .azure\grampsview-azure-pl-winui-store.yml
+		.azure\grampsview-azure-pl-winui.yml = .azure\grampsview-azure-pl-winui.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF772D0-B54F-4526-9FF6-535E9ED88E14}"

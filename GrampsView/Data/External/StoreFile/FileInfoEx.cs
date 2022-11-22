@@ -34,7 +34,7 @@ namespace GrampsView.Data
             // Use cache base if currentdatafolder not allowed
             if (!argUseCurrentDataFolder && !string.IsNullOrEmpty(argRelativeFolder))
             {
-                createFilePath(argFileName, new DirectoryInfo(Ioc.Default.GetService<IFileSystem>().CacheDirectory));
+                createFilePath(argFileName, new DirectoryInfo(FileSystem.Current.CacheDirectory));
                 return;
             }
 

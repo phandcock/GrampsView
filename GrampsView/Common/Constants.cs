@@ -41,11 +41,6 @@ namespace GrampsView.Common
         /// </summary>
         public const string GrampsXMLPublicId = "-//Gramps//DTD Gramps XML 1.5.1//EN";
 
-        ///// <summary>
-        ///// The header process area display time (in milli-seconds).
-        ///// </summary>
-        //public const int HeaderProcessAreaDisplayTime = 30000;
-
         public const string IconAbout = IconFont.Info;
 
         /// <summary>

@@ -2,8 +2,6 @@
 
 using System.Diagnostics;
 
-
-
 namespace GrampsView.Common.CustomClasses
 {
     public class CurrentDataFolder
@@ -12,11 +10,11 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                string tt = System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new(Ioc.Default.GetService<IFileSystem>().CacheDirectory);
+                DirectoryInfo t = new(FileSystem.Current.CacheDirectory);
 
                 if (!Value.Exists)
                 {

@@ -10,10 +10,8 @@
     x:DataType="viewmodels:ViewModelBase"
     MinimumHeightRequest="50"
     MinimumWidthRequest="100"
-    Style="{DynamicResource GVPageTitleStyle}"
+    Style="{StaticResource GVPageTitleStyle}"
     VerticalOptions="Center">
-
-
 
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
@@ -28,14 +26,14 @@
         Grid.Row="0"
         Grid.Column="0"
         Margin="10"
-        Style="{DynamicResource GVSymbolconPageHeaderType}">
+        Style="{StaticResource GVSymbolconPageHeaderType}">
         <Image.Source>
             <FontImageSource
                 FontFamily="FA-Solid"
                 Glyph="{Binding BaseTitleIcon}"
                 Size="44"
-                Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
-                                        Light={DynamicResource OnSurfaceLight}}" />
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </Image.Source>
     </Image>
 
@@ -43,6 +41,6 @@
         Grid.Row="0"
         Grid.Column="1"
         Margin="0"
-        Style="{DynamicResource GVLabelPageHeaderTitleStyle}"
+        Style="{StaticResource GVLabelPageHeaderTitleStyle}"
         Text="{Binding BaseTitle, Mode=OneWay}" />
 </Grid>

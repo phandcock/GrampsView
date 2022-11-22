@@ -27,6 +27,7 @@ namespace GrampsView
                     .UseMauiCommunityToolkit()
                     .UseMauiCommunityToolkitMarkup()
                     .SharedSharpInit()
+                    .ConfigureEssentials()
                     .RegisterFonts()
                     .RegisterHandlers()
                     .RegisterServices();

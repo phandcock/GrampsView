@@ -86,6 +86,7 @@
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
       <Compile Remove="Common\CustomClasses\TranslateExtension.cs" />
+      <Compile Remove="Common\CustomClasses\XamarinEssentials.cs" />
       <Compile Remove="Common\CustomClasses\XamarinFFImageLoading.cs" />
       <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
       <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />

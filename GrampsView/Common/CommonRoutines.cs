@@ -72,11 +72,11 @@ namespace GrampsView.Common
         {
             try
             {
-                string tt = System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+                string tt = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
                 DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new(System.IO.Path.Combine(Ioc.Default.GetService<IFileSystem>().CacheDirectory, Constants.DirectoryCacheBase));
+                DirectoryInfo t = new(System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase));
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {

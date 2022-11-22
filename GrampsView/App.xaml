@@ -15,15 +15,16 @@
                 <ssharp:AppThemeDictionary />
                 <ssharp:CommonDictionary />
             </ResourceDictionary.MergedDictionaries>
-
-            <ResourceDictionary Source="/Resources/Styles/_Sizes.xaml" />
-            <ResourceDictionary Source="/Resources/Styles/_Thickness.xaml" />
-
-            <ResourceDictionary Source="/Resources/Styles/AppViewDictionary.xaml" />
-
-            <ResourceDictionary Source="/Resources/Styles/CardThemeDictionary.xaml" />
-
-            <ResourceDictionary Source="/Resources/Styles/ControlTemplates.xaml" />
         </ResourceDictionary>
+
+        <ResourceDictionary Source="/Resources/Styles/_Sizes.xaml" />
+        
+        <ResourceDictionary Source="/Resources/Styles/_Thickness.xaml" />
+        
+        <ResourceDictionary Source="/Resources/Styles/AppViewDictionary.xaml" />
+        
+        <ResourceDictionary Source="/Resources/Styles/CardThemeDictionary.xaml" />
+
+        <ResourceDictionary Source="/Resources/Styles/ControlTemplates.xaml" />
     </Application.Resources>
 </Application>

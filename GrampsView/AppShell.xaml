@@ -12,13 +12,10 @@
     <Shell.Resources>
         <ResourceDictionary>
 
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-
-                    <ssharp:AppThemeDictionary />
-                    <ssharp:CommonDictionary />
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ssharp:AppThemeDictionary />
+                <ssharp:CommonDictionary />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Shell.Resources>
 
@@ -31,8 +28,8 @@
             <FontImageSource
                 FontFamily="IconFont"
                 Glyph="{x:Static common:Constants.IconHub}"
-                Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
-                                        Light={DynamicResource OnSurfaceLight}}" />
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate views:HubPage}" Route="HubPage" />
     </FlyoutItem>
