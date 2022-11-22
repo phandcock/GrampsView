@@ -27,12 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\android\azure-pipeline-test.yml = .azure\android\azure-pipeline-test.yml
-		.azure\xamarin\azure-pipeline-xam-e2e.yml = .azure\xamarin\azure-pipeline-xam-e2e.yml
-		.azure\xamarin\azure-pipeline-xam-nunit.yml = .azure\xamarin\azure-pipeline-xam-nunit.yml
-		.azure\android\grampsview-azure-pipeline-android.yml = .azure\android\grampsview-azure-pipeline-android.yml
-		.azure\uwp\grampsview-azure-pipeline-winui.yml = .azure\uwp\grampsview-azure-pipeline-winui.yml
-		.azure\uwp\grampsview-azure-pipeline-winui-store.yml = .azure\uwp\grampsview-azure-pipeline-winui-store.yml
+		.azure\uwp\grampsview-azure-pl-winui-store.yml = .azure\uwp\grampsview-azure-pl-winui-store.yml
+		.azure\xamarin\grampsview-azure-pl-e2e.yml = .azure\xamarin\grampsview-azure-pl-e2e.yml
+		.azure\xamarin\grampsview-azure-pl-nunit.yml = .azure\xamarin\grampsview-azure-pl-nunit.yml
+		.azure\android\grampsview-azure-pl-android.yml = .azure\android\grampsview-azure-pl-android.yml
+		.azure\uwp\grampsview-azure-pl-winui.yml = .azure\uwp\grampsview-azure-pl-winui.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6FF772D0-B54F-4526-9FF6-535E9ED88E14}"
