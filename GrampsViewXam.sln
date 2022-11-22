@@ -24,13 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B48C-2D99-4498-97DF-136E379816A4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{23F10156-2581-4430-89BE-6871D70BD4FB}"
 	ProjectSection(SolutionItems) = preProject
-		.azure\uwp\grampsview-azure-pl-winui-store.yml = .azure\uwp\grampsview-azure-pl-winui-store.yml
+		.azure\android\grampsview-azure-pl-android.yml = .azure\android\grampsview-azure-pl-android.yml
 		.azure\xamarin\grampsview-azure-pl-e2e.yml = .azure\xamarin\grampsview-azure-pl-e2e.yml
 		.azure\xamarin\grampsview-azure-pl-nunit.yml = .azure\xamarin\grampsview-azure-pl-nunit.yml
-		.azure\android\grampsview-azure-pl-android.yml = .azure\android\grampsview-azure-pl-android.yml
+		.azure\uwp\grampsview-azure-pl-winui-store.yml = .azure\uwp\grampsview-azure-pl-winui-store.yml
 		.azure\uwp\grampsview-azure-pl-winui.yml = .azure\uwp\grampsview-azure-pl-winui.yml
 	EndProjectSection
 EndProject
@@ -124,7 +122,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F161B48C-2D99-4498-97DF-136E379816A4} = {4E56C56F-B9F2-4B6A-8D92-C96B523CC949}
-		{23F10156-2581-4430-89BE-6871D70BD4FB} = {F161B48C-2D99-4498-97DF-136E379816A4}
 		{6FF772D0-B54F-4526-9FF6-535E9ED88E14} = {4E56C56F-B9F2-4B6A-8D92-C96B523CC949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
