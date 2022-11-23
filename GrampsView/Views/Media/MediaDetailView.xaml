@@ -13,7 +13,7 @@
     x:Name="MediaDetailPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:MediaDetailViewModel"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

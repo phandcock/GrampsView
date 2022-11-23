@@ -1,17 +1,15 @@
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels.Minor;
+
+using System.Collections.Generic;
+using System.Linq;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels.Minor;
-
-    using System.Collections.Generic;
-    using System.Linq;
-
-    /// <summary>
-    // Event repository </summary>
     public class AddressDataView : DataViewBase<AddressModel, HLinkAdressModel, HLinkAddressModelCollection>, IAddressDataView
     {
         /// <summary>
@@ -21,13 +19,7 @@ namespace GrampsView.Data.DataView
         {
         }
 
-        public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
-        {
-            get
-            {
-                return DataStore.Instance.DS.AddressData;
-            }
-        }
+        public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData => DataStore.Instance.DS.AddressData;
 
         /// <summary>
         /// Gets the data default sort.
@@ -35,13 +27,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data default sort.
         /// </value>
-        public override IReadOnlyList<AddressModel> DataDefaultSort
-        {
-            get
-            {
-                return DataViewData.OrderBy(addressModel => addressModel.ToString()).ToList();
-            }
-        }
+        public override IReadOnlyList<AddressModel> DataDefaultSort => DataViewData.OrderBy(addressModel => addressModel.ToString()).ToList();
 
         /// <summary>
         /// Gets the data view data.
@@ -49,19 +35,13 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<AddressModel> DataViewData
-        {
-            get
-            {
-                return AddressData.Values.ToList();
-            }
-        }
+        public override IReadOnlyList<AddressModel> DataViewData => AddressData.Values.ToList();
 
         public override HLinkAddressModelCollection GetAllAsCardGroupBase()
         {
-            HLinkAddressModelCollection t = new HLinkAddressModelCollection();
+            HLinkAddressModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (AddressModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -73,7 +53,7 @@ namespace GrampsView.Data.DataView
 
         public override Group<HLinkAddressModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkAddressModelCollection> t = new Group<HLinkAddressModelCollection>();
+            Group<HLinkAddressModelCollection> t = new();
 
             var query = from item in DataViewData
                         orderby item.ToString()
@@ -86,12 +66,12 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                HLinkAddressModelCollection info = new HLinkAddressModelCollection
+                HLinkAddressModelCollection info = new()
                 {
                     Title = g.GroupName,
                 };
 
-                foreach (var item in g.Items)
+                foreach (AddressModel? item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -109,9 +89,9 @@ namespace GrampsView.Data.DataView
         /// </returns>
         public HLinkAddressModelCollection GetAllAsHLink()
         {
-            HLinkAddressModelCollection t = new HLinkAddressModelCollection();
+            HLinkAddressModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (AddressModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -147,7 +127,7 @@ namespace GrampsView.Data.DataView
 
             IOrderedEnumerable<HLinkAdressModel> t = collectionArg.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.ToString());
 
-            HLinkAddressModelCollection tt = new HLinkAddressModelCollection();
+            HLinkAddressModelCollection tt = new();
 
             foreach (HLinkAdressModel item in t)
             {
@@ -159,7 +139,7 @@ namespace GrampsView.Data.DataView
 
         public override HLinkAddressModelCollection Search(string argQuery)
         {
-            HLinkAddressModelCollection itemsFound = new HLinkAddressModelCollection
+            HLinkAddressModelCollection itemsFound = new()
             {
                 Title = "Addresses"
             };
@@ -169,7 +149,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.ToString().Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<AddressModel> temp = DataViewData.Where(x => x.ToString().Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (IAddressModel tempMO in temp)
             {

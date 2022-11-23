@@ -2,12 +2,11 @@
 
 using SharedSharp.Common.Interfaces;
 
-
-
 namespace GrampsView
 {
     public partial class App : Application
     {
+        [Obsolete]
         public App()
         {
             InitializeComponent();
@@ -17,10 +16,11 @@ namespace GrampsView
             StartUp();
         }
 
+        [Obsolete]
         private void StartUp()
         {
             //// This lookup NOT required for Windows platforms - the Culture will be automatically set
-            //if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+            //if (Device.RuntimePlatform is Device.iOS or Device.Android)
             //{
             //    // Determine the correct, supported .NET culture
             //    _ = DependencyService.Get<ILocalize>();

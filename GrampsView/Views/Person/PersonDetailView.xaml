@@ -11,7 +11,7 @@
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PersonDetailViewModel"
     IsEnabled="{Binding PersonObject.Valid}"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>

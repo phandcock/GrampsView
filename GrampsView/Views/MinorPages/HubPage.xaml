@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-    xmlns:i18n="clr-namespace:GrampsView.Common"
+    xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:commonclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -16,7 +16,7 @@
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:HubViewModel"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
@@ -34,10 +34,10 @@
                         <ucon:HLinkVisualDisplay
                             Grid.Column="0"
                             BindingContext="{Binding HLink.HLinkGlyphItem}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                            Style="{StaticResource MediaImageStyle}" />
                         <Label
                             Grid.Column="1"
-                            Style="{DynamicResource SSCardLabelStyleSmall}"
+                            Style="{StaticResource SSCardLabelStyleSmall}"
                             Text="{Binding DefaultShortText}" />
                     </Grid>
                 </DataTemplate>
@@ -51,20 +51,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{DynamicResource GVBreadcrumb}" />
+        <breadcrumb:Breadcrumb Grid.Row="0" Style="{StaticResource GVBreadcrumb}" />
 
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">
 
             <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
 
-                <sharedsharpucon:InstructionCard InstructionText="{i18n:LocaliseExtension HubPage_IntroductionText}" />
+                <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
 
                 <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" MinimumHeightRequest="100" />
 
                 <sharedsharpucon:ListLineCard CardList="{Binding HeaderCard}" />
 
-                <ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{DynamicResource NoteCardSmallDT}" />
+                <!--<ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{DynamicResource NoteCardSmallDT}" />
 
                 <ucon:FlexSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{DynamicResource CitationCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{DynamicResource EventCardSmallDT}" />
@@ -75,7 +75,7 @@
                 <ucon:FlexSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{DynamicResource PlaceCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding LatestRepositoryChanges, Mode=OneWay}" FsctTemplate="{DynamicResource RepositoryCardSmallDT}" />
                 <ucon:FlexSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{DynamicResource SourceCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{DynamicResource TagCardSingleDT}" />
+                <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{DynamicResource TagCardSingleDT}" />-->
             </StackLayout>
         </ScrollView>
     </Grid>

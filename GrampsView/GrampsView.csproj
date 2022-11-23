@@ -65,6 +65,14 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Debug'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass></AndroidSigningKeyPass>
+		<AndroidSigningStorePass></AndroidSigningStorePass>
+	</PropertyGroup>
+	
     <ItemGroup>
       <AndroidResource Remove="ViewModels\PeopleGraph\**" />
       <AndroidResource Remove="Views\PeopleGraph\**" />
@@ -91,10 +99,13 @@
       <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
       <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
       <Compile Remove="Common\Interfaces\IDataLog.cs" />
+      <Compile Remove="Common\Interfaces\ILocalizecs.cs" />
       <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
+      <Compile Remove="Platforms\Android\Localize.cs" />
       <Compile Remove="Platforms\Android\SplashActivity.cs" />
+      <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -122,15 +133,15 @@
         </PackageReference>
      
         <PackageReference Include="IeuanWalker.Maui.Breadcrumb" Version="1.0.0-Preview.2" />
-        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0-preview.1" />
-        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0-preview.1" />
-        <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.0-preview.1" />
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.0" />
         <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
-        <PackageReference Include="SharedSharp" Version="1.1.6" />
+        <PackageReference Include="SharedSharp" Version="1.1.7" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -176,5 +187,9 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Platforms\Windows\AppSecific\" />
     </ItemGroup>
 </Project>

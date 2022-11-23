@@ -13,7 +13,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:AboutViewModel"
-    Style="{DynamicResource GVBaseContentPage}"
+    Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
