@@ -1,3 +1,12 @@
+## [16.28.3](https://github.com/phandcock/GrampsView/compare/v16.28.2...v16.28.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* more changes ([6f5b1d8](https://github.com/phandcock/GrampsView/commit/6f5b1d858c2e2048047f4b8fb1debc5d76637122))
+
+
+
 ## [16.28.2](https://github.com/phandcock/GrampsView/compare/v16.28.1...v16.28.2) (2022-11-22)
 
 
@@ -28,15 +37,6 @@
 ### Features
 
 * maui sorta working ([a42b351](https://github.com/phandcock/GrampsView/commit/a42b351766f8288aaff8bd4e26f3f4743434f8a4))
-
-
-
-# [16.27.0](https://github.com/phandcock/GrampsView/compare/v16.26.22...v16.27.0) (2022-11-19)
-
-
-### Features
-
-* base load maui ([7ba82c0](https://github.com/phandcock/GrampsView/commit/7ba82c05d5c9a047eee95d9a217972b11fcf4ccc))
 
 
 
