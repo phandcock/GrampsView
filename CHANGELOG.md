@@ -1,3 +1,12 @@
+## [16.28.5](https://github.com/phandcock/GrampsView/compare/v16.28.4...v16.28.5) (2022-11-24)
+
+
+### Bug Fixes
+
+* tweak build ([dda4984](https://github.com/phandcock/GrampsView/commit/dda498432fb71bb6486ff5c1f2258198157a220e))
+
+
+
 ## [16.28.4](https://github.com/phandcock/GrampsView/compare/v16.28.3...v16.28.4) (2022-11-23)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * work on code ([578168d](https://github.com/phandcock/GrampsView/commit/578168d5c7092f6f4c2b96553e89a8954d104a26))
-
-
-
-## [16.28.1](https://github.com/phandcock/GrampsView/compare/v16.28.0...v16.28.1) (2022-11-21)
-
-
-### Bug Fixes
-
-* fix app.xaml.cs ([ef473e5](https://github.com/phandcock/GrampsView/commit/ef473e5482753d56fd7a72ebf1c85d12367ed066))
 
 
 
