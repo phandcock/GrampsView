@@ -1,16 +1,11 @@
-﻿using GrampsView.Common;
-using GrampsView.Platforms.Windows.AppSecific;
-
-using System.Text;
+﻿using System.Text;
 
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 
-[assembly: Dependency(typeof(ImageResource))]
-
-namespace GrampsView.Platforms.Windows.AppSecific
+namespace GrampsView.Common
 {
-    public class ImageResource : IImageResource
+    public partial class ImageResource : IImageResource
     {
         public Size GetSize(string fileName)
         {

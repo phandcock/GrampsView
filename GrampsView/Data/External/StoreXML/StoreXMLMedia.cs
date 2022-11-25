@@ -37,6 +37,8 @@ namespace GrampsView.Data.ExternalStorage
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
+                IImageResource PlatformImageHandler = new ImageResource();
+
                 // Load notes Run query
                 System.Collections.Generic.IEnumerable<XElement> de =
                     from el in localGrampsXMLdoc.Descendants(ns + "object")
@@ -116,7 +118,7 @@ namespace GrampsView.Data.ExternalStorage
                                     if (loadObject.MediaStorageFile.Valid)
                                     {
                                         // TODO add this back in
-                                        Size imageSize = new(100, 100); // DependencyService.Get<IImageResource>().GetSize(loadObject.MediaStorageFilePath);
+                                        Size imageSize = PlatformImageHandler.GetSize(loadObject.MediaStorageFilePath);
 
                                         loadObject.MetaDataHeight = imageSize.Height;
                                         loadObject.MetaDataWidth = imageSize.Width;

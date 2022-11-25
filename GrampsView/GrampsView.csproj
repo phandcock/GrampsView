@@ -99,8 +99,10 @@
       <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
       <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
       <Compile Remove="Common\Interfaces\IDataLog.cs" />
+      <Compile Remove="Common\Interfaces\IFFImageLoading.cs" />
       <Compile Remove="Common\Interfaces\ILocalizecs.cs" />
       <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
+      <Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
       <Compile Remove="Platforms\Android\Localize.cs" />
@@ -141,7 +143,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
-        <PackageReference Include="SharedSharp" Version="1.1.9" />
+        <PackageReference Include="SharedSharp" Version="1.1.11" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -187,9 +189,5 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Platforms\Windows\AppSecific\" />
     </ItemGroup>
 </Project>
