@@ -13,8 +13,6 @@
 
     using System.Reflection;
 
-    
-
     public class AboutViewModel : ViewModelBase
     {
         public AboutViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
@@ -132,9 +130,9 @@
 
                 new CardListLine("Idiom", SharedSharpSizes.CurrentDeviceIdiom.ToString()),
 
-                new CardListLine("CardSize Small Width", SharedSharpCardSizes.Current.CardSmallWidth.ToString()),
+                new CardListLine("CardSize Small Width", SharedSharpStatic.CardSizes.CardSmallWidth.ToString()),
 
-                new CardListLine("CardSize Num Columns", SharedSharpCardSizes.Current.CardsAcrossColumns.ToString()),
+                new CardListLine("CardSize Number Columns", SharedSharpStatic.CardSizes.CardsAcrossColumns.ToString()),
             });
 
             ApplicationStateList.Title = "Application State";

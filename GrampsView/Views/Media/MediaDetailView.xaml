@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.MediaDetailPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
+    xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -25,15 +25,15 @@
             <Frame
                 BorderColor="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
                                               Light={DynamicResource OnSecondaryContainerLight}}"
-                HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}">
+                HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}"
+                WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Frame.GestureRecognizers>
                 <StackLayout>
                     <ucon:HLinkVisualDisplay BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}" FsctShowMedia="True" />
 
-                    <Label HorizontalOptions="Center" Text="{x:Static i18n:AppResources.Media_Detail_Open_File}" />
+                    <Label HorizontalOptions="Center" Text="{i18:Localize Media_Detail_Open_File}" />
                 </StackLayout>
             </Frame>
 

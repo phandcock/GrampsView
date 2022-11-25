@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.FileInputHandlerPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
+    xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.StartupPages"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:FileInputHandlerViewModel"
     Style="{StaticResource SSBaseContentPage}"
@@ -26,24 +27,24 @@
         <ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand">
 
-                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}}" />
 
                 <sharedsharpucon:InstructionCard
                     Grid.Row="0"
                     HorizontalOptions="CenterAndExpand"
-                    InstructionText="{x:Static i18n:AppResources.FileInputHandlerPage_Instructions}" />
+                    InstructionText="{i18:Localize FileInputHandlerPage_Instructions}" />
 
                 <Button
                     Grid.Row="2"
                     Command="{Binding PickFileCommand}"
                     Style="{DynamicResource SSButtonMenu}"
-                    Text="{x:Static i18n:AppResources.FileInputHandlerPage_Choose_Button_Text}" />
+                    Text="{i18:Localize FileInputHandlerPage_Choose_Button_Text}" />
 
                 <Button
                     Grid.Row="3"
                     Command="{Binding LoadSampleCommand}"
                     Style="{DynamicResource SSButtonMenu}"
-                    Text="{x:Static i18n:AppResources.FirstRun_SampleButton}" />
+                    Text="{i18:Localize FirstRun_SampleButton}" />
             </StackLayout>
         </ScrollView>
     </Grid>

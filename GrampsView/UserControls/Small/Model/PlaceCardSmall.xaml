@@ -1,9 +1,9 @@
 ﻿<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.PlaceCardSmall"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
+    xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Models.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkPlaceModel"
@@ -44,6 +44,6 @@
             Grid.Row="2"
             Grid.Column="0"
             Style="{DynamicResource SSCardLabelStyleVerySmall}"
-            Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef, StringFormat={x:Static i18n:AppResources.FieldPrefixPlaceParent}, Mode=OneWay}" />
+            Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef, StringFormat={i18:Localize FieldPrefixPlaceParent}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

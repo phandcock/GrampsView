@@ -1,12 +1,10 @@
-﻿namespace GrampsView.UserControls
+﻿using SharedSharp.Common;
+
+using System;
+using System.Diagnostics.Contracts;
+
+namespace GrampsView.UserControls
 {
-    using SharedSharp.Common;
-
-    using System;
-    using System.Diagnostics.Contracts;
-
-  
-
     public partial class CollectionSingleCardGrouped : Frame
     {
         public static readonly BindableProperty FsctSourceProperty
@@ -31,14 +29,8 @@
         /// </value>
         public object FsctSource
         {
-            get
-            {
-                return (object)GetValue(FsctSourceProperty);
-            }
-            set
-            {
-                SetValue(FsctSourceProperty, value);
-            }
+            get => GetValue(FsctSourceProperty);
+            set => SetValue(FsctSourceProperty, value);
         }
 
         /// <summary>
@@ -49,14 +41,8 @@
         /// </value>
         public DataTemplate FsctTemplate
         {
-            get
-            {
-                return (DataTemplate)GetValue(FsctTemplateProperty);
-            }
-            set
-            {
-                SetValue(FsctTemplateProperty, value);
-            }
+            get => (DataTemplate)GetValue(FsctTemplateProperty);
+            set => SetValue(FsctTemplateProperty, value);
         }
 
         /// <summary>
@@ -87,10 +73,10 @@
             Contract.Requires(argSource != null);
             Contract.Requires(newValue != null);
 
-            CollectionSingleCardGrouped layout = argSource as CollectionSingleCardGrouped;
+            CollectionSingleCardGrouped? layout = argSource as CollectionSingleCardGrouped;
             Contract.Requires(layout != null);
 
-            DataTemplate iTemplate = newValue as DataTemplate;
+            DataTemplate? iTemplate = newValue as DataTemplate;
 
             layout.theCollectionView.ItemTemplate = iTemplate;
         }
@@ -112,9 +98,9 @@
         {
             Contract.Requires(sender != null);
 
-            CollectionSingleCardGrouped t = sender as CollectionSingleCardGrouped;
+            CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
 
-            NumColumns = (Int32)(t.Width / SharedSharpCardSizes.Current.CardSmallWidth + 1);  // +1 for padding
+            NumColumns = (int)((t.Width / SharedSharpStatic.CardSizes.CardSmallWidth) + 1);  // +1 for padding
         }
     }
 }

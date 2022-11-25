@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -151,7 +151,7 @@
         x:Key="NoteFullTextStyle"
         BasedOn="{StaticResource SSFrameLargeVariableCardStyleNS}"
         TargetType="Frame">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic.CardSizes}}" />
     </Style>
 
     <Style
@@ -159,8 +159,8 @@
         BasedOn="{StaticResource SSFrameCardLargeStyle}"
         TargetType="Frame">
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
     </Style>
 
     <!--
@@ -278,7 +278,7 @@
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />
     </Style>
 
     <!--  Create Large Styles for a Label  -->
@@ -287,7 +287,7 @@
         BasedOn="{StaticResource SSLabelStyleLarge}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
     </Style>
 
     <!--<Style
@@ -304,7 +304,7 @@
         x:Key="GVLabelStyleInstructions"
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={DynamicResource OnSurfaceDark}, Light={DynamicResource OnSurfaceLight}}" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -316,7 +316,7 @@
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation" />
-        <Setter Property="FontSize" Value="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={DynamicResource OnSurfaceDark}, Light={DynamicResource OnSurfaceLight}}" />

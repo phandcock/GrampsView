@@ -2,9 +2,9 @@
 
 <Frame
     x:Class="GrampsView.UserControls.CollectionSingleCardGrouped"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:sSHarpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
     Padding="0"
@@ -21,7 +21,7 @@
             <GridItemsLayout
                 HorizontalItemSpacing="1"
                 Orientation="Vertical"
-                Span="{Binding CardsAcrossColumns, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}}"
+                Span="{Binding CardsAcrossColumns, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}}"
                 VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 

@@ -70,7 +70,7 @@ namespace GrampsView.UserControls
             }
 
             // Set Justification to Center if only one column
-            thisCard.theCollectionView.JustifyContent = SharedSharp.Common.SharedSharpCardSizes.Current.CardsAcrossColumns == 1
+            thisCard.theCollectionView.JustifyContent = SharedSharpStatic.CardSizes.CardsAcrossColumns == 1
                 ? Microsoft.Maui.Layouts.FlexJustify.Center
                 : Microsoft.Maui.Layouts.FlexJustify.Start;
         }

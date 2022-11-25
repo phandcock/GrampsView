@@ -5,10 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sharedsharpmodels="clr-namespace:SharedSharp.Model;assembly=SharedSharp"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="sharedsharpmodels:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
-    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Static sharedsharp:SharedSharpCardSizes.Current}, Mode=OneWay}"
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}, Mode=OneWay}"
     Style="{DynamicResource SSGridSmallVariableCardStyle}">
 
     <Grid.Resources>

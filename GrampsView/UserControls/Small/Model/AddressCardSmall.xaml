@@ -1,8 +1,8 @@
 ﻿<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.AddressCardSmall"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:i18n="clr-namespace:GrampsView.Resources.Strings"
+    xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkAdressModel">
@@ -23,7 +23,7 @@
             Padding="0"
             Spacing="1"
             VerticalOptions="StartAndExpand">
-            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GDate.ShortDate, StringFormat={x:Static i18n:AppResources.FieldPrefixShortDate}, Mode=OneWay}" />
+            <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GDate.ShortDate, StringFormat={i18:Localize FieldPrefixShortDate}, Mode=OneWay}" />
 
             <Label Style="{DynamicResource SSCardLabelStyleVerySmall}" Text="{Binding DeRef.GStreet, Mode=OneWay}" />
 
