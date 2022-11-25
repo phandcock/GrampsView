@@ -1,3 +1,13 @@
+## [16.28.6](https://github.com/phandcock/GrampsView/compare/v16.28.5...v16.28.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* fix string localisation and loading ([3b4f59f](https://github.com/phandcock/GrampsView/commit/3b4f59fb228b9a9a35705139e8867d4a61fe5fbc))
+* more updates ([c60e280](https://github.com/phandcock/GrampsView/commit/c60e2808b47231a506fc8f13261dd6c42a339972))
+
+
+
 ## [16.28.5](https://github.com/phandcock/GrampsView/compare/v16.28.4...v16.28.5) (2022-11-24)
 
 
@@ -22,15 +32,6 @@
 ### Bug Fixes
 
 * more changes ([6f5b1d8](https://github.com/phandcock/GrampsView/commit/6f5b1d858c2e2048047f4b8fb1debc5d76637122))
-
-
-
-## [16.28.2](https://github.com/phandcock/GrampsView/compare/v16.28.1...v16.28.2) (2022-11-22)
-
-
-### Bug Fixes
-
-* work on code ([578168d](https://github.com/phandcock/GrampsView/commit/578168d5c7092f6f4c2b96553e89a8954d104a26))
 
 
 
