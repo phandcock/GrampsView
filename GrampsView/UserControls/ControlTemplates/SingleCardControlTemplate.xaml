@@ -9,7 +9,7 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame Style="{DynamicResource SSFrameSingleFixedCardStyle}">
+            <Border Style="{DynamicResource SSBorderSingleFixedCardStyle}">
 
                 <Grid x:Name="controlRoot" Style="{DynamicResource SSGridSingleFixedCardStyle}">
 
@@ -26,7 +26,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Frame
+                    <Border
                         Grid.Row="0"
                         Grid.Column="0"
                         Style="{DynamicResource CardImageBackgroundFrame}">
@@ -35,7 +35,7 @@
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
                             Style="{DynamicResource MediaImageStyle}" />
-                    </Frame>
+                    </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />
 
@@ -51,7 +51,7 @@
                         </Image.Source>
                     </Image>
                 </Grid>
-            </Frame>
+            </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
 </ContentView>

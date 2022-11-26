@@ -1,6 +1,6 @@
 ﻿<!--  This exists as CollectionView as faster than FLexLayout for lists  -->
 
-<Frame
+<Border
     x:Class="GrampsView.UserControls.CollectionSingleCardGrouped"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -20,16 +20,16 @@
             <GridItemsLayout
                 HorizontalItemSpacing="1"
                 Orientation="Vertical"
-                Span="{Binding CardsAcrossColumns, Source={x:DynamicResource sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
+                Span="{Binding CardsAcrossColumns, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
                 VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Frame
+                <Border
                     Padding="0"
                     IsVisible="{Binding Visible, Mode=OneWay}"
-                    Style="{StaticResource SSFrameHeaderStyle}">
+                    Style="{StaticResource SSBorderHeaderStyle}">
                     <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
                         <!--  TODO checkout another bug in UWP CollectionView  -->
                         <Label.FontSize>
@@ -38,8 +38,8 @@
                             </OnPlatform>
                         </Label.FontSize>
                     </Label>
-                </Frame>
+                </Border>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
     </CollectionView>
-</Frame>
+</Border>

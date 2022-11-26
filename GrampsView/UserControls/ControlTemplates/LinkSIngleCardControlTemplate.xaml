@@ -17,12 +17,12 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame
+            <Border
                 BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
                                                   Light={DynamicResource OnTertiaryContainerLight}}"
                 HeightRequest="50"
                 HorizontalOptions="FillAndExpand"
-                Style="{x:DynamicResource SSFrameCardStyle}">
+                Style="{x:DynamicResource SSBorderCardStyle}">
 
                 <Grid
                     x:Name="controlRoot"
@@ -46,14 +46,14 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Frame
+                    <Border
                         Grid.Row="0"
                         Grid.Column="0"
                         BackgroundColor="Transparent"
                         Style="{DynamicResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
-                    </Frame>
+                    </Border>
 
                     <ContentPresenter
                         Grid.Row="0"
@@ -73,7 +73,7 @@
                         </Image.Source>
                     </Image>
                 </Grid>
-            </Frame>
+            </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
 </ContentView>

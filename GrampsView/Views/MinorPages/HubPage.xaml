@@ -59,7 +59,7 @@
 
             <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
 
-                <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
+                <!--<sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />-->
 
                 <ucon:MediaCardLarge BindingContext="{Binding MediaCard}" MinimumHeightRequest="100" />
 

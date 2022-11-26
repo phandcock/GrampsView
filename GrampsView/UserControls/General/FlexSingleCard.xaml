@@ -1,4 +1,4 @@
-﻿<Frame
+﻿<Border
     x:Class="GrampsView.UserControls.FlexSingleCard"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,23 +10,23 @@
     BackgroundColor="Transparent"
     IsVisible="{Binding FsctSource.Visible, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}">
 
-    <Frame.Resources>
+    <Border.Resources>
         <ResourceDictionary>
             <mauitoolkit:IsStringNotNullOrEmptyConverter x:Key="StringToVisible"/>
         </ResourceDictionary>
-    </Frame.Resources>
+    </Border.Resources>
     
     <StackLayout
         Margin="0"
         Padding="0"
         HorizontalOptions="FillAndExpand"
         VerticalOptions="Start">
-        <Frame
+        <Border
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-            Style="{DynamicResource SSFrameHeaderStyle}">
+            Style="{DynamicResource SSBorderHeaderStyle}">
             <Label Style="{DynamicResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
-        </Frame>
+        </Border>
 
         <FlexLayout
             x:Name="theCollectionView"
@@ -36,4 +36,4 @@
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
             Style="{DynamicResource FlexSingleCollection}" />
     </StackLayout>
-</Frame>
+</Border>

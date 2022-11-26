@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </Grid.Resources>
 
-    <Frame Style="{DynamicResource SSFrameSmallVariableCardStyleNS}">
+    <Border Style="{DynamicResource SSBorderSmallVariableCardStyleNS}">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -30,13 +30,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Frame
+            <Border
                 Grid.Row="0"
                 Grid.Column="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
-                Style="{DynamicResource SSFrameHeaderStyle}">
+                Style="{DynamicResource SSBorderHeaderStyle}">
                 <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
-            </Frame>
+            </Border>
 
             <StackLayout
                 Grid.Row="1"
@@ -67,5 +67,5 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </Grid>
-    </Frame>
+    </Border>
 </Grid>

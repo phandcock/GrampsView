@@ -1,4 +1,4 @@
-﻿<Frame
+﻿<Border
     x:Class="GrampsView.UserControls.MediaImageFull"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -8,10 +8,10 @@
     Padding="0"
     BackgroundColor="Transparent"
     BindingContextChanged="MediaImageFull_BindingContextChanged"
-    BorderColor="Transparent"
-    HasShadow="True"
+    Stroke="Transparent"
+  
     IsVisible="True"
-    Style="{DynamicResource SSFrameLargeVariableCardStyleNS}">
+    Style="{DynamicResource SSBorderLargeVariableCardStyleNS}">
 
     <!--  TODO  -->
     <!--<ffimageloading:CachedImage
@@ -28,4 +28,4 @@
         RetryCount="3"
         RetryDelay="1000"
         VerticalOptions="Fill" />-->
-</Frame>
+</Border>

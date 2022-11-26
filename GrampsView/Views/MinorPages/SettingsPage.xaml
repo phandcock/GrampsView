@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
@@ -26,11 +25,11 @@
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
-            <sharedsharpucon:SSHeaderFrameSettings HeaderTitle="Theme Selector">
-                <sharedsharpucon:ThemeSelector />
-            </sharedsharpucon:SSHeaderFrameSettings>
+            <sSharpUcon:SSHeaderBorderSettings HeaderTitle="Theme Selector">
+                <sSharpUcon:ThemeSelector />
+            </sSharpUcon:SSHeaderBorderSettings>
 
-            <sharedsharpucon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="Center">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="Center">
 
                 <Grid>
 
@@ -94,9 +93,9 @@
                         </Entry.Behaviors>
                     </Entry>
                 </Grid>
-            </sharedsharpucon:SSHeaderSettings>
+            </sSharpUcon:SSHeaderSettings>
 
-            <sharedsharpucon:SSHeaderSettings HeaderTitle="Control Buttons">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Control Buttons">
 
                 <StackLayout Orientation="Horizontal">
 
@@ -105,7 +104,7 @@
                         Style="{DynamicResource SSButtonMenu}"
                         Text="Show MesageLog" />
                 </StackLayout>
-            </sharedsharpucon:SSHeaderSettings>
+            </sSharpUcon:SSHeaderSettings>
         </StackLayout>
     </ScrollView>
 </views:ViewBasePage>

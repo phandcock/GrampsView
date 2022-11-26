@@ -40,7 +40,7 @@ namespace GrampsView.Views
 
         private void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            Frame theFrame = sender as Frame;
+            Border? theFrame = sender as Border;
             IMediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
 
             OpenFileRequest t = new(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));

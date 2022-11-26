@@ -29,7 +29,7 @@
 
         <!--  TODO Add to TitleView when fixed in UWP.  See https://github.com/xamarin/Xamarin.Forms/issues/9808  -->
 
-        <Frame
+        <Border
             Grid.Row="0"
             Grid.Column="0"
             Style="{DynamicResource SSPageMenu}">
@@ -45,7 +45,7 @@
                     IsToggled="{Binding BirthdayShowOnlyLivingFlag}"
                     Style="{DynamicResource SSSwitchStyle}" />
             </StackLayout>
-        </Frame>
+        </Border>
 
         <!--  Content  -->
         <ucon:CollectionSingleCardGrouped

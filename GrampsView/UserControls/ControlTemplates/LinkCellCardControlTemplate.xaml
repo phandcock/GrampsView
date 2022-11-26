@@ -11,11 +11,11 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame
+            <Border
                 BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
                                                   Light={DynamicResource OnTertiaryContainerLight}}"
                 HeightRequest="100"
-                Style="{x:DynamicResource SSFrameCardStyle}"
+                Style="{x:DynamicResource SSBorderCardStyle}"
                 WidthRequest="120">
 
                 <Grid
@@ -39,7 +39,7 @@
                         <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
 
-                    <Frame
+                    <Border
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
@@ -52,7 +52,7 @@
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
                             Style="{DynamicResource MediaImageStyle}" />
-                    </Frame>
+                    </Border>
 
                     <Image
                         Grid.Row="0"
@@ -76,7 +76,7 @@
                         BackgroundColor="Red"
                         VerticalOptions="End" />
                 </Grid>
-            </Frame>
+            </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
 </ContentView>

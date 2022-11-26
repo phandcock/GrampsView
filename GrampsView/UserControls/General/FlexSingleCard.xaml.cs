@@ -3,7 +3,7 @@ using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
-    public partial class FlexSingleCard : Frame
+    public partial class FlexSingleCard : Border
 
     {
         public static readonly BindableProperty FsctSourceProperty

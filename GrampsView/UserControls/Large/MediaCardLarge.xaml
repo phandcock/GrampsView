@@ -12,13 +12,13 @@
     IsVisible="{Binding Valid}"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame
+    <Border
         HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}"
-        Style="{DynamicResource SSFrameLargeFixedCardStyle}"
+        Style="{DynamicResource SSBorderLargeFixedCardStyle}"
         VerticalOptions="Start"
         WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}">
 
-        <Frame.Content>
+        <Border.Content>
 
             <Grid x:Name="controlRoot">
 
@@ -65,6 +65,6 @@
                     </Image.Source>
                 </Image>
             </Grid>
-        </Frame.Content>
-    </Frame>
+        </Border.Content>
+    </Border>
 </Grid>

@@ -86,22 +86,8 @@
         <Setter Property="Wrap" Value="Wrap" />
     </Style>
 
-    <!--
-        ******************************************************
-        Frame Styles
-        ******************************************************
-    -->
 
-    <!--  Create a TopMenu Style  -->
-    <Style x:Key="TopMenu" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" />
-        <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="HasShadow" Value="False" />
-        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="MinimumWidthRequest" Value="40" />
-        <Setter Property="Padding" Value="0" />
-    </Style>
+   
 
     <!--  Create a MediaImage Style  -->
     <Style x:Key="MediaImageStyle" TargetType="Grid">
@@ -111,7 +97,7 @@
 
     <!--
         ******************************************************
-        Frame Card Styles
+        Border Card Styles
         ******************************************************
     -->
 
@@ -119,46 +105,41 @@
 
     <Style
         x:Key="CardImageBackgroundFrame"
-        BasedOn="{StaticResource SSFrameCardStyle}"
-        TargetType="Frame">
+        BasedOn="{StaticResource SSBorderCardStyle}"
+        TargetType="Border">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark}, Light={DynamicResource SurfaceVariantLight}}" />
-        <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="HasShadow" Value="false" />
+        <Setter Property="Stroke" Value="Transparent" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <Style x:Key="CardGroupStyle" TargetType="Frame">
+    <Style x:Key="CardGroupStyle" TargetType="Border">
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" />
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <Style x:Key="FlexMultiCollection" TargetType="Frame">
+    <Style x:Key="FlexMultiCollection" TargetType="Border">
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="HasShadow" Value="False" />
+        <!--<Setter Property="CornerRadius" Value="3" />-->
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style
         x:Key="NoteFullTextStyle"
-        BasedOn="{StaticResource SSFrameLargeVariableCardStyleNS}"
-        TargetType="Frame">
+        BasedOn="{StaticResource SSBorderLargeVariableCardStyleNS}"
+        TargetType="Border">
         <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic.CardSizes}}" />
     </Style>
 
     <Style
         x:Key="MediaImageFull"
-        BasedOn="{StaticResource SSFrameCardLargeStyle}"
-        TargetType="Frame">
-        <Setter Property="CornerRadius" Value="0" />
+        BasedOn="{StaticResource SSBorderCardLargeStyle}"
+        TargetType="Border">
+        <!--<Setter Property="CornerRadius" Value="0" />-->
         <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
         <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
     </Style>

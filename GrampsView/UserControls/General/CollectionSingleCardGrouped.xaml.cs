@@ -1,11 +1,8 @@
-﻿using SharedSharp.Common;
-
-using System;
-using System.Diagnostics.Contracts;
+﻿using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
-    public partial class CollectionSingleCardGrouped : Frame
+    public partial class CollectionSingleCardGrouped : Border
     {
         public static readonly BindableProperty FsctSourceProperty
               = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);

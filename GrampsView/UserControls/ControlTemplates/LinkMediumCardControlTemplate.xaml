@@ -10,12 +10,12 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Frame
+            <Border
                 BackgroundColor="{AppThemeBinding Dark={DynamicResource TertiaryContainerDark},
                                                   Light={DynamicResource TertiaryContainerLight}}"
-                BorderColor="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
+                Stroke="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
                                               Light={DynamicResource SurfaceVariantLight}}"
-                Style="{x:DynamicResource SSFrameMediumVariableCardStyleNS}">
+                Style="{x:DynamicResource SSBorderMediumVariableCardStyleNS}">
 
                 <Grid x:Name="controlRoot" Style="{x:DynamicResource SSGridMediumFixedCardStyle}">
 
@@ -46,7 +46,7 @@
                         </Image.Source>
                     </Image>
                 </Grid>
-            </Frame>
+            </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
 </ContentView>

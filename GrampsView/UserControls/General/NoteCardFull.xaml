@@ -8,8 +8,8 @@
     x:DataType="models:HLinkNoteModel"
     IsVisible="{Binding Valid}">
 
-    <Frame Style="{DynamicResource NoteFullTextStyle}">
-        <Frame.Content>
+    <Border Style="{DynamicResource NoteFullTextStyle}">
+        <Border.Content>
 
             <Label
                 FormattedText="{Binding DeRef.GStyledText.TextFormatted}"
@@ -19,6 +19,6 @@
                     <DragGestureRecognizer DragStarting="DragGestureRecognizer_DragStarting" />
                 </Label.GestureRecognizers>
             </Label>
-        </Frame.Content>
-    </Frame>
+        </Border.Content>
+    </Border>
 </Grid>

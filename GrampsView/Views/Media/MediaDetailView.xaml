@@ -23,20 +23,20 @@
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-            <Frame
-                BorderColor="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
+            <Border
+                Stroke="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
                                               Light={DynamicResource OnSecondaryContainerLight}}"
                 HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}"
                 WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}">
-                <Frame.GestureRecognizers>
+                <Border.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
-                </Frame.GestureRecognizers>
+                </Border.GestureRecognizers>
                 <StackLayout>
                     <ucon:HLinkVisualDisplay BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}" FsctShowMedia="True" />
 
                     <Label HorizontalOptions="Center" Text="{i18:Localize Media_Detail_Open_File}" />
                 </StackLayout>
-            </Frame>
+            </Border>
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 

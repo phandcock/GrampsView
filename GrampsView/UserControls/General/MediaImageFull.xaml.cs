@@ -8,7 +8,7 @@ using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
-    public partial class MediaImageFull : Frame
+    public partial class MediaImageFull : Border
     {
         private HLinkMediaModel CurrentHLinkMediaModel = new();
 

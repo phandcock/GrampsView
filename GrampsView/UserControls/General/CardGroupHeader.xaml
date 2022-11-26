@@ -1,4 +1,4 @@
-﻿<Frame
+﻿<Border
     x:Class="GrampsView.UserControls.CardGroupHeader"
      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,24 +10,24 @@
                                       Light={DynamicResource Neutral}}"
     IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
-    <Frame.Resources>
+    <Border.Resources>
         <ResourceDictionary>
             <toolkit:IsStringNotNullOrEmptyConverter x:Key="StringToBool" />
             <toolkit:IntToBoolConverter x:Key="IntToBool" />
         </ResourceDictionary>
-    </Frame.Resources>
+    </Border.Resources>
 
     <StackLayout
         Padding="0"
         HorizontalOptions="FillAndExpand"
         VerticalOptions="Start">
 
-        <Frame
+        <Border
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
-            Style="{DynamicResource SSFrameHeaderStyle}">
+            Style="{DynamicResource SSBorderHeaderStyle}">
             <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title}" />
-        </Frame>
+        </Border>
 
         <FlexLayout
             x:Name="CardGroupTemplateFlexer"
@@ -35,4 +35,4 @@
             BindableLayout.ItemsSource="{Binding ., Mode=OneWay}"
             Style="{StaticResource FlexLayoutCards}" />
     </StackLayout>
-</Frame>
+</Border>

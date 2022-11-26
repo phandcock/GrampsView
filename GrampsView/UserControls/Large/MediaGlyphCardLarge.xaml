@@ -10,9 +10,9 @@
     IsVisible="{Binding ValidImage}"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame Style="{DynamicResource SSFrameCardLargeStyle}" VerticalOptions="Start">
+    <Border Style="{DynamicResource SSBorderCardLargeStyle}" VerticalOptions="Start">
 
-        <Frame.Content>
+        <Border.Content>
 
             <Grid x:Name="controlRoot">
 
@@ -50,6 +50,6 @@
                     </Image.Source>
                 </Image>
             </Grid>
-        </Frame.Content>
-    </Frame>
+        </Border.Content>
+    </Border>
 </Grid>

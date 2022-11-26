@@ -67,9 +67,9 @@
             <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Frame BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+            <Border BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize SearchPage_NothingFound}" />
-            </Frame>
+            </Border>
         </StackLayout>
     </ScrollView>
 </views:ViewBasePage>

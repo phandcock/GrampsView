@@ -9,12 +9,12 @@
     x:DataType="models:HLinkPersonModel"
     Style="{DynamicResource SSGridLargeVariableCardStyle}">
 
-    <Frame
+    <Border
         BackgroundColor="{AppThemeBinding Dark={DynamicResource TertiaryContainerDark},
                                           Light={DynamicResource TertiaryContainerLight}}"
-        BorderColor="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
+        Stroke="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
                                       Light={DynamicResource SurfaceVariantLight}}"
-        Style="{DynamicResource SSFrameMediumVariableCardStyleNS}">
+        Style="{DynamicResource SSBorderMediumVariableCardStyleNS}">
 
         <Grid>
 
@@ -28,7 +28,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Frame
+            <Border
                 x:Name="LLCardLargeFrame"
                 Grid.Row="0"
                 Grid.Column="0"
@@ -36,14 +36,14 @@
                 Margin="0"
                 BackgroundColor="{AppThemeBinding Dark={DynamicResource PrimaryContainerDark},
                                                   Light={DynamicResource PrimaryContainerLight}}"
-                BorderColor="{AppThemeBinding Dark={DynamicResource SecondaryContainerDark},
+                Stroke="{AppThemeBinding Dark={DynamicResource SecondaryContainerDark},
                                               Light={DynamicResource SecondaryContainerLight}}"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
-                Style="{StaticResource SSFrameCardStyle}">
-                <Frame.GestureRecognizers>
+                Style="{StaticResource SSBorderCardStyle}">
+                <Border.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
-                </Frame.GestureRecognizers>
+                </Border.GestureRecognizers>
 
                 <StackLayout Orientation="Horizontal">
                     <Image
@@ -63,7 +63,7 @@
                         Style="{StaticResource SSHeaderStyleSmall}"
                         Text="Parents and Family" />
                 </StackLayout>
-            </Frame>
+            </Border>
 
             <ucon:PersonCardLinkCell
                 x:Name="AnchorImage1"
@@ -85,5 +85,5 @@
                 MinimumHeightRequest="50"
                 MinimumWidthRequest="50" />
         </Grid>
-    </Frame>
+    </Border>
 </Grid>
