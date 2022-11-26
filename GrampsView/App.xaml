@@ -23,6 +23,8 @@
 
         <ResourceDictionary Source="/Resources/Styles/AppViewDictionary.xaml" />
 
+        <ResourceDictionary Source="/Resources/Styles/CardTemplatesDictionary.xaml" />
+
         <ResourceDictionary Source="/Resources/Styles/CardThemeDictionary.xaml" />
 
         <ResourceDictionary Source="/Resources/Styles/ControlTemplates.xaml" />

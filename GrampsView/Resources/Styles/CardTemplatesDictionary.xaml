@@ -1,0 +1,230 @@
+﻿<ResourceDictionary
+    x:Class="GrampsView.Resources.Styles.CardTemplatesDictionary"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:usercontrols="clr-namespace:GrampsView.UserControls">
+
+    <DataTemplate x:Key="AddressCardSmallDT">
+        <usercontrols:AddressCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="AttributeCardSingleDT">
+        <usercontrols:AttributeCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CardListLineCardSmallDT">
+        <usercontrols:ListLineCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ChildRefCardSingleDT">
+        <usercontrols:ChildRefCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ChildRefCardSmallDT">
+        <usercontrols:ChildRefCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardLinkMediumDT">
+        <usercontrols:CitationCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardLinkCellDT">
+        <usercontrols:CitationCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardLinkSingleDT">
+        <usercontrols:CitationCardLinkSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CitationCardSmallDT">
+        <usercontrols:CitationCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DateCardSingleDT">
+        <usercontrols:DateCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="EventCardLinkCellDT">
+        <usercontrols:EventCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="EventCardLinkMediumDT">
+        <usercontrols:EventCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="EventCardSmallDT">
+        <usercontrols:EventCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardLinkCellDT">
+        <usercontrols:FamilyCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardMediumLinkDT">
+        <usercontrols:FamilyCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardSingleDT">
+        <usercontrols:FamilyCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyCardSmallDT">
+        <usercontrols:FamilyCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="LDSOrdCardSmallDT">
+        <usercontrols:MediaCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MapCardSmallDT">
+        <usercontrols:MapCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaCardLinkMediumDT">
+        <usercontrols:MediaCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaCardSmallDT">
+        <usercontrols:MediaCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MediaCardLargeDT">
+        <usercontrols:MediaCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoteCardFullDT">
+        <usercontrols:NoteCardFull />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoteCardSmallDT">
+        <usercontrols:NoteCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FamilyGraphCardMediumLinkDT">
+        <usercontrols:FamilyGraphCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardLinkCellDT">
+        <usercontrols:PersonCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardSingleDT">
+        <usercontrols:PersonCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonCardSmallDT">
+        <usercontrols:PersonCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonNameCardSingleDT">
+        <usercontrols:PersonNameCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonNameCardSmallDT">
+        <usercontrols:PersonNameCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PersonRefCardSmallDT">
+        <usercontrols:PersonRefCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PlaceCardSmallDT">
+        <usercontrols:PlaceCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PlaceLocationCardSmallDT">
+        <usercontrols:PlaceLocationCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PlaceNameCardSmallDT">
+        <usercontrols:PlaceNameCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="RepositoryCardLinkSingleDT">
+        <usercontrols:RepositoryCardLinkSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="RepositoryCardSmallDT">
+        <usercontrols:RepositoryCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="RepositoryRefCardSmallDT">
+        <usercontrols:RepositoryRefCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TagCardSingleDT">
+        <usercontrols:TagCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceCardLargeDT">
+        <usercontrols:SourceCardLarge />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceLinkCellDT">
+        <usercontrols:SourceCardLinkCell />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceLinkMediumDT">
+        <usercontrols:SourceCardMediumLink />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceLinkSingleDT">
+        <usercontrols:SourceCardLinkSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SourceCardSmallDT">
+        <usercontrols:SourceCardSmall />
+    </DataTemplate>
+
+    <DataTemplate x:Key="URLCardSmallDT">
+        <usercontrols:URLCardSmall />
+    </DataTemplate>
+
+    <common:CardTemplateSelector
+        x:Key="CardTemplateSelector"
+        AddressTemplate="{StaticResource AddressCardSmallDT}"
+        AttributeTemplate="{StaticResource AttributeCardSingleDT}"
+        CardListLineTemplate="{StaticResource CardListLineCardSmallDT}"
+        ChildRefSingleTemplate="{StaticResource ChildRefCardSingleDT}"
+        ChildRefSmallTemplate="{StaticResource ChildRefCardSmallDT}"
+        CitationLinkCellTemplate="{StaticResource CitationCardLinkCellDT}"
+        CitationLinkMediumTemplate="{StaticResource CitationCardLinkMediumDT}"
+        CitationLinkSingleTemplate="{StaticResource CitationCardLinkSingleDT}"
+        CitationSmallTemplate="{StaticResource CitationCardSmallDT}"
+        DateObjectTemplate="{StaticResource DateCardSingleDT}"
+        EventLinkCellTemplate="{StaticResource EventCardLinkCellDT}"
+        EventLinkMediumTemplate="{StaticResource EventCardLinkMediumDT}"
+        EventSmallTemplate="{StaticResource EventCardSmallDT}"
+        FamilyCardMediumTemplate="{StaticResource FamilyCardMediumLinkDT}"
+        FamilyGraphMediumTemplate="{StaticResource FamilyGraphCardMediumLinkDT}"
+        FamilyLinkCellTemplate="{StaticResource FamilyCardLinkCellDT}"
+        FamilySingleTemplate="{StaticResource FamilyCardSingleDT}"
+        FamilySmallTemplate="{StaticResource FamilyCardSmallDT}"
+        LDSOrdTemplate="{StaticResource LDSOrdCardSmallDT}"
+        MapTemplate="{StaticResource MapCardSmallDT}"
+        MediaLargeTemplate="{StaticResource MediaCardLargeDT}"
+        MediaLinkMediumTemplate="{StaticResource MediaCardLinkMediumDT}"
+        MediaSmallTemplate="{StaticResource MediaCardSmallDT}"
+        NoteCardFullTemplate="{StaticResource NoteCardFullDT}"
+        NoteTemplate="{StaticResource NoteCardSmallDT}"
+        PersonLinkCellTemplate="{StaticResource PersonCardLinkCellDT}"
+        PersonNameSingleTemplate="{StaticResource PersonNameCardSingleDT}"
+        PersonNameSmallTemplate="{StaticResource PersonNameCardSmallDT}"
+        PersonRefTemplate="{StaticResource PersonRefCardSmallDT}"
+        PersonSingleTemplate="{StaticResource PersonCardSingleDT}"
+        PersonSmallTemplate="{StaticResource PersonCardSmallDT}"
+        PlaceLocationTemplate="{StaticResource PlaceLocationCardSmallDT}"
+        PlaceNameTemplate="{StaticResource PlaceNameCardSmallDT}"
+        PlaceTemplate="{StaticResource PlaceCardSmallDT}"
+        RepositoryLinkSingleTemplate="{StaticResource RepositoryCardLinkSingleDT}"
+        RepositoryRefSmallTemplate="{StaticResource RepositoryRefCardSmallDT}"
+        RepositorySmallTemplate="{StaticResource RepositoryCardSmallDT}"
+        SourceLargeTemplate="{StaticResource SourceCardLargeDT}"
+        SourceLinkCellTemplate="{StaticResource SourceLinkCellDT}"
+        SourceLinkMediumTemplate="{StaticResource SourceLinkMediumDT}"
+        SourceLinkSingleTemplate="{StaticResource SourceLinkSingleDT}"
+        SourceSmallTemplate="{StaticResource SourceCardSmallDT}"
+        TagTemplate="{StaticResource TagCardSingleDT}"
+        URLTemplate="{StaticResource URLCardSmallDT}" />
+</ResourceDictionary>

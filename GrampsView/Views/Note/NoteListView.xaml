@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.NoteListPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:NoteListViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <ucon:TopMenu />
+        <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
     <!--  Content  -->
 
-    <ucon:CollectionSingleCardGrouped
-        FsctSource="{Binding NoteSource, Mode=OneWay}"
-        FsctTemplate="{StaticResource NoteCardSmallDT}" />
+    <ucon:CollectionSingleCardGrouped FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 </views:ViewBasePage>

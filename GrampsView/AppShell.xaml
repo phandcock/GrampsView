@@ -27,6 +27,7 @@
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="IconFont"
+                Size="12"
                 Glyph="{x:Static common:Constants.IconHub}"
                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                         Light={StaticResource OnSurfaceLight}}" />
@@ -38,6 +39,7 @@
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="IconFont"
+                 Size="12"
                 Glyph="{x:Static common:Constants.IconPeopleBirthday}"
                 Color="{AppThemeBinding Dark={DynamicResource OnSurfaceDark},
                                         Light={DynamicResource OnSurfaceLight}}" />

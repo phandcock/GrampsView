@@ -1,22 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:ViewBasePage
     x:Class="GrampsView.Views.PersonListPage"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PersonListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
     <Shell.TitleView>
-        <ucon:TopMenu />
+        <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
     <!--  Content  -->
 
-    <ucon:CollectionSingleCardGrouped
-        FsctSource="{Binding PersonSource, Mode=OneWay}"
-        FsctTemplate="{StaticResource PersonCardSmallDT}" />
+    <ucon:CollectionSingleCardGrouped FsctSource="{Binding PersonSource, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
 </views:ViewBasePage>

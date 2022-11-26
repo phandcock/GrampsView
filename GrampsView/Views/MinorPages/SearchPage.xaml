@@ -11,6 +11,7 @@
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     x:Name="SearchPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SearchPageViewModel"
@@ -27,7 +28,7 @@
     </Page.Resources>
 
     <Shell.TitleView>
-        <ucon:TopMenu />
+        <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
     <!--  Content  -->

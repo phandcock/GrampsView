@@ -10,6 +10,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     x:Name="MediaDetailPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:MediaDetailViewModel"
@@ -17,7 +18,7 @@
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <ucon:TopMenu />
+        <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>

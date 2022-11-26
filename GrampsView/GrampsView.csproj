@@ -143,7 +143,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
-        <PackageReference Include="SharedSharp" Version="1.1.11" />
+        <PackageReference Include="SharedSharp" Version="1.2.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -174,6 +174,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\AppViewDictionary.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Resources\Styles\CardTemplatesDictionary.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\ControlTemplates.xaml">
