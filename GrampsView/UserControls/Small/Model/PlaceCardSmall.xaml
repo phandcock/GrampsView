@@ -24,26 +24,26 @@
             Grid.Row="0"
             Grid.Column="0"
             HorizontalOptions="EndAndExpand"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GType, Mode=OneWay}"
             TextColor="{StaticResource CardBackGroundPlace}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GPlaceNames, Mode=OneWay}" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GPName, Mode=OneWay}" />
 
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GPlaceParentCollection.GetFirst.DeRef, StringFormat={i18:Localize FieldPrefixPlaceParent}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

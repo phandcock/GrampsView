@@ -5,6 +5,7 @@
     xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:mauitoolkit="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"
     x:DataType="models:HLinkCitationModel">
 
     <Grid>
@@ -23,7 +24,7 @@
             Grid.Row="0"
             Grid.Column="0"
             LineBreakMode="WordWrap"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef, Mode=OneWay}" />
 
         <Label
@@ -31,14 +32,13 @@
             Grid.Column="0"
             LineBreakMode="WordWrap"
             MaxLines="1"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GPage, Mode=OneWay}" />
 
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            IsVisible="{Binding DeRef.GDateContent.ShortDate, Converter={StaticResource IsNotNullOrEmptyConverter}}"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}"
+            Style="{StaticResource SSCardLabelStyleVerySmall}"
             Text="{Binding DeRef.GDateContent.ShortDate, StringFormat={i18:Localize FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

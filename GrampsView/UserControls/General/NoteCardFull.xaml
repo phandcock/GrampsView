@@ -8,13 +8,13 @@
     x:DataType="models:HLinkNoteModel"
     IsVisible="{Binding Valid}">
 
-    <Border Style="{DynamicResource NoteFullTextStyle}">
+    <Border Style="{StaticResource NoteFullTextStyle}">
         <Border.Content>
 
             <Label
                 FormattedText="{Binding DeRef.GStyledText.TextFormatted}"
                 IsEnabled="True"
-                Style="{DynamicResource SSLabelStyleMedium}">
+                Style="{StaticResource SSLabelStyleMedium}">
                 <Label.GestureRecognizers>
                     <DragGestureRecognizer DragStarting="DragGestureRecognizer_DragStarting" />
                 </Label.GestureRecognizers>

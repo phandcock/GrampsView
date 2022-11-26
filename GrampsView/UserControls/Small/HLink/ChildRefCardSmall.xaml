@@ -25,20 +25,20 @@
             FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
             FormattedText="{Binding RelationShips, Mode=OneWay}"
             HorizontalOptions="End"
-            Style="{DynamicResource SSCardLabelStyleVerySmall}" />
+            Style="{StaticResource SSCardLabelStyleVerySmall}" />
 
         <Label
             x:Name="PersonSummaryNameTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
 
         <Label
             x:Name="PersonSummaryDOBTextBlock"
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.BirthDate.ShortDate, StringFormat={i18:Localize FieldPrefixShortDate}, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

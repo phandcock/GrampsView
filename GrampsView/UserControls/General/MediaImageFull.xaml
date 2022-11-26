@@ -11,7 +11,7 @@
     Stroke="Transparent"
   
     IsVisible="True"
-    Style="{DynamicResource SSBorderLargeVariableCardStyleNS}">
+    Style="{StaticResource SSBorderLargeVariableCardStyleNS}">
 
     <!--  TODO  -->
     <!--<ffimageloading:CachedImage

@@ -26,9 +26,9 @@
         ******************************************************
     -->
     <Style x:Key="GVBreadcrumb" TargetType="breadcrumb:Breadcrumb">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" />
-        <Setter Property="LastBreadcrumbTextColor" Value="{AppThemeBinding Dark={DynamicResource OnPrimaryContainerDark}, Light={DynamicResource OnPrimaryContainerLight}}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark}, Light={DynamicResource OnSecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="LastBreadcrumbTextColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}" />
     </Style>
 
     <!--
@@ -49,11 +49,11 @@
 
     <!--  Create a Entry style  -->
     <Style x:Key="GVEntryBase" TargetType="Entry">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource OnPrimaryContainerDark}, Light={DynamicResource OnPrimaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark}, Light={StaticResource OnPrimaryContainerLight}}" />
     </Style>
 
     <Style x:Key="GVEntryInvalid" TargetType="Entry">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource ErrorDark}, Light={DynamicResource ErrorLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ErrorDark}, Light={StaticResource ErrorLight}}" />
     </Style>
 
     <!--
@@ -80,7 +80,7 @@
 
     <Style x:Key="FlexMulti" TargetType="FlexLayout">
         <Setter Property="AlignItems" Value="Stretch" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource BackgroundDark}, Light={DynamicResource BackgroundLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Wrap" Value="Wrap" />
@@ -107,7 +107,7 @@
         x:Key="CardImageBackgroundFrame"
         BasedOn="{StaticResource SSBorderCardStyle}"
         TargetType="Border">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark}, Light={DynamicResource SurfaceVariantLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
         <Setter Property="Stroke" Value="Transparent" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Margin" Value="0" />
@@ -116,7 +116,7 @@
 
     <Style x:Key="CardGroupStyle" TargetType="Border">
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="Stroke" Value="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="0" />
     </Style>
@@ -155,11 +155,11 @@
         BasedOn="{StaticResource SSGridBaseStyle}"
         TargetType="Grid">
         <Setter Property="Margin" Value="0" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SecondaryContainerDark}, Light={DynamicResource SecondaryContainerLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SecondaryContainerDark}, Light={StaticResource SecondaryContainerLight}}" />
     </Style>
 
     <Style x:Key="GVPageTitleStyle" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark}, Light={DynamicResource SurfaceVariantLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceVariantDark}, Light={StaticResource SurfaceVariantLight}}" />
     </Style>
 
     <!--
@@ -244,7 +244,7 @@
         <Setter Property="Padding" Value="2" />
         <Setter Property="CornerRadius" Value="2" />
         <Setter Property="Aspect" Value="AspectFit" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark}, Light={DynamicResource OnSecondaryLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryLight}}" />
     </Style>
 
     <!--
@@ -280,7 +280,7 @@
         TargetType="Label">
         <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={DynamicResource OnSurfaceDark}, Light={DynamicResource OnSurfaceLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
@@ -293,6 +293,6 @@
         <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={DynamicResource OnSurfaceDark}, Light={DynamicResource OnSurfaceLight}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
     </Style>
 </ResourceDictionary>

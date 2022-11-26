@@ -31,14 +31,14 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSLinkCardCellStyle}"
+            Style="{StaticResource SSLinkCardCellStyle}"
             Text="{Binding DeRef}" />
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
             IsVisible="{Binding DeRef.GDateContent, Converter={StaticResource DateValid}}"
-            Style="{DynamicResource SSLinkCardCellStyle}"
+            Style="{StaticResource SSLinkCardCellStyle}"
             Text="{Binding DeRef.GDateContent}" />
     </Grid>
 </ucon:LinkCellCardControlTemplate>

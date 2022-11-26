@@ -6,8 +6,8 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkFamilyModel"
-    BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
-                                      Light={DynamicResource OnTertiaryContainerLight}}">
+    BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
+                                      Light={StaticResource OnTertiaryContainerLight}}">
 
     <Grid>
 
@@ -22,7 +22,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSLinkCardSingleStyle}"
+            Style="{StaticResource SSLinkCardSingleStyle}"
             Text="{Binding DeRef, Mode=OneWay}"
             VerticalTextAlignment="Start" />
     </Grid>

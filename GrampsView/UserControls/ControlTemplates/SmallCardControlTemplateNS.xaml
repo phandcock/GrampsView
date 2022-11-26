@@ -11,9 +11,9 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{DynamicResource SSBorderSmallFixedCardStyleNS}">
+            <Border Style="{StaticResource SSBorderSmallFixedCardStyleNS}">
 
-                <Grid x:Name="controlRoot" Style="{DynamicResource SSGridSmallFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{StaticResource SSGridSmallFixedCardStyle}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
@@ -27,12 +27,12 @@
                     <Border
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{DynamicResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                            Style="{StaticResource MediaImageStyle}" />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />
@@ -40,7 +40,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        Style="{StaticResource GVSymbolIconSmallCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

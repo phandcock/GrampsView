@@ -22,14 +22,14 @@
             x:Name="MediaObjectTitle"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding GType, Mode=OneWay}" />
 
         <Label
             x:Name="GDateValueBTextBlock"
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding GValue, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

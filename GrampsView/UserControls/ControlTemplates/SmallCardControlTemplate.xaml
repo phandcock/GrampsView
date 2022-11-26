@@ -12,16 +12,13 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border
-                Style="{x:DynamicResource SSBorderSmallFixedCardStyle}"
-                WidthRequest="{Binding CardSmallWidth, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
-                HeightRequest="{Binding CardSmallHeight, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}">
+            <Border Style="{x:StaticResource SSBorderSmallFixedCardStyle}">
 
                 <Grid
                     x:Name="controlRoot"
                     ColumnSpacing="0"
                     RowSpacing="0"
-                    Style="{x:DynamicResource SSGridSmallFixedCardStyle}">
+                    Style="{x:StaticResource SSGridSmallFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -40,14 +37,14 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="0"
-                        Style="{DynamicResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             Margin="0"
                             Padding="0"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                            Style="{StaticResource MediaImageStyle}" />
                     </Border>
 
                     <ContentPresenter
@@ -58,7 +55,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        Style="{StaticResource GVSymbolIconSmallCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

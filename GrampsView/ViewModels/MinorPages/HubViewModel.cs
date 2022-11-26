@@ -1,15 +1,11 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Events;
 using GrampsView.Models.HLinks.Models;
 
-using Microsoft.Extensions.DependencyInjection;
-
-using SharedSharp.Errors.Interfaces;
+using SharedSharp.Logging.Interfaces;
 using SharedSharp.Model;
 
 namespace GrampsView.ViewModels.MinorPages
@@ -19,31 +15,20 @@ namespace GrampsView.ViewModels.MinorPages
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
-        public IErrorNotifications _iocErrorNotifications;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public HubViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, IErrorNotifications iocErrorNotifications)
+        /// <summary>Initializes a new instance of the <see cref="HubViewModel" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
+        public HubViewModel(ILog iocCommonLogging, IMessenger iocMessenger)
        : base(iocCommonLogging)
         {
-            _iocErrorNotifications = iocErrorNotifications;
-
             BaseTitle = "Hub";
             BaseTitleIcon = Constants.IconHub;
 
-            Ioc.Default.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            iocMessenger.Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
                 HandledDataLoadedEvent();
             });
 
-            Ioc.Default.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
+            iocMessenger.Register<DataLoadStartEvent>(this, (r, m) =>
              {
                  BaseCL.DataLogShow();
              });
@@ -81,7 +66,7 @@ namespace GrampsView.ViewModels.MinorPages
                 // Setup ToDo list
                 CardGroupModel<NoteModel> t = DV.NoteDV.GetAllOfType(Constants.NoteTypeToDo);
 
-                CardGroupHLink<HLinkNoteModel> toDoCardGroup = new CardGroupHLink<HLinkNoteModel>()
+                CardGroupHLink<HLinkNoteModel> toDoCardGroup = new()
                 {
                     Title = "ToDo list",
                 };

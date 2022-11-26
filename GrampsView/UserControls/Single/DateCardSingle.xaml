@@ -19,14 +19,14 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding Title}"
             VerticalOptions="CenterAndExpand" />
 
         <Label
             Grid.Row="0"
             Grid.Column="1"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef, Mode=OneWay}"
             VerticalOptions="Center" />
     </Grid>

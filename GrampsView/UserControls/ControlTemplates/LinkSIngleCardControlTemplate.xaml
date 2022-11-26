@@ -18,16 +18,16 @@
         <ControlTemplate>
 
             <Border
-                BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
-                                                  Light={DynamicResource OnTertiaryContainerLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
+                                                  Light={StaticResource OnTertiaryContainerLight}}"
                 HeightRequest="50"
                 HorizontalOptions="FillAndExpand"
-                Style="{x:DynamicResource SSBorderCardStyle}">
+                Style="{x:StaticResource SSBorderCardStyle}">
 
                 <Grid
                     x:Name="controlRoot"
                     HorizontalOptions="FillAndExpand"
-                    Style="{x:DynamicResource SSGridBaseStyle}">
+                    Style="{x:StaticResource SSGridBaseStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -50,7 +50,7 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         BackgroundColor="Transparent"
-                        Style="{DynamicResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Border>
@@ -64,7 +64,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="2"
-                        Style="{DynamicResource GVSymbolIconLinkCardType}">
+                        Style="{StaticResource GVSymbolIconLinkCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

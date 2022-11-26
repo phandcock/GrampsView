@@ -10,9 +10,9 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{DynamicResource SSBorderLargeFixedCardStyle}">
+            <Border Style="{StaticResource SSBorderLargeFixedCardStyle}">
 
-                <Grid x:Name="controlRoot" Style="{DynamicResource SSGridlargeFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{StaticResource SSGridlargeFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -30,12 +30,12 @@
                     <Border
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{DynamicResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                            Style="{StaticResource MediaImageStyle}" />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />
@@ -43,7 +43,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconLargeCardType}">
+                        Style="{StaticResource GVSymbolIconLargeCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

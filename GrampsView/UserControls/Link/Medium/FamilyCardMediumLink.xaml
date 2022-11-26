@@ -24,8 +24,8 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            BackgroundColor="{AppThemeBinding Dark={DynamicResource OnTertiaryContainerDark},
-                                              Light={DynamicResource OnTertiaryContainerLight}}"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
+                                              Light={StaticResource OnTertiaryContainerLight}}"
             BindingContext="{Binding ., Mode=OneWay}"
             HorizontalOptions="FillAndExpand"
             IsEnabled="False" />

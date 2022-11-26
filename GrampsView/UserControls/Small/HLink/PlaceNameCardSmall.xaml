@@ -23,21 +23,21 @@
             x:Name="TitleTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GValue, Mode=OneWay}" />
 
         <Label
             x:Name="NameTextBlock"
             Grid.Row="1"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GLang, Mode=OneWay}" />
 
         <Label
             x:Name="TypeTextBlock"
             Grid.Row="2"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GDate.ShortDateOrEmpty, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplateNS>

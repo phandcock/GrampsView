@@ -28,7 +28,7 @@
         <ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand">
 
-                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}}" />
+                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:StaticResource sSharpCommon:SharedSharpCardSizes}}" />
 
                 <sharedsharpucon:InstructionCard
                     Grid.Row="0"
@@ -38,13 +38,13 @@
                 <Button
                     Grid.Row="2"
                     Command="{Binding PickFileCommand}"
-                    Style="{DynamicResource SSButtonMenu}"
+                    Style="{StaticResource SSButtonMenu}"
                     Text="{i18:Localize FileInputHandlerPage_Choose_Button_Text}" />
 
                 <Button
                     Grid.Row="3"
                     Command="{Binding LoadSampleCommand}"
-                    Style="{DynamicResource SSButtonMenu}"
+                    Style="{StaticResource SSButtonMenu}"
                     Text="{i18:Localize FirstRun_SampleButton}" />
             </StackLayout>
         </ScrollView>

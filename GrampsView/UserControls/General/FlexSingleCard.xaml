@@ -16,16 +16,16 @@
         </ResourceDictionary>
     </Border.Resources>
     
-    <StackLayout
+    <Grid
         Margin="0"
-        Padding="0"
+        Padding="0" BackgroundColor="Green"
         HorizontalOptions="FillAndExpand"
-        VerticalOptions="Start">
+        VerticalOptions="FillAndExpand">
         <Border
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
-            Style="{DynamicResource SSBorderHeaderStyle}">
-            <Label Style="{DynamicResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
+            Style="{StaticResource SSBorderHeaderStyle}">
+            <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}" />
         </Border>
 
         <FlexLayout
@@ -34,6 +34,6 @@
             Padding="0"
             BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
             BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference FlexSingleCardRoot}, Mode=OneWay}"
-            Style="{DynamicResource FlexSingleCollection}" />
-    </StackLayout>
+            Style="{StaticResource FlexSingleCollection}" />
+    </Grid>
 </Border>

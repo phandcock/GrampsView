@@ -47,38 +47,38 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{DynamicResource SSCardLabelStyle}"
+                        Style="{StaticResource SSCardLabelStyle}"
                         Text="Sort Item collections on load" />
 
                     <Switch
                         Grid.Row="0"
                         Grid.Column="1"
                         IsToggled="{Binding SortCollectionsFlag}"
-                        Style="{DynamicResource SSSwitchStyle}" />
+                        Style="{StaticResource SSSwitchStyle}" />
 
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
-                        Style="{DynamicResource SSCardLabelStyle}"
+                        Style="{StaticResource SSCardLabelStyle}"
                         Text="Use first (not last) image from collections." />
 
                     <Switch
                         Grid.Row="1"
                         Grid.Column="1"
                         IsToggled="{Binding UseFirstImageFlag}"
-                        Style="{DynamicResource SSSwitchStyle}" />
+                        Style="{StaticResource SSSwitchStyle}" />
 
                     <Label
                         Grid.Row="2"
                         Grid.Column="0"
-                        Style="{DynamicResource SSCardLabelStyle}"
+                        Style="{StaticResource SSCardLabelStyle}"
                         Text="Default email address for Notes" />
 
                     <Entry
                         Grid.Row="2"
                         Grid.Column="1"
-                        BackgroundColor="{AppThemeBinding Dark={DynamicResource SecondaryDark},
-                                                          Light={DynamicResource SecondaryLight}}"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
+                                                          Light={StaticResource SecondaryLight}}"
                         ClearButtonVisibility="WhileEditing"
                         Keyboard="Email"
                         Placeholder="Email"
@@ -88,7 +88,7 @@
                         <Entry.Behaviors>
                             <mauitoolkit:EmailValidationBehavior
                                 DecorationFlags="Trim"
-                                InvalidStyle="{DynamicResource GVEntryInvalid}"
+                                InvalidStyle="{StaticResource GVEntryInvalid}"
                                 IsValid="{Binding UpdateNoteEmailValidValue}" />
                         </Entry.Behaviors>
                     </Entry>
@@ -101,7 +101,7 @@
 
                     <Button
                         Command="{Binding DisplayMessageLogButtonCommand}"
-                        Style="{DynamicResource SSButtonMenu}"
+                        Style="{StaticResource SSButtonMenu}"
                         Text="Show MesageLog" />
                 </StackLayout>
             </sSharpUcon:SSHeaderSettings>

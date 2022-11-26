@@ -34,7 +34,7 @@
             <Button
                 Command="{Binding LoadDataCommand}"
                 HorizontalOptions="Center"
-                Style="{DynamicResource SSButtonMenu}"
+                Style="{StaticResource SSButtonMenu}"
                 Text="{i18:Localize LoadDataBase_GotoLoadData}" />
         </StackLayout>
     </ScrollView>

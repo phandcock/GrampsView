@@ -11,7 +11,7 @@ namespace GrampsView.UserControls
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCardGrouped), propertyChanged: OnItemTemplateChanged);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
+        /// Initializes a new instance of the <see cref="CollectionSingleCardGrouped"/> class.
         /// </summary>
         public CollectionSingleCardGrouped()
         {

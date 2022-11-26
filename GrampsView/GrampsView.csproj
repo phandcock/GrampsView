@@ -53,7 +53,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\Images\application_icon.png" ForegroundFile="Resources\Images\application_icon.png" Color="#ffb787" />
+		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" />
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<!-- Images -->
@@ -112,13 +112,27 @@
 
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
+        <None Remove="Platforms\Windows\Assets\AppIcon.scale-200.png" />
+        <None Remove="Platforms\Windows\Assets\AppIcon.scale-400.png" />
+        <None Remove="Platforms\Windows\Assets\LargeTile.scale-400.png" />
+        <None Remove="Platforms\Windows\Assets\MediumTile.scale-400.png" />
+        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-400.png" />
+        <None Remove="Platforms\Windows\Assets\SmallTile.scale-400.png" />
         <None Remove="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
         <None Remove="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
+        <None Remove="Platforms\Windows\Assets\WideTile.scale-400.png" />
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="Platforms\Windows\Assets\AppIcon.scale-200.png" />
+      <Content Include="Platforms\Windows\Assets\AppIcon.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\LargeTile.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\MediumTile.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\SmallTile.scale-400.png" />
       <Content Include="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
       <Content Include="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\WideTile.scale-400.png" />
     </ItemGroup>
 
     <ItemGroup>

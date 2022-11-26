@@ -24,8 +24,8 @@
     <ucon:DetailPageControlTemplate>
         <StackLayout>
             <Border
-                Stroke="{AppThemeBinding Dark={DynamicResource OnSecondaryContainerDark},
-                                              Light={DynamicResource OnSecondaryContainerLight}}"
+                Stroke="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
+                                              Light={StaticResource OnSecondaryContainerLight}}"
                 HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}"
                 WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}">
                 <Border.GestureRecognizers>

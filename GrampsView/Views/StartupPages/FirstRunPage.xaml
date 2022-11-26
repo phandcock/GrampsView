@@ -29,7 +29,7 @@
                 MinimumHeightRequest="24"
                 Source="ic_launcher.png" />
 
-            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{DynamicResource localization:AppResources.FirstRun_Header}" />
+            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{StaticResource localization:AppResources.FirstRun_Header}" />
 
             <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_IntroductionText" />
 
@@ -37,7 +37,7 @@
 
             <Button
                 Command="{Binding LoadDataCommand}"
-                Style="{DynamicResource SSButtonMenu}"
+                Style="{StaticResource SSButtonMenu}"
                 Text="AppResources.FirstRun_WhatsNewButton" />
         </StackLayout>
     </ScrollView>

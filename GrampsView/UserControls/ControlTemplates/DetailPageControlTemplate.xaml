@@ -27,14 +27,14 @@
                     Grid.Column="0"
                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuHubCommand}"
                     IsVisible="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuHubButtonVisible}"
-                    Style="{DynamicResource SSButtonMenu}"
+                    Style="{StaticResource SSButtonMenu}"
                     Text="Hub"
                     WidthRequest="40" />
                 <Button
                     Grid.Row="0"
                     Grid.Column="1"
                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuNoteCommand}"
-                    Style="{DynamicResource SSButtonMenu}"
+                    Style="{StaticResource SSButtonMenu}"
                     Text="Note"
                     WidthRequest="40" />
 
@@ -42,7 +42,7 @@
                 <!--<breadcrumb:Breadcrumb
                     Grid.Row="0"
                     Grid.Column="2"
-                    Style="{DynamicResource GVBreadcrumb}" />-->
+                    Style="{StaticResource GVBreadcrumb}" />-->
 
                 <!--  Content  -->
                 <ScrollView

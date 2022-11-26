@@ -39,13 +39,13 @@
                 x:Name="SearchBar"
                 Grid.Row="0"
                 Margin="3"
-                BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark},
-                                                  Light={DynamicResource SurfaceLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                                  Light={StaticResource SurfaceLight}}"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
                 SearchCommand="{Binding SearchButtonCommand}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
-                TextColor="{DynamicResource OnSurfaceColor}">
+                TextColor="{StaticResource OnSurfaceColor}">
                 <SearchBar.Behaviors>
                     <mauitoolkit:UserStoppedTypingBehavior
                         Command="{Binding SearchButtonCommand}"
@@ -67,7 +67,7 @@
             <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
-            <Border BackgroundColor="{AppThemeBinding Dark={DynamicResource SurfaceDark}, Light={DynamicResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
+            <Border BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize SearchPage_NothingFound}" />
             </Border>
         </StackLayout>

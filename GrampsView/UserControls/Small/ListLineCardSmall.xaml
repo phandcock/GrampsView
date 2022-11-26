@@ -9,8 +9,8 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="sharedsharpmodels:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
-    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}, Mode=OneWay}"
-    Style="{DynamicResource SSGridSmallVariableCardStyle}">
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:StaticResource sSharpCommon:SharedSharpCardSizes}, Mode=OneWay}"
+    Style="{StaticResource SSGridSmallVariableCardStyle}">
 
     <Grid.Resources>
         <ResourceDictionary>
@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </Grid.Resources>
 
-    <Border Style="{DynamicResource SSBorderSmallVariableCardStyleNS}">
+    <Border Style="{StaticResource SSBorderSmallVariableCardStyleNS}">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -34,7 +34,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 IsVisible="{Binding Title, Converter={StaticResource stringToBool}}"
-                Style="{DynamicResource SSBorderHeaderStyle}">
+                Style="{StaticResource SSBorderHeaderStyle}">
                 <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
             </Border>
 
@@ -54,13 +54,13 @@
 
                             <Label
                                 Grid.Column="0"
-                                Style="{DynamicResource SSCardLabelStyle}"
+                                Style="{StaticResource SSCardLabelStyle}"
                                 Text="{Binding Label}" />
                             <Label
                                 Grid.Column="1"
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"
-                                Style="{DynamicResource SSCardLabelStyle}"
+                                Style="{StaticResource SSCardLabelStyle}"
                                 Text="{Binding Value}" />
                         </Grid>
                     </DataTemplate>

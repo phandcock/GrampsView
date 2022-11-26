@@ -7,14 +7,14 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="ParentLinkCardLargeRoot"
     x:DataType="models:HLinkPersonModel"
-    Style="{DynamicResource SSGridLargeVariableCardStyle}">
+    Style="{StaticResource SSGridLargeVariableCardStyle}">
 
     <Border
-        BackgroundColor="{AppThemeBinding Dark={DynamicResource TertiaryContainerDark},
-                                          Light={DynamicResource TertiaryContainerLight}}"
-        Stroke="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
-                                      Light={DynamicResource SurfaceVariantLight}}"
-        Style="{DynamicResource SSBorderMediumVariableCardStyleNS}">
+        BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
+                                          Light={StaticResource TertiaryContainerLight}}"
+        Stroke="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
+                                      Light={StaticResource SurfaceVariantLight}}"
+        Style="{StaticResource SSBorderMediumVariableCardStyleNS}">
 
         <Grid>
 
@@ -34,10 +34,10 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="0"
-                BackgroundColor="{AppThemeBinding Dark={DynamicResource PrimaryContainerDark},
-                                                  Light={DynamicResource PrimaryContainerLight}}"
-                Stroke="{AppThemeBinding Dark={DynamicResource SecondaryContainerDark},
-                                              Light={DynamicResource SecondaryContainerLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryContainerDark},
+                                                  Light={StaticResource PrimaryContainerLight}}"
+                Stroke="{AppThemeBinding Dark={StaticResource SecondaryContainerDark},
+                                              Light={StaticResource SecondaryContainerLight}}"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="{Binding FsctShowParentLink, Source={x:Reference ParentLinkCardLargeRoot}}"
                 Style="{StaticResource SSBorderCardStyle}">
@@ -48,7 +48,7 @@
                 <StackLayout Orientation="Horizontal">
                     <Image
                         Margin="5"
-                        Style="{DynamicResource GVSymbolIconSingleCardType}"
+                        Style="{StaticResource GVSymbolIconSingleCardType}"
                         VerticalOptions="Center">
                         <Image.Source>
                             <FontImageSource

@@ -9,9 +9,9 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{DynamicResource SSBorderSingleFixedCardStyle}">
+            <Border Style="{StaticResource SSBorderSingleFixedCardStyle}">
 
-                <Grid x:Name="controlRoot" Style="{DynamicResource SSGridSingleFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{StaticResource SSGridSingleFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -29,12 +29,12 @@
                     <Border
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{DynamicResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{DynamicResource MediaImageStyle}" />
+                            Style="{StaticResource MediaImageStyle}" />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />
@@ -42,7 +42,7 @@
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSingleCardType}">
+                        Style="{StaticResource GVSymbolIconSingleCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

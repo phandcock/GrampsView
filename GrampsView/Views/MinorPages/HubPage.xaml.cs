@@ -1,17 +1,13 @@
-﻿namespace GrampsView.Views
+﻿using GrampsView.ViewModels.MinorPages;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels.MinorPages;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public sealed partial class HubPage : ViewBasePage
     {
-        private HubViewModel _viewModel { get; set; }
-
         public HubPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<HubViewModel>();
+            BindingContext = Ioc.Default.GetService<HubViewModel>();
         }
     }
 }

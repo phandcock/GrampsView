@@ -6,8 +6,8 @@
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="{AppThemeBinding Dark={DynamicResource Neutral},
-                                      Light={DynamicResource Neutral}}"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                      Light={StaticResource Neutral}}"
     IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
     <Border.Resources>
@@ -25,7 +25,7 @@
         <Border
             x:Name="LLCardLargeFrame"
             IsVisible="{Binding Title, Converter={StaticResource StringToBool}, Mode=OneWay}"
-            Style="{DynamicResource SSBorderHeaderStyle}">
+            Style="{StaticResource SSBorderHeaderStyle}">
             <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title}" />
         </Border>
 

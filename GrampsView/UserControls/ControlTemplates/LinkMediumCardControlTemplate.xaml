@@ -11,13 +11,13 @@
         <ControlTemplate>
 
             <Border
-                BackgroundColor="{AppThemeBinding Dark={DynamicResource TertiaryContainerDark},
-                                                  Light={DynamicResource TertiaryContainerLight}}"
-                Stroke="{AppThemeBinding Dark={DynamicResource SurfaceVariantDark},
-                                              Light={DynamicResource SurfaceVariantLight}}"
-                Style="{x:DynamicResource SSBorderMediumVariableCardStyleNS}">
+                BackgroundColor="{AppThemeBinding Dark={StaticResource TertiaryContainerDark},
+                                                  Light={StaticResource TertiaryContainerLight}}"
+                Stroke="{AppThemeBinding Dark={StaticResource SurfaceVariantDark},
+                                              Light={StaticResource SurfaceVariantLight}}"
+                Style="{x:StaticResource SSBorderMediumVariableCardStyleNS}">
 
-                <Grid x:Name="controlRoot" Style="{x:DynamicResource SSGridMediumFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{x:StaticResource SSGridMediumFixedCardStyle}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -37,7 +37,7 @@
                     <Image
                         Grid.Row="1"
                         Grid.Column="1"
-                        Style="{DynamicResource GVSymbolIconSmallCardType}">
+                        Style="{StaticResource GVSymbolIconSmallCardType}">
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"

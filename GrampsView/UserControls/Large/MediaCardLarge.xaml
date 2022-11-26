@@ -4,67 +4,65 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaCardLargeRoot"
     x:DataType="models:HLinkMediaModel"
     BindingContextChanged="MediaCardLargeRoot_BindingContextChanged"
     IsVisible="{Binding Valid}"
-    Style="{DynamicResource SSGridLargeVariableCardStyle}">
+    Style="{StaticResource SSGridLargeVariableCardStyle}">
 
-    <Border
-        HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}"
-        Style="{DynamicResource SSBorderLargeFixedCardStyle}"
-        VerticalOptions="Start"
-        WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}">
+    <Border Style="{StaticResource SSBorderLargeFixedCardStyle}" VerticalOptions="Start">
 
-        <Border.Content>
+        <Grid
+            x:Name="controlRoot"
+            Margin="5"
+            Padding="5"
+            HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
+            WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}">
 
-            <Grid x:Name="controlRoot">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
+            </Grid.GestureRecognizers>
 
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />
-                </Grid.GestureRecognizers>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
-                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            <ucon:HLinkVisualDisplay
+                x:Name="AnchorImage"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource MediaImageStyle}" />
 
-                <ucon:HLinkVisualDisplay
-                    x:Name="AnchorImage"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Style="{DynamicResource MediaImageStyle}" />
+            <Label
+                x:Name="MediaObjectTitle"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource SSCardLabelStyleSmall}"
+                Text="{Binding DeRef.GDescription, Mode=OneWay}" />
 
-                <Label
-                    x:Name="MediaObjectTitle"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HorizontalOptions="CenterAndExpand"
-                    HorizontalTextAlignment="Center"
-                    Style="{DynamicResource SSCardLabelStyleSmall}"
-                    Text="{Binding DeRef.GDescription, Mode=OneWay}" />
-
-                <Image
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Style="{DynamicResource GVSymbolIconSmallCardType}">
-                    <Image.Source>
-                        <FontImageSource
-                            FontFamily="IconFont"
-                            Glyph="{Binding HLinkGlyphItem.Symbol}"
-                            Color="{Binding HLinkGlyphItem.SymbolColour}" />
-                    </Image.Source>
-                </Image>
-            </Grid>
-        </Border.Content>
+            <Image
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource GVSymbolIconSmallCardType}">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="IconFont"
+                        Glyph="{Binding HLinkGlyphItem.Symbol}"
+                        Color="{Binding HLinkGlyphItem.SymbolColour}" />
+                </Image.Source>
+            </Image>
+        </Grid>
     </Border>
 </Grid>

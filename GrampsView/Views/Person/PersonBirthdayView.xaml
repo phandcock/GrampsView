@@ -32,18 +32,18 @@
         <Border
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSPageMenu}">
+            Style="{StaticResource SSPageMenu}">
             <StackLayout Margin="0" Orientation="Horizontal">
                 <Label
                     Padding="3"
-                    Style="{DynamicResource SSCardLabelStyle}"
+                    Style="{StaticResource SSCardLabelStyle}"
                     Text="Show Only Living People"
                     VerticalTextAlignment="Center" />
 
                 <Switch
                     Margin="3"
                     IsToggled="{Binding BirthdayShowOnlyLivingFlag}"
-                    Style="{DynamicResource SSSwitchStyle}" />
+                    Style="{StaticResource SSSwitchStyle}" />
             </StackLayout>
         </Border>
 

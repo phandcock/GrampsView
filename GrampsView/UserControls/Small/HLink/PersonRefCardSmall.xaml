@@ -22,14 +22,14 @@
             x:Name="PersonRefNameTextBlock"
             Grid.Row="0"
             Grid.Column="0"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.FullName, Mode=OneWay}" />
 
         <Label
             x:Name="PersonRefRelTextBlock"
             Grid.Row="1"
             Grid.Column="10"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding GRelationship, Mode=OneWay}" />
     </Grid>
 </ucon:SmallCardControlTemplate> 

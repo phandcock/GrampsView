@@ -40,8 +40,8 @@
 
             <StackLayout
                 Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={DynamicResource PrimaryDark},
-                                                  Light={DynamicResource PrimaryLight}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDark},
+                                                  Light={StaticResource PrimaryLight}}"
                 Orientation="Horizontal">
 
                 <Image
@@ -53,10 +53,10 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}"
-                    Style="{DynamicResource SSLabelStyleLarge}"
+                    Style="{StaticResource SSLabelStyleLarge}"
                     Text="{i18:Localize AboutPage_AppHeader}"
-                    TextColor="{AppThemeBinding Dark={DynamicResource OnPrimaryContainerDark},
-                                                Light={DynamicResource OnPrimaryLight}}"
+                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
+                                                Light={StaticResource OnPrimaryLight}}"
                     VerticalOptions="Center" />
             </StackLayout>
 

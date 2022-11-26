@@ -1,9 +1,9 @@
 ﻿<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.NoteCardSmall"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:DataType="models:HLinkNoteModel">
 
@@ -22,16 +22,16 @@
             Grid.Row="0"
             Grid.Column="0"
             LineBreakMode="WordWrap"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GStyledText.GText, Mode=OneWay}" />
 
         <Label
             Grid.Row="0"
             Grid.Column="1"
-            FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
+            FontSize="{x:Static sSharpCommon:SharedSharpFontSize.FontVerySmall}"
             FormattedText="{Binding DeRef.GType, Mode=OneWay}"
             HorizontalOptions="End"
-            Style="{DynamicResource SSCardLabelStyleSmall}"
+            Style="{StaticResource SSCardLabelStyleSmall}"
             TextColor="{StaticResource CardBackGroundNote}" />
     </Grid>
 </ucon:SmallCardControlTemplate>

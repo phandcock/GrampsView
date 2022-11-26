@@ -8,9 +8,9 @@
     x:Name="MediaGlyphCardLargeRoot"
     x:DataType="customclasses:ItemGlyph"
     IsVisible="{Binding ValidImage}"
-    Style="{DynamicResource SSGridLargeVariableCardStyle}">
+    Style="{StaticResource SSGridLargeVariableCardStyle}">
 
-    <Border Style="{DynamicResource SSBorderCardLargeStyle}" VerticalOptions="Start">
+    <Border Style="{StaticResource SSBorderCardLargeStyle}" VerticalOptions="Start">
 
         <Border.Content>
 
@@ -22,7 +22,7 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="{DynamicResource GVCardIconSize}" />
+                    <ColumnDefinition Width="{StaticResource GVCardIconSize}" />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -36,12 +36,12 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     BindingContext="{Binding ., Mode=OneWay}"
-                    Style="{DynamicResource MediaImageStyle}" />
+                    Style="{StaticResource MediaImageStyle}" />
 
                 <Image
                     Grid.Row="1"
                     Grid.Column="1"
-                    Style="{DynamicResource GVSymbolIconSmallCardType}">
+                    Style="{StaticResource GVSymbolIconSmallCardType}">
                     <Image.Source>
                         <FontImageSource
                             FontFamily="IconFont"
