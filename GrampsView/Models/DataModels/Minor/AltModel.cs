@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Models.DataModels;
+
+namespace GrampsView.Data.Model
 {
     public class AltModel : ModelBase, IAltModel
     {

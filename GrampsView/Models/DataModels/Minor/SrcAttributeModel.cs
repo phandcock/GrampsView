@@ -1,5 +1,7 @@
 ﻿// TODO Needs XML 1.71 check
 
+using GrampsView.Models.DataModels;
+
 namespace GrampsView.Data.Model
 {
     /// <summary>

@@ -14,6 +14,7 @@ namespace GrampsView.Data.DataView
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
 
     /// <summary>
     /// I Header Data Source.

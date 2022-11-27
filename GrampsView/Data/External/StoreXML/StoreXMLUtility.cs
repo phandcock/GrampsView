@@ -397,7 +397,7 @@ namespace GrampsView.Data.ExternalStorage
             return tt;
         }
 
-        [Obsolete]
+
         private ModelBase GetBasics(XElement argElement)
         {
             ModelBase returnVal = new()

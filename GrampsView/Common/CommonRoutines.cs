@@ -1,5 +1,5 @@
-﻿using GrampsView.Data.Model;
-using GrampsView.Data.Repository;
+﻿using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
 using MimeTypes;

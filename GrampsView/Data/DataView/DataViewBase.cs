@@ -14,6 +14,7 @@
     using System.Linq;
 
     using CommunityToolkit.Mvvm.ComponentModel;
+    using GrampsView.Models.DataModels;
 
     /// <summary>
     /// Partially based on http://stackoverflow.com/questions/8157140/net-4-0-indexer-with-observablecollection.

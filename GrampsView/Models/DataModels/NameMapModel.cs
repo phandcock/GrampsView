@@ -3,6 +3,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels;
 
     using System;
     using System.Collections;
@@ -10,7 +11,7 @@ namespace GrampsView.Data.Model
     /// TODO Update fields as per Schema
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.Model.ModelBase"/>
+    /// <seealso cref="Models.DataModels.ModelBase"/>
     /// <seealso cref="GrampsView.Data.Model.INameMapModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>

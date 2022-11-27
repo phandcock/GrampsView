@@ -1,9 +1,10 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
 
 using SharedSharp.Model;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels
 {
     /// <summary>
     /// Data model for a Gramps file header.
@@ -24,6 +25,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderModel"/> class.
         /// </summary>
+
         [Obsolete]
         public HeaderModel()
         {
@@ -91,121 +93,85 @@ namespace GrampsView.Data.Model
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GCreatedVersion
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GMediaPath
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherAddress
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherCity
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherCountry
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherEmail
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherLocality
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherName
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherPhone
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherPostal
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
         public string GResearcherState
         {
             get;
 
             set;
-        }
+        } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets date the file was created.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the data version.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the absolute path to the start of the media file file structure.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers address.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers city.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers country.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers email address.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers locality.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers name.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers phone.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers postal address.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the researchers state.
-        /// </summary>
         public HLinkHeaderModel HLink
         {
             get

@@ -5,6 +5,7 @@
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.DataModels;
 
     using System.Collections.Generic;
     using System.Linq;
@@ -57,6 +58,7 @@
         /// <value>
         /// The header data.
         /// </value>
+        [Obsolete]
         public HeaderModel HeaderDataModel
         {
             get
@@ -81,6 +83,7 @@
         /// <remarks>
         /// Assume sonly one header as per the spec.
         /// </remarks>
+        [Obsolete]
         public override HLinkHeaderModelCollection GetAllAsCardGroupBase()
         {
             HLinkHeaderModelCollection t = new HLinkHeaderModelCollection();

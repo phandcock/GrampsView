@@ -1,15 +1,16 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+
+using SharedSharp.ViewModels;
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
+namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-
-    using SharedSharp.ViewModels;
-
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Threading.Tasks;
-
     [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
     [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
@@ -79,17 +80,9 @@
                     return _BaseTitle;
                 }
 
-                if (BaseModelBase.Valid)
-                {
-                    return BaseModelBase.DefaultTextShort;
-                }
-
-                return string.Empty;
+                return BaseModelBase.Valid ? BaseModelBase.DefaultTextShort : string.Empty;
             }
-            set
-            {
-                SetProperty(ref _BaseTitle, value);
-            }
+            set => SetProperty(ref _BaseTitle, value);
         }
 
         public bool TopMenuHubButtonVisible
@@ -116,14 +109,14 @@
         {
             string body = string.Empty;
 
-            List<string> recipients = new List<string>
+            List<string> recipients = new()
             {
                 CommonLocalSettings.NoteEmailAddress
             };
 
-            EmailMessage message = new EmailMessage
+            EmailMessage message = new()
             {
-                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase.ToString()}",
+                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase}",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,
@@ -179,7 +172,7 @@
             {
                 BaseTitle = CommonRoutines.ReplaceLineSeperators(BaseTitle);
 
-                BaseTitle = BaseTitle.Substring(0, BaseTitle.Length > 50 ? 50 : BaseTitle.Length);
+                BaseTitle = BaseTitle[..(BaseTitle.Length > 50 ? 50 : BaseTitle.Length)];
             }
         }
     }

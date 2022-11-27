@@ -1,4 +1,4 @@
-﻿using GrampsView.Data.Model;
+﻿using GrampsView.Models.DataModels;
 
 using System.Collections.Specialized;
 using System.ComponentModel;

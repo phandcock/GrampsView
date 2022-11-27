@@ -1,26 +1,21 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
 
-using SharedSharp.Common;
-
-using System;
 using System.Diagnostics.Contracts;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels
 {
     /// <summary>
     /// Base for Models.
     /// </summary>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
+    /// <seealso cref="Common.ObservableObject"/>
     /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
     /// /// ///
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
+    /// <seealso cref="Data.ViewModel.IModelBase"/>
 
     public class ModelBase : ObservableObject, IModelBase
     {
@@ -38,12 +33,12 @@ namespace GrampsView.Data.Model
 
         private ItemGlyph _ModelItemGlyph = new();
 
-        [Obsolete]
+
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
             ModelItemGlyph.Symbol = Constants.IconDDefault;
-            ModelItemGlyph.SymbolColour = Color.FromHex("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
+            ModelItemGlyph.SymbolColour = Color.FromArgb("#A9A9A9"); //  CommonRoutines.ResourceColourGet("CardBackGroundUtility");
 
             UCNavigateCommand = new AsyncRelayCommand(UCNavigate);
         }
@@ -197,10 +192,9 @@ namespace GrampsView.Data.Model
             ModelBase firstSource = (ModelBase)argFirstModelBase;
             ModelBase secondSource = (ModelBase)argSecondModelBase;
 
-            if (firstSource is null)
-            { return SharedSharpConstants.CompareEquals; }
-
-            return secondSource is null ? SharedSharpConstants.CompareEquals : Compare(firstSource.HLinkKey, secondSource.HLinkKey);
+            return firstSource is null
+                ? SharedSharpConstants.CompareEquals
+                : secondSource is null ? SharedSharpConstants.CompareEquals : Compare(firstSource.HLinkKey, secondSource.HLinkKey);
         }
 
         public int CompareTo(ModelBase other)
@@ -236,16 +230,8 @@ namespace GrampsView.Data.Model
             if (obj is null)
             { return false; }
 
-            if (obj.GetType() != GetType())
-            { return false; }
-
-            if (string.IsNullOrEmpty(Id))
-            { return false; }
-
-            if (string.IsNullOrEmpty((obj as ModelBase).Id))
-            { return false; }
-
-            return Id == (obj as ModelBase).Id;
+            return obj.GetType() == GetType()
+&& !string.IsNullOrEmpty(Id) && !string.IsNullOrEmpty((obj as ModelBase).Id) && Id == (obj as ModelBase).Id;
         }
 
         public override int GetHashCode()
@@ -284,7 +270,7 @@ namespace GrampsView.Data.Model
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
+            await SharedSharpNavigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using GrampsView.Data.Model;
-using GrampsView.Data.Repositories;
+﻿using GrampsView.Data.Repositories;
 using GrampsView.Exceptions;
+using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
 using Microsoft.Extensions.DependencyInjection;

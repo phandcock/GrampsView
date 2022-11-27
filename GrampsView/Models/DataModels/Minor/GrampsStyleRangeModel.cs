@@ -1,5 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
+    using GrampsView.Models.DataModels;
+
     using System;
     using System.Diagnostics.Contracts;
 

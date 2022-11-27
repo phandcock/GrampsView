@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Data.Collections;
+    using GrampsView.Models.DataModels;
 
     using SharedSharp.Common;
 

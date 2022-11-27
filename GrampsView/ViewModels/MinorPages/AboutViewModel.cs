@@ -120,15 +120,15 @@
 
             ApplicationStateList.AddRange(new CardListLineCollection
                 {
-                new CardListLine("Display Class", SharedSharpSizes.CurrentDisplayClass.ToString()),
+                new CardListLine("Display Class", SharedSharpStatic.Sizes.CurrentDisplayClass.ToString()),
 
-                new CardListLine("Window Size", SharedSharpSizes.WindowSize.ToString()),
+                new CardListLine("Window Size", SharedSharpStatic.Sizes.WindowSize.ToString()),
 
-                new CardListLine("Screen Size", SharedSharpSizes.ScreenSize.ToString()),
+                new CardListLine("Screen Size", SharedSharpStatic.Sizes.ScreenSize.ToString()),
 
-                new CardListLine("Orientation", SharedSharpSizes.CurrentOrientation.ToString()),
+                new CardListLine("Orientation", SharedSharpStatic.Sizes.CurrentOrientation.ToString()),
 
-                new CardListLine("Idiom", SharedSharpSizes.CurrentDeviceIdiom.ToString()),
+                new CardListLine("Idiom", SharedSharp.Common.SharedSharpStatic.Sizes.CurrentDeviceIdiom.ToString()),
 
                 new CardListLine("CardSize Small Width", SharedSharpStatic.CardSizes.CardSmallWidth.ToString()),
 
