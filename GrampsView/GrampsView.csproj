@@ -108,6 +108,7 @@
       <Compile Remove="Platforms\Android\Localize.cs" />
       <Compile Remove="Platforms\Android\SplashActivity.cs" />
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
+      <Compile Remove="UserControls\General\FlexkMe.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -176,6 +177,9 @@
       <Compile Update="Resources\Styles\CardThemeDictionary.xaml.cs">
         <DependentUpon>CardThemeDictionary.xaml</DependentUpon>
       </Compile>
+      <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
+        <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
  
@@ -197,6 +201,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\CardThemeDictionary.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\General\CollectionSingleCard.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
     </ItemGroup>

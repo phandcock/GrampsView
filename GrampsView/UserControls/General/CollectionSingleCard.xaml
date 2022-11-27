@@ -1,0 +1,60 @@
+﻿<!--  This exists as CollectionView as faster than FLexLayout for lists  -->
+
+<Border
+    x:Class="GrampsView.UserControls.CollectionSingleCard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="CollectionSingleCardRoot"
+    Margin="0"
+    Padding="0"
+    BackgroundColor="Transparent">
+
+    <Border.Resources>
+        <ResourceDictionary>
+            <mauitoolkit:IsStringNotNullOrEmptyConverter x:Key="StringToVisible" />
+        </ResourceDictionary>
+    </Border.Resources>
+
+    <StackLayout>
+        <Border
+            x:Name="LLCardLargeFrame"
+            IsVisible="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay, Converter={StaticResource StringToVisible}}"
+            Style="{StaticResource SSBorderHeaderStyle}">
+            <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
+        </Border>
+
+        <CollectionView
+            x:Name="theCollectionView"
+            EmptyView="No data available"
+            ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="1"
+                    Orientation="Vertical"
+                    Span="{Binding CardsAcrossColumns, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
+                    VerticalItemSpacing="1" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Border
+                        Padding="0"
+                        IsVisible="{Binding Visible, Mode=OneWay}"
+                        Style="{StaticResource SSBorderHeaderStyle}">
+                        <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
+                            <!--  TODO checkout another bug in UWP CollectionView  -->
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="WinUI">12</On>
+                                </OnPlatform>
+                            </Label.FontSize>
+                        </Label>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+        </CollectionView>
+    </StackLayout>
+</Border>

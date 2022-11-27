@@ -5,8 +5,15 @@
     xmlns:i18="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="models:HLinkPersonModel">
 
+    <ucon:SmallCardControlTemplate.Resources>
+        <ResourceDictionary>
+            <mauitoolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ucon:SmallCardControlTemplate.Resources>
+    
     <Grid>
 
         <Grid.ColumnDefinitions>

@@ -65,19 +65,17 @@
 
                 <sharedsharpucon:ListLineCard CardList="{Binding HeaderCard}" />
 
-            
-                <!--<ucon:FlexSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />-->
-
-                <ucon:FlexSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-                <!--<ucon:FlexSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestMediaChanges, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestNoteChanges, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestRepositoryChanges, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
-                <ucon:FlexSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />-->
+                <ucon:CollectionSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestMediaChanges, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestNoteChanges, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestPersonChanges, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestPlaceChanges, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestRepositoryChanges, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestSourceChanges, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding LatestTagChanges, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
