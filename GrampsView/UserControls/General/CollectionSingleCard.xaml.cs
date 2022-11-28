@@ -16,7 +16,14 @@ namespace GrampsView.UserControls
         public CollectionSingleCard()
         {
             InitializeComponent();
+
+            Ioc.Default.GetService<IMessenger>().Register<SharedSharp.Messages.SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            {
+                CardsAcross = SharedSharp.Common.SharedSharpStatic.CardSizes.CardsAcrossColumns;
+            });
         }
+
+        public int CardsAcross { get; set; } = 2;
 
         /// <summary>
         /// Gets or sets the FSCT source.
