@@ -1,3 +1,14 @@
+## [16.28.8](https://github.com/phandcock/GrampsView/compare/v16.28.7...v16.28.8) (2022-11-27)
+
+
+### Bug Fixes
+
+* more work ([6a04282](https://github.com/phandcock/GrampsView/commit/6a04282e5eea374800e4f5d90c75f21a4e90d04e))
+* more work ([3920c43](https://github.com/phandcock/GrampsView/commit/3920c4393c1cb0737afc77f591180c64f3008f75))
+* tweaks ([4789a77](https://github.com/phandcock/GrampsView/commit/4789a77c4587315e7f237c187fb394ab80d0c238))
+
+
+
 ## [16.28.7](https://github.com/phandcock/GrampsView/compare/v16.28.6...v16.28.7) (2022-11-26)
 
 
@@ -25,15 +36,6 @@
 ### Bug Fixes
 
 * tweak build ([dda4984](https://github.com/phandcock/GrampsView/commit/dda498432fb71bb6486ff5c1f2258198157a220e))
-
-
-
-## [16.28.4](https://github.com/phandcock/GrampsView/compare/v16.28.3...v16.28.4) (2022-11-23)
-
-
-### Bug Fixes
-
-* get framework going ([d34d21e](https://github.com/phandcock/GrampsView/commit/d34d21eb33962b02423a085dabaeecb5efc367e1))
 
 
 
