@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.Contracts;
+﻿using SharedSharp.Common.Interfaces;
+
+using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
@@ -97,7 +99,7 @@ namespace GrampsView.UserControls
 
             CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
 
-            NumColumns = (int)((t.Width / SharedSharpStatic.CardSizes.CardSmallWidth) + 1);  // +1 for padding
+            NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
         }
     }
 }

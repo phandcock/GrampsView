@@ -20,7 +20,7 @@
             <GridItemsLayout
                 HorizontalItemSpacing="1"
                 Orientation="Vertical"
-                Span="{Binding CardsAcrossColumns, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
+                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
                 VerticalItemSpacing="1" />
         </CollectionView.ItemsLayout>
 

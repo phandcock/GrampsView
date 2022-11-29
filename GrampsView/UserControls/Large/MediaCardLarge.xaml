@@ -18,8 +18,8 @@
             x:Name="controlRoot"
             Margin="5"
             Padding="5"
-            HeightRequest="{Binding MediaDetailImageHeight, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}"
-            WidthRequest="{Binding MediaDetailImageWidth, Source={x:Static sSharpCommon:SharedSharpStatic.CardSizes}, Mode=OneWay}">
+            HeightRequest="{Binding MediaDetailImageHeight, Source={x:Reference MediaCardLargeRoot}, Mode=OneWay}"
+            WidthRequest="{Binding MediaDetailImageWidth, Source={x:Reference MediaCardLargeRoot},  Mode=OneWay}">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding UCNavigateCommand}" CommandParameter="{Binding DeRef.HLink}" />

@@ -26,7 +26,6 @@ namespace GrampsView.Models.DataModels
         /// Initializes a new instance of the <see cref="HeaderModel"/> class.
         /// </summary>
 
-        [Obsolete]
         public HeaderModel()
         {
             ModelItemGlyph.Symbol = Constants.IconHeader;
@@ -51,7 +50,7 @@ namespace GrampsView.Models.DataModels
                         new CardListLine("Researcher Phone:", GResearcherPhone),
                         new CardListLine("Researcher Postal:", GResearcherPostal),
                         new CardListLine("MediaPath:", GMediaPath),
-                        //new CardListLine("Application Version:", VersionTracking.CurrentVersion),
+                        new CardListLine("Application Version:", VersionTracking.CurrentVersion),
             };
 
                 HeaderCard.Title = "Header Details";

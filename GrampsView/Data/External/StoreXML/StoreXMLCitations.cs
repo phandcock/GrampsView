@@ -7,7 +7,7 @@ namespace GrampsView.Data.ExternalStorage
 {
     public partial class StoreXML : IStoreXML
     {
-        [Obsolete]
+
         public async Task LoadCitationsAsync()
         {
             myCommonLogging.DataLogEntryAdd("Loading Citation data");

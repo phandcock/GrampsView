@@ -3,6 +3,7 @@ using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Events;
 
+using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
 
@@ -24,9 +25,11 @@ namespace GrampsView.ViewModels.StartupPages
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public FileInputHandlerViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        public FileInputHandlerViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpCardSizes iocCardSizes)
             : base(iocCommonLogging)
         {
+            CardSizes = iocCardSizes;
+
             BaseTitle = "File Chooser";
 
             BaseTitleIcon = Constants.IconSettings;
@@ -35,6 +38,8 @@ namespace GrampsView.ViewModels.StartupPages
 
             PickFileCommand = new AsyncRelayCommand(PickFile);
         }
+
+        public ISharedSharpCardSizes CardSizes { get; }
 
         public IAsyncRelayCommand LoadSampleCommand
         {

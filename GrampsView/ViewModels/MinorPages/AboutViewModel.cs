@@ -1,18 +1,15 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+
+using Microsoft.AppCenter.Distribute;
+
+using SharedSharp.Common.Interfaces;
+using SharedSharp.Model;
+
+using System.Reflection;
+
+namespace GrampsView.ViewModels.MinorPages
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-
-    using Microsoft.AppCenter.Distribute;
-
-    using SharedSharp.Common;
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
-    using System.Reflection;
-
     public class AboutViewModel : ViewModelBase
     {
         public AboutViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
@@ -42,23 +39,11 @@
         /// <value>
         /// The application version list.
         /// </value>
-        public string AppName
-        {
-            get
-            {
-                return AppInfo.Name;
-            }
-        }
+        public string AppName => AppInfo.Name;
 
         public string AttributionText { get; set; }
 
-        public CardListLineCollection HeaderData
-        {
-            get
-            {
-                return DV.HeaderDV.HeaderDataModel.DetailAsCardListLineCollection;
-            }
-        }
+        public CardListLineCollection HeaderData => DV.HeaderDV.HeaderDataModel.DetailAsCardListLineCollection;
 
         public string PrivacyPolicyText { get; set; }
 
@@ -67,11 +52,14 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override async void HandleViewAppearingEvent()
+        public override void HandleViewAppearingEvent()
         {
             // Assembly level stuff
             Assembly assembly = GetType().GetTypeInfo().Assembly;
-            AssemblyName assemblyName = new AssemblyName(assembly.FullName);
+            AssemblyName assemblyName = new(assembly.FullName);
+
+            ISharedSharpSizes MySizes = Ioc.Default.GetService<ISharedSharpSizes>();
+            ISharedSharpCardSizes MyCardSizes = Ioc.Default.GetService<ISharedSharpCardSizes>();
 
             ApplicationVersionList.Clear();
 
@@ -120,19 +108,19 @@
 
             ApplicationStateList.AddRange(new CardListLineCollection
                 {
-                new CardListLine("Display Class", SharedSharpStatic.Sizes.CurrentDisplayClass.ToString()),
+                new CardListLine("Display Class", MySizes.CurrentDisplayClass.ToString()),
 
-                new CardListLine("Window Size", SharedSharpStatic.Sizes.WindowSize.ToString()),
+                new CardListLine("Window Size", MySizes.WindowSize.ToString()),
 
-                new CardListLine("Screen Size", SharedSharpStatic.Sizes.ScreenSize.ToString()),
+                new CardListLine("Screen Size", MySizes.ScreenSize.ToString()),
 
-                new CardListLine("Orientation", SharedSharpStatic.Sizes.CurrentOrientation.ToString()),
+                new CardListLine("Orientation", MySizes.CurrentOrientation.ToString()),
 
-                new CardListLine("Idiom", SharedSharp.Common.SharedSharpStatic.Sizes.CurrentDeviceIdiom.ToString()),
+                new CardListLine("Idiom", MySizes.CurrentDeviceIdiom.ToString()),
 
-                new CardListLine("CardSize Small Width", SharedSharpStatic.CardSizes.CardSmallWidth.ToString()),
+                new CardListLine("CardSize Small Width", MyCardSizes.CardSmallWidth.ToString()),
 
-                new CardListLine("CardSize Number Columns", SharedSharpStatic.CardSizes.CardsAcrossColumns.ToString()),
+                new CardListLine("CardSize Number Columns", MyCardSizes.CardsAcrossColumns.ToString()),
             });
 
             ApplicationStateList.Title = "Application State";

@@ -28,7 +28,7 @@
         <ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand">
 
-                <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:StaticResource sSharpCommon:SharedSharpCardSizes}}" />
+                <BoxView HeightRequest="{Binding CardSizes.CardLargeHeight}" />
 
                 <sharedsharpucon:InstructionCard
                     Grid.Row="0"
