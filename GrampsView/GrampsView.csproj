@@ -39,23 +39,34 @@
         <DefaultLanguage>en</DefaultLanguage>
 		<Title>GrampsView</Title>
 		<PackageIcon>application_icon.png</PackageIcon>
-        <PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
-        <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+      
 		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
 		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
 		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
+		<PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+	</PropertyGroup>
+	
+	<!-- Required to work around a bug in the Windows SDK. For more information about the bug, see WindowsAppSDK Issue #2940.-->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+	</PropertyGroup>
+	
+	
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" />
+		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" BaseSize="128,128" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#800080" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -75,15 +86,15 @@
 
 	<!-- Android -->
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
-		<Compile Remove="**\Android\**\*.*" />
-		<None Include="**\Android\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="Platforms\Android\**\*.*" />
+		<None Include="Platforms\Android\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
 
 
 	<!-- Windows -->
 	<ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true">
-		<Compile Remove="**\Windows\**\*.*" />
-		<None Include="**\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="Platforms\Windows\**\*.*" />
+		<None Include="Platforms\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
 	
     <ItemGroup>
@@ -127,65 +138,6 @@
 
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.scale-100.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.scale-125.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.scale-150.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.scale-200.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.targetsize-16.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.targetsize-24.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.targetsize-256.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.targetsize-32.png" />
-        <None Remove="Platforms\Windows\Assets\AppIcon.targetsize-48.png" />
-        <None Remove="Platforms\Windows\Assets\LargeTile.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\MediumTile.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-100.png" />
-        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-125.png" />
-        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-150.png" />
-        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-200.png" />
-        <None Remove="Platforms\Windows\Assets\PackageLogo.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\SmallTile.scale-100.png" />
-        <None Remove="Platforms\Windows\Assets\SmallTile.scale-125.png" />
-        <None Remove="Platforms\Windows\Assets\SmallTile.scale-150.png" />
-        <None Remove="Platforms\Windows\Assets\SmallTile.scale-200.png" />
-        <None Remove="Platforms\Windows\Assets\SmallTile.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-100.png" />
-        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-125.png" />
-        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-150.png" />
-        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
-        <None Remove="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
-        <None Remove="Platforms\Windows\Assets\WideTile.scale-400.png" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="Platforms\Windows\Assets\AppIcon.scale-100.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.scale-125.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.scale-150.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.scale-200.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.targetsize-16.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.targetsize-24.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.targetsize-256.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.targetsize-32.png" />
-      <Content Include="Platforms\Windows\Assets\AppIcon.targetsize-48.png" />
-      <Content Include="Platforms\Windows\Assets\LargeTile.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\MediumTile.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-100.png" />
-      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-125.png" />
-      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-150.png" />
-      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-200.png" />
-      <Content Include="Platforms\Windows\Assets\PackageLogo.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\SmallTile.scale-100.png" />
-      <Content Include="Platforms\Windows\Assets\SmallTile.scale-125.png" />
-      <Content Include="Platforms\Windows\Assets\SmallTile.scale-150.png" />
-      <Content Include="Platforms\Windows\Assets\SmallTile.scale-200.png" />
-      <Content Include="Platforms\Windows\Assets\SmallTile.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-100.png" />
-      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-125.png" />
-      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-150.png" />
-      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-200.png" />
-      <Content Include="Platforms\Windows\Assets\SplashScreen.scale-400.png" />
-      <Content Include="Platforms\Windows\Assets\WideTile.scale-400.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -212,7 +164,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.3.5" />
+        <PackageReference Include="SharedSharp" Version="1.3.6" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />

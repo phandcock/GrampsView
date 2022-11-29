@@ -1,10 +1,12 @@
 ﻿using SharedSharp.Common.Interfaces;
+using SharedSharp.Messages;
 
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
-    public partial class CollectionSingleCard : Border
+    public partial class CollectionSingleCard : Border, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
               = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
@@ -19,7 +21,7 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            Ioc.Default.GetService<IMessenger>().Register<SharedSharp.Messages.SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
                 CardsAcross = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
             });

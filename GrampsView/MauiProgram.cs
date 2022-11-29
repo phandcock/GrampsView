@@ -11,6 +11,7 @@ using GrampsView.ViewModels.StartupPages;
 
 using Microsoft.Extensions.Logging;
 
+using SharedSharp;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Services;
 using SharedSharp.Services.Interfaces;
@@ -41,6 +42,8 @@ namespace GrampsView
             MauiApp mauiApp = builder.Build();
 
             Ioc.Default.ConfigureServices(mauiApp.Services);
+
+            SharedSharp.Common.SSharpCore.SharedSharpStart();
 
             SharedSharp.Common.SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Common.Secret.AndroidSecret, argMSAppCenterSecretWinUI: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
 
