@@ -1,3 +1,12 @@
+## [16.28.11](https://github.com/phandcock/GrampsView/compare/v16.28.10...v16.28.11) (2022-11-30)
+
+
+### Bug Fixes
+
+* tweaks ([d4a9ae2](https://github.com/phandcock/GrampsView/commit/d4a9ae29c0242bfa16589a04ca80932ac6b82e4d))
+
+
+
 ## [16.28.10](https://github.com/phandcock/GrampsView/compare/v16.28.9...v16.28.10) (2022-11-30)
 
 
@@ -25,17 +34,6 @@
 * more work ([6a04282](https://github.com/phandcock/GrampsView/commit/6a04282e5eea374800e4f5d90c75f21a4e90d04e))
 * more work ([3920c43](https://github.com/phandcock/GrampsView/commit/3920c4393c1cb0737afc77f591180c64f3008f75))
 * tweaks ([4789a77](https://github.com/phandcock/GrampsView/commit/4789a77c4587315e7f237c187fb394ab80d0c238))
-
-
-
-## [16.28.7](https://github.com/phandcock/GrampsView/compare/v16.28.6...v16.28.7) (2022-11-26)
-
-
-### Bug Fixes
-
-* chnage to use TopMenu and get list templates working ([9c672e9](https://github.com/phandcock/GrampsView/commit/9c672e9952069b6aa578d48d44c52e2788d1322e))
-* handle new ssharpcontrols ([a453d57](https://github.com/phandcock/GrampsView/commit/a453d57ab39278a615277a260e3896992dce7486))
-* tweaks ([0aa7a6d](https://github.com/phandcock/GrampsView/commit/0aa7a6d2748576ea08628e464b7484b458fb804c))
 
 
 
