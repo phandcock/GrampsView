@@ -33,8 +33,8 @@
             <CollectionView.ItemsLayout>
                 <GridItemsLayout
                     HorizontalItemSpacing="1"
-                    Orientation="Vertical"
-                    Span="{Binding CardsAcross, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+                    Orientation="Vertical" 
+                    Span="{Binding NumColumns, Source={Reference CollectionSingleCardRoot}, Mode=OneWay}"
                     VerticalItemSpacing="1" />
             </CollectionView.ItemsLayout>
 

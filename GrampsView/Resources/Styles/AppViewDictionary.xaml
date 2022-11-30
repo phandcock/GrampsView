@@ -87,7 +87,7 @@
     </Style>
 
 
-   
+
 
     <!--  Create a MediaImage Style  -->
     <Style x:Key="MediaImageStyle" TargetType="Grid">

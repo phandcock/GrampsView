@@ -2,6 +2,7 @@
 using SharedSharp.Messages;
 
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
@@ -23,11 +24,19 @@ namespace GrampsView.UserControls
 
             Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
-                CardsAcross = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
-            });
+                NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
+                Debug.WriteLine(NumColumns);
+
+                GridItemsLayout t = new(NumColumns, ItemsLayoutOrientation.Vertical)
+                {
+                    HorizontalItemSpacing = 1,
+                    VerticalItemSpacing = 1
+                };
+                theCollectionView.ItemsLayout = t;
+            }
+            );
         }
 
-        public int CardsAcross { get; set; } = 2;
 
         /// <summary>
         /// Gets or sets the FSCT source.
@@ -93,22 +102,22 @@ namespace GrampsView.UserControls
         {
         }
 
-        /// <summary>
-        /// Handles the SizeChanged event of the CollectionSingleCardRoot control.
-        /// </summary>
-        /// <param name="sender">
-        /// The source of the event.
-        /// </param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/> instance containing the event data.
-        /// </param>
-        private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
-        {
-            Contract.Requires(sender != null);
+        ///// <summary>
+        ///// Handles the SizeChanged event of the CollectionSingleCardRoot control.
+        ///// </summary>
+        ///// <param name="sender">
+        ///// The source of the event.
+        ///// </param>
+        ///// <param name="e">
+        ///// The <see cref="EventArgs"/> instance containing the event data.
+        ///// </param>
+        //private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
+        //{
+        //    Contract.Requires(sender != null);
 
-            CollectionSingleCard? t = sender as CollectionSingleCard;
+        //    CollectionSingleCard? t = sender as CollectionSingleCard;
 
-            NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
-        }
+        //    NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
+        //}
     }
 }

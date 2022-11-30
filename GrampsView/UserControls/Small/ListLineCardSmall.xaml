@@ -8,8 +8,9 @@
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="sharedsharpmodels:CardListLineCollection"
+    x:Name="ListLineCardSmallRoot"
     IsVisible="{Binding Visible, Mode=OneWay}"
-    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:StaticResource sSharpCommon:SharedSharpCardSizes}, Mode=OneWay}"
+    MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Reference ListLineCardSmallRoot}, Mode=OneWay}"
     Style="{StaticResource SSGridSmallVariableCardStyle}">
 
     <Grid.Resources>

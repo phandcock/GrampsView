@@ -1,5 +1,7 @@
 ﻿using SharedSharp.Common.Interfaces;
+using SharedSharp.Messages;
 
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
@@ -18,6 +20,19 @@ namespace GrampsView.UserControls
         public CollectionSingleCardGrouped()
         {
             InitializeComponent();
+
+            Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            {
+                NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
+                Debug.WriteLine(NumColumns);
+
+                GridItemsLayout t = new(NumColumns, ItemsLayoutOrientation.Vertical)
+                {
+                    HorizontalItemSpacing = 1,
+                    VerticalItemSpacing = 1
+                };
+                theCollectionView.ItemsLayout = t;
+            });
         }
 
         /// <summary>
@@ -84,22 +99,22 @@ namespace GrampsView.UserControls
         {
         }
 
-        /// <summary>
-        /// Handles the SizeChanged event of the CollectionSingleCardRoot control.
-        /// </summary>
-        /// <param name="sender">
-        /// The source of the event.
-        /// </param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/> instance containing the event data.
-        /// </param>
-        private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
-        {
-            Contract.Requires(sender != null);
+        ///// <summary>
+        ///// Handles the SizeChanged event of the CollectionSingleCardRoot control.
+        ///// </summary>
+        ///// <param name="sender">
+        ///// The source of the event.
+        ///// </param>
+        ///// <param name="e">
+        ///// The <see cref="EventArgs"/> instance containing the event data.
+        ///// </param>
+        //private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
+        //{
+        //    Contract.Requires(sender != null);
 
-            CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
+        //    CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
 
-            NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
-        }
+        //    NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
+        //}
     }
 }
