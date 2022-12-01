@@ -1,6 +1,7 @@
 ﻿using SharedSharp.Common.Interfaces;
 using SharedSharp.Messages;
 
+using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
@@ -10,7 +11,7 @@ namespace GrampsView.UserControls
     public partial class CollectionSingleCard : Border, INotifyPropertyChanged
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
@@ -26,17 +27,9 @@ namespace GrampsView.UserControls
             {
                 NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
                 Debug.WriteLine(NumColumns);
-
-                GridItemsLayout t = new(NumColumns, ItemsLayoutOrientation.Vertical)
-                {
-                    HorizontalItemSpacing = 1,
-                    VerticalItemSpacing = 1
-                };
-                theCollectionView.ItemsLayout = t;
             }
             );
         }
-
 
         /// <summary>
         /// Gets or sets the FSCT source.
@@ -44,9 +37,9 @@ namespace GrampsView.UserControls
         /// <value>
         /// The Control Item Source.
         /// </value>
-        public object FsctSource
+        public IEnumerable FsctSource
         {
-            get => GetValue(FsctSourceProperty);
+            get => (IEnumerable)GetValue(FsctSourceProperty);
             set => SetValue(FsctSourceProperty, value);
         }
 
@@ -100,24 +93,30 @@ namespace GrampsView.UserControls
 
         private static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)
         {
+            Contract.Assert(bindable != null);
+
+            CollectionSingleCard? thisCard = bindable as CollectionSingleCard;
+
+            if (newValue is null)
+            {
+                thisCard.IsVisible = false;
+                return;
+            }
+
+            // TODO cleanup this code when we work out how
+            IEnumerator counter = thisCard.FsctSource.GetEnumerator();
+
+            if (counter.MoveNext())
+            {
+                // We have some data
+                thisCard.IsVisible = true;
+            }
+            else
+            {
+                thisCard.IsVisible = false;
+            }
         }
 
-        ///// <summary>
-        ///// Handles the SizeChanged event of the CollectionSingleCardRoot control.
-        ///// </summary>
-        ///// <param name="sender">
-        ///// The source of the event.
-        ///// </param>
-        ///// <param name="e">
-        ///// The <see cref="EventArgs"/> instance containing the event data.
-        ///// </param>
-        //private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
-        //{
-        //    Contract.Requires(sender != null);
 
-        //    CollectionSingleCard? t = sender as CollectionSingleCard;
-
-        //    NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
-        //}
     }
 }

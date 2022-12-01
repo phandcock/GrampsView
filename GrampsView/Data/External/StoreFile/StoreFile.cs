@@ -112,7 +112,7 @@ namespace GrampsView.Data
             // Check arguments
             if (!DataStore.Instance.AD.CurrentInputStreamValid)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyAlert("The input file is invalid", new ErrorInfo());
+                Ioc.Default.GetService<IErrorNotifications>().NotifyAlert("The input file is invalid");
                 return false;
             }
 

@@ -1,16 +1,17 @@
-﻿namespace GrampsView.Views
+﻿using GrampsView.ViewModels;
+
+using Microsoft.Extensions.DependencyInjection;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public partial class DateSpanDetailPage : ViewBasePage
     {
-        private DateSpanDetailViewModel _viewModel { get; set; }
-
         public DateSpanDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<DateSpanDetailViewModel>();
+            InitializeComponent();
+            BindingContext = _viewModel = Ioc.Default.GetService<DateSpanDetailViewModel>();
         }
+
+        private DateSpanDetailViewModel _viewModel { get; set; }
     }
 }

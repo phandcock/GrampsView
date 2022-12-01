@@ -13,9 +13,6 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-
-
-
 namespace GrampsView.Common
 {
     /// <summary>
@@ -215,7 +212,6 @@ namespace GrampsView.Common
             object retVal;
             if (!Application.Current.Resources.TryGetValue(keyName, out retVal))
             {
-
                 IErrorNotifications t = Ioc.Default.GetService<IErrorNotifications>();
 
                 ErrorInfo tt = new("Bad Resource Key", keyName)

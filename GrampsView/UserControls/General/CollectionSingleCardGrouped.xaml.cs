@@ -25,13 +25,6 @@ namespace GrampsView.UserControls
             {
                 NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
                 Debug.WriteLine(NumColumns);
-
-                GridItemsLayout t = new(NumColumns, ItemsLayoutOrientation.Vertical)
-                {
-                    HorizontalItemSpacing = 1,
-                    VerticalItemSpacing = 1
-                };
-                theCollectionView.ItemsLayout = t;
             });
         }
 

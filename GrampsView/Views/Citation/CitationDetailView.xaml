@@ -26,10 +26,10 @@
 
             <ucon:NoteCardFull BindingContext="{Binding HighlightedNote}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
         </StackLayout>

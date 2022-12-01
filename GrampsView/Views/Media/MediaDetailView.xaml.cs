@@ -4,9 +4,6 @@ using GrampsView.ViewModels;
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-
-
-
 namespace GrampsView.Views
 {
     public partial class MediaDetailPage : ViewBasePage

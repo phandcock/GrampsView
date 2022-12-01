@@ -49,9 +49,6 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Loads the Gramps XML data.
         /// </summary>
-        /// <param name="dataFolder">
-        /// StorageFolder to load.
-        /// </param>
         /// <returns>
         /// Flag if Gramps Data Only loaded successfully.
         /// </returns>
@@ -85,7 +82,7 @@ namespace GrampsView.Data.ExternalStorage
                     }
                     catch (Exception ex)
                     {
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load",ex,null);
+                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex, null);
 
                         return Task.FromResult(false);
                     }
@@ -120,7 +117,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to load Gramps data only",ex,null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex, null);
                 throw;
             }
 

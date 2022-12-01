@@ -7,8 +7,6 @@ using SharedSharp.Errors.Interfaces;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-
-
 using static GrampsView.Common.CommonEnums;
 
 namespace GrampsView.Converters
@@ -172,6 +170,78 @@ namespace GrampsView.Converters
             }
 
             writer.WriteEndObject();
+        }
+
+        private DateObjectModel readDOM(ref Utf8JsonReader argReader)
+        {
+            DateObjectModel returnDate = new DateObjectModelStr();
+
+            while (argReader.Read())
+            {
+                if (argReader.TokenType == JsonTokenType.EndObject)
+                {
+                    return returnDate;
+                }
+
+                if (argReader.TokenType == JsonTokenType.PropertyName)
+                {
+                    string propertyName = argReader.GetString();
+                    _ = argReader.Read();
+                    switch (propertyName)
+                    {
+                        case "HLinkKey":
+                            {
+                                returnDate.HLinkKey.Value = argReader.GetString();
+                                break;
+                            }
+                        case "ModelItemGlyph.Symbol":
+                            {
+                                returnDate.ModelItemGlyph.Symbol = argReader.GetString();
+                                break;
+                            }
+                        case "ModelItemGlyph.SymbolColour":
+                            {
+                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
+                                break;
+                            }
+                        case "NotionalDate":
+                            {
+                                returnDate.NotionalDate = argReader.GetDateTime();
+                                break;
+                            }
+                        case "Valid":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.Valid = argValue;
+                                break;
+                            }
+                        case "ValidDay":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidDay = argValue;
+                                break;
+                            }
+                        case "ValidMonth":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidMonth = argValue;
+                                break;
+                            }
+                        case "ValidYear":
+                            {
+                                bool argValue = argReader.GetBoolean();
+                                returnDate.ValidYear = argValue;
+                                break;
+                            }
+                        default:
+                            {
+                                throw new JsonException();
+                            }
+                    }
+                }
+            }
+
+            return returnDate;
         }
 
         private DateObjectModelRange readRange(ref Utf8JsonReader argReader)
@@ -468,78 +538,6 @@ namespace GrampsView.Converters
             return returnDate;
         }
 
-        private DateObjectModel readDOM(ref Utf8JsonReader argReader)
-        {
-            DateObjectModel returnDate = new DateObjectModelStr();
-
-            while (argReader.Read())
-            {
-                if (argReader.TokenType == JsonTokenType.EndObject)
-                {
-                    return returnDate;
-                }
-
-                if (argReader.TokenType == JsonTokenType.PropertyName)
-                {
-                    string propertyName = argReader.GetString();
-                    _ = argReader.Read();
-                    switch (propertyName)
-                    {
-                        case "HLinkKey":
-                            {
-                                returnDate.HLinkKey.Value = argReader.GetString();
-                                break;
-                            }
-                        case "ModelItemGlyph.Symbol":
-                            {
-                                returnDate.ModelItemGlyph.Symbol = argReader.GetString();
-                                break;
-                            }
-                        case "ModelItemGlyph.SymbolColour":
-                            {
-                                returnDate.ModelItemGlyph.SymbolColour = Color.FromArgb(Convert.ToString(argReader.GetString(), System.Globalization.CultureInfo.CurrentCulture));
-                                break;
-                            }
-                        case "NotionalDate":
-                            {
-                                returnDate.NotionalDate = argReader.GetDateTime();
-                                break;
-                            }
-                        case "Valid":
-                            {
-                                bool argValue = argReader.GetBoolean();
-                                returnDate.Valid = argValue;
-                                break;
-                            }
-                        case "ValidDay":
-                            {
-                                bool argValue = argReader.GetBoolean();
-                                returnDate.ValidDay = argValue;
-                                break;
-                            }
-                        case "ValidMonth":
-                            {
-                                bool argValue = argReader.GetBoolean();
-                                returnDate.ValidMonth = argValue;
-                                break;
-                            }
-                        case "ValidYear":
-                            {
-                                bool argValue = argReader.GetBoolean();
-                                returnDate.ValidYear = argValue;
-                                break;
-                            }
-                        default:
-                            {
-                                throw new JsonException();
-                            }
-                    }
-                }
-            }
-
-            return returnDate;
-        }
-
         private DateObjectModelVal readVal(ref Utf8JsonReader argReader)
         {
             DateObjectModelVal returnDate = new DateObjectModelVal();
@@ -663,6 +661,11 @@ namespace GrampsView.Converters
             argWriter.WriteBoolean("ValidYear", argBasic.ValidYear);
         }
 
+        private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModel argVal)
+        {
+            writeBasic(ref argWriter, argVal);
+        }
+
         private void writeRange(ref Utf8JsonWriter argWriter, DateObjectModelRange argRange)
         {
             writeBasic(ref argWriter, argRange);
@@ -727,11 +730,6 @@ namespace GrampsView.Converters
             argWriter.WriteString("GVal", argVal.GVal);
 
             argWriter.WriteNumber("GValType", (int)argVal.GValType);
-        }
-
-        private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModel argVal)
-        {
-            writeBasic(ref argWriter, argVal);
         }
     }
 }
