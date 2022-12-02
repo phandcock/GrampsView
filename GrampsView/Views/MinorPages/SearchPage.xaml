@@ -57,15 +57,15 @@
 
             <sharedsharpucon:InstructionCard InstructionText="{i18:Localize SearchPage_Instructions}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchCitationCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchEventsCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchMediaCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:FlexSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchPersonCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchPersonNameCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchCitationCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchEventsCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchFamilyCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchMediaCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchNoteCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding SearchPlaceCollection, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 
             <Border BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" IsVisible="{Binding BindingContext.SearchItemsFound, Converter={StaticResource flipBool}, Source={x:Reference SearchPageRoot}, Mode=OneWay}">
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize SearchPage_NothingFound}" />

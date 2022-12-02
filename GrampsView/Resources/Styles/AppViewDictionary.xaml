@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
-    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp">
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:Common="clr-namespace:GrampsView.Common"
+   >
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -132,7 +134,7 @@
         x:Key="NoteFullTextStyle"
         BasedOn="{StaticResource SSBorderLargeVariableCardStyleNS}"
         TargetType="Border">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic.CardSizes}}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
     </Style>
 
     <Style
@@ -140,8 +142,8 @@
         BasedOn="{StaticResource SSBorderCardLargeStyle}"
         TargetType="Border">
         <!--<Setter Property="CornerRadius" Value="0" />-->
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
     </Style>
 
     <!--

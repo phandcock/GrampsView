@@ -17,5 +17,5 @@
 
     <!--  Content  -->
 
-    <ucon:FlexSingleCard FsctSource="{Binding TagSource, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+    <ucon:CollectionSingleCard FsctSource="{Binding TagSource, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 </views:ViewBasePage>

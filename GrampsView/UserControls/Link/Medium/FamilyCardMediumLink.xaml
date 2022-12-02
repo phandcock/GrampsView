@@ -46,7 +46,7 @@
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 
-        <ucon:FlexSingleCard
+        <ucon:CollectionSingleCard
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"

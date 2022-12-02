@@ -22,7 +22,7 @@
         <StackLayout>
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:FlexSingleCard FsctSource="{Binding RepositoryHLink.GNoteRef, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+            <ucon:CollectionSingleCard FsctSource="{Binding RepositoryHLink.GNoteRef, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

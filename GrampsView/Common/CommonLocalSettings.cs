@@ -6,8 +6,6 @@ using SharedSharp.Errors.Interfaces;
 
 using System.Diagnostics.Contracts;
 
-
-
 namespace GrampsView.Common
 {
     public class CommonLocalSettings : SharedSharpSettings
