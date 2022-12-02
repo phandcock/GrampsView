@@ -20,7 +20,7 @@
         <ApplicationTitle>GrampsView</ApplicationTitle>
         
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.GrampsView</ApplicationId>
+        <ApplicationId>com.companyname.grampsview</ApplicationId>
         <ApplicationIdGuid>96d4740a-95e4-4689-8e38-896897feb38f</ApplicationIdGuid>
         
         <!-- Versions -->
@@ -134,6 +134,11 @@
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiImage Remove="Resources\Images\appiconfg.svg" />
+      <MauiImage Remove="Resources\Images\splash.svg" />
     </ItemGroup>
 
     <ItemGroup>
