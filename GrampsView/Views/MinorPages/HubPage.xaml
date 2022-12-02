@@ -14,6 +14,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
     x:Name="HubPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:HubViewModel"
@@ -26,6 +27,7 @@
 
     <Shell.SearchHandler>
         <common:GrampsViewSearchHandler
+            windows:SearchBar.IsSpellCheckEnabled="true"
             Placeholder="Search Names"
             SearchBoxVisibility="Collapsible"
             ShowsResults="false">
