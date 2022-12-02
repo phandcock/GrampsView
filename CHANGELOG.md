@@ -1,3 +1,12 @@
+## [16.28.12](https://github.com/phandcock/GrampsView/compare/v16.28.11...v16.28.12) (2022-12-01)
+
+
+### Bug Fixes
+
+* clean up collecitonviews ([5a1ddc9](https://github.com/phandcock/GrampsView/commit/5a1ddc963c37d67437b0bdc9d1dcd084bfd5df90))
+
+
+
 ## [16.28.11](https://github.com/phandcock/GrampsView/compare/v16.28.10...v16.28.11) (2022-11-30)
 
 
@@ -23,17 +32,6 @@
 ### Bug Fixes
 
 * tweaks ([ce1b6b2](https://github.com/phandcock/GrampsView/commit/ce1b6b2e9bdd7244efe49fbb77304adc475366f8))
-
-
-
-## [16.28.8](https://github.com/phandcock/GrampsView/compare/v16.28.7...v16.28.8) (2022-11-27)
-
-
-### Bug Fixes
-
-* more work ([6a04282](https://github.com/phandcock/GrampsView/commit/6a04282e5eea374800e4f5d90c75f21a4e90d04e))
-* more work ([3920c43](https://github.com/phandcock/GrampsView/commit/3920c4393c1cb0737afc77f591180c64f3008f75))
-* tweaks ([4789a77](https://github.com/phandcock/GrampsView/commit/4789a77c4587315e7f237c187fb394ab80d0c238))
 
 
 
