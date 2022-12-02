@@ -64,12 +64,11 @@
 	
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" BaseSize="128,128" />
+		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#512BD4" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#800080" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -143,6 +142,8 @@
 
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
+        <None Remove="Resources\appicon.svg" />
+        <None Remove="Resources\splash.svg" />
     </ItemGroup>
 
     <ItemGroup>
@@ -169,7 +170,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.3.8" />
+        <PackageReference Include="SharedSharp" Version="1.3.9" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
