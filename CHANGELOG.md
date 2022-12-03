@@ -1,3 +1,12 @@
+## [16.28.16](https://github.com/phandcock/GrampsView/compare/v16.28.15...v16.28.16) (2022-12-03)
+
+
+### Bug Fixes
+
+* work on image thumbnails ([f151683](https://github.com/phandcock/GrampsView/commit/f151683902c60ae920ebd4df6c8d4d0a05d21b4f))
+
+
+
 ## [16.28.15](https://github.com/phandcock/GrampsView/compare/v16.28.14...v16.28.15) (2022-12-03)
 
 
@@ -25,15 +34,6 @@
 
 * cleanup settings page ([203b226](https://github.com/phandcock/GrampsView/commit/203b226d458203435c1244e13f82c5f4729b6d51))
 * fix styles and remove FlexSingle control ([46ae831](https://github.com/phandcock/GrampsView/commit/46ae8314543d0d6529dc6d6d5cfd7519e26b0acb))
-
-
-
-## [16.28.12](https://github.com/phandcock/GrampsView/compare/v16.28.11...v16.28.12) (2022-12-01)
-
-
-### Bug Fixes
-
-* clean up collecitonviews ([5a1ddc9](https://github.com/phandcock/GrampsView/commit/5a1ddc963c37d67437b0bdc9d1dcd084bfd5df90))
 
 
 
