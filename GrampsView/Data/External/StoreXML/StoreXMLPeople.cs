@@ -29,7 +29,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public async Task LoadPeopleDataAsync()
         {
-            myCommonLogging.RoutineEntry("LoadPeopleDataAsync");
+            MyLog.RoutineEntry("LoadPeopleDataAsync");
 
             Ioc.Default.GetService<ILog>().DataLogEntryAdd("Loading People data");
             {
@@ -37,7 +37,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 // Run query
                 IEnumerable<XElement> de =
-                    from el in localGrampsXMLdoc.Descendants(ns + "person")
+                    from el in LocalGrampsXMLdoc.Descendants(ns + "person")
                     select el;
 
                 try
@@ -142,7 +142,7 @@ namespace GrampsView.Data.ExternalStorage
                     }
 
                     // let everybody know
-                    myCommonLogging.RoutineExit("loadPeopleData");
+                    MyLog.RoutineExit("loadPeopleData");
                 }
                 catch (Exception ex)
                 {

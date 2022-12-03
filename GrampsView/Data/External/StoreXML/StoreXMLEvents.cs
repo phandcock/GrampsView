@@ -15,13 +15,13 @@ namespace GrampsView.Data.ExternalStorage
     {
         public async Task LoadEventsAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Event data");
+            MyLog.DataLogEntryAdd("Loading Event data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "event")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "event")
                         select el;
 
                     // get event fields TODO
@@ -78,15 +78,15 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
 
-                    myCommonNotifications.NotifyException("LoadEventsAsync",e,null);
+                    MyNotifications.NotifyException("LoadEventsAsync",e,null);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Event load complete");
+            MyLog.DataLogEntryReplace("Event load complete");
             return;
         }
     }

@@ -12,13 +12,13 @@ namespace GrampsView.Data.ExternalStorage
     {
         public Task LoadRepositoriesAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Repository data");
+            MyLog.DataLogEntryAdd("Loading Repository data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "repository")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "repository")
                         select el;
 
                     foreach (XElement pRepositoryElement in de)
@@ -46,12 +46,12 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
 
-                myCommonLogging.DataLogEntryReplace("Repository load complete");
+                MyLog.DataLogEntryReplace("Repository load complete");
                 return Task.CompletedTask;
             }
         }

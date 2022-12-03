@@ -12,7 +12,7 @@ namespace GrampsView.Data.ExternalStorage
     {
         public Task LoadNameMapsAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading NameMap data");
+            MyLog.DataLogEntryAdd("Loading NameMap data");
 
             {
                 // XNamespace ns = grampsXMLNameSpace;
@@ -20,7 +20,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "namemaps")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "namemaps")
                         select el;
 
                     // get Citation fields
@@ -53,13 +53,13 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("NameMap load complete");
+            MyLog.DataLogEntryReplace("NameMap load complete");
             return Task.CompletedTask;
         }
     }

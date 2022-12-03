@@ -12,13 +12,13 @@ namespace GrampsView.Data.ExternalStorage
     {
         public async Task LoadPlacesAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Place data");
+            MyLog.DataLogEntryAdd("Loading Place data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "placeobj")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "placeobj")
                         select el;
 
                     // action any data found
@@ -89,13 +89,13 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception e)
                 {
-                    myCommonNotifications.NotifyException("Exception loading Place data from the file",e,null);
+                    MyNotifications.NotifyException("Exception loading Place data from the file",e,null);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Place load complete");
+            MyLog.DataLogEntryReplace("Place load complete");
 
             return;
         }

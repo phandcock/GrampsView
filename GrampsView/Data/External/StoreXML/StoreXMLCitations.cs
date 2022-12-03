@@ -10,13 +10,13 @@ namespace GrampsView.Data.ExternalStorage
 
         public async Task LoadCitationsAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Citation data");
+            MyLog.DataLogEntryAdd("Loading Citation data");
             {
                 try
                 {
                     // Run query
                     IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "citation")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "citation")
                         select el;
 
                     // Loop through results to get the Citation
@@ -55,11 +55,11 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    myCommonNotifications.NotifyException("Exception loading Citations form XML", ex, null);
+                    MyNotifications.NotifyException("Exception loading Citations form XML", ex, null);
                     throw;
                 }
 
-                myCommonLogging.DataLogEntryReplace("Citation load complete");
+                MyLog.DataLogEntryReplace("Citation load complete");
 
                 return;
             }

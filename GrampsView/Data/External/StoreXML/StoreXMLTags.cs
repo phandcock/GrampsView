@@ -21,13 +21,13 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public Task LoadTagsAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Tag data");
+            MyLog.DataLogEntryAdd("Loading Tag data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "tag")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "tag")
                         select el;
 
                     // get Tag fields
@@ -61,12 +61,12 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    myCommonNotifications.NotifyException("Error in LoadTagsAsync",ex,null);
+                    MyNotifications.NotifyException("Error in LoadTagsAsync",ex,null);
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Tag load complete");
+            MyLog.DataLogEntryReplace("Tag load complete");
             return Task.CompletedTask;
         }
     }

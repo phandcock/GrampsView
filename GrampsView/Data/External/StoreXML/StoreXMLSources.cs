@@ -22,13 +22,13 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public async Task LoadSourcesAsync()
         {
-            myCommonLogging.DataLogEntryAdd(argMessage: "Loading Source data");
+            MyLog.DataLogEntryAdd(argMessage: "Loading Source data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "source")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "source")
                         select el;
 
                     // Loop through results to get the Source
@@ -74,13 +74,13 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Source load complete");
+            MyLog.DataLogEntryReplace("Source load complete");
 
             return;
         }

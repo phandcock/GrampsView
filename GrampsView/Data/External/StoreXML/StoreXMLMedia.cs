@@ -31,9 +31,9 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public Task<bool> LoadMediaObjectsAsync()
         {
-            myCommonLogging.RoutineEntry("loadMediaObjects");
+            MyLog.RoutineEntry("loadMediaObjects");
 
-            myCommonLogging.DataLogEntryAdd("Loading Media Objects");
+            MyLog.DataLogEntryAdd("Loading Media Objects");
             {
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
@@ -42,7 +42,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 // Load notes Run query
                 System.Collections.Generic.IEnumerable<XElement> de =
-                    from el in localGrampsXMLdoc.Descendants(ns + "object")
+                    from el in LocalGrampsXMLdoc.Descendants(ns + "object")
                     select el;
 
                 try
@@ -101,7 +101,7 @@ namespace GrampsView.Data.ExternalStorage
 
                             if (mediaFileName.Length == 0)
                             {
-                                myCommonNotifications.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
+                                MyNotifications.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
 
                                 loadObject.MediaStorageFile = null;
                             }
@@ -128,12 +128,12 @@ namespace GrampsView.Data.ExternalStorage
                                     }
                                     else
                                     {
-                                        myCommonNotifications.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
+                                        MyNotifications.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    myCommonNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex,null);
+                                    MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex,null);
                                     throw;
                                 }
                             }
@@ -175,21 +175,21 @@ namespace GrampsView.Data.ExternalStorage
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
-                        myCommonLogging.Variable("LoadMedia", loadObject.GDescription);
+                        MyLog.Variable("LoadMedia", loadObject.GDescription);
                     }
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonNotifications.NotifyException("Loading Media Objects",e,null);
+                    MyNotifications.NotifyException("Loading Media Objects",e,null);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Media load complete");
+            MyLog.DataLogEntryReplace("Media load complete");
 
-            myCommonLogging.RoutineExit(nameof(LoadMediaObjectsAsync));
+            MyLog.RoutineExit(nameof(LoadMediaObjectsAsync));
 
             return Task.FromResult(true);
         }

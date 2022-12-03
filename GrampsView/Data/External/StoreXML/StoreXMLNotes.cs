@@ -26,14 +26,14 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public Task LoadNotesAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Note data");
+            MyLog.DataLogEntryAdd("Loading Note data");
             {
                 // Load notes
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "note")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "note")
                         select el;
 
                     // get event fields TODO
@@ -82,13 +82,13 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    myCommonNotifications.NotifyException("Exception loading Notes from the Gramps file",ex,null);
+                    MyNotifications.NotifyException("Exception loading Notes from the Gramps file",ex,null);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Note load complete");
+            MyLog.DataLogEntryReplace("Note load complete");
             return Task.CompletedTask;
         }
 

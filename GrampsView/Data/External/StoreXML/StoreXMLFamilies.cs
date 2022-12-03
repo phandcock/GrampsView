@@ -23,14 +23,14 @@ namespace GrampsView.Data.ExternalStorage
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
-            myCommonLogging.DataLogEntryAdd("Loading Family data");
+            MyLog.DataLogEntryAdd("Loading Family data");
             {
                 // Load notes
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "family")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "family")
                         select el;
 
                     // get family fields TODO
@@ -97,18 +97,18 @@ namespace GrampsView.Data.ExternalStorage
 
                         // save the family
                         DV.FamilyDV.FamilyData.Add(loadFamily);
-                        myCommonLogging.Variable("Family Name", loadFamily.HLinkKey.Value);
+                        MyLog.Variable("Family Name", loadFamily.HLinkKey.Value);
                     }
                 }
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Family load complete");
+            MyLog.DataLogEntryReplace("Family load complete");
 
             return true;
         }

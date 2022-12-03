@@ -14,19 +14,19 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// The default XML namespace.
         /// </summary>
-        private static XNamespace ns;
+        private static XNamespace? ns;
 
         /// <summary>
         /// local copy of GramsView Logging routines.
         /// </summary>
-        private readonly ILog myCommonLogging;
+        private readonly ILog MyLog;
 
-        private readonly IErrorNotifications myCommonNotifications;
+        private readonly IErrorNotifications MyNotifications;
 
         /// <summary>
         /// The Gramps XML document.
         /// </summary>
-        private XDocument localGrampsXMLdoc;
+        private XDocument LocalGrampsXMLdoc = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreXML"/> class.
@@ -37,11 +37,11 @@ namespace GrampsView.Data.ExternalStorage
         /// <param name="iocCommonNotifications">
         /// Common Notifications
         /// </param>
-        public StoreXML(ILog iocCommonLogging, IErrorNotifications iocCommonNotifications)
+        public StoreXML(ILog iocLogging, IErrorNotifications iocNotifications)
         {
-            myCommonLogging = iocCommonLogging;
+            MyLog = iocLogging;
 
-            myCommonNotifications = iocCommonNotifications;
+            MyNotifications = iocNotifications;
 
             ns = Constants.GrampsXMLNameSpace;
         }
@@ -72,7 +72,7 @@ namespace GrampsView.Data.ExternalStorage
 
                     try
                     {
-                        localGrampsXMLdoc = XDocument.Load(xmlReader);
+                        LocalGrampsXMLdoc = XDocument.Load(xmlReader);
                     }
                     catch (System.IO.DirectoryNotFoundException ex)
                     {
@@ -87,15 +87,15 @@ namespace GrampsView.Data.ExternalStorage
                         return Task.FromResult(false);
                     }
 
-                    if (localGrampsXMLdoc.DocumentType is not null)
+                    if (LocalGrampsXMLdoc.DocumentType is not null)
                     {
-                        int compareFlag = string.Compare(localGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
+                        int compareFlag = string.Compare(LocalGrampsXMLdoc.DocumentType.PublicId, Constants.GrampsXMLPublicId, StringComparison.CurrentCulture);
                         if (compareFlag < 0)
                         {
                             ErrorInfo t = new("DataStorageLoadXML", "The program can only load files with a Gramps XML version equal or greater.")
                                 {
                                     { "Minimum Version", Constants.GrampsXMLPublicId },
-                                    { "Found Version", localGrampsXMLdoc.DocumentType.PublicId },
+                                    { "Found Version", LocalGrampsXMLdoc.DocumentType.PublicId },
                         };
 
                             Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
@@ -103,7 +103,7 @@ namespace GrampsView.Data.ExternalStorage
                         }
                     }
 
-                    System.Collections.Generic.Dictionary<string, XNamespace> nameSpaceList = localGrampsXMLdoc.Root.Attributes().Where(
+                    System.Collections.Generic.Dictionary<string, XNamespace> nameSpaceList = LocalGrampsXMLdoc.Root.Attributes().Where(
                         a => a.IsNamespaceDeclaration).GroupBy(
                             a => a.Name.Namespace == XNamespace.None ? string.Empty : a.Name.LocalName,
                             a => XNamespace.Get(a.Value)).ToDictionary(

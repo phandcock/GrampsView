@@ -383,7 +383,7 @@ namespace GrampsView.Data.ExternalStorage
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 
-                 myCommonNotifications.NotifyError(t);
+                 MyNotifications.NotifyError(t);
              }
 
              resourceBitmap.Dispose();
@@ -442,7 +442,7 @@ namespace GrampsView.Data.ExternalStorage
                         { "Attribute is", b }
                     };
 
-                    myCommonNotifications.NotifyError(argErrorDetail);
+                    MyNotifications.NotifyError(argErrorDetail);
 
                     hexColour = "#000000";
                 }
@@ -458,7 +458,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                myCommonNotifications.NotifyException("Error in XML Utils GetColour", ex, null);
+                MyNotifications.NotifyException("Error in XML Utils GetColour", ex, null);
                 throw;
             }
         }
@@ -474,7 +474,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             if (!long.TryParse(argUnixSecs, out long ls))
             {
-                myCommonNotifications.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
+                MyNotifications.NotifyError(new ErrorInfo("The value passed to GetDateTime was not a valid number of Unix seconds"));
             };
 
             DateTimeOffset t = DateTimeOffset.FromUnixTimeSeconds(ls);
@@ -508,7 +508,7 @@ namespace GrampsView.Data.ExternalStorage
                         { "URI", xmlData }
                     };
 
-                myCommonNotifications.NotifyError(t);
+                MyNotifications.NotifyError(t);
 
                 return null;
             }
@@ -520,13 +520,13 @@ namespace GrampsView.Data.ExternalStorage
                         { "URI", xmlData }
                     };
 
-                myCommonNotifications.NotifyError(t);
+                MyNotifications.NotifyError(t);
 
                 return null;
             }
             catch (Exception ex)
             {
-                myCommonNotifications.NotifyException("Exception in GetUri", ex, null);
+                MyNotifications.NotifyException("Exception in GetUri", ex, null);
 
                 throw;
             }

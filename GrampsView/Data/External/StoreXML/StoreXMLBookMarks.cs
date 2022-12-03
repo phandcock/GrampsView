@@ -6,9 +6,6 @@ using GrampsView.Models.HLinks.Models;
 
 using SharedSharp.Errors;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -97,13 +94,13 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public Task LoadBookMarksAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading BookMark data");
+            MyLog.DataLogEntryAdd("Loading BookMark data");
             {
                 try
                 {
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "bookmark")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "bookmark")
                         select el;
 
                     // set BookMark count field
@@ -117,7 +114,7 @@ namespace GrampsView.Data.ExternalStorage
 
                         // BookMark fields
                         string GTarget = GetAttribute(argBookMark.Attribute("target"));
-                        HLinkKey GHLink = new HLinkKey(GetAttribute(argBookMark.Attribute("hlink")));
+                        HLinkKey GHLink = new(GetAttribute(argBookMark.Attribute("hlink")));
                         HLinkBackLink newHlinkBackLink = SetBookMarkTarget(GTarget, GHLink);
 
                         if (newHlinkBackLink.Valid)
@@ -126,13 +123,13 @@ namespace GrampsView.Data.ExternalStorage
                         }
                         else
                         {
-                            myCommonNotifications.NotifyError(new ErrorInfo("Bad BookMark")
+                            MyNotifications.NotifyError(new ErrorInfo("Bad BookMark")
                                 {
                                     { "HLink",  argBookMark.ToString() }
                                 });
                         }
 
-                        myCommonLogging.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
+                        MyLog.DataLogEntryReplace($"Loading bookmark type: {newHlinkBackLink.HLinkType}");
                     }
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
@@ -140,13 +137,13 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception e)
                 {
                     // TODO handle this
-                    myCommonLogging.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(e.Message);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Bookmark load complete");
+            MyLog.DataLogEntryReplace("Bookmark load complete");
             return Task.CompletedTask;
         }
     }

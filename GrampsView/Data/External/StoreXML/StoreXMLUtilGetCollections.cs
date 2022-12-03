@@ -840,7 +840,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        myCommonNotifications.NotifyError(t);
+                        MyNotifications.NotifyError(t);
                     };
                     newStyleModel.Start = Start;
 
@@ -851,7 +851,7 @@
                             { "XML data", xmlData.ToString() }
                         };
 
-                        myCommonNotifications.NotifyError(t);
+                        MyNotifications.NotifyError(t);
                     };
                     newStyleModel.End = End;
 

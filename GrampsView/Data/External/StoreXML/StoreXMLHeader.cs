@@ -23,7 +23,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public Task LoadHeaderDataAsync()
         {
-            myCommonLogging.DataLogEntryAdd("Loading Header Metadata");
+            MyLog.DataLogEntryAdd("Loading Header Metadata");
             {
                 try
                 {
@@ -33,7 +33,7 @@ namespace GrampsView.Data.ExternalStorage
 
                     // Run query
                     System.Collections.Generic.IEnumerable<XElement> de =
-                        from el in localGrampsXMLdoc.Descendants(ns + "header")
+                        from el in LocalGrampsXMLdoc.Descendants(ns + "header")
                         select el;
 
                     // there should only be one but ...
@@ -71,13 +71,13 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (System.Exception ex)
                 {
-                    myCommonNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded",ex,null);
+                    MyNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded",ex,null);
 
                     throw;
                 }
             }
 
-            myCommonLogging.DataLogEntryReplace("Header load complete");
+            MyLog.DataLogEntryReplace("Header load complete");
             return Task.CompletedTask;
         }
     }
