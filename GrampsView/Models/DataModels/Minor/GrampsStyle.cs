@@ -1,19 +1,22 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Models.DataModels;
+
+using System;
+using System.Collections.Generic;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Collections.Generic;
-
-    using static GrampsView.Common.CommonEnums;
-
     //// Gramps XML 1.71
     //// style
     //// name
     //// value
     //// range
-    /// </summary>
 
+
+    /// <summary>
+    ///   <br />
+    /// </summary>
     public class GrampsStyle : ModelBase, IGrampsStyle, IComparable<GrampsStyle>, IEquatable<GrampsStyle>
     {
         public GrampsStyle()
@@ -39,12 +42,9 @@
 
         public int CompareTo(GrampsStyle other)
         {
-            if (other is null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
-
-            return string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
+            return other is null
+                ? throw new ArgumentNullException(nameof(other))
+                : string.Compare(ToString(), other.ToString(), true, System.Globalization.CultureInfo.CurrentCulture);
         }
 
         public bool Equals(GrampsStyle other)
@@ -54,12 +54,7 @@
                 return false;
             }
 
-            if (ToString() == other.ToString())
-            {
-                return true;
-            }
-
-            return false;
+            return ToString() == other.ToString();
         }
 
         public override bool Equals(object obj)

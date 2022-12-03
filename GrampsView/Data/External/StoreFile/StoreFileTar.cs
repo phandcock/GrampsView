@@ -6,17 +6,12 @@ using ICSharpCode.SharpZipLib.Tar;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
 
 namespace GrampsView.Data
 {
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.IStoreFile"/>
+
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>

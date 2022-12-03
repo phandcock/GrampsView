@@ -1,6 +1,7 @@
 ﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.External.StoreSerial;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Events;
 
@@ -145,12 +146,7 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.TagData.Clear();
         }
 
-        /// <summary>
-        /// Sets the loaded.
-        /// </summary>
-        /// <param name="value">
-        /// The value.
-        /// </param>
+        /// <summary>Sets the loaded.</summary>
         public static void DataLoadedSetTrue()
         {
             DataStore.Instance.DS.IsDataLoaded = true;
@@ -290,16 +286,9 @@ namespace GrampsView.Data.Repository
             return false;
         }
 
-        /// <summary>
-        /// Triggers the load GPKG file asynchronous.
-        /// </summary>
-        /// <param name="deleteOld">
-        /// if set to <c> true </c> [delete old].
-        /// </param>
-        /// <param name="gpkgFileName">
-        /// Name of the GPKG file.
-        /// </param>
+        /// <summary>Triggers the load GPKG file asynchronous.</summary>
         /// <returns>
+        ///   <br />
         /// </returns>
         public async Task<FileInfoEx> TriggerLoadGPKGFileAsync()
         {
@@ -452,7 +441,7 @@ namespace GrampsView.Data.Repository
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                _commonNotifications.NotifyException("Trying to load existing serialised data",ex,null);
+                _commonNotifications.NotifyException("Trying to load existing serialised data", ex, null);
 
                 CommonLocalSettings.SetReloadDatabase();
 

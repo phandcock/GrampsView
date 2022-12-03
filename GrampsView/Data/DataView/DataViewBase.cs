@@ -1,21 +1,21 @@
-﻿namespace GrampsView.Data.DataView
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+
+using SharedSharp.Model;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics.Contracts;
+using System.Linq;
+
+namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.HLinks;
-
-    using SharedSharp.Model;
-
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics.Contracts;
-    using System.Linq;
-
-    using CommunityToolkit.Mvvm.ComponentModel;
-    using GrampsView.Models.DataModels;
-
     /// <summary>
     /// Partially based on http://stackoverflow.com/questions/8157140/net-4-0-indexer-with-observablecollection.
     /// </summary>
@@ -28,23 +28,13 @@
     /// <typeparam name="TH">
     /// Hlink.
     /// </typeparam>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.DataView.IDataViewBase{T, U, H}"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.ComponentViewModel.INotifyPropertyChanged"/>
+
     public abstract class DataViewBase<TB, TU, TH> : ObservableObject, IDataViewBase<TB, TU, TH>, INotifyPropertyChanged
         where TH : HLinkBaseCollection<TU>, new()
         where TB : ModelBase, new()
         where TU : HLinkBase, new()
     {
-        public int Count
-        {
-            get
-            {
-                return DataViewData.Count;
-            }
-        }
+        public int Count => DataViewData.Count;
 
         /// <summary>
         /// Gets the data default sort.
@@ -63,26 +53,20 @@
         /// <value>
         /// The data view data.
         /// </value>
-        public virtual IReadOnlyList<TB> DataViewData
+        public virtual IReadOnlyList<TB>? DataViewData
         {
             get;
         }
 
-        public virtual TH GetLatestChanges
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public virtual TH GetLatestChanges => throw new NotImplementedException();
 
         public virtual CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
             Contract.Assert(argReadOnlyList != null);
 
-            CardGroupHLink<TU> t = new CardGroupHLink<TU>();
+            CardGroupHLink<TU> t = new();
 
-            foreach (var item in argReadOnlyList)
+            foreach (TU item in argReadOnlyList)
             {
                 t.Add(item);
             }
@@ -124,20 +108,12 @@
         /// </returns>
         public TB GetModelFromHLink(HLinkBase argHLink)
         {
-            if (argHLink is null)
-            {
-                throw new ArgumentNullException(nameof(argHLink));
-            }
-
-            return this.GetModelFromHLinkKey(argHLink.HLinkKey);
+            return argHLink is null ? throw new ArgumentNullException(nameof(argHLink)) : GetModelFromHLinkKey(argHLink.HLinkKey);
         }
 
         /// <summary>
         /// Gets the specified h link string.
         /// </summary>
-        /// <param name="HLinkString">
-        /// The h link string.
-        /// </param>
         /// <returns>
         /// ModelBase.
         /// </returns>
@@ -161,8 +137,8 @@
                 throw new ArgumentNullException(nameof(argModel));
             }
 
-            CardListLineCollection modelInfoList = new CardListLineCollection
-               {
+            CardListLineCollection modelInfoList = new()
+            {
                  new CardListLine("Id:", argModel.Id),
                  new CardListLine("Change:", argModel.Change.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                  new CardListLine("Private Object:", argModel.Priv.ToString()),

@@ -1,14 +1,14 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using SharedSharp.Logging;
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
     /// </summary>
@@ -33,28 +33,15 @@
             get; set;
         }
 
-        /// <summary>
-        /// Gets or sets the tag object.
-        /// </summary>
-        /// <value>
-        /// The tag object.
-        /// </value>
-        /// <summary>
-        /// Handles navigation in wards and sets up the event model parameter.
-        /// </summary>
-        /// <param name="e">
-        /// The <see cref="NavigatedToEventArgs"/> instance containing the event data.
-        /// </param>
-        /// <param name="viewModelState">
-        /// The parameter is not used.
-        /// </param>
+        /// <summary>Gets or sets the tag object.</summary>
+        /// <value>The tag object.</value>
         public override void HandleViewDataLoadEvent()
         {
             HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(BaseParamsHLink);
 
             TagObject = HLinkObject.DeRef;
 
-            if (!(TagObject is null))
+            if (TagObject is not null)
             {
                 BaseModelBase = TagObject;
                 BaseTitleIcon = Constants.IconTag;

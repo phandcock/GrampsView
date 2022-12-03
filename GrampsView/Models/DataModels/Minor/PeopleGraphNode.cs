@@ -1,22 +1,30 @@
 ﻿// TODO Needs XML 1.71 check
 
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+
+/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
+Before:
+using GrampsView.Models.DataModels;
+After:
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+*/
+using GrampsView.Data.Model;
+
+using System.Collections;
+
+
+/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
+Before:
 namespace GrampsView.Data.Model
+After:
+namespace GrampsView.Models.DataModels.Minor
+*/
+namespace GrampsView.Models.DataModels.Minor
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.DataModels;
+    /// <summary>TODO Update fields as per Schema</summary>
 
-    using System;
-    using System.Collections;
-
-    /// <summary>
-    /// TODO Update fields as per Schema
-    /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// ///
-    /// <seealso cref="System.IComparable"/>
-    /// ///
-    /// <seealso cref="System.Collections.IComparer"/>
 
     public sealed class PeopleGraphNode : IPeopleGraphNode
     {
@@ -83,17 +91,9 @@ namespace GrampsView.Data.Model
         /// </returns>
         public static int SortByYStart(PeopleGraphNode a, PeopleGraphNode b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
-            return a.YStart.CompareTo(b.YStart);
+            return a is null
+                ? throw new ArgumentNullException(nameof(a))
+                : b is null ? throw new ArgumentNullException(nameof(b)) : a.YStart.CompareTo(b.YStart);
         }
 
         public int Compare(object a, object b)

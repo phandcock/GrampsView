@@ -63,7 +63,7 @@
 
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
 
-                <ucon:MediaCardLarge BindingContext="{Binding MediaCard,Mode=OneWay}" MinimumHeightRequest="100" />
+                <ucon:MediaCardLarge HLinkMM="{Binding MediaCard,Mode=OneWay}" MinimumHeightRequest="100" />
 
                 <sharedsharpucon:ListLineCard CardList="{Binding HeaderCard}" />
 

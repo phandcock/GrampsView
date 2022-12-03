@@ -1,15 +1,15 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+
+using SharedSharp.Model;
+
+using System;
+using System.Diagnostics.Contracts;
+using System.Globalization;
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Globalization;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// data model for an Date object ************************************************************.
     /// <code>
@@ -54,7 +54,7 @@
         /// Notional Date field - The date used for sorting etc.
         private DateTime _NotionalDate = DateTime.MinValue;
 
-        /// <summary>
+
 
         private bool _Valid = false;
 
@@ -77,18 +77,7 @@
         //public DateObjectModelDerivedTypeEnum DerivedType
         //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
         [JsonIgnore]
-        public string GetDecade
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return string.Empty;
-                }
-
-                return $"{((int)Math.Floor(NotionalDate.Year / 10.0)) * 10:0000}";
-            }
-        }
+        public string GetDecade => !Valid ? string.Empty : $"{((int)Math.Floor(NotionalDate.Year / 10.0)) * 10:0000}";
 
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is
@@ -104,27 +93,10 @@
         /// The get decade.
         /// </value>
         [JsonIgnore]
-        public string GetMonthDay
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return string.Empty;
-                }
-
-                return $"{NotionalDate.Month:00}{NotionalDate.Day:00}";
-            }
-        }
+        public string GetMonthDay => !Valid ? string.Empty : $"{NotionalDate.Month:00}{NotionalDate.Day:00}";
 
         [JsonIgnore]
-        public virtual string GetYear
-        {
-            get
-            {
-                return NotionalDate.Year.ToString();
-            }
-        }
+        public virtual string GetYear => NotionalDate.Year.ToString();
 
         /// <summary>
         /// Gets the year of the date.
@@ -155,27 +127,16 @@
                     return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
                 }
 
-                if (ValidYear)
-                {
-                    return NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture);
-                }
-
-                return "!Invalid Date";
+                return ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
             }
         }
 
         [JsonInclude]
         public DateTime NotionalDate
         {
-            get
-            {
-                return _NotionalDate;
-            }
+            get => _NotionalDate;
 
-            set
-            {
-                SetProperty(ref _NotionalDate, value);
-            }
+            set => SetProperty(ref _NotionalDate, value);
         }
 
         /// <summary>
@@ -204,59 +165,27 @@
                     return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
                 }
 
-                if (ValidYear)
-                {
-                    return NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture);
-                }
-
-                return "!Invalid Date";
+                return ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
             }
         }
 
         [JsonIgnore]
-        public string ShortDateOrEmpty
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return string.Empty;
-                }
-
-                return ShortDate;
-            }
-        }
+        public string ShortDateOrEmpty => !Valid ? string.Empty : ShortDate;
 
         [JsonIgnore]
-        public virtual DateTime SingleDate
-        {
-            get
-            {
+        public virtual DateTime SingleDate =>
                 // TODO Is this right?
-                return NotionalDate.Date;
-            }
-        }
+                NotionalDate.Date;
 
         [JsonIgnore]
-        public virtual DateTime SortDate
-        {
-            get
-            {
+        public virtual DateTime SortDate =>
                 // TODO Is this right?
-                return NotionalDate.Date;
-            }
-        }
+                NotionalDate.Date;
 
         public new bool Valid
         {
-            get
-            {
-                return _Valid;
-            }
-            set
-            {
-                SetProperty(ref _Valid, value);
-            }
+            get => _Valid;
+            set => SetProperty(ref _Valid, value);
         }
 
         /// <summary>
@@ -267,38 +196,20 @@
         /// </value>
         public bool ValidDay
         {
-            get
-            {
-                return _ValidDay;
-            }
-            set
-            {
-                SetProperty(ref _ValidDay, value);
-            }
+            get => _ValidDay;
+            set => SetProperty(ref _ValidDay, value);
         }
 
         public bool ValidMonth
         {
-            get
-            {
-                return _ValidMonth;
-            }
-            set
-            {
-                SetProperty(ref _ValidMonth, value);
-            }
+            get => _ValidMonth;
+            set => SetProperty(ref _ValidMonth, value);
         }
 
         public bool ValidYear
         {
-            get
-            {
-                return _ValidYear;
-            }
-            set
-            {
-                SetProperty(ref _ValidYear, value);
-            }
+            get => _ValidYear;
+            set => SetProperty(ref _ValidYear, value);
         }
 
         public DateObjectModel()
@@ -336,7 +247,7 @@
         /// </returns>
         public static bool operator <(DateObjectModel left, DateObjectModel right)
         {
-            return left is null ? right is object : left.CompareTo(right) < 0;
+            return left is null ? right is not null : left.CompareTo(right) < 0;
         }
 
         /// <summary>
@@ -370,12 +281,7 @@
         /// </returns>
         public static bool operator ==(DateObjectModel left, DateObjectModel right)
         {
-            if (left is null)
-            {
-                return right is null;
-            }
-
-            return left.Equals(right);
+            return left is null ? right is null : left.Equals(right);
         }
 
         /// <summary>
@@ -392,7 +298,7 @@
         /// </returns>
         public static bool operator >(DateObjectModel left, DateObjectModel right)
         {
-            return left is object && left.CompareTo(right) > 0;
+            return left is not null && left.CompareTo(right) > 0;
         }
 
         /// <summary>
@@ -412,7 +318,7 @@
             return left is null ? right is null : left.CompareTo(right) >= 0;
         }
 
-        public virtual CardListLineCollection AsCardListLine(string argTitle = null)
+        public virtual CardListLineCollection AsCardListLine(string? argTitle = null)
         {
             return new CardListLineCollection();
         }
@@ -535,12 +441,7 @@
         {
             Contract.Requires(otherDate != null);
 
-            if (Valid)
-            {
-                return SingleDate.Subtract(otherDate.SingleDate).Duration();
-            }
-
-            return new TimeSpan();
+            return Valid ? SingleDate.Subtract(otherDate.SingleDate).Duration() : new TimeSpan();
         }
 
         /// <summary>
@@ -556,7 +457,7 @@
             if (Valid)
             {
                 // Because we start at year 1 for the Gregorian calendar, we must subtract a year here.
-                DateTime zeroTime = new DateTime(1, 1, 1);
+                DateTime zeroTime = new(1, 1, 1);
                 int years = (zeroTime + DateDifference(otherDate)).Year - 1;
 
                 // 1, where my other algorithm resulted in 0.
@@ -588,9 +489,9 @@
                 return false;
             }
 
-            DateObjectModel tempObj = obj as DateObjectModel;
+            DateObjectModel? tempObj = obj as DateObjectModel;
 
-            return (NotionalDate == tempObj.NotionalDate);
+            return NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

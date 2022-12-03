@@ -10,24 +10,18 @@ namespace GrampsView.Data.DataView
     using System.Globalization;
     using System.Linq;
 
+
     /// <summary>
-    // Event repository </summary>
+    ///   <br />
+    /// </summary>
     public class NameMapDataView : DataViewBase<NameMapModel, HLinkNameMapModel, HLinkNameMapModelCollection>, INameMapDataView
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NameMapDataView"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="NameMapDataView" /> class.</summary>
         public NameMapDataView()
         {
         }
 
-        public override IReadOnlyList<NameMapModel> DataDefaultSort
-        {
-            get
-            {
-                return DataViewData.OrderBy(NameMapModel => NameMapModel.Id).ToList();
-            }
-        }
+        public override IReadOnlyList<NameMapModel> DataDefaultSort => DataViewData.OrderBy(NameMapModel => NameMapModel.Id).ToList();
 
         /// <summary>
         /// Gets the local media data.
@@ -38,13 +32,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<NameMapModel> DataViewData
-        {
-            get
-            {
-                return NameMapData.Values.ToList();
-            }
-        }
+        public override IReadOnlyList<NameMapModel> DataViewData => NameMapData.Values.ToList();
 
         /// <summary>
         /// Gets or sets the citation data.
@@ -53,19 +41,13 @@ namespace GrampsView.Data.DataView
         /// The citation data.
         /// </value>
 
-        public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData
-        {
-            get
-            {
-                return DataStore.Instance.DS.NameMapData;
-            }
-        }
+        public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData => DataStore.Instance.DS.NameMapData;
 
         public override HLinkNameMapModelCollection GetAllAsCardGroupBase()
         {
-            HLinkNameMapModelCollection t = new HLinkNameMapModelCollection();
+            HLinkNameMapModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (NameMapModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -75,7 +57,10 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override Group<HLinkNameMapModelCollection> GetAllAsGroupedCardGroup() => throw new System.NotImplementedException();
+        public override Group<HLinkNameMapModelCollection> GetAllAsGroupedCardGroup()
+        {
+            throw new System.NotImplementedException();
+        }
 
         /// <summary>
         /// Gets all as hlink.
@@ -84,9 +69,9 @@ namespace GrampsView.Data.DataView
         /// </returns>
         public HLinkNameMapModelCollection GetAllAsHLink()
         {
-            HLinkNameMapModelCollection t = new HLinkNameMapModelCollection();
+            HLinkNameMapModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (NameMapModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -122,7 +107,7 @@ namespace GrampsView.Data.DataView
 
             IOrderedEnumerable<HLinkNameMapModel> t = collectionArg.OrderBy(HLinkNameMapModel => HLinkNameMapModel.DeRef.HLinkKey);
 
-            HLinkNameMapModelCollection tt = new HLinkNameMapModelCollection();
+            HLinkNameMapModelCollection tt = new();
 
             foreach (HLinkNameMapModel item in t)
             {
@@ -134,7 +119,7 @@ namespace GrampsView.Data.DataView
 
         public override HLinkNameMapModelCollection Search(string argQuery)
         {
-            HLinkNameMapModelCollection itemsFound = new HLinkNameMapModelCollection
+            HLinkNameMapModelCollection itemsFound = new()
             {
                 Title = "Name Maps"
             };
@@ -144,7 +129,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<NameMapModel> temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (NameMapModel tempMO in temp)
             {

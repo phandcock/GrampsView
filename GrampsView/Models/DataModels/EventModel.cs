@@ -1,27 +1,20 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.HLinks.Models;
-
-using System;
 
 using static GrampsView.Common.CommonEnums;
 
 namespace GrampsView.Models.DataModels
 {
-    /// <summary>
-    /// Event ViewModel.
-    ///
-    /// XML 171 - All fields defined
-    /// </summary>
-    /// <seealso cref="Data.ViewModel.ModelBase"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="Data.ViewModel.IEventModel"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="IComparable"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.Collections.IComparer"/>
+    /// <summary>Event ViewModel.
+    /// XML 171 - All fields defined</summary>
+    /// <seealso cref="Data.ViewModel.ModelBase" />
+    /// <seealso cref="Data.ViewModel.IEventModel" />
+    /// <seealso cref="IComparable" />
+    /// <seealso cref="System.Collections.IComparer" />
 
     public sealed class EventModel : ModelBase, IEventModel
     {
@@ -180,7 +173,7 @@ namespace GrampsView.Models.DataModels
         {
             get
             {
-                HLinkEventModel t = new HLinkEventModel
+                HLinkEventModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

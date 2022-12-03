@@ -4,10 +4,8 @@ using GrampsView.Models.DataModels;
 
 using SharedSharp.ViewModels;
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace GrampsView.ViewModels
 {
@@ -18,16 +16,9 @@ namespace GrampsView.ViewModels
         //private string _BaseParamsHLink;
         private string _BaseTitle;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModelBase"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public ViewModelBase(SharedSharp.Logging.Interfaces.ILog iocCommonLogging /*IMessenger iocEventAggregator*/)
+        /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
+        public ViewModelBase(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
             //BaseEventAggregator = iocEventAggregator;
@@ -73,15 +64,7 @@ namespace GrampsView.ViewModels
         /// </value>
         public override string BaseTitle
         {
-            get
-            {
-                if (!string.IsNullOrEmpty(_BaseTitle))
-                {
-                    return _BaseTitle;
-                }
-
-                return BaseModelBase.Valid ? BaseModelBase.DefaultTextShort : string.Empty;
-            }
+            get => !string.IsNullOrEmpty(_BaseTitle) ? _BaseTitle : BaseModelBase.Valid ? BaseModelBase.DefaultTextShort : string.Empty;
             set => SetProperty(ref _BaseTitle, value);
         }
 

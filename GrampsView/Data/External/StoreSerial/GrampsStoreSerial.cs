@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
@@ -20,18 +18,11 @@ namespace GrampsView.Data.External.StoreSerial
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly SharedSharp.Logging.Interfaces.ILog localGVLogging;
+        private readonly ILog localGVLogging;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GrampsStoreSerial"/> class.
-        /// </summary>
-        /// <param name="iocGVProgress">
-        /// The ioc gv progress.
-        /// </param>
-        /// <param name="iocGVLogging">
-        /// The ioc gv logging.
-        /// </param>
-        public GrampsStoreSerial(SharedSharp.Logging.Interfaces.ILog iocGVLogging)
+        /// <summary>Initializes a new instance of the <see cref="GrampsStoreSerial" /> class.</summary>
+        /// <param name="iocGVLogging">The ioc gv logging.</param>
+        public GrampsStoreSerial(ILog iocGVLogging)
         {
             // save injected references for later
             localGVLogging = iocGVLogging;
@@ -193,7 +184,7 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled",ex,null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex, null);
             }
 
             return;
@@ -232,7 +223,7 @@ namespace GrampsView.Data.External.StoreSerial
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ",ex,null);
+                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex, null);
                 CommonLocalSettings.DataSerialised = false;
             }
         }
@@ -244,7 +235,7 @@ namespace GrampsView.Data.External.StoreSerial
 
         private JsonSerializerOptions GetSerializerOptions()
         {
-            JsonSerializerOptions serialzerOptions = new JsonSerializerOptions();
+            JsonSerializerOptions serialzerOptions = new();
 
             // Special converter for colours
             serialzerOptions.Converters.Add(new Converters.JsonColorConverter());

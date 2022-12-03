@@ -2,30 +2,15 @@
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 
-using System;
 using System.Diagnostics.Contracts;
 using System.Text.Json;
-using System.Threading.Tasks;
-
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Models.HLinks
 {
     /// <summary>
-    /// duh
-    /// <list type="table">
-    /// <listheader>
-    /// <term> Item </term>
-    /// <term> Status </term>
-    /// </listheader>
-    /// <item>
-    /// <description> XML 1.71 check </description>
-    /// <description> Not Done </description>
-    /// </item>
-    /// </list>
-    /// <para> <br/> </para>
-    /// </summary>
-    /// TODO Update fields as per Schema
+    /// Base functionality for HLinks<list type="table"><listheader><term> Item </term><term> Status </term></listheader><item><description> XML 1.71 check </description><description> Not Done </description></item></list><para><br /></para></summary>
+    /// <remarks>TODO Update fields as per Schema</remarks>
+
 
     public class HLinkBase : ObservableObject, IComparable, IHLinkBase
     {
@@ -134,8 +119,8 @@ namespace GrampsView.Models.HLinks
         /// </returns>
         protected static int Compare(object x, object y)
         {
-            Contract.Assert(!(x is null));
-            Contract.Assert(!(y is null));
+            Contract.Assert(x is not null);
+            Contract.Assert(y is not null);
 
             return string.Compare((x as HLinkBase).HLinkKey.Value, (y as HLinkBase).HLinkKey.Value, StringComparison.CurrentCulture);
         }

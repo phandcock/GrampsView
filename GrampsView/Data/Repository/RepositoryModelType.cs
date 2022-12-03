@@ -1,16 +1,10 @@
-﻿using GrampsView.Data.Repositories;
+﻿using GrampsView.Data.Repository.Interfaces;
 using GrampsView.Exceptions;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace GrampsView.Data.Repository
 {
@@ -22,11 +16,7 @@ namespace GrampsView.Data.Repository
     /// <typeparam name="T2">
     /// HLink Base.
     /// </typeparam>
-    /// <seealso cref="Common.ObservableObject"/>
-    /// /// /// /// /// /// /// ///
-    /// <seealso cref="IRepositoryModelDictionary{T, U}"/>
-    /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.ComponentViewModel.INotifyPropertyChanged"/>
+
 
     public class RepositoryModelDictionary<T1, T2> : Dictionary<string, T1>, IRepositoryModelDictionary<T1, T2>
         where T1 : ModelBase, new()
@@ -35,7 +25,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// Initialize a simple random number generator.
         /// </summary>
-        private readonly Random localRandomNumberGenerator = new Random();
+        private readonly Random localRandomNumberGenerator = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
@@ -46,17 +36,7 @@ namespace GrampsView.Data.Repository
 
         public List<T1> GetList => Values.ToList();
 
-        /// <summary>
-        /// Gets the <see cref="T1"/> with the specified key.
-        /// </summary>
-        /// <value>
-        /// The <see cref="T1"/>.
-        /// </value>
-        /// <param name="key">
-        /// The key.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
         public new T1 this[string key]
         {
             get
@@ -85,17 +65,7 @@ namespace GrampsView.Data.Repository
                 base[key] = value;
         }
 
-        /// <summary>
-        /// Gets the <see cref="T1"/> with the specified h link.
-        /// </summary>
-        /// <value>
-        /// The <see cref="T1"/>.
-        /// </value>
-        /// <param name="hLink">
-        /// The h link.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
         public T1 this[T2 hLink]
         {
             get
@@ -181,7 +151,7 @@ namespace GrampsView.Data.Repository
         {
             T1 tempMO = Values.FirstOrDefault(x => x.HLinkKey.Value == argHLink);
 
-            return tempMO == null ? new T1() : tempMO;
+            return tempMO ?? new T1();
         }
 
         /// <summary>

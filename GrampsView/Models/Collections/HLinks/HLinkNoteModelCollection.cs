@@ -1,24 +1,23 @@
 ﻿// TODO Needs XML 1.71 check
 
-/// <summary>
-/// </summary>
-namespace GrampsView.Data.Collections
-{
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
 
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+
+
+namespace GrampsView.Models.Collections.HLinks
+{
+
 
     /// <summary>
-    /// Collection of HLinks to Notes.
+    /// // TODO Needs XML 1.71 check
     /// </summary>
-    /// <seealso cref="Data.ViewModel.HLinkBaseCollection{Data.ViewModel.HLinkNoteModel}"/>
-
+    /// <seealso cref="HLinkBaseCollection&lt;HLinkNoteModel&gt;" />
     [KnownType(typeof(ObservableCollection<HLinkNoteModel>))]
     public class HLinkNoteModelCollection : HLinkBaseCollection<HLinkNoteModel>
     {
@@ -39,14 +38,9 @@ namespace GrampsView.Data.Collections
         {
             get
             {
-                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType == Constants.NoteTypeBiography || x.DeRef.GType == Constants.NoteTypePersonNote);
+                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType is Constants.NoteTypeBiography or Constants.NoteTypePersonNote);
 
-                if (temp is null)
-                {
-                    return new HLinkNoteModel();
-                }
-
-                return temp;
+                return temp is null ? new HLinkNoteModel() : temp;
             }
         }
 
@@ -56,20 +50,7 @@ namespace GrampsView.Data.Collections
         /// <value>
         /// The get summary.
         /// </value>
-        public INoteModel GetFirstModel
-        {
-            get
-            {
-                if (Count > 0)
-                {
-                    return this[0].DeRef;
-                }
-                else
-                {
-                    return new NoteModel();
-                }
-            }
-        }
+        public INoteModel GetFirstModel => Count > 0 ? this[0].DeRef : (INoteModel)new NoteModel();
 
         /// <summary>
         /// Gets the get summary.
@@ -77,24 +58,11 @@ namespace GrampsView.Data.Collections
         /// <value>
         /// The get summary.
         /// </value>
-        public string GetSummary
-        {
-            get
-            {
-                if (Count == 0)
-                {
-                    return string.Empty;
-                }
-                else
-                {
-                    return this[0].DeRef.GStyledText.GText;
-                }
-            }
-        }
+        public string GetSummary => Count == 0 ? string.Empty : this[0].DeRef.GStyledText.GText;
 
         public HLinkNoteModelCollection GetCollectionWithoutOne(HLinkNoteModel argExcludedNoteModel)
         {
-            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
+            HLinkNoteModelCollection t = new();
 
             foreach (HLinkNoteModel item in Items)
             {
@@ -113,12 +81,7 @@ namespace GrampsView.Data.Collections
         {
             IEnumerable<HLinkNoteModel> q = Items.Where(HLinkNote => HLinkNote.DeRef.GType == argType);
 
-            if (q.Any())
-            {
-                return q.First();
-            }
-
-            return new HLinkNoteModel();
+            return q.Any() ? q.First() : new HLinkNoteModel();
         }
 
         public override void SetGlyph()

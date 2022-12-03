@@ -1,4 +1,5 @@
 ﻿using GrampsView.Common;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
 
@@ -10,30 +11,7 @@ using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
-    /// <summary> Private Storage Routines. </summary> <code> <define name="date-content">
-    // <choice> <element name = "daterange" > < attribute name="start"><text/></attribute>
-    // <attribute name = "stop" >< text /></ attribute > < optional >< attribute
-    // name="quality"><choice> <value>estimated</value> <value>calculated</value>
-    // </choice></attribute></optional> <optional><attribute name = "cformat" >< text /></ attribute
-    // ></ optional > < optional >< attribute name="dualdated">
-    // <choice><value>0</value><value>1</value></choice> </attribute></optional>
-    // <optional><attribute name = "newyear" >< text /></ attribute ></ optional > </ element > <
-    // element name="datespan"> <attribute name = "start" >< text /></ attribute > < attribute
-    // name="stop"><text/></attribute> <optional><attribute name = "quality" >< choice > < value >
-    // estimated </ value > < value > calculated </ value > </ choice ></ attribute ></ optional > <
-    // optional >< attribute name="cformat"><text/></attribute></optional> <optional><attribute name
-    // = "dualdated" > < choice >< value > 0 </ value >< value > 1 </ value ></ choice > </ attribute
-    // ></ optional > < optional >< attribute name="newyear"><text/></attribute></optional>
-    // </element> <element name = "dateval" > < attribute name="val"><text/></attribute>
-    // <optional><attribute name = "cformat" >< text /></ attribute ></ optional > < optional ><
-    // attribute name="type"><choice> <value>before</value> <value>after</value>
-    // <value>about</value> </choice></attribute></optional> <optional><attribute name = "quality"
-    // >< choice > < value > estimated </ value > < value > calculated </ value > </ choice ></
-    // attribute ></ optional > < optional >< attribute name="dualdated">
-    // <choice><value>0</value><value>1</value></choice> </attribute></optional>
-    // <optional><attribute name = "newyear" >< text /></ attribute ></ optional > </ element > <
-    // element name="datestr"> <attribute name = "val" >< text /></ attribute > </ element > </
-    // choice > </ define > </ code >
+    /// <summary> Private Storage Routines. </summary> 
     //
     // TODO XML 1.71 check
     public partial class StoreXML : ObservableObject, IStoreXML
@@ -265,7 +243,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        ErrorInfo t = new ErrorInfo("Bad Date Quality")
+                        ErrorInfo t = new("Bad Date Quality")
                         {
                             { "Current Element",  argCurrentElement.ToString()}
                         };
@@ -280,7 +258,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aValType))
                     {
-                        ErrorInfo t = new ErrorInfo("Bad Date Value")
+                        ErrorInfo t = new("Bad Date Value")
                         {
                             { "Current Element",  argCurrentElement.ToString()}
                         };

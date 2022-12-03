@@ -1,25 +1,16 @@
 ﻿using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// load families from external storage.
-        /// </summary>
-        /// <param name="familyRepository">
-        /// The family repository.
-        /// </param>
-        /// <returns>
-        /// Flag indicating if the family data was loaded.
-        /// </returns>
+        /// <summary>load families from external storage.</summary>
+        /// <returns>Flag indicating if the family data was loaded.</returns>
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
@@ -38,7 +29,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Families
                     foreach (XElement familyElement in de)
                     {
-                        FamilyModel loadFamily = new FamilyModel();
+                        FamilyModel loadFamily = new();
 
                         // Family attributes
                         loadFamily.LoadBasics(GetBasics(familyElement));

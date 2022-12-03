@@ -1,32 +1,17 @@
-﻿namespace GrampsView.Data.Collections
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+
+using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Collection of Person HLinks
-    /// <list type="table">
-    /// <listheader>
-    /// <term> </term>
-    /// <term> Status </term>
-    /// </listheader>
-    /// <item>
-    /// <description> XML 1.71 check </description>
-    /// <description> Not Done </description>
-    /// </item>
-    /// </list>
-    /// <para> <br/> </para>
+    /// <list type="table"><listheader><term><th> Status </term></listheader><item><description> XML 1.71 check </description><description> Not Done </description></item></listheader><para><br /></para>
     /// </summary>
-    /// <seealso cref="Data.ViewModel.HLinkBaseCollection%7BGrampsView.Data.ViewModel.HLinkPersonModel%7D">
-    /// GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}
-    /// </seealso>
     /// TODO XML 1.71 check needed
 
     public class HLinkPersonModelCollection : HLinkBaseCollection<HLinkPersonModel>
@@ -52,7 +37,7 @@
         {
             get
             {
-                ObservableCollection<PersonModel> t = new ObservableCollection<PersonModel>();
+                ObservableCollection<PersonModel> t = new();
 
                 foreach (HLinkPersonModel item in Items)
                 {

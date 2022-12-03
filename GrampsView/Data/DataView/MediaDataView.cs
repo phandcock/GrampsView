@@ -1,19 +1,20 @@
-﻿namespace GrampsView.Data.DataView
+﻿using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.HLinks.Interfaces;
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
+namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Interfaces;
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
     /// <summary>
     /// Datamodel for media object files.
     /// </summary>
@@ -32,13 +33,7 @@
         /// <value>
         /// The data default sort.
         /// </value>
-        public override IReadOnlyList<MediaModel> DataDefaultSort
-        {
-            get
-            {
-                return DataViewData.OrderBy(MediaModel => MediaModel.GDescription).ToList();
-            }
-        }
+        public override IReadOnlyList<MediaModel> DataDefaultSort => DataViewData.OrderBy(MediaModel => MediaModel.GDescription).ToList();
 
         /// <summary>
         /// Gets the data view data.
@@ -46,21 +41,9 @@
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<MediaModel> DataViewData
-        {
-            get
-            {
-                return DataStore.Instance.DS.MediaData.Values.ToList();
-            }
-        }
+        public override IReadOnlyList<MediaModel> DataViewData => DataStore.Instance.DS.MediaData.Values.ToList();
 
-        public IReadOnlyList<MediaModel> DataViewDataPublic
-        {
-            get
-            {
-                return DataStore.Instance.DS.MediaData.Values.Where(MediaModel => MediaModel.IsInternalMediaFile == false).ToList();
-            }
-        }
+        public IReadOnlyList<MediaModel> DataViewDataPublic => DataStore.Instance.DS.MediaData.Values.Where(MediaModel => MediaModel.IsInternalMediaFile == false).ToList();
 
         public override HLinkMediaModelCollection GetLatestChanges
         {
@@ -70,7 +53,7 @@
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                HLinkMediaModelCollection returnCardGroup = new HLinkMediaModelCollection();
+                HLinkMediaModelCollection returnCardGroup = new();
 
                 foreach (IMediaModel item in tt)
                 {
@@ -94,7 +77,7 @@
         /// </remarks>
         public override HLinkMediaModelCollection GetAllAsCardGroupBase()
         {
-            HLinkMediaModelCollection t = new HLinkMediaModelCollection();
+            HLinkMediaModelCollection t = new();
 
             foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
@@ -106,12 +89,12 @@
 
         public override Group<HLinkMediaModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkMediaModelCollection> t = new Group<HLinkMediaModelCollection>();
+            Group<HLinkMediaModelCollection> t = new();
 
             var query = from item in DataViewData.Where(x => x.IsInternalMediaFile == false)
 
                         orderby item.FileContentType, item.GDescription
-                        group item by (item.FileContentType) into g
+                        group item by item.FileContentType into g
 
                         select new
                         {
@@ -121,12 +104,12 @@
 
             foreach (var g in query)
             {
-                HLinkMediaModelCollection info = new HLinkMediaModelCollection
+                HLinkMediaModelCollection info = new()
                 {
                     Title = g.GroupName,
                 };
 
-                foreach (var item in g.Items)
+                foreach (MediaModel? item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -144,7 +127,7 @@
         /// </returns>
         public HLinkMediaModelCollection GetAllAsHLink()
         {
-            HLinkMediaModelCollection t = new HLinkMediaModelCollection();
+            HLinkMediaModelCollection t = new();
 
             foreach (IMediaModel item in DataDefaultSort)
             {
@@ -158,7 +141,7 @@
 
         public HLinkMediaModelCollection GetAllNotClippedAsHLink()
         {
-            HLinkMediaModelCollection t = new HLinkMediaModelCollection();
+            HLinkMediaModelCollection t = new();
 
             foreach (IMediaModel item in DataDefaultSort.Where(x => x.IsInternalMediaFile == false))
             {
@@ -180,31 +163,22 @@
             return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Gets the random from collection.
-        /// </summary>
-        /// <param name="argCollection">
-        /// The collection.
-        /// </param>
-        /// <param name="DefaultHLink">
-        /// The default h link.
-        /// </param>
+        /// <summary>Gets the random from collection.</summary>
+        /// <param name="argCollection">The collection.</param>
         /// <returns>
+        ///   <br />
         /// </returns>
         public IHLinkMediaModel GetRandomFromCollection(HLinkMediaModelCollection argCollection)
         {
             // handle null argument
-            if (argCollection == null)
-            {
-                argCollection = GetAllAsHLink();
-            }
+            argCollection ??= GetAllAsHLink();
 
             IHLinkMediaModel tt = new HLinkMediaModel
             {
                 // HLinkKey = DefaultHLink
             };
 
-            Random randomValue = new Random();
+            Random randomValue = new();
 
             if (argCollection.Count > 0)
             {
@@ -235,7 +209,7 @@
 
             IOrderedEnumerable<HLinkMediaModel> t = argCollection.OrderBy(hLinkMediaModel => hLinkMediaModel.DeRef.GDescription);
 
-            HLinkMediaModelCollection tt = new HLinkMediaModelCollection();
+            HLinkMediaModelCollection tt = new();
 
             foreach (HLinkMediaModel item in t)
             {
@@ -245,17 +219,14 @@
             return tt;
         }
 
-        /// <summary>
-        /// Searches the media items.
-        /// </summary>
-        /// <param name="argQueryString">
-        /// The query string.
-        /// </param>
+        /// <summary>Searches the media items.</summary>
+        /// <param name="argQuery"></param>
         /// <returns>
+        ///   <br />
         /// </returns>
         public override HLinkMediaModelCollection Search(string argQuery)
         {
-            HLinkMediaModelCollection itemsFound = new HLinkMediaModelCollection
+            HLinkMediaModelCollection itemsFound = new()
             {
                 Title = "Media"
             };
@@ -265,7 +236,7 @@
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<MediaModel> temp = DataViewData.Where(NotIntenal => NotIntenal.IsInternalMediaFile == false).Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (IMediaModel tempMO in temp)
             {

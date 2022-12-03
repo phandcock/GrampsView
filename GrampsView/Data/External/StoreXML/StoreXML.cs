@@ -1,8 +1,8 @@
 ﻿using GrampsView.Common;
+using GrampsView.Data.External.StoreXML;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
 
 using System.Xml;
 using System.Xml.Linq;
@@ -14,7 +14,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// The default XML namespace.
         /// </summary>
-        private static XNamespace? ns;
+        private static XNamespace ns = Constants.GrampsXMLNameSpace;
 
         /// <summary>
         /// local copy of GramsView Logging routines.
@@ -28,22 +28,16 @@ namespace GrampsView.Data.ExternalStorage
         /// </summary>
         private XDocument LocalGrampsXMLdoc = new();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StoreXML"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging.
-        /// </param>
-        /// <param name="iocCommonNotifications">
-        /// Common Notifications
-        /// </param>
+        /// <summary>Initializes a new instance of the <see cref="StoreXML" /> class.</summary>
+        /// <param name="iocLogging"></param>
+        /// <param name="iocNotifications"></param>
         public StoreXML(ILog iocLogging, IErrorNotifications iocNotifications)
         {
             MyLog = iocLogging;
 
             MyNotifications = iocNotifications;
 
-            ns = Constants.GrampsXMLNameSpace;
+
         }
 
         /// <summary>

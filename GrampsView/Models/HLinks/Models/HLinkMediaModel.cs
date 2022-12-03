@@ -4,9 +4,11 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
+    using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
     using GrampsView.Models.DataModels.Interfaces;
     using GrampsView.Models.HLinks;
+    using GrampsView.Models.HLinks.Interfaces;
 
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;

@@ -1,12 +1,12 @@
 ﻿namespace GrampsView.ViewModels
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
 
     using CommunityToolkit.Mvvm.Messaging;
 
     using SharedSharp.Logging;
+    using GrampsView.Models.Collections.HLinks;
 
     /// <summary>
     /// View Model for the Event Section Page.

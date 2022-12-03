@@ -1,14 +1,8 @@
-namespace GrampsView.Data.Repositories
+namespace GrampsView.Data.Repository.Interfaces
 {
-    /// <summary>
-    /// Interfaces for Base Repository.
-    /// </summary>
-    /// <typeparam name="T">
-    /// Data ViewModel.
-    /// </typeparam>
-    /// <typeparam name="U">
-    /// $$(HLink)$$ ViewModel.
-    /// </typeparam>
+    /// <summary>Interfaces for Base Repository.</summary>
+    /// <typeparam name="T">Data ViewModel.</typeparam>
+    /// <typeparam name="TU"></typeparam>
     public interface IRepositoryModelDictionary<out T, TU>
     {
         /// <summary>
@@ -19,30 +13,10 @@ namespace GrampsView.Data.Repositories
         /// </value>
         int Count { get; }
 
-        /// <summary>
-        /// Gets the <see cref="T"/> with the specified key.
-        /// </summary>
-        /// <value>
-        /// The <see cref="T"/>.
-        /// </value>
-        /// <param name="key">
-        /// The key.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
         T this[string key] { get; }
 
-        /// <summary>
-        /// Gets the <see cref="T"/> with the specified key.
-        /// </summary>
-        /// <value>
-        /// The <see cref="T"/>.
-        /// </value>
-        /// <param name="key">
-        /// The key.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
         T this[TU hLink] { get; }
 
         /// <summary>
@@ -50,17 +24,7 @@ namespace GrampsView.Data.Repositories
         /// </summary>
         void Clear();
 
-        /// <summary>
-        /// Gets or sets the <see cref="T"/> with the specified key.
-        /// </summary>
-        /// <value>
-        /// The <see cref="T"/>.
-        /// </value>
-        /// <param name="key">
-        /// The key.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
         T Find(string key);
 
         /// <summary>

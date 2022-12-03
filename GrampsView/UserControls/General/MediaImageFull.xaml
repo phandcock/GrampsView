@@ -12,12 +12,20 @@
     IsVisible="True"
     Style="{StaticResource SSBorderLargeVariableCardStyleNS}">
 
-    <Image
-        x:Name="daImage"
-        Aspect="AspectFit"
-        BackgroundColor="Transparent"
-        HeightRequest="{Binding SharedSharpStatic.MediaDetailImageHeight, Mode=OneWay}"
-        HorizontalOptions="FillAndExpand"
-        IsVisible="True"
-        VerticalOptions="Fill" />
+    <Grid Style="{StaticResource SSGridLargeVariableCardStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image
+            x:Name="daImage"
+            Grid.Row="0"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            HeightRequest="{Binding SharedSharpStatic.MediaDetailImageHeight, Mode=OneWay}"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="True"
+            VerticalOptions="FillAndExpand" />
+    </Grid>
 </Border>

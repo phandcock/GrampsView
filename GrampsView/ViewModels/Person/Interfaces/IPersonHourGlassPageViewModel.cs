@@ -11,6 +11,7 @@
 namespace GrampsView.ViewModels
 {
     using GrampsView.Data.Collections;
+    using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
 
     /// <summary>

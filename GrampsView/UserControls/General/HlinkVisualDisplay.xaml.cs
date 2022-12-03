@@ -2,6 +2,7 @@
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.HLinks.Interfaces;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
@@ -167,10 +168,15 @@ namespace GrampsView.UserControls
                     //    RetryDelay = 1000
                     //};
 
+                    Image newMediaControl = new Image
+                    {
+                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath
+                    };
+
                     //newMediaControl.Error += NewMediaControl_Error;
 
-                    //HLinkVisualDisplayRoot.Children.Clear();
-                    //HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    HLinkVisualDisplayRoot.Children.Clear();
+                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {
@@ -219,8 +225,15 @@ namespace GrampsView.UserControls
                     //    VerticalOptions = LayoutOptions.FillAndExpand,
                     //};
 
-                    //HLinkVisualDisplayRoot.Children.Clear();
-                    //HLinkVisualDisplayRoot.Children.Add(newMediaControl);
+                    Image newMediaControl = new()
+                    {
+                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath
+                    };
+
+                    //newMediaControl.Error += NewMediaControl_Error;
+
+                    HLinkVisualDisplayRoot.Children.Clear();
+                    HLinkVisualDisplayRoot.Children.Add(newMediaControl);
                 }
                 catch (Exception ex)
                 {

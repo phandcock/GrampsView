@@ -1,12 +1,12 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.HLinks;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.HLinks;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Data model for a source reference.
     /// <list type="table">
@@ -23,7 +23,7 @@
 
     public class HLinkSourceModel : HLinkBase, IHLinkSourceModel
     {
-        private SourceModel _Deref = new SourceModel();
+        private SourceModel _Deref = new();
 
         private bool DeRefCached;
 
@@ -66,17 +66,17 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public int CompareTo(HLinkSourceModel argOobj) => DeRef.CompareTo(argOobj);
+        public int CompareTo(HLinkSourceModel argOobj)
+        {
+            return DeRef.CompareTo(argOobj);
+        }
 
-        /// <summary>
-        /// Compares to.
-        /// </summary>
-        /// <param name="argObj">
-        /// The object.
-        /// </param>
+        /// <summary>Compares to.</summary>
+        /// <param name="obj"></param>
         /// <returns>
+        ///   <br />
         /// </returns>
-        public int CompareTo(object obj)
+        public new int CompareTo(object obj)
         {
             // Null objects go first
             if (obj is null)
@@ -85,12 +85,7 @@
             }
 
             // Can only compare if they are the same type so assume equal
-            if (obj.GetType() != typeof(HLinkSourceModel))
-            {
-                return 0;
-            }
-
-            return DeRef.CompareTo((obj as HLinkSourceModel).DeRef);
+            return obj.GetType() != typeof(HLinkSourceModel) ? 0 : DeRef.CompareTo((obj as HLinkSourceModel).DeRef);
         }
 
         public override async Task UCNavigate()

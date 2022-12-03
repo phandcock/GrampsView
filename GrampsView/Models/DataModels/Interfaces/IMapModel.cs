@@ -1,17 +1,14 @@
 ﻿using GrampsView.Models.HLinks.Models;
 
-using System.Threading.Tasks;
-
-using CommunityToolkit.Mvvm.ComponentModel;
-
 
 using static GrampsView.Common.CommonEnums;
 
 namespace GrampsView.Data.Model
 {
     /// <summary>
+    ///   <br />
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
+    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
     public interface IMapModel : IModelBase
     {
         string Description

@@ -1,24 +1,16 @@
-﻿//// gramps XML 1.71 - Done
-////
-////    primary-object
-////    format
-////    type
-////    styledtext
-///     tagref
+﻿
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
-using GrampsView.Models.DataModels;
+using GrampsView.Data.Model;
 
-using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels
 {
-    /// <summary>
-    /// Data model for a note.
-    /// </summary>
+    /// <summary>Data model for a note.</summary>
+    /// <remarks>gramps XML 1.71 - Done<br /><br />  primary-object<br />////    format<br />////    type<br />////    styledtext<br />///     tagref</remarks>
 
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
@@ -94,45 +86,20 @@ namespace GrampsView.Data.Model
             }
         }
 
-        //public FormattedString TextFormatted
-        //{
-        //    get
-        //    {
-        //        if (_TextFormatted.Spans.Count == 0)
-        //        {
-        //            _TextFormatted = GrampsTextToXamarinText.GetFormattedString(GStyledText, SharedSharp.Common.SharedSharpFontSize.FontMedium);
-        //        }
 
-        //        return _TextFormatted;
-        //    }
-        //}
 
-        ///// <summary>
-        ///// Gets the shortened form of the text. Maximum length is 100.
-        ///// </summary>
-        ///// <value>
-        ///// The text short.
-        ///// </value>
-        //public string TextShort
-        //{
-        //    get
-        //    {
-        //        return GStyledText.GText.Substring(0, Math.Min(GStyledText.GText.Length, 100));
-        //    }
-        //}
 
-        /// <summary>
-        /// Compares two objects.
-        /// </summary>
-        /// <param name="a">
-        /// object A.
-        /// </param>
-        /// <param name="b">
-        /// object B.
-        /// </param>
+
+
+        /// <summary>Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.</summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
         /// <returns>
-        /// One, two or three.
+        /// A signed integer that indicates the relative values of <paramref name="x" /> and <paramref name="y" />:<br />   - If less than 0, <paramref name="x" /> is less than <paramref name="y" />.<br />   - If 0, <paramref name="x" /> equals <paramref name="y" />.<br />   - If greater than 0, <paramref name="x" /> is greater than <paramref name="y" />.
         /// </returns>
+        /// <exception cref="ArgumentNullException">x
+        /// or
+        /// y</exception>
         public new int Compare(object x, object y)
         {
             if (x is null)

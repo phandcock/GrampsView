@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Data;
 using GrampsView.Data.External.StoreSerial;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Repository;
 using GrampsView.ViewModels;

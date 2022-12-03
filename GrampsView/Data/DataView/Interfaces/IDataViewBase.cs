@@ -1,24 +1,19 @@
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+
+using SharedSharp.Model;
+
+using System.Collections.Generic;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-
-    using SharedSharp.Model;
-
-    using System.Collections.Generic;
-
-    /// <summary>
-    /// Interfaces for Base Repository.
-    /// </summary>
-    /// <typeparam name="T">
-    /// Data ViewModel.
-    /// </typeparam>
-    /// <typeparam name="TU">
-    /// $$(HLink)$$ ViewModel.
-    /// </typeparam>
+    /// <summary>Interfaces for Base Repository.</summary>
+    /// <typeparam name="T">Data ViewModel.</typeparam>
+    /// <typeparam name="TU">$$(HLink)$$ ViewModel.</typeparam>
+    /// <typeparam name="TH"></typeparam>
     public interface IDataViewBase<T, TU, TH>
         where TH : HLinkBaseCollection<TU>, new()
         where T : ModelBase, new()
@@ -79,9 +74,6 @@ namespace GrampsView.Data.DataView
         /// <summary>
         /// Gets the specified h link string.
         /// </summary>
-        /// <param name="HLinkString">
-        /// The h link string.
-        /// </param>
         /// <returns>
         /// </returns>
         T GetModelFromHLinkKey(HLinkKey argHLinkKey);

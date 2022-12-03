@@ -7,12 +7,14 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace GrampsView.Data.Model
+using GrampsView.Data.Model;
+
+namespace GrampsView.Models.DataModels.Interfaces
 {
     /// <summary>
+    ///   <br />
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
-    ///
+    /// <seealso cref="Data.ViewModel.IModelBase" />
     public interface ICardListModel : IModelBase
     {
     }

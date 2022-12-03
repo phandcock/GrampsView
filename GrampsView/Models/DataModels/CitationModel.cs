@@ -1,24 +1,20 @@
-﻿/// XML 171 - All fields defined
-///
-/// SecondaryColor-object date-content page confidence noteref objref srcattribute sourceref tagref
+﻿
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 
-using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-/// <summary>
-/// </summary>
+
 namespace GrampsView.Models.DataModels
 {
-    /// <summary>
-    /// Data model for a Citation.
-    /// </summary>
+    /// <summary>Data model for a Citation.</summary>
+    /// <remarks>XML 171 - All fields defined<br /><br />SecondaryColor-object date-content page confidence noteref objref srcattribute sourceref tagref</remarks>
 
     [KnownType(typeof(HLinkSourceModel))]
     public sealed class CitationModel : ModelBase, ICitationModel, IComparable, IComparer, INotifyPropertyChanged
@@ -163,7 +159,7 @@ namespace GrampsView.Models.DataModels
         {
             get
             {
-                HLinkCitationModel t = new HLinkCitationModel
+                HLinkCitationModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

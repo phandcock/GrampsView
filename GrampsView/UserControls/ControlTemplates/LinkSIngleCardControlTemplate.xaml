@@ -8,7 +8,8 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="hlinks:HLinkBase"
-    IsVisible="{Binding ., Converter={StaticResource HLinkValid}, Mode=OneWay}">
+    IsVisible="{TemplateBinding HLinkValid,
+                                Mode=OneWay}">
 
     <ContentView.Resources>
         <ResourceDictionary />

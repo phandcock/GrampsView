@@ -1,42 +1,24 @@
-﻿/// <summary>
-/// -- Completed
-/// - SecondaryColor-object
-/// - rel
-/// - father
-/// - mother
-/// - date
-/// - eventref
-/// - ldsorf
-/// - objref
-/// - childref
-/// - attribute
-/// - noteref
-/// - citationref
-/// - tagref
-/// </summary>
+﻿
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 
-using System;
 using System.Runtime.Serialization;
 using System.Text;
 
 namespace GrampsView.Models.DataModels
 {
-    /// <summary>
-    /// Data model for a family.
-    /// </summary>
-    /// <seealso cref="Data.ViewModel.ModelBase"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="Data.ViewModel.IFamilyModel"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="IComparable"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="System.Collections.IComparer"/>
 
+
+    /// <summary>
+    ///   <br />
+    /// </summary>
+    /// <remarks>
+    /// &lt;summary&gt;<br />-- Completed<br />- SecondaryColor-object<br /> - rel<br />/// - father<br />/// - mother<br />/// - date<br />/// - eventref<br />/// - ldsorf<br />/// - objref<br />/// - childref<br />/// - attribute<br />/// - noteref<br />/// - citationref<br />/// - tagref<br />/// &lt;/summary&gt;
+    /// </remarks>
     [KnownType(typeof(HLinkPersonModel))]
     public sealed class FamilyModel : ModelBase, IFamilyModel
     {
@@ -209,7 +191,7 @@ namespace GrampsView.Models.DataModels
         {
             get
             {
-                HLinkFamilyModel t = new HLinkFamilyModel
+                HLinkFamilyModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -290,20 +272,13 @@ namespace GrampsView.Models.DataModels
         /// </value>
         public override string ToString()
         {
-            StringBuilder familyName = new StringBuilder();
+            StringBuilder familyName = new();
 
             string fatherName = GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
             string motherName = GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname;
 
             // set family display name
-            if (GFather.Valid && !string.IsNullOrWhiteSpace(fatherName))
-            {
-                _ = familyName.Append(fatherName);
-            }
-            else
-            {
-                _ = familyName.Append("Unknown");
-            }
+            _ = GFather.Valid && !string.IsNullOrWhiteSpace(fatherName) ? familyName.Append(fatherName) : familyName.Append("Unknown");
 
             if (GMother.Valid && !string.IsNullOrWhiteSpace(motherName))
             {

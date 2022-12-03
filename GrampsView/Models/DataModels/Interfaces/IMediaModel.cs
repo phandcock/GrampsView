@@ -3,6 +3,7 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 
 namespace GrampsView.Models.DataModels.Interfaces
 {

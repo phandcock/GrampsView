@@ -6,13 +6,14 @@ namespace GrampsView.Common
     using GrampsView.Data.Model;
     using GrampsView.Models.DataModels;
     using GrampsView.Models.DataModels.Minor;
+    using GrampsView.Models.HLinks.Interfaces;
     using GrampsView.Models.HLinks.Models;
 
     using SharedSharp.Model;
 
     using System.Diagnostics.Contracts;
 
-  
+
 
     /// <summary>
     /// Card Template Selector.

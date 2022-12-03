@@ -1,22 +1,22 @@
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
     /// <summary>
+    ///   <br />
     /// </summary>
-    /// <seealso cref="DataViewBase{Data.ViewModel.RepositoryModel, Data.ViewModel.HLinkRepositoryModel, HLinkRepositoryModelCollection}"/>
-    /// /// /// /// /// /// ///
-    /// <seealso cref="IRepositoryDataView"/>
+    /// <seealso cref="DataViewBase%7BData.ViewModel.RepositoryModel,%20Data.ViewModel.HLinkRepositoryModel,%20HLinkRepositoryModelCollection%7D">DataViewBase{Data.ViewModel.RepositoryModel, Data.ViewModel.HLinkRepositoryModel, HLinkRepositoryModelCollection}</seealso>
+    /// <seealso cref="IRepositoryDataView" />
     public class RepositoryDataView : DataViewBase<RepositoryModel, HLinkRepositoryModel, HLinkRepositoryModelCollection>, IRepositoryDataView
     {
         /// <summary>
@@ -26,13 +26,7 @@ namespace GrampsView.Data.DataView
         {
         }
 
-        public override IReadOnlyList<RepositoryModel> DataDefaultSort
-        {
-            get
-            {
-                return DataViewData.OrderBy(RepositoryModel => RepositoryModel.GRName).ToList();
-            }
-        }
+        public override IReadOnlyList<RepositoryModel> DataDefaultSort => DataViewData.OrderBy(RepositoryModel => RepositoryModel.GRName).ToList();
 
         /// <summary>
         /// Gets the local repository data.
@@ -43,13 +37,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<RepositoryModel> DataViewData
-        {
-            get
-            {
-                return RepositoryData.Values.ToList();
-            }
-        }
+        public override IReadOnlyList<RepositoryModel> DataViewData => RepositoryData.Values.ToList();
 
         public override HLinkRepositoryModelCollection GetLatestChanges
         {
@@ -59,7 +47,7 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                HLinkRepositoryModelCollection returnCardGroup = new HLinkRepositoryModelCollection();
+                HLinkRepositoryModelCollection returnCardGroup = new();
 
                 foreach (RepositoryModel item in tt)
                 {
@@ -79,20 +67,14 @@ namespace GrampsView.Data.DataView
         /// The person data.
         /// </value>
 
-        public RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> RepositoryData
-        {
-            get
-            {
-                return DataStore.Instance.DS.RepositoryData;
-            }
-        }
+        public RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> RepositoryData => DataStore.Instance.DS.RepositoryData;
 
         // TODO cleanup up this code
         public override HLinkRepositoryModelCollection GetAllAsCardGroupBase()
         {
-            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection();
+            HLinkRepositoryModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (RepositoryModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -102,7 +84,10 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override Group<HLinkRepositoryModelCollection> GetAllAsGroupedCardGroup() => throw new NotImplementedException();
+        public override Group<HLinkRepositoryModelCollection> GetAllAsGroupedCardGroup()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Gets all as hlink.
@@ -111,9 +96,9 @@ namespace GrampsView.Data.DataView
         /// </returns>
         public HLinkRepositoryModelCollection GetAllAsHLink()
         {
-            HLinkRepositoryModelCollection t = new HLinkRepositoryModelCollection();
+            HLinkRepositoryModelCollection t = new();
 
-            foreach (var item in DataDefaultSort)
+            foreach (RepositoryModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -149,7 +134,7 @@ namespace GrampsView.Data.DataView
 
             IOrderedEnumerable<HLinkRepositoryModel> t = collectionArg.OrderBy(HLinkRepositoryModel => HLinkRepositoryModel.DeRef.GRName);
 
-            HLinkRepositoryModelCollection tt = new HLinkRepositoryModelCollection();
+            HLinkRepositoryModelCollection tt = new();
 
             foreach (HLinkRepositoryModel item in t)
             {
@@ -161,7 +146,7 @@ namespace GrampsView.Data.DataView
 
         public override HLinkRepositoryModelCollection Search(string argQuery)
         {
-            HLinkRepositoryModelCollection itemsFound = new HLinkRepositoryModelCollection
+            HLinkRepositoryModelCollection itemsFound = new()
             {
                 Title = "Repositories"
             };
@@ -171,7 +156,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<RepositoryModel> temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (RepositoryModel tempMO in temp)
             {

@@ -1,9 +1,9 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 
-using System;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -106,8 +106,7 @@ namespace GrampsView.Models.DataModels
             set;
         } = new HLinkCitationModelCollection();
 
-        /// <summary> Gets or sets the Event Reference Collection.
-        // </summary>
+
         [JsonInclude]
         public HLinkEventModelCollection GEventRefCollection
         {
@@ -168,8 +167,7 @@ namespace GrampsView.Models.DataModels
             set;
         } = new HLinkLdsOrdModelCollection();
 
-        /// <summary> Gets or sets Media In $$(hLink)$$.
-        // </summary>
+
         [JsonInclude]
         public HLinkMediaModelCollection GMediaRefCollection
         {
@@ -252,7 +250,7 @@ namespace GrampsView.Models.DataModels
         {
             get
             {
-                HLinkPersonModel t = new HLinkPersonModel
+                HLinkPersonModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

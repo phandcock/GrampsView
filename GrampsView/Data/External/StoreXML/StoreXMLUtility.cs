@@ -1,5 +1,6 @@
 ﻿using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
@@ -25,7 +26,7 @@ namespace GrampsView.Data.ExternalStorage
     /// <summary>
     /// Various utility and loading routines for XML data.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
+    /// <seealso cref="External.StoreXML.IStoreXML"/>
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {
@@ -183,15 +184,9 @@ namespace GrampsView.Data.ExternalStorage
             return argElement == null ? new HLinkKey() : new HLinkKey(GetAttribute(argElement, "hlink"));
         }
 
-        /// <summary>
-        /// Sets the private object.
-        /// </summary>
-        /// <param name="thePriv">
-        /// The priv.
-        /// </param>
-        /// <returns>
-        /// True or False depending on if the object is private.
-        /// </returns>
+        /// <summary>Sets the private object.</summary>
+        /// <param name="xmlData"></param>
+        /// <returns>True or False depending on if the object is private.</returns>
         private static bool GetPrivateObject(XElement xmlData)
         {
             string t = GetAttribute(xmlData.Attribute("priv"));

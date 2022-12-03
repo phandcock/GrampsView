@@ -8,6 +8,7 @@
 //-----------------------------------------------------------------------
 
 using GrampsView.Data.Collections;
+using GrampsView.Models.DataModels;
 
 namespace GrampsView.Data.Model
 {

@@ -3,7 +3,6 @@ using SharedSharp.Messages;
 
 using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
@@ -26,7 +25,7 @@ namespace GrampsView.UserControls
             Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
                 NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
-                Debug.WriteLine(NumColumns);
+                //Debug.WriteLine(NumColumns);
             }
             );
         }

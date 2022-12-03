@@ -10,6 +10,7 @@
 namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
+    using GrampsView.Models.Collections.HLinks;
 
     /// <summary>
     /// </summary>

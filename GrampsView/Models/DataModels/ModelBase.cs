@@ -12,10 +12,7 @@ namespace GrampsView.Models.DataModels
     /// <summary>
     /// Base for Models.
     /// </summary>
-    /// <seealso cref="Common.ObservableObject"/>
-    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
-    /// /// ///
-    /// <seealso cref="Data.ViewModel.IModelBase"/>
+
 
     public class ModelBase : ObservableObject, IModelBase
     {
@@ -227,10 +224,8 @@ namespace GrampsView.Models.DataModels
                 return true;
             }
 
-            if (obj is null)
-            { return false; }
-
-            return obj.GetType() == GetType()
+            return obj is not null
+&& obj.GetType() == GetType()
 && !string.IsNullOrEmpty(Id) && !string.IsNullOrEmpty((obj as ModelBase).Id) && Id == (obj as ModelBase).Id;
         }
 

@@ -1,19 +1,19 @@
 ﻿// XML 171 - Not in definition so created this for use with BackLink functionality
 
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     public class HLinkPersonNameModel : HLinkBase, IHLinkPersonNameModel
     {
-        private PersonNameModel _Deref = new PersonNameModel();
+        private PersonNameModel _Deref = new();
 
         private bool DeRefCached = false;
 
@@ -50,23 +50,16 @@ namespace GrampsView.Data.Model
         /// </param>
         /// <returns>
         /// </returns>
-        public int CompareTo(object obj)
+        public new int CompareTo(object obj)
         {
-            HLinkPersonNameModel arg = obj as HLinkPersonNameModel;
-
             // Null objects go first
-            if (arg is null)
+            if (obj is not HLinkPersonNameModel arg)
             {
                 return 1;
             }
 
             // Can only comapre if they are the same type so assume equal
-            if (arg.GetType() != typeof(HLinkPersonNameModel))
-            {
-                return 0;
-            }
-
-            return DeRef.CompareTo(arg.DeRef);
+            return arg.GetType() != typeof(HLinkPersonNameModel) ? 0 : DeRef.CompareTo(arg.DeRef);
         }
 
         public override async Task UCNavigate()

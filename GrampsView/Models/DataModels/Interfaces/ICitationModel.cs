@@ -9,6 +9,7 @@
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
 
 namespace GrampsView.Data.Model
 {

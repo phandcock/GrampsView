@@ -12,15 +12,11 @@ namespace GrampsView.ViewModels.StartupPages
 
         private readonly string _WhatsNewText = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetupStorageViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
+
+        /// <summary>Initializes a new instance of the <see cref="WhatsNewViewModel" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
+        /// <param name="iocEventAggregator">The ioc event aggregator.</param>
+        /// <param name="iocAppInit">The ioc application initialize.</param>
         public WhatsNewViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, IAppInit iocAppInit)
             : base(iocCommonLogging)
         {

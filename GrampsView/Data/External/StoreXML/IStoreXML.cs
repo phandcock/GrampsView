@@ -1,7 +1,5 @@
-namespace GrampsView.Data.ExternalStorage
+namespace GrampsView.Data.External.StoreXML
 {
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface definitions for IExternal Storage.
     /// </summary>
@@ -29,24 +27,13 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         Task LoadCitationsAsync();
 
-        /// <summary>
-        /// load events from external storage.
-        /// </summary>
-        /// <param name="eventRepository">
-        /// The event repository.
-        /// </param>
-        /// <returns>
-        /// Flag if EVents loaded successfully.
-        /// </returns>
+        /// <summary>load events from external storage.</summary>
+        /// <returns>Flag if EVents loaded successfully.</returns>
         Task LoadEventsAsync();
 
-        /// <summary>
-        /// load families from external storage.
-        /// </summary>
-        /// <param name="familyRepository">
-        /// The family repository.
-        /// </param>
+        /// <summary>load families from external storage.</summary>
         /// <returns>
+        ///   <br />
         /// </returns>
         Task<bool> LoadFamiliesAsync();
 
@@ -61,9 +48,6 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// load media objects from external storage.
         /// </summary>
-        /// <param name="mediaRepository">
-        /// The media repository.
-        /// </param>
         /// <returns>
         /// </returns>
         Task<bool> LoadMediaObjectsAsync();
@@ -78,23 +62,13 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// load Notes from external storage.
         /// </summary>
-        /// <param name="notesRepository">
-        /// The notes repository.
-        /// </param>
         /// <returns>
         /// Flag if Notes data loaded successfully.
         /// </returns>
         Task LoadNotesAsync();
 
-        /// <summary>
-        /// load the person data from the external storage XML file.
-        /// </summary>
-        /// <param name="peopleRepository">
-        /// The people repository.
-        /// </param>
-        /// <returns>
-        /// Flag if People Data loaded successfully.
-        /// </returns>
+        /// <summary>load the person data from the external storage XML file.</summary>
+        /// <returns>Flag if People Data loaded successfully.</returns>
         Task LoadPeopleDataAsync();
 
         /// <summary>

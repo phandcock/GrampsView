@@ -6,24 +6,17 @@ using GrampsView.Models.DataModels.Interfaces;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-using System;
-using System.IO;
 using System.IO.Compression;
-
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Data
 {
+
     /// <summary>
+    ///   <br />
     /// </summary>
-    /// <seealso cref="Common.ObservableObject"/>
-    /// /// /// /// /// /// /// /// /// /// ///
-    /// <seealso cref="IStoreFile"/>
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>
@@ -45,9 +38,9 @@ namespace GrampsView.Data
 
             byte[] dataBuffer = new byte[4096];
 
-            GZipStream gzipStream = new GZipStream(originalFileStream, CompressionMode.Decompress);
+            GZipStream gzipStream = new(originalFileStream, CompressionMode.Decompress);
 
-            FileInfo fsOut = new FileInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, argOutFile));
+            FileInfo fsOut = new(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, argOutFile));
 
             FileStream fsOut1 = fsOut.Create();
 
@@ -60,18 +53,13 @@ namespace GrampsView.Data
             return true;
         }
 
-        /// <summary>
-        /// Extracts the first image from a zip file.
-        /// </summary>
-        /// <param name="archiveFilenameIn">
-        /// The archive filename in.
-        /// </param>
-        /// <param name="outFolder">
-        /// The out folder.
-        /// </param>
+        /// <summary>Extracts the first image from a zip file.</summary>
+        /// <param name="argCurrentDataFolder"></param>
+        /// <param name="argExistingMediaModel"></param>
+        /// <param name="argNewMediaModel"></param>
         public static IMediaModel ExtractZipFileFirstImage(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
-            ICSharpCode.SharpZipLib.Zip.ZipFile zf = null;
+            ICSharpCode.SharpZipLib.Zip.ZipFile? zf = null;
             try
             {
                 FileStream fs = File.OpenRead(argExistingMediaModel.MediaStorageFilePath);
@@ -120,7 +108,7 @@ namespace GrampsView.Data
             }
             catch (DirectoryNotFoundException ex)
             {
-                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from ZIP file")
+                ErrorInfo t = new("Directory not found when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
@@ -134,7 +122,7 @@ namespace GrampsView.Data
             }
             catch (Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Exception when trying to create image from ZIP file")
+                ErrorInfo t = new("Exception when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },

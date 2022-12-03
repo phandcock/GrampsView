@@ -3,10 +3,10 @@
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
 
-using System;
 using System.Collections;
 
 
@@ -17,21 +17,11 @@ namespace GrampsView.Models.DataModels
 {
     /// <summary>
     /// Data model for a place.
-    /// <list type="table">
-    /// <listheader>
-    /// <term> Item </term>
-    /// <term> Status </term>
-    /// </listheader>
-    /// <item>
-    /// <description> XML 1.71 check </description>
-    /// <description> Done </description>
-    /// </item>
-    /// </list>
-    /// </summary>
-    /// <seealso cref="Data.ViewModel.ModelBase"/>
-    /// <seealso cref="Data.ViewModel.IPlaceModel"/>
-    /// <seealso cref="IComparable"/>
-    /// <seealso cref="IComparer"/>
+    /// <list type="table"><listheader><term> Item </term><term> Status </term></listheader><item><description> XML 1.71 check </description><description> Done </description></item></list></summary>
+    /// <seealso cref="Data.ViewModel.ModelBase" />
+    /// <seealso cref="Data.ViewModel.IPlaceModel" />
+    /// <seealso cref="IComparable" />
+    /// <seealso cref="IComparer" />
 
     public sealed class PlaceModel : ModelBase, IPlaceModel, IComparable, IComparer
     {
@@ -185,7 +175,7 @@ namespace GrampsView.Models.DataModels
         {
             get
             {
-                HLinkPlaceModel t = new HLinkPlaceModel
+                HLinkPlaceModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -266,7 +256,7 @@ namespace GrampsView.Models.DataModels
             PlaceModel thisPlaceModel = this;
 
             // Walk the hierarchy to the top to give Maps something to search for
-            Placemark currentPlace = new Placemark();
+            Placemark currentPlace = new();
 
             if (!string.IsNullOrEmpty(GPName))
             {

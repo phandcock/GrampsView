@@ -4,6 +4,7 @@ namespace GrampsView.Data.Model
 {
     using GrampsView.Data.Collections;
     using GrampsView.Data.DataView;
+    using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
 
     using System.Text.Json.Serialization;

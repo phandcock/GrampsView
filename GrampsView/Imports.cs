@@ -9,6 +9,7 @@ global using Microsoft.Maui;
 global using Microsoft.Maui.Controls;
 
 global using SharedSharp.Common;
+global using SharedSharp.Logging.Interfaces;
 
 global using System;
 

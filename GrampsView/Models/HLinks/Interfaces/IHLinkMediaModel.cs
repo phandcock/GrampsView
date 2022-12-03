@@ -1,8 +1,9 @@
-﻿namespace GrampsView.Data.Model
-{
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Models.DataModels.Interfaces;
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Interfaces;
 
+namespace GrampsView.Models.HLinks.Interfaces
+{
     public interface IHLinkMediaModel : IHLinkBase
     {
         IMediaModel DeRef
@@ -31,5 +32,6 @@
         }
 
         HLinkKey OriginalMediaHLink { get; set; }
+
     }
 }

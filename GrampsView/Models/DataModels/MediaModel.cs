@@ -6,6 +6,7 @@ using GrampsView.Data;
 using GrampsView.Data.Collections;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
 

@@ -1,9 +1,10 @@
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Interfaces;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
     /// <summary>
     /// Interfaces for Media Repository.
     /// </summary>
@@ -18,16 +19,10 @@ namespace GrampsView.Data.DataView
 
         HLinkMediaModelCollection GetAllNotClippedAsHLink();
 
-        /// <summary>
-        /// Gets the random from collection.
-        /// </summary>
-        /// <param name="theCollection">
-        /// The collection.
-        /// </param>
-        /// <param name="DefaultHLink">
-        /// The default h link.
-        /// </param>
+        /// <summary>Gets the random from collection.</summary>
+        /// <param name="theCollection">The collection.</param>
         /// <returns>
+        ///   <br />
         /// </returns>
         IHLinkMediaModel GetRandomFromCollection(HLinkMediaModelCollection theCollection);
     }

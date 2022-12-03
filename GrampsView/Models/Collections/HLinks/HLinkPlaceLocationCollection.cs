@@ -1,11 +1,10 @@
 ﻿// TODO Needs XML 1.71 check
 
-/// <summary>
-/// </summary>
+
+using GrampsView.Data.Model;
+
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Data.Model;
-
     /// <summary>
     /// Place location model collection
     /// </summary>

@@ -1,16 +1,13 @@
-﻿namespace GrampsView.Data.Collections
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+
+namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-
-    /// <summary> Collection of Header HLinks <list type="table"><listheader><term><th> Status
-    /// </term></listheader><item><description> XML 1.71 check </description><description> Done
-    /// </description></item></list><para><br /></para> </summary>
-
+    /// <summary>XML 1.71 done</summary>
     [KnownType(typeof(ObservableCollection<HLinkHeaderModel>))]
     public class HLinkHeaderModelCollection : HLinkBaseCollection<HLinkHeaderModel>
     {

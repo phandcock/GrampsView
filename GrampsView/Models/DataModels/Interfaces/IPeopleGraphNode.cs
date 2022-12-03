@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GrampsView.Models.DataModels.Minor;
+
+using System;
 using System.Collections;
 
 namespace GrampsView.Data.Model

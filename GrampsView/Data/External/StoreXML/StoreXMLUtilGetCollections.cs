@@ -1,20 +1,22 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.External.StoreXML;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Models;
+
+using SharedSharp.Errors;
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Errors;
-
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Xml.Linq;
-
     /// <summary>
     /// Various utility and loading routines for XML data.
     /// </summary>
@@ -24,7 +26,7 @@
     {
         private static HLinkPlaceLocationCollection GetPlaceLocationModelCollection(XElement xmlData)
         {
-            HLinkPlaceLocationCollection t = new HLinkPlaceLocationCollection
+            HLinkPlaceLocationCollection t = new()
             {
                 Title = "Place Location Collection"
             };
@@ -40,7 +42,7 @@
                 // Load location object references
                 foreach (XElement theLocation in theERElement)
                 {
-                    PlaceLocationModel newLocationModel = new PlaceLocationModel();
+                    PlaceLocationModel newLocationModel = new();
 
                     // Load individual attributes
                     IEnumerable<XAttribute> attributeElements = theLocation.Attributes();
@@ -104,7 +106,7 @@
 
                     newLocationModel.ModelItemGlyph.Symbol = Constants.IconPlace;
 
-                    HLinkPlaceLocationModel newHLink = new HLinkPlaceLocationModel()
+                    HLinkPlaceLocationModel newHLink = new()
                     {
                         DeRef = newLocationModel,
                     };
@@ -119,7 +121,7 @@
 
         private static HLinkPlaceNameModelCollection GetPlaceNameModelCollection(XElement xmlData)
         {
-            HLinkPlaceNameModelCollection t = new HLinkPlaceNameModelCollection
+            HLinkPlaceNameModelCollection t = new()
             {
                 Title = "Place Name Collection"
             };
@@ -135,7 +137,7 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    PlaceNameModel newPlaceNameModel = new PlaceNameModel
+                    PlaceNameModel newPlaceNameModel = new()
                     {
                         GValue = GetAttribute(theLoadORElement, "value"),
 
@@ -147,7 +149,7 @@
                     newPlaceNameModel.ModelItemGlyph.Symbol = Constants.IconPlace;
                     newPlaceNameModel.HLinkKey = HLinkKey.NewAsGUID();
 
-                    HLinkPlaceNameModel tt = new HLinkPlaceNameModel
+                    HLinkPlaceNameModel tt = new()
                     {
                         DeRef = newPlaceNameModel
                     };
@@ -165,13 +167,13 @@
 
         private HLinkAddressModelCollection GetAddressCollection(XElement xmlData)
         {
-            HLinkAddressModelCollection t = new HLinkAddressModelCollection
+            HLinkAddressModelCollection t = new()
             {
                 Title = "Address Collection"
             };
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "address")
                     select orElementEl;
@@ -181,7 +183,7 @@
                 // Load address object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    AddressModel newAddressModel = new AddressModel
+                    AddressModel newAddressModel = new()
                     {
                         GCitationRefCollection = GetCitationCollection(theLoadORElement),
 
@@ -206,15 +208,14 @@
                         Priv = GetPrivateObject(theLoadORElement),
 
                         GNoteRefCollection = GetNoteCollection(theLoadORElement),
+                        // Set model hlinkkey etc
+                        HLinkKey = HLinkKey.NewAsGUID()
                     };
-
-                    // Set model hlinkkey etc
-                    newAddressModel.HLinkKey = HLinkKey.NewAsGUID();
                     newAddressModel.Id = newAddressModel.HLinkKey.Value;
                     DataStore.Instance.DS.AddressData.Add(newAddressModel);
 
                     // Create a HLink to the model
-                    HLinkAdressModel newHlink = new HLinkAdressModel
+                    HLinkAdressModel newHlink = new()
                     {
                         HLinkKey = newAddressModel.HLinkKey,
                     };
@@ -236,12 +237,12 @@
         /// </returns>
         private HLinkAttributeModelCollection GetAttributeCollection(XElement xmlData)
         {
-            HLinkAttributeModelCollection t = new HLinkAttributeModelCollection
+            HLinkAttributeModelCollection t = new()
             {
                 Title = "Attribute Collection"
             };
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "attribute")
                     select orElementEl;
@@ -251,7 +252,7 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    AttributeModel newAttributeModel = new AttributeModel
+                    AttributeModel newAttributeModel = new()
                     {
                         GCitationReferenceCollection = GetCitationCollection(theLoadORElement),
 
@@ -264,7 +265,7 @@
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),
                     };
 
-                    HLinkAttributeModel tt = new HLinkAttributeModel
+                    HLinkAttributeModel tt = new()
                     {
                         DeRef = newAttributeModel
                     };
@@ -278,13 +279,13 @@
 
         private HLinkChildRefCollection GetChildRefCollection(XElement xmlData)
         {
-            HLinkChildRefCollection t = new HLinkChildRefCollection
+            HLinkChildRefCollection t = new()
             {
                 Title = "Child Reference Collection"
             };
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "childref")
                     select orElementEl;
@@ -294,7 +295,7 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkChildRefModel newChildRefModel = new HLinkChildRefModel
+                    HLinkChildRefModel newChildRefModel = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
 
@@ -333,7 +334,7 @@
         /// </returns>
         private HLinkCitationModelCollection GetCitationCollection(XElement xmlData)
         {
-            HLinkCitationModelCollection t = new HLinkCitationModelCollection
+            HLinkCitationModelCollection t = new()
             {
                 Title = "Citation Collection"
             };
@@ -347,7 +348,7 @@
                 // load citation object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkCitationModel t2 = new HLinkCitationModel
+                    HLinkCitationModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                     };
@@ -375,12 +376,12 @@
         /// </returns>
         private HLinkEventModelCollection GetEventCollection(XElement xmlData)
         {
-            HLinkEventModelCollection t = new HLinkEventModelCollection
+            HLinkEventModelCollection t = new()
             {
                 Title = "Event Collection"
             };
 
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from _ORElementEl in xmlData.Elements(ns + "eventref")
                     select _ORElementEl;
 
@@ -389,7 +390,7 @@
                 // load event object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkEventModel t2 = new HLinkEventModel
+                    HLinkEventModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                         GRole = GetAttribute(theLoadORElement.Attribute("role")),
@@ -411,12 +412,12 @@
 
         private HLinkLdsOrdModelCollection GetLDSOrdCollection(XElement xmlData)
         {
-            HLinkLdsOrdModelCollection t = new HLinkLdsOrdModelCollection
+            HLinkLdsOrdModelCollection t = new()
             {
                 Title = "LDS Ordination Collection"
             };
 
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from _ORElementEl in xmlData.Elements(ns + "ldsord")
                     select _ORElementEl;
 
@@ -425,12 +426,12 @@
                 // load LDS Ordination object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    LdsOrdModel t2 = new LdsOrdModel
+                    LdsOrdModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                     };
 
-                    HLinkLDSModel ttt = new HLinkLDSModel
+                    HLinkLDSModel ttt = new()
                     {
                         DeRef = t2
                     };
@@ -452,13 +453,13 @@
         /// </returns>
         private HLinkNoteModelCollection GetNoteCollection(XElement xmlData)
         {
-            HLinkNoteModelCollection t = new HLinkNoteModelCollection
+            HLinkNoteModelCollection t = new()
             {
                 Title = "Note Collection"
             };
 
             // Load NoteRefs
-            var localNoteElement =
+            IEnumerable<XElement> localNoteElement =
                              from ElementEl in xmlData.Elements(ns + "noteref")
                              select ElementEl;
 
@@ -467,7 +468,7 @@
                 // load note references
                 foreach (XElement loadNoteElement in localNoteElement)
                 {
-                    HLinkNoteModel noteHLink = new HLinkNoteModel
+                    HLinkNoteModel noteHLink = new()
                     {
                         HLinkKey = GetHLinkKey(loadNoteElement),
                     };
@@ -491,7 +492,7 @@
         /// </returns>
         private async Task<HLinkMediaModelCollection> GetObjectCollection(XElement xmlData)
         {
-            HLinkMediaModelCollection t = new HLinkMediaModelCollection
+            HLinkMediaModelCollection t = new()
             {
                 Title = "Media Collection"
             };
@@ -505,7 +506,7 @@
                 foreach (XElement theLoadORElement in theORElement)
                 {
                     // save the MediaObject reference
-                    HLinkMediaModel outHLMediaModel = new HLinkMediaModel
+                    HLinkMediaModel outHLMediaModel = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                         Priv = GetPrivateObject(theLoadORElement),
@@ -543,12 +544,12 @@
 
         private HLinkPersonNameModelCollection GetPersonNameCollection(XElement xmlData)
         {
-            HLinkPersonNameModelCollection t = new HLinkPersonNameModelCollection
+            HLinkPersonNameModelCollection t = new()
             {
                 Title = "Person Name Collection"
             };
 
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "name")
                     select orElementEl;
@@ -559,7 +560,7 @@
                 foreach (XElement theLoadORElement in theERElement)
                 {
                     // TODO is date handling correct
-                    PersonNameModel newPersonNameModel = new PersonNameModel
+                    PersonNameModel newPersonNameModel = new()
                     {
                         GCitationRefCollection = GetCitationCollection(theLoadORElement),
 
@@ -588,11 +589,10 @@
                         GType = GetAttribute(theLoadORElement.Attribute("type")),
 
                         GNoteReferenceCollection = GetNoteCollection(theLoadORElement),
+                        GAlt = new AltModel(GetAttribute(theLoadORElement, "alt")),
+
+                        HLinkKey = HLinkKey.NewAsGUID()
                     };
-
-                    newPersonNameModel.GAlt = new AltModel(GetAttribute(theLoadORElement, "alt"));
-
-                    newPersonNameModel.HLinkKey = HLinkKey.NewAsGUID();
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
@@ -602,7 +602,7 @@
                     //}
 
                     // Create a HLink to the model
-                    HLinkPersonNameModel newHlink = new HLinkPersonNameModel
+                    HLinkPersonNameModel newHlink = new()
                     {
                         HLinkKey = newPersonNameModel.HLinkKey
                     };
@@ -627,7 +627,7 @@
         /// </returns>
         private HLinkPersonRefModelCollection GetPersonRefCollection(XElement xmlData)
         {
-            HLinkPersonRefModelCollection t = new HLinkPersonRefModelCollection
+            HLinkPersonRefModelCollection t = new()
             {
                 Title = "Person Collection"
             };
@@ -641,15 +641,14 @@
                 // load person object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkPersonRefModel t2 = new HLinkPersonRefModel
+                    HLinkPersonRefModel t2 = new()
                     {
                         Priv = GetPrivateObject(theLoadORElement),
                         GCitationCollection = GetCitationCollection(theLoadORElement),
                         GNoteCollection = GetNoteCollection(theLoadORElement),
                         GRelationship = GetAttribute(theLoadORElement, "rel"),
+                        HLinkKey = GetHLinkKey(theLoadORElement)
                     };
-
-                    t2.HLinkKey = GetHLinkKey(theLoadORElement);
 
                     t.Add(t2);
                 }
@@ -660,7 +659,7 @@
 
         private HLinkPlaceModelCollection GetPlaceRefCollection(XElement xmlData)
         {
-            HLinkPlaceModelCollection t = new HLinkPlaceModelCollection
+            HLinkPlaceModelCollection t = new()
             {
                 Title = "Place Collection"
             };
@@ -675,7 +674,7 @@
                 // load note references
                 foreach (XElement loadPlaceElement in localPlaceElement)
                 {
-                    HLinkPlaceModel noteHLink = new HLinkPlaceModel
+                    HLinkPlaceModel noteHLink = new()
                     {
                         // object details
                         HLinkKey = GetHLinkKey(loadPlaceElement),
@@ -700,20 +699,20 @@
         /// </returns>
         private HLinkRepositoryRefCollection GetRepositoryCollection(XElement xmlData)
         {
-            HLinkRepositoryRefCollection t = new HLinkRepositoryRefCollection
+            HLinkRepositoryRefCollection t = new()
             {
                 Title = "Repository Reference Collection"
             };
 
-            var theERElement = from _ORElementEl in xmlData.Elements(ns + "reporef")
-                               select _ORElementEl;
+            IEnumerable<XElement> theERElement = from _ORElementEl in xmlData.Elements(ns + "reporef")
+                                                 select _ORElementEl;
 
             if (theERElement.Any())
             {
                 // load repository references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkRepositoryRefModel t2 = new HLinkRepositoryRefModel
+                    HLinkRepositoryRefModel t2 = new()
                     {
                         // "callno" Done "medium" Done; "noteref" Done
                         HLinkKey = GetHLinkKey(theLoadORElement),
@@ -746,12 +745,12 @@
         /// </returns>
         private HLinkOCSrcAttributeCollection GetSrcAttributeCollection(XElement xmlData)
         {
-            HLinkOCSrcAttributeCollection t = new HLinkOCSrcAttributeCollection
+            HLinkOCSrcAttributeCollection t = new()
             {
                 Title = "Source Attribute Collection"
             };
 
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from oRElementEl in xmlData.Elements(ns + "srcattribute")
                     select oRElementEl;
 
@@ -760,7 +759,7 @@
                 // load event object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    SrcAttributeModel tt = new SrcAttributeModel
+                    SrcAttributeModel tt = new()
                     {
                         Priv = GetPrivateObject(theLoadORElement),
 
@@ -768,7 +767,7 @@
                         GValue = GetAttribute(theLoadORElement.Attribute("value")),
                     };
 
-                    HLinkSrcAttributeModel newHLink = new HLinkSrcAttributeModel()
+                    HLinkSrcAttributeModel newHLink = new()
                     {
                         DeRef = tt,
                     };
@@ -784,13 +783,13 @@
 
         private StyledTextModel GetStyledTextCollection(XElement xmlData)
         {
-            StyledTextModel t = new StyledTextModel
+            StyledTextModel t = new()
             {
                 GText = (string)xmlData.Element(ns + "text")
             };
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "style")
                     select orElementEl;
@@ -800,7 +799,7 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    GrampsStyle newStyleModel = new GrampsStyle
+                    GrampsStyle newStyleModel = new()
                     {
                         GStyle = GetTextStyle(theLoadORElement),
 
@@ -818,10 +817,10 @@
 
         private List<GrampsStyleRangeModel> GetStyledTextRangeCollection(XElement xmlData)
         {
-            List<GrampsStyleRangeModel> returnValue = new List<GrampsStyleRangeModel>();
+            List<GrampsStyleRangeModel> returnValue = new();
 
             // Run query
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from orElementEl
                     in xmlData.Elements(ns + "range")
                     select orElementEl;
@@ -831,11 +830,11 @@
                 // Load attribute object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    GrampsStyleRangeModel newStyleModel = new GrampsStyleRangeModel();
+                    GrampsStyleRangeModel newStyleModel = new();
 
                     if (!int.TryParse(GetAttribute(theLoadORElement, "start"), out int Start))
                     {
-                        ErrorInfo t = new ErrorInfo("Bad Style Range Start")
+                        ErrorInfo t = new("Bad Style Range Start")
                         {
                             { "XML data", xmlData.ToString() }
                         };
@@ -846,7 +845,7 @@
 
                     if (!int.TryParse(GetAttribute(theLoadORElement, "end"), out int End))
                     {
-                        ErrorInfo t = new ErrorInfo("Bad Style Range End")
+                        ErrorInfo t = new("Bad Style Range End")
                         {
                             { "XML data", xmlData.ToString() }
                         };
@@ -864,25 +863,25 @@
 
         private HLinkSurnameModelCollection GetSurnameCollection(XElement xmlData)
         {
-            HLinkSurnameModelCollection t = new HLinkSurnameModelCollection
+            HLinkSurnameModelCollection t = new()
             {
                 Title = "Surname Collection"
             };
 
-            var theERElement = from _ORElementEl in xmlData.Elements(ns + "surname")
-                               select _ORElementEl;
+            IEnumerable<XElement> theERElement = from _ORElementEl in xmlData.Elements(ns + "surname")
+                                                 select _ORElementEl;
 
             if (theERElement.Any())
             {
                 // load repository references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    SurnameModel t2 = new SurnameModel
+                    SurnameModel t2 = new()
                     {
                         GText = GetElement(theLoadORElement),
                     };
 
-                    HLinkSurnameModel newHLink = new HLinkSurnameModel
+                    HLinkSurnameModel newHLink = new()
                     {
                         DeRef = t2,
                     };
@@ -906,12 +905,12 @@
         /// </returns>
         private HLinkTagModelCollection GetTagCollection(XElement xmlData)
         {
-            HLinkTagModelCollection t = new HLinkTagModelCollection
+            HLinkTagModelCollection t = new()
             {
                 Title = "Tag Collection"
             };
 
-            var theERElement =
+            IEnumerable<XElement> theERElement =
                     from _ORElementEl in xmlData.Elements(ns + "tagref")
                     select _ORElementEl;
 
@@ -920,7 +919,7 @@
                 // load tag references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkTagModel t2 = new HLinkTagModel
+                    HLinkTagModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                     };
@@ -942,7 +941,7 @@
         /// </param>
         private HLinkURLModelCollection GetURLCollection(XElement xmlData)
         {
-            HLinkURLModelCollection t = new HLinkURLModelCollection();
+            HLinkURLModelCollection t = new();
 
             // Run query
             IEnumerable<XElement> theERElement =
@@ -954,7 +953,7 @@
             {
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    URLModel tt = new URLModel
+                    URLModel tt = new()
                     {
                         Priv = GetPrivateObject(theLoadORElement),
 
@@ -971,7 +970,7 @@
 
                     tt.HLinkKey = HLinkKey.NewAsGUID();
 
-                    HLinkURLModel ttt = new HLinkURLModel
+                    HLinkURLModel ttt = new()
                     {
                         DeRef = tt
                     };

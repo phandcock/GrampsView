@@ -1,4 +1,5 @@
-﻿using GrampsView.Data.Model;
+﻿using GrampsView.Data.External.StoreXML;
+using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
 using System;

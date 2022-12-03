@@ -6,23 +6,23 @@
 		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-        
+
         <!-- .NET MAUI -->
         <UseMaui>true</UseMaui>
         <SingleProject>true</SingleProject>
-        
+
         <!-- Project Options -->
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>GrampsView</RootNamespace>
-        
+
         <!-- Display name -->
         <ApplicationTitle>GrampsView</ApplicationTitle>
-        
+
         <!-- App Identifier -->
         <ApplicationId>com.companyname.grampsview</ApplicationId>
         <ApplicationIdGuid>96d4740a-95e4-4689-8e38-896897feb38f</ApplicationIdGuid>
-        
+
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
@@ -39,29 +39,10 @@
         <DefaultLanguage>en</DefaultLanguage>
 		<Title>GrampsView</Title>
 		<PackageIcon>application_icon.png</PackageIcon>
-      
+
 		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
     </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
-		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
-	</PropertyGroup>
-	
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
-		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
-		<PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-	</PropertyGroup>
-	
-	<!-- Required to work around a bug in the Windows SDK. For more information about the bug, see WindowsAppSDK Issue #2940.-->
-	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
-		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
-	</PropertyGroup>
-	
-	
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#512BD4" />
@@ -84,18 +65,38 @@
 	</PropertyGroup>-->
 
 	<!-- Android -->
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true">
+		<Compile Remove="Platforms\Windows\**\*.*" />
+		<None Include="Platforms\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+
+	<!--<AndroidLinkResources>false</AndroidLinkResources>-->
+
+	<!-- Windows -->
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
 		<Compile Remove="Platforms\Android\**\*.*" />
 		<None Include="Platforms\Android\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
+		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
 
-	<!-- Windows -->
-	<ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true">
-		<Compile Remove="Platforms\Windows\**\*.*" />
-		<None Include="Platforms\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-	</ItemGroup>
-	
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
+		<DefineConstants>WINDOWS10_0_17763_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
+		<PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+	</PropertyGroup>
+
+	<!-- Required to work around a bug in the Windows SDK. For more information about the bug, see WindowsAppSDK Issue #2940.-->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+	</PropertyGroup>
+
+	<!-- General -->
     <ItemGroup>
       <AndroidResource Remove="ViewModels\PeopleGraph\**" />
       <AndroidResource Remove="Views\PeopleGraph\**" />
@@ -154,18 +155,18 @@
     </ItemGroup>
 
     <ItemGroup>
-     
+
         <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />
-     
+
         <PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
-     
+
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.0.0" />
-     
+
         <PackageReference Include="Fody" Version="6.6.4">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-     
+
         <PackageReference Include="IeuanWalker.Maui.Breadcrumb" Version="1.0.0-Preview.2" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0" />
@@ -181,7 +182,6 @@
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
-    
     </ItemGroup>
 
     <ItemGroup>
@@ -200,8 +200,6 @@
         <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
-
- 
 
     <ItemGroup>
       <MauiXaml Update="App.xaml">

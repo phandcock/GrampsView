@@ -1,12 +1,10 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// <para> Source ViewModel. </para>
     /// <list type="table">
@@ -20,14 +18,12 @@
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// <seealso cref="GrampsView.Data.ViewModel.ISourceModel"/>
-    /// <seealso cref="System.IComparable"/>
-    /// <seealso cref="System.Collections.IComparer"/>
+
 
     public sealed class SourceModel : ModelBase, ISourceModel, IComparable, IComparer<SourceModel>
     {
-        private HLinkMediaModelCollection _MediaCollection = new HLinkMediaModelCollection();
+        /// <summary>The media collection</summary>
+        private HLinkMediaModelCollection _MediaCollection = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceModel"/> class.
@@ -163,7 +159,7 @@
         {
             get
             {
-                HLinkSourceModel t = new HLinkSourceModel
+                HLinkSourceModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -268,7 +264,8 @@
         /// </value>
         public override string ToString()
         {
-            return GSTitle.Substring(0, Math.Min(40, GSTitle.Length)); ;
+            return GSTitle[..Math.Min(40, GSTitle.Length)];
+            ;
         }
     }
 }

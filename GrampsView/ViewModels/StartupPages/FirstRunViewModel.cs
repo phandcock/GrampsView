@@ -37,15 +37,7 @@ namespace GrampsView.ViewModels.StartupPages
             get;
         }
 
-        /// <summary>
-        /// Gramps export XML plus media.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="parameter">
-        /// The parameter.
-        /// </param>
+        /// <summary>Gramps export XML plus media.</summary>
         public async Task FirstRunLoadAFileButton()
         {
             _ = await Shell.Current.Navigation.PopModalAsync();

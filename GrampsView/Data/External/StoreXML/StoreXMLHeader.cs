@@ -1,18 +1,15 @@
 ﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Common.ObservableObject"/>
-    /// /// ///
-    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
+
     public partial class StoreXML : IStoreXML
     {
         /// <summary>
@@ -27,7 +24,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 try
                 {
-                    HeaderModel headerData = new HeaderModel();
+                    HeaderModel headerData = new();
 
                     // XNamespace ns = grampsXMLNameSpace;
 
@@ -71,7 +68,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (System.Exception ex)
                 {
-                    MyNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded",ex,null);
+                    MyNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex, null);
 
                     throw;
                 }

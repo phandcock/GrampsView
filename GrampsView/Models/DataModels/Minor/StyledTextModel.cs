@@ -1,18 +1,16 @@
 ﻿// TODO Needs XML 1.71 check
 
-/// <summary>
-/// </summary>
+
+using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+
+using System;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-
-    using System;
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-
-    using CommunityToolkit.Mvvm.ComponentModel;
-  
-
     /// <summary>
     /// Styled Text model collection.
     /// </summary>
@@ -20,13 +18,9 @@ namespace GrampsView.Data.Model
     [KnownType(typeof(StyledTextModel))]
     public class StyledTextModel : ObservableObject, IStyledTextModel
     {
-        private readonly ObservableCollection<GrampsStyle> _Styles
-
-            = new ObservableCollection<GrampsStyle>();
-
         private string _GText = string.Empty;
 
-        private FormattedString _TextFormatted = new FormattedString();
+        private FormattedString _TextFormatted = new();
 
         public StyledTextModel()
         {
@@ -45,13 +39,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The text.
         /// </value>
-        public ObservableCollection<GrampsStyle> Styles
-        {
-            get
-            {
-                return _Styles;
-            }
-        }
+        public ObservableCollection<GrampsStyle> Styles { get; } = new ObservableCollection<GrampsStyle>();
 
         public FormattedString TextFormatted
         {
@@ -72,12 +60,6 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The text short.
         /// </value>
-        public string TextShort
-        {
-            get
-            {
-                return GText.Substring(0, Math.Min(GText.Length, 100));
-            }
-        }
+        public string TextShort => GText[..Math.Min(GText.Length, 100)];
     }
 }
