@@ -1,3 +1,14 @@
+## [16.28.14](https://github.com/phandcock/GrampsView/compare/v16.28.13...v16.28.14) (2022-12-02)
+
+
+### Bug Fixes
+
+* fix app icons ([93e06e6](https://github.com/phandcock/GrampsView/commit/93e06e61fd4bdacd21726f8eed507ad98a2e9fee))
+* tweaks ([08d6a2e](https://github.com/phandcock/GrampsView/commit/08d6a2e6044355cbbf8315ec637b56b7b32d819b))
+* tweaks ([3e0262c](https://github.com/phandcock/GrampsView/commit/3e0262cd05a6bee8219f38781e93ab557ed6b7b3))
+
+
+
 ## [16.28.13](https://github.com/phandcock/GrampsView/compare/v16.28.12...v16.28.13) (2022-12-02)
 
 
@@ -23,16 +34,6 @@
 ### Bug Fixes
 
 * tweaks ([d4a9ae2](https://github.com/phandcock/GrampsView/commit/d4a9ae29c0242bfa16589a04ca80932ac6b82e4d))
-
-
-
-## [16.28.10](https://github.com/phandcock/GrampsView/compare/v16.28.9...v16.28.10) (2022-11-30)
-
-
-### Bug Fixes
-
-* handle new nugets ([1e607ba](https://github.com/phandcock/GrampsView/commit/1e607bac95b10b482b91504c78261411457f1549))
-* tweaks ([e360aac](https://github.com/phandcock/GrampsView/commit/e360aac6f85d69b2a5fdec0fa469d30ae0c65c2f))
 
 
 
