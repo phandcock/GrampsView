@@ -1,27 +1,23 @@
-﻿namespace GrampsView.UWP
+﻿using GrampsView.Common.Interfaces;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using Windows.Data.Pdf;
+using Windows.Storage;
+using Windows.Storage.FileProperties;
+using Windows.Storage.Streams;
+
+using Buffer = Windows.Storage.Streams.Buffer;
+
+namespace GrampsView.Platforms.Windows.AppSecific
 {
-    using CommunityToolkit.Mvvm.DependencyInjection;
-
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Interfaces;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    using Windows.Data.Pdf;
-    using Windows.Storage;
-    using Windows.Storage.FileProperties;
-    using Windows.Storage.Streams;
-
     /// <summary>
     /// UWP Platform specific code
     /// </summary>
-    internal partial class PlatformSpecific : IPlatformSpecific
+    internal partial class GenerateThumbNails : IGenerateThumbnails
     {
         public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
@@ -37,7 +33,7 @@
                 if (pdfDocument != null && pdfDocument.PageCount > 0)
                 {
                     // Get page from a PDF file.
-                    var pdfPage = pdfDocument.GetPage(0);
+                    PdfPage pdfPage = pdfDocument.GetPage(0);
 
                     if (pdfPage != null)
                     {
@@ -49,7 +45,7 @@
                             IRandomAccessStream randomStream = await destinationFile.OpenAsync(FileAccessMode.ReadWrite);
 
                             //Crerate PDF rendering options
-                            PdfPageRenderOptions pdfPageRenderOptions = new PdfPageRenderOptions
+                            PdfPageRenderOptions pdfPageRenderOptions = new()
                             {
                                 DestinationWidth = 300
                             };
@@ -57,7 +53,7 @@
                             // Render the PDF's page as stream.
                             await pdfPage.RenderToStreamAsync(randomStream, pdfPageRenderOptions);
 
-                            await randomStream.FlushAsync();
+                            _ = await randomStream.FlushAsync();
 
                             //Dispose the random stream
                             randomStream.Dispose();
@@ -72,7 +68,7 @@
             }
             catch (DirectoryNotFoundException ex)
             {
-                ErrorInfo t = new ErrorInfo("Directory not found when trying to create image from PDF file")
+                ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
@@ -86,7 +82,7 @@
             }
             catch (Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("Exception when trying to create image from PDF file")
+                ErrorInfo t = new("Exception when trying to create image from PDF file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
                                      { "Original File", argExistingMediaModel.MediaStorageFilePath },
@@ -113,25 +109,20 @@
 
             StorageItemThumbnail thumbnail = await videoFile.GetThumbnailAsync(ThumbnailMode.SingleItem);
 
-            Windows.Storage.Streams.Buffer MyBuffer = new Windows.Storage.Streams.Buffer(Convert.ToUInt32(thumbnail.Size));
+            Buffer MyBuffer = new(Convert.ToUInt32(thumbnail.Size));
             IBuffer iBuf = await thumbnail.ReadAsync(MyBuffer, MyBuffer.Capacity, InputStreamOptions.None);
 
             IRandomAccessStream strm = await outfile.OpenAsync(FileAccessMode.ReadWrite);
 
-            await strm.WriteAsync(iBuf);
+            _ = await strm.WriteAsync(iBuf);
 
-            await strm.FlushAsync();
+            _ = await strm.FlushAsync();
 
             strm.Dispose();
 
             // check size
             BasicProperties outProperties = await outfile.GetBasicPropertiesAsync();
-            if (outProperties.Size == 0)
-            {
-                return new MediaModel();
-            }
-
-            return argNewMediaModel;
+            return outProperties.Size == 0 ? new MediaModel() : argNewMediaModel;
         }
     }
 }

@@ -62,7 +62,7 @@ namespace GrampsView.UserControls
             {
                 try
                 {
-                    // TODO   mifModel.daImage.Source = t.MediaStorageFilePath;
+                    mifModel.daImage.Source = t.MediaStorageFilePath;
 
                     mifModel.IsVisible = true;
 

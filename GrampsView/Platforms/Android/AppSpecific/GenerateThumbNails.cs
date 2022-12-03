@@ -3,16 +3,16 @@ using Android.Graphics.Pdf;
 using Android.Media;
 using Android.OS;
 
-using GrampsView.Common.CustomClasses;
+using GrampsView.Common.Interfaces;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-namespace GrampsView.Droid.Common
+namespace GrampsView.Platforms.Android.AppSpecific
 {
-    internal partial class PlatformSpecific : IPlatformSpecific
+    internal partial class GenerateThumbnails : IGenerateThumbnails
     {
         public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {

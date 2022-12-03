@@ -1,11 +1,13 @@
-﻿using System.Text;
+﻿using GrampsView.Common.Interfaces;
+
+using System.Text;
 
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 
 namespace GrampsView.Common
 {
-    public partial class ImageResource : IImageResource
+    public partial class ImageSize : IImageSize
     {
         public Size GetSize(string fileName)
         {

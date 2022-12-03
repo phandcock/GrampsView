@@ -9,23 +9,15 @@
     BackgroundColor="Transparent"
     BindingContextChanged="MediaImageFull_BindingContextChanged"
     Stroke="Transparent"
-  
     IsVisible="True"
     Style="{StaticResource SSBorderLargeVariableCardStyleNS}">
 
-    <!--  TODO  -->
-    <!--<ffimageloading:CachedImage
+    <Image
         x:Name="daImage"
         Aspect="AspectFit"
         BackgroundColor="Transparent"
-        CacheType="All"
-        DownsampleToViewSize="True"
-        Error="DaImage_Error"
         HeightRequest="{Binding SharedSharpStatic.MediaDetailImageHeight, Mode=OneWay}"
         HorizontalOptions="FillAndExpand"
         IsVisible="True"
-        LoadingPlaceholder="ic_launcher.png"
-        RetryCount="3"
-        RetryDelay="1000"
-        VerticalOptions="Fill" />-->
+        VerticalOptions="Fill" />
 </Border>

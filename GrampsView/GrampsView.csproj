@@ -129,6 +129,7 @@
       <Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
+      <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
       <Compile Remove="Platforms\Android\Localize.cs" />
       <Compile Remove="Platforms\Android\SplashActivity.cs" />
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
@@ -147,6 +148,7 @@
 
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
+        <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
         <None Remove="Resources\appicon.svg" />
         <None Remove="Resources\splash.svg" />
     </ItemGroup>

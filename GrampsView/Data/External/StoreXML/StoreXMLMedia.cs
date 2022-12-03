@@ -1,4 +1,5 @@
 ﻿using GrampsView.Common;
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
@@ -37,7 +38,7 @@ namespace GrampsView.Data.ExternalStorage
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
-                IImageResource PlatformImageHandler = new ImageResource();
+                IImageSize PlatformImageHandler = new ImageSize();
 
                 // Load notes Run query
                 System.Collections.Generic.IEnumerable<XElement> de =

@@ -6,7 +6,7 @@ namespace GrampsView
 {
     public partial class App : Application
     {
-        [Obsolete]
+
         public App()
         {
             InitializeComponent();
@@ -16,20 +16,10 @@ namespace GrampsView
             StartUp();
         }
 
-        [Obsolete]
+
         private void StartUp()
         {
-            //// This lookup NOT required for Windows platforms - the Culture will be automatically set
-            //if (Device.RuntimePlatform is Device.iOS or Device.Android)
-            //{
-            //    // Determine the correct, supported .NET culture
-            //    _ = DependencyService.Get<ILocalize>();
 
-            //    CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-
-            //    // Assets.Strings.AppResources.Culture = ci; TODO set the RESX for resource localization
-            //    DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
-            //}
 
             // Setup various support frameworks
             VersionTracking.Track();

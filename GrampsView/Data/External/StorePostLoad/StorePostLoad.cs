@@ -1,4 +1,4 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿using GrampsView.Common.Interfaces;
 using GrampsView.Events;
 
 using SharedSharp.Errors.Interfaces;
@@ -23,7 +23,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </summary>
         private readonly IMessenger _EventAggregator;
 
-        private readonly IPlatformSpecific _iocPlatformSpecific;
+        private readonly IGenerateThumbnails MyGenerateThumbNails = new GrampsView.Common.CustomClasses.GenerateThumbNails();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
@@ -40,7 +40,7 @@ namespace GrampsView.Data.ExternalStorage
             _CommonLogging = iocCommonLogging;
             _commonNotifications = iocCommonNotifications;
 
-            _iocPlatformSpecific = DependencyService.Get<IPlatformSpecific>();
+
 
             Ioc.Default.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {

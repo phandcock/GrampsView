@@ -1,7 +1,7 @@
-﻿namespace GrampsView.Common
+﻿namespace GrampsView.Common.Interfaces
 {
-    public interface IImageResource
+    public interface IImageSize
     {
-        Size GetSize(string fileName);
+        Size GetSize(string argFileName);
     }
 }

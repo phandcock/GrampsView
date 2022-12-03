@@ -1,8 +1,10 @@
 ﻿using Android.Graphics;
 
+using GrampsView.Common.Interfaces;
+
 namespace GrampsView.Common
 {
-    public partial class ImageResource : Java.Lang.Object, IImageResource
+    public partial class ImageSize : Java.Lang.Object, IImageSize
     {
         public Size GetSize(string fileName)
         {
