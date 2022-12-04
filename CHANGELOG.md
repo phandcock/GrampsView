@@ -1,3 +1,12 @@
+## [16.28.18](https://github.com/phandcock/GrampsView/compare/v16.28.17...v16.28.18) (2022-12-04)
+
+
+### Bug Fixes
+
+* update nugets and tweaks ([1eebf38](https://github.com/phandcock/GrampsView/commit/1eebf38a8fae204dd7dc5c0f6effef4e90ffee85))
+
+
+
 ## [16.28.17](https://github.com/phandcock/GrampsView/compare/v16.28.16...v16.28.17) (2022-12-03)
 
 
@@ -22,17 +31,6 @@
 ### Bug Fixes
 
 * work on image thumbnails ([85a8bb2](https://github.com/phandcock/GrampsView/commit/85a8bb28aed37fa9c40ca93831aa210d2c6e9737))
-
-
-
-## [16.28.14](https://github.com/phandcock/GrampsView/compare/v16.28.13...v16.28.14) (2022-12-02)
-
-
-### Bug Fixes
-
-* fix app icons ([93e06e6](https://github.com/phandcock/GrampsView/commit/93e06e61fd4bdacd21726f8eed507ad98a2e9fee))
-* tweaks ([08d6a2e](https://github.com/phandcock/GrampsView/commit/08d6a2e6044355cbbf8315ec637b56b7b32d819b))
-* tweaks ([3e0262c](https://github.com/phandcock/GrampsView/commit/3e0262cd05a6bee8219f38781e93ab557ed6b7b3))
 
 
 
