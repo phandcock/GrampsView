@@ -1,3 +1,12 @@
+## [16.28.17](https://github.com/phandcock/GrampsView/compare/v16.28.16...v16.28.17) (2022-12-03)
+
+
+### Bug Fixes
+
+* code cleanup ([36ee2d3](https://github.com/phandcock/GrampsView/commit/36ee2d3f64e87d98cc47eaff30e6e6f93d13d102))
+
+
+
 ## [16.28.16](https://github.com/phandcock/GrampsView/compare/v16.28.15...v16.28.16) (2022-12-03)
 
 
@@ -24,16 +33,6 @@
 * fix app icons ([93e06e6](https://github.com/phandcock/GrampsView/commit/93e06e61fd4bdacd21726f8eed507ad98a2e9fee))
 * tweaks ([08d6a2e](https://github.com/phandcock/GrampsView/commit/08d6a2e6044355cbbf8315ec637b56b7b32d819b))
 * tweaks ([3e0262c](https://github.com/phandcock/GrampsView/commit/3e0262cd05a6bee8219f38781e93ab557ed6b7b3))
-
-
-
-## [16.28.13](https://github.com/phandcock/GrampsView/compare/v16.28.12...v16.28.13) (2022-12-02)
-
-
-### Bug Fixes
-
-* cleanup settings page ([203b226](https://github.com/phandcock/GrampsView/commit/203b226d458203435c1244e13f82c5f4729b6d51))
-* fix styles and remove FlexSingle control ([46ae831](https://github.com/phandcock/GrampsView/commit/46ae8314543d0d6529dc6d6d5cfd7519e26b0acb))
 
 
 
