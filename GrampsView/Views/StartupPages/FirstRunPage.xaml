@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:localization="clr-namespace:GrampsView.Resources.Strings"
+xmlns:i18n="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharpucon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
@@ -29,7 +29,7 @@
                 MinimumHeightRequest="24"
                 Source="ic_launcher.png" />
 
-            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{StaticResource localization:AppResources.FirstRun_Header}" />
+            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{i18n:Localize FirstRun_Welcome}" />
 
             <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_IntroductionText" />
 
@@ -38,7 +38,7 @@
             <Button
                 Command="{Binding LoadDataCommand}"
                 Style="{StaticResource SSButtonMenu}"
-                Text="AppResources.FirstRun_WhatsNewButton" />
+                Text="{i18n:Localize FirstRun_ContinueButton}"/>
         </StackLayout>
     </ScrollView>
 </views:ViewBasePage>

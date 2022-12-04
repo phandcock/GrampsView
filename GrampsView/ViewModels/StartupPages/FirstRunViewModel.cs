@@ -20,7 +20,7 @@ namespace GrampsView.ViewModels.StartupPages
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public FirstRunViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
+        public FirstRunViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             LoadDataCommand = new AsyncRelayCommand(FirstRunLoadAFileButton);
