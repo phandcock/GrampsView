@@ -11,7 +11,7 @@
         public PlaceDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<PlaceDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PlaceDetailViewModel>();
         }
     }
 }

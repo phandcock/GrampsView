@@ -9,7 +9,7 @@
   <Identity Publisher="CN=MeMyselfAndI, O=Nannup, C=AU"  Name="GrampsView" Version="2.0.0.1" />
 
   <Properties>
-    <PublisherDisplayName>User Name</PublisherDisplayName>
+    <PublisherDisplayName>MeMyselfAndI</PublisherDisplayName>
     <Logo>Platforms\Windows\Assets\PackageLogo.png</Logo>
     <DisplayName>GrampsView</DisplayName>
   </Properties>
@@ -26,6 +26,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements BackgroundColor="#800080" DisplayName="GrampsView" Description="GrampsVew">
+        <uap:DefaultTile/>
       </uap:VisualElements>
     </Application>
   </Applications>

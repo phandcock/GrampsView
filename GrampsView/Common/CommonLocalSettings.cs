@@ -86,7 +86,7 @@ namespace GrampsView.Common
             {
                 Preferences.Default.Remove(argSettingsKey);
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync", ex, null);
                 throw;
             }
         }

@@ -10,7 +10,7 @@
 
         public NoteDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<NoteDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<NoteDetailViewModel>();
         }
     }
 }

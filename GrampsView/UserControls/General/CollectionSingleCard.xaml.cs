@@ -22,9 +22,9 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
-                NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
+                NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
                 //Debug.WriteLine(NumColumns);
             }
             );

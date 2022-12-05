@@ -82,7 +82,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex, null);
                 throw;
             }
         }
@@ -120,7 +120,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("LoadResource - Exception trying to open resource", ex,
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("LoadResource - Exception trying to open resource", ex,
                                                   new ErrorInfo("Error trying to open resource")
                                                           {
                                                             { "File Name", argResourceName },
@@ -212,7 +212,7 @@ namespace GrampsView.Common
             object retVal;
             if (!Application.Current.Resources.TryGetValue(keyName, out retVal))
             {
-                IErrorNotifications t = Ioc.Default.GetService<IErrorNotifications>();
+                IErrorNotifications t = Ioc.Default.GetRequiredService<IErrorNotifications>();
 
                 ErrorInfo tt = new("Bad Resource Key", keyName)
                 {

@@ -83,7 +83,7 @@ namespace GrampsView.Data.Repository
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
 
-            Ioc.Default.GetService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -93,7 +93,7 @@ namespace GrampsView.Data.Repository
                 StartDataLoad();
             });
 
-            Ioc.Default.GetService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -103,7 +103,7 @@ namespace GrampsView.Data.Repository
                 SerializeRepositoriesAsync(true);
             });
 
-            Ioc.Default.GetService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<DataLoadCompleteEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -390,7 +390,7 @@ namespace GrampsView.Data.Repository
                     // save the data in a serial format for next time localEventAggregator.GetEvent<DataSaveSerialEvent>().Publish(null);
 
                     // let everybody know we have finished loading data
-                    _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadXMLEvent(true));
+                    _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadXMLEvent(true));
 
                     return true;
                 }
@@ -427,7 +427,7 @@ namespace GrampsView.Data.Repository
                         _CL.DataLogEntryReplace("GRAMPS Serial data load complete");
 
                         // let everybody know we have finished loading data
-                        _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+                        _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadCompleteEvent(true));
                     }
                     else
                     {

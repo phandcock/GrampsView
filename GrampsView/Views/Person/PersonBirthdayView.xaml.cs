@@ -11,7 +11,7 @@
         public PersonBirthdayPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<PersonBirthdayViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonBirthdayViewModel>();
         }
     }
 }

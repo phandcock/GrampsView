@@ -57,7 +57,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                      { "New path", "pdfimage" }
                                  };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -70,7 +70,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return returnValue;
             }
@@ -133,7 +133,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             catch (Exception ex)
             {
@@ -145,7 +145,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
             }
             return fileDescriptor;
         }

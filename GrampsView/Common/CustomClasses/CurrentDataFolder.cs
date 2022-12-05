@@ -25,7 +25,7 @@ namespace GrampsView.Common.CustomClasses
             }
             catch (System.Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception creating application cache", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application cache", ex, null);
                 throw;
             }
         }

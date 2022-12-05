@@ -10,7 +10,7 @@
 
         public RepositoryDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<RepositoryDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<RepositoryDetailViewModel>();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace GrampsView.Views
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = Ioc.Default.GetService<MediaDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<MediaDetailViewModel>();
         }
 
         private MediaDetailViewModel _viewModel { get; set; }
@@ -30,7 +30,7 @@ namespace GrampsView.Views
 
             argDetail.ErrorArea = "Error displaying Media Element";
 
-            Ioc.Default.GetService<IErrorNotifications>().NotifyError(argDetail);
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(argDetail);
 
             // TODO Handle when can not play video better
         }

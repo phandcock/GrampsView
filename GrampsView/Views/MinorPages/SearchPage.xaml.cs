@@ -10,7 +10,7 @@ namespace GrampsView.Views
 
         public SearchPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<SearchPageViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<SearchPageViewModel>();
         }
 
         private void ContentPage_Appearing(object sender, System.EventArgs e)

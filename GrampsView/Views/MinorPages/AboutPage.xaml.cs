@@ -7,7 +7,7 @@
         public AboutPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<AboutViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<AboutViewModel>();
         }
 
         private AboutViewModel _viewModel { get; set; }

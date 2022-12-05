@@ -42,7 +42,7 @@ namespace GrampsView.Data.ExternalStorage
 
 
 
-            Ioc.Default.GetService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {
                 if (m.Value == null)
                 {
@@ -113,10 +113,10 @@ namespace GrampsView.Data.ExternalStorage
             _CommonLogging.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 
             // save the data in a serial format for next time
-            _ = Ioc.Default.GetService<IMessenger>().Send(new DataSaveSerialEvent(true));
+            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataSaveSerialEvent(true));
 
             // let everybody know we have finished loading data
-            _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadCompleteEvent(true));
+            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
             _CommonLogging.RoutineExit(nameof(LoadXMLUIItems));
         }

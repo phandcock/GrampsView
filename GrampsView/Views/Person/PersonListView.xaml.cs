@@ -11,7 +11,7 @@
         public PersonListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<PersonListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonListViewModel>();
         }
     }
 }

@@ -6,7 +6,6 @@ namespace GrampsView
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
@@ -16,15 +15,12 @@ namespace GrampsView
             StartUp();
         }
 
-
         private void StartUp()
         {
-
-
             // Setup various support frameworks
             VersionTracking.Track();
 
-            _ = Ioc.Default.GetService<IDataRepositoryManager>();
+            _ = Ioc.Default.GetRequiredService<IDataRepositoryManager>();
 
             // App Setup
             Application.Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
@@ -42,7 +38,7 @@ namespace GrampsView
             }
 
             // Get Going
-            _ = Ioc.Default.GetService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
+            _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
         }
     }
 }

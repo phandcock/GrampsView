@@ -44,9 +44,9 @@ namespace GrampsView
 
             Ioc.Default.ConfigureServices(mauiApp.Services);
 
-            SharedSharp.Common.SSharpCore.SharedSharpStart();
+            SSharpCore.SharedSharpStart();
 
-            SharedSharp.Common.SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Common.Secret.AndroidSecret, argMSAppCenterSecretWinUI: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
+            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Common.Secret.AndroidSecret, argMSAppCenterSecretWinUI: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
 
             return mauiApp;
         }

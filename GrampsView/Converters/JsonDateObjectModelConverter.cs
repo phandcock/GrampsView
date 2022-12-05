@@ -33,7 +33,7 @@ namespace GrampsView.Converters
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             _ = reader.Read();
@@ -45,7 +45,7 @@ namespace GrampsView.Converters
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             string propertyName = reader.GetString();
@@ -57,7 +57,7 @@ namespace GrampsView.Converters
                     { "Found Property Name", propertyName }
                 };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             _ = reader.Read();
@@ -69,7 +69,7 @@ namespace GrampsView.Converters
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
             }
 
             DateObjectModelDerivedTypeEnum typeDiscriminator = (DateObjectModelDerivedTypeEnum)reader.GetInt32();
@@ -111,7 +111,7 @@ namespace GrampsView.Converters
                             { "Found TypeDiscriminator", typeDiscriminator.ToString() }
                         };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
                         break;
                     }
             };
@@ -162,7 +162,7 @@ namespace GrampsView.Converters
             }
             else
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter - Write", new JsonException(),
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter - Write", new JsonException(),
                                                                                             new ErrorInfo()
                                                                                             {
                                                                                               new SharedSharp.Model.CardListLine("Value",value.ToString()),

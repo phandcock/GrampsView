@@ -107,7 +107,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        Ioc.Default.GetService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        Ioc.Default.GetRequiredService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
                         Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
 
@@ -117,7 +117,7 @@ namespace GrampsView.Data
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar issue", ex, null);
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar issue", ex, null);
                         }
                         //}
 
@@ -175,7 +175,7 @@ namespace GrampsView.Data
                     else
                     {
                         // TODO write to the output log // await
-                        // Ioc.Default.GetService<IErrorNotifications>().DataLogEntryAdd("File "
+                        // Ioc.Default.GetRequiredService<IErrorNotifications>().DataLogEntryAdd("File "
                         // + tarEntry.Name + " does not need to be unTARed as its modified date is
                         // earlier than the one in the output folder").ConfigureAwait(false);
                     }
@@ -191,7 +191,7 @@ namespace GrampsView.Data
                                     { "Filename",  filename },
                                 };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
 
                         // TODO copy dummy file in its place
                     }
@@ -209,7 +209,7 @@ namespace GrampsView.Data
                 if (ex.HResult is HR_ERROR_HANDLE_DISK_FULL
                     or HR_ERROR_DISK_FULL)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex, null);
 
                     // No recovery from this
                     throw;
@@ -218,14 +218,14 @@ namespace GrampsView.Data
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex, null);
 
                     // Keep going
                     // throw;
                 }
                 else
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex, null);
                     // Keep going
                     // throw;
                 }

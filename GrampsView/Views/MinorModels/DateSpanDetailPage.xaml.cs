@@ -9,7 +9,7 @@ namespace GrampsView.Views
         public DateSpanDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<DateSpanDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<DateSpanDetailViewModel>();
         }
 
         private DateSpanDetailViewModel _viewModel { get; set; }

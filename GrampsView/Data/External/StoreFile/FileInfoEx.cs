@@ -109,13 +109,13 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex, null);
                     throw;
                 }
             }
@@ -136,7 +136,7 @@ namespace GrampsView.Data
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex, null);
 
                 throw;
             }
@@ -180,19 +180,19 @@ namespace GrampsView.Data
                 }
                 catch (FileNotFoundException ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile") { { "Message", ex.Message }, { "Filename", ex.FileName } });
 
                     // default to a standard file marker
                 }
                 catch (DirectoryNotFoundException ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("FolderGetFile,Directory not found when trying to create the file.  Perhaps the GPKG filename is too long?") { { "Message", ex.Message }, });
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }

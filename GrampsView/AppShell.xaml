@@ -39,7 +39,7 @@
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="IconFont"
-                 Size="12"
+                Size="12"
                 Glyph="{x:Static common:Constants.IconPeopleBirthday}"
                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                         Light={StaticResource OnSurfaceLight}}" />

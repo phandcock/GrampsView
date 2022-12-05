@@ -117,7 +117,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         private Task DisplayMessageLogButtonCommandHandler()
         {
-            Ioc.Default.GetService<ILog>().DataLogShow();
+            Ioc.Default.GetRequiredService<ILog>().DataLogShow();
             return Task.CompletedTask;
         }
 

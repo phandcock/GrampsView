@@ -10,7 +10,7 @@
 
         public CitationListPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<CitationListViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<CitationListViewModel>();
         }
     }
 }

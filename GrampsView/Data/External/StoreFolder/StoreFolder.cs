@@ -35,13 +35,13 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }
@@ -86,13 +86,13 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (FileNotFoundException ex)
                 {
-                    Ioc.Default.GetService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
+                    Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd(ex.Message + ex.FileName);
 
                     // default to a standard file marker
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
                     throw;
                 }
             }

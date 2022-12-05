@@ -20,9 +20,9 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
-                NumColumns = Ioc.Default.GetService<ISharedSharpCardSizes>().CardsAcrossColumns;
+                NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
                 //Debug.WriteLine(NumColumns);
             });
         }
@@ -106,7 +106,7 @@ namespace GrampsView.UserControls
 
         //    CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
 
-        //    NumColumns = (int)((t.Width / Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
+        //    NumColumns = (int)((t.Width / Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
         //}
     }
 }

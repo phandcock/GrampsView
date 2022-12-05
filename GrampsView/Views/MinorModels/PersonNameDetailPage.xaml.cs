@@ -10,7 +10,7 @@
 
         public PersonNameDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<PersonNameDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonNameDetailViewModel>();
         }
     }
 }

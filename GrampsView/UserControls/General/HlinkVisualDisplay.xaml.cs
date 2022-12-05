@@ -81,7 +81,7 @@ namespace GrampsView.UserControls
 
                     default:
                         {
-                            Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("HLinkVisualDisplay Binding Context is not a ItemGlyph but a" + BindingContext.GetType().ToString()));
                             return;
                         }
                 }
@@ -100,7 +100,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
 
                 throw;
             }
@@ -122,7 +122,7 @@ namespace GrampsView.UserControls
         //    // TODO
         //    // t.Add("File", (sender as CachedImage).Source.ToString());
 
-        //    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+        //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
 
         //    // TODO
         //    //(sender as CachedImage).Cancel();
@@ -143,7 +143,7 @@ namespace GrampsView.UserControls
                             { "Id", argMediaModel.Id }
                         };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
@@ -187,7 +187,7 @@ namespace GrampsView.UserControls
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
@@ -207,7 +207,7 @@ namespace GrampsView.UserControls
                             { "Id", argMediaModel.Id }
                         };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
                     // Input valid so start work
@@ -244,7 +244,7 @@ namespace GrampsView.UserControls
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                     throw;
                 }
             }
@@ -308,7 +308,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
 
                 throw;
             }
@@ -350,7 +350,7 @@ namespace GrampsView.UserControls
                             { "HLinkKey", argItemGlyph.ToString() }
                         };
 
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                 }
 
                 if (fontGlyph.Color == null)
@@ -360,7 +360,7 @@ namespace GrampsView.UserControls
                             { "HLinkKey", argItemGlyph.ImageHLink.Value }
                         };
 
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                 }
 
                 newImageControl.Source = fontGlyph;
@@ -377,7 +377,7 @@ namespace GrampsView.UserControls
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
                 throw;
             }
         }

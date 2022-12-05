@@ -11,7 +11,7 @@
         public TagListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<TagListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<TagListViewModel>();
         }
     }
 }

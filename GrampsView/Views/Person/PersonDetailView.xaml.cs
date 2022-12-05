@@ -11,7 +11,7 @@ namespace GrampsView.Views
         public PersonDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<PersonDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonDetailViewModel>();
         }
 
 

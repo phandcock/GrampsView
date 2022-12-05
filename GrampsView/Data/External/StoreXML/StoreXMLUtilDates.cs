@@ -67,7 +67,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
 
                 throw;
             }
@@ -131,7 +131,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -152,7 +152,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
                 throw;
             }
 
@@ -185,7 +185,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error", e, null);
                 throw;
             }
 
@@ -248,7 +248,7 @@ namespace GrampsView.Data.ExternalStorage
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -263,7 +263,7 @@ namespace GrampsView.Data.ExternalStorage
                             { "Current Element",  argCurrentElement.ToString()}
                         };
 
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(t);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                     }
                 }
 
@@ -277,7 +277,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException(e.Message, e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(e.Message, e, null);
                 throw;
             }
 
@@ -335,7 +335,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     if (!Enum.TryParse(stringFound, out aQuality))
                     {
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Date Quality") { { "Element", argCurrentElement.ToString() }, });
                     }
                 }
 
@@ -356,7 +356,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception e)
             {
                 // TODO
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in SetDateRange", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in SetDateRange", e, null);
                 throw;
             }
 

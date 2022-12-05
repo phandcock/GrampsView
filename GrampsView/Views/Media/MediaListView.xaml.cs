@@ -11,7 +11,7 @@
         public MediaListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<MediaListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<MediaListViewModel>();
         }
     }
 }

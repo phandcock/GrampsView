@@ -11,7 +11,7 @@
         public SourceListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<SourceListViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<SourceListViewModel>();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            CardSmallHeight = Ioc.Default.GetService<ISharedSharpCardSizes>().CardSmallHeight;
+            CardSmallHeight = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardSmallHeight;
         }
 
         public double CardSmallHeight { get; set; } = 100;

@@ -11,7 +11,7 @@
 
         public SourceLink()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<SourceDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<SourceDetailViewModel>();
         }
     }
 }

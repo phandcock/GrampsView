@@ -107,7 +107,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
 
                             throw;
                         }
@@ -128,7 +128,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open",ex,null);
 
                             throw;
                         }

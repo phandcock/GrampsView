@@ -134,7 +134,7 @@ namespace GrampsView.Data.ExternalStorage
                       { "New path", "pdfimage" }
                   };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }
@@ -188,7 +188,7 @@ namespace GrampsView.Data.ExternalStorage
                       { "New path", "pdfimage" }
                   };
 
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
 
                 return new ItemGlyph();
             }

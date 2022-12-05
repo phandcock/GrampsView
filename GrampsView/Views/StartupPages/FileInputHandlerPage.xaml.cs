@@ -11,7 +11,7 @@
         public FileInputHandlerPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<FileInputHandlerViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<FileInputHandlerViewModel>();
         }
     }
 }

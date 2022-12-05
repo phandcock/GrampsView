@@ -8,7 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaCardLargeRoot"
     x:DataType="ucon:MediaCardLarge"
-    IsVisible="{Binding TheModel.Valid,Source={Reference MediaCardLargeRoot},Mode=OneWay}"
+    IsVisible="{Binding TheModel.Valid, Source={Reference MediaCardLargeRoot}, Mode=OneWay}"
     Style="{StaticResource SSGridLargeVariableCardStyle}">
 
     <Border Style="{StaticResource SSBorderLargeFixedCardStyle}" VerticalOptions="Start">
@@ -17,11 +17,11 @@
             x:Name="controlRoot"
             Margin="5"
             Padding="5"
-            HeightRequest="{Binding MediaDetailImageHeight, Mode=OneWay}"
-            WidthRequest="{Binding MediaDetailImageWidth,  Mode=OneWay}">
+            HeightRequest="{Binding MediaDetailImageHeight, Source={x:Reference MediaCardLargeRoot}}"
+            WidthRequest="{Binding MediaDetailImageWidth, Source={x:Reference MediaCardLargeRoot}}">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TheModel.UCNavigateCommand}" CommandParameter="{Binding TheModel.DeRef.HLink}" />
+                <TapGestureRecognizer Command="{Binding TheModel.UCNavigateCommand, Source={x:Reference MediaCardLargeRoot}}" CommandParameter="{Binding TheModel.DeRef.HLink, Source={x:Reference MediaCardLargeRoot}}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
@@ -49,7 +49,7 @@
                 HorizontalOptions="CenterAndExpand"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource SSCardLabelStyleSmall}"
-                Text="{Binding TheModel.DeRef.GDescription, Mode=OneWay}" />
+                Text="{Binding TheModel.DeRef.GDescription, Source={x:Reference MediaCardLargeRoot}, Mode=OneWay}" />
 
             <Image
                 Grid.Row="1"
@@ -58,8 +58,8 @@
                 <Image.Source>
                     <FontImageSource
                         FontFamily="IconFont"
-                        Glyph="{Binding TheModel.HLinkGlyphItem.Symbol}"
-                        Color="{Binding TheModel.HLinkGlyphItem.SymbolColour}" />
+                        Glyph="{Binding TheModel.HLinkGlyphItem.Symbol, Source={x:Reference MediaCardLargeRoot}}"
+                        Color="{Binding TheModel.HLinkGlyphItem.SymbolColour, Source={x:Reference MediaCardLargeRoot}}" />
                 </Image.Source>
             </Image>
         </Grid>

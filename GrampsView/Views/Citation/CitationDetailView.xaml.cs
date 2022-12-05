@@ -11,7 +11,7 @@
         public CitationDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<CitationDetailViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<CitationDetailViewModel>();
         }
     }
 }

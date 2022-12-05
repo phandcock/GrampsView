@@ -80,7 +80,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             try
             {
-                Ioc.Default.GetService<ILog>().DataLogEntryReplace("");
+                Ioc.Default.GetRequiredService<ILog>().DataLogEntryReplace("");
 
                 if (await StoreFileUtility.PickCurrentInputFile().ConfigureAwait(false))
                 {
@@ -89,12 +89,12 @@ namespace GrampsView.ViewModels.StartupPages
                 else
                 {
                     BaseCL.Progress("File picker error");
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyAlert("No input file was selected");
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyAlert("No input file was selected");
                 }
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex, new SharedSharp.Errors.ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex, new SharedSharp.Errors.ErrorInfo());
 
                 throw;
             }
@@ -111,7 +111,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             await Task.Delay(500);
 
-            _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadStartEvent(true));
         }
     }
 }

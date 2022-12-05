@@ -1,6 +1,8 @@
 ﻿// XML 171 - All fields defined
 
-namespace GrampsView.Data.Model
+using GrampsView.Data.Model;
+
+namespace GrampsView.Models.HLinks.Models
 {
     using GrampsView.Common;
     using GrampsView.Models.HLinks;
@@ -31,7 +33,7 @@ namespace GrampsView.Data.Model
         public string Title
         {
             get; set;
-        }
+        } = string.Empty;
 
         public override bool Valid => DeRef.Valid;
 

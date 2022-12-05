@@ -8,7 +8,7 @@
     {
         public SettingsPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<SettingsViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<SettingsViewModel>();
         }
 
         private SettingsViewModel _viewModel { get; set; }

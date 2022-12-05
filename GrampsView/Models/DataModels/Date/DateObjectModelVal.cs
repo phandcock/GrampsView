@@ -68,7 +68,7 @@ namespace GrampsView.Models.DataModels.Date
                 }
                 catch (Exception e)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
                     throw;
                 }
             }

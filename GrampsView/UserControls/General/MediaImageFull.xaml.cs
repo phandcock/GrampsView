@@ -28,7 +28,7 @@ namespace GrampsView.UserControls
         //        extraInfo.Add("MediaModel Id", CurrentHLinkMediaModel.DeRef.Id);
         //    }
 
-        //    Ioc.Default.GetService<IErrorNotifications>().NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
+        //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(argMessage: "Error exception in MediaImageFull.  Error is ", argException: e.Exception, argExtraItems: extraInfo);
 
         //    if (sender is not null)
         //    {
@@ -72,7 +72,7 @@ namespace GrampsView.UserControls
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex, new ErrorInfo());
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex, new ErrorInfo());
                     throw;
                 }
             }

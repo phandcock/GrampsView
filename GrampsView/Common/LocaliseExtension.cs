@@ -13,7 +13,7 @@ namespace GrampsView.Common
 
         public LocalizeExtension()
         {
-            _localizer = Ioc.Default.GetService<IStringLocalizer<AppResources>>();
+            _localizer = Ioc.Default.GetRequiredService<IStringLocalizer<AppResources>>();
         }
 
         public object ProvideValue(IServiceProvider serviceProvider)

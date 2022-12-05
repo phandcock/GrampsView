@@ -32,7 +32,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             MyLog.RoutineEntry("LoadPeopleDataAsync");
 
-            Ioc.Default.GetService<ILog>().DataLogEntryAdd("Loading People data");
+            Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd("Loading People data");
             {
                 string defaultImage = string.Empty;
 
@@ -150,12 +150,12 @@ namespace GrampsView.Data.ExternalStorage
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ",ex,null);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ",ex,null);
                         throw;
                     }
                     else
                     {
-                        Ioc.Default.GetService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded",ex,null);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded",ex,null);
                         throw;
                     }
                 }
@@ -166,7 +166,7 @@ namespace GrampsView.Data.ExternalStorage
             //{
             //}
 
-            Ioc.Default.GetService<ILog>().DataLogEntryReplace("People load complete");
+            Ioc.Default.GetRequiredService<ILog>().DataLogEntryReplace("People load complete");
 
             return;
         }

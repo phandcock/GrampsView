@@ -99,7 +99,7 @@ namespace GrampsView.Models.DataModels.Minor
         {
             if (GHRef is null)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad URI for URL Model"));
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad URI for URL Model"));
                 return;
             }
 

@@ -11,7 +11,7 @@
         public FirstRunPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetService<FirstRunViewModel>();
+            BindingContext = _viewModel = Ioc.Default.GetRequiredService<FirstRunViewModel>();
         }
     }
 }

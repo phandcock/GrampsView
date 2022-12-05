@@ -27,18 +27,18 @@ namespace GrampsView.Common
             try
             {
                 // First run?
-                if (await Ioc.Default.GetService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
+                if (await Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
                 {
                     return;
                 }
 
                 // Need WhatNew?
-                if (await Ioc.Default.GetService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(SharedSharp.Views.WhatsNewPage)))
+                if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(SharedSharp.Views.WhatsNewPage)))
                 {
                     return;
                 }
 
-                if (await Ioc.Default.GetService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
+                if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
                     SharedSharpSettings.DataSerialised = false;
 
@@ -46,7 +46,7 @@ namespace GrampsView.Common
                 }
 
                 // Setup Event Handling
-                //Ioc.Default.GetService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+                //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
                 //{
                 //    if (m.Value == null)
                 //        return;
@@ -55,7 +55,7 @@ namespace GrampsView.Common
                 //    SharedSharpCardSizes.Current.ReCalculateCardWidths();
                 //});
 
-                //Ioc.Default.GetService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
+                //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
                 //{
                 //    if (m == null)
                 //        return;
@@ -74,12 +74,12 @@ namespace GrampsView.Common
                 //    parameterURICard.Title = DateTime.UtcNow.ToString();
                 //    parameterURICard.theLink = App.Current.StartUpParameterUri;
 
-                //    await Ioc.Default.GetService<IDataStore>().ItemAddShareTargetAsync(parameterURICard);
+                //    await Ioc.Default.GetRequiredService<IDataStore>().ItemAddShareTargetAsync(parameterURICard);
                 //}
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("AppInit.Init",ex,null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.Init",ex,null);
 
                 throw;
             }
@@ -91,8 +91,8 @@ namespace GrampsView.Common
             {
                 if (SharedSharpSettings.DataSerialised)
                 {
-                    // Ioc.Default.GetService<IDataRepositoryManager>().StartDataLoad();
-                    _ = Ioc.Default.GetService<IMessenger>().Send(new DataLoadStartEvent(true));
+                    // Ioc.Default.GetRequiredService<IDataRepositoryManager>().StartDataLoad();
+                    _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadStartEvent(true));
                     return;
                 }
 
@@ -102,7 +102,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyException("AppInit.LoadData",ex,null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.LoadData",ex,null);
 
                 throw;
             }

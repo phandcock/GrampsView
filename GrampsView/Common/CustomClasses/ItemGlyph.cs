@@ -37,7 +37,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 if (ImageHLink == null)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("ImageHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -94,7 +94,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 if (MediaHLink == null)
                 {
-                    Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("MediaHLinkMediaModel is null"));
                     return new HLinkMediaModel();
                 }
 
@@ -216,7 +216,7 @@ namespace GrampsView.Common.CustomClasses
         {
             if (MediaHLink == null)
             {
-                Ioc.Default.GetService<IErrorNotifications>().NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo($"{argHLinkKey} is null"));
                 return new HLinkMediaModel();
             }
 

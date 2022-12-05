@@ -58,8 +58,8 @@ namespace GrampsView.ViewModels.MinorPages
             Assembly assembly = GetType().GetTypeInfo().Assembly;
             AssemblyName assemblyName = new(assembly.FullName);
 
-            ISharedSharpSizes MySizes = Ioc.Default.GetService<ISharedSharpSizes>();
-            ISharedSharpCardSizes MyCardSizes = Ioc.Default.GetService<ISharedSharpCardSizes>();
+            ISharedSharpSizes MySizes = Ioc.Default.GetRequiredService<ISharedSharpSizes>();
+            ISharedSharpCardSizes MyCardSizes = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>();
 
             ApplicationVersionList.Clear();
 

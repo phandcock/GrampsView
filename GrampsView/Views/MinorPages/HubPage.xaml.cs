@@ -7,7 +7,7 @@ namespace GrampsView.Views
         public HubPage()
         {
             InitializeComponent();
-            BindingContext = Ioc.Default.GetService<HubViewModel>();
+            BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
         }
     }
 }

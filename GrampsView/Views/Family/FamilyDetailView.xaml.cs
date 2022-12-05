@@ -10,7 +10,7 @@
 
         public FamilyDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetService<FamilyDetailViewModel>();
+            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<FamilyDetailViewModel>();
         }
     }
 }
