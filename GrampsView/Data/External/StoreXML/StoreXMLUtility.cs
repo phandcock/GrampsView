@@ -1,12 +1,12 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿using CommunityToolkit.Diagnostics;
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
-
-using Microsoft.Maui.Graphics.Converters;
 
 using SharedSharp.Errors;
 
@@ -15,9 +15,6 @@ using SkiaSharp;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-
-
-
 
 using static GrampsView.Common.CommonEnums;
 
@@ -392,7 +389,6 @@ namespace GrampsView.Data.ExternalStorage
             return tt;
         }
 
-
         private ModelBase GetBasics(XElement argElement)
         {
             ModelBase returnVal = new()
@@ -418,8 +414,11 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
+
         private Color GetColour(XElement a, string b)
         {
+            Guard.IsNotNull(a, nameof(a));
+
             try
             {
                 const string ColorNotSet = "#000000000000";
@@ -447,9 +446,7 @@ namespace GrampsView.Data.ExternalStorage
                     hexColour = "#000000";
                 }
 
-                ColorTypeConverter colConverter = new();
-
-                return (Color)colConverter.ConvertFromInvariantString(hexColour);
+                return Color.FromArgb(hexColour);
             }
             catch (Exception ex)
             {
@@ -485,7 +482,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <param name="xmlData">
         /// string from XML.
         /// </param>
-        private Uri GetUri(string xmlData)
+        private Uri? GetUri(string xmlData)
         {
             try
             {

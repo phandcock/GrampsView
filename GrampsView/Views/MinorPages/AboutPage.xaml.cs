@@ -1,7 +1,7 @@
-﻿namespace GrampsView.Views
-{
-    using GrampsView.ViewModels.MinorPages;
+﻿using GrampsView.ViewModels.MinorPages;
 
+namespace GrampsView.Views
+{
     public sealed partial class AboutPage : ViewBasePage
     {
         public AboutPage()
@@ -11,5 +11,8 @@
         }
 
         private AboutViewModel _viewModel { get; set; }
+
+
+
     }
 }

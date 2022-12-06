@@ -2,9 +2,6 @@
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -20,6 +17,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// True if loaded successfully.
         /// </returns>
+
         public Task LoadTagsAsync()
         {
             MyLog.DataLogEntryAdd("Loading Tag data");
@@ -27,7 +25,7 @@ namespace GrampsView.Data.ExternalStorage
                 try
                 {
                     // Run query
-                    System.Collections.Generic.IEnumerable<XElement> de =
+                    IEnumerable<XElement> de =
                         from el in LocalGrampsXMLdoc.Descendants(ns + "tag")
                         select el;
 
@@ -36,7 +34,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results
                     foreach (XElement pTagElement in de)
                     {
-                        TagModel loadTag = new TagModel
+                        TagModel loadTag = new()
                         {
                             // Citation attributes
 
@@ -62,7 +60,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    MyNotifications.NotifyException("Error in LoadTagsAsync",ex,null);
+                    MyNotifications.NotifyException("Error in LoadTagsAsync", ex, null);
                     throw;
                 }
             }

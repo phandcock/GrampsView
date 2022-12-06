@@ -1,25 +1,17 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Events;
+﻿using GrampsView.Events;
 using GrampsView.Views;
 
-using Microsoft.Extensions.DependencyInjection;
-
-using SharedSharp.Common;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Services.Interfaces;
-
-using System;
-using System.Threading.Tasks;
 
 namespace GrampsView.Common
 {
     public class AppInit : ISharedSharpAppInit
     {
-        public Task<string> GetChangesText()
+        public async Task<string> GetChangesText()
         {
-            return Task.FromResult(CommonRoutines.LoadResource("GrampsView.CHANGELOG.md"));
+            return await CommonRoutines.LoadResource("CHANGELOG.md");
         }
 
         public async Task Init()
@@ -79,7 +71,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.Init",ex,null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.Init", ex, null);
 
                 throw;
             }
@@ -102,7 +94,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.LoadData",ex,null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.LoadData", ex, null);
 
                 throw;
             }

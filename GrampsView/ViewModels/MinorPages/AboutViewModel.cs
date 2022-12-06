@@ -12,7 +12,7 @@ namespace GrampsView.ViewModels.MinorPages
 {
     public class AboutViewModel : ViewModelBase
     {
-        public AboutViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        public AboutViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                     : base(iocCommonLogging)
         {
             BaseTitle = "About";
@@ -52,7 +52,7 @@ namespace GrampsView.ViewModels.MinorPages
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void HandleViewAppearingEvent()
+        public async Task HandleViewAppearingEvent()
         {
             // Assembly level stuff
             Assembly assembly = GetType().GetTypeInfo().Assembly;
@@ -127,11 +127,11 @@ namespace GrampsView.ViewModels.MinorPages
 
             /////////////////////////////////////////
 
-            WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
+            WhatsNewText = await CommonRoutines.LoadResource("CHANGELOG.md");
 
-            AttributionText = CommonRoutines.LoadResource("GrampsView.Attribution.md");
+            AttributionText = await CommonRoutines.LoadResource("Attribution.md");
 
-            PrivacyPolicyText = CommonRoutines.LoadResource("GrampsView.PrivacyPolicy.md");
+            PrivacyPolicyText = await CommonRoutines.LoadResource("PrivacyPolicy.md");
 
             return;
         }

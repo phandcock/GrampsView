@@ -42,9 +42,9 @@ namespace GrampsView.ViewModels.StartupPages
         /// </value>
         public string WhatsNewText { get; set; }
 
-        public override void HandleViewAppearingEvent()
+        public async Task HandleViewAppearingEvent()
         {
-            WhatsNewText = CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
+            WhatsNewText = await CommonRoutines.LoadResource("GrampsView.CHANGELOG.md");
         }
 
         public async Task LoadDataAction()
