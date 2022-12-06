@@ -1,3 +1,12 @@
+## [16.28.21](https://github.com/phandcock/GrampsView/compare/v16.28.20...v16.28.21) (2022-12-05)
+
+
+### Bug Fixes
+
+* move to GetRequiredService for IoC ([e86d227](https://github.com/phandcock/GrampsView/commit/e86d227174f41ef732605f3b1605ab79691185b7))
+
+
+
 ## [16.28.20](https://github.com/phandcock/GrampsView/compare/v16.28.19...v16.28.20) (2022-12-04)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * update nugets and tweaks ([1eebf38](https://github.com/phandcock/GrampsView/commit/1eebf38a8fae204dd7dc5c0f6effef4e90ffee85))
-
-
-
-## [16.28.17](https://github.com/phandcock/GrampsView/compare/v16.28.16...v16.28.17) (2022-12-03)
-
-
-### Bug Fixes
-
-* code cleanup ([36ee2d3](https://github.com/phandcock/GrampsView/commit/36ee2d3f64e87d98cc47eaff30e6e6f93d13d102))
 
 
 
