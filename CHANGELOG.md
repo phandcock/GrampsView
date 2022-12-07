@@ -1,3 +1,12 @@
+## [16.28.23](https://github.com/phandcock/GrampsView/compare/v16.28.22...v16.28.23) (2022-12-07)
+
+
+### Bug Fixes
+
+* update nugets ([31579f2](https://github.com/phandcock/GrampsView/commit/31579f2686bf8ed070d225acbbd1d8ce953a5a6e))
+
+
+
 ## [16.28.22](https://github.com/phandcock/GrampsView/compare/v16.28.21...v16.28.22) (2022-12-06)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * tweak build ([67ba205](https://github.com/phandcock/GrampsView/commit/67ba205feb811af1acedb3a8181724c7c9096d42))
-
-
-
-## [16.28.19](https://github.com/phandcock/GrampsView/compare/v16.28.18...v16.28.19) (2022-12-04)
-
-
-### Bug Fixes
-
-* tweak android build ([de725e4](https://github.com/phandcock/GrampsView/commit/de725e4f2d1d8856d4538b9d746e53e474b30e88))
 
 
 
