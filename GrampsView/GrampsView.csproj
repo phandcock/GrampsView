@@ -12,10 +12,10 @@
         <!-- Project Options -->
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>GrampsView</RootNamespace>
 
-        <!-- Display name -->
-        <ApplicationTitle>GrampsView</ApplicationTitle>
+        <!-- Names -->
+		<RootNamespace>GrampsView</RootNamespace>
+		<ApplicationTitle>GrampsView</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.grampsview</ApplicationId>
@@ -36,18 +36,20 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     </PropertyGroup>
 
-	<!-- To generate MSIX as part of dotnet publish -->
+	<!-- Windows specific -->
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Debug'">
 		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
 		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
 	</PropertyGroup>
-	
+
+	<!-- Android specific -->
 	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
 		<AndroidKeyStore>True</AndroidKeyStore>
 		<AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
 		<AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
 		<AndroidSigningKeyPass>android</AndroidSigningKeyPass>
 		<AndroidSigningStorePass>android</AndroidSigningStorePass>
+		<!--<AndroidLinkResources>false</AndroidLinkResources>-->
 	</PropertyGroup>
 	
 	<ItemGroup>
@@ -67,8 +69,6 @@
 		<Compile Remove="Platforms\Windows\**\*.*" />
 		<None Include="Platforms\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
-
-	<!--<AndroidLinkResources>false</AndroidLinkResources>-->
 
 	<!-- Windows -->
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
