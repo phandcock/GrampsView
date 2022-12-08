@@ -12,6 +12,7 @@ namespace GrampsView.ViewModels.MinorPages
 {
     public class AboutViewModel : ViewModelBase
     {
+        [Obsolete]
         public AboutViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                     : base(iocCommonLogging)
         {
@@ -116,7 +117,7 @@ namespace GrampsView.ViewModels.MinorPages
 
                 new CardListLine("Orientation", MySizes.CurrentOrientation.ToString()),
 
-                new CardListLine("Idiom", MySizes.CurrentDeviceIdiom.ToString()),
+                new CardListLine("Idiom", DeviceInfo.Idiom.ToString()),
 
                 new CardListLine("CardSize Small Width", MyCardSizes.CardSmallWidth.ToString()),
 

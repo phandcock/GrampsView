@@ -36,11 +36,18 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     </PropertyGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>android</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>android</AndroidSigningStorePass>
+	</PropertyGroup>
+	
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg" Color="#512BD4" ForegroundFile="Resources\appiconfg.svg" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<!-- Custom Fonts -->
@@ -49,15 +56,7 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<!--<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Debug'">
-		<AndroidKeyStore>True</AndroidKeyStore>
-		<AndroidSigningKeyStore></AndroidSigningKeyStore>
-		<AndroidSigningKeyAlias></AndroidSigningKeyAlias>
-		<AndroidSigningKeyPass></AndroidSigningKeyPass>
-		<AndroidSigningStorePass></AndroidSigningStorePass>
-	</PropertyGroup>-->
-
-	<!-- Android -->
+		<!-- Android -->
 	<ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true">
 		<Compile Remove="Platforms\Windows\**\*.*" />
 		<None Include="Platforms\Windows\**\*.*" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
@@ -145,7 +144,6 @@
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
         <None Remove="Resources\appicon.svg" />
-        <None Remove="Resources\splash.svg" />
     </ItemGroup>
 
     <ItemGroup>
@@ -172,7 +170,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.3.10" />
+        <PackageReference Include="SharedSharp" Version="1.4.4" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />

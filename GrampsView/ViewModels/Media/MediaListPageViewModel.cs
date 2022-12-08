@@ -34,7 +34,7 @@
             }
         }
 
-        public override void HandleViewAppearingEvent()
+        public override async Task HandleViewAppearingEvent()
         {
             return;
         }

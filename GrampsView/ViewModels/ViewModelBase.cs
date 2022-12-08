@@ -18,6 +18,7 @@ namespace GrampsView.ViewModels
 
         /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
         /// <param name="iocCommonLogging">The ioc common logging.</param>
+        [Obsolete]
         public ViewModelBase(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
@@ -26,6 +27,7 @@ namespace GrampsView.ViewModels
             ViewSetup();
         }
 
+        [Obsolete]
         public ViewModelBase()
         {
             ViewSetup();
@@ -109,7 +111,7 @@ namespace GrampsView.ViewModels
         }
 
         [Obsolete]
-        public override void ViewSetup()
+        public void ViewSetup()
         {
             TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
 

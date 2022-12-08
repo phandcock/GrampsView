@@ -32,7 +32,7 @@
         <Border
             Grid.Row="0"
             Grid.Column="0"
-            Style="{StaticResource SSPageMenu}">
+            Style="{StaticResource SSButtonMenuBorderStyle}">
             <StackLayout Margin="0" Orientation="Horizontal">
                 <Label
                     Padding="3"
