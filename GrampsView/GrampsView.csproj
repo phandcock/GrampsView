@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
 		<!-- Android, Windows -->
-		<TargetFrameworks>net7.0;net7.0-android</TargetFrameworks>
+		<TargetFrameworks>net7.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 
@@ -36,6 +36,12 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     </PropertyGroup>
 
+	<!-- To generate MSIX as part of dotnet publish -->
+	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Debug'">
+		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
+	</PropertyGroup>
+	
 	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
 		<AndroidKeyStore>True</AndroidKeyStore>
 		<AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
