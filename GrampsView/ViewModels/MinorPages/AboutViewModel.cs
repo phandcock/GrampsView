@@ -6,32 +6,32 @@ using Microsoft.AppCenter.Distribute;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Model;
 
+using System.ComponentModel;
 using System.Reflection;
 
 namespace GrampsView.ViewModels.MinorPages
 {
-    public class AboutViewModel : ViewModelBase
+    public class AboutViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        [Obsolete]
         public AboutViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                     : base(iocCommonLogging)
         {
             BaseTitle = "About";
             BaseTitleIcon = Constants.IconAbout;
+
+            _ = HandleViewAppearingEvent();
         }
 
         public CardListLineCollection ApplicationStateList
         {
             get;
         }
-
             = new CardListLineCollection();
 
         public CardListLineCollection ApplicationVersionList
         {
             get;
         }
-
         = new CardListLineCollection();
 
         /// <summary>
@@ -103,8 +103,7 @@ namespace GrampsView.ViewModels.MinorPages
 
             ApplicationVersionList.Title = "Application Versions";
 
-            ///////////////////////////////
-            ///
+            //////////////////////////////////
             ApplicationStateList.Clear();
 
             ApplicationStateList.AddRange(new CardListLineCollection
@@ -122,6 +121,10 @@ namespace GrampsView.ViewModels.MinorPages
                 new CardListLine("CardSize Small Width", MyCardSizes.CardSmallWidth.ToString()),
 
                 new CardListLine("CardSize Number Columns", MyCardSizes.CardsAcrossColumns.ToString()),
+
+                new CardListLine("MediaDetailImageHeight", MyCardSizes.MediaDetailImageHeight.ToString()),
+
+                new CardListLine("MediaDetailImageWidth", MyCardSizes.MediaDetailImageWidth.ToString()),
             });
 
             ApplicationStateList.Title = "Application State";

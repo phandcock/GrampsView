@@ -47,7 +47,7 @@
                 <Image
                     HorizontalOptions="StartAndExpand"
                     MinimumHeightRequest="24"
-                    Source="ic_launcher.png"
+                    Source="appicon.svg"
                     VerticalOptions="FillAndExpand" />
 
                 <Label

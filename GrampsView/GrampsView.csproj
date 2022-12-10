@@ -151,11 +151,17 @@
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
         <None Remove="Resources\appicon.svg" />
+        <None Remove="Resources\Raw\Attribution.md" />
         <None Remove="Resources\Raw\CHANGELOG.md" />
         <None Remove="Resources\Raw\PrivacyPolicy.md" />
         <None Remove="Resources\Raw\README.md" />
         <None Remove="Resources\Raw\SECURITY.md" />
         <None Remove="Resources\Raw\Usage Tips.md" />
+        <None Remove="ViewModels\MinorPages\Attribution.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiAsset Include="ViewModels\MinorPages\Attribution.md" />
     </ItemGroup>
 
     <ItemGroup>
