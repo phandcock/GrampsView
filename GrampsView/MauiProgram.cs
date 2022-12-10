@@ -7,8 +7,19 @@ using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Repository;
 using GrampsView.ViewModels;
+using GrampsView.ViewModels.Citation;
+using GrampsView.ViewModels.Event;
+using GrampsView.ViewModels.Family;
+using GrampsView.ViewModels.Media;
+using GrampsView.ViewModels.MinorModels;
 using GrampsView.ViewModels.MinorPages;
+using GrampsView.ViewModels.Note;
+using GrampsView.ViewModels.Person;
+using GrampsView.ViewModels.Places;
+using GrampsView.ViewModels.Repository;
+using GrampsView.ViewModels.Sources;
 using GrampsView.ViewModels.StartupPages;
+using GrampsView.ViewModels.Tags;
 
 using Microsoft.Extensions.Logging;
 

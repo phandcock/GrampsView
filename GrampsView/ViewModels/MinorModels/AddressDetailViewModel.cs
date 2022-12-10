@@ -1,14 +1,14 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Interfaces;
+
+using SharedSharp.Logging;
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks.Interfaces;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
@@ -48,11 +48,11 @@
         /// <returns>
         /// <br/>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>((BaseParamsHLink));
+            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>(BasePassedArguments);
 
             AddressObject = HLinkObject.DeRef;
 

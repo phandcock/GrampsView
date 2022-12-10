@@ -1,14 +1,11 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Repository
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Defines the EVent Detail Page View ViewModel.
     /// </summary>
@@ -23,7 +20,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public RepositoryDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public RepositoryDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
         }
@@ -47,9 +45,9 @@
         /// <summary>
         /// Handles navigation inwards and sets up the repository model parameter.
         /// </summary>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(BaseParamsHLink);
+            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(BasePassedArguments);
 
             RepositoryObject = RepositoryHLink.DeRef;
 

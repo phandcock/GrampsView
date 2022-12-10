@@ -39,9 +39,24 @@ namespace GrampsView.Common
         }
 
         // Deserialise object
-        public static T GetHLinkParameter<T>(string dataIn) where T : new()
+        public static T GetHLinkParameter<T>(IDictionary<string, object> dataIn) where T : new()
         {
-            T ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString(dataIn));
+            T ser = new();
+
+            foreach (KeyValuePair<string, object> item in dataIn)
+            {
+                Debug.WriteLine($"dataIn - {item.Key}: {item.Value}");
+            }
+
+            if (dataIn.Count > 0)
+            {
+                //object tt = dataIn["BasePassedArguments"];
+                //Debug.WriteLine(tt);
+                //object ttt = dataIn["BasePassedArguments"];
+                //Debug.WriteLine(ttt);
+
+                ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn["BasePassedArguments"]));
+            }
 
             return ser;
         }

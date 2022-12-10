@@ -8,19 +8,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E56C56F-B9F2-4B6A-8D92-C96B523CC949}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 		Attribution.md = Attribution.md
-		CHANGELOG.md = CHANGELOG.md
 		Commit coding rules.md = Commit coding rules.md
 		.github\contributing.md = .github\contributing.md
 		.test data\GrampsView Test Basic.gpkg = .test data\GrampsView Test Basic.gpkg
 		LICENSE = LICENSE
 		NuGet.config = NuGet.config
 		package.json = package.json
-		PrivacyPolicy.md = PrivacyPolicy.md
-		README.md = README.md
-		SECURITY.md = SECURITY.md
 		.privatenuget\SignList.xml = .privatenuget\SignList.xml
-		Usage Tips.md = Usage Tips.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure", ".azure", "{F161B48C-2D99-4498-97DF-136E379816A4}"

@@ -25,7 +25,7 @@ namespace GrampsView.Common
                 }
 
                 // Need WhatNew?
-                if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(nameof(SharedSharp.Views.WhatsNewPage)))
+                if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(await GetChangesText()))
                 {
                     return;
                 }

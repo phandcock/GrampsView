@@ -6,12 +6,11 @@ using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-using SharedSharp.Logging;
 using SharedSharp.Model;
 
 using System.ComponentModel;
 
-namespace GrampsView.ViewModels
+namespace GrampsView.ViewModels.Person
 {
     /// <summary>
     /// ViewModel for the Person Detail page.
@@ -24,10 +23,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// platform specific routines
-        /// </param>
-        public ChildRefDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+        [Obsolete]
+        public ChildRefDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitle = "Child of Person Detail";
@@ -109,13 +106,13 @@ namespace GrampsView.ViewModels
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("ChildRefDetailViewModel");
 
 
 
-            ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(BaseParamsHLink);
+            ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(BasePassedArguments);
 
             PersonObject = ChildRefHLink.DeRef;
 

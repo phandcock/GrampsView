@@ -1,16 +1,13 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Places
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Defines the Place Detail Page View ViewModel.
     /// </summary>
@@ -24,7 +21,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public PlaceDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public PlaceDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
         }
@@ -40,9 +38,9 @@
         /// <summary>
         /// Handles navigation inwards and sets up the place model parameter.
         /// </summary>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(BaseParamsHLink);
+            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(BasePassedArguments);
 
             PlaceObject = HLinkObject.DeRef;
 

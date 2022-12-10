@@ -34,6 +34,7 @@
 
 		<!-- Minimum Target OS Version for Windows Platform -->
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<DefaultLanguage>eu</DefaultLanguage>
     </PropertyGroup>
 
 	<!-- Windows specific -->
@@ -150,15 +151,20 @@
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
         <None Remove="Resources\appicon.svg" />
+        <None Remove="Resources\Raw\CHANGELOG.md" />
+        <None Remove="Resources\Raw\PrivacyPolicy.md" />
+        <None Remove="Resources\Raw\README.md" />
+        <None Remove="Resources\Raw\SECURITY.md" />
+        <None Remove="Resources\Raw\Usage Tips.md" />
     </ItemGroup>
 
     <ItemGroup>
 
         <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />
 
-        <PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 
-        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.1.0" />
 
         <PackageReference Include="Fody" Version="6.6.4">
           <PrivateAssets>all</PrivateAssets>
@@ -176,7 +182,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.4.4" />
+        <PackageReference Include="SharedSharp" Version="1.4.5" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />

@@ -1,18 +1,15 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+
+using SharedSharp.Model;
+
+using System.ComponentModel;
+
+namespace GrampsView.ViewModels.Event
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
-    using System.ComponentModel;
-
     /// <summary>
     /// Defines the Event Detail Page View ViewModel.
     /// </summary>
@@ -29,7 +26,8 @@
         /// The event aggregator.
         /// </param>
 
-        public EventDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public EventDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                             : base(iocCommonLogging)
         {
         }
@@ -63,15 +61,15 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BaseParamsHLink);
+            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BasePassedArguments);
 
-            if (!(HLinkObject is null) && HLinkObject.Valid)
+            if (HLinkObject is not null && HLinkObject.Valid)
             {
                 EventObject = HLinkObject.DeRef;
 
-                if (!(EventObject is null) && EventObject.Valid)
+                if (EventObject is not null && EventObject.Valid)
                 {
                     BaseModelBase = EventObject;
                     BaseTitleIcon = Constants.IconEvents;

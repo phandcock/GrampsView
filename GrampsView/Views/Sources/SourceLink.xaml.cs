@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.UserControls
 {
-    using GrampsView.ViewModels;
+    using GrampsView.ViewModels.Sources;
     using GrampsView.Views;
 
     using Microsoft.Extensions.DependencyInjection;

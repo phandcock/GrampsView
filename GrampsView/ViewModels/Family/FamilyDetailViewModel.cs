@@ -1,15 +1,12 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Family
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Family detail page view ViewModel.
     /// </summary>
@@ -18,7 +15,7 @@
         /// <summary>
         /// Holds the family object.
         /// </summary>
-        private FamilyModel localFamilyModel = new FamilyModel();
+        private FamilyModel localFamilyModel = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FamilyDetailViewModel"/> class.
@@ -29,10 +26,8 @@
         /// <param name="iocEventAggregator">
         /// Prism event aggregator.
         /// </param>
-        /// <param name="iocPlatformSpecific">
-        /// Platform specific calls for Windows Timeline
-        /// </param>
-        public FamilyDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public FamilyDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
         }
@@ -45,15 +40,9 @@
         /// </value>
         public FamilyModel FamilyObject
         {
-            get
-            {
-                return localFamilyModel;
-            }
+            get => localFamilyModel;
 
-            set
-            {
-                SetProperty(ref localFamilyModel, value);
-            }
+            set => SetProperty(ref localFamilyModel, value);
         }
 
         /// <summary>
@@ -62,13 +51,13 @@
         /// <returns>
         /// Task.
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(BaseParamsHLink);
+            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(BasePassedArguments);
 
             FamilyObject = HLinkFamily.DeRef;
 
-            if (!(FamilyObject is null))
+            if (FamilyObject is not null)
             {
                 BaseModelBase = FamilyObject;
                 BaseTitleIcon = Constants.IconFamilies;

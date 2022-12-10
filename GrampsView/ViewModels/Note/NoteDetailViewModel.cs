@@ -1,18 +1,13 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Minor;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Note
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Minor;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
-    using System;
-
     public class NoteDetailViewModel : ViewModelBase
     {
         /// <summary>
@@ -24,7 +19,8 @@
         /// <param name="iocEventAggregator">
         /// Common Event Aggregator.
         /// </param>
-        public NoteDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public NoteDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconNotes;
@@ -38,11 +34,11 @@
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>((BaseParamsHLink));
+            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>(BasePassedArguments);
 
-            if (!(HLinkObject is null) && HLinkObject.Valid)
+            if (HLinkObject is not null && HLinkObject.Valid)
             {
                 NoteObject = HLinkObject.DeRef;
 
@@ -61,7 +57,7 @@
                 // Handle Link Note types
                 if (NoteObject.GType == Constants.NoteTypeLink)
                 {
-                    URLModel newLinkURL = new URLModel
+                    URLModel newLinkURL = new()
                     {
                         GDescription = NoteObject.ToString(),
                         GHRef = new Uri(NoteObject.GStyledText.TextShort),

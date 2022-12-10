@@ -1,14 +1,11 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Sources
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Defines the Source Detail Page View ViewModel.
     /// </summary>
@@ -21,7 +18,8 @@
         /// </param>
         /// <param name="iocEventAggregator">
         /// </param>
-        public SourceDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public SourceDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconSource;
@@ -43,14 +41,14 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>((BaseParamsHLink));
+            HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>(BasePassedArguments);
 
             // Cache the Source model
             SourceObject = HLinkObject.DeRef;
 
-            if (!(SourceObject is null))
+            if (SourceObject is not null)
             {
                 // Get basic details
                 BaseModelBase = SourceObject;

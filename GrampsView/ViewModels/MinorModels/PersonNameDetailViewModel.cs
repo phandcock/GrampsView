@@ -1,12 +1,11 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Minor;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.MinorModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels.Minor;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     public class PersonNameDetailViewModel : ViewModelBase
     {
         /// <summary>
@@ -15,7 +14,8 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public PersonNameDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+        [Obsolete]
+        public PersonNameDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconPersonName;
@@ -39,11 +39,11 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("NameDetailViewModel");
 
-            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>((BaseParamsHLink));
+            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>(BasePassedArguments);
 
             PersonNameObject = HLinkObject.DeRef;
 
@@ -52,12 +52,13 @@
                 BaseModelBase = PersonNameObject;
 
                 // Get Header Details
-                CardListLineCollection headerCardGroup = new CardListLineCollection { Title = "Person Name Details" };
+                CardListLineCollection headerCardGroup = new()
+                { Title = "Person Name Details" };
                 headerCardGroup.Add(new CardListLine("Full Name:", PersonNameObject.FullName));
                 BaseDetail.Add(headerCardGroup);
 
                 // TODO Show All Surnames
-                CardListLineCollection PersonNameCards = new CardListLineCollection("Name")
+                CardListLineCollection PersonNameCards = new("Name")
                 {
                     new CardListLine("Type:", PersonNameObject.GType),
                     new CardListLine("Full Name:", PersonNameObject.FullName),
@@ -84,7 +85,7 @@
 
                 foreach (HLinkSurnameModel item in PersonNameObject.GSurName)
                 {
-                    CardListLineCollection SurnameCard = new CardListLineCollection("Surnames")
+                    CardListLineCollection SurnameCard = new("Surnames")
                         {
                             new CardListLine("Surname:", item.ToString()),
                             new CardListLine("Prefix:", item.DeRef.GPrefix),

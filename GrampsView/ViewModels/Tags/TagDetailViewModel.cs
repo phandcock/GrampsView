@@ -1,13 +1,10 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-using SharedSharp.Logging;
 using SharedSharp.Model;
 
-namespace GrampsView.ViewModels
+namespace GrampsView.ViewModels.Tags
 {
     /// <summary>
     /// Defines the Tag Detail Page View ViewModel.
@@ -23,7 +20,8 @@ namespace GrampsView.ViewModels
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public TagDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public TagDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
         }
@@ -35,9 +33,9 @@ namespace GrampsView.ViewModels
 
         /// <summary>Gets or sets the tag object.</summary>
         /// <value>The tag object.</value>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
-            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(BaseParamsHLink);
+            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(BasePassedArguments);
 
             TagObject = HLinkObject.DeRef;
 

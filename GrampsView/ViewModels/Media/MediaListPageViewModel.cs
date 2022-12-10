@@ -1,13 +1,13 @@
-﻿namespace GrampsView.ViewModels
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+
+using GrampsView.ViewModels;
+
+namespace GrampsView.ViewModels.Media
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-
     public class MediaListViewModel : ViewModelBase
     {
         /// <summary>
@@ -19,24 +19,13 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public MediaListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        public MediaListViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseTitle = "Media List";
             BaseTitleIcon = Constants.IconMedia;
         }
 
-        public Group<HLinkMediaModelCollection> MediaSource
-        {
-            get
-            {
-                return DV.MediaDV.GetAllAsGroupedCardGroup();
-            }
-        }
-
-        public override async Task HandleViewAppearingEvent()
-        {
-            return;
-        }
+        public Group<HLinkMediaModelCollection> MediaSource => DV.MediaDV.GetAllAsGroupedCardGroup();
     }
 }

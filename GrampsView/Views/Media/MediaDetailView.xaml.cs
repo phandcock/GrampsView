@@ -1,5 +1,5 @@
 ﻿using GrampsView.Models.DataModels.Interfaces;
-using GrampsView.ViewModels;
+using GrampsView.ViewModels.Media;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;

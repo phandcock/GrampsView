@@ -180,7 +180,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(ImageHLinkMediaModel);
 
-                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
 
                         break;
                     }
@@ -188,7 +188,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
-                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BaseParamsHLink={ser}");
+                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
 
                         break;
                     }

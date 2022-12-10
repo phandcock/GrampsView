@@ -1,17 +1,16 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.HLinks.Models;
+
+namespace GrampsView.ViewModels.MinorModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Logging;
-
     /// <summary>
     /// ViewModel for the Address Detail page.
     /// </summary>
     public class DateStrDetailViewModel : ViewModelBase
     {
-        public DateStrDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+        [Obsolete]
+        public DateStrDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconDDefault;
@@ -33,11 +32,11 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("DateDetailViewModel");
 
-            HLinkDateModelStr HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelStr>(BaseParamsHLink);
+            HLinkDateModelStr HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelStr>(BasePassedArguments);
 
             BaseTitle = HLinkObject.Title;
 

@@ -1,11 +1,10 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.MinorModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Model;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// ViewModel for the Attribute Detail page.
     /// </summary>
@@ -17,7 +16,8 @@
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public AttributeDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+
+        public AttributeDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconAttribute;
@@ -26,23 +26,23 @@
         public AttributeModel AttributeObject
         {
             get; set;
-        }
+        } = new AttributeModel();
 
         public HLinkAttributeModel HLinkAttributeObject
         {
             get; set;
-        }
+        } = new HLinkAttributeModel();
 
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("AttributeDetailViewModel");
 
-            HLinkAttributeObject = CommonRoutines.GetHLinkParameter<HLinkAttributeModel>(BaseParamsHLink);
+            HLinkAttributeObject = CommonRoutines.GetHLinkParameter<HLinkAttributeModel>(BasePassedArguments);
 
             if (HLinkAttributeObject.Valid)
             {

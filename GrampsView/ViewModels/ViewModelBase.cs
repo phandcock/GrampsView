@@ -9,27 +9,28 @@ using System.Diagnostics;
 
 namespace GrampsView.ViewModels
 {
-    [QueryProperty(nameof(BaseParamsHLink), nameof(BaseParamsHLink))]
-    [QueryProperty(nameof(BaseParamsModel), nameof(BaseParamsModel))]
     public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
     {
-        //private string _BaseParamsHLink;
-        private string _BaseTitle;
+        private string _BaseTitle = string.Empty;
 
         /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
         /// <param name="iocCommonLogging">The ioc common logging.</param>
-        [Obsolete]
-        public ViewModelBase(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+
+        public ViewModelBase(ILog iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
-            //BaseEventAggregator = iocEventAggregator;
+
+            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
+            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
 
             ViewSetup();
         }
 
-        [Obsolete]
         public ViewModelBase()
         {
+            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
+            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
+
             ViewSetup();
         }
 
@@ -47,16 +48,6 @@ namespace GrampsView.ViewModels
         = new Group<object>();
 
         public IModelBase BaseModelBase { get; set; } = new ModelBase();
-
-        public string BaseParamsHLink
-        {
-            get; set;
-        }
-
-        public string BaseParamsModel
-        {
-            get; set;
-        }
 
         /// <summary>
         /// Gets or sets the base title.
@@ -110,18 +101,26 @@ namespace GrampsView.ViewModels
             await Email.ComposeAsync(message);
         }
 
-        [Obsolete]
+        public override void HandleViewModelParameters()
+        {
+            foreach (KeyValuePair<string, object> item in BasePassedArguments)
+            {
+                Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
+            }
+
+            if (BasePassedArguments.Count > 0)
+            {
+                //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
+            }
+        }
+
         public void ViewSetup()
         {
-            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
-
             // As UWP does not support shell swipes for desktop. TODO Fix this when we can
-            if (Device.RuntimePlatform == Device.UWP)
+            if (DeviceInfo.Platform == DevicePlatform.WinUI)
             {
                 TopMenuHubButtonVisible = true;
             }
-
-            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
         }
 
         /// <summary>
@@ -130,22 +129,6 @@ namespace GrampsView.ViewModels
         private void OnBaseCLChanged()
         {
             Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");
-        }
-
-        ///// <summary>
-        ///// Called when [baseeventaggregator changed]. Frody automatically wires this up.
-        ///// </summary>
-        //private void OnBaseEventAggregatorChanged()
-        //{
-        //    Debug.Assert(BaseEventAggregator != null, "BaseEventAggregator is null.  Was this set in the constructor for the derived class?");
-        //}
-
-        /// <summary>
-        /// Called when [base parametershlink changed]. Frody automatically wires this up.
-        /// </summary>
-        private void OnBaseParamsHLinkChanged()
-        {
-            HandleViewDataLoadEvent();
         }
 
         /// <summary>

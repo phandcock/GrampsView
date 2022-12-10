@@ -1,17 +1,14 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.HLinks.Interfaces;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Media
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Interfaces;
-    using GrampsView.Models.HLinks.Interfaces;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Media Detail ViewModel
     /// </summary>
@@ -26,7 +23,8 @@
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        public MediaDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public MediaDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
             BaseCL.Progress("MediaDetailViewModel created");
@@ -58,11 +56,11 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
-            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>((BaseParamsHLink));
+            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>(BasePassedArguments);
 
             // For cropped or internal media then show the original image
             IMediaModel tt = CurrentHLinkMedia.DeRef;
@@ -71,11 +69,11 @@
                 CurrentHLinkMedia = DV.MediaDV.GetModelFromHLinkKey(tt.InternalMediaFileOriginalHLink).HLink;
             }
 
-            if (!(CurrentHLinkMedia is null))
+            if (CurrentHLinkMedia is not null)
             {
                 CurrentMediaObject = CurrentHLinkMedia.DeRef as MediaModel;
 
-                if (!(CurrentMediaObject is null))
+                if (CurrentMediaObject is not null)
                 {
                     BaseModelBase = CurrentMediaObject;
                     BaseTitleIcon = Constants.IconMedia;
@@ -96,7 +94,7 @@
                     BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
 
                     // Add standard details
-                    MediaModel t = CurrentMediaObject as MediaModel;
+                    MediaModel t = CurrentMediaObject;
                     BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(t));
 
                     // Add Media Link Card

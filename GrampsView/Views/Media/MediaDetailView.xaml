@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Media"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     x:Name="MediaDetailPageRoot"

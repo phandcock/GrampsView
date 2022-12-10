@@ -1,6 +1,6 @@
 ﻿namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
+    using GrampsView.ViewModels.Note;
 
     using Microsoft.Extensions.DependencyInjection;
 

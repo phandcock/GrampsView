@@ -1,16 +1,13 @@
-﻿namespace GrampsView.ViewModels
+﻿using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+
+using SharedSharp.Model;
+
+namespace GrampsView.ViewModels.Citation
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using SharedSharp.Logging;
-    using SharedSharp.Model;
-
     /// <summary>
     /// Defines the Citation Detail Page View ViewModel.
     /// </summary>
@@ -24,7 +21,8 @@
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public CitationDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+        [Obsolete]
+        public CitationDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
         }
@@ -55,10 +53,10 @@
         /// <value>
         /// The citation object.
         /// </value>
-        public override void HandleViewDataLoadEvent()
+        public override void HandleViewModelParameters()
         {
             // Handle HLinkKeys
-            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(BaseParamsHLink);
+            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(BasePassedArguments);
 
             CitationObject = HLinkCitation.DeRef;
 
