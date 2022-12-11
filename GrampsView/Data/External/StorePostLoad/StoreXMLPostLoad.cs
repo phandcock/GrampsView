@@ -310,7 +310,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository",ex,null);
+                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository",ex);
 
                 throw;
             }

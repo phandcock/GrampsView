@@ -116,7 +116,7 @@ namespace GrampsView.Data
                                      { "New path", "pdfimage" }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
 
                 return new MediaModel();
             }
@@ -129,7 +129,7 @@ namespace GrampsView.Data
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
 
                 return new MediaModel();
             }

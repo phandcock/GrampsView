@@ -115,7 +115,7 @@ namespace GrampsView.Data
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + relativeFilePath, ex);
                     throw;
                 }
             }
@@ -136,7 +136,7 @@ namespace GrampsView.Data
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex);
 
                 throw;
             }
@@ -192,7 +192,7 @@ namespace GrampsView.Data
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

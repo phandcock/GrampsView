@@ -450,7 +450,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                MyNotifications.NotifyException("Error in XML Utils GetColour", ex, null);
+                MyNotifications.NotifyException("Error in XML Utils GetColour", ex);
                 throw;
             }
         }
@@ -518,7 +518,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                MyNotifications.NotifyException("Exception in GetUri", ex, null);
+                MyNotifications.NotifyException("Exception in GetUri", ex);
 
                 throw;
             }

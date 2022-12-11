@@ -28,7 +28,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("LoadResource", ex,
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex,
                                            new ErrorInfo("Error trying to load resource")
                                                    {
                                                             { "File Name", argResourceName },

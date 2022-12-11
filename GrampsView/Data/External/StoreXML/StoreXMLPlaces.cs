@@ -2,9 +2,6 @@
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -30,7 +27,7 @@ namespace GrampsView.Data.ExternalStorage
                         // Loop through results to get the Place data;
                         foreach (XElement pPlaceElement in de)
                         {
-                            PlaceModel loadPlace = new PlaceModel();
+                            PlaceModel loadPlace = new();
 
                             // Place attributes
                             loadPlace.LoadBasics(GetBasics(pPlaceElement));
@@ -58,7 +55,7 @@ namespace GrampsView.Data.ExternalStorage
                             loadPlace.GCode = GetElement(pPlaceElement, "code");
 
                             XElement coord = pPlaceElement.Element(ns + "coord");
-                            if (!(coord is null))
+                            if (coord is not null)
                             {
                                 _ = double.TryParse(GetAttribute(coord, "lat"), out double latDouble);
                                 _ = double.TryParse(GetAttribute(coord, "long"), out double longDouble);
@@ -88,9 +85,9 @@ namespace GrampsView.Data.ExternalStorage
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    MyNotifications.NotifyException("Exception loading Place data from the file",e,null);
+                    MyNotifications.NotifyException("Exception loading Place data from the file", ex);
 
                     throw;
                 }

@@ -60,7 +60,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    MyNotifications.NotifyException("Error in LoadTagsAsync", ex, null);
+                    MyNotifications.NotifyException("Error in LoadTagsAsync", ex);
                     throw;
                 }
             }

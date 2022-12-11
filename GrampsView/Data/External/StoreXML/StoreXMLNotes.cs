@@ -84,7 +84,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    MyNotifications.NotifyException("Exception loading Notes from the Gramps file",ex,null);
+                    MyNotifications.NotifyException("Exception loading Notes from the Gramps file",ex);
 
                     throw;
                 }

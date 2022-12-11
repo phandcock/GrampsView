@@ -150,12 +150,12 @@ namespace GrampsView.Data.ExternalStorage
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ",ex,null);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ",ex);
                         throw;
                     }
                     else
                     {
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded",ex,null);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded",ex);
                         throw;
                     }
                 }

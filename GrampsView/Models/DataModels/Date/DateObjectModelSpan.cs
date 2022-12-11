@@ -2,12 +2,9 @@
 using GrampsView.Data.Model;
 using GrampsView.Models.HLinks;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Model;
 
-using System;
 using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;
 
@@ -36,11 +33,11 @@ namespace GrampsView.Models.DataModels.Date
         /// </summary>
         private DateQuality _GQuality = DateQuality.unknown;
 
-        private DateObjectModelVal _GStart = new DateObjectModelVal();
+        private DateObjectModelVal _GStart = new();
 
-        private DateObjectModelVal _GStop = new DateObjectModelVal();
+        private DateObjectModelVal _GStop = new();
 
-        public DateObjectModelSpan(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
+        public DateObjectModelSpan(string aStart, string aStop, string? aCFormat = null, bool aDualDated = false, string? aNewYear = null, DateQuality aQuality = DateQuality.unknown)
         {
             Contract.Requires(!string.IsNullOrEmpty(aStart));
             Contract.Requires(!string.IsNullOrEmpty(aStop));
@@ -70,15 +67,16 @@ namespace GrampsView.Models.DataModels.Date
                 GStart = new DateObjectModelVal(aStart);
 
                 // stop CDATA #REQUIRED
-                GStop = new DateObjectModelVal(aStop); ;
+                GStop = new DateObjectModelVal(aStop);
+                ;
 
                 // Set NotionalDate
                 NotionalDate = NotionalDate = ConvertRFC1123StringToDateTime(aStart);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate",e,null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
                 throw;
             }
         }
@@ -194,7 +192,7 @@ namespace GrampsView.Models.DataModels.Date
         {
             get
             {
-                HLinkDateModelSpan t = new HLinkDateModelSpan
+                HLinkDateModelSpan t = new()
                 {
                     DeRef = this,
                     HLinkKey = HLinkKey,
@@ -277,7 +275,7 @@ namespace GrampsView.Models.DataModels.Date
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
-            CardListLineCollection DateModelCard = new CardListLineCollection();
+            CardListLineCollection DateModelCard = new();
 
             if (Valid)
             {
@@ -331,7 +329,7 @@ namespace GrampsView.Models.DataModels.Date
                 return false;
             }
 
-            DateObjectModel tempObj = obj as DateObjectModel;
+            DateObjectModel? tempObj = obj as DateObjectModel;
 
             return NotionalDate == tempObj.NotionalDate;
         }

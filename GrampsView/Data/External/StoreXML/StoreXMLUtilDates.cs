@@ -64,10 +64,10 @@ namespace GrampsView.Data.ExternalStorage
                     return t;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
 
                 throw;
             }
@@ -149,10 +149,10 @@ namespace GrampsView.Data.ExternalStorage
                     aStop = stringFound;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
                 throw;
             }
 
@@ -182,10 +182,10 @@ namespace GrampsView.Data.ExternalStorage
                     aVal = stringFound;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error", ex);
                 throw;
             }
 
@@ -274,10 +274,10 @@ namespace GrampsView.Data.ExternalStorage
                     aVal = stringFound;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(e.Message, e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message, ex);
                 throw;
             }
 
@@ -353,10 +353,10 @@ namespace GrampsView.Data.ExternalStorage
                     aStop = stringFound;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // TODO
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in SetDateRange", e, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in SetDateRange", ex);
                 throw;
             }
 

@@ -100,7 +100,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -168,7 +168,7 @@ namespace GrampsView.UserControls
                     //    RetryDelay = 1000
                     //};
 
-                    Image newMediaControl = new Image
+                    Image newMediaControl = new()
                     {
                         Source = argMediaModel.HLink.DeRef.MediaStorageFilePath
                     };
@@ -180,14 +180,14 @@ namespace GrampsView.UserControls
                 }
                 catch (Exception ex)
                 {
-                    ErrorInfo argDetail = new()
+                    ErrorInfo argDetail = new("HLinkVisualDisplay")
                     {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argExtraItems: argDetail);
                     throw;
                 }
             }
@@ -237,14 +237,14 @@ namespace GrampsView.UserControls
                 }
                 catch (Exception ex)
                 {
-                    ErrorInfo argDetail = new()
+                    ErrorInfo argDetail = new("HLinkVisualDisplay")
                     {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
                     { "Media Model Path", argMediaModel.MediaStorageFilePath },
                 };
 
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argDetail);
                     throw;
                 }
             }
@@ -308,7 +308,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, new ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
 
                 throw;
             }
@@ -370,14 +370,14 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                ErrorInfo argDetail = new()
+                ErrorInfo argDetail = new("HLinkVisualDisplay")
                 {
                     { "Type", "Symbol" },
                     { "Media Model HLinkKey", argItemGlyph.ImageHLink.Value  },
                     { "Media Model Symbol", argItemGlyph.Symbol },
                 };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex, argExtraItems: argDetail);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argDetail);
                 throw;
             }
         }

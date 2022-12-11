@@ -113,7 +113,7 @@ namespace GrampsView.Data.External.StoreFile
             // TODO fix this. Fail and force reload next time.
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex);
 
                 throw;
             }

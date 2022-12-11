@@ -184,7 +184,7 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
                 CommonLocalSettings.DataSerialised = false;
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
             }
 
             return;
@@ -223,7 +223,7 @@ namespace GrampsView.Data.External.StoreSerial
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
                 CommonLocalSettings.DataSerialised = false;
             }
         }

@@ -66,9 +66,9 @@ namespace GrampsView.Models.DataModels.Date
 
                     NotionalDate = ConvertRFC1123StringToDateTime(aVal);
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", e, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
                     throw;
                 }
             }

@@ -41,7 +41,7 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }
@@ -92,7 +92,7 @@ namespace GrampsView.Data.External.StoreFolder
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
                     throw;
                 }
             }

@@ -441,7 +441,7 @@ namespace GrampsView.Data.Repository
             {
                 CommonLocalSettings.DataSerialised = false;
 
-                _commonNotifications.NotifyException("Trying to load existing serialised data", ex, null);
+                _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
 

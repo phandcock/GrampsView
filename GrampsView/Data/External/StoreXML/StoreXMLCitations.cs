@@ -56,7 +56,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    MyNotifications.NotifyException("Exception loading Citations form XML", ex, null);
+                    MyNotifications.NotifyException("Exception loading Citations form XML", ex);
                     throw;
                 }
 

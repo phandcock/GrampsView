@@ -134,7 +134,7 @@ namespace GrampsView.Data.ExternalStorage
                                 }
                                 catch (Exception ex)
                                 {
-                                    MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex,null);
+                                    MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex);
                                     throw;
                                 }
                             }
@@ -179,10 +179,10 @@ namespace GrampsView.Data.ExternalStorage
                         MyLog.Variable("LoadMedia", loadObject.GDescription);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
                     // TODO handle this
-                    MyNotifications.NotifyException("Loading Media Objects",e,null);
+                    MyNotifications.NotifyException("Loading Media Objects",ex);
 
                     throw;
                 }

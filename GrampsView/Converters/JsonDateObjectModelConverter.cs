@@ -27,49 +27,49 @@ namespace GrampsView.Converters
         {
             if (reader.TokenType != JsonTokenType.StartObject)
             {
-                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                ErrorInfo tt = new("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
                 {
                     { "Expected Token", JsonTokenType.StartObject.ToString() },
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(), tt);
             }
 
             _ = reader.Read();
             if (reader.TokenType != JsonTokenType.PropertyName)
             {
-                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                ErrorInfo tt = new("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
                 {
                     { "Expected Token", JsonTokenType.PropertyName.ToString() },
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(), tt);
             }
 
             string propertyName = reader.GetString();
             if (propertyName != "TypeDiscriminator")
             {
-                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                ErrorInfo tt = new("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
                 {
                     { "Expected Property Name", "TypeDiscriminator" },
                     { "Found Property Name", propertyName }
                 };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(), tt);
             }
 
             _ = reader.Read();
             if (reader.TokenType != JsonTokenType.Number)
             {
-                ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
+                ErrorInfo tt = new("JsonDateObjectModelConverter", "Unexpected Reader TokenType.")
                 {
                     { "Expected Token", JsonTokenType.Number.ToString() },
                     { "Found Token", reader.TokenType.ToString() }
                 };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(), tt);
             }
 
             DateObjectModelDerivedTypeEnum typeDiscriminator = (DateObjectModelDerivedTypeEnum)reader.GetInt32();
@@ -106,12 +106,12 @@ namespace GrampsView.Converters
                     }
                 default:
                     {
-                        ErrorInfo tt = new ErrorInfo("JsonDateObjectModelConverter", "Unexpected TypeDiscriminator.")
+                        ErrorInfo tt = new("JsonDateObjectModelConverter", "Unexpected TypeDiscriminator.")
                         {
                             { "Found TypeDiscriminator", typeDiscriminator.ToString() }
                         };
 
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter", new JsonException(), tt);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(), tt);
                         break;
                     }
             };
@@ -162,8 +162,8 @@ namespace GrampsView.Converters
             }
             else
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in JsonDateObjectModelConverter - Write", new JsonException(),
-                                                                                            new ErrorInfo()
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(),
+                                                                                            new ErrorInfo("Exception in JsonDateObjectModelConverter - Write")
                                                                                             {
                                                                                               new SharedSharp.Model.CardListLine("Value",value.ToString()),
                                                                                             });
@@ -246,7 +246,7 @@ namespace GrampsView.Converters
 
         private DateObjectModelRange readRange(ref Utf8JsonReader argReader)
         {
-            DateObjectModelRange returnDate = new DateObjectModelRange();
+            DateObjectModelRange returnDate = new();
 
             while (argReader.Read())
             {
@@ -355,7 +355,7 @@ namespace GrampsView.Converters
 
         private DateObjectModelSpan readSpan(ref Utf8JsonReader argReader)
         {
-            DateObjectModelSpan returnDate = new DateObjectModelSpan();
+            DateObjectModelSpan returnDate = new();
 
             while (argReader.Read())
             {
@@ -462,7 +462,7 @@ namespace GrampsView.Converters
 
         private DateObjectModelStr readStr(ref Utf8JsonReader argReader)
         {
-            DateObjectModelStr returnDate = new DateObjectModelStr();
+            DateObjectModelStr returnDate = new();
 
             while (argReader.Read())
             {
@@ -540,7 +540,7 @@ namespace GrampsView.Converters
 
         private DateObjectModelVal readVal(ref Utf8JsonReader argReader)
         {
-            DateObjectModelVal returnDate = new DateObjectModelVal();
+            DateObjectModelVal returnDate = new();
 
             while (argReader.Read())
             {

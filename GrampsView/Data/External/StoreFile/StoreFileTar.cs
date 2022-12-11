@@ -117,7 +117,7 @@ namespace GrampsView.Data
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar issue", ex, null);
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar issue", ex);
                         }
                         //}
 
@@ -209,7 +209,7 @@ namespace GrampsView.Data
                 if (ex.HResult is HR_ERROR_HANDLE_DISK_FULL
                     or HR_ERROR_DISK_FULL)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
 
                     // No recovery from this
                     throw;
@@ -218,14 +218,14 @@ namespace GrampsView.Data
                 // Handle other errors
                 if (tarEntry != null)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Exception working on " + tarEntry.Name, ex);
 
                     // Keep going
                     // throw;
                 }
                 else
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex, null);
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar tarEntry null Exception ", ex);
                     // Keep going
                     // throw;
                 }

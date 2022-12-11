@@ -1,7 +1,6 @@
 ﻿using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 
-using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
 using System.Diagnostics.Contracts;
@@ -72,7 +71,7 @@ namespace GrampsView.UserControls
                 }
                 catch (Exception ex)
                 {
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex, new ErrorInfo());
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex);
                     throw;
                 }
             }

@@ -5,7 +5,6 @@ using GrampsView.Events;
 
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
 
 using System.Reflection;
 
@@ -94,7 +93,7 @@ namespace GrampsView.ViewModels.StartupPages
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex, new SharedSharp.Errors.ErrorInfo());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex);
 
                 throw;
             }

@@ -3,9 +3,6 @@ using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Models;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 using static GrampsView.Common.CommonEnums;
@@ -30,7 +27,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Persons Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pname in de)
                     {
-                        EventModel loadEvent = new EventModel();
+                        EventModel loadEvent = new();
 
                         // Event attributes
                         loadEvent.LoadBasics(GetBasics(pname));
@@ -53,9 +50,9 @@ namespace GrampsView.Data.ExternalStorage
                         loadEvent.GNoteRefCollection = GetNoteCollection(pname);
 
                         XElement tt = pname.Element(ns + "place");
-                        if (!(tt is null))
+                        if (tt is not null)
                         {
-                            HLinkPlaceModel t = new HLinkPlaceModel
+                            HLinkPlaceModel t = new()
                             {
                                 HLinkKey = GetHLinkKey(tt)
                             };
@@ -76,12 +73,12 @@ namespace GrampsView.Data.ExternalStorage
                         DV.EventDV.EventData.Add(loadEvent);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
                     // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
+                    MyLog.DataLogEntryAdd(ex.Message);
 
-                    MyNotifications.NotifyException("LoadEventsAsync",e,null);
+                    MyNotifications.NotifyException("LoadEventsAsync", ex);
 
                     throw;
                 }

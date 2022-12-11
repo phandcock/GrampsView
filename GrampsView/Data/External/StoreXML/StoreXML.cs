@@ -70,13 +70,13 @@ namespace GrampsView.Data.ExternalStorage
                     }
                     catch (System.IO.DirectoryNotFoundException ex)
                     {
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex, new SharedSharp.Errors.ErrorInfo());
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, new SharedSharp.Errors.ErrorInfo("Can not load the Gramps XML file. Error in basic XML load"));
 
                         return Task.FromResult(false);
                     }
                     catch (Exception ex)
                     {
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Can not load the Gramps XML file. Error in basic XML load", ex, null);
+                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, new ErrorInfo("Can not load the Gramps XML file. Error in basic XML load"));
 
                         return Task.FromResult(false);
                     }
@@ -111,7 +111,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex);
                 throw;
             }
 

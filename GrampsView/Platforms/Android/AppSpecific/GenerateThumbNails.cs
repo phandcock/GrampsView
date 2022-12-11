@@ -57,7 +57,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                      { "New path", "pdfimage" }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
 
                 return returnValue;
             }
@@ -70,7 +70,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("PDF to Image", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
 
                 return returnValue;
             }
@@ -125,7 +125,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
             }
             catch (FileNotFoundException ex)
             {
-                ErrorInfo t = new("File not found exception when trying to create ParcelFileDescriptor")
+                ErrorInfo t = new("GetSeekableFileDescriptor", "File not found exception when trying to create ParcelFileDescriptor")
                                  {
                                     { "Original ID", argFile.Id },
                                     { "Original File", argFile.OriginalFilePath },
@@ -133,11 +133,11 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
             }
             catch (Exception ex)
             {
-                ErrorInfo t = new("Exception when trying to create ParcelFileDescriptor")
+                ErrorInfo t = new("GetSeekableFileDescriptor", "Exception when trying to create ParcelFileDescriptor")
                                  {
                                     { "Original ID", argFile.Id },
                                     { "Original File", argFile.OriginalFilePath },
@@ -145,7 +145,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
                                     { "Root", System.IO.Path.Combine(argCurrentDataFolder.FullName, argFile.OriginalFilePath) }
                                  };
 
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("GetSeekableFileDescriptor", ex, t);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
             }
             return fileDescriptor;
         }

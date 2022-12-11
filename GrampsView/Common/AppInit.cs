@@ -71,7 +71,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.Init", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.Init", ex);
 
                 throw;
             }
@@ -94,7 +94,7 @@ namespace GrampsView.Common
             }
             catch (Exception ex)
             {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.LoadData", ex, null);
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("AppInit.LoadData", ex);
 
                 throw;
             }

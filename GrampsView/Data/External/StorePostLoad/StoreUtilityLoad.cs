@@ -60,12 +60,12 @@ namespace GrampsView.Data.ExternalStorage
             {
                 _commonNotifications.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
-                _commonNotifications.NotifyException("Trying to  add media file pointer",ex,null);
+                _commonNotifications.NotifyException("Trying to  add media file pointer",ex);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                _commonNotifications.NotifyException("Trying to add media file pointer",ex,null);
+                _commonNotifications.NotifyException("Trying to add media file pointer",ex);
 
                 throw;
             }
