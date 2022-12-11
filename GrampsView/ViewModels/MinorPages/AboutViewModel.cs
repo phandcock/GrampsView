@@ -120,6 +120,10 @@ namespace GrampsView.ViewModels.MinorPages
 
                 new CardListLine("CardSize Small Width", MyCardSizes.CardSmallWidth.ToString()),
 
+                new CardListLine("CardSize Large Width", MyCardSizes.CardLargeWidth.ToString()),
+
+                new CardListLine("CardSize Large Height", MyCardSizes.CardLargeHeight.ToString()),
+
                 new CardListLine("CardSize Number Columns", MyCardSizes.CardsAcrossColumns.ToString()),
 
                 new CardListLine("MediaDetailImageHeight", MyCardSizes.MediaDetailImageHeight.ToString()),

@@ -21,8 +21,6 @@ using GrampsView.ViewModels.Sources;
 using GrampsView.ViewModels.StartupPages;
 using GrampsView.ViewModels.Tags;
 
-using Microsoft.Extensions.Logging;
-
 using SharedSharp;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Services;
@@ -36,7 +34,7 @@ namespace GrampsView
         {
             MauiAppBuilder builder = MauiApp.CreateBuilder();
 
-            builder.UseMauiApp<App>()
+            _ = builder.UseMauiApp<App>()
                     .UseMauiCommunityToolkit()
                     .UseMauiCommunityToolkitMarkup()
                     .SharedSharpInit()
@@ -45,11 +43,7 @@ namespace GrampsView
                     .RegisterHandlers()
                     .RegisterServices();
 
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
-
-            builder.Services.AddLocalization();
+            _ = builder.Services.AddLocalization();
 
             MauiApp mauiApp = builder.Build();
 

@@ -157,11 +157,6 @@
         <None Remove="Resources\Raw\README.md" />
         <None Remove="Resources\Raw\SECURITY.md" />
         <None Remove="Resources\Raw\Usage Tips.md" />
-        <None Remove="ViewModels\MinorPages\Attribution.md" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <MauiAsset Include="ViewModels\MinorPages\Attribution.md" />
     </ItemGroup>
 
     <ItemGroup>
@@ -188,7 +183,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.4.6" />
+        <PackageReference Include="SharedSharp" Version="1.4.8" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
