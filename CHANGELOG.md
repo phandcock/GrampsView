@@ -1,3 +1,12 @@
+## [16.28.27](https://github.com/phandcock/GrampsView/compare/v16.28.26...v16.28.27) (2022-12-11)
+
+
+### Bug Fixes
+
+* update nugets and tweaks ([90ac110](https://github.com/phandcock/GrampsView/commit/90ac1107d259d29bd6e869564abfedc3a69a7aac))
+
+
+
 ## [16.28.26](https://github.com/phandcock/GrampsView/compare/v16.28.25...v16.28.26) (2022-12-11)
 
 
@@ -26,15 +35,6 @@
 * tweak csproj file ([3202dd6](https://github.com/phandcock/GrampsView/commit/3202dd6e39d13d00466b87ba7898c49b5b003b9e))
 * tweak csproj file ([16a1aa7](https://github.com/phandcock/GrampsView/commit/16a1aa7bb2564d45ba58eaa0deaf545e0494ce2e))
 * upate nugets ([6d1b9a5](https://github.com/phandcock/GrampsView/commit/6d1b9a54fbd68140bc7ab98702d8c6cf9ff3cc7f))
-
-
-
-## [16.28.23](https://github.com/phandcock/GrampsView/compare/v16.28.22...v16.28.23) (2022-12-07)
-
-
-### Bug Fixes
-
-* update nugets ([31579f2](https://github.com/phandcock/GrampsView/commit/31579f2686bf8ed070d225acbbd1d8ce953a5a6e))
 
 
 
