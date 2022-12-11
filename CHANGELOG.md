@@ -1,3 +1,14 @@
+## [16.28.25](https://github.com/phandcock/GrampsView/compare/v16.28.24...v16.28.25) (2022-12-10)
+
+
+### Bug Fixes
+
+* get viewmodel parameters working again ([78ad34c](https://github.com/phandcock/GrampsView/commit/78ad34c86657d6f6ac99b7ec5bdac9fef1489719))
+* tweak about page ([6c443f9](https://github.com/phandcock/GrampsView/commit/6c443f9d0ecb8672711b367660f8cdd38699704f))
+* tweaks and update nuget ([630fc58](https://github.com/phandcock/GrampsView/commit/630fc585b3452248a63c475cb5430bf1f51ede71))
+
+
+
 ## [16.28.24](https://github.com/phandcock/GrampsView/compare/v16.28.23...v16.28.24) (2022-12-08)
 
 
@@ -24,15 +35,6 @@
 ### Bug Fixes
 
 * work on about page ([001dd94](https://github.com/phandcock/GrampsView/commit/001dd945272187a20a08375377e411bda1e1d5ee))
-
-
-
-## [16.28.21](https://github.com/phandcock/GrampsView/compare/v16.28.20...v16.28.21) (2022-12-05)
-
-
-### Bug Fixes
-
-* move to GetRequiredService for IoC ([e86d227](https://github.com/phandcock/GrampsView/commit/e86d227174f41ef732605f3b1605ab79691185b7))
 
 
 
