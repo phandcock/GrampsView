@@ -6,8 +6,6 @@ using GrampsView.Events;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
 
-using System.Reflection;
-
 namespace GrampsView.ViewModels.StartupPages
 {
     /// <summary>
@@ -57,15 +55,13 @@ namespace GrampsView.ViewModels.StartupPages
         {
             BaseCL.Progress("Load sample data");
 
-            CommonRoutines.ListEmbeddedResources();
-
             // Load Resource
-            Assembly assemblyExec = Assembly.GetExecutingAssembly();
-            string resourceName = "GrampsView.AnythingElse.SampleData.EnglishTudorHouse.gpkg";
 
-            DataStore.Instance.AD.CurrentInputStream = assemblyExec.GetManifestResourceStream(resourceName);
+            string resourceName = "EnglishTudorHouse.gpkg";
 
-            DataStore.Instance.AD.CurrentInputStreamPath = "AnythingElse/Sample Data/EnglishTudorHouse.gpkg";
+            DataStore.Instance.AD.CurrentInputStream = await FileSystem.Current.OpenAppPackageFileAsync(resourceName);
+
+            DataStore.Instance.AD.CurrentInputStreamPath = "/EnglishTudorHouse.gpkg";
 
             await StartLoad();
         }

@@ -42,6 +42,11 @@
 		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
 		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
 	</PropertyGroup>
+	
+	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Release'">
+		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
+	</PropertyGroup>
 
 	<!-- Android specific -->
 	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
@@ -151,12 +156,6 @@
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
         <None Remove="Resources\appicon.svg" />
-        <None Remove="Resources\Raw\Attribution.md" />
-        <None Remove="Resources\Raw\CHANGELOG.md" />
-        <None Remove="Resources\Raw\PrivacyPolicy.md" />
-        <None Remove="Resources\Raw\README.md" />
-        <None Remove="Resources\Raw\SECURITY.md" />
-        <None Remove="Resources\Raw\Usage Tips.md" />
     </ItemGroup>
 
     <ItemGroup>

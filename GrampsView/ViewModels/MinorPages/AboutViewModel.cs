@@ -135,11 +135,11 @@ namespace GrampsView.ViewModels.MinorPages
 
             /////////////////////////////////////////
 
-            WhatsNewText = await CommonRoutines.LoadResource("CHANGELOG.md");
+            WhatsNewText = await CommonRoutines.LoadResource("Reading\\CHANGELOG.md");
 
-            AttributionText = await CommonRoutines.LoadResource("Attribution.md");
+            AttributionText = await CommonRoutines.LoadResource("Reading\\Attribution.md");
 
-            PrivacyPolicyText = await CommonRoutines.LoadResource("PrivacyPolicy.md");
+            PrivacyPolicyText = await CommonRoutines.LoadResource("Reading\\PrivacyPolicy.md");
 
             return;
         }

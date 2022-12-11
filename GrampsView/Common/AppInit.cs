@@ -11,7 +11,7 @@ namespace GrampsView.Common
     {
         public async Task<string> GetChangesText()
         {
-            return await CommonRoutines.LoadResource("CHANGELOG.md");
+            return await CommonRoutines.LoadResource("Reading\\CHANGELOG.md");
         }
 
         public async Task Init()
