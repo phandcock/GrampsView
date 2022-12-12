@@ -1,20 +1,12 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="IAddressModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.Collections.HLinks;
-
     /// <summary>
+    ///   <br />
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase"/>
+    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
     public interface IAddressModel : IModelBase
     {
         HLinkCitationModelCollection GCitationRefCollection { get; }

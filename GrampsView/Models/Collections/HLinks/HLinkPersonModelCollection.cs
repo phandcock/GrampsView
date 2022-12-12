@@ -6,14 +6,13 @@ using GrampsView.Models.DataModels;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 
-namespace GrampsView.Data.Collections
+namespace GrampsView.Models.Collections.HLinks
 {
     /// <summary>
-    /// Collection of Person HLinks
-    /// <list type="table"><listheader><term><th> Status </term></listheader><item><description> XML 1.71 check </description><description> Not Done </description></item></listheader><para><br /></para>
+    ///   <br />
     /// </summary>
-    /// TODO XML 1.71 check needed
-
+    /// <remarks>TODO XML 1.71 check needed</remarks>
+    /// TODO Edit XML Comment Template for HLinkPersonModelCollection
     public class HLinkPersonModelCollection : HLinkBaseCollection<HLinkPersonModel>
     {
         public HLinkPersonModelCollection()

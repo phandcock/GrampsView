@@ -3,14 +3,12 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Contracts;
-using System.Linq;
 
 namespace GrampsView.Data.DataView
 {
@@ -202,13 +200,10 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        /// <summary>
-        /// Gets the specified h link string.
-        /// </summary>
-        /// <param name="HLinkString">
-        /// The h link string.
-        /// </param>
+        /// <summary>Gets the specified h link string.</summary>
+        /// <param name="argHLinkKey"></param>
         /// <returns>
+        ///   <br />
         /// </returns>
         public override PersonModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
@@ -220,8 +215,6 @@ namespace GrampsView.Data.DataView
             return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
         }
 
-        //    return groups;
-        //}
         /// <summary>
         /// Gets the person plus family events.
         /// </summary>

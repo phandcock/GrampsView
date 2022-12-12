@@ -2,9 +2,9 @@ namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
 
     using System.Collections.Generic;

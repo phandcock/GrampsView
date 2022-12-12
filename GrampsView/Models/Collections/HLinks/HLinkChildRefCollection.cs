@@ -4,6 +4,7 @@
 namespace GrampsView.Data.Collections
 {
     using GrampsView.Data.Model;
+    using GrampsView.Models.Collections.HLinks;
 
     using System.Runtime.Serialization;
 

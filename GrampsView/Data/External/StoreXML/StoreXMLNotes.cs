@@ -3,12 +3,7 @@ using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-
-
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -17,15 +12,8 @@ namespace GrampsView.Data.ExternalStorage
     /// </summary>
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>
-        /// Load Notes from external storage.
-        /// </summary>
-        /// <param name="noteRepository">
-        /// The event repository.
-        /// </param>
-        /// <returns>
-        /// Flag of loaded successfully.
-        /// </returns>
+        /// <summary>Load Notes from external storage.</summary>
+        /// <returns>Flag of loaded successfully.</returns>
         public Task LoadNotesAsync()
         {
             MyLog.DataLogEntryAdd("Loading Note data");
@@ -84,7 +72,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    MyNotifications.NotifyException("Exception loading Notes from the Gramps file",ex);
+                    MyNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
 
                     throw;
                 }
@@ -96,7 +84,7 @@ namespace GrampsView.Data.ExternalStorage
 
         private FormattedString GetFormattedString(XElement argStyledText)
         {
-            FormattedString loadString = new FormattedString();
+            FormattedString loadString = new();
 
             string theText = (string)argStyledText.Element(ns + "text");
 

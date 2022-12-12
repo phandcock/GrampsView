@@ -21,7 +21,7 @@
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
+  
     <ScrollView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -44,10 +44,10 @@
                                                   Light={StaticResource PrimaryLight}}"
                 Orientation="Horizontal">
 
-                <Image
+                <Image BackgroundColor="MediumPurple"
                     HorizontalOptions="StartAndExpand"
                     MinimumHeightRequest="24"
-                    Source="appicon.svg"
+                    Source="appicon.png"
                     VerticalOptions="FillAndExpand" />
 
                 <Label
@@ -60,17 +60,35 @@
                     VerticalOptions="Center" />
             </StackLayout>
 
-            <sharedsharpucon:ListLineCard Grid.Row="1" CardList="{Binding ApplicationVersionList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard
+                Grid.Row="1"
+                CardList="{Binding ApplicationVersionList, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:ListLineCard Grid.Row="2" CardList="{Binding ApplicationStateList, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard
+                Grid.Row="2"
+                CardList="{Binding ApplicationStateList, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:ListLineCard Grid.Row="3" CardList="{Binding HeaderData, Mode=OneWay}" />
+            <sharedsharpucon:ListLineCard
+                Grid.Row="3"
+                CardList="{Binding HeaderData, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:FileViewCard Grid.Row="4" FileText="{Binding WhatsNewText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard
+                Grid.Row="4"
+                FileText="{Binding WhatsNewText, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:FileViewCard Grid.Row="5" FileText="{Binding AttributionText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard
+                Grid.Row="5"
+                FileText="{Binding AttributionText, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:FileViewCard Grid.Row="6" FileText="{Binding PrivacyPolicyText, Mode=OneWay}" />
+            <sharedsharpucon:FileViewCard
+                Grid.Row="6"
+                FileText="{Binding PrivacyPolicyText, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

@@ -4,11 +4,8 @@ using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace GrampsView.Data.DataView
 {
