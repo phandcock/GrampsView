@@ -18,11 +18,11 @@ namespace GrampsView.Common
         {
             try
             {
-                // First run?
-                if (await Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
-                {
-                    return;
-                }
+                //// First run?
+                //if (await Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
+                //{
+                //    return;
+                //}
 
                 // Need WhatNew?
                 if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(await GetChangesText()))
