@@ -45,7 +45,8 @@
                 HorizontalTextAlignment="Start"
                 SearchCommand="{Binding SearchButtonCommand}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
-                TextColor="{StaticResource OnSurfaceColor}">
+                TextColor="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                                  Light={StaticResource OnSurfaceLight}}">
                 <SearchBar.Behaviors>
                     <mauitoolkit:UserStoppedTypingBehavior
                         Command="{Binding SearchButtonCommand}"

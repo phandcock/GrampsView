@@ -26,9 +26,7 @@
 
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
-      <uap:VisualElements BackgroundColor="#800080" DisplayName="GrampsView" Description="GrampsVew" Square150x150Logo="Platforms\Windows\Assets\MediumTile.png" Square44x44Logo="Platforms\Windows\Assets\AppIcon.png">
-		  <uap:DefaultTile Square71x71Logo="Platforms\Windows\Assets\SmallTile.png" Wide310x150Logo="Platforms\Windows\Assets\WideTile.png" Square310x310Logo="Platforms\Windows\Assets\LargeTile.png"/>
-	  </uap:VisualElements >
+		<uap:VisualElements />
   </Application>
 </Applications>
 

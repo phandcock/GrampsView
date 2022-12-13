@@ -24,11 +24,11 @@ namespace GrampsView.Common
                 //    return;
                 //}
 
-                // Need WhatNew?
-                if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(await GetChangesText()))
-                {
-                    return;
-                }
+                //// Need WhatNew?
+                //if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(await GetChangesText()))
+                //{
+                //    return;
+                //}
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
