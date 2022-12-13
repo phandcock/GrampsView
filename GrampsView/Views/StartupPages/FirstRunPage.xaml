@@ -27,9 +27,9 @@
             <Image
                 HorizontalOptions="Center"
                 MinimumHeightRequest="24"
-                Source="ic_launcher.png" />
+                Source="appicon.png" />
 
-            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="{i18n:Localize FirstRun_Welcome}" />
+            <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="FirstRun_Welcome" />
 
             <sharedsharpucon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_IntroductionText" />
 

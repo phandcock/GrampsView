@@ -20,7 +20,6 @@
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
-    <!--  Content  -->
     <ScrollView Padding="10">
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
@@ -29,9 +28,16 @@
                 <sSharpUcon:ThemeSelector />
             </sSharpUcon:SSHeaderBorderSettings>
 
-            <TableView Intent="Settings">
+            <Label />
+
+            <TableView
+                Intent="Settings"
+                HasUnevenRows="True"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                                  Light={StaticResource Neutral}}"
+                HorizontalOptions="CenterAndExpand">
                 <TableRoot>
-                    <TableSection Title="Settings">
+                    <TableSection Title="Settings" TextColor="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}">
                         <SwitchCell Text="Sort Item collections on load" On="{Binding SortCollectionsFlag}" />
                         <SwitchCell Text="Use first (not last) image from collections" On="{Binding UseFirstImageFlag}" />
                         <TextCell Text="Default email address for Notes" />
@@ -54,6 +60,8 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Actions" TextColor="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}">
                         <ViewCell>
                             <Button
                                 HorizontalOptions="End"
