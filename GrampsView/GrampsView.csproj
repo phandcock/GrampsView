@@ -63,6 +63,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
+		<MauiIcon Include="Resources\appicon.svg">
+		  <Color>#ffb787</Color>
+		  <ForegroundFile>Resources\Images\appiconfg.svg</ForegroundFile>
+		</MauiIcon>
 		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#ffb787" />
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -148,6 +152,7 @@
 
     <ItemGroup>
       <MauiImage Remove="Resources\Images\appiconfg.svg" />
+      <MauiImage Remove="Resources\Images\splash.svg" />
     </ItemGroup>
 
     <ItemGroup>
@@ -157,6 +162,7 @@
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
+        <None Remove="Resources\appicon.svg" />
         <None Remove="Resources\Images\splash.svg" />
     </ItemGroup>
 
