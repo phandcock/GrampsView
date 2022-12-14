@@ -1,5 +1,6 @@
 ﻿using GrampsView.Events;
 using GrampsView.Views;
+using GrampsView.Views.StartupPages;
 
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
@@ -18,20 +19,23 @@ namespace GrampsView.Common
         {
             try
             {
-                //// First run?
-                //if (await Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate(nameof(FirstRunPage)))
-                //{
-                //    return;
-                //}
+                // First run?
+                if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
+                {
+                    await SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
+                    return;
+                }
 
-                //// Need WhatNew?
-                //if (await Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(await GetChangesText()))
-                //{
-                //    return;
-                //}
+                // Need WhatNew?
+                if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
+                {
+                    await SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
+                    return;
+                }
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
+
                     SharedSharpSettings.DataSerialised = false;
 
                     return;

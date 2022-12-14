@@ -150,6 +150,11 @@ namespace GrampsView
             _ = builder.Services.AddTransient<TagDetailViewModel>();
             _ = builder.Services.AddTransient<TagListViewModel>();
 
+            _ = builder.Services.AddTransient<FirstRunViewModel>();
+            _ = builder.Services.AddTransient<WhatsNewViewModel>();
+
+
+
             //_ = builder.Services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
 
             _ = builder.Services.AddTransient<NavigationPage>();

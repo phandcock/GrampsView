@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
 		<!-- Android, Windows -->
-		<TargetFrameworks>net7.0-android</TargetFrameworks>
+		<TargetFrameworks>net7.0-android;</TargetFrameworks>
+		<!-- Targets possible from Windows OS -->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 
@@ -22,8 +23,8 @@
         <ApplicationIdGuid>96d4740a-95e4-4689-8e38-896897feb38f</ApplicationIdGuid>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>2.0</ApplicationDisplayVersion>
-        <ApplicationVersion>2</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationVersion>1</ApplicationVersion>
 
 		<!-- Target Platform Options -->
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
@@ -34,15 +35,8 @@
 
 		<!-- Minimum Target OS Version for Windows Platform -->
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		
 		<DefaultLanguage>eu</DefaultLanguage>
-		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-		<PackageCertificateThumbprint>E627C73E4E8909D40204ED39493E8D1C31E371EC</PackageCertificateThumbprint>
-		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
-		<GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+	
     </PropertyGroup>
 
 	<!-- Windows specific -->
@@ -150,7 +144,6 @@
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
-      <Compile Remove="ViewModels\StartupPages\WhatsNewPageViewModel.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -191,7 +184,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.4.10" />
+        <PackageReference Include="SharedSharp" Version="1.4.13" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -211,6 +204,10 @@
       </Compile>
       <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
         <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\StartupPages\FirstRunPage.xaml.cs">
+        <SubType>Code</SubType>
+        <DependentUpon>%(Filename)</DependentUpon>
       </Compile>
     </ItemGroup>
 
@@ -234,6 +231,13 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\General\CollectionSingleCard.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\StartupPages\FirstRunPage.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\StartupPages\WhatsNewPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
     </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using GrampsView.Views;
+using GrampsView.Views.StartupPages;
 
 namespace GrampsView
 {
@@ -22,11 +23,11 @@ namespace GrampsView
         private static void RegisterMiscRoutes()
         {
             Routing.RegisterRoute(nameof(FileInputHandlerPage), typeof(FileInputHandlerPage));
-            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
+            Routing.RegisterRoute(nameof(Views.StartupPages.FirstRunPage), typeof(Views.StartupPages.FirstRunPage));
 
             Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
 
-            Routing.RegisterRoute(nameof(SharedSharp.Views.WhatsNewPage), typeof(SharedSharp.Views.WhatsNewPage));
+            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
         }
 
         private void RegisterDetailRoutes()
@@ -60,6 +61,9 @@ namespace GrampsView
             Routing.RegisterRoute(nameof(SourceDetailPage), typeof(SourceDetailPage));
 
             Routing.RegisterRoute(nameof(TagDetailPage), typeof(TagDetailPage));
+
+            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
+            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
         }
     }
 }

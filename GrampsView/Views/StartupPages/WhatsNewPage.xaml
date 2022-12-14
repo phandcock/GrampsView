@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <v:ViewBasePage
-    x:Class="GrampsView.Views.StartupPages.FirstRunPage"
+    x:Class="GrampsView.Views.StartupPages.WhatsNewPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,24 +11,33 @@
     xmlns:views="clr-namespace:GrampsView.Views.StartupPages"
     xmlns:v="clr-namespace:GrampsView.Views"
     Title="{Binding BaseTitle}"
-    x:DataType="viewmodels:FirstRunViewModel"
+    x:DataType="viewmodels:WhatsNewViewModel"
     Shell.PresentationMode="ModalNotAnimated"
     Style="{DynamicResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand">
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="FirstRun_Welcome" />
+            <Border
+                HeightRequest="100"
+                WidthRequest="100"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                                  Light={StaticResource SurfaceLight}}"
+                Style="{StaticResource SSBorderCardStyle}">
+                <Image HorizontalOptions="Center" Source="application_icon.png" />
+            </Border>
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_IntroductionText" />
+            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="What's New" />
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_WhatsNext" />
+            <Border Style="{StaticResource SSBorderLargeVariableCardStyle}">
+                <sSharpUcon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" />
+            </Border>
 
             <Button
                 Command="{Binding LoadDataCommand}"
                 Style="{DynamicResource SSButtonMenu}"
-                Text="FirstRun_ContinueButton" />
+                Text="Next" />
         </VerticalStackLayout>
     </ScrollView>
 </v:ViewBasePage>
