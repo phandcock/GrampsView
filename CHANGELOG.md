@@ -1,3 +1,12 @@
+## [16.28.33](https://github.com/phandcock/GrampsView/compare/v16.28.32...v16.28.33) (2022-12-16)
+
+
+### Bug Fixes
+
+* tweak android icons ([b7021a8](https://github.com/phandcock/GrampsView/commit/b7021a83368cc00562c86e3feafbfb27cd01b079))
+
+
+
 ## [16.28.32](https://github.com/phandcock/GrampsView/compare/v16.28.31...v16.28.32) (2022-12-15)
 
 
@@ -27,15 +36,6 @@
 * tweak settings page ([c2b63c3](https://github.com/phandcock/GrampsView/commit/c2b63c31a3d22ef1e25ed3797da752ec5df794e5))
 * tweaks ([4c94c84](https://github.com/phandcock/GrampsView/commit/4c94c84bb26d220a7c0ddd0cd76602d202f888a2))
 * tweaks ([8ac7570](https://github.com/phandcock/GrampsView/commit/8ac757080a1a426d22dc2f461f8f9005f1c045b7))
-
-
-
-## [16.28.29](https://github.com/phandcock/GrampsView/compare/v16.28.28...v16.28.29) (2022-12-12)
-
-
-### Bug Fixes
-
-* tweaks and appicons ([88e0e8c](https://github.com/phandcock/GrampsView/commit/88e0e8c01998d250cba9e265385ba9d98c6b5b96))
 
 
 
