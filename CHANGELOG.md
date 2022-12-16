@@ -1,3 +1,13 @@
+## [16.28.32](https://github.com/phandcock/GrampsView/compare/v16.28.31...v16.28.32) (2022-12-15)
+
+
+### Bug Fixes
+
+* tweak appiconfg ([f815f43](https://github.com/phandcock/GrampsView/commit/f815f43db848cc55ce0fbdf8fd572ee98106ac6a))
+* tweak test project run intervals ([f229bb7](https://github.com/phandcock/GrampsView/commit/f229bb7e83eec71398f5a8f861bde5d21a3b00b4))
+
+
+
 ## [16.28.31](https://github.com/phandcock/GrampsView/compare/v16.28.30...v16.28.31) (2022-12-14)
 
 
@@ -26,15 +36,6 @@
 ### Bug Fixes
 
 * tweaks and appicons ([88e0e8c](https://github.com/phandcock/GrampsView/commit/88e0e8c01998d250cba9e265385ba9d98c6b5b96))
-
-
-
-## [16.28.28](https://github.com/phandcock/GrampsView/compare/v16.28.27...v16.28.28) (2022-12-11)
-
-
-### Bug Fixes
-
-* tweaks ([8e6eeb0](https://github.com/phandcock/GrampsView/commit/8e6eeb04ee48888cdd794cbd357db52c92018fc8))
 
 
 
