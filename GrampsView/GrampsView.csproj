@@ -65,10 +65,10 @@
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg">
 		  <Color>#ffb787</Color>
-		  <ForegroundFile>Resources\Images\appiconfg.svg</ForegroundFile>
+		  <ForegroundFile>Resources\appiconfg.svg</ForegroundFile>
 		</MauiIcon>
-		<MauiIcon Include="Resources\Images\appicon.svg" ForegroundFile="Resources\Images\appiconfg.svg" Color="#ffb787" />
 		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\splash.svg" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<!-- Custom Fonts -->
@@ -149,10 +149,6 @@
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
     </ItemGroup>
 
-    <ItemGroup>
-      <MauiImage Remove="Resources\Images\appiconfg.svg" />
-      <MauiImage Remove="Resources\Images\splash.svg" />
-    </ItemGroup>
 
     <ItemGroup>
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
@@ -161,16 +157,10 @@
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
-        <None Remove="Resources\appicon.svg" />
-        <None Remove="Resources\Images\splash.svg" />
-        <None Remove="Resources\splash.svg" />
+ 
     </ItemGroup>
 
-    <ItemGroup>
-      <MauiSplashScreen Include="Resources\Images\splash.svg" />
-      <MauiSplashScreen Include="Resources\splash.svg" />
-    </ItemGroup>
-
+ 
     <ItemGroup>
 
         <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />

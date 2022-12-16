@@ -23,14 +23,14 @@ namespace GrampsView.Common
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
                     await SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
-                    return;
+                    //return;
                 }
 
                 // Need WhatNew?
-                if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
+                if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(true))
                 {
                     await SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
-                    return;
+                    //return;
                 }
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
@@ -38,7 +38,7 @@ namespace GrampsView.Common
 
                     SharedSharpSettings.DataSerialised = false;
 
-                    return;
+                    //return;
                 }
 
                 // Setup Event Handling
