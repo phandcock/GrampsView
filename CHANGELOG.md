@@ -1,3 +1,14 @@
+## [17.0.1](https://github.com/phandcock/GrampsView/compare/v16.28.35...v17.0.1) (2022-12-17)
+
+
+### Bug Fixes
+
+* tweaks ([d1c2d25](https://github.com/phandcock/GrampsView/commit/d1c2d25dacf93eccff87acf7b8b6e67ee77ec6d8))
+* tweaks ([89ea26d](https://github.com/phandcock/GrampsView/commit/89ea26d98d2e10118256a0fd270076524645b408))
+* tweaks ([3697d99](https://github.com/phandcock/GrampsView/commit/3697d99f0bf9d41b39a2e77ee72cdc2a0e659989))
+
+
+
 ## [16.28.35](https://github.com/phandcock/GrampsView/compare/v16.28.34...v16.28.35) (2022-12-17)
 
 
@@ -22,16 +33,6 @@
 ### Bug Fixes
 
 * tweak android icons ([b7021a8](https://github.com/phandcock/GrampsView/commit/b7021a83368cc00562c86e3feafbfb27cd01b079))
-
-
-
-## [16.28.32](https://github.com/phandcock/GrampsView/compare/v16.28.31...v16.28.32) (2022-12-15)
-
-
-### Bug Fixes
-
-* tweak appiconfg ([f815f43](https://github.com/phandcock/GrampsView/commit/f815f43db848cc55ce0fbdf8fd572ee98106ac6a))
-* tweak test project run intervals ([f229bb7](https://github.com/phandcock/GrampsView/commit/f229bb7e83eec71398f5a8f861bde5d21a3b00b4))
 
 
 
