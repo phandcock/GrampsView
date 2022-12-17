@@ -1,3 +1,12 @@
+## [16.28.35](https://github.com/phandcock/GrampsView/compare/v16.28.34...v16.28.35) (2022-12-17)
+
+
+### Bug Fixes
+
+* tweak whatsnew and about pages ([c186857](https://github.com/phandcock/GrampsView/commit/c186857bf35d2213f6e6404bbaeab52458d0887b))
+
+
+
 ## [16.28.34](https://github.com/phandcock/GrampsView/compare/v16.28.33...v16.28.34) (2022-12-17)
 
 
@@ -23,17 +32,6 @@
 
 * tweak appiconfg ([f815f43](https://github.com/phandcock/GrampsView/commit/f815f43db848cc55ce0fbdf8fd572ee98106ac6a))
 * tweak test project run intervals ([f229bb7](https://github.com/phandcock/GrampsView/commit/f229bb7e83eec71398f5a8f861bde5d21a3b00b4))
-
-
-
-## [16.28.31](https://github.com/phandcock/GrampsView/compare/v16.28.30...v16.28.31) (2022-12-14)
-
-
-### Bug Fixes
-
-* move firstrun and whatsnew pages back tot he code ([61ee12b](https://github.com/phandcock/GrampsView/commit/61ee12b67f630193f8776def59a681b10f4a404c))
-* tweak android ([290f81a](https://github.com/phandcock/GrampsView/commit/290f81a6a8c762a78df684ff4e1c2004983cd756))
-* tweaks ([06577a1](https://github.com/phandcock/GrampsView/commit/06577a1e5e0c85947df77558b0b3f979e9b74ab8))
 
 
 
