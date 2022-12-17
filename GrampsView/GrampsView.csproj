@@ -13,7 +13,6 @@
         <!-- Project Options -->
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-		<PublishTrimmed>false</PublishTrimmed>
 
         <!-- Names -->
 		<RootNamespace>GrampsView</RootNamespace>
@@ -65,8 +64,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg">
-		  <Color>#ffb787</Color>
-		  <ForegroundFile>Resources\appiconfg.svg</ForegroundFile>
+		  <Color>#ba55d3</Color>
 		</MauiIcon>
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\splash.svg" />
@@ -246,7 +244,7 @@
 
     <ItemGroup>
       <EmbeddedResource Update="Resources\Strings\AppResources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
+        <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>

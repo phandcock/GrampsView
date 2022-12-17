@@ -19,20 +19,25 @@
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="CenterAndExpand">
 
-            <Border
-                HeightRequest="100"
-                WidthRequest="100"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
-                                                  Light={StaticResource SurfaceLight}}"
-                Style="{StaticResource SSBorderCardStyle}">
-                <Image HorizontalOptions="Center" Source="application_icon.png" />
+            <Border Style="{StaticResource SSBorderHeaderStyle}">
+                <HorizontalStackLayout>
+                    <Border
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                                          Light={StaticResource Neutral}}"
+                        Style="{StaticResource SSBorderCardStyle}">
+                        <Image HorizontalOptions="Center" Source="appicon.png" />
+                    </Border>
+
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="{i18n:Localize WhatsNew_TitleText}"
+                        VerticalOptions="CenterAndExpand" />
+                </HorizontalStackLayout>
             </Border>
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="What's New" />
-
-            <Border Style="{StaticResource SSBorderLargeVariableCardStyle}">
-                <sSharpUcon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" />
-            </Border>
+            <sSharpUcon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" />
 
             <Button
                 Command="{Binding LoadDataCommand}"

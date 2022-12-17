@@ -21,7 +21,6 @@
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
-  
     <ScrollView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -29,7 +28,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="60" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -38,27 +37,29 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <StackLayout
+            <Border
                 Grid.Row="0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource PrimaryDark},
-                                                  Light={StaticResource PrimaryLight}}"
-                Orientation="Horizontal">
+                Grid.Column="0"
+                Style="{StaticResource SSBorderHeaderStyle}"
+                HorizontalOptions="FillAndExpand">
+                <HorizontalStackLayout>
+                    <Border
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                                          Light={StaticResource Neutral}}"
+                        Style="{StaticResource SSBorderCardStyle}">
+                        <Image HorizontalOptions="Center" Source="appicon.png" />
+                    </Border>
 
-                <Image BackgroundColor="MediumPurple"
-                    HorizontalOptions="StartAndExpand"
-                    MinimumHeightRequest="24"
-                    Source="appicon.png"
-                    VerticalOptions="FillAndExpand" />
-
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontLarge}"
-                    Style="{StaticResource SSLabelStyleLarge}"
-                    Text="{i18:Localize AboutPage_AppHeader}"
-                    TextColor="{AppThemeBinding Dark={StaticResource OnPrimaryContainerDark},
-                                                Light={StaticResource OnPrimaryLight}}"
-                    VerticalOptions="Center" />
-            </StackLayout>
+                    <Label
+                        Padding="10"
+                        FontAttributes="Bold"
+                        Style="{StaticResource SSLabelStyleLarge}"
+                        Text="{i18:Localize AboutPage_AppHeader}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
 
             <sharedsharpucon:ListLineCard
                 Grid.Row="1"
@@ -75,20 +76,17 @@
                 CardList="{Binding HeaderData, Mode=OneWay}"
                 HorizontalOptions="CenterAndExpand" />
 
-            <sharedsharpucon:FileViewCard
-                Grid.Row="4"
-                FileText="{Binding WhatsNewText, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand" />
+            <sSharpUcon:SSHeaderBorderSettings Grid.Row="4" HeaderTitle="Whats New">
+                <sharedsharpucon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" HorizontalOptions="CenterAndExpand" />
+            </sSharpUcon:SSHeaderBorderSettings>
 
-            <sharedsharpucon:FileViewCard
-                Grid.Row="5"
-                FileText="{Binding AttributionText, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand" />
+            <sSharpUcon:SSHeaderBorderSettings Grid.Row="5" HeaderTitle="Whats New">
+                <sharedsharpucon:FileViewCard FileText="{Binding AttributionText, Mode=OneWay}" HorizontalOptions="CenterAndExpand" />
+            </sSharpUcon:SSHeaderBorderSettings>
 
-            <sharedsharpucon:FileViewCard
-                Grid.Row="6"
-                FileText="{Binding PrivacyPolicyText, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand" />
+            <sSharpUcon:SSHeaderBorderSettings Grid.Row="6" HeaderTitle="Whats New">
+                <sharedsharpucon:FileViewCard FileText="{Binding PrivacyPolicyText, Mode=OneWay}" HorizontalOptions="CenterAndExpand" />
+            </sSharpUcon:SSHeaderBorderSettings>
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

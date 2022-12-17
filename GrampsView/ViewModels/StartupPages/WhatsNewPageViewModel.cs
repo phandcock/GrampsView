@@ -1,7 +1,7 @@
-﻿using SharedSharp.Common.Interfaces;
-using SharedSharp.ViewModels;
+﻿using GrampsView.Common;
 
-using System.Diagnostics;
+using SharedSharp.Common.Interfaces;
+using SharedSharp.ViewModels;
 
 namespace GrampsView.ViewModels.StartupPages
 {
@@ -24,7 +24,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             // BaseTitleIcon = CommonConstants.IconSettings;
 
-            Debug.WriteLine($"WhatsNewViewModel");
+            WhatsNewText = Task.Run(async () => await CommonRoutines.LoadResource("Reading\\CHANGELOG.md")).Result;
         }
 
         public AsyncRelayCommand LoadDataCommand
@@ -39,19 +39,6 @@ namespace GrampsView.ViewModels.StartupPages
         /// Whats New text
         /// </value>
         public string WhatsNewText { get; set; } = "";
-
-        public override void HandleViewModelParameters()
-        {
-            foreach (KeyValuePair<string, object> item in BasePassedArguments)
-            {
-                Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
-            }
-
-            if (BasePassedArguments.Count > 0)
-            {
-                WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
-            }
-        }
 
         private async Task LoadDataAction()
         {
