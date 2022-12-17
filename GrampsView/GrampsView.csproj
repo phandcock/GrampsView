@@ -13,6 +13,7 @@
         <!-- Project Options -->
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+		<PublishTrimmed>false</PublishTrimmed>
 
         <!-- Names -->
 		<RootNamespace>GrampsView</RootNamespace>

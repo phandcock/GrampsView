@@ -1,7 +1,7 @@
-﻿using SharedSharp.ViewModels;
+﻿using SharedSharp.Common.Interfaces;
+using SharedSharp.ViewModels;
 
 using System.Diagnostics;
-using System.Windows.Input;
 
 namespace GrampsView.ViewModels.StartupPages
 {
@@ -10,10 +10,15 @@ namespace GrampsView.ViewModels.StartupPages
     /// </summary>
     public partial class WhatsNewViewModel : SharedSharpViewModelBase
     {
+        private readonly ISharedSharpAppInit _AppInit;
+
         /// <summary>Initializes a new instance of the <see cref="WhatsNewViewModel" /> class.</summary>
-        public WhatsNewViewModel()
+        /// <param name="iocAppInit">Initialisation Code</param>
+        public WhatsNewViewModel(ISharedSharpAppInit iocAppInit)
         {
-            LoadDataCommand = new Command(LoadDataAction);
+            _AppInit = iocAppInit;
+
+            LoadDataCommand = new AsyncRelayCommand(LoadDataAction);
 
             BaseTitle = "What's new";
 
@@ -22,7 +27,7 @@ namespace GrampsView.ViewModels.StartupPages
             Debug.WriteLine($"WhatsNewViewModel");
         }
 
-        public ICommand LoadDataCommand
+        public AsyncRelayCommand LoadDataCommand
         {
             get; private set;
         }
@@ -48,9 +53,11 @@ namespace GrampsView.ViewModels.StartupPages
             }
         }
 
-        private void LoadDataAction()
+        private async Task LoadDataAction()
         {
             _ = SharedSharpNavigation.NavigateBack();
+
+            await _AppInit.Init();
         }
     }
 }

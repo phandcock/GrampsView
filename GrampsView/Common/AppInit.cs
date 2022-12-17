@@ -19,23 +19,25 @@ namespace GrampsView.Common
         {
             try
             {
-                // First run?
+                // Need FirstRun?
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
                     await SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
-                    //return;
+
+                    // await FirstRunLoadData();
+                    return;
                 }
 
-                // Need WhatNew?
-                if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate(true))
+                // Need WhatsNew?
+                if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
                 {
                     await SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
-                    //return;
+
+                    return;
                 }
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
                 {
-
                     SharedSharpSettings.DataSerialised = false;
 
                     //return;

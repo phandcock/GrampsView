@@ -15,6 +15,19 @@ namespace GrampsView
             StartUp();
         }
 
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            Window window = base.CreateWindow(activationState);
+
+            window.Created += (s, e) =>
+            {
+                // Custom logic
+                _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
+            };
+
+            return window;
+        }
+
         private void StartUp()
         {
             // Setup various support frameworks
@@ -37,8 +50,8 @@ namespace GrampsView
                 return;
             }
 
-            // Get Going
-            _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
+            //// Get Going
+            //_ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init().ConfigureAwait(false);
         }
     }
 }

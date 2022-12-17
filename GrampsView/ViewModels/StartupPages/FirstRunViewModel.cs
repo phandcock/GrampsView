@@ -11,16 +11,10 @@ namespace GrampsView.ViewModels.StartupPages
     {
         private readonly ISharedSharpAppInit _AppInit;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FirstRunViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common logger
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        public FirstRunViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpAppInit iocAppInit)
+        /// <summary>Initializes a new instance of the <see cref="FirstRunViewModel" /> class.</summary>
+        /// <param name="iocCommonLogging">Common logger</param>
+        /// <param name="iocAppInit">Initialisation Code</param>
+        public FirstRunViewModel(ILog iocCommonLogging, ISharedSharpAppInit iocAppInit)
             : base(iocCommonLogging)
         {
             LoadDataCommand = new AsyncRelayCommand(FirstRunLoadAFileButton);
@@ -40,7 +34,7 @@ namespace GrampsView.ViewModels.StartupPages
         /// <summary>Gramps export XML plus media.</summary>
         public async Task FirstRunLoadAFileButton()
         {
-            _ = await Shell.Current.Navigation.PopModalAsync();
+            _ = SharedSharpNavigation.NavigateBack();
 
             await _AppInit.Init();
         }
