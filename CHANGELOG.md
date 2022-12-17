@@ -1,3 +1,12 @@
+## [16.28.34](https://github.com/phandcock/GrampsView/compare/v16.28.33...v16.28.34) (2022-12-17)
+
+
+### Bug Fixes
+
+* tweak firstrun and whatsnew ([413fc7a](https://github.com/phandcock/GrampsView/commit/413fc7a7e2973a9ebaee4b61b06d04b415a6c4e7))
+
+
+
 ## [16.28.33](https://github.com/phandcock/GrampsView/compare/v16.28.32...v16.28.33) (2022-12-16)
 
 
@@ -25,17 +34,6 @@
 * move firstrun and whatsnew pages back tot he code ([61ee12b](https://github.com/phandcock/GrampsView/commit/61ee12b67f630193f8776def59a681b10f4a404c))
 * tweak android ([290f81a](https://github.com/phandcock/GrampsView/commit/290f81a6a8c762a78df684ff4e1c2004983cd756))
 * tweaks ([06577a1](https://github.com/phandcock/GrampsView/commit/06577a1e5e0c85947df77558b0b3f979e9b74ab8))
-
-
-
-## [16.28.30](https://github.com/phandcock/GrampsView/compare/v16.28.29...v16.28.30) (2022-12-13)
-
-
-### Bug Fixes
-
-* tweak settings page ([c2b63c3](https://github.com/phandcock/GrampsView/commit/c2b63c31a3d22ef1e25ed3797da752ec5df794e5))
-* tweaks ([4c94c84](https://github.com/phandcock/GrampsView/commit/4c94c84bb26d220a7c0ddd0cd76602d202f888a2))
-* tweaks ([8ac7570](https://github.com/phandcock/GrampsView/commit/8ac757080a1a426d22dc2f461f8f9005f1c045b7))
 
 
 
