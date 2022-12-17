@@ -1,15 +1,23 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.HLinks;
+using GrampsView.Models.HLinks.Models;
+
+using SharedSharp.Model;
+using SharedSharp.Models;
+
+using System.Diagnostics.Contracts;
+using System.Text.Json.Serialization;
+
+
+/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
+Before:
+namespace GrampsView.Data.Model
+After:
+namespace GrampsView.Models.DataModels.Date
+*/
+namespace GrampsView.Models.DataModels.Date
 {
-    using GrampsView.Common;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Create Str version of DateObjectModel.
     /// </summary>
@@ -54,41 +62,19 @@
         /// <summary>
         /// Not a properly formatted date so return null;
         /// </summary>
-        public override Nullable<int> GetAge
-        {
-            get
-            {
-                return null;
-            }
-        }
+        public override int? GetAge => null;
 
-        public override string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return GVal;
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
+        public override string GetYear => Valid ? GVal : "Unknown";
 
         public string GVal
         {
-            get
-            {
-                return _GVal;
-            }
+            get => _GVal;
 
             internal set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GVal, value);
+                    _ = SetProperty(ref _GVal, value);
                 }
             }
         }
@@ -101,7 +87,7 @@
         {
             get
             {
-                HLinkDateModelStr t = new HLinkDateModelStr
+                HLinkDateModelStr t = new()
                 {
                     DeRef = this,
                     HLinkKey = HLinkKey,
@@ -118,18 +104,7 @@
         /// <value>
         /// The get long date as string.
         /// </value>
-        public override string LongDate
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return string.Empty;
-                }
-
-                return GVal;
-            }
-        }
+        public override string LongDate => !Valid ? string.Empty : GVal;
 
         /// <summary>
         /// Gets the string version of the date field.
@@ -137,33 +112,22 @@
         /// <returns>
         /// a string version of the date.
         /// </returns>
-        public override string ShortDate
-        {
-            get
-            {
-                if (!Valid)
-                {
-                    return string.Empty;
-                }
-
-                return GVal;
-            }
-        }
+        public override string ShortDate => !Valid ? string.Empty : GVal;
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
-            CardListLineCollection DateModelCard = new CardListLineCollection();
+            CardListLineCollection DateModelCard = new();
 
-            if (this.Valid)
+            if (Valid)
             {
                 DateModelCard = new CardListLineCollection
                             {
-                                new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Str:", this.GVal),
+                                new CardListLine("Date:", LongDate),
+                                new CardListLine("Str:", GVal),
                             };
             }
 
-            if (!(string.IsNullOrEmpty(argTitle)))
+            if (!string.IsNullOrEmpty(argTitle))
             {
                 DateModelCard.Title = argTitle;
             }
@@ -173,7 +137,7 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            HLinkDateModelStr t = this.HLink;
+            HLinkDateModelStr t = HLink;
             t.Title = argTitle;
 
             return t;
@@ -196,14 +160,14 @@
                 return false;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
-            DateObjectModel tempObj = obj as DateObjectModel;
+            DateObjectModel? tempObj = obj as DateObjectModel;
 
-            return (this.NotionalDate == tempObj.NotionalDate);
+            return NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

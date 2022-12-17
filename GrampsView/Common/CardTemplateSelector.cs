@@ -9,7 +9,7 @@ namespace GrampsView.Common
     using GrampsView.Models.HLinks.Interfaces;
     using GrampsView.Models.HLinks.Models;
 
-    using SharedSharp.Model;
+    using SharedSharp.Models;
 
     using System.Diagnostics.Contracts;
 
@@ -26,7 +26,7 @@ namespace GrampsView.Common
         /// <value>
         /// The attribute template.
         /// </value>
-        public DataTemplate AddressTemplate
+        public DataTemplate? AddressTemplate
         {
             get;
             set;
@@ -38,7 +38,7 @@ namespace GrampsView.Common
         /// <value>
         /// The attribute template.
         /// </value>
-        public DataTemplate AttributeTemplate
+        public DataTemplate? AttributeTemplate
         {
             get;
             set;
@@ -50,37 +50,37 @@ namespace GrampsView.Common
         /// <value>
         /// The List Line template.
         /// </value>
-        public DataTemplate CardListLineTemplate
+        public DataTemplate? CardListLineTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate ChildRefSingleTemplate
+        public DataTemplate? ChildRefSingleTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate ChildRefSmallTemplate
+        public DataTemplate? ChildRefSmallTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate CitationLinkCellTemplate
+        public DataTemplate? CitationLinkCellTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate CitationLinkMediumTemplate
+        public DataTemplate? CitationLinkMediumTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate CitationLinkSingleTemplate
+        public DataTemplate? CitationLinkSingleTemplate
         {
             get;
             set;
@@ -92,31 +92,19 @@ namespace GrampsView.Common
         /// <value>
         /// The citation template.
         /// </value>
-        public DataTemplate CitationSmallTemplate
+        public DataTemplate? CitationSmallTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate DateObjectTemplate
+        public DataTemplate? DateObjectTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate EventLinkCellTemplate
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the event template.
-        /// </summary>
-        /// <value>
-        /// The event template.
-        /// </value>
-        public DataTemplate EventLinkMediumTemplate
+        public DataTemplate? EventLinkCellTemplate
         {
             get;
             set;
@@ -128,7 +116,19 @@ namespace GrampsView.Common
         /// <value>
         /// The event template.
         /// </value>
-        public DataTemplate EventSmallTemplate
+        public DataTemplate? EventLinkMediumTemplate
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the event template.
+        /// </summary>
+        /// <value>
+        /// The event template.
+        /// </value>
+        public DataTemplate? EventSmallTemplate
         {
             get;
             set;
@@ -140,7 +140,7 @@ namespace GrampsView.Common
         /// <value>
         /// The family template.
         /// </value>
-        public DataTemplate FamilyCardMediumTemplate
+        public DataTemplate? FamilyCardMediumTemplate
         {
             get;
             set;
@@ -152,25 +152,13 @@ namespace GrampsView.Common
         /// <value>
         /// The Family Graph template.
         /// </value>
-        public DataTemplate FamilyGraphMediumTemplate
+        public DataTemplate? FamilyGraphMediumTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate FamilyLinkCellTemplate
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the family template.
-        /// </summary>
-        /// <value>
-        /// The family template.
-        /// </value>
-        public DataTemplate FamilySingleTemplate
+        public DataTemplate? FamilyLinkCellTemplate
         {
             get;
             set;
@@ -182,13 +170,25 @@ namespace GrampsView.Common
         /// <value>
         /// The family template.
         /// </value>
-        public DataTemplate FamilySmallTemplate
+        public DataTemplate? FamilySingleTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate LDSOrdTemplate
+        /// <summary>
+        /// Gets or sets the family template.
+        /// </summary>
+        /// <value>
+        /// The family template.
+        /// </value>
+        public DataTemplate? FamilySmallTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate? LDSOrdTemplate
         {
             get;
             set;
@@ -200,7 +200,7 @@ namespace GrampsView.Common
         /// <value>
         /// The family template.
         /// </value>
-        public DataTemplate MapTemplate
+        public DataTemplate? MapTemplate
         {
             get;
             set;
@@ -212,13 +212,13 @@ namespace GrampsView.Common
         /// <value>
         /// The media card large template.
         /// </value>
-        public DataTemplate MediaLargeTemplate
+        public DataTemplate? MediaLargeTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate MediaLinkMediumTemplate
+        public DataTemplate? MediaLinkMediumTemplate
         {
             get;
             set;
@@ -230,7 +230,7 @@ namespace GrampsView.Common
         /// <value>
         /// The media template.
         /// </value>
-        public DataTemplate MediaSmallTemplate
+        public DataTemplate? MediaSmallTemplate
         {
             get;
             set;
@@ -242,7 +242,7 @@ namespace GrampsView.Common
         /// <value>
         /// The name map template.
         /// </value>
-        public DataTemplate NameMapTemplate
+        public DataTemplate? NameMapTemplate
         {
             get;
             set;
@@ -254,7 +254,7 @@ namespace GrampsView.Common
         /// <value>
         /// The note card full template.
         /// </value>
-        public DataTemplate NoteCardFullTemplate
+        public DataTemplate? NoteCardFullTemplate
         {
             get;
             set;
@@ -266,13 +266,13 @@ namespace GrampsView.Common
         /// <value>
         /// The note template.
         /// </value>
-        public DataTemplate NoteTemplate
+        public DataTemplate? NoteTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PersonLinkCellTemplate
+        public DataTemplate? PersonLinkCellTemplate
         {
             get;
             set;
@@ -284,43 +284,43 @@ namespace GrampsView.Common
         /// <value>
         /// The person name template.
         /// </value>
-        public DataTemplate PersonNameSingleTemplate
+        public DataTemplate? PersonNameSingleTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PersonNameSmallTemplate
+        public DataTemplate? PersonNameSmallTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PersonRefTemplate
+        public DataTemplate? PersonRefTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PersonSingleTemplate
+        public DataTemplate? PersonSingleTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PersonSmallTemplate
+        public DataTemplate? PersonSmallTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PlaceLocationTemplate
+        public DataTemplate? PlaceLocationTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate PlaceNameTemplate
+        public DataTemplate? PlaceNameTemplate
         {
             get;
             set;
@@ -332,19 +332,19 @@ namespace GrampsView.Common
         /// <value>
         /// The place template.
         /// </value>
-        public DataTemplate PlaceTemplate
+        public DataTemplate? PlaceTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate RepositoryLinkSingleTemplate
+        public DataTemplate? RepositoryLinkSingleTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate RepositoryRefLinkSingleTemplate
+        public DataTemplate? RepositoryRefLinkSingleTemplate
         {
             get;
             set;
@@ -356,7 +356,7 @@ namespace GrampsView.Common
         /// <value>
         /// The repository template.
         /// </value>
-        public DataTemplate RepositoryRefSmallTemplate
+        public DataTemplate? RepositoryRefSmallTemplate
         {
             get;
             set;
@@ -368,7 +368,7 @@ namespace GrampsView.Common
         /// <value>
         /// The repository template.
         /// </value>
-        public DataTemplate RepositorySmallTemplate
+        public DataTemplate? RepositorySmallTemplate
         {
             get;
             set;
@@ -380,25 +380,25 @@ namespace GrampsView.Common
         /// <value>
         /// The source template.
         /// </value>
-        public DataTemplate SourceLargeTemplate
+        public DataTemplate? SourceLargeTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate SourceLinkCellTemplate
+        public DataTemplate? SourceLinkCellTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate SourceLinkMediumTemplate
+        public DataTemplate? SourceLinkMediumTemplate
         {
             get;
             set;
         }
 
-        public DataTemplate SourceLinkSingleTemplate
+        public DataTemplate? SourceLinkSingleTemplate
         {
             get;
             set;
@@ -410,7 +410,7 @@ namespace GrampsView.Common
         /// <value>
         /// The source template.
         /// </value>
-        public DataTemplate SourceSmallTemplate
+        public DataTemplate? SourceSmallTemplate
         {
             get;
             set;
@@ -422,7 +422,7 @@ namespace GrampsView.Common
         /// <value>
         /// The tag template.
         /// </value>
-        public DataTemplate TagTemplate
+        public DataTemplate? TagTemplate
         {
             get;
             set;
@@ -434,7 +434,7 @@ namespace GrampsView.Common
         /// <value>
         /// The attribute template.
         /// </value>
-        public DataTemplate URLTemplate
+        public DataTemplate? URLTemplate
         {
             get;
             set;

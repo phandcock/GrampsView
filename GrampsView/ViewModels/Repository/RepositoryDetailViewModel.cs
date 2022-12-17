@@ -3,6 +3,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Repository
 {

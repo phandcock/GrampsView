@@ -1,14 +1,14 @@
-﻿using GrampsView.Models.DataModels;
+﻿using GrampsView.Models.DataModels.Date.Interfaces;
 using GrampsView.Models.HLinks;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
-using System;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels.Date
 {
     /// <summary>
     /// data model for an Date object ************************************************************.
@@ -54,8 +54,6 @@ namespace GrampsView.Data.Model
         /// Notional Date field - The date used for sorting etc.
         private DateTime _NotionalDate = DateTime.MinValue;
 
-
-
         private bool _Valid = false;
 
         private bool _ValidDay = false;
@@ -68,6 +66,10 @@ namespace GrampsView.Data.Model
         /// <item> <description> XML 1.71 check </description> <description> Not Done </description>
         /// </item> </list> <para> <br/> </para> </summary>
 
+        public DateObjectModel()
+        {
+        }
+
         [JsonIgnore]
         public virtual int? GetAge
         {
@@ -77,7 +79,7 @@ namespace GrampsView.Data.Model
         //public DateObjectModelDerivedTypeEnum DerivedType
         //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
         [JsonIgnore]
-        public string GetDecade => !Valid ? string.Empty : $"{((int)Math.Floor(NotionalDate.Year / 10.0)) * 10:0000}";
+        public string GetDecade => !Valid ? string.Empty : $"{(int)Math.Floor(NotionalDate.Year / 10.0) * 10:0000}";
 
         /// <summary>
         /// Gets the number of years ago. Because the field can have one or two dates etc this is
@@ -122,12 +124,9 @@ namespace GrampsView.Data.Model
 
                 // TODO Handle international date formats
 
-                if (ValidYear && ValidMonth)
-                {
-                    return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
-                }
-
-                return ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
+                return ValidYear && ValidMonth
+                    ? NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture)
+                    : ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
             }
         }
 
@@ -160,12 +159,9 @@ namespace GrampsView.Data.Model
 
                 // TODO Handle international date formats
 
-                if (ValidYear && ValidMonth)
-                {
-                    return NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture);
-                }
-
-                return ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
+                return ValidYear && ValidMonth
+                    ? NotionalDate.ToString("MMM yyyy", CultureInfo.CurrentCulture)
+                    : ValidYear ? NotionalDate.ToString("yyyy", CultureInfo.CurrentCulture) : "!Invalid Date";
             }
         }
 
@@ -210,10 +206,6 @@ namespace GrampsView.Data.Model
         {
             get => _ValidYear;
             set => SetProperty(ref _ValidYear, value);
-        }
-
-        public DateObjectModel()
-        {
         }
 
         /// <summary>
@@ -378,7 +370,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public int Compare(DateObjectModel x, DateObjectModel y)
         {
-            if ((x is null) || (y is null))
+            if (x is null || y is null)
             {
                 return 1; // this is bigger
             }

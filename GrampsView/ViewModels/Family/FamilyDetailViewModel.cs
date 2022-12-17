@@ -4,6 +4,7 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Family
 {

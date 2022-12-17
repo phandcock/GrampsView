@@ -4,8 +4,8 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Interfaces;
 
-using SharedSharp.Logging;
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels
 {

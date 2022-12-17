@@ -1,5 +1,6 @@
 ﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
+using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;

@@ -5,6 +5,7 @@ using GrampsView.Data.Model;
 namespace GrampsView.Models.HLinks.Models
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Date;
     using GrampsView.Models.HLinks;
     using GrampsView.Views;
 

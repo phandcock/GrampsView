@@ -6,7 +6,6 @@ using ICSharpCode.SharpZipLib.Tar;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
 
 using System.Diagnostics;
 

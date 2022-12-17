@@ -1,6 +1,7 @@
 ﻿namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
+    using GrampsView.Models.DataModels.Date.Interfaces;
 
     using static GrampsView.Common.CommonEnums;
 

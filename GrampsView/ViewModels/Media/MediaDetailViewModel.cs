@@ -6,6 +6,7 @@ using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks.Interfaces;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Media
 {

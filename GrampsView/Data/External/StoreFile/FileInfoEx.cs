@@ -1,23 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-using GrampsView.Data.External.StoreFile;
-using GrampsView.Data.Repository;
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
 
-using System;
 using System.Diagnostics.Contracts;
-using System.IO;
 
-namespace GrampsView.Data
+namespace GrampsView.Data.External.StoreFile
 {
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
-        private FileInfo _FInfo;
+
 
         public FileInfoEx()
         {
@@ -56,13 +48,10 @@ namespace GrampsView.Data
             }
         }
 
-        public FileInfo FInfo
-        {
-            get => _FInfo;
-            set => SetProperty(ref _FInfo, value);
-        }
+        public FileInfo FInfo { get; set; }
 
-        public bool Valid => (FInfo != null) && FInfo.Exists && (FInfo.FullName != null);
+
+        public bool Valid => FInfo != null && FInfo.Exists && FInfo.FullName != null;
 
         /// <summary>
         /// get the StorageFile of the file.
@@ -79,7 +68,7 @@ namespace GrampsView.Data
             IFileInfoEx resultFile = new FileInfoEx(argRelativeFolder: Path.GetDirectoryName(relativeFilePath), argFileName: Path.GetFileName(relativeFilePath));
 
             // Validate the input
-            if ((relativeFilePath is null) || string.IsNullOrEmpty(relativeFilePath))
+            if (relativeFilePath is null || string.IsNullOrEmpty(relativeFilePath))
             {
                 return resultFile;
             }

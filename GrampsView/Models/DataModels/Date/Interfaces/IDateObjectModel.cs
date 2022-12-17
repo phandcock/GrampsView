@@ -1,16 +1,30 @@
-﻿namespace GrampsView.Data.Model
+﻿
+/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
+Before:
+using GrampsView.Models.DataModels.Date;
+After:
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+*/
+using GrampsView.Data.Model;
+
+using SharedSharp.Models;
+
+namespace GrampsView.Models.
+/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
+Before:
+namespace GrampsView.Data.Model
+After:
+namespace GrampsView.Models.DataModels.Date.Interfaces
+*/
+DataModels.Date.Interfaces
 {
-    using SharedSharp.Model;
-
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Public interfaces for the DateObject elements.
     /// </summary>
     public interface IDateObjectModel : IModelBase, IComparable<DateObjectModel>, IComparer<DateObjectModel>
     {
-        Nullable<int> GetAge
+        int? GetAge
         {
             get;
         }
@@ -75,7 +89,7 @@
             get; set;
         }
 
-        CardListLineCollection AsCardListLine(string argTitle = null);
+        CardListLineCollection AsCardListLine(string? argTitle = null);
 
         TimeSpan DateDifference(IDateObjectModel otherDate);
 

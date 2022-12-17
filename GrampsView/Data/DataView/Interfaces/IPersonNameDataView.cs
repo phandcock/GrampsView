@@ -7,7 +7,7 @@ namespace GrampsView.Data.DataView
     using System.Collections.Generic;
 
     using GrampsView.Data.Collections;
-
+    using GrampsView.Data.DataView.Interfaces;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
     using GrampsView.Models.DataModels.Minor;

@@ -5,6 +5,7 @@ using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Citation
 {

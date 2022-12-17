@@ -1,15 +1,10 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.DataView;
+using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -60,12 +55,12 @@ namespace GrampsView.Data.ExternalStorage
             {
                 _commonNotifications.NotifyError(new ErrorInfo("FixSingleMediaFile", "File not found while loading media.Has the GRAMPS database been verified?") { { "Message", ex.Message }, { "Filename", argMediaModel.OriginalFilePath } });
 
-                _commonNotifications.NotifyException("Trying to  add media file pointer",ex);
+                _commonNotifications.NotifyException("Trying to  add media file pointer", ex);
             }
             catch (Exception ex)
             {
                 CommonLocalSettings.DataSerialised = false;
-                _commonNotifications.NotifyException("Trying to add media file pointer",ex);
+                _commonNotifications.NotifyException("Trying to add media file pointer", ex);
 
                 throw;
             }

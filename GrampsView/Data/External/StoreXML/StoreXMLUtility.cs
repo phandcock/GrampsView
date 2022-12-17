@@ -2,10 +2,12 @@
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
+using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;

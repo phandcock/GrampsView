@@ -2,6 +2,7 @@
 {
     using GrampsView.Common;
     using GrampsView.Models.DataModels.Date;
+    using GrampsView.Models.DataModels.Date.Interfaces;
 
     /// <summary>
     /// Public interfaces for the DateObject elements.

@@ -1,11 +1,11 @@
 ﻿namespace GrampsView.Converters
 {
-    using GrampsView.Data.Model;
+    using GrampsView.Models.DataModels.Date;
 
     using System;
     using System.Globalization;
 
-  
+
 
     internal class DateValidConverter : IValueConverter
     {

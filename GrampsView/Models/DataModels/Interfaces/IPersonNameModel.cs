@@ -1,4 +1,5 @@
-﻿using GrampsView.Models.DataModels.Minor;
+﻿using GrampsView.Models.DataModels.Date;
+using GrampsView.Models.DataModels.Minor;
 
 using System;
 using System.Collections;

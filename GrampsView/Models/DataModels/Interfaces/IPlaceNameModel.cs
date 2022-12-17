@@ -1,4 +1,6 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Models.DataModels.Date;
+
+namespace GrampsView.Data.Model
 {
     /// <summary>
     /// Interface for the PlaceName model

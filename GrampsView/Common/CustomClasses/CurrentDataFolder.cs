@@ -10,7 +10,7 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                string tt = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase);
+                string tt = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, Constants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 

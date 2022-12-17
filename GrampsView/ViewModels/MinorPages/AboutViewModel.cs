@@ -4,7 +4,8 @@ using GrampsView.Data.DataView;
 using Microsoft.AppCenter.Distribute;
 
 using SharedSharp.Common.Interfaces;
-using SharedSharp.Model;
+using SharedSharp.Models;
+using SharedSharp.Models;
 
 using System.ComponentModel;
 using System.Reflection;

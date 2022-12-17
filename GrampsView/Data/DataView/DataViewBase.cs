@@ -1,18 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView.Interfaces;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
-using SharedSharp.Model;
+using SharedSharp.Models;
+using SharedSharp.Models;
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
-using System.Linq;
 
 namespace GrampsView.Data.DataView
 {

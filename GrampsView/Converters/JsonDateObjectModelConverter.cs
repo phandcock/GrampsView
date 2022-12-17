@@ -1,5 +1,4 @@
-﻿using GrampsView.Data.Model;
-using GrampsView.Models.DataModels.Date;
+﻿using GrampsView.Models.DataModels.Date;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;

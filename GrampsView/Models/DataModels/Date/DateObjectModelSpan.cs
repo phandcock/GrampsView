@@ -4,6 +4,7 @@ using GrampsView.Models.HLinks;
 
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;

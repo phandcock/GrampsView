@@ -1,17 +1,17 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Model;
+using GrampsView.Models.HLinks;
+
+using SharedSharp.Model;
+using SharedSharp.Models;
+
+using System.Diagnostics.Contracts;
+using System.Text.Json.Serialization;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Models.DataModels.Date
 {
-    using GrampsView.Common;
-    using GrampsView.Models.DataModels.Date;
-    using GrampsView.Models.HLinks;
-
-    using SharedSharp.Model;
-
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Text.Json.Serialization;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// Create Range version of DateObjectModel. TODO Update fields as per Schema
     /// </summary>
@@ -38,11 +38,11 @@
         /// </summary>
         private DateQuality _GQuality = DateQuality.unknown;
 
-        private DateObjectModelVal _GStart = new DateObjectModelVal();
+        private DateObjectModelVal _GStart = new();
 
-        private DateObjectModelVal _GStop = new DateObjectModelVal();
+        private DateObjectModelVal _GStop = new();
 
-        public DateObjectModelRange(string aStart, string aStop, string aCFormat = null, bool aDualDated = false, string aNewYear = null, DateQuality aQuality = DateQuality.unknown)
+        public DateObjectModelRange(string aStart, string aStop, string? aCFormat = null, bool aDualDated = false, string? aNewYear = null, DateQuality aQuality = DateQuality.unknown)
         {
             Contract.Requires(!string.IsNullOrEmpty(aStart));
             Contract.Requires(!string.IsNullOrEmpty(aStop));
@@ -87,7 +87,7 @@
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GCformat, value);
+                    _ = SetProperty(ref _GCformat, value);
                 }
             }
         }
@@ -120,20 +120,7 @@
             }
         }
 
-        public override string GetYear
-        {
-            get
-            {
-                if (Valid)
-                {
-                    return $"Between {GStart.GetYear} and {GStop.GetYear}";
-                }
-                else
-                {
-                    return "Unknown";
-                }
-            }
-        }
+        public override string GetYear => Valid ? $"Between {GStart.GetYear} and {GStop.GetYear}" : "Unknown";
 
         public string GNewYear
         {
@@ -143,7 +130,7 @@
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    SetProperty(ref _GNewYear, value);
+                    _ = SetProperty(ref _GNewYear, value);
                 }
             }
         }
@@ -157,32 +144,26 @@
 
         public DateObjectModelVal GStart
         {
-            get
-            {
-                return _GStart;
-            }
+            get => _GStart;
 
             internal set
             {
                 if (value.Valid)
                 {
-                    SetProperty(ref _GStart, value);
+                    _ = SetProperty(ref _GStart, value);
                 }
             }
         }
 
         public DateObjectModelVal GStop
         {
-            get
-            {
-                return _GStop;
-            }
+            get => _GStop;
 
             internal set
             {
                 if (value.Valid)
                 {
-                    SetProperty(ref _GStop, value);
+                    _ = SetProperty(ref _GStop, value);
                 }
             }
         }
@@ -205,7 +186,7 @@
         {
             get
             {
-                HLinkDateModelRange t = new HLinkDateModelRange
+                HLinkDateModelRange t = new()
                 {
                     DeRef = this,
                     HLinkKey = HLinkKey,
@@ -273,19 +254,19 @@
 
         public override CardListLineCollection AsCardListLine(string argTitle = "Date Detail")
         {
-            CardListLineCollection DateModelCard = new CardListLineCollection();
+            CardListLineCollection DateModelCard = new();
 
-            if (this.Valid)
+            if (Valid)
             {
                 DateModelCard = new CardListLineCollection
                             {
-                                new CardListLine("Date:", this.LongDate),
-                                new CardListLine("Start:", this.GStart.ShortDate),
-                                new CardListLine("Stop:", this.GStop.ShortDate),
-                                new CardListLine("Quality:", this.GQuality.ToString(),this.GQuality != DateQuality.unknown),
-                                new CardListLine("C Format:", this.GCformat),
-                                new CardListLine("Dual Dated:", this.GDualdated,true),
-                                new CardListLine("New Year:", this.GNewYear),
+                                new CardListLine("Date:", LongDate),
+                                new CardListLine("Start:", GStart.ShortDate),
+                                new CardListLine("Stop:", GStop.ShortDate),
+                                new CardListLine("Quality:", GQuality.ToString(),GQuality != DateQuality.unknown),
+                                new CardListLine("C Format:", GCformat),
+                                new CardListLine("Dual Dated:", GDualdated,true),
+                                new CardListLine("New Year:", GNewYear),
                             };
             }
 
@@ -299,7 +280,7 @@
 
         public override HLinkBase AsHLink(string argTitle)
         {
-            HLinkDateModelRange t = this.HLink;
+            HLinkDateModelRange t = HLink;
             t.Title = argTitle;
 
             return t;
@@ -317,14 +298,14 @@
                 return true;
             }
 
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
 
-            DateObjectModel tempObj = obj as DateObjectModel;
+            DateObjectModel? tempObj = obj as DateObjectModel;
 
-            return this.NotionalDate == tempObj.NotionalDate;
+            return NotionalDate == tempObj.NotionalDate;
         }
 
         public override int GetHashCode()

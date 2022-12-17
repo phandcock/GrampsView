@@ -13,10 +13,6 @@ using System.IO.Compression;
 
 namespace GrampsView.Data
 {
-
-    /// <summary>
-    ///   <br />
-    /// </summary>
     public partial class StoreFile : ObservableObject, IStoreFile
     {
         /// <summary>

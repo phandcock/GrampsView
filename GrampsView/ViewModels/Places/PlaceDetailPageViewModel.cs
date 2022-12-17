@@ -5,6 +5,7 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Models;
 
 using SharedSharp.Model;
+using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Places
 {

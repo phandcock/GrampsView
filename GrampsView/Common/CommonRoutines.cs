@@ -6,7 +6,8 @@ using MimeTypes;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Model;
+using SharedSharp.Models;
+using SharedSharp.Models;
 
 using System.Diagnostics;
 using System.Reflection;

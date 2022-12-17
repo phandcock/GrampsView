@@ -4,11 +4,9 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
-using SharedSharp.Model;
+using SharedSharp.Models;
 
-using System.Collections.Generic;
-
-namespace GrampsView.Data.DataView
+namespace GrampsView.Data.DataView.Interfaces
 {
     /// <summary>Interfaces for Base Repository.</summary>
     /// <typeparam name="T">Data ViewModel.</typeparam>
