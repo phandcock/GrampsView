@@ -30,14 +30,6 @@
             EmptyView="No data available"
             ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
 
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout
-                    HorizontalItemSpacing="1"
-                    Orientation="Vertical"
-                    Span="{Binding NumColumns, Source={Reference CollectionSingleCardRoot}, Mode=OneWay}"
-                    VerticalItemSpacing="1" />
-            </CollectionView.ItemsLayout>
-
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
                     <Border

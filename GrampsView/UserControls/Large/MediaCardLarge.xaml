@@ -17,16 +17,15 @@
             x:Name="controlRoot"
             Margin="5"
             Padding="5"
-            HeightRequest="{Binding MediaDetailImageHeight, Source={x:Reference MediaCardLargeRoot}}"
-            WidthRequest="{Binding MediaDetailImageWidth, Source={x:Reference MediaCardLargeRoot}}">
+            Style="{StaticResource SSGridLargeFixedCardStyle}">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding TheModel.UCNavigateCommand, Source={x:Reference MediaCardLargeRoot}}" CommandParameter="{Binding TheModel.DeRef.HLink, Source={x:Reference MediaCardLargeRoot}}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -40,7 +39,7 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
+                VerticalOptions="Fill"
                 Style="{StaticResource MediaImageStyle}" />
 
             <Label

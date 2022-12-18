@@ -23,19 +23,30 @@
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-            <Border
-                Stroke="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark},
-                                              Light={StaticResource OnSecondaryContainerLight}}"
-                HeightRequest="{Binding MediaDetailImageHeight, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}"
-                WidthRequest="{Binding MediaDetailImageWidth, Source={DynamicResource sharedsharpCommon:SharedSharpStatic}, Mode=OneWay}">
+            <Border Stroke="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}">
+
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Border.GestureRecognizers>
-                <StackLayout>
-                    <ucon:HLinkVisualDisplay BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}" FsctShowMedia="True" />
 
-                    <Label HorizontalOptions="Center" Text="{i18:Localize Media_Detail_Open_File}" />
-                </StackLayout>
+                <Grid Style="{StaticResource SSGridLargeFixedCardStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <ucon:HLinkVisualDisplay
+                        Grid.Row="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Fill"
+                        BindingContext="{Binding CurrentMediaObject.ModelItemGlyph, Mode=OneWay}"
+                        FsctShowMedia="True" />
+
+                    <Label
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        Text="{i18:Localize Media_Detail_Open_File}" />
+                </Grid>
             </Border>
 
             <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
