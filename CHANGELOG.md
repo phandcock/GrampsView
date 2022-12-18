@@ -1,3 +1,12 @@
+## [17.0.2](https://github.com/phandcock/GrampsView/compare/v17.0.1...v17.0.2) (2022-12-18)
+
+
+### Bug Fixes
+
+* fix name space changes ([d8b3b52](https://github.com/phandcock/GrampsView/commit/d8b3b52fa057067f3ea13932ac1b1d075ae0745c))
+
+
+
 ## [17.0.1](https://github.com/phandcock/GrampsView/compare/v16.28.35...v17.0.1) (2022-12-17)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * tweak firstrun and whatsnew ([413fc7a](https://github.com/phandcock/GrampsView/commit/413fc7a7e2973a9ebaee4b61b06d04b415a6c4e7))
-
-
-
-## [16.28.33](https://github.com/phandcock/GrampsView/compare/v16.28.32...v16.28.33) (2022-12-16)
-
-
-### Bug Fixes
-
-* tweak android icons ([b7021a8](https://github.com/phandcock/GrampsView/commit/b7021a83368cc00562c86e3feafbfb27cd01b079))
 
 
 
