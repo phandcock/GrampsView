@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:sharedsharpmodels="clr-namespace:SharedSharp.Model;assembly=SharedSharp"
+    xmlns:sharedsharpmodels="clr-namespace:SharedSharp.Models;assembly=SharedSharp"
+    xmlns:sharedsharpmodel="clr-namespace:SharedSharp.Model;assembly=SharedSharp"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="sharedsharpmodels:CardListLineCollection"
@@ -46,7 +47,7 @@
                 BindableLayout.ItemsSource="{Binding .}">
                 <BindableLayout.ItemTemplate>
 
-                    <DataTemplate x:DataType="sharedsharpmodels:CardListLine">
+                    <DataTemplate x:DataType="sharedsharpmodel:CardListLine">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
