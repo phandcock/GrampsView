@@ -10,7 +10,6 @@ using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
 
-using System;
 using System.Collections;
 using System.Text.Json.Serialization;
 
@@ -48,7 +47,7 @@ namespace GrampsView.Models.DataModels
         /// </summary>
         private IFileInfoEx _MediaStorageFile;
 
-        private HLinkNoteModelCollection _NoteReferenceCollection = new HLinkNoteModelCollection();
+        private HLinkNoteModelCollection _NoteReferenceCollection = new();
 
         /// <summary>
         /// The local original file path.
@@ -123,22 +122,12 @@ namespace GrampsView.Models.DataModels
 
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
 
-        /// <summary> Gets or sets the type of the file content. </summary> <value> The type of the
-        /// file content. </value> <summary> Gets or sets the MIME subtype of the file. </summary>
-        /// <value> The type of the file MIME sub. </value> <summary> Gets or sets the file MIME
-        /// type. </summary> <value> The file MIME type. <summary> Gets or sets the citation
-        /// reference collection. </summary> <value> The citation reference collection. </value>
-        /// <summary> Gets or sets the date value. </summary> <value> The date value. </value>
-        /// <summary> Gets or sets the file description. </summary> <value> The file description.
-        /// </value> <summary> Gets or sets the note reference collection. </summary> <value> The
-        /// note reference collection. </value> <summary> Gets or sets the tag reference collection.
-        /// </summary> <value> The tag reference collection. </value> <summary> Gets the hlink.
-        /// </summary> <value> The get hlink. </value>
+
         public HLinkMediaModel HLink
         {
             get
             {
-                HLinkMediaModel t = new HLinkMediaModel
+                HLinkMediaModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -258,7 +247,7 @@ namespace GrampsView.Models.DataModels
         /// <value>
         /// The media storage file URI.
         /// </value>
-        public Uri MediaStorageFileUri => IsMediaStorageFileValid ? new Uri(MediaStorageFilePath) : null;
+        public Uri? MediaStorageFileUri => IsMediaStorageFileValid ? new Uri(MediaStorageFilePath) : null;
 
         public double MetaDataHeight
         {
@@ -387,7 +376,7 @@ namespace GrampsView.Models.DataModels
         /// </value>
         public override string ToString()
         {
-            return GDescription.Substring(0, Math.Min(40, GDescription.Length));
+            return GDescription[..Math.Min(40, GDescription.Length)];
         }
     }
 }

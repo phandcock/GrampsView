@@ -5,14 +5,12 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 
-/// <summary>
-/// </summary>
+
 namespace GrampsView.Common
 {
     public delegate void ListedItemPropertyChangedEventHandler(IList SourceList, object Item, PropertyChangedEventArgs e);
 
-    /// <summary>
-    /// </summary>
+
     public class CardGroupHLink<T> : SharedSharpObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
           where T : HLinkBase, new()
     {

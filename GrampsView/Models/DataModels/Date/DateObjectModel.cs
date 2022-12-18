@@ -1,9 +1,6 @@
 ﻿using GrampsView.Models.DataModels.Date.Interfaces;
 using GrampsView.Models.HLinks;
 
-using SharedSharp.Model;
-using SharedSharp.Models;
-
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Text.Json.Serialization;
@@ -62,9 +59,7 @@ namespace GrampsView.Models.DataModels.Date
 
         private bool _ValidYear = false;
 
-        /// <list type="table"> <listheader> <term> Item </term> <term> Status </term> </listheader>
-        /// <item> <description> XML 1.71 check </description> <description> Not Done </description>
-        /// </item> </list> <para> <br/> </para> </summary>
+
 
         public DateObjectModel()
         {

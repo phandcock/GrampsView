@@ -22,8 +22,7 @@ namespace GrampsView.Data.Model
 
     public sealed class SourceModel : ModelBase, ISourceModel, IComparable, IComparer<SourceModel>
     {
-        /// <summary>The media collection</summary>
-        private HLinkMediaModelCollection _MediaCollection = new();
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceModel"/> class.
@@ -41,12 +40,7 @@ namespace GrampsView.Data.Model
         /// The media reference collection.
         /// </value>
 
-        public HLinkMediaModelCollection GMediaRefCollection
-        {
-            get => _MediaCollection;
-
-            set => SetProperty(ref _MediaCollection, value);
-        }
+        public HLinkMediaModelCollection GMediaRefCollection { get; set; }
 
         /// <summary>
         /// Gets or sets the note reference collection.
@@ -87,7 +81,7 @@ namespace GrampsView.Data.Model
         public string GSAbbrev
         {
             get; set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets the sauthor.
@@ -99,7 +93,7 @@ namespace GrampsView.Data.Model
         public string GSAuthor
         {
             get; set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets the source attribute collection.
@@ -123,7 +117,7 @@ namespace GrampsView.Data.Model
         public string GSPubInfo
         {
             get; set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets the stitle.
@@ -135,7 +129,7 @@ namespace GrampsView.Data.Model
         public string GSTitle
         {
             get; set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets the tag reference collection.

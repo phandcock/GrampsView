@@ -272,15 +272,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        /// <summary>
-        /// Searches the items.
-        /// </summary>
-        /// <param name="argQueryString">
-        /// The query string.
-        /// </param>
-        /// <returns>
-        /// List of Serch HLinks.
-        /// </returns>
+        /// <summary>Searches the items.</summary>
+        /// <param name="argQuery"></param>
+        /// <returns>List of Search HLinks.</returns>
         public override HLinkPersonModelCollection Search(string argQuery)
         {
             HLinkPersonModelCollection itemsFound = new()

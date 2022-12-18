@@ -1,9 +1,10 @@
-﻿
-namespace GrampsView.Data.Model
+﻿using GrampsView.Data.Model;
+
+namespace GrampsView.Models.DataModels.Interfaces
 {
     /// <summary>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
+
     public interface IParentLinkModel : IModelBase
     {
     }

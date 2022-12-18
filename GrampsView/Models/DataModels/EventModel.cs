@@ -11,8 +11,6 @@ namespace GrampsView.Models.DataModels
 {
     /// <summary>Event ViewModel.
     /// XML 171 - All fields defined</summary>
-    /// <seealso cref="Data.ViewModel.ModelBase" />
-    /// <seealso cref="Data.ViewModel.IEventModel" />
     /// <seealso cref="IComparable" />
     /// <seealso cref="System.Collections.IComparer" />
 

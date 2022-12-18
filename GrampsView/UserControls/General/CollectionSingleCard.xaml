@@ -25,7 +25,7 @@
             <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
         </Border>
 
-        <CollectionView
+        <sSharpCommon:CollectionViewEx
             x:Name="theCollectionView"
             EmptyView="No data available"
             ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
@@ -55,6 +55,6 @@
                     </Border>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
-        </CollectionView>
+        </sSharpCommon:CollectionViewEx>
     </StackLayout>
 </Border>

@@ -12,8 +12,7 @@ using System.Globalization;
 namespace GrampsView.Data.DataView
 {
     /// <summary>Event data store handy routines.</summary>
-    /// <seealso cref="GrampsView.Data.DataView.DataViewBase%7BGrampsView.Data.ViewModel.EventModel,%20GrampsView.Data.ViewModel.HLinkEventModel,%20GrampsView.Data.Collections.HLinkEventModelCollection%7D">GrampsView.Data.DataView.DataViewBase{GrampsView.Data.ViewModel.EventModel, GrampsView.Data.ViewModel.HLinkEventModel, GrampsView.Data.Collections.HLinkEventModelCollection}</seealso>
-    /// <seealso cref="GrampsView.Data.DataView.IEventDataView" />
+
     public class EventDataView : DataViewBase<EventModel, HLinkEventModel, HLinkEventModelCollection>, IEventDataView
     {
         /// <summary>Initializes a new instance of the <see cref="EventDataView" /> class.</summary>

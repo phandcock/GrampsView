@@ -1,21 +1,21 @@
-﻿/// <summary>
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
+/// <summary>
 /// XML 1.71 check done
 /// </summary>
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Collection of Family hLinks.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkFamilyModel}"/>
+
 
     [KnownType(typeof(ObservableCollection<HLinkFamilyModel>))]
     public class HLinkFamilyModelCollection : HLinkBaseCollection<HLinkFamilyModel>
@@ -36,7 +36,7 @@ namespace GrampsView.Data.Collections
         {
             get
             {
-                ObservableCollection<FamilyModel> t = new ObservableCollection<FamilyModel>();
+                ObservableCollection<FamilyModel> t = new();
 
                 foreach (HLinkFamilyModel item in Items)
                 {

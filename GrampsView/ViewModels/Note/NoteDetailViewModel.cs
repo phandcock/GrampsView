@@ -4,7 +4,7 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
 
-using SharedSharp.Model;
+
 using SharedSharp.Models;
 
 namespace GrampsView.ViewModels.Note

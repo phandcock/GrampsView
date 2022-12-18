@@ -6,23 +6,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     x:Name="CollectionSingleCardGroupedRoot"
+    xmlns:common="clr-namespace:GrampsView.Common"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent">
 
-    <CollectionView
+    <sSharpCommon:CollectionViewEx
         x:Name="theCollectionView"
         EmptyView="No data available"
         IsGrouped="True"
         ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}">
-
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout
-                HorizontalItemSpacing="1"
-                Orientation="Vertical"
-                Span="{Binding NumColumns, Source={x:Reference CollectionSingleCardGroupedRoot}, Mode=OneWay}"
-                VerticalItemSpacing="1" />
-        </CollectionView.ItemsLayout>
 
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
@@ -30,16 +23,10 @@
                     Padding="0"
                     IsVisible="{Binding Visible, Mode=OneWay}"
                     Style="{StaticResource SSBorderHeaderStyle}">
-                    <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
-                        <!--  TODO checkout another bug in UWP CollectionView  -->
-                        <Label.FontSize>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="WinUI">12</On>
-                            </OnPlatform>
-                        </Label.FontSize>
-                    </Label>
+                    <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}"/>
+
                 </Border>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
-    </CollectionView>
+    </sSharpCommon:CollectionViewEx>
 </Border>

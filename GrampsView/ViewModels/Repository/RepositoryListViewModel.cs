@@ -11,7 +11,6 @@ namespace GrampsView.ViewModels.Repository
     {
         /// <summary>Initializes a new instance of the <see cref="RepositoryListViewModel" /> class.</summary>
         /// <param name="iocCommonLogging">The Common Logger</param>
-        /// <param name="iocEventAggregator">The ioc event aggregator.</param>
         public RepositoryListViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {

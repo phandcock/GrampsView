@@ -1,6 +1,7 @@
 ﻿// TODO Needs XML 1.71 check
 
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Views;
 
 using System.Runtime.Serialization;

@@ -164,7 +164,7 @@ namespace GrampsView.Converters
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(new JsonException(),
                                                                                             new ErrorInfo("Exception in JsonDateObjectModelConverter - Write")
                                                                                             {
-                                                                                              new SharedSharp.Model.CardListLine("Value",value.ToString()),
+                                                                                              new CardListLine("Value",value.ToString()),
                                                                                             });
             }
 

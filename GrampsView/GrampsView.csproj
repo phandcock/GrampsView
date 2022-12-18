@@ -125,6 +125,7 @@
     <ItemGroup>
       <Compile Remove="App.cs" />
       <Compile Remove="Common\CardSizes.cs" />
+      <Compile Remove="Common\CollectionViewEx.cs" />
       <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
@@ -148,6 +149,10 @@
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiImage Remove="Resources\Images\application_icon.png" />
+    </ItemGroup>
+
 
     <ItemGroup>
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
@@ -156,6 +161,8 @@
     <ItemGroup>
         <None Remove="GrampsView.code-workspace" />
         <None Remove="Platforms\Windows\AppSecific\PlatformSpecific.cs" />
+        <None Remove="Resources\appiconfg.svg" />
+        <None Remove="Resources\Images\application_icon.png" />
  
     </ItemGroup>
 
@@ -184,7 +191,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-        <PackageReference Include="SharedSharp" Version="1.4.14" />
+        <PackageReference Include="SharedSharp" Version="1.5.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -247,5 +254,9 @@
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\Images\" />
     </ItemGroup>
 </Project>
