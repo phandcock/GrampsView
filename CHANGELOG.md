@@ -1,3 +1,13 @@
+## [17.0.3](https://github.com/phandcock/GrampsView/compare/v17.0.2...v17.0.3) (2022-12-18)
+
+
+### Bug Fixes
+
+* tweak medi and collectionviewex ([e046700](https://github.com/phandcock/GrampsView/commit/e04670026c657be93689a90e4b241b695dc8d935))
+* update nugets ([5921e71](https://github.com/phandcock/GrampsView/commit/5921e712e13a142d15eddc79eaab015b994a77ae))
+
+
+
 ## [17.0.2](https://github.com/phandcock/GrampsView/compare/v17.0.1...v17.0.2) (2022-12-18)
 
 
@@ -24,15 +34,6 @@
 ### Bug Fixes
 
 * tweak whatsnew and about pages ([c186857](https://github.com/phandcock/GrampsView/commit/c186857bf35d2213f6e6404bbaeab52458d0887b))
-
-
-
-## [16.28.34](https://github.com/phandcock/GrampsView/compare/v16.28.33...v16.28.34) (2022-12-17)
-
-
-### Bug Fixes
-
-* tweak firstrun and whatsnew ([413fc7a](https://github.com/phandcock/GrampsView/commit/413fc7a7e2973a9ebaee4b61b06d04b415a6c4e7))
 
 
 
