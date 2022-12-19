@@ -13,16 +13,10 @@ namespace GrampsView.ViewModels.StartupPages
     /// </summary>
     public partial class FileInputHandlerViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileInputHandlerViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The event aggregator.
-        /// </param>
-        public FileInputHandlerViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator, ISharedSharpCardSizes iocCardSizes)
+        /// <summary>Initializes a new instance of the <see cref="FileInputHandlerViewModel" /> class.</summary>
+        /// <param name="iocCommonLogging">The common logging.</param>
+        /// <param name="iocCardSizes"></param>
+        public FileInputHandlerViewModel(ILog iocCommonLogging, ISharedSharpCardSizes iocCardSizes)
             : base(iocCommonLogging)
         {
             CardSizes = iocCardSizes;

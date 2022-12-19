@@ -9,10 +9,10 @@
 
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Data.Collections;
     using GrampsView.Data.DataView.Interfaces;
     using GrampsView.Data.Model;
     using GrampsView.Data.Repository;
+    using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
 
     using System.Collections.Generic;

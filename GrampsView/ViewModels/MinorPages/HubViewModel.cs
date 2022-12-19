@@ -1,5 +1,4 @@
 ﻿using GrampsView.Common;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Events;

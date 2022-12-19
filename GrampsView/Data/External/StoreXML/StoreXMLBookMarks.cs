@@ -100,7 +100,7 @@ namespace GrampsView.Data.ExternalStorage
                 try
                 {
                     // Run query
-                    System.Collections.Generic.IEnumerable<XElement> de =
+                    IEnumerable<XElement> de =
                         from el in LocalGrampsXMLdoc.Descendants(ns + "bookmark")
                         select el;
 
@@ -114,8 +114,8 @@ namespace GrampsView.Data.ExternalStorage
                         bookMarkCount++;
 
                         // BookMark fields
-                        string GTarget = GetAttribute(argBookMark.Attribute("target"));
-                        HLinkKey GHLink = new(GetAttribute(argBookMark.Attribute("hlink")));
+                        string GTarget = GetAttribute(argBookMark, "target");
+                        HLinkKey GHLink = new(GetAttribute(argBookMark, "hlink"));
                         HLinkBackLink newHlinkBackLink = SetBookMarkTarget(GTarget, GHLink);
 
                         if (newHlinkBackLink.Valid)

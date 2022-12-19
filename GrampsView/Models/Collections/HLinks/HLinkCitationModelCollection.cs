@@ -1,19 +1,17 @@
-﻿/// <summary>
-/// // XML 1.71 check Done
-/// </summary>
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// Observable collection of Citation HLinks.
+    ///  // XML 1.71 check Done
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]

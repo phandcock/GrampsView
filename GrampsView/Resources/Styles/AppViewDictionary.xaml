@@ -5,8 +5,7 @@
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:Common="clr-namespace:GrampsView.Common"
-   >
+    xmlns:Common="clr-namespace:GrampsView.Common">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -38,10 +37,11 @@
         CollectionView Styles
         ******************************************************
     -->
+    <!--
     <Style x:Key="CollectionViewBase" TargetType="CollectionView">
         <Setter Property="Margin" Value="1" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-    </Style>
+    </Style>-->
 
     <!--
         ******************************************************
@@ -88,9 +88,6 @@
         <Setter Property="Wrap" Value="Wrap" />
     </Style>
 
-
-
-
     <!--  Create a MediaImage Style  -->
     <Style x:Key="MediaImageStyle" TargetType="Grid">
         <Setter Property="Margin" Value="0" />
@@ -134,7 +131,7 @@
         x:Key="NoteFullTextStyle"
         BasedOn="{StaticResource SSBorderLargeVariableCardStyleNS}"
         TargetType="Border">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -142,8 +139,8 @@
         BasedOn="{StaticResource SSBorderCardLargeStyle}"
         TargetType="Border">
         <!--<Setter Property="CornerRadius" Value="0" />-->
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static Common:CommonStatic.CardSizes},Mode=OneWay}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
     </Style>
 
     <!--
@@ -272,8 +269,6 @@
         <Setter Property="Margin" Value="3" />
         <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
     </Style>
-
-
 
     <!--  Create a Instructions Style for a Label  -->
     <Style

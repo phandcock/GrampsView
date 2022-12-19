@@ -1,20 +1,15 @@
-﻿/// <summary>
-/// Card template selector code
-/// </summary>
+﻿using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Interfaces;
+using GrampsView.Models.HLinks.Models;
+
+using SharedSharp.Models;
+
+using System.Diagnostics.Contracts;
+
 namespace GrampsView.Common
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks.Interfaces;
-    using GrampsView.Models.HLinks.Models;
-
-    using SharedSharp.Models;
-
-    using System.Diagnostics.Contracts;
-
-
-
     /// <summary>
     /// Card Template Selector.
     /// </summary>
@@ -460,28 +455,33 @@ namespace GrampsView.Common
 
             switch (item)
             {
-                case AddressModel i:
-                case IHLinkAddressModel i2:
+                case AddressModel:
+                case IHLinkAddressModel:
+
                     {
                         return AddressTemplate;
                     }
 
-                case AttributeModel i:
+                case AttributeModel:
+
                     {
                         return AttributeTemplate;
                     }
 
-                case CardListLineCollection i:
+                case CardListLineCollection:
+
                     {
                         return CardListLineTemplate;
                     }
 
-                case FamilyModel i:
+                case FamilyModel:
+
                     {
                         return FamilySmallTemplate;
                     }
 
-                case HLinkChildRefModel i:
+                case HLinkChildRefModel:
+
                     {
                         switch ((item as HLinkChildRefModel).DisplayAs)
                         {
@@ -502,8 +502,9 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkCitationModel i:
-                case ICitationModel i2:
+                case HLinkCitationModel:
+                case ICitationModel:
+
                     {
                         switch ((item as HLinkCitationModel).DisplayAs)
                         {
@@ -533,15 +534,17 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkDateModelRange i1:
-                case HLinkDateModelSpan i2:
-                case HLinkDateModelStr i3:
-                case HLinkDateModelVal i4:
+                case HLinkDateModelRange:
+                case HLinkDateModelSpan:
+                case HLinkDateModelStr:
+                case HLinkDateModelVal:
+
                     {
                         return DateObjectTemplate;
                     }
 
-                case HLinkEventModel i:
+                case HLinkEventModel:
+
                     {
                         switch ((item as HLinkEventModel).DisplayAs)
                         {
@@ -567,12 +570,14 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkFamilyGraphModel i:
+                case HLinkFamilyGraphModel:
+
                     {
                         return FamilyGraphMediumTemplate;
                     }
 
-                case HLinkFamilyModel i:
+                case HLinkFamilyModel:
+
                     {
                         switch ((item as HLinkFamilyModel).DisplayAs)
                         {
@@ -603,12 +608,14 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkMapModel i:
+                case HLinkMapModel:
+
                     {
                         return MapTemplate;
                     }
 
-                case HLinkMediaModel i:
+                case HLinkMediaModel:
+
                     {
                         switch ((item as HLinkMediaModel).DisplayAs)
                         {
@@ -629,12 +636,14 @@ namespace GrampsView.Common
                         }
                     }
 
-                case IHLinkMediaModel i2:
+                case IHLinkMediaModel:
+
                     {
                         return MediaSmallTemplate;
                     }
 
-                case HLinkNoteModel i:
+                case HLinkNoteModel:
+
                     {
                         switch ((item as HLinkNoteModel).DisplayAs)
                         {
@@ -655,7 +664,8 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkPersonModel i:
+                case HLinkPersonModel:
+
                     {
                         switch ((item as HLinkPersonModel).DisplayAs)
                         {
@@ -681,7 +691,8 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkPersonNameModel i:
+                case HLinkPersonNameModel:
+
                     {
                         switch ((item as HLinkPersonNameModel).DisplayAs)
                         {
@@ -702,7 +713,8 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkRepositoryRefModel i:
+                case HLinkRepositoryRefModel:
+
                     {
                         switch ((item as HLinkRepositoryRefModel).DisplayAs)
                         {
@@ -723,7 +735,8 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkRepositoryModel i:
+                case HLinkRepositoryModel:
+
                     {
                         switch ((item as HLinkRepositoryModel).DisplayAs)
                         {
@@ -744,7 +757,8 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkSourceModel i:
+                case HLinkSourceModel:
+
                     {
                         switch ((item as HLinkSourceModel).DisplayAs)
                         {
@@ -780,12 +794,14 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkURLModel i:
+                case HLinkURLModel:
+
                     {
                         return URLTemplate;
                     }
 
-                case LdsOrdModel i:
+                case LdsOrdModel:
+
                     {
                         return LDSOrdTemplate;
                     }
@@ -804,7 +820,7 @@ namespace GrampsView.Common
                 return NoteTemplate;
             }
 
-            if ((item is PlaceLocationModel) || (item is IPlaceLocationModel))
+            if (item is PlaceLocationModel or IPlaceLocationModel)
             {
                 return PlaceLocationTemplate;
             }

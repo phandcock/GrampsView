@@ -101,8 +101,6 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 
-
-
             HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(BasePassedArguments);
 
             PersonObject = HLinkPerson.DeRef;
@@ -154,7 +152,6 @@ namespace GrampsView.ViewModels.Person
                 //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
                 //}
             }
-
 
             return;
         }

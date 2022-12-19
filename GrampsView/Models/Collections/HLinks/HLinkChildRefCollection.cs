@@ -1,15 +1,13 @@
-﻿/// <summary>
-/// XML 1.71 check not required as not part of Gramps model
-/// </summary>
+﻿using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
+
+using System.Runtime.Serialization;
+
 namespace GrampsView.Data.Collections
 {
-    using GrampsView.Data.Model;
-    using GrampsView.Models.Collections.HLinks;
-
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// ChildRefmodel collection
+    /// /// XML 1.71 check not required as not part of Gramps model
     /// </summary>
 
     [KnownType(typeof(HLinkBaseCollection<HLinkChildRefModel>))]
@@ -25,9 +23,10 @@ namespace GrampsView.Data.Collections
         {
             get
             {
-                HLinkPersonModelCollection returnValue = new HLinkPersonModelCollection();
-
-                returnValue.Title = this.Title;
+                HLinkPersonModelCollection returnValue = new()
+                {
+                    Title = Title
+                };
 
                 foreach (HLinkChildRefModel item in this)
                 {

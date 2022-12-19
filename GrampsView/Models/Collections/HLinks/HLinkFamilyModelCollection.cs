@@ -7,15 +7,12 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-/// <summary>
-/// XML 1.71 check done
-/// </summary>
-namespace GrampsView.Data.Collections
+namespace GrampsView.Models.Collections.HLinks
 {
     /// <summary>
     /// Collection of Family hLinks.
+    /// /// XML 1.71 check done
     /// </summary>
-
 
     [KnownType(typeof(ObservableCollection<HLinkFamilyModel>))]
     public class HLinkFamilyModelCollection : HLinkBaseCollection<HLinkFamilyModel>

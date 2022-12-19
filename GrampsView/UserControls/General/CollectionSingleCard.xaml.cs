@@ -1,7 +1,4 @@
-﻿using SharedSharp.Common.Interfaces;
-using SharedSharp.Messages;
-
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 
@@ -22,12 +19,12 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
-            {
-                NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
-                //Debug.WriteLine(NumColumns);
-            }
-            );
+            //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
+            //{
+            //    NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
+            //    //Debug.WriteLine(NumColumns);
+            //}
+            //);
         }
 
         /// <summary>
@@ -54,16 +51,16 @@ namespace GrampsView.UserControls
             set => SetValue(FsctTemplateProperty, value);
         }
 
-        /// <summary>
-        /// Gets or sets the number columns to display.
-        /// </summary>
-        /// <value>
-        /// The number columns.
-        /// </value>
-        public int NumColumns
-        {
-            get; set;
-        } = 3;
+        ///// <summary>
+        ///// Gets or sets the number columns to display.
+        ///// </summary>
+        ///// <value>
+        ///// The number columns.
+        ///// </value>
+        //public int NumColumns
+        //{
+        //    get; set;
+        //} = 3;
 
         /// <summary>
         /// Called when [item template changed].
@@ -115,7 +112,5 @@ namespace GrampsView.UserControls
                 thisCard.IsVisible = false;
             }
         }
-
-
     }
 }

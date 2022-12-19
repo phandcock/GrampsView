@@ -22,13 +22,13 @@ namespace GrampsView.Data.ExternalStorage
                 try
                 {
                     // Run query
-                    System.Collections.Generic.IEnumerable<XElement> de =
+                    IEnumerable<XElement> de =
                         from el in LocalGrampsXMLdoc.Descendants(ns + "note")
                         select el;
 
                     // get event fields TODO
 
-                    // Loop through results to get the Notes Uri _baseUri = new Uri("ms-appx:///");
+                    // Loop through results to get the Notes Uri
                     foreach (XElement pname in de)
                     {
                         INoteModel loadNote = new NoteModel();
@@ -38,16 +38,16 @@ namespace GrampsView.Data.ExternalStorage
 
                         //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");
-                        loadNote.GType = (string)pname.Attribute("type");
+                        loadNote.GType = GetAttribute(pname, "type");
 
-                        // Load Styled Text
-                        if (loadNote.Id == "N0482")
-                        {
-                        }
+                        //// Load Styled Text
+                        //if (loadNote.Id == "N0482")
+                        //{
+                        //}
 
-                        if (loadNote.GIsFormated)
-                        {
-                        }
+                        //if (loadNote.GIsFormated)
+                        //{
+                        //}
 
                         // Get Text Styles
                         StyledTextModel tempStyledText = GetStyledTextCollection(pname);
@@ -88,7 +88,7 @@ namespace GrampsView.Data.ExternalStorage
 
             string theText = (string)argStyledText.Element(ns + "text");
 
-            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharp.Common.SharedSharpFontSize.FontMedium });
+            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharpFontSize.FontMedium });
 
             return loadString;
         }

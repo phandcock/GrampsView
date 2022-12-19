@@ -76,6 +76,19 @@ namespace GrampsView.ViewModels
             get; private set;
         }
 
+        public override void HandleViewModelParameters()
+        {
+            foreach (KeyValuePair<string, object> item in BasePassedArguments)
+            {
+                Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
+            }
+
+            if (BasePassedArguments.Count > 0)
+            {
+                //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
+            }
+        }
+
         public void TopMenuHubCommandHandler()
         {
             SharedSharp.Common.SharedSharpNavigation.NavigateHub();
@@ -99,19 +112,6 @@ namespace GrampsView.ViewModels
                 //Bcc = bccRecipients
             };
             await Email.ComposeAsync(message);
-        }
-
-        public override void HandleViewModelParameters()
-        {
-            foreach (KeyValuePair<string, object> item in BasePassedArguments)
-            {
-                Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
-            }
-
-            if (BasePassedArguments.Count > 0)
-            {
-                //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
-            }
         }
 
         public void ViewSetup()
