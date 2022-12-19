@@ -36,21 +36,26 @@
 		<!-- Minimum Target OS Version for Windows Platform -->
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<DefaultLanguage>eu</DefaultLanguage>
-	
+		<PackageIcon>appicon.svg</PackageIcon>
+		
     </PropertyGroup>
 
-	<!-- Windows specific -->
+	<!-- Windows specific --><!--
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Debug'">
 		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
 		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
-	</PropertyGroup>
+	</PropertyGroup>-->
 	
-	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Release'">
+	<!--<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Release'">
 		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
 		 <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled> 
-	</PropertyGroup>
+	</PropertyGroup>-->
 
-	<!-- Android specific -->
+	<!-- Android -->
+	<PropertyGroup>
+	<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+	</PropertyGroup>
+	<!--
 	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
 		<AndroidKeyStore>True</AndroidKeyStore>
 		<AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
@@ -58,8 +63,8 @@
 		<AndroidSigningKeyPass>android</AndroidSigningKeyPass>
 		<AndroidSigningStorePass>android</AndroidSigningStorePass>
 		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-		<!--<AndroidLinkResources>false</AndroidLinkResources>-->
-	</PropertyGroup>
+		--><!--<AndroidLinkResources>false</AndroidLinkResources>--><!--
+	</PropertyGroup>-->
 
 	<ItemGroup>
 		<!-- App Icon -->

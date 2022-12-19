@@ -6,9 +6,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-using SharedSharp.Models;
-using SharedSharp.Models;
-
 using System.ComponentModel;
 
 namespace GrampsView.ViewModels.Person
@@ -126,7 +123,10 @@ namespace GrampsView.ViewModels.Person
                 BaseDetail.Add(nameDetails);
 
                 // Get date card
-                BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
+                if (PersonObject.BirthDate.Valid)
+                {
+                    BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
+                }
 
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
