@@ -34,7 +34,7 @@
                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                         Light={StaticResource OnSurfaceLight}}" />
         </FlyoutItem.FlyoutIcon>
-        <ShellContent ContentTemplate="{DataTemplate views:HubPage}" Route="HubPage" />
+        <ShellContent  Route="HubPage" /> <!--ContentTemplate="{DataTemplate views:HubPage}"-->
     </FlyoutItem>
 
     <FlyoutItem Title="Birthdays">
