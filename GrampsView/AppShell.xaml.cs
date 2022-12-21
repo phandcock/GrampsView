@@ -23,9 +23,9 @@ namespace GrampsView
         private static void RegisterMiscRoutes()
         {
             Routing.RegisterRoute(nameof(FileInputHandlerPage), typeof(FileInputHandlerPage));
-            Routing.RegisterRoute(nameof(Views.StartupPages.FirstRunPage), typeof(Views.StartupPages.FirstRunPage));
+            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
 
-            Routing.RegisterRoute(nameof(HubPage), typeof(HubPage));
+            Routing.RegisterRoute(nameof(HubPage), typeof(NeedDatabaseReloadPage));
 
             Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
 
