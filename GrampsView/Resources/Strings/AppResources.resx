@@ -132,12 +132,6 @@
   <data name="NeedDatabaseReloadPage_Instructions" xml:space="preserve">
     <value>Database reload required as the GrampsView internal database version has changed.</value>
   </data>
-  <data name="FirstRun_SampleButton" xml:space="preserve">
-    <value>Load Sample Data</value>
-  </data>
-  <data name="FirstRun_LoadAFileButton" xml:space="preserve">
-    <value>Load a file</value>
-  </data>
   <data name="FileInputHandlerPage_Choose_Button_Text" xml:space="preserve">
     <value>Choose a file with a *.GPKG extension</value>
   </data>

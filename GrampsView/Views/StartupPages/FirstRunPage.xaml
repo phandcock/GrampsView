@@ -10,6 +10,7 @@
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.StartupPages"
     xmlns:views="clr-namespace:GrampsView.Views.StartupPages"
     xmlns:v="clr-namespace:GrampsView.Views"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:FirstRunViewModel"
     Shell.PresentationMode="ModalNotAnimated"
@@ -17,18 +18,43 @@
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="FirstRun_Welcome" />
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource SSBorderHeaderStyle}"
+                HorizontalOptions="FillAndExpand">
+                <HorizontalStackLayout>
+                    <Border
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
+                                                          Light={StaticResource Neutral}}"
+                        Style="{StaticResource SSBorderCardStyle}">
+                        <Image HorizontalOptions="Center" Source="appicon.svg" />
+                    </Border>
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_IntroductionText" />
+                    <Label
+                        Padding="10"
+                        FontAttributes="Bold"
+                        Style="{StaticResource SSLabelStyleLarge}"
+                        Text="{i18n:Localize AboutPage_AppHeader}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+            
+            <sSharpUcon:InstructionCard InstructionText="{i18n:Localize FirstRun_Header}" />
 
-            <sSharpUcon:InstructionCard HorizontalOptions="Center" InstructionText="AppResources.FirstRun_WhatsNext" />
+            <sSharpUcon:InstructionCard InstructionText="{i18n:Localize FirstRun_IntroductionText}" />
+
+            <sSharpUcon:InstructionCard InstructionText="{i18n:Localize FirstRun_WhatsNext}" />
 
             <Button
                 Command="{Binding LoadDataCommand}"
                 Style="{DynamicResource SSButtonMenu}"
-                Text="FirstRun_ContinueButton" />
+                FontSize="{DynamicResource sSharpCommon:sSharpCommonFontSize.FontMedium}"
+                Text="{i18n:Localize FirstRun_WhatsNewButton}" />
         </VerticalStackLayout>
     </ScrollView>
 </v:ViewBasePage>

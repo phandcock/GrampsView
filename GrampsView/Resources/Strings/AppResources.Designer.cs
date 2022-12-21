@@ -169,24 +169,6 @@ namespace GrampsView.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load a file.
-        /// </summary>
-        public static string FirstRun_LoadAFileButton {
-            get {
-                return ResourceManager.GetString("FirstRun_LoadAFileButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Load Sample Data.
-        /// </summary>
-        public static string FirstRun_SampleButton {
-            get {
-                return ResourceManager.GetString("FirstRun_SampleButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string FirstRun_WhatsNewButton {
