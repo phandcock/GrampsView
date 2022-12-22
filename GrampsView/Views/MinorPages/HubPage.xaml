@@ -24,7 +24,7 @@
     <Shell.TitleView>
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
-
+   
     <Shell.SearchHandler>
         <common:GrampsViewSearchHandler
             windows:SearchBar.IsSpellCheckEnabled="true"

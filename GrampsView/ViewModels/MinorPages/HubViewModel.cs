@@ -7,8 +7,6 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Interfaces;
 using GrampsView.Models.HLinks.Models;
 
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.MinorPages
 {
     /// <summary>

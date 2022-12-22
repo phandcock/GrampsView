@@ -5,11 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:views="clr-namespace:GrampsView.Views"  
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
     Style="{StaticResource SSShellBaseStyle}">
-
-    <Shell.ToolbarItems />
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -20,6 +18,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Shell.Resources>
+
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Note"/>  <!--Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuNoteCommand}" />-->
+    </Shell.ToolbarItems>
 
     <!--
         Flyout Items

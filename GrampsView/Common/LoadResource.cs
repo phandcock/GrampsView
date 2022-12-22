@@ -21,7 +21,9 @@ namespace GrampsView.Common
                 }
                 else
                 {
-                    Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
+
+
+                    //  Debug.WriteLine($"LoadResource - Stream Length {stream.Length}");
                     using StreamReader reader = new(stream);
                     returnValue = reader.ReadToEnd();
                 }
