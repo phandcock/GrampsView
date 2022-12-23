@@ -24,7 +24,7 @@
     <Shell.TitleView>
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
-   
+
     <Shell.SearchHandler>
         <common:GrampsViewSearchHandler
             windows:SearchBar.IsSpellCheckEnabled="true"
@@ -54,12 +54,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <breadcrumb:Breadcrumb Grid.Row="0" Style="{StaticResource GVBreadcrumb}" />
+        <breadcrumb:Breadcrumb
+            Grid.Row="0"
+            Style="{StaticResource GVBreadcrumb}"
+            BackgroundColor="Red" />
 
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">
 
-            <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
 
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
 

@@ -5,9 +5,6 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks.Interfaces;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Media
 {
     /// <summary>
@@ -92,7 +89,10 @@ namespace GrampsView.ViewModels.Media
                     });
 
                     // Get date card
-                    BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
+                    if (CurrentMediaObject.GDateValue.Valid)
+                    {
+                        BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
+                    }
 
                     // Add standard details
                     MediaModel t = CurrentMediaObject;

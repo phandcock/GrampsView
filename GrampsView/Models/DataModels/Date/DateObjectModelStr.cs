@@ -1,10 +1,6 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Model;
-using GrampsView.Models.HLinks;
 using GrampsView.Models.HLinks.Models;
-
-
-using SharedSharp.Models;
 
 using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;
@@ -135,7 +131,7 @@ namespace GrampsView.Models.DataModels.Date
             return DateModelCard;
         }
 
-        public override HLinkBase AsHLink(string argTitle)
+        public override HLinkDateModelStr AsHLink(string argTitle)
         {
             HLinkDateModelStr t = HLink;
             t.Title = argTitle;
