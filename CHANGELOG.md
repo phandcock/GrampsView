@@ -1,3 +1,13 @@
+## [17.0.7](https://github.com/phandcock/GrampsView/compare/v17.0.6...v17.0.7) (2022-12-22)
+
+
+### Bug Fixes
+
+* tweaks ([1e47a25](https://github.com/phandcock/GrampsView/commit/1e47a2555db97038ae9a4a3d1b7e9b3300b8a6fc))
+* update nuget ([6916a7b](https://github.com/phandcock/GrampsView/commit/6916a7b986ea5177de6260a6ee27d47e5fbcc85c))
+
+
+
 ## [17.0.6](https://github.com/phandcock/GrampsView/compare/v17.0.5...v17.0.6) (2022-12-21)
 
 
@@ -24,16 +34,6 @@
 ### Bug Fixes
 
 * work on android bug and fix crash when invalid date ([66229d4](https://github.com/phandcock/GrampsView/commit/66229d4c7e0d1f983bd6a61f3241d5f89f5b887c))
-
-
-
-## [17.0.3](https://github.com/phandcock/GrampsView/compare/v17.0.2...v17.0.3) (2022-12-18)
-
-
-### Bug Fixes
-
-* tweak medi and collectionviewex ([e046700](https://github.com/phandcock/GrampsView/commit/e04670026c657be93689a90e4b241b695dc8d935))
-* update nugets ([5921e71](https://github.com/phandcock/GrampsView/commit/5921e712e13a142d15eddc79eaab015b994a77ae))
 
 
 
