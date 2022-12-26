@@ -1,3 +1,12 @@
+## [17.0.8](https://github.com/phandcock/GrampsView/compare/v17.0.7...v17.0.8) (2022-12-23)
+
+
+### Bug Fixes
+
+* tweak mediaand hub pages, update nugets ([beab721](https://github.com/phandcock/GrampsView/commit/beab721fb9479103e53abe78df32d18115e72ebb))
+
+
+
 ## [17.0.7](https://github.com/phandcock/GrampsView/compare/v17.0.6...v17.0.7) (2022-12-22)
 
 
@@ -25,15 +34,6 @@
 
 * tweak version code ([b00dac4](https://github.com/phandcock/GrampsView/commit/b00dac419555ddcdcb5e56c229f512250d968512))
 * update nugets ([c7d6f46](https://github.com/phandcock/GrampsView/commit/c7d6f46cc6ea62c68989f39131a97d9e0902fa4d))
-
-
-
-## [17.0.4](https://github.com/phandcock/GrampsView/compare/v17.0.3...v17.0.4) (2022-12-19)
-
-
-### Bug Fixes
-
-* work on android bug and fix crash when invalid date ([66229d4](https://github.com/phandcock/GrampsView/commit/66229d4c7e0d1f983bd6a61f3241d5f89f5b887c))
 
 
 
