@@ -8,7 +8,7 @@ namespace GrampsView.UserControls
     public partial class CollectionSingleCardGrouped : Border
     {
         public static readonly BindableProperty FsctSourceProperty
-              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
+              = BindableProperty.Create(returnType: typeof(object), declaringType: typeof(CollectionSingleCardGrouped), propertyName: nameof(FsctSource));
 
         public static readonly BindableProperty FsctTemplateProperty
                     = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCardGrouped), propertyChanged: OnItemTemplateChanged);
@@ -87,26 +87,8 @@ namespace GrampsView.UserControls
             layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
-        private static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-        }
 
-        ///// <summary>
-        ///// Handles the SizeChanged event of the CollectionSingleCardRoot control.
-        ///// </summary>
-        ///// <param name="sender">
-        ///// The source of the event.
-        ///// </param>
-        ///// <param name="e">
-        ///// The <see cref="EventArgs"/> instance containing the event data.
-        ///// </param>
-        //private void CollectionSingleCardGroupedRoot_SizeChanged(object sender, EventArgs e)
-        //{
-        //    Contract.Requires(sender != null);
 
-        //    CollectionSingleCardGrouped? t = sender as CollectionSingleCardGrouped;
 
-        //    NumColumns = (int)((t.Width / Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardSmallWidth) + 1);  // +1 for padding
-        //}
     }
 }

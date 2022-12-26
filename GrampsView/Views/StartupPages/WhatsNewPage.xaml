@@ -32,6 +32,7 @@
 
                     <Label
                         HorizontalOptions="Center"
+                        LineBreakMode="WordWrap"
                         Text="{i18n:Localize WhatsNew_TitleText}"
                         VerticalOptions="CenterAndExpand" />
                 </HorizontalStackLayout>

@@ -55,6 +55,7 @@
                     <Label
                         Padding="10"
                         FontAttributes="Bold"
+                        LineBreakMode="WordWrap"
                         Style="{StaticResource SSLabelStyleLarge}"
                         Text="{i18:Localize AboutPage_AppHeader}"
                         VerticalOptions="Center" />

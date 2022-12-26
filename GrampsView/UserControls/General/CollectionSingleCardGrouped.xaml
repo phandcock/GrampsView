@@ -20,7 +20,7 @@
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
                 <Border
-                    Padding="0"
+                    Padding="3"
                     IsVisible="{Binding Visible, Mode=OneWay}"
                     Style="{StaticResource SSBorderHeaderStyle}">
                     <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />

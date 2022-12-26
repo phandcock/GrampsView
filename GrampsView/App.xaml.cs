@@ -23,6 +23,9 @@ namespace GrampsView
             {
                 // Custom logic
                 _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
+
+                Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Microsoft.Maui.Controls.Window).Width, (s as Microsoft.Maui.Controls.Window).Height);
+
             };
 
             return window;

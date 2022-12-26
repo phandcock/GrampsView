@@ -21,10 +21,14 @@ using GrampsView.ViewModels.Sources;
 using GrampsView.ViewModels.StartupPages;
 using GrampsView.ViewModels.Tags;
 
+using Microsoft.Maui.LifecycleEvents;
+
 using SharedSharp;
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Services;
 using SharedSharp.Services.Interfaces;
+
+using System.Diagnostics;
 
 namespace GrampsView
 {
@@ -41,6 +45,7 @@ namespace GrampsView
                     .ConfigureEssentials()
                     .RegisterFonts()
                     .RegisterHandlers()
+                    .RegisterLifeCycleEvents()
                     .RegisterServices();
 
             _ = builder.Services.AddLocalization();
@@ -76,6 +81,36 @@ namespace GrampsView
                 //handlers.AddHandler(typeof(MyEntry), typeof(MyEntryHandler));
             });
         }
+
+        public static MauiAppBuilder RegisterLifeCycleEvents(this MauiAppBuilder builder)
+        {
+            _ = builder.ConfigureLifecycleEvents(events =>
+            {
+                Debug.WriteLine("RegisterLifeCycleEvents");
+
+#if WINDOWS
+                events.AddWindows(windows => windows
+                       .OnWindowCreated(window =>
+                       {
+                           window.SizeChanged += OnSizeChanged;
+                       }));
+#endif
+            });
+
+            return builder;
+        }
+
+
+#if WINDOWS
+        private static void OnSizeChanged(object sender, Microsoft.UI.Xaml.WindowSizeChangedEventArgs args)
+        {
+            ILifecycleEventService service = MauiWinUIApplication.Current.Services.GetRequiredService<ILifecycleEventService>();
+            service.InvokeEvents(nameof(Microsoft.UI.Xaml.Window.SizeChanged));
+
+            Debug.WriteLine($"OnSizeChanged {args}");
+            Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged(args.Size.Width, args.Size.Height);
+        }
+#endif
 
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
