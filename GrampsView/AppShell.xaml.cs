@@ -9,7 +9,7 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            BindingContext = new AppShellViewModel();
+            BindingContext = Ioc.Default.GetRequiredService<AppShellViewModel>();
         }
 
         protected override bool OnBackButtonPressed()

@@ -6,8 +6,8 @@ namespace GrampsView.ViewModels
 {
     public class AppShellViewModel : ViewModelBase
     {
-        public AppShellViewModel()
-
+        public AppShellViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+             : base(iocCommonLogging)
         {
             RegisterMiscRoutes();
 
@@ -21,7 +21,7 @@ namespace GrampsView.ViewModels
             get; private set;
         }
 
-        public new async Task TopMenuNoteCommandHandler()
+        public async Task TopMenuNoteCommandHandler()
         {
             string body = string.Empty;
 
@@ -32,7 +32,7 @@ namespace GrampsView.ViewModels
 
             EmailMessage message = new()
             {
-                Subject = $"GrampsView Note for", // ({BaseModelBase.Id}) - {BaseModelBase}",
+                Subject = $"GrampsView Note for ({CommonStatic.CurrentActiveModel.Id})",
                 Body = body,
                 To = recipients,
                 //Cc = ccRecipients,

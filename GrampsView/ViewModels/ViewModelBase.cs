@@ -19,19 +19,6 @@ namespace GrampsView.ViewModels
         public ViewModelBase(ILog iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
-
-            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
-            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
-
-            ViewSetup();
-        }
-
-        public ViewModelBase()
-        {
-            TopMenuHubCommand = new Command(TopMenuHubCommandHandler);
-            TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
-
-            ViewSetup();
         }
 
         /// <summary>
@@ -61,16 +48,6 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
-        public bool TopMenuHubButtonVisible
-        {
-            get; private set;
-        } = false;
-
-        public Command TopMenuHubCommand
-        {
-            get; private set;
-        }
-
         public IAsyncRelayCommand TopMenuNoteCommand
         {
             get; private set;
@@ -86,40 +63,6 @@ namespace GrampsView.ViewModels
             if (BasePassedArguments.Count > 0)
             {
                 //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
-            }
-        }
-
-        public void TopMenuHubCommandHandler()
-        {
-            SharedSharpNavigation.NavigateHub();
-        }
-
-        public async Task TopMenuNoteCommandHandler()
-        {
-            string body = string.Empty;
-
-            List<string> recipients = new()
-            {
-                CommonLocalSettings.NoteEmailAddress
-            };
-
-            EmailMessage message = new()
-            {
-                Subject = $"GrampsView Note for ({BaseModelBase.Id}) - {BaseModelBase}",
-                Body = body,
-                To = recipients,
-                //Cc = ccRecipients,
-                //Bcc = bccRecipients
-            };
-            await Email.ComposeAsync(message);
-        }
-
-        public void ViewSetup()
-        {
-            // As UWP does not support shell swipes for desktop. TODO Fix this when we can
-            if (DeviceInfo.Platform == DevicePlatform.WinUI)
-            {
-                TopMenuHubButtonVisible = true;
             }
         }
 
