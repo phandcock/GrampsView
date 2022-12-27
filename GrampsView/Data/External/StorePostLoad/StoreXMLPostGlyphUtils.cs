@@ -143,12 +143,12 @@ namespace GrampsView.Data.ExternalStorage
 
         private IMediaModel UtilCreateNewMediaObject(MediaModel argSourceMediaModel, string argNewMediaHLPrefix, string argNewMediaFileExtension)
         {
-            IMediaModel newMediaModel = SharedSharp.Common.SharedSharpGeneral.CopyObject<MediaModel>(argSourceMediaModel);
+            IMediaModel newMediaModel = SharedSharpGeneral.CopyObject<MediaModel>(argSourceMediaModel);
 
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
 
             newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
-            newMediaModel.OriginalFilePath = System.IO.Path.Combine(Constants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
+            newMediaModel.OriginalFilePath = Path.Combine(Constants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 
             return newMediaModel;
         }

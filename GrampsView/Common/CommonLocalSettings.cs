@@ -112,7 +112,7 @@ namespace GrampsView.Common
 
             DataStore.Instance.DS.IsDataLoaded = false;
 
-            CommonLocalSettings.DataSerialised = false;
+            DataSerialised = false;
         }
     }
 }

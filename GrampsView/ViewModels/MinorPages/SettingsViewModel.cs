@@ -50,21 +50,21 @@ namespace GrampsView.ViewModels.MinorPages
                 {
                     case "Dark":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Dark;
+                            SharedSharpSettings.ApplicationTheme = AppTheme.Dark;
                             Application.Current.UserAppTheme = AppTheme.Dark;
 
                             break;
                         }
                     case "Light":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Light;
+                            SharedSharpSettings.ApplicationTheme = AppTheme.Light;
                             Application.Current.UserAppTheme = AppTheme.Light;
 
                             break;
                         }
                     case "System":
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
+                            SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
                             Application.Current.UserAppTheme = AppTheme.Unspecified;
 
                             break;
@@ -72,7 +72,7 @@ namespace GrampsView.ViewModels.MinorPages
 
                     default:
                         {
-                            SharedSharp.Common.SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
+                            SharedSharpSettings.ApplicationTheme = AppTheme.Unspecified;
                             Application.Current.UserAppTheme = AppTheme.Unspecified;
 
                             break;

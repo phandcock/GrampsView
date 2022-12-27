@@ -21,6 +21,7 @@ using GrampsView.ViewModels.Sources;
 using GrampsView.ViewModels.StartupPages;
 using GrampsView.ViewModels.Tags;
 
+using Microsoft.AppCenter.Distribute;
 using Microsoft.Maui.LifecycleEvents;
 
 using SharedSharp;
@@ -56,7 +57,9 @@ namespace GrampsView
 
             SSharpCore.SharedSharpStart();
 
-            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Common.Secret.AndroidSecret, argMSAppCenterSecretWinUI: Common.Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Debug);
+            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretWinUI: Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Verbose);
+
+            Distribute.CheckForUpdate();
 
             return mauiApp;
         }

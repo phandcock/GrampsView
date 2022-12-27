@@ -52,7 +52,7 @@ namespace GrampsView.Data.External.StoreSerial
                                 };
 
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         return;
                     }
 
@@ -73,7 +73,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -83,7 +83,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -93,7 +93,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -103,7 +103,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -113,7 +113,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -123,7 +123,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -133,7 +133,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -143,7 +143,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -154,7 +154,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -165,7 +165,7 @@ namespace GrampsView.Data.External.StoreSerial
                     }
                     else
                     {
-                        CommonLocalSettings.DataSerialised = false;
+                        SharedSharpSettings.DataSerialised = false;
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
                     }
 
@@ -183,7 +183,7 @@ namespace GrampsView.Data.External.StoreSerial
             catch (Exception ex)
             {
                 localGVLogging.Progress("DeSerializeRepository - Exception ");
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharpSettings.DataSerialised = false;
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Old data deserialisation error.  Data loading cancelled", ex);
             }
 
@@ -218,13 +218,13 @@ namespace GrampsView.Data.External.StoreSerial
 
                 int ttt = isoStream.Read(buffer, 0, 100);
 
-                CommonLocalSettings.DataSerialised = true;
+                SharedSharpSettings.DataSerialised = true;
                 return;
             }
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharpSettings.DataSerialised = false;
             }
         }
 

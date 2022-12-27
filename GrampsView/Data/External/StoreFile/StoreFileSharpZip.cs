@@ -71,7 +71,7 @@ namespace GrampsView.Data
                     string entryFileName = zipEntry.Name;
 
                     // check for image TODO do proper mimetype mapping. See https://github.com/samuelneff/MimeTypeMap
-                    if (SharedSharp.Common.SharedSharpGeneral.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
+                    if (SharedSharpGeneral.MimeMimeTypeGet(CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(zipEntry.Name))) != "image")
                     {
                         continue;
                     }
@@ -87,7 +87,7 @@ namespace GrampsView.Data
                         // Unzip file in buffered chunks. This is just as fast as unpacking to a
                         // buffer the full size of the file, but does not waste memory. The "using"
                         // will close the stream even if an exception occurs.
-                        using (FileStream streamWriter = File.Create(System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath)))
+                        using (FileStream streamWriter = File.Create(Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath)))
                         {
                             StreamUtils.Copy(zipStream, streamWriter, buffer);
                         }

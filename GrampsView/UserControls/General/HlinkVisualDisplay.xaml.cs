@@ -324,7 +324,7 @@ namespace GrampsView.UserControls
                 Image newImageControl = new()
                 {
                     Aspect = Aspect.AspectFit,
-                    BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
+                    BackgroundColor = Colors.Transparent,
                     IsVisible = true,
                     Margin = 5,
                     Source = new FontImageSource

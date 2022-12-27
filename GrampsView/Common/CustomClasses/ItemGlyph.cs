@@ -73,7 +73,7 @@ namespace GrampsView.Common.CustomClasses
         public Color ImageSymbolColour
         {
             get; set;
-        } = Microsoft.Maui.Graphics.Colors.White;
+        } = Colors.White;
 
         [JsonInclude]
         public CommonEnums.HLinkGlyphType ImageType
@@ -112,7 +112,7 @@ namespace GrampsView.Common.CustomClasses
         public Color SymbolColour
         {
             get; set;
-        } = Microsoft.Maui.Graphics.Colors.White;
+        } = Colors.White;
 
         /// <summary>
         /// Gets or sets the home symbol font glyph.
@@ -180,7 +180,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(ImageHLinkMediaModel);
 
-                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
+                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
 
                         break;
                     }
@@ -188,7 +188,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
-                        await SharedSharp.Common.SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
+                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
 
                         break;
                     }

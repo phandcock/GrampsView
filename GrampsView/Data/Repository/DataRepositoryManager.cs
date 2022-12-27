@@ -165,7 +165,7 @@ namespace GrampsView.Data.Repository
 
             await _StoreSerial.SerializeObject(DataStore.Instance.DS);
 
-            CommonLocalSettings.DataSerialised = true;
+            SharedSharpSettings.DataSerialised = true;
         }
 
         /// <summary>
@@ -232,7 +232,7 @@ namespace GrampsView.Data.Repository
                 {
                     _CL.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
-                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Common.Constants.StorageXMLFileName));
+                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Constants.StorageXMLFileName));
 
                     GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
                 }
@@ -240,7 +240,7 @@ namespace GrampsView.Data.Repository
                 // 2) UnZip new data.GRAMPS file
                 if (GrampsFile.Valid)
                 {
-                    if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified))
+                    if (CommonLocalSettings.ModifiedComparedToSettings(GrampsFile, Constants.SettingsGPRAMPSFileLastDateTimeModified))
                     {
                         _CL.DataLogEntryAdd("Later version of Gramps data file found. Loading it into the program");
 
@@ -249,11 +249,11 @@ namespace GrampsView.Data.Repository
                 }
 
                 // 3) Load new data.XML file
-                IFileInfoEx dataXML = new FileInfoEx(argFileName: Common.Constants.StorageXMLFileName);
+                IFileInfoEx dataXML = new FileInfoEx(argFileName: Constants.StorageXMLFileName);
 
                 if (dataXML.Valid)
                 {
-                    if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, Common.Constants.SettingsXMLFileLastDateTimeModified))
+                    if (CommonLocalSettings.ModifiedComparedToSettings(dataXML, Constants.SettingsXMLFileLastDateTimeModified))
                     {
                         _CL.DataLogEntryAdd("Later version of Gramps XML data file found. Loading it into the program");
 
@@ -264,7 +264,7 @@ namespace GrampsView.Data.Repository
                     }
                 }
 
-                if (CommonLocalSettings.DataSerialised)
+                if (SharedSharpSettings.DataSerialised)
                 {
                     // 4) ELSE load Serial file
                     _ = await TriggerLoadSerialDataAsync().ConfigureAwait(false);
@@ -327,7 +327,7 @@ namespace GrampsView.Data.Repository
                 // StoreFileNames.SaveFileModifiedSinceLastSave(Constants.SettingsGPKGFileLastDateTimeModified, DataStore.Instance.AD.CurrentInputFile);
             }
 
-            return new FileInfoEx(argFileName: Common.Constants.StorageGRAMPSFileName);
+            return new FileInfoEx(argFileName: Constants.StorageGRAMPSFileName);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace GrampsView.Data.Repository
         /// </returns>
         public Task<bool> TriggerLoadGRAMPSFileAsync(bool deleteOld)
         {
-            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: Common.Constants.StorageGRAMPSFileName);
+            IFileInfoEx fileGrampsDataInput = new FileInfoEx(argFileName: Constants.StorageGRAMPSFileName);
 
             if (fileGrampsDataInput != null)
             {
@@ -352,7 +352,7 @@ namespace GrampsView.Data.Repository
 
                 // Save the current Index File modified date for later checking
 
-                CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, Common.Constants.SettingsGPRAMPSFileLastDateTimeModified);
+                CommonLocalSettings.SaveLastWriteToSettings(fileGrampsDataInput, Constants.SettingsGPRAMPSFileLastDateTimeModified);
             }
 
             return Task.FromResult(false);
@@ -378,12 +378,12 @@ namespace GrampsView.Data.Repository
 
                     _CL.DataLogEntryAdd("Finished loading GRAMPS XML data");
 
-                    IFileInfoEx t = new FileInfoEx(argFileName: Common.Constants.StorageXMLFileName);
+                    IFileInfoEx t = new FileInfoEx(argFileName: Constants.StorageXMLFileName);
 
                     if (t.Valid)
                     {
                         // Save the current Index File modified date for later checking
-                        CommonLocalSettings.SaveLastWriteToSettings(t, Common.Constants.SettingsXMLFileLastDateTimeModified);
+                        CommonLocalSettings.SaveLastWriteToSettings(t, Constants.SettingsXMLFileLastDateTimeModified);
                     }
 
                     UpdateSavedLocalSettings();
@@ -415,7 +415,7 @@ namespace GrampsView.Data.Repository
                 _CL.DataLogEntryAdd("Checking for Serialised GRAMPS data");
                 if (DataStore.Instance.DS.IsDataLoaded == false)
                 {
-                    if (CommonLocalSettings.DataSerialised)
+                    if (SharedSharpSettings.DataSerialised)
                     {
                         _CL.DataLogEntryAdd("Loading GRAMPS Serial data");
 
@@ -440,7 +440,7 @@ namespace GrampsView.Data.Repository
             }
             catch (Exception ex)
             {
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharpSettings.DataSerialised = false;
 
                 _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
@@ -457,7 +457,7 @@ namespace GrampsView.Data.Repository
         private static void UpdateSavedLocalSettings()
         {
             // save the database version
-            CommonLocalSettings.DatabaseVersion = Common.Constants.GrampsViewDatabaseVersion;
+            SharedSharpSettings.DatabaseVersion = Constants.GrampsViewDatabaseVersion;
         }
     }
 }

@@ -39,9 +39,9 @@ namespace GrampsView
             _ = Ioc.Default.GetRequiredService<IDataRepositoryManager>();
 
             // App Setup
-            Application.Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
+            Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
 
-            SharedSharpSettings.DatabaseVersionMin = GrampsView.Common.Constants.GrampsViewDatabaseVersion;
+            SharedSharpSettings.DatabaseVersionMin = Common.Constants.GrampsViewDatabaseVersion;
 
             // Get Going
             //    StartAtDetailPage().GetAwaiter().GetResult();

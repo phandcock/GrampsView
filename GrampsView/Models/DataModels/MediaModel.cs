@@ -60,7 +60,7 @@ namespace GrampsView.Models.DataModels
         public MediaModel()
         {
             ModelItemGlyph.Symbol = Constants.IconMedia;
-            ModelItemGlyph.SymbolColour = SharedSharp.Common.SharedSharpGeneral.GetResourceColour("CardBackGroundMedia");
+            ModelItemGlyph.SymbolColour = SharedSharpGeneral.GetResourceColour("CardBackGroundMedia");
         }
 
         public string FileContentType
@@ -75,9 +75,9 @@ namespace GrampsView.Models.DataModels
                 {
                     _ = SetProperty(ref _FileContentType, value);
 
-                    FileMimeType = SharedSharp.Common.SharedSharpGeneral.MimeMimeTypeGet(value);
+                    FileMimeType = SharedSharpGeneral.MimeMimeTypeGet(value);
 
-                    FileMimeSubType = SharedSharp.Common.SharedSharpGeneral.MimeMimeSubTypeGet(value);
+                    FileMimeSubType = SharedSharpGeneral.MimeMimeSubTypeGet(value);
                 }
             }
         }

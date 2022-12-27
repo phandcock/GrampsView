@@ -59,7 +59,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                CommonLocalSettings.DataSerialised = false;
+                SharedSharpSettings.DataSerialised = false;
                 _commonNotifications.NotifyException("Trying to add media file pointer", ex);
 
                 throw;

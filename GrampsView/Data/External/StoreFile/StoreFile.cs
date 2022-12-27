@@ -32,7 +32,7 @@ namespace GrampsView.Data
 
                     foreach (DirectoryInfo item in DataStore.Instance.AD.CurrentDataFolder.Value.GetDirectories())
                     {
-                        System.Threading.Thread.Sleep(100);
+                        Thread.Sleep(100);
                         Debug.WriteLine($"About to delete  directory: {item.FullName}");
                         item.Delete(true);
                     }

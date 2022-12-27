@@ -83,11 +83,11 @@ namespace GrampsView.Common
         {
             try
             {
-                string tt = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+                string tt = Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
                 DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new(System.IO.Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase));
+                DirectoryInfo t = new(Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase));
 
                 if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
                 {
@@ -179,7 +179,7 @@ namespace GrampsView.Common
         {
             object t = ResourceValueGet(keyName);
 
-            return t is null ? Microsoft.Maui.Graphics.Colors.White : (Color)t;
+            return t is null ? Colors.White : (Color)t;
         }
 
         public static object? ResourceValueGet(string keyName)

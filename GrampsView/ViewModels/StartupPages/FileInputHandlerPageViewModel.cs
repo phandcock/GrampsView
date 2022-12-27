@@ -96,7 +96,7 @@ namespace GrampsView.ViewModels.StartupPages
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            SharedSharp.Common.SharedSharpNavigation.NavigateHub();
+            SharedSharpNavigation.NavigateHub();
 
             await Task.Delay(500);
 

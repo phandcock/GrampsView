@@ -91,7 +91,7 @@ namespace GrampsView.ViewModels
 
         public void TopMenuHubCommandHandler()
         {
-            SharedSharp.Common.SharedSharpNavigation.NavigateHub();
+            SharedSharpNavigation.NavigateHub();
         }
 
         public async Task TopMenuNoteCommandHandler()

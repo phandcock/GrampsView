@@ -15,7 +15,7 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// The color.
         /// </summary>
-        private Color _GColor = Microsoft.Maui.Graphics.Colors.White;
+        private Color _GColor = Colors.White;
 
         /// <summary>
         /// The name.

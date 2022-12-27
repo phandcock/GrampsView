@@ -351,7 +351,7 @@ namespace GrampsView.Data.ExternalStorage
                  croppedBitmap.Dispose();
 
                  // ------------ Save new MediaObject
-                 newMediaModel = SharedSharp.Common.SharedSharpGeneral.CopyObject<MediaModel>(theMediaModel);
+                 newMediaModel = SharedSharpGeneral.CopyObject<MediaModel>(theMediaModel);
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFilePath;
