@@ -1,3 +1,13 @@
+## [17.0.10](https://github.com/phandcock/GrampsView/compare/v17.0.9...v17.0.10) (2022-12-27)
+
+
+### Bug Fixes
+
+* move Note command to Shell ([e549935](https://github.com/phandcock/GrampsView/commit/e549935466ca92f06a2e7d08d5556106c2ebd081))
+* move Note command to Shell ([eebda14](https://github.com/phandcock/GrampsView/commit/eebda145b59c481a256a22f06169ed8108a61077))
+
+
+
 ## [17.0.9](https://github.com/phandcock/GrampsView/compare/v17.0.8...v17.0.9) (2022-12-26)
 
 
@@ -23,16 +33,6 @@
 
 * tweaks ([1e47a25](https://github.com/phandcock/GrampsView/commit/1e47a2555db97038ae9a4a3d1b7e9b3300b8a6fc))
 * update nuget ([6916a7b](https://github.com/phandcock/GrampsView/commit/6916a7b986ea5177de6260a6ee27d47e5fbcc85c))
-
-
-
-## [17.0.6](https://github.com/phandcock/GrampsView/compare/v17.0.5...v17.0.6) (2022-12-21)
-
-
-### Bug Fixes
-
-* tweaks first run and whatsnew ([6a42e63](https://github.com/phandcock/GrampsView/commit/6a42e630c18c0bcd73357451467f055e391ef4ca))
-* tweaks to fix crashes ([b80ab1c](https://github.com/phandcock/GrampsView/commit/b80ab1cefd5f7b395fe7c19b344bad3bd7e5885d))
 
 
 
