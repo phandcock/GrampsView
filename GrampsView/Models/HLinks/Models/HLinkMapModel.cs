@@ -1,5 +1,6 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
 
 using System.Threading.Tasks;

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using PropertyChanged;
+
+using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 
@@ -74,6 +76,7 @@ namespace GrampsView.UserControls
         /// <param name="newValue">
         /// The new value.
         /// </param>
+        [SuppressPropertyChangedWarnings]
         public static void OnItemTemplateChanged(BindableObject argSource, object oldValue, object newValue)
         {
             Contract.Requires(argSource != null);

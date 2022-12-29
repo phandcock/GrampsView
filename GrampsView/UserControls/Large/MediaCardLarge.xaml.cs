@@ -1,5 +1,7 @@
 ﻿using GrampsView.Data.Model;
 
+using PropertyChanged;
+
 using SharedSharp.Common.Interfaces;
 
 using System.Diagnostics.Contracts;
@@ -29,6 +31,7 @@ namespace GrampsView.UserControls
         public double MediaDetailImageWidth { get; set; } = 100;
         public HLinkMediaModel TheModel { get; set; } = new HLinkMediaModel();
 
+        [SuppressPropertyChangedWarnings]
         private static void OnHLinkMMChanged(BindableObject bindable, object oldValue, object newValue)
         {
             Contract.Assert(bindable != null);

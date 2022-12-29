@@ -38,7 +38,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// Text of the XML Attribute.
         /// </returns>
-        private static string GetAttribute(XAttribute a)
+        private static string GetAttribute(XAttribute? a)
         {
             return a == null ? string.Empty : ((string)a).Trim();
         }

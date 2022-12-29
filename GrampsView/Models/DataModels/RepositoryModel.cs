@@ -1,18 +1,16 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+
+using System;
+using System.Collections;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Collections;
-
     /// <summary>
     /// <br/>
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.ModelBase"/>
-    /// <seealso cref="GrampsView.Data.ViewModel.IRepositoryModel"/>
     /// <seealso cref="System.IComparable"/>
     /// <seealso cref="System.Collections.IComparer"/>
 
@@ -119,7 +117,7 @@
         {
             get
             {
-                HLinkRepositoryModel t = new HLinkRepositoryModel
+                HLinkRepositoryModel t = new()
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,

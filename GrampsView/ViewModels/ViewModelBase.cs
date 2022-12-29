@@ -2,6 +2,8 @@
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
+using PropertyChanged;
+
 using SharedSharp.ViewModels;
 
 using System.ComponentModel;
@@ -69,6 +71,7 @@ namespace GrampsView.ViewModels
         /// <summary>
         /// Called when [basecl changed]. Frody automatically wires this up.
         /// </summary>
+        [SuppressPropertyChangedWarnings]
         private void OnBaseCLChanged()
         {
             Debug.Assert(BaseCL != null, "BaseCL is null.  Was this set in the constructor for the derived class?");

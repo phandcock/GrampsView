@@ -39,9 +39,8 @@ namespace GrampsView.UserControls
         private ItemGlyph WorkHLMediaModel
         {
             get; set;
-        }
+        } = new ItemGlyph();
 
-        [Obsolete]
         private void HLinkVisualDisplay_BindingContextChanged(object sender, EventArgs e)
         {
             if (BindingContext == null)
@@ -129,7 +128,6 @@ namespace GrampsView.UserControls
         //    //(sender as CachedImage).Source = null;
         //}
 
-        [Obsolete]
         private void ShowImage(IMediaModel argMediaModel)
         {
             if (argMediaModel.IsMediaStorageFileValid)
@@ -170,7 +168,8 @@ namespace GrampsView.UserControls
 
                     Image newMediaControl = new()
                     {
-                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath
+                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                        BackgroundColor = new Color(),
                     };
 
                     //newMediaControl.Error += NewMediaControl_Error;
@@ -193,7 +192,6 @@ namespace GrampsView.UserControls
             }
         }
 
-        [Obsolete]
         private void ShowMedia(IMediaModel argMediaModel)
         {
             if (argMediaModel.IsMediaStorageFileValid)
@@ -250,7 +248,6 @@ namespace GrampsView.UserControls
             }
         }
 
-        [Obsolete]
         private void ShowSomething(ItemGlyph argItemGlyph)
         {
             try
@@ -314,7 +311,6 @@ namespace GrampsView.UserControls
             }
         }
 
-        [Obsolete]
         private void ShowSymbol(ItemGlyph argItemGlyph)
         {
             try
@@ -330,7 +326,6 @@ namespace GrampsView.UserControls
                     Source = new FontImageSource
                     {
                     },
-                    VerticalOptions = LayoutOptions.FillAndExpand,
                 };
 
                 // Input valid so start work

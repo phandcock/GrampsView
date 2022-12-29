@@ -12,7 +12,6 @@ namespace GrampsView.Data.DataView
     /// <summary>
     ///   <br />
     /// </summary>
-    /// <seealso cref="DataViewBase%7BData.ViewModel.RepositoryModel,%20Data.ViewModel.HLinkRepositoryModel,%20HLinkRepositoryModelCollection%7D">DataViewBase{Data.ViewModel.RepositoryModel, Data.ViewModel.HLinkRepositoryModel, HLinkRepositoryModelCollection}</seealso>
     /// <seealso cref="IRepositoryDataView" />
     public class RepositoryDataView : DataViewBase<RepositoryModel, HLinkRepositoryModel, HLinkRepositoryModelCollection>, IRepositoryDataView
     {

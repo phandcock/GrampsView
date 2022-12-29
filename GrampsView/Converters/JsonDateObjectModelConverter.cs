@@ -14,7 +14,6 @@ namespace GrampsView.Converters
     /// Convert DtaeObjectModel to the underlying DateObjectModel derived class. <note type="note">
     /// TODO Remove when serial convertor polymorphism fixed. </note>
     /// </summary>
-    /// <seealso cref="System.Text.Json.JsonConverter"/>
     internal class JsonDateObjectModelConverter : JsonConverter<DateObjectModel>
     {
         public override bool CanConvert(Type objectType)

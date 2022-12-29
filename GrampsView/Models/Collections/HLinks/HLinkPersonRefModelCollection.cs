@@ -5,17 +5,14 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Runtime.Serialization;
 
-namespace GrampsView.Data.Collections
+namespace GrampsView.Models.Collections.HLinks
 {
     /// <summary>
     /// Contains pointers to family models.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.HLinkBaseCollection{GrampsView.Data.ViewModel.HLinkPersonModel}"/>
 
     [KnownType(typeof(ObservableCollection<HLinkPersonRefModel>))]
     public class HLinkPersonRefModelCollection : HLinkBaseCollection<HLinkPersonRefModel>

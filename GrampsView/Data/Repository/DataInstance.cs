@@ -1,8 +1,8 @@
-﻿/// <summary>
-/// Data Repository singleton
-/// </summary>
+﻿
 namespace GrampsView.Data.Repository
 {
+    using CommunityToolkit.Mvvm.ComponentModel;
+
     using GrampsView.Data.Collections;
     using GrampsView.Data.Model;
     using GrampsView.Models.DataModels;
@@ -12,8 +12,6 @@ namespace GrampsView.Data.Repository
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
     using System.Text.Json.Serialization;
-
-    using CommunityToolkit.Mvvm.ComponentModel;
 
     /// <summary>
     /// Static Data Store.

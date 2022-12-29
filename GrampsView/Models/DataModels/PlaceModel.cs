@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
 

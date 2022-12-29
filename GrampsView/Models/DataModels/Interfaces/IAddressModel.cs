@@ -1,13 +1,13 @@
 ﻿using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels.Interfaces
 {
     /// <summary>
     ///   <br />
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
     public interface IAddressModel : IModelBase
     {
         HLinkCitationModelCollection GCitationRefCollection { get; }

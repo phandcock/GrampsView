@@ -10,9 +10,6 @@ using GrampsView.Models.HLinks.Models;
 
 using SharedSharp.Errors;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -20,7 +17,6 @@ namespace GrampsView.Data.ExternalStorage
     /// <summary>
     /// Various utility and loading routines for XML data.
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ExternalStorage.IStoreXML"/>
     /// <seealso cref="IStoreXML"/>
     public partial class StoreXML : IStoreXML
     {

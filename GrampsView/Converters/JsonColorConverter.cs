@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace GrampsView.Converters
@@ -8,7 +7,6 @@ namespace GrampsView.Converters
     /// Convert Xamarin.Forms.Color to Hex string and back. The normal converter seems to reset
     /// eveything to the 0 value. <note type="note"> TODO Remove when serial convertor fixed. </note>
     /// </summary>
-    /// <seealso cref="System.Text.Json.JsonConverter"/>
     internal class JsonColorConverter : JsonConverter<Color>
     {
         public override bool CanConvert(Type objectType)

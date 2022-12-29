@@ -1,14 +1,14 @@
-﻿using GrampsView.Models.HLinks.Models;
+﻿using GrampsView.Data.Model;
+using GrampsView.Models.HLinks.Models;
 
 
 using static GrampsView.Common.CommonEnums;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.DataModels.Interfaces
 {
     /// <summary>
     ///   <br />
     /// </summary>
-    /// <seealso cref="GrampsView.Data.ViewModel.IModelBase" />
     public interface IMapModel : IModelBase
     {
         string Description
