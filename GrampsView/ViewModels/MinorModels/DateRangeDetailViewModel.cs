@@ -50,6 +50,8 @@ namespace GrampsView.ViewModels.MinorModels
                  * General Details
                  */
 
+                BaseDetail.Clear();
+
                 // Get the Base Date Details
                 BaseDetail.Add(DateObject.AsCardListLineBaseDate());
                 BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());

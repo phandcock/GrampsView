@@ -6,9 +6,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-using SharedSharp.Models;
-using SharedSharp.Models;
-
 using System.ComponentModel;
 
 namespace GrampsView.ViewModels.Person
@@ -111,8 +108,6 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("ChildRefDetailViewModel");
 
-
-
             ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(BasePassedArguments);
 
             PersonObject = ChildRefHLink.DeRef;
@@ -123,6 +118,8 @@ namespace GrampsView.ViewModels.Person
 
                 // Get media image
                 MediaCard = PersonObject.ModelItemGlyph;
+
+                BaseDetail.Clear();
 
                 // Get the Name Details
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
@@ -180,7 +177,6 @@ namespace GrampsView.ViewModels.Person
                 //// Trigger refresh of View fields via INotifyPropertyChanged
                 //OnPropertyChanged(string.Empty);
             }
-
 
             return;
         }

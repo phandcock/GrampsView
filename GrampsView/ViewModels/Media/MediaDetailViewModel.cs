@@ -78,6 +78,8 @@ namespace GrampsView.ViewModels.Media
 
                     MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
 
+                    BaseDetail.Clear();
+
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Media Detail")
                     {

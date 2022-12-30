@@ -4,9 +4,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-
-using SharedSharp.Models;
-
 using System.ComponentModel;
 
 namespace GrampsView.ViewModels.Event
@@ -74,6 +71,8 @@ namespace GrampsView.ViewModels.Event
                 {
                     BaseModelBase = EventObject;
                     BaseTitleIcon = Constants.IconEvents;
+
+                    BaseDetail.Clear();
 
                     // Get basic details
                     BaseDetail.Add(new CardListLineCollection("Event Detail")

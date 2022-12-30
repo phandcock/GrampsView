@@ -48,6 +48,8 @@ namespace GrampsView.ViewModels.MinorModels
 
                 BaseModelBase = AttributeObject;
 
+                BaseDetail.Clear();
+
                 // Get the Attribute Details
                 BaseDetail.Add(new CardListLineCollection("Attribute Detail")
                 {

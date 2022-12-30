@@ -11,43 +11,24 @@
             <Grid Margin="0" Padding="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <!--  TODO Add to TitleView when fixed in UWP.  See https://github.com/xamarin/Xamarin.Forms/issues/9808  -->
 
-                <!--<Button
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuHubCommand}"
-                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuHubButtonVisible}"
-                    Style="{StaticResource SSButtonMenu}"
-                    Text="Hub"
-                    WidthRequest="40" />-->
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ViewModelBase}}, Path=TopMenuNoteCommand}"
-                    Style="{StaticResource SSButtonMenu}"
-                    Text="Note"
-                    WidthRequest="40" />
-
                 <breadcrumb:Breadcrumb
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="0"
                     Style="{StaticResource GVBreadcrumb}" />
 
                 <!--  Content  -->
                 <ScrollView
                     Grid.Row="1"
                     Grid.Column="0"
-                    Grid.ColumnSpan="3"
                     Orientation="Vertical">
 
                     <ContentPresenter />

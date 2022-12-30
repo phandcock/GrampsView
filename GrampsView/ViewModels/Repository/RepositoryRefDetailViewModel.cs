@@ -2,9 +2,6 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Repository
 {
     /// <summary>
@@ -56,6 +53,8 @@ namespace GrampsView.ViewModels.Repository
             {
                 BaseTitle = RepositoryObject.ToString();
                 BaseTitleIcon = Constants.IconRepository;
+
+                BaseDetail.Clear();
 
                 BaseDetail.Add(new CardListLineCollection("Repostiory Ref Detail")
                     {

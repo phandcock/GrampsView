@@ -2,9 +2,6 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Sources
 {
     /// <summary>
@@ -55,6 +52,8 @@ namespace GrampsView.ViewModels.Sources
                 BaseModelBase = SourceObject;
 
                 // MediaCard = SourceObject.ModelItemGlyph;
+
+                BaseDetail.Clear();
 
                 // Header Card
                 BaseDetail.Add(new CardListLineCollection("Source Detail")

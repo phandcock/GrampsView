@@ -112,6 +112,8 @@ namespace GrampsView.ViewModels.Person
                 // Get media image
                 MediaCard = PersonObject.ModelItemGlyph;
 
+                BaseDetail.Clear();
+
                 // Get the Name Details
                 BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 

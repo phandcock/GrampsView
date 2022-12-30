@@ -2,9 +2,6 @@
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Minor;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.MinorModels
 {
     public class PersonNameDetailViewModel : ViewModelBase
@@ -51,6 +48,8 @@ namespace GrampsView.ViewModels.MinorModels
             if (PersonNameObject.Valid)
             {
                 BaseModelBase = PersonNameObject;
+
+                BaseDetail.Clear();
 
                 // Get Header Details
                 CardListLineCollection headerCardGroup = new()

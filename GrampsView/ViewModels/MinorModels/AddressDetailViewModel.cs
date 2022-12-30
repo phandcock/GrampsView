@@ -2,12 +2,21 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Minor;
+
+/* Unmerged change from project 'GrampsView (net7.0-android)'
+Before:
 using GrampsView.Models.HLinks.Interfaces;
 
 
 using SharedSharp.Models;
+After:
+using GrampsView.Models.HLinks.Interfaces;
 
-namespace GrampsView.ViewModels
+using SharedSharp.Models;
+*/
+using GrampsView.Models.HLinks.Interfaces;
+
+namespace GrampsView.ViewModels.MinorModels
 {
     /// <summary>
     /// ViewModel for the Address Detail page.
@@ -20,7 +29,7 @@ namespace GrampsView.ViewModels
         /// <param name="iocCommonLogging">
         /// The common logging service.
         /// </param>
-        public AddressDetailViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging)
+        public AddressDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
             BaseTitleIcon = Constants.IconAddress;
@@ -62,6 +71,8 @@ namespace GrampsView.ViewModels
 
                 // Get media image
                 MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;
+
+                BaseDetail.Clear();
 
                 // Get the Name Details
                 BaseDetail.Add(new CardListLineCollection("Address Detail")

@@ -4,9 +4,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Citation
 {
     /// <summary>
@@ -19,11 +16,7 @@ namespace GrampsView.ViewModels.Citation
         /// </summary>
         /// <param name="iocCommonLogging">
         /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        [Obsolete]
-        public CitationDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
+        public CitationDetailViewModel(ILog iocCommonLogging)
             : base(iocCommonLogging)
         {
         }
@@ -31,7 +24,7 @@ namespace GrampsView.ViewModels.Citation
         public CitationModel CitationObject
         {
             get; set;
-        }
+        } = new CitationModel();
 
         public HLinkNoteModel HighlightedNote
         {
@@ -41,7 +34,7 @@ namespace GrampsView.ViewModels.Citation
         public HLinkEventModel HLinkObject
         {
             get; set;
-        }
+        } = new HLinkEventModel();
 
         public HLinkNoteModelCollection NotesWithoutHighlight
         {
@@ -61,10 +54,12 @@ namespace GrampsView.ViewModels.Citation
 
             CitationObject = HLinkCitation.DeRef;
 
-            if (CitationObject != null)
+            if (CitationObject is not null)
             {
                 BaseModelBase = CitationObject;
                 BaseTitleIcon = Constants.IconCitation;
+
+                BaseDetail.Clear();
 
                 BaseDetail.Add(new CardListLineCollection("Citation Detail")
                 {

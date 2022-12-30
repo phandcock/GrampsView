@@ -43,7 +43,7 @@
                         VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </Border>
-            
+
             <sSharpUcon:InstructionCard InstructionText="{i18n:Localize FirstRun_Header}" />
 
             <sSharpUcon:InstructionCard InstructionText="{i18n:Localize FirstRun_IntroductionText}" />

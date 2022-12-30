@@ -2,9 +2,6 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Tags
 {
     /// <summary>
@@ -44,6 +41,8 @@ namespace GrampsView.ViewModels.Tags
             {
                 BaseModelBase = TagObject;
                 BaseTitleIcon = Constants.IconTag;
+
+                BaseDetail.Clear();
 
                 BaseDetail.Add(new CardListLineCollection("Tag Detail")
                 {

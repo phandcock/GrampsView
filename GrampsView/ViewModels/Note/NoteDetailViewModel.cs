@@ -4,9 +4,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Note
 {
     public class NoteDetailViewModel : ViewModelBase
@@ -51,6 +48,8 @@ namespace GrampsView.ViewModels.Note
                     new CardListLine("Type:", NoteObject.GType),
                     new CardListLine("Formatted:", NoteObject.GIsFormated),
                 });
+
+                BaseDetail.Clear();
 
                 // Add Model details
                 BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));

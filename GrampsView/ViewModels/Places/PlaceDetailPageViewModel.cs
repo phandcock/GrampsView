@@ -5,9 +5,6 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks.Models;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Places
 {
     /// <summary>
@@ -52,6 +49,8 @@ namespace GrampsView.ViewModels.Places
                 BaseTitleIcon = Constants.IconPlace;
 
                 // TODO Display all details
+
+                BaseDetail.Clear();
 
                 BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {

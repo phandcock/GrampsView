@@ -3,9 +3,6 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
-
-using SharedSharp.Models;
-
 namespace GrampsView.ViewModels.Family
 {
     /// <summary>
@@ -62,6 +59,8 @@ namespace GrampsView.ViewModels.Family
             {
                 BaseModelBase = FamilyObject;
                 BaseTitleIcon = Constants.IconFamilies;
+
+                BaseDetail.Clear();
 
                 // Get basic details
                 BaseDetail.Add(new CardListLineCollection("Family Detail")
