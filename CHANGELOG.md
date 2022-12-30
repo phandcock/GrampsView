@@ -1,3 +1,12 @@
+## [17.0.12](https://github.com/phandcock/GrampsView/compare/v17.0.11...v17.0.12) (2022-12-29)
+
+
+### Bug Fixes
+
+* force app distribution when debug ([4874fa6](https://github.com/phandcock/GrampsView/commit/4874fa66612cb7e4d701ded4b481a729197b4cf8))
+
+
+
 ## [17.0.11](https://github.com/phandcock/GrampsView/compare/v17.0.10...v17.0.11) (2022-12-29)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * tweak cardsizes ([c051f5a](https://github.com/phandcock/GrampsView/commit/c051f5a9326c089950f1aeb90ad184ba7342b30d))
-
-
-
-## [17.0.8](https://github.com/phandcock/GrampsView/compare/v17.0.7...v17.0.8) (2022-12-23)
-
-
-### Bug Fixes
-
-* tweak mediaand hub pages, update nugets ([beab721](https://github.com/phandcock/GrampsView/commit/beab721fb9479103e53abe78df32d18115e72ebb))
 
 
 
