@@ -27,7 +27,7 @@
                         BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
                                                           Light={StaticResource Neutral}}"
                         Style="{StaticResource SSBorderCardStyle}">
-                        <Image HorizontalOptions="Center" Source="appicon.svg" />
+                        <Image HorizontalOptions="Center" Source="appicon.png" />
                     </Border>
 
                     <Label
