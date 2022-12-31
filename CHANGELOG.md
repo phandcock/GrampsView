@@ -1,3 +1,13 @@
+## [17.0.13](https://github.com/phandcock/GrampsView/compare/v17.0.12...v17.0.13) (2022-12-30)
+
+
+### Bug Fixes
+
+* fix icon display ([3d79410](https://github.com/phandcock/GrampsView/commit/3d79410f002992dad01c11bf47ca68bdffc54ab7))
+* tweaks ([08d48b8](https://github.com/phandcock/GrampsView/commit/08d48b809642c62149788b73204be654346f8219))
+
+
+
 ## [17.0.12](https://github.com/phandcock/GrampsView/compare/v17.0.11...v17.0.12) (2022-12-29)
 
 
@@ -23,15 +33,6 @@
 
 * move Note command to Shell ([e549935](https://github.com/phandcock/GrampsView/commit/e549935466ca92f06a2e7d08d5556106c2ebd081))
 * move Note command to Shell ([eebda14](https://github.com/phandcock/GrampsView/commit/eebda145b59c481a256a22f06169ed8108a61077))
-
-
-
-## [17.0.9](https://github.com/phandcock/GrampsView/compare/v17.0.8...v17.0.9) (2022-12-26)
-
-
-### Bug Fixes
-
-* tweak cardsizes ([c051f5a](https://github.com/phandcock/GrampsView/commit/c051f5a9326c089950f1aeb90ad184ba7342b30d))
 
 
 
