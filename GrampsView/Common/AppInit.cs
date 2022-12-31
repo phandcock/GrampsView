@@ -24,7 +24,6 @@ namespace GrampsView.Common
                 {
                     await SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
 
-                    // await FirstRunLoadData();
                     return;
                 }
 
@@ -43,23 +42,7 @@ namespace GrampsView.Common
                     //return;
                 }
 
-                // Setup Event Handling
-                //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
-                //{
-                //    if (m.Value == null)
-                //        return;
 
-                //    SharedSharpSizes.WindowSize = m.Value;
-                //    SharedSharpCardSizes.Current.ReCalculateCardWidths();
-                //});
-
-                //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageOrientationChange>(this, (r, m) =>
-                //{
-                //    if (m == null)
-                //        return;
-
-                //    SharedSharpCardSizes.Current.ReCalculateCardWidths();
-                //});
 
                 // Load da data
                 await LoadData().ConfigureAwait(false);
