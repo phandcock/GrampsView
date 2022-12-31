@@ -1,3 +1,12 @@
+## [17.0.14](https://github.com/phandcock/GrampsView/compare/v17.0.13...v17.0.14) (2022-12-31)
+
+
+### Bug Fixes
+
+* update nuget ([96b96e7](https://github.com/phandcock/GrampsView/commit/96b96e758f26360de3e2cfbf4a8a5f1547796860))
+
+
+
 ## [17.0.13](https://github.com/phandcock/GrampsView/compare/v17.0.12...v17.0.13) (2022-12-30)
 
 
@@ -23,16 +32,6 @@
 ### Bug Fixes
 
 * tweak android build timeout ([21b9fa1](https://github.com/phandcock/GrampsView/commit/21b9fa1d68dabc1952cafa7a30d3e4fd3467b72d))
-
-
-
-## [17.0.10](https://github.com/phandcock/GrampsView/compare/v17.0.9...v17.0.10) (2022-12-27)
-
-
-### Bug Fixes
-
-* move Note command to Shell ([e549935](https://github.com/phandcock/GrampsView/commit/e549935466ca92f06a2e7d08d5556106c2ebd081))
-* move Note command to Shell ([eebda14](https://github.com/phandcock/GrampsView/commit/eebda145b59c481a256a22f06169ed8108a61077))
 
 
 
