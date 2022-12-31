@@ -1,3 +1,12 @@
+## [17.0.15](https://github.com/phandcock/GrampsView/compare/v17.0.14...v17.0.15) (2022-12-31)
+
+
+### Bug Fixes
+
+* tweaks ([d5ba215](https://github.com/phandcock/GrampsView/commit/d5ba215bd5c79d300432999d936a04768da8d421))
+
+
+
 ## [17.0.14](https://github.com/phandcock/GrampsView/compare/v17.0.13...v17.0.14) (2022-12-31)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * force app distribution when debug ([4874fa6](https://github.com/phandcock/GrampsView/commit/4874fa66612cb7e4d701ded4b481a729197b4cf8))
-
-
-
-## [17.0.11](https://github.com/phandcock/GrampsView/compare/v17.0.10...v17.0.11) (2022-12-29)
-
-
-### Bug Fixes
-
-* tweak android build timeout ([21b9fa1](https://github.com/phandcock/GrampsView/commit/21b9fa1d68dabc1952cafa7a30d3e4fd3467b72d))
 
 
 
