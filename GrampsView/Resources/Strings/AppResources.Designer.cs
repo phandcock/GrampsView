@@ -61,7 +61,7 @@ namespace GrampsView.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrampsView - Gramps GPKG file display.
+        ///   Looks up a localized string similar to GrampsView - Gramps GPKG file display for MAUI.
         /// </summary>
         public static string AboutPage_AppHeader {
             get {
