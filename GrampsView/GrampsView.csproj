@@ -88,7 +88,6 @@
 		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
 	</PropertyGroup>
 	
-	
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg">
@@ -106,7 +105,6 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-
 
 	<!-- General -->
     <ItemGroup>
@@ -166,7 +164,6 @@
         <None Remove="Resources\appicon.svg" />
         <None Remove="Resources\appiconfg.svg" />
         <None Remove="Resources\Images\application_icon.png" />
- 
     </ItemGroup>
 
  
@@ -262,6 +259,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiImage Include="Resources\Splash\splash.svg" />
+      <Folder Include="Resources\Raw\Reading\" />
     </ItemGroup>
+
+   
 </Project>

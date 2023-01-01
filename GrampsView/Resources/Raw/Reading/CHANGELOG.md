@@ -1,36 +1,37 @@
-## [16.28.23](https://github.com/phandcock/GrampsView/compare/v16.28.22...v16.28.23) (2022-12-07)
+## [17.0.15](https://github.com/phandcock/GrampsView/compare/v17.0.14...v17.0.15) (2022-12-31)
 
 
 ### Bug Fixes
 
-* update nugets ([31579f2](https://github.com/phandcock/GrampsView/commit/31579f2686bf8ed070d225acbbd1d8ce953a5a6e))
+* tweaks ([d5ba215](https://github.com/phandcock/GrampsView/commit/d5ba215bd5c79d300432999d936a04768da8d421))
 
 
 
-## [16.28.22](https://github.com/phandcock/GrampsView/compare/v16.28.21...v16.28.22) (2022-12-06)
-
-
-### Bug Fixes
-
-* work on about page ([001dd94](https://github.com/phandcock/GrampsView/commit/001dd945272187a20a08375377e411bda1e1d5ee))
-
-
-
-## [16.28.21](https://github.com/phandcock/GrampsView/compare/v16.28.20...v16.28.21) (2022-12-05)
+## [17.0.14](https://github.com/phandcock/GrampsView/compare/v17.0.13...v17.0.14) (2022-12-31)
 
 
 ### Bug Fixes
 
-* move to GetRequiredService for IoC ([e86d227](https://github.com/phandcock/GrampsView/commit/e86d227174f41ef732605f3b1605ab79691185b7))
+* update nuget ([96b96e7](https://github.com/phandcock/GrampsView/commit/96b96e758f26360de3e2cfbf4a8a5f1547796860))
 
 
 
-## [16.28.20](https://github.com/phandcock/GrampsView/compare/v16.28.19...v16.28.20) (2022-12-04)
+## [17.0.13](https://github.com/phandcock/GrampsView/compare/v17.0.12...v17.0.13) (2022-12-30)
 
 
 ### Bug Fixes
 
-* tweak build ([67ba205](https://github.com/phandcock/GrampsView/commit/67ba205feb811af1acedb3a8181724c7c9096d42))
+* fix icon display ([3d79410](https://github.com/phandcock/GrampsView/commit/3d79410f002992dad01c11bf47ca68bdffc54ab7))
+* tweaks ([08d48b8](https://github.com/phandcock/GrampsView/commit/08d48b809642c62149788b73204be654346f8219))
+
+
+
+## [17.0.12](https://github.com/phandcock/GrampsView/compare/v17.0.11...v17.0.12) (2022-12-29)
+
+
+### Bug Fixes
+
+* force app distribution when debug ([4874fa6](https://github.com/phandcock/GrampsView/commit/4874fa66612cb7e4d701ded4b481a729197b4cf8))
 
 
 

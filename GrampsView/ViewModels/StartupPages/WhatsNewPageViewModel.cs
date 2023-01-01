@@ -22,7 +22,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             BaseTitle = "What's new";
 
-            // BaseTitleIcon = CommonConstants.IconSettings;
+            BaseTitleIcon = Constants.IconSettings;
 
             WhatsNewText = Task.Run(async () => await CommonRoutines.LoadResource("Reading\\CHANGELOG.md")).Result;
         }

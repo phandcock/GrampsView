@@ -202,7 +202,7 @@
     <value>In: {0}</value>
   </data>
   <data name="AboutPage_AppHeader" xml:space="preserve">
-    <value>GrampsView - Gramps GPKG file display</value>
+    <value>GrampsView - Gramps GPKG file display for MAUI</value>
   </data>
   <data name="WhatsNew_TitleText" xml:space="preserve">
     <value>What's changed recently</value>
