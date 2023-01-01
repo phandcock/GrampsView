@@ -1,3 +1,12 @@
+## [17.0.16](https://github.com/phandcock/GrampsView/compare/v17.0.15...v17.0.16) (2022-12-31)
+
+
+### Bug Fixes
+
+* tweaks ([0a26403](https://github.com/phandcock/GrampsView/commit/0a264031c3d52fe71f18e99bd840e1f33f49256d))
+
+
+
 ## [17.0.15](https://github.com/phandcock/GrampsView/compare/v17.0.14...v17.0.15) (2022-12-31)
 
 
@@ -23,15 +32,6 @@
 
 * fix icon display ([3d79410](https://github.com/phandcock/GrampsView/commit/3d79410f002992dad01c11bf47ca68bdffc54ab7))
 * tweaks ([08d48b8](https://github.com/phandcock/GrampsView/commit/08d48b809642c62149788b73204be654346f8219))
-
-
-
-## [17.0.12](https://github.com/phandcock/GrampsView/compare/v17.0.11...v17.0.12) (2022-12-29)
-
-
-### Bug Fixes
-
-* force app distribution when debug ([4874fa6](https://github.com/phandcock/GrampsView/commit/4874fa66612cb7e4d701ded4b481a729197b4cf8))
 
 
 
