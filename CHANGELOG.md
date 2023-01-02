@@ -1,3 +1,12 @@
+## [17.0.17](https://github.com/phandcock/GrampsView/compare/v17.0.16...v17.0.17) (2023-01-01)
+
+
+### Bug Fixes
+
+* tweak startup ([8254863](https://github.com/phandcock/GrampsView/commit/8254863d97350269f56ab4ebfaf8fbbcd4feaca2))
+
+
+
 ## [17.0.16](https://github.com/phandcock/GrampsView/compare/v17.0.15...v17.0.16) (2022-12-31)
 
 
@@ -22,16 +31,6 @@
 ### Bug Fixes
 
 * update nuget ([96b96e7](https://github.com/phandcock/GrampsView/commit/96b96e758f26360de3e2cfbf4a8a5f1547796860))
-
-
-
-## [17.0.13](https://github.com/phandcock/GrampsView/compare/v17.0.12...v17.0.13) (2022-12-30)
-
-
-### Bug Fixes
-
-* fix icon display ([3d79410](https://github.com/phandcock/GrampsView/commit/3d79410f002992dad01c11bf47ca68bdffc54ab7))
-* tweaks ([08d48b8](https://github.com/phandcock/GrampsView/commit/08d48b809642c62149788b73204be654346f8219))
 
 
 
