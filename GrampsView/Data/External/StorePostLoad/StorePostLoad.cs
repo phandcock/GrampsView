@@ -14,7 +14,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly SharedSharp.Logging.Interfaces.ILog _CommonLogging;
+        private readonly ILog _CommonLogging;
 
         private readonly IErrorNotifications _commonNotifications;
 
@@ -23,7 +23,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </summary>
         private readonly IMessenger _EventAggregator;
 
-        private readonly IGenerateThumbnails MyGenerateThumbNails = new GrampsView.Common.CustomClasses.GenerateThumbNails();
+        private readonly IGenerateThumbnails MyGenerateThumbNails = new Common.CustomClasses.GenerateThumbNails();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
@@ -34,7 +34,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <param name="iocEventAggregator">
         /// The ioc event aggregator.
         /// </param>
-        public StorePostLoad(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
+        public StorePostLoad(ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;

@@ -40,6 +40,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<DefaultLanguage>eu</DefaultLanguage>
 		<PackageIcon>appicon.svg</PackageIcon>
+		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<PackageCertificateThumbprint>5E1B2BBB09B7EAD2EB6FB36B1E21ABDE61816FD5</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
 		
     </PropertyGroup>
 
@@ -190,7 +198,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.5.10" />
+        <PackageReference Include="SharedSharp" Version="1.5.11" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -210,6 +218,9 @@
       </Compile>
       <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
         <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="UserControls\General\MyTopMenu.xaml.cs">
+        <DependentUpon>MyTopMenu.xaml</DependentUpon>
       </Compile>
       <Compile Update="ViewModels\AppShellViewModel.cs">
         <DependentUpon>%(Filename)</DependentUpon>
@@ -240,6 +251,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\General\CollectionSingleCard.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\General\MyTopMenu.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\StartupPages\FirstRunPage.xaml">

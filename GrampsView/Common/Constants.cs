@@ -163,7 +163,7 @@ namespace GrampsView.Common
         public const string IconSearch = IconFont.Search;
 
         /// <summary>
-        /// The icon Source.
+        /// The icon Settings.
         /// </summary>
         public const string IconSettings = IconFont.Tools;
 
