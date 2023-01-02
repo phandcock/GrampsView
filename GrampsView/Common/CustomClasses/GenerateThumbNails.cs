@@ -6,19 +6,11 @@ namespace GrampsView.Common.CustomClasses
 {
     public partial class GenerateThumbNails : IGenerateThumbnails
     {
-        public GenerateThumbNails()
-        {
 
-        }
+        public partial Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel);
 
-        public Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
-        {
-            throw new NotImplementedException();
-        }
+        public partial Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel);
+
     }
 }

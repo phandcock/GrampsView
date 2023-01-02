@@ -10,15 +10,15 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                string tt = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, Constants.DirectoryCacheBase);
+                DirectoryInfo BaseDir = new(FileSystem.Current.AppDataDirectory);
+
+                string tt = System.IO.Path.Combine(BaseDir.FullName, Constants.DirectoryCacheBase);
 
                 Value = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new(FileSystem.Current.CacheDirectory);
-
                 if (!Value.Exists)
                 {
-                    Value = t.CreateSubdirectory(Constants.DirectoryCacheBase);
+                    Value = BaseDir.CreateSubdirectory(Constants.DirectoryCacheBase);
                 }
 
                 Debug.WriteLine("CurrentDataFolder Path:" + Value.FullName);

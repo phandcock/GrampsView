@@ -12,14 +12,14 @@ using Windows.Storage.Streams;
 
 using Buffer = Windows.Storage.Streams.Buffer;
 
-namespace GrampsView.Platforms.Windows.AppSecific
+namespace GrampsView.Common.CustomClasses
 {
     /// <summary>
     /// UWP Platform specific code
     /// </summary>
-    internal partial class GenerateThumbNails : IGenerateThumbnails
+    public partial class GenerateThumbNails : IGenerateThumbnails
     {
-        public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
+        public async partial Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace GrampsView.Platforms.Windows.AppSecific
             }
         }
 
-        public async Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
+        public async partial Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             StorageFolder currentFolder = await StorageFolder.GetFolderFromPathAsync(argCurrentDataFolder.FullName);
 

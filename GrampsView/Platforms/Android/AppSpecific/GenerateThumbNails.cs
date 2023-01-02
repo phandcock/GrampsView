@@ -10,11 +10,11 @@ using GrampsView.Models.DataModels.Interfaces;
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
-namespace GrampsView.Platforms.Android.AppSpecific
+namespace GrampsView.Common.CustomClasses
 {
-    internal partial class GenerateThumbnails : IGenerateThumbnails
+    public partial class GenerateThumbNails : IGenerateThumbnails
     {
-        public async Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
+        public async partial Task<IMediaModel> GenerateThumbImageFromPDF(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             IMediaModel returnValue = new MediaModel();
 
@@ -78,7 +78,7 @@ namespace GrampsView.Platforms.Android.AppSpecific
             return returnValue;
         }
 
-        public async Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
+        public async partial Task<IMediaModel> GenerateThumbImageFromVideo(DirectoryInfo argCurrentDataFolder, MediaModel argExistingMediaModel, IMediaModel argNewMediaModel)
         {
             IMediaModel returnValue = new MediaModel();
 

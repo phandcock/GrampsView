@@ -45,7 +45,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // check if we can get an image for the first page of the PDF
                 // TODO add this back in
-                pdfimage = new MediaModel(); // await _iocPlatformSpecific.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                pdfimage = await MyGenerateThumbNails.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconFont.FilePdf);
             }
@@ -74,7 +74,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // check if we can get an image for the video
                 // TODO add this back in
-                videoImage = new MediaModel(); // await _iocPlatformSpecific.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                videoImage = await MyGenerateThumbNails.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconFont.FileArchive);
             }
