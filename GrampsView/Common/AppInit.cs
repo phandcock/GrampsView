@@ -42,8 +42,6 @@ namespace GrampsView.Common
                     //return;
                 }
 
-
-
                 // Load da data
                 await LoadData().ConfigureAwait(false);
 

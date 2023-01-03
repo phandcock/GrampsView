@@ -1,11 +1,11 @@
-﻿namespace GrampsView.Data.Model
+﻿using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Models.DataModels;
+
+using System;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.DataModels;
-
-    using System;
-
     /// <summary>
     /// Public interfaces for the Event elements.
     /// </summary>

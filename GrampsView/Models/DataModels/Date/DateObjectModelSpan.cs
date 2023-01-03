@@ -66,10 +66,11 @@ namespace GrampsView.Models.DataModels.Date
 
                 // stop CDATA #REQUIRED
                 GStop = new DateObjectModelVal(aStop);
-                ;
 
                 // Set NotionalDate
                 NotionalDate = NotionalDate = ConvertRFC1123StringToDateTime(aStart);
+
+                DateType = DateObjectModelDerivedTypeEnum.DateObjectModelSpan;
             }
             catch (Exception ex)
             {

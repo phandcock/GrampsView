@@ -29,11 +29,6 @@ namespace GrampsView.Models.DataModels.Date
         /// </summary>
         private DateQuality _GQuality = DateQuality.unknown;
 
-        /// <summary>
-        /// $$(val)$$ field.
-        /// </summary>
-        private string _GVal = string.Empty;
-
         private DateValType _GValType = DateValType.unknown;
 
         public DateObjectModelVal(string aVal, string? aCFormat = null, bool aDualDated = false, string? aNewYear = null, DateQuality aQuality = DateQuality.unknown, DateValType aValType = DateValType.unknown)
@@ -63,6 +58,8 @@ namespace GrampsView.Models.DataModels.Date
                     GValType = aValType;
 
                     NotionalDate = ConvertRFC1123StringToDateTime(aVal);
+
+                    DateType = DateObjectModelDerivedTypeEnum.DateObjectModelVal;
                 }
                 catch (Exception ex)
                 {
@@ -145,18 +142,7 @@ namespace GrampsView.Models.DataModels.Date
             set => SetProperty(ref _GQuality, value);
         }
 
-        public string GVal
-        {
-            get => _GVal;
-
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    _ = SetProperty(ref _GVal, value);
-                }
-            }
-        }
+        public string GVal { get; set; }
 
         public DateValType GValType
         {

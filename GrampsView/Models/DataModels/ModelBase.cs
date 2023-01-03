@@ -3,6 +3,7 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -14,7 +15,7 @@ namespace GrampsView.Models.DataModels
     /// </summary>
 
 
-    public class ModelBase : ObservableObject, IModelBase
+    public class ModelBase : ObservableObject, IModelBase, INotifyPropertyChanged
     {
         /// <summary>
         /// The local h link reference collection.

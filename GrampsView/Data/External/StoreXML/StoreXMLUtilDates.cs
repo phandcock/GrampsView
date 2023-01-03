@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
-    /// <summary> Private Storage Routines. </summary> 
+    /// <summary> Private Storage Routines. </summary>
     //
     // TODO XML 1.71 check
     public partial class StoreXML : ObservableObject, IStoreXML

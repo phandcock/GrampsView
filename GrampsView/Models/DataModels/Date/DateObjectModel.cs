@@ -5,6 +5,8 @@ using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
+using static GrampsView.Common.CommonEnums;
+
 namespace GrampsView.Models.DataModels.Date
 {
     /// <summary>
@@ -46,6 +48,11 @@ namespace GrampsView.Models.DataModels.Date
     /// </code>
     /// </summary>
 
+    [JsonDerivedType(typeof(DateObjectModel))]
+    [JsonDerivedType(typeof(DateObjectModelRange), typeDiscriminator: "Range")]
+    [JsonDerivedType(typeof(DateObjectModelSpan), typeDiscriminator: "Span")]
+    [JsonDerivedType(typeof(DateObjectModelStr), typeDiscriminator: "Str")]
+    [JsonDerivedType(typeof(DateObjectModelVal), typeDiscriminator: "Val")]
     public class DateObjectModel : ModelBase, IDateObjectModel, IComparable
     {
         /// Notional Date field - The date used for sorting etc.
@@ -59,11 +66,11 @@ namespace GrampsView.Models.DataModels.Date
 
         private bool _ValidYear = false;
 
-
-
         public DateObjectModel()
         {
         }
+
+        public DateObjectModelDerivedTypeEnum DateType { get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
 
         [JsonIgnore]
         public virtual int? GetAge
@@ -71,8 +78,6 @@ namespace GrampsView.Models.DataModels.Date
             get;
         }
 
-        //public DateObjectModelDerivedTypeEnum DerivedType
-        //{ get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
         [JsonIgnore]
         public string GetDecade => !Valid ? string.Empty : $"{(int)Math.Floor(NotionalDate.Year / 10.0) * 10:0000}";
 

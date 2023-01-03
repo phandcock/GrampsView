@@ -1,5 +1,4 @@
-﻿using GrampsView.Common;
-using GrampsView.Data.Repository;
+﻿using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
@@ -228,7 +227,7 @@ namespace GrampsView.Data.External.StoreSerial
             }
         }
 
-        private string GetSerialFile()
+        private static string GetSerialFile()
         {
             return typeof(DataInstance).Name.Trim() + ".json";
         }

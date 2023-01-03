@@ -5,13 +5,8 @@ using GrampsView.Models.HLinks.Models;
 using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;
 
+using static GrampsView.Common.CommonEnums;
 
-/* Unmerged change from project 'GrampsView (net7.0-windows10.0.19041.0)'
-Before:
-namespace GrampsView.Data.Model
-After:
-namespace GrampsView.Models.DataModels.Date
-*/
 namespace GrampsView.Models.DataModels.Date
 {
     /// <summary>
@@ -20,11 +15,6 @@ namespace GrampsView.Models.DataModels.Date
     /// TODO Update fields as per Schema
     public class DateObjectModelStr : DateObjectModel, IDateObjectModelStr
     {
-        /// <summary>
-        /// $$(val)$$ field.
-        /// </summary>
-        private string _GVal = string.Empty;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but is
         /// stored as a string so can not be converted to a DateTime.
@@ -48,6 +38,8 @@ namespace GrampsView.Models.DataModels.Date
             // Set NotionalDate
             NotionalDate = DateTime.MinValue;
 
+            DateType = DateObjectModelDerivedTypeEnum.DateObjectModelStr;
+
             Valid = true;
         }
 
@@ -62,18 +54,8 @@ namespace GrampsView.Models.DataModels.Date
 
         public override string GetYear => Valid ? GVal : "Unknown";
 
-        public string GVal
-        {
-            get => _GVal;
+        public string GVal { get; set; }
 
-            internal set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    _ = SetProperty(ref _GVal, value);
-                }
-            }
-        }
 
         /// <summary>
         /// Gets the $$(val)$$ field.

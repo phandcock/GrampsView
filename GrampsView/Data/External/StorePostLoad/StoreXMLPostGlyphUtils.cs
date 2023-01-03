@@ -125,7 +125,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 return returnItemGlyph;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {
@@ -173,13 +173,12 @@ namespace GrampsView.Data.ExternalStorage
                 }
 
                 // Else
-
                 argNewGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
                 argNewGlyph.ImageSymbol = argDefaultSymbol;
 
                 return argNewGlyph;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {

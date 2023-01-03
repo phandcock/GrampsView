@@ -69,6 +69,8 @@ namespace GrampsView.Models.DataModels.Date
 
             // Set NotionalDate
             NotionalDate = ConvertRFC1123StringToDateTime(aStart);
+
+            DateType = DateObjectModelDerivedTypeEnum.DateObjectModelRange;
         }
 
         public DateObjectModelRange()

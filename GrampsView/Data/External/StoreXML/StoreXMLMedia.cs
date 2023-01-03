@@ -11,8 +11,6 @@ using SharedSharp.Errors;
 
 using System.Xml.Linq;
 
-
-
 namespace GrampsView.Data.ExternalStorage
 {
     /// <summary>

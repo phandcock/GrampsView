@@ -1,24 +1,26 @@
-﻿namespace GrampsView.Data.ExternalStorage
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Resources.Fonts;
+
+using SharedSharp.Errors;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.ExternalStorage
 {
-    using CommunityToolkit.Mvvm.ComponentModel;
-
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Interfaces;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Resources.Fonts;
-
-    using SharedSharp.Errors;
-
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
-    using System.Linq;
-    using System.Threading.Tasks;
-
+    /// <summary>This code tries to find an image that can be used for each model.  It searches the images in my priority order and chooses the first one it finds.</summary>
+    /// TODO Edit XML Comment Template for StorePostLoad
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
         private List<IMediaModel> addLater = new();
@@ -287,14 +289,14 @@
 
                 // Try media reference collection first
                 ItemGlyph t = argModel.GMediaRefCollection.FirstHLinkHomeImage;
-                if ((!hlink.ValidImage) && (t.ValidImage))
+                if ((!hlink.ValidImage) && t.ValidImage)
                 {
                     hlink = t;
                 }
 
                 // Check Source for Image
                 t = argModel.GSourceRef.DeRef.ModelItemGlyph;
-                if ((!hlink.ValidImage) && (t.ValidImage))
+                if ((!hlink.ValidImage) && t.ValidImage)
                 {
                     hlink = t;
                 }
@@ -330,7 +332,7 @@
 
                 var t = from item in DataStore.Instance.DS.MediaData.Values
 
-                        group item by (item.Id) into g
+                        group item by item.Id into g
 
                         select new
                         {
@@ -356,6 +358,7 @@
                 {
                     case "application":
                         {
+                            // Default to a symobol then try to find somethig better.
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
 
                             switch (argModel.FileMimeSubType)
@@ -468,7 +471,8 @@
                 }
             }
 
-            foreach (MediaModel item in addLater)
+            // Add in all of the new media in one go to decrease processing and avoid changing the underlying repository while we are cycling through it.
+            foreach (MediaModel item in addLater.Cast<MediaModel>())
             {
                 DataStore.Instance.DS.MediaData.Add(item);
             }
