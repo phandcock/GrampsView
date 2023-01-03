@@ -7,11 +7,8 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks.Interfaces;
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace GrampsView.Data.DataView
 {
@@ -112,6 +109,11 @@ namespace GrampsView.Data.DataView
                 foreach (MediaModel? item in g.Items)
                 {
                     info.Add(item.HLink);
+
+                    if (item.Id == "O0631")
+                    {
+                        var ttt = item.GDateValue.GetType();
+                    }
                 }
 
                 t.Add(info);

@@ -57,7 +57,7 @@ namespace GrampsView
 
             SSharpCore.SharedSharpStart();
 
-            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretWinUI: Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Verbose);
+            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretWinUI: Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
 
             Distribute.CheckForUpdate();
 

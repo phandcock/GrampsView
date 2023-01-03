@@ -35,17 +35,12 @@ namespace GrampsView.Models.DataModels
 
     public sealed class MediaModel : ModelBase, IMediaModel, IComparable, IComparer
     {
-        private string _FileContentType;
-
-        /// <summary>
-        /// My file description.
-        /// </summary>
-        private string _FileDescription = string.Empty;
+        private string _FileContentType = string.Empty;
 
         /// <summary>
         /// Local Storage File for media object.
         /// </summary>
-        private IFileInfoEx _MediaStorageFile;
+        private IFileInfoEx _MediaStorageFile = new FileInfoEx();
 
         private HLinkNoteModelCollection _NoteReferenceCollection = new();
 
@@ -82,36 +77,20 @@ namespace GrampsView.Models.DataModels
             }
         }
 
-        public string FileMimeSubType
-        {
-            get; set;
-        }
+        public string FileMimeSubType { get; set; }
+            = string.Empty;
 
-        public string FileMimeType
-        {
-            get; set;
-        }
+        public string FileMimeType { get; set; }
+            = string.Empty;
 
-        public HLinkCitationModelCollection GCitationRefCollection
-        {
-            get;
-            set;
-        }
-
+        public HLinkCitationModelCollection GCitationRefCollection { get; set; }
                 = new HLinkCitationModelCollection();
 
-        public DateObjectModel GDateValue
-        {
-            get;
-            set;
-        } = new DateObjectModelVal();
+        public DateObjectModel GDateValue { get; set; }
+            = new DateObjectModelVal();
 
-        public string GDescription
-        {
-            get => _FileDescription;
-
-            set => SetProperty(ref _FileDescription, value);
-        }
+        public string GDescription { get; set; }
+            = string.Empty;
 
         public HLinkNoteModelCollection GNoteRefCollection
         {
@@ -121,7 +100,6 @@ namespace GrampsView.Models.DataModels
         }
 
         public HLinkTagModelCollection GTagRefCollection { get; set; } = new HLinkTagModelCollection();
-
 
         public HLinkMediaModel HLink
         {
@@ -141,18 +119,12 @@ namespace GrampsView.Models.DataModels
             }
         }
 
-        public HLinkKey InternalMediaFileOriginalHLink
-        {
-            get; set;
-        } = new HLinkKey();
+        public HLinkKey InternalMediaFileOriginalHLink { get; set; }
+            = new HLinkKey();
 
         public bool IsImage => FileMimeType == "image";
 
-        public bool IsInternalMediaFile
-        {
-            get;
-            set;
-        }
+        public bool IsInternalMediaFile { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether [media storage file valid]. Runs various checks on the mediafile.
@@ -297,8 +269,6 @@ namespace GrampsView.Models.DataModels
         /// The title decoded.
         /// </value>
         public string TitleDecoded => GDateValue.ShortDate + " - " + GDescription;
-
-
 
         /// <summary>
         /// Compares the specified a.

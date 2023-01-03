@@ -147,6 +147,11 @@ namespace GrampsView.Models.DataModels.Date
         {
             get
             {
+                if (!Valid)
+                {
+                    return string.Empty;
+                }
+
                 if (ValidYear && ValidMonth & ValidDay)
                 {
                     return NotionalDate.ToString("d MMM yyyy", CultureInfo.CurrentCulture);

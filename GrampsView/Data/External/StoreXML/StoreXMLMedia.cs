@@ -9,10 +9,6 @@ using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;
 
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 
@@ -89,7 +85,7 @@ namespace GrampsView.Data.ExternalStorage
                         IMediaModel loadObject = new MediaModel();
                         loadObject.LoadBasics(GetBasics(pname));
 
-                        if (loadObject.Id == "O0204")
+                        if (loadObject.Id == "O0631")
                         {
                         }
 
@@ -134,7 +130,7 @@ namespace GrampsView.Data.ExternalStorage
                                 }
                                 catch (Exception ex)
                                 {
-                                    MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file",ex);
+                                    MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                     throw;
                                 }
                             }
@@ -182,7 +178,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     // TODO handle this
-                    MyNotifications.NotifyException("Loading Media Objects",ex);
+                    MyNotifications.NotifyException("Loading Media Objects", ex);
 
                     throw;
                 }
