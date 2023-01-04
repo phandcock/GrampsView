@@ -13,7 +13,7 @@ namespace GrampsView.Data.Model
     {
         string FirstFirstName { get; }
 
-        DateObjectModel GDate { get; set; }
+        DateObjectModelBase GDate { get; set; }
 
         string GDisplay { get; set; }
         string GTitle { get; }

@@ -12,7 +12,8 @@ namespace GrampsView.Models.DataModels.Date
     /// Create Range version of DateObjectModel. TODO Update fields as per Schema
     /// </summary>
 
-    public class DateObjectModelRange : DateObjectModel, IDateObjectModelRange
+    //[JsonDerivedType(typeof(DateObjectModelRange), typeDiscriminator: "range")]
+    public class DateObjectModelRange : DateObjectModelBase, IDateObjectModelRange
     {
         /// <summary>
         /// $$(cformat)$$ field.
@@ -301,7 +302,7 @@ namespace GrampsView.Models.DataModels.Date
                 return false;
             }
 
-            DateObjectModel? tempObj = obj as DateObjectModel;
+            DateObjectModelBase? tempObj = obj as DateObjectModelBase;
 
             return NotionalDate == tempObj.NotionalDate;
         }

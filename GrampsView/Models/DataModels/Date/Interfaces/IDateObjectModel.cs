@@ -22,7 +22,7 @@ DataModels.Date.Interfaces
     /// <summary>
     /// Public interfaces for the DateObject elements.
     /// </summary>
-    public interface IDateObjectModel : IModelBase, IComparable<DateObjectModel>, IComparer<DateObjectModel>
+    public interface IDateObjectModel : IModelBase, IComparable<DateObjectModelBase>, IComparer<DateObjectModelBase>
     {
         int? GetAge
         {

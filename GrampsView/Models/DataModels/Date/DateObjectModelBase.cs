@@ -48,12 +48,13 @@ namespace GrampsView.Models.DataModels.Date
     /// </code>
     /// </summary>
 
-    [JsonDerivedType(typeof(DateObjectModel))]
-    [JsonDerivedType(typeof(DateObjectModelRange), typeDiscriminator: "Range")]
-    [JsonDerivedType(typeof(DateObjectModelSpan), typeDiscriminator: "Span")]
-    [JsonDerivedType(typeof(DateObjectModelStr), typeDiscriminator: "Str")]
-    [JsonDerivedType(typeof(DateObjectModelVal), typeDiscriminator: "Val")]
-    public class DateObjectModel : ModelBase, IDateObjectModel, IComparable
+    [JsonPolymorphic]
+    //[JsonDerivedType(typeof(DateObjectModelBase), typeDiscriminator: "base")]
+    [JsonDerivedType(typeof(DateObjectModelRange), typeDiscriminator: "range")]
+    [JsonDerivedType(typeof(DateObjectModelSpan), typeDiscriminator: "span")]
+    [JsonDerivedType(typeof(DateObjectModelStr), typeDiscriminator: "str")]
+    [JsonDerivedType(typeof(DateObjectModelVal), typeDiscriminator: "val")]
+    public class DateObjectModelBase : ModelBase, IDateObjectModel, IComparable
     {
         /// Notional Date field - The date used for sorting etc.
         private DateTime _NotionalDate = DateTime.MinValue;
@@ -66,10 +67,11 @@ namespace GrampsView.Models.DataModels.Date
 
         private bool _ValidYear = false;
 
-        public DateObjectModel()
+        public DateObjectModelBase()
         {
         }
 
+        [JsonRequired]
         public DateObjectModelDerivedTypeEnum DateType { get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
 
         [JsonIgnore]
@@ -225,7 +227,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator !=(DateObjectModel left, DateObjectModel right)
+        public static bool operator !=(DateObjectModelBase left, DateObjectModelBase right)
         {
             return !(left == right);
         }
@@ -242,7 +244,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator <(DateObjectModel left, DateObjectModel right)
+        public static bool operator <(DateObjectModelBase left, DateObjectModelBase right)
         {
             return left is null ? right is not null : left.CompareTo(right) < 0;
         }
@@ -259,7 +261,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator <=(DateObjectModel left, DateObjectModel right)
+        public static bool operator <=(DateObjectModelBase left, DateObjectModelBase right)
         {
             return left is null || left.CompareTo(right) <= 0;
         }
@@ -276,7 +278,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator ==(DateObjectModel left, DateObjectModel right)
+        public static bool operator ==(DateObjectModelBase left, DateObjectModelBase right)
         {
             return left is null ? right is null : left.Equals(right);
         }
@@ -293,7 +295,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator >(DateObjectModel left, DateObjectModel right)
+        public static bool operator >(DateObjectModelBase left, DateObjectModelBase right)
         {
             return left is not null && left.CompareTo(right) > 0;
         }
@@ -310,7 +312,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <returns>
         /// The result of the operator.
         /// </returns>
-        public static bool operator >=(DateObjectModel left, DateObjectModel right)
+        public static bool operator >=(DateObjectModelBase left, DateObjectModelBase right)
         {
             return left is null ? right is null : left.CompareTo(right) >= 0;
         }
@@ -373,7 +375,7 @@ namespace GrampsView.Models.DataModels.Date
         /// <paramref name="x"/> is less than <paramref name="y"/>. Zero <paramref name="x"/> equals
         /// <paramref name="y"/>. Greater than zero <paramref name="x"/> is greater than <paramref name="y"/>.
         /// </returns>
-        public int Compare(DateObjectModel x, DateObjectModel y)
+        public int Compare(DateObjectModelBase x, DateObjectModelBase y)
         {
             if (x is null || y is null)
             {
@@ -398,7 +400,7 @@ namespace GrampsView.Models.DataModels.Date
         /// sort order as <paramref name="other"/>. Greater than zero This instance follows
         /// <paramref name="other"/> in the sort order.
         /// </returns>
-        public int CompareTo(DateObjectModel other)
+        public int CompareTo(DateObjectModelBase other)
         {
             Contract.Requires(other != null);
 
@@ -419,7 +421,7 @@ namespace GrampsView.Models.DataModels.Date
                 throw new ArgumentNullException(nameof(obj));
             }
 
-            DateObjectModel secondEvent = (DateObjectModel)obj;
+            DateObjectModelBase secondEvent = (DateObjectModelBase)obj;
 
             int testFlag = DateTime.Compare(SortDate, secondEvent.SortDate);
 
@@ -486,7 +488,7 @@ namespace GrampsView.Models.DataModels.Date
                 return false;
             }
 
-            DateObjectModel? tempObj = obj as DateObjectModel;
+            DateObjectModelBase? tempObj = obj as DateObjectModelBase;
 
             return NotionalDate == tempObj.NotionalDate;
         }

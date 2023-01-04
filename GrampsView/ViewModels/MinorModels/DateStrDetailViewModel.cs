@@ -23,7 +23,7 @@ namespace GrampsView.ViewModels.MinorModels
         /// <value>
         /// The current person ViewModel.
         /// </value>
-        public DateObjectModel DateObject
+        public DateObjectModelBase DateObject
         {
             get; set;
         }

@@ -86,8 +86,8 @@ namespace GrampsView.Models.DataModels
         public HLinkCitationModelCollection GCitationRefCollection { get; set; }
                 = new HLinkCitationModelCollection();
 
-        public DateObjectModel GDateValue { get; set; }
-            = new DateObjectModelVal();
+        public DateObjectModelBase GDateValue { get; set; }
+            = new DateObjectModelBase();
 
         public string GDescription { get; set; }
             = string.Empty;

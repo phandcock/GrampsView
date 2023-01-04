@@ -17,7 +17,7 @@ namespace GrampsView.Models.DataModels.Minor
         {
         }
 
-        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
+        public DateObjectModelBase GDate { get; set; } = new DateObjectModelVal();
 
         public string GLang { get; set; } = string.Empty;
 

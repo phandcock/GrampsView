@@ -14,7 +14,8 @@ namespace GrampsView.Models.DataModels.Date
     /// Create Span version of DateObjectModel.
     /// </summary>
     /// TODO Update fields as per Schema
-    public partial class DateObjectModelSpan : DateObjectModel, IDateObjectModelSpan
+    //[JsonDerivedType(typeof(DateObjectModelSpan), typeDiscriminator: "span")]
+    public partial class DateObjectModelSpan : DateObjectModelBase, IDateObjectModelSpan
     {
         /// <summary>
         /// $$(cformat)$$ field.
@@ -328,7 +329,7 @@ namespace GrampsView.Models.DataModels.Date
                 return false;
             }
 
-            DateObjectModel? tempObj = obj as DateObjectModel;
+            DateObjectModelBase? tempObj = obj as DateObjectModelBase;
 
             return NotionalDate == tempObj.NotionalDate;
         }

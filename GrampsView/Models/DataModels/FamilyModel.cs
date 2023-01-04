@@ -75,7 +75,7 @@ namespace GrampsView.Models.DataModels
             set;
         } = new HLinkCitationModelCollection();
 
-        public DateObjectModel GDate
+        public DateObjectModelBase GDate
         {
             get; set;
         } = new DateObjectModelVal();

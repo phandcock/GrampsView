@@ -70,7 +70,7 @@ namespace GrampsView.Models.DataModels
         /// The event date.
         /// </value>
 
-        public DateObjectModel GDate
+        public DateObjectModelBase GDate
         {
             get;
 

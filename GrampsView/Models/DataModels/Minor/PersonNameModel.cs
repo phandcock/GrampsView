@@ -111,7 +111,7 @@ namespace GrampsView.Models.DataModels.Minor
         /// The date.
         /// </value>
 
-        public DateObjectModel GDate { get; set; } = new DateObjectModelVal();
+        public DateObjectModelBase GDate { get; set; } = new DateObjectModelVal();
 
         /// <summary>
         /// Gets or sets the display name.

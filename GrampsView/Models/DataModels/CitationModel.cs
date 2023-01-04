@@ -50,7 +50,7 @@ namespace GrampsView.Models.DataModels
         /// The content of the g date.
         /// </value>
 
-        public DateObjectModel GDateContent
+        public DateObjectModelBase GDateContent
         {
             get;
             set;

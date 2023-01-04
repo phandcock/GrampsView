@@ -46,7 +46,7 @@ namespace GrampsView.Models.DataModels
         /// The birth date.
         /// </value>
         [JsonInclude]
-        public DateObjectModel BirthDate
+        public DateObjectModelBase BirthDate
         {
             get; set;
         }

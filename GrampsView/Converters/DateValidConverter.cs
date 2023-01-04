@@ -16,7 +16,7 @@
                 return null;
             }
 
-            return ((DateObjectModel)value).Valid;
+            return ((DateObjectModelBase)value).Valid;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

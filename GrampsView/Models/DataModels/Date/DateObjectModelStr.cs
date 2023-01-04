@@ -13,7 +13,9 @@ namespace GrampsView.Models.DataModels.Date
     /// Create Str version of DateObjectModel.
     /// </summary>
     /// TODO Update fields as per Schema
-    public class DateObjectModelStr : DateObjectModel, IDateObjectModelStr
+
+    //[JsonDerivedType(typeof(DateObjectModelStr), typeDiscriminator: "str")]
+    public class DateObjectModelStr : DateObjectModelBase, IDateObjectModelStr
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DateObjectModelStr"/> class. Date but is
@@ -54,7 +56,8 @@ namespace GrampsView.Models.DataModels.Date
 
         public override string GetYear => Valid ? GVal : "Unknown";
 
-        public string GVal { get; set; }
+        [JsonInclude]
+        public string GVal { get; set; } = string.Empty;
 
 
         /// <summary>
@@ -143,7 +146,7 @@ namespace GrampsView.Models.DataModels.Date
                 return false;
             }
 
-            DateObjectModel? tempObj = obj as DateObjectModel;
+            DateObjectModelBase? tempObj = obj as DateObjectModelBase;
 
             return NotionalDate == tempObj.NotionalDate;
         }

@@ -24,7 +24,7 @@ namespace GrampsView.Models.DataModels.Interfaces
 
         string GCounty { get; set; }
 
-        DateObjectModel GDate { get; set; }
+        DateObjectModelBase GDate { get; set; }
         string GLocality { get; set; }
 
         HLinkNoteModelCollection GNoteRefCollection { get; }

@@ -21,7 +21,7 @@
         /// <value>
         /// The birth date.
         /// </value>
-        DateObjectModel BirthDate
+        DateObjectModelBase BirthDate
         {
             get;
         }

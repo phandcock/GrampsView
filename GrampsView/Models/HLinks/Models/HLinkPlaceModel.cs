@@ -42,7 +42,7 @@ namespace GrampsView.Models.HLinks.Models
         /// <value>
         /// The date.
         /// </value>
-        public DateObjectModel Date { get; set; } = new DateObjectModelVal();
+        public DateObjectModelBase Date { get; set; } = new DateObjectModelVal();
 
         [JsonIgnore]
         public PlaceModel DeRef

@@ -8,7 +8,7 @@ namespace GrampsView.Data.Model
     /// 
     public interface IPlaceNameModel : IModelBase
     {
-        DateObjectModel GDate { get; set; }
+        DateObjectModelBase GDate { get; set; }
 
         string GLang { get; set; }
 

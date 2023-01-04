@@ -211,11 +211,15 @@ namespace GrampsView.Data.External.StoreSerial
                     await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
                 }
 
-                byte[] buffer = new byte[1024];
 
-                IsolatedStorageFileStream isoStream = new(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
+                //    string json = JsonSerializer.Serialize<DateObjectModelBase>(DV.MediaDV.DataViewData[10].GDateValue, serializerOptions);
 
-                int ttt = isoStream.Read(buffer, 0, 100);
+
+                //byte[] buffer = new byte[1024];
+
+                //IsolatedStorageFileStream isoStream = new(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
+
+                //int ttt = isoStream.Read(buffer, 0, 100);
 
                 SharedSharpSettings.DataSerialised = true;
                 return;

@@ -14,14 +14,14 @@ namespace GrampsView.Converters
     /// Convert DtaeObjectModel to the underlying DateObjectModel derived class. <note type="note">
     /// TODO Remove when serial convertor polymorphism fixed. </note>
     /// </summary>
-    internal class JsonDateObjectModelConverter : JsonConverter<DateObjectModel>
+    internal class JsonDateObjectModelConverter : JsonConverter<DateObjectModelBase>
     {
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(DateObjectModel);
+            return objectType == typeof(DateObjectModelBase);
         }
 
-        public override DateObjectModel Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override DateObjectModelBase Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType != JsonTokenType.StartObject)
             {
@@ -79,7 +79,7 @@ namespace GrampsView.Converters
                     {
                         _ = reader.Read();
 
-                        return new DateObjectModel();
+                        return new DateObjectModelBase();
                     }
                 case DateObjectModelDerivedTypeEnum.DateObjectModelRange:
                     {
@@ -117,7 +117,7 @@ namespace GrampsView.Converters
             throw new JsonException();
         }
 
-        public override void Write(Utf8JsonWriter writer, DateObjectModel value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, DateObjectModelBase value, JsonSerializerOptions options)
         {
             writer.WriteStartObject();
 
@@ -128,7 +128,7 @@ namespace GrampsView.Converters
             }
 
             // Write specific fields
-            else if (value is DateObjectModel dom)
+            else if (value is DateObjectModelBase dom)
             {
                 writer.WriteNumber("TypeDiscriminator", (int)DateObjectModelDerivedTypeEnum.DateObjectModelUnknown);
 
@@ -170,9 +170,9 @@ namespace GrampsView.Converters
             writer.WriteEndObject();
         }
 
-        private DateObjectModel readDOM(ref Utf8JsonReader argReader)
+        private DateObjectModelBase readDOM(ref Utf8JsonReader argReader)
         {
-            DateObjectModel returnDate = new DateObjectModelStr();
+            DateObjectModelBase returnDate = new DateObjectModelStr();
 
             while (argReader.Read())
             {
@@ -643,7 +643,7 @@ namespace GrampsView.Converters
             return returnDate;
         }
 
-        private void writeBasic(ref Utf8JsonWriter argWriter, DateObjectModel argBasic)
+        private void writeBasic(ref Utf8JsonWriter argWriter, DateObjectModelBase argBasic)
         {
             argWriter.WriteString("ModelItemGlyph.Symbol", argBasic.ModelItemGlyph.Symbol);
 
@@ -659,7 +659,7 @@ namespace GrampsView.Converters
             argWriter.WriteBoolean("ValidYear", argBasic.ValidYear);
         }
 
-        private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModel argVal)
+        private void writeDOM(ref Utf8JsonWriter argWriter, DateObjectModelBase argVal)
         {
             writeBasic(ref argWriter, argVal);
         }

@@ -21,7 +21,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// Date object ViewModel.
         /// </returns>
-        public static DateObjectModel SetDate(XElement argCurrentElement)
+        public static DateObjectModelBase SetDate(XElement argCurrentElement)
         {
             XElement tempElement;
 
@@ -84,7 +84,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        public static DateObjectModel SetDateSpan(XElement argCurrentElement)
+        public static DateObjectModelBase SetDateSpan(XElement argCurrentElement)
         {
             if (argCurrentElement is null)
             {
@@ -199,7 +199,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        public static DateObjectModel SetDateVal(XElement argCurrentElement)
+        public static DateObjectModelBase SetDateVal(XElement argCurrentElement)
         {
             Contract.Requires(argCurrentElement != null);
 
@@ -291,7 +291,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        private static DateObjectModel SetDateRange(XElement argCurrentElement)
+        private static DateObjectModelBase SetDateRange(XElement argCurrentElement)
         {
             string stringFound;
 

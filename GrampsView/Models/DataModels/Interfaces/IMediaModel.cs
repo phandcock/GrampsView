@@ -45,7 +45,7 @@ namespace GrampsView.Models.DataModels.Interfaces
         /// <value>
         /// The date value.
         /// </value>
-        DateObjectModel GDateValue
+        DateObjectModelBase GDateValue
         {
             get;
             set;

@@ -142,7 +142,7 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        private static DateObjectModel GetDate(XElement xmlData)
+        private static DateObjectModelBase GetDate(XElement xmlData)
         {
             return SetDate(xmlData);
         }
