@@ -1,3 +1,14 @@
+## [17.0.20](https://github.com/phandcock/GrampsView/compare/v17.0.19...v17.0.20) (2023-01-05)
+
+
+### Bug Fixes
+
+* fix dateobjectmodel serialisation ([49f1b7a](https://github.com/phandcock/GrampsView/commit/49f1b7a6dfd4be1b47624b8571674d367581f22f))
+* tweak dateobjectmodel ([aea417a](https://github.com/phandcock/GrampsView/commit/aea417a411d497fa2aceb399c80e412be0b78e55))
+* work on date serialisation code ([e938bd5](https://github.com/phandcock/GrampsView/commit/e938bd5c69e6f5f47670b958cedef365d7ada2f3))
+
+
+
 ## [17.0.19](https://github.com/phandcock/GrampsView/compare/v17.0.18...v17.0.19) (2023-01-03)
 
 
@@ -24,15 +35,6 @@
 ### Bug Fixes
 
 * tweak startup ([8254863](https://github.com/phandcock/GrampsView/commit/8254863d97350269f56ab4ebfaf8fbbcd4feaca2))
-
-
-
-## [17.0.16](https://github.com/phandcock/GrampsView/compare/v17.0.15...v17.0.16) (2022-12-31)
-
-
-### Bug Fixes
-
-* tweaks ([0a26403](https://github.com/phandcock/GrampsView/commit/0a264031c3d52fe71f18e99bd840e1f33f49256d))
 
 
 
