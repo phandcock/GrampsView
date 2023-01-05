@@ -25,6 +25,8 @@ namespace GrampsView.ViewModels.Media
         public MediaDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
+            BaseTitleIcon = Constants.IconMedia;
+
             BaseCL.Progress("MediaDetailViewModel created");
         }
 
@@ -74,7 +76,7 @@ namespace GrampsView.ViewModels.Media
                 if (CurrentMediaObject is not null)
                 {
                     BaseModelBase = CurrentMediaObject;
-                    BaseTitleIcon = Constants.IconMedia;
+                    BaseTitle = CurrentHLinkMedia.DeRef.DefaultTextShort;
 
                     MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
 
