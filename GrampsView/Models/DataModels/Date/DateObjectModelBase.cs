@@ -49,7 +49,7 @@ namespace GrampsView.Models.DataModels.Date
     /// </summary>
 
     [JsonPolymorphic]
-    //[JsonDerivedType(typeof(DateObjectModelBase), typeDiscriminator: "base")]
+    [JsonDerivedType(typeof(DateObjectModelBase), typeDiscriminator: "base")]
     [JsonDerivedType(typeof(DateObjectModelRange), typeDiscriminator: "range")]
     [JsonDerivedType(typeof(DateObjectModelSpan), typeDiscriminator: "span")]
     [JsonDerivedType(typeof(DateObjectModelStr), typeDiscriminator: "str")]
@@ -71,7 +71,6 @@ namespace GrampsView.Models.DataModels.Date
         {
         }
 
-        [JsonRequired]
         public DateObjectModelDerivedTypeEnum DateType { get; set; } = DateObjectModelDerivedTypeEnum.DateObjectModelUnknown;
 
         [JsonIgnore]

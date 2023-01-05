@@ -335,7 +335,8 @@ namespace GrampsView.UserControls
                 {
                     Glyph = argItemGlyph.Symbol,
                     Color = argItemGlyph.SymbolColour,
-                    FontFamily = "IconFont"
+                    FontFamily = "IconFont",
+                    Size = 48,
                 };
 
                 if (fontGlyph.Glyph == null)

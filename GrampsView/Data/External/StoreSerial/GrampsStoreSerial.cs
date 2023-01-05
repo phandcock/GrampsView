@@ -211,9 +211,9 @@ namespace GrampsView.Data.External.StoreSerial
                     await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
                 }
 
+                //DateObjectModelBase tt = DV.MediaDV.DataViewData[10].GDateValue;
 
-                //    string json = JsonSerializer.Serialize<DateObjectModelBase>(DV.MediaDV.DataViewData[10].GDateValue, serializerOptions);
-
+                //string json = JsonSerializer.Serialize<DateObjectModelBase>(tt, serializerOptions);
 
                 //byte[] buffer = new byte[1024];
 
@@ -242,7 +242,7 @@ namespace GrampsView.Data.External.StoreSerial
 
             // Special converter for colours
             serialzerOptions.Converters.Add(new Converters.JsonColorConverter());
-            serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
+            //serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
 
             //// TODO Why does this work Preserve reference data
             //serialzerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
