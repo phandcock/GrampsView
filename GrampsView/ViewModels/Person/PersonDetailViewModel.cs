@@ -89,7 +89,6 @@ namespace GrampsView.ViewModels.Person
         {
             get; set;
         }
-
         = new PersonModel();
 
         /// <summary>

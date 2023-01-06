@@ -45,7 +45,6 @@
                         Grid.ColumnSpan="2"
                         VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand"
-                        BackgroundColor="Red"
                         Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay
@@ -73,7 +72,6 @@
                         Grid.ColumnSpan="2"
                         Margin="0"
                         Padding="0"
-                        BackgroundColor="Red"
                         VerticalOptions="End" />
                 </Grid>
             </Border>

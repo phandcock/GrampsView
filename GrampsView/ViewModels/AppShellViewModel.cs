@@ -46,7 +46,7 @@ namespace GrampsView.ViewModels
             Routing.RegisterRoute(nameof(FileInputHandlerPage), typeof(FileInputHandlerPage));
             Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
 
-            Routing.RegisterRoute(nameof(HubPage), typeof(NeedDatabaseReloadPage));
+            Routing.RegisterRoute(nameof(HubPage), typeof(HubPage));
 
             Routing.RegisterRoute(nameof(NeedDatabaseReloadPage), typeof(NeedDatabaseReloadPage));
 
@@ -84,9 +84,6 @@ namespace GrampsView.ViewModels
             Routing.RegisterRoute(nameof(SourceDetailPage), typeof(SourceDetailPage));
 
             Routing.RegisterRoute(nameof(TagDetailPage), typeof(TagDetailPage));
-
-            Routing.RegisterRoute(nameof(FirstRunPage), typeof(FirstRunPage));
-            Routing.RegisterRoute(nameof(WhatsNewPage), typeof(WhatsNewPage));
         }
     }
 }

@@ -14,7 +14,14 @@ namespace GrampsView
 
         protected override bool OnBackButtonPressed()
         {
+            var t = Shell.Current.Navigation.NavigationStack;
+
             return base.OnBackButtonPressed();
+        }
+
+        protected override void OnNavigating(ShellNavigatingEventArgs args)
+        {
+            base.OnNavigating(args);
         }
     }
 }

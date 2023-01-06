@@ -30,7 +30,7 @@
             Grid.Column="0"
             Margin="1"
             BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GFather, Mode=OneWay}"
-            HorizontalOptions="FillAndExpand"
+            HorizontalOptions="Fill"
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 
@@ -39,7 +39,7 @@
             Grid.Column="1"
             Margin="1"
             BindingContext="{Binding DeRef.GChildOf.DeRef.GFather.DeRef.GChildOf.DeRef.GMother, Mode=OneWay}"
-            HorizontalOptions="FillAndExpand"
+            HorizontalOptions="Fill"
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 

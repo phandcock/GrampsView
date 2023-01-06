@@ -322,7 +322,7 @@ namespace GrampsView.UserControls
                     Aspect = Aspect.AspectFit,
                     BackgroundColor = Colors.Transparent,
                     IsVisible = true,
-                    Margin = 5,
+                    Margin = 10,
                     Source = new FontImageSource
                     {
                     },
