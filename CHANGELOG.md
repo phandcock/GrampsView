@@ -1,3 +1,14 @@
+## [17.0.21](https://github.com/phandcock/GrampsView/compare/v17.0.20...v17.0.21) (2023-01-06)
+
+
+### Bug Fixes
+
+* tweaks ([652844f](https://github.com/phandcock/GrampsView/commit/652844fe30d507889c13669ca959a6aeca5542ed))
+* tweaks ([d177351](https://github.com/phandcock/GrampsView/commit/d177351062beaf46058834addd888fe7cf5b7ef2))
+* tweaks ([1d9d031](https://github.com/phandcock/GrampsView/commit/1d9d03144e20a2d809cc493e6eb638cba8c1d48e))
+
+
+
 ## [17.0.20](https://github.com/phandcock/GrampsView/compare/v17.0.19...v17.0.20) (2023-01-05)
 
 
@@ -26,15 +37,6 @@
 
 * cleanup CHNAGELOG.md and other reading files ([557b510](https://github.com/phandcock/GrampsView/commit/557b510ae29e714208b66b867e0ab7d06fd2ba12))
 * fix platform code and change to cachedirectory ([7aee5dc](https://github.com/phandcock/GrampsView/commit/7aee5dc1f078fa2cb31fd3a3ef908c5b8920ef1f))
-
-
-
-## [17.0.17](https://github.com/phandcock/GrampsView/compare/v17.0.16...v17.0.17) (2023-01-01)
-
-
-### Bug Fixes
-
-* tweak startup ([8254863](https://github.com/phandcock/GrampsView/commit/8254863d97350269f56ab4ebfaf8fbbcd4feaca2))
 
 
 
