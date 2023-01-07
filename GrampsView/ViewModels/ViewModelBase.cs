@@ -50,10 +50,10 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
-        public IAsyncRelayCommand TopMenuNoteCommand
-        {
-            get; private set;
-        }
+        //public IAsyncRelayCommand TopMenuNoteCommand
+        //{
+        //    get; private set;
+        //}
 
         public override void HandleViewModelParameters()
         {

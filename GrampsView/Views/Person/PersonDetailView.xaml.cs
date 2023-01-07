@@ -1,19 +1,13 @@
 ﻿using GrampsView.ViewModels.Person;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GrampsView.Views
 {
     public partial class PersonDetailPage : ViewBasePage
     {
-        private PersonDetailViewModel _viewModel { get; set; }
-
         public PersonDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonDetailViewModel>();
+            BindingContext = Ioc.Default.GetRequiredService<PersonDetailViewModel>();
         }
-
-
     }
 }
