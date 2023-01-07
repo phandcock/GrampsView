@@ -41,6 +41,7 @@ namespace GrampsView.Data.Model
         /// </value>
 
         public HLinkMediaModelCollection GMediaRefCollection { get; set; }
+                = new();
 
         /// <summary>
         /// Gets or sets the note reference collection.
@@ -54,7 +55,6 @@ namespace GrampsView.Data.Model
             get;
             set;
         }
-
             = new HLinkNoteModelCollection();
 
         /// <summary>
@@ -68,8 +68,7 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
-
-        = new HLinkRepositoryRefCollection();
+            = new HLinkRepositoryRefCollection();
 
         /// <summary>
         /// Gets or sets the sabbrev.
@@ -106,6 +105,7 @@ namespace GrampsView.Data.Model
         {
             get; set;
         }
+            = new();
 
         /// <summary>
         /// Gets or sets the spub information.
@@ -138,10 +138,8 @@ namespace GrampsView.Data.Model
         /// The tag reference collection.
         /// </value>
 
-        public HLinkTagModelCollection GTagRefCollection
-        {
-            get; set;
-        }
+        public HLinkTagModelCollection GTagRefCollection { get; set; }
+            = new();
 
         /// <summary>
         /// Gets the hlink.
