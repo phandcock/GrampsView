@@ -1,3 +1,13 @@
+## [17.0.22](https://github.com/phandcock/GrampsView/compare/v17.0.21...v17.0.22) (2023-01-07)
+
+
+### Bug Fixes
+
+* fix gsourceref issue ([cee1147](https://github.com/phandcock/GrampsView/commit/cee11471ee96e2a89bc115701a972a3eca2a2ab7))
+* update nuget ([6170896](https://github.com/phandcock/GrampsView/commit/6170896152ba3064eacfeb3e015c0c616a2b14b4))
+
+
+
 ## [17.0.21](https://github.com/phandcock/GrampsView/compare/v17.0.20...v17.0.21) (2023-01-06)
 
 
@@ -27,16 +37,6 @@
 
 * fix date invalid handling ([db1c049](https://github.com/phandcock/GrampsView/commit/db1c0490ec4e21ebbcac2a2c9b4a99a086def465))
 * work on dateobjectmodel serialisation issues ([b77ae6f](https://github.com/phandcock/GrampsView/commit/b77ae6fa2d563faf88be4890c33003e451c9c5bb))
-
-
-
-## [17.0.18](https://github.com/phandcock/GrampsView/compare/v17.0.17...v17.0.18) (2023-01-02)
-
-
-### Bug Fixes
-
-* cleanup CHNAGELOG.md and other reading files ([557b510](https://github.com/phandcock/GrampsView/commit/557b510ae29e714208b66b867e0ab7d06fd2ba12))
-* fix platform code and change to cachedirectory ([7aee5dc](https://github.com/phandcock/GrampsView/commit/7aee5dc1f078fa2cb31fd3a3ef908c5b8920ef1f))
 
 
 
