@@ -102,10 +102,10 @@
 		<MauiIcon Include="Resources\appicon.svg" Color="#ba55d3" ForegroundScale="0.65" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\splash.svg">
-			<Color>#512BD4</Color>
-			<BaseSize>128,128</BaseSize>
-		</MauiSplashScreen>
+		<MauiIcon Include="Resources\splash.svg">
+			<Color>#ba55d3</Color>
+			<ForegroundScale>0.65</ForegroundScale>
+		</MauiIcon>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -163,6 +163,7 @@
     <ItemGroup>
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
     </ItemGroup>
+
  
     <ItemGroup>
 

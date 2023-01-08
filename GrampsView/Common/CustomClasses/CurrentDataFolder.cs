@@ -23,7 +23,7 @@ namespace GrampsView.Common.CustomClasses
 
                 Debug.WriteLine("CurrentDataFolder Path:" + Value.FullName);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application cache", ex);
                 throw;
@@ -34,9 +34,10 @@ namespace GrampsView.Common.CustomClasses
 
         public bool Valid => !(Value == null) && Value.Exists;
 
-        public DirectoryInfo? Value
+        public DirectoryInfo Value
         {
             get; set;
-        } = null;
+        }
+            = new(FileSystem.Current.AppDataDirectory);
     }
 }

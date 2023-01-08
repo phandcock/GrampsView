@@ -36,14 +36,7 @@
                         Padding="0"
                         IsVisible="{Binding Visible, Mode=OneWay}"
                         Style="{StaticResource SSBorderHeaderStyle}">
-                        <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}">
-                            <!--  TODO checkout another bug in UWP CollectionView  -->
-                            <Label.FontSize>
-                                <OnPlatform x:TypeArguments="x:Double">
-                                    <On Platform="WinUI">12</On>
-                                </OnPlatform>
-                            </Label.FontSize>
-                        </Label>
+                        <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
                     </Border>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
