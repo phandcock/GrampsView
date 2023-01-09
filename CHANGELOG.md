@@ -1,3 +1,13 @@
+## [17.0.23](https://github.com/phandcock/GrampsView/compare/v17.0.22...v17.0.23) (2023-01-08)
+
+
+### Bug Fixes
+
+* splash screen ([93cb5de](https://github.com/phandcock/GrampsView/commit/93cb5de8a8341125b23025f354aff191a95da73f))
+* tweak app and splash icons ([dbf88b5](https://github.com/phandcock/GrampsView/commit/dbf88b5de1037aba5ca78061cab0797b27a0b547))
+
+
+
 ## [17.0.22](https://github.com/phandcock/GrampsView/compare/v17.0.21...v17.0.22) (2023-01-07)
 
 
@@ -27,16 +37,6 @@
 * fix dateobjectmodel serialisation ([49f1b7a](https://github.com/phandcock/GrampsView/commit/49f1b7a6dfd4be1b47624b8571674d367581f22f))
 * tweak dateobjectmodel ([aea417a](https://github.com/phandcock/GrampsView/commit/aea417a411d497fa2aceb399c80e412be0b78e55))
 * work on date serialisation code ([e938bd5](https://github.com/phandcock/GrampsView/commit/e938bd5c69e6f5f47670b958cedef365d7ada2f3))
-
-
-
-## [17.0.19](https://github.com/phandcock/GrampsView/compare/v17.0.18...v17.0.19) (2023-01-03)
-
-
-### Bug Fixes
-
-* fix date invalid handling ([db1c049](https://github.com/phandcock/GrampsView/commit/db1c0490ec4e21ebbcac2a2c9b4a99a086def465))
-* work on dateobjectmodel serialisation issues ([b77ae6f](https://github.com/phandcock/GrampsView/commit/b77ae6fa2d563faf88be4890c33003e451c9c5bb))
 
 
 
