@@ -1,8 +1,5 @@
 ﻿using GrampsView.Common;
 
-using SharedSharp.Logging.Interfaces;
-
-
 namespace GrampsView.ViewModels.MinorPages
 {
     public class SettingsViewModel : ViewModelBase

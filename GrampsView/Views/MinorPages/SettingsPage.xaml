@@ -20,58 +20,92 @@
         <sSharpUcon:TopMenu />
     </Shell.TitleView>
 
+    <!--  Content  -->
     <ScrollView Padding="10">
 
         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
 
-            <sSharpUcon:SSHeaderBorderSettings HeaderTitle="Theme Selector">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Theme Selector">
                 <sSharpUcon:ThemeSelector />
-            </sSharpUcon:SSHeaderBorderSettings>
+            </sSharpUcon:SSHeaderSettings>
 
-            <Label />
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="Center">
 
-            <TableView
-                Intent="Settings"
-                HasUnevenRows="True"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
-                                                  Light={StaticResource Neutral}}"
-                HorizontalOptions="CenterAndExpand">
-                <TableRoot>
-                    <TableSection Title="Settings" TextColor="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}">
-                        <SwitchCell Text="Sort Item collections on load" On="{Binding SortCollectionsFlag}" />
-                        <SwitchCell Text="Use first (not last) image from collections" On="{Binding UseFirstImageFlag}" />
-                        <TextCell Text="Default email address for Notes" />
-                        <ViewCell>
-                            <Entry
-                                HorizontalOptions="EndAndExpand"
-                                BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
-                                                                  Light={StaticResource SecondaryLight}}"
-                                ClearButtonVisibility="WhileEditing"
-                                Keyboard="Email"
-                                Placeholder="Email"
-                                ReturnCommand="{Binding UpdateNoteEmailCommand}"
-                                Text="{Binding UpdateNoteEmailAddress}"
-                                TextTransform="Lowercase">
-                                <Entry.Behaviors>
-                                    <mauitoolkit:EmailValidationBehavior
-                                        DecorationFlags="Trim"
-                                        InvalidStyle="{StaticResource GVEntryInvalid}"
-                                        IsValid="{Binding UpdateNoteEmailValidValue}" />
-                                </Entry.Behaviors>
-                            </Entry>
-                        </ViewCell>
-                    </TableSection>
-                    <TableSection Title="Actions" TextColor="{AppThemeBinding Dark={StaticResource SecondaryDark}, Light={StaticResource SecondaryLight}}">
-                        <ViewCell>
-                            <Button
-                                HorizontalOptions="End"
-                                Command="{Binding DisplayMessageLogButtonCommand}"
-                                Style="{StaticResource SSButtonMenu}"
-                                Text="Show MesageLog" />
-                        </ViewCell>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{DynamicResource SSCardLabelStyle}"
+                        Text="Sort Item collections on load" />
+
+                    <Switch
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        IsToggled="{Binding SortCollectionsFlag}"
+                        Style="{DynamicResource SSSwitchStyle}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{DynamicResource SSCardLabelStyle}"
+                        Text="Use first (not last) image from collections." />
+
+                    <Switch
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsToggled="{Binding UseFirstImageFlag}"
+                        Style="{DynamicResource SSSwitchStyle}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{DynamicResource SSCardLabelStyle}"
+                        Text="Default email address for Notes" />
+
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource SecondaryDark},
+                                                          Light={StaticResource SecondaryLight}}"
+                        ClearButtonVisibility="WhileEditing"
+                        Keyboard="Email"
+                        Placeholder="Email"
+                        ReturnCommand="{Binding UpdateNoteEmailCommand}"
+                        Text="{Binding UpdateNoteEmailAddress}"
+                        TextTransform="Lowercase">
+                        <Entry.Behaviors>
+                            <mauitoolkit:EmailValidationBehavior
+                                DecorationFlags="Trim"
+                                InvalidStyle="{DynamicResource GVEntryInvalid}"
+                                IsValid="{Binding UpdateNoteEmailValidValue}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+            </sSharpUcon:SSHeaderSettings>
+
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Control Buttons">
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding DisplayMessageLogButtonCommand}"
+                        Style="{DynamicResource SSButtonMenu}"
+                        Text="Show MesageLog" />
+
+                </StackLayout>
+            </sSharpUcon:SSHeaderSettings>
         </StackLayout>
     </ScrollView>
 </views:ViewBasePage>

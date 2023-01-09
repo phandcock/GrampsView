@@ -34,7 +34,7 @@ namespace GrampsView.ViewModels.StartupPages
         /// <summary>Gramps export XML plus media.</summary>
         public async Task FirstRunLoadAFileButton()
         {
-            _ = SharedSharpNavigation.NavigateBack();
+            await SharedSharpNavigation.NavigateBack();
 
             await _AppInit.Init();
         }

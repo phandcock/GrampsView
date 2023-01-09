@@ -42,7 +42,7 @@ namespace GrampsView.ViewModels.StartupPages
 
         private async Task LoadDataAction()
         {
-            _ = SharedSharpNavigation.NavigateBack();
+            await SharedSharpNavigation.NavigateBack();
 
             await _AppInit.Init();
         }
