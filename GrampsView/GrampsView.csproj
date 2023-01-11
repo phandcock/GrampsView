@@ -182,11 +182,11 @@
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
         <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.2" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.5.17" />
+        <PackageReference Include="SharedSharp" Version="1.5.18" />
         <PackageReference Include="SharpZipLib" Version="1.4.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
