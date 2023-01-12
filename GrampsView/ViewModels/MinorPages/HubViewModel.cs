@@ -83,7 +83,8 @@ namespace GrampsView.ViewModels.MinorPages
         {
             OnPropertyChanged(string.Empty);
 
-            _ = BaseCL.DataLogHide();
+            //  SharedSharpNavigation.NavigateBack();
+            //        _ = BaseCL.DataLogHide();
         }
     }
 }
