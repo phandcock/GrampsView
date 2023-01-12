@@ -102,7 +102,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#ba55d3" ForegroundScale="0.75" />
 		
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#ba55d3" />
+		<MauiSplashScreen Include="Resources\Splash\splashscreen.svg" Color="#ba55d3" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -152,7 +152,6 @@
       <Compile Remove="MainPage.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
       <Compile Remove="Platforms\Android\Localize.cs" />
-      <Compile Remove="Platforms\Android\SplashActivity.cs" />
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />

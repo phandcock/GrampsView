@@ -12,16 +12,17 @@ namespace GrampsView
             BindingContext = Ioc.Default.GetRequiredService<AppShellViewModel>();
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            var t = Shell.Current.Navigation.NavigationStack;
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    var t = Shell.Current.Navigation.NavigationStack;
 
-            return base.OnBackButtonPressed();
-        }
+        //    return base.OnBackButtonPressed();
+        //}
 
-        protected override void OnNavigating(ShellNavigatingEventArgs args)
-        {
-            base.OnNavigating(args);
-        }
+        //protected override void OnNavigating(ShellNavigatingEventArgs args)
+        //{
+        //    base.OnNavigating(args);
+        //}
+
     }
 }

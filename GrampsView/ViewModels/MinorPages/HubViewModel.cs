@@ -17,7 +17,7 @@ namespace GrampsView.ViewModels.MinorPages
         /// <summary>Initializes a new instance of the <see cref="HubViewModel" /> class.</summary>
         /// <param name="iocCommonLogging">The ioc common logging.</param>
         public HubViewModel(ILog iocCommonLogging, IMessenger iocMessenger)
-       : base(iocCommonLogging)
+            : base(iocCommonLogging)
         {
             BaseTitle = "Hub";
             BaseTitleIcon = Constants.IconHub;

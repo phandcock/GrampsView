@@ -54,7 +54,7 @@ namespace GrampsView.Common
                 //object ttt = dataIn["BasePassedArguments"];
                 //Debug.WriteLine(ttt);
 
-                ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn["BasePassedArguments"]));
+                ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn[SharedSharpConstants.ShellParameter1]));
             }
 
             return ser;

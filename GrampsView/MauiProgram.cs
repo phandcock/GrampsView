@@ -100,7 +100,6 @@ namespace GrampsView
             return builder;
         }
 
-
 #if WINDOWS
         private static void OnSizeChanged(object sender, Microsoft.UI.Xaml.WindowSizeChangedEventArgs args)
         {
@@ -189,11 +188,9 @@ namespace GrampsView
             _ = builder.Services.AddTransient<FirstRunViewModel>();
             _ = builder.Services.AddTransient<WhatsNewViewModel>();
 
-
-
             //_ = builder.Services.AddTransient<SharedSharp.ViewModels.WhatsNewViewModel>();
 
-            _ = builder.Services.AddTransient<NavigationPage>();
+            //   _ = builder.Services.AddTransient<NavigationPage>();
 
             return builder;
         }

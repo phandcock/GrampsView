@@ -103,7 +103,7 @@ namespace GrampsView.Models.HLinks
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharpNavigation.NavigateAsync($"{argPage}?BasePassedArguments={ser}");
+            await SharedSharpNavigation.NavigateAsync(argPage, ser);
         }
 
         /// <summary>
