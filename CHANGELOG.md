@@ -1,3 +1,13 @@
+## [17.0.27](https://github.com/phandcock/GrampsView/compare/v17.0.26...v17.0.27) (2023-01-12)
+
+
+### Bug Fixes
+
+* tweak dataloghide ([94a1cb0](https://github.com/phandcock/GrampsView/commit/94a1cb01af2b6a7f956fae68ef15207ccd9873d7))
+* tweaks ([2105720](https://github.com/phandcock/GrampsView/commit/21057200570d62deacd930a9544d888939d45c5f))
+
+
+
 ## [17.0.26](https://github.com/phandcock/GrampsView/compare/v17.0.25...v17.0.26) (2023-01-11)
 
 
@@ -23,16 +33,6 @@
 
 * tweak appicons ([10ef4cf](https://github.com/phandcock/GrampsView/commit/10ef4cf01693532bef4ce22e08080bf503c5b0f1))
 * tweaks ([49089e8](https://github.com/phandcock/GrampsView/commit/49089e8a2a701d7d50611d83ba827f8819f0c962))
-
-
-
-## [17.0.23](https://github.com/phandcock/GrampsView/compare/v17.0.22...v17.0.23) (2023-01-08)
-
-
-### Bug Fixes
-
-* splash screen ([93cb5de](https://github.com/phandcock/GrampsView/commit/93cb5de8a8341125b23025f354aff191a95da73f))
-* tweak app and splash icons ([dbf88b5](https://github.com/phandcock/GrampsView/commit/dbf88b5de1037aba5ca78061cab0797b27a0b547))
 
 
 
