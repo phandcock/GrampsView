@@ -161,6 +161,10 @@
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\Images\appicon.svg" />
+    </ItemGroup>
+
 
     <ItemGroup>
 
@@ -257,6 +261,13 @@
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiImage Update="Resources\Images\appicon.svg">
+        <Color>#ba55d3</Color>
+        <ForegroundScale>0.75</ForegroundScale>
+      </MauiImage>
     </ItemGroup>
 
 

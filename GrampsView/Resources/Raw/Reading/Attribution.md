@@ -2,12 +2,10 @@
 
 - SharpZipLib is great software under the MIT licence.  See https://github.com/icsharpcode/SharpZipLib
 
-- The great icons are from Google Material Design under the Apache licence.
-
 - Also
     - Microsoft AppCenter
-    - Microsoft.Toolkit.uwp
+    - Microsoft.Community.Toolkit
     - Maui.Community.Toolkit
-    - Wonderful Font to Code website - https://andreinitescu.github.io/IconFont2Code/
+    - Wonderful Font to Code website - IconFont2Code: https://andreinitescu.github.io/IconFont2Code
     
 
