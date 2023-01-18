@@ -1,3 +1,12 @@
+## [17.0.29](https://github.com/phandcock/GrampsView/compare/v17.0.28...v17.0.29) (2023-01-18)
+
+
+### Bug Fixes
+
+* update nugets ([5a840c7](https://github.com/phandcock/GrampsView/commit/5a840c72d9656529e96404a48265fe85dab48d0e))
+
+
+
 ## [17.0.28](https://github.com/phandcock/GrampsView/compare/v17.0.27...v17.0.28) (2023-01-14)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * update nugets ([74c6181](https://github.com/phandcock/GrampsView/commit/74c6181e337c7c164c8f4b2a8fd2bbe1da893113))
-
-
-
-## [17.0.25](https://github.com/phandcock/GrampsView/compare/v17.0.24...v17.0.25) (2023-01-10)
-
-
-### Bug Fixes
-
-* tweak icon ([afe460d](https://github.com/phandcock/GrampsView/commit/afe460ddc116ed078c68f44fdec985c0924093d6))
 
 
 
