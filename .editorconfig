@@ -20,7 +20,7 @@ insert_final_newline = false
 # Organize usings
 dotnet_separate_import_directive_groups = true
 dotnet_sort_system_directives_first = false
-file_header_template = unset
+file_header_template = Copyright (c) phandcock.  All rights reserved.
 
 # this. and Me. preferences
 dotnet_style_qualification_for_event = false
@@ -243,7 +243,7 @@ indent_size = 4
 end_of_line = crlf
 dotnet_style_prefer_compound_assignment = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
-dotnet_style_namespace_match_folder = true:silent
+dotnet_style_namespace_match_folder = true:suggestion
 dotnet_style_readonly_field = true:suggestion
 dotnet_style_predefined_type_for_locals_parameters_members = true:silent
 dotnet_style_allow_multiple_blank_lines_experimental = true:warning
