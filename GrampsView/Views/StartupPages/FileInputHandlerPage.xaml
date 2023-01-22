@@ -45,7 +45,7 @@
                     Grid.Row="3"
                     Command="{Binding LoadSampleCommand}"
                     Style="{StaticResource SSButtonMenu}"
-                    Text="{i18:Localize FirstRun_SampleButton}" />
+                    Text="{i18:Localize FileInputHandlerPage_Sample_Button_Text}" />
             </StackLayout>
         </ScrollView>
     </Grid>

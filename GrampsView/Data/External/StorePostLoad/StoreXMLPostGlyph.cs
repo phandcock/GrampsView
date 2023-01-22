@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-using GrampsView.Common;
+﻿using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
@@ -11,11 +9,7 @@ using GrampsView.Resources.Fonts;
 
 using SharedSharp.Errors;
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -350,7 +344,7 @@ namespace GrampsView.Data.ExternalStorage
                 // Setup HomeImage
                 argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
 
-                if (argModel.Id == "O0629")
+                if (argModel.Id == "O0336")
                 {
                 }
 
