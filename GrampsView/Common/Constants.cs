@@ -1,4 +1,6 @@
-﻿using GrampsView.Resources.Fonts;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Resources.Fonts;
 
 namespace GrampsView.Common
 {
@@ -29,7 +31,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 75;
+        public const int GrampsViewDatabaseVersion = 76;
 
         /// <summary>
         /// The Gramps XML name space.
