@@ -1,10 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Repository;
 
 using SharedSharp.Errors.Interfaces;
-
-using System.IO;
-
-
 
 namespace GrampsView.Common.CustomClasses
 {
@@ -14,31 +12,34 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                string tt = System.IO.Path.Combine(FileSystem.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
+                string tt = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, Constants.DirectoryImageCache);
 
-                Value = new DirectoryInfo(tt);
+                FolderAsDirInfo = new DirectoryInfo(tt);
 
-                DirectoryInfo t = new DirectoryInfo(System.IO.Path.Combine(FileSystem.CacheDirectory, Constants.DirectoryCacheBase));
-
-                if (!Value.Exists)
+                if (!FolderAsDirInfo.Exists)
                 {
-                    _ = t.CreateSubdirectory(Constants.DirectoryImageCache);
+                    _ = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.CreateSubdirectory(Constants.DirectoryImageCache);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex);
                 throw;
             }
         }
 
-        public string Path => Value.FullName;
-
-        public bool Valid => !(Value == null) && Value.Exists;
-
-        public DirectoryInfo Value
+        public DirectoryInfo FolderAsDirInfo
         {
             get; set;
         } = null;
+
+        public string FolderAsString => FolderAsDirInfo.FullName;
+
+        public bool Valid => !(FolderAsDirInfo == null) && FolderAsDirInfo.Exists;
+
+        public string GetImageCacheFolderFilePath(string argFilePath)
+        {
+            return Path.Combine(FolderAsString, argFilePath);
+        }
     }
 }

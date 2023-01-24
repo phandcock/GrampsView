@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.Repository;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
@@ -79,27 +81,7 @@ namespace GrampsView.Common
             return modelInfoList;
         }
 
-        public static void ImageCacheFolderInit()
-        {
-            try
-            {
-                string tt = Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase, Constants.DirectoryImageCache);
 
-                DataStore.Instance.AD.CurrentImageAssetsFolder.Value = new DirectoryInfo(tt);
-
-                DirectoryInfo t = new(Path.Combine(FileSystem.Current.CacheDirectory, Constants.DirectoryCacheBase));
-
-                if (!DataStore.Instance.AD.CurrentImageAssetsFolder.Value.Exists)
-                {
-                    _ = t.CreateSubdirectory(Constants.DirectoryImageCache);
-                }
-            }
-            catch (Exception ex)
-            {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex);
-                throw;
-            }
-        }
 
         [Conditional("DEBUG")]
         [DebuggerStepThrough]

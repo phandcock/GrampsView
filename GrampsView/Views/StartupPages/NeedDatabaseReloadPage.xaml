@@ -25,7 +25,7 @@
     </Shell.TitleView>
 
     <ScrollView>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
 
             <BoxView HeightRequest="{Binding CardLargeHeight, Source={x:DynamicResource sSharpCommon:SharedSharpCardSizes}}" />
 

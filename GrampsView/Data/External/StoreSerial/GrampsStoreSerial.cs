@@ -1,6 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
@@ -61,7 +60,7 @@ namespace GrampsView.Data.External.StoreSerial
 
                 //byte[] buffer = new byte[1024];
 
-                FileStream isoStream = new FileStream(StoreFileUtility.GetDataFolderFilePath(GetSerialFile()), FileMode.Open);
+                FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetDataFolderFilePath(GetSerialFile()), FileMode.Open);
 
                 //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
 
@@ -206,7 +205,7 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 JsonSerializerOptions serializerOptions = GetSerializerOptions();
 
-                FileStream stream = new(StoreFileUtility.GetDataFolderFilePath(GetSerialFile()), FileMode.Create);
+                FileStream stream = new(DataStore.Instance.AD.CurrentDataFolder.GetDataFolderFilePath(GetSerialFile()), FileMode.Create);
                 //StreamWriter sw = new StreamWriter(stream);
 
                 await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);

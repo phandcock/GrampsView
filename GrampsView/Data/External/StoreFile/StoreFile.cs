@@ -1,4 +1,5 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
 using GrampsView.Data.Repository;
 
 using ICSharpCode.SharpZipLib.GZip;
@@ -25,12 +26,12 @@ namespace GrampsView.Data
             {
                 try
                 {
-                    foreach (FileInfo item in DataStore.Instance.AD.CurrentDataFolder.Value.GetFiles())
+                    foreach (FileInfo item in DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles())
                     {
                         item.Delete();
                     }
 
-                    foreach (DirectoryInfo item in DataStore.Instance.AD.CurrentDataFolder.Value.GetDirectories())
+                    foreach (DirectoryInfo item in DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetDirectories())
                     {
                         Thread.Sleep(100);
                         Debug.WriteLine($"About to delete  directory: {item.FullName}");
@@ -38,7 +39,7 @@ namespace GrampsView.Data
                     }
 
                     // Create standard directories
-                    _ = DataStore.Instance.AD.CurrentDataFolder.Value.CreateSubdirectory(Constants.DirectoryImageCache);
+                    //  _ = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.CreateSubdirectory(Constants.DirectoryImageCache);
 
                     // TODO    await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }

@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreSerial;
@@ -232,7 +234,7 @@ namespace GrampsView.Data.Repository
                 {
                     _CL.DataLogEntryAdd("Later version of Gramps XML data compressed file found. Loading it into the program");
 
-                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Constants.StorageXMLFileName));
+                    File.Copy(DataStore.Instance.AD.CurrentInputStreamPath, Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, Constants.StorageXMLFileName));
 
                     GrampsFile = new FileInfoEx();  // Mark as invalid as do not need to unzip
                 }

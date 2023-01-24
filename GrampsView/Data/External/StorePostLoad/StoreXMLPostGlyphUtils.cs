@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreFile;
@@ -45,7 +47,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // check if we can get an image for the first page of the PDF
                 // TODO add this back in
-                pdfimage = await MyGenerateThumbNails.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                pdfimage = await MyGenerateThumbNails.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconFont.FilePdf);
             }
@@ -74,7 +76,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // check if we can get an image for the video
                 // TODO add this back in
-                videoImage = await MyGenerateThumbNails.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                videoImage = await MyGenerateThumbNails.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
                 returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconFont.FileArchive);
             }
@@ -112,7 +114,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     // check if we can get an image for the first page of the PDF
 
-                    zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.Value, argMediaModel, newMediaModel);
+                    zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
                     returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconFont.FileArchive);
                 }

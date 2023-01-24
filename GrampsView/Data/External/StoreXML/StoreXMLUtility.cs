@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Diagnostics;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Diagnostics;
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
@@ -278,7 +280,7 @@ namespace GrampsView.Data.ExternalStorage
 
              Debug.WriteLine(newHLinkKey.Value);
 
-             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.Path, outFileName);
+             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString, outFileName);
 
              Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
 

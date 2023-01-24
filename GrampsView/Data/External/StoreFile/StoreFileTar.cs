@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreFolder;
 using GrampsView.Data.Repository;
@@ -59,7 +61,7 @@ namespace GrampsView.Data
                     // Apply further name transformations here as necessary
                     string filename = Path.GetFileName(tarName);
 
-                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, tarName);
+                    string outName = Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, tarName);
 
                     string relativePath = Path.GetDirectoryName(tarEntry.Name);
 

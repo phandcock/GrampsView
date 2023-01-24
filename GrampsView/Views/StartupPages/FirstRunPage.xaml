@@ -18,7 +18,7 @@
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center">
+        <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
             <Border
                 Grid.Row="0"

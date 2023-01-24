@@ -1,4 +1,6 @@
-﻿using SharedSharp.Errors.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using SharedSharp.Errors.Interfaces;
 
 using System.Diagnostics;
 
@@ -14,14 +16,14 @@ namespace GrampsView.Common.CustomClasses
 
                 string tt = System.IO.Path.Combine(BaseDir.FullName, Constants.DirectoryCacheBase);
 
-                Value = new DirectoryInfo(tt);
+                FolderasDirInfo = new DirectoryInfo(tt);
 
-                if (!Value.Exists)
+                if (!FolderasDirInfo.Exists)
                 {
-                    Value = BaseDir.CreateSubdirectory(Constants.DirectoryCacheBase);
+                    FolderasDirInfo = BaseDir.CreateSubdirectory(Constants.DirectoryCacheBase);
                 }
 
-                Debug.WriteLine("CurrentDataFolder Path:" + Value.FullName);
+                Debug.WriteLine("CurrentDataFolder Path:" + FolderasDirInfo.FullName);
             }
             catch (Exception ex)
             {
@@ -30,14 +32,19 @@ namespace GrampsView.Common.CustomClasses
             }
         }
 
-        public string Path => Value.FullName;
-
-        public bool Valid => !(Value == null) && Value.Exists;
-
-        public DirectoryInfo Value
+        public DirectoryInfo FolderasDirInfo
         {
             get; set;
         }
             = new(FileSystem.Current.AppDataDirectory);
+
+        public string FolderAsString => FolderasDirInfo.FullName;
+
+        public bool Valid => !(FolderasDirInfo == null) && FolderasDirInfo.Exists;
+
+        public string GetDataFolderFilePath(string argFilePath)
+        {
+            return Path.Combine(FolderAsString, argFilePath);
+        }
     }
 }

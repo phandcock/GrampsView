@@ -17,7 +17,7 @@
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="CenterAndExpand">
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
             <Border Style="{StaticResource SSBorderHeaderStyle}">
                 <HorizontalStackLayout>

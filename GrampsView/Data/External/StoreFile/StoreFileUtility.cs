@@ -1,6 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Common;
 using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
@@ -28,16 +27,6 @@ namespace GrampsView.Data.External.StoreFile
         public static string CleanFilePath(string inputFile)
         {
             return Path.Combine(Path.GetDirectoryName(inputFile), Path.GetFileName(inputFile));
-        }
-
-        public static string GetDataCacheFolderFilePath(string argFilePath)
-        {
-            return Path.Combine(FileSystem.Current.AppDataDirectory, Constants.DirectoryCacheBase, argFilePath);
-        }
-
-        public static string GetDataFolderFilePath(string argFilePath)
-        {
-            return Path.Combine(FileSystem.Current.AppDataDirectory, argFilePath);
         }
 
         /// <summary>

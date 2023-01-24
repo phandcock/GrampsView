@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.Repository;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
@@ -9,8 +11,6 @@ namespace GrampsView.Data.External.StoreFile
 {
     public class FileInfoEx : ObservableObject, IFileInfoEx
     {
-
-
         public FileInfoEx()
         {
         }
@@ -31,7 +31,7 @@ namespace GrampsView.Data.External.StoreFile
             }
 
             // Standard call
-            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Value.FullName, argRelativeFolder)));
+            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.FullName, argRelativeFolder)));
         }
 
         public bool Exists
@@ -49,7 +49,6 @@ namespace GrampsView.Data.External.StoreFile
         }
 
         public FileInfo FInfo { get; set; }
-
 
         public bool Valid => FInfo != null && FInfo.Exists && FInfo.FullName != null;
 
@@ -84,9 +83,9 @@ namespace GrampsView.Data.External.StoreFile
             {
                 try
                 {
-                    if (Directory.Exists(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, Path.GetDirectoryName(relativeFilePath))))
+                    if (Directory.Exists(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, Path.GetDirectoryName(relativeFilePath))))
                     {
-                        FileInfo[] t = DataStore.Instance.AD.CurrentDataFolder.Value.GetFiles(relativeFilePath);
+                        FileInfo[] t = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(relativeFilePath);
 
                         if (t.Length > 0)
                         {
@@ -142,7 +141,7 @@ namespace GrampsView.Data.External.StoreFile
         /// </param>
         private void createFilePath(string argFileName, DirectoryInfo? argBaseFolder = null)
         {
-            argBaseFolder ??= DataStore.Instance.AD.CurrentDataFolder.Value;
+            argBaseFolder ??= DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo;
 
             Contract.Assert(argFileName != null);
 

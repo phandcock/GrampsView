@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
@@ -36,7 +38,7 @@ namespace GrampsView.Data
 
             GZipStream gzipStream = new(originalFileStream, CompressionMode.Decompress);
 
-            FileInfo fsOut = new(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.Path, argOutFile));
+            FileInfo fsOut = new(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, argOutFile));
 
             FileStream fsOut1 = fsOut.Create();
 
