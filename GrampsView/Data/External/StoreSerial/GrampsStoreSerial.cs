@@ -41,9 +41,9 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 DataContractSerializer ser = new(typeof(DataInstance));
 
-                // TODO refactor
-                DirectoryInfo BaseDir = new(FileSystem.Current.AppDataDirectory);
-                FileInfo[] ttt = BaseDir.GetFiles(GetSerialFile());
+
+
+                FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(GetSerialFile());
 
                 // Check of the file exists
                 if (ttt.Count() != 1)
@@ -60,7 +60,7 @@ namespace GrampsView.Data.External.StoreSerial
 
                 //byte[] buffer = new byte[1024];
 
-                FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetDataFolderFilePath(GetSerialFile()), FileMode.Open);
+                FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile()), FileMode.Open);
 
                 //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
 
@@ -205,7 +205,7 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 JsonSerializerOptions serializerOptions = GetSerializerOptions();
 
-                FileStream stream = new(DataStore.Instance.AD.CurrentDataFolder.GetDataFolderFilePath(GetSerialFile()), FileMode.Create);
+                FileStream stream = new(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile()), FileMode.Create);
                 //StreamWriter sw = new StreamWriter(stream);
 
                 await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);

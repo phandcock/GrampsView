@@ -31,7 +31,7 @@ namespace GrampsView.Data.External.StoreFile
             }
 
             // Standard call
-            createFilePath(argFileName, new DirectoryInfo(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.FullName, argRelativeFolder)));
+            createFilePath(argFileName, new DirectoryInfo(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(argRelativeFolder)));
         }
 
         public bool Exists
@@ -83,7 +83,7 @@ namespace GrampsView.Data.External.StoreFile
             {
                 try
                 {
-                    if (Directory.Exists(Path.Combine(DataStore.Instance.AD.CurrentDataFolder.FolderAsString, Path.GetDirectoryName(relativeFilePath))))
+                    if (Directory.Exists(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(Path.GetDirectoryName(relativeFilePath))))
                     {
                         FileInfo[] t = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(relativeFilePath);
 

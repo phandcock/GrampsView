@@ -42,9 +42,14 @@ namespace GrampsView.Common.CustomClasses
 
         public bool Valid => !(FolderasDirInfo == null) && FolderasDirInfo.Exists;
 
-        public string GetDataFolderFilePath(string argFilePath)
+        public string GetAbsoluteFilePath(string argFilePath)
         {
             return Path.Combine(FolderAsString, argFilePath);
+        }
+
+        public string GetRelativeFilePath(string argFilePath)
+        {
+            return Path.Combine(Constants.DirectoryCacheBase, argFilePath);
         }
     }
 }

@@ -150,7 +150,7 @@ namespace GrampsView.Data.ExternalStorage
             newMediaModel.InternalMediaFileOriginalHLink = argSourceMediaModel.HLinkKey;
 
             newMediaModel.HLinkKey.Value = argSourceMediaModel.HLinkKey.Value + argNewMediaHLPrefix;
-            newMediaModel.OriginalFilePath = Path.Combine(Constants.DirectoryImageCache, newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
+            newMediaModel.OriginalFilePath = DataStore.Instance.AD.CurrentImageAssetsFolder.GetRelativeFilePath(newMediaModel.HLinkKey.Value + argNewMediaFileExtension);
 
             return newMediaModel;
         }
