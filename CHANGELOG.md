@@ -1,3 +1,13 @@
+## [17.0.31](https://github.com/phandcock/GrampsView/compare/v17.0.30...v17.0.31) (2023-01-24)
+
+
+### Bug Fixes
+
+* Refactor data/image base folders ([30738cb](https://github.com/phandcock/GrampsView/commit/30738cb6cd3f44a77a91b827dceb92c7d4c40042))
+* update nugets and add mediaelement ([0778424](https://github.com/phandcock/GrampsView/commit/0778424d65a98c0d7ad8a9e23cb0f4706af82efa))
+
+
+
 ## [17.0.30](https://github.com/phandcock/GrampsView/compare/v17.0.29...v17.0.30) (2023-01-22)
 
 
@@ -23,16 +33,6 @@
 ### Bug Fixes
 
 * fix aboutpage icons ([caa4d2b](https://github.com/phandcock/GrampsView/commit/caa4d2bf44b962ec7f9ee2beb65d90e502a7368b))
-
-
-
-## [17.0.27](https://github.com/phandcock/GrampsView/compare/v17.0.26...v17.0.27) (2023-01-12)
-
-
-### Bug Fixes
-
-* tweak dataloghide ([94a1cb0](https://github.com/phandcock/GrampsView/commit/94a1cb01af2b6a7f956fae68ef15207ccd9873d7))
-* tweaks ([2105720](https://github.com/phandcock/GrampsView/commit/21057200570d62deacd930a9544d888939d45c5f))
 
 
 
