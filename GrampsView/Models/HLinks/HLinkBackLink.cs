@@ -1,14 +1,14 @@
-﻿// XML 171 - Not in definition so created this for use with BackLink functionality
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Models.HLinks;
+using GrampsView.Models.HLinks.Models;
 
 // TODO fix Deref caching
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Models.HLinks.Models;
-
     /// <summary>
     /// GRAMPS $$(hlink)$$ element class.
     /// </summary>
@@ -160,31 +160,31 @@ namespace GrampsView.Data.Model
             Unknown
         }
 
-        public HLinkAdressModel _HLinkAddressModel { get; set; }
+        public HLinkAdressModel _HLinkAddressModel { get; set; } = new HLinkAdressModel();
 
-        public HLinkCitationModel _HLinkCitationModel { get; set; }
+        public HLinkCitationModel _HLinkCitationModel { get; set; } = new HLinkCitationModel();
 
-        public HLinkEventModel _HLinkEventModel { get; set; }
+        public HLinkEventModel _HLinkEventModel { get; set; } = new HLinkEventModel();
 
-        public HLinkFamilyModel _HLinkFamilyModel { get; set; }
+        public HLinkFamilyModel _HLinkFamilyModel { get; set; } = new HLinkFamilyModel();
 
-        public HLinkMediaModel _HLinkMediaModel { get; set; }
+        public HLinkMediaModel _HLinkMediaModel { get; set; } = new HLinkMediaModel();
 
-        public HLinkNameMapModel _HLinkNameMapModel { get; set; }
+        public HLinkNameMapModel _HLinkNameMapModel { get; set; } = new HLinkNameMapModel();
 
-        public HLinkNoteModel _HLinkNoteModel { get; set; }
+        public HLinkNoteModel _HLinkNoteModel { get; set; } = new HLinkNoteModel();
 
-        public HLinkPersonModel _HLinkPersonModel { get; set; }
+        public HLinkPersonModel _HLinkPersonModel { get; set; } = new HLinkPersonModel();
 
-        public HLinkPersonNameModel _HLinkPersonNameModel { get; set; }
+        public HLinkPersonNameModel _HLinkPersonNameModel { get; set; } = new HLinkPersonNameModel();
 
-        public HLinkPlaceModel _HLinkPlaceModel { get; set; }
+        public HLinkPlaceModel _HLinkPlaceModel { get; set; } = new HLinkPlaceModel();
 
-        public HLinkRepositoryModel _HLinkRepositoryModel { get; set; }
+        public HLinkRepositoryModel _HLinkRepositoryModel { get; set; } = new HLinkRepositoryModel();
 
-        public HLinkSourceModel _HLinkSourceModel { get; set; }
+        public HLinkSourceModel _HLinkSourceModel { get; set; } = new HLinkSourceModel();
 
-        public HLinkTagModel _HLinkTagModel { get; set; }
+        public HLinkTagModel _HLinkTagModel { get; set; } = new HLinkTagModel();
 
         public HLinkBase HLink
         {

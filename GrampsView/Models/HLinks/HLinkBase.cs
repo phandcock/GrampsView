@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 
@@ -71,7 +73,7 @@ namespace GrampsView.Models.HLinks
             }
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             return ((IComparable)HLinkKey).CompareTo(obj);
         }

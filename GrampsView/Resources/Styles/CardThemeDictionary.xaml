@@ -30,6 +30,10 @@
         #ce3d64
     </Color>
 
+    <Color x:Key="CardBackGroundNameMap">
+        #ff00bf
+    </Color>
+
     <Color x:Key="CardBackGroundNote">
         #ff00bf
     </Color>

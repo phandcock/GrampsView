@@ -1,9 +1,11 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using System.Threading.Tasks;
+
 namespace GrampsView.Data
 {
-    using System.Threading.Tasks;
-
     /// <summary>
-    /// Interface definitions for IExternal Storage.
+    /// Interface definitions for File Storage.
     /// </summary>
     public interface IStoreFile
     {

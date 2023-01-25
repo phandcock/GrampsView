@@ -148,6 +148,8 @@
       <Compile Remove="Common\Interfaces\ILocalizecs.cs" />
       <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
       <Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
+      <Compile Remove="Data\External\StoreFile\Interfaces\IStoreFileFile.cs" />
+      <Compile Remove="Data\External\StoreFile\StoreFileNames.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
       <Compile Remove="MainPage.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
