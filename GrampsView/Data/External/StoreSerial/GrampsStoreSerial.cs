@@ -41,12 +41,10 @@ namespace GrampsView.Data.External.StoreSerial
             {
                 DataContractSerializer ser = new(typeof(DataInstance));
 
-
-
                 FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(GetSerialFile());
 
                 // Check of the file exists
-                if (ttt.Count() != 1)
+                if (ttt.Length != 1)
                 {
                     ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
                                 {

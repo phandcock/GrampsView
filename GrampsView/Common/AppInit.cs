@@ -1,4 +1,6 @@
-﻿using GrampsView.Events;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Events;
 using GrampsView.Views;
 using GrampsView.Views.StartupPages;
 
@@ -71,7 +73,7 @@ namespace GrampsView.Common
                 if (SharedSharpSettings.DataSerialised)
                 {
                     // Ioc.Default.GetRequiredService<IDataRepositoryManager>().StartDataLoad();
-                    _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadStartEvent(true));
+                    _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new AppStartLoadDataEvent(true));
                     return;
                 }
 

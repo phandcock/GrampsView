@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Events;
@@ -27,7 +29,7 @@ namespace GrampsView.ViewModels.MinorPages
                 HandledDataLoadedEvent();
             });
 
-            iocMessenger.Register<DataLoadStartEvent>(this, (r, m) =>
+            iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
              {
                  BaseCL.DataLogShow();
              });

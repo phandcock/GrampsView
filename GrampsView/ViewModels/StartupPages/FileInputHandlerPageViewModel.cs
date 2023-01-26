@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Events;
@@ -100,7 +102,7 @@ namespace GrampsView.ViewModels.StartupPages
 
             await Task.Delay(500);
 
-            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadStartEvent(true));
+            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new AppStartLoadDataEvent(true));
         }
     }
 }

@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
@@ -21,7 +20,7 @@ namespace GrampsView.Data.ExternalStorage
             return new ErrorInfo(argErrorText)
                                  {
                                      { "Original ID", argMediaModel.Id },
-                                     { "Original File", argMediaModel.MediaStorageFilePath },
+                                     { "Original File", argMediaModel.OriginalFilePath },
                                  };
         }
 
@@ -32,9 +31,9 @@ namespace GrampsView.Data.ExternalStorage
             IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~imagepdf", ".jpg");
 
             // TODO Having an issue where Gramps XML content type is not always correct
-            if (argMediaModel.MediaStorageFile.FInfo.Extension != ".pdf")
+            if (argMediaModel.CurrentStorageFile.FInfo.Extension != ".pdf")
             {
-                _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.CurrentStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -43,7 +42,7 @@ namespace GrampsView.Data.ExternalStorage
             // Check if new pdf image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-            if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
+            if ((!fileExists.Valid) && argMediaModel.CurrentStorageFile.Valid)
             {
                 // check if we can get an image for the first page of the PDF
                 // TODO add this back in
@@ -72,7 +71,7 @@ namespace GrampsView.Data.ExternalStorage
             // Check if new image file already exists
             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-            if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
+            if ((!fileExists.Valid) && argMediaModel.CurrentStorageFile.Valid)
             {
                 // check if we can get an image for the video
                 // TODO add this back in
@@ -99,9 +98,9 @@ namespace GrampsView.Data.ExternalStorage
                 IMediaModel newMediaModel = UtilCreateNewMediaObject(argMediaModel, "~zipimage", ".jpg");
 
                 // TODO Having an issue where Gramps XML content type is not always correct
-                if (argMediaModel.MediaStorageFile.FInfo.Extension != ".zip")
+                if (argMediaModel.CurrentStorageFile.FInfo.Extension != ".zip")
                 {
-                    _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.MediaStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                    _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.CurrentStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                     return argMediaModel.ModelItemGlyph;
                 }
 
@@ -110,7 +109,7 @@ namespace GrampsView.Data.ExternalStorage
                 // Check if new zip image file already exists
                 IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newMediaModel.HLinkKey);
 
-                if ((!fileExists.Valid) && argMediaModel.IsMediaStorageFileValid)
+                if ((!fileExists.Valid) && argMediaModel.CurrentStorageFile.Valid)
                 {
                     // check if we can get an image for the first page of the PDF
 
@@ -132,7 +131,7 @@ namespace GrampsView.Data.ExternalStorage
                 ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {
                       { "Original ID", argMediaModel.Id },
-                      { "Original File", argMediaModel.MediaStorageFilePath },
+                      { "Original File", argMediaModel.OriginalFilePath },
                       { "Clipped Id", argMediaModel.Id },
                       { "New path", "pdfimage" }
                   };
@@ -164,7 +163,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     argNewMediaModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                     argNewMediaModel.IsInternalMediaFile = true; // Do not show in media list as it is internal
-                    argNewMediaModel.MediaStorageFile = new FileInfoEx(argUseCurrentDataFolder: true, argFileName: argNewMediaModel.OriginalFilePath);
+                    argNewMediaModel.CurrentStorageFile = new FileInfoEx(argFileName: argNewMediaModel.OriginalFilePath);
 
                     addLater.Add(argNewMediaModel);
 
@@ -185,7 +184,7 @@ namespace GrampsView.Data.ExternalStorage
                 ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                   {
                       { "Original ID", argNewMediaModel.Id },
-                      { "Original File", argNewMediaModel.MediaStorageFilePath },
+                      { "Original File", argNewMediaModel.OriginalFilePath },
                       { "Clipped Id", argNewMediaModel.Id },
                       { "New path", "pdfimage" }
                   };

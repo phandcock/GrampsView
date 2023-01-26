@@ -1,10 +1,12 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Models.DataModels;
+
+using System.Threading.Tasks;
+
 namespace GrampsView.Data.ExternalStorage
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Models.DataModels;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface definitions for IExternal Storage.
     /// </summary>
@@ -12,6 +14,6 @@ namespace GrampsView.Data.ExternalStorage
     {
         ItemGlyph GetThumbImageFromZip(MediaModel argMediaModel);
 
-        Task LoadSerialUiItems();
+        //Task LoadSerialUiItems();
     }
 }

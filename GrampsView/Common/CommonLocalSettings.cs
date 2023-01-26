@@ -1,4 +1,4 @@
-﻿using GrampsView.Data;
+﻿using GrampsView.Common.Interfaces;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Repository;
 

@@ -1,10 +1,9 @@
-﻿using GrampsView.Data.External.StoreXML;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -28,7 +27,7 @@ namespace GrampsView.Data.ExternalStorage
                 try
                 {
                     // Run query
-                    System.Collections.Generic.IEnumerable<XElement> de =
+                    IEnumerable<XElement> de =
                         from el in LocalGrampsXMLdoc.Descendants(ns + "source")
                         select el;
 
@@ -40,7 +39,7 @@ namespace GrampsView.Data.ExternalStorage
                         // Source attributes
                         loadSource.LoadBasics(GetBasics(pSourceElement));
 
-                        if (loadSource.Id == "S0312")
+                        if (loadSource.Id == "S0087")
                         {
                         }
 

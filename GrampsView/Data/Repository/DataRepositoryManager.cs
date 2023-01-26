@@ -2,7 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.External.StoreFile;
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.External.StoreSerial;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;
@@ -86,7 +86,7 @@ namespace GrampsView.Data.Repository
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<DataLoadStartEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<AppStartLoadDataEvent>(this, (r, m) =>
             {
                 if (!m.Value)
                 {
@@ -425,7 +425,7 @@ namespace GrampsView.Data.Repository
 
                         UpdateSavedLocalSettings();
 
-                        await _PostLoad.LoadSerialUiItems().ConfigureAwait(false);
+                        //await _PostLoad.LoadSerialUiItems().ConfigureAwait(false);
 
                         _CL.DataLogEntryReplace("GRAMPS Serial data load complete");
 

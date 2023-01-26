@@ -1,6 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
@@ -60,7 +61,7 @@ namespace GrampsView.Data
             ICSharpCode.SharpZipLib.Zip.ZipFile? zf = null;
             try
             {
-                FileStream fs = File.OpenRead(argExistingMediaModel.MediaStorageFilePath);
+                FileStream fs = File.OpenRead(argExistingMediaModel.CurrentStorageFile.GetAbsoluteFilePath);
                 zf = new ICSharpCode.SharpZipLib.Zip.ZipFile(fs);
 
                 foreach (ZipEntry zipEntry in zf)
@@ -109,7 +110,7 @@ namespace GrampsView.Data
                 ErrorInfo t = new("Directory not found when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
-                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Original File", argExistingMediaModel.OriginalFilePath },
                                      { "Clipped Id", argNewMediaModel.Id },
                                      { "New path", "pdfimage" }
                                  };
@@ -123,7 +124,7 @@ namespace GrampsView.Data
                 ErrorInfo t = new("Exception when trying to create image from ZIP file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
-                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Original File", argExistingMediaModel.OriginalFilePath },
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 

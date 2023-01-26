@@ -4,7 +4,6 @@ using CommunityToolkit.Diagnostics;
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
@@ -282,15 +281,15 @@ namespace GrampsView.Data.ExternalStorage
 
              string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString, outFileName);
 
-             Debug.WriteLine(argHLinkLoadImageModel.DeRef.MediaStorageFilePath);
+             Debug.WriteLine(argHLinkLoadImageModel.DeRef.CurrentStorageFile);
 
              // Check if already exists
              IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
 
-             if ((!fileExists.Valid) && theMediaModel.IsMediaStorageFileValid)
+             if ((!fileExists.Valid) && theMediaModel.CurrentStorageFile.Valid)
              {
                  // Needs clipping
-                 using (StreamReader stream = new(theMediaModel.MediaStorageFilePath))
+                 using (StreamReader stream = new(theMediaModel.CurrentStorageFile.GetAbsoluteFilePath))
                  {
                      //resourceBitmap = SKBitmap.Decode(stream.BaseStream);
                      // TODO See https://github.com/mono/SkiaSharp/issues/1621
@@ -357,7 +356,7 @@ namespace GrampsView.Data.ExternalStorage
                  newMediaModel.HLinkKey = newHLinkKey;
 
                  newMediaModel.OriginalFilePath = outFilePath;
-                 newMediaModel.MediaStorageFile = new FileInfoEx(argFileName: outFilePath);
+                 newMediaModel.CurrentStorageFile = new FileInfoEx(argFileName: outFilePath);
 
                  newMediaModel.IsInternalMediaFile = true;
                  newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;
@@ -375,7 +374,7 @@ namespace GrampsView.Data.ExternalStorage
 
                  {
                      { "Original ID", theMediaModel.Id },
-                     { "Original File", theMediaModel.MediaStorageFilePath },
+                     { "Original File", theMediaModel.OriginalFilePath },
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
                  };
 

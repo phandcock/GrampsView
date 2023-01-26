@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
@@ -130,11 +132,11 @@ namespace GrampsView.UserControls
 
         private void ShowImage(IMediaModel argMediaModel)
         {
-            if (argMediaModel.IsMediaStorageFileValid)
+            if (argMediaModel.CurrentStorageFile.Valid)
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                    if (string.IsNullOrEmpty(argMediaModel.CurrentStorageFile.GetAbsoluteFilePath))
                     {
                         ErrorInfo t = new("The image file path is null")
                         {
@@ -168,7 +170,7 @@ namespace GrampsView.UserControls
 
                     Image newMediaControl = new()
                     {
-                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
+                        Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath,
                         BackgroundColor = new Color(),
                     };
 
@@ -183,7 +185,7 @@ namespace GrampsView.UserControls
                     {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
-                    { "Media Model Path", argMediaModel.MediaStorageFilePath },
+                    { "Media Model Path", argMediaModel.CurrentStorageFile.GetAbsoluteFilePath },
                 };
 
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argExtraItems: argDetail);
@@ -194,11 +196,11 @@ namespace GrampsView.UserControls
 
         private void ShowMedia(IMediaModel argMediaModel)
         {
-            if (argMediaModel.IsMediaStorageFileValid)
+            if (argMediaModel.CurrentStorageFile.Valid)
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(argMediaModel.MediaStorageFilePath))
+                    if (string.IsNullOrEmpty(argMediaModel.CurrentStorageFile.GetAbsoluteFilePath))
                     {
                         ErrorInfo t = new("The media file path is null")
                         {
@@ -225,7 +227,7 @@ namespace GrampsView.UserControls
 
                     Image newMediaControl = new()
                     {
-                        Source = argMediaModel.HLink.DeRef.MediaStorageFilePath
+                        Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath
                     };
 
                     //newMediaControl.Error += NewMediaControl_Error;
@@ -239,7 +241,7 @@ namespace GrampsView.UserControls
                     {
                     { "Type", "Image" },
                     { "Media Model Id", argMediaModel.Id },
-                    { "Media Model Path", argMediaModel.MediaStorageFilePath },
+                    { "Media Model Path", argMediaModel.CurrentStorageFile.GetAbsoluteFilePath },
                 };
 
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argDetail);

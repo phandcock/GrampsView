@@ -1,5 +1,7 @@
 // Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Common.Interfaces;
+
 using System.Threading.Tasks;
 
 namespace GrampsView.Data

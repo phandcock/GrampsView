@@ -1,6 +1,7 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
@@ -10,6 +11,13 @@ namespace GrampsView.Models.DataModels.Interfaces
 {
     public interface IMediaModel : IModelBase
     {
+        FileInfoEx CurrentStorageFile
+        {
+            get;
+
+            set;
+        }
+
         string FileContentType
         {
             get;
@@ -100,35 +108,12 @@ namespace GrampsView.Models.DataModels.Interfaces
             get; set;
         }
 
-        bool IsMediaStorageFileValid
-        {
-            get;
-        }
-
         bool IsOriginalFilePathValid
         {
             get;
         }
 
         CommonEnums.HLinkGlyphType MediaDisplayType
-        {
-            get;
-        }
-
-        IFileInfoEx MediaStorageFile
-        {
-            get;
-
-            set;
-        }
-
-        /// <summary>
-        /// Gets the media storage file path.
-        /// </summary>
-        /// <value>
-        /// The media storage file path.
-        /// </value>
-        string MediaStorageFilePath
         {
             get;
         }
@@ -161,7 +146,5 @@ namespace GrampsView.Models.DataModels.Interfaces
 
             set;
         }
-
-
     }
 }

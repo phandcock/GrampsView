@@ -1,4 +1,7 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
 using GrampsView.Common.Interfaces;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
@@ -98,7 +101,7 @@ namespace GrampsView.Data.ExternalStorage
                             {
                                 MyNotifications.NotifyError(new ErrorInfo("Error trying to load a media file for object listed in the GRAMPS file.  FileName is null") { { "Id", loadObject.Id }, });
 
-                                loadObject.MediaStorageFile = null;
+                                loadObject.CurrentStorageFile = null;
                             }
                             else
                             {
@@ -109,12 +112,12 @@ namespace GrampsView.Data.ExternalStorage
                                     loadObject.OriginalFilePath = temp;
 
                                     // Load FileInfoEx and metadata
-                                    loadObject.MediaStorageFile = FileInfoEx.GetStorageFile(loadObject.OriginalFilePath);
+                                    loadObject.CurrentStorageFile = new FileInfoEx(loadObject.OriginalFilePath);
 
-                                    if (loadObject.MediaStorageFile.Valid)
+                                    if (loadObject.CurrentStorageFile.Valid)
                                     {
                                         // TODO add this back in
-                                        Size imageSize = PlatformImageHandler.GetSize(loadObject.MediaStorageFilePath);
+                                        Size imageSize = PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath);
 
                                         loadObject.MetaDataHeight = imageSize.Height;
                                         loadObject.MetaDataWidth = imageSize.Width;

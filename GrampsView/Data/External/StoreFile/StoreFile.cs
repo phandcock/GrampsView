@@ -1,5 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.Repository;
 
 using ICSharpCode.SharpZipLib.GZip;

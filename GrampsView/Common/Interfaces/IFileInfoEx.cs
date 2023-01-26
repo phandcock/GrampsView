@@ -1,8 +1,7 @@
-﻿namespace GrampsView.Data
-{
-    using System;
-    using System.IO;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+namespace GrampsView.Common.Interfaces
+{
     public interface IFileInfoEx
     {
         bool Exists
@@ -13,9 +12,9 @@
         FileInfo FInfo
         {
             get;
-
-            set;
         }
+
+        string GetAbsoluteFilePath { get; }
 
         bool Valid
         {

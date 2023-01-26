@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 
 using SharedSharp.Common.Interfaces;
 
@@ -39,7 +41,7 @@ namespace GrampsView.ViewModels.StartupPages
 
         public async Task LoadDataAction()
         {
-            _ = await Shell.Current.Navigation.PopModalAsync();
+            await SharedSharpNavigation.NavigateBack();
 
             await _AppInit.Init();
         }

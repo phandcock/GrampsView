@@ -1,8 +1,7 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data;
 using GrampsView.Data.Collections;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Model;
@@ -11,7 +10,6 @@ using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
 
 using System.Collections;
-using System.Text.Json.Serialization;
 
 namespace GrampsView.Models.DataModels
 {
@@ -37,11 +35,6 @@ namespace GrampsView.Models.DataModels
     {
         private string _FileContentType = string.Empty;
 
-        /// <summary>
-        /// Local Storage File for media object.
-        /// </summary>
-        private IFileInfoEx _MediaStorageFile = new FileInfoEx();
-
         private HLinkNoteModelCollection _NoteReferenceCollection = new();
 
         /// <summary>
@@ -56,6 +49,17 @@ namespace GrampsView.Models.DataModels
         {
             ModelItemGlyph.Symbol = Constants.IconMedia;
             ModelItemGlyph.SymbolColour = SharedSharpGeneral.GetResourceColour("CardBackGroundMedia");
+        }
+
+        /// <summary>
+        /// Gets or sets the media storage file. Serialised separately.
+        /// </summary>
+        /// <value>
+        /// The media storage file.
+        /// </value>
+        public FileInfoEx CurrentStorageFile
+        {
+            get; set;
         }
 
         public string FileContentType
@@ -127,33 +131,6 @@ namespace GrampsView.Models.DataModels
         public bool IsInternalMediaFile { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether [media storage file valid]. Runs various checks on the mediafile.
-        /// </summary>
-        /// <value>
-        /// <c> true </c> if [media storage file valid]; otherwise, <c> false </c>.
-        /// </value>
-        public bool IsMediaStorageFileValid
-        {
-            get
-            {
-                // TODO Enhance to check for zero length files
-                if (MediaStorageFile == null)
-                {
-                    return false;
-                };
-
-                if (!MediaStorageFile.Valid)
-                {
-                    return false;
-                };
-
-                //if (!(Uri.IsWellFormedUriString(MediaStorageFileUri.AbsolutePath, UriKind.Absolute))) { return false; };
-
-                return true;
-            }
-        }
-
-        /// <summary>
         /// Gets a value indicating whether [original file path] is valid.
         /// </summary>
         /// <value>
@@ -190,36 +167,6 @@ namespace GrampsView.Models.DataModels
                 }
             }
         }
-
-        /// <summary>
-        /// Gets or sets the media storage file. Serialised separately.
-        /// </summary>
-        /// <value>
-        /// The media storage file.
-        /// </value>
-        [JsonIgnore]
-        public IFileInfoEx MediaStorageFile
-        {
-            get => _MediaStorageFile;
-
-            set => SetProperty(ref _MediaStorageFile, value);
-        }
-
-        /// <summary>
-        /// Gets the media storage file path or string.empty if null.
-        /// </summary>
-        /// <value>
-        /// The media storage file.
-        /// </value>
-        public string MediaStorageFilePath => IsMediaStorageFileValid ? _MediaStorageFile.FInfo.FullName : string.Empty;
-
-        /// <summary>
-        /// Gets the media storage file URI.
-        /// </summary>
-        /// <value>
-        /// The media storage file URI.
-        /// </value>
-        public Uri? MediaStorageFileUri => IsMediaStorageFileValid ? new Uri(MediaStorageFilePath) : null;
 
         public double MetaDataHeight
         {

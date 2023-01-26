@@ -1,4 +1,8 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
 

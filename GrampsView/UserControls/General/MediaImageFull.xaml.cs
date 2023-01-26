@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.Model;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors.Interfaces;
@@ -57,11 +59,11 @@ namespace GrampsView.UserControls
 
             IMediaModel t = argHLinkMediaModel.DeRef;
 
-            if (t.IsMediaStorageFileValid && t.IsImage)
+            if (t.CurrentStorageFile.Valid && t.IsImage)
             {
                 try
                 {
-                    mifModel.daImage.Source = t.MediaStorageFilePath;
+                    mifModel.daImage.Source = t.CurrentStorageFile.GetAbsoluteFilePath;
 
                     mifModel.IsVisible = true;
 

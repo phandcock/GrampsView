@@ -1,4 +1,6 @@
-﻿using GrampsView.Models.DataModels.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.ViewModels.Media;
 
 using SharedSharp.Errors;
@@ -40,7 +42,7 @@ namespace GrampsView.Views
             Border? theFrame = sender as Border;
             IMediaModel theModel = (theFrame.BindingContext as MediaDetailViewModel).CurrentMediaObject;
 
-            OpenFileRequest t = new(theModel.GDescription, new ReadOnlyFile(theModel.MediaStorageFilePath));
+            OpenFileRequest t = new(theModel.GDescription, new ReadOnlyFile(theModel.CurrentStorageFile.GetAbsoluteFilePath));
             _ = Launcher.OpenAsync(t);
         }
     }
