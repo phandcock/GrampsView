@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Maui.Markup;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Maui.Markup;
 
 using GrampsView.Common;
 using GrampsView.Data;

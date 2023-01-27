@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.Model;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
@@ -6,7 +8,6 @@ using SharedSharp.Errors.Interfaces;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
 
 namespace GrampsView.Common.CustomClasses
 {
@@ -180,7 +181,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(ImageHLinkMediaModel);
 
-                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
+                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}", ser);
 
                         break;
                     }
@@ -188,7 +189,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
-                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}?BasePassedArguments={ser}");
+                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}", ser);
 
                         break;
                     }

@@ -38,11 +38,6 @@ namespace GrampsView.Data
                         Debug.WriteLine($"About to delete  directory: {item.FullName}");
                         item.Delete(true);
                     }
-
-                    // Create standard directories
-                    //  _ = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.CreateSubdirectory(Constants.DirectoryImageCache);
-
-                    // TODO    await DataStore.Instance.FFIL.InvalidateCacheAsync(CacheType.All).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {

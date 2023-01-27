@@ -1,11 +1,12 @@
-﻿using GrampsView.ViewModels;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.ViewModels;
 
 namespace GrampsView
 {
     public partial class AppShell : Shell
     {
         public AppShell()
-
         {
             InitializeComponent();
 
@@ -14,15 +15,22 @@ namespace GrampsView
 
         //protected override bool OnBackButtonPressed()
         //{
-        //    var t = Shell.Current.Navigation.NavigationStack;
+        //    IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
 
-        //    return base.OnBackButtonPressed();
+        //    //    base.OnBackButtonPressed();
+
+        //    Shell.Current.Navigation.RemovePage()
+        //    return true;
         //}
 
         //protected override void OnNavigating(ShellNavigatingEventArgs args)
         //{
+        //    if (Shell.Current != null)
+        //    {
+        //        IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
+        //    }
+
         //    base.OnNavigating(args);
         //}
-
     }
 }

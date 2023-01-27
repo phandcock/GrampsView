@@ -11,6 +11,11 @@
     x:DataType="vm:AppShellViewModel"
     Style="{StaticResource SSShellBaseStyle}">
 
+    <!--<Shell.BackButtonBehavior>
+        <BackButtonBehavior
+        Command="{Binding Back_Command}" />
+    </Shell.BackButtonBehavior>-->
+
     <Shell.Resources>
         <ResourceDictionary>
 

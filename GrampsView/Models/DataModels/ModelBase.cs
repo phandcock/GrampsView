@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
@@ -266,7 +268,7 @@ namespace GrampsView.Models.DataModels
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharpNavigation.NavigateAsync($"{argPage}?BaseParamsModel={ser}");
+            await SharedSharpNavigation.NavigateAsync($"{argPage}", ser);
         }
     }
 }

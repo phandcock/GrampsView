@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Views;
 using GrampsView.Views.StartupPages;
 
@@ -14,12 +16,25 @@ namespace GrampsView.ViewModels
             RegisterDetailRoutes();
 
             TopMenuNoteCommand = new AsyncRelayCommand(TopMenuNoteCommandHandler);
+
+            //Back_Command = new RelayCommand(Back);
         }
 
         public new IAsyncRelayCommand TopMenuNoteCommand
         {
             get; private set;
         }
+
+        //public IRelayCommand Back_Command { get; set; }
+
+        //private async void Back()
+        //{
+        //    IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
+
+        //    //  Shell.Current.Navigation.NavigationStack.()
+
+        //    await Shell.Current.GoToAsync("..");
+        //}
 
         public async Task TopMenuNoteCommandHandler()
         {
