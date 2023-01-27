@@ -1,3 +1,12 @@
+## [17.0.33](https://github.com/phandcock/GrampsView/compare/v17.0.32...v17.0.33) (2023-01-27)
+
+
+### Bug Fixes
+
+* tweaks ([c7e21d1](https://github.com/phandcock/GrampsView/commit/c7e21d17b813a01c202cd37810c9e50d1f3af2f9))
+
+
+
 ## [17.0.32](https://github.com/phandcock/GrampsView/compare/v17.0.31...v17.0.32) (2023-01-25)
 
 
@@ -24,15 +33,6 @@
 
 * fix data fiel reload fail after upgrade ([d6739d6](https://github.com/phandcock/GrampsView/commit/d6739d63b0f6896b58614d52de7d8ddbcb9e146c))
 * tweaks ([9651253](https://github.com/phandcock/GrampsView/commit/965125348deee2aa8d1e320773a88741d2c9e32e))
-
-
-
-## [17.0.29](https://github.com/phandcock/GrampsView/compare/v17.0.28...v17.0.29) (2023-01-18)
-
-
-### Bug Fixes
-
-* update nugets ([5a840c7](https://github.com/phandcock/GrampsView/commit/5a840c72d9656529e96404a48265fe85dab48d0e))
 
 
 
