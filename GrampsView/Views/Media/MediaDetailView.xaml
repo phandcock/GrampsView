@@ -22,14 +22,14 @@
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
-        <StackLayout>
+        <VerticalStackLayout>
             <Border Stroke="{AppThemeBinding Dark={StaticResource OnSecondaryContainerDark}, Light={StaticResource OnSecondaryContainerLight}}">
 
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnTapGestureRecognizerTapped" />
                 </Border.GestureRecognizers>
 
-                <Grid Style="{StaticResource SSGridLargeFixedCardStyle}">
+                <Grid Style="{StaticResource SSGridLargeVariableCardStyle}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5*" />
                         <RowDefinition Height="1*" />
@@ -59,6 +59,6 @@
             <ucon:CollectionSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <ucon:CardGroupHeader BindingContext="{Binding CurrentMediaObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
-        </StackLayout>
+        </VerticalStackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

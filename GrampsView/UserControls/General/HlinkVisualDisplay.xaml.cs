@@ -1,5 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using CommunityToolkit.Maui.Views;
+
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
@@ -210,25 +212,23 @@ namespace GrampsView.UserControls
                         Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(t);
                         return;
                     }
-                    // Input valid so start work
-                    // TODO
-                    //MediaElement newMediaControl = new MediaElement
-                    //{
-                    //    Aspect = Aspect.AspectFit,
-                    //    AutoPlay = false,
-                    //    ShowsPlaybackControls = true,
-                    //    BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
-                    //    HorizontalOptions = LayoutOptions.FillAndExpand,
-                    //    IsVisible = true,
-                    //    Margin = 3,
-                    //    Source = argMediaModel.HLink.DeRef.MediaStorageFilePath,
-                    //    VerticalOptions = LayoutOptions.FillAndExpand,
-                    //};
 
-                    Image newMediaControl = new()
+                    // Input valid so start work
+                    MediaElement newMediaControl = new MediaElement
                     {
-                        Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath
+                        Aspect = Aspect.AspectFit,
+                        ShouldAutoPlay = false,
+                        ShouldShowPlaybackControls = true,
+                        BackgroundColor = Colors.Transparent,
+                        IsVisible = true,
+                        Margin = 3,
+                        Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath,
                     };
+
+                    //MediaElement newMediaControl = new()
+                    //{
+                    //    Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath
+                    //};
 
                     //newMediaControl.Error += NewMediaControl_Error;
 

@@ -1,4 +1,6 @@
-﻿using Android.Graphics;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using Android.Graphics;
 using Android.Graphics.Pdf;
 using Android.Media;
 using Android.OS;
@@ -52,7 +54,7 @@ namespace GrampsView.Common.CustomClasses
                 ErrorInfo t = new("Directory not found when trying to create image from PDF file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
-                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Original File", argExistingMediaModel.CurrentStorageFile.GetAbsoluteFilePath },
                                      { "Clipped Id", argNewMediaModel.Id },
                                      { "New path", "pdfimage" }
                                  };
@@ -66,7 +68,7 @@ namespace GrampsView.Common.CustomClasses
                 ErrorInfo t = new("Exception when trying to create image from PDF file")
                                  {
                                      { "Original ID", argExistingMediaModel.Id },
-                                     { "Original File", argExistingMediaModel.MediaStorageFilePath },
+                                     { "Original File", argExistingMediaModel.CurrentStorageFile.GetAbsoluteFilePath },
                                      { "Clipped Id", argNewMediaModel.Id }
                                  };
 
@@ -87,7 +89,7 @@ namespace GrampsView.Common.CustomClasses
                 string outFilePath = System.IO.Path.Combine(argCurrentDataFolder.FullName, argNewMediaModel.OriginalFilePath);
 
                 MediaMetadataRetriever retriever = new();
-                retriever.SetDataSource(argExistingMediaModel.MediaStorageFilePath);
+                retriever.SetDataSource(argExistingMediaModel.CurrentStorageFile.GetAbsoluteFilePath);
                 Bitmap bitmap = retriever.GetFrameAtTime(1000);  // try at 1 second as this is often a more flattering image
 
                 if (bitmap != null)
@@ -121,7 +123,7 @@ namespace GrampsView.Common.CustomClasses
             ParcelFileDescriptor fileDescriptor = null;
             try
             {
-                fileDescriptor = ParcelFileDescriptor.Open(new Java.IO.File(argFile.MediaStorageFilePath), ParcelFileMode.ReadOnly);
+                fileDescriptor = ParcelFileDescriptor.Open(new Java.IO.File(argFile.CurrentStorageFile.GetAbsoluteFilePath), ParcelFileMode.ReadOnly);
             }
             catch (FileNotFoundException ex)
             {

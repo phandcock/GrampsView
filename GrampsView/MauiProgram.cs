@@ -43,6 +43,7 @@ namespace GrampsView
             _ = builder.UseMauiApp<App>()
                     .UseMauiCommunityToolkit()
                     .UseMauiCommunityToolkitMarkup()
+                    .UseMauiCommunityToolkitMediaElement()
                     .SharedSharpInit()
                     .ConfigureEssentials()
                     .RegisterFonts()
