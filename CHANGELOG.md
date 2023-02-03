@@ -1,3 +1,12 @@
+## [17.1.1](https://github.com/phandcock/GrampsView/compare/v17.1.0...v17.1.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* update nugets ([cc4826f](https://github.com/phandcock/GrampsView/commit/cc4826f6b051427a65190c8f783bd391b7a81259))
+
+
+
 # [17.1.0](https://github.com/phandcock/GrampsView/compare/v17.0.33...v17.1.0) (2023-01-28)
 
 
@@ -22,16 +31,6 @@
 ### Bug Fixes
 
 * tweaks ([1fd0b4d](https://github.com/phandcock/GrampsView/commit/1fd0b4dbd1c02f197072090d3bfc7b51ff2a76c1))
-
-
-
-## [17.0.31](https://github.com/phandcock/GrampsView/compare/v17.0.30...v17.0.31) (2023-01-24)
-
-
-### Bug Fixes
-
-* Refactor data/image base folders ([30738cb](https://github.com/phandcock/GrampsView/commit/30738cb6cd3f44a77a91b827dceb92c7d4c40042))
-* update nugets and add mediaelement ([0778424](https://github.com/phandcock/GrampsView/commit/0778424d65a98c0d7ad8a9e23cb0f4706af82efa))
 
 
 
