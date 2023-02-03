@@ -23,14 +23,14 @@ namespace GrampsView
         //    return true;
         //}
 
-        //protected override void OnNavigating(ShellNavigatingEventArgs args)
-        //{
-        //    if (Shell.Current != null)
-        //    {
-        //        IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
-        //    }
+        protected override void OnNavigating(ShellNavigatingEventArgs args)
+        {
+            if (Shell.Current != null)
+            {
+                IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
+            }
 
-        //    base.OnNavigating(args);
-        //}
+            base.OnNavigating(args);
+        }
     }
 }
