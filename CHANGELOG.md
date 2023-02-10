@@ -1,3 +1,12 @@
+## [17.1.3](https://github.com/phandcock/GrampsView/compare/v17.1.2...v17.1.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* chnage default language to english ([3e6d878](https://github.com/phandcock/GrampsView/commit/3e6d878f36ef4ccaac529aa1466e60b55ea7a026))
+
+
+
 ## [17.1.2](https://github.com/phandcock/GrampsView/compare/v17.1.1...v17.1.2) (2023-02-05)
 
 
@@ -22,15 +31,6 @@
 ### Features
 
 * add mediaelement and fix android image paths ([3a29f3d](https://github.com/phandcock/GrampsView/commit/3a29f3d0b27d57f18eeb7a3e13f144fd22a2001e))
-
-
-
-## [17.0.33](https://github.com/phandcock/GrampsView/compare/v17.0.32...v17.0.33) (2023-01-27)
-
-
-### Bug Fixes
-
-* tweaks ([c7e21d1](https://github.com/phandcock/GrampsView/commit/c7e21d17b813a01c202cd37810c9e50d1f3af2f9))
 
 
 
