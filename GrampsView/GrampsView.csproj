@@ -38,7 +38,7 @@
 		
 		<!-- Minimum Target OS Version for Windows Platform -->
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<DefaultLanguage>eu</DefaultLanguage>
+		<DefaultLanguage>en</DefaultLanguage>
 		<PackageIcon>appicon.svg</PackageIcon>
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>

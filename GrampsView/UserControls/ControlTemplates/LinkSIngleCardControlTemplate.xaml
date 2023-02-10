@@ -8,6 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="hlinks:HLinkBase"
+    HeightRequest="40"
     IsVisible="{TemplateBinding HLinkValid,
                                 Mode=OneWay}">
 
@@ -21,7 +22,6 @@
             <Border
                 BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
                                                   Light={StaticResource OnTertiaryContainerLight}}"
-                HeightRequest="50"
                 HorizontalOptions="FillAndExpand"
                 Style="{x:StaticResource SSBorderCardStyle}">
 
@@ -35,16 +35,13 @@
                     </Grid.GestureRecognizers>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="7*" />
+                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-
-                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Border
@@ -58,7 +55,6 @@
 
                     <ContentPresenter
                         Grid.Row="0"
-                        Grid.RowSpan="2"
                         Grid.Column="1"
                         VerticalOptions="CenterAndExpand" />
 

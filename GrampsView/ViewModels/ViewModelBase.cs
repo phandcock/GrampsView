@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
@@ -50,11 +52,6 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
-        //public IAsyncRelayCommand TopMenuNoteCommand
-        //{
-        //    get; private set;
-        //}
-
         public override void HandleViewModelParameters()
         {
             foreach (KeyValuePair<string, object> item in BasePassedArguments)
@@ -62,10 +59,10 @@ namespace GrampsView.ViewModels
                 Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
             }
 
-            if (BasePassedArguments.Count > 0)
-            {
-                //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
-            }
+            //if (BasePassedArguments.Count > 0)
+            //{
+            //    //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
+            //}
         }
 
         /// <summary>

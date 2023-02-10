@@ -16,24 +16,8 @@ namespace GrampsView.Models.DataModels
     /// Base for Models.
     /// </summary>
 
-
     public class ModelBase : ObservableObject, IModelBase, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The local h link reference collection.
-        /// </summary>
-        private HLinkBackLinkModelCollection _BackHLinkReferenceCollection = new();
-
-        /// <summary>
-        /// The local change.
-        /// </summary>
-        private DateTime _Change = DateTime.MinValue;
-
-        private string _Id = string.Empty;
-
-        private ItemGlyph _ModelItemGlyph = new();
-
-
         public ModelBase()
         {
             ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Symbol;
@@ -47,15 +31,11 @@ namespace GrampsView.Models.DataModels
         /// Gets or sets the h link reference collection.
         /// </summary>
         /// <value>
-        /// The h link reference collection.
+        /// The hlink reference collection.
         /// </value>
         [JsonInclude]
-        public HLinkBackLinkModelCollection BackHLinkReferenceCollection
-        {
-            get => _BackHLinkReferenceCollection;
-
-            set => SetProperty(ref _BackHLinkReferenceCollection, value);
-        }
+        public HLinkBackLinkModelCollection BackHLinkReferenceCollection { get; set; }
+            = new HLinkBackLinkModelCollection();
 
         /// <summary>
         /// Gets or sets the change CDATA #REQUIRED.
@@ -64,12 +44,8 @@ namespace GrampsView.Models.DataModels
         /// The change.
         /// </value>
         [JsonInclude]
-        public DateTime Change
-        {
-            get => _Change;
-
-            set => SetProperty(ref _Change, value);
-        }
+        public DateTime Change { get; set; }
+            = DateTime.MinValue;
 
         public virtual string DefaultTextShort => ToString()[..Math.Min(ToString().Length, 40)];
 
@@ -82,18 +58,14 @@ namespace GrampsView.Models.DataModels
         } = new HLinkKey();
 
         [JsonInclude]
-        public string Id
-        {
-            get => _Id;
-
-            set => SetProperty(ref _Id, value);
-        }
+        public string Id { get; set; }
+            = string.Empty;
 
         /// <summary>
-        /// Gets or sets the h link key.
+        /// Gets or sets the hlink key.
         /// </summary>
         /// <value>
-        /// The h link key.
+        /// The hlink key.
         /// </value>
         /// <summary>
         /// Gets or sets the identifier.
@@ -102,20 +74,12 @@ namespace GrampsView.Models.DataModels
         /// The identifier.
         /// </value>
         [JsonInclude]
-        public ItemGlyph ModelItemGlyph
-        {
-            get => _ModelItemGlyph;
-
-            set => SetProperty(ref _ModelItemGlyph, value);
-        }
+        public ItemGlyph ModelItemGlyph { get; set; }
+            = new ItemGlyph();
 
         [JsonInclude]
-        public bool Priv
-        {
-            get;
-
-            set;
-        } = false;
+        public bool Priv { get; set; }
+            = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ModelBase"/> is priv.
@@ -228,8 +192,10 @@ namespace GrampsView.Models.DataModels
             }
 
             return obj is not null
-&& obj.GetType() == GetType()
-&& !string.IsNullOrEmpty(Id) && !string.IsNullOrEmpty((obj as ModelBase).Id) && Id == (obj as ModelBase).Id;
+                && obj.GetType() == GetType()
+                && !string.IsNullOrEmpty(Id)
+                && !string.IsNullOrEmpty((obj as ModelBase).Id)
+                && Id == (obj as ModelBase).Id;
         }
 
         public override int GetHashCode()

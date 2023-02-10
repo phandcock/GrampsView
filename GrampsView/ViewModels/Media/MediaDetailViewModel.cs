@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -21,7 +23,6 @@ namespace GrampsView.ViewModels.Media
         /// <param name="iocEventAggregator">
         /// The event aggregator.
         /// </param>
-        [Obsolete]
         public MediaDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
@@ -33,7 +34,7 @@ namespace GrampsView.ViewModels.Media
         public HLinkMediaModel CurrentHLinkMedia
         {
             get; set;
-        }
+        } = new HLinkMediaModel();
 
         /// <summary>
         /// Gets or sets the current media object.
@@ -44,12 +45,12 @@ namespace GrampsView.ViewModels.Media
         public MediaModel CurrentMediaObject
         {
             get; set;
-        }
+        } = new MediaModel();
 
         public IHLinkMediaModel MediaCard
         {
             get; set;
-        }
+        } = new HLinkMediaModel();
 
         /// <summary>
         /// Handles navigation inwards and gets the media model parameter.
