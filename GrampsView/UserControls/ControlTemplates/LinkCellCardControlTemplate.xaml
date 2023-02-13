@@ -23,7 +23,7 @@
                     Margin="0"
                     Padding="0"
                     RowSpacing="0"
-                    Style="{x:StaticResource SSGridSmallFixedCardStyle}">
+                    Style="{x:StaticResource SSLinkCardCellStyle}">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
@@ -39,23 +39,10 @@
                         <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
 
-                    <Border
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CardImageBackgroundFrame}">
-
-                        <ucon:HLinkVisualDisplay
-                            x:Name="AnchorImage"
-                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{StaticResource MediaImageStyle}" />
-                    </Border>
-
                     <Image
                         Grid.Row="0"
                         Grid.Column="1"
+                        Grid.ColumnSpan="2"
                         Style="{StaticResource GVSymbolIconLinkCardType}"
                         VerticalOptions="Start">
                         <Image.Source>
@@ -73,6 +60,21 @@
                         Margin="0"
                         Padding="0"
                         VerticalOptions="End" />
+
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="EndAndExpand"
+                        Style="{StaticResource CardImageBackgroundFrame}">
+
+                        <ucon:HLinkVisualDisplay
+                            x:Name="AnchorImage"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="EndAndExpand"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                            Style="{StaticResource MediaImageStyle}" />
+                    </Border>
                 </Grid>
             </Border>
         </ControlTemplate>

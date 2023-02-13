@@ -17,7 +17,7 @@
                                          Light={StaticResource SurfaceVariantLight}}"
                 Style="{x:StaticResource SSBorderMediumVariableCardStyleNS}">
 
-                <Grid x:Name="controlRoot" Style="{x:StaticResource SSGridMediumFixedCardStyle}">
+                <Grid x:Name="controlRoot" Style="{x:StaticResource SSGridLargeFixedCardStyle}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

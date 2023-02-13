@@ -37,12 +37,12 @@ namespace GrampsView.Common
                     return;
                 }
 
-                //if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
-                //{
-                //    SharedSharpSettings.DataSerialised = false;
+                if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
+                {
+                    SharedSharpSettings.DataSerialised = false;
 
-                //    //return;
-                //}
+                    //return;
+                }
 
                 // Load da data
                 await LoadData().ConfigureAwait(false);
