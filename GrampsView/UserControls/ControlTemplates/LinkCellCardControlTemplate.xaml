@@ -22,8 +22,7 @@
                     x:Name="controlRoot"
                     Margin="0"
                     Padding="0"
-                    RowSpacing="0"
-                    Style="{x:StaticResource SSLinkCardCellStyle}">
+                    RowSpacing="0">
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
