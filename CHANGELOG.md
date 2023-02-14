@@ -1,3 +1,12 @@
+## [17.1.4](https://github.com/phandcock/GrampsView/compare/v17.1.3...v17.1.4) (2023-02-13)
+
+
+### Bug Fixes
+
+* tweak link card styles ([630b1d8](https://github.com/phandcock/GrampsView/commit/630b1d84f58820aca53187ce8a1733a3a3303e1c))
+
+
+
 ## [17.1.3](https://github.com/phandcock/GrampsView/compare/v17.1.2...v17.1.3) (2023-02-10)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * update nugets ([cc4826f](https://github.com/phandcock/GrampsView/commit/cc4826f6b051427a65190c8f783bd391b7a81259))
-
-
-
-# [17.1.0](https://github.com/phandcock/GrampsView/compare/v17.0.33...v17.1.0) (2023-01-28)
-
-
-### Features
-
-* add mediaelement and fix android image paths ([3a29f3d](https://github.com/phandcock/GrampsView/commit/3a29f3d0b27d57f18eeb7a3e13f144fd22a2001e))
 
 
 
