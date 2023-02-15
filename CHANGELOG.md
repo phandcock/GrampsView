@@ -1,3 +1,12 @@
+## [17.1.5](https://github.com/phandcock/GrampsView/compare/v17.1.4...v17.1.5) (2023-02-14)
+
+
+### Bug Fixes
+
+* fix grid label bug ([a0375e1](https://github.com/phandcock/GrampsView/commit/a0375e18f4d2bf96b6e8137c5afba1a669ecfa16))
+
+
+
 ## [17.1.4](https://github.com/phandcock/GrampsView/compare/v17.1.3...v17.1.4) (2023-02-13)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * update nuget ([473b231](https://github.com/phandcock/GrampsView/commit/473b231d8bd5a9c347f0d90cc6b0383f6fdc5deb))
-
-
-
-## [17.1.1](https://github.com/phandcock/GrampsView/compare/v17.1.0...v17.1.1) (2023-02-03)
-
-
-### Bug Fixes
-
-* update nugets ([cc4826f](https://github.com/phandcock/GrampsView/commit/cc4826f6b051427a65190c8f783bd391b7a81259))
 
 
 
