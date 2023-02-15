@@ -1,3 +1,12 @@
+## [17.1.6](https://github.com/phandcock/GrampsView/compare/v17.1.5...v17.1.6) (2023-02-15)
+
+
+### Bug Fixes
+
+* update nuget ([b8a69f3](https://github.com/phandcock/GrampsView/commit/b8a69f376807657a41f0c78fe44c1668665adfab))
+
+
+
 ## [17.1.5](https://github.com/phandcock/GrampsView/compare/v17.1.4...v17.1.5) (2023-02-14)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * chnage default language to english ([3e6d878](https://github.com/phandcock/GrampsView/commit/3e6d878f36ef4ccaac529aa1466e60b55ea7a026))
-
-
-
-## [17.1.2](https://github.com/phandcock/GrampsView/compare/v17.1.1...v17.1.2) (2023-02-05)
-
-
-### Bug Fixes
-
-* update nuget ([473b231](https://github.com/phandcock/GrampsView/commit/473b231d8bd5a9c347f0d90cc6b0383f6fdc5deb))
 
 
 
