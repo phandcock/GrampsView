@@ -35,7 +35,7 @@
                     </Grid.GestureRecognizers>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="7*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
@@ -46,8 +46,9 @@
 
                     <Border
                         Grid.Row="0"
-                        Grid.Column="0"
-                        BackgroundColor="Transparent"
+                        Grid.Column="0" BackgroundColor="Green"
+                        HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
                         Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
