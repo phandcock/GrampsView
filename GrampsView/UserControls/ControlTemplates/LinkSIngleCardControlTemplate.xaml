@@ -46,9 +46,12 @@
 
                     <Border
                         Grid.Row="0"
-                        Grid.Column="0" BackgroundColor="Green"
+                        Grid.Column="0"
+                        BackgroundColor="Green"
                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="20"
                         Style="{StaticResource CardImageBackgroundFrame}">
 
                         <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
