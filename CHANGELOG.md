@@ -1,3 +1,12 @@
+## [17.1.8](https://github.com/phandcock/GrampsView/compare/v17.1.7...v17.1.8) (2023-02-19)
+
+
+### Bug Fixes
+
+* tweak nuget ([b598b1c](https://github.com/phandcock/GrampsView/commit/b598b1ca85422994df4bab4361139eb68f6fc426))
+
+
+
 ## [17.1.7](https://github.com/phandcock/GrampsView/compare/v17.1.6...v17.1.7) (2023-02-18)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * fix grid label bug ([a0375e1](https://github.com/phandcock/GrampsView/commit/a0375e18f4d2bf96b6e8137c5afba1a669ecfa16))
-
-
-
-## [17.1.4](https://github.com/phandcock/GrampsView/compare/v17.1.3...v17.1.4) (2023-02-13)
-
-
-### Bug Fixes
-
-* tweak link card styles ([630b1d8](https://github.com/phandcock/GrampsView/commit/630b1d84f58820aca53187ce8a1733a3a3303e1c))
 
 
 
