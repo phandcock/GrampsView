@@ -1,3 +1,13 @@
+## [17.1.7](https://github.com/phandcock/GrampsView/compare/v17.1.6...v17.1.7) (2023-02-18)
+
+
+### Bug Fixes
+
+* fix devops builds ([592a361](https://github.com/phandcock/GrampsView/commit/592a3610313a51d78132481d9afc9eed8ec5fa80))
+* fix single line link image display ([111b51e](https://github.com/phandcock/GrampsView/commit/111b51ef24e658b556a6da364fbe94a6e49e4cac))
+
+
+
 ## [17.1.6](https://github.com/phandcock/GrampsView/compare/v17.1.5...v17.1.6) (2023-02-15)
 
 
@@ -22,15 +32,6 @@
 ### Bug Fixes
 
 * tweak link card styles ([630b1d8](https://github.com/phandcock/GrampsView/commit/630b1d84f58820aca53187ce8a1733a3a3303e1c))
-
-
-
-## [17.1.3](https://github.com/phandcock/GrampsView/compare/v17.1.2...v17.1.3) (2023-02-10)
-
-
-### Bug Fixes
-
-* chnage default language to english ([3e6d878](https://github.com/phandcock/GrampsView/commit/3e6d878f36ef4ccaac529aa1466e60b55ea7a026))
 
 
 
