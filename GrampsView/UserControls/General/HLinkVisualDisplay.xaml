@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
     x:Class="GrampsView.UserControls.HLinkVisualDisplay"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="HLinkVisualDisplayRoot"
     Margin="0"
     Padding="0"
     BackgroundColor="Transparent"
+    Style="{StaticResource MediaImageStyle}"
     BindingContextChanged="HLinkVisualDisplay_BindingContextChanged">
 
     <Grid.RowDefinitions>

@@ -32,7 +32,7 @@
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{StaticResource MediaImageStyle}" />
+                            />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />

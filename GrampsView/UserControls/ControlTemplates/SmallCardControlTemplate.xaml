@@ -45,7 +45,7 @@
                             Margin="0"
                             Padding="0"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            Style="{StaticResource MediaImageStyle}" />
+                            />
                     </Border>
 
                     <ContentPresenter

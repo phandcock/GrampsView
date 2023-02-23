@@ -39,14 +39,14 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="Fill"
-                Style="{StaticResource MediaImageStyle}" />
+                VerticalOptions="Fill" />
 
             <Label
                 x:Name="MediaObjectTitle"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                MinimumHeightRequest="40"
                 HorizontalOptions="CenterAndExpand"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource SSCardLabelStyleSmall}"

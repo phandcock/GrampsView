@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Grid
     x:Class="GrampsView.UserControls.MediaGlyphCardLarge"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:customclasses="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaGlyphCardLargeRoot"
     x:DataType="customclasses:ItemGlyph"
     IsVisible="{Binding ValidImage}"
-    Style="{StaticResource SSGridLargeVariableCardStyle}">
+    Style="{StaticResource SSGridLargeFixedCardStyle}">
 
     <Border Style="{StaticResource SSBorderCardLargeStyle}" VerticalOptions="Start">
 
@@ -36,7 +36,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     BindingContext="{Binding ., Mode=OneWay}"
-                    Style="{StaticResource MediaImageStyle}" />
+                    />
 
                 <Image
                     Grid.Row="1"

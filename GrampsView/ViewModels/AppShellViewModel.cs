@@ -25,17 +25,6 @@ namespace GrampsView.ViewModels
             get; private set;
         }
 
-        //public IRelayCommand Back_Command { get; set; }
-
-        //private async void Back()
-        //{
-        //    IReadOnlyList<Page> t = Shell.Current.Navigation.NavigationStack;
-
-        //    //  Shell.Current.Navigation.NavigationStack.()
-
-        //    await Shell.Current.GoToAsync("..");
-        //}
-
         public async Task TopMenuNoteCommandHandler()
         {
             string body = string.Empty;

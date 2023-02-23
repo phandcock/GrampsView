@@ -37,7 +37,7 @@
                         <ucon:HLinkVisualDisplay
                             Grid.Column="0"
                             BindingContext="{Binding HLink.HLinkGlyphItem}"
-                            Style="{StaticResource MediaImageStyle}" />
+                             />
                         <Label
                             Grid.Column="1"
                             Style="{StaticResource SSCardLabelStyleSmall}"
