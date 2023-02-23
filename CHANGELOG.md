@@ -1,3 +1,12 @@
+## [17.1.9](https://github.com/phandcock/GrampsView/compare/v17.1.8...v17.1.9) (2023-02-23)
+
+
+### Bug Fixes
+
+* tweak link cell person layouts ([639a420](https://github.com/phandcock/GrampsView/commit/639a42096310b9a9837c9cd5afe337697a96e0c2))
+
+
+
 ## [17.1.8](https://github.com/phandcock/GrampsView/compare/v17.1.7...v17.1.8) (2023-02-19)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * update nuget ([b8a69f3](https://github.com/phandcock/GrampsView/commit/b8a69f376807657a41f0c78fe44c1668665adfab))
-
-
-
-## [17.1.5](https://github.com/phandcock/GrampsView/compare/v17.1.4...v17.1.5) (2023-02-14)
-
-
-### Bug Fixes
-
-* fix grid label bug ([a0375e1](https://github.com/phandcock/GrampsView/commit/a0375e18f4d2bf96b6e8137c5afba1a669ecfa16))
 
 
 
