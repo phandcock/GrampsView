@@ -13,18 +13,19 @@ using System.Diagnostics;
 
 namespace GrampsView.ViewModels
 {
+
     public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
     {
         private string _BaseTitle = string.Empty;
 
-        /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
-        /// <param name="iocCommonLogging">The ioc common logging.</param>
 
         public ViewModelBase(ILog iocCommonLogging)
         {
             BaseCL = iocCommonLogging;
         }
 
+        /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
         /// <summary>
         /// Gets the base detail.
         /// </summary>
@@ -52,18 +53,19 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
-        public override void HandleViewModelParameters()
-        {
-            foreach (KeyValuePair<string, object> item in BasePassedArguments)
-            {
-                Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
-            }
 
-            //if (BasePassedArguments.Count > 0)
-            //{
-            //    //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
-            //}
-        }
+        //public override void HandleViewModelParameters()
+        //{
+        //    foreach (KeyValuePair<string, object> item in BasePassedArguments)
+        //    {
+        //        Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
+        //    }
+
+        //    //if (BasePassedArguments.Count > 0)
+        //    //{
+        //    //    //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
+        //    //}
+        //}
 
         /// <summary>
         /// Called when [basecl changed]. Frody automatically wires this up.

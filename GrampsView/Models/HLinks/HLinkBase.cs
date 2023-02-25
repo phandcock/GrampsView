@@ -105,7 +105,7 @@ namespace GrampsView.Models.HLinks
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharpNavigation.NavigateAsync(argPage, ser);
+            await SharedSharpNavigation.NavigateAsync($"{argPage}?HLinkSerial={ser}");
         }
 
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
@@ -100,7 +102,7 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(BasePassedArguments);
+            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(HLinkSerial);
 
             PersonObject = HLinkPerson.DeRef;
 

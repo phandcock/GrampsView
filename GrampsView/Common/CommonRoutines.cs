@@ -1,6 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
@@ -44,6 +43,13 @@ namespace GrampsView.Common
         {
             T ser = new();
 
+
+            if (dataIn is null)
+            {
+                return ser;
+            }
+
+
             foreach (KeyValuePair<string, object> item in dataIn)
             {
                 Debug.WriteLine($"dataIn - {item.Key}: {item.Value}");
@@ -58,6 +64,21 @@ namespace GrampsView.Common
 
                 ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn[SharedSharpConstants.ShellParameter1]));
             }
+
+            return ser;
+        }
+
+        public static T GetHLinkParameter<T>(string dataIn) where T : new()
+        {
+            T ser = new();
+
+
+            //object tt = dataIn["BasePassedArguments"];
+            //Debug.WriteLine(tt);
+            //object ttt = dataIn["BasePassedArguments"];
+            //Debug.WriteLine(ttt);
+
+            ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString(dataIn));
 
             return ser;
         }
