@@ -1,9 +1,12 @@
-﻿using Android.App;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 
 using Microsoft.AppCenter.Distribute;
 
+using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
 namespace GrampsView.Platforms.Android
@@ -26,13 +29,21 @@ namespace GrampsView.Platforms.Android
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
             Exception newExc = new(nameof(CurrentDomainOnUnhandledException), unhandledExceptionEventArgs.ExceptionObject as Exception);
-            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("CurrentDomainOnUnhandledException", newExc);
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
+                    new ErrorInfo("CurrentDomainOnUnhandledException")
+                    {
+                        new CardListLine("Sender",sender.ToString()),
+                    });
         }
 
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             Exception newExc = new(nameof(CurrentDomainOnUnhandledException), unobservedTaskExceptionEventArgs.Exception);
-            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("TaskSchedulerOnUnobservedTaskException", newExc);
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
+                  new ErrorInfo("TaskSchedulerOnUnobservedTaskException")
+                    {
+                        new CardListLine("Sender",sender.ToString()),
+                    });
         }
     }
 }
