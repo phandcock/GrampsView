@@ -67,7 +67,7 @@ namespace GrampsView.ViewModels.StartupPages
         /// </summary>
         public async Task PickFile()
         {
-            BaseCL.Progress("Calling folder picker");
+            BaseCL.Progress("Calling file picker");
 
             try
             {
