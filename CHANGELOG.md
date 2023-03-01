@@ -1,3 +1,12 @@
+## [17.1.10](https://github.com/phandcock/GrampsView/compare/v17.1.9...v17.1.10) (2023-02-25)
+
+
+### Bug Fixes
+
+* tweaks ([a556b79](https://github.com/phandcock/GrampsView/commit/a556b79d9092efe405ddd857d9a4bd3ffc2eaf0a))
+
+
+
 ## [17.1.9](https://github.com/phandcock/GrampsView/compare/v17.1.8...v17.1.9) (2023-02-23)
 
 
@@ -23,15 +32,6 @@
 
 * fix devops builds ([592a361](https://github.com/phandcock/GrampsView/commit/592a3610313a51d78132481d9afc9eed8ec5fa80))
 * fix single line link image display ([111b51e](https://github.com/phandcock/GrampsView/commit/111b51ef24e658b556a6da364fbe94a6e49e4cac))
-
-
-
-## [17.1.6](https://github.com/phandcock/GrampsView/compare/v17.1.5...v17.1.6) (2023-02-15)
-
-
-### Bug Fixes
-
-* update nuget ([b8a69f3](https://github.com/phandcock/GrampsView/commit/b8a69f376807657a41f0c78fe44c1668665adfab))
 
 
 
