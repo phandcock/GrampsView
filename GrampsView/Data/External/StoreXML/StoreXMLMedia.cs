@@ -2,7 +2,6 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Common.Interfaces;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
@@ -10,6 +9,7 @@ using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 
+using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors;
 
 using System.Xml.Linq;
@@ -36,7 +36,7 @@ namespace GrampsView.Data.ExternalStorage
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
-                IImageSize PlatformImageHandler = new ImageSize();
+                IImageEx PlatformImageHandler = new SharedSharp.Common.ImageResize();
 
                 // Load notes Run query
                 System.Collections.Generic.IEnumerable<XElement> de =
