@@ -1,10 +1,16 @@
-﻿using GrampsView.Data.Repository.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.Repository.Interfaces;
 using GrampsView.Exceptions;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
+
+using System.Runtime.Serialization;
+using System.Text.Json;
 
 namespace GrampsView.Data.Repository
 {
@@ -16,7 +22,6 @@ namespace GrampsView.Data.Repository
     /// <typeparam name="T2">
     /// HLink Base.
     /// </typeparam>
-
 
     public class RepositoryModelDictionary<T1, T2> : Dictionary<string, T1>, IRepositoryModelDictionary<T1, T2>
         where T1 : ModelBase, new()
@@ -30,12 +35,18 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryModelDictionary{T, U}"/> class.
         /// </summary>
+        public RepositoryModelDictionary(string argSerialisationName)
+        {
+            SerialisationName = argSerialisationName;
+        }
+
         public RepositoryModelDictionary()
         {
+            // Only for seralisation
         }
 
         public List<T1> GetList => Values.ToList();
-
+        private string SerialisationName { get; }
 
         public new T1 this[string key]
         {
@@ -64,7 +75,6 @@ namespace GrampsView.Data.Repository
 
                 base[key] = value;
         }
-
 
         public T1 this[T2 hLink]
         {
@@ -110,6 +120,59 @@ namespace GrampsView.Data.Repository
             }
 
             Add(arg.HLinkKey.Value, arg);
+        }
+
+        public async Task DeSerialize()
+        {
+            try
+            {
+                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising {CommonRoutines.GetSerialFile(SerialisationName)}");
+
+                DataContractSerializer ser = new(typeof(DataInstance));
+
+                FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile(SerialisationName));
+
+                // Check of the file exists
+                if (ttt.Length != 1)
+                {
+                    ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
+                                {
+                                    { "File", CommonRoutines.GetSerialFile(CommonRoutines.GetSerialFile(SerialisationName)) },
+                                };
+
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
+                    SharedSharpSettings.DataSerialised = false;
+                    return;
+                }
+
+                //byte[] buffer = new byte[1024];
+
+                FileStream isoStream = new FileStream(CommonRoutines.GetSerialFileFull(SerialisationName), FileMode.Open);
+
+                //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
+
+                JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                RepositoryModelDictionary<T1, T2> t = await JsonSerializer.DeserializeAsync<RepositoryModelDictionary<T1, T2>>(isoStream, serializerOptions);
+                this.Clear();
+                foreach (KeyValuePair<string, T1> item in t)
+                {
+                    this.Add(item.Key, item.Value);
+                }
+
+                return;
+            }
+            catch (Exception ex)
+            {
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, new ErrorInfo("Trying to deserialise object")
+                {
+                    new CardListLine("Data area",SerialisationName),
+                });
+
+                SharedSharpSettings.DataSerialised = false;
+
+                return;
+            }
         }
 
         /// <summary>
@@ -167,6 +230,30 @@ namespace GrampsView.Data.Repository
             {
                 // return nothing
                 return new T1();
+            }
+        }
+
+        public async Task Serialize()
+        {
+            try
+            {
+                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"Serialising {CommonRoutines.GetSerialFile(SerialisationName)}");
+
+                JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                FileStream stream = new(CommonRoutines.GetSerialFileFull(SerialisationName), FileMode.Create);
+
+                await JsonSerializer.SerializeAsync(stream, this, serializerOptions);
+
+                return;
+            }
+            catch (Exception ex)
+            {
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, new ErrorInfo("Trying to Serialise object")
+                {
+                    new CardListLine("Data area",SerialisationName),
+                });
+                SharedSharpSettings.DataSerialised = false;
             }
         }
 

@@ -165,7 +165,7 @@ namespace GrampsView.Data.Repository
         {
             _CL.DataLogEntryAdd("Serialising Data");
 
-            await _StoreSerial.SerializeObject(DataStore.Instance.DS);
+            await _StoreSerial.SerializeRepository();
 
             SharedSharpSettings.DataSerialised = true;
         }

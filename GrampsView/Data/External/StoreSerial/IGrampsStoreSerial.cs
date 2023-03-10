@@ -1,18 +1,7 @@
-//-----------------------------------------------------------------------
-//
-// Interface defintion for IGrampsRepository.cs
-//
-// <copyright file="IGrampsStoreSerial.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+// Copyright (c) phandcock.  All rights reserved.
 
 namespace GrampsView.Data.External.StoreSerial
 {
-    using GrampsView.Data.Repository;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface definitions for IGrampsRepository.
     /// </summary>
@@ -23,6 +12,10 @@ namespace GrampsView.Data.External.StoreSerial
         /// </summary>
         Task DeSerializeRepository();
 
+        Task SerializeRepository();
+
+        //Task<object> DeSerializeRMD(object argObject);
+
         /// <summary>
         /// Serializes the object.
         /// </summary>
@@ -31,6 +24,6 @@ namespace GrampsView.Data.External.StoreSerial
         /// </param>
         /// <returns>
         /// </returns>
-        Task SerializeObject(DataInstance theObject);
+        //Task SerializeRMD(object argObject);
     }
 }

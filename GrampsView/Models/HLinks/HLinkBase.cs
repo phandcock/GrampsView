@@ -13,7 +13,6 @@ namespace GrampsView.Models.HLinks
     /// Base functionality for HLinks<list type="table"><listheader><term> Item </term><term> Status </term></listheader><item><description> XML 1.71 check </description><description> Not Done </description></item></list><para><br /></para></summary>
     /// <remarks>TODO Update fields as per Schema</remarks>
 
-
     public class HLinkBase : ObservableObject, IComparable, IHLinkBase
     {
         public HLinkBase()

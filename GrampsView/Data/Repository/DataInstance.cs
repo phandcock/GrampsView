@@ -1,18 +1,19 @@
-﻿
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Mvvm.ComponentModel;
+
+using GrampsView.Data.Collections;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Models;
+
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
 namespace GrampsView.Data.Repository
 {
-    using CommunityToolkit.Mvvm.ComponentModel;
-
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks.Models;
-
-    using System.Collections.ObjectModel;
-    using System.Runtime.Serialization;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Static Data Store.
     /// </summary>
@@ -23,7 +24,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The address data
         /// </summary>
-        private RepositoryModelDictionary<AddressModel, HLinkAdressModel> _AddressData = new RepositoryModelDictionary<AddressModel, HLinkAdressModel>();
+        private RepositoryModelDictionary<AddressModel, HLinkAdressModel> _AddressData = new RepositoryModelDictionary<AddressModel, HLinkAdressModel>("AddressData");
 
         /// <summary>
         /// The book mark collection
@@ -33,67 +34,67 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The citation data
         /// </summary>
-        private RepositoryModelDictionary<CitationModel, HLinkCitationModel> _CitationData = new RepositoryModelDictionary<CitationModel, HLinkCitationModel>();
+        private RepositoryModelDictionary<CitationModel, HLinkCitationModel> _CitationData = new RepositoryModelDictionary<CitationModel, HLinkCitationModel>("CitationData");
 
         /// <summary>
         /// The local event data.
         /// </summary>
-        private RepositoryModelDictionary<EventModel, HLinkEventModel> _EventData = new RepositoryModelDictionary<EventModel, HLinkEventModel>();
+        private RepositoryModelDictionary<EventModel, HLinkEventModel> _EventData = new RepositoryModelDictionary<EventModel, HLinkEventModel>("EventData");
 
         /// <summary>
         /// The local family data.
         /// </summary>
-        private RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> _FamilyData = new RepositoryModelDictionary<FamilyModel, HLinkFamilyModel>();
+        private RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> _FamilyData = new RepositoryModelDictionary<FamilyModel, HLinkFamilyModel>("FamilyData");
 
         /// <summary>
         /// The local header data.
         /// </summary>
-        private RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> _HeaderData = new RepositoryModelDictionary<HeaderModel, HLinkHeaderModel>();
+        private RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> _HeaderData = new RepositoryModelDictionary<HeaderModel, HLinkHeaderModel>("HeaderData");
 
         /// <summary>
         /// The local media data.
         /// </summary>
-        private RepositoryModelDictionary<MediaModel, HLinkMediaModel> _MediaData = new RepositoryModelDictionary<MediaModel, HLinkMediaModel>();
+        private RepositoryModelDictionary<MediaModel, HLinkMediaModel> _MediaData = new RepositoryModelDictionary<MediaModel, HLinkMediaModel>("MediaData");
 
         /// <summary>
         /// The local name map data.
         /// </summary>
-        private RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> _NameMapData = new RepositoryModelDictionary<NameMapModel, HLinkNameMapModel>();
+        private RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> _NameMapData = new RepositoryModelDictionary<NameMapModel, HLinkNameMapModel>("NameMapData");
 
         /// <summary>
         /// The local note data.
         /// </summary>
-        private RepositoryModelDictionary<NoteModel, HLinkNoteModel> _NoteData = new RepositoryModelDictionary<NoteModel, HLinkNoteModel>();
+        private RepositoryModelDictionary<NoteModel, HLinkNoteModel> _NoteData = new RepositoryModelDictionary<NoteModel, HLinkNoteModel>("NoteData");
 
         /// <summary>
         /// The local person data.
         /// </summary>
-        private RepositoryModelDictionary<PersonModel, HLinkPersonModel> _PersonData = new RepositoryModelDictionary<PersonModel, HLinkPersonModel>();
+        private RepositoryModelDictionary<PersonModel, HLinkPersonModel> _PersonData = new RepositoryModelDictionary<PersonModel, HLinkPersonModel>("PersonData");
 
         /// <summary>
         /// The local person name data.
         /// </summary>
-        private RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel> _PersonNameData = new RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel>();
+        private RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel> _PersonNameData = new RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel>("PersonNameData");
 
         /// <summary>
         /// The local place data.
         /// </summary>
-        private RepositoryModelDictionary<PlaceModel, HLinkPlaceModel> _PlaceData = new RepositoryModelDictionary<PlaceModel, HLinkPlaceModel>();
+        private RepositoryModelDictionary<PlaceModel, HLinkPlaceModel> _PlaceData = new RepositoryModelDictionary<PlaceModel, HLinkPlaceModel>("PlaceData");
 
         /// <summary>
         /// The local repository data.
         /// </summary>
-        private RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> _RepositoryData = new RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel>();
+        private RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> _RepositoryData = new RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel>("RepositoryData");
 
         /// <summary>
         /// The local source data.
         /// </summary>
-        private RepositoryModelDictionary<SourceModel, HLinkSourceModel> _SourceData = new RepositoryModelDictionary<SourceModel, HLinkSourceModel>();
+        private RepositoryModelDictionary<SourceModel, HLinkSourceModel> _SourceData = new RepositoryModelDictionary<SourceModel, HLinkSourceModel>("SourceData");
 
         /// <summary>
         /// The local tag data.
         /// </summary>
-        private RepositoryModelDictionary<TagModel, HLinkTagModel> _TagData = new RepositoryModelDictionary<TagModel, HLinkTagModel>();
+        private RepositoryModelDictionary<TagModel, HLinkTagModel> _TagData = new RepositoryModelDictionary<TagModel, HLinkTagModel>("TagData");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataInstance"/> class.

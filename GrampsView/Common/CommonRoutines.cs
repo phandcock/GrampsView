@@ -1,5 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
@@ -43,12 +44,10 @@ namespace GrampsView.Common
         {
             T ser = new();
 
-
             if (dataIn is null)
             {
                 return ser;
             }
-
 
             foreach (KeyValuePair<string, object> item in dataIn)
             {
@@ -71,7 +70,6 @@ namespace GrampsView.Common
         public static T GetHLinkParameter<T>(string dataIn) where T : new()
         {
             T ser = new();
-
 
             //object tt = dataIn["BasePassedArguments"];
             //Debug.WriteLine(tt);
@@ -102,7 +100,37 @@ namespace GrampsView.Common
             return modelInfoList;
         }
 
+        public static JsonSerializerOptions GetSerializerOptions()
+        {
+            JsonSerializerOptions serialzerOptions = new();
 
+            // Special converter for colours
+            serialzerOptions.Converters.Add(new Converters.JsonColorConverter());
+            //serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
+
+            //// TODO Why does this work Preserve reference data
+            //serialzerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+
+            serialzerOptions.IgnoreReadOnlyFields = true;
+            serialzerOptions.IgnoreReadOnlyProperties = true;
+
+            return serialzerOptions;
+        }
+
+        public static string GetSerialFile(string argObjectName)
+        {
+            return argObjectName.Trim() + ".json";
+        }
+
+        public static string GetSerialFileFull(string argObjectName)
+        {
+            return DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile(argObjectName));
+        }
+
+        //public static string GetSerialFile(object argObject)
+        //{
+        //    return GetSerialFile(argObject.GetType().FullName);
+        //}
 
         [Conditional("DEBUG")]
         [DebuggerStepThrough]

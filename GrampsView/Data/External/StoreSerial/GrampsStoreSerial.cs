@@ -1,5 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Common;
+using GrampsView.Data.Collections;
 using GrampsView.Data.Repository;
 
 using SharedSharp.Errors;
@@ -39,143 +41,95 @@ namespace GrampsView.Data.External.StoreSerial
 
             try
             {
+                //DataContractSerializer ser = new(typeof(DataInstance));
+
+                //FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile("General"));
+
+                //// Check of the file exists
+                //if (ttt.Length != 1)
+                //{
+                //    ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
+                //                {
+                //                    { "File", CommonRoutines.GetSerialFile("General") },
+                //                };
+
+                //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
+                //    SharedSharpSettings.DataSerialised = false;
+                //    return;
+                //}
+
+                ////byte[] buffer = new byte[1024];
+
+                //FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(CommonRoutines.GetSerialFile("General")), FileMode.Open);
+
+                ////var ttt = await isoStream.ReadAsync(buffer, 0, 100);
+
+                //JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                //DataInstance t = await JsonSerializer.DeserializeAsync<DataInstance>(isoStream, serializerOptions);
+
+                // Check for nulls
+
+                await DataStore.Instance.DS.AddressData.DeSerialize();
+
+                // Bookmark
+                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising BookMarks");
+
                 DataContractSerializer ser = new(typeof(DataInstance));
 
-                FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(GetSerialFile());
+                FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile("BookMarks"));
 
                 // Check of the file exists
                 if (ttt.Length != 1)
                 {
                     ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
                                 {
-                                    { "File", GetSerialFile() },
+                                    { "File", CommonRoutines.GetSerialFile("BookMarks") },
                                 };
 
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
                     SharedSharpSettings.DataSerialised = false;
-                    return;
+                }
+                else
+                {
+                    //byte[] buffer = new byte[1024];
+
+                    FileStream isoStream = new FileStream(CommonRoutines.GetSerialFileFull("BookMarks"), FileMode.Open);
+
+                    //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
+
+                    JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                    DataStore.Instance.DS.BookMarkCollection = await JsonSerializer.DeserializeAsync<object>(isoStream, serializerOptions) as HLinkBackLinkModelCollection;
                 }
 
-                //byte[] buffer = new byte[1024];
+                await DataStore.Instance.DS.CitationData.DeSerialize();
 
-                FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile()), FileMode.Open);
+                await DataStore.Instance.DS.EventData.DeSerialize();
 
-                //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
+                await DataStore.Instance.DS.FamilyData.DeSerialize();
 
-                JsonSerializerOptions serializerOptions = GetSerializerOptions();
+                await DataStore.Instance.DS.MediaData.DeSerialize();
 
-                DataInstance t = await JsonSerializer.DeserializeAsync<DataInstance>(isoStream, serializerOptions);
+                await DataStore.Instance.DS.PersonData.DeSerialize();
+
+                await DataStore.Instance.DS.PersonNameData.DeSerialize();
 
                 // Check for nulls
-                if (t.AddressData != null)
-                {
-                    DataStore.Instance.DS.AddressData = t.AddressData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Address deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
 
-                if (t.BookMarkCollection != null)
-                {
-                    DataStore.Instance.DS.BookMarkCollection = t.BookMarkCollection;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad BookMark deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.CitationData != null)
-                {
-                    DataStore.Instance.DS.CitationData = t.CitationData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Citation deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.EventData != null)
-                {
-                    DataStore.Instance.DS.EventData = t.EventData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Event deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.FamilyData != null)
-                {
-                    DataStore.Instance.DS.FamilyData = t.FamilyData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Family deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.MediaData != null)
-                {
-                    DataStore.Instance.DS.MediaData = t.MediaData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Media deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.PersonData != null)
-                {
-                    DataStore.Instance.DS.PersonData = t.PersonData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
-
-                if (t.PersonNameData != null)
-                {
-                    DataStore.Instance.DS.PersonNameData = t.PersonNameData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Person Name deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
+                await DataStore.Instance.DS.SourceData.DeSerialize();
 
                 // Check for nulls
-                if (t.SourceData != null)
-                {
-                    DataStore.Instance.DS.SourceData = t.SourceData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Source data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
 
-                // Check for nulls
-                if (t.TagData != null)
-                {
-                    DataStore.Instance.DS.TagData = t.TagData;
-                }
-                else
-                {
-                    SharedSharpSettings.DataSerialised = false;
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(new ErrorInfo("Bad Tag data deserialisation error.  Data loading cancelled. Restart the program and reload the data."));
-                }
+                await DataStore.Instance.DS.TagData.DeSerialize();
 
                 // TODO Finish setting the checks up on these
-                DataStore.Instance.DS.HeaderData = t.HeaderData;
-                DataStore.Instance.DS.NameMapData = t.NameMapData;
-                DataStore.Instance.DS.NoteData = t.NoteData;
+                await DataStore.Instance.DS.HeaderData.DeSerialize();
+                await DataStore.Instance.DS.NameMapData.DeSerialize();
+                await DataStore.Instance.DS.NoteData.DeSerialize();
 
-                DataStore.Instance.DS.PlaceData = t.PlaceData;
-                DataStore.Instance.DS.RepositoryData = t.RepositoryData;
+                await DataStore.Instance.DS.PlaceData.DeSerialize();
+                await DataStore.Instance.DS.RepositoryData.DeSerialize();
 
                 localGVLogging.RoutineExit(nameof(DeSerializeRepository));
             }
@@ -189,6 +143,55 @@ namespace GrampsView.Data.External.StoreSerial
             return;
         }
 
+        public async Task SerializeRepository()
+        {
+            await DataStore.Instance.DS.AddressData.Serialize();
+
+            // Backlink
+            try
+            {
+                JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                FileStream stream = new(CommonRoutines.GetSerialFileFull("Bookmarks"), FileMode.Create);
+
+                await JsonSerializer.SerializeAsync(stream, DataStore.Instance.DS.BookMarkCollection, serializerOptions);
+            }
+            catch (Exception ex)
+            {
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
+                SharedSharpSettings.DataSerialised = false;
+            }
+
+            await DataStore.Instance.DS.CitationData.Serialize();
+
+            await DataStore.Instance.DS.EventData.Serialize();
+
+            await DataStore.Instance.DS.FamilyData.Serialize();
+
+            await DataStore.Instance.DS.MediaData.Serialize();
+
+            await DataStore.Instance.DS.PersonData.Serialize();
+
+            await DataStore.Instance.DS.PersonNameData.Serialize();
+
+            await DataStore.Instance.DS.SourceData.Serialize();
+
+            await DataStore.Instance.DS.TagData.Serialize();
+
+            // TODO Finish setting the checks up on these
+            await DataStore.Instance.DS.HeaderData.Serialize();
+            await DataStore.Instance.DS.NameMapData.Serialize();
+            await DataStore.Instance.DS.NoteData.Serialize();
+
+            await DataStore.Instance.DS.PlaceData.Serialize();
+            await DataStore.Instance.DS.RepositoryData.Serialize();
+
+
+            localGVLogging.Progress("SerializeRepository - Completed ");
+
+            SharedSharpSettings.DataSerialised = true;
+        }
+
         /// <summary>
         /// Serializes the object.
         /// </summary>
@@ -197,57 +200,25 @@ namespace GrampsView.Data.External.StoreSerial
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task SerializeObject(DataInstance theObject)
-        {
-            try
-            {
-                JsonSerializerOptions serializerOptions = GetSerializerOptions();
+        //public async Task SerializeRMD(RepositoryModelDictionary<T1,T2> argObject)
+        //        where T1 : ModelBase, new()
+        //        where T2 : HLinkBase, new()
+        //{
+        //    try
+        //    {
+        //        JsonSerializerOptions serializerOptions = GetSerializerOptions();
 
-                FileStream stream = new(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile()), FileMode.Create);
-                //StreamWriter sw = new StreamWriter(stream);
+        //        FileStream stream = new(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile(argObject)), FileMode.Create);
 
-                await JsonSerializer.SerializeAsync(stream, theObject, serializerOptions);
+        //        await JsonSerializer.SerializeAsync(stream, argObject, serializerOptions);
 
-                //DateObjectModelBase tt = DV.MediaDV.DataViewData[10].GDateValue;
-
-                //string json = JsonSerializer.Serialize<DateObjectModelBase>(tt, serializerOptions);
-
-                //byte[] buffer = new byte[1024];
-
-                //IsolatedStorageFileStream isoStream = new(GetSerialFile(), FileMode.Open, IsolatedStorageFile.GetUserStoreForApplication());
-
-                //int ttt = isoStream.Read(buffer, 0, 100);
-
-                SharedSharpSettings.DataSerialised = true;
-                return;
-            }
-            catch (Exception ex)
-            {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
-                SharedSharpSettings.DataSerialised = false;
-            }
-        }
-
-        private static string GetSerialFile()
-        {
-            return typeof(DataInstance).Name.Trim() + ".json";
-        }
-
-        private JsonSerializerOptions GetSerializerOptions()
-        {
-            JsonSerializerOptions serialzerOptions = new();
-
-            // Special converter for colours
-            serialzerOptions.Converters.Add(new Converters.JsonColorConverter());
-            //serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
-
-            //// TODO Why does this work Preserve reference data
-            //serialzerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-
-            serialzerOptions.IgnoreReadOnlyFields = true;
-            serialzerOptions.IgnoreReadOnlyProperties = true;
-
-            return serialzerOptions;
-        }
+        //        return;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
+        //        SharedSharpSettings.DataSerialised = false;
+        //    }
+        //}
     }
 }
