@@ -61,7 +61,7 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>(BasePassedArguments);
+            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>(HLinkSerial);
 
             AddressObject = HLinkObject.DeRef;
 

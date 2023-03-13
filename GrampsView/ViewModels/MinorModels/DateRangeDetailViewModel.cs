@@ -36,7 +36,7 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("DateDetailViewModel");
 
-            HLinkDateModelRange HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelRange>(BasePassedArguments);
+            HLinkDateModelRange HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelRange>(HLinkSerial);
 
             BaseTitle = HLinkObject.Title;
 

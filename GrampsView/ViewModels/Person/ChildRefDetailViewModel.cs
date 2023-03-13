@@ -108,7 +108,7 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("ChildRefDetailViewModel");
 
-            ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(BasePassedArguments);
+            ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(HLinkSerial);
 
             PersonObject = ChildRefHLink.DeRef;
 

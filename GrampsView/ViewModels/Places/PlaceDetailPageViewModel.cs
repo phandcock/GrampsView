@@ -39,7 +39,7 @@ namespace GrampsView.ViewModels.Places
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(BasePassedArguments);
+            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(HLinkSerial);
 
             PlaceObject = HLinkObject.DeRef;
 

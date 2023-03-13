@@ -40,7 +40,7 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("AttributeDetailViewModel");
 
-            HLinkAttributeObject = CommonRoutines.GetHLinkParameter<HLinkAttributeModel>(BasePassedArguments);
+            HLinkAttributeObject = CommonRoutines.GetHLinkParameter<HLinkAttributeModel>(HLinkSerial);
 
             if (HLinkAttributeObject.Valid)
             {

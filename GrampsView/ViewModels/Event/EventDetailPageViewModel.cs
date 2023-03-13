@@ -61,7 +61,7 @@ namespace GrampsView.ViewModels.Event
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(BasePassedArguments);
+            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(HLinkSerial);
 
             if (HLinkObject is not null && HLinkObject.Valid)
             {

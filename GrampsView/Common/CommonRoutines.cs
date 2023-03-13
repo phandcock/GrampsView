@@ -56,9 +56,9 @@ namespace GrampsView.Common
 
             if (dataIn.Count > 0)
             {
-                //object tt = dataIn["BasePassedArguments"];
+                //object tt = dataIn["HLinkSerial"];
                 //Debug.WriteLine(tt);
-                //object ttt = dataIn["BasePassedArguments"];
+                //object ttt = dataIn["HLinkSerial"];
                 //Debug.WriteLine(ttt);
 
                 ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn[SharedSharpConstants.ShellParameter1]));
@@ -71,9 +71,9 @@ namespace GrampsView.Common
         {
             T ser = new();
 
-            //object tt = dataIn["BasePassedArguments"];
+            //object tt = dataIn["HLinkSerial"];
             //Debug.WriteLine(tt);
-            //object ttt = dataIn["BasePassedArguments"];
+            //object ttt = dataIn["HLinkSerial"];
             //Debug.WriteLine(ttt);
 
             ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString(dataIn));

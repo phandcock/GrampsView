@@ -41,7 +41,7 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("NameDetailViewModel");
 
-            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>(BasePassedArguments);
+            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>(HLinkSerial);
 
             PersonNameObject = HLinkObject.DeRef;
 

@@ -33,7 +33,7 @@ namespace GrampsView.ViewModels.Tags
         /// <value>The tag object.</value>
         public override void HandleViewModelParameters()
         {
-            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(BasePassedArguments);
+            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(HLinkSerial);
 
             TagObject = HLinkObject.DeRef;
 

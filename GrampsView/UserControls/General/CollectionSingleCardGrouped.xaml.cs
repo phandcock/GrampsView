@@ -1,7 +1,7 @@
 ﻿using PropertyChanged;
 
 using SharedSharp.Common.Interfaces;
-using SharedSharp.Messages;
+using SharedSharp.Events;
 
 using System.Diagnostics.Contracts;
 

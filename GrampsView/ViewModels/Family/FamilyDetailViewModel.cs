@@ -51,7 +51,7 @@ namespace GrampsView.ViewModels.Family
         /// </returns>
         public override void HandleViewModelParameters()
         {
-            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(BasePassedArguments);
+            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(HLinkSerial);
 
             FamilyObject = HLinkFamily.DeRef;
 

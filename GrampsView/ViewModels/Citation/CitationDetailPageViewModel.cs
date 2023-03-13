@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
@@ -50,7 +52,7 @@ namespace GrampsView.ViewModels.Citation
         public override void HandleViewModelParameters()
         {
             // Handle HLinkKeys
-            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(BasePassedArguments);
+            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(HLinkSerial);
 
             CitationObject = HLinkCitation.DeRef;
 

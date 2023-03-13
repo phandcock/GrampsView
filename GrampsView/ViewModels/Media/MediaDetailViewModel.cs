@@ -61,7 +61,7 @@ namespace GrampsView.ViewModels.Media
         {
             BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
-            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>(BasePassedArguments);
+            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>(HLinkSerial);
 
             // For cropped or internal media then show the original image
             IMediaModel tt = CurrentHLinkMedia.DeRef;

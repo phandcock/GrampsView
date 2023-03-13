@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -34,7 +36,7 @@ namespace GrampsView.ViewModels.Note
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>(BasePassedArguments);
+            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>(HLinkSerial);
 
             if (HLinkObject is not null && HLinkObject.Valid)
             {

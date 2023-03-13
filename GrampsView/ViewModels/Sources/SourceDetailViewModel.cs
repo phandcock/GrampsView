@@ -41,7 +41,7 @@ namespace GrampsView.ViewModels.Sources
         /// </returns>
         public override void HandleViewModelParameters()
         {
-            HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>(BasePassedArguments);
+            HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>(HLinkSerial);
 
             // Cache the Source model
             SourceObject = HLinkObject.DeRef;

@@ -45,7 +45,7 @@ namespace GrampsView.ViewModels.Repository
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(BasePassedArguments);
+            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(HLinkSerial);
 
             RepositoryObject = RepositoryHLink.DeRef;
 

@@ -56,14 +56,14 @@ namespace GrampsView.ViewModels
 
         //public override void HandleViewModelParameters()
         //{
-        //    foreach (KeyValuePair<string, object> item in BasePassedArguments)
+        //    foreach (KeyValuePair<string, object> item in HLinkSerial)
         //    {
-        //        Debug.WriteLine($"BasePassedArguments - {item.Key}: {item.Value}");
+        //        Debug.WriteLine($"HLinkSerial - {item.Key}: {item.Value}");
         //    }
 
-        //    //if (BasePassedArguments.Count > 0)
+        //    //if (HLinkSerial.Count > 0)
         //    //{
-        //    //    //  WhatsNewText = (string)BasePassedArguments[SharedSharpConstants.ShellParameter1];
+        //    //    //  WhatsNewText = (string)HLinkSerial[SharedSharpConstants.ShellParameter1];
         //    //}
         //}
 
