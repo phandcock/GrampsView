@@ -23,7 +23,7 @@
     <!--  Content  -->
     <ScrollView Padding="10">
 
-        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+        <VerticalStackLayout HorizontalOptions="Fill">
 
             <sSharpUcon:SSHeaderSettings HeaderTitle="Theme Selector">
                 <sSharpUcon:ThemeSelector />
@@ -95,7 +95,7 @@
                 </Grid>
             </sSharpUcon:SSHeaderSettings>
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Control Buttons">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Extras">
 
                 <StackLayout Orientation="Horizontal">
 
@@ -106,6 +106,6 @@
 
                 </StackLayout>
             </sSharpUcon:SSHeaderSettings>
-        </StackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </views:ViewBasePage>

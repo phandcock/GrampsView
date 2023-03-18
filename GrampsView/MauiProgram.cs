@@ -32,6 +32,10 @@ using SharedSharp.Services.Interfaces;
 
 using System.Diagnostics;
 
+#if WINDOWS
+using WinUIEx;
+#endif
+
 namespace GrampsView
 {
     public static class MauiProgram
@@ -97,6 +101,20 @@ namespace GrampsView
                        {
                            window.SizeChanged += OnSizeChanged;
                        }));
+
+                // TODO remove once maui can do this natively
+                events.AddWindows(wndLifeCycleBuilder =>
+                {
+                    wndLifeCycleBuilder.OnWindowCreated(window =>
+                    {
+                        window.Maximize(); //Maximise on screen using WinUIEx extension method
+
+                        //WindowManager manager = WinUIEx.WindowManager.Get(window);
+                        //manager.PersistenceId = "MainWindowPersistanceId"; // Remember window position and size across runs
+                        //manager.MinWidth = 100;
+                        //manager.MinHeight = 100;
+                    });
+                });
 #endif
             });
 
