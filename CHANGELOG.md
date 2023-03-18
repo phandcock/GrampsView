@@ -1,3 +1,13 @@
+## [17.1.17](https://github.com/phandcock/GrampsView/compare/v17.1.16...v17.1.17) (2023-03-18)
+
+
+### Bug Fixes
+
+* tweaks ([44622d0](https://github.com/phandcock/GrampsView/commit/44622d0ff41d0a55c6474a9b1b841cea9b01c749))
+* update nugets ([6ca0b41](https://github.com/phandcock/GrampsView/commit/6ca0b411f17dc3801a0e31ab1d1603c12aea26a7))
+
+
+
 ## [17.1.16](https://github.com/phandcock/GrampsView/compare/v17.1.15...v17.1.16) (2023-03-16)
 
 
@@ -22,16 +32,6 @@
 ### Bug Fixes
 
 * refasctor serlisation ([81ca06f](https://github.com/phandcock/GrampsView/commit/81ca06fe387d0105ba516ce76603f55e9c3df91c))
-
-
-
-## [17.1.13](https://github.com/phandcock/GrampsView/compare/v17.1.12...v17.1.13) (2023-03-05)
-
-
-### Bug Fixes
-
-* tweak imageex ([6736acb](https://github.com/phandcock/GrampsView/commit/6736acb6b41f17f4bf8c67821af3dd2e9f634f9c))
-* tweak imageex ([6b49520](https://github.com/phandcock/GrampsView/commit/6b4952051d6543b7c79937f4935dc47bcc749ca0))
 
 
 
