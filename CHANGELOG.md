@@ -1,3 +1,13 @@
+## [17.1.18](https://github.com/phandcock/GrampsView/compare/v17.1.17...v17.1.18) (2023-03-19)
+
+
+### Bug Fixes
+
+* tweak colours ([a28dad0](https://github.com/phandcock/GrampsView/commit/a28dad06b68640d5d21432d8d0b874c7ff2aed9f))
+* tweak colours ([93788ca](https://github.com/phandcock/GrampsView/commit/93788cac8eae2c078e9ca8b8e51084cb6d7d2271))
+
+
+
 ## [17.1.17](https://github.com/phandcock/GrampsView/compare/v17.1.16...v17.1.17) (2023-03-18)
 
 
@@ -23,15 +33,6 @@
 ### Bug Fixes
 
 * fix seriallink bug ([ce99fb6](https://github.com/phandcock/GrampsView/commit/ce99fb63ddd3fb507846c5777fd25b5930e1a719))
-
-
-
-## [17.1.14](https://github.com/phandcock/GrampsView/compare/v17.1.13...v17.1.14) (2023-03-10)
-
-
-### Bug Fixes
-
-* refasctor serlisation ([81ca06f](https://github.com/phandcock/GrampsView/commit/81ca06fe387d0105ba516ce76603f55e9c3df91c))
 
 
 
