@@ -29,9 +29,9 @@
                 <sSharpUcon:ThemeSelector />
             </sSharpUcon:SSHeaderSettings>
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="Center">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="FillAndExpand">
 
-                <Grid>
+                <Grid HorizontalOptions="FillAndExpand">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -95,16 +95,16 @@
                 </Grid>
             </sSharpUcon:SSHeaderSettings>
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Extras">
+            <sSharpUcon:SSHeaderSettings HeaderTitle="Extras" HorizontalOptions="FillAndExpand">
 
-                <StackLayout Orientation="Horizontal">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
 
                     <Button
                         Command="{Binding DisplayMessageLogButtonCommand}"
                         Style="{DynamicResource SSButtonMenu}"
                         Text="Show MesageLog" />
 
-                </StackLayout>
+                </HorizontalStackLayout>
             </sSharpUcon:SSHeaderSettings>
         </VerticalStackLayout>
     </ScrollView>

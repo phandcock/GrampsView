@@ -13,7 +13,7 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{x:StaticResource SSBorderSmallFixedCardStyle}">
+            <Border Style="{x:StaticResource SSBorderSmallFixedCardStyle}" Stroke="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
 
                 <Grid
                     x:Name="controlRoot"
@@ -38,14 +38,15 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="0"
-                        Style="{StaticResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}"
+                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             Margin="0"
                             Padding="0"
-                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                            />
+                            BackgroundColor="White"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Border>
 
                     <ContentPresenter
@@ -58,10 +59,7 @@
                         Grid.Column="1"
                         Style="{StaticResource GVSymbolIconSmallCardType}">
                         <Image.Source>
-                            <FontImageSource
-                                FontFamily="IconFont"
-                                Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                                Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                            <FontImageSource FontFamily="IconFont" Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                         </Image.Source>
                     </Image>
                 </Grid>

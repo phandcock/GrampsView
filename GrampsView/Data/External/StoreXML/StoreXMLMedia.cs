@@ -13,7 +13,7 @@ using SharedSharp.Errors;
 
 using System.Xml.Linq;
 
-using ImageExtensions = SharedSharp.Common.SharedSharpImageExtensions;
+//using ImageExtensions = SharedSharp.Common.SharedSharpImageExtensions;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -37,7 +37,7 @@ namespace GrampsView.Data.ExternalStorage
                 //// start file load
                 //await _iocCommonNotifications.DataLogEntryAdd("Loading Media File").ConfigureAwait(false);
 
-                ImageExtensions PlatformImageHandler = new SharedSharp.Common.SharedSharpImageExtensions();
+                //   ImageExtensions PlatformImageHandler = new SharedSharp.Common.SharedSharpImageExtensions();
 
                 // Load notes Run query
                 System.Collections.Generic.IEnumerable<XElement> de =
@@ -118,10 +118,10 @@ namespace GrampsView.Data.ExternalStorage
                                     if (loadObject.CurrentStorageFile.Valid)
                                     {
                                         // TODO add this back in
-                                        Size imageSize = Task.Run(async () => await PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath)).Result;
+                                        //Size imageSize = Task.Run(async () => await PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath)).Result;
 
-                                        loadObject.MetaDataHeight = imageSize.Height;
-                                        loadObject.MetaDataWidth = imageSize.Width;
+                                        //loadObject.MetaDataHeight = imageSize.Height;
+                                        //loadObject.MetaDataWidth = imageSize.Width;
 
                                         // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
                                     }
