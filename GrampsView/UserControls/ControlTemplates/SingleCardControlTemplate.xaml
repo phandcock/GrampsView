@@ -9,7 +9,10 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{StaticResource SSBorderSingleFixedCardStyle}">
+            <Border
+                Style="{StaticResource SSBorderSingleFixedCardStyle}"
+                Stroke="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                StrokeThickness="2">
 
                 <Grid x:Name="controlRoot" Style="{StaticResource SSGridSingleFixedCardStyle}">
 
@@ -29,12 +32,13 @@
                     <Border
                         Grid.Row="0"
                         Grid.Column="0"
-                        Style="{StaticResource CardImageBackgroundFrame}">
+                        Style="{StaticResource CardImageBackgroundFrame}"
+                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
-                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                          />
+                            BackgroundColor="Transparent"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />

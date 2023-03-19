@@ -337,7 +337,7 @@ namespace GrampsView.UserControls
                 FontImageSource fontGlyph = new()
                 {
                     Glyph = argItemGlyph.Symbol,
-                    Color = argItemGlyph.SymbolColour,
+                    Color = Color.FromRgb(255, 255, 255),
                     FontFamily = "IconFont",
                     Size = 48,
                 };

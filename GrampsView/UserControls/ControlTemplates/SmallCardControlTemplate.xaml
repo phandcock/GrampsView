@@ -13,7 +13,10 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
-            <Border Style="{x:StaticResource SSBorderSmallFixedCardStyle}" Stroke="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
+            <Border
+                Style="{x:StaticResource SSBorderSmallFixedCardStyle}"
+                Stroke="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                StrokeThickness="2">
 
                 <Grid
                     x:Name="controlRoot"
@@ -37,7 +40,7 @@
                     <Border
                         Grid.Row="0"
                         Grid.Column="0"
-                        Margin="0"
+                        Margin="0" 
                         Style="{StaticResource CardImageBackgroundFrame}"
                         BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
 
@@ -45,7 +48,7 @@
                             x:Name="AnchorImage"
                             Margin="0"
                             Padding="0"
-                            BackgroundColor="White"
+                            BackgroundColor="Transparent" 
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Border>
 
