@@ -1,9 +1,12 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -51,12 +54,9 @@ namespace GrampsView.Data.ExternalStorage
 
                     // let everybody know
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
-
-                    throw;
+                    MyNotifications.NotifyException("Load Name Maps", ex);
                 }
             }
 

@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
@@ -135,12 +137,9 @@ namespace GrampsView.Data.ExternalStorage
 
                     DataStore.Instance.DS.BookMarkCollection.Title = string.Empty;
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
-
-                    throw;
+                    MyNotifications.NotifyException("Load Bookmarks", ex);
                 }
             }
 

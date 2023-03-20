@@ -1,18 +1,11 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
-using Microsoft.Extensions.DependencyInjection;
-
-using SharedSharp.Errors.Interfaces;
-using SharedSharp.Logging.Interfaces;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -150,13 +143,12 @@ namespace GrampsView.Data.ExternalStorage
                     if (DV.PersonDV.PersonData.Count > 0)
                     {
                         // TODO Add this back + DV.PersonDV.PersonData[DV.PersonDV.PersonData.Count].GPersonNamesCollection.GetPrimaryName.FullName
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ",ex);
-                        throw;
+
+                        MyNotifications.NotifyException("Loading person from GRAMPSXML storage.  The last person successfully loaded was ", ex);
                     }
                     else
                     {
-                        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded",ex);
-                        throw;
+                        MyNotifications.NotifyException("Loading people from GRAMPSXML storage.  No people have been loaded", ex);
                     }
                 }
             }

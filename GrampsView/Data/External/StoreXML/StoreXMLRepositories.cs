@@ -1,10 +1,9 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -44,12 +43,9 @@ namespace GrampsView.Data.ExternalStorage
                         DV.RepositoryDV.RepositoryData.Add(loadRepository);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
-
-                    throw;
+                    MyNotifications.NotifyException("Store Repositories", ex);
                 }
 
                 MyLog.DataLogEntryReplace("Repository load complete");

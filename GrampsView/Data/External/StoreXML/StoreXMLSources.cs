@@ -4,6 +4,7 @@ using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -69,14 +70,12 @@ namespace GrampsView.Data.ExternalStorage
 
                         // save the event
                         DataStore.Instance.DS.SourceData.Add(loadSource);
+                        Debug.WriteLine(loadSource.Id);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
-
-                    throw;
+                    MyNotifications.NotifyException("Load Source", ex);
                 }
             }
 

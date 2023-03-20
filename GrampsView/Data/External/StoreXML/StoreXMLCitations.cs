@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.External.StoreXML;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 
@@ -57,7 +59,7 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     MyNotifications.NotifyException("Exception loading Citations form XML", ex);
-                    throw;
+
                 }
 
                 MyLog.DataLogEntryReplace("Citation load complete");

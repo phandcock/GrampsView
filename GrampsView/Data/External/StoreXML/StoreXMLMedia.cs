@@ -11,6 +11,8 @@ using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;
 
+using SkiaSharp;
+
 using System.Xml.Linq;
 
 //using ImageExtensions = SharedSharp.Common.SharedSharpImageExtensions;
@@ -120,8 +122,26 @@ namespace GrampsView.Data.ExternalStorage
                                         // TODO add this back in
                                         //Size imageSize = Task.Run(async () => await PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath)).Result;
 
-                                        //loadObject.MetaDataHeight = imageSize.Height;
-                                        //loadObject.MetaDataWidth = imageSize.Width;
+                                        using Stream st = new FileStream(loadObject.CurrentStorageFile.GetAbsoluteFilePath, FileMode.Open);
+                                        if (st is null)
+                                        {
+                                            loadObject.MetaDataHeight = 100;
+                                            loadObject.MetaDataWidth = 100;
+                                            continue;
+                                        }
+
+                                        SKBitmap b = SKBitmap.Decode(st);
+                                        if (b is null)
+                                        {
+                                            loadObject.MetaDataHeight = 100;
+                                            loadObject.MetaDataWidth = 100;
+                                            continue;
+                                        }
+
+                                        loadObject.MetaDataHeight = b.Height;
+                                        loadObject.MetaDataWidth = b.Width;
+
+
 
                                         // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
                                     }

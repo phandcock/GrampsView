@@ -248,148 +248,157 @@ namespace GrampsView.Data.ExternalStorage
 
         private async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkMediaModel argHLinkLoadImageModel)
         {
-            if (argHLinkLoadImageModel is null)
+            try
             {
-                throw new ArgumentNullException(nameof(argHLinkLoadImageModel));
-            }
+                if (argHLinkLoadImageModel is null)
+                {
+                    throw new ArgumentNullException(nameof(argHLinkLoadImageModel));
+                }
 
-            if (!argHLinkLoadImageModel.DeRef.Valid)
-            {
-                throw new ArgumentException("CreateClippedMediaModel argument is invalid", nameof(argHLinkLoadImageModel));
-            }
+                if (!argHLinkLoadImageModel.DeRef.Valid)
+                {
+                    throw new ArgumentException("CreateClippedMediaModel argument is invalid", nameof(argHLinkLoadImageModel));
+                }
 
-            HLinkKey temp = argHLinkLoadImageModel.HLinkKey;
+                HLinkKey temp = argHLinkLoadImageModel.HLinkKey;
 
-            IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync(() =>
-         {
-             // TODO cleanup code. Multiple copies of things in use
-
-             IMediaModel theMediaModel = argHLinkLoadImageModel.DeRef;
-
-             SKBitmap resourceBitmap = new();
-
-             IMediaModel newMediaModel = new MediaModel();
-
-             HLinkKey newHLinkKey = new($"{argHLinkLoadImageModel.HLinkKey.Value}-{argHLinkLoadImageModel.GCorner1X}{argHLinkLoadImageModel.GCorner1Y}{argHLinkLoadImageModel.GCorner2X}{argHLinkLoadImageModel.GCorner2Y}");
-             string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
-
-             if (newHLinkKey.Value == "_c5132553a185c9c51d8-35415065")
+                IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync(() =>
              {
-             }
+                 // TODO cleanup code. Multiple copies of things in use
 
-             Debug.WriteLine(newHLinkKey.Value);
+                 IMediaModel theMediaModel = argHLinkLoadImageModel.DeRef;
 
-             string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString, outFileName);
+                 SKBitmap resourceBitmap = new();
 
-             Debug.WriteLine(argHLinkLoadImageModel.DeRef.CurrentStorageFile);
+                 IMediaModel newMediaModel = new MediaModel();
 
-             // Check if already exists
-             IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
+                 HLinkKey newHLinkKey = new($"{argHLinkLoadImageModel.HLinkKey.Value}-{argHLinkLoadImageModel.GCorner1X}{argHLinkLoadImageModel.GCorner1Y}{argHLinkLoadImageModel.GCorner2X}{argHLinkLoadImageModel.GCorner2Y}");
+                 string outFileName = $"{newHLinkKey.Value}{"~crop"}.png";
 
-             if ((!fileExists.Valid) && theMediaModel.CurrentStorageFile.Valid)
-             {
-                 // Needs clipping
-                 using (StreamReader stream = new(theMediaModel.CurrentStorageFile.GetAbsoluteFilePath))
+                 if (newHLinkKey.Value == "_c5132553a185c9c51d8-35415065")
                  {
-                     //resourceBitmap = SKBitmap.Decode(stream.BaseStream);
-                     // TODO See https://github.com/mono/SkiaSharp/issues/1621
-
-                     SKImage img = SKImage.FromEncodedData(stream.BaseStream);
-                     resourceBitmap = SKBitmap.FromImage(img);
                  }
 
-                 // Check for too large a bitmap
-                 //Debug.WriteLine("Image ResourceBitmap size: " + resourceBitmap.ByteCount);
-                 if (resourceBitmap.ByteCount > int.MaxValue - 1000)
+                 Debug.WriteLine(newHLinkKey.Value);
+
+                 string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString, outFileName);
+
+                 Debug.WriteLine(argHLinkLoadImageModel.DeRef.CurrentStorageFile);
+
+                 // Check if already exists
+                 IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
+
+                 if ((!fileExists.Valid) && theMediaModel.CurrentStorageFile.Valid)
                  {
-                     // TODO Handle this better. Perhaps resize? Delete for now
-                     resourceBitmap = new SKBitmap();
+                     // Needs clipping
+                     using (StreamReader stream = new(theMediaModel.CurrentStorageFile.GetAbsoluteFilePath))
+                     {
+                         //resourceBitmap = SKBitmap.Decode(stream.BaseStream);
+                         // TODO See https://github.com/mono/SkiaSharp/issues/1621
+
+                         SKImage img = SKImage.FromEncodedData(stream.BaseStream);
+                         resourceBitmap = SKBitmap.FromImage(img);
+                     }
+
+                     // Check for too large a bitmap
+                     //Debug.WriteLine("Image ResourceBitmap size: " + resourceBitmap.ByteCount);
+                     if (resourceBitmap.ByteCount > int.MaxValue - 1000)
+                     {
+                         // TODO Handle this better. Perhaps resize? Delete for now
+                         resourceBitmap = new SKBitmap();
+                     }
+
+                     float crleft = (float)(argHLinkLoadImageModel.GCorner1X / 100d * theMediaModel.MetaDataWidth);
+                     float crright = (float)(argHLinkLoadImageModel.GCorner2X / 100d * theMediaModel.MetaDataWidth);
+                     float crtop = (float)(argHLinkLoadImageModel.GCorner1Y / 100d * theMediaModel.MetaDataHeight);
+                     float crbottom = (float)(argHLinkLoadImageModel.GCorner2Y / 100d * theMediaModel.MetaDataHeight);
+
+                     SKRect cropRect = new(crleft, crtop, crright, crbottom);
+
+                     SKBitmap croppedBitmap = new(
+                                                         (int)cropRect.Width,
+                                                         (int)cropRect.Height
+                                                         );
+
+                     SKRect dest = new(
+                                             0,
+                                             0,
+                                             cropRect.Width,
+                                             cropRect.Height
+                                             );
+
+                     SKRect source = new(
+                                             cropRect.Left,
+                                             cropRect.Top,
+                                             cropRect.Right,
+                                             cropRect.Bottom);
+
+                     using (SKCanvas canvas = new(croppedBitmap))
+                     {
+                         canvas.DrawBitmap(resourceBitmap, source, dest);
+                     }
+
+                     // create an image COPY
+                     SKImage image = SKImage.FromBitmap(croppedBitmap);
+
+                     // encode the image (defaults to PNG)
+                     SKData encoded = image.Encode();
+
+                     // get a stream over the encoded data
+
+                     using (Stream stream = File.Open(outFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite))
+                     {
+                         encoded.SaveTo(stream);
+                     }
+
+                     croppedBitmap.Dispose();
+
+                     // ------------ Save new MediaObject
+                     newMediaModel = SharedSharpGeneral.CopyObject<MediaModel>(theMediaModel);
+                     newMediaModel.HLinkKey = newHLinkKey;
+
+                     newMediaModel.OriginalFilePath = outFilePath;
+                     newMediaModel.CurrentStorageFile = new FileInfoEx(argFileName: outFilePath);
+
+                     newMediaModel.IsInternalMediaFile = true;
+                     newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;
+
+                     newMediaModel.MetaDataHeight = cropRect.Height;
+                     newMediaModel.MetaDataWidth = cropRect.Width;
+
+                     // newMediaModel = SetHomeImage(newMediaModel);
+
+                     DataStore.Instance.DS.MediaData.Add((MediaModel)newMediaModel);
                  }
-
-                 float crleft = (float)(argHLinkLoadImageModel.GCorner1X / 100d * theMediaModel.MetaDataWidth);
-                 float crright = (float)(argHLinkLoadImageModel.GCorner2X / 100d * theMediaModel.MetaDataWidth);
-                 float crtop = (float)(argHLinkLoadImageModel.GCorner1Y / 100d * theMediaModel.MetaDataHeight);
-                 float crbottom = (float)(argHLinkLoadImageModel.GCorner2Y / 100d * theMediaModel.MetaDataHeight);
-
-                 SKRect cropRect = new(crleft, crtop, crright, crbottom);
-
-                 SKBitmap croppedBitmap = new(
-                                                     (int)cropRect.Width,
-                                                     (int)cropRect.Height
-                                                     );
-
-                 SKRect dest = new(
-                                         0,
-                                         0,
-                                         cropRect.Width,
-                                         cropRect.Height
-                                         );
-
-                 SKRect source = new(
-                                         cropRect.Left,
-                                         cropRect.Top,
-                                         cropRect.Right,
-                                         cropRect.Bottom);
-
-                 using (SKCanvas canvas = new(croppedBitmap))
+                 else
                  {
-                     canvas.DrawBitmap(resourceBitmap, source, dest);
-                 }
+                     ErrorInfo t = new("File not found when Region specified in ClipMedia")
 
-                 // create an image COPY
-                 SKImage image = SKImage.FromBitmap(croppedBitmap);
-
-                 // encode the image (defaults to PNG)
-                 SKData encoded = image.Encode();
-
-                 // get a stream over the encoded data
-
-                 using (Stream stream = File.Open(outFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite))
-                 {
-                     encoded.SaveTo(stream);
-                 }
-
-                 croppedBitmap.Dispose();
-
-                 // ------------ Save new MediaObject
-                 newMediaModel = SharedSharpGeneral.CopyObject<MediaModel>(theMediaModel);
-                 newMediaModel.HLinkKey = newHLinkKey;
-
-                 newMediaModel.OriginalFilePath = outFilePath;
-                 newMediaModel.CurrentStorageFile = new FileInfoEx(argFileName: outFilePath);
-
-                 newMediaModel.IsInternalMediaFile = true;
-                 newMediaModel.InternalMediaFileOriginalHLink = theMediaModel.HLinkKey;
-
-                 newMediaModel.MetaDataHeight = cropRect.Height;
-                 newMediaModel.MetaDataWidth = cropRect.Width;
-
-                 // newMediaModel = SetHomeImage(newMediaModel);
-
-                 DataStore.Instance.DS.MediaData.Add((MediaModel)newMediaModel);
-             }
-             else
-             {
-                 ErrorInfo t = new("File not found when Region specified in ClipMedia")
-
-                 {
+                     {
                      { "Original ID", theMediaModel.Id },
                      { "Original File", theMediaModel.OriginalFilePath },
                      { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
-                 };
+                     };
 
-                 MyNotifications.NotifyError(t);
-             }
+                     MyNotifications.NotifyError(t);
+                 }
 
-             resourceBitmap.Dispose();
+                 resourceBitmap.Dispose();
 
-             return newMediaModel;
-         }).ConfigureAwait(false);
+                 return newMediaModel;
+             }).ConfigureAwait(false);
 
-            HLinkMediaModel tt = returnMediaModel.HLink;
-            tt.OriginalMediaHLink = temp;
+                HLinkMediaModel tt = returnMediaModel.HLink;
+                tt.OriginalMediaHLink = temp;
 
-            return tt;
+                return tt;
+            }
+            catch (Exception ex)
+            {
+                MyNotifications.NotifyException("Load Clipped Media", ex);
+            }
+
+            return new HLinkMediaModel();
         }
 
         private ModelBase GetBasics(XElement argElement)

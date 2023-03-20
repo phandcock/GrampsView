@@ -1,8 +1,11 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Models;
 
+using System.Diagnostics;
 using System.Xml.Linq;
 
 using static GrampsView.Common.CommonEnums;
@@ -32,7 +35,7 @@ namespace GrampsView.Data.ExternalStorage
                         // Event attributes
                         loadEvent.LoadBasics(GetBasics(pname));
 
-                        if (loadEvent.Id == "E0001")
+                        if (loadEvent.Id == "E0714")
                         {
                         }
 
@@ -71,16 +74,12 @@ namespace GrampsView.Data.ExternalStorage
 
                         // save the event
                         DV.EventDV.EventData.Add(loadEvent);
+                        Debug.WriteLine(loadEvent.Id);
                     }
                 }
                 catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(ex.Message);
-
                     MyNotifications.NotifyException("LoadEventsAsync", ex);
-
-                    throw;
                 }
             }
 

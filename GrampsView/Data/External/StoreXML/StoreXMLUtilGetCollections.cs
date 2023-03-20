@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.External.StoreXML;
@@ -493,46 +495,53 @@ namespace GrampsView.Data.ExternalStorage
                 Title = "Media Collection"
             };
 
-            IEnumerable<XElement> theORElement = from _ORElementEl in xmlData.Elements(ns + "objref")
-                                                 select _ORElementEl;
-
-            if (theORElement.Any())
+            try
             {
-                // load media object references
-                foreach (XElement theLoadORElement in theORElement)
+                IEnumerable<XElement> theORElement = from _ORElementEl in xmlData.Elements(ns + "objref")
+                                                     select _ORElementEl;
+
+                if (theORElement.Any())
                 {
-                    // save the MediaObject reference
-                    HLinkMediaModel outHLMediaModel = new()
+                    // load media object references
+                    foreach (XElement theLoadORElement in theORElement)
                     {
-                        HLinkKey = GetHLinkKey(theLoadORElement),
-                        Priv = GetPrivateObject(theLoadORElement),
-                    };
+                        // save the MediaObject reference
+                        HLinkMediaModel outHLMediaModel = new()
+                        {
+                            HLinkKey = GetHLinkKey(theLoadORElement),
+                            Priv = GetPrivateObject(theLoadORElement),
+                        };
 
-                    if (outHLMediaModel.HLinkKey.Value == "_ea97612787a7a61ff4c3177b8b0")
-                    {
+                        if (outHLMediaModel.HLinkKey.Value == "_f1e1e39ec1c45034e54f3385298")
+                        {
+                        }
+
+                        // Get region
+                        XElement regionDetails = theLoadORElement.Element(ns + "region");
+                        if (regionDetails != null)
+                        {
+                            outHLMediaModel.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.Image;
+
+                            outHLMediaModel.GCorner1X = (int)regionDetails.Attribute("corner1_x");
+                            outHLMediaModel.GCorner1Y = (int)regionDetails.Attribute("corner1_y");
+                            outHLMediaModel.GCorner2X = (int)regionDetails.Attribute("corner2_x");
+                            outHLMediaModel.GCorner2Y = (int)regionDetails.Attribute("corner2_y");
+
+                            outHLMediaModel = await CreateClippedMediaModel(outHLMediaModel).ConfigureAwait(false);
+                        }
+
+                        // Get remaining fields
+                        outHLMediaModel.GAttributeRefCollection = GetAttributeCollection(theLoadORElement);
+                        outHLMediaModel.GCitationRefCollection = GetCitationCollection(theLoadORElement);
+                        outHLMediaModel.GNoteRefCollection = GetNoteCollection(theLoadORElement);
+
+                        t.Add(outHLMediaModel);
                     }
-
-                    // Get region
-                    XElement regionDetails = theLoadORElement.Element(ns + "region");
-                    if (regionDetails != null)
-                    {
-                        outHLMediaModel.HLinkGlyphItem.ImageType = CommonEnums.HLinkGlyphType.Image;
-
-                        outHLMediaModel.GCorner1X = (int)regionDetails.Attribute("corner1_x");
-                        outHLMediaModel.GCorner1Y = (int)regionDetails.Attribute("corner1_y");
-                        outHLMediaModel.GCorner2X = (int)regionDetails.Attribute("corner2_x");
-                        outHLMediaModel.GCorner2Y = (int)regionDetails.Attribute("corner2_y");
-
-                        outHLMediaModel = await CreateClippedMediaModel(outHLMediaModel).ConfigureAwait(false);
-                    }
-
-                    // Get remaining fields
-                    outHLMediaModel.GAttributeRefCollection = GetAttributeCollection(theLoadORElement);
-                    outHLMediaModel.GCitationRefCollection = GetCitationCollection(theLoadORElement);
-                    outHLMediaModel.GNoteRefCollection = GetNoteCollection(theLoadORElement);
-
-                    t.Add(outHLMediaModel);
                 }
+            }
+            catch (Exception ex)
+            {
+                MyNotifications.NotifyException("Load Media Collection", ex);
             }
 
             return t;

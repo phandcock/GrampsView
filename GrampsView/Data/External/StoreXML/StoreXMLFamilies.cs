@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
@@ -91,11 +93,9 @@ namespace GrampsView.Data.ExternalStorage
                         MyLog.Variable("Family Name", loadFamily.HLinkKey.Value);
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    // TODO handle this
-                    MyLog.DataLogEntryAdd(e.Message);
-                    throw;
+                    MyNotifications.NotifyException("Load Families", ex);
                 }
             }
 
