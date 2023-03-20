@@ -107,12 +107,7 @@ namespace GrampsView
                 {
                     wndLifeCycleBuilder.OnWindowCreated(window =>
                     {
-                        window.Maximize(); //Maximise on screen using WinUIEx extension method
-
-                        //WindowManager manager = WinUIEx.WindowManager.Get(window);
-                        //manager.PersistenceId = "MainWindowPersistanceId"; // Remember window position and size across runs
-                        //manager.MinWidth = 100;
-                        //manager.MinHeight = 100;
+                        window.Maximize();
                     });
                 });
 #endif

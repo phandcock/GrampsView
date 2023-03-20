@@ -20,6 +20,8 @@
 
                 <Grid
                     x:Name="controlRoot"
+                    Margin="0"
+                    Padding="0"
                     ColumnSpacing="0"
                     RowSpacing="0"
                     Style="{x:StaticResource SSGridSmallFixedCardStyle}">
@@ -37,20 +39,22 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Border
+                    <VerticalStackLayout
                         Grid.Row="0"
                         Grid.Column="0"
-                        Margin="0" 
-                        Style="{StaticResource CardImageBackgroundFrame}"
-                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                        HorizontalOptions="Fill">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
                             Margin="0"
                             Padding="0"
-                            BackgroundColor="Transparent" 
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Transparent"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
-                    </Border>
+                    </VerticalStackLayout>
 
                     <ContentPresenter
                         Grid.Row="0"
