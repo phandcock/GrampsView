@@ -1,3 +1,12 @@
+## [17.1.20](https://github.com/phandcock/GrampsView/compare/v17.1.19...v17.1.20) (2023-03-21)
+
+
+### Bug Fixes
+
+* update nugets ([824908b](https://github.com/phandcock/GrampsView/commit/824908b5e7ed36bca7130c2e9146e6fcd9c91c31))
+
+
+
 ## [17.1.19](https://github.com/phandcock/GrampsView/compare/v17.1.18...v17.1.19) (2023-03-20)
 
 
@@ -25,15 +34,6 @@
 
 * tweaks ([44622d0](https://github.com/phandcock/GrampsView/commit/44622d0ff41d0a55c6474a9b1b841cea9b01c749))
 * update nugets ([6ca0b41](https://github.com/phandcock/GrampsView/commit/6ca0b411f17dc3801a0e31ab1d1603c12aea26a7))
-
-
-
-## [17.1.16](https://github.com/phandcock/GrampsView/compare/v17.1.15...v17.1.16) (2023-03-16)
-
-
-### Bug Fixes
-
-* update nugets ([2180c75](https://github.com/phandcock/GrampsView/commit/2180c7571d5e90ffa10629f2c93ebd4c10688836))
 
 
 
