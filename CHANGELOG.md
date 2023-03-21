@@ -1,3 +1,13 @@
+## [17.1.19](https://github.com/phandcock/GrampsView/compare/v17.1.18...v17.1.19) (2023-03-20)
+
+
+### Bug Fixes
+
+* bodgy up mediaobject filesize ([cdb3371](https://github.com/phandcock/GrampsView/commit/cdb337136d317f89c2aa240a495a0c5a9329a702))
+* tweak small card layout ([12302e3](https://github.com/phandcock/GrampsView/commit/12302e3400c419f1563cb47ffc2fd28ebd105728))
+
+
+
 ## [17.1.18](https://github.com/phandcock/GrampsView/compare/v17.1.17...v17.1.18) (2023-03-19)
 
 
@@ -24,15 +34,6 @@
 ### Bug Fixes
 
 * update nugets ([2180c75](https://github.com/phandcock/GrampsView/commit/2180c7571d5e90ffa10629f2c93ebd4c10688836))
-
-
-
-## [17.1.15](https://github.com/phandcock/GrampsView/compare/v17.1.14...v17.1.15) (2023-03-13)
-
-
-### Bug Fixes
-
-* fix seriallink bug ([ce99fb6](https://github.com/phandcock/GrampsView/commit/ce99fb63ddd3fb507846c5777fd25b5930e1a719))
 
 
 
