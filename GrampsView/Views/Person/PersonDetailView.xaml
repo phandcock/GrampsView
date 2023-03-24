@@ -21,30 +21,34 @@
 
     <ucon:DetailPageControlTemplate>
 
-        <StackLayout>
+        <Grid>
 
-            <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <StackLayout>
 
-            <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
+                <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSingleDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
-            <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
-            <BoxView />
-        </StackLayout>
+                <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
+
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonNameMultipleDetails, Mode=OneWay}" FsctTemplate="{StaticResource PersonNameCardSingleDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding EventsIncFamily, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GParentInRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GMediaRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GAddressCollection, Mode=OneWay}" FsctTemplate="{StaticResource AddressCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
+                <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
+
+                <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+                <BoxView />
+            </StackLayout>
+        </Grid>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>
