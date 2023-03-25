@@ -21,10 +21,10 @@
 
     <ucon:DetailPageControlTemplate>
 
+      
         <Grid>
 
-
-            <StackLayout>
+            <VerticalStackLayout>
 
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
@@ -47,8 +47,8 @@
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
-                <BoxView />
-            </StackLayout>
+               
+            </VerticalStackLayout>
         </Grid>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>
