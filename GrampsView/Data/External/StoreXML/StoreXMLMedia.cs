@@ -30,7 +30,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// Flag showing of loaded successfully.
         /// </returns>
-        public Task<bool> LoadMediaObjectsAsync()
+        public async Task<bool> LoadMediaObjectsAsync()
         {
             MyLog.RoutineEntry("loadMediaObjects");
 
@@ -42,7 +42,7 @@ namespace GrampsView.Data.ExternalStorage
                 //   ImageExtensions PlatformImageHandler = new SharedSharp.Common.SharedSharpImageExtensions();
 
                 // Load notes Run query
-                System.Collections.Generic.IEnumerable<XElement> de =
+                IEnumerable<XElement> de =
                     from el in LocalGrampsXMLdoc.Descendants(ns + "object")
                     select el;
 
@@ -50,6 +50,8 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     foreach (XElement pname in de)
                     {
+                        MyLog.Progress($"Loading {pname.Attribute}");
+
                         // <code> < define name = "object-content" > <ref name=
                         // "SecondaryColor-object" /> < element name = "file" > < attribute name =
                         // "src" > < text /> </ attribute > < attribute name = "mime" >
@@ -191,7 +193,7 @@ namespace GrampsView.Data.ExternalStorage
                         // save the object
                         DataStore.Instance.DS.MediaData.Add((MediaModel)loadObject);
 
-                        MyLog.Variable("LoadMedia", loadObject.GDescription);
+                        MyLog.Progress("Media Loaded", loadObject.GDescription);
                     }
                 }
                 catch (Exception ex)
@@ -205,7 +207,7 @@ namespace GrampsView.Data.ExternalStorage
 
             MyLog.RoutineExit(nameof(LoadMediaObjectsAsync));
 
-            return Task.FromResult(true);
+            return true;
         }
     }
 }

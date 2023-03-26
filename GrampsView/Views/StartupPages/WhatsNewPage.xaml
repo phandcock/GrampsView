@@ -17,10 +17,10 @@
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+        <VerticalStackLayout Padding="0,50,0,0" HorizontalOptions="FillAndExpand">
 
-            <Border Style="{StaticResource SSBorderHeaderStyle}">
-                <HorizontalStackLayout>
+            <Border Style="{StaticResource SSBorderHeaderStyle}" HorizontalOptions="FillAndExpand">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                     <Border
                         HeightRequest="100"
                         WidthRequest="100"
