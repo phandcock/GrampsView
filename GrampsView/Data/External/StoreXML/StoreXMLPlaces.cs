@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels;
 
@@ -88,8 +90,6 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     MyNotifications.NotifyException("Exception loading Place data from the file", ex);
-
-                    throw;
                 }
             }
 

@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Common.Interfaces;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.External.StoreXML;
 
 using SharedSharp.Errors;
@@ -117,7 +116,6 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to load Gramps data only", ex);
-                throw;
             }
 
             return Task.FromResult(true);

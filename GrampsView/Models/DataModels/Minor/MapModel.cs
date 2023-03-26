@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks.Models;
 
@@ -107,9 +109,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open",ex);
-
-                            throw;
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open", ex);
                         }
 
                         break;
@@ -128,9 +128,7 @@ namespace GrampsView.Models.DataModels.Minor
                         }
                         catch (Exception ex)
                         {
-                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open",ex);
-
-                            throw;
+                            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("No map application available to open", ex);
                         }
 
                         break;

@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Mvvm.ComponentModel;
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -310,9 +312,7 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
-                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository",ex);
-
-                throw;
+                _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
             }
 
             _ = await SetMediaImages();

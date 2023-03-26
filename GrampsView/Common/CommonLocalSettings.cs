@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.Interfaces;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Repository;
 
@@ -87,7 +89,6 @@ namespace GrampsView.Common
                 Preferences.Default.Remove(argSettingsKey);
 
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("FileModifiedSinceLastSaveAsync", ex);
-                throw;
             }
         }
 

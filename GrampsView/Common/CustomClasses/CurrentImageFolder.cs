@@ -24,7 +24,6 @@ namespace GrampsView.Common.CustomClasses
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application image cache", ex);
-                throw;
             }
         }
 

@@ -12,7 +12,7 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                DirectoryInfo BaseDir = new(FileSystem.Current.AppDataDirectory);
+                DirectoryInfo BaseDir = new(SharedSharpGeneral.AppDataDirectory());
 
                 string tt = System.IO.Path.Combine(BaseDir.FullName, Constants.DirectoryCacheBase);
 
@@ -28,7 +28,6 @@ namespace GrampsView.Common.CustomClasses
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception creating application cache", ex);
-                throw;
             }
         }
 
@@ -36,7 +35,7 @@ namespace GrampsView.Common.CustomClasses
         {
             get; set;
         }
-            = new(FileSystem.Current.AppDataDirectory);
+            = new(SharedSharpGeneral.AppDataDirectory());
 
         public string FolderAsString => FolderasDirInfo.FullName;
 

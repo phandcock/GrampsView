@@ -1,13 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Common;
-using GrampsView.Data.DataView;
-using GrampsView.Data.External.StoreFile;
-using GrampsView.Data.Repository;
-using GrampsView.Models.DataModels.Interfaces;
-
-using SharedSharp.Errors;
-
 namespace GrampsView.Data.ExternalStorage
 {
     /// <summary>
@@ -64,7 +56,7 @@ namespace GrampsView.Data.ExternalStorage
         //        SharedSharpSettings.DataSerialised = false;
         //        _commonNotifications.NotifyException("Trying to add media file pointer", ex);
 
-        //        throw;
+        //      
         //    }
 
         //    return false;

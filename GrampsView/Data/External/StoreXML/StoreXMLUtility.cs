@@ -463,7 +463,7 @@ namespace GrampsView.Data.ExternalStorage
             catch (Exception ex)
             {
                 MyNotifications.NotifyException("Error in XML Utils GetColour", ex);
-                throw;
+              
             }
         }
 
@@ -532,7 +532,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 MyNotifications.NotifyException("Exception in GetUri", ex);
 
-                throw;
+              
             }
         }
 

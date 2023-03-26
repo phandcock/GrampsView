@@ -104,8 +104,6 @@ namespace GrampsView.UserControls
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
-
-                throw;
             }
         }
 
@@ -192,7 +190,6 @@ namespace GrampsView.UserControls
                 };
 
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argExtraItems: argDetail);
-                    throw;
                 }
             }
         }
@@ -246,7 +243,6 @@ namespace GrampsView.UserControls
                 };
 
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argDetail);
-                    throw;
                 }
             }
         }
@@ -309,8 +305,6 @@ namespace GrampsView.UserControls
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("HLinkVisualDisplay", ex);
-
-                throw;
             }
         }
 
@@ -377,7 +371,6 @@ namespace GrampsView.UserControls
                 };
 
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, argDetail);
-                throw;
             }
         }
     }

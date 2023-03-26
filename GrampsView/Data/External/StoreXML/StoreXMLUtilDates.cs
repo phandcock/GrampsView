@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Models.DataModels.Date;
 
@@ -67,8 +69,6 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
-
-                throw;
             }
 
             // TODO fix this if (tempDate is typeof( DateObjectModel) ) { // no date found tempDate
@@ -152,7 +152,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
-                throw;
+
             }
 
             return new DateObjectModelSpan(aStart, aStop, aCFormat, aDualDated, aNewYear, aQuality);
@@ -185,7 +185,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error", ex);
-                throw;
+
             }
 
             return new DateObjectModelStr(aVal);
@@ -277,7 +277,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message, ex);
-                throw;
+
             }
 
             return new DateObjectModelVal(aVal, aCFormat, aDualDated, aNewYear, aQuality, aValType);
@@ -356,7 +356,7 @@ namespace GrampsView.Data.ExternalStorage
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in SetDateRange", ex);
-                throw;
+
             }
 
             return new DateObjectModelRange(aStart, aStop, aCFormat, aDualDated, aNewYear, aQuality);

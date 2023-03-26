@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.External.StoreFile;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.External.StoreFile;
 
 using SharedSharp.Errors.Interfaces;
 using SharedSharp.Logging.Interfaces;
@@ -42,7 +44,6 @@ namespace GrampsView.Data.External.StoreFolder
                 catch (Exception ex)
                 {
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
-                    throw;
                 }
             }
 
@@ -93,7 +94,6 @@ namespace GrampsView.Data.External.StoreFolder
                 catch (Exception ex)
                 {
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
-                    throw;
                 }
             }
 

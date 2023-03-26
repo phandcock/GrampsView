@@ -216,7 +216,6 @@ namespace GrampsView.Data
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar Disk Full Exception working on " + tarEntry.Name, ex);
 
                     // No recovery from this
-                    throw;
                 }
 
                 // Handle other errors

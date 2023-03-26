@@ -86,8 +86,6 @@ namespace GrampsView.ViewModels.StartupPages
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception when using File Picker", ex);
-
-                throw;
             }
         }
 

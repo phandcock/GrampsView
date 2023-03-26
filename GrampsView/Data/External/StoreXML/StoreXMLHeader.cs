@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
@@ -69,8 +71,6 @@ namespace GrampsView.Data.ExternalStorage
                 catch (System.Exception ex)
                 {
                     MyNotifications.NotifyException("Loading header from GRAMPSXML storage.  Header has not been loaded", ex);
-
-                    throw;
                 }
             }
 

@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 
@@ -61,7 +63,6 @@ namespace GrampsView.Data.ExternalStorage
                 catch (Exception ex)
                 {
                     MyNotifications.NotifyException("Error in LoadTagsAsync", ex);
-                    throw;
                 }
             }
 

@@ -114,8 +114,6 @@ namespace GrampsView.Data.External.StoreFile
             catch (Exception ex)
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in PickCurrentInputFile", ex);
-
-                throw;
             }
 
             return true;

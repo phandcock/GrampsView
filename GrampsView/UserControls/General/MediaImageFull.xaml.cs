@@ -74,7 +74,6 @@ namespace GrampsView.UserControls
                 catch (Exception ex)
                 {
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception in MediaImageFull control", ex);
-                    throw;
                 }
             }
 

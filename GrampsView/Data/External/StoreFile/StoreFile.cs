@@ -42,7 +42,6 @@ namespace GrampsView.Data
                 catch (Exception ex)
                 {
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("DataStorageInitialiseAsync", ex);
-                    throw;
                 }
             }
 

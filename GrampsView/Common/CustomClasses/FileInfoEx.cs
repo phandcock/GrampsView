@@ -101,7 +101,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Exception while checking FileGetDateTimeModified for =" + FInfo.FullName, ex);
 
-                throw;
+                return new DateTime();
             }
         }
 
@@ -150,7 +150,6 @@ namespace GrampsView.Common.CustomClasses
                 catch (Exception ex)
                 {
                     Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex.Message + argFileName, ex);
-                    throw;
                 }
             }
             else

@@ -141,8 +141,6 @@ namespace GrampsView.Data.ExternalStorage
                                         loadObject.MetaDataHeight = b.Height;
                                         loadObject.MetaDataWidth = b.Width;
 
-
-
                                         // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
                                     }
                                     else
@@ -153,7 +151,6 @@ namespace GrampsView.Data.ExternalStorage
                                 catch (Exception ex)
                                 {
                                     MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
-                                    throw;
                                 }
                             }
 
@@ -201,8 +198,6 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     // TODO handle this
                     MyNotifications.NotifyException("Loading Media Objects", ex);
-
-                    throw;
                 }
             }
 

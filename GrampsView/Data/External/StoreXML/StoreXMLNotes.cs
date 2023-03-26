@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
 using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -73,8 +75,6 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     // TODO handle this
                     MyNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
-
-                    throw;
                 }
             }
 

@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 
 using SharedSharp.Errors.Interfaces;
@@ -77,7 +79,6 @@ namespace GrampsView.Models.DataModels.Date
             {
                 // TODO
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Error in SetDate", ex);
-                throw;
             }
         }
 

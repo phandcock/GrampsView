@@ -450,8 +450,6 @@ namespace GrampsView.Data.Repository
                 _commonNotifications.NotifyException("Trying to load existing serialised data", ex);
 
                 CommonLocalSettings.SetReloadDatabase();
-
-                throw;
             }
 
             _CL.RoutineExit("");

@@ -17,13 +17,14 @@
     mc:Ignorable="d">
 
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
 
             <Border Style="{StaticResource SSBorderHeaderStyle}">
                 <HorizontalStackLayout>
                     <Border
                         HeightRequest="100"
                         WidthRequest="100"
+                        HorizontalOptions="FillAndExpand"
                         BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
                                                           Light={StaticResource Neutral}}"
                         Style="{StaticResource SSBorderCardStyle}">
