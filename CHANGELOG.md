@@ -1,3 +1,12 @@
+## [17.1.22](https://github.com/phandcock/GrampsView/compare/v17.1.21...v17.1.22) (2023-03-26)
+
+
+### Bug Fixes
+
+* cleanup exception handling ([7e790ef](https://github.com/phandcock/GrampsView/commit/7e790ef74f7063e25a539931b8a843d3691fde64))
+
+
+
 ## [17.1.21](https://github.com/phandcock/GrampsView/compare/v17.1.20...v17.1.21) (2023-03-25)
 
 
@@ -25,16 +34,6 @@
 
 * bodgy up mediaobject filesize ([cdb3371](https://github.com/phandcock/GrampsView/commit/cdb337136d317f89c2aa240a495a0c5a9329a702))
 * tweak small card layout ([12302e3](https://github.com/phandcock/GrampsView/commit/12302e3400c419f1563cb47ffc2fd28ebd105728))
-
-
-
-## [17.1.18](https://github.com/phandcock/GrampsView/compare/v17.1.17...v17.1.18) (2023-03-19)
-
-
-### Bug Fixes
-
-* tweak colours ([a28dad0](https://github.com/phandcock/GrampsView/commit/a28dad06b68640d5d21432d8d0b874c7ff2aed9f))
-* tweak colours ([93788ca](https://github.com/phandcock/GrampsView/commit/93788cac8eae2c078e9ca8b8e51084cb6d7d2271))
 
 
 
