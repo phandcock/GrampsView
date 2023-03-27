@@ -1,3 +1,13 @@
+## [17.1.23](https://github.com/phandcock/GrampsView/compare/v17.1.22...v17.1.23) (2023-03-27)
+
+
+### Bug Fixes
+
+* tweaks ([5cd511f](https://github.com/phandcock/GrampsView/commit/5cd511f00f915c126364df311513b68726042849))
+* tweaks ([28d347f](https://github.com/phandcock/GrampsView/commit/28d347ffda644f2a57a65ec239a681e7bf9a1ad8))
+
+
+
 ## [17.1.22](https://github.com/phandcock/GrampsView/compare/v17.1.21...v17.1.22) (2023-03-26)
 
 
@@ -24,16 +34,6 @@
 ### Bug Fixes
 
 * update nugets ([824908b](https://github.com/phandcock/GrampsView/commit/824908b5e7ed36bca7130c2e9146e6fcd9c91c31))
-
-
-
-## [17.1.19](https://github.com/phandcock/GrampsView/compare/v17.1.18...v17.1.19) (2023-03-20)
-
-
-### Bug Fixes
-
-* bodgy up mediaobject filesize ([cdb3371](https://github.com/phandcock/GrampsView/commit/cdb337136d317f89c2aa240a495a0c5a9329a702))
-* tweak small card layout ([12302e3](https://github.com/phandcock/GrampsView/commit/12302e3400c419f1563cb47ffc2fd28ebd105728))
 
 
 
