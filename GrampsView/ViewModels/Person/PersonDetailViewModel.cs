@@ -120,9 +120,9 @@ namespace GrampsView.ViewModels.Person
                 //// Get the Name Details
                 //BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 
-                // Get the Person Details
-                CardListLineCollection nameDetails = GetExtraPersonDetails;
-                BaseDetail.Add(nameDetails);
+                //// Get the Person Details
+                //CardListLineCollection nameDetails = GetExtraPersonDetails;
+                //BaseDetail.Add(nameDetails);
 
                 // Get date card
                 if (PersonObject.BirthDate.Valid)
