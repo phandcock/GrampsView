@@ -21,14 +21,13 @@
 
     <ucon:DetailPageControlTemplate>
 
-      
         <Grid>
 
             <VerticalStackLayout>
 
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" MinimumHeightRequest="200"/>
 
                 <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
 
@@ -47,7 +46,6 @@
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
                 <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
-               
             </VerticalStackLayout>
         </Grid>
     </ucon:DetailPageControlTemplate>

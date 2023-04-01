@@ -32,10 +32,6 @@ using SharedSharp.Services.Interfaces;
 
 using System.Diagnostics;
 
-#if WINDOWS
-using WinUIEx;
-#endif
-
 namespace GrampsView
 {
     public static class MauiProgram
@@ -81,12 +77,12 @@ namespace GrampsView
 
         public static MauiAppBuilder RegisterHandlers(this MauiAppBuilder builder)
         {
-            // RegisterMappers();
-            return builder.ConfigureMauiHandlers(handlers =>
-            {
-                // Your handlers here...
-                //handlers.AddHandler(typeof(MyEntry), typeof(MyEntryHandler));
-            });
+            //// RegisterMappers();
+            //return builder.ConfigureMauiHandlers(handlers =>
+            //{
+            //});
+
+            return builder;
         }
 
         public static MauiAppBuilder RegisterLifeCycleEvents(this MauiAppBuilder builder)
@@ -94,23 +90,6 @@ namespace GrampsView
             _ = builder.ConfigureLifecycleEvents(events =>
             {
                 Debug.WriteLine("RegisterLifeCycleEvents");
-
-                //#if WINDOWS
-                //                events.AddWindows(windows => windows
-                //                       .OnWindowCreated(window =>
-                //                       {
-                //                           window.SizeChanged += OnSizeChanged;
-                //                       }));
-
-                //                // TODO remove once maui can do this natively
-                //                events.AddWindows(wndLifeCycleBuilder =>
-                //                {
-                //                    wndLifeCycleBuilder.OnWindowCreated(window =>
-                //                    {
-                //                        window.Maximize();
-                //                    });
-                //                });
-                //#endif
             });
 
             return builder;

@@ -9,7 +9,8 @@
     x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent">
+    HorizontalOptions="Fill"
+    Style="{StaticResource SSBorderCardStyle}">
 
     <sSharpCommon:CollectionViewEx
         x:Name="theCollectionView"

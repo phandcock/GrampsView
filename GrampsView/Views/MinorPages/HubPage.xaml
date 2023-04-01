@@ -33,11 +33,8 @@
             ShowsResults="false">
             <common:GrampsViewSearchHandler.ItemTemplate>
                 <DataTemplate x:DataType="commonclasses:SearcHandlerItem">
-                    <Grid ColumnDefinitions="0.15*,0.85*">
-                        <ucon:HLinkVisualDisplay
-                            Grid.Column="0"
-                            BindingContext="{Binding HLink.HLinkGlyphItem}"
-                             />
+                    <Grid ColumnDefinitions="0.15*,0.85*" BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}">
+                        <ucon:HLinkVisualDisplay Grid.Column="0" BindingContext="{Binding HLink.HLinkGlyphItem}" />
                         <Label
                             Grid.Column="1"
                             Style="{StaticResource SSCardLabelStyleSmall}"

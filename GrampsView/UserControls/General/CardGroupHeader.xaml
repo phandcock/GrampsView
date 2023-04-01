@@ -8,8 +8,7 @@
     x:Name="CardGroupHeaderRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource Neutral},
-                                      Light={StaticResource Neutral}}"
+    Style="{StaticResource SSBorderCardStyle}"
     IsVisible="{Binding Count, Converter={StaticResource IntToBool}, Mode=OneWay}">
 
     <Border.Resources>
@@ -45,7 +44,5 @@
                     ItemsSource="{Binding ., Mode=OneWay}" />
             </VerticalStackLayout>
         </ScrollView>
-
-
     </Grid>
 </Border>

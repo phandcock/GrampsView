@@ -9,7 +9,10 @@
     x:Name="CollectionSingleCardRoot"
     Margin="0"
     Padding="0"
-    BackgroundColor="Transparent">
+    BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
+                                      Light={StaticResource SurfaceLight}}"
+    Stroke="{AppThemeBinding Dark={StaticResource SecondaryDark},
+                             Light={StaticResource SecondaryLight}}">
 
     <Border.Resources>
         <ResourceDictionary>

@@ -41,35 +41,6 @@ namespace GrampsView.Data.External.StoreSerial
 
             try
             {
-                //DataContractSerializer ser = new(typeof(DataInstance));
-
-                //FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile("General"));
-
-                //// Check of the file exists
-                //if (ttt.Length != 1)
-                //{
-                //    ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
-                //                {
-                //                    { "File", CommonRoutines.GetSerialFile("General") },
-                //                };
-
-                //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
-                //    SharedSharpSettings.DataSerialised = false;
-                //    return;
-                //}
-
-                ////byte[] buffer = new byte[1024];
-
-                //FileStream isoStream = new FileStream(DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(CommonRoutines.GetSerialFile("General")), FileMode.Open);
-
-                ////var ttt = await isoStream.ReadAsync(buffer, 0, 100);
-
-                //JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
-
-                //DataInstance t = await JsonSerializer.DeserializeAsync<DataInstance>(isoStream, serializerOptions);
-
-                // Check for nulls
-
                 await DataStore.Instance.DS.AddressData.DeSerialize();
 
                 // Bookmark
@@ -92,11 +63,7 @@ namespace GrampsView.Data.External.StoreSerial
                 }
                 else
                 {
-                    //byte[] buffer = new byte[1024];
-
                     FileStream isoStream = new FileStream(CommonRoutines.GetSerialFileFull("BookMarks"), FileMode.Open);
-
-                    //var ttt = await isoStream.ReadAsync(buffer, 0, 100);
 
                     JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
 
@@ -185,7 +152,6 @@ namespace GrampsView.Data.External.StoreSerial
 
             await DataStore.Instance.DS.PlaceData.Serialize();
             await DataStore.Instance.DS.RepositoryData.Serialize();
-
 
             localGVLogging.Progress("SerializeRepository - Completed ");
 

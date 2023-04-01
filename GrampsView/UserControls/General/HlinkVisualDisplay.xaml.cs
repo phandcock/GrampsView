@@ -171,7 +171,7 @@ namespace GrampsView.UserControls
                     Image newMediaControl = new()
                     {
                         Source = argMediaModel.HLink.DeRef.CurrentStorageFile.GetAbsoluteFilePath,
-                        BackgroundColor = new Color(),
+                        BackgroundColor = Color.FromRgb(255, 255, 255),
                         Aspect = Aspect.AspectFit,
                     };
 

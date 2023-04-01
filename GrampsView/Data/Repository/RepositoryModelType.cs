@@ -126,7 +126,7 @@ namespace GrampsView.Data.Repository
         {
             try
             {
-                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising {CommonRoutines.GetSerialFile(SerialisationName)}");
+                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising {SerialisationName}");
 
                 DataContractSerializer ser = new(typeof(DataInstance));
 
