@@ -1,4 +1,6 @@
-﻿using GrampsView.Data.Model;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Interfaces;
@@ -285,7 +287,7 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate? PersonNameSmallTemplate
+        public DataTemplate PersonNameSmallTemplate
         {
             get;
             set;

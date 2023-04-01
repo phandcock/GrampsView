@@ -93,6 +93,8 @@ namespace GrampsView.ViewModels.Person
         }
         = new PersonModel();
 
+        public HLinkFamilyGraphModel FamilyGraphModel { get; set; }
+
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -113,14 +115,13 @@ namespace GrampsView.ViewModels.Person
                 // Get media image
                 MediaCard = PersonObject.ModelItemGlyph;
 
-                BaseDetail.Clear();
+                //BaseDetail.Clear();
 
-                // Get the Name Details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
+                //// Get the Name Details
+                //BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 
                 // Get the Person Details
-                CardListLineCollection nameDetails = GetExtraPersonDetails();
-                nameDetails.Title = "Person Detail";
+                CardListLineCollection nameDetails = GetExtraPersonDetails;
                 BaseDetail.Add(nameDetails);
 
                 // Get date card
@@ -132,12 +133,17 @@ namespace GrampsView.ViewModels.Person
                 // Add Standard details
                 BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                // Get Faily Graph details
-                BaseDetail.Add(
-                    new HLinkFamilyGraphModel
-                    {
-                        DeRef = PersonObject,
-                    });
+                FamilyGraphModel = new HLinkFamilyGraphModel
+                {
+                    DeRef = PersonObject,
+                };
+
+                //// Get Faily Graph details
+                //BaseDetail.Add(
+                //    new HLinkFamilyGraphModel
+                //    {
+                //        DeRef = PersonObject,
+                //    });
 
                 // If Bio note, display it while showing the full list further below.
                 BioNote = PersonObject.GNoteRefCollection.GetBio;
@@ -159,39 +165,42 @@ namespace GrampsView.ViewModels.Person
             return;
         }
 
-        private CardListLineCollection GetExtraPersonDetails()
+        public CardListLineCollection GetExtraPersonDetails
         {
-            // Get extra details
-            CardListLineCollection extraDetailsCard = new()
+            get
+            {
+                // Get extra details
+                CardListLineCollection extraDetailsCard = new("Person Detail")
             {
                         new CardListLine("Gender:", PersonObject.GGender.ToString()),
                 };
 
-            if (PersonObject.BirthDate.Valid)
-            {
-                if (PersonObject.IsLiving)
+                if (PersonObject.BirthDate.Valid)
                 {
-                    extraDetailsCard.Add(new CardListLine("Age:", PersonObject.BirthDate.GetAge));
+                    if (PersonObject.IsLiving)
+                    {
+                        extraDetailsCard.Add(new CardListLine("Age:", PersonObject.BirthDate.GetAge));
+                    }
+                    else
+                    {
+                        extraDetailsCard.Add(new CardListLine("Years Since Birth:", PersonObject.BirthDate.GetAge));
+
+                        EventModel ageAtDeath = DV.EventDV.GetEventType(PersonObject.GEventRefCollection, "Death");
+                        if (ageAtDeath.Valid)
+                        {
+                            extraDetailsCard.Add(new CardListLine("Age at Death:", ageAtDeath.GDate.DateDifferenceDecoded(PersonObject.BirthDate)));
+                        }
+                    }
                 }
                 else
                 {
-                    extraDetailsCard.Add(new CardListLine("Years Since Birth:", PersonObject.BirthDate.GetAge));
-
-                    EventModel ageAtDeath = DV.EventDV.GetEventType(PersonObject.GEventRefCollection, "Death");
-                    if (ageAtDeath.Valid)
-                    {
-                        extraDetailsCard.Add(new CardListLine("Age at Death:", ageAtDeath.GDate.DateDifferenceDecoded(PersonObject.BirthDate)));
-                    }
+                    extraDetailsCard.Add(new CardListLine("Birth Date:", "Unknown"));
                 }
-            }
-            else
-            {
-                extraDetailsCard.Add(new CardListLine("Birth Date:", "Unknown"));
-            }
 
-            extraDetailsCard.Add(new CardListLine("Is Living:", PersonObject.IsLivingAsString));
+                extraDetailsCard.Add(new CardListLine("Is Living:", PersonObject.IsLivingAsString));
 
-            return extraDetailsCard;
+                return extraDetailsCard;
+            }
         }
     }
 }

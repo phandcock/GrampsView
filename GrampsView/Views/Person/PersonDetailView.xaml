@@ -8,6 +8,8 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Person"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PersonDetailViewModel"
@@ -27,7 +29,12 @@
 
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" MinimumHeightRequest="200"/>
+                <common:HorizontalWrapLayout>
+                    <ucon:PersonNameCardSingle BindingContext="{Binding PersonObject.GPersonNamesCollection.GetPrimaryName}"/>
+                    <sSharpUcon:ListLineCard BindingContext="{Binding GetExtraPersonDetails}"/>
+                    <ucon:FamilyCardMediumLink BindingContext="{Binding FamilyGraphModel}"/>
+                </common:HorizontalWrapLayout>
+            
 
                 <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
 
