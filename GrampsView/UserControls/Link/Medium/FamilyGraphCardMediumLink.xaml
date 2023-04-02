@@ -24,7 +24,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-          <!--Father Parents-->  
+        <!--  Father Parents  -->
         <ucon:PersonCardLinkCell
             Grid.Row="0"
             Grid.Column="0"
@@ -43,7 +43,7 @@
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 
-          <!--Mother Parents-->  
+        <!--  Mother Parents  -->
         <ucon:PersonCardLinkCell
             Grid.Row="0"
             Grid.Column="2"

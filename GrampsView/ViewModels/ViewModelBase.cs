@@ -51,6 +51,8 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
+        public CardListLineCollection StandardDetails { get; set; } = new CardListLineCollection();
+
         /// <summary>
         /// Called when [basecl changed]. Frody automatically wires this up.
         /// </summary>
