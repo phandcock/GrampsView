@@ -159,11 +159,13 @@
       <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
       <Compile Remove="Platforms\Android\Localize.cs" />
       <Compile Remove="Platforms\Windows\AppSecific\Localise.cs" />
+      <Compile Remove="UserControls\General\CardGroupHeader.xaml.cs" />
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
     </ItemGroup>
 
     <ItemGroup>
+      <MauiXaml Remove="UserControls\General\CardGroupHeader.xaml" />
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
     </ItemGroup>
 

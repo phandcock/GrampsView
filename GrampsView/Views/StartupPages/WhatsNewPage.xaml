@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:GrampsView.Common"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.StartupPages"
     xmlns:views="clr-namespace:GrampsView.Views.StartupPages"
     xmlns:v="clr-namespace:GrampsView.Views"
@@ -39,7 +39,7 @@
                 </HorizontalStackLayout>
             </Border>
 
-            <sSharpUcon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" />
+            <sSUcon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" />
 
             <Button
                 Command="{Binding LoadDataCommand}"

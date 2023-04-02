@@ -8,20 +8,20 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewModels="clr-namespace:GrampsView.ViewModels.MinorModels"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewModels:AttributeDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:CollectionSingleCard FsctSource="{Binding AttributeObject.GCitationReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding AttributeObject.GNoteModelReferenceCollection, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />

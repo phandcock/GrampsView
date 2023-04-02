@@ -6,6 +6,7 @@
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:mauiToolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     x:Name="CitationCardMediumLinkRoot"
     x:DataType="models:HLinkCitationModel">
 
@@ -44,12 +45,13 @@
             BindingContext="{Binding ., Mode=OneWay}"
             IsEnabled="False" />
 
-        <ucon:CardGroupHeader
+        <common:HorizontalWrapLayout
             Grid.Row="3"
             Grid.Column="0"
             Margin="0"
             Padding="0"
-            BindingContext="{Binding DeRef.GSourceRef.DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
+            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+            BindableLayout.ItemsSource="{Binding DeRef.GSourceRef.DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
             HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

@@ -12,7 +12,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.StartupPages"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:FileInputHandlerViewModel"
@@ -20,7 +20,7 @@
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <Grid>

@@ -10,14 +10,14 @@
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:SettingsViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <!--  Content  -->
@@ -25,11 +25,11 @@
 
         <VerticalStackLayout HorizontalOptions="Fill">
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Theme Selector">
-                <sSharpUcon:ThemeSelector />
-            </sSharpUcon:SSHeaderSettings>
+            <sSUcon:SSHeaderSettings HeaderTitle="Theme Selector">
+                <sSUcon:ThemeSelector />
+            </sSUcon:SSHeaderSettings>
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="FillAndExpand">
+            <sSUcon:SSHeaderSettings HeaderTitle="Settings" HorizontalOptions="FillAndExpand">
 
                 <Grid HorizontalOptions="FillAndExpand">
 
@@ -93,9 +93,9 @@
                         </Entry.Behaviors>
                     </Entry>
                 </Grid>
-            </sSharpUcon:SSHeaderSettings>
+            </sSUcon:SSHeaderSettings>
 
-            <sSharpUcon:SSHeaderSettings HeaderTitle="Extras" HorizontalOptions="FillAndExpand">
+            <sSUcon:SSHeaderSettings HeaderTitle="Extras" HorizontalOptions="FillAndExpand">
 
                 <HorizontalStackLayout HorizontalOptions="FillAndExpand">
 
@@ -105,7 +105,7 @@
                         Text="Show MesageLog" />
 
                 </HorizontalStackLayout>
-            </sSharpUcon:SSHeaderSettings>
+            </sSUcon:SSHeaderSettings>
         </VerticalStackLayout>
     </ScrollView>
 </views:ViewBasePage>

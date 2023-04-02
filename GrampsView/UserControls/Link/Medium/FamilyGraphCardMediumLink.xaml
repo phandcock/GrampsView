@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     x:DataType="models:HLinkFamilyGraphModel">
 
     <Grid>
@@ -100,11 +101,12 @@
             MinimumHeightRequest="50"
             MinimumWidthRequest="50" />
 
-        <ucon:CardGroupHeader
+        <common:HorizontalWrapLayout
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="4"
-            BindingContext="{Binding Families, Mode=OneWay}"
+            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+            BindableLayout.ItemsSource="{Binding Families, Mode=OneWay}"
             HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

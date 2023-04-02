@@ -5,24 +5,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Citation"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:CitationDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
             <ucon:MediaGlyphCardLarge BindingContext="{Binding CitationObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:NoteCardFull BindingContext="{Binding HighlightedNote}" />
 
@@ -31,7 +32,9 @@
             <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GTagRef, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding CitationObject.GSourceAttributeCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding CitationObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+            <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
+                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding CitationObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

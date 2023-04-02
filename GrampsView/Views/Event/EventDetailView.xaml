@@ -8,15 +8,15 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Event"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:EventDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
@@ -24,18 +24,7 @@
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding HLinkObject.HLinkGlyphItem, Mode=OneWay}" />
 
-            <common:HorizontalWrapLayout>
-
-                <sSharpUcon:SSHeaderBorderSettings HeaderTitle="Event Detail">
-                    <sSharpUcon:ListLineCard ItemsSource="{Binding StandardDetails, Mode=OneWay}" />
-                </sSharpUcon:SSHeaderBorderSettings>
-
-                <ucon:DateCardSingle BindingContext="{Binding EventDate, Mode=OneWay}" />
-
-                <ucon:PlaceCardSmall BindingContext="{Binding PlaceLocation, Mode=OneWay}" />
-
-                <sSharpUcon:ListLineCard BindingContext="{Binding StandardDetails, Mode=OneWay}" />
-            </common:HorizontalWrapLayout>
+            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:NoteCardFull BindingContext="{Binding HighlightedNote}" />
 
@@ -48,7 +37,9 @@
             <ucon:CollectionSingleCard FsctSource="{Binding NotesWithoutHighlight, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding EventObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding EventObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+            <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
+                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding EventObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

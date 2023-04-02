@@ -8,14 +8,15 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Places"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PlaceDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
@@ -23,7 +24,7 @@
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding PlaceObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GPlaceNames, Mode=OneWay}" FsctTemplate="{StaticResource PlaceNameCardSmallDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GLocation, Mode=OneWay}" FsctTemplate="{StaticResource PlaceLocationCardSmallDT}" />
@@ -35,7 +36,9 @@
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding PlaceObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+            <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
+                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PlaceObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

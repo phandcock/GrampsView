@@ -7,8 +7,8 @@
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Name="CollectionSingleCardRoot"
-    Margin="0"
-    Padding="0"
+    Margin="5"
+    Padding="5"
     BackgroundColor="{AppThemeBinding Dark={StaticResource SurfaceDark},
                                       Light={StaticResource SurfaceLight}}"
     Stroke="{AppThemeBinding Dark={StaticResource SecondaryDark},

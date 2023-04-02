@@ -11,14 +11,14 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.MinorPages"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:AboutViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ScrollView>
@@ -77,17 +77,17 @@
                 ItemsSource="{Binding HeaderData, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand" />
 
-            <sSharpUcon:SSHeaderBorderSettings Grid.Row="4" HeaderTitle="Whats New">
+            <sSUcon:SSHeaderBorderSettings Grid.Row="4" HeaderTitle="Whats New">
                 <sharedsharpucon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
-            </sSharpUcon:SSHeaderBorderSettings>
+            </sSUcon:SSHeaderBorderSettings>
 
-            <sSharpUcon:SSHeaderBorderSettings Grid.Row="5" HeaderTitle="Whats New">
+            <sSUcon:SSHeaderBorderSettings Grid.Row="5" HeaderTitle="Whats New">
                 <sharedsharpucon:FileViewCard FileText="{Binding AttributionText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
-            </sSharpUcon:SSHeaderBorderSettings>
+            </sSUcon:SSHeaderBorderSettings>
 
-            <sSharpUcon:SSHeaderBorderSettings Grid.Row="6" HeaderTitle="Whats New">
+            <sSUcon:SSHeaderBorderSettings Grid.Row="6" HeaderTitle="Whats New">
                 <sharedsharpucon:FileViewCard FileText="{Binding PrivacyPolicyText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
-            </sSharpUcon:SSHeaderBorderSettings>
+            </sSUcon:SSHeaderBorderSettings>
         </Grid>
     </ScrollView>
 </views:ViewBasePage>

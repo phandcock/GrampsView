@@ -30,12 +30,12 @@ namespace GrampsView.ViewModels
         /// <value>
         /// The base detail.
         /// </value>
-        public Group<object> BaseDetail
+        public SharedSharpObservableRangeCollection<object> BaseDetail
         {
             get; set;
         }
 
-        = new Group<object>();
+        = new SharedSharpObservableRangeCollection<object>();
 
         public IModelBase BaseModelBase { get; set; } = new ModelBase();
 

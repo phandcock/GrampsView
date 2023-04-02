@@ -8,7 +8,8 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Tags"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     x:Name="TagDetailPageRoot"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:TagDetailViewModel"
@@ -16,17 +17,18 @@
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-
-            <ucon:CardGroupHeader BindingContext="{Binding BaseDetail, Mode=OneWay}" />
+            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <Label BackgroundColor="{Binding TagObject.GColor}" Text="Tag Color" />
 
-            <ucon:CardGroupHeader BindingContext="{Binding Path=TagObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+            <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
+                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding Path=TagObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

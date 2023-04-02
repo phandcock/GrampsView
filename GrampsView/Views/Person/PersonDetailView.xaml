@@ -10,7 +10,7 @@
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     xmlns:sSCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PersonDetailViewModel"
     IsEnabled="{Binding PersonObject.Valid}"
@@ -18,7 +18,7 @@
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <ucon:DetailPageControlTemplate>
@@ -29,15 +29,7 @@
 
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <common:HorizontalWrapLayout>
-                    <ucon:PersonNameCardSingle BindingContext="{Binding PersonObject.GPersonNamesCollection.GetPrimaryName, Mode=OneWay}" />
-                    <sSharpUcon:ListLineCard BindingContext="{Binding StandardDetails, Mode=OneWay}" />
-                    <ucon:DateCardSingle BindingContext="{Binding BirthDate, Mode=OneWay}" />
-                    <sSharpUcon:SSHeaderBorderSettings HeaderTitle="Person Detail">
-                        <sSharpUcon:ListLineCard ItemsSource="{Binding GetExtraPersonDetails, Mode=OneWay}" />
-                    </sSharpUcon:SSHeaderBorderSettings>
-                    <ucon:FamilyCardMediumLink BindingContext="{Binding FamilyGraphModel, Mode=OneWay}" />
-                </common:HorizontalWrapLayout>
+                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
                 <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
 
@@ -55,7 +47,9 @@
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GLDSCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
-                <ucon:CardGroupHeader BindingContext="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" />
+                <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
+                    <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                </sSUcon:SSHeaderBorderSettings>
             </VerticalStackLayout>
         </Grid>
     </ucon:DetailPageControlTemplate>

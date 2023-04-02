@@ -5,8 +5,6 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
-using GrampsView.Models.HLinks;
-using GrampsView.Models.HLinks.Models;
 
 using System.ComponentModel;
 
@@ -28,12 +26,11 @@ namespace GrampsView.ViewModels.Event
         /// The event aggregator.
         /// </param>
 
+        [Obsolete]
         public EventDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                             : base(iocCommonLogging)
         {
         }
-
-        public HLinkBase EventDate { get; set; } = new HLinkDateModelStr();
 
         /// <summary>
         /// Gets or sets the public Event ViewModel.
@@ -44,9 +41,7 @@ namespace GrampsView.ViewModels.Event
         public EventModel EventObject
         {
             get; set;
-        } = new EventModel();
-
-        public CardListLineCollection ExtraDetails { get; set; } = new CardListLineCollection();
+        }
 
         public HLinkNoteModel HighlightedNote
         {
@@ -56,14 +51,12 @@ namespace GrampsView.ViewModels.Event
         public HLinkEventModel HLinkObject
         {
             get; set;
-        } = new HLinkEventModel();
+        }
 
         public HLinkNoteModelCollection NotesWithoutHighlight
         {
             get; set;
         } = new HLinkNoteModelCollection();
-
-        public HLinkPlaceModel PlaceLocation { get; set; } = new HLinkPlaceModel();
 
         /// <summary>
         /// Populates the view ViewModel.
@@ -81,22 +74,24 @@ namespace GrampsView.ViewModels.Event
                     BaseModelBase = EventObject;
                     BaseTitleIcon = Constants.IconEvents;
 
+                    BaseDetail.Clear();
+
                     // Get basic details
-                    ExtraDetails = new CardListLineCollection("Event Detail")
+                    BaseDetail.Add(new CardListLineCollection("Event Detail")
                     {
                         new CardListLine("Type:", EventObject.GType),
                         new CardListLine("Role",HLinkObject.GRole),
                         new CardListLine("Years ago", EventObject.GDate.GetAge),
                         new CardListLine("Description", EventObject.GDescription),
-                    };
+                    });
 
                     // Get date card
-                    EventDate = EventObject.GDate.AsHLink("Event Date");
+                    BaseDetail.Add(EventObject.GDate.AsHLink("Event Date"));
 
-                    PlaceLocation = EventObject.GPlace;
+                    BaseDetail.Add(EventObject.GPlace);
 
                     // Add Model details
-                    StandardDetails = DV.EventDV.GetModelInfoFormatted(EventObject);
+                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
 
                     // If event note, display it while showing the full list further below.
                     HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeEvent);

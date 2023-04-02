@@ -5,20 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sSharpUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
+    xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:vviewmodel="clr-namespace:GrampsView.ViewModels"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     Title="{Binding BaseTitle}"
     x:DataType="vviewmodel:BookMarkListViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
     <Shell.TitleView>
-        <sSharpUcon:TopMenu />
+        <sSUcon:TopMenu />
     </Shell.TitleView>
 
     <!--  Content  -->
-
-    <ucon:CardGroupHeader BindingContext="{Binding BookMarkSource, Mode=OneWay}" />
+    <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BookMarkSource, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 </views:ViewBasePage>
