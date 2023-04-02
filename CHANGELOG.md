@@ -1,3 +1,18 @@
+## [17.1.25](https://github.com/phandcock/GrampsView/compare/v17.1.24...v17.1.25) (2023-04-02)
+
+
+### Bug Fixes
+
+* cleanup windows maximise code and move to sharedsharp ([b17cdd1](https://github.com/phandcock/GrampsView/commit/b17cdd1fc06c20d28ff93426dbce37b28db59156))
+* replace cardgroup with horizontallayout ([8c02bda](https://github.com/phandcock/GrampsView/commit/8c02bda014e0b5c9b90a20405604120c4db1762e))
+* start move to Hortizontal layout ([73faefb](https://github.com/phandcock/GrampsView/commit/73faefbd3cd56f71aa7288a99e632c435a82a72b))
+* start move to Hortizontal layout ([434724d](https://github.com/phandcock/GrampsView/commit/434724ded2fb13e1a7ed9a45f3848da6e9c696ff))
+* tweak person detail layout ([2a833e3](https://github.com/phandcock/GrampsView/commit/2a833e30c2b2ae73badb6877899903c7184c0102))
+* tweak person detail layout ([c0a4ba7](https://github.com/phandcock/GrampsView/commit/c0a4ba70a6c7fa2456e333027130344043b6fa11))
+* tweaks ([1c369ee](https://github.com/phandcock/GrampsView/commit/1c369eeb36c7d9c8660959a6d95cf4b144c58b25))
+
+
+
 ## [17.1.24](https://github.com/phandcock/GrampsView/compare/v17.1.23...v17.1.24) (2023-03-29)
 
 
@@ -23,17 +38,6 @@
 ### Bug Fixes
 
 * cleanup exception handling ([7e790ef](https://github.com/phandcock/GrampsView/commit/7e790ef74f7063e25a539931b8a843d3691fde64))
-
-
-
-## [17.1.21](https://github.com/phandcock/GrampsView/compare/v17.1.20...v17.1.21) (2023-03-25)
-
-
-### Bug Fixes
-
-* tweaks ([5f4a87f](https://github.com/phandcock/GrampsView/commit/5f4a87f3ef9987808666cf8580171984550e514c))
-* update nuget ([b59430c](https://github.com/phandcock/GrampsView/commit/b59430cc5d0d1fee8be6b800067a3e06fa505541))
-* update nugets ([cd8c82e](https://github.com/phandcock/GrampsView/commit/cd8c82e077cc9824541d974d7d279b7960bc36c6))
 
 
 
