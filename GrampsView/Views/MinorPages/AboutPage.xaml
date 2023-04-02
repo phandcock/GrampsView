@@ -64,17 +64,17 @@
 
             <sharedsharpucon:ListLineCard
                 Grid.Row="1"
-                CardList="{Binding ApplicationVersionList, Mode=OneWay}"
+                ItemsSource="{Binding ApplicationVersionList, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand" />
 
             <sharedsharpucon:ListLineCard
                 Grid.Row="2"
-                CardList="{Binding ApplicationStateList, Mode=OneWay}"
+                ItemsSource="{Binding ApplicationStateList, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand" />
 
             <sharedsharpucon:ListLineCard
                 Grid.Row="3"
-                CardList="{Binding HeaderData, Mode=OneWay}"
+                ItemsSource="{Binding HeaderData, Mode=OneWay}"
                 HorizontalOptions="FillAndExpand" />
 
             <sSharpUcon:SSHeaderBorderSettings Grid.Row="4" HeaderTitle="Whats New">

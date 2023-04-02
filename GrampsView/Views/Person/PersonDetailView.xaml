@@ -30,11 +30,14 @@
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
                 <common:HorizontalWrapLayout>
-                    <ucon:PersonNameCardSingle BindingContext="{Binding PersonObject.GPersonNamesCollection.GetPrimaryName}"/>
-                    <sSharpUcon:ListLineCard BindingContext="{Binding GetExtraPersonDetails}"/>
-                    <ucon:FamilyCardMediumLink BindingContext="{Binding FamilyGraphModel}"/>
+                    <ucon:PersonNameCardSingle BindingContext="{Binding PersonObject.GPersonNamesCollection.GetPrimaryName, Mode=OneWay}" />
+                    <sSharpUcon:ListLineCard BindingContext="{Binding StandardDetails, Mode=OneWay}" />
+                    <ucon:DateCardSingle BindingContext="{Binding BirthDate, Mode=OneWay}" />
+                    <sSharpUcon:SSHeaderBorderSettings HeaderTitle="Person Detail">
+                        <sSharpUcon:ListLineCard ItemsSource="{Binding GetExtraPersonDetails, Mode=OneWay}" />
+                    </sSharpUcon:SSHeaderBorderSettings>
+                    <ucon:FamilyCardMediumLink BindingContext="{Binding FamilyGraphModel, Mode=OneWay}" />
                 </common:HorizontalWrapLayout>
-            
 
                 <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
 

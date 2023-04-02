@@ -65,7 +65,7 @@
 
                 <ucon:MediaCardLarge HLinkMM="{Binding MediaCard, Mode=OneWay}" />
 
-                <sharedsharpucon:ListLineCard CardList="{Binding HeaderCard}" />
+                <sharedsharpucon:ListLineCard ItemsSource="{Binding HeaderCard}" />
 
                 <ucon:CollectionSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
                 <ucon:CollectionSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />

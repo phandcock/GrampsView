@@ -1,7 +1,7 @@
-﻿namespace GrampsView.UserControls
-{
-  
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+namespace GrampsView.UserControls
+{
     public partial class FamilyGraphCardMediumLink : LinkMediumCardControlTemplate
     {
         public static readonly BindableProperty FsctShowParentLinkProperty
@@ -10,6 +10,8 @@
         public FamilyGraphCardMediumLink()
         {
             InitializeComponent();
+
+            FamilyGraphCardMediumLink t = this;
         }
 
         public bool FsctShowParentLink

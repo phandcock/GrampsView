@@ -13,11 +13,9 @@ using System.Diagnostics;
 
 namespace GrampsView.ViewModels
 {
-
     public class ViewModelBase : SharedSharpViewModelBase, INotifyPropertyChanged
     {
         private string _BaseTitle = string.Empty;
-
 
         public ViewModelBase(ILog iocCommonLogging)
         {
@@ -52,20 +50,6 @@ namespace GrampsView.ViewModels
             get => !string.IsNullOrEmpty(_BaseTitle) ? _BaseTitle : BaseModelBase.Valid ? BaseModelBase.DefaultTextShort : string.Empty;
             set => SetProperty(ref _BaseTitle, value);
         }
-
-
-        //public override void HandleViewModelParameters()
-        //{
-        //    foreach (KeyValuePair<string, object> item in HLinkSerial)
-        //    {
-        //        Debug.WriteLine($"HLinkSerial - {item.Key}: {item.Value}");
-        //    }
-
-        //    //if (HLinkSerial.Count > 0)
-        //    //{
-        //    //    //  WhatsNewText = (string)HLinkSerial[SharedSharpConstants.ShellParameter1];
-        //    //}
-        //}
 
         /// <summary>
         /// Called when [basecl changed]. Frody automatically wires this up.
