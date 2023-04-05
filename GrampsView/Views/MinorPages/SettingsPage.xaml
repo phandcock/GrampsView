@@ -16,9 +16,9 @@
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <!--  Content  -->
     <ScrollView Padding="10">

@@ -100,11 +100,15 @@ namespace GrampsView.Models.HLinks
             throw new NotImplementedException();
         }
 
-        public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
+        public async Task UCNavigateBase<T>(T dataIn, Page argPage) where T : new()
         {
             string ser = JsonSerializer.Serialize(dataIn);
 
-            await SharedSharpNavigation.NavigateAsync($"{argPage}?HLinkSerial={ser}");
+
+
+            //    await SharedSharpNavigation.NavigateAsync($"{argPage}?HLinkSerial={ser}");
+
+            App.Current.MainPage.Navigation.PushAsync(argPage);
         }
 
         /// <summary>

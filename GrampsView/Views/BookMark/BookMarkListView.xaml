@@ -7,18 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:vviewmodel="clr-namespace:GrampsView.ViewModels"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
     Title="{Binding BaseTitle}"
     x:DataType="vviewmodel:BookMarkListViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <!--  Content  -->
-    <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BookMarkSource, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+    <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BookMarkSource, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 </views:ViewBasePage>

@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
@@ -87,7 +89,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(CitationDetailPage));
+            await UCNavigateBase(this, new CitationDetailPage());
             return;
         }
     }

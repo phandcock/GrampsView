@@ -1,16 +1,12 @@
-﻿// XML 171 - All fields defined
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Common;
 using GrampsView.Data.Model;
+using GrampsView.Models.DataModels.Date;
+using GrampsView.Views;
 
 namespace GrampsView.Models.HLinks.Models
 {
-    using GrampsView.Common;
-    using GrampsView.Models.DataModels.Date;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink to a Date Model.
     /// </summary>
@@ -40,7 +36,7 @@ namespace GrampsView.Models.HLinks.Models
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(DateStrDetailPage));
+            await UCNavigateBase(this, new DateStrDetailPage());
             return;
         }
 

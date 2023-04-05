@@ -1,16 +1,16 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// <para> HLink to a Person Model </para>
     /// <para> <font color="#333333"> Duh Core Model </font> </para>
@@ -89,7 +89,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(PersonDetailPage));
+            await UCNavigateBase(this, new PersonDetailPage());
             return;
         }
     }

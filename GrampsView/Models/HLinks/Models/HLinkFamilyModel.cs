@@ -1,16 +1,16 @@
-﻿// XML 171 - All fields defined
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink to the Family Model.
     /// </summary>
@@ -82,7 +82,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(FamilyDetailPage));
+            await UCNavigateBase(this, new FamilyDetailPage());
             return;
         }
     }

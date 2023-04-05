@@ -11,11 +11,11 @@
     x:DataType="viewmodels:PlaceListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
-    <!--  Content  -->
-
-    <ucon:CollectionSingleCardGrouped FsctSource="{Binding PlaceSource, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+    <VerticalStackLayout>
+        <ucon:CollectionSingleCardGrouped FsctSource="{Binding PlaceSource, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
+    </VerticalStackLayout>
 </views:ViewBasePage>

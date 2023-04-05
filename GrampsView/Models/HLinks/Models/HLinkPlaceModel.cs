@@ -1,11 +1,13 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace GrampsView.Models.HLinks.Models
 {
@@ -65,7 +67,7 @@ namespace GrampsView.Models.HLinks.Models
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "PlaceDetailPage");
+            await UCNavigateBase(this, new PlaceDetailPage());
             return;
         }
     }

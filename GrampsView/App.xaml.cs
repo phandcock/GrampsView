@@ -1,4 +1,7 @@
-﻿using GrampsView.Data.Repository;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Repository;
+using GrampsView.Views;
 
 using SharedSharp.Common.Interfaces;
 
@@ -10,26 +13,26 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new BaseNavigation());
 
             StartUp();
         }
 
-        protected override Window CreateWindow(IActivationState activationState)
-        {
-            Window window = base.CreateWindow(activationState);
+        //protected override Window CreateWindow(IActivationState activationState)
+        //{
+        //    Window window = base.CreateWindow(activationState);
 
-            window.Created += (s, e) =>
-            {
-                // Custom logic
-                _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
+        //    window.Created += (s, e) =>
+        //    {
+        //        // Custom logic
+        //        _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
 
-                Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Microsoft.Maui.Controls.Window).Width, (s as Microsoft.Maui.Controls.Window).Height);
+        //        Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Microsoft.Maui.Controls.Window).Width, (s as Microsoft.Maui.Controls.Window).Height);
 
-            };
+        //    };
 
-            return window;
-        }
+        //    return window;
+        //}
 
         private void StartUp()
         {
@@ -46,12 +49,15 @@ namespace GrampsView
             // Get Going
             //    StartAtDetailPage().GetAwaiter().GetResult();
 
-            if (DataStore.Instance.DS.IsDataLoaded)
-            {
-                SharedSharpNavigation.NavigateHub();
+            // Custom logic
+            _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
 
-                return;
-            }
+            //if (DataStore.Instance.DS.IsDataLoaded)
+            //{
+            //    Navigation.PushAsync(new HubPage());
+
+            //    return;
+            //}
 
             //// Get Going
             //_ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init().ConfigureAwait(false);

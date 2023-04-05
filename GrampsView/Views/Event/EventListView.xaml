@@ -11,9 +11,9 @@
     x:DataType="viewmodels:EventListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding EventSource, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
 </views:ViewBasePage>

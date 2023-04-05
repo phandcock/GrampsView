@@ -26,6 +26,8 @@ namespace GrampsView.ViewModels.Note
             BaseTitleIcon = Constants.IconNotes;
         }
 
+
+
         public INoteModel NoteObject
         {
             get; set;
@@ -36,11 +38,11 @@ namespace GrampsView.ViewModels.Note
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkNoteModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkNoteModel>(HLinkSerial);
-
-            if (HLinkObject is not null && HLinkObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                NoteObject = HLinkObject.DeRef;
+                HLinkNoteModel t = base.NavigationParameter as HLinkNoteModel;
+
+                NoteObject = t.DeRef;
 
                 BaseModelBase = NoteObject;
 

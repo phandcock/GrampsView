@@ -9,7 +9,7 @@
     xmlns:sharedsharp="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Media"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     x:Name="MediaDetailPageRoot"
@@ -18,9 +18,9 @@
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <VerticalStackLayout>
@@ -50,7 +50,7 @@
                 </Grid>
             </Border>
 
-            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:CollectionSingleCard FsctSource="{Binding CurrentHLinkMedia.GAttributeRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource AttributeCardSingleDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding CurrentHLinkMedia.GCitationRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
@@ -60,7 +60,7 @@
             <ucon:CollectionSingleCard FsctSource="{Binding CurrentMediaObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
-                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding CurrentMediaObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding CurrentMediaObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
             </sSUcon:SSHeaderBorderSettings>
         </VerticalStackLayout>
     </ucon:DetailPageControlTemplate>

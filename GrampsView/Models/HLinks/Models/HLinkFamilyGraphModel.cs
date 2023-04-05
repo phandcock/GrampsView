@@ -1,12 +1,14 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// <para> HLink to an Attribute model. </para>
     /// <list type="table">
@@ -72,7 +74,7 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this.DeRef.GChildOf, nameof(FamilyDetailPage));
+            await UCNavigateBase(this.DeRef.GChildOf, new FamilyDetailPage());
             return;
         }
     }

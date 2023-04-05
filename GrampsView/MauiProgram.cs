@@ -129,7 +129,7 @@ namespace GrampsView
 
             // Viewmodels
             _ = builder.Services.AddTransient<AboutViewModel>();
-            _ = builder.Services.AddTransient<AppShellViewModel>();
+            //_ = builder.Services.AddTransient<AppShellViewModel>();
             _ = builder.Services.AddTransient<AddressDetailViewModel>();
             _ = builder.Services.AddTransient<AttributeDetailViewModel>();
 

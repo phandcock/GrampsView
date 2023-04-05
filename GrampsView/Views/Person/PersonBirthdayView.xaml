@@ -11,9 +11,9 @@
     x:DataType="viewmodels:PersonBirthdayViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <Grid Margin="0" Padding="0">
         <Grid.RowDefinitions>

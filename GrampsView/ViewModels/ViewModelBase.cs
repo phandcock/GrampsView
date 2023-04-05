@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
 
 using PropertyChanged;
 
@@ -50,6 +51,17 @@ namespace GrampsView.ViewModels
             get => !string.IsNullOrEmpty(_BaseTitle) ? _BaseTitle : BaseModelBase.Valid ? BaseModelBase.DefaultTextShort : string.Empty;
             set => SetProperty(ref _BaseTitle, value);
         }
+
+
+        public void HandleParameter(IHLinkBase argHLinkBase)
+        {
+            NavigationParameter = argHLinkBase;
+
+            HandleViewModelParameters();
+        }
+
+
+        public IHLinkBase NavigationParameter { get; set; } = new HLinkBase();
 
         public CardListLineCollection StandardDetails { get; set; } = new CardListLineCollection();
 

@@ -1,16 +1,13 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     public class HLinkNoteModel : HLinkBase, IHLinkNoteModel
     {
         private NoteModel _Deref = new NoteModel();
@@ -23,7 +20,6 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundNote");
         }
 
-        [JsonIgnore]
         public NoteModel DeRef
         {
             get
@@ -44,7 +40,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(NoteDetailPage));
+            await App.Current.MainPage.Navigation.PushAsync(new NoteDetailPage(this));
             return;
         }
     }

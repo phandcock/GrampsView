@@ -11,9 +11,9 @@
     x:DataType="viewmodels:RepositoryListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
   
 

@@ -1,17 +1,18 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.ViewModels.Places;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels.Places;
-
-    using Microsoft.Extensions.DependencyInjection;
-
-    public partial class PlaceDetailPage : ViewBasePage
+    public sealed partial class PlaceDetailPage : ViewBasePage
     {
-        private PlaceDetailViewModel _viewModel { get; set; }
-
         public PlaceDetailPage()
         {
             InitializeComponent();
+
             BindingContext = _viewModel = Ioc.Default.GetRequiredService<PlaceDetailViewModel>();
         }
+
+        private PlaceDetailViewModel _viewModel { get; set; }
     }
 }

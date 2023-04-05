@@ -11,9 +11,9 @@
     x:DataType="viewmodels:SourceListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding SourceSource, Mode=OneWay}" FsctTemplate="{StaticResource SourceCardSmallDT}" />
 </views:ViewBasePage>

@@ -1,14 +1,16 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// <para> Repository HLink. </para>
     /// <para> XML 1.71 check done </para>
@@ -109,7 +111,7 @@
         /// </summary>
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(RepositoryRefDetailPage));
+            await UCNavigateBase(this, new RepositoryRefDetailPage());
             return;
         }
     }

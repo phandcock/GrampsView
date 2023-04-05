@@ -1,13 +1,15 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.DataModels.Minor;
-    using GrampsView.Models.HLinks;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink to an Address model. Not in XML Schema so use the standard hlink
     /// </summary>
@@ -95,14 +97,11 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "AddressDetailPage");
+            await UCNavigateBase(this, new AddressDetailPage());
 
             return;
         }
 
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
+
     }
 }

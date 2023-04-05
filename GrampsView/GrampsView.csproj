@@ -133,9 +133,12 @@
 
     <ItemGroup>
       <Compile Remove="App.cs" />
+      <Compile Remove="AppShell.xaml.cs" />
       <Compile Remove="Common\CardSizes.cs" />
       <Compile Remove="Common\CollectionViewEx.cs" />
       <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
+      <Compile Remove="Common\CustomClasses\HorizontalLayout.cs" />
+      <Compile Remove="Common\CustomClasses\HorizontalWrapLayoutManager.cs" />
       <Compile Remove="Common\CustomClasses\IEnumerableExtensions.cs" />
       <Compile Remove="Common\CustomClasses\ImagesSize.cs" />
       <Compile Remove="Common\CustomClasses\MessageLogEventPayload.cs" />
@@ -162,9 +165,11 @@
       <Compile Remove="UserControls\General\CardGroupHeader.xaml.cs" />
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
+      <Compile Remove="ViewModels\AppShellViewModel.cs" />
     </ItemGroup>
 
     <ItemGroup>
+      <MauiXaml Remove="AppShell.xaml" />
       <MauiXaml Remove="UserControls\General\CardGroupHeader.xaml" />
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
     </ItemGroup>
@@ -199,7 +204,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.7.24" />
+        <PackageReference Include="SharedSharp" Version="1.8.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -223,8 +228,8 @@
       <Compile Update="UserControls\General\MyTopMenu.xaml.cs">
         <DependentUpon>MyTopMenu.xaml</DependentUpon>
       </Compile>
-      <Compile Update="ViewModels\AppShellViewModel.cs">
-        <DependentUpon>%(Filename)</DependentUpon>
+      <Compile Update="Views\MinorPages\FlyoutMenuPage.xaml.cs">
+        <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
       </Compile>
       <Compile Update="Views\StartupPages\FirstRunPage.xaml.cs">
         <SubType>Code</SubType>
@@ -234,9 +239,6 @@
 
     <ItemGroup>
       <MauiXaml Update="App.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="AppShell.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\AppViewDictionary.xaml">
@@ -255,6 +257,15 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\General\MyTopMenu.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\MinorPages\BaseNavigation.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\MinorPages\FlyoutMenuPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Place\PlaceDetailView.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\StartupPages\FirstRunPage.xaml">

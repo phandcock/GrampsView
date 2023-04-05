@@ -1,16 +1,18 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Views;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// TODO xml 1.71 needed Child Reference model
     /// </summary>
@@ -105,7 +107,7 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(ChildRefDetailPage));
+            await UCNavigateBase(this, new ChildRefDetailPage());
             return;
         }
 

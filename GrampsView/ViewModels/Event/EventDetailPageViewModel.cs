@@ -32,6 +32,8 @@ namespace GrampsView.ViewModels.Event
         {
         }
 
+
+
         /// <summary>
         /// Gets or sets the public Event ViewModel.
         /// </summary>
@@ -63,7 +65,7 @@ namespace GrampsView.ViewModels.Event
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkObject = CommonRoutines.GetHLinkParameter<HLinkEventModel>(HLinkSerial);
+            HLinkObject = base.NavigationParameter as HLinkEventModel;
 
             if (HLinkObject is not null && HLinkObject.Valid)
             {

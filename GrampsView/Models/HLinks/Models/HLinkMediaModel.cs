@@ -1,18 +1,21 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.HLinks;
+using GrampsView.Models.HLinks.Interfaces;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Interfaces;
-    using GrampsView.Models.HLinks;
-    using GrampsView.Models.HLinks.Interfaces;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink for a media object.
     /// <list type="table">
@@ -129,7 +132,7 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "MediaDetailPage");
+            await UCNavigateBase(this, new MediaDetailPage());
             return;
         }
     }

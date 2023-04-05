@@ -1,30 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:ViewBasePage
+﻿<views:ViewBasePage
     x:Class="GrampsView.Views.PlaceDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Places"
+    xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSCC="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
-    x:DataType="viewmodels:PlaceDetailViewModel"
-    Style="{StaticResource SSBaseContentPage}"
-    mc:Ignorable="d">
+    Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding PlaceObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            <sSCC:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GPlaceNames, Mode=OneWay}" FsctTemplate="{StaticResource PlaceNameCardSmallDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GLocation, Mode=OneWay}" FsctTemplate="{StaticResource PlaceLocationCardSmallDT}" />
@@ -37,7 +32,7 @@
             <ucon:CollectionSingleCard FsctSource="{Binding PlaceObject.GURLCollection, Mode=OneWay}" FsctTemplate="{StaticResource URLCardSmallDT}" />
 
             <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
-                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PlaceObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                <sSCC:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PlaceObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
             </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>

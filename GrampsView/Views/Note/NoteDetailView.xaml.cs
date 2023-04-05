@@ -1,16 +1,28 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.Note;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels.Note;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public partial class NoteDetailPage : ViewBasePage
     {
-        private NoteDetailViewModel _viewModel { get; set; }
-
         public NoteDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<NoteDetailViewModel>();
+            InitializeComponent();
         }
+
+        public NoteDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<NoteDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private NoteDetailViewModel _viewModel { get; set; }
     }
 }

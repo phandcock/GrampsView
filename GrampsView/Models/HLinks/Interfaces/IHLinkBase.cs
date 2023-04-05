@@ -1,19 +1,18 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Models.HLinks;
+
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Models.HLinks;
-
-    using System.Threading.Tasks;
-
     public interface IHLinkBase
     {
         ItemGlyph HLinkGlyphItem
         {
             get; set;
         }
-
-        //[JsonIgnore]
-        //public IModelBase DeRef { get; }
 
         /// <summary>
         /// Gets or sets the h link key.

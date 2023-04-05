@@ -1,17 +1,17 @@
-﻿// XML 171 - All fields defined
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink to Event Model but with its own fields as per Gramps
     /// </summary>
@@ -88,7 +88,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "EventDetailPage");
+            await App.Current.MainPage.Navigation.PushAsync(new EventDetailPage(this));
             return;
         }
 

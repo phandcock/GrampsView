@@ -8,20 +8,20 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewModels="clr-namespace:GrampsView.ViewModels.MinorModels"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewModels:DateStrDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
-            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
         </StackLayout>
     </ucon:DetailPageControlTemplate>
 </views:ViewBasePage>

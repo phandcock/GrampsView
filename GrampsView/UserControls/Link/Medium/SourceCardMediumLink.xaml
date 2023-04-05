@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+    xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     x:Name="CitationCardMediumLinkRoot"
     x:DataType="models:HLinkSourceModel">
 
@@ -31,14 +31,13 @@
             Grid.Column="0"
             BindingContext="{Binding ., Mode=OneWay}"
             IsEnabled="False" />
-
-        <common:HorizontalWrapLayout
-            Grid.Row="2"
-            Grid.Column="0"
-            Margin="0"
-            Padding="0"
-            BindableLayout.ItemsSource="{Binding DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
-            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-            HorizontalOptions="CenterAndExpand" />
+        <sSCustClass:HorizontalWrapLayout
+        Grid.Row="2"
+        Grid.Column="0"
+        Margin="0"
+        Padding="0"
+        BindableLayout.ItemsSource="{Binding DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
+        BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+        HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

@@ -1,12 +1,14 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Models.HLinks;
+using GrampsView.Views;
+
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.HLinks;
-
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// <para> HLink to namemap model. </para>
     /// <para> TODO Needs XML 1.71 check </para>
@@ -51,7 +53,7 @@
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, "NameMapDetailPage");
+            await UCNavigateBase(this, new PersonNameDetailPage());
             return;
         }
 

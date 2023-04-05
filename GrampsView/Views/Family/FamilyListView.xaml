@@ -11,9 +11,9 @@
     x:DataType="viewmodels:FamilyListViewModel"
     Style="{StaticResource SSBaseContentPage}">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding FamilySource, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />
 </views:ViewBasePage>

@@ -9,22 +9,22 @@
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Event"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:EventDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding HLinkObject.HLinkGlyphItem, Mode=OneWay}" />
 
-            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:NoteCardFull BindingContext="{Binding HighlightedNote}" />
 
@@ -38,7 +38,7 @@
             <ucon:CollectionSingleCard FsctSource="{Binding EventObject.GTagRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 
             <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
-                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding EventObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding EventObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
             </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>

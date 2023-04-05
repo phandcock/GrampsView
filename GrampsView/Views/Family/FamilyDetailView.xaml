@@ -8,23 +8,23 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Family"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:FamilyDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
         <StackLayout>
 
             <ucon:MediaGlyphCardLarge BindingContext="{Binding FamilyObject.ModelItemGlyph, Mode=OneWay}" />
 
-            <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+            <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
             <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GEventRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
             <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GChildRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource ChildRefCardSmallDT}" />
@@ -36,7 +36,7 @@
             <ucon:CollectionSingleCard FsctSource="{Binding FamilyObject.GLDSOrdCollection, Mode=OneWay}" FsctTemplate="{StaticResource LDSOrdCardSmallDT}" />
 
             <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
-                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding FamilyObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding FamilyObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
             </sSUcon:SSHeaderBorderSettings>
         </StackLayout>
     </ucon:DetailPageControlTemplate>

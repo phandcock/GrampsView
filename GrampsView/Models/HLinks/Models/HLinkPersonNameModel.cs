@@ -1,4 +1,4 @@
-﻿// XML 171 - Not in definition so created this for use with BackLink functionality
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -64,7 +64,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, nameof(PersonNameDetailPage));
+            await UCNavigateBase(this, new PersonNameDetailPage());
         }
 
         //protected override IModelBase GetDeRef()

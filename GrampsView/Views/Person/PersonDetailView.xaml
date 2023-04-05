@@ -8,7 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Person"
     xmlns:views="clr-namespace:GrampsView.Views"
-    xmlns:common="clr-namespace:GrampsView.Common.CustomClasses"
+     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:sSCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
@@ -17,9 +17,9 @@
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 
-    <Shell.TitleView>
+    <NavigationPage.TitleView>
         <sSUcon:TopMenu />
-    </Shell.TitleView>
+    </NavigationPage.TitleView>
 
     <ucon:DetailPageControlTemplate>
 
@@ -29,7 +29,7 @@
 
                 <ucon:MediaGlyphCardLarge BindingContext="{Binding PersonObject.ModelItemGlyph, Mode=OneWay}" />
 
-                <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding BaseDetail, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
 
                 <ucon:NoteCardFull BindingContext="{Binding BioNote}" />
 
@@ -48,7 +48,7 @@
                 <ucon:CollectionSingleCard FsctSource="{Binding PersonObject.GPersonRefCollection, Mode=OneWay}" FsctTemplate="{StaticResource PersonRefCardSmallDT}" />
 
                 <sSUcon:SSHeaderBorderSettings HeaderTitle="Back Links">
-                    <common:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
+                    <sSCustClass:HorizontalWrapLayout BindableLayout.ItemsSource="{Binding PersonObject.BackHLinkReferenceCollection.AsCardGroup, Mode=OneWay}" BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}" />
                 </sSUcon:SSHeaderBorderSettings>
             </VerticalStackLayout>
         </Grid>
