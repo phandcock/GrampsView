@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
@@ -108,78 +110,83 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("ChildRefDetailViewModel");
 
-            ChildRefHLink = CommonRoutines.GetHLinkParameter<HLinkChildRefModel>(HLinkSerial);
-
-            PersonObject = ChildRefHLink.DeRef;
-
-            if (PersonObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = PersonObject;
+                HLinkChildRefModel HLinkObject = base.NavigationParameter as HLinkChildRefModel;
 
-                // Get media image
-                MediaCard = PersonObject.ModelItemGlyph;
+                PersonObject = HLinkObject.DeRef;
 
-                BaseDetail.Clear();
-
-                // Get the Name Details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
-
-                // Get the Person Details
-                CardListLineCollection nameDetails = GetExtraPersonDetails();
-                nameDetails.Title = "Child Reference Person Detail";
-
-                // handle frel and mrel defaults (according to the gramps source code)
-                nameDetails.Add(new CardListLine("Father Relationship", ChildRefHLink.GFatherRel));
-                if (string.IsNullOrEmpty(ChildRefHLink.GFatherRel))
+                if (PersonObject is not null)
                 {
-                    nameDetails.Add(new CardListLine("Father Relationship", "Birth"));
-                }
+                    BaseModelBase = PersonObject;
 
-                nameDetails.Add(new CardListLine("Mother Relationship", ChildRefHLink.GMotherRel));
-                if (string.IsNullOrEmpty(ChildRefHLink.GMotherRel))
-                {
-                    nameDetails.Add(new CardListLine("Mother Relationship", "Birth"));
-                }
+                    // Get media image
+                    MediaCard = PersonObject.ModelItemGlyph;
 
-                BaseDetail.Add(nameDetails);
+                    BaseDetail.Clear();
 
-                // Get date card
-                BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
+                    // Get the Name Details
+                    BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
 
-                // Get parent details
-                BaseDetail.Add(
-                    new HLinkFamilyGraphModel
+                    // Get the Person Details
+                    CardListLineCollection nameDetails = GetExtraPersonDetails();
+                    nameDetails.Title = "Child Reference Person Detail";
+
+                    // handle frel and mrel defaults (according to the gramps source code)
+                    nameDetails.Add(new CardListLine("Father Relationship", ChildRefHLink.GFatherRel));
+                    if (string.IsNullOrEmpty(ChildRefHLink.GFatherRel))
                     {
-                        DeRef = PersonObject
-                    });
+                        nameDetails.Add(new CardListLine("Father Relationship", "Birth"));
+                    }
 
-                // Add Standard details
-                BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
+                    nameDetails.Add(new CardListLine("Mother Relationship", ChildRefHLink.GMotherRel));
+                    if (string.IsNullOrEmpty(ChildRefHLink.GMotherRel))
+                    {
+                        nameDetails.Add(new CardListLine("Mother Relationship", "Birth"));
+                    }
 
-                // If Bio note, display it while showing the full list further below.
-                BioNote = PersonObject.GNoteRefCollection.GetBio;
+                    BaseDetail.Add(nameDetails);
 
-                NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
+                    // Get date card
+                    BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
 
-                // Add PersonRefDetails - TODO
-                //if (BaseNavParamsHLink is HLinkPersonRefModel)
-                //{
-                //    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
+                    // Get parent details
+                    BaseDetail.Add(
+                        new HLinkFamilyGraphModel
+                        {
+                            DeRef = PersonObject
+                        });
 
-                // Contract.Assert(personRef != null);
+                    // Add Standard details
+                    BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
-                //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
-                //}
+                    // If Bio note, display it while showing the full list further below.
+                    BioNote = PersonObject.GNoteRefCollection.GetBio;
 
-                // _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
+                    NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
 
-                //// Trigger refresh of View fields via INotifyPropertyChanged
-                //OnPropertyChanged(string.Empty);
+                    // Add PersonRefDetails - TODO
+                    //if (BaseNavParamsHLink is HLinkPersonRefModel)
+                    //{
+                    //    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
+
+                    // Contract.Assert(personRef != null);
+
+                    //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
+                    //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
+                    //}
+
+                    // _PlatformSpecific.ActivityTimeLineAdd(PersonObject);
+
+                    //// Trigger refresh of View fields via INotifyPropertyChanged
+                    //OnPropertyChanged(string.Empty);
+                }
+
+                return;
             }
-
-            return;
         }
+
+
 
         private CardListLineCollection GetExtraPersonDetails()
         {
@@ -217,3 +224,4 @@ namespace GrampsView.ViewModels.Person
         }
     }
 }
+

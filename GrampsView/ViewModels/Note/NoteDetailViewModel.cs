@@ -40,9 +40,9 @@ namespace GrampsView.ViewModels.Note
         {
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkNoteModel t = base.NavigationParameter as HLinkNoteModel;
+                HLinkNoteModel HLinkObject = base.NavigationParameter as HLinkNoteModel;
 
-                NoteObject = t.DeRef;
+                NoteObject = HLinkObject.DeRef;
 
                 BaseModelBase = NoteObject;
 

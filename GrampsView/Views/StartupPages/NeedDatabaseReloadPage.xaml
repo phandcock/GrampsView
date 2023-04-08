@@ -16,7 +16,6 @@
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:NeedDatabaseReloadViewModel"
-    Shell.PresentationMode="ModalNotAnimated"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">
 

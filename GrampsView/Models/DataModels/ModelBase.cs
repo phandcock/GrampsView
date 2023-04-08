@@ -7,7 +7,6 @@ using GrampsView.Data.Model;
 
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace GrampsView.Models.DataModels
@@ -225,16 +224,9 @@ namespace GrampsView.Models.DataModels
             }
         }
 
-        public virtual Task UCNavigate()
+        public virtual async Task UCNavigate()
         {
             throw new NotImplementedException();
-        }
-
-        public async Task UCNavigateBase<T>(T dataIn, string argPage) where T : new()
-        {
-            string ser = JsonSerializer.Serialize(dataIn);
-
-            await SharedSharpNavigation.NavigateAsync($"{argPage}", ser);
         }
     }
 }

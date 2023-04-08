@@ -41,7 +41,7 @@ namespace GrampsView.ViewModels.StartupPages
 
         public async Task LoadDataAction()
         {
-            await SharedSharpNavigation.NavigateBack();
+            await App.Current.MainPage.Navigation.PopAsync();
 
             await _AppInit.Init();
         }

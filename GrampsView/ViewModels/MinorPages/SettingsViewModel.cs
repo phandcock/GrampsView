@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 
 namespace GrampsView.ViewModels.MinorPages
 {
@@ -114,7 +116,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         private Task DisplayMessageLogButtonCommandHandler()
         {
-            Ioc.Default.GetRequiredService<ILog>().DataLogShow();
+            SharedSharp.Common.SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
             return Task.CompletedTask;
         }
 

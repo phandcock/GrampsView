@@ -13,26 +13,12 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new BaseNavigation());
+            MainPage = new BaseNavigation();
 
             StartUp();
         }
 
-        //protected override Window CreateWindow(IActivationState activationState)
-        //{
-        //    Window window = base.CreateWindow(activationState);
 
-        //    window.Created += (s, e) =>
-        //    {
-        //        // Custom logic
-        //        _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
-
-        //        Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Microsoft.Maui.Controls.Window).Width, (s as Microsoft.Maui.Controls.Window).Height);
-
-        //    };
-
-        //    return window;
-        //}
 
         private void StartUp()
         {

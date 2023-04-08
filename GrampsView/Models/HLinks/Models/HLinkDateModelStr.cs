@@ -36,13 +36,8 @@ namespace GrampsView.Models.HLinks.Models
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new DateStrDetailPage());
+            await UCNavigateDetail(new DateStrDetailPage(this));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }

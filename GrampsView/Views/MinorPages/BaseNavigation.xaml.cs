@@ -11,9 +11,11 @@ public partial class BaseNavigation : FlyoutPage
         InitializeComponent();
 
         flyoutPage.collectionView.SelectionChanged += OnSelectionChanged;
+
+
     }
 
-    void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         FlyoutPageItem? item = e.CurrentSelection.FirstOrDefault() as FlyoutPageItem;
         if (item != null)

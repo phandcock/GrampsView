@@ -97,8 +97,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new AddressDetailPage());
-
+            await UCNavigateDetail(new AddressDetailPage(this));
             return;
         }
 

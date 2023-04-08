@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Minor;
@@ -7,13 +9,13 @@ using GrampsView.Models.DataModels.Minor;
 Before:
 using GrampsView.Models.HLinks.Interfaces;
 
-
 using SharedSharp.Models;
 After:
 using GrampsView.Models.HLinks.Interfaces;
 
 using SharedSharp.Models;
 */
+
 using GrampsView.Models.HLinks.Interfaces;
 
 namespace GrampsView.ViewModels.MinorModels
@@ -61,21 +63,23 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("AddressDetailViewModel");
 
-            HLinkAdressModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkAdressModel>(HLinkSerial);
-
-            AddressObject = HLinkObject.DeRef;
-
-            if (AddressObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = AddressObject;
+                HLinkAdressModel HLinkObject = base.NavigationParameter as HLinkAdressModel;
 
-                // Get media image
-                MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;
+                AddressObject = HLinkObject.DeRef;
 
-                BaseDetail.Clear();
+                if (AddressObject.Valid)
+                {
+                    BaseModelBase = AddressObject;
 
-                // Get the Name Details
-                BaseDetail.Add(new CardListLineCollection("Address Detail")
+                    // Get media image
+                    MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;
+
+                    BaseDetail.Clear();
+
+                    // Get the Name Details
+                    BaseDetail.Add(new CardListLineCollection("Address Detail")
                 {
                     new CardListLine("Street:", AddressObject.GStreet),
                     new CardListLine("City:", AddressObject.GCity),
@@ -89,17 +93,18 @@ namespace GrampsView.ViewModels.MinorModels
                     new CardListLine("Phone:", AddressObject.GPhone),
                 });
 
-                // Add date card
-                BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
+                    // Add date card
+                    BaseDetail.Add(AddressObject.GDate.AsHLink("Address Date"));
 
-                // Add Map card
-                BaseDetail.Add(AddressObject.ToMapModel().HLink);
+                    // Add Map card
+                    BaseDetail.Add(AddressObject.ToMapModel().HLink);
 
-                // Add Standard details
-                BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
+                    // Add Standard details
+                    BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
+                }
+
+                return;
             }
-
-            return;
         }
     }
 }

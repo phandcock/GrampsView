@@ -67,7 +67,7 @@ namespace GrampsView.Models.HLinks.Models
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new PlaceDetailPage());
+            await UCNavigateDetail(new PlaceDetailPage(this));
             return;
         }
     }

@@ -1,13 +1,28 @@
-﻿using GrampsView.ViewModels.Person;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.Person;
 
 namespace GrampsView.Views
 {
     public partial class PersonDetailPage : ViewBasePage
     {
+        private PersonDetailViewModel _viewModel;
+
         public PersonDetailPage()
         {
             InitializeComponent();
-            BindingContext = Ioc.Default.GetRequiredService<PersonDetailViewModel>();
+        }
+
+        public PersonDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<PersonDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
         }
     }
 }

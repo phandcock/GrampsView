@@ -102,61 +102,64 @@ namespace GrampsView.ViewModels.Person
         {
             BaseCL.RoutineEntry("PersonDetailViewModel");
 
-            HLinkPersonModel HLinkPerson = CommonRoutines.GetHLinkParameter<HLinkPersonModel>(HLinkSerial);
-
-            PersonObject = HLinkPerson.DeRef;
-
-            if (PersonObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = PersonObject;
+                HLinkPersonModel HLinkObject = base.NavigationParameter as HLinkPersonModel;
 
-                // Get media image
-                MediaCard = PersonObject.ModelItemGlyph;
+                PersonObject = HLinkObject.DeRef;
 
-                BaseDetail.Clear();
-
-                // Get the Name Details
-                BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
-
-                // Get the Person Details
-                CardListLineCollection nameDetails = GetExtraPersonDetails();
-                nameDetails.Title = "Person Detail";
-                BaseDetail.Add(nameDetails);
-
-                // Get date card
-                if (PersonObject.BirthDate.Valid)
+                if (PersonObject is not null)
                 {
-                    BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
+                    BaseModelBase = PersonObject;
+
+                    // Get media image
+                    MediaCard = PersonObject.ModelItemGlyph;
+
+                    BaseDetail.Clear();
+
+                    // Get the Name Details
+                    BaseDetail.Add(PersonObject.GPersonNamesCollection.GetPrimaryName);
+
+                    // Get the Person Details
+                    CardListLineCollection nameDetails = GetExtraPersonDetails();
+                    nameDetails.Title = "Person Detail";
+                    BaseDetail.Add(nameDetails);
+
+                    // Get date card
+                    if (PersonObject.BirthDate.Valid)
+                    {
+                        BaseDetail.Add(PersonObject.BirthDate.AsHLink("Birth Date"));
+                    }
+
+                    // Add Standard details
+                    BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
+
+                    // Get Faily Graph details
+                    BaseDetail.Add(
+                        new HLinkFamilyGraphModel
+                        {
+                            DeRef = PersonObject,
+                        });
+
+                    // If Bio note, display it while showing the full list further below.
+                    BioNote = PersonObject.GNoteRefCollection.GetBio;
+
+                    NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
+
+                    // Add PersonRefDetails - TODO
+                    //if (BaseNavParamsHLink is HLinkPersonRefModel)
+                    //{
+                    //    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
+
+                    // Contract.Assert(personRef != null);
+
+                    //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
+                    //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
+                    //}
                 }
 
-                // Add Standard details
-                BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
-
-                // Get Faily Graph details
-                BaseDetail.Add(
-                    new HLinkFamilyGraphModel
-                    {
-                        DeRef = PersonObject,
-                    });
-
-                // If Bio note, display it while showing the full list further below.
-                BioNote = PersonObject.GNoteRefCollection.GetBio;
-
-                NotesWithoutHighlight = PersonObject.GNoteRefCollection.GetCollectionWithoutOne(BioNote);
-
-                // Add PersonRefDetails - TODO
-                //if (BaseNavParamsHLink is HLinkPersonRefModel)
-                //{
-                //    HLinkPersonRefModel personRef = (BaseNavParamsHLink as HLinkPersonRefModel);
-
-                // Contract.Assert(personRef != null);
-
-                //    BaseDetail.Add(personRef.GCitationCollection.GetCardGroup("PersonRef Citations"));
-                //    BaseDetail.Add(personRef.GNoteCollection.GetCardGroup("PersonRef Notes"));
-                //}
+                return;
             }
-
-            return;
         }
 
         private CardListLineCollection GetExtraPersonDetails()

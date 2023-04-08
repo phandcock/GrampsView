@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -39,29 +41,31 @@ namespace GrampsView.ViewModels.Places
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkPlaceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPlaceModel>(HLinkSerial);
-
-            PlaceObject = HLinkObject.DeRef;
-
-            if (PlaceObject != null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = PlaceObject;
-                BaseTitleIcon = Constants.IconPlace;
+                HLinkPlaceModel HLinkObject = base.NavigationParameter as HLinkPlaceModel;
 
-                // TODO Display all details
+                PlaceObject = HLinkObject.DeRef;
 
-                BaseDetail.Clear();
+                if (PlaceObject != null)
+                {
+                    BaseModelBase = PlaceObject;
+                    BaseTitleIcon = Constants.IconPlace;
 
-                BaseDetail.Add(new CardListLineCollection("Place Detail")
+                    // TODO Display all details
+
+                    BaseDetail.Clear();
+
+                    BaseDetail.Add(new CardListLineCollection("Place Detail")
                     {
                         new CardListLine("Title:", PlaceObject.GPName),
                         new CardListLine("Type:", PlaceObject.GType),
                         new CardListLine("Code:", PlaceObject.GCode),
                 });
 
-                foreach (HLinkPlaceLocationModel thePlaceLocation in PlaceObject.GLocation)
-                {
-                    BaseDetail.Add(new CardListLineCollection("Location")
+                    foreach (HLinkPlaceLocationModel thePlaceLocation in PlaceObject.GLocation)
+                    {
+                        BaseDetail.Add(new CardListLineCollection("Location")
                     {
                         new CardListLine("Street:", thePlaceLocation.DeRef.GStreet),
                         new CardListLine("City:", thePlaceLocation.DeRef.GCity),
@@ -73,30 +77,31 @@ namespace GrampsView.ViewModels.Places
                         new CardListLine("Phone:", thePlaceLocation.DeRef.GPhone),
                         new CardListLine("City:", thePlaceLocation.DeRef.GPostal),
                     });
-                }
+                    }
 
-                if (PlaceObject.GCoordLat != 0 || PlaceObject.GCoordLong != 0)
-                {
-                    BaseDetail.Add(new CardListLineCollection("Coordinates")
+                    if (PlaceObject.GCoordLat != 0 || PlaceObject.GCoordLong != 0)
+                    {
+                        BaseDetail.Add(new CardListLineCollection("Coordinates")
                     {
                         new CardListLine("Lat:", PlaceObject.GCoordLat),
                         new CardListLine("Long:", PlaceObject.GCoordLong),
                   });
-                }
+                    }
 
-                if (HLinkObject.Date.Valid)
-                {
-                    BaseDetail.Add(new CardListLineCollection("Place Date Ref")
+                    if (HLinkObject.Date.Valid)
+                    {
+                        BaseDetail.Add(new CardListLineCollection("Place Date Ref")
                     {
                         new CardListLine("Date:", HLinkObject.Date.ShortDate),
                 });
+                    }
+
+                    // Add Map card
+                    IMapModel t = PlaceObject.ToMapModel();
+                    BaseDetail.Add(t.HLink);
+
+                    BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
                 }
-
-                // Add Map card
-                IMapModel t = PlaceObject.ToMapModel();
-                BaseDetail.Add(t.HLink);
-
-                BaseDetail.Add(DV.PlaceDV.GetModelInfoFormatted(PlaceObject));
             }
         }
     }

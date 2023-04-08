@@ -45,12 +45,12 @@
             BindingContext="{Binding ., Mode=OneWay}"
             IsEnabled="False" />
         <sSCustClass:HorizontalWrapLayout
-        Grid.Row="3"
-        Grid.Column="0"
-        Margin="0"
-        Padding="0"
-        BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
-        BindableLayout.ItemsSource="{Binding DeRef.GSourceRef.DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
-        HorizontalOptions="CenterAndExpand" />
+            Grid.Row="3"
+            Grid.Column="0"
+            Margin="0"
+            Padding="0"
+            BindableLayout.ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+            BindableLayout.ItemsSource="{Binding DeRef.GSourceRef.DeRef.BackHLinkReferenceCollection.AsCardGroupLink, Mode=OneWay}"
+            HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ucon:LinkMediumCardControlTemplate>

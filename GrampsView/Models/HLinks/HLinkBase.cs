@@ -3,9 +3,9 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
+using GrampsView.Events;
 
 using System.Diagnostics.Contracts;
-using System.Text.Json;
 
 namespace GrampsView.Models.HLinks
 {
@@ -95,21 +95,15 @@ namespace GrampsView.Models.HLinks
             HLinkKey = arg.HLinkKey;
         }
 
-        public virtual Task UCNavigate()
+        public virtual async Task UCNavigate()
         {
             throw new NotImplementedException();
         }
-
-        public async Task UCNavigateBase<T>(T dataIn, Page argPage) where T : new()
+        public async Task UCNavigateDetail(Page ArgPage)
         {
-            string ser = JsonSerializer.Serialize(dataIn);
-
-
-
-            //    await SharedSharpNavigation.NavigateAsync($"{argPage}?HLinkSerial={ser}");
-
-            App.Current.MainPage.Navigation.PushAsync(argPage);
+            Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(ArgPage));
         }
+
 
         /// <summary>
         /// Compares the specified x. Bases it on the HLinkKey for want of anything else that makes sense.

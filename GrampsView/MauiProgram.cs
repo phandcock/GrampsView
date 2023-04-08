@@ -119,10 +119,10 @@ namespace GrampsView
             //builder.Services.AddTransient();
 
             // Add Services
-            _ = builder.Services.AddSingleton<ISharedSharpAppInit, AppInit>();
             _ = builder.Services.AddSingleton<IDatabaseReloadDisplayService, DatabaseReloadDisplayService>();
             _ = builder.Services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
             _ = builder.Services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
+            _ = builder.Services.AddSingleton<ISharedSharpAppInit, AppInit>();
             _ = builder.Services.AddSingleton<IStoreFile, StoreFile>();
             _ = builder.Services.AddSingleton<IStorePostLoad, StorePostLoad>();
             _ = builder.Services.AddSingleton<IStoreXML, StoreXML>();

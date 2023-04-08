@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
 
@@ -36,31 +38,34 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("DateValDetailViewModel");
 
-            HLinkDateModelVal HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelVal>(HLinkSerial);
-
-            BaseTitle = HLinkObject.Title;
-
-            DateObject = HLinkObject.DeRef;
-
-            if (DateObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = DateObject;
+                HLinkDateModelVal HLinkObject = base.NavigationParameter as HLinkDateModelVal;
 
-                /*
-                 * General Details
-                 */
+                BaseTitle = HLinkObject.Title;
 
-                BaseDetail.Clear();
+                DateObject = HLinkObject.DeRef;
 
-                // Get the Base Date Details
-                BaseDetail.Add(DateObject.AsCardListLineBaseDate());
-                BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());
-                BaseDetail.Add(DateObject.AsCardListLineBaseDateInternal());
+                if (DateObject.Valid)
+                {
+                    BaseModelBase = DateObject;
 
-                BaseDetail.Add((DateObject as IDateObjectModelVal).AsCardListLine());
+                    /*
+                     * General Details
+                     */
+
+                    BaseDetail.Clear();
+
+                    // Get the Base Date Details
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDate());
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDateInternal());
+
+                    BaseDetail.Add((DateObject as IDateObjectModelVal).AsCardListLine());
+                }
+
+                return;
             }
-
-            return;
         }
     }
 }

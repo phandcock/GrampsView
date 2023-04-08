@@ -1,40 +1,88 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:GrampsView.Views"
-             xmlns:custClass="clr-namespace:GrampsView.Common.CustomClasses"
-             x:Class="GrampsView.Views.FlyoutMenuPage"
-             Title="FlyoutMenuPage">
-    <CollectionView x:Name="collectionView"
-                    x:FieldModifier="public"
-                    SelectionMode="Single">
+<ContentPage
+    x:Class="GrampsView.Views.FlyoutMenuPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:fonts="clr-namespace:GrampsView.Resources.Fonts"
+    xmlns:custClass="clr-namespace:GrampsView.Common.CustomClasses"
+    Title="Personal Organiser"
+    Padding="0,40,0,0">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="IconFont"
+            Glyph="{x:Static fonts:IconFont.Hamburger}"
+            Size="24"
+            Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                    Light={StaticResource OnSurfaceLight}}" />
+    </ContentPage.IconImageSource>
+    <CollectionView
+        x:Name="collectionView"
+        x:FieldModifier="public"
+        SelectionMode="Single">
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type custClass:FlyoutPageItem}">
-                <custClass:FlyoutPageItem Title="About"
-                                      IconSource="contacts.png"
-                                      TargetType="{x:Type views:AboutPage}" />
-                <!--<local:FlyoutPageItem Title="TodoList"
-                                      IconSource="todo.png"
-                                      TargetType="{x:Type local:TodoListPage}" />
-                <local:FlyoutPageItem Title="Reminders"
-                                      IconSource="reminders.png"
-                                      TargetType="{x:Type local:ReminderPage}" />-->
+                <custClass:FlyoutPageItem
+                    Title="Hub"
+                    TargetType="{x:Type views:HubPage}"
+                    IconSource="appicon.svg" />
+                <custClass:FlyoutPageItem
+                    Title="Birthdays"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:PersonBirthdayPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Bookmarks"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:BookMarkListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Citations"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:CitationListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Events"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:EventListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="People"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:PersonListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Load data"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:FileInputHandlerPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Settings"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:SettingsPage}" />
+                <custClass:FlyoutPageItem
+                    Title="About"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:AboutPage}" />
             </x:Array>
         </CollectionView.ItemsSource>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Grid Padding="5,10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Image Source="{Binding IconSource}" />
-                    <Label Grid.Column="1"
-                           Margin="20,0"
-                           Text="{Binding Title}"
-                           FontSize="20"
-                           FontAttributes="Bold"
-                           VerticalOptions="Center" />
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="IconFont"
+                                Glyph="{x:Static fonts:IconFont.Hamburger}"
+                                Size="24"
+                                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                                        Light={StaticResource OnSurfaceLight}}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        Margin="20,0"
+                        Text="{Binding Title}"
+                        FontSize="20"
+                        VerticalOptions="Center" />
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>

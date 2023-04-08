@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -45,24 +47,27 @@ namespace GrampsView.ViewModels.Repository
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryModel>(HLinkSerial);
-
-            RepositoryObject = RepositoryHLink.DeRef;
-
-            if (!(RepositoryObject == null))
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = RepositoryObject;
-                BaseTitleIcon = Constants.IconRepository;
+                RepositoryHLink = base.NavigationParameter as HLinkRepositoryModel;
 
-                BaseDetail.Clear();
+                RepositoryObject = RepositoryHLink.DeRef;
 
-                BaseDetail.Add(new CardListLineCollection("Repository Detail")
+                if (!(RepositoryObject == null))
+                {
+                    BaseModelBase = RepositoryObject;
+                    BaseTitleIcon = Constants.IconRepository;
+
+                    BaseDetail.Clear();
+
+                    BaseDetail.Add(new CardListLineCollection("Repository Detail")
                     {
                         new CardListLine("Name:", RepositoryObject.GRName),
                         new CardListLine("Type:", RepositoryObject.GType),
                     });
 
-                BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
+                    BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
+                }
             }
         }
     }

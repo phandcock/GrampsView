@@ -25,7 +25,7 @@
         <sSUcon:TopMenu />
     </NavigationPage.TitleView>
 
-    <Shell.SearchHandler>
+    <!--<Shell.SearchHandler>
         <common:GrampsViewSearchHandler
             windows:SearchBar.IsSpellCheckEnabled="true"
             Placeholder="Search Names"
@@ -43,7 +43,7 @@
                 </DataTemplate>
             </common:GrampsViewSearchHandler.ItemTemplate>
         </common:GrampsViewSearchHandler>
-    </Shell.SearchHandler>
+    </Shell.SearchHandler>-->
 
     <Grid>
         <Grid.RowDefinitions>
@@ -59,7 +59,11 @@
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">
 
+
+
             <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+
+                <Button Text="Do It" Command="{Binding DoIt}" />
 
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
 

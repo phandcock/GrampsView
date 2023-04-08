@@ -1,17 +1,28 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public sealed partial class PersonBirthdayPage : ViewBasePage
     {
-        private PersonBirthdayViewModel _viewModel { get; set; }
-
         public PersonBirthdayPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonBirthdayViewModel>();
         }
+
+        public PersonBirthdayPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<PersonBirthdayViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private PersonBirthdayViewModel _viewModel { get; set; }
     }
 }

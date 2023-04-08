@@ -21,6 +21,8 @@ namespace GrampsView.Views
             _viewModel.HandleParameter(argHLinkKey);
 
             BindingContext = _viewModel;
+
+
         }
 
         private NoteDetailViewModel _viewModel { get; set; }

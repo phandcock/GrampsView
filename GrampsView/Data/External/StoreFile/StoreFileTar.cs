@@ -113,20 +113,17 @@ namespace GrampsView.Data
 
                         Ioc.Default.GetRequiredService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
 
-                        Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
-
+                        using Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
                         try
                         {
                             tarIn.CopyEntryContents(outStr);
+
+                            Thread.Sleep(500);
                         }
                         catch (Exception ex)
                         {
                             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UnTar issue", ex);
                         }
-                        //}
-
-                        outStr.Flush();
-                        outStr.Dispose();
 
                         // TODO check of modification date kept Set the modification date/time. This
                         // approach seems to solve timezone issues.

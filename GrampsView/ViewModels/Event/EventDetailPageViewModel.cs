@@ -32,8 +32,6 @@ namespace GrampsView.ViewModels.Event
         {
         }
 
-
-
         /// <summary>
         /// Gets or sets the public Event ViewModel.
         /// </summary>
@@ -50,25 +48,24 @@ namespace GrampsView.ViewModels.Event
             get; set;
         } = new HLinkNoteModel();
 
-        public HLinkEventModel HLinkObject
-        {
-            get; set;
-        }
-
         public HLinkNoteModelCollection NotesWithoutHighlight
         {
             get; set;
         } = new HLinkNoteModelCollection();
+
+
+        public HLinkEventModel HLinkObject { get; set; } = new HLinkEventModel();
+
 
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            HLinkObject = base.NavigationParameter as HLinkEventModel;
-
-            if (HLinkObject is not null && HLinkObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
+                HLinkObject = base.NavigationParameter as HLinkEventModel;
+
                 EventObject = HLinkObject.DeRef;
 
                 if (EventObject is not null && EventObject.Valid)

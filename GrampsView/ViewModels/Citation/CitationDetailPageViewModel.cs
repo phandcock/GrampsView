@@ -51,37 +51,39 @@ namespace GrampsView.ViewModels.Citation
         /// </value>
         public override void HandleViewModelParameters()
         {
-            // Handle HLinkKeys
-            HLinkCitationModel HLinkCitation = CommonRoutines.GetHLinkParameter<HLinkCitationModel>(HLinkSerial);
-
-            CitationObject = HLinkCitation.DeRef;
-
-            if (CitationObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = CitationObject;
-                BaseTitleIcon = Constants.IconCitation;
+                HLinkCitationModel HLinkObject = base.NavigationParameter as HLinkCitationModel;
 
-                BaseDetail.Clear();
+                CitationObject = HLinkObject.DeRef;
 
-                BaseDetail.Add(new CardListLineCollection("Citation Detail")
+                if (CitationObject is not null)
+                {
+                    BaseModelBase = CitationObject;
+                    BaseTitleIcon = Constants.IconCitation;
+
+                    BaseDetail.Clear();
+
+                    BaseDetail.Add(new CardListLineCollection("Citation Detail")
                 {
                     new CardListLine("Page:", CitationObject.GPage),
                     new CardListLine("Confidence:", CitationObject.GConfidence.ToString())
                 });
 
-                // Get date card
-                BaseDetail.Add(CitationObject.GDateContent.AsHLink("Event Date"));
+                    // Get date card
+                    BaseDetail.Add(CitationObject.GDateContent.AsHLink("Event Date"));
 
-                BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
+                    BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
 
-                // If event note, display it while showing the full list further below.
-                HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeCitation);
+                    // If event note, display it while showing the full list further below.
+                    HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeCitation);
 
-                NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
+                    NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
-                HLinkCitationModel t = CitationObject.HLink;
-                t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
-                BaseDetail.Add(t);
+                    HLinkCitationModel t = CitationObject.HLink;
+                    t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                    BaseDetail.Add(t);
+                }
             }
         }
     }

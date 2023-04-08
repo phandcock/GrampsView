@@ -432,7 +432,7 @@ namespace GrampsView.Data.Repository
                         // let everybody know we have finished loading data
                         _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
-                        _ = _CL.DataLogHide();
+                        SharedSharp.Common.SharedSharpNavigation.NavigateHubNS();
 
                     }
                     else

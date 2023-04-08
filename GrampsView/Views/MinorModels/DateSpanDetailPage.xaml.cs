@@ -1,6 +1,7 @@
-﻿using GrampsView.ViewModels.MinorModels;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
-using Microsoft.Extensions.DependencyInjection;
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.MinorModels;
 
 namespace GrampsView.Views
 {
@@ -9,7 +10,17 @@ namespace GrampsView.Views
         public DateSpanDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<DateSpanDetailViewModel>();
+        }
+
+        public DateSpanDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<DateSpanDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
         }
 
         private DateSpanDetailViewModel _viewModel { get; set; }

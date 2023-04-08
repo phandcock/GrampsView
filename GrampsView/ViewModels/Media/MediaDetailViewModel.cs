@@ -31,11 +31,6 @@ namespace GrampsView.ViewModels.Media
             BaseCL.Progress("MediaDetailViewModel created");
         }
 
-        public HLinkMediaModel CurrentHLinkMedia
-        {
-            get; set;
-        } = new HLinkMediaModel();
-
         /// <summary>
         /// Gets or sets the current media object.
         /// </summary>
@@ -52,6 +47,8 @@ namespace GrampsView.ViewModels.Media
             get; set;
         } = new HLinkMediaModel();
 
+        public HLinkMediaModel HLinkObject { get; set; } = new HLinkMediaModel();
+
         /// <summary>
         /// Handles navigation inwards and gets the media model parameter.
         /// </summary>
@@ -61,30 +58,32 @@ namespace GrampsView.ViewModels.Media
         {
             BaseCL.RoutineEntry("MediaDetailViewModel OnNavigatedTo");
 
-            CurrentHLinkMedia = CommonRoutines.GetHLinkParameter<HLinkMediaModel>(HLinkSerial);
-
-            // For cropped or internal media then show the original image
-            IMediaModel tt = CurrentHLinkMedia.DeRef;
-            if (tt.IsInternalMediaFile)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                CurrentHLinkMedia = DV.MediaDV.GetModelFromHLinkKey(tt.InternalMediaFileOriginalHLink).HLink;
-            }
+                HLinkObject = base.NavigationParameter as HLinkMediaModel;
 
-            if (CurrentHLinkMedia is not null)
-            {
-                CurrentMediaObject = CurrentHLinkMedia.DeRef as MediaModel;
-
-                if (CurrentMediaObject is not null)
+                // For cropped or internal media then show the original image
+                IMediaModel tt = HLinkObject.DeRef;
+                if (tt.IsInternalMediaFile)
                 {
-                    BaseModelBase = CurrentMediaObject;
-                    BaseTitle = CurrentHLinkMedia.DeRef.DefaultTextShort;
+                    HLinkObject = DV.MediaDV.GetModelFromHLinkKey(tt.InternalMediaFileOriginalHLink).HLink;
+                }
 
-                    MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
+                if (HLinkObject is not null)
+                {
+                    CurrentMediaObject = HLinkObject.DeRef as MediaModel;
 
-                    BaseDetail.Clear();
+                    if (CurrentMediaObject is not null)
+                    {
+                        BaseModelBase = CurrentMediaObject;
+                        BaseTitle = HLinkObject.DeRef.DefaultTextShort;
 
-                    // Get basic details
-                    BaseDetail.Add(new CardListLineCollection("Media Detail")
+                        MediaCard = CurrentMediaObject.ModelItemGlyph.ImageHLinkMediaModel;
+
+                        BaseDetail.Clear();
+
+                        // Get basic details
+                        BaseDetail.Add(new CardListLineCollection("Media Detail")
                     {
                         new CardListLine("File Description:", CurrentMediaObject.GDescription),
                         new CardListLine("File Mime Type:", CurrentMediaObject.FileMimeType),
@@ -93,23 +92,24 @@ namespace GrampsView.ViewModels.Media
                         new CardListLine("OriginalFilePath:", CurrentMediaObject.OriginalFilePath),
                     });
 
-                    // Get date card
-                    if (CurrentMediaObject.GDateValue.Valid)
-                    {
-                        BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
+                        // Get date card
+                        if (CurrentMediaObject.GDateValue.Valid)
+                        {
+                            BaseDetail.Add(CurrentMediaObject.GDateValue.AsHLink("Media Date"));
+                        }
+
+                        // Add standard details
+                        MediaModel t = CurrentMediaObject;
+                        BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(t));
+
+                        // Add Media Link Card
+                        HLinkMediaModel ttt = CurrentMediaObject.HLink;
+                        ttt.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                        BaseDetail.Add(ttt);
                     }
 
-                    // Add standard details
-                    MediaModel t = CurrentMediaObject;
-                    BaseDetail.Add(DV.MediaDV.GetModelInfoFormatted(t));
-
-                    // Add Media Link Card
-                    HLinkMediaModel ttt = CurrentMediaObject.HLink;
-                    ttt.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
-                    BaseDetail.Add(ttt);
+                    BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");
                 }
-
-                BaseCL.RoutineExit("MediaDetailViewModel OnNavigatedTo");
             }
         }
     }

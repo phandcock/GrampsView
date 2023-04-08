@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.Interfaces;
 using GrampsView.Events;
 
 using SharedSharp.Errors.Interfaces;
@@ -104,7 +106,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     _ = await OrganiseMisc().ConfigureAwait(false);
 
-                    await _CommonLogging.DataLogHide();
+                    SharedSharp.Common.SharedSharpNavigation.NavigateHubNS();
                 }
             }
 

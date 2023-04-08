@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.HLinks.Models;
@@ -37,28 +39,31 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("DateDetailViewModel");
 
-            HLinkDateModelStr HLinkObject = CommonRoutines.GetHLinkParameter<HLinkDateModelStr>(HLinkSerial);
-
-            BaseTitle = HLinkObject.Title;
-
-            DateObject = HLinkObject.DeRef;
-
-            if (DateObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = DateObject;
+                HLinkDateModelStr HLinkObject = base.NavigationParameter as HLinkDateModelStr;
 
-                /*
-                 * General Details
-                 */
+                BaseTitle = HLinkObject.Title;
 
-                BaseDetail.Clear();
+                DateObject = HLinkObject.DeRef;
 
-                // Get the Base Date Details
-                BaseDetail.Add(DateObject.AsCardListLineBaseDate());
-                BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());
-                BaseDetail.Add(DateObject.AsCardListLineBaseDateInternal());
+                if (DateObject.Valid)
+                {
+                    BaseModelBase = DateObject;
 
-                BaseDetail.Add((DateObject as IDateObjectModelStr).AsCardListLine());
+                    /*
+                     * General Details
+                     */
+
+                    BaseDetail.Clear();
+
+                    // Get the Base Date Details
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDate());
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDateDetail());
+                    BaseDetail.Add(DateObject.AsCardListLineBaseDateInternal());
+
+                    BaseDetail.Add((DateObject as IDateObjectModelStr).AsCardListLine());
+                }
             }
         }
     }

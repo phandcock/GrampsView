@@ -7,7 +7,6 @@ using GrampsView.Models.HLinks;
 using GrampsView.Views;
 
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace GrampsView.Data.Model
 {
@@ -82,7 +81,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new FamilyDetailPage());
+            new FamilyDetailPage(this);
             return;
         }
     }

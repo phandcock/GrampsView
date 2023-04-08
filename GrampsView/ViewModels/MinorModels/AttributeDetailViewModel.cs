@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 
 namespace GrampsView.ViewModels.MinorModels
@@ -26,11 +28,6 @@ namespace GrampsView.ViewModels.MinorModels
             get; set;
         } = new AttributeModel();
 
-        public HLinkAttributeModel HLinkAttributeObject
-        {
-            get; set;
-        } = new HLinkAttributeModel();
-
         /// <summary>
         /// Populates the view ViewModel.
         /// </summary>
@@ -40,28 +37,31 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("AttributeDetailViewModel");
 
-            HLinkAttributeObject = CommonRoutines.GetHLinkParameter<HLinkAttributeModel>(HLinkSerial);
-
-            if (HLinkAttributeObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                AttributeObject = HLinkAttributeObject.DeRef;
+                HLinkAttributeModel HLinkObject = base.NavigationParameter as HLinkAttributeModel;
 
-                BaseModelBase = AttributeObject;
+                if (HLinkObject.Valid)
+                {
+                    AttributeObject = HLinkObject.DeRef;
 
-                BaseDetail.Clear();
+                    BaseModelBase = AttributeObject;
 
-                // Get the Attribute Details
-                BaseDetail.Add(new CardListLineCollection("Attribute Detail")
+                    BaseDetail.Clear();
+
+                    // Get the Attribute Details
+                    BaseDetail.Add(new CardListLineCollection("Attribute Detail")
                 {
                     new CardListLine("Type:", AttributeObject.GType),
                     new CardListLine("Value:", AttributeObject.GValue),
                 });
 
-                // Add Standard details
-                BaseDetail.Add(CommonRoutines.GetModelInfoFormatted(AttributeObject));
-            }
+                    // Add Standard details
+                    BaseDetail.Add(CommonRoutines.GetModelInfoFormatted(AttributeObject));
+                }
 
-            return;
+                return;
+            }
         }
     }
 }

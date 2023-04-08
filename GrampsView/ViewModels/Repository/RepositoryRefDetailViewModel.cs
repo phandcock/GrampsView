@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -45,31 +47,34 @@ namespace GrampsView.ViewModels.Repository
         /// </summary>
         public override void HandleViewModelParameters()
         {
-            RepositoryHLink = CommonRoutines.GetHLinkParameter<HLinkRepositoryRefModel>(HLinkSerial);
-
-            RepositoryObject = RepositoryHLink.DeRef;
-
-            if (!(RepositoryObject == null))
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseTitle = RepositoryObject.ToString();
-                BaseTitleIcon = Constants.IconRepository;
+                HLinkRepositoryRefModel RepositoryHLink = base.NavigationParameter as HLinkRepositoryRefModel;
 
-                BaseDetail.Clear();
+                RepositoryObject = RepositoryHLink.DeRef;
 
-                BaseDetail.Add(new CardListLineCollection("Repostiory Ref Detail")
+                if (!(RepositoryObject == null))
+                {
+                    BaseTitle = RepositoryObject.ToString();
+                    BaseTitleIcon = Constants.IconRepository;
+
+                    BaseDetail.Clear();
+
+                    BaseDetail.Add(new CardListLineCollection("Repostiory Ref Detail")
                     {
                         new CardListLine("Type:", "Repostiory Ref"),
                     });
 
-                BaseDetail.Add(new CardListLineCollection("Call Details")
+                    BaseDetail.Add(new CardListLineCollection("Call Details")
                     {
                         new CardListLine("Call No:", RepositoryHLink.GCallNo),
                         new CardListLine("Medium:", RepositoryHLink.GMedium),
                     });
 
-                BaseDetail.Add(RepositoryHLink.DeRef.HLink);
+                    BaseDetail.Add(RepositoryHLink.DeRef.HLink);
 
-                BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
+                    BaseDetail.Add(DV.RepositoryDV.GetModelInfoFormatted(RepositoryObject));
+                }
             }
         }
     }

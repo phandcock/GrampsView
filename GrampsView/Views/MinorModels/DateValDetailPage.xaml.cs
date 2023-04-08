@@ -1,16 +1,30 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.MinorModels;
+
+using Microsoft.Extensions.DependencyInjection;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels.MinorModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public partial class DateValDetailPage : ViewBasePage
     {
-        private DateValDetailViewModel _viewModel { get; set; }
-
         public DateValDetailPage()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<DateValDetailViewModel>();
+            InitializeComponent();
         }
+
+        public DateValDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<DateValDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private DateValDetailViewModel _viewModel { get; set; }
     }
 }

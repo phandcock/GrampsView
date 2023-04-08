@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -51,19 +53,21 @@ namespace GrampsView.ViewModels.Family
         /// </returns>
         public override void HandleViewModelParameters()
         {
-            HLinkFamilyModel HLinkFamily = CommonRoutines.GetHLinkParameter<HLinkFamilyModel>(HLinkSerial);
-
-            FamilyObject = HLinkFamily.DeRef;
-
-            if (FamilyObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = FamilyObject;
-                BaseTitleIcon = Constants.IconFamilies;
+                HLinkFamilyModel HLinkObject = base.NavigationParameter as HLinkFamilyModel;
 
-                BaseDetail.Clear();
+                FamilyObject = HLinkObject.DeRef;
 
-                // Get basic details
-                BaseDetail.Add(new CardListLineCollection("Family Detail")
+                if (FamilyObject is not null)
+                {
+                    BaseModelBase = FamilyObject;
+                    BaseTitleIcon = Constants.IconFamilies;
+
+                    BaseDetail.Clear();
+
+                    // Get basic details
+                    BaseDetail.Add(new CardListLineCollection("Family Detail")
                     {
                     new CardListLine("Family Display Name:", FamilyObject.ToString()),
                     new CardListLine("Family Relationship:", FamilyObject.GFamilyRelationship),
@@ -72,15 +76,16 @@ namespace GrampsView.ViewModels.Family
                     new CardListLine("Date:",FamilyObject.GDate.LongDate),
                 });
 
-                // Add Model details
-                BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
+                    // Add Model details
+                    BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
 
-                // Add parent link
-                BaseDetail.Add(new HLinkFamilyModel
-                {
-                    HLinkKey = localFamilyModel.HLinkKey,
-                    DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium
-                });
+                    // Add parent link
+                    BaseDetail.Add(new HLinkFamilyModel
+                    {
+                        HLinkKey = localFamilyModel.HLinkKey,
+                        DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium
+                    });
+                }
             }
         }
     }

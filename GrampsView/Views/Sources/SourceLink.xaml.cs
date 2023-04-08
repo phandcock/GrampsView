@@ -1,17 +1,29 @@
-﻿namespace GrampsView.UserControls
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.Sources;
+using GrampsView.Views;
+
+namespace GrampsView.UserControls
 {
-    using GrampsView.ViewModels.Sources;
-    using GrampsView.Views;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public partial class SourceLink : ViewBasePage
     {
-        private SourceDetailViewModel _viewModel { get; set; }
-
         public SourceLink()
         {
-            InitializeComponent(); BindingContext = _viewModel = Ioc.Default.GetRequiredService<SourceDetailViewModel>();
+            InitializeComponent();
         }
+
+        public SourceLink(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<SourceDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private SourceDetailViewModel _viewModel { get; set; }
     }
 }

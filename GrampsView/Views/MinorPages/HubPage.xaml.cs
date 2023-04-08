@@ -1,4 +1,7 @@
-﻿using GrampsView.ViewModels.MinorPages;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Events;
+using GrampsView.ViewModels.MinorPages;
 
 namespace GrampsView.Views
 {
@@ -8,6 +11,11 @@ namespace GrampsView.Views
         {
             InitializeComponent();
             BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
+
+            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, (r, m) =>
+            {
+                Navigation.PushAsync(m.Value);
+            });
         }
     }
 }

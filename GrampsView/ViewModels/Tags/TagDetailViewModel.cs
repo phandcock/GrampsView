@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -33,25 +35,28 @@ namespace GrampsView.ViewModels.Tags
         /// <value>The tag object.</value>
         public override void HandleViewModelParameters()
         {
-            HLinkTagModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkTagModel>(HLinkSerial);
-
-            TagObject = HLinkObject.DeRef;
-
-            if (TagObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = TagObject;
-                BaseTitleIcon = Constants.IconTag;
+                HLinkTagModel HLinkObject = base.NavigationParameter as HLinkTagModel;
 
-                BaseDetail.Clear();
+                TagObject = HLinkObject.DeRef;
 
-                BaseDetail.Add(new CardListLineCollection("Tag Detail")
+                if (TagObject is not null)
+                {
+                    BaseModelBase = TagObject;
+                    BaseTitleIcon = Constants.IconTag;
+
+                    BaseDetail.Clear();
+
+                    BaseDetail.Add(new CardListLineCollection("Tag Detail")
                 {
                         new CardListLine("Name:", TagObject.GName),
                         new CardListLine("Priority:", TagObject.GPriority.ToString(System.Globalization.CultureInfo.CurrentCulture)),
                         new CardListLine("Private:", TagObject.Priv.ToString()),
                 });
 
-                BaseDetail.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
+                    BaseDetail.Add(DV.TagDV.GetModelInfoFormatted(TagObject));
+                }
             }
 
             return;

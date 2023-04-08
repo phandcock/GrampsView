@@ -2,6 +2,7 @@
 
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Views;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
@@ -179,9 +180,9 @@ namespace GrampsView.Common.CustomClasses
             {
                 case CommonEnums.HLinkGlyphType.Image:
                     {
-                        ser = JsonSerializer.Serialize(ImageHLinkMediaModel);
 
-                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}", ser);
+
+                        await App.Current.MainPage.Navigation.PushAsync(new MediaDetailPage(ImageHLinkMediaModel));
 
                         break;
                     }
@@ -189,7 +190,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
-                        await SharedSharpNavigation.NavigateAsync($"{"MediaDetailPage"}", ser);
+                        await App.Current.MainPage.Navigation.PushAsync(new MediaDetailPage(MediaHLinkMediaModel));
 
                         break;
                     }

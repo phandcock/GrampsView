@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Minor;
 
@@ -41,24 +43,26 @@ namespace GrampsView.ViewModels.MinorModels
         {
             BaseCL.RoutineEntry("NameDetailViewModel");
 
-            HLinkPersonNameModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkPersonNameModel>(HLinkSerial);
-
-            PersonNameObject = HLinkObject.DeRef;
-
-            if (PersonNameObject.Valid)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                BaseModelBase = PersonNameObject;
+                HLinkPersonNameModel HLinkObject = base.NavigationParameter as HLinkPersonNameModel;
 
-                BaseDetail.Clear();
+                PersonNameObject = HLinkObject.DeRef;
 
-                // Get Header Details
-                CardListLineCollection headerCardGroup = new()
-                { Title = "Person Name Details" };
-                headerCardGroup.Add(new CardListLine("Full Name:", PersonNameObject.FullName));
-                BaseDetail.Add(headerCardGroup);
+                if (PersonNameObject.Valid)
+                {
+                    BaseModelBase = PersonNameObject;
 
-                // TODO Show All Surnames
-                CardListLineCollection PersonNameCards = new("Name")
+                    BaseDetail.Clear();
+
+                    // Get Header Details
+                    CardListLineCollection headerCardGroup = new()
+                    { Title = "Person Name Details" };
+                    headerCardGroup.Add(new CardListLine("Full Name:", PersonNameObject.FullName));
+                    BaseDetail.Add(headerCardGroup);
+
+                    // TODO Show All Surnames
+                    CardListLineCollection PersonNameCards = new("Name")
                 {
                     new CardListLine("Type:", PersonNameObject.GType),
                     new CardListLine("Full Name:", PersonNameObject.FullName),
@@ -78,14 +82,14 @@ namespace GrampsView.ViewModels.MinorModels
                     new CardListLine("Sort:", PersonNameObject.GSort)
                 };
 
-                BaseDetail.Add(PersonNameCards);
+                    BaseDetail.Add(PersonNameCards);
 
-                // Get date card
-                BaseDetail.Add(PersonNameObject.GDate.AsHLink("Name Date"));
+                    // Get date card
+                    BaseDetail.Add(PersonNameObject.GDate.AsHLink("Name Date"));
 
-                foreach (HLinkSurnameModel item in PersonNameObject.GSurName)
-                {
-                    CardListLineCollection SurnameCard = new("Surnames")
+                    foreach (HLinkSurnameModel item in PersonNameObject.GSurName)
+                    {
+                        CardListLineCollection SurnameCard = new("Surnames")
                         {
                             new CardListLine("Surname:", item.ToString()),
                             new CardListLine("Prefix:", item.DeRef.GPrefix),
@@ -94,11 +98,12 @@ namespace GrampsView.ViewModels.MinorModels
                             new CardListLine("Connector:", item.DeRef.GConnector),
                         };
 
-                    BaseDetail.Add(SurnameCard);
+                        BaseDetail.Add(SurnameCard);
+                    }
                 }
-            }
 
-            return;
+                return;
+            }
         }
     }
 }

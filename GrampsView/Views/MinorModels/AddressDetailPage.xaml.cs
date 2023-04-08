@@ -1,17 +1,28 @@
-﻿using GrampsView.ViewModels.MinorModels;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
-using Microsoft.Extensions.DependencyInjection;
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.MinorModels;
 
 namespace GrampsView.Views
 {
     public partial class AddressDetailPage : ViewBasePage
     {
-        private AddressDetailViewModel _viewModel { get; set; }
-
         public AddressDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<AddressDetailViewModel>();
         }
+
+        public AddressDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<AddressDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private AddressDetailViewModel _viewModel { get; set; }
     }
 }

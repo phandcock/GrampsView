@@ -4,8 +4,6 @@ using GrampsView.Common;
 using GrampsView.Models.HLinks;
 using GrampsView.Views;
 
-using System.Threading.Tasks;
-
 namespace GrampsView.Data.Model
 {
     /// <summary>
@@ -54,7 +52,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new AttributeDetailPage());
+            await UCNavigateDetail(new AttributeDetailPage(this));
             return;
         }
     }

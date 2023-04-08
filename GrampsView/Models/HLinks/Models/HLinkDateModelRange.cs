@@ -5,8 +5,6 @@ using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.HLinks;
 using GrampsView.Views;
 
-using System.Threading.Tasks;
-
 namespace GrampsView.Data.Model
 {
     /// <summary>
@@ -38,7 +36,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new DateRangeDetailPage());
+            await UCNavigateDetail(new DateRangeDetailPage(this));
             return;
         }
 

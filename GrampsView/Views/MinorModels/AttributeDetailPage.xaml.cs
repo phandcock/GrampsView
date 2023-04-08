@@ -1,17 +1,30 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.ViewModels.MinorModels;
+
+using Microsoft.Extensions.DependencyInjection;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels.MinorModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public partial class AttributeDetailPage : ViewBasePage
     {
-        private AttributeDetailViewModel _viewModel { get; set; }
-
         public AttributeDetailPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<AttributeDetailViewModel>();
         }
+
+        public AttributeDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<AttributeDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
+        }
+
+        private AttributeDetailViewModel _viewModel { get; set; }
     }
 }

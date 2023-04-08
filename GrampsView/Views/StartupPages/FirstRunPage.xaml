@@ -13,7 +13,6 @@
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:FirstRunViewModel"
-    Shell.PresentationMode="ModalNotAnimated"
     Style="{DynamicResource SSBaseContentPage}"
     mc:Ignorable="d">
 

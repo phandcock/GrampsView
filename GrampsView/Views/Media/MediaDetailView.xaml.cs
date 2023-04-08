@@ -1,5 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.ViewModels.Media;
 
@@ -13,8 +14,17 @@ namespace GrampsView.Views
         public MediaDetailPage()
         {
             InitializeComponent();
+        }
 
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<MediaDetailViewModel>();
+        public MediaDetailPage(IHLinkBase argHLinkKey)
+        {
+            InitializeComponent();
+
+            _viewModel = Ioc.Default.GetRequiredService<MediaDetailViewModel>();
+
+            _viewModel.HandleParameter(argHLinkKey);
+
+            BindingContext = _viewModel;
         }
 
         private MediaDetailViewModel _viewModel { get; set; }

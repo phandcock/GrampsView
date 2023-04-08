@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
 using GrampsView.Events;
+using GrampsView.Views;
 
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
@@ -96,7 +97,7 @@ namespace GrampsView.ViewModels.StartupPages
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            SharedSharpNavigation.NavigateHub();
+            App.Current.MainPage.Navigation.PushAsync(new HubPage());
 
             await Task.Delay(500);
 

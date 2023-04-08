@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -41,22 +43,26 @@ namespace GrampsView.ViewModels.Sources
         /// </returns>
         public override void HandleViewModelParameters()
         {
-            HLinkSourceModel HLinkObject = CommonRoutines.GetHLinkParameter<HLinkSourceModel>(HLinkSerial);
-
-            // Cache the Source model
-            SourceObject = HLinkObject.DeRef;
-
-            if (SourceObject is not null)
+            if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                // Get basic details
-                BaseModelBase = SourceObject;
+                HLinkSourceModel HLinkObject = base.NavigationParameter as HLinkSourceModel;
 
-                // MediaCard = SourceObject.ModelItemGlyph;
 
-                BaseDetail.Clear();
 
-                // Header Card
-                BaseDetail.Add(new CardListLineCollection("Source Detail")
+                // Cache the Source model
+                SourceObject = HLinkObject.DeRef;
+
+                if (SourceObject is not null)
+                {
+                    // Get basic details
+                    BaseModelBase = SourceObject;
+
+                    // MediaCard = SourceObject.ModelItemGlyph;
+
+                    BaseDetail.Clear();
+
+                    // Header Card
+                    BaseDetail.Add(new CardListLineCollection("Source Detail")
                     {
                        new CardListLine("Title:", SourceObject.GSTitle),
                        new CardListLine("Author:", SourceObject.GSAuthor),
@@ -64,13 +70,14 @@ namespace GrampsView.ViewModels.Sources
                        new CardListLine("Abbrev:", SourceObject.GSAbbrev),
                     });
 
-                // Add Model details
-                BaseDetail.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
+                    // Add Model details
+                    BaseDetail.Add(DV.SourceDV.GetModelInfoFormatted(SourceObject));
 
-                // Add Source Link Card
-                HLinkSourceModel t = SourceObject.HLink;
-                t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
-                BaseDetail.Add(t);
+                    // Add Source Link Card
+                    HLinkSourceModel t = SourceObject.HLink;
+                    t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
+                    BaseDetail.Add(t);
+                }
             }
         }
     }

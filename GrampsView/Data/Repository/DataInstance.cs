@@ -1,7 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using CommunityToolkit.Mvvm.ComponentModel;
-
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
@@ -127,7 +125,10 @@ namespace GrampsView.Data.Repository
 
             set
             {
-                SetProperty(ref _BookMarkCollection, value);
+                if (value != null)
+                {
+                    SetProperty(ref _BookMarkCollection, value);
+                }
             }
         }
 

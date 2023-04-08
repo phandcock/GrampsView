@@ -53,13 +53,8 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await UCNavigateBase(this, new PersonNameDetailPage());
+            await UCNavigateDetail(new PersonDetailPage(this));
             return;
         }
-
-        //protected override IModelBase GetDeRef()
-        //{
-        //    return this.DeRef;
-        //}
     }
 }
