@@ -1,3 +1,12 @@
+# [17.2.0](https://github.com/phandcock/GrampsView/compare/v17.1.25...v17.2.0) (2023-04-05)
+
+
+### Features
+
+* start complete rebuild of navigation ([bd175cc](https://github.com/phandcock/GrampsView/commit/bd175cc5b3b8c090aa04f173e358adeaa7cbed34))
+
+
+
 ## [17.1.25](https://github.com/phandcock/GrampsView/compare/v17.1.24...v17.1.25) (2023-04-02)
 
 
@@ -29,15 +38,6 @@
 
 * tweaks ([5cd511f](https://github.com/phandcock/GrampsView/commit/5cd511f00f915c126364df311513b68726042849))
 * tweaks ([28d347f](https://github.com/phandcock/GrampsView/commit/28d347ffda644f2a57a65ec239a681e7bf9a1ad8))
-
-
-
-## [17.1.22](https://github.com/phandcock/GrampsView/compare/v17.1.21...v17.1.22) (2023-03-26)
-
-
-### Bug Fixes
-
-* cleanup exception handling ([7e790ef](https://github.com/phandcock/GrampsView/commit/7e790ef74f7063e25a539931b8a843d3691fde64))
 
 
 
