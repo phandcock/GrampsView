@@ -10,7 +10,7 @@
     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
-    Title="{Binding BaseTitle}" 
+    Title="{Binding BaseTitle}"
     x:DataType="viewmodels:NoteDetailViewModel"
     Style="{StaticResource SSBaseContentPage}"
     mc:Ignorable="d">

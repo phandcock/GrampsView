@@ -106,8 +106,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new ChildRefDetailPage(this));
-            return;
+            await UCNavigateDetail(new ChildRefDetailPage(this));
         }
     }
 }

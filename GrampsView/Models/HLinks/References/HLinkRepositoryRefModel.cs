@@ -108,10 +108,10 @@ namespace GrampsView.Data.Model
         /// <summary>
         /// Navigates to a Repository Reference detail page.
         /// </summary>
+        ///
         public override async Task UCNavigate()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new RepositoryRefDetailPage(this));
-            return;
+            await UCNavigateDetail(new RepositoryRefDetailPage(this));
         }
     }
 }

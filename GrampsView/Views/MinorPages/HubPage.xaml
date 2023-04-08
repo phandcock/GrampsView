@@ -51,19 +51,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <breadcrumb:Breadcrumb
-            Grid.Row="0"
-            Style="{StaticResource GVBreadcrumb}"
-            BackgroundColor="Red" />
+        <breadcrumb:Breadcrumb Grid.Row="0" Style="{StaticResource GVBreadcrumb}" />
 
         <!--  Content  -->
         <ScrollView Grid.Row="1" Orientation="Vertical">
 
-
-
             <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
-
-                <Button Text="Do It" Command="{Binding DoIt}" />
 
                 <sharedsharpucon:InstructionCard InstructionText="{i18:Localize HubPage_IntroductionText}" />
 

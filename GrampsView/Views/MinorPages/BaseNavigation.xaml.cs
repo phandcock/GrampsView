@@ -11,8 +11,6 @@ public partial class BaseNavigation : FlyoutPage
         InitializeComponent();
 
         flyoutPage.collectionView.SelectionChanged += OnSelectionChanged;
-
-
     }
 
     private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -81,8 +81,7 @@ namespace GrampsView.Data.Model
 
         public override async Task UCNavigate()
         {
-            new FamilyDetailPage(this);
-            return;
+            await UCNavigateDetail(new FamilyDetailPage(this));
         }
     }
 }

@@ -33,13 +33,7 @@ namespace GrampsView.ViewModels.MinorPages
              {
                  SharedSharp.Common.SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
              });
-
-
         }
-
-
-
-        public IAsyncRelayCommand DoIt { get; set; }
 
         public CardListLineCollection HeaderCard => DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
 
@@ -90,8 +84,6 @@ namespace GrampsView.ViewModels.MinorPages
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);
-
-
         }
     }
 }

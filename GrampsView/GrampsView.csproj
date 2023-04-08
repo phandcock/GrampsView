@@ -265,9 +265,6 @@
       <MauiXaml Update="Views\MinorPages\FlyoutMenuPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Views\MinorPages\NewPage1.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
       <MauiXaml Update="Views\Place\PlaceDetailView.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
