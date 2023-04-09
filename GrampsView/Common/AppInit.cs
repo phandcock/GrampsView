@@ -24,7 +24,7 @@ namespace GrampsView.Common
                 // Need FirstRun?
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new FirstRunPage());
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new FirstRunPage()));
 
                     return;
                 }
@@ -32,7 +32,7 @@ namespace GrampsView.Common
                 // Need WhatsNew?
                 if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new WhatsNewPage());
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new WhatsNewPage()));
 
                     return;
                 }
@@ -77,7 +77,7 @@ namespace GrampsView.Common
 
                 // No Serialised Data and made it this far so some problem has occurred. Load
                 // everything from the beginning.
-                await App.Current.MainPage.Navigation.PushAsync(new FileInputHandlerPage());
+                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new FileInputHandlerPage()));
             }
             catch (Exception ex)
             {

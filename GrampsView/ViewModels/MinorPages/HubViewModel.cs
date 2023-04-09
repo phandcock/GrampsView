@@ -31,7 +31,7 @@ namespace GrampsView.ViewModels.MinorPages
 
             iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
              {
-                 SharedSharp.Common.SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
+                 Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
              });
         }
 

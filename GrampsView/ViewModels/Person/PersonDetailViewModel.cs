@@ -59,7 +59,7 @@ namespace GrampsView.ViewModels.Person
                     }
                 }
 
-                t.Sort(x => x.DeRef.GDate.SortDate);
+                // TODO fix    t.Sort(x => x.DeRef.GDate.SortDate);
 
                 return t;
             }

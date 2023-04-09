@@ -86,14 +86,18 @@ namespace GrampsView.Data.Repository
             // Event Handlers
             Contract.Assert(_EventAggregator != null);
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<AppStartLoadDataEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<AppStartLoadDataEvent>(this, async (r, m) =>
             {
                 if (!m.Value)
                 {
                     return;
                 }
 
-                StartDataLoad();
+                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
+
+                await StartDataLoadAsync();
+
+                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
             });
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
@@ -170,20 +174,20 @@ namespace GrampsView.Data.Repository
             SharedSharpSettings.DataSerialised = true;
         }
 
-        /// <summary>
-        /// Starts the data load.
-        /// </summary>
-        public void StartDataLoad()
-        {
-            _ = Task.Run(StartDataLoadAsync);
+        ///// <summary>
+        ///// Starts the data load.
+        ///// </summary>
+        //public void StartDataLoad()
+        //{
+        //    _ = Task.Run(StartDataLoadAsync);
 
-            // Task<bool> t =
+        //    // Task<bool> t =
 
-            //if (!t.Result)
-            //{
-            //    _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
-            //}
-        }
+        //    //if (!t.Result)
+        //    //{
+        //    //    _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
+        //    //}
+        //}
 
         /// <summary>
         /// Starts the data load asynchronous. Order is:
@@ -195,7 +199,7 @@ namespace GrampsView.Data.Repository
         /// <returns>
         /// Returns a empty task.
         /// </returns>
-        public async Task<bool> StartDataLoadAsync()
+        public async Task StartDataLoadAsync()
         {
             IFileInfoEx GrampsFile = new FileInfoEx();
 
@@ -203,7 +207,7 @@ namespace GrampsView.Data.Repository
 
             if (DataStore.Instance.DS.IsDataLoaded)
             {
-                return true;
+                return;
             }
 
             //await _commonNotifications.DataLogShow();
@@ -262,7 +266,7 @@ namespace GrampsView.Data.Repository
                         // Load the new data
                         _ = await TriggerLoadGrampsUnZippedFolderAsync().ConfigureAwait(false);
 
-                        return true;
+                        return;
                     }
                 }
 
@@ -274,7 +278,7 @@ namespace GrampsView.Data.Repository
                     // await _commonNotifications.DataLogHide();
                 }
 
-                return true;
+                return;
             }
             else
             {
@@ -286,7 +290,7 @@ namespace GrampsView.Data.Repository
             // TODO Handle special messages if there is a problem
 
             _CL.DataLogEntryAdd("Unable to load Datafolder");
-            return false;
+            return;
         }
 
         /// <summary>Triggers the load GPKG file asynchronous.</summary>
@@ -432,8 +436,7 @@ namespace GrampsView.Data.Repository
                         // let everybody know we have finished loading data
                         _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
-                        SharedSharp.Common.SharedSharpNavigation.NavigateHubNS();
-
+                        Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
                     }
                     else
                     {

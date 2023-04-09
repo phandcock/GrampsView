@@ -2,6 +2,8 @@
 
 using GrampsView.Common;
 
+using SharedSharp;
+
 namespace GrampsView.ViewModels.MinorPages
 {
     public class SettingsViewModel : ViewModelBase
@@ -116,7 +118,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         private Task DisplayMessageLogButtonCommandHandler()
         {
-            SharedSharp.Common.SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
+            SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
             return Task.CompletedTask;
         }
 

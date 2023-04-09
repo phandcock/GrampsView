@@ -4,7 +4,7 @@
     x:Class="GrampsView.UserControls.CollectionSingleCardGrouped"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:sSCC="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:common="clr-namespace:GrampsView.Common"
     x:Name="CollectionSingleCardGroupedRoot"
     Margin="0"
@@ -12,7 +12,7 @@
     HorizontalOptions="Fill"
     Style="{StaticResource SSBorderCardStyle}">
 
-    <sSharpCommon:CollectionViewEx
+    <sSCC:CollectionViewEx
         x:Name="theCollectionView"
         EmptyView="No data available"
         IsGrouped="True"
@@ -28,5 +28,5 @@
                 </Border>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
-    </sSharpCommon:CollectionViewEx>
+    </sSCC:CollectionViewEx>
 </Border>

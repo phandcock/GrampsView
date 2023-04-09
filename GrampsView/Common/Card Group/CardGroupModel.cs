@@ -1,4 +1,8 @@
-﻿using GrampsView.Models.DataModels;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Models.DataModels;
+
+using SharedSharp.Common.CustomClasses;
 
 using System.Collections.Specialized;
 using System.ComponentModel;

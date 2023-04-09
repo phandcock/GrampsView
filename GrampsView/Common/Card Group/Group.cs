@@ -1,7 +1,11 @@
-﻿namespace GrampsView.Common
-{
-    using System.Collections.Generic;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+using SharedSharp.Common.CustomClasses;
+
+using System.Collections.Generic;
+
+namespace GrampsView.Common
+{
     public class Group<T> : SharedSharpObservableRangeCollection<T>
     {
         /// <summary>
@@ -17,7 +21,7 @@
 
         public Group(List<T> items)
         {
-            foreach (var item in items)
+            foreach (T? item in items)
             {
                 Items.Add(item);
             }

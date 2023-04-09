@@ -1,7 +1,9 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using System.Threading.Tasks;
+
 namespace GrampsView.Data.Repository
 {
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface definitions for IGrampsRepository.
     /// </summary>
@@ -18,7 +20,10 @@ namespace GrampsView.Data.Repository
             get;
         }
 
-        void StartDataLoad();
+        //void StartDataLoad();
+
+
+        Task StartDataLoadAsync();
 
         /// <summary>
         /// Triggers the load gramps un zipped folder asynchronous.

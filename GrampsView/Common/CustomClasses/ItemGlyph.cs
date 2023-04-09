@@ -180,9 +180,7 @@ namespace GrampsView.Common.CustomClasses
             {
                 case CommonEnums.HLinkGlyphType.Image:
                     {
-
-
-                        await App.Current.MainPage.Navigation.PushAsync(new MediaDetailPage(ImageHLinkMediaModel));
+                        Ioc.Default.GetRequiredService<IMessenger>().Send(new MediaDetailPage(ImageHLinkMediaModel));
 
                         break;
                     }
@@ -190,7 +188,7 @@ namespace GrampsView.Common.CustomClasses
                     {
                         ser = JsonSerializer.Serialize(MediaHLinkMediaModel);
 
-                        await App.Current.MainPage.Navigation.PushAsync(new MediaDetailPage(MediaHLinkMediaModel));
+                        Ioc.Default.GetRequiredService<IMessenger>().Send(new MediaDetailPage(MediaHLinkMediaModel));
 
                         break;
                     }

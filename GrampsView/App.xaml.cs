@@ -18,8 +18,6 @@ namespace GrampsView
             StartUp();
         }
 
-
-
         private void StartUp()
         {
             // Setup various support frameworks

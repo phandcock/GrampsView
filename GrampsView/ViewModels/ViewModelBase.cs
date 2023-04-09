@@ -7,6 +7,7 @@ using GrampsView.Models.HLinks;
 
 using PropertyChanged;
 
+using SharedSharp.Common.CustomClasses;
 using SharedSharp.ViewModels;
 
 using System.ComponentModel;

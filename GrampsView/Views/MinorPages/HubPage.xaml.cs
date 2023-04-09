@@ -16,6 +16,11 @@ namespace GrampsView.Views
             {
                 Navigation.PushAsync(m.Value);
             });
+
+            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPopRootEvent>(this, (r, m) =>
+            {
+                Navigation.PopToRootAsync();
+            });
         }
     }
 }

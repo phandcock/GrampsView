@@ -1,15 +1,17 @@
-﻿using GrampsView.Models.HLinks;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Models.HLinks;
+
+using SharedSharp.Common.CustomClasses;
 
 using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 
-
 namespace GrampsView.Common
 {
     public delegate void ListedItemPropertyChangedEventHandler(IList SourceList, object Item, PropertyChangedEventArgs e);
-
 
     public class CardGroupHLink<T> : SharedSharpObservableRangeCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
           where T : HLinkBase, new()
@@ -54,8 +56,6 @@ namespace GrampsView.Common
         /// <c> true </c> if [control visible]; otherwise, <c> false </c>.
         /// </value>
         public bool Visible => Items is not null && (Items.Count > 0);
-
-
 
         public new void Add(T argItem)
         {
