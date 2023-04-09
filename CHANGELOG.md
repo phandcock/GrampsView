@@ -1,3 +1,12 @@
+## [17.2.2](https://github.com/phandcock/GrampsView/compare/v17.2.1...v17.2.2) (2023-04-09)
+
+
+### Bug Fixes
+
+* tweak navigation ([b2c03b5](https://github.com/phandcock/GrampsView/commit/b2c03b5fb1dc3de4f613f5dcd9d2d8a43d294f1f))
+
+
+
 ## [17.2.1](https://github.com/phandcock/GrampsView/compare/v17.2.0...v17.2.1) (2023-04-08)
 
 
@@ -29,15 +38,6 @@
 * tweak person detail layout ([2a833e3](https://github.com/phandcock/GrampsView/commit/2a833e30c2b2ae73badb6877899903c7184c0102))
 * tweak person detail layout ([c0a4ba7](https://github.com/phandcock/GrampsView/commit/c0a4ba70a6c7fa2456e333027130344043b6fa11))
 * tweaks ([1c369ee](https://github.com/phandcock/GrampsView/commit/1c369eeb36c7d9c8660959a6d95cf4b144c58b25))
-
-
-
-## [17.1.24](https://github.com/phandcock/GrampsView/compare/v17.1.23...v17.1.24) (2023-03-29)
-
-
-### Bug Fixes
-
-* update nuget ([48e37bd](https://github.com/phandcock/GrampsView/commit/48e37bda83949f6402f55668b86f46a307d48ae6))
 
 
 
