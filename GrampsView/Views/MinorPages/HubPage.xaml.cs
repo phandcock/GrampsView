@@ -12,14 +12,45 @@ namespace GrampsView.Views
             InitializeComponent();
             BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, async (r, m) =>
             {
-                Navigation.PushAsync(m.Value);
+                IReadOnlyList<Page> t = Navigation.NavigationStack;
+
+                if (MainThread.IsMainThread)
+                {
+                    await Navigation.PushAsync(m.Value);
+                }
+                else
+                {
+                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    {
+
+                        await Navigation.PushAsync(m.Value);
+                    });
+                }
+
+
+
+                //    await SharedSharpNavigation.NavigateAsyncNS(m.Value);
             });
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPopRootEvent>(this, (r, m) =>
+            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPopRootEvent>(this, async (r, m) =>
             {
-                Navigation.PopToRootAsync();
+                IReadOnlyList<Page> t = Navigation.NavigationStack;
+
+                if (MainThread.IsMainThread)
+                {
+                    await Navigation.PopToRootAsync();
+                }
+                else
+                {
+                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    {
+
+                        await Application.Current.MainPage.Navigation.PopToRootAsync();
+                    });
+                }
+                //  await SharedSharpNavigation.NavigateHubNS();
             });
         }
     }

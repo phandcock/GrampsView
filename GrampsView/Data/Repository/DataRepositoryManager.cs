@@ -93,7 +93,7 @@ namespace GrampsView.Data.Repository
                     return;
                 }
 
-                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
+                //     Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
 
                 await StartDataLoadAsync();
 
@@ -436,7 +436,7 @@ namespace GrampsView.Data.Repository
                         // let everybody know we have finished loading data
                         _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new DataLoadCompleteEvent(true));
 
-                        Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
+                        //Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
                     }
                     else
                     {

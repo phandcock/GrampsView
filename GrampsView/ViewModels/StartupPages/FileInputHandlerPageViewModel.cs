@@ -96,7 +96,7 @@ namespace GrampsView.ViewModels.StartupPages
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();
 
-            Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
+            //Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
 
             await Task.Delay(500);
 
