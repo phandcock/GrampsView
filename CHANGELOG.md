@@ -1,3 +1,14 @@
+## [17.2.4](https://github.com/phandcock/GrampsView/compare/v17.2.3...v17.2.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* add remainign listpages ([dcc2e98](https://github.com/phandcock/GrampsView/commit/dcc2e9828995ce1f413c84f670ee4ab8526bea91))
+* rework navigation ([b2ef8e0](https://github.com/phandcock/GrampsView/commit/b2ef8e04bdeee26936c3cb07b7f24dde472e21d5))
+* tweak navigation issues ([942c1dc](https://github.com/phandcock/GrampsView/commit/942c1dcd73963fa5785430570587eaebebc05ec0))
+
+
+
 ## [17.2.3](https://github.com/phandcock/GrampsView/compare/v17.2.2...v17.2.3) (2023-04-10)
 
 
@@ -23,15 +34,6 @@
 
 * tweaks ([1e5a43e](https://github.com/phandcock/GrampsView/commit/1e5a43ebee525738c9cc1625c171a18619904970))
 * work on navigation ([4668b48](https://github.com/phandcock/GrampsView/commit/4668b482d3fa52e6cab64db28fc7f3030c298203))
-
-
-
-# [17.2.0](https://github.com/phandcock/GrampsView/compare/v17.1.25...v17.2.0) (2023-04-05)
-
-
-### Features
-
-* start complete rebuild of navigation ([bd175cc](https://github.com/phandcock/GrampsView/commit/bd175cc5b3b8c090aa04f173e358adeaa7cbed34))
 
 
 
