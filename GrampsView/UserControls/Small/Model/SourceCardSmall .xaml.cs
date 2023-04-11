@@ -1,13 +1,12 @@
-﻿// <copyright file="SourceCardSmall .xaml.cs" company="MeMyselfAndI">
-//     Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.Views;
+
+using System.Diagnostics.Contracts;
 
 namespace GrampsView.UserControls
 {
-    using GrampsView.Data.Model;
-
-    using System.Diagnostics.Contracts;
-
     /// <summary>
     /// Code behind for Source Card.
     /// </summary>
@@ -21,9 +20,14 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
+        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        {
+            Navigation.PushAsync(new SourceDetailPage(args.Parameter as HLinkSourceModel));
+        }
+
         private void Grid_BindingContextChanged(object sender, System.EventArgs e)
         {
-            SourceCardSmall card = (sender as SourceCardSmall);
+            SourceCardSmall card = sender as SourceCardSmall;
 
             if (card is null)
             {

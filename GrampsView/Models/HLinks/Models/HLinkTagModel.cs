@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.HLinks;
-using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -59,12 +58,6 @@ namespace GrampsView.Data.Model
 
                 return _Deref;
             }
-        }
-
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new TagDetailPage(this));
-            return;
         }
     }
 }

@@ -6,7 +6,6 @@ using GrampsView.Data.DataView;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
-using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -85,13 +84,5 @@ namespace GrampsView.Data.Model
                 SetProperty(ref _GRole, value);
             }
         }
-
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new EventDetailPage(this));
-            return;
-        }
-
-
     }
 }

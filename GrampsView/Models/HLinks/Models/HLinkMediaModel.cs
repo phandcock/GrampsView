@@ -9,7 +9,6 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks;
 using GrampsView.Models.HLinks.Interfaces;
-using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -127,12 +126,6 @@ namespace GrampsView.Data.Model
             {
                 return HLinkKey.Valid;
             }
-        }
-
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new MediaDetailPage(this));
-            return;
         }
     }
 }

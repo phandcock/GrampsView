@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
-using GrampsView.Events;
 
 using System.Diagnostics.Contracts;
 
@@ -99,10 +98,7 @@ namespace GrampsView.Models.HLinks
         {
             throw new NotImplementedException();
         }
-        public async Task UCNavigateDetail(Page ArgPage)
-        {
-            Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(ArgPage));
-        }
+
 
 
         /// <summary>

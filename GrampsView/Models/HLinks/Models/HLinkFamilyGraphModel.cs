@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
-using GrampsView.Views;
 
 namespace GrampsView.Data.Model
 {
@@ -68,12 +67,6 @@ namespace GrampsView.Data.Model
 
                 return HLinkGlyphItem.Valid;
             }
-        }
-
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new FamilyDetailPage(this));
-            return;
         }
     }
 }

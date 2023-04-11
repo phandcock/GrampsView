@@ -1,10 +1,12 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Models.HLinks;
+
+using System.Threading.Tasks;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Common;
-    using GrampsView.Models.HLinks;
-
-    using System.Threading.Tasks;
-
     /// <summary>
     /// HLink to a URL
     /// <list type="table">

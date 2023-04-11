@@ -4,7 +4,6 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks;
-using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -59,12 +58,6 @@ namespace GrampsView.Data.Model
 
             // Can only comapre if they are the same type so assume equal
             return arg.GetType() != typeof(HLinkPersonNameModel) ? 0 : DeRef.CompareTo(arg.DeRef);
-        }
-
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new PersonNameDetailPage(this));
-            return;
         }
     }
 }

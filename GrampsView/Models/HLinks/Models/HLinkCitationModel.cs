@@ -4,7 +4,6 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
-using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -86,10 +85,6 @@ namespace GrampsView.Data.Model
             return DeRef.CompareTo((obj as HLinkCitationModel).DeRef);
         }
 
-        public override async Task UCNavigate()
-        {
-            await UCNavigateDetail(new CitationDetailPage(this));
 
-        }
     }
 }

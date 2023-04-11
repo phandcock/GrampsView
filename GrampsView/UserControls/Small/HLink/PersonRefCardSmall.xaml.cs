@@ -6,5 +6,10 @@
         {
             InitializeComponent();
         }
+
+        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        {
+            //Navigation.PushAsync(new NoteDetailPage(args.Parameter as HLinkNoteModel));
+        }
     }
 }
