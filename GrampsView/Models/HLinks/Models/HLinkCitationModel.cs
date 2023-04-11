@@ -89,7 +89,7 @@ namespace GrampsView.Data.Model
         public override async Task UCNavigate()
         {
             await UCNavigateDetail(new CitationDetailPage(this));
-            return;
+
         }
     }
 }

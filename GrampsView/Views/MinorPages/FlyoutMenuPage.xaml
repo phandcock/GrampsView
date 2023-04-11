@@ -43,13 +43,45 @@
                     IconSource="appicon.svg"
                     TargetType="{x:Type views:EventListPage}" />
                 <custClass:FlyoutPageItem
+                    Title="Families"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:FamilyListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Media"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:FamilyListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Notes"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:NoteListPage}" />
+                <custClass:FlyoutPageItem
                     Title="People"
                     IconSource="appicon.svg"
-                    TargetType="{x:Type views:PersonListPage}" />
+                    TargetType="{x:Type views:MediaListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Places"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:PlaceListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Repositories"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:RepositoryDetailPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Sources"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:SourceListPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Tags"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:TagListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Load data"
                     IconSource="appicon.svg"
                     TargetType="{x:Type views:FileInputHandlerPage}" />
+                <custClass:FlyoutPageItem
+                    Title="Search"
+                    IconSource="appicon.svg"
+                    TargetType="{x:Type views:SearchPage}" />
                 <custClass:FlyoutPageItem
                     Title="Settings"
                     IconSource="appicon.svg"

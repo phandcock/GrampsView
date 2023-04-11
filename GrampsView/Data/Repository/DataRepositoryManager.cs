@@ -174,20 +174,7 @@ namespace GrampsView.Data.Repository
             SharedSharpSettings.DataSerialised = true;
         }
 
-        ///// <summary>
-        ///// Starts the data load.
-        ///// </summary>
-        //public void StartDataLoad()
-        //{
-        //    _ = Task.Run(StartDataLoadAsync);
 
-        //    // Task<bool> t =
-
-        //    //if (!t.Result)
-        //    //{
-        //    //    _commonNotifications.NotifyError(new ErrorInfo("Failed to load existing data..."));
-        //    //}
-        //}
 
         /// <summary>
         /// Starts the data load asynchronous. Order is:
