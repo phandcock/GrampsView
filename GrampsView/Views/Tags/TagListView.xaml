@@ -16,6 +16,5 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-
     <ucon:CollectionSingleCard FsctSource="{Binding TagSource, Mode=OneWay}" FsctTemplate="{StaticResource TagCardSingleDT}" />
 </views:ViewBasePage>

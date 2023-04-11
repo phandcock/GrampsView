@@ -15,7 +15,5 @@
         <sSUcon:TopMenu />
     </NavigationPage.TitleView>
 
-  
-
     <ucon:CollectionSingleCard FsctSource="{Binding RepositorySource, Mode=OneWay}" FsctTemplate="{StaticResource RepositoryCardSmallDT}" />
 </views:ViewBasePage>
