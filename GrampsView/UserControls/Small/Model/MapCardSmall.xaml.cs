@@ -1,5 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Models.HLinks.Models;
+
 namespace GrampsView.UserControls
 {
     public partial class MapCardSmall : SmallCardControlTemplate
@@ -9,9 +11,9 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            //Navigation.PushAsync(new NoteDetailPage(args.Parameter as HLinkNoteModel));
+            (args.Parameter as HLinkMapModel).DeRef.OpenMap();
         }
     }
 }

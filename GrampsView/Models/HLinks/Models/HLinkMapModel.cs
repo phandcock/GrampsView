@@ -5,8 +5,6 @@ using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
 
-using System.Threading.Tasks;
-
 namespace GrampsView.Models.HLinks.Models
 {
     /// <summary>
@@ -57,13 +55,6 @@ namespace GrampsView.Models.HLinks.Models
             }
         }
 
-        /// <summary>
-        /// No detail page to navigate to, just open the Map externally.
-        /// </summary>
-        public override async Task UCNavigate()
-        {
-            await DeRef.OpenMap();
-            return;
-        }
+
     }
 }

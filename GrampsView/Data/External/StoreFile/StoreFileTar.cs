@@ -111,7 +111,7 @@ namespace GrampsView.Data
                         {
                         }
 
-                        Ioc.Default.GetRequiredService<ILog>().DataLogEntryReplace($"UnTaring file {tarEntry.Name}");
+                        Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"UnTaring file {tarEntry.Name}");
 
                         using Stream outStr = StoreFolder.FolderCreateFile(newFileName.FInfo.Directory, filename);
                         try

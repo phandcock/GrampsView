@@ -7,8 +7,8 @@
     xmlns:sSharpModels="clr-namespace:SharedSharp.Models;assembly=SharedSharp"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    x:DataType="sSharpModels:CardListLineCollection"
     x:Name="ListLineCardSmallRoot"
+    x:DataType="sSharpModels:CardListLineCollection"
     IsVisible="{Binding Visible, Mode=OneWay}"
     MinimumHeightRequest="{Binding CardSmallHeight, Source={x:Reference ListLineCardSmallRoot}, Mode=OneWay}"
     Style="{StaticResource SSGridSmallVariableCardStyle}">

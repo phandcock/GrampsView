@@ -19,6 +19,5 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding NoteSource, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
 </views:ViewBasePage>

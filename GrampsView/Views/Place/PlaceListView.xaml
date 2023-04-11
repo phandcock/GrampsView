@@ -3,19 +3,20 @@
     x:Class="GrampsView.Views.PlaceListPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"
     x:DataType="viewmodels:PlaceListViewModel"
-    Style="{StaticResource SSBaseContentPage}">
+    Style="{StaticResource SSBaseContentPage}"
+    mc:Ignorable="d">
 
     <NavigationPage.TitleView>
         <sSUcon:TopMenu />
     </NavigationPage.TitleView>
 
-    <VerticalStackLayout>
-        <ucon:CollectionSingleCardGrouped FsctSource="{Binding PlaceSource, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
-    </VerticalStackLayout>
+    <ucon:CollectionSingleCardGrouped FsctSource="{Binding PlaceSource, Mode=OneWay}" FsctTemplate="{StaticResource PlaceCardSmallDT}" />
 </views:ViewBasePage>

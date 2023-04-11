@@ -13,7 +13,7 @@
             <mauitoolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
         </ResourceDictionary>
     </ucon:SmallCardControlTemplate.Resources>
-    
+
     <Grid>
 
         <Grid.ColumnDefinitions>

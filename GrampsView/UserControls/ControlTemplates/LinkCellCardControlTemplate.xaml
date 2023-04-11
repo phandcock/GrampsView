@@ -41,7 +41,7 @@
 
                     <Border
                         Grid.Row="0"
-                        Grid.Column="0"               
+                        Grid.Column="0"
                         HorizontalOptions="CenterAndExpand"
                         Style="{StaticResource CardImageBackgroundFrame}">
 
