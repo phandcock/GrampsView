@@ -1,10 +1,8 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
-
-using GrampsView.ViewModels;
 
 namespace GrampsView.ViewModels.Media
 {

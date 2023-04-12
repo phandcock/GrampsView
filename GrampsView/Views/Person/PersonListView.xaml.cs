@@ -1,17 +1,20 @@
-﻿namespace GrampsView.Views
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.ViewModels;
+
+namespace GrampsView.Views
 {
-    using GrampsView.ViewModels;
-
-    using Microsoft.Extensions.DependencyInjection;
-
     public sealed partial class PersonListPage : ViewBasePage
     {
-        private PersonListViewModel _viewModel { get; set; }
-
         public PersonListPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = Ioc.Default.GetRequiredService<PersonListViewModel>();
+
+            _viewModel = Ioc.Default.GetRequiredService<PersonListViewModel>();
+
+            BindingContext = _viewModel;
         }
+
+        private PersonListViewModel _viewModel { get; set; }
     }
 }

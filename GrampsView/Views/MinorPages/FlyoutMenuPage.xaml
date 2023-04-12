@@ -49,7 +49,7 @@
                 <custClass:FlyoutPageItem
                     Title="Media"
                     IconSource="appicon.svg"
-                    TargetType="{x:Type views:FamilyListPage}" />
+                    TargetType="{x:Type views:MediaListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Notes"
                     IconSource="appicon.svg"
@@ -65,7 +65,7 @@
                 <custClass:FlyoutPageItem
                     Title="Repositories"
                     IconSource="appicon.svg"
-                    TargetType="{x:Type views:RepositoryDetailPage}" />
+                    TargetType="{x:Type views:RepositoryListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Sources"
                     IconSource="appicon.svg"

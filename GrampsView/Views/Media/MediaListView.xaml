@@ -16,6 +16,5 @@
     </NavigationPage.TitleView>
 
     <!--  Content  -->
-
     <ucon:CollectionSingleCardGrouped FsctSource="{Binding MediaSource, Mode=OneWay}" FsctTemplate="{StaticResource MediaCardSmallDT}" />
 </views:ViewBasePage>
