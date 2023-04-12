@@ -1,3 +1,12 @@
+## [17.2.5](https://github.com/phandcock/GrampsView/compare/v17.2.4...v17.2.5) (2023-04-11)
+
+
+### Bug Fixes
+
+* reformat code ([a056d4f](https://github.com/phandcock/GrampsView/commit/a056d4fdc232bd20e1f3885537a6805257e7a808))
+
+
+
 ## [17.2.4](https://github.com/phandcock/GrampsView/compare/v17.2.3...v17.2.4) (2023-04-11)
 
 
@@ -24,16 +33,6 @@
 ### Bug Fixes
 
 * tweak navigation ([b2c03b5](https://github.com/phandcock/GrampsView/commit/b2c03b5fb1dc3de4f613f5dcd9d2d8a43d294f1f))
-
-
-
-## [17.2.1](https://github.com/phandcock/GrampsView/compare/v17.2.0...v17.2.1) (2023-04-08)
-
-
-### Bug Fixes
-
-* tweaks ([1e5a43e](https://github.com/phandcock/GrampsView/commit/1e5a43ebee525738c9cc1625c171a18619904970))
-* work on navigation ([4668b48](https://github.com/phandcock/GrampsView/commit/4668b482d3fa52e6cab64db28fc7f3030c298203))
 
 
 
