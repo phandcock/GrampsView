@@ -1,3 +1,12 @@
+## [17.2.6](https://github.com/phandcock/GrampsView/compare/v17.2.5...v17.2.6) (2023-04-12)
+
+
+### Bug Fixes
+
+* work on flyout menu list pages ([4c52697](https://github.com/phandcock/GrampsView/commit/4c52697384e2859a4304e73d25a86883881a0fda))
+
+
+
 ## [17.2.5](https://github.com/phandcock/GrampsView/compare/v17.2.4...v17.2.5) (2023-04-11)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * tweaks ([159c815](https://github.com/phandcock/GrampsView/commit/159c8154f88ac1c20abbdabe31522e1d3fd58068))
-
-
-
-## [17.2.2](https://github.com/phandcock/GrampsView/compare/v17.2.1...v17.2.2) (2023-04-09)
-
-
-### Bug Fixes
-
-* tweak navigation ([b2c03b5](https://github.com/phandcock/GrampsView/commit/b2c03b5fb1dc3de4f613f5dcd9d2d8a43d294f1f))
 
 
 
