@@ -47,8 +47,8 @@ namespace GrampsView
                     .SharedSharpInit()
                     .ConfigureEssentials()
                     .RegisterFonts()
-                    .RegisterHandlers()
                     .RegisterLifeCycleEvents()
+                    .RegisterHandlers()
                     .RegisterServices();
 
             _ = builder.Services.AddLocalization();
@@ -94,17 +94,6 @@ namespace GrampsView
 
             return builder;
         }
-
-        //#if WINDOWS
-        //        private static void OnSizeChanged(object sender, Microsoft.UI.Xaml.WindowSizeChangedEventArgs args)
-        //        {
-        //            ILifecycleEventService service = MauiWinUIApplication.Current.Services.GetRequiredService<ILifecycleEventService>();
-        //            service.InvokeEvents(nameof(Microsoft.UI.Xaml.Window.SizeChanged));
-
-        //            Debug.WriteLine($"OnSizeChanged {args}");
-        //            Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged(args.Size.Width, args.Size.Height);
-        //        }
-        //#endif
 
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {

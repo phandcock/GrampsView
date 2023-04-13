@@ -196,11 +196,11 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		
-        <PackageReference Include="IeuanWalker.Maui.Breadcrumb" Version="1.0.0" />
+        <PackageReference Include="IeuanWalker.Maui.Breadcrumb" Version="1.0.1" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
         <PackageReference Include="Microsoft.AppCenter.Distribute" Version="5.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.4" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.5" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />

@@ -29,6 +29,7 @@ namespace GrampsView.Platforms.Android
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
             Exception newExc = new(nameof(CurrentDomainOnUnhandledException), unhandledExceptionEventArgs.ExceptionObject as Exception);
+
             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
                     new ErrorInfo("CurrentDomainOnUnhandledException")
                     {
@@ -39,6 +40,7 @@ namespace GrampsView.Platforms.Android
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             Exception newExc = new(nameof(CurrentDomainOnUnhandledException), unobservedTaskExceptionEventArgs.Exception);
+
             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
                   new ErrorInfo("TaskSchedulerOnUnobservedTaskException")
                     {
