@@ -1,4 +1,7 @@
-﻿using GrampsView.Data.Model;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Model;
+using GrampsView.Views;
 
 using PropertyChanged;
 
@@ -25,6 +28,11 @@ namespace GrampsView.UserControls
         {
             get => (HLinkMediaModel)GetValue(HLinkMMProperty);
             set => SetValue(HLinkMMProperty, value);
+        }
+
+        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        {
+            Navigation.PushAsync(new MediaDetailPage(args.Parameter as HLinkMediaModel));
         }
 
         public double MediaDetailImageHeight { get; set; } = 100;

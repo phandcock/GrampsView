@@ -20,7 +20,7 @@
             Style="{StaticResource SSGridLargeFixedCardStyle}">
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TheModel.UCNavigateCommand, Source={x:Reference MediaCardLargeRoot}}" CommandParameter="{Binding TheModel.DeRef.HLink, Source={x:Reference MediaCardLargeRoot}}" />
+                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" CommandParameter="{Binding HLinkMM, Source={x:Reference MediaCardLargeRoot}}" />
             </Grid.GestureRecognizers>
 
             <Grid.ColumnDefinitions>

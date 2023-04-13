@@ -12,7 +12,7 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
             Navigation.PushAsync(new PlaceDetailPage(args.Parameter as HLinkPlaceModel));
         }
