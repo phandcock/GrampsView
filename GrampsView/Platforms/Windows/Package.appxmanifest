@@ -7,7 +7,7 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   IgnorableNamespaces="uap rescap mp">
 
-  <Identity Publisher="CN=997B174-2E37-4FD9-BD13-265C00BC7129"  Name="30016Nannup.GrampsView" Version="17.0.16.0" />
+  <Identity Publisher="CN=MeMyselfAndI, O=Nannup, C=AU"  Name="30016Nannup.GrampsView" Version="17.0.16.0" />
 
   <Properties>
     <PublisherDisplayName>Nannup</PublisherDisplayName>
