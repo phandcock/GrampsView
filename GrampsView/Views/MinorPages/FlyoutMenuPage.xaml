@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:GrampsView.Views"
+    xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:fonts="clr-namespace:GrampsView.Resources.Fonts"
     xmlns:custClass="clr-namespace:GrampsView.Common.CustomClasses"
     Title="Personal Organiser"
@@ -25,75 +26,75 @@
                 <custClass:FlyoutPageItem
                     Title="Hub"
                     TargetType="{x:Type views:HubPage}"
-                    IconSource="appicon.svg" />
+                    IconSource="{x:Static common:Constants.IconHub}" />
                 <custClass:FlyoutPageItem
                     Title="Birthdays"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconPeopleBirthday}"
                     TargetType="{x:Type views:PersonBirthdayPage}" />
                 <custClass:FlyoutPageItem
                     Title="Bookmarks"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconBookMark}"
                     TargetType="{x:Type views:BookMarkListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Citations"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconCitation}"
                     TargetType="{x:Type views:CitationListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Events"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconEvents}"
                     TargetType="{x:Type views:EventListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Families"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconFamilies}"
                     TargetType="{x:Type views:FamilyListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Media"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconMedia}"
                     TargetType="{x:Type views:MediaListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Notes"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconNotes}"
                     TargetType="{x:Type views:NoteListPage}" />
                 <custClass:FlyoutPageItem
                     Title="People"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconMedia}"
                     TargetType="{x:Type views:MediaListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Places"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconPlace}"
                     TargetType="{x:Type views:PlaceListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Repositories"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconRepository}"
                     TargetType="{x:Type views:RepositoryListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Sources"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconSource}"
                     TargetType="{x:Type views:SourceListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Tags"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconTag}"
                     TargetType="{x:Type views:TagListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Load data"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconChooseDataFile}"
                     TargetType="{x:Type views:FileInputHandlerPage}" />
                 <custClass:FlyoutPageItem
                     Title="Search"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconSearch}"
                     TargetType="{x:Type views:SearchPage}" />
                 <custClass:FlyoutPageItem
                     Title="Settings"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconSettings}"
                     TargetType="{x:Type views:SettingsPage}" />
                 <custClass:FlyoutPageItem
                     Title="About"
-                    IconSource="appicon.svg"
+                    IconSource="{x:Static common:Constants.IconAbout}"
                     TargetType="{x:Type views:AboutPage}" />
             </x:Array>
         </CollectionView.ItemsSource>
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="custClass:FlyoutPageItem">
                 <Grid Padding="5,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30" />
@@ -103,7 +104,7 @@
                         <Image.Source>
                             <FontImageSource
                                 FontFamily="IconFont"
-                                Glyph="{x:Static fonts:IconFont.Hamburger}"
+                                Glyph="{Binding IconSource}"
                                 Size="24"
                                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                                         Light={StaticResource OnSurfaceLight}}" />
