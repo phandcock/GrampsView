@@ -1,3 +1,12 @@
+## [17.2.10](https://github.com/phandcock/GrampsView/compare/v17.2.9...v17.2.10) (2023-04-17)
+
+
+### Bug Fixes
+
+* tweaks ([7e1a27f](https://github.com/phandcock/GrampsView/commit/7e1a27f3167881a623eb8ebcc225f15adf44178f))
+
+
+
 ## [17.2.9](https://github.com/phandcock/GrampsView/compare/v17.2.8...v17.2.9) (2023-04-16)
 
 
@@ -25,15 +34,6 @@
 
 * fix sharedsharp init plus nugets ([75ca8cd](https://github.com/phandcock/GrampsView/commit/75ca8cda2b5a61ce0f33b0382621c268a45b24f9))
 * fixnavigation from medialarge card ([6a33532](https://github.com/phandcock/GrampsView/commit/6a335320035309dfd24ada88c531f60828a2563d))
-
-
-
-## [17.2.6](https://github.com/phandcock/GrampsView/compare/v17.2.5...v17.2.6) (2023-04-12)
-
-
-### Bug Fixes
-
-* work on flyout menu list pages ([4c52697](https://github.com/phandcock/GrampsView/commit/4c52697384e2859a4304e73d25a86883881a0fda))
 
 
 
