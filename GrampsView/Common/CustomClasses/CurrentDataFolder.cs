@@ -12,7 +12,7 @@ namespace GrampsView.Common.CustomClasses
         {
             try
             {
-                DirectoryInfo BaseDir = new DirectoryInfo(SharedSharp.Common.SharedSharpGeneral.AppDataDirectory());
+                DirectoryInfo BaseDir = new DirectoryInfo(FileSystem.AppDataDirectory);
 
                 string tt = System.IO.Path.Combine(BaseDir.FullName, Constants.DirectoryCacheBase);
 
