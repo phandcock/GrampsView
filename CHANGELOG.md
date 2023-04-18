@@ -1,3 +1,12 @@
+## [17.2.11](https://github.com/phandcock/GrampsView/compare/v17.2.10...v17.2.11) (2023-04-18)
+
+
+### Bug Fixes
+
+* tweak file storage folder ([4689254](https://github.com/phandcock/GrampsView/commit/46892543aa1dc3c132de35369158bb722073ff59))
+
+
+
 ## [17.2.10](https://github.com/phandcock/GrampsView/compare/v17.2.9...v17.2.10) (2023-04-17)
 
 
@@ -24,16 +33,6 @@
 ### Bug Fixes
 
 * update nugets ([580c41d](https://github.com/phandcock/GrampsView/commit/580c41d429b3bdfe7ef8f65638686c5d3dd36564))
-
-
-
-## [17.2.7](https://github.com/phandcock/GrampsView/compare/v17.2.6...v17.2.7) (2023-04-13)
-
-
-### Bug Fixes
-
-* fix sharedsharp init plus nugets ([75ca8cd](https://github.com/phandcock/GrampsView/commit/75ca8cda2b5a61ce0f33b0382621c268a45b24f9))
-* fixnavigation from medialarge card ([6a33532](https://github.com/phandcock/GrampsView/commit/6a335320035309dfd24ada88c531f60828a2563d))
 
 
 
