@@ -185,7 +185,7 @@
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.1.0" />
         <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="1.0.2" />
 
-        <PackageReference Include="Fody" Version="6.6.4">
+        <PackageReference Include="Fody" Version="6.7.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -202,7 +202,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.8.13" />
+        <PackageReference Include="SharedSharp" Version="1.8.14" />
         <PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
