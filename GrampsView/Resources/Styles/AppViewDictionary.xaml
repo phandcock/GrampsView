@@ -34,17 +34,6 @@
 
     <!--
         ******************************************************
-        CollectionView Styles
-        ******************************************************
-    -->
-    <!--
-    <Style x:Key="CollectionViewBase" TargetType="CollectionView">
-        <Setter Property="Margin" Value="1" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-    </Style>-->
-
-    <!--
-        ******************************************************
         Entry Styles
         ******************************************************
     -->
