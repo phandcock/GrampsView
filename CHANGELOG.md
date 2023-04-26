@@ -1,3 +1,14 @@
+## [17.2.13](https://github.com/phandcock/GrampsView/compare/v17.2.12...v17.2.13) (2023-04-25)
+
+
+### Bug Fixes
+
+* update nuget ([7c5026e](https://github.com/phandcock/GrampsView/commit/7c5026e3f82534b25e1de2affc8c2cd0870c64de))
+* update nugets ([68d46db](https://github.com/phandcock/GrampsView/commit/68d46dbdff6337f4ead7ac6d07913b4b25df638a))
+* update nugets ([d50dbe8](https://github.com/phandcock/GrampsView/commit/d50dbe852d732ee1b7fcaf6c93f3a409c8a468fb))
+
+
+
 ## [17.2.12](https://github.com/phandcock/GrampsView/compare/v17.2.11...v17.2.12) (2023-04-22)
 
 
@@ -22,17 +33,6 @@
 ### Bug Fixes
 
 * tweaks ([7e1a27f](https://github.com/phandcock/GrampsView/commit/7e1a27f3167881a623eb8ebcc225f15adf44178f))
-
-
-
-## [17.2.9](https://github.com/phandcock/GrampsView/compare/v17.2.8...v17.2.9) (2023-04-16)
-
-
-### Bug Fixes
-
-* tweak for grampsmaui ([86ac849](https://github.com/phandcock/GrampsView/commit/86ac849181c68649a154650232ffaaefbe06bfa2))
-* update menu icons ([dc6d0a0](https://github.com/phandcock/GrampsView/commit/dc6d0a06b9709a0251a07b6a4ae063a42a68b655))
-* update signing certifiate ([b1cfdca](https://github.com/phandcock/GrampsView/commit/b1cfdcab82c36981ab983870b72299a835a3e05a))
 
 
 
