@@ -1,14 +1,8 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Common;
-using GrampsView.Data.Collections;
 using GrampsView.Data.Repository;
 
-using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-
-using System.Runtime.Serialization;
-using System.Text.Json;
 
 namespace GrampsView.Data.External.StoreSerial
 {
@@ -32,7 +26,7 @@ namespace GrampsView.Data.External.StoreSerial
 
         /// <summary>
         /// Deserialise the previously serialised repository. Perform as a single step so that it
-        /// goes faster at the cost of providing less feedbak to the user.
+        /// goes faster at the cost of providing less feedback to the user.
         /// </summary>
 
         public async Task DeSerializeRepository()
@@ -44,31 +38,33 @@ namespace GrampsView.Data.External.StoreSerial
                 await DataStore.Instance.DS.AddressData.DeSerialize();
 
                 // Bookmark
-                Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising BookMarks");
+                await DataStore.Instance.DS.BookMarkCollection.DeSerialize();
 
-                DataContractSerializer ser = new(typeof(DataInstance));
+                // Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"DeSerialising BookMarks");
 
-                FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile("BookMarks"));
+                //DataContractSerializer ser = new(typeof(DataInstance));
 
-                // Check of the file exists
-                if (ttt.Length != 1)
-                {
-                    ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
-                                {
-                                    { "File", CommonRoutines.GetSerialFile("BookMarks") },
-                                };
+                //FileInfo[] ttt = DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo.GetFiles(CommonRoutines.GetSerialFile("BookMarks"));
 
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
-                    SharedSharpSettings.DataSerialised = false;
-                }
-                else
-                {
-                    FileStream isoStream = new FileStream(CommonRoutines.GetSerialFileFull("BookMarks"), FileMode.Open);
+                //// Check of the file exists
+                //if (ttt.Length != 1)
+                //{
+                //    ErrorInfo tt = new("DeSerializeRepository", "File Does not exist.  Reload the GPKG file")
+                //                {
+                //                    { "File", CommonRoutines.GetSerialFile("BookMarks") },
+                //                };
 
-                    JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+                //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyError(tt);
+                //    SharedSharpSettings.DataSerialised = false;
+                //}
+                //else
+                //{
+                //    FileStream isoStream = new FileStream(CommonRoutines.GetSerialFileFull("BookMarks"), FileMode.Open);
 
-                    DataStore.Instance.DS.BookMarkCollection = await JsonSerializer.DeserializeAsync<object>(isoStream, serializerOptions) as HLinkBackLinkModelCollection;
-                }
+                //    JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+
+                //    DataStore.Instance.DS.BookMarkCollection = await JsonSerializer.DeserializeAsync<object>(isoStream, serializerOptions) as HLinkBackLinkModelCollection;
+                //}
 
                 await DataStore.Instance.DS.CitationData.DeSerialize();
 
@@ -115,19 +111,21 @@ namespace GrampsView.Data.External.StoreSerial
             await DataStore.Instance.DS.AddressData.Serialize();
 
             // Backlink
-            try
-            {
-                JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
+            await DataStore.Instance.DS.BookMarkCollection.Serialize();
 
-                FileStream stream = new(CommonRoutines.GetSerialFileFull("Bookmarks"), FileMode.Create);
+            //try
+            //{
+            //    JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
 
-                await JsonSerializer.SerializeAsync(stream, DataStore.Instance.DS.BookMarkCollection, serializerOptions);
-            }
-            catch (Exception ex)
-            {
-                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
-                SharedSharpSettings.DataSerialised = false;
-            }
+            //    FileStream stream = new(CommonRoutines.GetSerialFileFull("Bookmarks"), FileMode.Create);
+
+            //    await JsonSerializer.SerializeAsync(stream, DataStore.Instance.DS.BookMarkCollection, serializerOptions);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("Trying to serialise object ", ex);
+            //    SharedSharpSettings.DataSerialised = false;
+            //}
 
             await DataStore.Instance.DS.CitationData.Serialize();
 

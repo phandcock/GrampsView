@@ -34,7 +34,7 @@ namespace GrampsView.Models.DataModels
         /// </value>
         [JsonInclude]
         public HLinkBackLinkModelCollection BackHLinkReferenceCollection { get; set; }
-            = new HLinkBackLinkModelCollection();
+            = new HLinkBackLinkModelCollection("BookMarkData");
 
         /// <summary>
         /// Gets or sets the change CDATA #REQUIRED.

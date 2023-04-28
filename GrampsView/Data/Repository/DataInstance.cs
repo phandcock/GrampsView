@@ -27,7 +27,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The book mark collection
         /// </summary>
-        private HLinkBackLinkModelCollection _BookMarkCollection = new HLinkBackLinkModelCollection();
+        private HLinkBackLinkModelCollection _BookMarkCollection = new HLinkBackLinkModelCollection("BookMarkData");
 
         /// <summary>
         /// The citation data

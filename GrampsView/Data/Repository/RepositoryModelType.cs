@@ -245,6 +245,9 @@ namespace GrampsView.Data.Repository
 
                 await JsonSerializer.SerializeAsync(stream, this, serializerOptions);
 
+                stream.Close();
+                stream.Dispose();
+
                 return;
             }
             catch (Exception ex)
