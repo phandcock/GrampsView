@@ -1,11 +1,12 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
+using GrampsView.Data.Repository;
 
 using Microsoft.AppCenter.Distribute;
 
 using SharedSharp.Common.Interfaces;
-using SharedSharp.Models;
-using SharedSharp.Models;
 
 using System.ComponentModel;
 using System.Reflection;
@@ -100,6 +101,10 @@ namespace GrampsView.ViewModels.MinorPages
                 new CardListLine("Minor Revision", assemblyName.Version.MinorRevision),
 
                 new CardListLine("App Center Update Track",  Distribute.UpdateTrack.ToString()),
+
+                new CardListLine("App Storage Folder",  DataStore.Instance.AD.CurrentDataFolder.FolderAsString),
+
+                new CardListLine("App Storage Image Folder",  DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString),
             });
 
             ApplicationVersionList.Title = "Application Versions";

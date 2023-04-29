@@ -19,19 +19,12 @@ namespace GrampsView.ViewModels.MinorPages
             DisplayMessageLogButtonCommand = new AsyncRelayCommand(DisplayMessageLogButtonCommandHandler);
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
-
-            // HandleViewAppearingEvent();
         }
 
         public IAsyncRelayCommand DisplayMessageLogButtonCommand
         {
             get;
         }
-
-        //public IAsyncRelayCommand ShowMessageLogCommand
-        //{
-        //    get;
-        //}
 
         public bool SortCollectionsFlag
         {
@@ -116,10 +109,10 @@ namespace GrampsView.ViewModels.MinorPages
             set => CommonLocalSettings.UseFirstImageFlag = value;
         }
 
-        private Task DisplayMessageLogButtonCommandHandler()
+        private async Task DisplayMessageLogButtonCommandHandler()
         {
-            SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
-            return Task.CompletedTask;
+            await SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
+            return;
         }
 
         private void UpdateNoteEmailHandler(string argEmailAddress)
