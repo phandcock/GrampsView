@@ -1,3 +1,12 @@
+## [17.2.15](https://github.com/phandcock/GrampsView/compare/v17.2.14...v17.2.15) (2023-04-28)
+
+
+### Bug Fixes
+
+* tweak seralisers ([ddbb833](https://github.com/phandcock/GrampsView/commit/ddbb8333bfe64bbb339b91acafab74e9986184ed))
+
+
+
 ## [17.2.14](https://github.com/phandcock/GrampsView/compare/v17.2.13...v17.2.14) (2023-04-26)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * update nugets ([fc193ec](https://github.com/phandcock/GrampsView/commit/fc193ec5b018b41c9daa594a1a2ff8d7cbb568aa))
-
-
-
-## [17.2.11](https://github.com/phandcock/GrampsView/compare/v17.2.10...v17.2.11) (2023-04-18)
-
-
-### Bug Fixes
-
-* tweak file storage folder ([4689254](https://github.com/phandcock/GrampsView/commit/46892543aa1dc3c132de35369158bb722073ff59))
 
 
 
