@@ -1,3 +1,12 @@
+## [17.2.17](https://github.com/phandcock/GrampsView/compare/v17.2.16...v17.2.17) (2023-04-30)
+
+
+### Bug Fixes
+
+* update nuget and use sharedsharp fonts ([c825b20](https://github.com/phandcock/GrampsView/commit/c825b20c014649624e0755433247e36d0bf1e814))
+
+
+
 ## [17.2.16](https://github.com/phandcock/GrampsView/compare/v17.2.15...v17.2.16) (2023-04-29)
 
 
@@ -23,17 +32,6 @@
 ### Bug Fixes
 
 * update nugets ([43ce906](https://github.com/phandcock/GrampsView/commit/43ce90642ceea6d47ec3122a858a7ca85e2990dc))
-
-
-
-## [17.2.13](https://github.com/phandcock/GrampsView/compare/v17.2.12...v17.2.13) (2023-04-25)
-
-
-### Bug Fixes
-
-* update nuget ([7c5026e](https://github.com/phandcock/GrampsView/commit/7c5026e3f82534b25e1de2affc8c2cd0870c64de))
-* update nugets ([68d46db](https://github.com/phandcock/GrampsView/commit/68d46dbdff6337f4ead7ac6d07913b4b25df638a))
-* update nugets ([d50dbe8](https://github.com/phandcock/GrampsView/commit/d50dbe852d732ee1b7fcaf6c93f3a409c8a468fb))
 
 
 
