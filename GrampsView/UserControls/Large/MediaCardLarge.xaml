@@ -58,7 +58,7 @@
                 Style="{StaticResource GVSymbolIconSmallCardType}">
                 <Image.Source>
                     <FontImageSource
-                        FontFamily="IconFont"
+                        FontFamily="IconSolidFont"
                         Glyph="{Binding TheModel.HLinkGlyphItem.Symbol, Source={x:Reference MediaCardLargeRoot}}"
                         Color="{Binding TheModel.HLinkGlyphItem.SymbolColour, Source={x:Reference MediaCardLargeRoot}}" />
                 </Image.Source>

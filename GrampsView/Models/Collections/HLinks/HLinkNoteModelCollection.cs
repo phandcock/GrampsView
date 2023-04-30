@@ -1,4 +1,4 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -38,7 +38,7 @@ namespace GrampsView.Models.Collections.HLinks
         {
             get
             {
-                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType is Constants.NoteTypeBiography or Constants.NoteTypePersonNote);
+                HLinkNoteModel temp = this.FirstOrDefault(x => x.DeRef.GType == Constants.NoteTypeBiography || x.DeRef.GType == Constants.NoteTypePersonNote);
 
                 return temp is null ? new HLinkNoteModel() : temp;
             }

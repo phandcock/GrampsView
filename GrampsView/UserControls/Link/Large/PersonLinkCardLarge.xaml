@@ -52,7 +52,7 @@
                         VerticalOptions="Center">
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="IconFont"
+                                FontFamily="IconSolidFont"
                                 Glyph="{Binding DeRef.ModelItemGlyph.Symbol}"
                                 Color="{Binding DeRef.ModelItemGlyph.SymbolColour}" />
                         </Image.Source>

@@ -6,6 +6,6 @@
     - Microsoft AppCenter
     - Microsoft.Community.Toolkit
     - Maui.Community.Toolkit
-    - Wonderful Font to Code website - IconFont2Code: https://andreinitescu.github.io/IconFont2Code
+    - Wonderful Font to Code website - IconSolidFont2Code: https://andreinitescu.github.io/IconSolidFont2Code
     
 

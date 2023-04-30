@@ -70,8 +70,6 @@ namespace GrampsView
             {
                 // Your fonts here...
                 //fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-
-                _ = fonts.AddFont("fa-solid-900.ttf", "IconFont");
             });
         }
 

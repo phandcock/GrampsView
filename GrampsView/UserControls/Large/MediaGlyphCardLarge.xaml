@@ -44,7 +44,7 @@
                     Style="{StaticResource GVSymbolIconSmallCardType}">
                     <Image.Source>
                         <FontImageSource
-                            FontFamily="IconFont"
+                            FontFamily="IconSolidFont"
                             Glyph="{Binding Symbol}"
                             Color="{Binding SymbolColour}" />
                     </Image.Source>

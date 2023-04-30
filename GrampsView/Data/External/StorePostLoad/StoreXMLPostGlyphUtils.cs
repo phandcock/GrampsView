@@ -6,10 +6,10 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
-using GrampsView.Resources.Fonts;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Resources.Fonts;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -48,7 +48,7 @@ namespace GrampsView.Data.ExternalStorage
                 // TODO add this back in
                 pdfimage = await MyGenerateThumbNails.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconFont.FilePdf);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconSolidFont.FilePdf);
             }
             else
             {
@@ -77,7 +77,7 @@ namespace GrampsView.Data.ExternalStorage
                 // TODO add this back in
                 videoImage = await MyGenerateThumbNails.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconFont.FileArchive);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconSolidFont.BoxArchive);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace GrampsView.Data.ExternalStorage
 
                     zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconFont.FileArchive);
+                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconSolidFont.BoxArchive);
                 }
                 else
                 {

@@ -5,14 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:GrampsView.Views"
     xmlns:common="clr-namespace:GrampsView.Common"
-    xmlns:fonts="clr-namespace:GrampsView.Resources.Fonts"
     xmlns:custClass="clr-namespace:GrampsView.Common.CustomClasses"
     Title="Personal Organiser"
     Padding="0,40,0,0">
     <ContentPage.IconImageSource>
         <FontImageSource
-            FontFamily="IconFont"
-            Glyph="{x:Static fonts:IconFont.Hamburger}"
+            FontFamily="IconSolidFont"
+            Glyph="{x:Static common:Constants.IconMedia}"
             Size="24"
             Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                     Light={StaticResource OnSurfaceLight}}" />
@@ -103,7 +102,7 @@
                     <Image>
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="IconFont"
+                                FontFamily="IconSolidFont"
                                 Glyph="{Binding IconSource}"
                                 Size="24"
                                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},

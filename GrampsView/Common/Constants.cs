@@ -1,7 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Resources.Fonts;
-
 namespace GrampsView.Common
 {
     /// <summary>
@@ -9,279 +7,279 @@ namespace GrampsView.Common
     /// </summary>
     public static class Constants
     {
-        public const string DirectoryCacheBase = "~GV";
-
-        public const string DirectoryImageCache = "~worka";
-
-        /// <summary>
-        /// The event type birth.
-        /// </summary>
-        public const string EventTypeBirth = "Birth";
-
-        /// <summary>
-        /// The event type death.
-        /// </summary>
-        public const string EventTypeDeath = "Death";
-
-        /// <summary>
-        /// The event type marriage.
-        /// </summary>
-        public const string EventTypeMarriage = "Marriage";
-
         /// <summary>
         /// The gramps view database version.
         /// </summary>
         public const int GrampsViewDatabaseVersion = 80;
 
+        public static readonly string DirectoryCacheBase = "~GV";
+
+        public static readonly string DirectoryImageCache = "~worka";
+
+        /// <summary>
+        /// The event type birth.
+        /// </summary>
+        public static readonly string EventTypeBirth = "Birth";
+
+        /// <summary>
+        /// The event type death.
+        /// </summary>
+        public static readonly string EventTypeDeath = "Death";
+
+        /// <summary>
+        /// The event type marriage.
+        /// </summary>
+        public static readonly string EventTypeMarriage = "Marriage";
+
         /// <summary>
         /// The Gramps XML name space.
         /// </summary>
-        public const string GrampsXMLNameSpace = "http://gramps-project.org/xml/1.5.1/";
+        public static readonly string GrampsXMLNameSpace = "http://gramps-project.org/xml/1.5.1/";
 
         /// <summary>
         /// The Gramps XML public identifier.
         /// </summary>
-        public const string GrampsXMLPublicId = "-//Gramps//DTD Gramps XML 1.5.1//EN";
+        public static readonly string GrampsXMLPublicId = "-//Gramps//DTD Gramps XML 1.5.1//EN";
 
-        public const string IconAbout = IconFont.Info;
+        public static readonly string IconAbout = IconSolidFont.Info;
 
         /// <summary>
         /// The icon Address.
         /// </summary>
-        public const string IconAddress = IconFont.AddressCard;
+        public static readonly string IconAddress = IconSolidFont.AddressCard;
 
         ///// <summary>
         ///// The icon attribute.
         ///// </summary>
-        public const string IconAttribute = IconFont.Atom;
+        public static readonly string IconAttribute = IconSolidFont.Atom;
 
         /// <summary>
         /// The icon bookMark.
         /// </summary>
-        public const string IconBookMark = IconFont.Bookmark;
+        public static readonly string IconBookMark = IconSolidFont.Bookmark;
 
         /// <summary>
         /// The icon ChooseDataFile.
         /// </summary>
-        public const string IconChooseDataFile = IconFont.FileDownload;
+        public static readonly string IconChooseDataFile = IconSolidFont.Download;
 
         /// <summary>
         /// The icon citation.
         /// </summary>
-        public const string IconCitation = IconFont.Receipt;
+        public static readonly string IconCitation = IconSolidFont.Receipt;
 
         /// <summary>
         /// The icon for a date symbol.
         /// </summary>
-        public const string IconDate = IconFont.Clock;
+        public static readonly string IconDate = IconSolidFont.Clock;
 
         /// <summary>
         /// The icon for a default symbol.
         /// </summary>
-        public const string IconDDefault = IconFont.FileAlt;
+        public static readonly string IconDDefault = IconSolidFont.Icons;
 
         /// <summary>
         /// The icon diagram.
         /// </summary>
-        public const string IconDiagram = IconFont.ProjectDiagram;
+        public static readonly string IconDiagram = IconSolidFont.DiagramProject;
 
         /// <summary>
         /// The icon events.
         /// </summary>
-        public const string IconEvents = IconFont.CalendarDay;
+        public static readonly string IconEvents = IconSolidFont.CalendarDay;
 
         /// <summary>
         /// The icon families.
         /// </summary>
-        public const string IconFamilies = IconFont.PeopleArrows;
+        public static readonly string IconFamilies = IconSolidFont.PeopleArrows;
 
-        public const string IconHeader = IconFont.Heading;
+        public static readonly string IconHeader = IconSolidFont.Heading;
 
         /// <summary>
         /// The icon hub.
         /// </summary>
-        public const string IconHub = IconFont.HouseUser;
+        public static readonly string IconHub = IconSolidFont.HouseUser;
 
-        public const string IconLog = IconFont.List;
+        public static readonly string IconLog = IconSolidFont.List;
 
         /// <summary>
         /// The map icon.
         /// </summary>
-        public const string IconMap = IconFont.Map;
+        public static readonly string IconMap = IconSolidFont.Map;
 
         /// <summary>
         /// The icon media.
         /// </summary>
-        public const string IconMedia = IconFont.FileImage;
+        public static readonly string IconMedia = IconSolidFont.FileImage;
 
         // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
-        public const string IconNameMaps = IconFont.Mountain;
+        public static readonly string IconNameMaps = IconSolidFont.Mountain;
 
         /// <summary>
         /// The icon notes.
         /// </summary>
-        public const string IconNotes = IconFont.Book;
+        public static readonly string IconNotes = IconSolidFont.Book;
 
         /// <summary>
         /// The icon people.
         /// </summary>
-        public const string IconPeople = IconFont.AddressBook;
+        public static readonly string IconPeople = IconSolidFont.AddressBook;
 
-        public const string IconPeopleBirthday = IconFont.BirthdayCake;
+        public static readonly string IconPeopleBirthday = IconSolidFont.CakeCandles;
 
         /// <summary>
         /// The icon people graph.
         /// </summary>
-        public const string IconPeopleGraph = IconFont.Atlas;
+        public static readonly string IconPeopleGraph = IconSolidFont.TachographDigital;
 
         /// <summary>
         /// The icon person female.
         /// </summary>
-        public const string IconPersonFemale = IconFont.Female;
+        public static readonly string IconPersonFemale = IconSolidFont.LeftLong;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconPersonMale = IconFont.Male;
+        public static readonly string IconPersonMale = IconSolidFont.RightLong;
 
-        public const string IconPersonName = IconFont.Images;
+        public static readonly string IconPersonName = IconSolidFont.Images;
 
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public const string IconPlace = IconFont.Atlas;
+        public static readonly string IconPlace = IconSolidFont.Plane;
 
         /// <summary>
         /// The symbol Repository.
         /// </summary>
-        public const string IconRepository = IconFont.LifeRing;
+        public static readonly string IconRepository = IconSolidFont.LifeRing;
 
         /// <summary>
         /// The icon Search.
         /// </summary>
-        public const string IconSearch = IconFont.Search;
+        public static readonly string IconSearch = IconSolidFont.UsersViewfinder;
 
         /// <summary>
         /// The icon Settings.
         /// </summary>
-        public const string IconSettings = IconFont.Tools;
+        public static readonly string IconSettings = IconSolidFont.Toolbox;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public const string IconSource = IconFont.SatelliteDish;
+        public static readonly string IconSource = IconSolidFont.SatelliteDish;
 
-        public const string IconSurname = IconFont.Signature;
+        public static readonly string IconSurname = IconSolidFont.Signature;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public const string IconTag = IconFont.Tag;
+        public static readonly string IconTag = IconSolidFont.Tag;
 
-        public const string IconThemeDark = IconFont.Moon;
+        public static readonly string IconThemeDark = IconSolidFont.Moon;
 
-        public const string IconThemeLight = IconFont.Sun;
+        public static readonly string IconThemeLight = IconSolidFont.Sun;
 
-        public const string IconThemeSystem = IconFont.Globe;
+        public static readonly string IconThemeSystem = IconSolidFont.Globe;
 
-        public const string IconURL = IconFont.Link;
+        public static readonly string IconURL = IconSolidFont.Link;
 
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.
         /// </summary>
-        public const string LogAppLogFileBaseName = "GrampsViewLog";
+        public static readonly string LogAppLogFileBaseName = "GrampsViewLog";
 
         /// <summary>
         /// LoggingScenario moves generated logs files into the this folder under the LocalState folder.
         /// </summary>
-        public const string LogAppLogFolderName = "LogFiles";
+        public static readonly string LogAppLogFolderName = "LogFiles";
 
         /// <summary>
         /// The App Channel default.
         /// </summary>
-        public const string LogDefaultChannelName = "GrampsViewChannelDefault";
+        public static readonly string LogDefaultChannelName = "GrampsViewChannelDefault";
 
         /// <summary>
         /// The this.localFileLogSession Name Default.
         /// </summary>
-        public const string LogDefaultSessionName = "GrampsViewSessionDefault";
+        public static readonly string LogDefaultSessionName = "GrampsViewSessionDefault";
 
-        public const string ModelNameFamily = "family";
+        public static readonly string ModelNameFamily = "family";
 
-        public const string ModelNamePerson = "person";
+        public static readonly string ModelNamePerson = "person";
 
-        public const string NameTypeMarried = "Married Name";
+        public static readonly string NameTypeMarried = "Married Name";
 
         /*
          * Note Types
          */
-        public const string NoteTypeBiography = "Biography";
+        public static readonly string NoteTypeBiography = "Biography";
 
-        public const string NoteTypeCitation = "Citation";
+        public static readonly string NoteTypeCitation = "Citation";
 
-        public const string NoteTypeEvent = "Event Note";
+        public static readonly string NoteTypeEvent = "Event Note";
 
-        public const string NoteTypeLink = "Link";
+        public static readonly string NoteTypeLink = "Link";
 
-        public const string NoteTypePersonNote = "Person Note";
+        public static readonly string NoteTypePersonNote = "Person Note";
 
-        public const string NoteTypeToDo = "To Do";
+        public static readonly string NoteTypeToDo = "To Do";
 
         /// <summary>
         /// The search no results.
         /// </summary>
-        public const string SearchNoResults = "No Results";
+        public static readonly string SearchNoResults = "No Results";
 
-        public const string SettingsDataStorageFolder = "SettingsDataStorageFolder";
+        public static readonly string SettingsDataStorageFolder = "SettingsDataStorageFolder";
 
         /// <summary>
         /// The settings GPKG file last date time modified.
         /// </summary>
-        public const string SettingsGPKGFileLastDateTimeModified = "SettingsGPKGFileLastDateTimeModified";
+        public static readonly string SettingsGPKGFileLastDateTimeModified = "SettingsGPKGFileLastDateTimeModified";
 
         /// <summary>
         /// The settings GPKG file name.
         /// </summary>
-        public const string SettingsGPKGFileName = "GPKGFileName";
+        public static readonly string SettingsGPKGFileName = "GPKGFileName";
 
         /// <summary>
         /// The settings gpramps file last date time modified.
         /// </summary>
-        public const string SettingsGPRAMPSFileLastDateTimeModified = "SettingsGPRAMPSFileLastDateTimeModified";
+        public static readonly string SettingsGPRAMPSFileLastDateTimeModified = "SettingsGPRAMPSFileLastDateTimeModified";
 
-        //public const string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
+        //public static readonly string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
 
         /// <summary>
         /// The settings XML file last date time modified.
         /// </summary>
-        public const string SettingsXMLFileLastDateTimeModified = "SettingsXMLFileLastDateTimeModified";
+        public static readonly string SettingsXMLFileLastDateTimeModified = "SettingsXMLFileLastDateTimeModified";
 
         /// <summary>
         /// The local data file extension.
         /// </summary>
-        public const string StorageGPKGMimeType = "gpkg";
+        public static readonly string StorageGPKGMimeType = "gpkg";
 
         /// <summary>
         /// The storage gramp no media file name.
         /// </summary>
-        public const string StorageGRAMPSFileName = "data.gramps";
+        public static readonly string StorageGRAMPSFileName = "data.gramps";
 
         /// <summary>
         /// The local data folder.
         /// </summary>
-        public const string StorageInternalFolder = "data\\";
+        public static readonly string StorageInternalFolder = "data\\";
 
         ///// <summary>
         ///// The storage thumbnail folder.
         ///// </summary>
-        //public const string StorageThumbNailFolder = "Thumbnails";
+        //public static readonly string StorageThumbNailFolder = "Thumbnails";
 
         /// <summary>
         /// The gramps XML file name.
         /// </summary>
-        public const string StorageXMLFileName = "data.xml";
+        public static readonly string StorageXMLFileName = "data.xml";
     }
 }
