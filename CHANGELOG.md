@@ -1,3 +1,12 @@
+## [17.2.18](https://github.com/phandcock/GrampsView/compare/v17.2.17...v17.2.18) (2023-05-01)
+
+
+### Bug Fixes
+
+* fix fonts ([b24b949](https://github.com/phandcock/GrampsView/commit/b24b9495b09444b6bd7cbf8e7b1dff9eb0381264))
+
+
+
 ## [17.2.17](https://github.com/phandcock/GrampsView/compare/v17.2.16...v17.2.17) (2023-04-30)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * tweak seralisers ([ddbb833](https://github.com/phandcock/GrampsView/commit/ddbb8333bfe64bbb339b91acafab74e9986184ed))
-
-
-
-## [17.2.14](https://github.com/phandcock/GrampsView/compare/v17.2.13...v17.2.14) (2023-04-26)
-
-
-### Bug Fixes
-
-* update nugets ([43ce906](https://github.com/phandcock/GrampsView/commit/43ce90642ceea6d47ec3122a858a7ca85e2990dc))
 
 
 
