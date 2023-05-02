@@ -1,4 +1,4 @@
-﻿using PropertyChanged;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using System.Collections;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ namespace GrampsView.UserControls
               = BindableProperty.Create(returnType: typeof(IEnumerable), declaringType: typeof(CollectionSingleCard), propertyName: nameof(FsctSource), propertyChanged: OnItemsSourceChanged);
 
         public static readonly BindableProperty FsctTemplateProperty
-                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard), propertyChanged: OnItemTemplateChanged);
+                    = BindableProperty.Create(nameof(FsctTemplate), returnType: typeof(DataTemplate), declaringType: typeof(CollectionSingleCard));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionSingleCard"/> class.
@@ -20,13 +20,6 @@ namespace GrampsView.UserControls
         public CollectionSingleCard()
         {
             InitializeComponent();
-
-            //Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
-            //{
-            //    NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
-            //    //Debug.WriteLine(NumColumns);
-            //}
-            //);
         }
 
         /// <summary>
@@ -51,43 +44,6 @@ namespace GrampsView.UserControls
         {
             get => (DataTemplate)GetValue(FsctTemplateProperty);
             set => SetValue(FsctTemplateProperty, value);
-        }
-
-        ///// <summary>
-        ///// Gets or sets the number columns to display.
-        ///// </summary>
-        ///// <value>
-        ///// The number columns.
-        ///// </value>
-        //public int NumColumns
-        //{
-        //    get; set;
-        //} = 3;
-
-        /// <summary>
-        /// Called when [item template changed].
-        /// </summary>
-        /// <param name="argSource">
-        /// The argument source.
-        /// </param>
-        /// <param name="oldValue">
-        /// The old value.
-        /// </param>
-        /// <param name="newValue">
-        /// The new value.
-        /// </param>
-        [SuppressPropertyChangedWarnings]
-        public static void OnItemTemplateChanged(BindableObject argSource, object oldValue, object newValue)
-        {
-            Contract.Requires(argSource != null);
-            Contract.Requires(newValue != null);
-
-            CollectionSingleCard? layout = argSource as CollectionSingleCard;
-            Contract.Requires(layout != null);
-
-            DataTemplate? iTemplate = newValue as DataTemplate;
-
-            layout.theCollectionView.ItemTemplate = iTemplate;
         }
 
         private static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)

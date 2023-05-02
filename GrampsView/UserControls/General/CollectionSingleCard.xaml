@@ -28,21 +28,9 @@
             <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding FsctSource.Title, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
         </Border>
 
-        <sSCC:CollectionViewEx
-            x:Name="theCollectionView"
-            EmptyView="No data available"
-            ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}">
-
-            <CollectionView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <Border
-                        Padding="0"
-                        IsVisible="{Binding Visible, Mode=OneWay}"
-                        Style="{StaticResource SSBorderHeaderStyle}">
-                        <Label Style="{StaticResource SSHeaderStyleSmall}" Text="{Binding Title, Mode=OneWay}" />
-                    </Border>
-                </DataTemplate>
-            </CollectionView.GroupHeaderTemplate>
-        </sSCC:CollectionViewEx>
+        <sSCC:HorizontalWrapLayout
+            x:Name="TheLayout"
+            BindableLayout.ItemTemplate="{Binding FsctTemplate, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}"
+            BindableLayout.ItemsSource="{Binding FsctSource, Source={x:Reference CollectionSingleCardRoot}, Mode=OneWay}" />
     </StackLayout>
 </Border>

@@ -56,8 +56,8 @@
                     TargetType="{x:Type views:NoteListPage}" />
                 <custClass:FlyoutPageItem
                     Title="People"
-                    IconSource="{x:Static common:Constants.IconMedia}"
-                    TargetType="{x:Type views:MediaListPage}" />
+                    IconSource="{x:Static common:Constants.IconPeople}"
+                    TargetType="{x:Type views:PersonListPage}" />
                 <custClass:FlyoutPageItem
                     Title="Places"
                     IconSource="{x:Static common:Constants.IconPlace}"

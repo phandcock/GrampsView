@@ -18,7 +18,6 @@ namespace GrampsView
             StartUp();
 
             _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new SharedSharp.Events.AppStartEvent(true));
-
         }
 
         protected override Window CreateWindow(IActivationState activationState)
@@ -27,7 +26,7 @@ namespace GrampsView
 
             window.Created += (s, e) =>
             {
-                // Custom logic
+                // This goes here so AppInit with WhatsNew and FirstRun work
                 _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
 
                 Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Window).Width, (s as Window).Height);
@@ -35,7 +34,6 @@ namespace GrampsView
 
             return window;
         }
-
 
         private void StartUp()
         {
@@ -48,10 +46,6 @@ namespace GrampsView
             Current.UserAppTheme = SharedSharpSettings.ApplicationTheme;
 
             SharedSharpSettings.DatabaseVersionMin = Common.Constants.GrampsViewDatabaseVersion;
-
-
-
-
         }
     }
 }
