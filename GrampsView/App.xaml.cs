@@ -17,7 +17,7 @@ namespace GrampsView
 
             StartUp();
 
-            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new SharedSharp.Events.AppStartEvent(true));
+            _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new SharedSharp.Events.SSharpAppStartEvent(true));
         }
 
         protected override Window CreateWindow(IActivationState activationState)
