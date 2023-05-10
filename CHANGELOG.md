@@ -1,3 +1,12 @@
+## [17.2.20](https://github.com/phandcock/GrampsView/compare/v17.2.19...v17.2.20) (2023-05-07)
+
+
+### Bug Fixes
+
+* update nuget ([b7632f4](https://github.com/phandcock/GrampsView/commit/b7632f4d8053b203d2d5ea62b40f1333a2008dea))
+
+
+
 ## [17.2.19](https://github.com/phandcock/GrampsView/compare/v17.2.18...v17.2.19) (2023-05-02)
 
 
@@ -22,16 +31,6 @@
 ### Bug Fixes
 
 * update nuget and use sharedsharp fonts ([c825b20](https://github.com/phandcock/GrampsView/commit/c825b20c014649624e0755433247e36d0bf1e814))
-
-
-
-## [17.2.16](https://github.com/phandcock/GrampsView/compare/v17.2.15...v17.2.16) (2023-04-29)
-
-
-### Bug Fixes
-
-* cleanup serialisation code ([40d7c72](https://github.com/phandcock/GrampsView/commit/40d7c72b4164ab8e17b4921517b0316e2f0ad09c))
-* update nugets and add datafolder to aboutview ([9961878](https://github.com/phandcock/GrampsView/commit/9961878d3c79512448b8763e4cd94dbecc4e4c35))
 
 
 
