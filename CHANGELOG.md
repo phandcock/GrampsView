@@ -1,3 +1,12 @@
+## [17.2.22](https://github.com/phandcock/GrampsView/compare/v17.2.21...v17.2.22) (2023-05-13)
+
+
+### Bug Fixes
+
+* fix card tap navigation ([bed1445](https://github.com/phandcock/GrampsView/commit/bed1445c77fd8c4bfd006865a3fe03b6ea503ca2))
+
+
+
 ## [17.2.21](https://github.com/phandcock/GrampsView/compare/v17.2.20...v17.2.21) (2023-05-10)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * fix collectionsinglecard control to use horizontalwraplayout ([b2941ba](https://github.com/phandcock/GrampsView/commit/b2941bafafd6ed1bec9fd8c00134ccbc82d6e4a6))
-
-
-
-## [17.2.18](https://github.com/phandcock/GrampsView/compare/v17.2.17...v17.2.18) (2023-05-01)
-
-
-### Bug Fixes
-
-* fix fonts ([b24b949](https://github.com/phandcock/GrampsView/commit/b24b9495b09444b6bd7cbf8e7b1dff9eb0381264))
 
 
 
