@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -57,6 +58,11 @@ namespace GrampsView.Data.Model
 
                 return _Deref;
             }
+        }
+
+        public override Page NavigationPage()
+        {
+            return new SourceDetailPage(this);
         }
 
         /// <summary>

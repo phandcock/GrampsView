@@ -6,6 +6,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -27,6 +28,11 @@ namespace GrampsView.Data.Model
         {
             HLinkGlyphItem.Symbol = Constants.IconEvents;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundEvent");
+        }
+
+        public override Page NavigationPage()
+        {
+            return new EventDetailPage(this);
         }
 
         /// <summary>

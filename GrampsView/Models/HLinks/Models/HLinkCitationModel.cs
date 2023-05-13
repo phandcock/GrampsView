@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -33,6 +34,11 @@ namespace GrampsView.Data.Model
         {
             HLinkGlyphItem.Symbol = Constants.IconCitation;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundCitation");
+        }
+
+        public override Page NavigationPage()
+        {
+            return new CitationDetailPage(this);
         }
 
         /// <summary>

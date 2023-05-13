@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -25,31 +26,6 @@ namespace GrampsView.Data.Model
             HLinkGlyphItem.Symbol = Constants.IconFamilies;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
         }
-
-        //public Group<object> ChildrenLinks
-        //{
-        //    get
-        //    {
-        //        Group<object> returnValue = new Group<object>();
-        //        foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
-        //        {
-        //            currentFamily.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
-
-        //            // Add Family
-        //            returnValue.Add(currentFamily);
-
-        //            // Add children
-        //            foreach (HLinkChildRefModel currentChild in currentFamily.DeRef.GChildRefCollection)
-        //            {
-        //                currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
-
-        //                returnValue.Add(currentChild);
-        //            }
-        //        }
-
-        //        return returnValue;
-        //    }
-        //}
 
         /// <summary>
         /// Gets.
@@ -77,5 +53,35 @@ namespace GrampsView.Data.Model
                 return _Deref;
             }
         }
+
+        public override Page NavigationPage()
+        {
+            return new FamilyDetailPage(this);
+        }
+
+        //public Group<object> ChildrenLinks
+        //{
+        //    get
+        //    {
+        //        Group<object> returnValue = new Group<object>();
+        //        foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
+        //        {
+        //            currentFamily.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+        //            // Add Family
+        //            returnValue.Add(currentFamily);
+
+        //            // Add children
+        //            foreach (HLinkChildRefModel currentChild in currentFamily.DeRef.GChildRefCollection)
+        //            {
+        //                currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+
+        //                returnValue.Add(currentChild);
+        //            }
+        //        }
+
+        //        return returnValue;
+        //    }
+        //}
     }
 }

@@ -1,6 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Views;
+using GrampsView.Models.HLinks;
 
 namespace GrampsView.UserControls
 {
@@ -11,9 +11,9 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Navigation.PushAsync(new PersonDetailPage());
+            Navigation.PushAsync((args.Parameter as HLinkBase).NavigationPage());
         }
     }
 }

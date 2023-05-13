@@ -1,4 +1,4 @@
-﻿
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
@@ -86,11 +86,6 @@ namespace GrampsView.Models.DataModels
             }
         }
 
-
-
-
-
-
         /// <summary>Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.</summary>
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
@@ -170,8 +165,6 @@ namespace GrampsView.Models.DataModels
 
                 case Device.UWP:
                     return cleanString[..Math.Min(cleanString.Length, 100)];
-
-
 
                 default:
                     break;

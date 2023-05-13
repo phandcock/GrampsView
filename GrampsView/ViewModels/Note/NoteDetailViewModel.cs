@@ -26,8 +26,6 @@ namespace GrampsView.ViewModels.Note
             BaseTitleIcon = Constants.IconNotes;
         }
 
-
-
         public INoteModel NoteObject
         {
             get; set;

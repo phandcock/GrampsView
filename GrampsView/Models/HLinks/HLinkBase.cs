@@ -4,6 +4,8 @@ using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
 
+using SharedSharp.Errors.Interfaces;
+
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.Models.HLinks
@@ -96,10 +98,17 @@ namespace GrampsView.Models.HLinks
 
         public virtual async Task UCNavigate()
         {
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UCNavigate", new NotImplementedException());
+
             throw new NotImplementedException();
         }
 
+        public virtual Page NavigationPage()
+        {
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("NavigationPage", new NotImplementedException());
 
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Compares the specified x. Bases it on the HLinkKey for want of anything else that makes sense.

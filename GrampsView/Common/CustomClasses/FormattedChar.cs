@@ -1,7 +1,7 @@
-﻿namespace GrampsView.Common.CustomClasses
-{
-    using System;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+namespace GrampsView.Common.CustomClasses
+{
     public struct FormattedChar
     {
         public char Character
@@ -56,6 +56,8 @@
 
         public override int GetHashCode()
         {
+
+
             throw new NotImplementedException();
         }
     }

@@ -5,6 +5,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
@@ -62,6 +63,11 @@ namespace GrampsView.Models.HLinks.Models
 
                 return _Deref;
             }
+        }
+
+        public override Page NavigationPage()
+        {
+            return new PlaceDetailPage(this);
         }
     }
 }

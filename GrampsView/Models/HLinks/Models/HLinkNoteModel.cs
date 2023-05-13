@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 namespace GrampsView.Data.Model
 {
@@ -35,6 +36,11 @@ namespace GrampsView.Data.Model
 
                 return _Deref;
             }
+        }
+
+        public override Page NavigationPage()
+        {
+            return new NoteDetailPage(this);
         }
     }
 }
