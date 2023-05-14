@@ -33,7 +33,7 @@ namespace GrampsView.Platforms.Android
             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
                     new ErrorInfo("CurrentDomainOnUnhandledException")
                     {
-                        new CardListLine("Sender",sender.ToString()),
+                        new CardListLine("Sender",sender.GetType().ToString()),
                     });
         }
 
@@ -44,7 +44,7 @@ namespace GrampsView.Platforms.Android
             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(newExc,
                   new ErrorInfo("TaskSchedulerOnUnobservedTaskException")
                     {
-                        new CardListLine("Sender",sender.ToString()),
+                        new CardListLine("Sender",sender.GetType().ToString()),
                     });
         }
     }
