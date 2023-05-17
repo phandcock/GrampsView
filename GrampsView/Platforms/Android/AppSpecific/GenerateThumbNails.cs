@@ -36,7 +36,7 @@ namespace GrampsView.Common.CustomClasses
                     //Creates bitmap
                     Bitmap bmp = Bitmap.CreateBitmap(page.Width, page.Height, Bitmap.Config.Argb8888);
 
-                    //renderes page as bitmap, to use portion of the page use second and third parameter
+                    //renders page as bitmap, to use portion of the page use second and third parameter
                     page.Render(bmp, null, null, PdfRenderMode.ForDisplay);
 
                     //Save the bitmap

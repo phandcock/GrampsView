@@ -8,7 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:viewmodels="clr-namespace:GrampsView.ViewModels.Person"
     xmlns:views="clr-namespace:GrampsView.Views"
-     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
+    xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     xmlns:sSCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:sSUcon="clr-namespace:SharedSharp.UserControls;assembly=SharedSharp"
     Title="{Binding BaseTitle}"

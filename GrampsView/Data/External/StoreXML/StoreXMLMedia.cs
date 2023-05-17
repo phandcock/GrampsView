@@ -50,7 +50,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     foreach (XElement pname in de)
                     {
-                        MyLog.Progress($"Loading {pname.Attribute}");
+                        MyLog.Progress($"Loading {pname.Value}");
 
                         // <code> < define name = "object-content" > <ref name=
                         // "SecondaryColor-object" /> < element name = "file" > < attribute name =
@@ -198,7 +198,7 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-                    // TODO handle this
+
                     MyNotifications.NotifyException("Loading Media Objects", ex);
                 }
             }
