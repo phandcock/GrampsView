@@ -14,7 +14,7 @@ namespace GrampsView.UserControls
 
         void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Navigation.PushAsync(new RepositoryDetailPage(args.Parameter as HLinkRepositoryModel));
+            Navigation.PushAsync(new RepositoryRefDetailPage(args.Parameter as HLinkRepositoryRefModel));
         }
     }
 }

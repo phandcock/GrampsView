@@ -3,8 +3,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
-    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:common="clr-namespace:GrampsView.Common"
     x:DataType="models:HLinkNoteModel">
 
     <Grid>
@@ -28,7 +28,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="1"
-            FontSize="{x:Static sSharpCommon:SharedSharpFontSize.FontVerySmall}"
+            FontSize="{Binding FontSmall, Source={x:Static common:CommonStatic.FontSizes}}"
             FormattedText="{Binding DeRef.GType, Mode=OneWay}"
             HorizontalOptions="End"
             Style="{StaticResource SSCardLabelStyleSmall}"

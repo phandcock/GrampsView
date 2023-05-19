@@ -88,7 +88,7 @@ namespace GrampsView.Data.ExternalStorage
 
             string theText = (string)argStyledText.Element(ns + "text");
 
-            loadString.Spans.Add(new Span { Text = theText, FontSize = SharedSharpFontSize.FontMedium });
+            loadString.Spans.Add(new Span { Text = theText, FontSize = Ioc.Default.GetRequiredService<FontSizes>().FontMedium });
 
             return loadString;
         }

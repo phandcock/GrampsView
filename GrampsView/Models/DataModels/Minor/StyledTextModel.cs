@@ -1,4 +1,4 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -47,7 +47,7 @@ namespace GrampsView.Data.Model
             {
                 if (_TextFormatted.Spans.Count == 0)
                 {
-                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, SharedSharpFontSize.FontMedium);
+                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, Ioc.Default.GetRequiredService<FontSizes>().FontMedium);
                 }
 
                 return _TextFormatted;

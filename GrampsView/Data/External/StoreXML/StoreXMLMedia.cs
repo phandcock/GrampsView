@@ -50,7 +50,7 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     foreach (XElement pname in de)
                     {
-                        MyLog.Progress($"Loading {pname.Value}");
+                        MyLog.Progress($"Loading {pname.Value.Trim()}");
 
                         // <code> < define name = "object-content" > <ref name=
                         // "SecondaryColor-object" /> < element name = "file" > < attribute name =

@@ -5,7 +5,7 @@
     xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
     xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
-    xmlns:Common="clr-namespace:GrampsView.Common">
+    xmlns:common="clr-namespace:GrampsView.Common">
 
     <ResourceDictionary.MergedDictionaries>
 
@@ -120,7 +120,7 @@
         x:Key="NoteFullTextStyle"
         BasedOn="{StaticResource SSBorderLargeVariableCardStyleNS}"
         TargetType="Border">
-        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeDoubleWidth, Source={x:Static common:CommonStatic.CardSizes}, Mode=OneWay}" />
     </Style>
 
     <Style
@@ -128,8 +128,8 @@
         BasedOn="{StaticResource SSBorderCardLargeStyle}"
         TargetType="Border">
         <!--<Setter Property="CornerRadius" Value="0" />-->
-        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
-        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static Common:CommonStatic.CardSizes}, Mode=OneWay}" />
+        <Setter Property="HeightRequest" Value="{Binding CardLargeHeight, Source={x:Static common:CommonStatic.CardSizes}, Mode=OneWay}" />
+        <Setter Property="WidthRequest" Value="{Binding CardLargeWidth, Source={x:Static common:CommonStatic.CardSizes}, Mode=OneWay}" />
     </Style>
 
     <!--
@@ -247,7 +247,7 @@
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />
+        <!--<Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />-->
     </Style>
 
     <!--  Create Large Styles for a Label  -->
@@ -256,7 +256,7 @@
         BasedOn="{StaticResource SSLabelStyleLarge}"
         TargetType="Label">
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{Binding FontLarge, Source={x:Static common:CommonStatic.FontSizes}}" />
     </Style>
 
     <!--  Create a Instructions Style for a Label  -->
@@ -264,7 +264,7 @@
         x:Key="GVLabelStyleInstructions"
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
-        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontMedium}" />
+        <Setter Property="FontSize" Value="{Binding FontMedium, Source={x:Static common:CommonStatic.FontSizes}}" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -276,7 +276,7 @@
         BasedOn="{StaticResource SSCardLabelStyle}"
         TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation" />
-        <Setter Property="FontSize" Value="{x:Static sSharpCommon:SharedSharpFontSize.FontLarge}" />
+        <Setter Property="FontSize" Value="{Binding FontLarge, Source={x:Static common:CommonStatic.FontSizes}}" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />

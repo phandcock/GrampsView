@@ -1,6 +1,6 @@
 ﻿<ucon:SmallCardControlTemplate
     x:Class="GrampsView.UserControls.PersonNameCardSmall"
-     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:models="clr-namespace:GrampsView.Data.Model"
@@ -22,7 +22,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            FontSize="{x:Static sharedsharp:SharedSharpFontSize.FontVerySmall}"
+            FontSize="{Binding FontSmall, Source={x:Static common:CommonStatic.FontSizes}}"
             HorizontalOptions="EndAndExpand"
             Style="{StaticResource SSCardLabelStyleSmall}"
             Text="{Binding DeRef.GType, Mode=OneWay}" />
