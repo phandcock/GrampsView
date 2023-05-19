@@ -1,3 +1,12 @@
+## [17.2.25](https://github.com/phandcock/GrampsView/compare/v17.2.24...v17.2.25) (2023-05-17)
+
+
+### Bug Fixes
+
+* tweaks ([1a3a095](https://github.com/phandcock/GrampsView/commit/1a3a095afc0c7a0c27597aa531f70766c9004baa))
+
+
+
 ## [17.2.24](https://github.com/phandcock/GrampsView/compare/v17.2.23...v17.2.24) (2023-05-16)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * fix card tap navigation ([bed1445](https://github.com/phandcock/GrampsView/commit/bed1445c77fd8c4bfd006865a3fe03b6ea503ca2))
-
-
-
-## [17.2.21](https://github.com/phandcock/GrampsView/compare/v17.2.20...v17.2.21) (2023-05-10)
-
-
-### Bug Fixes
-
-* update nget ([f150917](https://github.com/phandcock/GrampsView/commit/f150917d89f96b8ed050376d8b2de64a97d8b0a6))
 
 
 
