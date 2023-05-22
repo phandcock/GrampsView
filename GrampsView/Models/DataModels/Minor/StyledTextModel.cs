@@ -1,11 +1,10 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 
-using CommunityToolkit.Mvvm.ComponentModel;
-
 using GrampsView.Common;
 
-using System;
+using SharedSharp.Common.Interfaces;
+
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 
@@ -47,7 +46,7 @@ namespace GrampsView.Data.Model
             {
                 if (_TextFormatted.Spans.Count == 0)
                 {
-                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, Ioc.Default.GetRequiredService<FontSizes>().FontMedium);
+                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, Ioc.Default.GetRequiredService<ISharedSharpFontSizes>().FontMedium);
                 }
 
                 return _TextFormatted;
