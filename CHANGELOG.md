@@ -1,3 +1,12 @@
+## [17.2.26](https://github.com/phandcock/GrampsView/compare/v17.2.25...v17.2.26) (2023-05-19)
+
+
+### Bug Fixes
+
+* fix fontsizes in styles ([37353a1](https://github.com/phandcock/GrampsView/commit/37353a1e9f8389398d68ca59d16321afe19833fb))
+
+
+
 ## [17.2.25](https://github.com/phandcock/GrampsView/compare/v17.2.24...v17.2.25) (2023-05-17)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * tweak card navigation ([59bb02f](https://github.com/phandcock/GrampsView/commit/59bb02f609055211119f5d03c38c236f42211b8d))
-
-
-
-## [17.2.22](https://github.com/phandcock/GrampsView/compare/v17.2.21...v17.2.22) (2023-05-13)
-
-
-### Bug Fixes
-
-* fix card tap navigation ([bed1445](https://github.com/phandcock/GrampsView/commit/bed1445c77fd8c4bfd006865a3fe03b6ea503ca2))
 
 
 
