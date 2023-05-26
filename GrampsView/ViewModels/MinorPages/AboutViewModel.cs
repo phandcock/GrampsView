@@ -120,8 +120,6 @@ namespace GrampsView.ViewModels.MinorPages
 
                 new CardListLine("Screen Size", MySizes.ScreenSize.ToString()),
 
-                new CardListLine("Orientation", MySizes.CurrentOrientation.ToString()),
-
                 new CardListLine("Idiom", DeviceInfo.Idiom.ToString()),
 
                 new CardListLine("CardSize Small Width", MyCardSizes.CardSmallWidth.ToString()),
