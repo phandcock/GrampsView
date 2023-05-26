@@ -1,3 +1,13 @@
+## [17.2.28](https://github.com/phandcock/GrampsView/compare/v17.2.27...v17.2.28) (2023-05-26)
+
+
+### Bug Fixes
+
+* update nuget ([ed08036](https://github.com/phandcock/GrampsView/commit/ed080364f85dc5ae2920b781277c691e4c810162))
+* update nugets ([957a81c](https://github.com/phandcock/GrampsView/commit/957a81c75fe68344131f2799184887281c4929fe))
+
+
+
 ## [17.2.27](https://github.com/phandcock/GrampsView/compare/v17.2.26...v17.2.27) (2023-05-22)
 
 
@@ -22,15 +32,6 @@
 ### Bug Fixes
 
 * tweaks ([1a3a095](https://github.com/phandcock/GrampsView/commit/1a3a095afc0c7a0c27597aa531f70766c9004baa))
-
-
-
-## [17.2.24](https://github.com/phandcock/GrampsView/compare/v17.2.23...v17.2.24) (2023-05-16)
-
-
-### Bug Fixes
-
-* fix childrefhlink open page crash ([3524d04](https://github.com/phandcock/GrampsView/commit/3524d040d55214f33142d1eecfa516beea31f855))
 
 
 
