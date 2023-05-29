@@ -169,6 +169,7 @@
 
     <ItemGroup>
       <MauiXaml Remove="AppShell.xaml" />
+      <MauiXaml Remove="Resources\Styles\_Sizes.xaml" />
       <MauiXaml Remove="UserControls\General\CardGroupHeader.xaml" />
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
     </ItemGroup>
@@ -202,7 +203,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.8.41" />
+        <PackageReference Include="SharedSharp" Version="1.8.42" />
         <PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />

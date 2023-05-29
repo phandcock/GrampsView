@@ -22,7 +22,7 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="{StaticResource GVCardIconSize}" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -35,8 +35,7 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    BindingContext="{Binding ., Mode=OneWay}"
-                    />
+                    BindingContext="{Binding ., Mode=OneWay}" />
 
                 <Image
                     Grid.Row="1"

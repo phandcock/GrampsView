@@ -17,7 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-        <ResourceDictionary Source="/Resources/Styles/_Sizes.xaml" />
+        <!--<ResourceDictionary Source="/Resources/Styles/_Sizes.xaml" />-->
 
         <ResourceDictionary Source="/Resources/Styles/_Thickness.xaml" />
 
