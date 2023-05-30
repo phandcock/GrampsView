@@ -55,6 +55,9 @@ namespace GrampsView.Models.HLinks.Models
             }
         }
 
-
+        public new void NavigationPage()
+        {
+            DeRef.OpenMap();
+        }
     }
 }

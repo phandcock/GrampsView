@@ -17,9 +17,6 @@
                 <Grid x:Name="controlRoot" Style="{StaticResource SSGridSingleFixedCardStyle}">
 
                     <Grid.GestureRecognizers>
-                        <!--<TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  CommandParameter="{Binding ., Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />-->
-                        <!--<TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />-->
-
                         <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" CommandParameter="{Binding ., Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Grid.GestureRecognizers>
 

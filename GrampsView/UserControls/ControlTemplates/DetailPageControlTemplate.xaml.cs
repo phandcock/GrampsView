@@ -1,8 +1,7 @@
-﻿namespace GrampsView.UserControls
-{
-  
- 
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+namespace GrampsView.UserControls
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPageControlTemplate : ContentView
     {

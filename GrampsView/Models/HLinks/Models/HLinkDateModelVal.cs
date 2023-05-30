@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.HLinks;
+using GrampsView.Views;
 
 namespace GrampsView.Data.Model
 {
@@ -29,8 +30,13 @@ namespace GrampsView.Data.Model
         public string Title
         {
             get; set;
-        }
+        } = string.Empty;
 
         public override bool Valid => DeRef.Valid;
+
+        public override Page NavigationPage()
+        {
+            return new DateValDetailPage(this);
+        }
     }
 }

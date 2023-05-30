@@ -83,6 +83,13 @@ namespace GrampsView.Models.HLinks
             return HLinkKey.GetHashCode();
         }
 
+        public virtual Page NavigationPage()
+        {
+            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("NavigationPage", new NotImplementedException());
+
+            return new Page();
+        }
+
         /// <summary>
         /// Sets the base fields.
         /// </summary>
@@ -99,15 +106,6 @@ namespace GrampsView.Models.HLinks
         public virtual async Task UCNavigate()
         {
             Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("UCNavigate", new NotImplementedException());
-
-            throw new NotImplementedException();
-        }
-
-        public virtual Page NavigationPage()
-        {
-            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("NavigationPage", new NotImplementedException());
-
-            throw new NotImplementedException();
         }
 
         /// <summary>
