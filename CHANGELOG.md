@@ -1,3 +1,12 @@
+## [17.2.30](https://github.com/phandcock/GrampsView/compare/v17.2.29...v17.2.30) (2023-05-30)
+
+
+### Bug Fixes
+
+* tweaks ([841ddda](https://github.com/phandcock/GrampsView/commit/841dddaaacbdb2233a5b29d3bf63c7b71242d8d0))
+
+
+
 ## [17.2.29](https://github.com/phandcock/GrampsView/compare/v17.2.28...v17.2.29) (2023-05-29)
 
 
@@ -23,15 +32,6 @@
 ### Bug Fixes
 
 * update nugets and fix card tap crash ([03f3d28](https://github.com/phandcock/GrampsView/commit/03f3d28157d09e7c3a7c7422e6ad46aa1e2ca39b))
-
-
-
-## [17.2.26](https://github.com/phandcock/GrampsView/compare/v17.2.25...v17.2.26) (2023-05-19)
-
-
-### Bug Fixes
-
-* fix fontsizes in styles ([37353a1](https://github.com/phandcock/GrampsView/commit/37353a1e9f8389398d68ca59d16321afe19833fb))
 
 
 
