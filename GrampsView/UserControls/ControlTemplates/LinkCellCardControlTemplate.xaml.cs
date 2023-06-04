@@ -2,6 +2,9 @@
 
 using GrampsView.Models.HLinks;
 
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
 namespace GrampsView.UserControls
 {
     public partial class LinkCellCardControlTemplate : ContentView
@@ -13,10 +16,22 @@ namespace GrampsView.UserControls
 
         private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Ioc.Default.GetRequiredService<ILog>().Variable("OnTapGestureRecognizerTapped", args.Parameter.ToString(), Microsoft.Extensions.Logging.LogLevel.Trace);
+            try
+            {
+                Ioc.Default.GetRequiredService<ILog>().Variable("OnTapGestureRecognizerTapped", args.Parameter.ToString(), Microsoft.Extensions.Logging.LogLevel.Trace);
 
+                Navigation.PushAsync((args.Parameter as HLinkBase).NavigationPage());
+            }
+            catch (Exception ex)
+            {
+                ErrorInfo t = new ErrorInfo("LinkCellCardControlTemplate", "OnTapGestureRecognizerTapped")
+                {
+                    { "Type", args.Parameter.GetType().ToString() },
+                    { "Arg", args.Parameter.ToString() }
+                };
 
-            Navigation.PushAsync((args.Parameter as HLinkBase).NavigationPage());
+                Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
+            }
         }
     }
 }

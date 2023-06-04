@@ -8,8 +8,7 @@
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     x:Name="MediaCardLargeRoot"
     x:DataType="ucon:MediaCardLarge"
-    IsVisible="{Binding TheModel.Valid, Source={x:Reference MediaCardLargeRoot}, Mode=OneWay}"
-    Style="{StaticResource SSGridLargeFixedCardStyle}">
+    IsVisible="{Binding TheModel.Valid, Source={x:Reference MediaCardLargeRoot}, Mode=OneWay}">
 
     <Border Style="{StaticResource SSBorderLargeFixedCardStyle}" VerticalOptions="Start">
 
