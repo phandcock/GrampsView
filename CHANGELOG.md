@@ -1,3 +1,12 @@
+## [17.2.31](https://github.com/phandcock/GrampsView/compare/v17.2.30...v17.2.31) (2023-06-03)
+
+
+### Bug Fixes
+
+* update nuget ([5b40cb1](https://github.com/phandcock/GrampsView/commit/5b40cb1c8f6b72316ee231cf71c04ad9807e9173))
+
+
+
 ## [17.2.30](https://github.com/phandcock/GrampsView/compare/v17.2.29...v17.2.30) (2023-05-30)
 
 
@@ -23,15 +32,6 @@
 
 * update nuget ([ed08036](https://github.com/phandcock/GrampsView/commit/ed080364f85dc5ae2920b781277c691e4c810162))
 * update nugets ([957a81c](https://github.com/phandcock/GrampsView/commit/957a81c75fe68344131f2799184887281c4929fe))
-
-
-
-## [17.2.27](https://github.com/phandcock/GrampsView/compare/v17.2.26...v17.2.27) (2023-05-22)
-
-
-### Bug Fixes
-
-* update nugets and fix card tap crash ([03f3d28](https://github.com/phandcock/GrampsView/commit/03f3d28157d09e7c3a7c7422e6ad46aa1e2ca39b))
 
 
 
