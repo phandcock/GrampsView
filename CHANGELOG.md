@@ -1,3 +1,12 @@
+## [17.2.32](https://github.com/phandcock/GrampsView/compare/v17.2.31...v17.2.32) (2023-06-04)
+
+
+### Bug Fixes
+
+* handle cardmodeltaps errors better ([15724eb](https://github.com/phandcock/GrampsView/commit/15724eba8ed5457c70662ffa1629ae24a538c515))
+
+
+
 ## [17.2.31](https://github.com/phandcock/GrampsView/compare/v17.2.30...v17.2.31) (2023-06-03)
 
 
@@ -22,16 +31,6 @@
 ### Bug Fixes
 
 * fix mediacardlarge width issue ([affd55f](https://github.com/phandcock/GrampsView/commit/affd55f9f3230d75ffb98cb065d4456a130a1362))
-
-
-
-## [17.2.28](https://github.com/phandcock/GrampsView/compare/v17.2.27...v17.2.28) (2023-05-26)
-
-
-### Bug Fixes
-
-* update nuget ([ed08036](https://github.com/phandcock/GrampsView/commit/ed080364f85dc5ae2920b781277c691e4c810162))
-* update nugets ([957a81c](https://github.com/phandcock/GrampsView/commit/957a81c75fe68344131f2799184887281c4929fe))
 
 
 
