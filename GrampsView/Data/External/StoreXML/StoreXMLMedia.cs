@@ -91,7 +91,7 @@ namespace GrampsView.Data.ExternalStorage
                         IMediaModel loadObject = new MediaModel();
                         loadObject.LoadBasics(GetBasics(pname));
 
-                        if (loadObject.Id == "O0631")
+                        if (loadObject.Id == "O0337")
                         {
                         }
 
@@ -119,35 +119,54 @@ namespace GrampsView.Data.ExternalStorage
                                     // Load FileInfoEx and metadata
                                     loadObject.CurrentStorageFile = new FileInfoEx(loadObject.OriginalFilePath);
 
-                                    if (loadObject.CurrentStorageFile.Valid)
+                                    // Load mime types
+                                    loadObject.FileContentType = (string)filedetails.Attribute("mime");
+
+                                    if (loadObject.FileMimeType == "unknown")
                                     {
-                                        // TODO add this back in
-                                        //Size imageSize = Task.Run(async () => await PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath)).Result;
+                                        loadObject.FileContentType = CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(loadObject.OriginalFilePath));
+                                    }
 
-                                        using Stream st = new FileStream(loadObject.CurrentStorageFile.GetAbsoluteFilePath, FileMode.Open);
-                                        if (st is null)
+                                    // Handle Images
+                                    if (loadObject.FileMimeType == "image")
+                                    {
+                                        if (loadObject.CurrentStorageFile.Valid)
                                         {
-                                            loadObject.MetaDataHeight = 100;
-                                            loadObject.MetaDataWidth = 100;
-                                            continue;
-                                        }
+                                            // TODO add this back in
+                                            //Size imageSize = Task.Run(async () => await PlatformImageHandler.GetSize(loadObject.CurrentStorageFile.GetAbsoluteFilePath)).Result;
 
-                                        SKBitmap b = SKBitmap.Decode(st);
-                                        if (b is null)
+                                            using Stream st = new FileStream(loadObject.CurrentStorageFile.GetAbsoluteFilePath, FileMode.Open);
+                                            if (st is null)
+                                            {
+                                                loadObject.MetaDataHeight = 100;
+                                                loadObject.MetaDataWidth = 100;
+                                                continue;
+                                            }
+
+                                            SKBitmap b = SKBitmap.Decode(st);
+                                            if (b is null)
+                                            {
+                                                // Might be video
+                                                loadObject.MetaDataHeight = 100;
+                                                loadObject.MetaDataWidth = 100;
+                                                continue;
+                                            }
+
+                                            loadObject.MetaDataHeight = b.Height;
+                                            loadObject.MetaDataWidth = b.Width;
+
+                                            // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
+                                        }
+                                        else
                                         {
-                                            loadObject.MetaDataHeight = 100;
-                                            loadObject.MetaDataWidth = 100;
-                                            continue;
+                                            MyNotifications.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
                                         }
-
-                                        loadObject.MetaDataHeight = b.Height;
-                                        loadObject.MetaDataWidth = b.Width;
-
-                                        // TODO check File Content Type if ( loadObject.MediaStorageFile.FInfo.)
                                     }
                                     else
                                     {
-                                        MyNotifications.NotifyError(new ErrorInfo("Bad media file path") { { "Path", loadObject.OriginalFilePath } });
+                                        // Non image file
+                                        loadObject.MetaDataHeight = 100;
+                                        loadObject.MetaDataWidth = 100;
                                     }
                                 }
                                 catch (Exception ex)
@@ -155,17 +174,11 @@ namespace GrampsView.Data.ExternalStorage
                                     MyNotifications.NotifyException("Error trying to load a media file (" + loadObject.OriginalFilePath + ") listed in the GRAMPS file", ex);
                                 }
                             }
-
-                            // Load mime types
-                            loadObject.FileContentType = (string)filedetails.Attribute("mime");
-
-                            if (loadObject.FileMimeType == "unknown")
-                            {
-                                loadObject.FileContentType = CommonRoutines.MimeFileContentTypeGet(Path.GetExtension(loadObject.OriginalFilePath));
-                            }
                         }
 
-                        // Get attributes
+                        if (loadObject.Id == "O0337")
+                        {
+                        }
 
                         // Get description
                         loadObject.GDescription = (string)filedetails.Attribute("description");
@@ -198,7 +211,6 @@ namespace GrampsView.Data.ExternalStorage
                 }
                 catch (Exception ex)
                 {
-
                     MyNotifications.NotifyException("Loading Media Objects", ex);
                 }
             }

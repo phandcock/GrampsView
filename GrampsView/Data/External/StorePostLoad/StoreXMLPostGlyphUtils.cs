@@ -9,7 +9,6 @@ using GrampsView.Models.DataModels.Interfaces;
 
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
-using SharedSharp.Resources.Fonts;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -33,7 +32,7 @@ namespace GrampsView.Data.ExternalStorage
             // TODO Having an issue where Gramps XML content type is not always correct
             if (argMediaModel.CurrentStorageFile.FInfo.Extension != ".pdf")
             {
-                _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistant File Extension ({argMediaModel.CurrentStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
+                _CommonLogging.DataLogEntryAdd($"??? {argMediaModel.Id} Inconsistent File Extension ({argMediaModel.CurrentStorageFile.FInfo.Extension}) and MIME type ({argMediaModel.FileMimeType}/{argMediaModel.FileMimeSubType})");
                 return argMediaModel.ModelItemGlyph;
             }
 
@@ -133,7 +132,7 @@ namespace GrampsView.Data.ExternalStorage
                       { "Original ID", argMediaModel.Id },
                       { "Original File", argMediaModel.OriginalFilePath },
                       { "Clipped Id", argMediaModel.Id },
-                      { "New path", "pdfimage" }
+                      { "New path", "pdf image" }
                   };
 
                 Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);

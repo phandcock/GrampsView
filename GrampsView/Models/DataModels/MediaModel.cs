@@ -68,8 +68,8 @@ namespace GrampsView.Models.DataModels
 
             set
             {
-                // TODO Gramps does not set the correct mimetype sometimes so need a better way of
-                // handling it. Maybe FileInfo COntent Type
+                // TODO Gramps does not set the correct mime type sometimes so need a better way of
+                // handling it. Maybe FileInfo Content Type
                 if (value != null)
                 {
                     _ = SetProperty(ref _FileContentType, value);
