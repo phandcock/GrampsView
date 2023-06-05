@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Data.Model;
+using GrampsView.Models.HLinks.Models;
 
 using SharedSharp.Errors.Interfaces;
 

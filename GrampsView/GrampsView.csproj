@@ -227,6 +227,18 @@
       <Compile Update="UserControls\General\MyTopMenu.xaml.cs">
         <DependentUpon>MyTopMenu.xaml</DependentUpon>
       </Compile>
+      <Compile Update="UserControls\Single\DateRangeCardSingle.xaml.cs">
+        <DependentUpon>DateRangeCardSingle.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="UserControls\Single\DateValCardSingle.xaml.cs">
+        <DependentUpon>DateValCardSingle.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="UserControls\Single\DateSpanCardSingle.xaml.cs">
+        <DependentUpon>DateSpanCardSingle.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="UserControls\Single\DateStrCardSingle.xaml.cs">
+        <DependentUpon>DateStrCardSingle.xaml</DependentUpon>
+      </Compile>
       <Compile Update="Views\MinorPages\FlyoutMenuPage.xaml.cs">
         <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
       </Compile>
@@ -256,6 +268,15 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\General\MyTopMenu.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\Single\DateValCardSingle.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\Single\DateSpanCardSingle.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\Single\DateStrCardSingle.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\MinorPages\BaseNavigation.xaml">

@@ -1,6 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.Model;
+using GrampsView.Models.HLinks.Models;
 using GrampsView.Views;
 
 namespace GrampsView.UserControls

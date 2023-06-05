@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.Models.HLinks.Models;
 
 namespace GrampsView.ViewModels.MinorModels
 {

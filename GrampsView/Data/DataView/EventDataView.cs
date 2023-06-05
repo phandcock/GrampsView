@@ -1,9 +1,11 @@
+// Copyright (c) phandcock.  All rights reserved.
+
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
-using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
 
 using System.Collections;
 using System.Collections.ObjectModel;

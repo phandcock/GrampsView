@@ -41,8 +41,20 @@
         <usercontrols:CitationCardSmall />
     </DataTemplate>
 
-    <DataTemplate x:Key="DateCardSingleDT">
-        <usercontrols:DateCardSingle />
+    <DataTemplate x:Key="DateSpanCardSingleDT">
+        <usercontrols:DateSpanCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DateStrCardSingleDT">
+        <usercontrols:DateStrCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DateValCardSingleDT">
+        <usercontrols:DateValCardSingle />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DateRangeCardSingleDT">
+        <usercontrols:DateRangeCardSingle />
     </DataTemplate>
 
     <DataTemplate x:Key="EventCardLinkCellDT">
@@ -192,7 +204,10 @@
         CitationLinkMediumTemplate="{StaticResource CitationCardLinkMediumDT}"
         CitationLinkSingleTemplate="{StaticResource CitationCardLinkSingleDT}"
         CitationSmallTemplate="{StaticResource CitationCardSmallDT}"
-        DateObjectTemplate="{StaticResource DateCardSingleDT}"
+        DateRangeObjectTemplate="{StaticResource DateRangeCardSingleDT}"
+        DateSpanObjectTemplate="{StaticResource DateSpanCardSingleDT}"
+        DateStrObjectTemplate="{StaticResource DateStrCardSingleDT}"
+        DateValObjectTemplate="{StaticResource DateValCardSingleDT}"
         EventLinkCellTemplate="{StaticResource EventCardLinkCellDT}"
         EventLinkMediumTemplate="{StaticResource EventCardLinkMediumDT}"
         EventSmallTemplate="{StaticResource EventCardSmallDT}"

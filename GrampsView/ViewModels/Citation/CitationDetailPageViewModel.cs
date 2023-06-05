@@ -5,6 +5,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
 
 namespace GrampsView.ViewModels.Citation
 {

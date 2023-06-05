@@ -6,8 +6,6 @@ using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Interfaces;
 using GrampsView.Models.HLinks.Models;
 
-using SharedSharp.Models;
-
 using System.Diagnostics.Contracts;
 
 namespace GrampsView.Common
@@ -95,7 +93,25 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate? DateObjectTemplate
+        public DataTemplate? DateValObjectTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate? DateStrObjectTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate? DateSpanObjectTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate? DateRangeObjectTemplate
         {
             get;
             set;
@@ -537,12 +553,23 @@ namespace GrampsView.Common
                     }
 
                 case HLinkDateModelRange:
-                case HLinkDateModelSpan:
-                case HLinkDateModelStr:
-                case HLinkDateModelVal:
-
                     {
-                        return DateObjectTemplate;
+                        return DateRangeObjectTemplate;
+                    }
+
+                case HLinkDateModelSpan:
+                    {
+                        return DateSpanObjectTemplate;
+                    }
+
+                case HLinkDateModelStr:
+                    {
+                        return DateStrObjectTemplate;
+                    }
+
+                case HLinkDateModelVal:
+                    {
+                        return DateValObjectTemplate;
                     }
 
                 case HLinkEventModel:

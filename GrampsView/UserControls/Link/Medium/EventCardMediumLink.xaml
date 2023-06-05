@@ -3,9 +3,9 @@
     x:Class="GrampsView.UserControls.EventCardMediumLink"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:models="clr-namespace:GrampsView.Models.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
+    xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     x:DataType="models:HLinkEventModel">
 
     <Grid>

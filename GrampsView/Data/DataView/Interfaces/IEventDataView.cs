@@ -1,24 +1,17 @@
-//-----------------------------------------------------------------------
-//
-// Interface for the Event Repository
-//
-// <copyright file="IEventDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView.Interfaces;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
+
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView.Interfaces;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
     /// <summary>
     /// Interface for the Event Repository.
     /// </summary>

@@ -1,11 +1,11 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
+using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
-using GrampsView.Models.HLinks;
 using GrampsView.Views;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.HLinks.Models
 {
     /// <summary>
     /// HLink to a Date Model.

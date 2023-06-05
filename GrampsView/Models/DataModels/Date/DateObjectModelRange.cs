@@ -1,5 +1,8 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
+using GrampsView.Models.HLinks.Models;
 
 using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;

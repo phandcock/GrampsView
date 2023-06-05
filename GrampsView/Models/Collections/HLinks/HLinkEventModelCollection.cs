@@ -1,16 +1,19 @@
-﻿namespace GrampsView.Data.Collections
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
+
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
+namespace GrampsView.Data.Collections
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Collection of Event HLinks
     /// <list type="table">

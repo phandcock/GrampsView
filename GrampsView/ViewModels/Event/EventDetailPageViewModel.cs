@@ -5,6 +5,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
 
 using System.ComponentModel;
 
@@ -26,7 +27,7 @@ namespace GrampsView.ViewModels.Event
         /// The event aggregator.
         /// </param>
 
-        [Obsolete]
+
         public EventDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                                                             : base(iocCommonLogging)
         {

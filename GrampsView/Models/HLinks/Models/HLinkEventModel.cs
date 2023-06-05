@@ -3,14 +3,14 @@
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
-using GrampsView.Models.HLinks;
 using GrampsView.Views;
 
 using System.Text.Json.Serialization;
 
-namespace GrampsView.Data.Model
+namespace GrampsView.Models.HLinks.Models
 {
     /// <summary>
     /// HLink to Event Model but with its own fields as per Gramps
