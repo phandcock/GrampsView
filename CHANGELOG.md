@@ -1,3 +1,13 @@
+## [17.2.35](https://github.com/phandcock/GrampsView/compare/v17.2.34...v17.2.35) (2023-06-09)
+
+
+### Bug Fixes
+
+* fix datesinglecard tapgesture ([45bf88a](https://github.com/phandcock/GrampsView/commit/45bf88aad03bb218ae5c9be1dab04d32f19ca329))
+* tweak singlecontrol ([236b700](https://github.com/phandcock/GrampsView/commit/236b700a3a899e971bf20503692fed7aa914b445))
+
+
+
 ## [17.2.34](https://github.com/phandcock/GrampsView/compare/v17.2.33...v17.2.34) (2023-06-06)
 
 
@@ -22,15 +32,6 @@
 ### Bug Fixes
 
 * handle cardmodeltaps errors better ([15724eb](https://github.com/phandcock/GrampsView/commit/15724eba8ed5457c70662ffa1629ae24a538c515))
-
-
-
-## [17.2.31](https://github.com/phandcock/GrampsView/compare/v17.2.30...v17.2.31) (2023-06-03)
-
-
-### Bug Fixes
-
-* update nuget ([5b40cb1](https://github.com/phandcock/GrampsView/commit/5b40cb1c8f6b72316ee231cf71c04ad9807e9173))
 
 
 
