@@ -23,6 +23,8 @@ using GrampsView.ViewModels.Sources;
 using GrampsView.ViewModels.StartupPages;
 using GrampsView.ViewModels.Tags;
 
+using IeuanWalker.Maui.StateButton;
+
 using Microsoft.Maui.LifecycleEvents;
 
 using SharedSharp;
@@ -46,6 +48,7 @@ namespace GrampsView
                     .UseMauiCommunityToolkitMediaElement()
                     .SharedSharpInit()
                     .ConfigureEssentials()
+                    .UseStateButton()
                     .RegisterFonts()
                     .RegisterLifeCycleEvents()
                     .RegisterHandlers()

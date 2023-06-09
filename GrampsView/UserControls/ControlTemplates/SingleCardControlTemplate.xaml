@@ -5,12 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:hlinks="clr-namespace:GrampsView.Models.HLinks"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:sSharpCommon="clr-namespace:SharedSharp.Common;assembly=SharedSharp"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="SmallCardControlTemplateRoot"
     x:DataType="hlinks:HLinkBase">
+    
     <ContentView.ControlTemplate>
         <ControlTemplate>
 
             <Border
-                Style="{StaticResource SSBorderSingleFixedCardStyle}"
+                Style="{x:StaticResource SSBorderSingleFixedCardStyle}"
                 Stroke="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
                 StrokeThickness="2">
 

@@ -24,7 +24,7 @@ namespace GrampsView.UserControls
             }
             catch (Exception ex)
             {
-                ErrorInfo t = new ErrorInfo("SmallCardControlTemplate", "OnTapGestureRecognizerTapped")
+                ErrorInfo t = new("SmallCardControlTemplate", "OnTapGestureRecognizerTapped")
                 {
                     { "Type", args.Parameter.GetType().ToString() },
                     { "Arg", args.Parameter.ToString() }
