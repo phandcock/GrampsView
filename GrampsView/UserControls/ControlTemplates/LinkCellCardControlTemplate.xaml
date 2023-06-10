@@ -65,7 +65,7 @@
                         Style="{StaticResource GVSymbolIconLinkCardType}">
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="IconSolidFont"
+                                FontFamily="IconMaterialIconsOutline"
                                 Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
                                 Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                         </Image.Source>

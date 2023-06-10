@@ -319,7 +319,7 @@ namespace GrampsView.UserControls
                     Aspect = Aspect.AspectFit,
                     BackgroundColor = Colors.Transparent,
                     IsVisible = true,
-                    Margin = 10,
+                    Margin = 20,
                     Source = new FontImageSource
                     {
                     },
@@ -332,8 +332,8 @@ namespace GrampsView.UserControls
                 {
                     Glyph = argItemGlyph.Symbol,
                     Color = Color.FromRgb(255, 255, 255),
-                    FontFamily = "IconSolidFont",
-                    Size = 48,
+                    FontFamily = "IconMaterialIconsOutline",
+                    Size = 42,
                 };
 
                 if (fontGlyph.Glyph == null)

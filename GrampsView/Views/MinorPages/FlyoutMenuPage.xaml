@@ -10,7 +10,7 @@
     Padding="0,40,0,0">
     <ContentPage.IconImageSource>
         <FontImageSource
-            FontFamily="IconSolidFont"
+            FontFamily="IconMaterialIconsOutline"
             Glyph="{x:Static common:Constants.IconMedia}"
             Size="24"
             Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
@@ -102,7 +102,7 @@
                     <Image>
                         <Image.Source>
                             <FontImageSource
-                                FontFamily="IconSolidFont"
+                                FontFamily="IconMaterialIconsOutline"
                                 Glyph="{Binding IconSource}"
                                 Size="24"
                                 Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},

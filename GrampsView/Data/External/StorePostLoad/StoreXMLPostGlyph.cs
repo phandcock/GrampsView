@@ -9,7 +9,6 @@ using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
 
 using SharedSharp.Errors;
-using SharedSharp.Resources.Fonts;
 
 using System.Diagnostics.Contracts;
 
@@ -362,8 +361,8 @@ namespace GrampsView.Data.ExternalStorage
                                 case "msword":
                                 case "rtf":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.FileWord;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.FileWord;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Wordpress;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Wordpress;
                                         //argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
                                     }
@@ -374,8 +373,8 @@ namespace GrampsView.Data.ExternalStorage
                                         {
                                         }
 
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.FilePdf;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.FilePdf;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Picture_as_pdf;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Picture_as_pdf;
 
                                         argModel.ModelItemGlyph = await GetThumbImageFromPDF(argModel);
                                         break;
@@ -383,15 +382,15 @@ namespace GrampsView.Data.ExternalStorage
 
                                 case "vnd.ms-outlook":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.Voicemail;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.Voicemail;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Voicemail;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Voicemail;
                                         break;
                                     }
 
                                 case "x-zip-compressed":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.BoxArchive;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.BoxArchive;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Compress;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Compress;
 
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
@@ -399,8 +398,8 @@ namespace GrampsView.Data.ExternalStorage
 
                                 case "zip":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.BoxArchive;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.BoxArchive;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Folder_zip;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Folder_zip;
 
                                         argModel.ModelItemGlyph = GetThumbImageFromZip(argModel);
                                         break;
@@ -415,15 +414,15 @@ namespace GrampsView.Data.ExternalStorage
 
                     case "audio":
                         {
-                            argModel.ModelItemGlyph.Symbol = IconSolidFont.FileAudio;
-                            argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.FileAudio;
+                            argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Audio_file;
+                            argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Audio_file;
                             break;
                         }
 
                     case "image":
                         {
-                            argModel.ModelItemGlyph.Symbol = IconSolidFont.FileImage;
-                            argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.FileImage;
+                            argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Image;
+                            argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Image;
 
                             argModel.ModelItemGlyph.ImageType = CommonEnums.HLinkGlyphType.Image;
                             argModel.ModelItemGlyph.ImageHLink = argModel.HLinkKey;
@@ -439,8 +438,8 @@ namespace GrampsView.Data.ExternalStorage
                             {
                                 case "html":
                                     {
-                                        argModel.ModelItemGlyph.Symbol = IconSolidFont.Link;
-                                        argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.Link;
+                                        argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Link;
+                                        argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Link;
 
                                         break;
                                     }
@@ -454,8 +453,8 @@ namespace GrampsView.Data.ExternalStorage
 
                     case "video":
                         {
-                            argModel.ModelItemGlyph.Symbol = IconSolidFont.FileVideo;
-                            argModel.ModelItemGlyph.ImageSymbol = IconSolidFont.FileVideo;
+                            argModel.ModelItemGlyph.Symbol = IconMaterialIconsOutline.Videocam;
+                            argModel.ModelItemGlyph.ImageSymbol = IconMaterialIconsOutline.Videocam;
 
                             argModel.ModelItemGlyph = await GetThumbImageFromVideo(argModel);
 

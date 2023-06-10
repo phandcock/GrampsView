@@ -47,7 +47,7 @@ namespace GrampsView.Data.ExternalStorage
                 // TODO add this back in
                 pdfimage = await MyGenerateThumbNails.GenerateThumbImageFromPDF(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconSolidFont.FilePdf);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, pdfimage, IconMaterialIconsOutline.Picture_as_pdf);
             }
             else
             {
@@ -76,7 +76,7 @@ namespace GrampsView.Data.ExternalStorage
                 // TODO add this back in
                 videoImage = await MyGenerateThumbNails.GenerateThumbImageFromVideo(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconSolidFont.BoxArchive);
+                returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, videoImage, IconMaterialIconsOutline.Compress);
             }
             else
             {
@@ -114,7 +114,7 @@ namespace GrampsView.Data.ExternalStorage
 
                     zipimage = StoreFile.ExtractZipFileFirstImage(DataStore.Instance.AD.CurrentDataFolder.FolderasDirInfo, argMediaModel, newMediaModel);
 
-                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconSolidFont.BoxArchive);
+                    returnItemGlyph = UtilSaveNewMediaObject(returnItemGlyph, zipimage, IconMaterialIconsOutline.Compress);
                 }
                 else
                 {

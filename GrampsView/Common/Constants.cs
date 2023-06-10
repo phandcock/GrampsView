@@ -41,151 +41,151 @@ namespace GrampsView.Common
         /// </summary>
         public static readonly string GrampsXMLPublicId = "-//Gramps//DTD Gramps XML 1.5.1//EN";
 
-        public static readonly string IconAbout = IconSolidFont.Info;
+        public static readonly string IconAbout = IconMaterialIconsOutline.Info;
 
         /// <summary>
         /// The icon Address.
         /// </summary>
-        public static readonly string IconAddress = IconSolidFont.AddressCard;
+        public static readonly string IconAddress = IconMaterialIconsOutline.Mail;
 
         ///// <summary>
         ///// The icon attribute.
         ///// </summary>
-        public static readonly string IconAttribute = IconSolidFont.Atom;
+        public static readonly string IconAttribute = IconMaterialIconsOutline.Attribution;
 
         /// <summary>
         /// The icon bookMark.
         /// </summary>
-        public static readonly string IconBookMark = IconSolidFont.Bookmark;
+        public static readonly string IconBookMark = IconMaterialIconsOutline.Bookmark;
 
         /// <summary>
         /// The icon ChooseDataFile.
         /// </summary>
-        public static readonly string IconChooseDataFile = IconSolidFont.Download;
+        public static readonly string IconChooseDataFile = IconMaterialIconsOutline.Download;
 
         /// <summary>
         /// The icon citation.
         /// </summary>
-        public static readonly string IconCitation = IconSolidFont.Receipt;
+        public static readonly string IconCitation = IconMaterialIconsOutline.Receipt;
 
         /// <summary>
         /// The icon for a date symbol.
         /// </summary>
-        public static readonly string IconDate = IconSolidFont.Clock;
+        public static readonly string IconDate = IconMaterialIconsOutline.Date_range;
 
         /// <summary>
         /// The icon for a default symbol.
         /// </summary>
-        public static readonly string IconDDefault = IconSolidFont.Icons;
+        public static readonly string IconDDefault = IconMaterialIconsOutline.Emoji_symbols;
 
         /// <summary>
         /// The icon diagram.
         /// </summary>
-        public static readonly string IconDiagram = IconSolidFont.DiagramProject;
+        public static readonly string IconDiagram = IconMaterialIconsOutline.Area_chart;
 
         /// <summary>
         /// The icon events.
         /// </summary>
-        public static readonly string IconEvents = IconSolidFont.CalendarDay;
+        public static readonly string IconEvents = IconMaterialIconsOutline.Event;
 
         /// <summary>
         /// The icon families.
         /// </summary>
-        public static readonly string IconFamilies = IconSolidFont.PeopleArrows;
+        public static readonly string IconFamilies = IconMaterialIconsOutline.Family_restroom;
 
-        public static readonly string IconHeader = IconSolidFont.Heading;
+        public static readonly string IconHeader = IconMaterialIconsOutline.View_headline;
 
         /// <summary>
         /// The icon hub.
         /// </summary>
-        public static readonly string IconHub = IconSolidFont.HouseUser;
+        public static readonly string IconHub = IconMaterialIconsOutline.Hub;
 
-        public static readonly string IconLog = IconSolidFont.List;
+        public static readonly string IconLog = IconMaterialIconsOutline.List;
 
         /// <summary>
         /// The map icon.
         /// </summary>
-        public static readonly string IconMap = IconSolidFont.Map;
+        public static readonly string IconMap = IconMaterialIconsOutline.Map;
 
         /// <summary>
         /// The icon media.
         /// </summary>
-        public static readonly string IconMedia = IconSolidFont.FileImage;
+        public static readonly string IconMedia = IconMaterialIconsOutline.Picture_in_picture;
 
         // "\uf82f";
         /// <summary>
         /// The symbol for NameMaps.
         /// </summary>
-        public static readonly string IconNameMaps = IconSolidFont.Mountain;
+        public static readonly string IconNameMaps = IconMaterialIconsOutline.Tsunami;
 
         /// <summary>
         /// The icon notes.
         /// </summary>
-        public static readonly string IconNotes = IconSolidFont.Book;
+        public static readonly string IconNotes = IconMaterialIconsOutline.Book;
 
         /// <summary>
         /// The icon people.
         /// </summary>
-        public static readonly string IconPeople = IconSolidFont.AddressBook;
+        public static readonly string IconPeople = IconMaterialIconsOutline.People;
 
-        public static readonly string IconPeopleBirthday = IconSolidFont.CakeCandles;
+        public static readonly string IconPeopleBirthday = IconMaterialIconsOutline.Cake;
 
         /// <summary>
         /// The icon people graph.
         /// </summary>
-        public static readonly string IconPeopleGraph = IconSolidFont.TachographDigital;
+        public static readonly string IconPeopleGraph = IconMaterialIconsOutline.Auto_graph;
 
         /// <summary>
         /// The icon person female.
         /// </summary>
-        public static readonly string IconPersonFemale = IconSolidFont.LeftLong;
+        public static readonly string IconPersonFemale = IconMaterialIconsOutline.Female;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public static readonly string IconPersonMale = IconSolidFont.RightLong;
+        public static readonly string IconPersonMale = IconMaterialIconsOutline.Male;
 
-        public static readonly string IconPersonName = IconSolidFont.Images;
+        public static readonly string IconPersonName = IconMaterialIconsOutline.Tsunami;
 
         /// <summary>
         /// The symbol Places.
         /// </summary>
-        public static readonly string IconPlace = IconSolidFont.Plane;
+        public static readonly string IconPlace = IconMaterialIconsOutline.Place;
 
         /// <summary>
         /// The symbol Repository.
         /// </summary>
-        public static readonly string IconRepository = IconSolidFont.LifeRing;
+        public static readonly string IconRepository = IconMaterialIconsOutline.Health_and_safety;
 
         /// <summary>
         /// The icon Search.
         /// </summary>
-        public static readonly string IconSearch = IconSolidFont.UsersViewfinder;
+        public static readonly string IconSearch = IconMaterialIconsOutline.Search;
 
         /// <summary>
         /// The icon Settings.
         /// </summary>
-        public static readonly string IconSettings = IconSolidFont.Toolbox;
+        public static readonly string IconSettings = IconMaterialIconsOutline.Settings;
 
         /// <summary>
         /// The icon Source.
         /// </summary>
-        public static readonly string IconSource = IconSolidFont.SatelliteDish;
+        public static readonly string IconSource = IconMaterialIconsOutline.Source;
 
-        public static readonly string IconSurname = IconSolidFont.Signature;
+        public static readonly string IconSurname = IconMaterialIconsOutline.Surfing;
 
         /// <summary>
         /// The icon person male.
         /// </summary>
-        public static readonly string IconTag = IconSolidFont.Tag;
+        public static readonly string IconTag = IconMaterialIconsOutline.Tag;
 
-        public static readonly string IconThemeDark = IconSolidFont.Moon;
+        //public static readonly string IconThemeDark = IconMaterialIconsOutline.Moon;
 
-        public static readonly string IconThemeLight = IconSolidFont.Sun;
+        //public static readonly string IconThemeLight = IconMaterialIconsOutline.Sun;
 
-        public static readonly string IconThemeSystem = IconSolidFont.Globe;
+        //public static readonly string IconThemeSystem = IconMaterialIconsOutline.Globe;
 
-        public static readonly string IconURL = IconSolidFont.Link;
+        public static readonly string IconURL = IconMaterialIconsOutline.Link;
 
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.
