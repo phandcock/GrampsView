@@ -1,3 +1,13 @@
+## [17.2.36](https://github.com/phandcock/GrampsView/compare/v17.2.35...v17.2.36) (2023-06-10)
+
+
+### Bug Fixes
+
+* cleanup tappedgesture handling ([4546345](https://github.com/phandcock/GrampsView/commit/4546345ee8e1b16f68bd3f2e571d2b42d38f0f8f))
+* tweak fonts ([602e4dc](https://github.com/phandcock/GrampsView/commit/602e4dc0eb478c6c8e8eae92f6498553eff58689))
+
+
+
 ## [17.2.35](https://github.com/phandcock/GrampsView/compare/v17.2.34...v17.2.35) (2023-06-09)
 
 
@@ -23,15 +33,6 @@
 ### Bug Fixes
 
 * start work on media laodign fix ([f3594ef](https://github.com/phandcock/GrampsView/commit/f3594efb2bbf00cb5768580b486000f27ec684dd))
-
-
-
-## [17.2.32](https://github.com/phandcock/GrampsView/compare/v17.2.31...v17.2.32) (2023-06-04)
-
-
-### Bug Fixes
-
-* handle cardmodeltaps errors better ([15724eb](https://github.com/phandcock/GrampsView/commit/15724eba8ed5457c70662ffa1629ae24a538c515))
 
 
 
