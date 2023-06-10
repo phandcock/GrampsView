@@ -39,7 +39,7 @@ namespace GrampsView.Common
             return hlinkInfoList;
         }
 
-        // Deserialise object
+        // De-serialise object
         public static T GetHLinkParameter<T>(IDictionary<string, object> dataIn) where T : new()
         {
             T ser = new();
@@ -100,6 +100,16 @@ namespace GrampsView.Common
             return modelInfoList;
         }
 
+        public static string GetSerialFile(string argObjectName)
+        {
+            return argObjectName.Trim() + ".json";
+        }
+
+        public static string GetSerialFileFull(string argObjectName)
+        {
+            return DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile(argObjectName));
+        }
+
         public static JsonSerializerOptions GetSerializerOptions()
         {
             JsonSerializerOptions serialzerOptions = new();
@@ -115,16 +125,6 @@ namespace GrampsView.Common
             serialzerOptions.IgnoreReadOnlyProperties = true;
 
             return serialzerOptions;
-        }
-
-        public static string GetSerialFile(string argObjectName)
-        {
-            return argObjectName.Trim() + ".json";
-        }
-
-        public static string GetSerialFileFull(string argObjectName)
-        {
-            return DataStore.Instance.AD.CurrentDataFolder.GetAbsoluteFilePath(GetSerialFile(argObjectName));
         }
 
         //public static string GetSerialFile(object argObject)

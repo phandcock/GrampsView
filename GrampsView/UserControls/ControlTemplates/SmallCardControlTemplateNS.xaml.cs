@@ -2,7 +2,7 @@
 
 namespace GrampsView.UserControls
 {
-    public partial class SmallCardControlTemplateNS : ContentView
+    public partial class SmallCardControlTemplateNS : UControlTemplateBase
     {
         public SmallCardControlTemplateNS()
         {

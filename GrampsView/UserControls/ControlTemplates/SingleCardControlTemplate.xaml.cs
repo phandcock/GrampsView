@@ -1,10 +1,8 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using SharedSharp.Errors.Interfaces;
-
 namespace GrampsView.UserControls
 {
-    public partial class SingleCardControlTemplate : ContentView
+    public partial class SingleCardControlTemplate : UControlTemplateBase
     {
         public SingleCardControlTemplate()
         {
@@ -13,7 +11,7 @@ namespace GrampsView.UserControls
 
         private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("SingleCardControlTemplate-OnTapGestureRecognizerTapped", new NotImplementedException());
+            OnTapGestureRecognizerTappedHandler("SingleCardControlTemplate", args);
         }
     }
 }

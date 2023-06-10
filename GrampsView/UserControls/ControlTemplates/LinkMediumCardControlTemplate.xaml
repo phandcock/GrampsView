@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView
+<ucon:UControlTemplateBase
     x:Class="GrampsView.UserControls.LinkMediumCardControlTemplate"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:hlinks="clr-namespace:GrampsView.Models.HLinks"
     x:DataType="hlinks:HLinkBase">
@@ -49,4 +50,4 @@
             </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
-</ContentView>
+</ucon:UControlTemplateBase>
