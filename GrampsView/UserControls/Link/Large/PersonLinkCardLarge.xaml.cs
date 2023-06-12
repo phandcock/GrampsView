@@ -1,8 +1,8 @@
-﻿namespace GrampsView.UserControls
-{
-  
+﻿// Copyright (c) phandcock.  All rights reserved.
 
-    public partial class PersonLinkCardLarge : Grid
+namespace GrampsView.UserControls
+{
+    public partial class PersonLinkCardLarge : LinkLargeCardControlTemplate
     {
         public static readonly BindableProperty FsctShowParentLinkProperty
         = BindableProperty.Create(returnType: typeof(bool), declaringType: typeof(PersonLinkCardLarge), propertyName: nameof(FsctShowParentLink), defaultValue: true);

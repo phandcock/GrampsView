@@ -222,6 +222,9 @@
       <Compile Update="Resources\Styles\CardThemeDictionary.xaml.cs">
         <DependentUpon>CardThemeDictionary.xaml</DependentUpon>
       </Compile>
+      <Compile Update="UserControls\ControlTemplates\LinkLargeCardControlTemplate.xaml.cs">
+        <DependentUpon>LinkLargeCardControlTemplate.xaml</DependentUpon>
+      </Compile>
       <Compile Update="UserControls\General\CollectionSingleCard.xaml.cs">
         <DependentUpon>CollectionSingleCard.xaml</DependentUpon>
       </Compile>
@@ -263,6 +266,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\CardThemeDictionary.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="UserControls\ControlTemplates\LinkLargeCardControlTemplate.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\General\CollectionSingleCard.xaml">

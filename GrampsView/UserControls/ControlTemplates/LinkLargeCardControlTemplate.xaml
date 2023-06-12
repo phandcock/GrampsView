@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ucon:UControlTemplateBase
+    x:Class="GrampsView.UserControls.LinkLargeCardControlTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hlinks="clr-namespace:GrampsView.Models.HLinks"
+    xmlns:ucon="clr-namespace:GrampsView.UserControls"
+    xmlns:mauitoolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:DataType="hlinks:HLinkBase"
+    Style="{StaticResource SSGridLargeVariableCardStyle}">
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+
+            <Border
+                BackgroundColor="{AppThemeBinding Dark={StaticResource OnTertiaryContainerDark},
+                                                  Light={StaticResource OnTertiaryContainerLight}}"
+                HeightRequest="100"
+                Style="{x:StaticResource SSBorderCardStyle}"
+                WidthRequest="120">
+
+                <Grid
+                    x:Name="controlRoot"
+                    Margin="0"
+                    Padding="0"
+                    RowSpacing="0">
+
+                    <Grid.GestureRecognizers>
+                        <!--<TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  CommandParameter="{Binding ., Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />-->
+                        <!--<TapGestureRecognizer Command="{Binding UCNavigateCommand, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" CommandParameter="{Binding DeRef.HLink, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />-->
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" CommandParameter="{Binding ., Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                    </Grid.GestureRecognizers>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource CardImageBackgroundFrame}">
+
+                        <ucon:HLinkVisualDisplay
+                            x:Name="AnchorImage"
+                            HorizontalOptions="CenterAndExpand"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                    </Border>
+
+                    <ContentPresenter
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        VerticalOptions="End" />
+
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource GVSymbolIconLinkCardType}">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="IconMaterialIconsOutline"
+                                Glyph="{Binding HLinkGlyphItem.Symbol, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
+                                Color="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ucon:UControlTemplateBase>
