@@ -1,7 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Model;
-using GrampsView.Views;
 
 using System.Diagnostics.Contracts;
 
@@ -20,9 +19,9 @@ namespace GrampsView.UserControls
             InitializeComponent();
         }
 
-        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Navigation.PushAsync(new SourceDetailPage(args.Parameter as HLinkSourceModel));
+            OnTapGestureRecognizerTappedHandler("SourceCardSmall", args);
         }
 
         private void Grid_BindingContextChanged(object sender, System.EventArgs e)

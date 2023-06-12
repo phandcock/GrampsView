@@ -1,8 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.Model;
-using GrampsView.Views;
-
 namespace GrampsView.UserControls
 {
     public partial class MediaCardSmall : SmallCardControlTemplate
@@ -11,9 +8,9 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
         }
-        void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+        private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
         {
-            Navigation.PushAsync(new MediaDetailPage(args.Parameter as HLinkMediaModel));
+            OnTapGestureRecognizerTappedHandler("MediaCardSmall", args);
         }
     }
 }
