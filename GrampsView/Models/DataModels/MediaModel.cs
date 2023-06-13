@@ -3,8 +3,8 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Model;
+using GrampsView.Data.StoreFile;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;

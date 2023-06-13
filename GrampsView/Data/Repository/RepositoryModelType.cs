@@ -1,7 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
-using GrampsView.Data.Repository.Interfaces;
 using GrampsView.Exceptions;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;

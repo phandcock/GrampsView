@@ -3,11 +3,12 @@
 using CommunityToolkit.Maui.Markup;
 
 using GrampsView.Common;
-using GrampsView.Data;
-using GrampsView.Data.External.StoreSerial;
-using GrampsView.Data.External.StoreXML;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreFile;
+using GrampsView.Data.StorePostLoad;
+using GrampsView.Data.StoreSerial;
+using GrampsView.Data.StoreXML;
 using GrampsView.ViewModels;
 using GrampsView.ViewModels.Citation;
 using GrampsView.ViewModels.Event;
@@ -114,6 +115,8 @@ namespace GrampsView
             _ = builder.Services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
             _ = builder.Services.AddSingleton<ISharedSharpAppInit, AppInit>();
             _ = builder.Services.AddSingleton<IStoreFile, StoreFile>();
+            _ = builder.Services.AddSingleton<IStoreFileZip, StoreFileZip>();
+            _ = builder.Services.AddSingleton<IStoreFileTar, StoreFileTar>();
             _ = builder.Services.AddSingleton<IStorePostLoad, StorePostLoad>();
             _ = builder.Services.AddSingleton<IStoreXML, StoreXML>();
 

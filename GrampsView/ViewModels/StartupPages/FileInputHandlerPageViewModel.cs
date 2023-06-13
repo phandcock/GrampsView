@@ -1,8 +1,8 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
-using GrampsView.Data.External.StoreFile;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreFile;
 using GrampsView.Events;
 
 using SharedSharp.Common.Interfaces;

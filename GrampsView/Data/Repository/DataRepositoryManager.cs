@@ -3,9 +3,10 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Common.Interfaces;
-using GrampsView.Data.External.StoreSerial;
-using GrampsView.Data.External.StoreXML;
-using GrampsView.Data.ExternalStorage;
+using GrampsView.Data.StoreFile;
+using GrampsView.Data.StorePostLoad;
+using GrampsView.Data.StoreSerial;
+using GrampsView.Data.StoreXML;
 using GrampsView.Events;
 
 using Microsoft.AppCenter.Analytics;
@@ -26,7 +27,7 @@ namespace GrampsView.Data.Repository
         /// <summary>
         /// The local common logging.
         /// </summary>
-        private readonly SharedSharp.Logging.Interfaces.ILog _CL;
+        private readonly ILog _CL;
 
         private readonly IErrorNotifications _commonNotifications;
 
@@ -71,16 +72,26 @@ namespace GrampsView.Data.Repository
         /// <param name="iocStoreFile">
         /// The ioc store file.
         /// </param>
-        public DataRepositoryManager(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator, IStoreXML iocExternalStorage, IStorePostLoad iocGrampsStorePostLoad, IGrampsStoreSerial iocGrampsStoreSerial, IStoreFile iocStoreFile)
+        public DataRepositoryManager(ILog iocCommonLogging,
+                                     IErrorNotifications iocCommonNotifications,
+                                     IStoreXML iocExternalStorage,
+                                     IStoreFileTar iocStoreFileTar,
+                                     IMessenger iocMessenger,
+                                     IStorePostLoad iocStorePostLoad,
+                                     IGrampsStoreSerial iocStoreSerial,
+                                     IStoreFile iocStoreFile,
+                                     IStoreFileZip iocStoreZip)
         {
             _CL = iocCommonLogging ?? throw new ArgumentNullException(nameof(iocCommonLogging));
 
             _ExternalStorage = iocExternalStorage ?? throw new ArgumentNullException(nameof(iocExternalStorage));
 
-            _PostLoad = iocGrampsStorePostLoad;
-            _StoreSerial = iocGrampsStoreSerial;
-            Storage = iocStoreFile;
-            _EventAggregator = iocEventAggregator;
+            _PostLoad = iocStorePostLoad;
+            _StoreSerial = iocStoreSerial;
+            LocalStoreZip = iocStoreZip;
+            LocalStoreTar = iocStoreFileTar;
+            LocalStoreFile = iocStoreFile;
+            _EventAggregator = iocMessenger;
             _commonNotifications = iocCommonNotifications;
 
             // Event Handlers
@@ -121,13 +132,17 @@ namespace GrampsView.Data.Repository
             });
         }
 
+        public IStoreFile LocalStoreFile { get; }
+
+        public IStoreFileTar LocalStoreTar { get; }
+
         /// <summary>
         /// Gets the storage.
         /// </summary>
         /// <value>
         /// The storage.
         /// </value>
-        public IStoreFile Storage { get; }
+        public IStoreFileZip LocalStoreZip { get; }
 
         /// <summary>
         /// Clears the repositories.
@@ -174,8 +189,6 @@ namespace GrampsView.Data.Repository
             SharedSharpSettings.DataSerialised = true;
         }
 
-
-
         /// <summary>
         /// Starts the data load asynchronous. Order is:
         /// 1) UnTar new *.GPKG file
@@ -211,7 +224,7 @@ namespace GrampsView.Data.Repository
                 if (DataStore.Instance.AD.CurrentInputStreamValid)
                 {
                     // Clear the file system
-                    _ = await Storage.DataStorageInitialiseAsync().ConfigureAwait(false);
+                    _ = await LocalStoreFile.DataStorageInitialiseAsync().ConfigureAwait(false);
                 }
 
                 // 1a) UnTar *.GPKG
@@ -313,7 +326,7 @@ namespace GrampsView.Data.Repository
                 // IReadOnlyList<StorageFolder> t = await DataStore.Instance.AD.CurrentDataFolder.GetFoldersAsync();
 
                 // foreach (StorageFolder item in t) { await item.DeleteAsync(); }
-                _ = await Storage.DecompressTAR().ConfigureAwait(false);
+                _ = await LocalStoreTar.DecompressTAR().ConfigureAwait(false);
 
                 // Save the current Index File modified date for later checking TODO How doe sthis
                 // work if only loading picked file?
@@ -341,7 +354,7 @@ namespace GrampsView.Data.Repository
                     //await localStoreFile.DataStorageInitialiseAsync(DataStore.Instance.AD.CurrentDataFolder).ConfigureAwait(false);
                 }
 
-                _ = Storage.DecompressGZIP(fileGrampsDataInput);
+                _ = LocalStoreZip.DecompressGZIP(fileGrampsDataInput);
 
                 // Save the current Index File modified date for later checking
 
