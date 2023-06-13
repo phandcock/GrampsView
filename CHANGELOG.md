@@ -1,3 +1,14 @@
+## [17.2.37](https://github.com/phandcock/GrampsView/compare/v17.2.36...v17.2.37) (2023-06-12)
+
+
+### Bug Fixes
+
+* cleanup ([9531203](https://github.com/phandcock/GrampsView/commit/95312033bc1e3ec5b0c26629c7f3bd9fdb2887ac))
+* name larg person card tweaks ([c474c96](https://github.com/phandcock/GrampsView/commit/c474c96d7d5f75c02b9b8043809c0ce525132e08))
+* tweak navigation tapped again ([cced0a7](https://github.com/phandcock/GrampsView/commit/cced0a75051c7400eb1d7dad3facc0409a7af507))
+
+
+
 ## [17.2.36](https://github.com/phandcock/GrampsView/compare/v17.2.35...v17.2.36) (2023-06-10)
 
 
@@ -24,15 +35,6 @@
 ### Bug Fixes
 
 * update nugets ([1d80c01](https://github.com/phandcock/GrampsView/commit/1d80c01903f0987f980ab77f8370fe1748ca6ba3))
-
-
-
-## [17.2.33](https://github.com/phandcock/GrampsView/compare/v17.2.32...v17.2.33) (2023-06-05)
-
-
-### Bug Fixes
-
-* start work on media laodign fix ([f3594ef](https://github.com/phandcock/GrampsView/commit/f3594efb2bbf00cb5768580b486000f27ec684dd))
 
 
 
