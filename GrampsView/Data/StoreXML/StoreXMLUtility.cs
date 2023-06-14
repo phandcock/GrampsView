@@ -250,21 +250,14 @@ namespace GrampsView.Data.ExternalStorage
         {
             try
             {
-                if (argHLinkLoadImageModel is null)
-                {
-                    throw new ArgumentNullException(nameof(argHLinkLoadImageModel));
-                }
-
-                if (!argHLinkLoadImageModel.DeRef.Valid)
-                {
-                    throw new ArgumentException("CreateClippedMediaModel argument is invalid", nameof(argHLinkLoadImageModel));
-                }
+                Guard.IsNotNull(argHLinkLoadImageModel);
+                Guard.IsFalse(argHLinkLoadImageModel.DeRef.Valid, "CreateClippedMediaModel argument is invalid");
 
                 HLinkKey temp = argHLinkLoadImageModel.HLinkKey;
 
                 IMediaModel returnMediaModel = await MainThread.InvokeOnMainThreadAsync(() =>
              {
-                 // TODO cleanup code. Multiple copies of things in use
+                 // TODO clean up code. Multiple copies of things in use
 
                  IMediaModel theMediaModel = argHLinkLoadImageModel.DeRef;
 

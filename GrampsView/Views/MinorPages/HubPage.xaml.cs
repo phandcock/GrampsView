@@ -3,6 +3,9 @@
 using GrampsView.Events;
 using GrampsView.ViewModels.MinorPages;
 
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
 namespace GrampsView.Views
 {
     public sealed partial class HubPage : ViewBasePage
@@ -14,22 +17,31 @@ namespace GrampsView.Views
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, async (r, m) =>
             {
-                IReadOnlyList<Page> t = Navigation.NavigationStack;
+                try
+                {
+                    IReadOnlyList<Page> t = Navigation.NavigationStack;
 
-                if (MainThread.IsMainThread)
-                {
-                    await Navigation.PushAsync(m.Value);
-                }
-                else
-                {
-                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    if (MainThread.IsMainThread)
                     {
-
                         await Navigation.PushAsync(m.Value);
-                    });
+                    }
+                    else
+                    {
+                        await MainThread.InvokeOnMainThreadAsync(async () =>
+                        {
+                            await Navigation.PushAsync(m.Value);
+                        });
+                    }
                 }
+                catch (Exception ex)
+                {
+                    ErrorInfo t = new("Load Clipped Media")
+                    {
+                        new CardListLine("Page", m.Value.ToString())
+                    };
 
-
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
+                }
 
                 //    await SharedSharpNavigation.NavigateAsyncNS(m.Value);
             });
@@ -46,7 +58,6 @@ namespace GrampsView.Views
                 {
                     await MainThread.InvokeOnMainThreadAsync(async () =>
                     {
-
                         await Application.Current.MainPage.Navigation.PopToRootAsync();
                     });
                 }
