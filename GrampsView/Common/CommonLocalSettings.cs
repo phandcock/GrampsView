@@ -26,9 +26,24 @@ namespace GrampsView.Common
             set => Preferences.Default.Set("NoteEmailAddress", value);
         }
 
+        /// <summary>Gets or sets a value indicating whether [sort h link collections].</summary>
+        /// <value>
+        ///   <c>true</c> if [sort h link collections]; otherwise, <c>false</c>.</value>
+        /// <remarks>Exception handling to track Invalid Handle exception pending reporting to GitHub.</remarks>
         public static bool SortHLinkCollections
         {
-            get => Preferences.Default.Get("SortHLinkCollections", false);
+            get
+            {
+                try
+                {
+                    return Preferences.Default.Get("SortHLinkCollections", false);
+                }
+                catch (Exception ex)
+                {
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("SortHLinkCollections-Preferences Get", ex);
+                    return false;
+                }
+            }
 
             set => Preferences.Default.Set("SortHLinkCollections", value);
         }

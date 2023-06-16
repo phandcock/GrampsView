@@ -248,10 +248,17 @@ namespace GrampsView.Data.ExternalStorage
 
         private async Task<HLinkMediaModel> CreateClippedMediaModel(HLinkMediaModel argHLinkLoadImageModel)
         {
+            IMediaModel theMediaModel = new MediaModel();
+
+
+            if (argHLinkLoadImageModel.HLinkKey.Value == "_f1e1e39ec1c45034e54f3385298")
+            {
+            }
+
             try
             {
                 Guard.IsNotNull(argHLinkLoadImageModel);
-                Guard.IsFalse(argHLinkLoadImageModel.DeRef.Valid, "CreateClippedMediaModel argument is invalid");
+                Guard.IsTrue(argHLinkLoadImageModel.DeRef.Valid, "CreateClippedMediaModel argument is invalid");
 
                 HLinkKey temp = argHLinkLoadImageModel.HLinkKey;
 
@@ -259,7 +266,7 @@ namespace GrampsView.Data.ExternalStorage
              {
                  // TODO clean up code. Multiple copies of things in use
 
-                 IMediaModel theMediaModel = argHLinkLoadImageModel.DeRef;
+                 theMediaModel = argHLinkLoadImageModel.DeRef;
 
                  SKBitmap resourceBitmap = new();
 
@@ -276,7 +283,10 @@ namespace GrampsView.Data.ExternalStorage
 
                  string outFilePath = Path.Combine(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString, outFileName);
 
-                 Debug.WriteLine(argHLinkLoadImageModel.DeRef.CurrentStorageFile);
+                 // Create the path
+                 Directory.CreateDirectory(DataStore.Instance.AD.CurrentImageAssetsFolder.FolderAsString);
+
+                 Debug.WriteLine(argHLinkLoadImageModel.DeRef.CurrentStorageFile.GetAbsoluteFilePath);
 
                  // Check if already exists
                  IMediaModel fileExists = DV.MediaDV.GetModelFromHLinkKey(newHLinkKey);
@@ -366,12 +376,12 @@ namespace GrampsView.Data.ExternalStorage
                  else
                  {
                      ErrorInfo t = new("File not found when Region specified in ClipMedia")
-
-                     {
-                     { "Original ID", theMediaModel.Id },
-                     { "Original File", theMediaModel.OriginalFilePath },
-                     { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
-                     };
+                         {
+                             { "Original Id", theMediaModel.Id },
+                             { "Original File", theMediaModel.OriginalFilePath },
+                             { "Clipped HLinkKey", argHLinkLoadImageModel.HLinkKey.Value },
+                             { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
+                         };
 
                      MyNotifications.NotifyError(t);
                  }
@@ -388,6 +398,14 @@ namespace GrampsView.Data.ExternalStorage
             }
             catch (Exception ex)
             {
+                ErrorInfo t = new("Load Clipped Media")
+                     {
+                         { "Original Id", theMediaModel.Id },
+                         { "Original File", theMediaModel.OriginalFilePath },
+                         { "Clipped HLinkKey", argHLinkLoadImageModel.HLinkKey.Value },
+                         { "Clipped Id", argHLinkLoadImageModel.DeRef.Id }
+                     };
+
                 MyNotifications.NotifyException("Load Clipped Media", ex);
             }
 
