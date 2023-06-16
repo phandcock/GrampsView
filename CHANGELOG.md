@@ -1,3 +1,13 @@
+## [17.2.40](https://github.com/phandcock/GrampsView/compare/v17.2.39...v17.2.40) (2023-06-16)
+
+
+### Bug Fixes
+
+* harden clippedmedia creation ([da02275](https://github.com/phandcock/GrampsView/commit/da02275147ea27a6ae0d28d6f0ca7bcb27d31d69))
+* speedup deserialisation ([72a2b45](https://github.com/phandcock/GrampsView/commit/72a2b457758101c153bab66c52684453ec234608))
+
+
+
 ## [17.2.39](https://github.com/phandcock/GrampsView/compare/v17.2.38...v17.2.39) (2023-06-14)
 
 
@@ -24,16 +34,6 @@
 * cleanup ([9531203](https://github.com/phandcock/GrampsView/commit/95312033bc1e3ec5b0c26629c7f3bd9fdb2887ac))
 * name larg person card tweaks ([c474c96](https://github.com/phandcock/GrampsView/commit/c474c96d7d5f75c02b9b8043809c0ce525132e08))
 * tweak navigation tapped again ([cced0a7](https://github.com/phandcock/GrampsView/commit/cced0a75051c7400eb1d7dad3facc0409a7af507))
-
-
-
-## [17.2.36](https://github.com/phandcock/GrampsView/compare/v17.2.35...v17.2.36) (2023-06-10)
-
-
-### Bug Fixes
-
-* cleanup tappedgesture handling ([4546345](https://github.com/phandcock/GrampsView/commit/4546345ee8e1b16f68bd3f2e571d2b42d38f0f8f))
-* tweak fonts ([602e4dc](https://github.com/phandcock/GrampsView/commit/602e4dc0eb478c6c8e8eae92f6498553eff58689))
 
 
 
