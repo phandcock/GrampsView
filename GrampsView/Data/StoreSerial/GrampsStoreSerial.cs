@@ -1,6 +1,10 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.HLinks.Models;
 
 using SharedSharp.Errors.Interfaces;
 
@@ -35,21 +39,21 @@ namespace GrampsView.Data.StoreSerial
 
             try
             {
-                await DataStore.Instance.DS.AddressData.DeSerialize();
+                DataStore.Instance.DS.AddressData = await new RepositoryModelTypeDeSerialise<AddressModel, HLinkAdressModel>("AddressData").DeSerialize();
                 await DataStore.Instance.DS.BookMarkCollection.DeSerialize();
-                await DataStore.Instance.DS.CitationData.DeSerialize();
-                await DataStore.Instance.DS.EventData.DeSerialize();
-                await DataStore.Instance.DS.FamilyData.DeSerialize();
-                await DataStore.Instance.DS.HeaderData.DeSerialize();
-                await DataStore.Instance.DS.MediaData.DeSerialize();
-                await DataStore.Instance.DS.NameMapData.DeSerialize();
-                await DataStore.Instance.DS.NoteData.DeSerialize();
-                await DataStore.Instance.DS.PersonData.DeSerialize();
-                await DataStore.Instance.DS.PersonNameData.DeSerialize();
-                await DataStore.Instance.DS.PlaceData.DeSerialize();
-                await DataStore.Instance.DS.RepositoryData.DeSerialize();
-                await DataStore.Instance.DS.SourceData.DeSerialize();
-                await DataStore.Instance.DS.TagData.DeSerialize();
+                DataStore.Instance.DS.CitationData = await new RepositoryModelTypeDeSerialise<CitationModel, HLinkCitationModel>("CitationData").DeSerialize();
+                DataStore.Instance.DS.EventData = await new RepositoryModelTypeDeSerialise<EventModel, HLinkEventModel>("EventData").DeSerialize();
+                DataStore.Instance.DS.FamilyData = await new RepositoryModelTypeDeSerialise<FamilyModel, HLinkFamilyModel>("FamilyData").DeSerialize();
+                DataStore.Instance.DS.HeaderData = await new RepositoryModelTypeDeSerialise<HeaderModel, HLinkHeaderModel>("HeaderData").DeSerialize();
+                DataStore.Instance.DS.MediaData = await new RepositoryModelTypeDeSerialise<MediaModel, HLinkMediaModel>("MediaData").DeSerialize();
+                DataStore.Instance.DS.NameMapData = await new RepositoryModelTypeDeSerialise<NameMapModel, HLinkNameMapModel>("NameMapData").DeSerialize();
+                DataStore.Instance.DS.NoteData = await new RepositoryModelTypeDeSerialise<NoteModel, HLinkNoteModel>("NoteData").DeSerialize();
+                DataStore.Instance.DS.PersonData = await new RepositoryModelTypeDeSerialise<PersonModel, HLinkPersonModel>("PersonData").DeSerialize();
+                DataStore.Instance.DS.PersonNameData = await new RepositoryModelTypeDeSerialise<PersonNameModel, HLinkPersonNameModel>("PersonNameData").DeSerialize();
+                DataStore.Instance.DS.PlaceData = await new RepositoryModelTypeDeSerialise<PlaceModel, HLinkPlaceModel>("PlaceData").DeSerialize();
+                DataStore.Instance.DS.RepositoryData = await new RepositoryModelTypeDeSerialise<RepositoryModel, HLinkRepositoryModel>("RepositoryData").DeSerialize();
+                DataStore.Instance.DS.SourceData = await new RepositoryModelTypeDeSerialise<SourceModel, HLinkSourceModel>("SourceData").DeSerialize();
+                DataStore.Instance.DS.TagData = await new RepositoryModelTypeDeSerialise<TagModel, HLinkTagModel>("TagData").DeSerialize();
 
                 localGVLogging.RoutineExit(nameof(DeSerializeRepository));
             }
