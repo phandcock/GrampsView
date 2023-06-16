@@ -1,3 +1,12 @@
+## [17.2.39](https://github.com/phandcock/GrampsView/compare/v17.2.38...v17.2.39) (2023-06-14)
+
+
+### Bug Fixes
+
+* tweaks ([93e3c0b](https://github.com/phandcock/GrampsView/commit/93e3c0b5ce8481cbefda6e240e23ca21a5c533f0))
+
+
+
 ## [17.2.38](https://github.com/phandcock/GrampsView/compare/v17.2.37...v17.2.38) (2023-06-13)
 
 
@@ -25,16 +34,6 @@
 
 * cleanup tappedgesture handling ([4546345](https://github.com/phandcock/GrampsView/commit/4546345ee8e1b16f68bd3f2e571d2b42d38f0f8f))
 * tweak fonts ([602e4dc](https://github.com/phandcock/GrampsView/commit/602e4dc0eb478c6c8e8eae92f6498553eff58689))
-
-
-
-## [17.2.35](https://github.com/phandcock/GrampsView/compare/v17.2.34...v17.2.35) (2023-06-09)
-
-
-### Bug Fixes
-
-* fix datesinglecard tapgesture ([45bf88a](https://github.com/phandcock/GrampsView/commit/45bf88aad03bb218ae5c9be1dab04d32f19ca329))
-* tweak singlecontrol ([236b700](https://github.com/phandcock/GrampsView/commit/236b700a3a899e971bf20503692fed7aa914b445))
 
 
 
