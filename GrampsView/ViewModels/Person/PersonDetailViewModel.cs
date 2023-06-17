@@ -135,7 +135,7 @@ namespace GrampsView.ViewModels.Person
                     // Add Standard details
                     BaseDetail.Add(DV.PersonDV.GetModelInfoFormatted(PersonObject));
 
-                    // Get Faily Graph details
+                    // Get Family Graph details
                     BaseDetail.Add(
                         new HLinkFamilyGraphModel
                         {
