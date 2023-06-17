@@ -1,3 +1,12 @@
+## [17.2.41](https://github.com/phandcock/GrampsView/compare/v17.2.40...v17.2.41) (2023-06-17)
+
+
+### Bug Fixes
+
+* tweaks ([e369b05](https://github.com/phandcock/GrampsView/commit/e369b059501840c60455587d8b8d81d76bad3b9b))
+
+
+
 ## [17.2.40](https://github.com/phandcock/GrampsView/compare/v17.2.39...v17.2.40) (2023-06-16)
 
 
@@ -23,17 +32,6 @@
 ### Bug Fixes
 
 * cleanup StoreFile ([5cc9306](https://github.com/phandcock/GrampsView/commit/5cc9306136a0fd1751d9dc66a3b01f644738f7bb))
-
-
-
-## [17.2.37](https://github.com/phandcock/GrampsView/compare/v17.2.36...v17.2.37) (2023-06-12)
-
-
-### Bug Fixes
-
-* cleanup ([9531203](https://github.com/phandcock/GrampsView/commit/95312033bc1e3ec5b0c26629c7f3bd9fdb2887ac))
-* name larg person card tweaks ([c474c96](https://github.com/phandcock/GrampsView/commit/c474c96d7d5f75c02b9b8043809c0ce525132e08))
-* tweak navigation tapped again ([cced0a7](https://github.com/phandcock/GrampsView/commit/cced0a75051c7400eb1d7dad3facc0409a7af507))
 
 
 
