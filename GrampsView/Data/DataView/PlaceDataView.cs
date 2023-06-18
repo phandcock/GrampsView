@@ -1,24 +1,21 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Collections;
+using GrampsView.Data.Repository;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.HLinks.Models;
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.HLinks.Models;
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
-    /// <summary>
-    /// View of Place data.
-    /// </summary>
-    /// <seealso cref="GrampsView.Data.DataView.DataViewBase{GrampsView.Data.ViewModel.PlaceModel, GrampsView.Data.ViewModel.HLinkPlaceModel, GrampsView.Data.Collections.HLinkPlaceModelCollection}"/>
-    /// /// /// /// /// ///
-    /// <seealso cref="GrampsView.Data.DataView.IPlaceDataView"/>
+    /// <summary>Place data view</summary>
     public class PlaceDataView : DataViewBase<PlaceModel, HLinkPlaceModel, HLinkPlaceModelCollection>, IPlaceDataView
     {
         /// <summary>
@@ -93,7 +90,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkPlaceModelCollection t = new HLinkPlaceModelCollection();
 
-            foreach (var item in DataDefaultSort)
+            foreach (PlaceModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -123,7 +120,7 @@ namespace GrampsView.Data.DataView
                     Title = g.GroupName,
                 };
 
-                foreach (var item in g.Items)
+                foreach (PlaceModel? item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -143,7 +140,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkPlaceModelCollection t = new HLinkPlaceModelCollection();
 
-            foreach (var item in DataDefaultSort)
+            foreach (PlaceModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -201,7 +198,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<PlaceModel> temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (PlaceModel tempMO in temp)
             {

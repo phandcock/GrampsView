@@ -1,13 +1,15 @@
-﻿namespace GrampsView.ViewModels
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.DataView;
+using GrampsView.Data.Model;
+
+using SharedSharp.Logging;
+
+namespace GrampsView.ViewModels
 {
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
-    using GrampsView.Data.Model;
-
-    using SharedSharp.Logging;
-
     /// <summary>
     /// View Model for the Event Section Page.
     /// </summary>
@@ -22,9 +24,7 @@
         /// <param name="iocEventAggregator">
         /// Prism Event Aggregator.
         /// </param>
-        /// <param name="iocNavigationService">
-        /// Prism Navigation Service.
-        /// </param>
+
         public TagListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
             : base(iocCommonLogging)
         {
@@ -33,7 +33,7 @@
         }
 
         /// <summary>
-        /// Gets a Caar Group of Tags for display
+        /// Gets a Card Group of Tags for display
         /// </summary>
         /// <value>
         /// The tag source.

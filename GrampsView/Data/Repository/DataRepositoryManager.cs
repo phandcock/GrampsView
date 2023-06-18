@@ -51,32 +51,21 @@ namespace GrampsView.Data.Repository
         /// </summary>
         private readonly IGrampsStoreSerial _StoreSerial;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
-        /// <param name="iocExternalStorage">
-        /// The ioc external storage.
-        /// </param>
-        /// <param name="iocGrampsStorePostLoad">
-        /// The ioc gramps store post load.
-        /// </param>
-        /// <param name="iocGrampsStoreSerial">
-        /// The ioc gramps store serial.
-        /// </param>
-        /// <param name="iocStoreFile">
-        /// The ioc store file.
-        /// </param>
+        /// <summary>Initializes a new instance of the <see cref="DataRepositoryManager" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
+        /// <param name="iocCommonNotifications"></param>
+        /// <param name="iocExternalStorage">The ioc external storage.</param>
+        /// <param name="iocMessenger"></param>
+        /// <param name="iocStoreFileTar"></param>
+        /// <param name="iocStorePostLoad"></param>
+        /// <param name="iocStoreSerial"></param>
+        /// <param name="iocStoreFile">The ioc store file.</param>
+        /// <param name="iocStoreZip"></param>
         public DataRepositoryManager(ILog iocCommonLogging,
                                      IErrorNotifications iocCommonNotifications,
                                      IStoreXML iocExternalStorage,
-                                     IStoreFileTar iocStoreFileTar,
                                      IMessenger iocMessenger,
+                                     IStoreFileTar iocStoreFileTar,
                                      IStorePostLoad iocStorePostLoad,
                                      IGrampsStoreSerial iocStoreSerial,
                                      IStoreFile iocStoreFile,

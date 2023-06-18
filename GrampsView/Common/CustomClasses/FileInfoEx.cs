@@ -111,9 +111,6 @@ namespace GrampsView.Common.CustomClasses
         /// <param name="argFileName">
         /// Path of the file. May be prepended by a path.
         /// </param>
-        /// <param name="argBaseFolder">
-        /// The base folder of the file.
-        /// </param>
         private void CreateFilePath(string argFileName)
         {
             Contract.Assert(argFileName != null);

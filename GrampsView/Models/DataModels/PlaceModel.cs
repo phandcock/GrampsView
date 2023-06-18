@@ -1,4 +1,4 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
@@ -19,8 +19,8 @@ namespace GrampsView.Models.DataModels
     /// <summary>
     /// Data model for a place.
     /// <list type="table"><listheader><term> Item </term><term> Status </term></listheader><item><description> XML 1.71 check </description><description> Done </description></item></list></summary>
-    /// <seealso cref="Data.ViewModel.ModelBase" />
-    /// <seealso cref="Data.ViewModel.IPlaceModel" />
+    /// <seealso cref="ModelBase" />
+    /// <seealso cref="IPlaceModel" />
     /// <seealso cref="IComparable" />
     /// <seealso cref="IComparer" />
 

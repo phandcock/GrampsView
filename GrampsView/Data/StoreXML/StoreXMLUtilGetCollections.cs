@@ -601,10 +601,7 @@ namespace GrampsView.Data.ExternalStorage
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
 
-                    //var tt = (DataStore.Instance.DS.PersonNameData.Where(x => x.Value.GSurName.GetPrimarySurname == "Ainger"));
-                    //if (tt.Count() > 0)
-                    //{
-                    //}
+
 
                     // Create a HLink to the model
                     HLinkPersonNameModel newHlink = new()

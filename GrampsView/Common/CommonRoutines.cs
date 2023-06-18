@@ -112,25 +112,21 @@ namespace GrampsView.Common
 
         public static JsonSerializerOptions GetSerializerOptions()
         {
-            JsonSerializerOptions serialzerOptions = new();
+            JsonSerializerOptions serializeOptions = new();
 
             // Special converter for colours
-            serialzerOptions.Converters.Add(new Converters.JsonColorConverter());
-            //serialzerOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
+            serializeOptions.Converters.Add(new Converters.JsonColorConverter());
+            //serializeOptions.Converters.Add(new Converters.JsonDateObjectModelConverter());
 
             //// TODO Why does this work Preserve reference data
-            //serialzerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+            //serializeOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
 
-            serialzerOptions.IgnoreReadOnlyFields = true;
-            serialzerOptions.IgnoreReadOnlyProperties = true;
+            serializeOptions.IgnoreReadOnlyFields = true;
+            serializeOptions.IgnoreReadOnlyProperties = true;
+            serializeOptions.DefaultBufferSize = 32768;
 
-            return serialzerOptions;
+            return serializeOptions;
         }
-
-        //public static string GetSerialFile(object argObject)
-        //{
-        //    return GetSerialFile(argObject.GetType().FullName);
-        //}
 
         [Conditional("DEBUG")]
         [DebuggerStepThrough]
@@ -201,7 +197,7 @@ namespace GrampsView.Common
             return BuildType == "Release";
         }
 
-        public static string ReplaceLineSeperators(string argString)
+        public static string ReplaceLineSeparators(string argString)
         {
             return Regex.Replace(argString, @"[\u000A\u000B\u000C\u000D\u2028\u2029\u0085]+", "");
         }

@@ -13,17 +13,5 @@ namespace GrampsView.Data.StoreSerial
         Task DeSerializeRepository();
 
         Task SerializeRepository();
-
-        //Task<object> DeSerializeRMD(object argObject);
-
-        /// <summary>
-        /// Serializes the object.
-        /// </summary>
-        /// <param name="theObject">
-        /// The object.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        //Task SerializeRMD(object argObject);
     }
 }

@@ -24,14 +24,8 @@ namespace GrampsView.ViewModels
             BaseCL = iocCommonLogging;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="ViewModelBase" /> class.</summary>
-        /// <param name="iocCommonLogging">The ioc common logging.</param>
-        /// <summary>
-        /// Gets the base detail.
-        /// </summary>
-        /// <value>
-        /// The base detail.
-        /// </value>
+        /// <summary>Gets or sets the base detail.</summary>
+        /// <value>The base detail.</value>
         public SharedSharpObservableRangeCollection<object> BaseDetail
         {
             get; set;
@@ -53,6 +47,9 @@ namespace GrampsView.ViewModels
             set => SetProperty(ref _BaseTitle, value);
         }
 
+        public IHLinkBase NavigationParameter { get; set; } = new HLinkBase();
+
+        public CardListLineCollection StandardDetails { get; set; } = new CardListLineCollection();
 
         public void HandleParameter(IHLinkBase argHLinkBase)
         {
@@ -60,11 +57,6 @@ namespace GrampsView.ViewModels
 
             HandleViewModelParameters();
         }
-
-
-        public IHLinkBase NavigationParameter { get; set; } = new HLinkBase();
-
-        public CardListLineCollection StandardDetails { get; set; } = new CardListLineCollection();
 
         /// <summary>
         /// Called when [basecl changed]. Frody automatically wires this up.
@@ -82,7 +74,7 @@ namespace GrampsView.ViewModels
         {
             if (!(BaseTitle == null))
             {
-                BaseTitle = CommonRoutines.ReplaceLineSeperators(BaseTitle);
+                BaseTitle = CommonRoutines.ReplaceLineSeparators(BaseTitle);
 
                 BaseTitle = BaseTitle[..(BaseTitle.Length > 50 ? 50 : BaseTitle.Length)];
             }

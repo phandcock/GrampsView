@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Mvvm.Messaging;
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
@@ -21,7 +23,7 @@ namespace GrampsView.ViewModels.MinorPages
         private string lastArg = string.Empty;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchViewModel"/> class.
+        /// Initializes a new instance of the <see cref="SearchPageViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
         /// Common Logging.
@@ -41,7 +43,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
 
-        //= new Group<object>();
+
         /// <summary>
         /// Gets the search button command.
         /// </summary>
@@ -53,24 +55,10 @@ namespace GrampsView.ViewModels.MinorPages
             get;
         }
 
-        //public Group<object> ItemsFoundList
-        //{
-        //    get; set;
-        //}
+
         public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
 
-        //public bool IsBusy
-        //{
-        //    get => _isBusy;
-        //    set
-        //    {
-        //        if (_isBusy != value)
-        //        {
-        //            _isBusy = value;
-        //            SearchButtonCommand.RaiseCanExecuteChanged();
-        //        }
-        //    }
-        //}
+
         public HLinkEventModelCollection SearchEventsCollection { get; set; } = new HLinkEventModelCollection();
 
         public HLinkFamilyModelCollection SearchFamilyCollection { get; set; } = new HLinkFamilyModelCollection();
@@ -109,7 +97,7 @@ namespace GrampsView.ViewModels.MinorPages
             get;
 
             set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Processes the search query.

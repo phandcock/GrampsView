@@ -6,7 +6,6 @@ using GrampsView.Events;
 
 using SharedSharp.Errors.Interfaces;
 
-
 namespace GrampsView.Data.ExternalStorage
 {
     /// <summary>
@@ -28,31 +27,19 @@ namespace GrampsView.Data.ExternalStorage
 
         private readonly IGenerateThumbnails MyGenerateThumbNails = new Common.CustomClasses.GenerateThumbNails();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// The ioc common logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// The ioc event aggregator.
-        /// </param>
+        /// <summary>Initializes a new instance of the <see cref="StorePostLoad" /> class.</summary>
+        /// <param name="iocCommonLogging">The ioc common logging.</param>
+        /// <param name="iocCommonNotifications"></param>
+        /// <param name="iocEventAggregator">The ioc event aggregator.</param>
         public StorePostLoad(ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
         {
             _EventAggregator = iocEventAggregator;
             _CommonLogging = iocCommonLogging;
             _commonNotifications = iocCommonNotifications;
 
-
-
             Ioc.Default.GetRequiredService<IMessenger>().Register<DataLoadXMLEvent>(this, (r, m) =>
             {
-                if (m.Value == null)
-                {
-                    return;
-                }
-
-                LoadXMLUIItems(true);
+                LoadXMLUIItems(m.Value);
             });
         }
 
