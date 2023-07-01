@@ -39,7 +39,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <VerticalStackLayout
+                    <Border
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="0"
@@ -54,7 +54,7 @@
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="Transparent"
                             BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
-                    </VerticalStackLayout>
+                    </Border>
 
                     <ContentPresenter
                         Grid.Row="0"

@@ -1,5 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using CommunityToolkit.Diagnostics;
+
 using GrampsView.Common;
 using GrampsView.Exceptions;
 using GrampsView.Models.DataModels;
@@ -41,11 +43,11 @@ namespace GrampsView.Data.Repository
 
         public RepositoryModelDictionary()
         {
-            // Only for seralisation
+            // Only for serialisation
         }
 
         public List<T1> GetList => Values.ToList();
-        private string SerialisationName { get; }
+        public string SerialisationName { get; private set; } = string.Empty;
 
         public new T1 this[string key]
         {
@@ -236,6 +238,8 @@ namespace GrampsView.Data.Repository
         {
             try
             {
+                Guard.IsNotNull(SerialisationName, nameof(SerialisationName));
+
                 Ioc.Default.GetRequiredService<ILog>().DataLogEntryAdd($"Serialising {CommonRoutines.GetSerialFile(SerialisationName)}");
 
                 JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
