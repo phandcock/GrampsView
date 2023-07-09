@@ -29,7 +29,11 @@
                         Grid.Column="0"
                         Style="{StaticResource CardImageBackgroundFrame}">
 
-                        <ucon:HLinkVisualDisplay x:Name="AnchorImage" BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
+                        <ucon:HLinkVisualDisplay
+                            x:Name="AnchorImage"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BindingContext="{Binding HLinkGlyphItem, Mode=OneWay, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}" />
                     </Border>
 
                     <ContentPresenter Grid.Row="0" Grid.Column="1" />
