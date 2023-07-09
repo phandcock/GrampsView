@@ -62,30 +62,36 @@
                 </HorizontalStackLayout>
             </Border>
 
-            <sharedsharpucon:ListLineCard
+            <sSUcon:SSHeaderBorderSettings
                 Grid.Row="1"
-                ItemsSource="{Binding ApplicationVersionList, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand" />
+                Padding="5"
+                HeaderTitle="Application Versions">
+                <sharedsharpucon:ListLineCard ItemsSource="{Binding ApplicationVersionList, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
+            </sSUcon:SSHeaderBorderSettings>
 
-            <sharedsharpucon:ListLineCard
+            <sSUcon:SSHeaderBorderSettings
                 Grid.Row="2"
-                ItemsSource="{Binding ApplicationStateList, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand" />
+                Padding="5"
+                HeaderTitle="Application State">
+                <sharedsharpucon:ListLineCard ItemsSource="{Binding ApplicationStateList, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
+            </sSUcon:SSHeaderBorderSettings>
 
-            <sharedsharpucon:ListLineCard
+            <sSUcon:SSHeaderBorderSettings
                 Grid.Row="3"
-                ItemsSource="{Binding HeaderData, Mode=OneWay}"
-                HorizontalOptions="FillAndExpand" />
+                Padding="5"
+                HeaderTitle="Header Data">
+                <sharedsharpucon:ListLineCard ItemsSource="{Binding HeaderData, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
+            </sSUcon:SSHeaderBorderSettings>
 
             <sSUcon:SSHeaderBorderSettings Grid.Row="4" HeaderTitle="Whats New">
                 <sharedsharpucon:FileViewCard FileText="{Binding WhatsNewText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
             </sSUcon:SSHeaderBorderSettings>
 
-            <sSUcon:SSHeaderBorderSettings Grid.Row="5" HeaderTitle="Whats New">
+            <sSUcon:SSHeaderBorderSettings Grid.Row="5" HeaderTitle="Attributions">
                 <sharedsharpucon:FileViewCard FileText="{Binding AttributionText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
             </sSUcon:SSHeaderBorderSettings>
 
-            <sSUcon:SSHeaderBorderSettings Grid.Row="6" HeaderTitle="Whats New">
+            <sSUcon:SSHeaderBorderSettings Grid.Row="6" HeaderTitle="Privacy Policy">
                 <sharedsharpucon:FileViewCard FileText="{Binding PrivacyPolicyText, Mode=OneWay}" HorizontalOptions="FillAndExpand" />
             </sSUcon:SSHeaderBorderSettings>
         </Grid>

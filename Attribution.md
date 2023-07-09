@@ -1,5 +1,3 @@
-# Attribution
-
 - SharpZipLib is great software under the MIT licence.  See https://github.com/icsharpcode/SharpZipLib
 
 - Also
