@@ -1,3 +1,13 @@
+## [17.2.44](https://github.com/phandcock/GrampsView/compare/v17.2.43...v17.2.44) (2023-07-09)
+
+
+### Bug Fixes
+
+* tweak About page ([88c7d4f](https://github.com/phandcock/GrampsView/commit/88c7d4f94eede9d3696c9d01e077ba1a56542728))
+* update nugets ([6048664](https://github.com/phandcock/GrampsView/commit/604866489b7556124b032c8e85866600b6e7c8c3))
+
+
+
 ## [17.2.43](https://github.com/phandcock/GrampsView/compare/v17.2.42...v17.2.43) (2023-07-01)
 
 
@@ -23,16 +33,6 @@
 ### Bug Fixes
 
 * tweaks ([e369b05](https://github.com/phandcock/GrampsView/commit/e369b059501840c60455587d8b8d81d76bad3b9b))
-
-
-
-## [17.2.40](https://github.com/phandcock/GrampsView/compare/v17.2.39...v17.2.40) (2023-06-16)
-
-
-### Bug Fixes
-
-* harden clippedmedia creation ([da02275](https://github.com/phandcock/GrampsView/commit/da02275147ea27a6ae0d28d6f0ca7bcb27d31d69))
-* speedup deserialisation ([72a2b45](https://github.com/phandcock/GrampsView/commit/72a2b457758101c153bab66c52684453ec234608))
 
 
 
