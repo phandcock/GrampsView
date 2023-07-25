@@ -99,10 +99,11 @@
 
                 <HorizontalStackLayout HorizontalOptions="FillAndExpand">
 
-                    <Button
+                    <!-- TODO FIx this -->
+                    <!--<Button
                         Command="{Binding DisplayMessageLogButtonCommand}"
                         Style="{DynamicResource SSButtonMenu}"
-                        Text="Show MesageLog" />
+                        Text="Show MesageLog" />-->
 
                 </HorizontalStackLayout>
             </sSUcon:SSHeaderSettings>

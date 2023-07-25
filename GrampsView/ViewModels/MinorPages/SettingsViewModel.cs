@@ -6,7 +6,7 @@ using SharedSharp;
 
 namespace GrampsView.ViewModels.MinorPages
 {
-    public class SettingsViewModel : ViewModelBase
+    public partial class SettingsViewModel : ViewModelBase
     {
         private string _ThemeButtonChecked = string.Empty;
 
@@ -16,12 +16,8 @@ namespace GrampsView.ViewModels.MinorPages
             BaseTitle = "Settings";
             BaseTitleIcon = Constants.IconSettings;
 
-
-
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
         }
-
-
 
         public bool SortCollectionsFlag
         {
