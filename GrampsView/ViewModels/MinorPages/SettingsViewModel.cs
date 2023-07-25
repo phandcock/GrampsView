@@ -16,15 +16,12 @@ namespace GrampsView.ViewModels.MinorPages
             BaseTitle = "Settings";
             BaseTitleIcon = Constants.IconSettings;
 
-            DisplayMessageLogButtonCommand = new AsyncRelayCommand(DisplayMessageLogButtonCommandHandler);
+
 
             UpdateNoteEmailCommand = new Command<string>(UpdateNoteEmailHandler);
         }
 
-        public IAsyncRelayCommand DisplayMessageLogButtonCommand
-        {
-            get;
-        }
+
 
         public bool SortCollectionsFlag
         {
@@ -109,7 +106,8 @@ namespace GrampsView.ViewModels.MinorPages
             set => CommonLocalSettings.UseFirstImageFlag = value;
         }
 
-        private async Task DisplayMessageLogButtonCommandHandler()
+        [RelayCommand]
+        private async Task DisplayMessageLogButtonCommand()
         {
             await SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
             return;
