@@ -59,7 +59,8 @@
                     <ContentPresenter
                         Grid.Row="0"
                         Grid.Column="1"
-                        Padding="1" />
+                        Padding="1"
+                        HorizontalOptions="Fill" />
 
                     <Image
                         Grid.Row="0"

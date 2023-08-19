@@ -63,7 +63,7 @@ namespace GrampsView
 
             SSharpCore.SharedSharpStart(argLogLevel: Microsoft.Extensions.Logging.LogLevel.Trace);
 
-            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretWinUI: Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Error);
+            SharedSharpGeneral.MSAppCenterInit(argMSAppCenterSecretAndroid: Secret.AndroidSecret, argMSAppCenterSecretWinUI: Secret.UWPSecret, argLogLevel: Microsoft.AppCenter.LogLevel.Warn);
 
             return mauiApp;
         }
