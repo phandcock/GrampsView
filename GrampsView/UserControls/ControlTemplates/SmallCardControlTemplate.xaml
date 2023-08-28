@@ -44,8 +44,7 @@
                         Grid.Column="0"
                         Margin="0"
                         Padding="0"
-                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}"
-                        HorizontalOptions="Fill">
+                        BackgroundColor="{Binding HLinkGlyphItem.SymbolColour, Source={RelativeSource AncestorType={x:Type hlinks:HLinkBase}}}">
 
                         <ucon:HLinkVisualDisplay
                             x:Name="AnchorImage"
