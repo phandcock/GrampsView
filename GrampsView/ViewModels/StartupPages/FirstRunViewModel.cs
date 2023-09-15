@@ -1,6 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
+using GrampsView.Data.StoreDB;
 
 using SharedSharp.Common.Interfaces;
 
@@ -36,6 +37,8 @@ namespace GrampsView.ViewModels.StartupPages
         /// <summary>Gramps export XML plus media.</summary>
         public async Task FirstRunLoadAFileButton()
         {
+            await Ioc.Default.GetRequiredService<IStoreDB>().InitialiseDB();
+
             await App.Current.MainPage.Navigation.PopAsync();
 
             await _AppInit.Init();

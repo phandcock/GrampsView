@@ -1,18 +1,20 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Data.StoreDB;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
+
+using Microsoft.EntityFrameworkCore;
+
+using System.Collections;
+using System.Globalization;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
     /// <summary>
     /// Data view into the Notes Repository.
     /// </summary>
@@ -25,6 +27,9 @@ namespace GrampsView.Data.DataView
         public NoteDataView()
         {
         }
+
+
+
 
         public override IReadOnlyList<NoteModel> DataDefaultSort
         {
@@ -44,37 +49,50 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return NoteData.Values.ToList();
+                List<NoteModel> returnValue = new List<NoteModel>();
+
+                System.Collections.ObjectModel.ReadOnlyCollection<NoteDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.ToList().AsReadOnly();
+
+                foreach (NoteDBModel? item in t)
+                {
+                    returnValue.Add(item.DeSerialise());
+                }
+
+                return returnValue;
             }
         }
 
         public override HLinkNoteModelCollection GetLatestChanges
-
         {
             get
             {
-                DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
-
-                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
-
-                HLinkNoteModelCollection returnCardGroup = new HLinkNoteModelCollection();
-
-                foreach (NoteModel item in tt)
+                if (DatabaseAvailable)
                 {
-                    returnCardGroup.Add(item.HLink);
+                    DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
+
+                    IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+
+                    HLinkNoteModelCollection returnCardGroup = new HLinkNoteModelCollection();
+
+                    foreach (NoteModel item in tt)
+                    {
+                        returnCardGroup.Add(item.HLink);
+                    }
+
+                    returnCardGroup.Title = "Latest Note Changes";
+
+                    return returnCardGroup;
                 }
 
-                returnCardGroup.Title = "Latest Note Changes";
-
-                return returnCardGroup;
+                return new HLinkNoteModelCollection();
             }
         }
 
-        public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
+        public DbSet<NoteDBModel> NoteAccess
         {
             get
             {
-                return DataStore.Instance.DS.NoteData;
+                return Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess;
             }
         }
 
@@ -82,7 +100,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkNoteModelCollection t = new HLinkNoteModelCollection();
 
-            foreach (var item in DataDefaultSort)
+            foreach (NoteModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -98,7 +116,7 @@ namespace GrampsView.Data.DataView
 
             var query = from item in DataViewData
                         orderby item.GType, item.ToString()
-                        group item by (item.GType) into g
+                        group item by item.GType into g
                         select new
                         {
                             GroupName = g.Key,
@@ -112,7 +130,7 @@ namespace GrampsView.Data.DataView
                     Title = g.GroupName,
                 };
 
-                foreach (var item in g.Items)
+                foreach (NoteModel? item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -135,7 +153,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkNoteModelCollection t = new HLinkNoteModelCollection();
 
-            foreach (var item in DataDefaultSort)
+            foreach (NoteModel item in DataDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -157,7 +175,7 @@ namespace GrampsView.Data.DataView
 
             IEnumerable<NoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
 
-            foreach (var item in q)
+            foreach (NoteModel item in q)
             {
                 t.Add(item);
             }
@@ -167,7 +185,7 @@ namespace GrampsView.Data.DataView
 
         public override NoteModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return NoteData[argHLinkKey.Value];
+            return Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value).First().DeSerialise();
         }
 
         public override NoteModel GetModelFromId(string argId)
@@ -219,7 +237,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
+            IOrderedEnumerable<NoteModel> temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
 
             if (temp.Any())
             {
@@ -236,7 +254,7 @@ namespace GrampsView.Data.DataView
         {
             List<SearcHandlerItem> returnValue = new List<SearcHandlerItem>();
 
-            foreach (var item in Search(argQuery))
+            foreach (HLinkNoteModel item in Search(argQuery))
             {
                 returnValue.Add(new SearcHandlerItem(item));
             }
@@ -256,9 +274,9 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = from gig in DataViewData
-                       where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
-                       select gig;
+            IEnumerable<NoteModel> temp = from gig in DataViewData
+                                          where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
+                                          select gig;
 
             if (temp.Any())
             {

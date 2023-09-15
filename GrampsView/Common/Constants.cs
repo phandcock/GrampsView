@@ -10,11 +10,24 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 80;
+        public const int GrampsViewDatabaseVersion = 82;
 
         public static readonly string DirectoryCacheBase = "~GV";
 
         public static readonly string DirectoryImageCache = "~worka";
+
+        public const string DatabaseFilename = "GrampsViewSQLite.db3";
+
+        //public const SQLite.SQLiteOpenFlags Flags =
+        //    // open the database in read/write mode
+        //    SQLite.SQLiteOpenFlags.ReadWrite |
+        //    // create the database if it doesn't exist
+        //    SQLite.SQLiteOpenFlags.Create |
+        //    // enable multi-threaded database access
+        //    SQLite.SQLiteOpenFlags.SharedCache;
+
+        public static string DatabasePath =>
+            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
         /// <summary>
         /// The event type birth.

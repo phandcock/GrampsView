@@ -2,8 +2,10 @@
 
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
 
 using System.Xml.Linq;
 
@@ -68,7 +70,10 @@ namespace GrampsView.Data.ExternalStorage
                             loadNote.GTagRefCollection.Add(item);
                         }
 
-                        DV.NoteDV.NoteData.Add((NoteModel)loadNote);
+                        NoteDBModel t = new NoteDBModel(loadNote as NoteModel);
+                        DV.NoteDV.NoteAccess.Add(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
                 catch (Exception ex)

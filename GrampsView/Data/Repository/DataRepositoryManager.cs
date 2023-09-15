@@ -148,7 +148,7 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();
             DataStore.Instance.DS.NameMapData.Clear();
-            DataStore.Instance.DS.NoteData.Clear();
+            //await DataStore.Instance.DS.NoteData.Clear();
             DataStore.Instance.DS.PersonData.Clear();
             DataStore.Instance.DS.PersonNameData.Clear();
             DataStore.Instance.DS.PlaceData.Clear();

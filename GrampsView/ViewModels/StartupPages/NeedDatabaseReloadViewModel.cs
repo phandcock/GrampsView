@@ -1,6 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
+using GrampsView.Data.StoreDB;
 
 using SharedSharp.Common.Interfaces;
 
@@ -42,6 +43,8 @@ namespace GrampsView.ViewModels.StartupPages
         public async Task LoadDataAction()
         {
             await App.Current.MainPage.Navigation.PopAsync();
+
+            await Ioc.Default.GetRequiredService<IStoreDB>().InitialiseDB();
 
             await _AppInit.Init();
         }

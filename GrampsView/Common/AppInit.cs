@@ -1,5 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Data.StoreDB;
 using GrampsView.Events;
 using GrampsView.Views;
 using GrampsView.Views.StartupPages;
@@ -37,11 +38,13 @@ namespace GrampsView.Common
                     return;
                 }
 
-                if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate(nameof(NeedDatabaseReloadPage)))
+                if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
                 {
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new NeedDatabaseReloadPage()));
+
                     SharedSharpSettings.DataSerialised = false;
 
-                    //return;
+                    return;
                 }
 
                 // Load da data
@@ -68,6 +71,12 @@ namespace GrampsView.Common
         {
             try
             {
+                await Task.Run(async () =>
+                  {
+                      await Ioc.Default.GetRequiredService<IStoreDB>().OpenOrCreate();
+                  });
+
+
                 if (SharedSharpSettings.DataSerialised)
                 {
                     // Ioc.Default.GetRequiredService<IDataRepositoryManager>().StartDataLoad();

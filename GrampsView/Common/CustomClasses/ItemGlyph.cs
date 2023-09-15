@@ -4,6 +4,8 @@ using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Views;
 
+using Microsoft.EntityFrameworkCore;
+
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
@@ -18,19 +20,34 @@ namespace GrampsView.Common.CustomClasses
     /// for card and Image, e.g. photo <br/> c) Media = Display Symbol for card and image with media
     /// if selected to play or display <br/></note>
     /// </summary>
-
+    /// 
+    [PrimaryKey(nameof(Id))]
     public class ItemGlyph : ObservableObject, IItemGlyph
     {
         public ItemGlyph()
         {
             UCNavigateCommand = new AsyncRelayCommand(UCNavigate);
+            Id = ImageHLink.Value;
         }
+
+        public string Id { get; set; }
+
+        private HLinkKey _ImageHLink = new HLinkKey();
 
         [JsonInclude]
         public HLinkKey ImageHLink
         {
-            get; set;
-        } = new HLinkKey();
+            get
+            {
+                return _ImageHLink;
+            }
+
+            set
+            {
+                _ImageHLink = value;
+                Id = _ImageHLink.Value;
+            }
+        }
 
         [JsonIgnore]
         public HLinkMediaModel ImageHLinkMediaModel

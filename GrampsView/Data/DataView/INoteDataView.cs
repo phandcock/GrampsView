@@ -1,38 +1,23 @@
-//-----------------------------------------------------------------------
-//
-// Interface for the Note Repository
-//
-// <copyright file="INoteDataView.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.Generic;
-
     /// <summary>
     /// Interface for the Note Repository.
     /// </summary>
     public interface INoteDataView : IDataViewBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>
     {
-        /// <summary>
-        /// Gets or sets the note data.
-        /// </summary>
-        /// <value>
-        /// The note data.
-        /// </value>
-        RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
-        {
-            get;
-        }
+        // TODO add this to the general Interface
+        DbSet<NoteDBModel> NoteAccess { get; }
 
         /// <summary>
         /// Gets all as hlink.

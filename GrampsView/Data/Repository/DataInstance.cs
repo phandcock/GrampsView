@@ -59,10 +59,10 @@ namespace GrampsView.Data.Repository
         /// </summary>
         private RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> _NameMapData = new RepositoryModelDictionary<NameMapModel, HLinkNameMapModel>("NameMapData");
 
-        /// <summary>
-        /// The local note data.
-        /// </summary>
-        private RepositoryModelDictionary<NoteModel, HLinkNoteModel> _NoteData = new RepositoryModelDictionary<NoteModel, HLinkNoteModel>("NoteData");
+        ///// <summary>
+        ///// The local note data.
+        ///// </summary>
+        //private RepositoryModelDictionary<NoteModel, HLinkNoteModel> _NoteData = new RepositoryModelDictionary<NoteModel, HLinkNoteModel>("NoteData");
 
         /// <summary>
         /// The local person data.
@@ -257,19 +257,23 @@ namespace GrampsView.Data.Repository
         /// The local Note data.
         /// </summary>
 
-        [JsonInclude]
-        public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
-        {
-            get
-            {
-                return _NoteData;
-            }
+        //[JsonInclude]
+        //public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
+        //{
+        //    get
+        //    {
+        //        return _NoteData;
+        //    }
 
-            set
-            {
-                SetProperty(ref _NoteData, value);
-            }
-        }
+        //    set
+        //    {
+        //        SetProperty(ref _NoteData, value);
+        //    }
+        //}
+
+        //[JsonIgnore]
+        //public ModelDB<NoteModel, HLinkNoteModel> NoteData = new ModelDB<NoteModel, HLinkNoteModel>();
+
 
         /// <summary>
         /// The local Person data.

@@ -37,7 +37,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         public CardListLineCollection HeaderCard => DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
 
-        // TODO cleanup naming. See personcitationchanges
+        // TODO clean up naming. See personcitationchanges
         public CardGroupHLink<HLinkCitationModel> LatestCitationChanges => DV.CitationDV.GetLatestChanges;
 
         public CardGroupHLink<HLinkEventModel> LatestEventChanges => DV.EventDV.GetLatestChanges;

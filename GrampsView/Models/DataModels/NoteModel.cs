@@ -4,6 +4,8 @@ using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 
+using Microsoft.EntityFrameworkCore;
+
 using System.Collections;
 using System.Text.RegularExpressions;
 
@@ -12,6 +14,7 @@ namespace GrampsView.Models.DataModels
     /// <summary>Data model for a note.</summary>
     /// <remarks>gramps XML 1.71 - Done<br /><br />  primary-object<br />////    format<br />////    type<br />////    styledtext<br />///     tagref</remarks>
 
+    [PrimaryKey(nameof(Id))]
     public sealed class NoteModel : ModelBase, INoteModel, IComparable, IComparer
     {
         private readonly FormattedString _TextFormatted = new();

@@ -116,16 +116,22 @@
 	
 	<!-- General -->
     <ItemGroup>
+      <AndroidResource Remove="Models\DBModels\**" />
       <AndroidResource Remove="ViewModels\PeopleGraph\**" />
       <AndroidResource Remove="Views\PeopleGraph\**" />
+      <Compile Remove="Models\DBModels\**" />
       <Compile Remove="ViewModels\PeopleGraph\**" />
       <Compile Remove="Views\PeopleGraph\**" />
+      <EmbeddedResource Remove="Models\DBModels\**" />
       <EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
       <EmbeddedResource Remove="Views\PeopleGraph\**" />
+      <MauiCss Remove="Models\DBModels\**" />
       <MauiCss Remove="ViewModels\PeopleGraph\**" />
       <MauiCss Remove="Views\PeopleGraph\**" />
+      <MauiXaml Remove="Models\DBModels\**" />
       <MauiXaml Remove="ViewModels\PeopleGraph\**" />
       <MauiXaml Remove="Views\PeopleGraph\**" />
+      <None Remove="Models\DBModels\**" />
       <None Remove="ViewModels\PeopleGraph\**" />
       <None Remove="Views\PeopleGraph\**" />
     </ItemGroup>
@@ -152,6 +158,8 @@
       <Compile Remove="Common\Interfaces\ILocalizecs.cs" />
       <Compile Remove="Common\Interfaces\IStartAppLoad.cs" />
       <Compile Remove="Common\Interfaces\IXamarinEssentials.cs" />
+      <Compile Remove="Data\DBLayer\IModelDB.cs" />
+      <Compile Remove="Data\DBLayer\ModelDB.cs" />
       <Compile Remove="Data\StoreFile\StoreFileNames.cs" />
       <Compile Remove="Events\DataLoadStartEvent.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
@@ -180,16 +188,27 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="Models\DBModels\IDBModel.cs" />
+      <Compile Include="Models\DBModels\DBModel.cs" />
+      <Compile Include="Models\DBModels\NoteDBModel.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
 
         <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.1" />
         <PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.2.0" />
         <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
+        <PackageReference Include="EntityFramework" Version="6.4.4" />
 
         <PackageReference Include="Fody" Version="6.8.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.10" />
 		
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -202,10 +221,11 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.9.11" />
+        <PackageReference Include="SharedSharp" Version="1.9.12" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.5" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     </ItemGroup>
 
     <ItemGroup>

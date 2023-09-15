@@ -1,11 +1,4 @@
-﻿//-----------------------------------------------------------------------
-//
-// Various routines used by the App class that are put here to keep the App class cleaner
-//
-// <copyright file="INoteModel.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Collections;
 using GrampsView.Models.DataModels;
@@ -65,6 +58,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get h link.
         /// </value>
+
         HLinkNoteModel HLink
         {
             get;

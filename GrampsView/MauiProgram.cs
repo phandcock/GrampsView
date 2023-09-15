@@ -5,6 +5,7 @@ using CommunityToolkit.Maui.Markup;
 using GrampsView.Common;
 using GrampsView.Data.ExternalStorage;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreFile;
 using GrampsView.Data.StorePostLoad;
 using GrampsView.Data.StoreSerial;
@@ -114,9 +115,10 @@ namespace GrampsView
             _ = builder.Services.AddSingleton<IDataRepositoryManager, DataRepositoryManager>();
             _ = builder.Services.AddSingleton<IGrampsStoreSerial, GrampsStoreSerial>();
             _ = builder.Services.AddSingleton<ISharedSharpAppInit, AppInit>();
+            _ = builder.Services.AddSingleton<IStoreDB, StoreDB>();
             _ = builder.Services.AddSingleton<IStoreFile, StoreFile>();
-            _ = builder.Services.AddSingleton<IStoreFileZip, StoreFileZip>();
             _ = builder.Services.AddSingleton<IStoreFileTar, StoreFileTar>();
+            _ = builder.Services.AddSingleton<IStoreFileZip, StoreFileZip>();
             _ = builder.Services.AddSingleton<IStorePostLoad, StorePostLoad>();
             _ = builder.Services.AddSingleton<IStoreXML, StoreXML>();
 

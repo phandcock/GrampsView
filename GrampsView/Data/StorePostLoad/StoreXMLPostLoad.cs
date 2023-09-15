@@ -1,11 +1,10 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using CommunityToolkit.Mvvm.ComponentModel;
-
 using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StorePostLoad;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
@@ -55,7 +54,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>
-        private Task<bool> OrganiseCitationRepository()
+        private async Task<bool> OrganiseCitationRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Citation data");
 
@@ -91,7 +90,10 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Source Link
@@ -113,13 +115,13 @@ namespace GrampsView.Data.ExternalStorage
             // TODO finish adding the collections to the backlinks
             SetCitationImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the event repository.
         /// </summary>
-        private Task<bool> OrganiseEventRepository()
+        private async Task<bool> OrganiseEventRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Event data");
 
@@ -155,7 +157,11 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Tag Collection
@@ -171,13 +177,13 @@ namespace GrampsView.Data.ExternalStorage
 
             SetEventImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the family repository.
         /// </summary>
-        private Task<bool> OrganiseFamilyRepository()
+        private async Task<bool> OrganiseFamilyRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Family data ");
 
@@ -237,7 +243,10 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Tag Collection
@@ -253,7 +262,7 @@ namespace GrampsView.Data.ExternalStorage
 
             SetFamilyImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
@@ -297,7 +306,10 @@ namespace GrampsView.Data.ExternalStorage
                     // Back Reference Note HLinks
                     foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                     {
-                        DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                        Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                     }
 
                     // Tag Collection
@@ -377,7 +389,7 @@ namespace GrampsView.Data.ExternalStorage
             return true;
         }
 
-        private Task<bool> OrganisePersonNameRepository()
+        private async Task<bool> OrganisePersonNameRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Person Name data");
 
@@ -398,7 +410,10 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in argModel.GNoteReferenceCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 argModel.BackHLinkReferenceCollection.Sort();
@@ -406,13 +421,13 @@ namespace GrampsView.Data.ExternalStorage
 
             SetPersonNameImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the person repository.
         /// </summary>
-        private Task<bool> OrganisePersonRepository()
+        private async Task<bool> OrganisePersonRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Person data");
 
@@ -461,7 +476,11 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Parent In Collection
@@ -508,13 +527,13 @@ namespace GrampsView.Data.ExternalStorage
 
             SetPersonImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the place repository.
         /// </summary>
-        private Task<bool> OrganisePlaceRepository()
+        private async Task<bool> OrganisePlaceRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Place data");
 
@@ -548,7 +567,10 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Tag Collection
@@ -574,13 +596,13 @@ namespace GrampsView.Data.ExternalStorage
 
             SetPlaceImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the repository repository.
         /// </summary>
-        private Task<bool> OrganiseRepositoryRepository()
+        private async Task<bool> OrganiseRepositoryRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Repository data");
 
@@ -591,7 +613,10 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Tag Collection
@@ -607,7 +632,7 @@ namespace GrampsView.Data.ExternalStorage
 
             SetRepositoryImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
@@ -617,7 +642,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// true if the organisation worked.
         /// </returns>
-        private Task<bool> OrganiseSourceRepository()
+        private async Task<bool> OrganiseSourceRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Source data");
 
@@ -636,7 +661,10 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (IHLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    DataStore.Instance.DS.NoteData[noteRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
+                    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
+                    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
                 }
 
                 // Repository Ref Collection
@@ -660,7 +688,7 @@ namespace GrampsView.Data.ExternalStorage
 
             SetSourceImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>

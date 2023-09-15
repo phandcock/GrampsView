@@ -1,13 +1,12 @@
-﻿namespace GrampsView.Common.CustomClasses
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Models.HLinks;
+
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GrampsView.Common.CustomClasses
 {
-    using GrampsView.Models.HLinks;
-
-    using SharedSharp.Common;
-
-    using System;
-
-    using CommunityToolkit.Mvvm.ComponentModel;
-
+    [ComplexType]
     public class HLinkKey : ObservableObject, IComparable<HLinkKey>, IComparable
     {
         public HLinkKey(string argHLinkKeyValue)

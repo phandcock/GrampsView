@@ -64,7 +64,7 @@
 
                 <sharedsharpucon:ListLineCard ItemsSource="{Binding HeaderCard}" />
 
-                <ucon:CollectionSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />
+                <!--<ucon:CollectionSingleCard FsctSource="{Binding ToDoList, Mode=OneWay}" FsctTemplate="{StaticResource NoteCardSmallDT}" />-->
                 <ucon:CollectionSingleCard FsctSource="{Binding LatestCitationChanges, Mode=OneWay}" FsctTemplate="{StaticResource CitationCardSmallDT}" />
                 <ucon:CollectionSingleCard FsctSource="{Binding LatestEventChanges, Mode=OneWay}" FsctTemplate="{StaticResource EventCardSmallDT}" />
                 <ucon:CollectionSingleCard FsctSource="{Binding LatestFamilyChanges, Mode=OneWay}" FsctTemplate="{StaticResource FamilyCardSmallDT}" />

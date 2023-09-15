@@ -129,6 +129,8 @@ namespace GrampsView.Data.ExternalStorage
         /// </returns>
         public async Task<bool> LoadXMLDataAsync()
         {
+            await LoadNotesAsync().ConfigureAwait(false);
+
             // load media because we need it for hlink cropping later
             _ = await LoadMediaObjectsAsync().ConfigureAwait(false);
 
@@ -140,7 +142,7 @@ namespace GrampsView.Data.ExternalStorage
 
             await LoadHeaderDataAsync().ConfigureAwait(false);
             await LoadNameMapsAsync().ConfigureAwait(false);
-            await LoadNotesAsync().ConfigureAwait(false);
+            //await LoadNotesAsync().ConfigureAwait(false);
 
             await LoadPlacesAsync().ConfigureAwait(false);
             await LoadRepositoriesAsync().ConfigureAwait(false);
