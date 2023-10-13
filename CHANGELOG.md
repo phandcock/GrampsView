@@ -1,3 +1,14 @@
+## [17.2.51](https://github.com/phandcock/GrampsView/compare/v17.2.50...v17.2.51) (2023-10-13)
+
+
+### Bug Fixes
+
+* tweaks ([ccbdc61](https://github.com/phandcock/GrampsView/commit/ccbdc612d307c606e8d903d72d5550158556ac50))
+* update nugets ([ec0d99e](https://github.com/phandcock/GrampsView/commit/ec0d99ee14b13a6b21206f1e23ff285709442eae))
+* work on new dbmodel and tab menu ([f6aa853](https://github.com/phandcock/GrampsView/commit/f6aa85312857377f6edfa3a264ea41ff0970cde5))
+
+
+
 ## [17.2.50](https://github.com/phandcock/GrampsView/compare/v17.2.49...v17.2.50) (2023-08-28)
 
 
@@ -22,15 +33,6 @@
 ### Bug Fixes
 
 * tweaks ([99268b7](https://github.com/phandcock/GrampsView/commit/99268b701e3f0c48333176a9ba219bb6c8da3512))
-
-
-
-## [17.2.47](https://github.com/phandcock/GrampsView/compare/v17.2.46...v17.2.47) (2023-08-14)
-
-
-### Bug Fixes
-
-* update nugets ([0901099](https://github.com/phandcock/GrampsView/commit/0901099093e8ee8b3b0e6d7a86f0e17b83fa92dc))
 
 
 
