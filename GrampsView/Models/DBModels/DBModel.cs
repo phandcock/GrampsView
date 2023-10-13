@@ -42,6 +42,12 @@ namespace GrampsView.Models.DBModels
         {
             JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
 
+            if (string.IsNullOrEmpty(serialisedModel))
+            {
+                return new T1();
+            }
+
+
             return JsonSerializer.Deserialize<T1>(serialisedModel, serializerOptions);
         }
 

@@ -281,4 +281,29 @@
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
     </Style>
+
+    <!--
+        ******************************************************
+        Shell Styles
+        ******************************************************
+    -->
+
+    <Style x:Key="AppShellBaseStyle" TargetType="Element">
+        <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="Shell.DisabledColor" Value="DarkBlue" />
+        <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
+
+    </Style>
+
+    <Style BasedOn="{StaticResource AppShellBaseStyle}" TargetType="Shell" />
+
+    <Style x:Key="TabBarBaseStyle" TargetType="TabBar">
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource SurfaceDark}, Light={StaticResource SurfaceLight}}" />
+        <Setter Property="Shell.TabBarDisabledColor" Value="DarkBlue" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceDark}, Light={StaticResource OnSurfaceLight}}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark={StaticResource OnSurfaceVariantDark}, Light={StaticResource OnSurfaceVariantLight}}" />
+    </Style>
 </ResourceDictionary>

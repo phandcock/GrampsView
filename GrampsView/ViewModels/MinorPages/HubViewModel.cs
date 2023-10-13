@@ -9,6 +9,8 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Interfaces;
 using GrampsView.Models.HLinks.Models;
 
+using SharedSharp.Views;
+
 namespace GrampsView.ViewModels.MinorPages
 {
     /// <summary>
@@ -31,7 +33,7 @@ namespace GrampsView.ViewModels.MinorPages
 
             iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
              {
-                 Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
+                 SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(SharedSharpMessageLogPage));
              });
         }
 

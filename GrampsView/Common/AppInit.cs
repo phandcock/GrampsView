@@ -25,7 +25,10 @@ namespace GrampsView.Common
                 // Need FirstRun?
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
-                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new FirstRunPage()));
+                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
+
+
+
 
                     return;
                 }
@@ -33,14 +36,17 @@ namespace GrampsView.Common
                 // Need WhatsNew?
                 if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
                 {
-                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new WhatsNewPage()));
+                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
+
 
                     return;
                 }
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
                 {
-                    Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new NeedDatabaseReloadPage()));
+
+                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
+
 
                     SharedSharpSettings.DataSerialised = false;
 
@@ -86,7 +92,10 @@ namespace GrampsView.Common
 
                 // No Serialised Data and made it this far so some problem has occurred. Load
                 // everything from the beginning.
-                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new FileInputHandlerPage()));
+
+                SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FileInputHandlerPage));
+
+
             }
             catch (Exception ex)
             {

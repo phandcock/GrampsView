@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GrampsView.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:GrampsView.Common"
+    xmlns:views="clr-namespace:GrampsView.Views"
+    Style="{StaticResource AppShellBaseStyle}"
+    xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
+    xmlns:sharedsharpviews="clr-namespace:SharedSharp.Views;assembly=SharedSharp">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ssharp:CommonDictionary />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar Style="{StaticResource TabBarBaseStyle}">
+        <Tab Title="Hub" Route="BookReaderPage">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconHub}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent Title="Hub" ContentTemplate="{DataTemplate views:HubPage}" />
+        </Tab>
+
+        <Tab Title="Birthdays">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconPeopleBirthday}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+
+            <ShellContent Title="Birthdays" ContentTemplate="{DataTemplate views:PersonBirthdayPage}" />
+        </Tab>
+
+        <Tab Title="Bookmarks">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconBookMark}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:BookMarkListPage}" />
+        </Tab>
+
+        <Tab Title="Citations">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconCitation}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:CitationListPage}" />
+        </Tab>
+
+        <Tab Title="Events">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+
+        <Tab Title="Families">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Media">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Notes">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="People">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Places">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Repositories">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Sources">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Tags">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Load data">
+            <Tab.Icon>
+                <FontImageSource
+                FontFamily="IconMaterialIconsOutline"
+                Glyph="{x:Static common:Constants.IconAbout}"
+                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                        Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+
+        <Tab Title="Search">
+            <Tab.Icon>
+                <FontImageSource
+              FontFamily="IconMaterialIconsOutline"
+              Glyph="{x:Static common:Constants.IconAbout}"
+              Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                      Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Settings">
+            <Tab.Icon>
+                <FontImageSource
+              FontFamily="IconMaterialIconsOutline"
+              Glyph="{x:Static common:Constants.IconAbout}"
+              Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                      Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+       
+        
+        <Tab Title="About">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+    </TabBar>
+</Shell>

@@ -97,7 +97,7 @@ namespace GrampsView.Data.Repository
 
                 await StartDataLoadAsync();
 
-                Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPopRootEvent(true));
+                await SharedSharp.SharedSharpNavigation.NavigateHub();
             });
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>

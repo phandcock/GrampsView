@@ -1,10 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Events;
 using GrampsView.ViewModels.MinorPages;
-
-using SharedSharp.Errors;
-using SharedSharp.Errors.Interfaces;
 
 namespace GrampsView.Views
 {
@@ -15,54 +11,54 @@ namespace GrampsView.Views
             InitializeComponent();
             BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, async (r, m) =>
-            {
-                try
-                {
-                    IReadOnlyList<Page> t = Navigation.NavigationStack;
+            //Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, async (r, m) =>
+            //{
+            //    try
+            //    {
+            //        IReadOnlyList<Page> t = Navigation.NavigationStack;
 
-                    if (MainThread.IsMainThread)
-                    {
-                        await Navigation.PushAsync(m.Value);
-                    }
-                    else
-                    {
-                        await MainThread.InvokeOnMainThreadAsync(async () =>
-                        {
-                            await Navigation.PushAsync(m.Value);
-                        });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorInfo t = new("Load Clipped Media")
-                    {
-                        new CardListLine("Page", m.Value.ToString())
-                    };
+            //        if (MainThread.IsMainThread)
+            //        {
+            //            await Navigation.PushAsync(m.Value);
+            //        }
+            //        else
+            //        {
+            //            await MainThread.InvokeOnMainThreadAsync(async () =>
+            //            {
+            //                await Navigation.PushAsync(m.Value);
+            //            });
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ErrorInfo t = new("Load Clipped Media")
+            //        {
+            //            new CardListLine("Page", m.Value.ToString())
+            //        };
 
-                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
-                }
+            //        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
+            //    }
 
-                //    await SharedSharpNavigation.NavigateAsyncNS(m.Value);
-            });
+            //    //    await SharedSharpNavigation.NavigateAsyncNS(m.Value);
+            //});
 
-            Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPopRootEvent>(this, async (r, m) =>
-            {
-                IReadOnlyList<Page> t = Navigation.NavigationStack;
+            //Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPopRootEvent>(this, async (r, m) =>
+            //{
+            //    IReadOnlyList<Page> t = Navigation.NavigationStack;
 
-                if (MainThread.IsMainThread)
-                {
-                    await Navigation.PopToRootAsync();
-                }
-                else
-                {
-                    await MainThread.InvokeOnMainThreadAsync(async () =>
-                    {
-                        await Application.Current.MainPage.Navigation.PopToRootAsync();
-                    });
-                }
-                //  await SharedSharpNavigation.NavigateHubNS();
-            });
+            //    if (MainThread.IsMainThread)
+            //    {
+            //        await Navigation.PopToRootAsync();
+            //    }
+            //    else
+            //    {
+            //        await MainThread.InvokeOnMainThreadAsync(async () =>
+            //        {
+            //            await Application.Current.MainPage.Navigation.PopToRootAsync();
+            //        });
+            //    }
+            //    //  await SharedSharpNavigation.NavigateHubNS();
+            //});
         }
     }
 }

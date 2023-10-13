@@ -138,7 +138,6 @@
 
     <ItemGroup>
       <Compile Remove="App.cs" />
-      <Compile Remove="AppShell.xaml.cs" />
       <Compile Remove="Common\CardSizes.cs" />
       <Compile Remove="Common\CollectionViewEx.cs" />
       <Compile Remove="Common\CustomClasses\HLinkLoadImageModel.cs" />
@@ -163,6 +162,8 @@
       <Compile Remove="Data\StoreFile\StoreFileNames.cs" />
       <Compile Remove="Events\DataLoadStartEvent.cs" />
       <Compile Remove="Events\MessageLogEvent.cs" />
+      <Compile Remove="Events\NavigationPopRootEvent.cs" />
+      <Compile Remove="Events\NavigationPushEvent.cs" />
       <Compile Remove="MainPage.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\ImageResource.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
@@ -172,13 +173,16 @@
       <Compile Remove="UserControls\General\FlexkMe.cs" />
       <Compile Remove="UserControls\General\FlexSingleCard.xaml.cs" />
       <Compile Remove="ViewModels\AppShellViewModel.cs" />
+      <Compile Remove="Views\MinorPages\BaseNavigation.xaml.cs" />
+      <Compile Remove="Views\MinorPages\FlyoutMenuPage.xaml.cs" />
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Remove="AppShell.xaml" />
       <MauiXaml Remove="Resources\Styles\_Sizes.xaml" />
       <MauiXaml Remove="UserControls\General\CardGroupHeader.xaml" />
       <MauiXaml Remove="UserControls\General\FlexSingleCard.xaml" />
+      <MauiXaml Remove="Views\MinorPages\BaseNavigation.xaml" />
+      <MauiXaml Remove="Views\MinorPages\FlyoutMenuPage.xaml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -263,9 +267,6 @@
       <Compile Update="UserControls\Single\DateStrCardSingle.xaml.cs">
         <DependentUpon>DateStrCardSingle.xaml</DependentUpon>
       </Compile>
-      <Compile Update="Views\MinorPages\FlyoutMenuPage.xaml.cs">
-        <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
-      </Compile>
       <Compile Update="Views\StartupPages\FirstRunPage.xaml.cs">
         <SubType>Code</SubType>
         <DependentUpon>%(Filename)</DependentUpon>
@@ -274,6 +275,9 @@
 
     <ItemGroup>
       <MauiXaml Update="App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="AppShell.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Resources\Styles\AppViewDictionary.xaml">
@@ -304,12 +308,6 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="UserControls\Single\DateStrCardSingle.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="Views\MinorPages\BaseNavigation.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="Views\MinorPages\FlyoutMenuPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\Place\PlaceDetailView.xaml">

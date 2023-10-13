@@ -1,7 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Repository;
-using GrampsView.Views;
 
 using SharedSharp.Common.Interfaces;
 
@@ -13,7 +12,7 @@ namespace GrampsView
         {
             InitializeComponent();
 
-            MainPage = new BaseNavigation();
+            MainPage = new AppShell();
 
             StartUp();
 
