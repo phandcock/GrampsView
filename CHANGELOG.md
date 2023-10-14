@@ -1,3 +1,12 @@
+## [17.2.52](https://github.com/phandcock/GrampsView/compare/v17.2.51...v17.2.52) (2023-10-14)
+
+
+### Bug Fixes
+
+* first rough working code for notes ([4845fbe](https://github.com/phandcock/GrampsView/commit/4845fbe92d39cf77cacea3b771b61a71204d21bd))
+
+
+
 ## [17.2.51](https://github.com/phandcock/GrampsView/compare/v17.2.50...v17.2.51) (2023-10-13)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * tweak layout ([b23e324](https://github.com/phandcock/GrampsView/commit/b23e324fd286ec96dd929ab4645537ea425e7364))
-
-
-
-## [17.2.48](https://github.com/phandcock/GrampsView/compare/v17.2.47...v17.2.48) (2023-08-19)
-
-
-### Bug Fixes
-
-* tweaks ([99268b7](https://github.com/phandcock/GrampsView/commit/99268b701e3f0c48333176a9ba219bb6c8da3512))
 
 
 
