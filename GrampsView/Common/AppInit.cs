@@ -27,9 +27,6 @@ namespace GrampsView.Common
                 {
                     SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
 
-
-
-
                     return;
                 }
 
@@ -38,15 +35,12 @@ namespace GrampsView.Common
                 {
                     SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
 
-
                     return;
                 }
 
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
                 {
-
                     SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
-
 
                     SharedSharpSettings.DataSerialised = false;
 
@@ -82,7 +76,6 @@ namespace GrampsView.Common
                       await Ioc.Default.GetRequiredService<IStoreDB>().OpenOrCreate();
                   });
 
-
                 if (SharedSharpSettings.DataSerialised)
                 {
                     // Ioc.Default.GetRequiredService<IDataRepositoryManager>().StartDataLoad();
@@ -94,8 +87,6 @@ namespace GrampsView.Common
                 // everything from the beginning.
 
                 SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FileInputHandlerPage));
-
-
             }
             catch (Exception ex)
             {

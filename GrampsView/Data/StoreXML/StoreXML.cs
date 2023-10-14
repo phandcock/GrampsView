@@ -40,8 +40,6 @@ namespace GrampsView.Data.ExternalStorage
             MyLog = iocLogging;
 
             MyNotifications = iocNotifications;
-
-
         }
 
         /// <summary>

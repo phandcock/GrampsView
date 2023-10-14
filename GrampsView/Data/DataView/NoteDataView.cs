@@ -28,9 +28,6 @@ namespace GrampsView.Data.DataView
         {
         }
 
-
-
-
         public override IReadOnlyList<NoteModel> DataDefaultSort
         {
             get

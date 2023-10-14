@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Common.Interfaces;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreFile;
 using GrampsView.Data.StorePostLoad;
 using GrampsView.Data.StoreSerial;
@@ -138,6 +139,8 @@ namespace GrampsView.Data.Repository
         /// </summary>
         public static void ClearRepositories()
         {
+            Ioc.Default.GetRequiredService<IStoreDB>().Clear();
+
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
@@ -148,7 +151,13 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();
             DataStore.Instance.DS.NameMapData.Clear();
+
             //await DataStore.Instance.DS.NoteData.Clear();
+            //foreach (NoteDBModel item in Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess)
+            //{
+            //    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Remove(item);
+            //}
+
             DataStore.Instance.DS.PersonData.Clear();
             DataStore.Instance.DS.PersonNameData.Clear();
             DataStore.Instance.DS.PlaceData.Clear();

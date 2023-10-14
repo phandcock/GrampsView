@@ -5,9 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:views="clr-namespace:GrampsView.Views"
-    Style="{StaticResource AppShellBaseStyle}"
     xmlns:ssharp="clr-namespace:SharedSharp.Resources.Styles;assembly=SharedSharp"
-    xmlns:sharedsharpviews="clr-namespace:SharedSharp.Views;assembly=SharedSharp">
+    xmlns:sharedsharpviews="clr-namespace:SharedSharp.Views;assembly=SharedSharp"
+    Style="{StaticResource AppShellBaseStyle}">
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -68,10 +68,10 @@
         <Tab Title="Events">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
@@ -79,116 +79,115 @@
         <Tab Title="Families">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Media">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Notes">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconNotes}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:NoteListPage}" />
         </Tab>
         <Tab Title="People">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Places">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Repositories">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Sources">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Tags">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Load data">
             <Tab.Icon>
                 <FontImageSource
-                FontFamily="IconMaterialIconsOutline"
-                Glyph="{x:Static common:Constants.IconAbout}"
-                Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                        Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconChooseDataFile}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:FileInputHandlerPage}" />
         </Tab>
 
         <Tab Title="Search">
             <Tab.Icon>
                 <FontImageSource
-              FontFamily="IconMaterialIconsOutline"
-              Glyph="{x:Static common:Constants.IconAbout}"
-              Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                      Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Settings">
             <Tab.Icon>
                 <FontImageSource
-              FontFamily="IconMaterialIconsOutline"
-              Glyph="{x:Static common:Constants.IconAbout}"
-              Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
-                                      Light={StaticResource OnSurfaceLight}}" />
+                    FontFamily="IconMaterialIconsOutline"
+                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
+                                            Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
-       
-        
+
         <Tab Title="About">
             <Tab.Icon>
                 <FontImageSource

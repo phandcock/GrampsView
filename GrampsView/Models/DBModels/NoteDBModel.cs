@@ -15,9 +15,5 @@ namespace GrampsView.Models.DBModels
         {
             Serialise(argNoteModel);
         }
-
-
-
-
     }
 }

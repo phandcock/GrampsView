@@ -10,6 +10,8 @@ namespace GrampsView.Data.StoreDB
     {
         DbSet<NoteDBModel> NoteAccess { get; }
 
+        Task Clear();
+
         Task InitialiseDB();
 
         bool IsOpen();

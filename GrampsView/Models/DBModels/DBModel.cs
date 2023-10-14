@@ -36,7 +36,7 @@ namespace GrampsView.Models.DBModels
         [Key]
         public string HLinkKeyValue { get; set; } = string.Empty;
 
-        private string serialisedModel { get; set; } = string.Empty;
+        public string serialisedModel { get; set; } = string.Empty;
 
         public T1 DeSerialise()
         {
@@ -46,7 +46,6 @@ namespace GrampsView.Models.DBModels
             {
                 return new T1();
             }
-
 
             return JsonSerializer.Deserialize<T1>(serialisedModel, serializerOptions);
         }

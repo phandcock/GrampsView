@@ -157,6 +157,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey);
 
                     NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
                     t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
@@ -476,7 +477,6 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-
                     NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKey == noteRef.HLinkKey).First().DeSerialise();
                     t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                     Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
