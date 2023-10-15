@@ -1,6 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Common.CustomClasses;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
@@ -12,7 +11,7 @@ namespace GrampsView.Models.DBModels
             where T1 : ModelBase, new()
             where T2 : HLinkBase, new()
     {
-        public HLinkKey HLinkKey { get; }
+        //public HLinkKey HLinkKey { get; }
 
         [Key]
         string HLinkKeyValue { get; set; }

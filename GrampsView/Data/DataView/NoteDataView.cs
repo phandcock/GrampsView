@@ -182,7 +182,14 @@ namespace GrampsView.Data.DataView
 
         public override NoteModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value).First().DeSerialise();
+            IQueryable<NoteDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
+
+            if (t.Any())
+            {
+                return t.First().DeSerialise();
+            }
+
+            return new NoteModel();
         }
 
         public override NoteModel GetModelFromId(string argId)

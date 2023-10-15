@@ -94,7 +94,7 @@ namespace GrampsView.Data.ExternalStorage
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     _ = await OrganiseMisc().ConfigureAwait(false);
 
-                    await SharedSharp.SharedSharpNavigation.NavigateHub();
+
                 }
             }
 

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using SharedSharp.Errors;
 using SharedSharp.Errors.Interfaces;
 
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -22,6 +23,7 @@ namespace GrampsView.Common.CustomClasses
     /// </summary>
     /// 
     [PrimaryKey(nameof(Id))]
+    [ComplexType]
     public class ItemGlyph : ObservableObject, IItemGlyph
     {
         public ItemGlyph()

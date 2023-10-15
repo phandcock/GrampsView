@@ -1,12 +1,10 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
-using GrampsView.Common.CustomClasses;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json;
 
 namespace GrampsView.Models.DBModels
@@ -24,14 +22,14 @@ namespace GrampsView.Models.DBModels
             Serialise(argModel);
         }
 
-        [NotMapped]
-        public HLinkKey HLinkKey
-        {
-            get
-            {
-                return new HLinkKey(HLinkKeyValue);
-            }
-        }
+
+        //public HLinkKey HLinkKey
+        //{
+        //    get
+        //    {
+        //        return new HLinkKey(HLinkKeyValue);
+        //    }
+        //}
 
         [Key]
         public string HLinkKeyValue { get; set; } = string.Empty;

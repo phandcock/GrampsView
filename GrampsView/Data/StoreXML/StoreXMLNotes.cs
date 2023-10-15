@@ -73,7 +73,7 @@ namespace GrampsView.Data.ExternalStorage
                         NoteDBModel t = new NoteDBModel(loadNote as NoteModel);
                         DV.NoteDV.NoteAccess.Add(t);
 
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+
                     }
                 }
                 catch (Exception ex)
@@ -82,6 +82,8 @@ namespace GrampsView.Data.ExternalStorage
                     MyNotifications.NotifyException("Exception loading Notes from the Gramps file", ex);
                 }
             }
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             MyLog.DataLogEntryReplace("Note load complete");
             return Task.CompletedTask;

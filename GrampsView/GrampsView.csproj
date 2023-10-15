@@ -203,7 +203,6 @@
         <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.3.0" />
         <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
-        <PackageReference Include="EntityFramework" Version="6.4.4" />
 
         <PackageReference Include="Fody" Version="6.8.0">
           <PrivateAssets>all</PrivateAssets>
@@ -211,6 +210,11 @@
         </PackageReference>
 
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
 
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
 
@@ -227,7 +231,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.11.2" />
+        <PackageReference Include="SharedSharp" Version="1.11.3" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.6" />

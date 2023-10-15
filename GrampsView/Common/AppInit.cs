@@ -80,6 +80,9 @@ namespace GrampsView.Common
                 {
                     // Ioc.Default.GetRequiredService<IDataRepositoryManager>().StartDataLoad();
                     _ = Ioc.Default.GetRequiredService<IMessenger>().Send(new AppStartLoadDataEvent(true));
+
+                    //await Shell.Current.Navigation.PopToRootAsync();
+                    //await SharedSharp.SharedSharpNavigation.NavigateHub();
                     return;
                 }
 

@@ -37,11 +37,6 @@ namespace GrampsView.Data.StoreDB
         {
             try
             {
-                //if (CommonStatic.Database is not null)
-                //{
-                //    return;
-                //}
-
                 if (!_IsOpen)
                 {
                     _IsOpen = true;
@@ -50,12 +45,8 @@ namespace GrampsView.Data.StoreDB
 
                     Database.EnsureCreated();
 
-                    string sql = Database.GenerateCreateScript();
+                    //string sql = Database.GenerateCreateScript();
                 }
-
-                //    CommonStatic.Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.da);
-
-                //CreateTableResult result = await CommonStatic.Database.CreateTableAsync(typeof(NoteModel));
 
                 _IsOpen = true;
             }
@@ -78,14 +69,7 @@ namespace GrampsView.Data.StoreDB
 
         public async Task OpenDB()
         {
-            //if (CommonStatic.Database is not null)
-            //{
-            //    return;
-            //}
-
-            //CommonStatic.Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-
-            //_IsOpen = true;
+            _IsOpen = true;
         }
 
         public async Task OpenOrCreate()

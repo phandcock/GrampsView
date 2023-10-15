@@ -98,7 +98,7 @@ namespace GrampsView.Data.Repository
 
                 await StartDataLoadAsync();
 
-                await SharedSharp.SharedSharpNavigation.NavigateHub();
+                await Shell.Current.Navigation.PopToRootAsync(); // SharedSharp.SharedSharpNavigation.NavigateHub();
             });
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
@@ -210,8 +210,8 @@ namespace GrampsView.Data.Repository
 
             //await _commonNotifications.DataLogShow();
 
-            // Clear the repositories in case we had to restart after being interupted.
-            ClearRepositories();
+            // Clear the repositories in case we had to restart after being interrupted.
+            //   ClearRepositories();
 
             // Create the DataStorage Folder
             DataStore.Instance.AD.CurrentDataFolder = new CurrentDataFolder();
@@ -372,7 +372,7 @@ namespace GrampsView.Data.Repository
         {
             _CL.DataLogEntryAdd("Loading GRAMPS XML unzipped data");
             {
-                ClearRepositories();
+                //ClearRepositories();
 
                 bool tt = await _ExternalStorage.DataStorageLoadXML().ConfigureAwait(false);
 
