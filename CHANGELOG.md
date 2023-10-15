@@ -1,3 +1,12 @@
+## [17.2.53](https://github.com/phandcock/GrampsView/compare/v17.2.52...v17.2.53) (2023-10-15)
+
+
+### Bug Fixes
+
+* get notes roughly working ([576aa82](https://github.com/phandcock/GrampsView/commit/576aa82fd399cb9e8e163e9ae65e3110e0995a0b))
+
+
+
 ## [17.2.52](https://github.com/phandcock/GrampsView/compare/v17.2.51...v17.2.52) (2023-10-14)
 
 
@@ -24,15 +33,6 @@
 ### Bug Fixes
 
 * tweaks and update nugets ([cdf7db5](https://github.com/phandcock/GrampsView/commit/cdf7db54836132b868fa0f3ee7b8ef8ca3d65f6d))
-
-
-
-## [17.2.49](https://github.com/phandcock/GrampsView/compare/v17.2.48...v17.2.49) (2023-08-23)
-
-
-### Bug Fixes
-
-* tweak layout ([b23e324](https://github.com/phandcock/GrampsView/commit/b23e324fd286ec96dd929ab4645537ea425e7364))
 
 
 
