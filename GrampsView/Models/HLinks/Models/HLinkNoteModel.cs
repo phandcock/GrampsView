@@ -26,7 +26,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid && (!DeRefCached))
                 {
-                    _Deref = DV.NoteDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DL.NoteDL.GetModelFromHLinkKey(HLinkKey);
 
                     if (_Deref.Valid)
                     {

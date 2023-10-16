@@ -54,7 +54,7 @@ namespace GrampsView.ViewModels.Note
                 BaseDetail.Clear();
 
                 // Add Model details
-                BaseDetail.Add(DV.NoteDV.GetModelInfoFormatted((NoteModel)NoteObject));
+                BaseDetail.Add(DL.NoteDL.GetModelInfoFormatted((NoteModel)NoteObject));
 
                 // Handle Link Note types
                 if (NoteObject.GType == Constants.NoteTypeLink)

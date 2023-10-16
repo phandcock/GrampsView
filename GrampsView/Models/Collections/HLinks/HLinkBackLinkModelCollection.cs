@@ -213,7 +213,7 @@ namespace GrampsView.Data.Collections
 
                     case HLinkBackLinkEnum.HLinkNoteModel:
                         {
-                            t = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+                            t = DL.NoteDL.GetGlyph(argHLink.HLinkKey);
                             break;
                         }
 

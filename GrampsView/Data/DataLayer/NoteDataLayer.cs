@@ -13,26 +13,34 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Globalization;
 
-namespace GrampsView.Data.DataView
+namespace GrampsView.Data.DataLayer
 {
     /// <summary>
     /// Data view into the Notes Repository.
     /// </summary>
 
-    public class NoteDataView : DataViewBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>, INoteDataView
+    public class NoteDataLayer : DataLayerBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>, INoteDataLayer
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteDataView"/> class.
         /// </summary>
-        public NoteDataView()
+        public NoteDataLayer()
         {
         }
 
-        public override IReadOnlyList<NoteModel> DataDefaultSort
+        public override IReadOnlyList<NoteModel> DataAsDefaultSort
         {
             get
             {
-                return DataViewData.OrderBy(NoteModel => NoteModel.GStyledText.GText).ToList();
+                // Cache it
+                if (_DataAsDefaultSort.Count > 0)
+                {
+                    return _DataAsDefaultSort;
+                }
+
+                _DataAsDefaultSort = DataAsList.OrderBy(NoteModel => NoteModel.GStyledText.GText).ToList();
+
+                return _DataAsDefaultSort;
             }
         }
 
@@ -42,20 +50,26 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<NoteModel> DataViewData
+        public override IReadOnlyList<NoteModel> DataAsList
         {
             get
             {
-                List<NoteModel> returnValue = new List<NoteModel>();
+                // Cache it
+                if (_DataAsList.Count > 0)
+                {
+                    return _DataAsList;
+                }
 
-                System.Collections.ObjectModel.ReadOnlyCollection<NoteDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.ToList().AsReadOnly();
+                _DataAsList = new List<NoteModel>();
+
+                System.Collections.ObjectModel.ReadOnlyCollection<NoteDBModel> t = NoteAccess.ToList().AsReadOnly();
 
                 foreach (NoteDBModel? item in t)
                 {
-                    returnValue.Add(item.DeSerialise());
+                    _DataAsList.Add(item.DeSerialise());
                 }
 
-                return returnValue;
+                return _DataAsList;
             }
         }
 
@@ -67,7 +81,7 @@ namespace GrampsView.Data.DataView
                 {
                     DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
-                    IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+                    IEnumerable tt = DataAsList.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
                     HLinkNoteModelCollection returnCardGroup = new HLinkNoteModelCollection();
 
@@ -93,11 +107,14 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        private List<NoteModel> _DataAsDefaultSort { get; set; } = new List<NoteModel>();
+        private List<NoteModel> _DataAsList { get; set; } = new List<NoteModel>();
+
         public override HLinkNoteModelCollection GetAllAsCardGroupBase()
         {
-            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
+            HLinkNoteModelCollection t = new();
 
-            foreach (NoteModel item in DataDefaultSort)
+            foreach (NoteModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -111,7 +128,7 @@ namespace GrampsView.Data.DataView
         {
             Group<HLinkNoteModelCollection> t = new Group<HLinkNoteModelCollection>();
 
-            var query = from item in DataViewData
+            var query = from item in DataAsList
                         orderby item.GType, item.ToString()
                         group item by item.GType into g
                         select new
@@ -150,7 +167,7 @@ namespace GrampsView.Data.DataView
         {
             HLinkNoteModelCollection t = new HLinkNoteModelCollection();
 
-            foreach (NoteModel item in DataDefaultSort)
+            foreach (NoteModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -159,7 +176,7 @@ namespace GrampsView.Data.DataView
         }
 
         /// <summary>
-        /// Gets all models of a particlar note type.
+        /// Gets all models of a particular note type.
         /// </summary>
         /// <param name="argType">
         /// Note type to search for
@@ -170,7 +187,7 @@ namespace GrampsView.Data.DataView
         {
             CardGroupModel<NoteModel> t = new CardGroupModel<NoteModel>();
 
-            IEnumerable<NoteModel> q = DataViewData.Where(NoteModel => NoteModel.GType == argType);
+            IEnumerable<NoteModel> q = DataAsList.Where(NoteModel => NoteModel.GType == argType);
 
             foreach (NoteModel item in q)
             {
@@ -194,7 +211,7 @@ namespace GrampsView.Data.DataView
 
         public override NoteModel GetModelFromId(string argId)
         {
-            NoteModel t = DataViewData.FirstOrDefault(X => X.Id == argId);
+            NoteModel t = DataAsList.FirstOrDefault(X => X.Id == argId);
 
             if (t is null)
             {
@@ -241,7 +258,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            IOrderedEnumerable<NoteModel> temp = DataViewData.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
+            IOrderedEnumerable<NoteModel> temp = DataAsList.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
 
             if (temp.Any())
             {
@@ -278,7 +295,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            IEnumerable<NoteModel> temp = from gig in DataViewData
+            IEnumerable<NoteModel> temp = from gig in DataAsList
                                           where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
                                           select gig;
 

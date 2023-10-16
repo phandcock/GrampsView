@@ -33,7 +33,7 @@
         {
             get
             {
-                return DV.NoteDV.GetAllAsGroupedCardGroup();
+                return DL.NoteDL.GetAllAsGroupedCardGroup();
             }
         }
     }

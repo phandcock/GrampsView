@@ -71,7 +71,7 @@ namespace GrampsView.Data.ExternalStorage
                         }
 
                         NoteDBModel t = new NoteDBModel(loadNote as NoteModel);
-                        DV.NoteDV.NoteAccess.Add(t);
+                        DL.NoteDL.NoteAccess.Add(t);
 
 
                     }

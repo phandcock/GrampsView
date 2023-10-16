@@ -88,7 +88,7 @@ namespace GrampsView.Models.Collections.HLinks
         {
             foreach (HLinkNoteModel argHLink in this)
             {
-                ItemGlyph t = DV.NoteDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DL.NoteDL.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;

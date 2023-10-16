@@ -1,13 +1,13 @@
-﻿namespace GrampsView.Common
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
+
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace GrampsView.Common
 {
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataView;
-
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
-  
-
     // TODO: Bodgy up our own handler until Shell Search for UWP can handle multiple types in the display
     public class GrampsViewSearchHandler : SearchHandler
     {
@@ -32,13 +32,13 @@
                 List<SearcHandlerItem> temp = new List<SearcHandlerItem>();
 
                 // Add people
-                foreach (var item in DV.PersonDV.SearchShell(newValue))
+                foreach (SearcHandlerItem item in DV.PersonDV.SearchShell(newValue))
                 {
                     temp.Add(item);
                 }
 
                 // Add notes
-                foreach (var item in DV.NoteDV.SearchShell(newValue))
+                foreach (SearcHandlerItem item in DL.NoteDL.SearchShell(newValue))
                 {
                     temp.Add(item);
                 }

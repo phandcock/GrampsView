@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
@@ -9,12 +10,12 @@ using GrampsView.Models.DBModels;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace GrampsView.Data.DataView
+namespace GrampsView.Data.DataLayer
 {
     /// <summary>
     /// Interface for the Note Repository.
     /// </summary>
-    public interface INoteDataView : IDataViewBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>
+    public interface INoteDataLayer : IDataLayerBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>
     {
         // TODO add this to the general Interface
         DbSet<NoteDBModel> NoteAccess { get; }

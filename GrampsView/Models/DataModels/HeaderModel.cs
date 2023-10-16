@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -75,7 +77,7 @@ namespace GrampsView.Models.DataModels
                         new CardListLine("Event Items", DV.EventDV.DataViewData.Count),
                         new CardListLine("Family Items", DV.FamilyDV.DataViewData.Count),
                         new CardListLine("Media Items", DV.MediaDV.DataViewData.Count),
-                        new CardListLine("Note Items", DV.NoteDV.DataViewData.Count),
+                        new CardListLine("Note Items", DL.NoteDL.Count),
                         new CardListLine("Person Items", DV.PersonDV.DataViewData.Count),
                         new CardListLine("Person Name Items", DV.PersonNameDV.DataViewData.Count),
                         new CardListLine("Place Items", DV.PlaceDV.DataViewData.Count),

@@ -1,8 +1,7 @@
-﻿// <copyright file="DV.cs" company="PlaceholderCompany">
-//     Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Collections;
+using GrampsView.Data.DataLayer;
 using GrampsView.Data.Repository;
 
 namespace GrampsView.Data.DataView
@@ -80,14 +79,6 @@ namespace GrampsView.Data.DataView
         /// The name map dv.
         /// </value>
         public static INameMapDataView NameMapDV { get; } = new NameMapDataView();
-
-        /// <summary>
-        /// Gets the note dv.
-        /// </summary>
-        /// <value>
-        /// The note dv.
-        /// </value>
-        public static INoteDataView NoteDV { get; } = new NoteDataView();
 
         /// <summary>
         /// Gets the person dv.

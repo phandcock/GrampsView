@@ -48,7 +48,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         public CardGroupHLink<HLinkMediaModel> LatestMediaChanges => DV.MediaDV.GetLatestChanges;
 
-        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges => DV.NoteDV.GetLatestChanges;
+        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges => DL.NoteDL.GetLatestChanges;
 
         public HLinkPersonModelCollection LatestPersonChanges => DV.PersonDV.GetLatestChanges;
 
@@ -67,7 +67,7 @@ namespace GrampsView.ViewModels.MinorPages
             get
             {
                 // Setup ToDo list
-                CardGroupModel<NoteModel> t = DV.NoteDV.GetAllOfType(Constants.NoteTypeToDo);
+                CardGroupModel<NoteModel> t = DL.NoteDL.GetAllOfType(Constants.NoteTypeToDo);
 
                 CardGroupHLink<HLinkNoteModel> toDoCardGroup = new()
                 {

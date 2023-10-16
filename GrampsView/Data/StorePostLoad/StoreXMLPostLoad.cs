@@ -407,7 +407,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Note data");
 
-            foreach (NoteModel argModel in DV.NoteDV.DataViewData)
+            foreach (NoteModel argModel in DL.NoteDL.DataAsList)
             {
                 // Note Collection
                 argModel.GTagRefCollection.SetGlyph();

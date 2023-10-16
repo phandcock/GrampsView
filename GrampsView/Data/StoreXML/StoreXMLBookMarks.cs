@@ -80,7 +80,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "note":
                     {
-                        HLinkNoteModel p1 = DV.NoteDV.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkNoteModel p1 = DL.NoteDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
