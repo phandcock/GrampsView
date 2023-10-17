@@ -1,3 +1,12 @@
+## [17.2.55](https://github.com/phandcock/GrampsView/compare/v17.2.54...v17.2.55) (2023-10-17)
+
+
+### Bug Fixes
+
+* allow notes to be updatded ([fc6cbf6](https://github.com/phandcock/GrampsView/commit/fc6cbf6d870a361a0fa7a60d66f2f21c8f9f1077))
+
+
+
 ## [17.2.54](https://github.com/phandcock/GrampsView/compare/v17.2.53...v17.2.54) (2023-10-16)
 
 
@@ -22,17 +31,6 @@
 ### Bug Fixes
 
 * first rough working code for notes ([4845fbe](https://github.com/phandcock/GrampsView/commit/4845fbe92d39cf77cacea3b771b61a71204d21bd))
-
-
-
-## [17.2.51](https://github.com/phandcock/GrampsView/compare/v17.2.50...v17.2.51) (2023-10-13)
-
-
-### Bug Fixes
-
-* tweaks ([ccbdc61](https://github.com/phandcock/GrampsView/commit/ccbdc612d307c606e8d903d72d5550158556ac50))
-* update nugets ([ec0d99e](https://github.com/phandcock/GrampsView/commit/ec0d99ee14b13a6b21206f1e23ff285709442eae))
-* work on new dbmodel and tab menu ([f6aa853](https://github.com/phandcock/GrampsView/commit/f6aa85312857377f6edfa3a264ea41ff0970cde5))
 
 
 
