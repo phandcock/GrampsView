@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StorePostLoad;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
@@ -89,20 +90,16 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Source Link
@@ -166,16 +163,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Tag Collection
@@ -257,22 +254,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
 
-
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //// TODO     Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Tag Collection
@@ -332,20 +323,16 @@ namespace GrampsView.Data.ExternalStorage
                     // Back Reference Note HLinks
                     foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                     {
-                        //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                        IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                        //if (ttt.Any())
-                        //{
-                        //    NoteModel t = ttt.First().DeSerialise();
-                        //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                        //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                        //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                        //}
-                        //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                        //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                        //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                        if (ttt.Any())
+                        {
+                            NoteModel t = ttt.First().DeSerialise();
+                            t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                            ttt.First().Serialise(t);
+
+                            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                        }
                     }
 
                     // Tag Collection
@@ -446,20 +433,16 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 foreach (HLinkNoteModel noteRef in argModel.GNoteReferenceCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 argModel.BackHLinkReferenceCollection.Sort();
@@ -522,20 +505,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Parent In Collection
@@ -622,21 +601,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
 
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Tag Collection
@@ -679,20 +653,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Tag Collection
@@ -737,20 +707,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (IHLinkNoteModel noteRef in argModel.GNoteRefCollection)
                 {
-                    //IQueryable<Models.DBModels.NoteDBModel> ttt = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
 
-                    //if (ttt.Any())
-                    //{
-                    //    NoteModel t = ttt.First().DeSerialise();
-                    //    t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //    // Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Update(tt);
-                    //    //Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
-                    //}
-                    //NoteModel t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value).First().DeSerialise();
-                    //t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                    //Models.DBModels.NoteDBModel tt = new Models.DBModels.NoteDBModel(t);
-                    //Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(tt);
+                    if (ttt.Any())
+                    {
+                        NoteModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Repository Ref Collection

@@ -28,8 +28,6 @@ namespace GrampsView.Data.StoreDB
         {
             _IsOpen = false;
 
-            Database.EnsureDeleted();
-
             await InitialiseDB();
         }
 
@@ -42,6 +40,8 @@ namespace GrampsView.Data.StoreDB
                     _IsOpen = true;
 
                     SQLitePCL.Batteries_V2.Init();
+
+                    bool t = Database.EnsureDeleted();
 
                     Database.EnsureCreated();
 

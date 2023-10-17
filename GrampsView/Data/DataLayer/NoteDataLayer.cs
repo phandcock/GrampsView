@@ -28,6 +28,12 @@ namespace GrampsView.Data.DataLayer
         {
         }
 
+        public override void ResetCache()
+        {
+            _DataAsDefaultSort = new List<NoteModel>();
+            _DataAsList = new List<NoteModel>();
+        }
+
         public override IReadOnlyList<NoteModel> DataAsDefaultSort
         {
             get

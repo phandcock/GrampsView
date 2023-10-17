@@ -69,11 +69,11 @@
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconEvents}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:EventListPage}" />
         </Tab>
 
         <Tab Title="Families">

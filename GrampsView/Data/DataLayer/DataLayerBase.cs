@@ -46,9 +46,9 @@ namespace GrampsView.Data.DataLayer
         /// <value>
         /// The data default sort.
         /// </value>
-        public abstract IReadOnlyList<TB> DataAsDefaultSort
+        public virtual IReadOnlyList<TB> DataAsDefaultSort
         {
-            get;
+            get; private set;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace GrampsView.Data.DataLayer
         /// </value>
         public virtual IReadOnlyList<TB>? DataAsList
         {
-            get;
+            get; private set;
         }
 
         public virtual TH GetLatestChanges => throw new NotImplementedException();
@@ -177,5 +177,10 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// </returns>
         public abstract TH Search(string argQuery);
+
+        public virtual void ResetCache()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

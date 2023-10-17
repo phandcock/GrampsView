@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Common.Interfaces;
-using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreFile;
 using GrampsView.Data.StorePostLoad;
 using GrampsView.Data.StoreSerial;
@@ -139,7 +138,7 @@ namespace GrampsView.Data.Repository
         /// </summary>
         public static void ClearRepositories()
         {
-            Ioc.Default.GetRequiredService<IStoreDB>().Clear();
+
 
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
@@ -211,7 +210,7 @@ namespace GrampsView.Data.Repository
             //await _commonNotifications.DataLogShow();
 
             // Clear the repositories in case we had to restart after being interrupted.
-            //   ClearRepositories();
+            ClearRepositories();
 
             // Create the DataStorage Folder
             DataStore.Instance.AD.CurrentDataFolder = new CurrentDataFolder();

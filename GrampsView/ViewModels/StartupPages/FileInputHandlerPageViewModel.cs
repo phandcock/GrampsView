@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Data.Repository;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreFile;
 using GrampsView.Events;
 
@@ -92,6 +93,8 @@ namespace GrampsView.ViewModels.StartupPages
         private async Task StartLoad()
         {
             BaseCL.Progress("Tell someone to load the file");
+
+            await Ioc.Default.GetRequiredService<IStoreDB>().Clear();
 
             // Remove the old dateTime stamps so the files get reloaded even if they have been seen before
             CommonLocalSettings.SetReloadDatabase();

@@ -98,6 +98,8 @@ namespace GrampsView.Data.DataView
         /// </returns>
         TH HLinkCollectionSort(TH collectionArg);
 
+        void ResetCache();
+
         /// <summary>
         /// Searches the specified query string.
         /// </summary>

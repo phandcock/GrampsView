@@ -7,6 +7,7 @@ using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DBModels;
 
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -71,9 +72,8 @@ namespace GrampsView.Data.ExternalStorage
                         }
 
                         NoteDBModel t = new NoteDBModel(loadNote as NoteModel);
+                        Debug.WriteLine(t.HLinkKeyValue);
                         DL.NoteDL.NoteAccess.Add(t);
-
-
                     }
                 }
                 catch (Exception ex)
