@@ -1,3 +1,12 @@
+## [17.2.56](https://github.com/phandcock/GrampsView/compare/v17.2.55...v17.2.56) (2023-10-18)
+
+
+### Bug Fixes
+
+* move citations to the database ([92a1326](https://github.com/phandcock/GrampsView/commit/92a13264e710a2357340bafef51c26edadfb34b0))
+
+
+
 ## [17.2.55](https://github.com/phandcock/GrampsView/compare/v17.2.54...v17.2.55) (2023-10-17)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * get notes roughly working ([576aa82](https://github.com/phandcock/GrampsView/commit/576aa82fd399cb9e8e163e9ae65e3110e0995a0b))
-
-
-
-## [17.2.52](https://github.com/phandcock/GrampsView/compare/v17.2.51...v17.2.52) (2023-10-14)
-
-
-### Bug Fixes
-
-* first rough working code for notes ([4845fbe](https://github.com/phandcock/GrampsView/commit/4845fbe92d39cf77cacea3b771b61a71204d21bd))
 
 
 
