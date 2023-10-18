@@ -8,6 +8,7 @@ namespace GrampsView.Data.StoreDB
 {
     public interface IStoreDB
     {
+        DbSet<CitationDBModel> CitationAccess { get; }
         DbSet<NoteDBModel> NoteAccess { get; }
 
         Task Clear();

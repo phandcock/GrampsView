@@ -183,7 +183,7 @@ namespace GrampsView.Data.Collections
 
                     case HLinkBackLinkEnum.HLinkCitationModel:
                         {
-                            t = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+                            t = DL.CitationDL.GetGlyph(argHLink.HLinkKey);
                             break;
                         }
 

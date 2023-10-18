@@ -1,7 +1,5 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using CommunityToolkit.Mvvm.Messaging;
-
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
@@ -117,7 +115,7 @@ namespace GrampsView.ViewModels.MinorPages
                 SearchItemsFound = true;
 
                 SearchAddressCollection = DV.AddressDV.Search(SearchText);
-                SearchCitationCollection = DV.CitationDV.Search(SearchText);
+                SearchCitationCollection = DL.CitationDL.Search(SearchText);
                 SearchEventsCollection = DV.EventDV.Search(SearchText);
                 SearchFamilyCollection = DV.FamilyDV.Search(SearchText);
                 SearchMediaCollection = DV.MediaDV.Search(SearchText);

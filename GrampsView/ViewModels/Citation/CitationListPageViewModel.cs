@@ -1,13 +1,15 @@
-﻿namespace GrampsView.ViewModels
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using CommunityToolkit.Mvvm.Messaging;
+
+using GrampsView.Common;
+using GrampsView.Data.Collections;
+using GrampsView.Data.DataView;
+
+using SharedSharp.Logging;
+
+namespace GrampsView.ViewModels
 {
-    using GrampsView.Common;
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-
-    using CommunityToolkit.Mvvm.Messaging;
-
-    using SharedSharp.Logging;
-
     public class CitationListViewModel : ViewModelBase
     {
         public CitationListViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
@@ -21,7 +23,7 @@
         {
             get
             {
-                return DV.CitationDV.GetAllAsGroupedCardGroup();
+                return DL.CitationDL.GetAllAsGroupedCardGroup();
             }
         }
     }

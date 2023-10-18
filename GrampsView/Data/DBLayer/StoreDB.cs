@@ -22,6 +22,7 @@ namespace GrampsView.Data.StoreDB
             _IsOpen = true;
         }
 
+        public DbSet<CitationDBModel> CitationAccess { get; set; }
         public DbSet<NoteDBModel> NoteAccess { get; set; }
 
         public async Task Clear()

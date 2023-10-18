@@ -54,7 +54,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid && (!DeRefCached))
                 {
-                    _Deref = DV.CitationDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DL.CitationDL.GetModelFromHLinkKey(HLinkKey);
 
                     if (_Deref.Valid)
                     {

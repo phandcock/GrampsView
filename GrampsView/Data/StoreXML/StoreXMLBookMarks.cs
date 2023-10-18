@@ -52,7 +52,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "citation":
                     {
-                        HLinkCitationModel p1 = DV.CitationDV.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkCitationModel p1 = DL.CitationDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }

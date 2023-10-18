@@ -28,12 +28,6 @@ namespace GrampsView.Data.DataLayer
         {
         }
 
-        public override void ResetCache()
-        {
-            _DataAsDefaultSort = new List<NoteModel>();
-            _DataAsList = new List<NoteModel>();
-        }
-
         public override IReadOnlyList<NoteModel> DataAsDefaultSort
         {
             get
@@ -114,6 +108,7 @@ namespace GrampsView.Data.DataLayer
         }
 
         private List<NoteModel> _DataAsDefaultSort { get; set; } = new List<NoteModel>();
+
         private List<NoteModel> _DataAsList { get; set; } = new List<NoteModel>();
 
         public override HLinkNoteModelCollection GetAllAsCardGroupBase()
@@ -253,6 +248,12 @@ namespace GrampsView.Data.DataLayer
             }
 
             return tt;
+        }
+
+        public override void ResetCache()
+        {
+            _DataAsDefaultSort = new List<NoteModel>();
+            _DataAsList = new List<NoteModel>();
         }
 
         public override HLinkNoteModelCollection Search(string queryString)

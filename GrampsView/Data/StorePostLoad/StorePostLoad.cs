@@ -50,7 +50,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <param name="notUsed">
         /// The not used.
         /// </param>
-        public async void LoadXMLUIItems(object notUsed)
+        public void LoadXMLUIItems(object notUsed)
         {
             _CommonLogging.RoutineEntry("LoadXMLUIItems");
 
@@ -59,40 +59,40 @@ namespace GrampsView.Data.ExternalStorage
                 {
                     // Called in order of media linkages from Media outwards
 
-                    _ = await OrganiseMediaRepository().ConfigureAwait(false);
+                    _ = OrganiseMediaRepository();
 
-                    _ = await OrganiseSourceRepository().ConfigureAwait(false);
+                    _ = OrganiseSourceRepository();
 
-                    _ = await OrganiseCitationRepository().ConfigureAwait(false);
+                    _ = OrganiseCitationRepository();
 
-                    _ = await OrganiseEventRepository().ConfigureAwait(false);
+                    _ = OrganiseEventRepository();
 
-                    _ = await OrganiseFamilyRepository().ConfigureAwait(false);
+                    _ = OrganiseFamilyRepository();
 
-                    _ = await OrganiseHeaderRepository().ConfigureAwait(false);
+                    _ = OrganiseHeaderRepository();
 
-                    _ = await OrganiseNameMapRepository().ConfigureAwait(false);
+                    _ = OrganiseNameMapRepository();
 
                     _ = OrganiseNoteRepository();
 
-                    _ = await OrganisePlaceRepository().ConfigureAwait(false);
+                    _ = OrganisePlaceRepository();
 
-                    _ = await OrganiseRepositoryRepository().ConfigureAwait(false);
+                    _ = OrganiseRepositoryRepository();
 
-                    _ = await OrganiseTagRepository().ConfigureAwait(false);
+                    _ = OrganiseTagRepository();
 
-                    _ = await OrganiseAddressRepository().ConfigureAwait(false);
+                    _ = OrganiseAddressRepository();
 
-                    _ = await OrganisePersonNameRepository().ConfigureAwait(false);
+                    _ = OrganisePersonNameRepository();
 
                     // People last as they pretty much depend on everything else
-                    _ = await OrganisePersonRepository().ConfigureAwait(false);
+                    _ = OrganisePersonRepository();
 
                     // Apart from BookMarks
-                    _ = await OrganiseBookMarkRepository().ConfigureAwait(false);
+                    _ = OrganiseBookMarkRepository();
 
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
-                    _ = await OrganiseMisc().ConfigureAwait(false);
+                    _ = OrganiseMisc();
 
 
                 }

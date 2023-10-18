@@ -1,9 +1,11 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.Repository;
+using GrampsView.Data.DataView;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
 
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
@@ -53,7 +55,10 @@ namespace GrampsView.Data.ExternalStorage
                         loadCitation.GTagRef = GetTagCollection(pcitation);
 
                         // Save the citation
-                        DataStore.Instance.DS.CitationData.Add(loadCitation);
+                        CitationDBModel t = new CitationDBModel(loadCitation);
+                        Debug.WriteLine(t.HLinkKeyValue);
+                        DL.CitationDL.CitationAccess.Add(t);
+
                     }
                 }
                 catch (Exception ex)

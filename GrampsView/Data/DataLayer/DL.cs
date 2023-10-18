@@ -8,6 +8,8 @@ namespace GrampsView.Data.DataView
     /// </summary>
     public static class DL
     {
+        public static ICitationDataLayer CitationDL { get; } = new CitationDataLayer();
+
         /// <summary>
         /// Gets the note dv.
         /// </summary>

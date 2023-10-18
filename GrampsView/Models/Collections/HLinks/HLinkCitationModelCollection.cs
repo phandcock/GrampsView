@@ -1,4 +1,6 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
@@ -36,7 +38,7 @@ namespace GrampsView.Data.Collections
             // Back Reference Citation HLinks
             foreach (HLinkCitationModel argHLink in this)
             {
-                ItemGlyph t = DV.CitationDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DL.CitationDL.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;

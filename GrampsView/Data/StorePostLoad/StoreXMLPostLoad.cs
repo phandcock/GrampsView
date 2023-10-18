@@ -20,7 +20,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the address repository.
         /// </summary>
-        private Task<bool> OrganiseAddressRepository()
+        private bool OrganiseAddressRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Address data");
 
@@ -31,7 +31,19 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+
+
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
+
                 }
 
                 argModel.BackHLinkReferenceCollection.Sort();
@@ -39,26 +51,26 @@ namespace GrampsView.Data.ExternalStorage
 
             SetAddressImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
-        private Task<bool> OrganiseBookMarkRepository()
+        private bool OrganiseBookMarkRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising BookMark data");
 
             DV.BookMarkCollection.SetGlyph();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the Citation Repository.
         /// </summary>
-        private async Task<bool> OrganiseCitationRepository()
+        private bool OrganiseCitationRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Citation data");
 
-            foreach (CitationModel argModel in DV.CitationDV.DataViewData)
+            foreach (CitationModel argModel in DL.CitationDL.DataAsList)
             {
                 if (argModel.Id == "C0144")
                 {
@@ -127,7 +139,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the event repository.
         /// </summary>
-        private async Task<bool> OrganiseEventRepository()
+        private bool OrganiseEventRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Event data");
 
@@ -138,7 +150,16 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Event Collection
@@ -194,7 +215,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the family repository.
         /// </summary>
-        private async Task<bool> OrganiseFamilyRepository()
+        private bool OrganiseFamilyRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Family data ");
 
@@ -213,7 +234,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Parents
@@ -285,19 +315,19 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the header repository.
         /// </summary>
-        private Task<bool> OrganiseHeaderRepository()
+        private bool OrganiseHeaderRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Header data");
 
             SetHeaderImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the media repository.
         /// </summary>
-        private async Task<bool> OrganiseMediaRepository()
+        private bool OrganiseMediaRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Media data");
 
@@ -314,7 +344,16 @@ namespace GrampsView.Data.ExternalStorage
 
                     foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                     {
-                        DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                        if (ttt.Any())
+                        {
+                            CitationModel t = ttt.First().DeSerialise();
+                            t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                            ttt.First().Serialise(t);
+
+                            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                        }
                     }
 
                     // Note Collection
@@ -351,7 +390,7 @@ namespace GrampsView.Data.ExternalStorage
                 _commonNotifications.NotifyException("Exception in OrganiseMediaRepository", ex);
             }
 
-            _ = await SetMediaImages();
+            _ = SetMediaImages();
 
             return true;
         }
@@ -359,7 +398,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises misc items pending use of a dependency graph.
         /// </summary>
-        private Task<bool> OrganiseMisc()
+        private bool OrganiseMisc()
         {
             _CommonLogging.DataLogEntryAdd("Organising Misc data");
 
@@ -372,19 +411,19 @@ namespace GrampsView.Data.ExternalStorage
 
             SetAddressImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
         /// Organises the namemap repository.
         /// </summary>
-        private Task<bool> OrganiseNameMapRepository()
+        private bool OrganiseNameMapRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising NameMap data");
 
             SetNameMapImages();
 
-            return Task.FromResult(true);
+            return true;
         }
 
         /// <summary>
@@ -412,7 +451,7 @@ namespace GrampsView.Data.ExternalStorage
             return true;
         }
 
-        private async Task<bool> OrganisePersonNameRepository()
+        private bool OrganisePersonNameRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Person Name data");
 
@@ -425,9 +464,18 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    citationRef.HLinkGlyphItem = DV.CitationDV.GetGlyph(citationRef.HLinkKey);
+                    citationRef.HLinkGlyphItem = DL.CitationDL.GetGlyph(citationRef.HLinkKey);
 
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Note Collection
@@ -456,7 +504,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the person repository.
         /// </summary>
-        private async Task<bool> OrganisePersonRepository()
+        private bool OrganisePersonRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Person data");
 
@@ -479,7 +527,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Event Collection
@@ -567,7 +624,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the place repository.
         /// </summary>
-        private async Task<bool> OrganisePlaceRepository()
+        private bool OrganisePlaceRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Place data");
 
@@ -585,7 +642,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-                    DataStore.Instance.DS.CitationData[citationRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        CitationModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Media Collection
@@ -642,7 +708,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the repository repository.
         /// </summary>
-        private async Task<bool> OrganiseRepositoryRepository()
+        private bool OrganiseRepositoryRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Repository data");
 
@@ -688,7 +754,7 @@ namespace GrampsView.Data.ExternalStorage
         /// <returns>
         /// true if the organisation worked.
         /// </returns>
-        private async Task<bool> OrganiseSourceRepository()
+        private bool OrganiseSourceRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Source data");
 
@@ -746,13 +812,13 @@ namespace GrampsView.Data.ExternalStorage
         /// <summary>
         /// Organises the tag repository.
         /// </summary>
-        private Task<bool> OrganiseTagRepository()
+        private bool OrganiseTagRepository()
         {
             _CommonLogging.DataLogEntryAdd("Organising Tag data");
 
             SetTagImages();
 
-            return Task.FromResult(true);
+            return true;
         }
     }
 }

@@ -144,19 +144,11 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
             DataStore.Instance.DS.AddressData.Clear();
-            DataStore.Instance.DS.CitationData.Clear();
             DataStore.Instance.DS.EventData.Clear();
             DataStore.Instance.DS.FamilyData.Clear();
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();
             DataStore.Instance.DS.NameMapData.Clear();
-
-            //await DataStore.Instance.DS.NoteData.Clear();
-            //foreach (NoteDBModel item in Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess)
-            //{
-            //    Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Remove(item);
-            //}
-
             DataStore.Instance.DS.PersonData.Clear();
             DataStore.Instance.DS.PersonNameData.Clear();
             DataStore.Instance.DS.PlaceData.Clear();

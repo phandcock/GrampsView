@@ -4,9 +4,6 @@ using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-using SharedSharp.Models;
-using SharedSharp.Models;
-
 namespace GrampsView.Models.DataModels
 {
     /// <summary>
@@ -73,7 +70,7 @@ namespace GrampsView.Models.DataModels
                     new CardListLineCollection()
                     {
                         new CardListLine("Address Items", DV.AddressDV.DataViewData.Count),
-                        new CardListLine("Citation Items", DV.CitationDV.DataViewData.Count),
+                        new CardListLine("Citation Items", DL.CitationDL.DataAsList.Count),
                         new CardListLine("Event Items", DV.EventDV.DataViewData.Count),
                         new CardListLine("Family Items", DV.FamilyDV.DataViewData.Count),
                         new CardListLine("Media Items", DV.MediaDV.DataViewData.Count),

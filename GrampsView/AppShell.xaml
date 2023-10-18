@@ -80,21 +80,21 @@
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconFamilies}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:FamilyListPage}" />
         </Tab>
         <Tab Title="Media">
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconMedia}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:MediaListPage}" />
         </Tab>
         <Tab Title="Notes">
             <Tab.Icon>
@@ -120,41 +120,41 @@
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconPlace}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:PlaceListPage}" />
         </Tab>
         <Tab Title="Repositories">
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconRepository}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:RepositoryListPage}" />
         </Tab>
         <Tab Title="Sources">
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconSource}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:SourceListPage}" />
         </Tab>
         <Tab Title="Tags">
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconTag}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:TagListPage}" />
         </Tab>
         <Tab Title="Load data">
             <Tab.Icon>
@@ -171,21 +171,21 @@
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconSearch}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
         </Tab>
         <Tab Title="Settings">
             <Tab.Icon>
                 <FontImageSource
                     FontFamily="IconMaterialIconsOutline"
-                    Glyph="{x:Static common:Constants.IconAbout}"
+                    Glyph="{x:Static common:Constants.IconSettings}"
                     Color="{AppThemeBinding Dark={StaticResource OnSurfaceDark},
                                             Light={StaticResource OnSurfaceLight}}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
         </Tab>
 
         <Tab Title="About">

@@ -1,7 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Collections;
-using GrampsView.Data.DataLayer;
 using GrampsView.Data.Repository;
 
 namespace GrampsView.Data.DataView
@@ -32,13 +31,13 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        /// <summary>
-        /// Gets the citation dv.
-        /// </summary>
-        /// <value>
-        /// The citation dv.
-        /// </value>
-        public static ICitationDataView CitationDV { get; } = new CitationDataView();
+        ///// <summary>
+        ///// Gets the citation dv.
+        ///// </summary>
+        ///// <value>
+        ///// The citation dv.
+        ///// </value>
+        //public static ICitationDataView CitationDV { get; } = new CitationDataView();
 
         /// <summary>
         /// Gets the event dv.

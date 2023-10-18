@@ -41,13 +41,11 @@ namespace GrampsView.Data.StoreSerial
             {
                 DataStore.Instance.DS.AddressData = await new RepositoryModelTypeDeSerialise<AddressModel, HLinkAdressModel>("AddressData").DeSerialize();
                 await DataStore.Instance.DS.BookMarkCollection.DeSerialize();
-                DataStore.Instance.DS.CitationData = await new RepositoryModelTypeDeSerialise<CitationModel, HLinkCitationModel>("CitationData").DeSerialize();
                 DataStore.Instance.DS.EventData = await new RepositoryModelTypeDeSerialise<EventModel, HLinkEventModel>("EventData").DeSerialize();
                 DataStore.Instance.DS.FamilyData = await new RepositoryModelTypeDeSerialise<FamilyModel, HLinkFamilyModel>("FamilyData").DeSerialize();
                 DataStore.Instance.DS.HeaderData = await new RepositoryModelTypeDeSerialise<HeaderModel, HLinkHeaderModel>("HeaderData").DeSerialize();
                 DataStore.Instance.DS.MediaData = await new RepositoryModelTypeDeSerialise<MediaModel, HLinkMediaModel>("MediaData").DeSerialize();
                 DataStore.Instance.DS.NameMapData = await new RepositoryModelTypeDeSerialise<NameMapModel, HLinkNameMapModel>("NameMapData").DeSerialize();
-                //DataStore.Instance.DS.NoteData = await new RepositoryModelTypeDeSerialise<NoteModel, HLinkNoteModel>("NoteData").DeSerialize();
                 DataStore.Instance.DS.PersonData = await new RepositoryModelTypeDeSerialise<PersonModel, HLinkPersonModel>("PersonData").DeSerialize();
                 DataStore.Instance.DS.PersonNameData = await new RepositoryModelTypeDeSerialise<PersonNameModel, HLinkPersonNameModel>("PersonNameData").DeSerialize();
                 DataStore.Instance.DS.PlaceData = await new RepositoryModelTypeDeSerialise<PlaceModel, HLinkPlaceModel>("PlaceData").DeSerialize();
@@ -72,13 +70,11 @@ namespace GrampsView.Data.StoreSerial
 
             await DataStore.Instance.DS.AddressData.Serialize();
             await DataStore.Instance.DS.BookMarkCollection.Serialize();
-            await DataStore.Instance.DS.CitationData.Serialize();
             await DataStore.Instance.DS.EventData.Serialize();
             await DataStore.Instance.DS.FamilyData.Serialize();
             await DataStore.Instance.DS.HeaderData.Serialize();
             await DataStore.Instance.DS.MediaData.Serialize();
             await DataStore.Instance.DS.NameMapData.Serialize();
-            //await DataStore.Instance.DS.NoteData.Serialize();
             await DataStore.Instance.DS.PersonData.Serialize();
             await DataStore.Instance.DS.PersonNameData.Serialize();
             await DataStore.Instance.DS.PlaceData.Serialize();

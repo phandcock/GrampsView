@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Data.StorePostLoad;
@@ -266,7 +267,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public void SetCitationImages()
         {
-            foreach (CitationModel argModel in DataStore.Instance.DS.CitationData.Values)
+            foreach (CitationModel argModel in DL.CitationDL.DataAsList)
             {
                 if (argModel is null)
                 {

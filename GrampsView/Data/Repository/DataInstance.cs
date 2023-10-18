@@ -133,24 +133,6 @@ namespace GrampsView.Data.Repository
         }
 
         /// <summary>
-        /// The local citation data.
-        /// </summary>
-
-        [JsonInclude]
-        public RepositoryModelDictionary<CitationModel, HLinkCitationModel> CitationData
-        {
-            get
-            {
-                return _CitationData;
-            }
-
-            set
-            {
-                SetProperty(ref _CitationData, value);
-            }
-        }
-
-        /// <summary>
         /// The local Event data.
         /// </summary>
 
@@ -252,28 +234,6 @@ namespace GrampsView.Data.Repository
                 SetProperty(ref _NameMapData, value);
             }
         }
-
-        /// <summary>
-        /// The local Note data.
-        /// </summary>
-
-        //[JsonInclude]
-        //public RepositoryModelDictionary<NoteModel, HLinkNoteModel> NoteData
-        //{
-        //    get
-        //    {
-        //        return _NoteData;
-        //    }
-
-        //    set
-        //    {
-        //        SetProperty(ref _NoteData, value);
-        //    }
-        //}
-
-        //[JsonIgnore]
-        //public ModelDB<NoteModel, HLinkNoteModel> NoteData = new ModelDB<NoteModel, HLinkNoteModel>();
-
 
         /// <summary>
         /// The local Person data.

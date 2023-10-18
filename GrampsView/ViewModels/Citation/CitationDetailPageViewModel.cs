@@ -74,7 +74,7 @@ namespace GrampsView.ViewModels.Citation
                     // Get date card
                     BaseDetail.Add(CitationObject.GDateContent.AsHLink("Event Date"));
 
-                    BaseDetail.Add(DV.CitationDV.GetModelInfoFormatted(CitationObject));
+                    BaseDetail.Add(DL.CitationDL.GetModelInfoFormatted(CitationObject));
 
                     // If event note, display it while showing the full list further below.
                     HighlightedNote = CitationObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeCitation);
