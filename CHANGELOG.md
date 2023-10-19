@@ -1,3 +1,12 @@
+## [17.2.57](https://github.com/phandcock/GrampsView/compare/v17.2.56...v17.2.57) (2023-10-19)
+
+
+### Bug Fixes
+
+* change azure devops service connection ([d186725](https://github.com/phandcock/GrampsView/commit/d186725b8d7e9a096a68cb8f88849c05edc362fa))
+
+
+
 ## [17.2.56](https://github.com/phandcock/GrampsView/compare/v17.2.55...v17.2.56) (2023-10-18)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * refactor DV NoteView as DataLayer with caching ([e1ed3d6](https://github.com/phandcock/GrampsView/commit/e1ed3d6cfeb671a75b59fcb97d6d5f6431ca99d2))
-
-
-
-## [17.2.53](https://github.com/phandcock/GrampsView/compare/v17.2.52...v17.2.53) (2023-10-15)
-
-
-### Bug Fixes
-
-* get notes roughly working ([576aa82](https://github.com/phandcock/GrampsView/commit/576aa82fd399cb9e8e163e9ae65e3110e0995a0b))
 
 
 
