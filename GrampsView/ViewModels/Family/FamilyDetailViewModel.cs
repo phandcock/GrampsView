@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -18,6 +18,19 @@ namespace GrampsView.ViewModels.Family
         private FamilyModel localFamilyModel = new();
 
         /// <summary>
+        /// Gets or sets the Family object.
+        /// </summary>
+        /// <value>
+        /// The family object.
+        /// </value>
+        public FamilyModel FamilyObject
+        {
+            get => localFamilyModel;
+
+            set => SetProperty(ref localFamilyModel, value);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FamilyDetailViewModel"/> class.
         /// </summary>
         /// <param name="iocCommonLogging">
@@ -30,19 +43,6 @@ namespace GrampsView.ViewModels.Family
         public FamilyDetailViewModel(ILog iocCommonLogging, IMessenger iocEventAggregator)
                                     : base(iocCommonLogging)
         {
-        }
-
-        /// <summary>
-        /// Gets or sets the Family object.
-        /// </summary>
-        /// <value>
-        /// The family object.
-        /// </value>
-        public FamilyModel FamilyObject
-        {
-            get => localFamilyModel;
-
-            set => SetProperty(ref localFamilyModel, value);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace GrampsView.ViewModels.Family
                 });
 
                     // Add Model details
-                    BaseDetail.Add(DV.FamilyDV.GetModelInfoFormatted(FamilyObject));
+                    BaseDetail.Add(DL.FamilyDL.GetModelInfoFormatted(FamilyObject));
 
                     // Add parent link
                     BaseDetail.Add(new HLinkFamilyModel

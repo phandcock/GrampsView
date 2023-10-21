@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Models.DBModels;
 
@@ -8,9 +8,10 @@ namespace GrampsView.Data.StoreDB
 {
     public interface IStoreDB
     {
+        DbSet<CitationDBModel> CitationAccess { get; }
         DbSet<EventDBModel> EventAccess { get; }
 
-        DbSet<CitationDBModel> CitationAccess { get; }
+        DbSet<FamilyDBModel> FamilyAccess { get; }
         DbSet<NoteDBModel> NoteAccess { get; }
 
         Task Clear();

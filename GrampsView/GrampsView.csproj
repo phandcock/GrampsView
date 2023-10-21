@@ -200,6 +200,7 @@
       <Compile Include="Models\DBModels\IDBModel.cs" />
       <Compile Include="Models\DBModels\DBModel.cs" />
       <Compile Include="Models\DBModels\CitationDBModel.cs" />
+      <Compile Include="Models\DBModels\FamilyDBModel.cs" />
       <Compile Include="Models\DBModels\NoteDBModel.cs" />
     </ItemGroup>
 

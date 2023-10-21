@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Models.DBModels;
@@ -15,17 +15,20 @@ namespace GrampsView.Data.StoreDB
     {
         private bool _IsOpen = false;
 
+        public DbSet<CitationDBModel> CitationAccess { get; set; }
+
+        public DbSet<EventDBModel> EventAccess { get; set; }
+
+        public DbSet<FamilyDBModel> FamilyAccess { get; set; }
+
+        public DbSet<NoteDBModel> NoteAccess { get; set; }
+
         public StoreDB()
         {
             this.Database.EnsureCreated();
 
             _IsOpen = true;
         }
-
-        public DbSet<EventDBModel> EventAccess { get; set; }
-
-        public DbSet<CitationDBModel> CitationAccess { get; set; }
-        public DbSet<NoteDBModel> NoteAccess { get; set; }
 
         public async Task Clear()
         {

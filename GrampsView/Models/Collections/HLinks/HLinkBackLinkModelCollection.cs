@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -22,21 +22,6 @@ namespace GrampsView.Data.Collections
 
     public class HLinkBackLinkModelCollection : HLinkBaseCollection<HLinkBackLink>
     {
-
-
-        public HLinkBackLinkModelCollection()
-        {
-            // Only for seralisation
-        }
-
-        public HLinkBackLinkModelCollection(string argSerialisationName)
-        {
-            Title = "BackLink Collection";
-
-            SerialisationName = argSerialisationName;
-        }
-
-
         /// <summary>
         /// Returns a CardGroup of HLinkBase and not HLinkBackLink.
         /// </summary>
@@ -86,6 +71,18 @@ namespace GrampsView.Data.Collections
         }
 
         private string SerialisationName { get; }
+
+        public HLinkBackLinkModelCollection()
+        {
+            // Only for seralisation
+        }
+
+        public HLinkBackLinkModelCollection(string argSerialisationName)
+        {
+            Title = "BackLink Collection";
+
+            SerialisationName = argSerialisationName;
+        }
 
         public async Task DeSerialize()
         {
@@ -140,7 +137,6 @@ namespace GrampsView.Data.Collections
             }
         }
 
-
         public async Task Serialize()
         {
             try
@@ -164,7 +160,6 @@ namespace GrampsView.Data.Collections
                 SharedSharpSettings.DataSerialised = false;
             }
         }
-
 
         public override void SetGlyph()
         {
@@ -195,7 +190,7 @@ namespace GrampsView.Data.Collections
 
                     case HLinkBackLinkEnum.HLinkFamilyModel:
                         {
-                            t = DV.FamilyDV.GetGlyph(argHLink.HLinkKey);
+                            t = DL.FamilyDL.GetGlyph(argHLink.HLinkKey);
                             break;
                         }
 

@@ -1,18 +1,24 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
 
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace GrampsView.Data.ExternalStorage
 {
     public partial class StoreXML : IStoreXML
     {
-        /// <summary>load families from external storage.</summary>
-        /// <returns>Flag indicating if the family data was loaded.</returns>
+        /// <summary>
+        /// load families from external storage.
+        /// </summary>
+        /// <returns>
+        /// Flag indicating if the family data was loaded.
+        /// </returns>
         public async Task<bool> LoadFamiliesAsync()
         {
             // RepositoryModelType<FamilyModel, HLinkFamilyModel>
@@ -89,8 +95,9 @@ namespace GrampsView.Data.ExternalStorage
                         // set the Home image or symbol now that everything is laoded loadFamily = SetHomeImage(loadFamily);
 
                         // save the family
-                        DV.FamilyDV.FamilyData.Add(loadFamily);
-                        MyLog.Variable("Family Name", loadFamily.HLinkKey.Value);
+                        FamilyDBModel t = new FamilyDBModel(loadFamily as FamilyModel);
+                        Debug.WriteLine(t.HLinkKeyValue);
+                        DL.FamilyDL.FamilyAccess.Add(t);
                     }
                 }
                 catch (Exception ex)

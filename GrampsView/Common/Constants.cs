@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 namespace GrampsView.Common
 {
@@ -7,17 +7,16 @@ namespace GrampsView.Common
     /// </summary>
     public static class Constants
     {
+        public const string DatabaseFilename = "GrampsViewSQLite.db3";
+
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 82;
+        public const int GrampsViewDatabaseVersion = 83;
 
         public static readonly string DirectoryCacheBase = "~GV";
 
         public static readonly string DirectoryImageCache = "~worka";
-
-        public const string DatabaseFilename = "GrampsViewSQLite.db3";
-
         //public const SQLite.SQLiteOpenFlags Flags =
         //    // open the database in read/write mode
         //    SQLite.SQLiteOpenFlags.ReadWrite |
@@ -25,9 +24,6 @@ namespace GrampsView.Common
         //    SQLite.SQLiteOpenFlags.Create |
         //    // enable multi-threaded database access
         //    SQLite.SQLiteOpenFlags.SharedCache;
-
-        public static string DatabasePath =>
-            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
         /// <summary>
         /// The event type birth.
@@ -192,24 +188,21 @@ namespace GrampsView.Common
         /// </summary>
         public static readonly string IconTag = IconMaterialIconsOutline.Tag;
 
-        //public static readonly string IconThemeDark = IconMaterialIconsOutline.Moon;
-
-        //public static readonly string IconThemeLight = IconMaterialIconsOutline.Sun;
-
-        //public static readonly string IconThemeSystem = IconMaterialIconsOutline.Globe;
-
         public static readonly string IconURL = IconMaterialIconsOutline.Link;
 
+        //public static readonly string IconThemeSystem = IconMaterialIconsOutline.Globe;
         /// <summary>
         /// A base name to use when moving generated log files into the app's log file folder.
         /// </summary>
         public static readonly string LogAppLogFileBaseName = "GrampsViewLog";
 
+        //public static readonly string IconThemeLight = IconMaterialIconsOutline.Sun;
         /// <summary>
         /// LoggingScenario moves generated logs files into the this folder under the LocalState folder.
         /// </summary>
         public static readonly string LogAppLogFolderName = "LogFiles";
 
+        //public static readonly string IconThemeDark = IconMaterialIconsOutline.Moon;
         /// <summary>
         /// The App Channel default.
         /// </summary>
@@ -226,9 +219,6 @@ namespace GrampsView.Common
 
         public static readonly string NameTypeMarried = "Married Name";
 
-        /*
-         * Note Types
-         */
         public static readonly string NoteTypeBiography = "Biography";
 
         public static readonly string NoteTypeCitation = "Citation";
@@ -263,13 +253,12 @@ namespace GrampsView.Common
         /// </summary>
         public static readonly string SettingsGPRAMPSFileLastDateTimeModified = "SettingsGPRAMPSFileLastDateTimeModified";
 
-        //public static readonly string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
-
         /// <summary>
         /// The settings XML file last date time modified.
         /// </summary>
         public static readonly string SettingsXMLFileLastDateTimeModified = "SettingsXMLFileLastDateTimeModified";
 
+        //public static readonly string SettingsGrampsViewDatabaseVersion = "GrampsViewDatabaseVersion";
         /// <summary>
         /// The local data file extension.
         /// </summary>
@@ -285,14 +274,20 @@ namespace GrampsView.Common
         /// </summary>
         public static readonly string StorageInternalFolder = "data\\";
 
-        ///// <summary>
-        ///// The storage thumbnail folder.
-        ///// </summary>
-        //public static readonly string StorageThumbNailFolder = "Thumbnails";
-
         /// <summary>
         /// The gramps XML file name.
         /// </summary>
         public static readonly string StorageXMLFileName = "data.xml";
+
+        public static string DatabasePath =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+
+        /*
+         * Note Types
+         */
+        ///// <summary>
+        ///// The storage thumbnail folder.
+        ///// </summary>
+        //public static readonly string StorageThumbNailFolder = "Thumbnails";
     }
 }

@@ -2,10 +2,17 @@ namespace GrampsView.Data.DataView
 {
     using GrampsView.Common;
     using GrampsView.Common.CustomClasses;
+    using GrampsView.Data.DataLayer;
     using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
+    using GrampsView.Data.StoreDB;
     using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
+    using GrampsView.Models.DBModels;
+
+    using Microsoft.EntityFrameworkCore;
+
+    using SharedSharp.Errors;
+    using SharedSharp.Errors.Interfaces;
 
     using System;
     using System.Collections;
@@ -14,20 +21,21 @@ namespace GrampsView.Data.DataView
     using System.Linq;
 
     // The Family Repository </summary>
-    public class FamilyDataView : DataViewBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>, IFamilyDataView
+    public class FamilyDataLayer : DataLayerBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>, IFamilyDataLayer
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FamilyDataView"/> class.
-        /// </summary>
-        public FamilyDataView()
-        {
-        }
-
-        public override IReadOnlyList<FamilyModel> DataDefaultSort
+        public override IReadOnlyList<FamilyModel> DataAsDefaultSort
         {
             get
             {
-                return DataViewData.OrderBy(FamilyModel => FamilyModel).ToList();
+                // Cache it
+                if (_DataAsDefaultSort.Count > 0)
+                {
+                    return _DataAsDefaultSort;
+                }
+
+                _DataAsDefaultSort = DataAsList.OrderBy(FamilyModel => FamilyModel.DefaultTextShort).ToList();
+
+                return _DataAsDefaultSort;
             }
         }
 
@@ -37,26 +45,50 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<FamilyModel> DataViewData
+        public override IReadOnlyList<FamilyModel> DataAsList
         {
             get
             {
-                return FamilyData.Values.ToList();
+                // Cache it
+                if (_DataAsList.Count > 0)
+                {
+                    return _DataAsList;
+                }
+
+                _DataAsList = new List<FamilyModel>();
+
+                System.Collections.ObjectModel.ReadOnlyCollection<FamilyDBModel> t = FamilyAccess.ToList().AsReadOnly();
+
+                foreach (FamilyDBModel? item in t)
+                {
+                    _DataAsList.Add(item.DeSerialise());
+                }
+
+                return _DataAsList;
             }
         }
 
-        /// <summary>
-        /// Gets or sets the family data.
-        /// </summary>
-        /// <value>
-        /// The family data.
-        /// </value>
-
-        public RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> FamilyData
+        public DbSet<FamilyDBModel> FamilyAccess
         {
             get
             {
-                return DataStore.Instance.DS.FamilyData;
+                try
+                {
+                    return Ioc.Default.GetRequiredService<IStoreDB>().FamilyAccess;
+                }
+                catch (Exception ex)
+                {
+                    ErrorInfo t = new("FamilyAccess")
+                    {
+                    };
+
+                    Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException("FamilyAccess", ex);
+
+                    //Ioc.Default.GetRequiredService<IStoreDB>().Clear();
+                    //Ioc.Default.GetRequiredService<IStoreDB>().InitialiseDB();
+
+                    return null;
+                }
             }
         }
 
@@ -66,7 +98,7 @@ namespace GrampsView.Data.DataView
             {
                 DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
-                IEnumerable tt = DataViewData.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
+                IEnumerable tt = DataAsDefaultSort.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
                 HLinkFamilyModelCollection returnCardGroup = new HLinkFamilyModelCollection();
 
@@ -81,11 +113,22 @@ namespace GrampsView.Data.DataView
             }
         }
 
+        private List<FamilyModel> _DataAsDefaultSort { get; set; } = new List<FamilyModel>();
+
+        private List<FamilyModel> _DataAsList { get; set; } = new List<FamilyModel>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FamilyDataView"/> class.
+        /// </summary>
+        public FamilyDataLayer()
+        {
+        }
+
         public override HLinkFamilyModelCollection GetAllAsCardGroupBase()
         {
             HLinkFamilyModelCollection t = new HLinkFamilyModelCollection();
 
-            foreach (var item in DataDefaultSort)
+            foreach (var item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -101,7 +144,7 @@ namespace GrampsView.Data.DataView
 
             // Union on the Father and Mother Surnames first
             var queryBase = (
-                        from item in DataViewData
+                        from item in DataAsList
                         select new
                         {
                             key = item.GFather.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname,
@@ -109,7 +152,7 @@ namespace GrampsView.Data.DataView
                         }
                         )
                         .Union(
-                                from item in DataViewData
+                                from item in DataAsList
                                 select new
                                 {
                                     key = item.GMother.DeRef.GPersonNamesCollection.GetPrimaryName.DeRef.GSurName.GetPrimarySurname,
@@ -155,12 +198,12 @@ namespace GrampsView.Data.DataView
             HLinkFamilyModelCollection t = new HLinkFamilyModelCollection();
 
             // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
+            if (DataAsList.Count == 0)
             {
                 return t;
             }
 
-            foreach (var item in DataDefaultSort)
+            foreach (var item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -249,12 +292,19 @@ namespace GrampsView.Data.DataView
 
         public override FamilyModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
-            return FamilyData[argHLinkKey.Value];
+            IQueryable<FamilyDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().FamilyAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
+
+            if (t.Any())
+            {
+                return t.First().DeSerialise();
+            }
+
+            return new FamilyModel();
         }
 
         public override FamilyModel GetModelFromId(string argId)
         {
-            return DataViewData.Where(X => X.Id == argId).FirstOrDefault();
+            return DataAsList.Where(X => X.Id == argId).FirstOrDefault();
         }
 
         ///// <summary>
@@ -288,7 +338,7 @@ namespace GrampsView.Data.DataView
         public override HLinkFamilyModelCollection HLinkCollectionSort(HLinkFamilyModelCollection collectionArg)
         {
             // Handle the case where there is no data.
-            if (FamilyData.Count == 0)
+            if (DataAsList.Count == 0)
             {
                 return null;
             }
@@ -322,7 +372,7 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataViewData.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            var temp = DataAsList.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
             foreach (FamilyModel tempMO in temp)
             {

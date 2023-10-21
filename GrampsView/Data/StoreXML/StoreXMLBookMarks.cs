@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
@@ -31,7 +31,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "family":
                     {
-                        HLinkFamilyModel p1 = DV.FamilyDV.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkFamilyModel p1 = DL.FamilyDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }

@@ -45,7 +45,6 @@ namespace GrampsView.Data.StoreSerial
             {
                 DataStore.Instance.DS.AddressData = await new RepositoryModelTypeDeSerialise<AddressModel, HLinkAdressModel>("AddressData").DeSerialize();
                 await DataStore.Instance.DS.BookMarkCollection.DeSerialize();
-                DataStore.Instance.DS.FamilyData = await new RepositoryModelTypeDeSerialise<FamilyModel, HLinkFamilyModel>("FamilyData").DeSerialize();
                 DataStore.Instance.DS.HeaderData = await new RepositoryModelTypeDeSerialise<HeaderModel, HLinkHeaderModel>("HeaderData").DeSerialize();
                 DataStore.Instance.DS.MediaData = await new RepositoryModelTypeDeSerialise<MediaModel, HLinkMediaModel>("MediaData").DeSerialize();
                 DataStore.Instance.DS.NameMapData = await new RepositoryModelTypeDeSerialise<NameMapModel, HLinkNameMapModel>("NameMapData").DeSerialize();
@@ -72,7 +71,6 @@ namespace GrampsView.Data.StoreSerial
         {
             await DataStore.Instance.DS.AddressData.Serialize();
             await DataStore.Instance.DS.BookMarkCollection.Serialize();
-            await DataStore.Instance.DS.FamilyData.Serialize();
             await DataStore.Instance.DS.HeaderData.Serialize();
             await DataStore.Instance.DS.MediaData.Serialize();
             await DataStore.Instance.DS.NameMapData.Serialize();

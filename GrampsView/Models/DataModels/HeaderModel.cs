@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -25,11 +25,6 @@ namespace GrampsView.Models.DataModels
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderModel"/> class.
         /// </summary>
-
-        public HeaderModel()
-        {
-            ModelItemGlyph.Symbol = Constants.IconHeader;
-        }
 
         public CardListLineCollection AsCardListLineCollection
         {
@@ -72,7 +67,7 @@ namespace GrampsView.Models.DataModels
                         new CardListLine("Address Items", DV.AddressDV.DataViewData.Count),
                         new CardListLine("Citation Items", DL.CitationDL.DataAsList.Count),
                         new CardListLine("Event Items", DL.EventDL.DataAsList.Count),
-                        new CardListLine("Family Items", DV.FamilyDV.DataViewData.Count),
+                        new CardListLine("Family Items", DL.FamilyDL.DataAsList.Count),
                         new CardListLine("Media Items", DV.MediaDV.DataViewData.Count),
                         new CardListLine("Note Items", DL.NoteDL.Count),
                         new CardListLine("Person Items", DV.PersonDV.DataViewData.Count),
@@ -183,6 +178,11 @@ namespace GrampsView.Models.DataModels
 
                 return t;
             }
+        }
+
+        public HeaderModel()
+        {
+            ModelItemGlyph.Symbol = Constants.IconHeader;
         }
     }
 }

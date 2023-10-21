@@ -25,7 +25,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         public CardGroupHLink<HLinkEventModel> LatestEventChanges => DL.EventDL.GetLatestChanges;
 
-        public HLinkFamilyModelCollection LatestFamilyChanges => DV.FamilyDV.GetLatestChanges;
+        public HLinkFamilyModelCollection LatestFamilyChanges => DL.FamilyDL.GetLatestChanges;
 
         public CardGroupHLink<HLinkMediaModel> LatestMediaChanges => DV.MediaDV.GetLatestChanges;
 

@@ -216,7 +216,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Family data ");
 
-            foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
+            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
             {
                 // Child Collection
                 argModel.GChildRefCollection.SetGlyph();
@@ -409,7 +409,7 @@ namespace GrampsView.Data.ExternalStorage
             _CommonLogging.DataLogEntryAdd("Organising Misc data");
 
             // Family children
-            foreach (FamilyModel argModel in DV.FamilyDV.DataViewData)
+            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
             {
                 // Children Collection
                 argModel.GChildRefCollection.SetGlyph();
@@ -604,7 +604,7 @@ namespace GrampsView.Data.ExternalStorage
                 // --
                 if (argModel.GChildOf.Valid)
                 {
-                    argModel.GChildOf = DataStore.Instance.DS.FamilyData[argModel.GChildOf.HLinkKey.Value].HLink;
+                    argModel.GChildOf = DL.FamilyDL.GetModelFromHLink(argModel.GChildOf).HLink;
                 }
 
                 // set Birthdate

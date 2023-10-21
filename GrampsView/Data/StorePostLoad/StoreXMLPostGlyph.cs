@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -16,7 +16,10 @@ using System.Diagnostics.Contracts;
 
 namespace GrampsView.Data.ExternalStorage
 {
-    /// <summary>This code tries to find an image that can be used for each model.  It searches the images in my priority order and chooses the first one it finds.</summary>
+    /// <summary>
+    /// This code tries to find an image that can be used for each model. It searches the images in
+    /// my priority order and chooses the first one it finds.
+    /// </summary>
     /// TODO Edit XML Comment Template for StorePostLoad
     public partial class StorePostLoad : ObservableObject, IStorePostLoad
     {
@@ -65,7 +68,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public static void SetFamilyImages()
         {
-            foreach (FamilyModel argModel in DataStore.Instance.DS.FamilyData.Values)
+            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
             {
                 if (argModel.Id == "F0144")
                 {
@@ -468,7 +471,8 @@ namespace GrampsView.Data.ExternalStorage
                 }
             }
 
-            // Add in all of the new media in one go to decrease processing and avoid changing the underlying repository while we are cycling through it.
+            // Add in all of the new media in one go to decrease processing and avoid changing the
+            // underlying repository while we are cycling through it.
             foreach (MediaModel item in addLater.Cast<MediaModel>())
             {
                 DataStore.Instance.DS.MediaData.Add(item);

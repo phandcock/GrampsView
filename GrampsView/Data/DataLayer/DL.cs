@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.DataLayer;
 
@@ -11,6 +11,8 @@ namespace GrampsView.Data.DataView
         public static ICitationDataLayer CitationDL { get; } = new CitationDataLayer();
 
         public static IEventDataLayer EventDL { get; } = new EventDataLayer();
+
+        public static IFamilyDataLayer FamilyDL { get; } = new FamilyDataLayer();
 
         /// <summary>
         /// Gets the note dv.

@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
@@ -28,11 +28,6 @@ namespace GrampsView.Data.Repository
         /// The book mark collection
         /// </summary>
         private HLinkBackLinkModelCollection _BookMarkCollection = new HLinkBackLinkModelCollection("BookMarkData");
-
-        /// <summary>
-        /// The local family data.
-        /// </summary>
-        private RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> _FamilyData = new RepositoryModelDictionary<FamilyModel, HLinkFamilyModel>("FamilyData");
 
         /// <summary>
         /// The local header data.
@@ -79,13 +74,6 @@ namespace GrampsView.Data.Repository
         /// </summary>
         private RepositoryModelDictionary<TagModel, HLinkTagModel> _TagData = new RepositoryModelDictionary<TagModel, HLinkTagModel>("TagData");
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataInstance"/> class.
-        /// </summary>
-        public DataInstance()
-        {
-        }
-
         [JsonInclude]
         public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
         {
@@ -117,28 +105,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        /// <summary>
-        /// The local Family data.
-        /// </summary>
-
-        [JsonInclude]
-        public RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> FamilyData
-        {
-            get
-            {
-                return _FamilyData;
-            }
-
-            set
-            {
-                SetProperty(ref _FamilyData, value);
-            }
-        }
-
-        /// <summary>
-        /// The local Header data.
-        /// </summary>
-
         [JsonInclude]
         public RepositoryModelDictionary<HeaderModel, HLinkHeaderModel> HeaderData
         {
@@ -153,22 +119,11 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance is data loaded.
-        /// </summary>
-        /// <value>
-        /// <c> true </c> if this instance is data loaded; otherwise, <c> false </c>.
-        /// </value>
-
         public bool IsDataLoaded
         {
             get;
             set;
         }
-
-        /// <summary>
-        /// The local Media data.
-        /// </summary>
 
         [JsonInclude]
         public RepositoryModelDictionary<MediaModel, HLinkMediaModel> MediaData
@@ -184,10 +139,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        /// <summary>
-        /// The local NameMap data.
-        /// </summary>
-
         [JsonInclude]
         public RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> NameMapData
         {
@@ -201,10 +152,6 @@ namespace GrampsView.Data.Repository
                 SetProperty(ref _NameMapData, value);
             }
         }
-
-        /// <summary>
-        /// The local Person data.
-        /// </summary>
 
         [JsonInclude]
         public RepositoryModelDictionary<PersonModel, HLinkPersonModel> PersonData
@@ -220,6 +167,24 @@ namespace GrampsView.Data.Repository
             }
         }
 
+        /// <summary>
+        /// The local Header data.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is data loaded.
+        /// </summary>
+        /// <value>
+        /// <c> true </c> if this instance is data loaded; otherwise, <c> false </c>.
+        /// </value>
+        /// <summary>
+        /// The local Media data.
+        /// </summary>
+        /// <summary>
+        /// The local NameMap data.
+        /// </summary>
+        /// <summary>
+        /// The local Person data.
+        /// </summary>
         [JsonInclude]
         public RepositoryModelDictionary<PersonNameModel, HLinkPersonNameModel> PersonNameData
         {
@@ -233,10 +198,6 @@ namespace GrampsView.Data.Repository
                 SetProperty(ref _PersonNameData, value);
             }
         }
-
-        /// <summary>
-        /// The local Place data.
-        /// </summary>
 
         [JsonInclude]
         public RepositoryModelDictionary<PlaceModel, HLinkPlaceModel> PlaceData
@@ -252,10 +213,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        /// <summary>
-        /// The local Place data.
-        /// </summary>
-
         [JsonInclude]
         public RepositoryModelDictionary<RepositoryModel, HLinkRepositoryModel> RepositoryData
         {
@@ -269,10 +226,6 @@ namespace GrampsView.Data.Repository
                 SetProperty(ref _RepositoryData, value);
             }
         }
-
-        /// <summary>
-        /// Gets or sets source Data repository.
-        /// </summary>
 
         [JsonInclude]
         public RepositoryModelDictionary<SourceModel, HLinkSourceModel> SourceData
@@ -288,10 +241,6 @@ namespace GrampsView.Data.Repository
             }
         }
 
-        /// <summary>
-        /// The local tag data.
-        /// </summary>
-
         [JsonInclude]
         public RepositoryModelDictionary<TagModel, HLinkTagModel> TagData
         {
@@ -305,5 +254,25 @@ namespace GrampsView.Data.Repository
                 SetProperty(ref _TagData, value);
             }
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataInstance"/> class.
+        /// </summary>
+        public DataInstance()
+        {
+        }
+
+        /// <summary>
+        /// The local Place data.
+        /// </summary>
+        /// <summary>
+        /// The local Place data.
+        /// </summary>
+        /// <summary>
+        /// Gets or sets source Data repository.
+        /// </summary>
+        /// <summary>
+        /// The local tag data.
+        /// </summary>
     }
 }

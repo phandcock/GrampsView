@@ -10,18 +10,12 @@ using System.Text.Json.Serialization;
 namespace GrampsView.Models.Collections.HLinks
 {
     /// <summary>
-    /// Collection of Family hLinks.
-    /// /// XML 1.71 check done
+    /// Collection of Family hLinks. /// XML 1.71 check done
     /// </summary>
 
     [KnownType(typeof(ObservableCollection<HLinkFamilyModel>))]
     public class HLinkFamilyModelCollection : HLinkBaseCollection<HLinkFamilyModel>
     {
-        public HLinkFamilyModelCollection()
-        {
-            Title = "Family Collection";
-        }
-
         /// <summary>
         /// Gets the dereferenced Family Models.
         /// </summary>
@@ -44,11 +38,16 @@ namespace GrampsView.Models.Collections.HLinks
             }
         }
 
+        public HLinkFamilyModelCollection()
+        {
+            Title = "Family Collection";
+        }
+
         public override void SetGlyph()
         {
             foreach (HLinkFamilyModel argHLink in this)
             {
-                ItemGlyph t = DV.FamilyDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DL.FamilyDL.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;

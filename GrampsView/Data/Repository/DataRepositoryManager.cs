@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -51,16 +51,42 @@ namespace GrampsView.Data.Repository
         /// </summary>
         private readonly IGrampsStoreSerial _StoreSerial;
 
-        /// <summary>Initializes a new instance of the <see cref="DataRepositoryManager" /> class.</summary>
-        /// <param name="iocCommonLogging">The ioc common logging.</param>
-        /// <param name="iocCommonNotifications"></param>
-        /// <param name="iocExternalStorage">The ioc external storage.</param>
-        /// <param name="iocMessenger"></param>
-        /// <param name="iocStoreFileTar"></param>
-        /// <param name="iocStorePostLoad"></param>
-        /// <param name="iocStoreSerial"></param>
-        /// <param name="iocStoreFile">The ioc store file.</param>
-        /// <param name="iocStoreZip"></param>
+        public IStoreFile LocalStoreFile { get; }
+
+        public IStoreFileTar LocalStoreTar { get; }
+
+        /// <summary>
+        /// Gets the storage.
+        /// </summary>
+        /// <value>
+        /// The storage.
+        /// </value>
+        public IStoreFileZip LocalStoreZip { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocCommonNotifications">
+        /// </param>
+        /// <param name="iocExternalStorage">
+        /// The ioc external storage.
+        /// </param>
+        /// <param name="iocMessenger">
+        /// </param>
+        /// <param name="iocStoreFileTar">
+        /// </param>
+        /// <param name="iocStorePostLoad">
+        /// </param>
+        /// <param name="iocStoreSerial">
+        /// </param>
+        /// <param name="iocStoreFile">
+        /// The ioc store file.
+        /// </param>
+        /// <param name="iocStoreZip">
+        /// </param>
         public DataRepositoryManager(ILog iocCommonLogging,
                                      IErrorNotifications iocCommonNotifications,
                                      IStoreXML iocExternalStorage,
@@ -93,7 +119,7 @@ namespace GrampsView.Data.Repository
                     return;
                 }
 
-                //     Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
+                // Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
 
                 await StartDataLoadAsync();
 
@@ -121,30 +147,15 @@ namespace GrampsView.Data.Repository
             });
         }
 
-        public IStoreFile LocalStoreFile { get; }
-
-        public IStoreFileTar LocalStoreTar { get; }
-
-        /// <summary>
-        /// Gets the storage.
-        /// </summary>
-        /// <value>
-        /// The storage.
-        /// </value>
-        public IStoreFileZip LocalStoreZip { get; }
-
         /// <summary>
         /// Clears the repositories.
         /// </summary>
         public static void ClearRepositories()
         {
-
-
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
             DataStore.Instance.DS.AddressData.Clear();
-            DataStore.Instance.DS.FamilyData.Clear();
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();
             DataStore.Instance.DS.NameMapData.Clear();
@@ -156,7 +167,9 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.TagData.Clear();
         }
 
-        /// <summary>Sets the loaded.</summary>
+        /// <summary>
+        /// Sets the loaded.
+        /// </summary>
         public static void DataLoadedSetTrue()
         {
             DataStore.Instance.DS.IsDataLoaded = true;
@@ -281,9 +294,11 @@ namespace GrampsView.Data.Repository
             return;
         }
 
-        /// <summary>Triggers the load GPKG file asynchronous.</summary>
+        /// <summary>
+        /// Triggers the load GPKG file asynchronous.
+        /// </summary>
         /// <returns>
-        ///   <br />
+        /// <br/>
         /// </returns>
         public async Task<FileInfoEx> TriggerLoadGPKGFileAsync()
         {

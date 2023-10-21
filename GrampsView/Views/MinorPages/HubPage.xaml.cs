@@ -1,6 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
-
-using GrampsView.ViewModels.MinorPages;
+﻿// Copyright (c) phandcock. All rights reserved.
 
 namespace GrampsView.Views
 {
@@ -9,7 +7,7 @@ namespace GrampsView.Views
         public HubPage()
         {
             InitializeComponent();
-            BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
+            // BindingContext = Ioc.Default.GetRequiredService<HubViewModel>();
 
             //Ioc.Default.GetRequiredService<IMessenger>().Register<NavigationPushEvent>(this, async (r, m) =>
             //{
@@ -17,27 +15,12 @@ namespace GrampsView.Views
             //    {
             //        IReadOnlyList<Page> t = Navigation.NavigationStack;
 
-            //        if (MainThread.IsMainThread)
-            //        {
-            //            await Navigation.PushAsync(m.Value);
-            //        }
-            //        else
-            //        {
-            //            await MainThread.InvokeOnMainThreadAsync(async () =>
-            //            {
-            //                await Navigation.PushAsync(m.Value);
-            //            });
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ErrorInfo t = new("Load Clipped Media")
-            //        {
-            //            new CardListLine("Page", m.Value.ToString())
-            //        };
+            // if (MainThread.IsMainThread) { await Navigation.PushAsync(m.Value); } else { await
+            // MainThread.InvokeOnMainThreadAsync(async () => { await Navigation.PushAsync(m.Value);
+            // }); } } catch (Exception ex) { ErrorInfo t = new("Load Clipped Media") { new
+            // CardListLine("Page", m.Value.ToString()) };
 
-            //        Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t);
-            //    }
+            // Ioc.Default.GetRequiredService<IErrorNotifications>().NotifyException(ex, t); }
 
             //    //    await SharedSharpNavigation.NavigateAsyncNS(m.Value);
             //});

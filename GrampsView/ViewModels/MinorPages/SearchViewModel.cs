@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
@@ -7,8 +7,6 @@ using GrampsView.Models.Collections.HLinks;
 
 using System.Diagnostics.Contracts;
 using System.Globalization;
-
-
 
 namespace GrampsView.ViewModels.MinorPages
 {
@@ -20,27 +18,7 @@ namespace GrampsView.ViewModels.MinorPages
     {
         private string lastArg = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchPageViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// Event Aggregator.
-        /// </param>
-        public SearchPageViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging)
-        {
-            BaseTitle = "Search Page";
-
-            BaseTitleIcon = Constants.IconSearch;
-
-            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
-        }
-
         public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
-
 
         /// <summary>
         /// Gets the search button command.
@@ -53,9 +31,7 @@ namespace GrampsView.ViewModels.MinorPages
             get;
         }
 
-
         public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
-
 
         public HLinkEventModelCollection SearchEventsCollection { get; set; } = new HLinkEventModelCollection();
 
@@ -98,6 +74,25 @@ namespace GrampsView.ViewModels.MinorPages
         } = string.Empty;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="SearchPageViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// Common Logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// Event Aggregator.
+        /// </param>
+        public SearchPageViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+            BaseTitle = "Search Page";
+
+            BaseTitleIcon = Constants.IconSearch;
+
+            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
+        }
+
+        /// <summary>
         /// Processes the search query.
         /// </summary>
         /// <param name="argSearch">
@@ -117,7 +112,7 @@ namespace GrampsView.ViewModels.MinorPages
                 SearchAddressCollection = DV.AddressDV.Search(SearchText);
                 SearchCitationCollection = DL.CitationDL.Search(SearchText);
                 SearchEventsCollection = DL.EventDL.Search(SearchText);
-                SearchFamilyCollection = DV.FamilyDV.Search(SearchText);
+                SearchFamilyCollection = DL.FamilyDL.Search(SearchText);
                 SearchMediaCollection = DV.MediaDV.Search(SearchText);
                 SearchNoteCollection = DL.NoteDL.Search(SearchText);
                 SearchPersonCollection = DV.PersonDV.Search(SearchText);

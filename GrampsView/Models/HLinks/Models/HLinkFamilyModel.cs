@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -21,12 +21,6 @@ namespace GrampsView.Data.Model
 
         private bool DeRefCached = false;
 
-        public HLinkFamilyModel()
-        {
-            HLinkGlyphItem.Symbol = Constants.IconFamilies;
-            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
-        }
-
         /// <summary>
         /// Gets.
         /// </summary>
@@ -37,7 +31,7 @@ namespace GrampsView.Data.Model
             {
                 if (Valid && (!DeRefCached))
                 {
-                    _Deref = DV.FamilyDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DL.FamilyDL.GetModelFromHLinkKey(HLinkKey);
 
                     if (_Deref.Valid)
                     {
@@ -54,6 +48,12 @@ namespace GrampsView.Data.Model
             }
         }
 
+        public HLinkFamilyModel()
+        {
+            HLinkGlyphItem.Symbol = Constants.IconFamilies;
+            HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundFamily");
+        }
+
         public override Page NavigationPage()
         {
             return new FamilyDetailPage(this);
@@ -68,17 +68,12 @@ namespace GrampsView.Data.Model
         //        {
         //            currentFamily.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
 
-        //            // Add Family
-        //            returnValue.Add(currentFamily);
+        // // Add Family returnValue.Add(currentFamily);
 
-        //            // Add children
-        //            foreach (HLinkChildRefModel currentChild in currentFamily.DeRef.GChildRefCollection)
-        //            {
-        //                currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
+        // // Add children foreach (HLinkChildRefModel currentChild in
+        // currentFamily.DeRef.GChildRefCollection) { currentChild.DisplayAs = CommonEnums.DisplayFormat.SingleCard;
 
-        //                returnValue.Add(currentChild);
-        //            }
-        //        }
+        // returnValue.Add(currentChild); } }
 
         //        return returnValue;
         //    }

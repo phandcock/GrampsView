@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.Collections;
 using GrampsView.Data.Repository;
@@ -30,30 +30,6 @@ namespace GrampsView.Data.DataView
                 return DataStore.Instance.DS.BookMarkCollection;
             }
         }
-
-        ///// <summary>
-        ///// Gets the citation dv.
-        ///// </summary>
-        ///// <value>
-        ///// The citation dv.
-        ///// </value>
-        //public static ICitationDataView CitationDV { get; } = new CitationDataView();
-
-        ///// <summary>
-        ///// Gets the event dv.
-        ///// </summary>
-        ///// <value>
-        ///// The event dv.
-        ///// </value>
-        //public static IEventDataView EventDV { get; } = new EventDataView();
-
-        /// <summary>
-        /// Gets the family dv.
-        /// </summary>
-        /// <value>
-        /// The family dv.
-        /// </value>
-        public static IFamilyDataView FamilyDV { get; } = new FamilyDataView();
 
         /// <summary>
         /// Gets the header dv.
