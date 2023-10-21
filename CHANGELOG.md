@@ -1,3 +1,12 @@
+## [17.2.58](https://github.com/phandcock/GrampsView/compare/v17.2.57...v17.2.58) (2023-10-21)
+
+
+### Bug Fixes
+
+* add events ([44e9f69](https://github.com/phandcock/GrampsView/commit/44e9f69a149f352f17fadcc0ae411a2b6a0beb87))
+
+
+
 ## [17.2.57](https://github.com/phandcock/GrampsView/compare/v17.2.56...v17.2.57) (2023-10-19)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * allow notes to be updatded ([fc6cbf6](https://github.com/phandcock/GrampsView/commit/fc6cbf6d870a361a0fa7a60d66f2f21c8f9f1077))
-
-
-
-## [17.2.54](https://github.com/phandcock/GrampsView/compare/v17.2.53...v17.2.54) (2023-10-16)
-
-
-### Bug Fixes
-
-* refactor DV NoteView as DataLayer with caching ([e1ed3d6](https://github.com/phandcock/GrampsView/commit/e1ed3d6cfeb671a75b59fcb97d6d5f6431ca99d2))
 
 
 
