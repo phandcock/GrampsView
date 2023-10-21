@@ -30,16 +30,6 @@ namespace GrampsView.Data.Repository
         private HLinkBackLinkModelCollection _BookMarkCollection = new HLinkBackLinkModelCollection("BookMarkData");
 
         /// <summary>
-        /// The citation data
-        /// </summary>
-        private RepositoryModelDictionary<CitationModel, HLinkCitationModel> _CitationData = new RepositoryModelDictionary<CitationModel, HLinkCitationModel>("CitationData");
-
-        /// <summary>
-        /// The local event data.
-        /// </summary>
-        private RepositoryModelDictionary<EventModel, HLinkEventModel> _EventData = new RepositoryModelDictionary<EventModel, HLinkEventModel>("EventData");
-
-        /// <summary>
         /// The local family data.
         /// </summary>
         private RepositoryModelDictionary<FamilyModel, HLinkFamilyModel> _FamilyData = new RepositoryModelDictionary<FamilyModel, HLinkFamilyModel>("FamilyData");
@@ -58,11 +48,6 @@ namespace GrampsView.Data.Repository
         /// The local name map data.
         /// </summary>
         private RepositoryModelDictionary<NameMapModel, HLinkNameMapModel> _NameMapData = new RepositoryModelDictionary<NameMapModel, HLinkNameMapModel>("NameMapData");
-
-        ///// <summary>
-        ///// The local note data.
-        ///// </summary>
-        //private RepositoryModelDictionary<NoteModel, HLinkNoteModel> _NoteData = new RepositoryModelDictionary<NoteModel, HLinkNoteModel>("NoteData");
 
         /// <summary>
         /// The local person data.
@@ -129,24 +114,6 @@ namespace GrampsView.Data.Repository
                 {
                     SetProperty(ref _BookMarkCollection, value);
                 }
-            }
-        }
-
-        /// <summary>
-        /// The local Event data.
-        /// </summary>
-
-        [JsonInclude]
-        public RepositoryModelDictionary<EventModel, HLinkEventModel> EventData
-        {
-            get
-            {
-                return _EventData;
-            }
-
-            set
-            {
-                SetProperty(ref _EventData, value);
             }
         }
 

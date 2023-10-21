@@ -24,7 +24,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public static void SetEventImages()
         {
-            foreach (EventModel argModel in DataStore.Instance.DS.EventData.Values)
+            foreach (EventModel argModel in DL.EventDL.DataAsList)
             {
                 if (argModel.Id == "E0203")
                 {

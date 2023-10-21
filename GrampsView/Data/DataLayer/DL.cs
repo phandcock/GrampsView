@@ -10,6 +10,8 @@ namespace GrampsView.Data.DataView
     {
         public static ICitationDataLayer CitationDL { get; } = new CitationDataLayer();
 
+        public static IEventDataLayer EventDL { get; } = new EventDataLayer();
+
         /// <summary>
         /// Gets the note dv.
         /// </summary>

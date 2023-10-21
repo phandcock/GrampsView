@@ -19,6 +19,6 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = Constants.IconEvents;
         }
 
-        public Group<HLinkEventModelCollection> EventSource => DV.EventDV.GetAllAsGroupedCardGroup();
+        public Group<HLinkEventModelCollection> EventSource => DL.EventDL.GetAllAsGroupedCardGroup();
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common.Interfaces;
 using GrampsView.Data.StorePostLoad;
@@ -27,10 +27,17 @@ namespace GrampsView.Data.ExternalStorage
 
         private readonly IGenerateThumbnails MyGenerateThumbNails = new Common.CustomClasses.GenerateThumbNails();
 
-        /// <summary>Initializes a new instance of the <see cref="StorePostLoad" /> class.</summary>
-        /// <param name="iocCommonLogging">The ioc common logging.</param>
-        /// <param name="iocCommonNotifications"></param>
-        /// <param name="iocEventAggregator">The ioc event aggregator.</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StorePostLoad"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        /// <param name="iocCommonNotifications">
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// The ioc event aggregator.
+        /// </param>
         public StorePostLoad(ILog iocCommonLogging, IErrorNotifications iocCommonNotifications, IMessenger iocEventAggregator)
         {
             _EventAggregator = iocEventAggregator;
@@ -93,12 +100,10 @@ namespace GrampsView.Data.ExternalStorage
 
                     // Final cleanup pending use of some sort of dependency graph on the whole thing
                     _ = OrganiseMisc();
-
-
                 }
             }
 
-            //    _CommonLogging.DataLogEntryAdd(null);
+            // _CommonLogging.DataLogEntryAdd(null);
 
             _CommonLogging.DataLogEntryAdd("Load XML UI Complete - Data ready for display");
 

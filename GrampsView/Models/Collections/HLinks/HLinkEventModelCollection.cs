@@ -62,7 +62,7 @@ namespace GrampsView.Data.Collections
         {
             foreach (HLinkEventModel argHLink in this)
             {
-                ItemGlyph t = DV.EventDV.GetGlyph(argHLink.HLinkKey);
+                ItemGlyph t = DL.EventDL.GetGlyph(argHLink.HLinkKey);
 
                 argHLink.HLinkGlyphItem.ImageType = t.ImageType;
                 argHLink.HLinkGlyphItem.ImageHLink = t.ImageHLink;

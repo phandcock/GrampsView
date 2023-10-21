@@ -48,7 +48,7 @@ namespace GrampsView.Models.HLinks.Models
             {
                 if (Valid && (!DeRefCached))
                 {
-                    _Deref = DV.EventDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DL.EventDL.GetModelFromHLinkKey(HLinkKey);
 
                     if (_Deref.Valid)
                     {

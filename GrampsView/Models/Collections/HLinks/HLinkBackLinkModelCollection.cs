@@ -189,7 +189,7 @@ namespace GrampsView.Data.Collections
 
                     case HLinkBackLinkEnum.HLinkEventModel:
                         {
-                            t = DV.EventDV.GetGlyph(argHLink.HLinkKey);
+                            t = DL.EventDL.GetGlyph(argHLink.HLinkKey);
                             break;
                         }
 

@@ -8,6 +8,8 @@ namespace GrampsView.Data.StoreDB
 {
     public interface IStoreDB
     {
+        DbSet<EventDBModel> EventAccess { get; }
+
         DbSet<CitationDBModel> CitationAccess { get; }
         DbSet<NoteDBModel> NoteAccess { get; }
 

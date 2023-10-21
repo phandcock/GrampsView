@@ -1,8 +1,9 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.DataView;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels;
 using GrampsView.Models.HLinks.Models;
 
 using System.Diagnostics;
@@ -55,11 +56,11 @@ namespace GrampsView.Data.ExternalStorage
                         XElement tt = pname.Element(ns + "place");
                         if (tt is not null)
                         {
-                            HLinkPlaceModel t = new()
+                            HLinkPlaceModel ttt = new()
                             {
                                 HLinkKey = GetHLinkKey(tt)
                             };
-                            loadEvent.GPlace = t;
+                            loadEvent.GPlace = ttt;
                         }
 
                         loadEvent.GTagRefCollection = GetTagCollection(pname);
@@ -73,8 +74,9 @@ namespace GrampsView.Data.ExternalStorage
                         }
 
                         // save the event
-                        DV.EventDV.EventData.Add(loadEvent);
-                        Debug.WriteLine(loadEvent.Id);
+                        EventDBModel t = new EventDBModel(loadEvent as EventModel);
+                        Debug.WriteLine(t.HLinkKeyValue);
+                        DL.EventDL.EventAccess.Add(t);
                     }
                 }
                 catch (Exception ex)

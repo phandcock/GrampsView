@@ -39,13 +39,13 @@ namespace GrampsView.Data.DataView
         ///// </value>
         //public static ICitationDataView CitationDV { get; } = new CitationDataView();
 
-        /// <summary>
-        /// Gets the event dv.
-        /// </summary>
-        /// <value>
-        /// The event dv.
-        /// </value>
-        public static IEventDataView EventDV { get; } = new EventDataView();
+        ///// <summary>
+        ///// Gets the event dv.
+        ///// </summary>
+        ///// <value>
+        ///// The event dv.
+        ///// </value>
+        //public static IEventDataView EventDV { get; } = new EventDataView();
 
         /// <summary>
         /// Gets the family dv.

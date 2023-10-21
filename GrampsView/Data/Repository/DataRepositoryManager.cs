@@ -97,7 +97,7 @@ namespace GrampsView.Data.Repository
 
                 await StartDataLoadAsync();
 
-                await Shell.Current.Navigation.PopToRootAsync(); // SharedSharp.SharedSharpNavigation.NavigateHub();
+                //await Shell.Current.Navigation.PopToRootAsync(); // SharedSharp.SharedSharpNavigation.NavigateHub();
             });
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<DataSaveSerialEvent>(this, (r, m) =>
@@ -144,7 +144,6 @@ namespace GrampsView.Data.Repository
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
             DataStore.Instance.DS.AddressData.Clear();
-            DataStore.Instance.DS.EventData.Clear();
             DataStore.Instance.DS.FamilyData.Clear();
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();

@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
@@ -20,8 +20,12 @@ namespace GrampsView.Data.StoreSerial
         /// </summary>
         private readonly ILog localGVLogging;
 
-        /// <summary>Initializes a new instance of the <see cref="GrampsStoreSerial" /> class.</summary>
-        /// <param name="iocGVLogging">The ioc gv logging.</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrampsStoreSerial"/> class.
+        /// </summary>
+        /// <param name="iocGVLogging">
+        /// The ioc gv logging.
+        /// </param>
         public GrampsStoreSerial(ILog iocGVLogging)
         {
             // save injected references for later
@@ -41,7 +45,6 @@ namespace GrampsView.Data.StoreSerial
             {
                 DataStore.Instance.DS.AddressData = await new RepositoryModelTypeDeSerialise<AddressModel, HLinkAdressModel>("AddressData").DeSerialize();
                 await DataStore.Instance.DS.BookMarkCollection.DeSerialize();
-                DataStore.Instance.DS.EventData = await new RepositoryModelTypeDeSerialise<EventModel, HLinkEventModel>("EventData").DeSerialize();
                 DataStore.Instance.DS.FamilyData = await new RepositoryModelTypeDeSerialise<FamilyModel, HLinkFamilyModel>("FamilyData").DeSerialize();
                 DataStore.Instance.DS.HeaderData = await new RepositoryModelTypeDeSerialise<HeaderModel, HLinkHeaderModel>("HeaderData").DeSerialize();
                 DataStore.Instance.DS.MediaData = await new RepositoryModelTypeDeSerialise<MediaModel, HLinkMediaModel>("MediaData").DeSerialize();
@@ -67,10 +70,8 @@ namespace GrampsView.Data.StoreSerial
 
         public async Task SerializeRepository()
         {
-
             await DataStore.Instance.DS.AddressData.Serialize();
             await DataStore.Instance.DS.BookMarkCollection.Serialize();
-            await DataStore.Instance.DS.EventData.Serialize();
             await DataStore.Instance.DS.FamilyData.Serialize();
             await DataStore.Instance.DS.HeaderData.Serialize();
             await DataStore.Instance.DS.MediaData.Serialize();
@@ -86,7 +87,5 @@ namespace GrampsView.Data.StoreSerial
 
             SharedSharpSettings.DataSerialised = true;
         }
-
-
     }
 }

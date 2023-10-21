@@ -91,7 +91,7 @@ namespace GrampsView.ViewModels.Event
                     BaseDetail.Add(EventObject.GPlace);
 
                     // Add Model details
-                    BaseDetail.Add(DV.EventDV.GetModelInfoFormatted(EventObject));
+                    BaseDetail.Add(DL.EventDL.GetModelInfoFormatted(EventObject));
 
                     // If event note, display it while showing the full list further below.
                     HighlightedNote = EventObject.GNoteRefCollection.GetFirstOfType(Constants.NoteTypeEvent);

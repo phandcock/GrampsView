@@ -116,7 +116,7 @@ namespace GrampsView.ViewModels.MinorPages
 
                 SearchAddressCollection = DV.AddressDV.Search(SearchText);
                 SearchCitationCollection = DL.CitationDL.Search(SearchText);
-                SearchEventsCollection = DV.EventDV.Search(SearchText);
+                SearchEventsCollection = DL.EventDL.Search(SearchText);
                 SearchFamilyCollection = DV.FamilyDV.Search(SearchText);
                 SearchMediaCollection = DV.MediaDV.Search(SearchText);
                 SearchNoteCollection = DL.NoteDL.Search(SearchText);

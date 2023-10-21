@@ -22,6 +22,8 @@ namespace GrampsView.Data.StoreDB
             _IsOpen = true;
         }
 
+        public DbSet<EventDBModel> EventAccess { get; set; }
+
         public DbSet<CitationDBModel> CitationAccess { get; set; }
         public DbSet<NoteDBModel> NoteAccess { get; set; }
 

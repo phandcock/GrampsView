@@ -38,7 +38,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "event":
                     {
-                        HLinkEventModel p1 = DV.EventDV.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkEventModel p1 = DL.EventDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }

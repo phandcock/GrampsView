@@ -207,7 +207,7 @@ namespace GrampsView.ViewModels.Person
                 {
                     extraDetailsCard.Add(new CardListLine("Years Since Birth:", PersonObject.BirthDate.GetAge));
 
-                    EventModel ageAtDeath = DV.EventDV.GetEventType(PersonObject.GEventRefCollection, "Death");
+                    EventModel ageAtDeath = DL.EventDL.GetEventType(PersonObject.GEventRefCollection, "Death");
                     if (ageAtDeath.Valid)
                     {
                         extraDetailsCard.Add(new CardListLine("Age at Death:", ageAtDeath.GDate.DateDifferenceDecoded(PersonObject.BirthDate)));

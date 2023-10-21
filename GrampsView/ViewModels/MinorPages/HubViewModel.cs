@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -18,31 +18,12 @@ namespace GrampsView.ViewModels.MinorPages
     /// </summary>
     public class HubViewModel : ViewModelBase
     {
-        /// <summary>Initializes a new instance of the <see cref="HubViewModel" /> class.</summary>
-        /// <param name="iocCommonLogging">The ioc common logging.</param>
-        public HubViewModel(ILog iocCommonLogging, IMessenger iocMessenger)
-            : base(iocCommonLogging)
-        {
-            BaseTitle = "Hub";
-            BaseTitleIcon = Constants.IconHub;
-
-            iocMessenger.Register<DataLoadCompleteEvent>(this, (r, m) =>
-            {
-                HandledDataLoadedEvent();
-            });
-
-            iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
-             {
-                 SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(SharedSharpMessageLogPage));
-             });
-        }
-
         public CardListLineCollection HeaderCard => DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
 
         // TODO clean up naming. See person citation changes
         public CardGroupHLink<HLinkCitationModel> LatestCitationChanges => DL.CitationDL.GetLatestChanges;
 
-        public CardGroupHLink<HLinkEventModel> LatestEventChanges => DV.EventDV.GetLatestChanges;
+        public CardGroupHLink<HLinkEventModel> LatestEventChanges => DL.EventDL.GetLatestChanges;
 
         public HLinkFamilyModelCollection LatestFamilyChanges => DV.FamilyDV.GetLatestChanges;
 
@@ -83,9 +64,37 @@ namespace GrampsView.ViewModels.MinorPages
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HubViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// The ioc common logging.
+        /// </param>
+        public HubViewModel(ILog iocCommonLogging, IMessenger iocMessenger)
+            : base(iocCommonLogging)
+        {
+            BaseTitle = "Hub";
+            BaseTitleIcon = Constants.IconHub;
+
+            iocMessenger.Register<DataLoadCompleteEvent>(this, (r, m) =>
+            {
+                HandledDataLoadedEvent();
+            });
+
+            iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
+             {
+                 SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(SharedSharpMessageLogPage));
+             });
+        }
+
         public void HandledDataLoadedEvent()
         {
             OnPropertyChanged(string.Empty);
+
+            Application.Current?.MainPage?.Dispatcher.DispatchAsync(new Action(() =>
+            {
+                Shell.Current.Navigation.PopToRootAsync();
+            }));
         }
     }
 }

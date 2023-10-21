@@ -71,7 +71,7 @@ namespace GrampsView.Models.DataModels
                     {
                         new CardListLine("Address Items", DV.AddressDV.DataViewData.Count),
                         new CardListLine("Citation Items", DL.CitationDL.DataAsList.Count),
-                        new CardListLine("Event Items", DV.EventDV.DataViewData.Count),
+                        new CardListLine("Event Items", DL.EventDL.DataAsList.Count),
                         new CardListLine("Family Items", DV.FamilyDV.DataViewData.Count),
                         new CardListLine("Media Items", DV.MediaDV.DataViewData.Count),
                         new CardListLine("Note Items", DL.NoteDL.Count),

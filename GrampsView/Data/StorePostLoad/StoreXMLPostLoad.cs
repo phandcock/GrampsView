@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -31,8 +31,6 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
                 {
-
-
                     IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
@@ -43,7 +41,6 @@ namespace GrampsView.Data.ExternalStorage
 
                         Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
-
                 }
 
                 argModel.BackHLinkReferenceCollection.Sort();
@@ -143,7 +140,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Event data");
 
-            foreach (EventModel argModel in DV.EventDV.DataViewData)
+            foreach (EventModel argModel in DL.EventDL.DataAsList)
             {
                 argModel.GCitationRefCollection.SetGlyph();
 
@@ -162,7 +159,7 @@ namespace GrampsView.Data.ExternalStorage
                     }
                 }
 
-                // Event Collection
+                // Place Collection
                 if (argModel.GPlace.Valid)
                 {
                     DataStore.Instance.DS.PlaceData[argModel.GPlace.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
@@ -265,7 +262,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkEventModel eventRef in argModel.GEventRefCollection)
                 {
-                    DataStore.Instance.DS.EventData[eventRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        EventModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Media Collection
@@ -544,7 +550,16 @@ namespace GrampsView.Data.ExternalStorage
 
                 foreach (HLinkEventModel eventRef in argModel.GEventRefCollection)
                 {
-                    DataStore.Instance.DS.EventData[eventRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                    IQueryable<Models.DBModels.EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
+
+                    if (ttt.Any())
+                    {
+                        EventModel t = ttt.First().DeSerialise();
+                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
+                        ttt.First().Serialise(t);
+
+                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+                    }
                 }
 
                 // Family Collection
@@ -593,14 +608,14 @@ namespace GrampsView.Data.ExternalStorage
                 }
 
                 // set Birthdate
-                EventModel birthDate = DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeBirth);
+                EventModel birthDate = DL.EventDL.GetEventType(argModel.GEventRefCollection, Constants.EventTypeBirth);
                 if (birthDate.Valid)
                 {
                     argModel.BirthDate = birthDate.GDate;
                 }
 
                 // set Is Living
-                argModel.IsLiving = !DV.EventDV.GetEventType(argModel.GEventRefCollection, Constants.EventTypeDeath).Valid;
+                argModel.IsLiving = !DL.EventDL.GetEventType(argModel.GEventRefCollection, Constants.EventTypeDeath).Valid;
 
                 // Tag Collection
                 argModel.GTagRefCollection.SetGlyph();
