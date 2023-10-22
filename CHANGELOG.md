@@ -1,3 +1,12 @@
+## [17.2.59](https://github.com/phandcock/GrampsView/compare/v17.2.58...v17.2.59) (2023-10-22)
+
+
+### Bug Fixes
+
+* add messagelog to loaddata ([4941a59](https://github.com/phandcock/GrampsView/commit/4941a5934438f821cd6230d3260e277e07179ee9))
+
+
+
 ## [17.2.58](https://github.com/phandcock/GrampsView/compare/v17.2.57...v17.2.58) (2023-10-21)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * move citations to the database ([92a1326](https://github.com/phandcock/GrampsView/commit/92a13264e710a2357340bafef51c26edadfb34b0))
-
-
-
-## [17.2.55](https://github.com/phandcock/GrampsView/compare/v17.2.54...v17.2.55) (2023-10-17)
-
-
-### Bug Fixes
-
-* allow notes to be updatded ([fc6cbf6](https://github.com/phandcock/GrampsView/commit/fc6cbf6d870a361a0fa7a60d66f2f21c8f9f1077))
 
 
 
