@@ -121,6 +121,10 @@ namespace GrampsView.Data.Repository
 
                 // Ioc.Default.GetRequiredService<IMessenger>().Send(new NavigationPushEvent(new SharedSharp.Views.SharedSharpMessageLogPage()));
 
+                Application.Current.MainPage.Dispatcher.DispatchAsync(() =>
+                        {
+                            Shell.Current.Navigation.PushAsync(new SharedSharp.Views.SharedSharpMessageLogPage());
+                        });
                 await StartDataLoadAsync();
 
                 //await Shell.Current.Navigation.PopToRootAsync(); // SharedSharp.SharedSharpNavigation.NavigateHub();

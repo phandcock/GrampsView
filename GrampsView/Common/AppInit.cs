@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.StoreDB;
 using GrampsView.Events;
@@ -25,7 +25,7 @@ namespace GrampsView.Common
                 // Need FirstRun?
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
-                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
+                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
 
                     return;
                 }
@@ -33,14 +33,18 @@ namespace GrampsView.Common
                 // Need WhatsNew?
                 if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
                 {
-                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
+                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
 
                     return;
                 }
 
+                // SharedSharp.Common.SharedSharpSettings.DatabaseVersionMin = Constants.GrampsViewDatabaseVersion;
+                var t = SharedSharpSettings.DatabaseVersion;
+                var tt = SharedSharpSettings.DatabaseVersionMin;
+                var ttt = SharedSharpSettings.DatabaseReloadNeeded;
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
                 {
-                    SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
+                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
 
                     SharedSharpSettings.DataSerialised = false;
 

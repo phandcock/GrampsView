@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock.  All rights reserved.
+﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.StoreDB;
@@ -13,6 +13,11 @@ namespace GrampsView.ViewModels.StartupPages
     public class NeedDatabaseReloadViewModel : ViewModelBase
     {
         private readonly ISharedSharpAppInit _AppInit;
+
+        public AsyncRelayCommand LoadDataCommand
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NeedDatabaseReloadViewModel"/> class.
@@ -35,16 +40,13 @@ namespace GrampsView.ViewModels.StartupPages
             _AppInit = iocAppInit;
         }
 
-        public AsyncRelayCommand LoadDataCommand
-        {
-            get; private set;
-        }
-
         public async Task LoadDataAction()
         {
             await App.Current.MainPage.Navigation.PopAsync();
 
             await Ioc.Default.GetRequiredService<IStoreDB>().InitialiseDB();
+
+            SharedSharp.Common.SharedSharpSettings.DatabaseVersion = Constants.GrampsViewDatabaseVersion;
 
             await _AppInit.Init();
         }
