@@ -1,3 +1,12 @@
+## [17.2.60](https://github.com/phandcock/GrampsView/compare/v17.2.59...v17.2.60) (2023-10-23)
+
+
+### Bug Fixes
+
+* speed up datafile loading ([c51f153](https://github.com/phandcock/GrampsView/commit/c51f1539c6748b46726f97b75c0885f0da703e26))
+
+
+
 ## [17.2.59](https://github.com/phandcock/GrampsView/compare/v17.2.58...v17.2.59) (2023-10-22)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * change azure devops service connection ([d186725](https://github.com/phandcock/GrampsView/commit/d186725b8d7e9a096a68cb8f88849c05edc362fa))
-
-
-
-## [17.2.56](https://github.com/phandcock/GrampsView/compare/v17.2.55...v17.2.56) (2023-10-18)
-
-
-### Bug Fixes
-
-* move citations to the database ([92a1326](https://github.com/phandcock/GrampsView/commit/92a13264e710a2357340bafef51c26edadfb34b0))
 
 
 
