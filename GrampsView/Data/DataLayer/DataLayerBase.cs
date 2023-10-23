@@ -31,14 +31,12 @@ namespace GrampsView.Data.DataLayer
         where TB : ModelBase, new()
         where TU : HLinkBase, new()
     {
-        public int Count => DataAsList.Count;
-
-        internal bool DatabaseAvailable { get; set; } = false;
-
         public DataLayerBase()
         {
-            DatabaseAvailable = Ioc.Default.GetRequiredService<IStoreDB>().IsOpen();
+            localStoreDB = Ioc.Default.GetRequiredService<IStoreDB>();
         }
+
+        public int Count => DataAsList.Count;
 
         /// <summary>
         /// Gets the data default sort.
@@ -63,6 +61,7 @@ namespace GrampsView.Data.DataLayer
         }
 
         public virtual TH GetLatestChanges => throw new NotImplementedException();
+        internal IStoreDB localStoreDB { get; }
 
         public virtual CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
@@ -168,6 +167,11 @@ namespace GrampsView.Data.DataLayer
             return collectionArg;
         }
 
+        public virtual void ResetCache()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Searches the items.
         /// </summary>
@@ -177,10 +181,5 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// </returns>
         public abstract TH Search(string argQuery);
-
-        public virtual void ResetCache()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

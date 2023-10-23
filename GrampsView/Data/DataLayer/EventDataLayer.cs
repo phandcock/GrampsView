@@ -1,4 +1,4 @@
-// Copyright (c) phandcock. All rights reserved.
+// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -78,7 +78,7 @@ namespace GrampsView.Data.DataView
         {
             get
             {
-                return Ioc.Default.GetRequiredService<IStoreDB>().EventAccess;
+                return localStoreDB.EventAccess;
             }
         }
 
@@ -107,12 +107,7 @@ namespace GrampsView.Data.DataView
 
         private List<EventModel> _DataAsList { get; set; } = new List<EventModel>();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventDataView"/> class.
-        /// </summary>
-        public EventDataLayer()
-        {
-        }
+
 
         /// <summary>
         /// Collections the sort event date asc.

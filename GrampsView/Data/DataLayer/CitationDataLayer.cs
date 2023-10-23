@@ -18,12 +18,7 @@ namespace GrampsView.Data.DataView
 {
     public class CitationDataLayer : DataLayerBase<CitationModel, HLinkCitationModel, HLinkCitationModelCollection>, ICitationDataLayer
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CitationDataView"/> class.
-        /// </summary>
-        public CitationDataLayer()
-        {
-        }
+
 
         public DbSet<CitationDBModel> CitationAccess
         {

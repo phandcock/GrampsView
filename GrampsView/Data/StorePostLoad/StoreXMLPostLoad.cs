@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
@@ -38,8 +38,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -47,6 +45,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetAddressImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -106,8 +106,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -129,6 +127,8 @@ namespace GrampsView.Data.ExternalStorage
 
             // TODO finish adding the collections to the backlinks
             SetCitationImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -154,8 +154,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -188,8 +186,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -205,6 +201,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetEventImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -238,8 +236,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -269,8 +265,6 @@ namespace GrampsView.Data.ExternalStorage
                         EventModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -297,8 +291,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -314,6 +306,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetFamilyImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -357,8 +351,6 @@ namespace GrampsView.Data.ExternalStorage
                             CitationModel t = ttt.First().DeSerialise();
                             t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                             ttt.First().Serialise(t);
-
-                            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                         }
                     }
 
@@ -375,8 +367,6 @@ namespace GrampsView.Data.ExternalStorage
                             NoteModel t = ttt.First().DeSerialise();
                             t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                             ttt.First().Serialise(t);
-
-                            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                         }
                     }
 
@@ -397,6 +387,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             _ = SetMediaImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -479,8 +471,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -494,8 +484,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -503,6 +491,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetPersonNameImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -540,8 +530,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -557,8 +545,6 @@ namespace GrampsView.Data.ExternalStorage
                         EventModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -584,8 +570,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -633,6 +617,8 @@ namespace GrampsView.Data.ExternalStorage
 
             SetPersonImages();
 
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+
             return true;
         }
 
@@ -664,8 +650,6 @@ namespace GrampsView.Data.ExternalStorage
                         CitationModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -689,8 +673,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -717,6 +699,8 @@ namespace GrampsView.Data.ExternalStorage
 
             SetPlaceImages();
 
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
+
             return true;
         }
 
@@ -741,8 +725,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -758,6 +740,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetRepositoryImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }
@@ -795,8 +779,6 @@ namespace GrampsView.Data.ExternalStorage
                         NoteModel t = ttt.First().DeSerialise();
                         t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                         ttt.First().Serialise(t);
-
-                        Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
                     }
                 }
 
@@ -820,6 +802,8 @@ namespace GrampsView.Data.ExternalStorage
             }
 
             SetSourceImages();
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             return true;
         }

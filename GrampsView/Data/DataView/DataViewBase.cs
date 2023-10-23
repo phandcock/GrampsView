@@ -3,12 +3,8 @@
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Model;
-using GrampsView.Data.StoreDB;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
-
-using SharedSharp.Models;
-using SharedSharp.Models;
 
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
@@ -34,13 +30,6 @@ namespace GrampsView.Data.DataView
         where TU : HLinkBase, new()
     {
         public int Count => DataViewData.Count;
-
-        internal bool DatabaseAvailable { get; set; } = false;
-
-        public DataViewBase()
-        {
-            DatabaseAvailable = Ioc.Default.GetRequiredService<IStoreDB>().IsOpen();
-        }
 
         /// <summary>
         /// Gets the data default sort.

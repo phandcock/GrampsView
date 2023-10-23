@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Models.DBModels;
 
@@ -12,13 +12,12 @@ namespace GrampsView.Data.StoreDB
         DbSet<EventDBModel> EventAccess { get; }
 
         DbSet<FamilyDBModel> FamilyAccess { get; }
+        bool IsOpen { get; }
         DbSet<NoteDBModel> NoteAccess { get; }
 
         Task Clear();
 
         Task InitialiseDB();
-
-        bool IsOpen();
 
         Task OpenDB();
 

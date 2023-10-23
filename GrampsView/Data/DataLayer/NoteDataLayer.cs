@@ -21,12 +21,7 @@ namespace GrampsView.Data.DataLayer
 
     public class NoteDataLayer : DataLayerBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>, INoteDataLayer
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NoteDataView"/> class.
-        /// </summary>
-        public NoteDataLayer()
-        {
-        }
+
 
         public override IReadOnlyList<NoteModel> DataAsDefaultSort
         {
@@ -77,7 +72,7 @@ namespace GrampsView.Data.DataLayer
         {
             get
             {
-                if (DatabaseAvailable)
+                if (localStoreDB.IsOpen)
                 {
                     DateTime lastSixtyDays = DateTime.Now.Subtract(new TimeSpan(60, 0, 0, 0, 0));
 
