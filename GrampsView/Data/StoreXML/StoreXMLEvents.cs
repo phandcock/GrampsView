@@ -1,6 +1,7 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.DataView;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DBModels;
@@ -74,8 +75,9 @@ namespace GrampsView.Data.ExternalStorage
                         }
 
                         // save the event
-                        EventDBModel t = new EventDBModel(loadEvent as EventModel);
-                        Debug.WriteLine(t.HLinkKeyValue);
+                        EventDBModel t = new EventDBModel(loadEvent);
+                        Debug.WriteLine($"Event {t.HLinkKeyValue}");
+                        Debug.WriteLine($"Date {t.GDate.HLinkKeyValue}");
                         DL.EventDL.EventAccess.Add(t);
                     }
                 }
@@ -84,6 +86,8 @@ namespace GrampsView.Data.ExternalStorage
                     MyNotifications.NotifyException("LoadEventsAsync", ex);
                 }
             }
+
+            Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
             MyLog.DataLogEntryReplace("Event load complete");
             return;

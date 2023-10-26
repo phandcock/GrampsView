@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.StoreDB;
 using GrampsView.Models.Collections.HLinks;
@@ -21,8 +22,6 @@ namespace GrampsView.Data.DataLayer
 
     public class NoteDataLayer : DataLayerBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>, INoteDataLayer
     {
-
-
         public override IReadOnlyList<NoteModel> DataAsDefaultSort
         {
             get
@@ -124,28 +123,24 @@ namespace GrampsView.Data.DataLayer
         {
             Group<HLinkNoteModelCollection> t = new Group<HLinkNoteModelCollection>();
 
-            var query = from item in DataAsList
-                        orderby item.GType, item.ToString()
-                        group item by item.GType into g
-                        select new
-                        {
-                            GroupName = g.Key,
-                            Items = g
-                        };
+            IQueryable<IGrouping<string, NoteDBModel>> query = DL.NoteDL.NoteAccess.GroupBy(x => x.GType);
 
-            foreach (var g in query)
+            if (query.Any())
             {
-                HLinkNoteModelCollection info = new HLinkNoteModelCollection
+                foreach (IGrouping<string, NoteDBModel> g in query)
                 {
-                    Title = g.GroupName,
-                };
+                    HLinkNoteModelCollection info = new HLinkNoteModelCollection
+                    {
+                        Title = g.Key,
+                    };
 
-                foreach (NoteModel? item in g.Items)
-                {
-                    info.Add(item.HLink);
+                    foreach (NoteDBModel item in g)
+                    {
+                        info.Add(item.DeSerialise().HLink);
+                    }
+
+                    t.Add(info);
                 }
-
-                t.Add(info);
             }
 
             return t;

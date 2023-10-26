@@ -1,6 +1,7 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.DataView;
+using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DBModels;
@@ -12,7 +13,6 @@ namespace GrampsView.Data.ExternalStorage
 {
     public partial class StoreXML : IStoreXML
     {
-
         public async Task LoadCitationsAsync()
         {
             MyLog.DataLogEntryAdd("Loading Citation data");
@@ -58,14 +58,14 @@ namespace GrampsView.Data.ExternalStorage
                         CitationDBModel t = new CitationDBModel(loadCitation);
                         Debug.WriteLine(t.HLinkKeyValue);
                         DL.CitationDL.CitationAccess.Add(t);
-
                     }
                 }
                 catch (Exception ex)
                 {
                     MyNotifications.NotifyException("Exception loading Citations form XML", ex);
-
                 }
+
+                Ioc.Default.GetRequiredService<IStoreDB>().SaveChanges();
 
                 MyLog.DataLogEntryReplace("Citation load complete");
 

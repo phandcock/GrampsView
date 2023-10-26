@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 namespace GrampsView.Common
 {
@@ -12,7 +12,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 88;
+        public const int GrampsViewDatabaseVersion = 89;
 
         public static readonly string DirectoryCacheBase = "~GV";
 

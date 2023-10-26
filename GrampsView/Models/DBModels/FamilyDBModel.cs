@@ -2,6 +2,7 @@
 
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels.Interfaces;
 
 namespace GrampsView.Models.DBModels
 {

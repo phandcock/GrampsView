@@ -196,8 +196,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="Models\DBModels\Date\DateDBModelBase.cs" />
+      <Compile Include="Models\DBModels\Date\Interfaces\IDateDBModel.cs" />
       <Compile Include="Models\DBModels\EventDBModel.cs" />
-      <Compile Include="Models\DBModels\IDBModel.cs" />
+      <Compile Include="Models\DBModels\Interfaces\IEventDBModel.cs" />
+      <Compile Include="Models\DBModels\Interfaces\ICitationDBModel.cs" />
+      <Compile Include="Models\DBModels\Interfaces\INoteDBModel.cs" />
+      <Compile Include="Models\DBModels\Interfaces\IDBModel.cs" />
       <Compile Include="Models\DBModels\DBModel.cs" />
       <Compile Include="Models\DBModels\CitationDBModel.cs" />
       <Compile Include="Models\DBModels\FamilyDBModel.cs" />

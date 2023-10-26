@@ -5,14 +5,12 @@ using GrampsView.Models.HLinks;
 
 using System.ComponentModel.DataAnnotations;
 
-namespace GrampsView.Models.DBModels
+namespace GrampsView.Models.DBModels.Interfaces
 {
     public interface IDBModel<T1, T2>
             where T1 : ModelBase, new()
             where T2 : HLinkBase, new()
     {
-        //public HLinkKey HLinkKey { get; }
-
         [Key]
         string HLinkKeyValue { get; set; }
 

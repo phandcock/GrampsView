@@ -2,9 +2,11 @@
 
 using GrampsView.Common;
 using GrampsView.Models.DataModels;
+using GrampsView.Models.DBModels.Interfaces;
 using GrampsView.Models.HLinks;
 
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace GrampsView.Models.DBModels
@@ -22,17 +24,8 @@ namespace GrampsView.Models.DBModels
             Serialise(argModel);
         }
 
-
-        //public HLinkKey HLinkKey
-        //{
-        //    get
-        //    {
-        //        return new HLinkKey(HLinkKeyValue);
-        //    }
-        //}
-
         [Key]
-        public string HLinkKeyValue { get; set; } = string.Empty;
+        public string HLinkKeyValue { get; set; } = Guid.NewGuid().ToString();
 
         public string serialisedModel { get; set; } = string.Empty;
 
@@ -45,16 +38,18 @@ namespace GrampsView.Models.DBModels
                 return new T1();
             }
 
-            return JsonSerializer.Deserialize<T1>(serialisedModel, serializerOptions);
+            return JsonSerializer.Deserialize<T1>(serialisedModel, serializerOptions) ?? new();
         }
 
-        public void Serialise(T1 argNoteModel)
+        public void Serialise(T1 argModel)
         {
             JsonSerializerOptions serializerOptions = CommonRoutines.GetSerializerOptions();
 
-            serialisedModel = JsonSerializer.Serialize<T1>(argNoteModel, serializerOptions);
+            serialisedModel = JsonSerializer.Serialize<T1>(argModel, serializerOptions);
 
-            HLinkKeyValue = argNoteModel.HLinkKey.Value;
+            HLinkKeyValue = argModel.HLinkKey.Value;
+
+            Debug.WriteLine($"Key {HLinkKeyValue}");
         }
     }
 }
