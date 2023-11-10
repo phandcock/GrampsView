@@ -1,6 +1,7 @@
 ﻿// Copyright (c) phandcock. All rights reserved.
 
 using GrampsView.Data.DataLayer;
+using GrampsView.Data.DataLayer.Interfaces;
 
 namespace GrampsView.Data.DataView
 {

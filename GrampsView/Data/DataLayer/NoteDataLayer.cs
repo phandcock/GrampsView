@@ -2,14 +2,11 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
+using GrampsView.Data.DataLayer.Interfaces;
 using GrampsView.Data.StoreDB;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
-
-using Microsoft.EntityFrameworkCore;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.Collections;
 using System.Globalization;
@@ -20,9 +17,9 @@ namespace GrampsView.Data.DataLayer
     /// Data view into the Notes Repository.
     /// </summary>
 
-    public class NoteDataLayer : DataLayerBase<NoteModel, HLinkNoteModel, HLinkNoteModelCollection>, INoteDataLayer
+    public class NoteDataLayer : DataLayerBase<NoteDBModel, HLinkNoteDBModel, HLinkNoteDBModelCollection>, INoteDataLayer
     {
-        public override IReadOnlyList<NoteModel> DataAsDefaultSort
+        public override IReadOnlyList<NoteDBModel> DataAsDefaultSort
         {
             get
             {
@@ -32,7 +29,7 @@ namespace GrampsView.Data.DataLayer
                     return _DataAsDefaultSort;
                 }
 
-                _DataAsDefaultSort = DataAsList.OrderBy(NoteModel => NoteModel.GStyledText.GText).ToList();
+                _DataAsDefaultSort = DataAsList.OrderBy(NoteDBModel => NoteDBModel.GStyledText.GText).ToList();
 
                 return _DataAsDefaultSort;
             }
@@ -44,7 +41,7 @@ namespace GrampsView.Data.DataLayer
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<NoteModel> DataAsList
+        public override IReadOnlyList<NoteDBModel> DataAsList
         {
             get
             {
@@ -54,20 +51,20 @@ namespace GrampsView.Data.DataLayer
                     return _DataAsList;
                 }
 
-                _DataAsList = new List<NoteModel>();
+                _DataAsList = new List<NoteDBModel>();
 
-                System.Collections.ObjectModel.ReadOnlyCollection<NoteDBModel> t = NoteAccess.ToList().AsReadOnly();
+                System.Collections.ObjectModel.ReadOnlyCollection<NoteDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.ToList().AsReadOnly();
 
                 foreach (NoteDBModel? item in t)
                 {
-                    _DataAsList.Add(item.DeSerialise());
+                    _DataAsList.Add(item);
                 }
 
                 return _DataAsList;
             }
         }
 
-        public override HLinkNoteModelCollection GetLatestChanges
+        public override HLinkNoteDBModelCollection GetLatestChanges
         {
             get
             {
@@ -77,9 +74,9 @@ namespace GrampsView.Data.DataLayer
 
                     IEnumerable tt = DataAsList.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                    HLinkNoteModelCollection returnCardGroup = new HLinkNoteModelCollection();
+                    HLinkNoteDBModelCollection returnCardGroup = new HLinkNoteDBModelCollection();
 
-                    foreach (NoteModel item in tt)
+                    foreach (NoteDBModel item in tt)
                     {
                         returnCardGroup.Add(item.HLink);
                     }
@@ -89,27 +86,21 @@ namespace GrampsView.Data.DataLayer
                     return returnCardGroup;
                 }
 
-                return new HLinkNoteModelCollection();
+                return new HLinkNoteDBModelCollection();
             }
         }
 
-        public DbSet<NoteDBModel> NoteAccess
+
+
+        private List<NoteDBModel> _DataAsDefaultSort { get; set; } = new List<NoteDBModel>();
+
+        private List<NoteDBModel> _DataAsList { get; set; } = new List<NoteDBModel>();
+
+        public override HLinkNoteDBModelCollection GetAllAsCardGroupBase()
         {
-            get
-            {
-                return Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess;
-            }
-        }
+            HLinkNoteDBModelCollection t = new();
 
-        private List<NoteModel> _DataAsDefaultSort { get; set; } = new List<NoteModel>();
-
-        private List<NoteModel> _DataAsList { get; set; } = new List<NoteModel>();
-
-        public override HLinkNoteModelCollection GetAllAsCardGroupBase()
-        {
-            HLinkNoteModelCollection t = new();
-
-            foreach (NoteModel item in DataAsDefaultSort)
+            foreach (NoteDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -119,24 +110,24 @@ namespace GrampsView.Data.DataLayer
             return t;
         }
 
-        public override Group<HLinkNoteModelCollection> GetAllAsGroupedCardGroup()
+        public override Group<HLinkNoteDBModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkNoteModelCollection> t = new Group<HLinkNoteModelCollection>();
+            Group<HLinkNoteDBModelCollection> t = new Group<HLinkNoteDBModelCollection>();
 
-            IQueryable<IGrouping<string, NoteDBModel>> query = DL.NoteDL.NoteAccess.GroupBy(x => x.GType);
+            IQueryable<IGrouping<string, NoteDBModel>> query = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.GroupBy(x => x.GType);
 
             if (query.Any())
             {
                 foreach (IGrouping<string, NoteDBModel> g in query)
                 {
-                    HLinkNoteModelCollection info = new HLinkNoteModelCollection
+                    HLinkNoteDBModelCollection info = new HLinkNoteDBModelCollection
                     {
                         Title = g.Key,
                     };
 
                     foreach (NoteDBModel item in g)
                     {
-                        info.Add(item.DeSerialise().HLink);
+                        info.Add(item.HLink);
                     }
 
                     t.Add(info);
@@ -154,11 +145,11 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// HLInknotemodel collection
         /// </returns>
-        public HLinkNoteModelCollection GetAllAsHLink()
+        public HLinkNoteDBModelCollection GetAllAsHLink()
         {
-            HLinkNoteModelCollection t = new HLinkNoteModelCollection();
+            HLinkNoteDBModelCollection t = new HLinkNoteDBModelCollection();
 
-            foreach (NoteModel item in DataAsDefaultSort)
+            foreach (NoteDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -174,39 +165,39 @@ namespace GrampsView.Data.DataLayer
         /// </param>
         /// <returns>
         /// </returns>
-        public CardGroupModel<NoteModel> GetAllOfType(string argType)
+        public DBCardGroupModel<NoteDBModel> GetAllOfType(string argType)
         {
-            CardGroupModel<NoteModel> t = new CardGroupModel<NoteModel>();
+            DBCardGroupModel<NoteDBModel> t = new DBCardGroupModel<NoteDBModel>();
 
-            IEnumerable<NoteModel> q = DataAsList.Where(NoteModel => NoteModel.GType == argType);
+            IEnumerable<NoteDBModel> q = DataAsList.Where(NoteDBModel => NoteDBModel.GType == argType);
 
-            foreach (NoteModel item in q)
+            foreach (NoteDBModel item in q)
             {
                 t.Add(item);
             }
 
-            return new CardGroupModel<NoteModel>(q);
+            return new DBCardGroupModel<NoteDBModel>(q);
         }
 
-        public override NoteModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
+        public override NoteDBModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             IQueryable<NoteDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
 
             if (t.Any())
             {
-                return t.First().DeSerialise();
+                return t.First();
             }
 
-            return new NoteModel();
+            return new NoteDBModel();
         }
 
-        public override NoteModel GetModelFromId(string argId)
+        public override NoteDBModel GetModelFromId(string argId)
         {
-            NoteModel t = DataAsList.FirstOrDefault(X => X.Id == argId);
+            NoteDBModel t = DataAsList.FirstOrDefault(X => X.Id == argId);
 
             if (t is null)
             {
-                return new NoteModel();
+                return new NoteDBModel();
             }
 
             return t;
@@ -221,18 +212,18 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// Sorted hlink collection.
         /// </returns>
-        public override HLinkNoteModelCollection HLinkCollectionSort(HLinkNoteModelCollection collectionArg)
+        public override HLinkNoteDBModelCollection HLinkCollectionSort(HLinkNoteDBModelCollection collectionArg)
         {
             if (collectionArg == null)
             {
                 return null;
             }
 
-            IOrderedEnumerable<HLinkNoteModel> t = collectionArg.OrderBy(HLinkNoteModel => HLinkNoteModel.DeRef.GStyledText.TextShort);
+            IOrderedEnumerable<HLinkNoteDBModel> t = collectionArg.OrderBy(HLinkNoteModel => HLinkNoteModel.DeRef.GStyledText.TextShort);
 
-            HLinkNoteModelCollection tt = new HLinkNoteModelCollection();
+            HLinkNoteDBModelCollection tt = new HLinkNoteDBModelCollection();
 
-            foreach (HLinkNoteModel item in t)
+            foreach (HLinkNoteDBModel item in t)
             {
                 tt.Add(item);
             }
@@ -242,24 +233,24 @@ namespace GrampsView.Data.DataLayer
 
         public override void ResetCache()
         {
-            _DataAsDefaultSort = new List<NoteModel>();
-            _DataAsList = new List<NoteModel>();
+            _DataAsDefaultSort = new List<NoteDBModel>();
+            _DataAsList = new List<NoteDBModel>();
         }
 
-        public override HLinkNoteModelCollection Search(string queryString)
+        public override HLinkNoteDBModelCollection Search(string queryString)
         {
-            HLinkNoteModelCollection itemsFound = new HLinkNoteModelCollection();
+            HLinkNoteDBModelCollection itemsFound = new HLinkNoteDBModelCollection();
 
             if (string.IsNullOrEmpty(queryString))
             {
                 return itemsFound;
             }
 
-            IOrderedEnumerable<NoteModel> temp = DataAsList.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
+            IOrderedEnumerable<NoteDBModel> temp = DataAsList.Where(x => x.GStyledText.GText.ToLower(CultureInfo.CurrentCulture).Contains(queryString)).Distinct().OrderBy(y => y.ToString());
 
             if (temp.Any())
             {
-                foreach (NoteModel tempMO in temp)
+                foreach (NoteDBModel tempMO in temp)
                 {
                     itemsFound.Add(tempMO.HLink);
                 }
@@ -272,7 +263,7 @@ namespace GrampsView.Data.DataLayer
         {
             List<SearcHandlerItem> returnValue = new List<SearcHandlerItem>();
 
-            foreach (HLinkNoteModel item in Search(argQuery))
+            foreach (HLinkNoteDBModel item in Search(argQuery))
             {
                 returnValue.Add(new SearcHandlerItem(item));
             }
@@ -280,9 +271,9 @@ namespace GrampsView.Data.DataLayer
             return returnValue;
         }
 
-        public CardGroupHLink<HLinkNoteModel> SearchTag(string argQuery)
+        public DBCardGroupHLink<HLinkNoteDBModel> SearchTag(string argQuery)
         {
-            CardGroupHLink<HLinkNoteModel> itemsFound = new CardGroupHLink<HLinkNoteModel>
+            DBCardGroupHLink<HLinkNoteDBModel> itemsFound = new DBCardGroupHLink<HLinkNoteDBModel>
             {
                 Title = "Notes"
             };
@@ -292,13 +283,13 @@ namespace GrampsView.Data.DataLayer
                 return itemsFound;
             }
 
-            IEnumerable<NoteModel> temp = from gig in DataAsList
-                                          where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
-                                          select gig;
+            IEnumerable<NoteDBModel> temp = from gig in DataAsList
+                                            where gig.GTagRefCollection.Any(act => act.DeRef.GName == argQuery)
+                                            select gig;
 
             if (temp.Any())
             {
-                foreach (NoteModel tempMO in temp)
+                foreach (NoteDBModel tempMO in temp)
                 {
                     itemsFound.Add(tempMO.HLink);
                 }

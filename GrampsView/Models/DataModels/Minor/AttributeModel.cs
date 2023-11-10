@@ -1,9 +1,11 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
+    using GrampsView.ModelsDB.Collections.HLinks;
 
     using SharedSharp.Common;
 
@@ -41,13 +43,13 @@
         /// The citation reference collection.
         /// </value>
 
-        public HLinkCitationModelCollection GCitationReferenceCollection
+        public HLinkCitationDBModelCollection GCitationReferenceCollection
         {
             get;
             set;
         }
 
-            = new HLinkCitationModelCollection();
+            = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the note model reference collection.
@@ -56,13 +58,13 @@
         /// The note model reference collection.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteModelReferenceCollection
+        public HLinkNoteDBModelCollection GNoteModelReferenceCollection
         {
             get;
             set;
         }
 
-            = new HLinkNoteModelCollection();
+            = new HLinkNoteDBModelCollection();
 
         /// <summary>
         /// Gets or sets the attribute type.
@@ -154,12 +156,12 @@
         {
             if (a is null)
             {
-                return SharedSharpConstants.CompareEquals;
+                return SharedConstants.CompareEquals;
             }
 
             if (b is null)
             {
-                return SharedSharpConstants.CompareEquals;
+                return SharedConstants.CompareEquals;
             }
 
             AttributeModel firstAttributeName = (AttributeModel)a;
@@ -196,7 +198,7 @@
         {
             if (other is null)
             {
-                return SharedSharpConstants.CompareGreaterThan;
+                return SharedConstants.CompareGreaterThan;
             }
 
             // This is effectively random

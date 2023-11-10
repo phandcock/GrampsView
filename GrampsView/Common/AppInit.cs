@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.StoreDB;
 using GrampsView.Events;
@@ -25,7 +25,7 @@ namespace GrampsView.Common
                 // Need FirstRun?
                 if (Ioc.Default.GetRequiredService<IFirstRunDisplayService>().ShowIfAppropriate())
                 {
-                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FirstRunPage));
+                    await SharedSharp.Navigation.SharedNavigation.NavigateAsync(nameof(FirstRunPage));
 
                     return;
                 }
@@ -33,7 +33,7 @@ namespace GrampsView.Common
                 // Need WhatsNew?
                 if (Ioc.Default.GetRequiredService<IWhatsNewDisplayService>().ShowIfAppropriate())
                 {
-                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(WhatsNewPage));
+                    await SharedSharp.Navigation.SharedNavigation.NavigateAsync(nameof(WhatsNewPage));
 
                     return;
                 }
@@ -44,7 +44,7 @@ namespace GrampsView.Common
                 var ttt = SharedSharpSettings.DatabaseReloadNeeded;
                 if (await Ioc.Default.GetRequiredService<IDatabaseReloadDisplayService>().ShowIfAppropriate())
                 {
-                    await SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
+                    await SharedSharp.Navigation.SharedNavigation.NavigateAsync(nameof(NeedDatabaseReloadPage));
 
                     SharedSharpSettings.DataSerialised = false;
 
@@ -93,7 +93,7 @@ namespace GrampsView.Common
                 // No Serialised Data and made it this far so some problem has occurred. Load
                 // everything from the beginning.
 
-                SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(FileInputHandlerPage));
+                SharedSharp.Navigation.SharedNavigation.NavigateAsync(nameof(FileInputHandlerPage));
             }
             catch (Exception ex)
             {

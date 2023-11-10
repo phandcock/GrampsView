@@ -2,10 +2,9 @@
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 namespace GrampsView.ViewModels.Citation
 {
@@ -24,25 +23,25 @@ namespace GrampsView.ViewModels.Citation
         {
         }
 
-        public CitationModel CitationObject
+        public CitationDBModel CitationObject
         {
             get; set;
-        } = new CitationModel();
+        } = new CitationDBModel();
 
-        public HLinkNoteModel HighlightedNote
+        public HLinkNoteDBModel HighlightedNote
         {
             get; set;
-        } = new HLinkNoteModel();
+        } = new HLinkNoteDBModel();
 
-        public HLinkEventModel HLinkObject
+        public HLinkEventDBModel HLinkObject
         {
             get; set;
-        } = new HLinkEventModel();
+        } = new HLinkEventDBModel();
 
-        public HLinkNoteModelCollection NotesWithoutHighlight
+        public HLinkNoteDBModelCollection NotesWithoutHighlight
         {
             get; set;
-        } = new HLinkNoteModelCollection();
+        } = new HLinkNoteDBModelCollection();
 
         /// <summary>
         /// Gets or sets the citation object.
@@ -54,13 +53,13 @@ namespace GrampsView.ViewModels.Citation
         {
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkCitationModel HLinkObject = base.NavigationParameter as HLinkCitationModel;
+                HLinkCitationDBModel HLinkObject = base.NavigationParameter as HLinkCitationDBModel;
 
                 CitationObject = HLinkObject.DeRef;
 
                 if (CitationObject is not null)
                 {
-                    BaseModelBase = CitationObject;
+                    BaseDBModelBase = CitationObject;
                     BaseTitleIcon = Constants.IconCitation;
 
                     BaseDetail.Clear();
@@ -81,7 +80,7 @@ namespace GrampsView.ViewModels.Citation
 
                     NotesWithoutHighlight = CitationObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
-                    HLinkCitationModel t = CitationObject.HLink;
+                    HLinkCitationDBModel t = CitationObject.HLink;
                     t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
                     BaseDetail.Add(t);
                 }

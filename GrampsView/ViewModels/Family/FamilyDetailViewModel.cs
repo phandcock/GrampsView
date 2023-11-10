@@ -1,9 +1,9 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
-using GrampsView.Models.DataModels;
+using GrampsView.DBModels;
+using GrampsView.ModelsDB.HLinks.Models;
 
 namespace GrampsView.ViewModels.Family
 {
@@ -15,7 +15,7 @@ namespace GrampsView.ViewModels.Family
         /// <summary>
         /// Holds the family object.
         /// </summary>
-        private FamilyModel localFamilyModel = new();
+        private FamilyDBModel localFamilyModel = new();
 
         /// <summary>
         /// Gets or sets the Family object.
@@ -23,7 +23,7 @@ namespace GrampsView.ViewModels.Family
         /// <value>
         /// The family object.
         /// </value>
-        public FamilyModel FamilyObject
+        public FamilyDBModel FamilyObject
         {
             get => localFamilyModel;
 
@@ -55,13 +55,13 @@ namespace GrampsView.ViewModels.Family
         {
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkFamilyModel HLinkObject = base.NavigationParameter as HLinkFamilyModel;
+                HLinkFamilyDBModel HLinkObject = base.NavigationParameter as HLinkFamilyDBModel;
 
                 FamilyObject = HLinkObject.DeRef;
 
                 if (FamilyObject is not null)
                 {
-                    BaseModelBase = FamilyObject;
+                    BaseDBModelBase = FamilyObject;
                     BaseTitleIcon = Constants.IconFamilies;
 
                     BaseDetail.Clear();
@@ -80,7 +80,7 @@ namespace GrampsView.ViewModels.Family
                     BaseDetail.Add(DL.FamilyDL.GetModelInfoFormatted(FamilyObject));
 
                     // Add parent link
-                    BaseDetail.Add(new HLinkFamilyModel
+                    BaseDetail.Add(new HLinkFamilyDBModel
                     {
                         HLinkKey = localFamilyModel.HLinkKey,
                         DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium

@@ -11,6 +11,7 @@ using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.ModelsDB.HLinks;
 
 namespace GrampsView.Data.Model
 {
@@ -81,7 +82,7 @@ namespace GrampsView.Data.Model
             get;
         }
 
-        HLinkCitationModel HLink
+        HLinkCitationDBModel HLink
         {
             get;
         }

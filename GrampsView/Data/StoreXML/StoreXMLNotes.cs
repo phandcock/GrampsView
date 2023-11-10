@@ -1,11 +1,12 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
+using GrampsView.Models.DBModels.Interfaces;
+
+using SharedSharp.Sizes;
 
 using System.Diagnostics;
 using System.Xml.Linq;
@@ -36,10 +37,10 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Notes Uri
                     foreach (XElement pname in de)
                     {
-                        INoteModel loadNote = new NoteModel();
+                        INoteDBModel loadNote = new NoteDBModel();
 
                         // Note attributes
-                        loadNote.LoadBasics(GetBasics(pname));
+                        loadNote.LoadBasics(GetDBBasics(pname));
 
                         //loadNote.HLinkKey = loadNote.Handle;
                         loadNote.GIsFormated = GetBool(pname, "format");
@@ -71,9 +72,9 @@ namespace GrampsView.Data.ExternalStorage
                             loadNote.GTagRefCollection.Add(item);
                         }
 
-                        NoteDBModel t = new NoteDBModel(loadNote as NoteModel);
+                        NoteDBModel t = new NoteDBModel(loadNote as NoteDBModel);
                         Debug.WriteLine(t.HLinkKeyValue);
-                        DL.NoteDL.NoteAccess.Add(t);
+                        Ioc.Default.GetRequiredService<IStoreDB>().NoteAccess.Add(t);
                     }
                 }
                 catch (Exception ex)

@@ -9,6 +9,8 @@ using GrampsView.Data.StoreXML;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using SharedSharp.Errors;
 
@@ -330,9 +332,9 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        private HLinkCitationModelCollection GetCitationCollection(XElement xmlData)
+        private HLinkCitationDBModelCollection GetCitationCollection(XElement xmlData)
         {
-            HLinkCitationModelCollection t = new()
+            HLinkCitationDBModelCollection t = new()
             {
                 Title = "Citation Collection"
             };
@@ -346,7 +348,7 @@ namespace GrampsView.Data.ExternalStorage
                 // load citation object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkCitationModel t2 = new()
+                    HLinkCitationDBModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                     };
@@ -372,9 +374,9 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        private HLinkEventModelCollection GetEventCollection(XElement xmlData)
+        private HLinkEventDBModelCollection GetEventCollection(XElement xmlData)
         {
-            HLinkEventModelCollection t = new()
+            HLinkEventDBModelCollection t = new()
             {
                 Title = "Event Collection"
             };
@@ -388,7 +390,7 @@ namespace GrampsView.Data.ExternalStorage
                 // load event object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    HLinkEventModel t2 = new()
+                    HLinkEventDBModel t2 = new()
                     {
                         HLinkKey = GetHLinkKey(theLoadORElement),
                         GRole = GetAttribute(theLoadORElement.Attribute("role")),
@@ -449,9 +451,9 @@ namespace GrampsView.Data.ExternalStorage
         /// </param>
         /// <returns>
         /// </returns>
-        private HLinkNoteModelCollection GetNoteCollection(XElement xmlData)
+        private HLinkNoteDBModelCollection GetNoteCollection(XElement xmlData)
         {
-            HLinkNoteModelCollection t = new()
+            HLinkNoteDBModelCollection t = new()
             {
                 Title = "Note Collection"
             };
@@ -466,7 +468,7 @@ namespace GrampsView.Data.ExternalStorage
                 // load note references
                 foreach (XElement loadNoteElement in localNoteElement)
                 {
-                    HLinkNoteModel noteHLink = new()
+                    HLinkNoteDBModel noteHLink = new()
                     {
                         HLinkKey = GetHLinkKey(loadNoteElement),
                     };

@@ -1,6 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
 
 using Microsoft.EntityFrameworkCore;
 

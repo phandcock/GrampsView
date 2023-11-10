@@ -6,9 +6,11 @@ using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Data.StoreDB;
 using GrampsView.Data.StorePostLoad;
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 namespace GrampsView.Data.ExternalStorage
 {
@@ -29,15 +31,15 @@ namespace GrampsView.Data.ExternalStorage
                 argModel.GCitationRefCollection.SetGlyph();
 
                 // Citation Collection
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -67,7 +69,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Citation data");
 
-            foreach (CitationModel argModel in DL.CitationDL.DataAsList)
+            foreach (CitationDBModel argModel in DL.CitationDL.DataAsList)
             {
                 if (argModel.Id == "C0144")
                 {
@@ -97,16 +99,12 @@ namespace GrampsView.Data.ExternalStorage
                 }
 
                 // Note Collection
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    NoteDBModel ttt = noteRef.DeRef;
 
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Source Link
@@ -140,20 +138,20 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Event data");
 
-            foreach (EventModel argModel in DL.EventDL.DataAsList)
+            foreach (EventDBModel argModel in DL.EventDL.DataAsList)
             {
                 argModel.GCitationRefCollection.SetGlyph();
 
                 // Citation Collection
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -174,19 +172,15 @@ namespace GrampsView.Data.ExternalStorage
                     DataStore.Instance.DS.MediaData[mediaRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }
 
-                // NoteModel Collection
+                // NoteDBModel Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    NoteDBModel ttt = noteRef.DeRef;
 
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Tag Collection
@@ -214,7 +208,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Family data ");
 
-            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
+            foreach (FamilyDBModel argModel in DL.FamilyDL.DataAsList)
             {
                 // Child Collection
                 argModel.GChildRefCollection.SetGlyph();
@@ -227,15 +221,15 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 argModel.GCitationRefCollection.SetGlyph();
 
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -256,15 +250,15 @@ namespace GrampsView.Data.ExternalStorage
                 // EventModel Collection
                 argModel.GEventRefCollection.SetGlyph();
 
-                foreach (HLinkEventModel eventRef in argModel.GEventRefCollection)
+                foreach (HLinkEventDBModel eventRef in argModel.GEventRefCollection)
                 {
-                    IQueryable<Models.DBModels.EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
+                    IQueryable<EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        EventModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        EventDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -282,16 +276,11 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
-
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel ttt = noteRef.DeRef;
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Tag Collection
@@ -342,15 +331,15 @@ namespace GrampsView.Data.ExternalStorage
                     // Citation Collection
                     argModel.GCitationRefCollection.SetGlyph();
 
-                    foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                    foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                     {
-                        IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                        IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                         if (ttt.Any())
                         {
-                            CitationModel t = ttt.First().DeSerialise();
-                            t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                            ttt.First().Serialise(t);
+                            CitationDBModel t = ttt.First();
+                            t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                            ttt.First();
                         }
                     }
 
@@ -358,16 +347,12 @@ namespace GrampsView.Data.ExternalStorage
                     argModel.GNoteRefCollection.SetGlyph();
 
                     // Back Reference Note HLinks
-                    foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                    foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                     {
-                        IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                        NoteDBModel ttt = noteRef.DeRef;
 
-                        if (ttt.Any())
-                        {
-                            NoteModel t = ttt.First().DeSerialise();
-                            t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                            ttt.First().Serialise(t);
-                        }
+                        NoteDBModel t = ttt;
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                     }
 
                     // Tag Collection
@@ -401,7 +386,7 @@ namespace GrampsView.Data.ExternalStorage
             _CommonLogging.DataLogEntryAdd("Organising Misc data");
 
             // Family children
-            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
+            foreach (FamilyDBModel argModel in DL.FamilyDL.DataAsList)
             {
                 // Children Collection
                 argModel.GChildRefCollection.SetGlyph();
@@ -431,7 +416,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Note data");
 
-            foreach (NoteModel argModel in DL.NoteDL.DataAsList)
+            foreach (NoteDBModel argModel in DL.NoteDL.DataAsList)
             {
                 // Note Collection
                 argModel.GTagRefCollection.SetGlyph();
@@ -460,31 +445,27 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 argModel.GCitationRefCollection.SetGlyph();
 
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
                     citationRef.HLinkGlyphItem = DL.CitationDL.GetGlyph(citationRef.HLinkKey);
 
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
                 // Note Collection
-                foreach (HLinkNoteModel noteRef in argModel.GNoteReferenceCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteReferenceCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    NoteDBModel ttt = noteRef.DeRef;
 
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 argModel.BackHLinkReferenceCollection.Sort();
@@ -521,30 +502,30 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 argModel.GCitationRefCollection.SetGlyph();
 
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
                 // Event Collection
                 argModel.GEventRefCollection.SetGlyph();
 
-                foreach (HLinkEventModel eventRef in argModel.GEventRefCollection)
+                foreach (HLinkEventDBModel eventRef in argModel.GEventRefCollection)
                 {
-                    IQueryable<Models.DBModels.EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
+                    IQueryable<EventDBModel> ttt = DL.EventDL.EventAccess.Where(x => x.HLinkKeyValue == eventRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        EventModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        EventDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -561,16 +542,12 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    NoteDBModel ttt = noteRef.DeRef;
 
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Parent In Collection
@@ -592,10 +569,10 @@ namespace GrampsView.Data.ExternalStorage
                 }
 
                 // set Birthdate
-                EventModel birthDate = DL.EventDL.GetEventType(argModel.GEventRefCollection, Constants.EventTypeBirth);
+                EventDBModel birthDate = DL.EventDL.GetEventType(argModel.GEventRefCollection, Constants.EventTypeBirth);
                 if (birthDate.Valid)
                 {
-                    argModel.BirthDate = birthDate.GDate;
+                    argModel.BirthDate.NotionalDate = birthDate.GDate.NotionalDate;
                 }
 
                 // set Is Living
@@ -641,15 +618,15 @@ namespace GrampsView.Data.ExternalStorage
                 // Citation Collection
                 argModel.GCitationRefCollection.SetGlyph();
 
-                foreach (HLinkCitationModel citationRef in argModel.GCitationRefCollection)
+                foreach (HLinkCitationDBModel citationRef in argModel.GCitationRefCollection)
                 {
-                    IQueryable<Models.DBModels.CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
+                    IQueryable<CitationDBModel> ttt = DL.CitationDL.CitationAccess.Where(x => x.HLinkKeyValue == citationRef.HLinkKey.Value);
 
                     if (ttt.Any())
                     {
-                        CitationModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
+                        CitationDBModel t = ttt.First();
+                        t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
+                        ttt.First();
                     }
                 }
 
@@ -664,16 +641,11 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
-
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel ttt = noteRef.DeRef;
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Tag Collection
@@ -716,16 +688,12 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (HLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
+                    NoteDBModel ttt = noteRef.DeRef;
 
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Tag Collection
@@ -770,16 +738,11 @@ namespace GrampsView.Data.ExternalStorage
                 // Note Collection
                 argModel.GNoteRefCollection.SetGlyph();
 
-                foreach (IHLinkNoteModel noteRef in argModel.GNoteRefCollection)
+                foreach (HLinkNoteDBModel noteRef in argModel.GNoteRefCollection)
                 {
-                    IQueryable<Models.DBModels.NoteDBModel> ttt = DL.NoteDL.NoteAccess.Where(x => x.HLinkKeyValue == noteRef.HLinkKey.Value);
-
-                    if (ttt.Any())
-                    {
-                        NoteModel t = ttt.First().DeSerialise();
-                        t.BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
-                        ttt.First().Serialise(t);
-                    }
+                    NoteDBModel ttt = noteRef.DeRef;
+                    NoteDBModel t = ttt;
+                    t.BackHLinkReferenceCollection.Add(new HLinkDBBackLink(argModel.HLink));
                 }
 
                 // Repository Ref Collection

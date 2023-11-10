@@ -13,7 +13,7 @@ namespace GrampsView.Views
             BindingContext = _viewModel = Ioc.Default.GetRequiredService<EventDetailViewModel>();
         }
 
-        public EventDetailPage(IHLinkBase argHLinkKey)
+        public EventDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

@@ -2,9 +2,10 @@
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
-using GrampsView.Models.DataModels;
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.DBModels.Interfaces;
+using GrampsView.ModelsDB.HLinks.Models;
 
 namespace GrampsView.ViewModels.Note
 {
@@ -26,7 +27,7 @@ namespace GrampsView.ViewModels.Note
             BaseTitleIcon = Constants.IconNotes;
         }
 
-        public INoteModel NoteObject
+        public INoteDBModel NoteObject
         {
             get; set;
         }
@@ -38,11 +39,11 @@ namespace GrampsView.ViewModels.Note
         {
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkNoteModel HLinkObject = base.NavigationParameter as HLinkNoteModel;
+                HLinkNoteDBModel HLinkObject = base.NavigationParameter as HLinkNoteDBModel;
 
                 NoteObject = HLinkObject.DeRef;
 
-                BaseModelBase = NoteObject;
+                BaseDBModelBase = NoteObject;
 
                 // Get basic details
                 BaseDetail.Add(new CardListLineCollection("Note Detail")
@@ -54,7 +55,7 @@ namespace GrampsView.ViewModels.Note
                 BaseDetail.Clear();
 
                 // Add Model details
-                BaseDetail.Add(DL.NoteDL.GetModelInfoFormatted((NoteModel)NoteObject));
+                BaseDetail.Add(DL.NoteDL.GetModelInfoFormatted((NoteDBModel)NoteObject));
 
                 // Handle Link Note types
                 if (NoteObject.GType == Constants.NoteTypeLink)

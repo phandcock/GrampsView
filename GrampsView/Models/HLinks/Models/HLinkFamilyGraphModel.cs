@@ -3,6 +3,7 @@
 using GrampsView.Common;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 namespace GrampsView.Data.Model
 {
@@ -47,7 +48,7 @@ namespace GrampsView.Data.Model
             get
             {
                 Group<object> returnValue = new Group<object>();
-                foreach (HLinkFamilyModel currentFamily in DeRef.GParentInRefCollection)
+                foreach (HLinkFamilyDBModel currentFamily in DeRef.GParentInRefCollection)
                 {
                     currentFamily.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
                     returnValue.Add(currentFamily);

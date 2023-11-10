@@ -7,6 +7,7 @@ using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using System.Collections;
 
@@ -39,7 +40,7 @@ namespace GrampsView.Models.DataModels
         /// Gets or sets the g citation reference collection.
         /// </summary>
 
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
+        public HLinkCitationDBModelCollection GCitationRefCollection { get; set; } = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the gp code.
@@ -88,12 +89,12 @@ namespace GrampsView.Models.DataModels
         /// The g note reference collection.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteRefCollection
+        public HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
 
             set;
-        } = new HLinkNoteModelCollection();
+        } = new HLinkNoteDBModelCollection();
 
         public HLinkPlaceNameModelCollection GPlaceNames
         {

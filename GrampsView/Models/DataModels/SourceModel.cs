@@ -1,4 +1,6 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
@@ -50,12 +52,12 @@ namespace GrampsView.Data.Model
         /// The note reference collection.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteRefCollection
+        public HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
             set;
         }
-            = new HLinkNoteModelCollection();
+            = new HLinkNoteDBModelCollection();
 
         /// <summary>
         /// Gets or sets the repository reference collection.

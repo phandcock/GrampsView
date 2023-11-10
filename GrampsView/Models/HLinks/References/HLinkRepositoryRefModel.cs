@@ -86,13 +86,13 @@ namespace GrampsView.Data.Model
         /// The note reference.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteRef
+        public HLinkNoteDBModelCollection GNoteRef
         {
             get;
             set;
         }
 
-        = new HLinkNoteModelCollection();
+        = new HLinkNoteDBModelCollection();
 
         public override string ToString()
         {

@@ -1,10 +1,9 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.StoreXML;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
 
 using System.Diagnostics;
 using System.Xml.Linq;
@@ -37,10 +36,10 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Families
                     foreach (XElement familyElement in de)
                     {
-                        FamilyModel loadFamily = new();
+                        FamilyDBModel loadFamily = new();
 
                         // Family attributes
-                        loadFamily.LoadBasics(GetBasics(familyElement));
+                        loadFamily.LoadBasics(GetDBBasics(familyElement));
 
                         if (loadFamily.Id == "F0151")
                         {
@@ -95,7 +94,7 @@ namespace GrampsView.Data.ExternalStorage
                         // set the Home image or symbol now that everything is laoded loadFamily = SetHomeImage(loadFamily);
 
                         // save the family
-                        FamilyDBModel t = new FamilyDBModel(loadFamily as FamilyModel);
+                        FamilyDBModel t = new FamilyDBModel(loadFamily as FamilyDBModel);
                         Debug.WriteLine(t.HLinkKeyValue);
                         DL.FamilyDL.FamilyAccess.Add(t);
                     }

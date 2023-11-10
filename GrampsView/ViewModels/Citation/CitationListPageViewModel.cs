@@ -3,8 +3,8 @@
 using CommunityToolkit.Mvvm.Messaging;
 
 using GrampsView.Common;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using SharedSharp.Logging;
 
@@ -19,7 +19,7 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = Constants.IconCitation;
         }
 
-        public Group<HLinkCitationModelCollection> CitationSource
+        public Group<HLinkCitationDBModelCollection> CitationSource
         {
             get
             {

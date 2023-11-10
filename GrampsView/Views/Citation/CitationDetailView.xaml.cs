@@ -14,7 +14,7 @@ namespace GrampsView.Views
             InitializeComponent();
         }
 
-        public CitationDetailPage(IHLinkBase argHLinkKey)
+        public CitationDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

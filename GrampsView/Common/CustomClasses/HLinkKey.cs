@@ -2,6 +2,7 @@
 
 using GrampsView.Models.HLinks;
 
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GrampsView.Common.CustomClasses
@@ -26,6 +27,7 @@ namespace GrampsView.Common.CustomClasses
             }
         }
 
+        [Key]
         public string Value
         {
             get; set;
@@ -40,7 +42,7 @@ namespace GrampsView.Common.CustomClasses
         {
             if (!Valid)
             {
-                return SharedSharpConstants.CompareLessThan;
+                return SharedConstants.CompareLessThan;
             }
 
             return Value.CompareTo(argOther.Value);
@@ -50,7 +52,7 @@ namespace GrampsView.Common.CustomClasses
         {
             if (obj is null)
             {
-                return SharedSharpConstants.CompareLessThan;
+                return SharedConstants.CompareLessThan;
             }
 
             return this.CompareTo((obj as HLinkBase).HLinkKey);

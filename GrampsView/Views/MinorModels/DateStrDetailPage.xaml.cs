@@ -3,8 +3,6 @@
 using GrampsView.Data.Model;
 using GrampsView.ViewModels.MinorModels;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GrampsView.Views
 {
     public partial class DateStrDetailPage : ViewBasePage
@@ -17,7 +15,7 @@ namespace GrampsView.Views
 
         private DateStrDetailViewModel _viewModel { get; set; }
 
-        public DateStrDetailPage(IHLinkBase argHLinkKey)
+        public DateStrDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

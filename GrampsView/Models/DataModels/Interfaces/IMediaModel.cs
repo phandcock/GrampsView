@@ -6,6 +6,7 @@ using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 namespace GrampsView.Models.DataModels.Interfaces
 {
@@ -42,7 +43,7 @@ namespace GrampsView.Models.DataModels.Interfaces
             set;
         }
 
-        HLinkCitationModelCollection GCitationRefCollection
+        HLinkCitationDBModelCollection GCitationRefCollection
         {
             get;
         }
@@ -71,7 +72,7 @@ namespace GrampsView.Models.DataModels.Interfaces
             set;
         }
 
-        HLinkNoteModelCollection GNoteRefCollection
+        HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
         }

@@ -6,8 +6,8 @@ using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreFile;
 using GrampsView.Events;
 
-using SharedSharp.Common.Interfaces;
 using SharedSharp.Errors.Interfaces;
+using SharedSharp.Sizes;
 
 namespace GrampsView.ViewModels.StartupPages
 {
@@ -19,7 +19,7 @@ namespace GrampsView.ViewModels.StartupPages
         /// <summary>Initializes a new instance of the <see cref="FileInputHandlerViewModel" /> class.</summary>
         /// <param name="iocCommonLogging">The common logging.</param>
         /// <param name="iocCardSizes"></param>
-        public FileInputHandlerViewModel(ILog iocCommonLogging, ISharedSharpCardSizes iocCardSizes)
+        public FileInputHandlerViewModel(ILog iocCommonLogging, ISharedCardSizes iocCardSizes)
             : base(iocCommonLogging)
         {
             CardSizes = iocCardSizes;
@@ -33,7 +33,7 @@ namespace GrampsView.ViewModels.StartupPages
             PickFileCommand = new AsyncRelayCommand(PickFile);
         }
 
-        public ISharedSharpCardSizes CardSizes { get; }
+        public ISharedCardSizes CardSizes { get; }
 
         public IAsyncRelayCommand LoadSampleCommand
         {

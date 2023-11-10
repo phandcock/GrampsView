@@ -3,16 +3,16 @@
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels;
 
-using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 namespace GrampsView.Common
 {
     public static class CommonStatic
     {
-        public static ISharedSharpCardSizes CardSizes { get; } = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>();
+        public static ISharedCardSizes CardSizes { get; } = Ioc.Default.GetRequiredService<ISharedCardSizes>();
 
         public static IModelBase CurrentActiveModel { get; set; } = new ModelBase();
 
-        public static ISharedSharpFontSizes FontSizes { get; } = Ioc.Default.GetRequiredService<ISharedSharpFontSizes>();
+        public static ISharedFontSizes FontSizes { get; } = Ioc.Default.GetRequiredService<ISharedFontSizes>();
     }
 }

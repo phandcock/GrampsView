@@ -5,9 +5,11 @@ using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
-using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.ComponentModel;
 
@@ -31,10 +33,10 @@ namespace GrampsView.ViewModels.Person
             BaseTitleIcon = Constants.IconPeople;
         }
 
-        public HLinkNoteModel BioNote
+        public HLinkNoteDBModel BioNote
         {
             get; set;
-        } = new HLinkNoteModel();
+        } = new HLinkNoteDBModel();
 
         /// <summary>
         /// Gets the person's events and those of any families they were in.
@@ -42,19 +44,19 @@ namespace GrampsView.ViewModels.Person
         /// <returns>
         /// CardGroup
         /// </returns>
-        public HLinkEventModelCollection EventsIncFamily
+        public HLinkEventDBModelCollection EventsIncFamily
         {
             get
             {
                 // Get the personal events
-                HLinkEventModelCollection t = new();
+                HLinkEventDBModelCollection t = new();
 
                 t.AddRange(PersonObject.GEventRefCollection);
 
                 // Get Family events
-                foreach (HLinkFamilyModel families in PersonObject.GParentInRefCollection)
+                foreach (HLinkFamilyDBModel families in PersonObject.GParentInRefCollection)
                 {
-                    foreach (HLinkEventModel familyEvent in families.DeRef.GEventRefCollection)
+                    foreach (HLinkEventDBModel familyEvent in families.DeRef.GEventRefCollection)
                     {
                         t.Add(familyEvent);
                     }
@@ -73,10 +75,10 @@ namespace GrampsView.ViewModels.Person
 
                 = new ItemGlyph();
 
-        public HLinkNoteModelCollection NotesWithoutHighlight
+        public HLinkNoteDBModelCollection NotesWithoutHighlight
         {
             get; set;
-        } = new HLinkNoteModelCollection();
+        } = new HLinkNoteDBModelCollection();
 
         public HLinkPersonNameModelCollection PersonNameMultipleDetails =>
                 // If only one name then its already displayed in the detail section
@@ -181,7 +183,7 @@ namespace GrampsView.ViewModels.Person
                 {
                     extraDetailsCard.Add(new CardListLine("Years Since Birth:", PersonObject.BirthDate.GetAge));
 
-                    EventModel ageAtDeath = DL.EventDL.GetEventType(PersonObject.GEventRefCollection, "Death");
+                    EventDBModel ageAtDeath = DL.EventDL.GetEventType(PersonObject.GEventRefCollection, "Death");
                     if (ageAtDeath.Valid)
                     {
                         extraDetailsCard.Add(new CardListLine("Age at Death:", ageAtDeath.GDate.DateDifferenceDecoded(PersonObject.BirthDate)));

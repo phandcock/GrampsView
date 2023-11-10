@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -6,6 +6,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Data.StorePostLoad;
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.DataModels.Minor;
@@ -27,7 +28,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public static void SetEventImages()
         {
-            foreach (EventModel argModel in DL.EventDL.DataAsList)
+            foreach (EventDBModel argModel in DL.EventDL.DataAsList)
             {
                 if (argModel.Id == "E0203")
                 {
@@ -68,7 +69,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public static void SetFamilyImages()
         {
-            foreach (FamilyModel argModel in DL.FamilyDL.DataAsList)
+            foreach (FamilyDBModel argModel in DL.FamilyDL.DataAsList)
             {
                 if (argModel.Id == "F0144")
                 {
@@ -270,7 +271,7 @@ namespace GrampsView.Data.ExternalStorage
 
         public void SetCitationImages()
         {
-            foreach (CitationModel argModel in DL.CitationDL.DataAsList)
+            foreach (CitationDBModel argModel in DL.CitationDL.DataAsList)
             {
                 if (argModel is null)
                 {

@@ -12,7 +12,7 @@ namespace GrampsView.Common
         /// <summary>
         /// The gramps view database version.
         /// </summary>
-        public const int GrampsViewDatabaseVersion = 89;
+        public const int GrampsViewDatabaseVersion = 90;
 
         public static readonly string DirectoryCacheBase = "~GV";
 

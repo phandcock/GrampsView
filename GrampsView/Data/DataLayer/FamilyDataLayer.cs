@@ -1,29 +1,28 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.DataLayer;
+using GrampsView.Data.DataLayer.Interfaces;
+using GrampsView.Data.StoreDB;
+using GrampsView.DBModels;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
+
+using Microsoft.EntityFrameworkCore;
+
+using SharedSharp.Errors;
+using SharedSharp.Errors.Interfaces;
+
+using System.Collections;
+using System.Globalization;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.DataLayer;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.StoreDB;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DBModels;
-
-    using Microsoft.EntityFrameworkCore;
-
-    using SharedSharp.Errors;
-    using SharedSharp.Errors.Interfaces;
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
     // The Family Repository </summary>
-    public class FamilyDataLayer : DataLayerBase<FamilyModel, HLinkFamilyModel, HLinkFamilyModelCollection>, IFamilyDataLayer
+    public class FamilyDataLayer : DataLayerBase<FamilyDBModel, HLinkFamilyDBModel, HLinkFamilyDBModelCollection>, IFamilyDataLayer
     {
-        public override IReadOnlyList<FamilyModel> DataAsDefaultSort
+        public override IReadOnlyList<FamilyDBModel> DataAsDefaultSort
         {
             get
             {
@@ -45,7 +44,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<FamilyModel> DataAsList
+        public override IReadOnlyList<FamilyDBModel> DataAsList
         {
             get
             {
@@ -55,13 +54,13 @@ namespace GrampsView.Data.DataView
                     return _DataAsList;
                 }
 
-                _DataAsList = new List<FamilyModel>();
+                _DataAsList = new List<FamilyDBModel>();
 
                 System.Collections.ObjectModel.ReadOnlyCollection<FamilyDBModel> t = FamilyAccess.ToList().AsReadOnly();
 
                 foreach (FamilyDBModel? item in t)
                 {
-                    _DataAsList.Add(item.DeSerialise());
+                    _DataAsList.Add(item);
                 }
 
                 return _DataAsList;
@@ -92,7 +91,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override HLinkFamilyModelCollection GetLatestChanges
+        public override HLinkFamilyDBModelCollection GetLatestChanges
         {
             get
             {
@@ -100,9 +99,9 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataAsDefaultSort.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                HLinkFamilyModelCollection returnCardGroup = new HLinkFamilyModelCollection();
+                HLinkFamilyDBModelCollection returnCardGroup = new HLinkFamilyDBModelCollection();
 
-                foreach (FamilyModel item in tt)
+                foreach (FamilyDBModel item in tt)
                 {
                     returnCardGroup.Add(item.HLink);
                 }
@@ -113,9 +112,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        private List<FamilyModel> _DataAsDefaultSort { get; set; } = new List<FamilyModel>();
+        private List<FamilyDBModel> _DataAsDefaultSort { get; set; } = new List<FamilyDBModel>();
 
-        private List<FamilyModel> _DataAsList { get; set; } = new List<FamilyModel>();
+        private List<FamilyDBModel> _DataAsList { get; set; } = new List<FamilyDBModel>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FamilyDataView"/> class.
@@ -124,11 +123,11 @@ namespace GrampsView.Data.DataView
         {
         }
 
-        public override HLinkFamilyModelCollection GetAllAsCardGroupBase()
+        public override HLinkFamilyDBModelCollection GetAllAsCardGroupBase()
         {
-            HLinkFamilyModelCollection t = new HLinkFamilyModelCollection();
+            HLinkFamilyDBModelCollection t = new HLinkFamilyDBModelCollection();
 
-            foreach (var item in DataAsDefaultSort)
+            foreach (FamilyDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -138,9 +137,9 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override Group<HLinkFamilyModelCollection> GetAllAsGroupedCardGroup()
+        public override Group<HLinkFamilyDBModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkFamilyModelCollection> t = new Group<HLinkFamilyModelCollection>();
+            Group<HLinkFamilyDBModelCollection> t = new Group<HLinkFamilyDBModelCollection>();
 
             // Union on the Father and Mother Surnames first
             var queryBase = (
@@ -172,7 +171,7 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                HLinkFamilyModelCollection info = new HLinkFamilyModelCollection
+                HLinkFamilyDBModelCollection info = new HLinkFamilyDBModelCollection
                 {
                     Title = g.GroupName,
                 };
@@ -193,9 +192,9 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public HLinkFamilyModelCollection GetAllAsHLink()
+        public HLinkFamilyDBModelCollection GetAllAsHLink()
         {
-            HLinkFamilyModelCollection t = new HLinkFamilyModelCollection();
+            HLinkFamilyDBModelCollection t = new HLinkFamilyDBModelCollection();
 
             // Handle the case where there is no data.
             if (DataAsList.Count == 0)
@@ -203,7 +202,7 @@ namespace GrampsView.Data.DataView
                 return t;
             }
 
-            foreach (var item in DataAsDefaultSort)
+            foreach (FamilyDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -290,19 +289,19 @@ namespace GrampsView.Data.DataView
         //    return GetModelFromHLinkKey(argHLinkKey).GFather.DeRef;
         //}
 
-        public override FamilyModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
+        public override FamilyDBModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             IQueryable<FamilyDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().FamilyAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
 
             if (t.Any())
             {
-                return t.First().DeSerialise();
+                return t.First();
             }
 
-            return new FamilyModel();
+            return new FamilyDBModel();
         }
 
-        public override FamilyModel GetModelFromId(string argId)
+        public override FamilyDBModel GetModelFromId(string argId)
         {
             return DataAsList.Where(X => X.Id == argId).FirstOrDefault();
         }
@@ -335,7 +334,7 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Sorted hlink collection.
         /// </returns>
-        public override HLinkFamilyModelCollection HLinkCollectionSort(HLinkFamilyModelCollection collectionArg)
+        public override HLinkFamilyDBModelCollection HLinkCollectionSort(HLinkFamilyDBModelCollection collectionArg)
         {
             // Handle the case where there is no data.
             if (DataAsList.Count == 0)
@@ -348,11 +347,11 @@ namespace GrampsView.Data.DataView
                 return null;
             }
 
-            IOrderedEnumerable<HLinkFamilyModel> t = collectionArg.OrderBy(HLinkFamilyModel => HLinkFamilyModel.DeRef);
+            IOrderedEnumerable<HLinkFamilyDBModel> t = collectionArg.OrderBy(HLinkFamilyModel => HLinkFamilyModel.DeRef);
 
-            HLinkFamilyModelCollection tt = new HLinkFamilyModelCollection();
+            HLinkFamilyDBModelCollection tt = new HLinkFamilyDBModelCollection();
 
-            foreach (HLinkFamilyModel item in t)
+            foreach (HLinkFamilyDBModel item in t)
             {
                 tt.Add(item);
             }
@@ -360,9 +359,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override HLinkFamilyModelCollection Search(string argQuery)
+        public override HLinkFamilyDBModelCollection Search(string argQuery)
         {
-            HLinkFamilyModelCollection itemsFound = new HLinkFamilyModelCollection
+            HLinkFamilyDBModelCollection itemsFound = new HLinkFamilyDBModelCollection
             {
                 Title = "Families"
             };
@@ -372,9 +371,9 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            var temp = DataAsList.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<FamilyDBModel> temp = DataAsList.Where(x => x.ToString().ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
-            foreach (FamilyModel tempMO in temp)
+            foreach (FamilyDBModel tempMO in temp)
             {
                 itemsFound.Add(tempMO.HLink);
             }

@@ -6,7 +6,7 @@ using GrampsView.Data.Repository;
 
 using Microsoft.AppCenter.Distribute;
 
-using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 using System.ComponentModel;
 using System.Reflection;
@@ -61,8 +61,8 @@ namespace GrampsView.ViewModels.MinorPages
             Assembly assembly = GetType().GetTypeInfo().Assembly;
             AssemblyName assemblyName = new(assembly.FullName);
 
-            ISharedSharpSizes MySizes = Ioc.Default.GetRequiredService<ISharedSharpSizes>();
-            ISharedSharpCardSizes MyCardSizes = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>();
+            ISharedSizes MySizes = Ioc.Default.GetRequiredService<ISharedSizes>();
+            ISharedCardSizes MyCardSizes = Ioc.Default.GetRequiredService<ISharedCardSizes>();
 
             ApplicationVersionList.Clear();
 

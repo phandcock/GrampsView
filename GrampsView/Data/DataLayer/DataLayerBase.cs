@@ -2,10 +2,10 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.DataView;
+using GrampsView.Data.DataLayer.Interfaces;
 using GrampsView.Data.Model;
 using GrampsView.Data.StoreDB;
-using GrampsView.Models.DataModels;
+using GrampsView.DBModels;
 using GrampsView.Models.HLinks;
 
 using System.ComponentModel;
@@ -27,9 +27,9 @@ namespace GrampsView.Data.DataLayer
     /// </typeparam>
 
     public abstract class DataLayerBase<TB, TU, TH> : ObservableObject, IDataLayerBase<TB, TU, TH>, INotifyPropertyChanged
-        where TH : HLinkBaseCollection<TU>, new()
-        where TB : ModelBase, new()
-        where TU : HLinkBase, new()
+        where TH : HLinkDBBaseCollection<TU>, new()
+        where TB : DBModelBase, new()
+        where TU : HLinkDBBase, new()
     {
         public DataLayerBase()
         {
@@ -63,11 +63,11 @@ namespace GrampsView.Data.DataLayer
         public virtual TH GetLatestChanges => throw new NotImplementedException();
         internal IStoreDB localStoreDB { get; }
 
-        public virtual CardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
+        public virtual DBCardGroupHLink<TU> AsCardGroup(IReadOnlyList<TU> argReadOnlyList)
         {
             Contract.Assert(argReadOnlyList != null);
 
-            CardGroupHLink<TU> t = new();
+            DBCardGroupHLink<TU> t = new();
 
             foreach (TU item in argReadOnlyList)
             {
@@ -109,7 +109,7 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// Model for HLink.
         /// </returns>
-        public TB GetModelFromHLink(HLinkBase argHLink)
+        public TB GetModelFromHLink(HLinkDBBase argHLink)
         {
             return argHLink is null ? throw new ArgumentNullException(nameof(argHLink)) : GetModelFromHLinkKey(argHLink.HLinkKey);
         }
@@ -133,7 +133,7 @@ namespace GrampsView.Data.DataLayer
         /// <returns>
         /// A CardListLineCollection object od the basic admin and id values.
         /// </returns>
-        public CardListLineCollection GetModelInfoFormatted(ModelBase argModel)
+        public CardListLineCollection GetModelInfoFormatted(DBModelBase argModel)
         {
             if (argModel is null)
             {

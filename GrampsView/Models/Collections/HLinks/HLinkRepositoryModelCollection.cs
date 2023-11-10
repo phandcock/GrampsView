@@ -3,6 +3,7 @@
     using GrampsView.Common.CustomClasses;
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
+    using GrampsView.ModelsDB.HLinks.Models;
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
@@ -12,7 +13,7 @@
     /// <para> XML 1.71 check done </para>
     /// </summary>
 
-    [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
+    [KnownType(typeof(ObservableCollection<HLinkCitationDBModel>))]
     public class HLinkRepositoryModelCollection : HLinkBaseCollection<HLinkRepositoryModel>
     {
         public HLinkRepositoryModelCollection()

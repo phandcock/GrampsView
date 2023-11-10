@@ -9,6 +9,7 @@ using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Models.HLinks;
 using GrampsView.Models.HLinks.Interfaces;
+using GrampsView.ModelsDB.Collections.HLinks;
 using GrampsView.Views;
 
 using System.Text.Json.Serialization;
@@ -75,7 +76,7 @@ namespace GrampsView.Data.Model
         }
 
         public HLinkAttributeModelCollection GAttributeRefCollection { get; set; } = new HLinkAttributeModelCollection();
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
+        public HLinkCitationDBModelCollection GCitationRefCollection { get; set; } = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the Attribute collection.
@@ -109,7 +110,7 @@ namespace GrampsView.Data.Model
             get; set;
         }
 
-        public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
+        public HLinkNoteDBModelCollection GNoteRefCollection { get; set; } = new HLinkNoteDBModelCollection();
         public HLinkKey OriginalMediaHLink { get; set; } = new HLinkKey();
 
         /// <summary>

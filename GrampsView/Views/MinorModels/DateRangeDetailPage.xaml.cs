@@ -3,8 +3,6 @@
 using GrampsView.Data.Model;
 using GrampsView.ViewModels.MinorModels;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GrampsView.Views
 {
     public partial class DateRangeDetailPage : ViewBasePage
@@ -14,7 +12,7 @@ namespace GrampsView.Views
             InitializeComponent();
         }
 
-        public DateRangeDetailPage(IHLinkBase argHLinkKey)
+        public DateRangeDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

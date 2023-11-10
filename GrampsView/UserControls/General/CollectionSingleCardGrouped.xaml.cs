@@ -1,7 +1,10 @@
-﻿using PropertyChanged;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using PropertyChanged;
 
 using SharedSharp.Common.Interfaces;
 using SharedSharp.Events;
+using SharedSharp.Sizes;
 
 using System.Diagnostics.Contracts;
 
@@ -24,7 +27,7 @@ namespace GrampsView.UserControls
 
             Ioc.Default.GetRequiredService<IMessenger>().Register<SSharpMessageWindowSizeChanged>(this, (r, m) =>
             {
-                NumColumns = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardsAcrossColumns;
+                NumColumns = Ioc.Default.GetRequiredService<ISharedCardSizes>().CardsAcrossColumns;
                 //Debug.WriteLine(NumColumns);
             });
         }

@@ -1,10 +1,14 @@
+// Copyright (c) phandcock.  All rights reserved.
+
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.Collections;
 using System.Collections.ObjectModel;
@@ -224,18 +228,18 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Person and where parent in families events.
         /// </returns>
-        public ObservableCollection<EventModel> GetPersonPlusFamilyEvents(PersonModel argPerson)
+        public ObservableCollection<EventDBModel> GetPersonPlusFamilyEvents(PersonModel argPerson)
         {
             if (argPerson is null)
             {
-                return new ObservableCollection<EventModel>();
+                return new ObservableCollection<EventDBModel>();
             }
 
-            ObservableCollection<EventModel> t = argPerson.GEventRefCollection.DeRef;
+            ObservableCollection<EventDBModel> t = argPerson.GEventRefCollection.DeRef;
 
-            foreach (HLinkFamilyModel theFamily in argPerson.GParentInRefCollection)
+            foreach (HLinkFamilyDBModel theFamily in argPerson.GParentInRefCollection)
             {
-                foreach (EventModel theFamilyEvent in theFamily.DeRef.GEventRefCollection.DeRef)
+                foreach (EventDBModel theFamilyEvent in theFamily.DeRef.GEventRefCollection.DeRef)
                 {
                     t.Add(theFamilyEvent);
                 }

@@ -1,6 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
-using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks;
 
 using System;
 using System.Collections;
@@ -9,7 +9,7 @@ namespace GrampsView.Data.Model
 {
     public interface IEventModel : IModelBase, IComparable, IComparer
     {
-        HLinkEventModel HLink
+        HLinkEventDBModel HLink
         {
             get;
         }

@@ -2,9 +2,9 @@
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.DataModels;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.Xml.Linq;
 
@@ -111,7 +111,7 @@ namespace GrampsView.Data.ExternalStorage
                             // load parentIn references
                             foreach (XElement loadPIElement in localPIElement)
                             {
-                                HLinkFamilyModel t = new HLinkFamilyModel
+                                HLinkFamilyDBModel t = new HLinkFamilyDBModel
                                 {
                                     HLinkKey = GetHLinkKey(loadPIElement),
                                 };

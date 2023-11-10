@@ -3,8 +3,7 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
 using GrampsView.Models.HLinks.Models;
 
 using System.Diagnostics;
@@ -32,10 +31,10 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Persons Uri _baseUri = new Uri("ms-appx:///");
                     foreach (XElement pname in de)
                     {
-                        EventModel loadEvent = new();
+                        EventDBModel loadEvent = new();
 
                         // Event attributes
-                        loadEvent.LoadBasics(GetBasics(pname));
+                        loadEvent.LoadBasics(GetDBBasics(pname));
 
                         if (loadEvent.Id == "E0714")
                         {
@@ -46,7 +45,7 @@ namespace GrampsView.Data.ExternalStorage
 
                         loadEvent.GCitationRefCollection = GetCitationCollection(pname);
 
-                        loadEvent.GDate = SetDate(pname);
+                        loadEvent.GDate = SetDBDate(pname);
 
                         loadEvent.GDescription = GetElement(pname.Element(ns + "description"));
 

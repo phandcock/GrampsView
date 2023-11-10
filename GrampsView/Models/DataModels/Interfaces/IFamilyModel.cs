@@ -1,4 +1,5 @@
 ﻿using GrampsView.Models.DataModels;
+using GrampsView.ModelsDB.HLinks;
 
 using System;
 using System.Collections;
@@ -21,7 +22,7 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The get h link.
         /// </value>
-        HLinkFamilyModel HLink
+        HLinkFamilyDBModel HLink
         {
             get;
         }

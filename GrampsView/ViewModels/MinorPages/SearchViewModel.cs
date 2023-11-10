@@ -1,9 +1,10 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Models.Collections.HLinks;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using System.Diagnostics.Contracts;
 using System.Globalization;
@@ -31,11 +32,11 @@ namespace GrampsView.ViewModels.MinorPages
             get;
         }
 
-        public HLinkCitationModelCollection SearchCitationCollection { get; set; } = new HLinkCitationModelCollection();
+        public HLinkCitationDBModelCollection SearchCitationCollection { get; set; } = new HLinkCitationDBModelCollection();
 
-        public HLinkEventModelCollection SearchEventsCollection { get; set; } = new HLinkEventModelCollection();
+        public HLinkEventDBModelCollection SearchEventsCollection { get; set; } = new HLinkEventDBModelCollection();
 
-        public HLinkFamilyModelCollection SearchFamilyCollection { get; set; } = new HLinkFamilyModelCollection();
+        public HLinkFamilyDBModelCollection SearchFamilyCollection { get; set; } = new HLinkFamilyDBModelCollection();
 
         /// <summary>
         /// Gets or sets a value indicating whether [search items found].
@@ -52,7 +53,7 @@ namespace GrampsView.ViewModels.MinorPages
 
         public HLinkMediaModelCollection SearchMediaCollection { get; set; } = new HLinkMediaModelCollection();
 
-        public HLinkNoteModelCollection SearchNoteCollection { get; set; } = new HLinkNoteModelCollection();
+        public HLinkNoteDBModelCollection SearchNoteCollection { get; set; } = new HLinkNoteDBModelCollection();
 
         public HLinkPersonModelCollection SearchPersonCollection { get; set; } = new HLinkPersonModelCollection();
 

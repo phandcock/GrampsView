@@ -1,15 +1,18 @@
-﻿namespace GrampsView.Data.Model
-{
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.HLinks.Models;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.Collections.HLinks;
+
+namespace GrampsView.Data.Model
+{
     /// <summary>
     /// Public interfaces for the Place model
     /// </summary>
     public interface IPlaceModel : IModelBase
     {
-        HLinkCitationModelCollection GCitationRefCollection
+        HLinkCitationDBModelCollection GCitationRefCollection
         {
             get;
         }
@@ -39,7 +42,7 @@
             get;
         }
 
-        HLinkNoteModelCollection GNoteRefCollection
+        HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
         }

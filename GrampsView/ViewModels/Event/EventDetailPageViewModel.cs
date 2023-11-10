@@ -2,10 +2,9 @@
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.ComponentModel;
 
@@ -39,23 +38,23 @@ namespace GrampsView.ViewModels.Event
         /// <value>
         /// The current event ViewModel.
         /// </value>
-        public EventModel EventObject
+        public EventDBModel EventObject
         {
             get; set;
         }
 
-        public HLinkNoteModel HighlightedNote
+        public HLinkNoteDBModel HighlightedNote
         {
             get; set;
-        } = new HLinkNoteModel();
+        } = new HLinkNoteDBModel();
 
-        public HLinkNoteModelCollection NotesWithoutHighlight
+        public HLinkNoteDBModelCollection NotesWithoutHighlight
         {
             get; set;
-        } = new HLinkNoteModelCollection();
+        } = new HLinkNoteDBModelCollection();
 
 
-        public HLinkEventModel HLinkObject { get; set; } = new HLinkEventModel();
+        public HLinkEventDBModel HLinkObject { get; set; } = new HLinkEventDBModel();
 
 
         /// <summary>
@@ -65,13 +64,13 @@ namespace GrampsView.ViewModels.Event
         {
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkObject = base.NavigationParameter as HLinkEventModel;
+                HLinkObject = base.NavigationParameter as HLinkEventDBModel;
 
                 EventObject = HLinkObject.DeRef;
 
                 if (EventObject is not null && EventObject.Valid)
                 {
-                    BaseModelBase = EventObject;
+                    BaseDBModelBase = EventObject;
                     BaseTitleIcon = Constants.IconEvents;
 
                     BaseDetail.Clear();
@@ -99,7 +98,7 @@ namespace GrampsView.ViewModels.Event
                     NotesWithoutHighlight = EventObject.GNoteRefCollection.GetCollectionWithoutOne(HighlightedNote);
 
                     // Add Event Link Card
-                    HLinkEventModel t = EventObject.HLink;
+                    HLinkEventDBModel t = EventObject.HLink;
                     t.DisplayAs = CommonEnums.DisplayFormat.LinkCardMedium;
                     BaseDetail.Add(t);
                 }

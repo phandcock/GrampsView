@@ -3,7 +3,6 @@
 using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.DataModels.Date;
-using GrampsView.Views;
 
 namespace GrampsView.Models.HLinks.Models
 {
@@ -34,9 +33,9 @@ namespace GrampsView.Models.HLinks.Models
 
         public override bool Valid => DeRef.Valid;
 
-        public override Page NavigationPage()
-        {
-            return new DateRangeDetailPage(this);
-        }
+        //public override Page NavigationPage()
+        //{
+        //    return new DateRangeDetailPage(this);
+        //}
     }
 }

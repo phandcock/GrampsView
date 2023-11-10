@@ -106,12 +106,12 @@ namespace GrampsView.Models.DataModels
 
         public static bool operator <(ModelBase left, ModelBase right)
         {
-            return left is null ? right is not null : left.CompareTo(right) < SharedSharpConstants.CompareEquals;
+            return left is null ? right is not null : left.CompareTo(right) < SharedConstants.CompareEquals;
         }
 
         public static bool operator <=(ModelBase left, ModelBase right)
         {
-            return left is null || left.CompareTo(right) <= SharedSharpConstants.CompareEquals;
+            return left is null || left.CompareTo(right) <= SharedConstants.CompareEquals;
         }
 
         public static bool operator ==(ModelBase left, ModelBase right)
@@ -121,12 +121,12 @@ namespace GrampsView.Models.DataModels
 
         public static bool operator >(ModelBase left, ModelBase right)
         {
-            return left is not null && left.CompareTo(right) > SharedSharpConstants.CompareEquals;
+            return left is not null && left.CompareTo(right) > SharedConstants.CompareEquals;
         }
 
         public static bool operator >=(ModelBase left, ModelBase right)
         {
-            return left is null ? right is null : left.CompareTo(right) >= SharedSharpConstants.CompareEquals;
+            return left is null ? right is null : left.CompareTo(right) >= SharedConstants.CompareEquals;
         }
 
         /// <summary>
@@ -156,15 +156,15 @@ namespace GrampsView.Models.DataModels
             ModelBase secondSource = (ModelBase)argSecondModelBase;
 
             return firstSource is null
-                ? SharedSharpConstants.CompareEquals
-                : secondSource is null ? SharedSharpConstants.CompareEquals : Compare(firstSource.HLinkKey, secondSource.HLinkKey);
+                ? SharedConstants.CompareEquals
+                : secondSource is null ? SharedConstants.CompareEquals : Compare(firstSource.HLinkKey, secondSource.HLinkKey);
         }
 
         public int CompareTo(ModelBase other)
         {
             if (other is null)
             {
-                return SharedSharpConstants.CompareGreaterThan;
+                return SharedConstants.CompareGreaterThan;
             }
 
             // This is effectively random

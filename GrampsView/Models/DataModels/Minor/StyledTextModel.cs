@@ -3,7 +3,7 @@
 
 using GrampsView.Common;
 
-using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
@@ -46,7 +46,7 @@ namespace GrampsView.Data.Model
             {
                 if (_TextFormatted.Spans.Count == 0)
                 {
-                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, Ioc.Default.GetRequiredService<ISharedSharpFontSizes>().FontMedium);
+                    _TextFormatted = GrampsTextToXamarinText.GetFormattedString(this, Ioc.Default.GetRequiredService<ISharedFontSizes>().FontMedium);
                 }
 
                 return _TextFormatted;

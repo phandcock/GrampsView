@@ -5,7 +5,7 @@ using GrampsView.Views;
 
 using PropertyChanged;
 
-using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 using System.Diagnostics.Contracts;
 
@@ -20,8 +20,8 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            MediaDetailImageHeight = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().MediaDetailImageHeight;
-            MediaDetailImageWidth = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().MediaDetailImageWidth;
+            MediaDetailImageHeight = Ioc.Default.GetRequiredService<ISharedCardSizes>().MediaDetailImageHeight;
+            MediaDetailImageWidth = Ioc.Default.GetRequiredService<ISharedCardSizes>().MediaDetailImageWidth;
         }
 
         public HLinkMediaModel HLinkMM

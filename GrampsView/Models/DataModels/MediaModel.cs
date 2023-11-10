@@ -8,6 +8,7 @@ using GrampsView.Data.StoreFile;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using System.Collections;
 
@@ -35,7 +36,7 @@ namespace GrampsView.Models.DataModels
     {
         private string _FileContentType = string.Empty;
 
-        private HLinkNoteModelCollection _NoteReferenceCollection = new();
+        private HLinkNoteDBModelCollection _NoteReferenceCollection = new();
 
         /// <summary>
         /// The local original file path.
@@ -87,8 +88,8 @@ namespace GrampsView.Models.DataModels
         public string FileMimeType { get; set; }
             = string.Empty;
 
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; }
-                = new HLinkCitationModelCollection();
+        public HLinkCitationDBModelCollection GCitationRefCollection { get; set; }
+                = new HLinkCitationDBModelCollection();
 
         public DateObjectModelBase GDateValue { get; set; }
             = new DateObjectModelBase();
@@ -96,7 +97,7 @@ namespace GrampsView.Models.DataModels
         public string GDescription { get; set; }
             = string.Empty;
 
-        public HLinkNoteModelCollection GNoteRefCollection
+        public HLinkNoteDBModelCollection GNoteRefCollection
         {
             get => _NoteReferenceCollection;
 

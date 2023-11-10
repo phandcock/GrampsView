@@ -3,8 +3,6 @@
 using GrampsView.Data.Model;
 using GrampsView.ViewModels.Family;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace GrampsView.Views
 {
     public partial class FamilyDetailPage : ViewBasePage
@@ -14,7 +12,7 @@ namespace GrampsView.Views
             InitializeComponent();
         }
 
-        public FamilyDetailPage(IHLinkBase argHLinkKey)
+        public FamilyDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

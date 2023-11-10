@@ -7,6 +7,7 @@ using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Data.StoreXML;
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
@@ -415,6 +416,20 @@ namespace GrampsView.Data.ExternalStorage
         private ModelBase GetBasics(XElement argElement)
         {
             ModelBase returnVal = new()
+            {
+                Id = GetAttribute(argElement.Attribute("id")),
+                Change = GetDateTime(argElement, "change"),
+                Priv = GetPrivateObject(argElement),
+            };
+
+            returnVal.HLinkKey.Value = GetAttribute(argElement, "handle");
+
+            return returnVal;
+        }
+
+        private DBModelBase GetDBBasics(XElement argElement)
+        {
+            DBModelBase returnVal = new()
             {
                 Id = GetAttribute(argElement.Attribute("id")),
                 Change = GetDateTime(argElement, "change"),

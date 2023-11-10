@@ -2,12 +2,12 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataLayer;
+using GrampsView.Data.DataLayer.Interfaces;
 using GrampsView.Data.StoreDB;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
-using GrampsView.Models.HLinks.Models;
+using GrampsView.DBModels;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +21,7 @@ namespace GrampsView.Data.DataView
     /// Event data store handy routines.
     /// </summary>
 
-    public class EventDataLayer : DataLayerBase<EventModel, HLinkEventModel, HLinkEventModelCollection>, IEventDataLayer
+    public class EventDataLayer : DataLayerBase<EventDBModel, HLinkEventDBModel, HLinkEventDBModelCollection>, IEventDataLayer
     {
         /// <summary>
         /// Gets the data default sort.
@@ -29,7 +29,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data default sort.
         /// </value>
-        public override IReadOnlyList<EventModel> DataAsDefaultSort
+        public override IReadOnlyList<EventDBModel> DataAsDefaultSort
         {
             get
             {
@@ -51,7 +51,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<EventModel> DataAsList
+        public override IReadOnlyList<EventDBModel> DataAsList
         {
             get
             {
@@ -61,13 +61,13 @@ namespace GrampsView.Data.DataView
                     return _DataAsList;
                 }
 
-                _DataAsList = new List<EventModel>();
+                _DataAsList = new List<EventDBModel>();
 
                 System.Collections.ObjectModel.ReadOnlyCollection<EventDBModel> t = EventAccess.ToList().AsReadOnly();
 
                 foreach (EventDBModel? item in t)
                 {
-                    _DataAsList.Add(item.DeSerialise());
+                    _DataAsList.Add(item);
                 }
 
                 return _DataAsList;
@@ -82,7 +82,7 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        public override HLinkEventModelCollection GetLatestChanges
+        public override HLinkEventDBModelCollection GetLatestChanges
         {
             get
             {
@@ -90,9 +90,9 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataAsDefaultSort.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                HLinkEventModelCollection returnCardGroup = new();
+                HLinkEventDBModelCollection returnCardGroup = new();
 
-                foreach (EventModel item in tt)
+                foreach (EventDBModel item in tt)
                 {
                     returnCardGroup.Add(item.HLink);
                 }
@@ -103,9 +103,9 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        private List<EventModel> _DataAsDefaultSort { get; set; } = new List<EventModel>();
+        private List<EventDBModel> _DataAsDefaultSort { get; set; } = new List<EventDBModel>();
 
-        private List<EventModel> _DataAsList { get; set; } = new List<EventModel>();
+        private List<EventDBModel> _DataAsList { get; set; } = new List<EventDBModel>();
 
 
 
@@ -118,9 +118,9 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Collection of Events sorted by Date.
         /// </returns>
-        public IOrderedEnumerable<EventModel> CollectionSortEventDateAsc(ObservableCollection<EventModel>? collectionArg)
+        public IOrderedEnumerable<EventDBModel> CollectionSortEventDateAsc(ObservableCollection<EventDBModel>? collectionArg)
         {
-            collectionArg ??= new ObservableCollection<EventModel>(DataAsList);
+            collectionArg ??= new ObservableCollection<EventDBModel>(DataAsList);
 
             // sort the list
             return collectionArg.OrderBy(EventModel => EventModel.GDate.SortDate);
@@ -135,16 +135,16 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Event model from hLinkString.
         /// </returns>
-        public EventModel Get(HLinkEventModel hlinkEM)
+        public EventDBModel Get(HLinkEventDBModel hlinkEM)
         {
-            EventModel t = this.GetModelFromHLink(hlinkEM);
+            EventDBModel t = hlinkEM.DeRef;
 
             return t;
         }
 
-        public override Group<HLinkEventModelCollection> GetAllAsGroupedCardGroup()
+        public override Group<HLinkEventDBModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkEventModelCollection> t = new();
+            Group<HLinkEventDBModelCollection> t = new();
 
             var query = from item in DataAsList
                         orderby item.GDate
@@ -157,12 +157,12 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                HLinkEventModelCollection info = new()
+                HLinkEventDBModelCollection info = new()
                 {
                     Title = g.GroupName.ToString(),
                 };
 
-                foreach (EventModel? item in g.Items)
+                foreach (EventDBModel? item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -178,11 +178,11 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public HLinkEventModelCollection GetAllAsHLink()
+        public HLinkEventDBModelCollection GetAllAsHLink()
         {
-            HLinkEventModelCollection t = new();
+            HLinkEventDBModelCollection t = new();
 
-            foreach (EventModel item in DataAsDefaultSort)
+            foreach (EventDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -204,16 +204,16 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// An Event Model from hlink collection if the EventType is found.
         /// </returns>
-        public EventModel GetEventType(HLinkEventModelCollection eventCollection, string eventType)
+        public EventDBModel GetEventType(HLinkEventDBModelCollection eventCollection, string eventType)
         {
             if (eventCollection is null)
             {
                 throw new ArgumentNullException(nameof(eventCollection));
             }
 
-            IEnumerable<HLinkEventModel> t = eventCollection.Where(HLinkEventModel => HLinkEventModel.DeRef.GType == eventType);
+            IEnumerable<HLinkEventDBModel> t = eventCollection.Where(HLinkEventModel => HLinkEventModel.DeRef.GType == eventType);
 
-            return t.Any() ? t.FirstOrDefault().DeRef : new EventModel();
+            return t.Any() ? t.FirstOrDefault().DeRef : new EventDBModel();
         }
 
         /// <summary>
@@ -225,30 +225,30 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// EVentModel of the selected event or null if none found.
         /// </returns>
-        public EventModel? GetEventType(string eventType)
+        public EventDBModel? GetEventType(string eventType)
         {
-            IEnumerable<EventModel> selectedEvents = from aEvent in DataAsList
-                                                     where aEvent.GType == eventType
-                                                     select aEvent;
+            IEnumerable<EventDBModel> selectedEvents = from aEvent in DataAsList
+                                                       where aEvent.GType == eventType
+                                                       select aEvent;
 
-            EventModel t = selectedEvents.FirstOrDefault();
+            EventDBModel t = selectedEvents.FirstOrDefault();
 
             return t ?? null;
         }
 
-        public override EventModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
+        public override EventDBModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             IQueryable<EventDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().EventAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
 
             if (t.Any())
             {
-                return t.First().DeSerialise();
+                return t.First();
             }
 
-            return new EventModel();
+            return new EventDBModel();
         }
 
-        public override EventModel GetModelFromId(string argId)
+        public override EventDBModel GetModelFromId(string argId)
         {
             return DataAsList.Where(X => X.Id == argId).FirstOrDefault();
         }
@@ -262,18 +262,18 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Sorted hlink collection.
         /// </returns>
-        public override HLinkEventModelCollection? HLinkCollectionSort(HLinkEventModelCollection collectionArg)
+        public override HLinkEventDBModelCollection? HLinkCollectionSort(HLinkEventDBModelCollection collectionArg)
         {
             if (collectionArg == null)
             {
                 return null;
             }
 
-            IOrderedEnumerable<HLinkEventModel> t = collectionArg.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate).ThenBy(HLinkEventModel => HLinkEventModel.DeRef.GDescription);
+            IOrderedEnumerable<HLinkEventDBModel> t = collectionArg.OrderBy(HLinkEventModel => HLinkEventModel.DeRef.GDate).ThenBy(HLinkEventModel => HLinkEventModel.DeRef.GDescription);
 
-            HLinkEventModelCollection tt = new();
+            HLinkEventDBModelCollection tt = new();
 
-            foreach (HLinkEventModel item in t)
+            foreach (HLinkEventDBModel item in t)
             {
                 tt.Add(item);
             }
@@ -281,9 +281,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override HLinkEventModelCollection Search(string argQuery)
+        public override HLinkEventDBModelCollection Search(string argQuery)
         {
-            HLinkEventModelCollection itemsFound = new()
+            HLinkEventDBModelCollection itemsFound = new()
             {
                 Title = "Events"
             };
@@ -293,9 +293,9 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            IEnumerable<EventModel> temp = DataAsList.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IEnumerable<EventDBModel> temp = DataAsList.Where(x => x.GDescription.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
-            foreach (EventModel tempMO in temp)
+            foreach (EventDBModel tempMO in temp)
             {
                 itemsFound.Add(tempMO.HLink);
             }

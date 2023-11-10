@@ -1,10 +1,13 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Minor;
+using GrampsView.Models.DBModels.Interfaces;
 using GrampsView.Models.HLinks.Interfaces;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.Diagnostics.Contracts;
 
@@ -492,7 +495,7 @@ namespace GrampsView.Common
                         return CardListLineTemplate;
                     }
 
-                case FamilyModel:
+                case FamilyDBModel:
 
                     {
                         return FamilySmallTemplate;
@@ -520,11 +523,10 @@ namespace GrampsView.Common
                         }
                     }
 
-                case HLinkCitationModel:
-                case ICitationModel:
-
+                case HLinkCitationDBModel:
+                case ICitationDBModel:
                     {
-                        switch ((item as HLinkCitationModel).DisplayAs)
+                        switch ((item as HLinkCitationDBModel).DisplayAs)
                         {
                             case CommonEnums.DisplayFormat.LinkCardCell:
                                 {
@@ -572,10 +574,10 @@ namespace GrampsView.Common
                         return DateValObjectTemplate;
                     }
 
-                case HLinkEventModel:
+                case HLinkEventDBModel:
 
                     {
-                        switch ((item as HLinkEventModel).DisplayAs)
+                        switch ((item as HLinkEventDBModel).DisplayAs)
                         {
                             case CommonEnums.DisplayFormat.LinkCardCell:
                                 {
@@ -605,10 +607,10 @@ namespace GrampsView.Common
                         return FamilyGraphMediumTemplate;
                     }
 
-                case HLinkFamilyModel:
+                case HLinkFamilyDBModel:
 
                     {
-                        switch ((item as HLinkFamilyModel).DisplayAs)
+                        switch ((item as HLinkFamilyDBModel).DisplayAs)
                         {
                             case CommonEnums.DisplayFormat.LinkCardCell:
                                 {
@@ -671,10 +673,10 @@ namespace GrampsView.Common
                         return MediaSmallTemplate;
                     }
 
-                case HLinkNoteModel:
+                case HLinkNoteDBModel:
 
                     {
-                        switch ((item as HLinkNoteModel).DisplayAs)
+                        switch ((item as HLinkNoteDBModel).DisplayAs)
                         {
                             case CommonEnums.DisplayFormat.SmallCard:
                                 {
@@ -844,7 +846,7 @@ namespace GrampsView.Common
                 return NameMapTemplate;
             }
 
-            if (item is NoteModel)
+            if (item is NoteDBModel)
             {
                 return NoteTemplate;
             }

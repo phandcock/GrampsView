@@ -1,6 +1,6 @@
 ﻿using GrampsView.Common;
 using GrampsView.Data.DataView;
-using GrampsView.Models.Collections.HLinks;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 namespace GrampsView.ViewModels.Family
 {
@@ -9,7 +9,7 @@ namespace GrampsView.ViewModels.Family
     /// </summary>
     public class FamilyListViewModel : ViewModelBase
     {
-        public Group<HLinkFamilyModelCollection> FamilySource => DL.FamilyDL.GetAllAsGroupedCardGroup();
+        public Group<HLinkFamilyDBModelCollection> FamilySource => DL.FamilyDL.GetAllAsGroupedCardGroup();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FamilyListViewModel"/> class.

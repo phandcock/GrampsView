@@ -1,5 +1,6 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
+using GrampsView.DBModels;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.DataModels.Interfaces;
 using GrampsView.Views;
@@ -12,13 +13,13 @@ namespace GrampsView.Data.Model
     [DataContract]
     public class ParentLinkModel : ModelBase, IParentLinkModel
     {
-        private FamilyModel _Parents = new();
+        private FamilyDBModel _Parents = new();
 
         public ParentLinkModel()
         {
         }
 
-        public FamilyModel Parents
+        public FamilyDBModel Parents
         {
             get => _Parents;
 

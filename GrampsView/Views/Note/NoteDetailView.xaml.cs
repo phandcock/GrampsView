@@ -12,7 +12,7 @@ namespace GrampsView.Views
             InitializeComponent();
         }
 
-        public NoteDetailPage(IHLinkBase argHLinkKey)
+        public NoteDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

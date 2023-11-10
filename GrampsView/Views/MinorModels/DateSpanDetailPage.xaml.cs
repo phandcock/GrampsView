@@ -12,7 +12,7 @@ namespace GrampsView.Views
             InitializeComponent();
         }
 
-        public DateSpanDetailPage(IHLinkBase argHLinkKey)
+        public DateSpanDetailPage(IHLinkDBBase argHLinkKey)
         {
             InitializeComponent();
 

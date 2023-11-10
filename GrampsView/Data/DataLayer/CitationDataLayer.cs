@@ -2,12 +2,13 @@
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataLayer;
-using GrampsView.Data.Model;
+using GrampsView.Data.DataLayer.Interfaces;
 using GrampsView.Data.StoreDB;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
+using GrampsView.Models.DBModels.Interfaces;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,7 @@ using System.Globalization;
 
 namespace GrampsView.Data.DataView
 {
-    public class CitationDataLayer : DataLayerBase<CitationModel, HLinkCitationModel, HLinkCitationModelCollection>, ICitationDataLayer
+    public class CitationDataLayer : DataLayerBase<CitationDBModel, HLinkCitationDBModel, HLinkCitationDBModelCollection>, ICitationDataLayer
     {
 
 
@@ -34,7 +35,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data default sort.
         /// </value>
-        public override IReadOnlyList<CitationModel> DataAsDefaultSort
+        public override IReadOnlyList<CitationDBModel> DataAsDefaultSort
         {
             get
             {
@@ -56,7 +57,7 @@ namespace GrampsView.Data.DataView
         /// <value>
         /// The data view data.
         /// </value>
-        public override IReadOnlyList<CitationModel> DataAsList
+        public override IReadOnlyList<CitationDBModel> DataAsList
         {
             get
             {
@@ -66,13 +67,13 @@ namespace GrampsView.Data.DataView
                     return _DataAsList;
                 }
 
-                _DataAsList = new List<CitationModel>();
+                _DataAsList = new List<CitationDBModel>();
 
                 System.Collections.ObjectModel.ReadOnlyCollection<CitationDBModel> t = CitationAccess.ToList().AsReadOnly();
 
-                foreach (CitationDBModel? item in t)
+                foreach (CitationDBModel item in t)
                 {
-                    _DataAsList.Add(item.DeSerialise());
+                    _DataAsList.Add(item);
                 }
 
                 return _DataAsList;
@@ -84,7 +85,7 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public override HLinkCitationModelCollection GetLatestChanges
+        public override HLinkCitationDBModelCollection GetLatestChanges
         {
             get
             {
@@ -92,9 +93,9 @@ namespace GrampsView.Data.DataView
 
                 IEnumerable tt = DataAsList.OrderByDescending(GetLatestChangest => GetLatestChangest.Change).Where(GetLatestChangestt => GetLatestChangestt.Change > lastSixtyDays).Take(3);
 
-                HLinkCitationModelCollection returnCardGroup = new HLinkCitationModelCollection();
+                HLinkCitationDBModelCollection returnCardGroup = new HLinkCitationDBModelCollection();
 
-                foreach (ICitationModel item in tt)
+                foreach (ICitationDBModel item in tt)
                 {
                     returnCardGroup.Add(item.HLink);
                 }
@@ -105,13 +106,13 @@ namespace GrampsView.Data.DataView
             }
         }
 
-        private List<CitationModel> _DataAsDefaultSort { get; set; } = new List<CitationModel>();
+        private List<CitationDBModel> _DataAsDefaultSort { get; set; } = new List<CitationDBModel>();
 
-        private List<CitationModel> _DataAsList { get; set; } = new List<CitationModel>();
+        private List<CitationDBModel> _DataAsList { get; set; } = new List<CitationDBModel>();
 
-        public override Group<HLinkCitationModelCollection> GetAllAsGroupedCardGroup()
+        public override Group<HLinkCitationDBModelCollection> GetAllAsGroupedCardGroup()
         {
-            Group<HLinkCitationModelCollection> t = new Group<HLinkCitationModelCollection>();
+            Group<HLinkCitationDBModelCollection> t = new Group<HLinkCitationDBModelCollection>();
 
             var query = from item in DataAsList
                         orderby item.ToString(), item.GDateContent, item.GPage
@@ -124,12 +125,12 @@ namespace GrampsView.Data.DataView
 
             foreach (var g in query)
             {
-                HLinkCitationModelCollection info = new HLinkCitationModelCollection
+                HLinkCitationDBModelCollection info = new HLinkCitationDBModelCollection
                 {
                     Title = g.GroupName,
                 };
 
-                foreach (CitationModel? item in g.Items)
+                foreach (CitationDBModel item in g.Items)
                 {
                     info.Add(item.HLink);
                 }
@@ -145,11 +146,11 @@ namespace GrampsView.Data.DataView
         /// </summary>
         /// <returns>
         /// </returns>
-        public HLinkCitationModelCollection GetAllAsHLink()
+        public HLinkCitationDBModelCollection GetAllAsHLink()
         {
-            HLinkCitationModelCollection t = new HLinkCitationModelCollection();
+            HLinkCitationDBModelCollection t = new HLinkCitationDBModelCollection();
 
-            foreach (CitationModel item in DataAsDefaultSort)
+            foreach (CitationDBModel item in DataAsDefaultSort)
             {
                 t.Add(item.HLink);
             }
@@ -157,19 +158,19 @@ namespace GrampsView.Data.DataView
             return t;
         }
 
-        public override CitationModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
+        public override CitationDBModel GetModelFromHLinkKey(HLinkKey argHLinkKey)
         {
             IQueryable<CitationDBModel> t = Ioc.Default.GetRequiredService<IStoreDB>().CitationAccess.Where(x => x.HLinkKeyValue == argHLinkKey.Value);
 
             if (t.Any())
             {
-                return t.First().DeSerialise();
+                return t.First();
             }
 
-            return new CitationModel();
+            return new CitationDBModel();
         }
 
-        public override CitationModel GetModelFromId(string argId)
+        public override CitationDBModel GetModelFromId(string argId)
         {
             return DataAsList.Where(X => X.Id == argId).FirstOrDefault();
         }
@@ -183,18 +184,18 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Sorted hlink collection.
         /// </returns>
-        public override HLinkCitationModelCollection HLinkCollectionSort(HLinkCitationModelCollection collectionArg)
+        public override HLinkCitationDBModelCollection HLinkCollectionSort(HLinkCitationDBModelCollection collectionArg)
         {
             if (collectionArg == null)
             {
                 return null;
             }
 
-            IOrderedEnumerable<HLinkCitationModel> t = collectionArg.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent);
+            IOrderedEnumerable<HLinkCitationDBModel> t = collectionArg.OrderBy(HLinkCitationModel => HLinkCitationModel.DeRef.GDateContent);
 
-            HLinkCitationModelCollection tt = new HLinkCitationModelCollection();
+            HLinkCitationDBModelCollection tt = new HLinkCitationDBModelCollection();
 
-            foreach (HLinkCitationModel item in t)
+            foreach (HLinkCitationDBModel item in t)
             {
                 tt.Add(item);
             }
@@ -202,9 +203,9 @@ namespace GrampsView.Data.DataView
             return tt;
         }
 
-        public override HLinkCitationModelCollection Search(string argQuery)
+        public override HLinkCitationDBModelCollection Search(string argQuery)
         {
-            HLinkCitationModelCollection itemsFound = new HLinkCitationModelCollection
+            HLinkCitationDBModelCollection itemsFound = new HLinkCitationDBModelCollection
             {
                 Title = "Citations"
             };
@@ -214,9 +215,9 @@ namespace GrampsView.Data.DataView
                 return itemsFound;
             }
 
-            IOrderedEnumerable<CitationModel> temp = DataAsList.Where(x => x.GDateContent.ShortDate.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
+            IOrderedEnumerable<CitationDBModel> temp = DataAsList.Where(x => x.GDateContent.ShortDate.ToLower(CultureInfo.CurrentCulture).Contains(argQuery)).OrderBy(y => y.ToString());
 
-            foreach (ICitationModel tempMO in temp)
+            foreach (ICitationDBModel tempMO in temp)
             {
                 itemsFound.Add(tempMO.HLink);
             }

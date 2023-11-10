@@ -1,9 +1,11 @@
-﻿using GrampsView.Common;
-using GrampsView.Data.Collections;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using System;
 
@@ -29,7 +31,7 @@ namespace GrampsView.Models.DataModels.Minor
         /// The citation reference collection.
         /// </value>
 
-        public HLinkCitationModelCollection GCitationRefCollection { get; set; } = new HLinkCitationModelCollection();
+        public HLinkCitationDBModelCollection GCitationRefCollection { get; set; } = new HLinkCitationDBModelCollection();
 
         public string GCity { get; set; } = string.Empty;
 
@@ -55,7 +57,7 @@ namespace GrampsView.Models.DataModels.Minor
 
         public string GLocality { get; set; } = string.Empty;
 
-        public HLinkNoteModelCollection GNoteRefCollection { get; set; } = new HLinkNoteModelCollection();
+        public HLinkNoteDBModelCollection GNoteRefCollection { get; set; } = new HLinkNoteDBModelCollection();
 
         public string GPhone { get; set; } = string.Empty;
 

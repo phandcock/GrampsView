@@ -3,8 +3,7 @@
 using GrampsView.Data.DataView;
 using GrampsView.Data.StoreDB;
 using GrampsView.Data.StoreXML;
-using GrampsView.Models.DataModels;
-using GrampsView.Models.DBModels;
+using GrampsView.DBModels;
 
 using System.Diagnostics;
 using System.Xml.Linq;
@@ -27,10 +26,10 @@ namespace GrampsView.Data.ExternalStorage
                     // Loop through results to get the Citation
                     foreach (XElement pcitation in de)
                     {
-                        CitationModel loadCitation = new();
+                        CitationDBModel loadCitation = new();
 
                         // Citation attributes
-                        loadCitation.LoadBasics(GetBasics(pcitation));
+                        loadCitation.LoadBasics(GetDBBasics(pcitation));
 
                         if (loadCitation.Id == "C0144")
                         {

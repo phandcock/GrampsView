@@ -2,7 +2,7 @@
 
 using GrampsView.Common;
 
-using SharedSharp;
+using SharedSharp.Navigation;
 
 namespace GrampsView.ViewModels.MinorPages
 {
@@ -105,7 +105,7 @@ namespace GrampsView.ViewModels.MinorPages
         [RelayCommand]
         private async Task DisplayMessageLogButtonCommand()
         {
-            await SharedSharpNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
+            await SharedNavigation.NavigateAsyncNS(new SharedSharp.Views.SharedSharpMessageLogPage());
             return;
         }
 

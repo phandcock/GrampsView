@@ -1,14 +1,11 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
-
-using SharedSharp.Common;
-
-using System;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 namespace GrampsView.Models.DataModels.Minor
 {
@@ -97,12 +94,12 @@ namespace GrampsView.Models.DataModels.Minor
         /// The citation reference collection.
         /// </value>
 
-        public HLinkCitationModelCollection GCitationRefCollection
+        public HLinkCitationDBModelCollection GCitationRefCollection
         {
             get; set;
         }
 
-        = new HLinkCitationModelCollection();
+        = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the date.
@@ -192,12 +189,12 @@ namespace GrampsView.Models.DataModels.Minor
         /// The note reference collection.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteReferenceCollection
+        public HLinkNoteDBModelCollection GNoteReferenceCollection
         {
             get; set;
         }
 
-        = new HLinkNoteModelCollection();
+        = new HLinkNoteDBModelCollection();
 
         /// <summary>
         /// Gets or sets the sort.
@@ -305,12 +302,12 @@ namespace GrampsView.Models.DataModels.Minor
         {
             if (a is null)
             {
-                return SharedSharpConstants.CompareEquals;
+                return SharedConstants.CompareEquals;
             }
 
             if (b is null)
             {
-                return SharedSharpConstants.CompareEquals;
+                return SharedConstants.CompareEquals;
             }
 
             PersonNameModel firstPersonName = (PersonNameModel)a;
@@ -319,7 +316,7 @@ namespace GrampsView.Models.DataModels.Minor
             // Compare on Surname first
             int testFlag = string.Compare(firstPersonName.GSurName.GetPrimarySurname, secondPersonName.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == SharedSharpConstants.CompareEquals)
+            if (testFlag == SharedConstants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(firstPersonName.GFirstName, secondPersonName.GFirstName, StringComparison.CurrentCulture);
@@ -332,12 +329,12 @@ namespace GrampsView.Models.DataModels.Minor
         {
             if (other is null)
             {
-                return SharedSharpConstants.CompareGreaterThan;
+                return SharedConstants.CompareGreaterThan;
             }
             // Compare on Surname first
             int testFlag = string.Compare(GSurName.GetPrimarySurname, other.GSurName.GetPrimarySurname, StringComparison.CurrentCulture);
 
-            if (testFlag == SharedSharpConstants.CompareEquals)
+            if (testFlag == SharedConstants.CompareEquals)
             {
                 // Compare on first name
                 testFlag = string.Compare(GFirstName, other.GFirstName, StringComparison.CurrentCulture);
@@ -358,8 +355,8 @@ namespace GrampsView.Models.DataModels.Minor
         public override int CompareTo(object obj)
         {
             return obj is null
-                ? SharedSharpConstants.CompareEquals
-                : !(obj is PersonNameModel secondPersonName) ? SharedSharpConstants.CompareEquals : CompareTo(secondPersonName);
+                ? SharedConstants.CompareEquals
+                : !(obj is PersonNameModel secondPersonName) ? SharedConstants.CompareEquals : CompareTo(secondPersonName);
         }
 
         /// <summary>

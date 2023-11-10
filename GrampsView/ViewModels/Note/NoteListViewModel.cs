@@ -1,12 +1,14 @@
-﻿namespace GrampsView.ViewModels
-{
-    using GrampsView.Common;
-    using GrampsView.Data.DataView;
+﻿// Copyright (c) phandcock.  All rights reserved.
 
+namespace GrampsView.ViewModels
+{
     using CommunityToolkit.Mvvm.Messaging;
 
-    using SharedSharp.Logging;
+    using GrampsView.Common;
+    using GrampsView.Data.DataView;
     using GrampsView.Models.Collections.HLinks;
+
+    using SharedSharp.Logging;
 
     /// <summary>
     /// View Model for the Event Section Page.
@@ -29,7 +31,7 @@
             BaseTitleIcon = Constants.IconNotes;
         }
 
-        public Group<HLinkNoteModelCollection> NoteSource
+        public Group<HLinkNoteDBModelCollection> NoteSource
         {
             get
             {

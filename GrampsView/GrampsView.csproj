@@ -116,22 +116,22 @@
 	
 	<!-- General -->
     <ItemGroup>
-      <AndroidResource Remove="Models\DBModels\**" />
+      <AndroidResource Remove="ModelsDB\**" />
       <AndroidResource Remove="ViewModels\PeopleGraph\**" />
       <AndroidResource Remove="Views\PeopleGraph\**" />
-      <Compile Remove="Models\DBModels\**" />
+      <Compile Remove="ModelsDB\**" />
       <Compile Remove="ViewModels\PeopleGraph\**" />
       <Compile Remove="Views\PeopleGraph\**" />
-      <EmbeddedResource Remove="Models\DBModels\**" />
+      <EmbeddedResource Remove="ModelsDB\**" />
       <EmbeddedResource Remove="ViewModels\PeopleGraph\**" />
       <EmbeddedResource Remove="Views\PeopleGraph\**" />
-      <MauiCss Remove="Models\DBModels\**" />
+      <MauiCss Remove="ModelsDB\**" />
       <MauiCss Remove="ViewModels\PeopleGraph\**" />
       <MauiCss Remove="Views\PeopleGraph\**" />
-      <MauiXaml Remove="Models\DBModels\**" />
+      <MauiXaml Remove="ModelsDB\**" />
       <MauiXaml Remove="ViewModels\PeopleGraph\**" />
       <MauiXaml Remove="Views\PeopleGraph\**" />
-      <None Remove="Models\DBModels\**" />
+      <None Remove="ModelsDB\**" />
       <None Remove="ViewModels\PeopleGraph\**" />
       <None Remove="Views\PeopleGraph\**" />
     </ItemGroup>
@@ -149,6 +149,8 @@
       <Compile Remove="Common\CustomClasses\TranslateExtension.cs" />
       <Compile Remove="Common\CustomClasses\XamarinEssentials.cs" />
       <Compile Remove="Common\CustomClasses\XamarinFFImageLoading.cs" />
+      <Compile Remove="Common\DB Card Group\Group.cs" />
+      <Compile Remove="Common\DB Card Group\Grouping.cs" />
       <Compile Remove="Common\Interfaces\ICommonLogging.cs" />
       <Compile Remove="Common\Interfaces\ICommonNotifications.cs" />
       <Compile Remove="Common\Interfaces\IDataLog.cs" />
@@ -169,6 +171,17 @@
       <Compile Remove="Events\NavigationPopRootEvent.cs" />
       <Compile Remove="Events\NavigationPushEvent.cs" />
       <Compile Remove="MainPage.cs" />
+      <Compile Remove="Models\Collections\HLinks\HLinkNoteModelCollection.cs" />
+      <Compile Remove="Models\DataModels\CitationModel.cs" />
+      <Compile Remove="Models\DataModels\EventModel.cs" />
+      <Compile Remove="Models\DataModels\FamilyModel.cs" />
+      <Compile Remove="Models\DataModels\Interfaces\ICitationModel.cs" />
+      <Compile Remove="Models\DataModels\Interfaces\IEventModel.cs" />
+      <Compile Remove="Models\DataModels\Interfaces\IFamilyModel.cs" />
+      <Compile Remove="Models\DataModels\Interfaces\INoteModel.cs" />
+      <Compile Remove="Models\DataModels\NoteModel.cs" />
+      <Compile Remove="Models\HLinks\Interfaces\IHLinkNoteModel.cs" />
+      <Compile Remove="Models\HLinks\Models\HLinkNoteModel.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\ImageResource.cs" />
       <Compile Remove="Platforms\Android\AppSpecific\PlatformSpecific.cs" />
       <Compile Remove="Platforms\Android\Localize.cs" />
@@ -196,23 +209,55 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="Models\DBModels\Date\DateDBModelBase.cs" />
-      <Compile Include="Models\DBModels\Date\Interfaces\IDateDBModel.cs" />
-      <Compile Include="Models\DBModels\EventDBModel.cs" />
-      <Compile Include="Models\DBModels\Interfaces\IEventDBModel.cs" />
-      <Compile Include="Models\DBModels\Interfaces\ICitationDBModel.cs" />
-      <Compile Include="Models\DBModels\Interfaces\INoteDBModel.cs" />
-      <Compile Include="Models\DBModels\Interfaces\IDBModel.cs" />
-      <Compile Include="Models\DBModels\DBModel.cs" />
-      <Compile Include="Models\DBModels\CitationDBModel.cs" />
-      <Compile Include="Models\DBModels\FamilyDBModel.cs" />
-      <Compile Include="Models\DBModels\NoteDBModel.cs" />
+      <Compile Include="ModelsDB\CitationDBModel.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkBackLinkDBModelCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkCitationDBModelCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkDBBaseCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkEventDBModelCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkFamilyDBModelCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkNoteDBModelCollection.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\IHLinkDBCollectionBase.cs" />
+      <Compile Include="ModelsDB\Date\DateDBModelBase.cs" />
+      <Compile Include="ModelsDB\Date\DateDBModelRange.cs" />
+      <Compile Include="ModelsDB\Date\DateDBModelSpan.cs" />
+      <Compile Include="ModelsDB\Date\DateDBModelStr.cs" />
+      <Compile Include="ModelsDB\Date\DateDBModelVal.cs" />
+      <Compile Include="ModelsDB\Date\Interfaces\IDateDBModel.cs" />
+      <Compile Include="ModelsDB\Date\Interfaces\IDateDBModelRange.cs" />
+      <Compile Include="ModelsDB\Date\Interfaces\IDateDBModelSpan.cs" />
+      <Compile Include="ModelsDB\Date\Interfaces\IDateDBModelStr.cs" />
+      <Compile Include="ModelsDB\Date\Interfaces\IDateDBModelVal.cs" />
+      <Compile Include="ModelsDB\DBModelBase.cs" />
+      <Compile Include="ModelsDB\EventDBModel.cs" />
+      <Compile Include="ModelsDB\FamilyDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\HLinkDBBackLink.cs" />
+      <Compile Include="ModelsDB\HLinks\HLinkDBBase.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkDateDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelRange.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelSpan.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelStr.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelVal.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkNoteDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkCitationDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkEventDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkFamilyDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkNoteDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkDBBase.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkCitationDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkEventDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkFamilyDBModel.cs" />
+      <Compile Include="ModelsDB\Interfaces\ICitationDBModel.cs" />
+      <Compile Include="ModelsDB\Interfaces\IDBModelBase.cs" />
+      <Compile Include="ModelsDB\Interfaces\IFamilyDBModel.cs" />
+      <Compile Include="ModelsDB\Interfaces\IEventDBModel.cs" />
+      <Compile Include="ModelsDB\Interfaces\INoteDBModel.cs" />
+      <Compile Include="ModelsDB\NoteDBModel.cs" />
     </ItemGroup>
 
     <ItemGroup>
 
-        <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.1" />
-        <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+        <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.3.0" />
         <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 
@@ -221,16 +266,18 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
 
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
 
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
 
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.13" />
 
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.13" />
+
+        <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="7.0.13" />
 		
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -243,8 +290,8 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-        <PackageReference Include="SharedSharp" Version="1.11.3" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="SharedSharp" Version="1.11.5" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.6" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />

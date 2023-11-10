@@ -3,12 +3,12 @@
     x:Class="GrampsView.UserControls.CitationCardMediumLink"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:models="clr-namespace:GrampsView.Data.Model"
+    xmlns:models="clr-namespace:GrampsView.ModelsDB.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
     xmlns:mauiToolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:sSCustClass="clr-namespace:SharedSharp.Common.CustomClasses;assembly=SharedSharp"
     x:Name="CitationCardMediumLinkRoot"
-    x:DataType="models:HLinkCitationModel">
+    x:DataType="models:HLinkCitationDBModel">
 
     <ucon:LinkMediumCardControlTemplate.Resources>
         <ResourceDictionary>

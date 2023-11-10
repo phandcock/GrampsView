@@ -1,7 +1,9 @@
-﻿using GrampsView.Data.Collections;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 namespace GrampsView.Models.DataModels.Interfaces
 {
@@ -10,13 +12,13 @@ namespace GrampsView.Models.DataModels.Interfaces
     /// </summary>
     public interface IAddressModel : IModelBase
     {
-        HLinkCitationModelCollection GCitationRefCollection { get; }
+        HLinkCitationDBModelCollection GCitationRefCollection { get; }
 
         /// <summary>
         /// Gets or sets the g citation reference collection.
         /// </summary>
         /// <value>
-        /// The g citation reference collection.
+        /// The gcitation reference collection.
         /// </value>
         string GCity { get; set; }
 
@@ -27,7 +29,7 @@ namespace GrampsView.Models.DataModels.Interfaces
         DateObjectModelBase GDate { get; set; }
         string GLocality { get; set; }
 
-        HLinkNoteModelCollection GNoteRefCollection { get; }
+        HLinkNoteDBModelCollection GNoteRefCollection { get; }
 
         string GPhone { get; set; }
 

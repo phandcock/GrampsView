@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
@@ -6,6 +6,7 @@ using GrampsView.Data.Model;
 using GrampsView.Data.Repository;
 using GrampsView.Data.StoreXML;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using SharedSharp.Errors;
 
@@ -31,14 +32,14 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "family":
                     {
-                        HLinkFamilyModel p1 = DL.FamilyDL.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkFamilyDBModel p1 = DL.FamilyDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
 
                 case "event":
                     {
-                        HLinkEventModel p1 = DL.EventDL.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkEventDBModel p1 = DL.EventDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
@@ -52,7 +53,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "citation":
                     {
-                        HLinkCitationModel p1 = DL.CitationDL.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkCitationDBModel p1 = DL.CitationDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }
@@ -80,7 +81,7 @@ namespace GrampsView.Data.ExternalStorage
 
                 case "note":
                     {
-                        HLinkNoteModel p1 = DL.NoteDL.GetModelFromHLinkKey(argHLinkKey).HLink;
+                        HLinkNoteDBModel p1 = DL.NoteDL.GetModelFromHLinkKey(argHLinkKey).HLink;
 
                         return new HLinkBackLink(p1);
                     }

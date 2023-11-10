@@ -1,16 +1,20 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.Collections;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.Models.DataModels.Date;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
+
+using System;
+using System.Collections;
+using System.ComponentModel;
+
+using static GrampsView.Common.CommonEnums;
+
+namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Collections;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-    using GrampsView.Models.DataModels.Date;
-
-    using System;
-    using System.Collections;
-    using System.ComponentModel;
-
-    using static GrampsView.Common.CommonEnums;
-
     /// <summary>
     /// </summary>
     public interface IPersonModel : IModelBase, IComparable<PersonModel>, INotifyPropertyChanged, IComparable, IComparer
@@ -43,7 +47,7 @@
         /// <value>
         /// The child of.
         /// </value>
-        HLinkFamilyModel GChildOf
+        HLinkFamilyDBModel GChildOf
         {
             get;
             set;
@@ -55,7 +59,7 @@
         /// <value>
         /// The event reference.
         /// </value>
-        HLinkEventModelCollection GEventRefCollection
+        HLinkEventDBModelCollection GEventRefCollection
         {
             get;
         }
@@ -89,7 +93,7 @@
         /// <value>
         /// The Note reference.
         /// </value>
-        HLinkNoteModelCollection GNoteRefCollection
+        HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
         }
@@ -100,7 +104,7 @@
         /// <value>
         /// The parent relationship collection.
         /// </value>
-        HLinkFamilyModelCollection GParentInRefCollection
+        HLinkFamilyDBModelCollection GParentInRefCollection
         {
             get;
         }

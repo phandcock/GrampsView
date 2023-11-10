@@ -1,8 +1,10 @@
-﻿namespace GrampsView.Data.Model
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+namespace GrampsView.Data.Model
 {
     using GrampsView.Common;
-    using GrampsView.Data.Collections;
     using GrampsView.Models.Collections.HLinks;
+    using GrampsView.ModelsDB.Collections.HLinks;
 
     /// <summary>
     /// Data model for a person reference.
@@ -26,12 +28,12 @@
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundPerson");
         }
 
-        public HLinkCitationModelCollection GCitationCollection
+        public HLinkCitationDBModelCollection GCitationCollection
         {
             get; set;
         }
 
-          = new HLinkCitationModelCollection();
+          = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the text.
@@ -40,12 +42,12 @@
         /// The text.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteCollection
+        public HLinkNoteDBModelCollection GNoteCollection
         {
             get; set;
         }
 
-            = new HLinkNoteModelCollection();
+            = new HLinkNoteDBModelCollection();
 
         public string GRelationship
         {

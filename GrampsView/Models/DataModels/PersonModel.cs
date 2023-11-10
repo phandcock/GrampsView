@@ -1,8 +1,12 @@
-﻿using GrampsView.Common;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
@@ -25,7 +29,7 @@ namespace GrampsView.Models.DataModels
     /// </list>
     /// </summary>
 
-    [KnownType(typeof(HLinkFamilyModel))]
+    [KnownType(typeof(HLinkFamilyDBModel))]
     public sealed class PersonModel : ModelBase, IPersonModel
     {
         private Gender _GGender = Gender.Unknown;
@@ -85,12 +89,12 @@ namespace GrampsView.Models.DataModels
         /// The child of.
         /// </value>
         [JsonInclude]
-        public HLinkFamilyModel GChildOf
+        public HLinkFamilyDBModel GChildOf
         {
             get;
 
             set;
-        } = new HLinkFamilyModel();
+        } = new HLinkFamilyDBModel();
 
         /// <summary>
         /// Gets or sets the citation reference collection.
@@ -99,21 +103,21 @@ namespace GrampsView.Models.DataModels
         /// The citation reference collection.
         /// </value>
         [JsonInclude]
-        public HLinkCitationModelCollection GCitationRefCollection
+        public HLinkCitationDBModelCollection GCitationRefCollection
         {
             get;
 
             set;
-        } = new HLinkCitationModelCollection();
+        } = new HLinkCitationDBModelCollection();
 
 
         [JsonInclude]
-        public HLinkEventModelCollection GEventRefCollection
+        public HLinkEventDBModelCollection GEventRefCollection
         {
             get;
 
             set;
-        } = new HLinkEventModelCollection();
+        } = new HLinkEventDBModelCollection();
 
         /// <summary>
         /// Gets or sets the gender.
@@ -183,23 +187,23 @@ namespace GrampsView.Models.DataModels
         /// The Note reference.
         /// </value>
         [JsonInclude]
-        public HLinkNoteModelCollection GNoteRefCollection
+        public HLinkNoteDBModelCollection GNoteRefCollection
         {
             get;
 
             set;
-        } = new HLinkNoteModelCollection();
+        } = new HLinkNoteDBModelCollection();
 
         /// <summary>
         /// Gets or sets the parent relationship collection.
         /// </summary>
         [JsonInclude]
-        public HLinkFamilyModelCollection GParentInRefCollection
+        public HLinkFamilyDBModelCollection GParentInRefCollection
         {
             get;
 
             set;
-        } = new HLinkFamilyModelCollection();
+        } = new HLinkFamilyDBModelCollection();
 
         /// <summary>
         /// Gets or sets the Persons Birthname.

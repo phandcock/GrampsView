@@ -1,18 +1,11 @@
-//-----------------------------------------------------------------------
-//
-// Various data modesl to small to be worth putting in their own file
-// is first launched.
-//
-// <copyright file="IPersonHourGlassPageViewModel.cs" company="MeMyselfAndI">
-// Copyright (c) MeMyselfAndI. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+// Copyright (c) phandcock.  All rights reserved.
 
 namespace GrampsView.ViewModels
 {
     using GrampsView.Data.Collections;
     using GrampsView.Models.Collections.HLinks;
     using GrampsView.Models.DataModels;
+    using GrampsView.ModelsDB.Collections.HLinks;
 
     /// <summary>
     /// Interface for the GrampsView common progress routines.
@@ -28,7 +21,7 @@ namespace GrampsView.ViewModels
             get;
         }
 
-        HLinkEventModelCollection EventCollection
+        HLinkEventDBModelCollection EventCollection
         {
             get;
         }
@@ -38,12 +31,12 @@ namespace GrampsView.ViewModels
             get;
         }
 
-        HLinkNoteModelCollection NoteCollection
+        HLinkNoteDBModelCollection NoteCollection
         {
             get;
         }
 
-        HLinkFamilyModelCollection ParentRelationshipCollection
+        HLinkFamilyDBModelCollection ParentRelationshipCollection
         {
             get;
         }

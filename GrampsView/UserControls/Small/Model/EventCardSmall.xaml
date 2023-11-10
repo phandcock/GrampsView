@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:GrampsView.Common"
     xmlns:i18="clr-namespace:GrampsView.Common"
-    xmlns:models="clr-namespace:GrampsView.Models.HLinks.Models"
+    xmlns:models="clr-namespace:GrampsView.ModelsDB.HLinks.Models"
     xmlns:ucon="clr-namespace:GrampsView.UserControls"
-    x:DataType="models:HLinkEventModel">
+    x:DataType="models:HLinkEventDBModel">
 
     <Grid>
 

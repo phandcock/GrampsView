@@ -1,8 +1,8 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 namespace GrampsView.ViewModels
 {
@@ -19,6 +19,6 @@ namespace GrampsView.ViewModels
             BaseTitleIcon = Constants.IconEvents;
         }
 
-        public Group<HLinkEventModelCollection> EventSource => DL.EventDL.GetAllAsGroupedCardGroup();
+        public Group<HLinkEventDBModelCollection> EventSource => DL.EventDL.GetAllAsGroupedCardGroup();
     }
 }

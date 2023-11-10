@@ -1,11 +1,11 @@
 ﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
-using GrampsView.Data.Collections;
 using GrampsView.Data.DataView;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks;
+using GrampsView.ModelsDB.Collections.HLinks;
 
 using System.Text.Json.Serialization;
 
@@ -53,12 +53,12 @@ namespace GrampsView.Data.Model
         /// The citation collection reference.
         /// </value>
 
-        public HLinkCitationModelCollection GCitationCollectionReference
+        public HLinkCitationDBModelCollection GCitationCollectionReference
         {
             get; set;
         }
 
-        = new HLinkCitationModelCollection();
+        = new HLinkCitationDBModelCollection();
 
         public string GFatherRel
         {
@@ -83,12 +83,12 @@ namespace GrampsView.Data.Model
         /// The note collection reference.
         /// </value>
 
-        public HLinkNoteModelCollection GNoteCollectionReference
+        public HLinkNoteDBModelCollection GNoteCollectionReference
         {
             get; set;
         }
 
-        = new HLinkNoteModelCollection();
+        = new HLinkNoteDBModelCollection();
 
         public string RelationShips
         {

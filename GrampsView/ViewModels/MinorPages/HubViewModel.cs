@@ -1,13 +1,15 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Events;
 using GrampsView.Models.Collections.HLinks;
-using GrampsView.Models.DataModels;
 using GrampsView.Models.HLinks.Interfaces;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.Collections.HLinks;
+using GrampsView.ModelsDB.HLinks.Models;
 
 using SharedSharp.Views;
 
@@ -21,15 +23,15 @@ namespace GrampsView.ViewModels.MinorPages
         public CardListLineCollection HeaderCard => DV.HeaderDV.HeaderDataModel.AsCardListLineCollection;
 
         // TODO clean up naming. See person citation changes
-        public CardGroupHLink<HLinkCitationModel> LatestCitationChanges => DL.CitationDL.GetLatestChanges;
+        public DBCardGroupHLink<HLinkCitationDBModel> LatestCitationChanges => DL.CitationDL.GetLatestChanges;
 
-        public CardGroupHLink<HLinkEventModel> LatestEventChanges => DL.EventDL.GetLatestChanges;
+        public DBCardGroupHLink<HLinkEventDBModel> LatestEventChanges => DL.EventDL.GetLatestChanges;
 
-        public HLinkFamilyModelCollection LatestFamilyChanges => DL.FamilyDL.GetLatestChanges;
+        public HLinkFamilyDBModelCollection LatestFamilyChanges => DL.FamilyDL.GetLatestChanges;
 
         public CardGroupHLink<HLinkMediaModel> LatestMediaChanges => DV.MediaDV.GetLatestChanges;
 
-        public HLinkBaseCollection<HLinkNoteModel> LatestNoteChanges => DL.NoteDL.GetLatestChanges;
+        public HLinkNoteDBModelCollection LatestNoteChanges => DL.NoteDL.GetLatestChanges;
 
         public HLinkPersonModelCollection LatestPersonChanges => DV.PersonDV.GetLatestChanges;
 
@@ -43,19 +45,19 @@ namespace GrampsView.ViewModels.MinorPages
 
         public IHLinkMediaModel MediaCard => DV.MediaDV.GetRandomFromCollection(DV.MediaDV.GetAllNotClippedAsHLink());
 
-        public CardGroupHLink<HLinkNoteModel> ToDoList
+        public DBCardGroupHLink<HLinkNoteDBModel> ToDoList
         {
             get
             {
                 // Setup ToDo list
-                CardGroupModel<NoteModel> t = DL.NoteDL.GetAllOfType(Constants.NoteTypeToDo);
+                DBCardGroupModel<NoteDBModel> t = DL.NoteDL.GetAllOfType(Constants.NoteTypeToDo);
 
-                CardGroupHLink<HLinkNoteModel> toDoCardGroup = new()
+                DBCardGroupHLink<HLinkNoteDBModel> toDoCardGroup = new()
                 {
                     Title = "ToDo list",
                 };
 
-                foreach (NoteModel item in t)
+                foreach (NoteDBModel item in t)
                 {
                     toDoCardGroup.Add(item.HLink);
                 }
@@ -83,7 +85,7 @@ namespace GrampsView.ViewModels.MinorPages
 
             iocMessenger.Register<AppStartLoadDataEvent>(this, (r, m) =>
              {
-                 SharedSharp.SharedSharpNavigation.NavigateAsync(nameof(SharedSharpMessageLogPage));
+                 SharedSharp.Navigation.SharedNavigation.NavigateAsync(nameof(SharedSharpMessageLogPage));
              });
         }
 

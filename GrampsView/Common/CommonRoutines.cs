@@ -61,7 +61,7 @@ namespace GrampsView.Common
                 //object ttt = dataIn["HLinkSerial"];
                 //Debug.WriteLine(ttt);
 
-                ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn[SharedSharpConstants.ShellParameter1]));
+                ser = JsonSerializer.Deserialize<T>(Uri.UnescapeDataString((string)dataIn[SharedConstants.ShellParameter1]));
             }
 
             return ser;

@@ -4,6 +4,7 @@ using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
 using GrampsView.Models.HLinks;
 using GrampsView.Models.HLinks.Models;
+using GrampsView.ModelsDB.HLinks.Models;
 
 // TODO fix Deref caching
 
@@ -31,27 +32,27 @@ namespace GrampsView.Data.Model
             HLinkType = HLinkBackLinkEnum.HLinkAddressModel;
         }
 
-        public HLinkBackLink(HLinkCitationModel ArgHLinkLink)
+        public HLinkBackLink(HLinkCitationDBModel ArgHLinkLink)
         {
-            _HLinkCitationModel = ArgHLinkLink;
+            _HLinkCitationDBModel = ArgHLinkLink;
 
             HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkCitationModel;
         }
 
-        public HLinkBackLink(HLinkEventModel ArgHLinkLink)
+        public HLinkBackLink(HLinkEventDBModel ArgHLinkLink)
         {
-            _HLinkEventModel = ArgHLinkLink;
+            _HLinkEventDBModel = ArgHLinkLink;
 
             HLinkKey = ArgHLinkLink.HLinkKey;
 
             HLinkType = HLinkBackLinkEnum.HLinkEventModel;
         }
 
-        public HLinkBackLink(HLinkFamilyModel ArgHLinkLink)
+        public HLinkBackLink(HLinkFamilyDBModel ArgHLinkLink)
         {
-            _HLinkFamilyModel = ArgHLinkLink;
+            _HLinkFamilyDBModel = ArgHLinkLink;
 
             HLinkKey = ArgHLinkLink.HLinkKey;
 
@@ -76,10 +77,10 @@ namespace GrampsView.Data.Model
             HLinkType = HLinkBackLinkEnum.HLinkNameMapModel;
         }
 
-        public HLinkBackLink(HLinkNoteModel ArgHLinkLink)
+        public HLinkBackLink(HLinkNoteDBModel ArgHLinkLink)
         {
-            _HLinkNoteModel = ArgHLinkLink;
-            _HLinkNoteModel.DisplayAs = CommonEnums.DisplayFormat.SmallCard;
+            _HLinkNoteDBModel = ArgHLinkLink;
+            _HLinkNoteDBModel.DisplayAs = CommonEnums.DisplayFormat.SmallCard;
 
             HLinkKey = ArgHLinkLink.HLinkKey;
 
@@ -162,17 +163,17 @@ namespace GrampsView.Data.Model
 
         public HLinkAdressModel _HLinkAddressModel { get; set; } = new HLinkAdressModel();
 
-        public HLinkCitationModel _HLinkCitationModel { get; set; } = new HLinkCitationModel();
+        public HLinkCitationDBModel _HLinkCitationDBModel { get; set; } = new HLinkCitationDBModel();
 
-        public HLinkEventModel _HLinkEventModel { get; set; } = new HLinkEventModel();
+        public HLinkEventDBModel _HLinkEventDBModel { get; set; } = new HLinkEventDBModel();
 
-        public HLinkFamilyModel _HLinkFamilyModel { get; set; } = new HLinkFamilyModel();
+        public HLinkFamilyDBModel _HLinkFamilyDBModel { get; set; } = new HLinkFamilyDBModel();
 
         public HLinkMediaModel _HLinkMediaModel { get; set; } = new HLinkMediaModel();
 
         public HLinkNameMapModel _HLinkNameMapModel { get; set; } = new HLinkNameMapModel();
 
-        public HLinkNoteModel _HLinkNoteModel { get; set; } = new HLinkNoteModel();
+        public HLinkNoteDBModel _HLinkNoteDBModel { get; set; } = new HLinkNoteDBModel();
 
         public HLinkPersonModel _HLinkPersonModel { get; set; } = new HLinkPersonModel();
 
@@ -196,17 +197,9 @@ namespace GrampsView.Data.Model
                         //_HLinkAddressModel.HLinkGlyphItem = this.HLinkGlyphItem;
                         return _HLinkAddressModel;
 
-                    case HLinkBackLinkEnum.HLinkCitationModel:
-                        //_HLinkCitationModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkCitationModel;
 
-                    case HLinkBackLinkEnum.HLinkEventModel:
-                        //_HLinkEventModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkEventModel;
 
-                    case HLinkBackLinkEnum.HLinkFamilyModel:
-                        //_HLinkFamilyModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkFamilyModel;
+
 
                     case HLinkBackLinkEnum.HLinkMediaModel:
                         //_HLinkMediaModel.HLinkGlyphItem = this.HLinkGlyphItem;
@@ -216,9 +209,7 @@ namespace GrampsView.Data.Model
                         //_HLinkNameMapModel.HLinkGlyphItem = this.HLinkGlyphItem;
                         return _HLinkNameMapModel;
 
-                    case HLinkBackLinkEnum.HLinkNoteModel:
-                        //_HLinkNoteModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkNoteModel;
+
 
                     case HLinkBackLinkEnum.HLinkPersonModel:
                         //_HLinkPersonModel.HLinkGlyphItem = this.HLinkGlyphItem;
@@ -254,6 +245,48 @@ namespace GrampsView.Data.Model
                 return default(HLinkBase);
             }
         }
+
+        public HLinkDBBase DBHLink
+        {
+            get
+            {
+                switch (HLinkType)
+                {
+
+
+                    case HLinkBackLinkEnum.HLinkCitationModel:
+                        //_HLinkCitationModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkCitationDBModel;
+
+                    case HLinkBackLinkEnum.HLinkEventModel:
+                        //_HLinkEventModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkEventDBModel;
+
+                    case HLinkBackLinkEnum.HLinkFamilyModel:
+                        //_HLinkFamilyModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkFamilyDBModel;
+
+
+
+                    case HLinkBackLinkEnum.HLinkNoteModel:
+                        //_HLinkNoteModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkNoteDBModel;
+
+
+
+
+
+                    case HLinkBackLinkEnum.Unknown:
+                        break;
+
+                    default:
+                        return default(HLinkDBBase);
+                }
+
+                return default(HLinkDBBase);
+            }
+        }
+
 
         public HLinkBackLinkEnum HLinkType { get; set; } = HLinkBackLinkEnum.Unknown;
 

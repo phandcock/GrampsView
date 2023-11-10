@@ -1,15 +1,17 @@
+// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common;
+using GrampsView.Common.CustomClasses;
+using GrampsView.Data.Model;
+using GrampsView.Data.Repository;
+using GrampsView.DBModels;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+
+using System.Collections.ObjectModel;
+
 namespace GrampsView.Data.DataView
 {
-    using GrampsView.Common;
-    using GrampsView.Common.CustomClasses;
-    using GrampsView.Data.Model;
-    using GrampsView.Data.Repository;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-
     /// <summary>
     /// I Person Repository.
     /// </summary>
@@ -55,7 +57,7 @@ namespace GrampsView.Data.DataView
         /// <returns>
         /// Person and where parent in families events.
         /// </returns>
-        ObservableCollection<EventModel> GetPersonPlusFamilyEvents(PersonModel argPerson);
+        ObservableCollection<EventDBModel> GetPersonPlusFamilyEvents(PersonModel argPerson);
 
         List<SearcHandlerItem> SearchShell(string argQuery);
     }

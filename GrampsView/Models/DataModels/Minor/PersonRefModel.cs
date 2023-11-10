@@ -1,14 +1,14 @@
-﻿// TODO Needs XML 1.71 check
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Data.DataView;
+using GrampsView.Models.Collections.HLinks;
+using GrampsView.Models.DataModels;
+using GrampsView.ModelsDB.Collections.HLinks;
+
+using System.Text.Json.Serialization;
 
 namespace GrampsView.Data.Model
 {
-    using GrampsView.Data.Collections;
-    using GrampsView.Data.DataView;
-    using GrampsView.Models.Collections.HLinks;
-    using GrampsView.Models.DataModels;
-
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// GRAMPS Alt element class. TODO Update fields as per Schema
     /// </summary>
@@ -31,12 +31,12 @@ namespace GrampsView.Data.Model
             }
         }
 
-        public HLinkCitationModelCollection GCitationCollection
+        public HLinkCitationDBModelCollection GCitationCollection
         {
             get;
         }
 
-            = new HLinkCitationModelCollection();
+            = new HLinkCitationDBModelCollection();
 
         /// <summary>
         /// Gets or sets the g text.
@@ -44,12 +44,12 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The g text.
         /// </value>
-        public HLinkNoteModelCollection GNoteCollection
+        public HLinkNoteDBModelCollection GNoteCollection
         {
             get;
         }
 
-            = new HLinkNoteModelCollection();
+            = new HLinkNoteDBModelCollection();
 
         public string GRelationship
         {

@@ -3,6 +3,7 @@
 using GrampsView.Data.Repository;
 
 using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 namespace GrampsView
 {
@@ -28,7 +29,7 @@ namespace GrampsView
                 // This goes here so AppInit with WhatsNew and FirstRun work
                 _ = Ioc.Default.GetRequiredService<ISharedSharpAppInit>().Init();
 
-                Ioc.Default.GetRequiredService<ISharedSharpSizes>().HandleWindowSizeChanged((s as Window).Width, (s as Window).Height);
+                Ioc.Default.GetRequiredService<ISharedSizes>().HandleWindowSizeChanged((s as Window).Width, (s as Window).Height);
             };
 
             return window;

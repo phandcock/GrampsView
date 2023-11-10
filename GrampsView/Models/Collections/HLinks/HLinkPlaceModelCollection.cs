@@ -4,6 +4,7 @@
     using GrampsView.Data.DataView;
     using GrampsView.Data.Model;
     using GrampsView.Models.HLinks.Models;
+    using GrampsView.ModelsDB.HLinks.Models;
 
     using System.Collections.ObjectModel;
     using System.Runtime.Serialization;
@@ -22,7 +23,7 @@
     /// </list>
     /// </summary>
 
-    [KnownType(typeof(ObservableCollection<HLinkCitationModel>))]
+    [KnownType(typeof(ObservableCollection<HLinkCitationDBModel>))]
     public class HLinkPlaceModelCollection : HLinkBaseCollection<HLinkPlaceModel>
     {
         public HLinkPlaceModelCollection()

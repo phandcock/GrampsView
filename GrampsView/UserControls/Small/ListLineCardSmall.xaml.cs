@@ -1,4 +1,7 @@
-﻿using SharedSharp.Common.Interfaces;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using SharedSharp.Common.Interfaces;
+using SharedSharp.Sizes;
 
 namespace GrampsView.UserControls
 {
@@ -10,7 +13,7 @@ namespace GrampsView.UserControls
         {
             InitializeComponent();
 
-            CardSmallHeight = Ioc.Default.GetRequiredService<ISharedSharpCardSizes>().CardSmallHeight;
+            CardSmallHeight = Ioc.Default.GetRequiredService<ISharedCardSizes>().CardSmallHeight;
         }
 
         public double CardSmallHeight { get; set; } = 100;
