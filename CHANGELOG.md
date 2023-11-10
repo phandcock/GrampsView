@@ -1,3 +1,12 @@
+# [17.3.0](https://github.com/phandcock/GrampsView/compare/v17.2.61...v17.3.0) (2023-11-10)
+
+
+### Features
+
+* start on EF refactor ([92fb926](https://github.com/phandcock/GrampsView/commit/92fb926997f5437da140ca387ac229a8c0f58a6f))
+
+
+
 ## [17.2.61](https://github.com/phandcock/GrampsView/compare/v17.2.60...v17.2.61) (2023-10-26)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * add messagelog to loaddata ([4941a59](https://github.com/phandcock/GrampsView/commit/4941a5934438f821cd6230d3260e277e07179ee9))
-
-
-
-## [17.2.58](https://github.com/phandcock/GrampsView/compare/v17.2.57...v17.2.58) (2023-10-21)
-
-
-### Bug Fixes
-
-* add events ([44e9f69](https://github.com/phandcock/GrampsView/commit/44e9f69a149f352f17fadcc0ae411a2b6a0beb87))
 
 
 
