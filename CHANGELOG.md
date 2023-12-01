@@ -1,3 +1,12 @@
+## [17.3.1](https://github.com/phandcock/GrampsView/compare/v17.3.0...v17.3.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* turn off scheduled builds ([6b3d6e7](https://github.com/phandcock/GrampsView/commit/6b3d6e71e40689a3d04e6a06d09f8dbf110e315d))
+
+
+
 # [17.3.0](https://github.com/phandcock/GrampsView/compare/v17.2.61...v17.3.0) (2023-11-10)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * speed up datafile loading ([c51f153](https://github.com/phandcock/GrampsView/commit/c51f1539c6748b46726f97b75c0885f0da703e26))
-
-
-
-## [17.2.59](https://github.com/phandcock/GrampsView/compare/v17.2.58...v17.2.59) (2023-10-22)
-
-
-### Bug Fixes
-
-* add messagelog to loaddata ([4941a59](https://github.com/phandcock/GrampsView/commit/4941a5934438f821cd6230d3260e277e07179ee9))
 
 
 
