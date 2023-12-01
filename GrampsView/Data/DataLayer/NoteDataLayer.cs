@@ -90,8 +90,6 @@ namespace GrampsView.Data.DataLayer
             }
         }
 
-
-
         private List<NoteDBModel> _DataAsDefaultSort { get; set; } = new List<NoteDBModel>();
 
         private List<NoteDBModel> _DataAsList { get; set; } = new List<NoteDBModel>();

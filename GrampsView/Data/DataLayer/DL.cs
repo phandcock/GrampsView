@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.DataLayer;
 using GrampsView.Data.DataLayer.Interfaces;
@@ -9,6 +9,8 @@ namespace GrampsView.Data.DataView
     /// </summary>
     public static class DL
     {
+        public static IAddressDataLayer AddressDL { get; } = new AddressDataLayer();
+
         public static ICitationDataLayer CitationDL { get; } = new CitationDataLayer();
 
         public static IEventDataLayer EventDL { get; } = new EventDataLayer();

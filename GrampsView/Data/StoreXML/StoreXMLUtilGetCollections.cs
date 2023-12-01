@@ -165,9 +165,9 @@ namespace GrampsView.Data.ExternalStorage
             return t;
         }
 
-        private HLinkAddressModelCollection GetAddressCollection(XElement xmlData)
+        private HLinkAddressDBModelCollection GetAddressCollection(XElement xmlData)
         {
-            HLinkAddressModelCollection t = new()
+            HLinkAddressDBModelCollection t = new()
             {
                 Title = "Address Collection"
             };
@@ -183,7 +183,7 @@ namespace GrampsView.Data.ExternalStorage
                 // Load address object references
                 foreach (XElement theLoadORElement in theERElement)
                 {
-                    AddressModel newAddressModel = new()
+                    AddressDBModel newAddressModel = new()
                     {
                         GCitationRefCollection = GetCitationCollection(theLoadORElement),
 
@@ -215,7 +215,7 @@ namespace GrampsView.Data.ExternalStorage
                     DataStore.Instance.DS.AddressData.Add(newAddressModel);
 
                     // Create a HLink to the model
-                    HLinkAdressModel newHlink = new()
+                    HLinkAddressDBModel newHlink = new()
                     {
                         HLinkKey = newAddressModel.HLinkKey,
                     };
@@ -602,8 +602,6 @@ namespace GrampsView.Data.ExternalStorage
                     };
 
                     DataStore.Instance.DS.PersonNameData.Add(newPersonNameModel);
-
-
 
                     // Create a HLink to the model
                     HLinkPersonNameModel newHlink = new()

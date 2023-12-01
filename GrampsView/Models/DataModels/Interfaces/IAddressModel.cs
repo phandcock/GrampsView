@@ -45,6 +45,6 @@ namespace GrampsView.Models.DataModels.Interfaces
         /// <value>
         /// The h link.
         /// </value>
-        HLinkAdressModel HLink { get; }
+        HLinkAddressDBModel HLink { get; }
     }
 }

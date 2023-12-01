@@ -61,12 +61,12 @@ namespace GrampsView.Models.DataModels
         /// Gets or sets gaddress collection.
         /// </summary>
         [JsonInclude]
-        public HLinkAddressModelCollection GAddressCollection
+        public HLinkAddressDBModelCollection GAddressCollection
         {
             get; set;
         }
 
-        = new HLinkAddressModelCollection();
+        = new HLinkAddressDBModelCollection();
 
         /// <summary>
         /// Gets or sets the gattribute collection.
@@ -109,7 +109,6 @@ namespace GrampsView.Models.DataModels
 
             set;
         } = new HLinkCitationDBModelCollection();
-
 
         [JsonInclude]
         public HLinkEventDBModelCollection GEventRefCollection
@@ -170,7 +169,6 @@ namespace GrampsView.Models.DataModels
 
             set;
         } = new HLinkLdsOrdModelCollection();
-
 
         [JsonInclude]
         public HLinkMediaModelCollection GMediaRefCollection

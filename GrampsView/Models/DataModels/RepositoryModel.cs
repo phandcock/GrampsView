@@ -5,7 +5,6 @@ using GrampsView.Data.Collections;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels;
 
-using System;
 using System.Collections;
 
 namespace GrampsView.Data.Model
@@ -41,12 +40,12 @@ namespace GrampsView.Data.Model
         /// Gets or sets address collection.
         /// </summary>
 
-        public HLinkAddressModelCollection GAddress
+        public HLinkAddressDBModelCollection GAddress
         {
             get; set;
         }
 
-        = new HLinkAddressModelCollection();
+        = new HLinkAddressDBModelCollection();
 
         /// <summary>
         /// Gets or sets the note reference collection.

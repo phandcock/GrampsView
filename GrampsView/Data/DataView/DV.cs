@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Collections;
 using GrampsView.Data.Repository;
@@ -9,14 +9,6 @@ namespace GrampsView.Data.DataView
     /// </summary>
     public static class DV
     {
-        /// <summary>
-        /// Gets the Address DataView.
-        /// </summary>
-        /// <value>
-        /// The Address DataView.
-        /// </value>
-        public static IAddressDataView AddressDV { get; } = new AddressDataView();
-
         /// <summary>
         /// Gets the book mark dv.
         /// </summary>

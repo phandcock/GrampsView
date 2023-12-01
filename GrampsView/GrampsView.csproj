@@ -210,6 +210,7 @@
 
     <ItemGroup>
       <Compile Include="ModelsDB\CitationDBModel.cs" />
+      <Compile Include="ModelsDB\Collections\HLinks\HLinkAddressModelCollection.cs" />
       <Compile Include="ModelsDB\Collections\HLinks\HLinkBackLinkDBModelCollection.cs" />
       <Compile Include="ModelsDB\Collections\HLinks\HLinkCitationDBModelCollection.cs" />
       <Compile Include="ModelsDB\Collections\HLinks\HLinkDBBaseCollection.cs" />
@@ -232,7 +233,9 @@
       <Compile Include="ModelsDB\FamilyDBModel.cs" />
       <Compile Include="ModelsDB\HLinks\HLinkDBBackLink.cs" />
       <Compile Include="ModelsDB\HLinks\HLinkDBBase.cs" />
+      <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkAddressDBModel.cs" />
       <Compile Include="ModelsDB\HLinks\Interfaces\IHLinkDateDBModel.cs" />
+      <Compile Include="ModelsDB\HLinks\Models\HLinkAddressDBModel.cs" />
       <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelRange.cs" />
       <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelSpan.cs" />
       <Compile Include="ModelsDB\HLinks\Models\HLinkDateDBModelStr.cs" />
@@ -250,7 +253,9 @@
       <Compile Include="ModelsDB\Interfaces\IDBModelBase.cs" />
       <Compile Include="ModelsDB\Interfaces\IFamilyDBModel.cs" />
       <Compile Include="ModelsDB\Interfaces\IEventDBModel.cs" />
+      <Compile Include="ModelsDB\Interfaces\IAddressDBModel.cs" />
       <Compile Include="ModelsDB\Interfaces\INoteDBModel.cs" />
+      <Compile Include="ModelsDB\Minor\AddressDBModel.cs" />
       <Compile Include="ModelsDB\NoteDBModel.cs" />
     </ItemGroup>
 

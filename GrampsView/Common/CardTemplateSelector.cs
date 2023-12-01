@@ -96,13 +96,7 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate? DateValObjectTemplate
-        {
-            get;
-            set;
-        }
-
-        public DataTemplate? DateStrObjectTemplate
+        public DataTemplate? DateRangeObjectTemplate
         {
             get;
             set;
@@ -114,7 +108,13 @@ namespace GrampsView.Common
             set;
         }
 
-        public DataTemplate? DateRangeObjectTemplate
+        public DataTemplate? DateStrObjectTemplate
+        {
+            get;
+            set;
+        }
+
+        public DataTemplate? DateValObjectTemplate
         {
             get;
             set;
@@ -476,8 +476,8 @@ namespace GrampsView.Common
 
             switch (item)
             {
-                case AddressModel:
-                case IHLinkAddressModel:
+                case AddressDBModel:
+                case IHLinkAddressDBModel:
 
                     {
                         return AddressTemplate;

@@ -279,8 +279,7 @@ namespace GrampsView.Common
         /// </summary>
         public static readonly string StorageXMLFileName = "data.xml";
 
-        public static string DatabasePath =>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+        public static string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
         /*
          * Note Types

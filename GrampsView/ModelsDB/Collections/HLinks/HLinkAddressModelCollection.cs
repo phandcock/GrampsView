@@ -1,10 +1,10 @@
-﻿using GrampsView.Common.CustomClasses;
+﻿// Copyright (c) phandcock.  All rights reserved.
+
+using GrampsView.Common.CustomClasses;
 using GrampsView.Data.DataView;
 using GrampsView.Data.Model;
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace GrampsView.Data.Collections
@@ -13,17 +13,17 @@ namespace GrampsView.Data.Collections
     /// Collection of HLinks to Address models.
     /// </summary>
 
-    [KnownType(typeof(ObservableCollection<HLinkAdressModel>))]
-    public class HLinkAddressModelCollection : HLinkBaseCollection<HLinkAdressModel>
+    [KnownType(typeof(ObservableCollection<HLinkAddressDBModel>))]
+    public class HLinkAddressDBModelCollection : HLinkDBBaseCollection<HLinkAddressDBModel>
     {
-        public HLinkAddressModelCollection()
+        public HLinkAddressDBModelCollection()
         {
             Title = "Address Collection";
         }
 
         public override void SetGlyph()
         {
-            foreach (HLinkAdressModel argHLink in this)
+            foreach (HLinkAddressDBModel argHLink in this)
             {
                 ItemGlyph t = DV.AddressDV.GetGlyph(argHLink.HLinkKey);
 
@@ -41,11 +41,11 @@ namespace GrampsView.Data.Collections
         /// </summary>
         public override void Sort()
         {
-            List<HLinkAdressModel> t = this.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GDate).ToList();
+            List<HLinkAddressDBModel> t = this.OrderBy(HLinkAdressModel => HLinkAdressModel.DeRef.GDate).ToList();
 
             Items.Clear();
 
-            foreach (HLinkAdressModel item in t)
+            foreach (HLinkAddressDBModel item in t)
             {
                 Items.Add(item);
             }

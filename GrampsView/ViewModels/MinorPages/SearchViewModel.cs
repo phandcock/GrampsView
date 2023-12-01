@@ -19,7 +19,26 @@ namespace GrampsView.ViewModels.MinorPages
     {
         private string lastArg = string.Empty;
 
-        public HLinkAddressModelCollection SearchAddressCollection { get; set; } = new HLinkAddressModelCollection();
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchPageViewModel"/> class.
+        /// </summary>
+        /// <param name="iocCommonLogging">
+        /// Common Logging.
+        /// </param>
+        /// <param name="iocEventAggregator">
+        /// Event Aggregator.
+        /// </param>
+        public SearchPageViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
+            : base(iocCommonLogging)
+        {
+            BaseTitle = "Search Page";
+
+            BaseTitleIcon = Constants.IconSearch;
+
+            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
+        }
+
+        public HLinkAddressDBModelCollection SearchAddressCollection { get; set; } = new HLinkAddressDBModelCollection();
 
         /// <summary>
         /// Gets the search button command.
@@ -75,25 +94,6 @@ namespace GrampsView.ViewModels.MinorPages
         } = string.Empty;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchPageViewModel"/> class.
-        /// </summary>
-        /// <param name="iocCommonLogging">
-        /// Common Logging.
-        /// </param>
-        /// <param name="iocEventAggregator">
-        /// Event Aggregator.
-        /// </param>
-        public SearchPageViewModel(SharedSharp.Logging.Interfaces.ILog iocCommonLogging, IMessenger iocEventAggregator)
-            : base(iocCommonLogging)
-        {
-            BaseTitle = "Search Page";
-
-            BaseTitleIcon = Constants.IconSearch;
-
-            SearchButtonCommand = new Command<string>(buttonClickText => SearchProcessQuery(buttonClickText)); //, _ => !IsBusy) ;
-        }
-
-        /// <summary>
         /// Processes the search query.
         /// </summary>
         /// <param name="argSearch">
@@ -110,7 +110,7 @@ namespace GrampsView.ViewModels.MinorPages
             {
                 SearchItemsFound = true;
 
-                SearchAddressCollection = DV.AddressDV.Search(SearchText);
+                SearchAddressCollection = DL.AddressDL.Search(SearchText);
                 SearchCitationCollection = DL.CitationDL.Search(SearchText);
                 SearchEventsCollection = DL.EventDL.Search(SearchText);
                 SearchFamilyCollection = DL.FamilyDL.Search(SearchText);

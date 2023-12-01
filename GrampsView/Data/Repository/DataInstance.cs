@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Data.Collections;
 using GrampsView.Data.Model;
@@ -19,11 +19,6 @@ namespace GrampsView.Data.Repository
     [KnownType(typeof(ObservableCollection<object>))]
     public class DataInstance : ObservableObject
     {
-        /// <summary>
-        /// The address data
-        /// </summary>
-        private RepositoryModelDictionary<AddressModel, HLinkAdressModel> _AddressData = new RepositoryModelDictionary<AddressModel, HLinkAdressModel>("AddressData");
-
         /// <summary>
         /// The book mark collection
         /// </summary>
@@ -74,18 +69,11 @@ namespace GrampsView.Data.Repository
         /// </summary>
         private RepositoryModelDictionary<TagModel, HLinkTagModel> _TagData = new RepositoryModelDictionary<TagModel, HLinkTagModel>("TagData");
 
-        [JsonInclude]
-        public RepositoryModelDictionary<AddressModel, HLinkAdressModel> AddressData
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataInstance"/> class.
+        /// </summary>
+        public DataInstance()
         {
-            get
-            {
-                return _AddressData;
-            }
-
-            set
-            {
-                SetProperty(ref _AddressData, value);
-            }
         }
 
         [JsonInclude]
@@ -253,13 +241,6 @@ namespace GrampsView.Data.Repository
             {
                 SetProperty(ref _TagData, value);
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataInstance"/> class.
-        /// </summary>
-        public DataInstance()
-        {
         }
 
         /// <summary>

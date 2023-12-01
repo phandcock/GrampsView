@@ -2,6 +2,7 @@
 
 using GrampsView.Common;
 using GrampsView.DBModels;
+using GrampsView.Models.DataModels.Minor;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,8 @@ namespace GrampsView.Data.StoreDB
 
             _IsOpen = true;
         }
+
+        public DbSet<AddressDBModel> AddressAccess { get; set; }
 
         public DbSet<CitationDBModel> CitationAccess { get; set; }
 

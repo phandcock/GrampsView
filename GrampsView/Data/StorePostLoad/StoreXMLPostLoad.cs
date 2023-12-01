@@ -26,7 +26,7 @@ namespace GrampsView.Data.ExternalStorage
         {
             _CommonLogging.DataLogEntryAdd("Organising Address data");
 
-            foreach (AddressModel argModel in DV.AddressDV.DataViewData)
+            foreach (AddressDBModel argModel in DL.AddressDL.DataAsList)
             {
                 argModel.GCitationRefCollection.SetGlyph();
 
@@ -494,7 +494,7 @@ namespace GrampsView.Data.ExternalStorage
                 // Address Collection
                 argModel.GAddressCollection.SetGlyph();
 
-                foreach (HLinkAdressModel addressRef in argModel.GAddressCollection)
+                foreach (HLinkAddressDBModel addressRef in argModel.GAddressCollection)
                 {
                     DataStore.Instance.DS.AddressData[addressRef.HLinkKey.Value].BackHLinkReferenceCollection.Add(new HLinkBackLink(argModel.HLink));
                 }

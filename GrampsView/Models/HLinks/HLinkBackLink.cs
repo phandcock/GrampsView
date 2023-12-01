@@ -23,7 +23,7 @@ namespace GrampsView.Data.Model
             HLinkKey = HLinkKey.NewAsGUID();
         }
 
-        public HLinkBackLink(HLinkAdressModel ArgHLinkLink)
+        public HLinkBackLink(HLinkAddressDBModel ArgHLinkLink)
         {
             _HLinkAddressModel = ArgHLinkLink;
 
@@ -161,7 +161,7 @@ namespace GrampsView.Data.Model
             Unknown
         }
 
-        public HLinkAdressModel _HLinkAddressModel { get; set; } = new HLinkAdressModel();
+        public HLinkAddressDBModel _HLinkAddressModel { get; set; } = new HLinkAddressDBModel();
 
         public HLinkCitationDBModel _HLinkCitationDBModel { get; set; } = new HLinkCitationDBModel();
 
@@ -187,7 +187,7 @@ namespace GrampsView.Data.Model
 
         public HLinkTagModel _HLinkTagModel { get; set; } = new HLinkTagModel();
 
-        public HLinkBase HLink
+        public HLinkDBBase DBHLink
         {
             get
             {
@@ -197,10 +197,39 @@ namespace GrampsView.Data.Model
                         //_HLinkAddressModel.HLinkGlyphItem = this.HLinkGlyphItem;
                         return _HLinkAddressModel;
 
+                    case HLinkBackLinkEnum.HLinkCitationModel:
+                        //_HLinkCitationModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkCitationDBModel;
 
+                    case HLinkBackLinkEnum.HLinkEventModel:
+                        //_HLinkEventModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkEventDBModel;
 
+                    case HLinkBackLinkEnum.HLinkFamilyModel:
+                        //_HLinkFamilyModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkFamilyDBModel;
 
+                    case HLinkBackLinkEnum.HLinkNoteModel:
+                        //_HLinkNoteModel.HLinkGlyphItem = this.HLinkGlyphItem;
+                        return _HLinkNoteDBModel;
 
+                    case HLinkBackLinkEnum.Unknown:
+                        break;
+
+                    default:
+                        return default(HLinkDBBase);
+                }
+
+                return default(HLinkDBBase);
+            }
+        }
+
+        public HLinkBase HLink
+        {
+            get
+            {
+                switch (HLinkType)
+                {
                     case HLinkBackLinkEnum.HLinkMediaModel:
                         //_HLinkMediaModel.HLinkGlyphItem = this.HLinkGlyphItem;
                         return _HLinkMediaModel;
@@ -208,8 +237,6 @@ namespace GrampsView.Data.Model
                     case HLinkBackLinkEnum.HLinkNameMapModel:
                         //_HLinkNameMapModel.HLinkGlyphItem = this.HLinkGlyphItem;
                         return _HLinkNameMapModel;
-
-
 
                     case HLinkBackLinkEnum.HLinkPersonModel:
                         //_HLinkPersonModel.HLinkGlyphItem = this.HLinkGlyphItem;
@@ -245,48 +272,6 @@ namespace GrampsView.Data.Model
                 return default(HLinkBase);
             }
         }
-
-        public HLinkDBBase DBHLink
-        {
-            get
-            {
-                switch (HLinkType)
-                {
-
-
-                    case HLinkBackLinkEnum.HLinkCitationModel:
-                        //_HLinkCitationModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkCitationDBModel;
-
-                    case HLinkBackLinkEnum.HLinkEventModel:
-                        //_HLinkEventModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkEventDBModel;
-
-                    case HLinkBackLinkEnum.HLinkFamilyModel:
-                        //_HLinkFamilyModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkFamilyDBModel;
-
-
-
-                    case HLinkBackLinkEnum.HLinkNoteModel:
-                        //_HLinkNoteModel.HLinkGlyphItem = this.HLinkGlyphItem;
-                        return _HLinkNoteDBModel;
-
-
-
-
-
-                    case HLinkBackLinkEnum.Unknown:
-                        break;
-
-                    default:
-                        return default(HLinkDBBase);
-                }
-
-                return default(HLinkDBBase);
-            }
-        }
-
 
         public HLinkBackLinkEnum HLinkType { get; set; } = HLinkBackLinkEnum.Unknown;
 

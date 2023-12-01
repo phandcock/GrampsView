@@ -5,21 +5,19 @@ using GrampsView.Data.DataView;
 using GrampsView.Models.DataModels.Minor;
 using GrampsView.Models.HLinks;
 
-using System.Text.Json.Serialization;
-
 namespace GrampsView.Data.Model
 {
     /// <summary>
     /// HLink to an Address model. Not in XML Schema so use the standard hlink
     /// </summary>
 
-    public class HLinkAdressModel : HLinkBase, IHLinkAddressModel
+    public class HLinkAddressDBModel : HLinkDBBase, IHLinkAddressDBModel
     {
-        private AddressModel _Deref = new AddressModel();
+        private AddressDBModel _Deref = new AddressDBModel();
 
         private bool DeRefCached;
 
-        public HLinkAdressModel()
+        public HLinkAddressDBModel()
         {
             HLinkGlyphItem.Symbol = Constants.IconAddress;
             HLinkGlyphItem.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
@@ -31,14 +29,13 @@ namespace GrampsView.Data.Model
         /// <value>
         /// The address model.
         /// </value>
-        [JsonIgnore]
-        public AddressModel DeRef
+        public AddressDBModel DeRef
         {
             get
             {
                 if (Valid && (!DeRefCached))
                 {
-                    _Deref = DV.AddressDV.GetModelFromHLinkKey(HLinkKey);
+                    _Deref = DL.AddressDL.GetModelFromHLinkKey(HLinkKey);
 
                     if (_Deref.Valid)
                     {
@@ -48,7 +45,7 @@ namespace GrampsView.Data.Model
 
                 if (_Deref is null)
                 {
-                    _Deref = new AddressModel();
+                    _Deref = new AddressDBModel();
                 }
 
                 return _Deref;
@@ -77,7 +74,7 @@ namespace GrampsView.Data.Model
         /// </returns>
         public new int CompareTo(object obj)
         {
-            HLinkAdressModel arg = obj as HLinkAdressModel;
+            HLinkAddressDBModel arg = obj as HLinkAddressDBModel;
 
             // Null objects go first
             if (arg is null)
@@ -86,7 +83,7 @@ namespace GrampsView.Data.Model
             }
 
             // Can only comapre if they are the same type so assume equal
-            if (arg.GetType() != typeof(HLinkAdressModel))
+            if (arg.GetType() != typeof(HLinkAddressDBModel))
             {
                 return 0;
             }

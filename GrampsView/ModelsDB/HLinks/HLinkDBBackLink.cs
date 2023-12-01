@@ -23,7 +23,7 @@ namespace GrampsView.Data.Model
             HLinkKey = HLinkKey.NewAsGUID();
         }
 
-        public HLinkDBBackLink(HLinkAdressModel ArgHLinkLink)
+        public HLinkDBBackLink(HLinkAddressDBModel ArgHLinkLink)
         {
             _HLinkAddressModel = ArgHLinkLink;
 
@@ -161,7 +161,7 @@ namespace GrampsView.Data.Model
             Unknown
         }
 
-        public HLinkAdressModel _HLinkAddressModel { get; set; } = new HLinkAdressModel();
+        public HLinkAddressDBModel _HLinkAddressModel { get; set; } = new HLinkAddressDBModel();
 
         public HLinkCitationDBModel _HLinkCitationModel { get; set; } = new HLinkCitationDBModel();
 

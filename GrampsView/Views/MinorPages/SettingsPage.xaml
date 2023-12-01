@@ -104,7 +104,6 @@
                         Command="{Binding DisplayMessageLogButtonCommand}"
                         Style="{DynamicResource SSButtonMenu}"
                         Text="Show MesageLog" />-->
-
                 </HorizontalStackLayout>
             </sSUcon:SSHeaderSettings>
         </VerticalStackLayout>

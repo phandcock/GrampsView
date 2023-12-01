@@ -1,4 +1,4 @@
-﻿// Copyright (c) phandcock. All rights reserved.
+﻿// Copyright (c) phandcock.  All rights reserved.
 
 using GrampsView.Common;
 using GrampsView.Common.CustomClasses;
@@ -50,18 +50,6 @@ namespace GrampsView.Data.Repository
         /// The local gramps store serial.
         /// </summary>
         private readonly IGrampsStoreSerial _StoreSerial;
-
-        public IStoreFile LocalStoreFile { get; }
-
-        public IStoreFileTar LocalStoreTar { get; }
-
-        /// <summary>
-        /// Gets the storage.
-        /// </summary>
-        /// <value>
-        /// The storage.
-        /// </value>
-        public IStoreFileZip LocalStoreZip { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRepositoryManager"/> class.
@@ -151,6 +139,18 @@ namespace GrampsView.Data.Repository
             });
         }
 
+        public IStoreFile LocalStoreFile { get; }
+
+        public IStoreFileTar LocalStoreTar { get; }
+
+        /// <summary>
+        /// Gets the storage.
+        /// </summary>
+        /// <value>
+        /// The storage.
+        /// </value>
+        public IStoreFileZip LocalStoreZip { get; }
+
         /// <summary>
         /// Clears the repositories.
         /// </summary>
@@ -159,7 +159,6 @@ namespace GrampsView.Data.Repository
             // clear existing data TODO this.iocHeaderDataSource.DataClear();
             DataStore.Instance.DS.BookMarkCollection.Clear();
 
-            DataStore.Instance.DS.AddressData.Clear();
             DataStore.Instance.DS.HeaderData.Clear();
             DataStore.Instance.DS.MediaData.Clear();
             DataStore.Instance.DS.NameMapData.Clear();

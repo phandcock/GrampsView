@@ -43,7 +43,7 @@ namespace GrampsView.ViewModels.MinorModels
         /// <value>
         /// The current person ViewModel.
         /// </value>
-        public AddressModel AddressObject
+        public AddressDBModel AddressObject
         {
             get; set;
         }
@@ -65,13 +65,13 @@ namespace GrampsView.ViewModels.MinorModels
 
             if (base.NavigationParameter is not null && base.NavigationParameter.Valid)
             {
-                HLinkAdressModel HLinkObject = base.NavigationParameter as HLinkAdressModel;
+                HLinkAddressDBModel HLinkObject = base.NavigationParameter as HLinkAddressDBModel;
 
                 AddressObject = HLinkObject.DeRef;
 
                 if (AddressObject.Valid)
                 {
-                    BaseModelBase = AddressObject;
+                    BaseDBModelBase = AddressObject;
 
                     // Get media image
                     MediaCard = AddressObject.ModelItemGlyph.ImageHLinkMediaModel;
@@ -100,7 +100,7 @@ namespace GrampsView.ViewModels.MinorModels
                     BaseDetail.Add(AddressObject.ToMapModel().HLink);
 
                     // Add Standard details
-                    BaseDetail.Add(DV.AddressDV.GetModelInfoFormatted(AddressObject));
+                    BaseDetail.Add(DL.AddressDL.GetModelInfoFormatted(AddressObject));
                 }
 
                 return;

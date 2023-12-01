@@ -2,12 +2,12 @@
 
 using GrampsView.Common;
 using GrampsView.Data.Model;
+using GrampsView.DBModels;
 using GrampsView.Models.Collections.HLinks;
 using GrampsView.Models.DataModels.Date;
 using GrampsView.Models.DataModels.Interfaces;
+using GrampsView.Models.DBModels.Interfaces;
 using GrampsView.ModelsDB.Collections.HLinks;
-
-using System;
 
 using static GrampsView.Common.CommonEnums;
 
@@ -16,9 +16,9 @@ namespace GrampsView.Models.DataModels.Minor
     /// <summary>
     /// XML 1.71 all done
     /// </summary>
-    public class AddressModel : ModelBase, IAddressModel, IComparable<AddressModel>, IEquatable<AddressModel>
+    public class AddressDBModel : DBModelBase, IAddressDBModel
     {
-        public AddressModel()
+        public AddressDBModel()
         {
             ModelItemGlyph.Symbol = Constants.IconAddress;
             ModelItemGlyph.SymbolColour = CommonRoutines.ResourceColourGet("CardBackGroundAddress");
@@ -77,11 +77,11 @@ namespace GrampsView.Models.DataModels.Minor
         /// <value>
         /// The h link.
         /// </value>
-        public HLinkAdressModel HLink
+        public HLinkAddressDBModel HLink
         {
             get
             {
-                HLinkAdressModel t = new HLinkAdressModel
+                HLinkAddressDBModel t = new HLinkAddressDBModel
                 {
                     HLinkKey = HLinkKey,
                     HLinkGlyphItem = ModelItemGlyph,
@@ -90,7 +90,7 @@ namespace GrampsView.Models.DataModels.Minor
             }
         }
 
-        public int CompareTo(AddressModel other)
+        public int CompareTo(AddressDBModel other)
         {
             return other is null
                 ? throw new ArgumentNullException(nameof(other))
@@ -114,12 +114,12 @@ namespace GrampsView.Models.DataModels.Minor
                 return false;
             }
 
-            AddressModel tempObj = obj as AddressModel;
+            AddressDBModel tempObj = obj as AddressDBModel;
 
             return ToString() == tempObj.ToString();
         }
 
-        public bool Equals(AddressModel other)
+        public bool Equals(AddressDBModel other)
         {
             if (other is null)
             {
